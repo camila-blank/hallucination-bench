@@ -1,12 +1,55 @@
 # Plan 0002: claim map (taxonomy v2), an exhaustive, mutually exclusive categorisation of readout content
 
-Issue #3. Author: Camila Blank (planned with Claude), 2026-10-11. Revision 13 (after critiques 1–9; critique 9: no substantive issues; rev 11 adds the token-summary framing rule found in the smoke run; rev 12 defines "own identity" for rule 8).
+Issue #3. Author: Camila Blank (planned with Claude), 2026-10-11. Revision 14 (after critiques 1–9; critique 9: no substantive issues; rev 11 adds the token-summary framing rule found in the smoke run; rev 12 defines "own identity" for rule 8).
 This plan builds on plan 0001 (PR #2): the v5c span and verify port, the taxonomy-v1 classifier,
 and the first full run. It reuses plan 0001's cache layout, client, calibration machinery,
 bootstrap and report unless this plan says otherwise.
 
 Items marked **[pending Camila]** use a default until she confirms them (§Open decisions).
 
+
+
+## Amendment, revision 14 (Camila, 2026-10-11, after the s3d pilot). This section overrides revision 13 and the text below where they conflict.
+
+1. **`unrealised_prediction` is replaced by `unrealised_option`, and it is narrow.** Camila:
+   "unrealized predictions [are] e.g. possible continuations like if the model is deciding what to
+   say (this should mostly apply to olens) so this category should be quite small", and "things the
+   model says will happen that dont happen … are hallucinations".
+   - **`unrealised_option` (thinky; probe candidate):** the readout fills **the same open-ended
+     slot** that the response fills next, with a different choice. An open-ended slot is the next
+     item of a list, an example, an illustration, or a word or phrase choice for the same move. This
+     is evidence that the model is choosing among options at a decision point.
+     - Example: at "What kind of performance was it (music, theater, dance, ⟦READ⟧ public
+       speaking)?", the readout "Speech or storytelling" is an option.
+   - **Every other prediction or continuation that the response does not realise is incorrect.**
+     This holds whether it is framed as anticipation or written as continuation text. Rule 8 picks
+     the leaf: `detail` if only a specific value or wording differs within the same content,
+     otherwise usually `false_claim`. It includes **a different answer to the question being
+     answered**.
+     - Example: "my better half is your development environment" when the response says
+       "engineers, researchers, and data". This is the answer slot, not an open-ended one, so it is
+       incorrect.
+     - Example: "Here's a guide tailored to public speaking" when the response only asks questions
+       is incorrect.
+   - Rules 3, 9 and 10 change to match. A continuation the response realises is still
+     `stated_after`, including a close paraphrase of the same move.
+2. **Names.**
+   - **Detail:** a wrong name for someone, where the name is arbitrary or user-supplied (the user
+     addressed "Miss Li" and the readout says "Miss Wang"). Camila: "should be detail
+     hallucination".
+   - **Substitution:** the model naming itself as another real AI system ("我是 ChatGPT" where it
+     is Qwen) is `substitution_sibling`, a probe candidate. Camila: "actually interesting and
+     deserves probing". Rule 8 step 1 already covers this, since a real product has its own
+     identity. This anchor makes it explicit.
+3. **Verdicts:** `unrealised_option` takes `unrealised_prediction`'s place in `probe_candidate`.
+   Nothing else changes.
+4. **Retry:** a cell whose answer is invalid (for example, a readout missing from the answer) is
+   retried within the same run, up to 2 times, before it is cached as failed.
+5. **Gold.**
+   - **Dev:** the implementer re-labels every dev `unrealised_prediction` gold segment to
+     `unrealised_option` or to an incorrect leaf under item 1, and adds the anchors in items 1 and 2.
+   - **Held-out part (a):** a fresh blind subagent re-labels its `unrealised_prediction` segments the
+     same way.
 
 ## Amendment, revision 13 (Camila, 2026-10-11). This section overrides any conflicting text below.
 
