@@ -8,7 +8,11 @@ in ``outputs/consistency/<model>/cache.jsonl``; the repeat index is in the finge
 is a fresh call), and compares the two runs **per unit** (each run's majority-character leaf over
 the unit, as in calibration). Units failed in either run are left out.
 
-Reported: Cohen's κ and raw agreement over the 12 leaves (overall and per arm), the leaf × leaf
+Reported: Cohen's κ and raw agreement over the 12 leaves (overall, per arm and per lens family),
+κ of the detail-vs-false_claim split on units both runs call hallucination, the headline metrics
+(hallucination, false_claim, detail, probe, correct, unresolved: readout rate and character
+share) computed from r0 and from r1 with their difference (``noise``; the report's "judge noise
+±" is half of it, plan rev 17), the leaf × leaf
 between-run confusion table, per-leaf self-agreement (2·both / (r0 + r1), the Dice overlap of
 the two runs' units with that leaf), and the **flagged pairs**: a leaf pair swapped between runs
 in more than 10% of either leaf's units (units where at least one run gives that leaf). Plan
@@ -36,6 +40,74 @@ from hallucination_bench.units import Unit, split_cell
 
 FLAG_SHARE = 0.10
 REPEATS = 2
+NOISE_METRICS: dict[str, frozenset[str]] = {
+    "hallucination": frozenset(tx.VERDICTS[tx.V_HALLUCINATION]),
+    "false_claim": frozenset({"false_claim"}),
+    "detail": frozenset({"detail"}),
+    "probe_candidate": frozenset(tx.VERDICTS[tx.V_PROBE]),
+    "correct": frozenset(tx.VERDICTS[tx.V_CORRECT]),
+    "unresolved": frozenset(tx.VERDICTS[tx.V_UNRESOLVED]),
+}
+
+
+def family(arm: str) -> str:
+    """Lens family of an arm name (``s3d-rl600`` -> ``s3d``, ``nla-rl-L42`` -> ``nla``)."""
+    return arm.split("-", 1)[0]
+
+
+def _readout(uid: str) -> int:
+    return int(uid.split(".", 1)[0][1:])
+
+
+def noise(cells: Sequence[dict[str, Any]]) -> dict[str, Any]:
+    """Each headline metric from r0 and from r1 over the same readouts (readouts with a failed
+    unit in either run are left out): readout rate (>= 1 unit with the metric's leaves) and
+    character share (per readout, averaged), with ``diff = r0 - r1`` and ``pm = |diff| / 2``."""
+    per: dict[str, dict[str, list[float]]] = {
+        m: {"rate_r0": [], "rate_r1": [], "share_r0": [], "share_r1": []} for m in NOISE_METRICS
+    }
+    n_readouts = 0
+    for c in cells:
+        by_r: dict[int, list[dict[str, Any]]] = {}
+        for u in c["units"]:
+            by_r.setdefault(_readout(u["id"]), []).append(u)
+        for units in by_r.values():
+            if any(tx.FAILED in (c["r0"][u["id"]], c["r1"][u["id"]]) for u in units):
+                continue
+            total = sum(len(u["text"]) for u in units) or 1
+            n_readouts += 1
+            for m, leaves in NOISE_METRICS.items():
+                for r in ("r0", "r1"):
+                    hit = [u for u in units if c[r][u["id"]] in leaves]
+                    per[m][f"rate_{r}"].append(1.0 if hit else 0.0)
+                    per[m][f"share_{r}"].append(sum(len(u["text"]) for u in hit) / total)
+    out: dict[str, Any] = {"n_readouts": n_readouts}
+    for m, d in per.items():
+        row: dict[str, Any] = {}
+        for kind in ("rate", "share"):
+            a, b = d[f"{kind}_r0"], d[f"{kind}_r1"]
+            v0 = sum(a) / len(a) if a else None
+            v1 = sum(b) / len(b) if b else None
+            diff = v0 - v1 if v0 is not None and v1 is not None else None
+            row[kind] = {
+                "r0": v0,
+                "r1": v1,
+                "diff": diff,
+                "pm": abs(diff) / 2 if diff is not None else None,
+            }
+        out[m] = row
+    return out
+
+
+def split_kappa(pairs: Sequence[tuple[str, str]]) -> dict[str, Any]:
+    """κ of detail vs false_claim on the units both runs call hallucination."""
+    hal = set(tx.VERDICTS[tx.V_HALLUCINATION])
+    sub = [(a, b) for a, b in pairs if a in hal and b in hal]
+    return {
+        "n_units": len(sub),
+        "kappa": cohen_kappa(sub),
+        "raw_agreement": sum(a == b for a, b in sub) / len(sub) if sub else None,
+    }
 
 
 def parse_arms(spec: str) -> list[tuple[str, int]]:
@@ -202,7 +274,9 @@ async def map_twice(
                     raw = None
                 else:
                     cache.put(key, fp, {"result": raw, "meta": meta})
-            segs, _ = cm.parse(raw, units)
+            segs, _ = cm.parse(
+                raw, units, cm.conversation_text(item["prompt"], bank.marked_response(item, site))
+            )
             runs.append(unit_leaves(segs, units))
         out.append(
             {
@@ -231,6 +305,7 @@ def score(cells: Sequence[dict[str, Any]]) -> dict[str, Any]:
         tx.FAILED in (r["r0"][u["id"]], r["r1"][u["id"]]) for r in cells for u in r["units"]
     )
     arms = sorted({r["arm"] for r in cells})
+    fams = sorted({family(a) for a in arms})
     by_arm = {a: agreement(pairs([r for r in cells if r["arm"] == a])) for a in arms}
     return {
         "prompt_version": cm.PROMPT_VERSION,
@@ -239,7 +314,36 @@ def score(cells: Sequence[dict[str, Any]]) -> dict[str, Any]:
         "n_units_failed_either_run": n_failed,
         "overall": agreement(pairs(cells)),
         "by_arm": by_arm,
+        "by_family": {
+            f: agreement(pairs([r for r in cells if family(r["arm"]) == f])) for f in fams
+        },
+        "detail_vs_false_claim": {
+            "overall": split_kappa(pairs(cells)),
+            "by_arm": {a: split_kappa(pairs([r for r in cells if r["arm"] == a])) for a in arms},
+        },
+        "noise": {
+            "overall": noise(cells),
+            "by_arm": {a: noise([r for r in cells if r["arm"] == a]) for a in arms},
+        },
     }
+
+
+def noise_table(nz: dict[str, Any]) -> list[str]:
+    def p(v: Any) -> str:
+        return "—" if v is None else f"{100 * v:.1f}"
+
+    lines = [
+        "| scope | metric | rate r0 | rate r1 | diff | ± | share r0 | share r1 | diff | ± |",
+        "|---|---|---|---|---|---|---|---|---|---|",
+    ]
+    for scope, block in [("overall", nz["overall"]), *nz["by_arm"].items()]:
+        for m in NOISE_METRICS:
+            r, sh = block[m]["rate"], block[m]["share"]
+            lines.append(
+                f"| {scope} | {m} | {p(r['r0'])} | {p(r['r1'])} | {p(r['diff'])} | {p(r['pm'])} "
+                f"| {p(sh['r0'])} | {p(sh['r1'])} | {p(sh['diff'])} | {p(sh['pm'])} |"
+            )
+    return lines
 
 
 def render_markdown(res: dict[str, Any]) -> str:
@@ -258,6 +362,26 @@ def render_markdown(res: dict[str, Any]) -> str:
             f"| {a} | {b['n_units']} | {f(b['kappa'])} | {f(b['raw_agreement'])} |"
             for a, b in res["by_arm"].items()
         ),
+        *(
+            f"| family {fa} | {b['n_units']} | {f(b['kappa'])} | {f(b['raw_agreement'])} |"
+            for fa, b in res.get("by_family", {}).items()
+        ),
+        "",
+        "### detail vs false_claim, on units both runs call hallucination",
+        "",
+        "| scope | units | κ | raw agreement |",
+        "|---|---|---|---|",
+        *(
+            f"| {a} | {b['n_units']} | {f(b['kappa'])} | {f(b['raw_agreement'])} |"
+            for a, b in [
+                ("overall", res["detail_vs_false_claim"]["overall"]),
+                *res["detail_vs_false_claim"]["by_arm"].items(),
+            ]
+        ),
+        "",
+        "### Headline metrics from run r0 vs run r1 (readout rate / character share, %)",
+        "",
+        *noise_table(res["noise"]),
         "",
         "### Per-leaf self-agreement (Dice of the two runs)",
         "",

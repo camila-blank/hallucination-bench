@@ -348,6 +348,13 @@ def run_metrics(
         c["n_disputed_established"] += counts.get("n_disputed_established", 0)
         c["n_missing_units"] += counts.get("n_missing_units", 0)
         c["n_probe_candidates"] += counts.get("n_probe_candidates", 0)
+        for k in (
+            "n_contradiction_quotes_checked",
+            "n_unquoted_contradictions",
+            "n_support_quotes_checked",
+            "n_unquoted_support",
+        ):
+            c[k] += counts.get(k, 0)
         c["n_missing_probe_targets"] += counts.get("n_missing_probe_targets", 0)
         for u, g in zip(units, case["gold"]["units"], strict=True):
             if g.get("leaf") is None and not g.get("splits"):
@@ -434,6 +441,10 @@ def run_metrics(
         "n_disputed_established": c["n_disputed_established"],
         "n_missing_units": c["n_missing_units"],
         "n_probe_candidates": c["n_probe_candidates"],
+        "n_contradiction_quotes_checked": c["n_contradiction_quotes_checked"],
+        "n_unquoted_contradictions": c["n_unquoted_contradictions"],
+        "n_support_quotes_checked": c["n_support_quotes_checked"],
+        "n_unquoted_support": c["n_unquoted_support"],
         "n_missing_probe_targets": c["n_missing_probe_targets"],
         "probe_targets": probe_rows,
         "leaf_recall": {
@@ -639,7 +650,7 @@ async def map_cases(
                 raw = None
             else:
                 cache.put(key, fp, {"result": raw, "meta": meta})
-        out[r][i] = cm.parse(raw, units)
+        out[r][i] = cm.parse(raw, units, cm.conversation_text(c["prompt"], c["response"]))
 
     if llm is not None:
         await llm.preflight(model)
@@ -677,7 +688,11 @@ def render_markdown(res: dict[str, Any]) -> str:
         f"{[r['n_disputed_established'] for r in res['runs']]}; missing units per run: "
         f"{[r['n_missing_units'] for r in res['runs']]}; probe candidates / missing probe_target "
         f"per run: {[r['n_probe_candidates'] for r in res['runs']]} / "
-        f"{[r['n_missing_probe_targets'] for r in res['runs']]}",
+        f"{[r['n_missing_probe_targets'] for r in res['runs']]}; unquoted contradictions / "
+        f"checked per run: {[r['n_unquoted_contradictions'] for r in res['runs']]} / "
+        f"{[r['n_contradiction_quotes_checked'] for r in res['runs']]}; unquoted support / "
+        f"checked: {[r['n_unquoted_support'] for r in res['runs']]} / "
+        f"{[r['n_support_quotes_checked'] for r in res['runs']]}",
         "",
         "| leaf | gold segments | recall (mean) |",
         "|---|---|---|",

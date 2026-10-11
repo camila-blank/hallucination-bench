@@ -122,6 +122,16 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
   (`MERGE_TAGS`). `scripts/build_dev_v2.py` keeps the fine labels and writes merged gold.
 - Consistency cache: `outputs/consistency/<model>/cache.jsonl`, keys `cons:{arm}:{cell}:r{n}`
   (the repeat index is in the fingerprint). Token arms need their `summ:` rows cached.
+- **Quoted evidence** (rev 17): incorrect segments need `contradicted_by`, `correct` ones
+  (except `source = entailed`) `supported_by`, located in prompt + response (marker removed,
+  `claimmap_v2.conversation_text`). `parse(raw, units, conversation)` fails closed to
+  `unverifiable` (`judge_leaf` keeps the judge's leaf; counters `n_unquoted_contradictions`,
+  `n_unquoted_support`). Without `conversation` the check is skipped (unit tests only); every
+  production caller (run, calibrate, consistency) passes it.
+- **Judge noise** (rev 17): `report --view v2` reads
+  `outputs/consistency/<model>/consistency_<PROMPT_VERSION>.json` for the "judge noise ±" column
+  and the noise section; run `consistency-v2` on the run's arms first, else they show —.
+- **No git writes from agents** in this worktree (no add/rm/restore --staged/commit).
 - **In-run retries** (rev 14): an invalid `:M` (or calibration) answer is re-asked up to 2 times
   (`run.MAP_INVALID_RETRIES`) before it is cached as failed; meta records `n_invalid_attempts`
   and the summed usage.

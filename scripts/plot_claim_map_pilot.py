@@ -102,7 +102,7 @@ def grouped(data: list[dict], cats, getter, ylabel: str, title: str, out: Path) 
     fig.text(
         0.01,
         0.005,
-        "Claim-map judge v2.6 (plan 0002 rev 16), pre-gate · 1,123 cells per lens"
+        "Claim-map judge v2.7 (plan 0002 rev 17), pre-gate · 1,123 cells per lens"
              " · "
         "whiskers: item-bootstrap 95% CI",
         fontsize=10,
@@ -152,7 +152,7 @@ def stacked(data: list[dict], out: Path) -> None:
         0.01,
         0.005,
         "Character-weighted, each readout weighted equally · claim-map judge"
-             " v2.6, "
+             " v2.7, "
         "pre-gate · residual failed share ≤ 0.1%",
         fontsize=10,
         color=MUTED,

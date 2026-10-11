@@ -42,6 +42,8 @@ def e(uid, leaf="correct", **kw):
         "same_slot_alternative": False,
         "world": False,
         "prediction": False,
+        "contradicted_by": None,
+        "supported_by": None,
         "why": "w",
         "splits": [],
         "rest_leaf": None,
@@ -55,7 +57,13 @@ def sp(text, leaf, **kw):
     return {"text": text, **d}
 
 
+def prompt_quote(user: str) -> str:
+    """A verbatim span of the conversation (the start of the prompt) for evidence quotes."""
+    return user.split("<prompt>\n", 1)[1].split("\n</prompt>", 1)[0][:30]
+
+
 def default_map(user: str) -> dict:
+    q = prompt_quote(user)  # rev 17: incorrect / correct segments must quote the conversation
     out = []
     for uid, est, text in unit_lines(user):
         if est:
@@ -66,7 +74,11 @@ def default_map(user: str) -> dict:
             leaf = "false_claim"
         else:
             leaf = "correct"
-        out.append(e(uid, leaf))
+        quotes = {
+            "contradicted_by": q if leaf in tx.INCORRECT_LEAVES else None,
+            "supported_by": q if leaf == "correct" else None,
+        }
+        out.append(e(uid, leaf, **quotes))
     return {"units": out, "rationale": "r"}
 
 
@@ -548,4 +560,4 @@ def test_rev11_lens_framing_rule_is_rendered():
     assert tx.LENS_FRAMING_RULE in cm.SYSTEM
     assert "The model is representing / anticipating / focused on / gearing up for X" in cm.SYSTEM
     assert "It is **never `model_state`**" in cm.SYSTEM
-    assert cm.PROMPT_VERSION == "claimmap-v2.6"
+    assert cm.PROMPT_VERSION == "claimmap-v2.7"

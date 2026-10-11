@@ -58,7 +58,13 @@ being cached as failed. Outputs are labelled **pre-gate** until the held-out gat
 the current prompt version. `hbench consistency-v2 --arms s3d-rl600:44,nla-rl-L42:42,jlens:44
 --n 50 --seed 0` runs `:M` twice per sampled cell and reports κ, raw agreement, the between-run
 leaf confusion, per-leaf self-agreement and the leaf pairs swapped in > 10% of a leaf's units
-(`outputs/consistency/<model>/`).
+(`outputs/consistency/<model>/`). Rev 17: every incorrect segment must quote the
+conversation span that contradicts it (`contradicted_by`) and every `correct` segment (except
+`source = entailed`) the span that supports it (`supported_by`); a missing or unfindable quote
+fails closed to `unverifiable` (counted). The quotes are carried into `cells.jsonl`,
+`probe_candidates.jsonl`, the audit samples and the report's hallucination examples. Reports
+include a judge-noise section and a "judge noise ±" column (half the r0 − r1 difference of each
+headline metric in the consistency sample).
 
 ## The taxonomy (v1)
 

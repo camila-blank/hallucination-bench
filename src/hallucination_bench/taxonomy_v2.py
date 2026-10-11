@@ -14,7 +14,11 @@ verdict): ``reason`` on ``non_claim``, ``source`` on ``correct``, ``same_slot_al
 to exactly one **verdict** (``VERDICTS``), the headline layer of the report.
 
 The hallucination gate (rev 15) is unchanged: a segment is incorrect only if the text obviously
-contradicts it. Predictions get no category of their own (rev 16 rule 1).
+contradicts it. Predictions get no category of their own (rev 16 rule 1). Rev 17 makes the judge
+quote its evidence: every incorrect segment carries ``contradicted_by`` and every ``correct``
+segment (except ``source = entailed``) carries ``supported_by``, a verbatim span of the
+conversation; code checks the quote and fails closed to ``unverifiable``
+(``judges/claimmap_v2.parse``).
 
 The prompt is rendered in two modes: single-call (the default; no established v5c spans, so
 rule 2 and the ``dispute`` tag are left out) and ``anchored`` (``--anchor v5c``: plan rev 12
@@ -32,7 +36,7 @@ you change it so the cached labels are re-queued knowingly.
 from dataclasses import dataclass
 from typing import Any
 
-TAXONOMY_VERSION = "v2-r16"
+TAXONOMY_VERSION = "v2-r17"
 
 # ---------------------------------------------------------------- groups
 
@@ -473,6 +477,20 @@ HALLUCINATION_GATE = (
     "would have to infer the incompatibility, or that the text simply never mentions the claim."
 )
 
+QUOTE_RULE = (
+    "**Quote the contradiction.** Every `detail`, `false_claim`, `substitution_sibling` or "
+    "`substitution_category` segment must carry `contradicted_by`: a verbatim span of the "
+    "conversation (the prompt, or the response before or after the marker) that rules the "
+    "segment out. If you cannot quote the text that rules it out, it is not contradicted: label "
+    "it `unverifiable`. Code checks every quote against the conversation; a missing or "
+    "unfindable quote turns the segment into `unverifiable`."
+)
+SUPPORT_RULE = (
+    "**Quote the support.** Every `correct` segment, except `source = entailed`, must carry "
+    "`supported_by`: a verbatim span of the conversation that states or realises it. A missing "
+    "or unfindable quote turns the segment into `unverifiable`."
+)
+
 SETTLEMENT_RULE = (
     "**The test is settlement, not subject.** An on-topic world claim is **about the text** if "
     "the conversation settles it (states it, entails it, or contradicts it). It is "
@@ -598,6 +616,7 @@ def _rules(anchored: bool = False) -> dict[int, Rule]:
                 "it), or strictly entails, is `correct`. Tag `source`: `prefix` (prompt or "
                 "response before the marker) > `after` (response after the marker) > "
                 "`entailed`.",
+                SUPPORT_RULE,
             ),
         ),
         8: Rule(
@@ -625,6 +644,7 @@ def _rules(anchored: bool = False) -> dict[int, Rule]:
                 'situation the text rules out ("if it\'s from a flood or sewage backup" in a '
                 "chat about tobacco smell), or a different answer to the question the response "
                 'answers ("my better half is your development environment").',
+                QUOTE_RULE,
             ),
         ),
         9: Rule(
@@ -776,6 +796,15 @@ TAGS: dict[str, str] = {
     "pair": (
         "(substitutions only): `{said, actual}`, the object the readout says and the object it "
         "replaces; null for every other leaf."
+    ),
+    "contradicted_by": (
+        "(string, incorrect segments only, else null): the verbatim span of the conversation "
+        "(prompt or response, before or after the marker) that rules the segment out; see rule "
+        "8. Quote it character for character, without the marker."
+    ),
+    "supported_by": (
+        "(string, `correct` segments only, else null): the verbatim span of the conversation "
+        "that states or realises the segment; null only for `source = entailed`; see rule 7."
     ),
     "probe_target": (
         "(string, probe-candidate segments only): on every `substitution_sibling`, "

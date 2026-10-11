@@ -4,7 +4,7 @@ judging (no established spans, no verify), the v5c comparison and the pre-gate l
 import json
 
 import pytest
-from test_claimmap_v2 import V5C, MapFake, _cells, _rec, _run, e, sp, unit_lines
+from test_claimmap_v2 import V5C, MapFake, _cells, _rec, _run, e, prompt_quote, sp, unit_lines
 
 from hallucination_bench import calibrate_v2 as cal
 from hallucination_bench import report_v2
@@ -384,6 +384,7 @@ def test_report_writes_probe_candidates_and_marks_pre_gate(tmp_path, prose_reado
                         "substitution_sibling",
                         pair={"said": "Paris", "actual": "London"},
                         probe_target="Paris",
+                        contradicted_by=prompt_quote(user),
                     )
                 )
             else:
