@@ -1,303 +1,351 @@
 # Plan 0002: claim map (taxonomy v2), an exhaustive, mutually exclusive categorisation of readout content
 
-Issue: #3. Author: Camila Blank (planned with Claude), 2026-10-11. Revision 1.
-Builds on plan 0001 (PR #2), which ships the v5c span + verify port, the taxonomy-v1 classifier
-and the first full run. Plan 0001's cache layout, client, calibration machinery and report are
-reused unchanged unless this plan says otherwise.
+Issue #3. Author: Camila Blank (planned with Claude), 2026-10-11. Revision 2 (after critique 1).
+This plan builds on plan 0001 (PR #2): the v5c span and verify port, the taxonomy-v1 classifier,
+and the first full run. It reuses plan 0001's cache layout, client, calibration machinery,
+bootstrap and report unless this plan says otherwise.
+
+Items marked **[pending Camila]** use a default until she confirms them (§Open decisions).
 
 ## Goal
 
 Every piece of every readout lands in **exactly one leaf** of a fixed tree. The tree is
-mutually exclusive and collectively exhaustive (MECE) over the readout's text, as granular as
-we can label reliably. Camila specified it on 2026-10-11 (decisions are quoted in §Decisions).
-The headline separates:
+mutually exclusive and collectively exhaustive (MECE) over the readout's text, and as granular
+as we can label reliably. The headline separates seven groups:
 
 - **hallucinations**: wrong details and false claims;
 - **plausible co-activation**: substitutions of a related object, which the model may really be
   representing;
 - **correct content**;
-- **thinky unverifiable content**: unrealised predictions, the model's own state or plans, and
+- **thinky unverifiable content**: unrealised predictions, the model's own state and beliefs, and
   possible model beliefs;
-- **junk**.
+- **unsettled**: ambiguous topic;
+- **junk**: off-topic claims;
+- **non-claims**.
 
-## The tree (taxonomy v2)
+## Units: code-split units, judge-labelled segments
 
-A readout is partitioned into **segments**: contiguous verbatim substrings, in order, that
-together cover all of its non-whitespace text. The rule for splitting is §Segmentation. Each
-segment gets exactly one leaf.
+Code pre-splits each readout into **units**. A unit is a sentence, a bullet line or a clause
+ending in `;` or `:`, and splits fall on newlines, sentence punctuation and bullet markers.
+Units carry ids (`R{readout}.U{n}`) and their raw character offsets, so together they cover the
+readout by construction. Whitespace-only text between units is dropped.
+
+The judge labels each unit. When a unit carries more than one claim, or mixes claim and
+non-claim text, the judge **splits** it by quoting sub-spans verbatim. Each sub-span gets its
+own leaf, and any unquoted remainder of a split unit gets the judge's `rest` leaf, which is
+required when it splits.
+
+Code locates sub-spans with an offset-returning `locate(sub, unit)`. It applies the same
+normalisation as plan 0001's `verify_quote` (case, quote marks, whitespace) and maps the match
+back to raw offsets. If a sub-span cannot be located, the whole unit falls back to the judge's
+`rest` leaf, and the miss is counted (`n_unlocated_subspans`).
+
+A segment is a unit or a located sub-span. Segments never overlap and cover every unit, so
+coverage is total by construction. Atomic-claim rule: one segment carries one claim. A sentence
+with a correct part and a wrong part must be split.
+
+## The tree (taxonomy v2): 19 judge leaves in 7 groups
 
 ```
 segment
-├─ non_claim
-│   ├─ generic        generic description with nothing concrete ("a friendly reply", "a narrative about a character")
-│   ├─ filler         hedges, connectives, repetition, restating the prompt verbatim, list scaffolding
-│   ├─ formatting     markup, bullets, headings with no content, emoji, broken-off fragments that assert nothing
-│   ├─ junk           garbled or broken tokens, stray code, byte artifacts
-│   └─ lens_meta      statements about the lens output itself, not the conversation (token-bag summaries:
-│                     "the tokens include Russian 'холод' (cold)", "emoji byte artifacts suggest…")
+├─ non_claim                                                        group: non_claim
+│   ├─ generic        generic description, nothing concrete ("a friendly reply")
+│   ├─ filler         hedges, connectives, repetition, verbatim restatement of the prompt, list scaffolding,
+│   │                 and the framing words of token-bag summaries ("the tokens include…", "suggesting")
+│   ├─ formatting     markup, bullets, empty headings, emoji, fragments that break off asserting nothing
+│   ├─ junk_text      garbled or broken tokens, stray code, byte artifacts
+│   └─ lens_meta      statements about the lens output itself rather than the conversation
+│                     ("Russian 'холод' (cold) and Chinese '冷的' (cold)", "emoji byte artifacts")
 └─ claim
-    ├─ correct
-    │   ├─ restates_prefix        stated in the response before the marker (or the prompt)
-    │   ├─ realised_prediction    about what comes next, and the response after the marker does say it
-    │   ├─ entailed_inference     not stated, but strictly entailed by the conversation
-    │   └─ world_true             on-topic fact true in the world, not stated in the conversation
+    ├─ correct                                                      group: correct
+    │   ├─ restates_prefix   stated in the prompt or in the response before the marker
+    │   ├─ stated_after      stated in the response after the marker (a realised prediction OR an asserted
+    │   │                    fact that the continuation states)
+    │   ├─ entailed          not stated anywhere, but strictly entailed by the conversation
+    │   └─ world_true        on topic, true in the world, not stated or entailed by the conversation
     ├─ incorrect
-    │   ├─ detail                 a wrong specific with no concept of its own: an arbitrary name, number, date,
-    │   │                         count or wording ("Steve" for the story's Joe; "October 24" for October 29;
-    │   │                         a misquoted heading)
-    │   ├─ false_claim            a false assertion about the right object: a reversed outcome or stance, the wrong
-    │   │                         agent (who did what to whom), a false relation or cause, or an invented event
-    │   │                         or fact asserted about the conversation ("the response recommends therapy"
-    │   │                         when it does not; "the user is a teacher" when nothing says so)
-    │   ├─ substitution_sibling   a different object of the same class in place of the right one
-    │   │                         (Germany for France; sunrise for sunset; Picasso for da Vinci)
-    │   └─ substitution_category  a different object of a different category (Nazis for the Mafia)
+    │   ├─ detail            [hallucination] a wrong specific with no concept of its own (see §Detail rule)
+    │   ├─ false_claim       [hallucination] a false assertion about the right object: reversed outcome or stance,
+    │   │                    wrong agent (who did what to whom), false relation or cause, a wrong real-world
+    │   │                    quantity, or an invented event or fact asserted about the conversation
+    │   ├─ substitution_sibling   [co-activation] a different object of the same class in place of the right one
+    │   └─ substitution_category  [co-activation] a different object of a different category
     └─ unverifiable
-        ├─ on_topic
-        │   ├─ unrealised_prediction  framed as anticipation of what comes next, plausible from the text before
-        │   │                         the marker, and the response does not go on to say it
-        │   ├─ model_state            about the model's own state, intent, plans or awareness
-        │   │                         (e.g. evaluation awareness, "the model is deciding whether to refuse")
-        │   ├─ possible_belief        a world claim that is false (or doubtful) but that the conversation neither
+        ├─ on_topic                                                 group: thinky
+        │   ├─ unrealised_prediction  framed as anticipation of the continuation, plausible from the text before
+        │   │                         the marker, and not said by the response
+        │   ├─ model_state            about the model's own beliefs, perceptions, state, intent, plans or awareness,
+        │   │                         including claims about the nature or purpose of the conversation (a test, an
+        │   │                         evaluation, a roleplay), whatever the framing
+        │   ├─ possible_belief        a world claim the judge believes is false, which the conversation neither
         │   │                         states nor contradicts; the model may really hold it
-        │   └─ other_on_topic         any other on-topic claim the conversation and world knowledge cannot settle
-        ├─ ambiguous_topic            could plausibly be on or off topic
-        └─ off_topic                  coherent, but unrelated to this conversation
+        │   └─ other_on_topic         any other on-topic claim that the conversation and world knowledge cannot
+        │                             settle, including contested or doubtful world claims
+        ├─ ambiguous_topic                                          group: unsettled
+        └─ off_topic                                                group: junk
 ```
 
-### Group roll-ups (the headline categories)
+Code-assigned pseudo-leaves are kept as **separate rows in every table**, outside the seven
+groups:
 
-| group | leaves |
-|---|---|
-| hallucination | `detail`, `false_claim` |
-| co-activation | `substitution_sibling`, `substitution_category` |
-| correct | all four `correct.*` leaves |
-| thinky | `unrealised_prediction`, `model_state`, `possible_belief`, `other_on_topic` |
-| unsettled | `ambiguous_topic` |
-| junk | `off_topic` and every `non_claim.*` leaf |
+- `unknown_incorrect`: an established span the judge failed to cover with an incorrect leaf,
+  or one it disputed;
+- `failed`: the cell's call failed, so every unit in it gets this.
+
+The identities hold over the seven groups plus these two rows.
+
+### Precedence (in the prompt, applied top-down; the first rule that fits wins)
+
+1. **Non-claim vs claim.** A segment is a claim if it commits to anything concrete about the
+   conversation, the model, or the world.
+   - Token-bag summaries: the framing ("the tokens include X") is `filler`, and a gloss of the
+     tokens is `lens_meta`. The interpretation ("suggesting the passage is about Y") is a claim,
+     judged as usual.
+2. **Established v5c spans** must be `incorrect` (§Inputs).
+3. **Claims about the model's own beliefs, perceptions or the conversation's nature** →
+   `model_state`. Evaluation awareness lands here.
+4. **A claim about this conversation is never `off_topic`** (v5c's rule). If it is false, it is
+   incorrect.
+5. **Conversation vs world.** The conversation wins for claims about the conversation and its
+   content. **[pending Camila, default:]** world-false content that the response itself states
+   is `correct.restates_prefix` or `correct.stated_after`, with the tag `world_false = true`
+   (the wrong-bridge case: the response uses the wrong bridge, and the readout finds it).
+6. **Inside `correct`:** `restates_prefix` > `stated_after` > `entailed` > `world_true`.
+7. **Inside `incorrect`:**
+   - A wrong named object that has its own identity, in place of the right one →
+     substitution (sibling or category). **[pending Camila]**: see §Open decisions 1 for named
+     entities that are the subject of the claim.
+   - A false assertion about the right object → `false_claim`.
+   - A wrong arbitrary specific → `detail`.
+8. **Inside `unverifiable.on_topic`:** `unrealised_prediction` > `model_state` >
+   `possible_belief` > `other_on_topic`. A statement of intent that also predicts text ("about
+   to apologise") is a prediction: `stated_after` if it is realised, `unrealised_prediction` if
+   not.
+9. **Framing.** A concrete event or fact **asserted** about the conversation that the
+   conversation does not support is `false_claim` (Camila: "the invented event is a false claim.
+   it's verifiable"). If it is **framed as anticipation** and plausible, and the response does
+   not say it, it is `unrealised_prediction` (Camila: "unrealized predictions are unverifiable
+   on topic, they are thinky stuff"). A prediction that the text before the marker rules out is
+   incorrect.
+
+### Detail rule [pending Camila: §Open decisions 2]
+
+`detail` covers wrong specifics with no concept representation of their own (Camila: "things
+that likely don't have their own concept representation, e.g. names"):
+- arbitrary or fictional names;
+- incidental numbers, dates or counts in fiction or scaffolding;
+- quoted wording or heading text.
+
+Quantities and dates of **real events**, and counts that **flip the claim** ("0 errors" for 3),
+are `false_claim`. Wording and digits are treated alike, so "no errors" and "0 errors" both
+count as `false_claim`.
 
 ### Tags (orthogonal; they do not affect the leaf)
 
-- `hedged` (bool): the claim is a short hedged list or disjunction ("music, theater or dance").
-  The list counts as **correct** if the realised or stated option is in it; it is still one
-  segment. A long scattershot list is `non_claim.generic`.
-- `established` (bool, set in code): the segment overlaps a v5c verified wrong span (§Inputs).
-- `dispute` (bool, judge): the judge believes an established span is not actually wrong (see
-  the rules for established spans).
+- `hedged` (bool): a short hedged list or disjunction of at most 4 options. It counts as correct
+  if the realised or stated option is in it, and it is one segment. A longer scattershot list of
+  more than 4 unrelated options is `generic`.
+- `world_false` (bool): see precedence rule 5.
+- `cruxy` (bool, incorrect segments only) **[pending Camila: §Open decisions 3]**: the segment
+  misstates the central subject, claim or answer. Camila's "important/cruxy concepts" are
+  `false_claim ∧ cruxy`.
+- `established`, `dispute` (bool): see §Inputs.
+- `pair` (substitutions only): `{said, actual}`, logged for later probing.
 
-## Decisions (Camila, 2026-10-11) and how the rules encode them
+## Decisions (Camila, 2026-10-11, verbatim) and where they are encoded
 
-1. **"Invented event is a false claim. It's verifiable."** A concrete event, fact or property
-   **asserted** about the conversation (the user, the response, the scenario) that the
-   conversation does not support is `incorrect.false_claim`. This holds even when nothing in
-   the text explicitly rules it out, because the conversation is the ground truth for claims
-   about itself.
-2. **"Unrealized predictions are unverifiable on topic; they are thinky stuff."** The boundary
-   with decision 1 is **framing**:
-   - asserted as fact → decision 1;
-   - framed as anticipation of the continuation ("likely continues with", "next it will",
-     "expects") and plausible from the text before the marker → `unrealised_prediction`;
-   - a prediction that the text before the marker rules out → `incorrect` (subtype by the
-     usual rules).
-3. **World-checkable claims.**
-   - On topic and true in the world → `correct.world_true`.
-   - On topic and false in the world, and contradicted by the conversation (before or after
-     the marker) → `incorrect.*`.
-   - On topic and false in the world, with the conversation silent → `unverifiable.possible_belief`.
-     Example: the wrong-bridge multihop eval, where the model really holds the wrong bridge
-     entity and O-lens surfaces it.
-4. **Substitutions are not hallucinations.** "These could plausibly be things the model is
-   really thinking about": if the model is thinking about countries when it thinks about
-   France, it may think about Germany too. They are reported separately as co-activation, with
-   the (said, actual) pair logged so they can be probed later (§Outputs). Sibling and category
-   are two leaves, not an axis.
-5. **Detail = no concept representation of its own**: arbitrary names, numbers, dates, counts and
-   wording. A wrong number is `detail` even when it flips the claim. The flip is not recorded
-   separately, since reversals of *meaning* are `false_claim` only when the readout asserts the
-   reversed proposition in words.
-6. **Hedged lists are fine** (see the `hedged` tag).
+- "same class sibling and different category substitution are different from factually false
+  claims so there should be two categories not two full axes" → two substitution leaves,
+  separate from `false_claim`.
+- "unrealized predictions are unverifiable on topic, they are thinky stuff" → precedence 9 and
+  `unrealised_prediction`.
+- "for substitution i think these could plausibly be things the model is really thinking
+  about…" → the substitutions form the co-activation group, which is not a hallucination, with
+  `pair` logged.
+- "the invented event is a false claim. it's verifiable." → precedence 9.
+- "world checkable claims that are on topic and correct should be verifiable correct, claims
+  that are on topic and incorrect are either unverifiable because we are not sure whether the
+  model is actually thinking about this or not or maybe they are just verifiably incorrect
+  because they contradict with the following text" → these map as follows:
+  - on topic and world-true → `world_true`;
+  - world-false and contradicted by the conversation → incorrect;
+  - world-false and the conversation silent → `possible_belief`;
+  - world-false and the conversation states it → precedence 5 [pending].
+- "hedged lists are fine" → the `hedged` tag.
+- Original wish list: "eval awareness" as thinky content → precedence 3 and `model_state`.
 
-Precedence when two leaves seem to apply (stated in the prompt, in this order):
+## Open decisions (defaults are used until Camila answers)
 
-1. `non_claim` vs `claim`: a segment is a claim if it commits to anything concrete about the
-   conversation or the world.
-2. **Established v5c spans** stay in `incorrect` (see the rules for established spans).
-3. Among the incorrect leaves:
-   - **detail vs substitution**: a wrong *named* object that has its own identity (a real person,
-     work, place, organisation, or another entity in the text) is a substitution. An arbitrary
-     or invented label for the right referent is a detail.
-   - **substitution vs false_claim**: substitution swaps the object; false_claim says something
-     false about the right object.
-4. `unverifiable.on_topic` subtypes:
-   - `unrealised_prediction` beats `model_state`, which beats `possible_belief`, which beats
-     `other_on_topic`;
-   - when a statement about the model's intent is also a prediction of the text ("the model is
-     about to apologise"), it is `unrealised_prediction` if not realised, and
-     `realised_prediction` if realised.
+1. **Picasso for da Vinci.** Her first example called this a concept hallucination. Under the
+   substitution rule it is `substitution_sibling`. The default is substitution, because her
+   later reasoning (co-activation) applies.
+2. **Numbers.** The default is the §Detail rule.
+3. **Cruxy.** The default is a `cruxy` tag, with cruxy false claims reported as their own row.
+4. **The wrong-bridge direction.** The default is precedence 5 (the conversation wins; tag
+   `world_false`).
 
-## Segmentation
+## Inputs and established spans
 
-- **Coverage.** A segment is a verbatim substring of its readout. The segments of a readout are
-  listed in order and must not overlap. Together they must cover the readout up to whitespace
-  and punctuation: code checks that ≥ 95% of the readout's non-whitespace characters are
-  covered.
-- **Atomic claims.** One segment carries one claim. A sentence with a correct part and a wrong
-  part is split at the smallest boundary that separates them. A run of non-claim text between
-  claims becomes its own non-claim segment.
-- **Granularity floor.** No segment shorter than 3 characters unless it is the whole readout.
-  Adjacent segments with the same leaf may be merged by the judge.
-- **Long readouts.** NLA readouts reach about 1.5k characters × 3. A cell's call carries all of its
-  readouts, the same as v5c; `max_tokens` is sized for the worst case measured in the smoke
-  run, plus 50%.
+`claimmap-v2` runs **one call per non-empty cell**, whatever the v5c class of its readouts.
+Token arms judge the summariser's interpretation.
 
-## Inputs and the established spans
+The judge sees:
 
-The v2 judge (`claimmap-v2`) runs **one call per cell** on every non-empty cell, whatever its
-readouts' v5c class: generic readouts are segmented too, which is what makes the map
-exhaustive. Token arms judge the summariser's interpretation, as in plan 0001.
+- the prompt and the marked response;
+- the units, each with its id;
+- the **v5c verified wrong spans** for each readout, marked as established.
 
-It sees:
-- the prompt and the marked response (same `⟦READ⟧` convention);
-- the readouts;
-- the **v5c verified wrong spans** for each readout, as "established: a separate audit verified
-  these contradict the conversation".
+Every unit or sub-span that overlaps an established span must get an `incorrect.*` leaf, unless
+the judge sets `dispute = true` and gives an alternative leaf. In code:
 
-v5c is the calibrated instrument and remains the headline of plan 0001, so the v2 judge may not
-silently drop its findings. Each established span is covered by one or more segments, and
-every segment that overlaps it must get an `incorrect.*` leaf, unless the judge sets
-`dispute = true` with a reason. The span then stays `incorrect` for scoring and is counted in
-`n_disputed_established`.
+- **Disputed:** the segment is scored as `unknown_incorrect`, the alternative is logged, and a
+  sensitivity row in the report re-scores with the alternatives.
+- **Non-incorrect leaf without a dispute:** the segment is forced to `unknown_incorrect` and
+  counted.
 
-Verify (plan 0001 stage 3) outputs are **not** given to the v2 judge. They are kept for a
-comparison: verify `true` vs v2 `correct`, and verify `unverifiable` vs v2 `unverifiable` ∪
-`false_claim`, reported as an agreement table.
+Verify outputs (plan 0001 stage 3) are **not** shown to the judge. They are used only in the
+agreement table, mapped as follows:
+
+| verify | v2 |
+|---|---|
+| `true` | `restates_prefix` ∪ `stated_after` ∪ `entailed` |
+| `unverifiable` | `world_true` ∪ thinky ∪ `false_claim` |
+| `disputed` | incorrect ∪ `possible_belief` |
+| `off_topic` | `off_topic` ∪ non_claim |
 
 ## Output schema and parsing
 
-`{readouts: [{idx, segments: [{text, leaf, hedged, dispute, pair|null, why}]}], rationale}`
+The schema is
+`{units: [{id, leaf, hedged, world_false, cruxy, dispute, alt_leaf|null, pair|null, why,
+splits: [{text, leaf, hedged, world_false, cruxy, dispute, alt_leaf|null, pair|null, why}],
+rest_leaf|null}], rationale}`.
 
-- `leaf` is one of the 20 leaf names (enum in the schema).
-- `pair` is required for substitutions: `{said, actual}`, where `actual` is quoted from the
-  conversation or named.
-- Code checks (all fail closed):
-  - **Verbatim:** every `text` must be verbatim in its own readout (plan 0001 `verify_quote`
-    normalisation). Segments are matched left to right; an unmatched segment is dropped and
-    counted.
-  - **Order and overlap:** overlap is resolved by truncating the later segment; an
-    out-of-order segment is counted.
-  - **Coverage:** uncovered non-whitespace text becomes an `uncovered` pseudo-leaf (its own
-    bucket in the junk group's health line, never silently junk) and its share is reported.
-    A readout below 95% coverage counts as a coverage failure.
-  - **Established spans:** an established span not covered by an `incorrect` segment, and not
-    disputed, is forced to `incorrect` with `leaf = unknown_incorrect` and counted.
-  - **Pairs:** a substitution missing its `pair` keeps its leaf and is counted.
-- **Re-queues.** An invalid answer (schema failure, a wrong readout count) is cached as failed
-  and re-queued on the next run. More than 2 coverage failures in a cell also re-queues it,
-  once; if it still fails, it is accepted with the `uncovered` share.
-- Prompt version `claimmap-v2`. Cache key `…:M`, fingerprint as in plan 0001.
+- `leaf` is a schema enum of the 19 judge leaves. When `splits` is non-empty, `rest_leaf` is
+  required and the unit's own `leaf` is ignored.
+- Every unit id must appear exactly once.
+  - A missing unit gets `unknown`, which counts as `failed` for that unit, and is counted.
+  - A duplicate keeps its first entry and is counted.
+  - A wrong readout count, or more than 10% missing units, makes the answer invalid. It is
+    cached as failed and re-queued on every run, as in plan 0001.
+- A substitution with no `pair` is counted, and its leaf is kept.
+- Prompt version `claimmap-v2`. Cache key `{key}:M`. The fingerprint is the same as plan 0001's.
+- `STAGES` and the stage-of-key mapping gain `:M`. `hbench run --stages span,verify,classify,map`
+  selects which stages run; the default is all of them.
 
 ## Metrics
 
-All per arm, per layer, and overall, with item-bootstrap 95% CIs (2000 draws, seed 0). Two
-units:
+Per arm, per layer and overall, each with an item-bootstrap 95% CI (2000 draws, seed 0).
 
-1. **Claim-level shares** (the MECE view): the share of all segments, and of claim segments,
-   in each leaf and each group. Shares are weighted equally per segment.
-   - The same shares weighted by characters are reported too, since segment counts depend on
-     granularity.
-   - **Identity, tested:** the leaf shares sum to 1, and the group shares sum to 1.
-2. **Readout-level rates**, over non-empty readouts:
-   - share with ≥ 1 hallucination segment (`hallucination_rate_v2`);
-   - share with ≥ 1 co-activation segment;
-   - share with ≥ 1 thinky segment;
-   - share that is all junk;
-   - share with ≥ 1 correct segment;
-   - `false_claim_rate` and `detail_rate`.
+1. **Headline: character-weighted shares.** The share of readout characters in each group and
+   each leaf. Each readout is weighted equally: per-readout shares are computed first, then
+   averaged over non-empty readouts. The segment-count shares, pooled over segments, are also
+   reported.
+   - Identity (tested): the shares of the 7 groups plus `unknown_incorrect` plus `failed` sum
+     to 1, and so do the leaf shares.
+2. **Readout-level rates.** Each rate is computed over two denominators: all non-empty readouts,
+   and v5c-specific readouts (`n_specific`, which matches plan 0001's `hallucination_rate`).
+   The rates are the share of readouts with at least one segment of:
+   - hallucination (`hallucination_rate_v2`);
+   - `false_claim`;
+   - cruxy `false_claim`;
+   - `detail`;
+   - co-activation;
+   - thinky;
+   - correct.
 
-Comparisons:
-- v5c `hallucination_rate` (plan 0001) next to `hallucination_rate_v2`;
-- a transition table: v5c class (hallucinated / consistent / off_topic / generic) × v2 readout
-  group;
-- the verify vs v2 agreement table.
+   Also reported: the share of readouts that are entirely non-claim or junk.
+3. **Comparisons.**
+   - v5c `hallucination_rate` next to `hallucination_rate_v2` on the `n_specific` denominator;
+   - a transition table of v5c class × v2 readout group;
+   - the verify-vs-v2 agreement table.
+4. **Health.**
+   - failed cells;
+   - `n_missing_units`, `n_duplicate_units`, `n_unlocated_subspans`;
+   - `n_forced_established`, `n_disputed_established`;
+   - `n_missing_pairs`;
+   - spend.
 
-Health:
-- `n_failed`, `coverage_failure_rate`, `uncovered_char_share`;
-- `n_unmatched_segments`, `n_forced_established`, `n_disputed_established`,
-  `n_missing_pairs`;
-- spend.
-
-**Token arms.** As in plan 0001, they are reported in a separate table, because the summariser
-introduces `lens_meta` and specificity of its own.
+Token arms get their own table, as in plan 0001.
 
 ## Calibration (gate before the full run)
 
-The same machinery as plan 0001 (dev for iteration, a frozen held-out set for the gate, 2
-repeats with fresh calls, Wilson CIs, at most 3 held-out checks), with a new case format: gold
-is a **segmentation with leaves**.
+Plan 0001's machinery carries over: a dev split, a frozen held-out split, 2 repeats with fresh
+calls, Wilson CIs, and at most 3 held-out checks.
 
-- **Scoring by character alignment.** Each gold segment is matched to the predicted segment
-  with the largest character overlap. Accuracy is measured over gold *claim* segments, plus a
-  separate non-claim vs claim F1 at character level.
-- **dev** (written by the implementer): ≥ 60 gold segments covering all 20 leaves at least
-  twice. It must include:
-  - the decision-anchor examples (invented event asserted vs predicted; world-true; possible
-    belief; sibling vs category substitution; detail vs sibling for names; hedged list hit and
-    miss);
-  - `lens_meta` and summariser-style readouts;
+**Gold format.** The cases use the production unit split. Gold is a leaf per unit, plus
+sub-spans with leaves for units that need splitting. Units are shared between gold and the
+prediction, so matching is **one-to-one by unit**. For a unit that is split in gold or in the
+prediction, scoring is at character level within the unit, where each character carries the
+leaf of its segment.
+
+- **Measures.** Unit-level and character-level leaf accuracy and group accuracy.
+- **dev** (written by the implementer): at least 100 gold units, at least 3 per leaf. It must
+  include:
+  - every decision anchor (asserted vs predicted invented event; world-true; possible_belief;
+    sibling vs category; detail vs substitution for names; numbers under the detail rule;
+    hedged hit and miss; eval-awareness `model_state`; token-summary framing vs interpretation;
+    a claim about the conversation that looks off-topic);
   - established spans, including one that should be disputed.
 - **held-out:**
-  - (a) ≥ 60 synthetic gold segments, written and labelled by a fresh-context subagent that
-    sees only this plan's §The tree, §Decisions and §Segmentation;
-  - (b) ≥ 60 real segments from stored readouts. To build them, sample cells stratified by arm
-    (s3d-rl600, nla-rl-L42, jlens, sae-l42, patchscopes) and by v5c class. The main session
-    hand-labels the full segmentation of those cells blind to classifier output and freezes it
-    before the first check.
-- **Gate (held-out, mean of 2 runs):**
+  - (a) at least 120 synthetic gold units, written and labelled by a fresh-context subagent
+    that sees only §Units, §The tree, §Precedence, §Detail rule and §Tags;
+  - (b) at least 120 real units from stored readouts. Cells are stratified by arm (s3d-rl600,
+    nla-rl-L42, jlens, sae-l42, patchscopes) and by v5c class. The main session hand-labels
+    them blind to classifier output and freezes them before the first check.
+  - Across (a) and (b), at least **20 gold units each** for `false_claim`, `detail`,
+    substitution (sibling and category together, at least 8 of each) and `correct`, and at least
+    20 thinky units. Sample real cells until these minimums are met.
+  - Camila spot-checks the decision anchors and 30 random real-part gold labels before the
+    held-out set is frozen.
+- **Gate** (held-out, mean of the 2 runs):
 
   | measure | threshold |
   |---|---|
-  | group accuracy (6 groups) | ≥ 85% |
-  | leaf accuracy (20 leaves) | ≥ 70% |
-  | hallucination-vs-co-activation-vs-correct three-way accuracy on gold incorrect + correct segments | ≥ 80% |
-  | recall of `false_claim` | ≥ 75% |
-  | recall of `detail` | ≥ 75% |
-  | recall of substitution (either leaf) | ≥ 75% |
+  | group accuracy (7 groups), unit level | ≥ 85% |
+  | group accuracy, character level | ≥ 85% |
+  | leaf accuracy (19 leaves), unit level | ≥ 70% |
+  | recall of `false_claim`, `detail`, substitution and correct | each ≥ 75% |
+  | sibling-vs-category accuracy on gold substitutions | ≥ 75% |
   | claim/non-claim character F1 | ≥ 0.85 |
   | group flip rate between runs | ≤ 7% |
   | real-part group accuracy | ≥ 80% |
-  | coverage failures | ≤ 2% of readouts |
+  | `n_unlocated_subspans` | ≤ 2% of splits |
 
 ## Run
 
-1. Smoke: 20 cells × 3 arms. It prints prompts and checks parsing, coverage and the
-   established-span rule, and measures the cost per cell.
-2. Calibration (dev, then held-out).
-3. Full run of `claimmap-v2` on **all** plan-0001 cells (all 11 arms, all layers, about 48k
-   cells). Span results come from the plan-0001 cache, so v5c is not re-run.
-   - The span stage must be complete for a cell before its `:M` call. Cells whose span stage
-     failed are retried first.
-   - One process with one pacer, in tmux, resumable, the same as `run_all_arms.sh`; there is a
-     new `--stages` option.
+1. Smoke: 20 cells × 3 arms. It prints prompts and checks the unit split, parsing and the
+   established-span rule. It also measures cost and the worst-case output length (to size
+   `max_tokens` at +50%).
+2. Calibration: dev, then held-out (requires the §Open decisions answered or the defaults
+   accepted).
+3. A full `:M` run over all plan-0001 cells: 11 arms, all layers, about 48k cells. The v5c span
+   results come from the cache, and cells whose span stage failed are retried first. It runs as
+   one process with one pacer in tmux, and is resumable.
 4. `hbench report --view v2` writes:
-   - the leaf/group tables, prose and token arms separately;
-   - `substitution_pairs.jsonl` (arm, layer, item, pos, said, actual, subtype, readout text),
-     the input for later probing;
-   - `audit_samples_v2.md` (10 random segments per leaf with context).
+   - the group and leaf tables, with prose and token arms separate;
+   - `substitution_pairs.jsonl`;
+   - `audit_samples_v2.md`, with 10 random segments per leaf in context.
 
 ## Deliverables
 
-- `taxonomy_v2.py`: the tree, definitions, decisions and precedence as the single source of
-  truth, rendered into the prompt. Tests assert that the prompt contains every leaf definition.
-- `judges/claimmap_v2.py`: prompt, schema, parsing and the code checks above.
-- Pipeline stage `:M`, metrics, report view, calibrate support for segmentation gold.
-- Tests:
-  - segment matching, coverage, overlap and order;
-  - the established-span rule, including forced and disputed spans;
-  - the leaf/group identities;
-  - bootstrap;
-  - character-alignment scoring;
-  - the fresh-call repeats.
-- `docs/results/0002_claim_map.md` (with calibration numbers, spend and caveats); README and
-  CLAUDE.md updated.
-- `uv run pytest`, `ruff check` and `ruff format --check` green. The gate is passed. Failed
-  `:M` cells are < 1% per arm.
+- **Code:**
+  - `taxonomy_v2.py`: the leaves, groups, definitions, precedence and decisions. It is the
+    single source of truth and is rendered into the prompt; tests check the prompt contains
+    every leaf definition.
+  - `units.py`: the deterministic splitter and `locate`.
+  - `judges/claimmap_v2.py`.
+  - the `:M` stage and the `--stages` option.
+  - the v2 metrics and report view, and calibrate support for unit gold.
+- **Tests:**
+  - the splitter (it covers all non-whitespace text and is stable);
+  - `locate` offsets;
+  - split, rest and missing-unit handling;
+  - the forced and disputed established-span rules;
+  - the group and leaf identities;
+  - the character-weighted shares;
+  - unit-level scoring;
+  - fresh-call repeats.
+- **Docs:** `docs/results/0002_claim_map.md` (calibration numbers, spend, caveats), and updates
+  to the README and CLAUDE.md.
+- **Acceptance:** pytest, `ruff check` and `ruff format --check` are green; the gate passes;
+  fewer than 1% of `:M` cells fail per arm.
