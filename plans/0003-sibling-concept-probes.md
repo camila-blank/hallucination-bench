@@ -1,6 +1,6 @@
 # Plan 0003: sibling-concept eval: are same-category mentions hallucinations? (DiffMean probe verification)
 
-Issue #5. Author: Camila Blank (planned with Claude), 2026-10-11. Revision 4 (after critiques 1–3).
+Issue #5. Author: Camila Blank (planned with Claude), 2026-10-11. Revision 5 (after critiques 1–4).
 
 This plan is stacked on plan 0002 (PR #4, branch `camila/taxonomy-v2`). It uses plan 0002's
 claim-map judge (`judges/claimmap_v2.py`) **at whatever `PROMPT_VERSION` is current on that
@@ -122,13 +122,15 @@ without naming it, and is followed by a generic request sentence.
     first day."; tree "Write a short description of my garden."; holiday "Write a short note to
     my neighbors about our plans." (Country/occupation keep the single wsbench sentence.)
   - Gold values are spread over at least 8 concepts (at most 3 items per gold).
-- **Leak check (code):** no alias of any concept in the category may appear in the user turn.
-  Failing items are dropped and regenerated.
+- **Leak check (code), generated items only:** no alias of any concept in the category may
+  appear in the user turn. Failing items are dropped and regenerated. The verbatim wsbench items
+  are exempt (e.g. "sopa paraguaya"); any concept named in their prompt is simply excluded from
+  that item's siblings (and from gold-mention counts if the gold itself is named).
 - **Implication check:** Qwen3.6-27B is asked "Based on the message, what is the user's
   <attribute>? Answer in one or two words." (greedy, thinking off). An item is kept only if the
   answer matches the gold's aliases (the revealed-belief gate of wsbench, at 1 greedy sample
-  instead of 10). Country and occupation items already passed the wsbench gate and are not
-  re-checked.
+  instead of 10). The verbatim wsbench items already passed the wsbench gate and are not
+  re-checked; every generated item (including the 6 new country / occupation items) is.
 - **Response:** Qwen3.6-27B's greedy reply to the item (chat template, `enable_thinking=False`,
   max 256 new tokens), stored in the bank. The judge needs it.
 
@@ -220,6 +222,9 @@ All three arms read the same positions: `from_last_sentence_start` on the chat r
   realistic Wikipedia biography infobox for me."; new categories: their 2 fixed sentences),
   balanced. So the read window (ending sentence + template tail) is token-identical between
   probe texts and eval items and aligns exactly by **offset from the end**.
+- **Messages template (all banks):** a system turn "You are a helpful assistant." followed by
+  one user turn, identical for eval items (wsbench items already have it), generated items,
+  probe texts and neutral texts.
 - **Neutral texts:** 24 messages per category with no category content, ending in the same
   sentences.
 - **Capture:** `acts-sibling-probe` (see Phase C), `from_last_sentence_start` resolved by
@@ -232,14 +237,17 @@ All three arms read the same positions: `from_last_sentence_start` on the chat r
 - **Direction:** per (concept *c*, layer *L*): average each text's eval-position activations
   into one vector per text; d = mean over *c*'s training texts − the equal-weighted mean of the
   other category concepts' per-concept means. True DiffMean (Camila's request), no whitening.
-- **Position-aligned scoring:** s = (h − μ_cat[L, ending, offset]) · d/‖d‖, where h is one
-  position's residual and μ_cat[L, ending, offset] is the equal-weighted mean over the category's
-  concepts of the training texts' residuals at that ending and offset from the end. This removes
-  the per-position constant (template tokens have very different norms).
+- **Position-aligned scoring:** s = ((h − μ_cat[L, ending, offset]) · d/‖d‖) / σ_cat[L, ending,
+  offset, c], where h is one position's residual, μ_cat is the equal-weighted mean over the
+  category's concepts of the training texts' residuals at that ending and offset from the end,
+  and σ_cat is the sd of the projected training residuals at that (ending, offset) (pooled over
+  the category's concepts). This removes the per-position mean AND scale (template tokens have
+  very different norms), so pooling thresholds over offsets is valid.
 - **Cross-fitting:** 4 folds per concept (seeded, endings balanced). Every probe text is scored by
   the fold model that never saw it; thresholds use these out-of-fold scores (all 48 texts per
-  concept). Eval cells are scored with the **average of the 4 fold models' scores**, so threshold
-  and score come from the same fold estimators (no all-texts refit). Report threshold CIs by
+  concept). Eval cells are scored by **each fold model k separately** and thresholded against
+  fold k's own out-of-fold distribution (fold k's held-out texts); the 4 detection indicators and
+  the 4 z values are then averaged per (cell, c). No all-texts refit, no averaged direction. Report threshold CIs by
   text-level bootstrap.
 - **Unembedding check:** report the cosine between each direction and its concept's
   token-alias unembedding rows (how much the probe is just the output token).
@@ -269,8 +277,9 @@ named in the prompt.
 - **Gold-equivalent reference (the ceiling).** τ(c | g) is undefined for c = g (it would be ~5%
   by construction), so the ceiling is computed as: the gold probe g at its own items' cells
   against τ(g | g′), where g′ ranges over the category's other golds (pooled), i.e. "does the
-  gold's probe fire above its level in another gold's context". Under τ_cat the ceiling is the
-  plain gold-mention detection rate.
+  gold's probe fire above its level in another gold's context". The ceiling is always computed on
+  **gold-mention cells** (under τ_cat: plain gold-mention detection); the all-cells version is a
+  secondary row.
 - **Transfer gate per (category, layer), pre-registered:** the eval-site AUROC of each gold
   probe, its items' cells vs the other-gold items' cells of the category (same layer), averaged
   over the category's golds, must be ≥ 0.70. Failing (category, layer) pairs are excluded from the
@@ -292,7 +301,11 @@ named in the prompt.
   pooled over transfer-passing (category, L), item-clustered bootstrap. Companion: the share of
   M cells where the mentioned sibling outranks the median unmentioned one. Same activation, same position, gold baseline removed per pair:
   this controls for position and for near/far geometry.
-- **Test 3, residual (robustness):** a linear-probability regression detected ~ mentioned, with
+- **Within-item AUROC (descriptive, deliverable 1):** per (arm, item, layer, c) with at least one
+  mention cell and one non-mention cell, the AUROC of z(c | g) at mention cells vs non-mention
+  cells; mean over groups, item-clustered bootstrap CI.
+- **Test 3, residual (robustness):** a linear-probability regression detected (τ(c | g); τ_cat as
+  a second row) ~ mentioned, with
   cell fixed effects and (item, c) fixed effects; report the `mentioned` coefficient with a
   cluster bootstrap CI.
 - **Unit of analysis:** every test is computed **per arm**. Within an arm a (cell, c) pair is
