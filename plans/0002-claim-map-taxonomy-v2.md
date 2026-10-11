@@ -1,6 +1,6 @@
 # Plan 0002: claim map (taxonomy v2), an exhaustive, mutually exclusive categorisation of readout content
 
-Issue #3. Author: Camila Blank (planned with Claude), 2026-10-11. Revision 4 (after critiques 1–3).
+Issue #3. Author: Camila Blank (planned with Claude), 2026-10-11. Revision 5 (after critiques 1–4).
 This plan builds on plan 0001 (PR #2): the v5c span and verify port, the taxonomy-v1 classifier,
 and the first full run. It reuses plan 0001's cache layout, client, calibration machinery,
 bootstrap and report unless this plan says otherwise.
@@ -115,10 +115,11 @@ The identities hold over the seven groups plus these two rows.
 
 ### Precedence (in the prompt)
 
-Rules 1–6, 10 and 11 **select the branch** (non-claim, correct, incorrect, thinky, unsettled,
-junk). They are applied first, top-down, and the first one that fits wins. Rules 7–9 **order the
-leaves within a branch** and apply only after the branch is fixed. The prompt lists them in this
-order: 1, 2, 3, 4, 5, 6, 10, 11, then 7, 8, 9.
+Rules 1–6 and 10–12 **select the branch** (non-claim, correct, incorrect, thinky, unsettled,
+junk). They are applied first, top-down, and the first one that fits wins. Rule 2 (established
+spans) is checked before rule 1, so the judge disputes an established span rather than calling it
+a non-claim. Rules 7–9 **order the leaves within a branch** and apply only after the branch is
+fixed. The prompt lists them in this order: 2, 1, 3, 4, 5, 6, 10, 11, 12, then 7, 8, 9.
 
 1. **Non-claim vs claim.** A segment is a claim if it commits to anything concrete about the
    conversation, the model, or the world.
@@ -135,11 +136,14 @@ order: 1, 2, 3, 4, 5, 6, 10, 11, then 7, 8, 9.
 
    It is **not** `model_state`, even though it is in the first person.
 4. **Claims about the model's own beliefs or intent, or that frame the conversation as a test,
-   evaluation, roleplay or deception** → `model_state`. Evaluation awareness lands here.
+   evaluation, roleplay or deception** → the thinky branch (leaf by rule 9; usually `model_state`).
+   Evaluation awareness lands here. **Carve-out:** a statement of intent that predicts response
+   text ("the model is about to apologise") is a prediction and goes to rules 3 and 10:
+   `stated_after` if realised, `unrealised_prediction` if not.
    Descriptions of format, genre or setting ("Q&A on an educational platform") are ordinary
    claims about the conversation: rules 5 and 10 apply, so an invented setting is `false_claim`.
-5. **A claim about this conversation is never `off_topic`** (v5c's rule). If it is false, it is
-   incorrect.
+5. **A claim about this conversation is never `off_topic`** (v5c's rule). Its branch is set by
+   rules 6, 10 and 12.
 6. **Conversation vs world.** The conversation wins for claims about the conversation and its
    content. **[pending Camila, default:]** world-false content that the response itself states
    is `correct.restates_prefix` or `correct.stated_after`, with the tag `world_false = true`
@@ -155,9 +159,7 @@ order: 1, 2, 3, 4, 5, 6, 10, 11, then 7, 8, 9.
    - A false assertion about the right object → `false_claim`.
    - A wrong arbitrary specific → `detail`.
 9. **Inside `unverifiable.on_topic`:** `unrealised_prediction` > `model_state` >
-   `possible_belief` > `other_on_topic`. A statement of intent that also predicts text ("about
-   to apologise") is a prediction: `stated_after` if it is realised, `unrealised_prediction` if
-   not.
+   `possible_belief` > `other_on_topic`.
 10. **Framing.**
     - A concrete event or fact **asserted** about the conversation that the conversation does
       not support is `false_claim` (Camila: "the invented event is a false claim. it's
@@ -258,7 +260,8 @@ The judge sees:
 Established spans are v5c's verified `wrong` strings, **revoked or not**, because the v5c
 headline is unrevoked. Overlapping or nested wrong strings in the same readout are merged into
 one span before splitting. The judge may split an established unit, but at least one sub-span
-must be `incorrect.*`; otherwise the unit is forced. Code locates each one in its readout with `locate` (first unused
+must be `incorrect.*`. Otherwise every non-incorrect sub-span of that unit is forced to
+`unknown_incorrect`. `dispute` is set per segment (unit or split), and so is `alt_leaf`. Code locates each one in its readout with `locate` (first unused
 occurrence, left to right), and the splitter makes it its own unit (§Units). An established span
 that cannot be located is counted (`n_unlocated_established`), and the judge treats it as
 ordinary text. Every established unit must get an `incorrect.*` leaf, unless the judge sets
@@ -360,7 +363,7 @@ shared between gold and the prediction, so matching is **one-to-one by unit**.
   - A unit split on either side is given its **majority-character leaf** on each side for the
     unit-level measures, and it contributes character by character to the character-level
     measures.
-  - Every recall, accuracy and flip-rate row is **unit-level** unless it is labelled
+  - Every accuracy and flip-rate row is **unit-level** unless it is labelled segment-level or
     character-level.
   - A predicted `unknown_incorrect` is scored by the judge's `alt_leaf` if disputed, or by its
     raw leaf if forced. Forcing and dispute counts are reported separately.
@@ -394,8 +397,8 @@ shared between gold and the prediction, so matching is **one-to-one by unit**.
   | group accuracy (7 groups), unit level | ≥ 85% |
   | group accuracy, character level | ≥ 85% |
   | leaf accuracy (19 leaves), unit level | ≥ 70% |
-  | recall of `false_claim`, `detail`, substitution and correct | each ≥ 75%, with Wilson lower bound ≥ 0.60 |
-  | sibling-vs-category accuracy on gold substitutions | ≥ 75% |
+  | recall of `false_claim`, `detail`, substitution and correct (segment level) | each ≥ 75%, with Wilson lower bound ≥ 0.58 at n = the number of gold segments (one run's n; the rate is the mean of 2 runs) |
+  | sibling-vs-category accuracy on gold substitutions (segment level) | ≥ 75% |
   | claim/non-claim character F1 | ≥ 0.85 |
   | group flip rate between runs | ≤ 7% |
   | real-part group accuracy | ≥ 80% |
