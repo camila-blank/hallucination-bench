@@ -22,6 +22,7 @@ Fingerprints = (prompt version, model, effort, system, user).
 
 import asyncio
 import json
+import os
 import re
 import time
 from collections.abc import Callable, Iterator, Sequence
@@ -587,7 +588,7 @@ async def rebuild_arm_async(
     cells = [c for c in arm.cells if c.layer in layers]
     missing = missing_cells(cells, expected)
     acc = score.Accumulator(k=arm.k)
-    tmp = arm.dir / "cells.jsonl.tmp"
+    tmp = arm.dir / f"cells.jsonl.{os.getpid()}.tmp"
     arm.dir.mkdir(parents=True, exist_ok=True)
 
     with tmp.open("w", encoding="utf-8") as fh:

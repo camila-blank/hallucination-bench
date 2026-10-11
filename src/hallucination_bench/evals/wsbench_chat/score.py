@@ -170,14 +170,14 @@ def slim(rec: dict[str, Any], k: int) -> SlimCell:
     st = rec["status"]
     stages = rec.get("stages") or {}
     h["n_empty_cells"] = st == "empty"
-    h["n_pending_cells"] = st == "pending" and all(v in (None, "pending") for v in stages.values())
+    h["n_pending_cells"] = st == "pending"
     h["n_judged_cells"] = st == "judged"
     if st != "empty" and rec.get("samples") is not None and rec["n_samples"] < k:
         h["n_short_cells"] = 1
     for s in STAGES:
         v = stages.get(s)
         if v in ("ok", "failed", "pending"):
-            h[f"n_entered_{s}"] = 1
+            h[f"n_entered_{s}"] = v != "pending"
             h[f"n_failed_{s}"] = v == "failed"
             h[f"n_pending_{s}"] = v == "pending"
     h["n_offtopic_overlap_quotes"] = rec.get("n_offtopic_overlap_quotes") or 0
@@ -238,7 +238,7 @@ def readout_counts(cell: SlimCell) -> dict[str, int]:
                 c["n_hallucinated_all_unknown"] += 1
         elif r.cls == "off_topic":
             c["n_off_topic"] += 1
-        if any(s[3] == 3 for s in contra):
+        if any(s[3] == 3 and s[1] != UNKNOWN for s in contra):
             c["n_major"] += 1
         if not r.tallied:
             continue
@@ -338,10 +338,14 @@ def block(cells: Sequence[SlimCell], *, n_boot: int = N_BOOT) -> dict[str, Any]:
     for cell in cells:
         for k, v in cell.health.items():
             health[k] += v
+        if cell.status == "empty":
+            continue
+        # Items whose cells all failed / are pending stay in the resample as (0, 0) rows, as in
+        # the source bootstrap.
+        acc = per_item.setdefault(cell.item, dict.fromkeys(READOUT_COUNTS, 0))
         if cell.status != "judged":
             continue
         rc = readout_counts(cell)
-        acc = per_item.setdefault(cell.item, dict.fromkeys(READOUT_COUNTS, 0))
         for k, v in rc.items():
             acc[k] += v
     names = list(READOUT_COUNTS)

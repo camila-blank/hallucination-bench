@@ -277,3 +277,26 @@ def test_qwk_and_wilson():
     assert calibrate.qwk([1, 2, 3, 1], [3, 2, 1, 3]) < 0
     lo, hi = calibrate.wilson(0.9, 50)
     assert lo < 0.9 < hi
+
+
+def test_calibration_flip_rate_ignores_context_spans():
+    from hallucination_bench import calibrate as cal
+    from hallucination_bench.judges import taxonomy_v1 as tv1
+
+    gold = {"type": "detail", "target": "entity", "severity": 1, "unsupported_kind": None}
+    case = {
+        "case_id": "c",
+        "part": "real",
+        "spans": [
+            {"readout_idx": 0, "text": "a", "grounding": "contradicted", "gold": gold},
+            {"readout_idx": 0, "text": "b", "grounding": "contradicted", "gold": None},
+        ],
+    }
+
+    def lab(sid, typ):
+        return tv1.SpanLabel(sid, 0, "x", "contradicted", typ, "entity", 1, None)
+
+    run0 = [[lab("S1", "detail"), lab("S2", "detail")]]
+    run1 = [[lab("S1", "detail"), lab("S2", "concept")]]  # only the context span flips
+    res = cal.score([case], [run0, run1], "dev")
+    assert res["mean"]["type_flip_rate"] == 0.0

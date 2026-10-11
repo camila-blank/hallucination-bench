@@ -190,3 +190,35 @@ def test_failed_rates_by_stage():
     h.update(n_entered_span=200, n_failed_span=1)
     fr = sc.failed_rates(h)
     assert fr["span"] == pytest.approx(0.005) and fr["summary"] is None
+
+
+def test_failed_only_items_stay_in_the_bootstrap_as_zero_rows():
+    """An item whose cells all failed is a (0, 0) row in the resample, as in the source."""
+    rng = random.Random(2)
+    recs, per_item = [], defaultdict(lambda: [0, 0])
+    for i in range(20):
+        item = f"it{i}"
+        if i % 5 == 0:
+            recs.append(rec(item, 44, [(H, False, True, [])], status="failed_span"))
+            per_item[item]  # registers the (0, 0) row in insertion order
+            continue
+        ros = []
+        for _ in range(3):
+            cls = rng.choice([H, C])
+            ros.append((cls, False, True, [sp("contradicted", "detail")] if cls == H else []))
+            per_item[item][0] += cls == H
+            per_item[item][1] += 1
+        recs.append(rec(item, 44, ros))
+    acc = sc.Accumulator(k=3)
+    for r in recs:
+        acc.add(r)
+    blk = sc.block(acc.cells, n_boot=2000)
+    assert blk["ci95"]["hallucination_rate"] == pytest.approx(list(_source_bootstrap(per_item)))
+
+
+def test_pending_cells_counted_and_pending_stage_not_entered():
+    r = rec("it0", 44, [(H, False, True, [])], status="pending")
+    r["stages"] = {"summary": "ok", "span": "pending", "verify": None, "classify": None}
+    cell = sc.slim(r, 3)
+    assert cell.health["n_pending_cells"] == 1
+    assert cell.health["n_entered_span"] == 0 and cell.health["n_entered_summary"] == 1

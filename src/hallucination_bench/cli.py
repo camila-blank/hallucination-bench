@@ -85,6 +85,14 @@ def cmd_run(args: argparse.Namespace) -> int:
     )
     for n, s in summaries.items():
         _print_summary(n, s)
+    # Failed calls are cached as failures and re-queued by the next run; a non-zero exit lets
+    # the driver re-run the stage (scripts/run_all_arms.sh) instead of moving on.
+    n_failed = sum(
+        v for s in summaries.values() for k, v in s["health"].items() if k.startswith("n_failed_")
+    )
+    if n_failed:
+        print(f"{n_failed} failed calls remain; re-run to retry them", file=sys.stderr)
+        return 4
     return 0
 
 

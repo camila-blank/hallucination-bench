@@ -287,7 +287,11 @@ def score(
         n = 0
         diff: Counter = Counter()
         for case_i in range(len(cases)):
-            for a, b in zip(labels[0][case_i], labels[1][case_i], strict=True):
+            for s, a, b in zip(
+                cases[case_i]["spans"], labels[0][case_i], labels[1][case_i], strict=True
+            ):
+                if s["gold"] is None:  # context-only span: not scored, not in the gate
+                    continue
                 n += 1
                 for f in ("type", "target", "severity", "unsupported_kind"):
                     diff[f] += getattr(a, f) != getattr(b, f)
