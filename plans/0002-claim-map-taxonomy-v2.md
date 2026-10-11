@@ -1,6 +1,6 @@
 # Plan 0002: claim map (taxonomy v2), an exhaustive, mutually exclusive categorisation of readout content
 
-Issue #3. Author: Camila Blank (planned with Claude), 2026-10-11. Revision 9 (after critiques 1–8).
+Issue #3. Author: Camila Blank (planned with Claude), 2026-10-11. Revision 10 (after critiques 1–9; critique 9: no substantive issues).
 This plan builds on plan 0001 (PR #2): the v5c span and verify port, the taxonomy-v1 classifier,
 and the first full run. It reuses plan 0001's cache layout, client, calibration machinery,
 bootstrap and report unless this plan says otherwise.
@@ -61,7 +61,9 @@ and only the unlocated text falls to the unit's `rest` leaf.
 
 A segment is a unit or a located sub-span. Segments never overlap and cover every unit, so
 coverage is total by construction. Atomic-claim rule: one segment carries one claim. A sentence
-with a correct part and a wrong part must be split.
+with a correct part and a wrong part must be split. Hedge words stay inside their claim
+segment. An invented specific ("her 3 kids") is one `detail` segment, with no separate
+existence claim.
 
 ## The tree (taxonomy v2): 19 judge leaves in 7 groups
 
@@ -141,7 +143,8 @@ fixed. The prompt lists them in this order: 2, 1, 3, 4, 5, 6, 10, 11, 12, 13, th
    - `restates_prefix` or `stated_after` if the response says it (tag `world_false` if it is false
      in the world, per rule 6);
    - `unrealised_prediction` if it is plausible but the response does not say it;
-   - incorrect if the text before the marker rules it out.
+   - incorrect if the text before the marker rules it out;
+   - if it is implausible but not ruled out, rule 10's last bullet applies.
 
    It is **not** `model_state`, even though it is in the first person.
 4. **Claims about the model's own beliefs or intent, or that frame the conversation as a test,
@@ -162,8 +165,8 @@ fixed. The prompt lists them in this order: 2, 1, 3, 4, 5, 6, 10, 11, 12, 13, th
    is `correct.restates_prefix` or `correct.stated_after`, with the tag `world_false = true`
    (the wrong-bridge case: the response uses the wrong bridge, and the readout finds it).
    (Predictions are excepted: a claim framed as anticipation follows rule 10, so it is incorrect only
-   if the text **before** the marker rules it out.) **A world claim is incorrect only if the
-   conversation contradicts it**, or if it overlaps an
+   if the text **before** the marker rules it out.) **A non-prediction world claim is incorrect only if
+   the conversation contradicts it**, or if it overlaps an
    established span. An on-topic world-false claim on which the conversation is silent goes to
    the thinky branch, leaf by rule 9 (usually `possible_belief`).
 7. **Inside `correct`:** `restates_prefix` > `stated_after` > `entailed` > `world_true`.
