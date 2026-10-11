@@ -520,4 +520,4 @@ def test_rev11_lens_framing_rule_is_rendered():
     assert tx.LENS_FRAMING_RULE in cm.SYSTEM
     assert "The model is representing / anticipating / focused on / gearing up for X" in cm.SYSTEM
     assert "It is **never `model_state`**" in cm.SYSTEM
-    assert cm.PROMPT_VERSION == "claimmap-v2.1"
+    assert cm.PROMPT_VERSION == "claimmap-v2.2"

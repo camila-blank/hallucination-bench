@@ -1,6 +1,6 @@
 # Plan 0002: claim map (taxonomy v2), an exhaustive, mutually exclusive categorisation of readout content
 
-Issue #3. Author: Camila Blank (planned with Claude), 2026-10-11. Revision 11 (after critiques 1–9; critique 9: no substantive issues; rev 11 adds the token-summary framing rule found in the smoke run).
+Issue #3. Author: Camila Blank (planned with Claude), 2026-10-11. Revision 12 (after critiques 1–9; critique 9: no substantive issues; rev 11 adds the token-summary framing rule found in the smoke run; rev 12 defines "own identity" for rule 8).
 This plan builds on plan 0001 (PR #2): the v5c span and verify port, the taxonomy-v1 classifier,
 and the first full run. It reuses plan 0001's cache layout, client, calibration machinery,
 bootstrap and report unless this plan says otherwise.
@@ -176,7 +176,9 @@ fixed. The prompt lists them in this order: 2, 1, 3, 4, 5, 6, 10, 11, 12, 13, th
 8. **Inside `incorrect`:**
    Apply in this order:
    1. A wrong named object that has its own identity, in place of the right one →
-      substitution (sibling or category). **[pending Camila]**: see §Open decisions 1 for named
+      substitution (sibling or category). "Its own identity" means a real-world entity or
+      another distinct entity that appears in the text. A fictional or arbitrary name for the
+      right referent never has one, so it falls to step 2 (`detail`), even for a protagonist. **[pending Camila]**: see §Open decisions 1 for named
       entities that are the subject of the claim.
    2. Anything matching the §Detail rule list, including invented arbitrary specifics → `detail`.
       The §Detail rule's carve-outs (real-event quantities, counts that flip the claim) go on to

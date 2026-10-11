@@ -493,7 +493,11 @@ def _rules() -> dict[int, Rule]:
                 "",
                 "Step 1. A wrong named object that has its own identity, in place of the right "
                 "one -> substitution (`substitution_sibling` if it is of the same class, "
-                "`substitution_category` if of a different category). "
+                '`substitution_category` if of a different category). "Its own identity" '
+                "means a real-world entity (person, work, place, organisation, product) or "
+                "another distinct entity that appears in the text. A fictional or arbitrary name "
+                "for the right referent never has its own identity: it is step 2 (`detail`), "
+                "even for a protagonist (Nora for the story's Mia; Steve for Joe). "
                 + decision_text("subject_name"),
                 "Step 2. Anything matching the Detail rule list, including invented arbitrary "
                 "specifics -> `detail`. The Detail rule's carve-outs (real-event quantities, "
