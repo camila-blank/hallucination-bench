@@ -10,7 +10,8 @@ texts no longer match it. Units are shared, so prediction and gold match one-to-
 Scoring (one repeat at a time, then the mean over repeats with a Wilson 95% CI):
 
 * **segment level** (recall rows, per-leaf recall, sibling-vs-category): each gold segment's
-  predicted leaf is the majority-character predicted leaf over that segment's own characters;
+  predicted leaf is the majority-character predicted leaf over that segment's own characters
+  gold segments with no letter or digit (a bare ".") are left out here;
 * **unit level** (accuracy, flip rate, real-part accuracy): each side's majority-character leaf
   over the unit (a unit split on neither side is just its leaf);
 * **character level** (accuracy, claim/non-claim F1): every character of a gold segment.
@@ -209,6 +210,11 @@ def pred_segments(segs: Sequence[cm.Segment]) -> dict[str, list[Span]]:
     return out
 
 
+def has_alnum(text: str) -> bool:
+    """Segment-level measures skip gold segments with no letter or digit (".", "—")."""
+    return any(ch.isalnum() for ch in text)
+
+
 def _why(segs: Sequence[cm.Segment], unit: str, a: int, b: int) -> str:
     return next((s.why for s in segs if s.unit == unit and s.start < b and a < s.end), "")
 
@@ -256,30 +262,31 @@ def run_metrics(
                 c["n_real_units"] += 1
                 c["real_group_ok_unit"] += tx.group_of(gu) == tx.group_of(pu)
             for a, b, gl in gs:
-                # segment level
-                pl = majority_leaf(ps, a, b) or tx.FAILED
-                c["n_gold_segments"] += 1
-                gold_n[gl] += 1
-                gold_hit[gl] += pl == gl
-                for row, leaves in RECALL_ROWS.items():
-                    if gl in leaves:
-                        gold_n[f"row_{row}"] += 1
-                        gold_hit[f"row_{row}"] += pl in leaves
-                if gl in tx.SUBSTITUTION_LEAVES and pl in tx.SUBSTITUTION_LEAVES:
-                    c["n_sub_both"] += 1
-                    c["sub_same"] += pl == gl
-                if pl != gl:
-                    disagree.append(
-                        {
-                            "case_id": case["case_id"],
-                            "rules": case.get("rules") or case.get("rule"),
-                            "unit": u.id,
-                            "text": u.text[a - u.start : b - u.start],
-                            "gold": gl,
-                            "pred": pl,
-                            "why": _why(segs, u.id, a, b),
-                        }
-                    )
+                # segment level (pure punctuation fragments are not segments here)
+                if has_alnum(u.text[a - u.start : b - u.start]):
+                    pl = majority_leaf(ps, a, b) or tx.FAILED
+                    c["n_gold_segments"] += 1
+                    gold_n[gl] += 1
+                    gold_hit[gl] += pl == gl
+                    for row, leaves in RECALL_ROWS.items():
+                        if gl in leaves:
+                            gold_n[f"row_{row}"] += 1
+                            gold_hit[f"row_{row}"] += pl in leaves
+                    if gl in tx.SUBSTITUTION_LEAVES and pl in tx.SUBSTITUTION_LEAVES:
+                        c["n_sub_both"] += 1
+                        c["sub_same"] += pl == gl
+                    if pl != gl:
+                        disagree.append(
+                            {
+                                "case_id": case["case_id"],
+                                "rules": case.get("rules") or case.get("rule"),
+                                "unit": u.id,
+                                "text": u.text[a - u.start : b - u.start],
+                                "gold": gl,
+                                "pred": pl,
+                                "why": _why(segs, u.id, a, b),
+                            }
+                        )
                 # character level
                 for i in range(a, b):
                     if u.text[i - u.start].isspace():
@@ -435,8 +442,9 @@ def coverage(cases: Sequence[dict[str, Any]]) -> dict[str, Any]:
             n_units += 1
             n_est += u.established
             n_disp += bool(u.established and g.get("dispute"))
-            for _a, _b, lf in gold_segments(u, g):
-                seg[lf] += 1
+            for a, b, lf in gold_segments(u, g):
+                if has_alnum(u.text[a - u.start : b - u.start]):
+                    seg[lf] += 1
     return {
         "n_units": n_units,
         "segments_per_leaf": {lf: seg[lf] for lf in tx.LEAF_NAMES},

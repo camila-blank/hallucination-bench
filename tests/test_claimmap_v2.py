@@ -346,7 +346,8 @@ def test_map_stage_runs_span_first_and_resumes(tmp_path, prose_readouts):
     assert [x["text"] for x in est] == ["Paris"]
     s2 = json.loads((wrun.arm_dir(out, wrun.Models(), "toy") / "summary_v2.json").read_text())
     assert (
-        s2["health"]["n_map_ok"] == 15 and s2["config"]["prompt_versions"]["map"] == "claimmap-v2"
+        s2["health"]["n_map_ok"] == 15
+        and s2["config"]["prompt_versions"]["map"] == cm.PROMPT_VERSION
     )
     assert s["health"]["n_failed_map"] == 0
     fake2 = MapFake()
@@ -513,3 +514,10 @@ def test_pilot_dump_v2_gives_unlabelled_cells_with_production_units(tmp_path, pr
         assert all(g["leaf"] is None for g in c["gold"]["units"])
     hal = next(c for c in cases if c["source"]["v5c_cell_class"] == "hallucinated")
     assert any(g["established"] and g["text"] == "Paris" for g in hal["gold"]["units"])
+
+
+def test_rev11_lens_framing_rule_is_rendered():
+    assert tx.LENS_FRAMING_RULE in cm.SYSTEM
+    assert "The model is representing / anticipating / focused on / gearing up for X" in cm.SYSTEM
+    assert "It is **never `model_state`**" in cm.SYSTEM
+    assert cm.PROMPT_VERSION == "claimmap-v2.1"

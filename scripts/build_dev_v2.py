@@ -518,6 +518,92 @@ CASES: list[dict[str, Any]] = [
             ]
         ],
     },
+    {
+        "id": "dev2-28-haiku-tokens",
+        "kind": "tokens",
+        "rules": ["token-model-is-framing", "lens-meta"],
+        "prompt": "Write a haiku about autumn leaves.",
+        "response": f"Crimson leaves drifting{M}\nwhispering to the cold ground\n"
+        "autumn says goodbye",
+        "readouts": [
+            "The model is gearing up to describe leaves falling to the ground in an autumn "
+            "poem. The tokens include Spanish 'hojas' (leaves)."
+        ],
+        "labels": [
+            [
+                {"splits": [["The model is gearing up to", "filler"]], "rest": "stated_after"},
+                {"splits": [["The tokens include", "filler"]], "rest": "lens_meta"},
+            ]
+        ],
+    },
+    {
+        "id": "dev2-29-dragon-tokens",
+        "kind": "tokens",
+        "rules": ["token-model-is-framing", "detail-fictional-name"],
+        "prompt": "Tell me a bedtime story about a dragon.",
+        "response": "Once upon a time, a small dragon named Ember lived in a cave above the "
+        f"village.{M} Every night she watched the lanterns glow below.",
+        "readouts": [
+            "The model is representing a dragon called Spark who lives in a cave. The model is "
+            "anticipating that she will watch the village lanterns at night."
+        ],
+        "labels": [
+            [
+                {
+                    "splits": [["The model is representing", "filler"], ["Spark", "detail"]],
+                    "rest": "restates_prefix",
+                },
+                {"splits": [["The model is anticipating", "filler"]], "rest": "stated_after"},
+            ]
+        ],
+    },
+    {
+        "id": "dev2-30-train-story",
+        "rules": ["detail-fictional-name", "detail-incidental-number", "split"],
+        "prompt": "Continue my story: 'Mia packed her suitcase and caught the 7:15 train to "
+        "Leeds.'",
+        "response": f"Mia found a seat by the window as the train pulled out at 7:15.{M} Beside "
+        "her, an old man was reading a newspaper.",
+        "readouts": [
+            "<explanation>\nThe story follows Nora on her train journey.\nShe packed 3 "
+            "suitcases.\nThe train left at 8:40\nNext an old man beside her will be "
+            "introduced.\n</explanation>"
+        ],
+        "labels": [
+            [
+                "formatting",
+                {"splits": [["Nora", "detail"]], "rest": "restates_prefix"},
+                "detail",
+                "detail",
+                "stated_after",
+                "formatting",
+            ]
+        ],
+    },
+    {
+        "id": "dev2-31-packing-list",
+        "rules": ["detail-heading-wording", "detail-incidental-number"],
+        "prompt": "Make me a packing list with sections.",
+        "response": f"## Clothes\n- 3 T-shirts\n- 1 jumper\n\n## Toiletries{M}\n- Toothbrush\n- "
+        "Sunscreen",
+        "readouts": [
+            "- The response has just written the 'Bathroom Items' heading\n- The clothes section "
+            "lists 5 T-shirts\n- Next comes the toothbrush"
+        ],
+        "labels": [["detail", "detail", "stated_after"]],
+    },
+    {
+        "id": "dev2-32-neighbour",
+        "rules": ["detail-invented-name", "detail-invented-number"],
+        "prompt": "My neighbour keeps parking in my spot. How do I bring it up politely?",
+        "response": f"Try a friendly, low-key chat.{M} Mention that the spot is assigned to you "
+        "and ask if they could use their own.",
+        "readouts": [
+            "- The neighbour's name is Mr Patel\n- The user has lived there for 12 years\n- "
+            "Next: ask them to use their own spot"
+        ],
+        "labels": [["detail", "detail", "filler", "stated_after"]],
+    },
 ]
 
 

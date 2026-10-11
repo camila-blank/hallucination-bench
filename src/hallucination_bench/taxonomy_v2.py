@@ -385,6 +385,14 @@ class Rule:
     body: tuple[str, ...]  # first entry: the rule; the rest: bullets
 
 
+LENS_FRAMING_RULE = (
+    "A summary's lens framing, such as \"The model is representing / anticipating / focused on "
+    '/ gearing up for X", is **framing** (`filler`). The X it attributes is judged as an '
+    "ordinary claim about the text or as a prediction. It is **never `model_state`**, which is "
+    "reserved for readouts that make claims about the model's beliefs or intent as such."
+)
+
+
 def _rules() -> dict[int, Rule]:
     return {
         1: Rule(
@@ -397,7 +405,8 @@ def _rules() -> dict[int, Rule]:
                 "gloss of the tokens is `lens_meta`. The interpretation, including its "
                 'connective ("suggesting the passage is about Y"), is one claim segment, judged '
                 'as usual. The connective ("suggesting", "indicating", "points to") is **not a '
-                "hedge**: the interpretation counts as asserted for rules 10 and 12.",
+                "hedge**: the interpretation counts as asserted for rules 10 and 12. "
+                + LENS_FRAMING_RULE,
                 "Echoes: a literal copy of the prompt's or the response's words that asserts "
                 'nothing (a sample that just repeats "I\'d be delighted to") is `filler`, even '
                 "in the first person (this is checked before rule 3). Any assertion about the "

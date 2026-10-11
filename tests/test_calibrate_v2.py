@@ -85,7 +85,7 @@ def test_unit_level_scoring_majority_leaf_and_segment_recall():
         ],
     )
     m = cal.run_metrics([c], [pred])
-    assert m["n_units"] == 3 and m["n_gold_segments"] == 5  # the rest is 2 pieces
+    assert m["n_units"] == 3 and m["n_gold_segments"] == 4  # the "." rest piece is skipped
     assert m["leaf_acc_unit"] == pytest.approx(1 / 3)  # unit 2's majority is restates_prefix
     assert m["group_acc_unit"] == 1.0  # every unit-majority group is right
     assert m["recall_false_claim"] == 0.0  # the minority segment is scored on its own chars
@@ -232,6 +232,9 @@ def test_dev_v2_is_valid_and_meets_the_coverage_requirements():
     ):
         assert anchor in rules, anchor
     assert any(c.get("kind") == "tokens" for c in cases)
+    assert cov["segments_per_leaf"]["detail"] >= 12
+    framing = [c for c in cases if "token-model-is-framing" in c["rules"]]
+    assert len(framing) >= 2 and all(c["kind"] == "tokens" for c in framing)
     # every split / hedged / dispute gold is consistent with the production splitter
     assert all(cal.validate_case(c) == [] for c in cases)
 

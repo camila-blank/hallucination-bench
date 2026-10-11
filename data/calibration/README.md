@@ -202,10 +202,12 @@ scored by the judge's `alt_leaf` (disputed) or raw leaf (forced).
 
 ## dev_v2.jsonl (synthetic, prompt iteration)
 
-27 cases, 130 gold units, written from scratch by the implementer (Claude, 2026-10-11) with
+32 cases, 147 gold units, written from scratch by the implementer (Claude, 2026-10-11) with
 `scripts/build_dev_v2.py` (the labels live there; re-run it if the splitter changes). Every
 case is invented. Coverage (asserted by `tests/test_calibrate_v2.py`): ≥ 3 gold segments for
-every leaf (min 3, e.g. 5 sibling and 4 category substitutions, 9 false_claim, 5 detail), 8
+every leaf (min 3, e.g. 5 sibling and 4 category substitutions, 9 false_claim, 13 detail;
+segment counts skip pure-punctuation fragments), token-summary "The model is …" framing as
+`filler` (rev 11, `dev2-28/29`), 8
 established units (one should be disputed: `dev2-16`), and every decision anchor (asserted vs
 predicted invented event `dev2-04`; world-true `dev2-05/06/22`; possible_belief `dev2-05/24`;
 sibling vs category `dev2-21/22/23`; detail vs substitution for names `dev2-01/03/27`; numbers
@@ -222,8 +224,9 @@ Gold-labelling notes (judgement calls, following `taxonomy_v2.py` defaults):
   Mumbai is `substitution_sibling`. This is the conversation-wins default (open decision 4).
 - Bare list markers left over when an established span starts mid-line (`-`) are `formatting`;
   `- next:` style scaffolding is `filler`.
-- "The model is …" phrasing is avoided in dev summaries: a summariser describing what is
-  represented is not `model_state` (rule 4 is about the model's own beliefs or intent).
+- Token-summary lens framing ("The model is representing / anticipating / gearing up to") is
+  a `filler` split; what it attributes is judged as an ordinary claim or prediction, never
+  `model_state` (plan rev 11, rule 1).
 
 ## heldout_v2.jsonl (gate only)
 
@@ -241,3 +244,4 @@ checks, each logged below.
 | 2026-10-11 | dev | claimmap-v2 | all dev rows pass except detail recall's Wilson bound (1.000, n = 5, lower 0.566) | group acc unit 0.954 / char 0.945, leaf acc 0.950, recall false_claim 1.00 / substitution 0.944 / correct 0.900, sib-vs-cat 1.00, claim F1 0.985, flip 0.031; 2 runs, $0.97; first dev run, no prompt edits |
 
 Gold-label fixes (v2): none.
+| 2026-10-11 | dev | claimmap-v2.1 (rev 11 framing rule; 32 cases, punctuation-only segments excluded) | all dev rows pass | group acc unit 0.966 / char 0.958, leaf acc 0.959, recall false_claim 1.00 / detail 0.923 (n 13) / substitution 1.00 / correct 0.910, sib-vs-cat 0.944, claim F1 0.992, flip 0.000; 2 runs, $2.06 |
