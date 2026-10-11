@@ -11,7 +11,7 @@ hallucination eval is one of many evals here; see `plans/` for the design histor
 | eval | what it measures | plan |
 |---|---|---|
 | `wsbench_chat` | WorkspaceBench's hallucination (chat) eval, ported verbatim (v5c span + verify stages), plus the taxonomy classifier | [0001](plans/0001-bootstrap-wsbench-chat-taxonomy.md) |
-| `wsbench_chat` claim map | taxonomy v2: every character of every readout in exactly one of 22 leaves (8 groups), rolled up into 7 verdicts | [0002](plans/0002-claim-map-taxonomy-v2.md) |
+| `wsbench_chat` claim map | taxonomy v2: every character of every readout in exactly one of 12 leaves (8 groups), rolled up into 6 verdicts | [0002](plans/0002-claim-map-taxonomy-v2.md) |
 
 Per cell (arm × item × read site × layer) `wsbench_chat` runs up to five calls:
 
@@ -37,27 +37,28 @@ seeded 10% item subsample for the v5c comparison; under `--anchor v5c` span on e
 
 Defined once in [`src/hallucination_bench/taxonomy_v2.py`](src/hallucination_bench/taxonomy_v2.py)
 (leaves, groups, precedence, the Detail rule, tags, and the open decisions with their defaults in
-`CHOSEN`) and rendered into the judge prompt. Three top branches (rev 13, option A):
-non-claim / claim about the text / supplementary claim; the test is **settlement, not
-subject** (an on-topic world claim the conversation does not state, entail or contradict is
-supplementary). Eight groups: **hallucination** (`detail`, `false_claim`), **co-activation**
-(`substitution_sibling`, `substitution_category`), **correct** (`restates_prefix`,
-`stated_after`, `entailed`), **supplementary** (`supplementary_true`, `supplementary_false`,
-`supplementary_unsettled`), **thinky** (`unrealised_option`, `unrealised_prediction`,
-`model_state`, `unsupported_assertion`, `other_on_topic`), **unsettled** (`ambiguous_topic`), **junk** (`off_topic`), **non-claim**
-(`generic`, `filler`, `formatting`, `junk_text`, `lens_meta`), plus two code-only rows:
-`unknown_incorrect` (`--anchor v5c` only: an established v5c span the judge disputed or did
-not label incorrect) and `failed`. Each leaf maps to one **verdict** (`taxonomy_v2.VERDICTS`):
-hallucination, probe_candidate, alternative, correct, unresolved, junk, non_claim. The headline is the
-character-weighted verdict share per readout (averaged over readouts) and the readout-level
-verdict rates; groups and leaves are the breakdown. Probe-candidate segments carry a
-`probe_target` (written to `probe_candidates.jsonl`). Rev 15 hallucination gate: a segment is
-incorrect only if the conversation **obviously contradicts** it; uncontradicted invented content
-is `unsupported_assertion` (unresolved); unrealised continuations that are not contradicted are
-`unrealised_option` (same open-ended slot) or `unrealised_prediction` (a different move or
-answer), both verdict `alternative`; content realised in any wording is `stated_after`. Invalid
-`:M` answers are retried up to 2 times in-run before being cached as failed. Outputs are labelled **pre-gate** until
-the held-out gate passes for the current prompt version.
+`CHOSEN`) and rendered into the judge prompt. Rev 16 (the lean tree): **12 leaves** —
+`non_claim` (tag `reason`), `correct` (tag `source`: prefix / after / entailed), `detail`,
+`false_claim`, `substitution_sibling`, `substitution_category`, `model_state`, `unverifiable`
+(tags `same_slot_alternative`, `world`, `prediction`), `supplementary_true`,
+`supplementary_false`, `ambiguous_topic`, `off_topic` — in 8 groups, plus two code-only rows:
+`unknown_incorrect` (`--anchor v5c` only) and `failed`. Tags are recorded but never change a
+verdict. The hallucination gate: a segment is incorrect only if the conversation **obviously
+contradicts** it; predictions get no category of their own (contradicted → incorrect, else
+`unverifiable` with `prediction = true`); content realised in any wording is `correct`. The
+test for world claims is **settlement, not subject** (text silent → `supplementary_*`).
+Each leaf maps to one **verdict** (`taxonomy_v2.VERDICTS`): hallucination (detail,
+false_claim), probe_candidate (substitutions, model_state, supplementary_false,
+ambiguous_topic), correct, unresolved (unverifiable), junk, non_claim. The headline is the
+character-weighted verdict share per readout and the readout-level verdict rates, with
+**`false_claim` and `detail` always reported separately** next to the hallucination verdict;
+groups and leaves are the breakdown. Probe-candidate segments carry a `probe_target`
+(`probe_candidates.jsonl`). Invalid `:M` answers are retried up to 2 times in-run before
+being cached as failed. Outputs are labelled **pre-gate** until the held-out gate passes for
+the current prompt version. `hbench consistency-v2 --arms s3d-rl600:44,nla-rl-L42:42,jlens:44
+--n 50 --seed 0` runs `:M` twice per sampled cell and reports κ, raw agreement, the between-run
+leaf confusion, per-leaf self-agreement and the leaf pairs swapped in > 10% of a leaf's units
+(`outputs/consistency/<model>/`).
 
 ## The taxonomy (v1)
 

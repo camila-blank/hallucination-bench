@@ -30,7 +30,7 @@ from hallucination_bench.judges.v5c import READ_MARK
 from hallucination_bench.llm import schema_block
 from hallucination_bench.units import Normalised, Unit
 
-PROMPT_VERSION = "claimmap-v2.5"
+PROMPT_VERSION = "claimmap-v2.6"
 ANCHORS: tuple[str, ...] = ("none", "v5c")
 MAX_MISSING_SHARE = 0.10
 
@@ -75,7 +75,8 @@ _USER_TAIL = (
 )
 USER_TEMPLATE = (  # single-call (default)
     _USER_HEAD + "Each line is `unit id | unit text` (the text JSON-quoted).\n\n{units_block}\n\n"
-    "For EACH unit report: id (exactly as given), leaf, hedged, world_false, cruxy, pair, "
+    "For EACH unit report: id (exactly as given), leaf, the leaf tags (reason, source, "
+    "same_slot_alternative, world, prediction), hedged, world_false, cruxy, pair, "
     "probe_target, why (one short clause), splits (an empty list unless the unit needs "
     + _USER_TAIL
 )
@@ -83,7 +84,8 @@ USER_TEMPLATE_V5C = (
     _USER_HEAD + "Each line is `unit id | flag | unit text` (the text JSON-quoted); the flag "
     "ESTABLISHED marks a span an earlier audit verified as wrong (rule 2), `-` marks an "
     "ordinary unit.\n\n{units_block}\n\n"
-    "For EACH unit report: id (exactly as given), leaf, hedged, world_false, cruxy, dispute, "
+    "For EACH unit report: id (exactly as given), leaf, the leaf tags (reason, source, "
+    "same_slot_alternative, world, prediction), hedged, world_false, cruxy, dispute, "
     "alt_leaf, pair, probe_target, why (one short clause), splits (an empty list unless the "
     "unit needs " + _USER_TAIL
 )
@@ -113,7 +115,14 @@ def _seg_props(anchored: bool) -> dict[str, Any]:
     }
     if anchored:
         props |= {"dispute": {"type": "boolean"}, "alt_leaf": _NULLABLE_LEAF}
-    return props | {"pair": _PAIR, "probe_target": _NULLABLE_STR, "why": {"type": "string"}}
+    return props | {
+        "pair": _PAIR,
+        "probe_target": _NULLABLE_STR,
+        "reason": {"anyOf": [{"type": "string", "enum": list(tx.REASONS)}, {"type": "null"}]},
+        "source": {"anyOf": [{"type": "string", "enum": list(tx.SOURCES)}, {"type": "null"}]},
+        **{f: {"type": "boolean"} for f in tx.UNVERIFIABLE_FLAGS},
+        "why": {"type": "string"},
+    }
 
 
 def _schemas(anchored: bool) -> tuple[dict[str, Any], dict[str, Any], dict[str, Any]]:
@@ -266,6 +275,11 @@ class Segment:
     dispute: bool = False
     pair: dict[str, str] | None = None
     probe_target: str | None = None
+    reason: str | None = None  # non_claim only
+    source: str | None = None  # correct only
+    same_slot_alternative: bool = False  # unverifiable only
+    world: bool = False  # unverifiable only
+    prediction: bool = False  # unverifiable only
     why: str = ""
 
     @property
@@ -308,6 +322,21 @@ def _pair(x: Any) -> dict[str, str] | None:
 
 def _probe_target(x: Any) -> str | None:
     return x.strip() if isinstance(x, str) and x.strip() else None
+
+
+def _enum(x: Any, allowed: Sequence[str]) -> str | None:
+    return x if isinstance(x, str) and x in allowed else None
+
+
+def _leaf_tags(s: "Segment") -> None:
+    """Rev 16 leaf tags are kept only on their leaf: ``reason`` on ``non_claim``, ``source`` on
+    ``correct``, the three flags on ``unverifiable``."""
+    if s.raw_leaf != "non_claim":
+        s.reason = None
+    if s.raw_leaf != "correct":
+        s.source = None
+    if s.raw_leaf != "unverifiable":
+        s.same_slot_alternative = s.world = s.prediction = False
 
 
 def _leaf(x: Any) -> str | None:
@@ -408,6 +437,7 @@ def parse(
         useg: list[Segment] = []
         for p in _pieces(u, e, c):
             src = p.entry if p.entry is not None else {}
+            tsrc = e if p.kind == "rest" else src  # leaf tags of a rest piece: the unit's
             leaf = p.leaf
             seg = Segment(
                 u.id,
@@ -426,8 +456,12 @@ def parse(
                 cruxy=_b(src.get("cruxy")),
                 dispute=_b(src.get("dispute")),
                 pair=_pair(src.get("pair")),
-                probe_target=_probe_target(src.get("probe_target"))
-                or (_probe_target(e.get("probe_target")) if p.kind == "rest" else None),
+                probe_target=_probe_target(tsrc.get("probe_target")),
+                reason=_enum(tsrc.get("reason"), tx.REASONS),
+                source=_enum(tsrc.get("source"), tx.SOURCES),
+                same_slot_alternative=_b(tsrc.get("same_slot_alternative")),
+                world=_b(tsrc.get("world")),
+                prediction=_b(tsrc.get("prediction")),
                 why=str(src.get("why") or e.get("why") or ""),
             )
             if leaf is None:
@@ -441,6 +475,7 @@ def parse(
                 s.pair = None  # pair is logged for substitutions only
             elif s.status == "ok" and s.pair is None:
                 c["n_missing_pairs"] += 1
+            _leaf_tags(s)
             if s.raw_leaf not in tx.PROBE_CANDIDATE_LEAVES or s.status != "ok":
                 s.probe_target = None  # probe_target is kept for probe candidates only
             else:

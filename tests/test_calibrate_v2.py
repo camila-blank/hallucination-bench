@@ -28,7 +28,7 @@ def case(**kw):
     }
     c.update(kw)
     c = cal.skeleton(c)
-    leaves = kw.pop("leaves", None) or ["substitution_sibling", "restates_prefix", "stated_after"]
+    leaves = kw.pop("leaves", None) or ["substitution_sibling", "correct", "correct"]
     for g, lf in zip(c["gold"]["units"], leaves, strict=True):
         g["leaf"] = lf
     return c
@@ -47,15 +47,15 @@ def test_skeleton_and_validation_follow_the_splitter():
     bad["gold"]["units"][1]["text"] = "A painting"
     assert any("does not match the splitter" in x for x in cal.validate_case(bad))
     bad = copy.deepcopy(c)
-    bad["gold"]["units"][0]["leaf"] = "restates_prefix"  # established, not incorrect, no dispute
+    bad["gold"]["units"][0]["leaf"] = "correct"  # established, not incorrect, no dispute
     assert any("established unit" in x for x in cal.validate_case(bad))
     bad["gold"]["units"][0]["dispute"] = True
     assert cal.validate_case(bad) == []
     bad = copy.deepcopy(c)
-    bad["gold"]["units"][2]["splits"] = [{"text": "comes", "leaf": "filler"}]
+    bad["gold"]["units"][2]["splits"] = [{"text": "comes", "leaf": "non_claim"}]
     assert any("rest_leaf is required" in x for x in cal.validate_case(bad))
-    bad["gold"]["units"][2]["splits"] = [{"text": "nope", "leaf": "filler"}]
-    bad["gold"]["units"][2]["rest_leaf"] = "stated_after"
+    bad["gold"]["units"][2]["splits"] = [{"text": "nope", "leaf": "non_claim"}]
+    bad["gold"]["units"][2]["rest_leaf"] = "correct"
     assert any("not a verbatim" in x for x in cal.validate_case(bad))
     assert any("exactly once" in x for x in cal.validate_case({**c, "response": "no marker"}))
     assert any("not found" in x for x in cal.validate_case({**c, "established": [["Monet"]]}))
@@ -69,24 +69,25 @@ def _preds(c, entries):
 def test_unit_level_scoring_majority_leaf_and_segment_recall():
     c = case(
         readouts=["It was Picasso. Alpha is red and Paris is big. Next comes the date."],
-        leaves=["substitution_sibling", None, "stated_after"],
+        leaves=["substitution_sibling", None, "correct"],
     )
     # gold splits unit 2: a minority false_claim sub-span inside a mostly-correct unit
     g = c["gold"]["units"][1]
     g["splits"] = [{"text": "Paris is big", "leaf": "false_claim"}]
-    g["rest_leaf"] = "restates_prefix"
+    g["rest_leaf"] = "correct"
     assert cal.validate_case(c) == []
     pred = _preds(
         c,
         [
             e("R0.U1", "substitution_category"),  # wrong sub-type, right group
-            e("R0.U2", "restates_prefix"),  # unsplit: misses the minority false_claim
-            e("R0.U3", "restates_prefix", dispute=True),  # wrong leaf, right group
+            e("R0.U2", "correct"),  # unsplit: misses the minority false_claim
+            e("R0.U3", "correct", dispute=True),  # rev 16: stated_after and restates_prefix
+            # merged into `correct`, so this unit is now right
         ],
     )
     m = cal.run_metrics([c], [pred])
     assert m["n_units"] == 3 and m["n_gold_segments"] == 4  # the "." rest piece is skipped
-    assert m["leaf_acc_unit"] == pytest.approx(1 / 3)  # unit 2's majority is restates_prefix
+    assert m["leaf_acc_unit"] == pytest.approx(2 / 3)  # unit 2's majority is correct
     assert m["group_acc_unit"] == 1.0  # every unit-majority group is right
     assert m["recall_false_claim"] == 0.0  # the minority segment is scored on its own chars
     assert m["recall_correct"] == 1.0
@@ -98,16 +99,16 @@ def test_unit_level_scoring_majority_leaf_and_segment_recall():
 
 def test_forced_and_disputed_predictions_are_scored_by_raw_and_alt_leaf():
     c = case()
-    c["gold"]["units"][0]["leaf"] = "restates_prefix"
+    c["gold"]["units"][0]["leaf"] = "correct"
     c["gold"]["units"][0]["dispute"] = True
-    forced = _preds(c, [e("R0.U1", "restates_prefix"), e("R0.U2"), e("R0.U3", "stated_after")])
+    forced = _preds(c, [e("R0.U1", "correct"), e("R0.U2"), e("R0.U3", "correct")])
     assert forced[1]["n_forced_established"] == 1
     disputed = _preds(
         c,
         [
-            e("R0.U1", "detail", dispute=True, alt_leaf="restates_prefix"),
+            e("R0.U1", "detail", dispute=True, alt_leaf="correct"),
             e("R0.U2"),
-            e("R0.U3", "stated_after"),
+            e("R0.U3", "correct"),
         ],
     )
     assert disputed[1]["n_disputed_established"] == 1
@@ -119,8 +120,8 @@ def test_forced_and_disputed_predictions_are_scored_by_raw_and_alt_leaf():
 
 def test_gate_requires_wilson_lower_bound_on_recalls_and_flags_flips():
     c = case()
-    good = _preds(c, [e("R0.U1", "substitution_sibling"), e("R0.U2"), e("R0.U3", "stated_after")])
-    other = _preds(c, [e("R0.U1", "substitution_sibling"), e("R0.U2"), e("R0.U3", "filler")])
+    good = _preds(c, [e("R0.U1", "substitution_sibling"), e("R0.U2"), e("R0.U3", "correct")])
+    other = _preds(c, [e("R0.U1", "substitution_sibling"), e("R0.U2"), e("R0.U3", "non_claim")])
     res = cal.score([c], [[good], [other]], "heldout")
     assert res["mean"]["group_flip_rate"] == pytest.approx(1 / 3)
     rows = {g["key"]: g for g in res["gate"]}

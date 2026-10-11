@@ -94,11 +94,20 @@ def _rename(x: Any, fallbacks: Counter | None = None) -> Any:
     return tx.LEAF_RENAMES.get(x, x)
 
 
+def _merge_tags(d: dict[str, Any], old: Any, key: str) -> None:
+    t = tx.MERGE_TAGS.get(old) if isinstance(old, str) else None
+    if t:
+        d[key] = {**t, **(d.get(key) or {})}
+
+
 def remap_case(c: dict[str, Any], fallbacks: Counter | None = None) -> dict[str, Any]:
-    """The case with old gold leaf names mapped (a new dict; the input is not changed):
-    pre-rev-13 renames mechanically; rev 14's ``unrealised_prediction`` -> ``unrealised_option``
-    only as a fallback (counted in ``fallbacks``; :func:`load_cases` warns), since most such
-    gold should be re-labelled incorrect. Contested-world-claim relabels are not done here."""
+    """The case with old gold leaf names mapped (a new dict; the input is not changed): every
+    earlier leaf goes mechanically through the rev-16 merges (``taxonomy_v2.LEAF_RENAMES``), and
+    the tags the merge carries (``MERGE_TAGS``: ``reason`` / ``source`` / the unverifiable flags)
+    are recorded under ``tags`` (unit leaf and splits) and ``rest_tags`` (rest leaf).
+    ``FALLBACK_RENAMES`` (none since rev 15) are counted in ``fallbacks`` and
+    :func:`load_cases` warns. Judgement calls (contradicted old ``unrealised_*``) are not made
+    here."""
     rn = functools.partial(_rename, fallbacks=fallbacks)
     gold = c.get("gold")
     if not isinstance(gold, dict) or not isinstance(gold.get("units"), list):
@@ -109,14 +118,20 @@ def remap_case(c: dict[str, Any], fallbacks: Counter | None = None) -> dict[str,
             units.append(g)
             continue
         g = {**g}
+        _merge_tags(g, g.get("leaf"), "tags")
+        _merge_tags(g, g.get("rest_leaf"), "rest_tags")
         for k in ("leaf", "rest_leaf", "alt_leaf"):
             if k in g:
                 g[k] = rn(g[k])
         if isinstance(g.get("splits"), list):
-            g["splits"] = [
-                {**sp, "leaf": rn(sp.get("leaf"))} if isinstance(sp, dict) else sp
-                for sp in g["splits"]
-            ]
+            splits = []
+            for sp in g["splits"]:
+                if isinstance(sp, dict):
+                    sp = {**sp}
+                    _merge_tags(sp, sp.get("leaf"), "tags")
+                    sp["leaf"] = rn(sp.get("leaf"))
+                splits.append(sp)
+            g["splits"] = splits
         units.append(g)
     return {**c, "gold": {**gold, "units": units}}
 

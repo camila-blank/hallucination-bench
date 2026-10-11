@@ -24,7 +24,6 @@ def test_verdict_mapping_covers_every_leaf_exactly_once():
     assert set(tx.VERDICTS) == {
         "hallucination",
         "probe_candidate",
-        "alternative",
         "correct",
         "unresolved",
         "junk",
@@ -32,35 +31,24 @@ def test_verdict_mapping_covers_every_leaf_exactly_once():
     }
     assert tx.VERDICTS["hallucination"] == ("detail", "false_claim")
     assert (
-        set(tx.VERDICTS["non_claim"]) == set(tx.NON_CLAIM_LEAVES) and len(tx.NON_CLAIM_LEAVES) == 5
+        set(tx.VERDICTS["non_claim"]) == set(tx.NON_CLAIM_LEAVES) and len(tx.NON_CLAIM_LEAVES) == 1
     )
     assert tx.verdict_of("supplementary_true") == "correct"
     assert tx.verdict_of("supplementary_false") == "probe_candidate"
-    assert tx.verdict_of("supplementary_unsettled") == "unresolved"
+    assert tx.verdict_of("unverifiable") == "unresolved"
     assert tx.verdict_of(tx.UNKNOWN_INCORRECT) == "unresolved"
     assert tx.verdict_of(tx.FAILED) == tx.FAILED
     assert tx.VERDICT_ROWS == (*tx.VERDICTS, tx.FAILED)
 
 
 def test_groups_follow_option_a():
-    assert tx.CORRECT_LEAVES == ("restates_prefix", "stated_after", "entailed")
-    assert tx.SUPPLEMENTARY_LEAVES == (
-        "supplementary_true",
-        "supplementary_false",
-        "supplementary_unsettled",
-    )
-    assert set(tx.THINKY_LEAVES) == {
-        "unrealised_option",
-        "unrealised_prediction",
-        "model_state",
-        "unsupported_assertion",
-        "other_on_topic",
-    }
+    # rev 16: one correct leaf; supplementary_unsettled folded into unverifiable (world tag)
+    assert tx.CORRECT_LEAVES == ("correct",)
+    assert tx.SUPPLEMENTARY_LEAVES == ("supplementary_true", "supplementary_false")
+    assert set(tx.THINKY_LEAVES) == {"model_state", "unverifiable"}
     assert "world_true" not in tx.LEAVES and "possible_belief" not in tx.LEAVES
-    assert tx.LEAF_RENAMES == {
-        "world_true": "supplementary_true",
-        "possible_belief": "supplementary_false",
-    }
+    assert tx.LEAF_RENAMES["world_true"] == "supplementary_true"
+    assert tx.LEAF_RENAMES["possible_belief"] == "supplementary_false"
 
 
 # ------------------------------------------------------------------ prompt
@@ -76,9 +64,7 @@ def test_supplementary_routing_is_in_the_prompt(system):
     for lf in tx.SUPPLEMENTARY_LEAVES:
         assert f"- `{lf}`: {tx.LEAVES[lf].definition}" in system
     assert "### supplementary claim" in system
-    assert f"\n14. **{tx.RULES[14].title}**" in system
-    assert "contested or uncheckable world claims" in system  # rule 13 -> supplementary
-    assert "Contested or uncheckable world claims are `supplementary_unsettled`" in system
+    assert "`unverifiable` with `world = true` if world knowledge" in system  # rev 16
     assert "world_true" not in system and "possible_belief" not in system
     assert "three top branches" in system
 
@@ -130,7 +116,7 @@ def test_probe_target_parsing_and_missing_count():
             e("R0.U2", "ambiguous_topic"),  # missing probe_target: counted, leaf kept
             e(
                 "R0.U3",
-                "generic",
+                "non_claim",
                 splits=[
                     sp(
                         "Paris",
@@ -139,10 +125,10 @@ def test_probe_target_parsing_and_missing_count():
                         probe_target="Paris",
                     )
                 ],
-                rest_leaf="restates_prefix",
+                rest_leaf="correct",
                 probe_target="dropped on the rest: not a probe candidate",
             ),
-            e("R0.U4", "restates_prefix", probe_target="not a probe candidate"),
+            e("R0.U4", "correct", probe_target="not a probe candidate"),
         ],
         "rationale": "",
     }
@@ -152,8 +138,8 @@ def test_probe_target_parsing_and_missing_count():
         ("The model thinks it is a test.", "model_state", "this is an evaluation"),
         ("Next comes therapy.", "ambiguous_topic", None),
         ("Paris", "substitution_sibling", "Paris"),
-        ("is big.", "restates_prefix", None),
-        ("Yes.", "restates_prefix", None),
+        ("is big.", "correct", None),
+        ("Yes.", "correct", None),
     ]
     assert c["n_probe_candidates"] == 3 and c["n_missing_probe_targets"] == 1
     assert segs[2].pair == {"said": "Paris", "actual": "Rome"}
@@ -165,8 +151,8 @@ def test_probe_target_on_a_rest_piece_falls_back_to_the_unit():
         "units": [
             e(
                 "R0.U1",
-                "filler",
-                splits=[sp("Hmm,", "filler")],
+                "non_claim",
+                splits=[sp("Hmm,", "non_claim")],
                 rest_leaf="model_state",
                 probe_target="this is a test",
             )
@@ -175,7 +161,7 @@ def test_probe_target_on_a_rest_piece_falls_back_to_the_unit():
     }
     segs, c = cm.parse(raw, units)
     assert [(s.leaf, s.probe_target) for s in segs] == [
-        ("filler", None),
+        ("non_claim", None),
         ("model_state", "this is a test"),
     ]
     assert c["n_missing_probe_targets"] == 0
@@ -244,9 +230,9 @@ def _nov5c(rec):
 
 def test_verdict_shares_rates_and_the_v5c_comparison():
     recs = [
-        _rec("a", 44, [[("false_claim", 30), ("filler", 10)]], cls="hallucinated"),
+        _rec("a", 44, [[("false_claim", 30), ("non_claim", 10)]], cls="hallucinated"),
         _rec("b", 44, [[("model_state", 5), ("supplementary_true", 5)]], cls="consistent"),
-        _rec("c", 44, [[("supplementary_unsettled", 8)]], cls="generic"),
+        _rec("c", 44, [[("unverifiable", 8)]], cls="generic"),
         _nov5c(_rec("d", 44, [[("detail", 4), ("off_topic", 4)]])),
     ]
     acc = score_v2.AccumulatorV2()
@@ -290,7 +276,7 @@ def test_old_gold_names_are_remapped_on_load(tmp_path):
         "readouts": ["Lord Rayleigh found it. Mars has a blue sky. Fine and dandy."],
     }
     c = cal.skeleton(c)
-    for g, lf in zip(c["gold"]["units"], ["world_true", None, "filler"], strict=True):
+    for g, lf in zip(c["gold"]["units"], ["world_true", None, "non_claim"], strict=True):
         g["leaf"] = lf
     g = c["gold"]["units"][1]
     g["splits"] = [{"text": "Mars", "leaf": "possible_belief"}]
@@ -319,7 +305,7 @@ def test_verdict_accuracy_gate_row_and_probe_target_anchors():
     )
     for g, lf in zip(
         c["gold"]["units"],
-        ["model_state", "supplementary_unsettled", "supplementary_true"],
+        ["model_state", "unverifiable", "supplementary_true"],
         strict=True,
     ):
         g["leaf"] = lf
@@ -329,7 +315,7 @@ def test_verdict_accuracy_gate_row_and_probe_target_anchors():
         {
             "units": [
                 e("R0.U1", "ambiguous_topic", probe_target="a test"),  # same verdict
-                e("R0.U2", "other_on_topic"),  # same verdict (unresolved), other group
+                e("R0.U2", "unverifiable"),  # same verdict (unresolved), other group
                 e("R0.U3", "false_claim"),  # wrong verdict
             ],
             "rationale": "",
@@ -338,7 +324,7 @@ def test_verdict_accuracy_gate_row_and_probe_target_anchors():
     )
     m = cal.run_metrics([c], [pred])
     assert m["verdict_acc_unit"] == pytest.approx(2 / 3)
-    assert m["group_acc_unit"] == 0.0  # every unit's group differs
+    assert m["group_acc_unit"] == pytest.approx(1 / 3)  # rev 16: both unverifiable (thinky)
     assert m["probe_targets"] == [
         {
             "case_id": "v",
@@ -352,7 +338,7 @@ def test_verdict_accuracy_gate_row_and_probe_target_anchors():
     res = cal.score([c], [[pred], [pred]], "dev")
     rows = {g["key"]: g for g in res["gate"]}
     assert rows["verdict_acc_unit"]["threshold"] == 0.85
-    assert rows["verdict_acc_unit"]["measure"] == "verdict accuracy (7 verdicts), unit level"
+    assert rows["verdict_acc_unit"]["measure"] == "verdict accuracy (6 verdicts), unit level"
     assert rows["verdict_acc_unit"]["passed"] is False
     assert res["anchor"] == "none" and len(res["probe_targets"]) == 2
     assert "verdict accuracy" in cal.render_markdown(res)
@@ -361,7 +347,7 @@ def test_verdict_accuracy_gate_row_and_probe_target_anchors():
 def test_dev_v2_has_rev13_anchors():
     cases = cal.load_cases("dev")
     cov = cal.coverage(cases)
-    assert cov["segments_per_leaf"]["supplementary_unsettled"] >= 3
+    assert cov["segments_per_leaf"]["unverifiable"] >= 3
     probes = [
         g
         for c in cases

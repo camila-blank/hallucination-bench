@@ -25,9 +25,15 @@ Plan rev 15 (hallucination = obviously contradicted by the text), only leaves th
 items 2-3: uncontradicted invented content -> ``unsupported_assertion`` (dev2-04 curtains,
 dev2-10 child / educational platform, dev2-27 Sarah / 3 kids / nurse, dev2-32 Mr Patel / 12
 years); uncontradicted unrealised moves -> ``unrealised_prediction`` (dev2-07, dev2-17, dev2-34,
-dev2-35 guide, dev2-36 "development environment": a different answer the text does not
-contradict). New anchors: dev2-39 (realised paraphrases), dev2-40 (paraphrase, alternative,
+dev2-35 guide). New anchors: dev2-39 (realised paraphrases), dev2-40 (paraphrase, alternative,
 contradicted continuation), dev2-41 (contradicted details; Maria unsupported).
+
+Plan rev 16 (12 leaves): the labels in this file keep the fine leaves of earlier revisions;
+``build`` maps them through the merges (``calibrate_v2.remap_case``: e.g. ``stated_after`` ->
+``correct`` with tag ``source = after``). dev2-36 stays ``false_claim`` (a different answer to the
+question). New anchors (written in rev-16 leaves): dev2-42 (context word -> detail), dev2-43
+(flood in a tobacco-smell chat -> false_claim), dev2-44 (spill cleaned up, welcome to Oakville
+-> unverifiable), dev2-45 ("3. Baking soda" -> unverifiable, same_slot_alternative).
 """
 
 import json
@@ -35,7 +41,7 @@ import sys
 from pathlib import Path
 from typing import Any
 
-from hallucination_bench.calibrate_v2 import case_units, validate_case
+from hallucination_bench.calibrate_v2 import case_units, remap_case, validate_case
 
 DEST = Path(__file__).resolve().parents[1] / "data" / "calibration" / "dev_v2.jsonl"
 M = "⟦READ⟧"
@@ -758,6 +764,7 @@ CASES: list[dict[str, Any]] = [
         "rules": [
             "unrealised-different-answer",
             "continuation-style",
+            "contradicted-continuation-incorrect",
         ],
         "prompt": "Who is your better half?",
         "response": "As an AI, I don't have a partner, but you could say my better half is the "
@@ -766,7 +773,7 @@ CASES: list[dict[str, Any]] = [
             "- my better half is your development environment",
             "- engineers and researchers",
         ],
-        "labels": [["unrealised_prediction"], ["stated_after"]],
+        "labels": [["false_claim"], ["stated_after"]],
     },
     {
         "id": "dev2-37-identity",
@@ -839,6 +846,72 @@ CASES: list[dict[str, Any]] = [
         ],
         "labels": [["detail", "detail", "detail", "unsupported_assertion"]],
     },
+    # ---- plan rev 16 anchors (labels in rev-16 leaves; tags under "tags")
+    {
+        "id": "dev2-42-rlc-android",
+        "rules": ["detail-context-word"],
+        "prompt": "What does the RLC layer do in the 3GPP LTE specification?",
+        "response": "In 3GPP LTE, the Radio Link Control (RLC) layer sits between PDCP and MAC."
+        f"{M} It handles segmentation, reassembly and retransmission (ARQ) of packets.",
+        "readouts": [
+            "- RLC in the context of Android\n- Next it lists segmentation, reassembly and "
+            "retransmission"
+        ],
+        "labels": [["detail", {"leaf": "correct", "tags": {"source": "after"}}]],
+    },
+    {
+        "id": "dev2-43-tobacco-smell",
+        "rules": ["false-claim-ruled-out-situation", "contradicted-continuation-incorrect"],
+        "prompt": "My new apartment smells like old cigarette smoke. How do I get rid of it?",
+        "response": f"Stale tobacco smoke clings to walls and fabrics.{M} Wash the walls with a "
+        "vinegar solution, clean the carpets, and air the rooms out daily.",
+        "readouts": [
+            "- if it's from a flood or sewage backup, call a professional\n- Next: wash the "
+            "walls with vinegar"
+        ],
+        "labels": [
+            [
+                "false_claim",
+                "filler",
+                "stated_after",
+            ]
+        ],
+    },
+    {
+        "id": "dev2-44-laptop-spill",
+        "rules": ["uncontradicted-prediction-unverifiable", "unsupported-assertion"],
+        "prompt": "I just spilled coffee on my laptop keyboard!",
+        "response": f"Turn it off right away and unplug it.{M} Then flip it upside down over a "
+        "towel so the liquid can drain.",
+        "readouts": [
+            "- the spill has been cleaned up\n- Welcome to Oakville Computer Repair\n- Next "
+            "it says to drain the laptop upside down"
+        ],
+        "labels": [
+            [
+                {"leaf": "unverifiable", "tags": {"prediction": True}},
+                "unverifiable",
+                {"leaf": "correct", "tags": {"source": "after"}},
+            ]
+        ],
+    },
+    {
+        "id": "dev2-45-fridge-odour",
+        "rules": ["same-slot-alternative", "unrealised-option"],
+        "prompt": "How do I get rid of smells in my fridge?",
+        "response": "Try these:\n1. Wipe the shelves with white vinegar.\n2. Throw out expired "
+        f"food.\n3.{M} Leave a bowl of dry coffee grounds inside overnight.",
+        "readouts": ["- 3. Baking soda\n- The list's first tip is wiping the shelves"],
+        "labels": [
+            [
+                {
+                    "leaf": "unverifiable",
+                    "tags": {"same_slot_alternative": True, "prediction": True},
+                },
+                {"leaf": "correct", "tags": {"source": "prefix"}},
+            ]
+        ],
+    },
 ]
 
 
@@ -851,6 +924,7 @@ def _gold(label: Any) -> dict[str, Any]:
         "rest_leaf": label.get("rest"),
         **({"dispute": True} if label.get("dispute") else {}),
         **({"probe_target": label["probe_target"]} if label.get("probe_target") else {}),
+        **({"tags": label["tags"]} if label.get("tags") else {}),
     }
 
 
@@ -880,6 +954,7 @@ def build() -> list[dict[str, Any]]:
                 for u, lab in zip(units, labels, strict=True)
             ]
         }
+        case = remap_case(case)  # rev 16: labels above use the fine leaves; merge them
         errs = validate_case(case)
         if errs:
             raise SystemExit("\n".join(errs))

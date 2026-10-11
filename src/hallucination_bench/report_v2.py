@@ -86,12 +86,44 @@ def _blocks(arms: dict[str, dict[str, Any]]) -> tuple[list, list]:
     return overall, layered
 
 
+# rev 16: false_claim and detail are always reported next to the hallucination verdict
+SPLIT_LEAVES: tuple[str, ...] = ("false_claim", "detail")
+
+
+def _vhead() -> list[str]:
+    out = []
+    for v in VERDICT_ROWS:
+        out.append(v)
+        if v == tx.V_HALLUCINATION:
+            out += [f"↳ {lf}" for lf in SPLIT_LEAVES]
+    return out
+
+
+def _vshare_row(n: str, b: dict[str, Any]) -> list[str]:
+    out = [n, str(b["n_share_readouts"])]
+    for v in VERDICT_ROWS:
+        out.append(_p(b["char_share_verdict"][v]))
+        if v == tx.V_HALLUCINATION:
+            out += [_p(b["char_share_leaf"][lf]) for lf in SPLIT_LEAVES]
+    return out
+
+
+def _vrate_head() -> list[str]:
+    out = []
+    for f in VERDICT_FLAGS:
+        out.append(FLAG_TITLES[f])
+        if f == f"verdict_{tx.V_HALLUCINATION}":
+            out += [f"↳ {lf}" for lf in SPLIT_LEAVES]
+    return out
+
+
 def _vrow(n: str, b: dict[str, Any]) -> list[str]:
-    return [
-        n,
-        str(b["n_rate_readouts"]["all"]),
-        *(_p(b["rates"][f]["all"]) for f in VERDICT_FLAGS),
-    ]
+    out = [n, str(b["n_rate_readouts"]["all"])]
+    for f in VERDICT_FLAGS:
+        out.append(_p(b["rates"][f]["all"]))
+        if f == f"verdict_{tx.V_HALLUCINATION}":
+            out += [_p(b["rates"][lf]["all"]) for lf in SPLIT_LEAVES]
+    return out
 
 
 def is_pre_gate(summaries: dict[str, dict[str, Any]]) -> bool:
@@ -122,7 +154,7 @@ def build(summaries: dict[str, dict[str, Any]], judge_model: str) -> tuple[str, 
         "",
     ]
     group_head = ["arm", "n readouts", *GROUP_ROWS]
-    verdict_head = ["arm", "n readouts", *VERDICT_ROWS]
+    verdict_head = ["arm", "n readouts", *_vhead()]
     for title, arms in (("Prose arms", prose), ("Token arms (judged via the summariser)", tokens)):
         if not arms:
             continue
@@ -132,11 +164,11 @@ def build(summaries: dict[str, dict[str, Any]], judge_model: str) -> tuple[str, 
             md += _table(
                 f"Headline: character-weighted verdict shares, {t}",
                 verdict_head,
-                [_grow(n, b, "char_share_verdict") for n, b in rows],
+                [_vshare_row(n, b) for n, b in rows],
             )
             md += _table(
                 f"Headline: readout-level verdict rates (all readouts), {t}",
-                ["arm", "n readouts", *(FLAG_TITLES[f] for f in VERDICT_FLAGS)],
+                ["arm", "n readouts", *_vrate_head()],
                 [_vrow(n, b) for n, b in rows],
             )
         md += _table(
@@ -146,6 +178,8 @@ def build(summaries: dict[str, dict[str, Any]], judge_model: str) -> tuple[str, 
                 "n compared / n readouts",
                 "v5c rate (compared)",
                 "v2 rate (compared)",
+                "↳ v2 false_claim",
+                "↳ v2 detail",
                 "n spec",
                 "v5c hallucination_rate (spec)",
                 "v2 rate (spec)",
@@ -156,6 +190,8 @@ def build(summaries: dict[str, dict[str, Any]], judge_model: str) -> tuple[str, 
                     f"{b['v5c_comparison']['n_compared']} / {b['v5c_comparison']['n_readouts']}",
                     _p(b["v5c_comparison"]["v5c_rate"]),
                     _p(b["v5c_comparison"]["v2_rate"]),
+                    _p(b["v5c_comparison"].get("v2_false_claim_rate")),
+                    _p(b["v5c_comparison"].get("v2_detail_rate")),
                     str(b["n_rate_readouts"]["specific"]),
                     _p(b["v5c_comparison"]["v5c_rate_specific"]),
                     _p(b["v5c_comparison"]["v2_rate_specific"]),
