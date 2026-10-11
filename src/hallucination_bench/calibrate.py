@@ -89,7 +89,8 @@ def validate_case(c: dict[str, Any], *, require_gold: bool = True) -> list[str]:
             errs.append(f"{tag}: bad grounding {g!r}")
         gold = s.get("gold")
         if gold is None:
-            if require_gold:
+            # A real case keeps its whole cell; only the drawn (``sampled``) spans need gold.
+            if require_gold and s.get("sampled", True):
                 errs.append(f"{tag}: missing gold")
             continue
         if gold.get("type") not in tx.TYPES:
@@ -208,6 +209,8 @@ def run_metrics(cases: Sequence[dict[str, Any]], labels: Sequence[list[tv1.SpanL
         real = case.get("part") == "real"
         for s, lab in zip(case["spans"], labs, strict=True):
             g = s["gold"]
+            if g is None:  # context-only span of a real case (not drawn, not scored)
+                continue
             c["n"] += 1
             c["type_ok"] += lab.type == g["type"]
             c["n_unclassified"] += lab.type == tx.UNKNOWN
@@ -263,7 +266,9 @@ def confusion(
     for rep in labels:
         for case, labs in zip(cases, rep, strict=True):
             for s, lab in zip(case["spans"], labs, strict=True):
-                if field == "unsupported_kind" and s["grounding"] != "unsupported":
+                if s["gold"] is None or (
+                    field == "unsupported_kind" and s["grounding"] != "unsupported"
+                ):
                     continue
                 g = str(s["gold"][field])
                 m.setdefault(g, Counter())[str(getattr(lab, field))] += 1
@@ -335,6 +340,8 @@ def disagreements(
         for case, labs in zip(cases, rep, strict=True):
             for s, lab in zip(case["spans"], labs, strict=True):
                 g = s["gold"]
+                if g is None:
+                    continue
                 bad = {
                     f: {"gold": g[f], "pred": getattr(lab, f)}
                     for f in ("type", "target", "severity", "unsupported_kind")

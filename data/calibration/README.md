@@ -118,3 +118,19 @@ report). Gold-label fixes are recorded here with the reason.
 | 2026-10-11 | dev | taxonomy-v1 | all dev thresholds met (type acc 0.940, sev exact 0.869, QWK 0.882, target 0.869, unsupported_kind 0.786, type flip 0.024) | first dev run, no prompt edits |
 
 Gold-label fixes: none.
+
+## Held-out set (frozen 2026-10-11, before the first held-out check)
+
+- Part (a): 46 synthetic spans in 16 cases (`ho-syn-*`). A fresh-context subagent wrote and
+  gold-labelled them without seeing the classifier prompt, `dev.jsonl` or any results.
+- Part (b): 46 real spans in 41 cases (`real-*`). They were drawn by `hbench pilot-dump
+  --per-stratum 6 --seed 0` from a span + verify pilot of 80 cells each of s3d-rl600 L44,
+  nla-rl-L42 and jlens L44. That draw gave 54 spans; the main session (Claude) hand-labelled
+  them before seeing any classifier output on them.
+  - 8 spans were dropped as genuinely ambiguous under the rules. Most were lens meta-claims about
+    the tokens themselves (for example, "emoji byte artifacts" or a list of token glosses) rather
+    than claims about the conversation.
+  - A real case keeps its whole cell for prompt fidelity. Only the drawn spans carry gold
+    (`sampled: true`); the other spans are context and are not scored.
+- Caveat: the real-part gold labeller is the same model family as the classifier, so agreement
+  on part (b) is optimistic.
