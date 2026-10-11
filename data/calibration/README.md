@@ -115,7 +115,7 @@ report). Gold-label fixes are recorded here with the reason.
 
 | date | split | prompt version | result | notes |
 |---|---|---|---|---|
-| 2026-10-11 | heldout (check 1/3) | taxonomy-v1 | **PASS** | type 0.978, concept rec 1.00, detail rec 0.96, sev exact 0.81 / QWK 0.85, target 0.86, ukind 0.82, flip 0.034, real-part type 0.957; 92 spans, 2 runs, $2.15 |
+| 2026-10-11 | heldout (check 1/3) | taxonomy-v1 | **PASS** | type 0.978, concept rec 1.00, detail rec 0.96, sev exact 0.81 / QWK 0.85, target 0.86, ukind 0.82, flip 0.034 (all spans; 0.000 over gold spans only after the review fix in 178dfea, recomputed from cache), real-part type 0.957; 92 spans, 2 runs, $2.15 |
 | 2026-10-11 | dev | taxonomy-v1 | all dev thresholds met (type acc 0.940, sev exact 0.869, QWK 0.882, target 0.869, unsupported_kind 0.786, type flip 0.024) | first dev run, no prompt edits |
 
 Gold-label fixes: none.

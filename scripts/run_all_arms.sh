@@ -35,8 +35,12 @@ fi
 # then carry on so the report still shows what failed.
 stage() {
   for attempt in 1 2 3; do
-    uv run hbench run --readouts-root "$READOUTS_ROOT" --arms "$ARMS" --out "$OUT" "$@" && return 0
-    echo "=== $(date -Is) stage exited non-zero (attempt $attempt); resuming"
+    uv run hbench run --readouts-root "$READOUTS_ROOT" --arms "$ARMS" --out "$OUT" "$@"
+    rc=$?
+    [[ $rc -eq 0 ]] && return 0
+    # only exit 4 (failed calls cached, retryable) is worth a resume; 3 = auth/config, else setup error
+    [[ $rc -eq 4 ]] || { echo "=== $(date -Is) stage exited $rc (not retryable)"; return $rc; }
+    echo "=== $(date -Is) stage exited 4 (attempt $attempt); resuming"
   done
 }
 

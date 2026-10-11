@@ -70,6 +70,8 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
   cached with `result: null` (+ `meta.raw`) and re-queued every run. `cells.jsonl` and
   `summary.json` are always regenerated from the cache (cache-only replay of the same
   pipeline), so a stale `:C` row is never attached to new S-ids.
+- **Exit codes**: `hbench run` exits 4 when failed calls remain cached (re-run to retry them;
+  the driver does this up to 3 times), 3 on auth/config errors, 2 on missing cells.
 - **`--limit`** slices cells per arm × layer; the rest show as `pending` in the summary.
 - **One process for all arms**: one RPM pacer (`--rpm`, default 1500) and one semaphore
   (`--concurrency`, default 64). Do not launch parallel `hbench run` processes on the same arm

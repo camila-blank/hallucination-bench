@@ -70,8 +70,8 @@ Rates are the share of v5c-specific readouts. Item-bootstrap 95% CIs are in the 
 | patchscopes | 86% | 14% | entity 39%, topic 26% |
 | tuned | 81% | 19% | topic 55% |
 | jlens | 77% | 23% | topic 51%, structure 28% |
-| O-lens RL | 70% | 30% | entity 34%, topic 22%, quantity 10% |
-| O-lens SFT | 67% | 33% | entity 33%, topic 20%, quantity 12% |
+| O-lens RL | 70% | 30% | entity 34%, topic 22%, structure 14% |
+| O-lens SFT | 67% | 33% | entity 33%, topic 20%, structure 15% |
 | sae-l42 | 66% | 34% | topic 49%, structure 42% |
 | rlens | 64% | 36% | structure 49%, topic 37% |
 | NLA-RL | 46% | 54% | structure 61% |
@@ -84,15 +84,17 @@ Rates are the share of v5c-specific readouts. Item-bootstrap 95% CIs are in the 
     `structure`).
   - Logit lens and template lens errors are almost all *concept*: the summary misreads the
     topic.
-  - O-lens sits in between. Its errors concentrate on entities (wrong named works and people)
-    and quantities.
+  - O-lens sits in between. Entities (wrong named works and people) are its largest error
+    target at about a third of spans, ahead of topic, structure, attribute and quantity at 10–22%
+    each.
 - **Patchscopes has the lowest rate, but it rarely commits to anything.** 24% of its cells are
   empty, and most of its readouts are off-topic junk (off-topic class 88%). A low hallucination
   rate is not the same as a useful readout.
 - **The strict rate is near-saturated for most lenses (84–99%).** Almost every specific readout
   contains at least one unsupported specific. Readout-level "any error" metrics therefore
   separate lenses poorly. This motivates the per-segment claim map in plan 0002.
-- **Layer trends are flat for O-lens** (v5c 46–54% across L20–L60, with L20 worst). See the full
+- **Layer trends are flat for O-lens.** For RL, v5c is 46–54% across L20–L60, with L20 worst.
+  For SFT it is 33.5–38.1%, with L36 worst. See the full
   report for every arm × layer.
 
 ## Example spans (from `audit_samples.md`)
