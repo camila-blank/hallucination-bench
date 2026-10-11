@@ -1,6 +1,6 @@
 # Plan 0002: claim map (taxonomy v2), an exhaustive, mutually exclusive categorisation of readout content
 
-Issue #3. Author: Camila Blank (planned with Claude), 2026-10-11. Revision 15 (after critiques 1–9; critique 9: no substantive issues; rev 11 adds the token-summary framing rule found in the smoke run; rev 12 defines "own identity" for rule 8).
+Issue #3. Author: Camila Blank (planned with Claude), 2026-10-11. Revision 16 (after critiques 1–9; critique 9: no substantive issues; rev 11 adds the token-summary framing rule found in the smoke run; rev 12 defines "own identity" for rule 8).
 This plan builds on plan 0001 (PR #2): the v5c span and verify port, the taxonomy-v1 classifier,
 and the first full run. It reuses plan 0001's cache layout, client, calibration machinery,
 bootstrap and report unless this plan says otherwise.
@@ -9,6 +9,67 @@ Items marked **[pending Camila]** use a default until she confirms them (§Open 
 
 
 
+
+
+## Amendment, revision 16 (Camila, 2026-10-11): the lean tree. This section overrides revisions 13–15 and the text below where they conflict.
+
+Camila: "if we have too many categories that kind of overlap then we can't be sure how
+consistent the judge is". A leaf stays separate only if it carries a distinct verdict or Camila
+asked for it by name. Anything else becomes a **tag**: recorded, but it never changes a verdict.
+
+**12 leaves:**
+
+| leaf | verdict | covers |
+|---|---|---|
+| `non_claim` | non_claim | generic, filler, formatting, junk text, lens meta, echoes. Tag `reason` ∈ {generic, filler, formatting, junk_text, lens_meta} |
+| `correct` | correct | the text states it, realises it later in any wording, or strictly entails it. Tag `source` ∈ {prefix, after, entailed} |
+| `detail` | hallucination | obviously contradicted, and the wrong part is a specific with no concept of its own: name, number, date, wording, or a wrong context word inside an otherwise on-topic reading ("RLC in the context of **Android**" for a 3GPP-spec answer) |
+| `false_claim` | hallucination | obviously contradicted proposition or situation: reversed outcome, wrong agent, wrong relation, a continuation assuming a situation the text rules out ("if it's from a flood or sewage backup" in a tobacco-smell chat), or a different answer to the question the response answers ("my better half is your development environment") |
+| `substitution_sibling` | probe_candidate | contradicted: a different same-class object in place of the right one, including the model naming itself as another real AI ("我是 ChatGPT") |
+| `substitution_category` | probe_candidate | contradicted: a different object of a different category |
+| `model_state` | probe_candidate | claims about the model's own beliefs or intent, or framing the conversation as a test, evaluation or roleplay |
+| `unverifiable` | unresolved | on topic, not contradicted, not settled: uncontradicted predictions ("the spill has been cleaned up"), unsupported assertions about the conversation ("welcome to Oakville"), contested or uncheckable world claims, everything else on topic. Tags: `same_slot_alternative` (bool: a different choice for the same open-ended slot the response fills, e.g. "3. Baking soda" for item 3 = coffee grounds), `world` (bool), `prediction` (bool) |
+| `supplementary_true` | correct | on-topic world claim, text silent, true |
+| `supplementary_false` | probe_candidate | on-topic world claim, text silent, false |
+| `ambiguous_topic` | probe_candidate | cannot tell whether it refers to the conversation |
+| `off_topic` | junk | about neither the conversation nor a subject it raises |
+
+**Rules that change:**
+
+1. **The hallucination gate is unchanged.** A segment is incorrect only if the text obviously
+   contradicts it. A prediction gets **no special category**: it is judged as an ordinary claim
+   (contradicted → `detail` / `false_claim` / substitution; otherwise `unverifiable` with
+   `prediction = true`). Camila: "most predictions that the text contradicts should be
+   hallucinations".
+2. **`unrealised_option` and `unrealised_prediction` are gone.** They become
+   `unverifiable` + tags. Camila: "unrealized options should be unverifiable". Under v5c, about 80%
+   of these segments were unverifiable or not a claim.
+3. **`supplementary_unsettled` is folded into `unverifiable` (`world = true`)**, because its
+   boundary with true and false is fuzzy.
+4. **`unsupported_assertion` is folded into `unverifiable`.**
+5. **`correct` precedence:** realised in any wording beats everything uncontradicted.
+6. **`detail` vs `false_claim`:** use `detail` when the reading is on topic and only a specific
+   (value, name, wording, or a context word) is wrong. Use `false_claim` when the proposition or
+   situation itself is wrong.
+
+**Reporting:** `false_claim` and `detail` are **always reported as separate headline metrics**
+(character share and readout-level rate, each with a CI) next to the combined hallucination rate,
+in every table. Camila: "we should always report false claim and detail and separate metrics".
+
+**Judge-consistency check (new, before the gate).** Run `:M` twice (repeat keys r0 and r1) on
+150 real cells: 50 each from s3d-rl600 L44, nla-rl-L42 and jlens L44, seeded. Report:
+
+- leaf agreement between the two runs (κ and raw);
+- the leaf × leaf confusion table between runs;
+- per-leaf self-agreement.
+
+**Rule:** any leaf pair swapped in more than 10% of either leaf's segments gets a sharper rule or
+is merged. This is reported to Camila before the full run.
+
+**Gold:** dev and held-out are re-mapped mechanically through the merges (old leaf → new leaf +
+tag). The only judgement calls are rev-15 `unrealised_*` segments that the text contradicts.
+These go to `detail` / `false_claim` under rule 1: the implementer handles dev, and a fresh blind
+subagent handles held-out.
 
 ## Amendment, revision 15 (Camila, 2026-10-11). This section overrides revisions 13–14 and the text below where they conflict.
 
