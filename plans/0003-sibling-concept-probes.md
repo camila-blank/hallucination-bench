@@ -1,6 +1,6 @@
 # Plan 0003: sibling-concept eval: are same-category mentions hallucinations? (DiffMean probe verification)
 
-Issue #5. Author: Camila Blank (planned with Claude), 2026-10-11. Revision 9 (after critiques 1–8).
+Issue #5. Author: Camila Blank (planned with Claude), 2026-10-11. Revision 10 (after critiques 1–8; amendment below).
 
 This plan is stacked on plan 0002 (PR #4, branch `camila/taxonomy-v2`). It uses plan 0002's
 claim-map judge (`judges/claimmap_v2.py`) **at whatever `PROMPT_VERSION` is current on that
@@ -8,6 +8,24 @@ branch when the judge stage runs**. The judge is still being revised, so before 
 branch is rebased onto `origin/camila/taxonomy-v2`. Every output records the judge's
 `PROMPT_VERSION` and git sha. If PR #4 changes the prompt before this PR merges, the judge stage
 is re-run; it is cache-keyed by fingerprint, so only changed calls repeat.
+
+## Amendment, revision 10 (2026-10-11, after the probe job, before any judge or score result)
+
+The probe validity gate (position-level out-of-fold AUROC, own concept vs the category's other
+concepts, pooled over every position of the read window) at 0.85 passed only 165 / 510
+(concept, layer) probes. Medians by category: emotion 0.91, occupation 0.85, holiday 0.82,
+capital_city 0.82, country 0.78 (L44), farm_animal 0.65, tree 0.68. The eval-site transfer gate
+(≥ 0.70) mostly passes. Pooling over every window position (many request-sentence tokens carry
+little concept information) makes 0.85 stricter than the question needs, so:
+
+1. The validity gate becomes **≥ 0.70** (the transfer gate's bar). Both gates still apply.
+2. A **robustness row** recomputes β₁, β₂ and the headline rates on probes passing the old
+   0.85 gate.
+3. Categories whose probes mostly fail even 0.70 (expected: farm_animal, tree) are reported as
+   "probes too weak to adjudicate", not dropped silently.
+
+This was decided from probe-side numbers only; no judge, mention or M/U statistic had been
+computed.
 
 ## Goal
 

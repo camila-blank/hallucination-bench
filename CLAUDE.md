@@ -3,7 +3,8 @@
 Suite of evals for the **types and severities** of hallucination in activation-reading lenses.
 First eval: `wsbench_chat` (plan `plans/0001-bootstrap-wsbench-chat-taxonomy.md` is the spec);
 the claim map / taxonomy v2 is plan `plans/0002-claim-map-taxonomy-v2.md`; the sibling-concept
-probe eval is plan `plans/0003-sibling-concept-probes.md` (stage 1 built: inventory + bank).
+probe eval is plan `plans/0003-sibling-concept-probes.md` (stage 1: inventory + bank; stage 2:
+probes, judge, score, report).
 
 ## Layout
 
@@ -30,6 +31,12 @@ src/hallucination_bench/
   cli.py          hbench run|calibrate|report|pilot-dump|pilot-dump-v2|units-v2
   evals/sibling_probe/{concepts,bank}.py  plan 0003: inventory + alias matcher (text / token
                   bags), leak / 8-gram / window-identity checks, coverage rule, ReadSpec writers
+  evals/sibling_probe/probes.py   cross-fit DiffMean probes (pure numpy; copied into the Modal job)
+  evals/sibling_probe/probe_io.py inputs.json for the Modal job, loaders of its outputs
+  evals/sibling_probe/judge.py    prefilter, 5% coverage sample, claim map (claimmap_v2 + the
+                  wsbench_chat cached_call), mention -> segment, sibscope-v1 / sibcover-v1 calls
+  evals/sibling_probe/{score,report}.py  M/U classes, gates, beta1/beta2/AUROC/Test 3, rates,
+                  bootstrap, verdict table; report.md + plots/sibling_probe/
 data/wsbench_chat/   verbatim copies from wsbench-pub @ 92d763e (never edit)
 data/calibration/    dev.jsonl (implementer), heldout.jsonl (blind author only), README (schema + log)
                      dev_v2.jsonl (implementer), heldout_v2.jsonl (blind author only)
@@ -139,6 +146,13 @@ uv run python scripts/sibling_probe/gen_items.py select      # items.json + resp
 scripts/sibling_probe/run_modal.sh qwen-responses            # merges responses into items.json
 uv run python scripts/sibling_probe/gen_items.py probes      # probe_texts.jsonl
 scripts/sibling_probe/run_modal.sh plans|smoke|capture|jlens|nla|s3d|fetch
+# stage 2
+scripts/sibling_probe/run_modal.sh probes        # prepare inputs + Modal probe job -> outputs/sibling/probes/
+scripts/sibling_probe/run_modal.sh probes-smoke  # acts-sibling-smoke + synthetic probe texts
+uv run hbench sibling judge --arms s3d-rl600,nla-rl-L42,jlens   # one process; resumes from cache
+uv run hbench sibling judge --rebuild            # cells.jsonl / run.json from the cache, no calls
+uv run hbench sibling score                      # -> outputs/sibling/score/summary.json
+uv run hbench sibling report                     # -> outputs/sibling/score/report.md + plots/sibling_probe/
 ```
 
 - The `sibling` dependency group (transformers + jinja2, no torch) gives the Qwen3.6-27B
@@ -154,3 +168,15 @@ scripts/sibling_probe/run_modal.sh plans|smoke|capture|jlens|nla|s3d|fetch
 - Implication / response caches: `outputs/sibling/gen/{implication,responses}_out.jsonl`
   (idempotent on key); Opus cache `outputs/sibling/gen/cache.jsonl`. Do not run two
   `gen_items` processes at once (one cache file).
+- **Probe job** (`probes_modal.py`, CPU, 16 cores / 96 GB): reads every acts file ONCE (all
+  layers' eval positions, fp16): the `wsbench-acts` volume costs ~0.5 s per file open, so a
+  per-layer re-read of the 5,064 probe files is far slower. Outputs also land on the
+  `sibling-probes` volume (`/<run>/`); `hbench sibling probes --fetch --run <run>` re-gets them.
+- **Folds** are per category, seeded (`probes.assign_folds`, salt = category); eval cells are
+  scored by all 4 fold models and indicators / z are averaged. `eval_scores.jsonl.gz` has one
+  row per (id, layer, pos, concept); `det_*` are fold-averaged shares (0, .25, ... 1).
+- **J-lens unmentioned** needs a summary, so `judge` summarises every J-lens cell by default
+  (`--no-summarize-all` to judge-only); cells without a summary are `no_summary` (excluded).
+- Judge outputs `outputs/sibling/judge/<arm>/{cache,cells}.jsonl` + `run.json` (claim-map
+  PROMPT_VERSION, taxonomy version, git sha, spend). Keys: `summ:{key}`, `{key}:M`,
+  `{key}:S:{readout}:{start}-{end}` (scope), `cover:{category}:{target}`.

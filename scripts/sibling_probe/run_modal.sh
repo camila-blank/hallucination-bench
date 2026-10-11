@@ -13,6 +13,9 @@
 #   nla                NLA-RL (nla-rl400) over the EVAL capture only, layer 42
 #   s3d                s3d-rl600 O-lens over the eval items (fanout_custom), layers 28,36,44,52
 #   fetch              fetch gen dirs + s3d shards, fill gaps, convert, merge, cell-count checks
+#   probes             DiffMean probes (probes_modal.py, CPU): prepare inputs -> fit/score on
+#                      acts-sibling-probe + acts-sibling-eval -> outputs/sibling/probes/
+#   probes-smoke       the same on acts-sibling-smoke with synthetic probe texts
 #
 # Stage 1 status (2026-10-11): qwen-implication, qwen-responses, plans and smoke have been run;
 # capture / jlens / nla / s3d / fetch are documented, not run yet.
@@ -24,7 +27,7 @@ WSB_SRC=${WSB_SRC:-/workspace/root/wsbench-pub/src}
 WB=$GW/scripts/olens_suite/workspace_bench
 export MODAL_PROFILE=${MODAL_PROFILE:-safety-sahan-2}   # default environment: camila-blank
 MODAL="uvx --python 3.12 modal@latest"
-export WSBENCH_GEN_VOLUME=${WSBENCH_GEN_VOLUME:-wsbench-gen-4}  # gen-2/-3 are at inode caps
+export WSBENCH_GEN_VOLUME=${WSBENCH_GEN_VOLUME:-wsbench-gen-sibling}  # gen-2/-3/-4 full (ENOSPC 2026-10-11)
 S=$HB/outputs/sibling
 GROUP=L28-36-42-44-52            # the one layer group `prompts` writes for both plans
 MAXPOS=128                       # >= groups.json max_tokens (eval 78, probe 90)
@@ -117,8 +120,20 @@ fetch)
   uv run python scripts/sibling_probe/write_plans.py check-cells --meta-dir $S/render_eval/meta \
     --readouts $S/readouts/nla-rl-L42/sibling_*.jsonl --layers 42
   ;;
+probes)
+  uv run hbench sibling probes --prepare
+  $MODAL run scripts/sibling_probe/probes_modal.py --inputs $S/probes/inputs.json \
+    --eval-acts acts-sibling-eval --probe-acts acts-sibling-probe --run ${PROBES_RUN:-sibling-v1} \
+    --out-dir $S/probes
+  ;;
+probes-smoke)
+  uv run hbench sibling probes --prepare --out-dir $S/probes_smoke
+  $MODAL run scripts/sibling_probe/probes_modal.py --inputs $S/probes_smoke/inputs.json \
+    --eval-acts acts-sibling-smoke --run sibling-smoke --out-dir $S/probes_smoke \
+    --synthetic-probes --n-boot 100
+  ;;
 *)
-  sed -n '2,20p' "$0"
+  sed -n '2,23p' "$0"
   exit 1
   ;;
 esac
