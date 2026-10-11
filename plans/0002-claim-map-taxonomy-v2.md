@@ -182,9 +182,12 @@ fixed. The prompt lists them in this order: 2, 1, 3, 4, 5, 6, 10, 11, 12, 13, th
     When it is explicitly hedged as an inference ("likely", "probably", "may be", "seems"), it is
     `other_on_topic` by default: the lens is guessing, not asserting. Dev and held-out each
     carry one anchor for each side.
-13. **Topic fallback.** A claim that rules 2–12 have not placed in the correct, incorrect or thinky
-    branch is `ambiguous_topic` if it cannot be told whether it refers to this conversation or a
-    subject it raises, and `off_topic` if it clearly does not.
+13. **Fallback for unsettled claims.** A claim that rules 2–12 have not placed and that neither the
+    conversation nor world knowledge settles goes to:
+    - the **thinky** branch if it is about this conversation or a subject it raises (leaf by rule
+      9, else `other_on_topic`);
+    - `ambiguous_topic` if it cannot be told whether it is;
+    - `off_topic` if it clearly is not.
 
 ### Detail rule [pending Camila: §Open decisions 2]
 
