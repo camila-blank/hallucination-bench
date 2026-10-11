@@ -5,7 +5,7 @@ the claim-map judge prompt (``judges/claimmap_v2.py``) is rendered from it by :f
 scoring and calibration read its enums, and tests assert the rendered prompt contains every
 leaf definition (:func:`definitions`).
 
-Every segment of a readout lands in exactly one of the 20 judge leaves, which fall into 8
+Every segment of a readout lands in exactly one of the 22 judge leaves, which fall into 8
 groups under three top branches (non-claim / claim about the text / supplementary claim; plan
 rev 13, option A). Two code-assigned pseudo-leaves (``unknown_incorrect``, ``failed``) are kept
 as separate rows outside the groups. Each leaf maps to exactly one **verdict** (``VERDICTS``),
@@ -23,7 +23,7 @@ an option. The rendered prompt, and so every ``:M`` cache fingerprint, follows `
 
 from dataclasses import dataclass
 
-TAXONOMY_VERSION = "v2-r14"
+TAXONOMY_VERSION = "v2-r15"
 
 # ---------------------------------------------------------------- groups
 
@@ -135,15 +135,17 @@ _LEAVES: tuple[Leaf, ...] = (
         "detail",
         "incorrect",
         HALLUCINATION,
-        "[hallucination] a wrong specific with no concept of its own (see the Detail rule).",
+        "[hallucination] a wrong specific with no concept of its own (see the Detail rule), "
+        "that the conversation obviously contradicts.",
     ),
     Leaf(
         "false_claim",
         "incorrect",
         HALLUCINATION,
-        "[hallucination] a false assertion about the right object: reversed outcome or stance, "
-        "wrong agent (who did what to whom), false relation or cause, a wrong real-world "
-        "quantity, or an invented event or fact asserted about the conversation.",
+        "[hallucination] a false assertion about the right object that the conversation "
+        "obviously contradicts: reversed outcome or stance, wrong agent (who did what to whom), "
+        "false relation or cause, a wrong real-world quantity, or an event, fact, prediction or "
+        "continuation about the conversation that the text rules out.",
     ),
     Leaf(
         "substitution_sibling",
@@ -162,11 +164,27 @@ _LEAVES: tuple[Leaf, ...] = (
         "unrealised_option",
         "thinky",
         THINKY,
-        "narrow: the readout fills **the same open-ended slot** that the response fills next "
-        "(the next item of a list, an example, an illustration, or a word or phrase choice for "
-        "the same move) with a different choice; evidence that the model is choosing among "
-        "options at a decision point. Any other unrealised prediction or continuation, "
-        "including a different answer to the question, is incorrect (rule 10).",
+        "[alternative] the readout fills **the same open-ended slot** that the response fills "
+        "next (the next item of a list, an example, an illustration, or a word or phrase choice "
+        "for the same move) with a different choice that the text does not contradict; "
+        "evidence that the model is choosing among options at a decision point.",
+    ),
+    Leaf(
+        "unrealised_prediction",
+        "thinky",
+        THINKY,
+        "[alternative] a different move or a different answer (framed as anticipation or "
+        "written as continuation text) that the response does not make, but that the text does "
+        "not contradict.",
+    ),
+    Leaf(
+        "unsupported_assertion",
+        "thinky",
+        THINKY,
+        "an event, fact or specific asserted about the conversation (the user, the setting, "
+        "people or things in it) that the text never addresses, so it neither supports nor "
+        'contradicts it: "the user is a teacher"; "her sister Maria"; "the user, Sarah, …" '
+        "when nobody is named.",
     ),
     Leaf(
         "model_state",
@@ -240,12 +258,12 @@ SUPPLEMENTARY_LEAVES: tuple[str, ...] = tuple(n for n, g in GROUP_OF.items() if 
 NON_CLAIM_LEAVES: tuple[str, ...] = tuple(n for n, g in GROUP_OF.items() if g == NON_CLAIM)
 ALL_LEAVES: tuple[str, ...] = (*LEAF_NAMES, *PSEUDO_LEAVES)
 
-assert len(LEAF_NAMES) == 20 and len(GROUPS) == 8
+assert len(LEAF_NAMES) == 22 and len(GROUPS) == 8
 
 # gold written before plan rev 13 uses these leaf names; loaders map them mechanically
-# rev 14: old `unrealised_prediction` gold has no mechanical mapping (most become incorrect);
-# loaders map it to `unrealised_option` only as a fallback, with a warning
-FALLBACK_RENAMES: dict[str, str] = {"unrealised_prediction": "unrealised_option"}
+# fallback renames (loaders map them and warn). Rev 14 mapped `unrealised_prediction` here; rev 15
+# reinstates it as a leaf, so there are none
+FALLBACK_RENAMES: dict[str, str] = {}
 LEAF_RENAMES: dict[str, str] = {
     "world_true": "supplementary_true",
     "possible_belief": "supplementary_false",
@@ -255,6 +273,7 @@ LEAF_RENAMES: dict[str, str] = {
 
 V_HALLUCINATION = "hallucination"
 V_PROBE = "probe_candidate"
+V_ALTERNATIVE = "alternative"
 V_CORRECT = "correct"
 V_UNRESOLVED = "unresolved"
 V_JUNK = "junk"
@@ -266,11 +285,16 @@ VERDICTS: dict[str, tuple[str, ...]] = {
         "substitution_category",
         "supplementary_false",
         "model_state",
-        "unrealised_option",
         "ambiguous_topic",
     ),
+    V_ALTERNATIVE: ("unrealised_option", "unrealised_prediction"),
     V_CORRECT: ("restates_prefix", "stated_after", "entailed", "supplementary_true"),
-    V_UNRESOLVED: ("other_on_topic", "supplementary_unsettled", UNKNOWN_INCORRECT),
+    V_UNRESOLVED: (
+        "other_on_topic",
+        "unsupported_assertion",
+        "supplementary_unsettled",
+        UNKNOWN_INCORRECT,
+    ),
     V_JUNK: ("off_topic",),
     V_NON_CLAIM: NON_CLAIM_LEAVES,
 }
@@ -278,7 +302,7 @@ VERDICT_OF: dict[str, str] = {
     **{lf: v for v, leaves in VERDICTS.items() for lf in leaves},
     FAILED: FAILED,
 }
-VERDICT_ROWS: tuple[str, ...] = (*VERDICTS, FAILED)  # shares sum to 1 over these 7 rows
+VERDICT_ROWS: tuple[str, ...] = (*VERDICTS, FAILED)  # shares sum to 1 over these 8 rows
 PROBE_CANDIDATE_LEAVES: tuple[str, ...] = VERDICTS[V_PROBE]
 assert sorted(lf for leaves in VERDICTS.values() for lf in leaves) == sorted(
     (*LEAF_NAMES, UNKNOWN_INCORRECT)
@@ -329,9 +353,15 @@ OPEN_DECISIONS: dict[str, OpenDecision] = {
     # 2. numbers and invented specifics
     "invented_specific": OpenDecision(
         "An invented arbitrary name or number with nothing in the conversation for it to "
-        'replace ("the user, Sarah", "her 3 kids"): detail, or an invented fact (false_claim)?',
-        "detail",
+        'replace ("the user, Sarah", "her 3 kids"): detail, an invented fact (false_claim), or '
+        "(rev 15) unsupported_assertion since the text does not contradict it?",
+        "unsupported_assertion",
         {
+            "unsupported_assertion": (
+                "An **invented** specific with nothing in the conversation for it to replace "
+                '("the user, Sarah, …" when nobody is named; "her 3 kids") is NOT detail: the '
+                "text does not contradict it, so it is `unsupported_assertion` (rule 10)."
+            ),
             "detail": (
                 "an **invented** arbitrary specific with nothing in the conversation for it to "
                 'replace ("the user, Sarah, …" when nobody is named; "her 3 kids"). It is still '
@@ -430,7 +460,13 @@ DECISIONS: tuple[tuple[str, str], ...] = (
         "about…",
         "the substitutions form the co-activation group (not a hallucination); pair logged",
     ),
-    ("the invented event is a false claim. it's verifiable.", "rule 10"),
+    ("the invented event is a false claim. it's verifiable.", "rule 10 (superseded by rev 15)"),
+    (
+        "the only things that are considered hallucinations should be things that are "
+        "verifiable and obviously contradictory to the text",
+        "rev 15: HALLUCINATION_GATE; unsupported_assertion; unrealised_prediction reinstated; "
+        "the alternative verdict",
+    ),
     (
         "world checkable claims that are on topic and correct should be verifiable correct, "
         "claims that are on topic and incorrect are either unverifiable because we are not sure "
@@ -460,8 +496,8 @@ UNITS_TEXT: tuple[str, ...] = (
     "one non-claim, is not split.",
     "A segment is a unit or a quoted sub-span. Atomic-claim rule: one segment carries one claim. "
     "A sentence with a correct part and a wrong part must be split. Hedge words stay inside "
-    'their claim segment. An invented specific ("her 3 kids") is one `detail` segment, with no '
-    "separate existence claim.",
+    'their claim segment. An invented specific ("her 3 kids") is one segment, with no separate '
+    "existence claim.",
 )
 
 # ---------------------------------------------------------------- precedence
@@ -473,6 +509,14 @@ class Rule:
     title: str
     body: tuple[str, ...]  # first entry: the rule; the rest: bullets
 
+
+HALLUCINATION_GATE = (
+    "**The hallucination gate.** A segment is incorrect (`detail`, `false_claim`, "
+    "`substitution_sibling`, `substitution_category`) **only if the conversation obviously "
+    "contradicts it**: the prompt, the response before the marker, or the response after the "
+    "marker states something incompatible with the segment. It is **not** enough that a reader "
+    "would have to infer the incompatibility, or that the text simply never mentions the claim."
+)
 
 SETTLEMENT_RULE = (
     "**The test is settlement, not subject.** An on-topic world claim is **about the text** if "
@@ -530,17 +574,18 @@ def _rules(anchored: bool = False) -> dict[int, Rule]:
             (
                 "Some readouts are written as the response's own continuation, in the first "
                 'person ("As an AI, I don\'t have personal relationships"). Such text is an '
-                "implicit prediction of the response and is judged by rules 7, 8 and 10:",
-                "`restates_prefix` or `stated_after` if the response says it, including a close "
-                "paraphrase of the same move (tag `world_false` if it is false in the world, per "
-                "rule 6);",
-                "`unrealised_option` only if it fills the same open-ended slot the response "
-                "fills next (the next list item, an example, a word choice for the same move) "
-                "with a different choice;",
-                "otherwise, when the response does not realise it, it is incorrect (leaf by rule "
-                "8: `detail` if only a specific value or wording differs within the same "
-                "content, otherwise usually `false_claim`), including a different answer to the "
-                "question being answered.",
+                "implicit prediction of the response and is judged by rules 7, 8 and 10, in "
+                "this order:",
+                "`restates_prefix` or `stated_after` if the conversation says it **in any "
+                "wording** (a paraphrase, another person or framing; tag `world_false` if it is "
+                "false in the world, per rule 6). This beats both unrealised leaves;",
+                "incorrect if the text obviously contradicts it, before or after the marker "
+                "(leaf by rule 8);",
+                "`unrealised_option` if it fills the same open-ended slot the response fills "
+                "next (the next list item, an example, a word choice for the same move) with a "
+                "different choice;",
+                "`unrealised_prediction` if it is a different move or a different answer that "
+                "the response does not make.",
                 "It is **not** `model_state`, even though it is in the first person.",
             ),
         ),
@@ -553,11 +598,12 @@ def _rules(anchored: bool = False) -> dict[int, Rule]:
                 "rule 9; usually `model_state`). Evaluation awareness lands here.",
                 'Carve-out: a statement of intent that predicts response text ("the model is '
                 'about to apologise") is a prediction and goes to rules 3 and 10: '
-                "`stated_after` if realised; if not, incorrect unless it is an "
-                "`unrealised_option` (rule 10).",
+                "`stated_after` if realised in any wording; if not, rule 10 (incorrect only if "
+                "the text contradicts it, else `unrealised_option` / `unrealised_prediction`).",
                 'Descriptions of format, genre or setting ("Q&A on an educational platform") '
                 "are ordinary claims about the conversation: an invented setting **asserted "
-                "flatly** is `false_claim` (rule 10); a hedged one follows rule 12.",
+                "flatly** is `unsupported_assertion`, or `false_claim` if the text contradicts it "
+                "(rule 10); a hedged one follows rule 12.",
             ),
         ),
         5: Rule(
@@ -598,7 +644,8 @@ def _rules(anchored: bool = False) -> dict[int, Rule]:
             8,
             "Inside incorrect. Apply in this order:",
             (
-                "",
+                "Only a segment that passes the hallucination gate (the conversation obviously "
+                "contradicts it) is incorrect.",
                 "Step 1. A wrong named object that has its own identity, in place of the right "
                 "one -> substitution (`substitution_sibling` if it is of the same class, "
                 '`substitution_category` if of a different category). "Its own identity" '
@@ -610,8 +657,8 @@ def _rules(anchored: bool = False) -> dict[int, Rule]:
                 '"Miss Li" and the readout says "Miss Wang"). The model naming itself as another '
                 'real AI system ("我是 ChatGPT" where it is Qwen) is `substitution_sibling`: a '
                 "real product has its own identity. " + decision_text("subject_name"),
-                "Step 2. Anything matching the Detail rule list, including invented arbitrary "
-                "specifics -> `detail`. The Detail rule's carve-outs (real-event quantities, "
+                "Step 2. Anything matching the Detail rule list -> `detail`. The Detail rule's "
+                "carve-outs (real-event quantities, "
                 "counts that flip the claim) go on to step 3.",
                 "Step 3. Any other false assertion about the right object -> `false_claim`.",
             ),
@@ -619,32 +666,40 @@ def _rules(anchored: bool = False) -> dict[int, Rule]:
         9: Rule(
             9,
             "Inside the thinky branch (unverifiable, on topic).",
-            ("`unrealised_option` > `model_state` > `other_on_topic`.",),
+            (
+                "`unrealised_option` > `unrealised_prediction` > `model_state` > "
+                "`unsupported_assertion` > `other_on_topic`.",
+            ),
         ),
         10: Rule(
             10,
             "Framing.",
             (
-                "",
-                "A concrete event or fact **asserted** about the conversation that the "
-                "conversation does not support -> the **incorrect** branch (leaf by rule 8: "
-                "`detail` for invented names or numbers, otherwise usually `false_claim`).",
+                HALLUCINATION_GATE,
+                "A concrete event, fact or specific **asserted** about the conversation: "
+                "incorrect if the text obviously contradicts it (leaf by rule 8); if the text "
+                'never addresses it, `unsupported_assertion` ("the user is a teacher"; "her '
+                'sister Maria"; "the user, Sarah, …" when nobody is named).',
                 "A prediction or continuation (framed as anticipation or written as "
-                "continuation text) that the response realises is `stated_after`, including a "
-                "close paraphrase of the same move.",
-                "`unrealised_option` is **narrow**: the readout fills the same open-ended slot "
-                "that the response fills next (the next item of a list, an example, an "
-                "illustration, or a word or phrase choice for the same move) with a different "
-                'choice. Example: at "What kind of performance was it (music, theater, dance, '
-                '⟦READ⟧ public speaking)?", the readout "Speech or storytelling" is an option.',
-                "**Every other prediction or continuation that the response does not realise is "
-                "incorrect** (leaf by rule 8: `detail` if only a specific value or wording "
-                "differs within the same content, otherwise usually `false_claim`). This "
-                'includes **a different answer to the question being answered**: "my better '
-                'half is your development environment" when the response says "engineers, '
-                'researchers, and data" is the answer slot, not an open-ended one, so it is '
-                'incorrect; "Here\'s a guide tailored to public speaking" when the response only '
-                "asks questions is incorrect.",
+                "continuation text) that the response realises **in any wording** is "
+                "`stated_after`: a paraphrase, a first-person version or a different framing of "
+                'what the response says counts ("Alibaba Group engineers who created me" when '
+                "the response says it was created by Alibaba's engineers). This beats both "
+                "unrealised leaves.",
+                "A prediction or continuation that the text obviously contradicts, before or "
+                "after the marker, is incorrect (leaf by rule 8: `detail` if only a specific "
+                "value or wording differs within the same content, otherwise usually "
+                "`false_claim`).",
+                "Otherwise, an unrealised prediction or continuation is an **alternative**:",
+                "`unrealised_option`: the readout fills the same open-ended slot that the "
+                "response fills next (the next item of a list, an example, an illustration, or a "
+                "word or phrase choice for the same move) with a different choice. Example: at "
+                '"What kind of performance was it (music, theater, dance, ⟦READ⟧ public '
+                'speaking)?", the readout "Speech or storytelling" is an option.',
+                "`unrealised_prediction`: a different move or a different answer that the "
+                "response does not make but the text does not contradict (\"Here's a guide "
+                'tailored to public speaking" when the response only asks questions). A '
+                "different answer that the response's actual answer rules out is incorrect.",
             ),
         ),
         11: Rule(
@@ -656,11 +711,11 @@ def _rules(anchored: bool = False) -> dict[int, Rule]:
             12,
             "Hedged inferences about the user or setting.",
             (
-                "A flat assertion of an unsupported fact about the user or setting -> the "
-                'incorrect branch (rule 10; leaf by rule 8). For example, "the user is a '
-                'child" or "(Scratch-like community)" stated as fact. '
+                "A flat assertion of an unsupported fact about the user or setting that the "
+                'text never addresses is `unsupported_assertion` (rule 10). For example, "the '
+                'user is a child" or "(Scratch-like community)" stated as fact. '
                 + decision_text("hedged_inference")
-                + " A hedged inference that the conversation **contradicts** is still "
+                + " A flat or hedged claim that the conversation **obviously contradicts** is "
                 "incorrect (rule 8 picks the leaf).",
             ),
         ),
@@ -672,7 +727,8 @@ def _rules(anchored: bool = False) -> dict[int, Rule]:
                 "the conversation does not settle: a world claim goes to the **supplementary** "
                 "branch (rule 6; leaf by rule 14), including contested or uncheckable world "
                 "claims; any other claim goes to the **thinky** branch (leaf by rule 9, else "
-                "`other_on_topic`).",
+                "`other_on_topic`). Never the incorrect branch: that needs an obvious "
+                "contradiction.",
             ),
         ),
         14: Rule(
@@ -722,16 +778,14 @@ def _detail_items() -> tuple[str, ...]:
         "incidental numbers, dates or counts in fiction or scaffolding;",
         "quoted wording or heading text;",
     ]
-    if CHOSEN.get("invented_specific", "detail") == "detail":
+    if CHOSEN.get("invented_specific") == "detail":
         items.append(decision_text("invented_specific"))
     return tuple(items)
 
 
 DETAIL_ITEMS: tuple[str, ...] = _detail_items()
 DETAIL_EXTRA: tuple[str, ...] = (
-    ()
-    if CHOSEN.get("invented_specific", "detail") == "detail"
-    else (decision_text("invented_specific"),)
+    () if CHOSEN.get("invented_specific") == "detail" else (decision_text("invented_specific"),)
 )
 DETAIL_CARVE_OUT = (
     'Quantities and dates of **real events**, and counts that **flip the claim** ("0 errors" '
@@ -746,9 +800,9 @@ TAGS: dict[str, str] = {
     "hedged": (
         "(bool): a short hedged list or disjunction of at most 4 options; it is one segment. "
         "Hit (the realised or stated option is in the list): it gets the correct leaf it would "
-        "get on its own. Miss: it is judged as the prediction or claim it is "
-        "(`unrealised_option` if it fills the same open-ended slot, otherwise incorrect if the "
-        "response does not realise it). A longer scattershot "
+        "get on its own. Miss: it is judged as the prediction or claim it is (rule 10: "
+        "incorrect if the text contradicts it, else `unrealised_option` / "
+        "`unrealised_prediction`). A longer scattershot "
         "list of more than 4 unrelated options is `generic`."
     ),
     "world_false": "(bool): the segment is false in the world; see rule 6.",
@@ -763,11 +817,10 @@ TAGS: dict[str, str] = {
     ),
     "probe_target": (
         "(string, probe-candidate segments only): on every `substitution_sibling`, "
-        "`substitution_category`, `supplementary_false`, `model_state`, "
-        "`unrealised_option` and `ambiguous_topic` segment, a short phrase naming the "
-        'concept a probe should test for ("Germany"; "this is an evaluation"; "the response '
-        'will recommend therapy"). For a substitution it names the object the readout says '
-        "(the `pair` keeps the actual one). Null for every other leaf."
+        "`substitution_category`, `supplementary_false`, `model_state` and `ambiguous_topic` "
+        'segment, a short phrase naming the concept a probe should test for ("Germany"; '
+        '"this is an evaluation"; "ChatGPT"). For a substitution it names the object the '
+        "readout says (the `pair` keeps the actual one). Null for every other leaf."
     ),
 }
 ANCHORED_ONLY_TAGS: tuple[str, ...] = ("dispute",)
@@ -784,7 +837,8 @@ TREE_INTRO = (
     "The tree has three top branches: **non-claim**, **claim about the text** and "
     "**supplementary claim**. The topic gate (rule 5) runs first on every claim and routes "
     "off-topic and ambiguous claims to `off_topic` / `ambiguous_topic`. An on-topic claim is "
-    "then about the text or supplementary (rule 6)."
+    "then about the text or supplementary (rule 6). A claim about the text is incorrect only "
+    "if the conversation obviously contradicts it (the hallucination gate, rule 10)."
 )
 
 

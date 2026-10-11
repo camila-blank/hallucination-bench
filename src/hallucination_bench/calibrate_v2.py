@@ -63,8 +63,8 @@ WILSON_LO = 0.58
 GATE: tuple[tuple[str, str, float, bool], ...] = (
     ("group accuracy (8 groups), unit level", "group_acc_unit", 0.85, True),
     ("group accuracy, character level", "group_acc_char", 0.85, True),
-    ("verdict accuracy (6 verdicts), unit level", "verdict_acc_unit", 0.85, True),
-    ("leaf accuracy (20 leaves), unit level", "leaf_acc_unit", 0.70, True),
+    (f"verdict accuracy ({len(tx.VERDICTS)} verdicts), unit level", "verdict_acc_unit", 0.85, True),
+    (f"leaf accuracy ({len(tx.LEAF_NAMES)} leaves), unit level", "leaf_acc_unit", 0.70, True),
     *(
         (f"recall of {k} (segment level)", f"recall_{k}", 0.75, True)
         for k in ("false_claim", "detail", "substitution", "correct")

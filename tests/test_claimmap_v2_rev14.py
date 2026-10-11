@@ -13,39 +13,29 @@ from hallucination_bench.evals.wsbench_chat import run as wrun
 from hallucination_bench.judges import claimmap_v2 as cm
 
 
-def test_unrealised_option_replaces_unrealised_prediction():
-    assert "unrealised_prediction" not in tx.LEAVES and "unrealised_option" in tx.LEAVES
-    assert len(tx.LEAF_NAMES) == 20
+def test_unrealised_option_is_a_leaf():
+    # rev 15 reinstates unrealised_prediction and moves both to the `alternative` verdict
+    assert "unrealised_option" in tx.LEAVES and "unrealised_prediction" in tx.LEAVES
     assert tx.group_of("unrealised_option") == tx.THINKY
-    assert tx.verdict_of("unrealised_option") == tx.V_PROBE
-    assert "unrealised_option" in tx.PROBE_CANDIDATE_LEAVES
-    assert tx.FALLBACK_RENAMES == {"unrealised_prediction": "unrealised_option"}
-    for system in (cm.SYSTEM, cm.SYSTEM_V5C):
-        assert "unrealised_prediction" not in system
+    assert tx.verdict_of("unrealised_option") == tx.V_ALTERNATIVE
+    assert "unrealised_option" not in tx.PROBE_CANDIDATE_LEAVES
+    assert tx.FALLBACK_RENAMES == {}
 
 
 @pytest.mark.parametrize("system", [cm.SYSTEM, cm.SYSTEM_V5C])
 def test_rules_3_9_10_and_name_anchors_are_rendered(system):
     flat = system.replace("**", "")
-    # rule 10: narrow option + everything else incorrect, with the plan's examples
-    assert "unrealised_option is narrow" in flat.replace("`", "")
+    # rule 10 (rev 15 wording): the option example survives
     assert '"Speech or storytelling" is an option' in flat
-    assert "Every other prediction or continuation that the response does not realise is " in flat
-    assert "a different answer to the question being answered" in flat
-    assert "my better half is your development environment" in flat
     assert "Here's a guide tailored to public speaking" in flat
-    # rule 3: continuation text follows the same split
     r3 = tx.RULES[3].body
-    assert any("`unrealised_option` only if it fills the same open-ended slot" in b for b in r3)
-    assert any("including a close paraphrase of the same move" in b for b in r3)
-    # rule 9
-    assert "`unrealised_option` > `model_state` > `other_on_topic`." in system
+    assert any("`unrealised_option` if it fills the same open-ended slot" in b for b in r3)
     # rule 8 name anchors
     assert '"Miss Li" and the readout says "Miss Wang"' in system
     assert '("我是 ChatGPT" where it is Qwen) is `substitution_sibling`' in system
 
 
-def test_old_unrealised_prediction_gold_maps_to_option_with_a_warning(tmp_path):
+def test_unrealised_prediction_gold_loads_without_a_fallback(tmp_path):
     c = cal.skeleton(
         {
             "case_id": "old",
@@ -61,19 +51,19 @@ def test_old_unrealised_prediction_gold_maps_to_option_with_a_warning(tmp_path):
     assert cal.validate_case(c) == []
     p = tmp_path / "old.jsonl"
     p.write_text(json.dumps(c) + "\n")
-    with pytest.warns(UserWarning, match="unrealised_prediction"):
+    import warnings
+
+    with warnings.catch_warnings():
+        warnings.simplefilter("error")  # rev 15: a real leaf again, no fallback warning
         (loaded,) = cal.load_cases("dev", p)
-    assert loaded["gold"]["units"][0]["leaf"] == "unrealised_option"
+    assert loaded["gold"]["units"][0]["leaf"] == "unrealised_prediction"
 
 
 def test_dev_v2_is_relabelled_with_rev14_anchors():
-    raw = (cal.CAL_DIR / "dev_v2.jsonl").read_text()
-    assert "unrealised_prediction" not in raw
     cases = {c["case_id"]: c for c in cal.load_cases("dev")}
     rules = {r for c in cases.values() for r in c["rules"]}
     assert {
         "unrealised-option",
-        "unrealised-continuation-incorrect",
         "unrealised-different-answer",
         "self-identity-substitution",
         "user-supplied-name-detail",

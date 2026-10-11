@@ -14,7 +14,7 @@ src/hallucination_bench/
   readouts.py     readout contract loader, decode_token, verify_quote, normalize_ws
   summarizer.py   interp-v1 token-bag -> prose prompt (verbatim)
   taxonomy.py     THE taxonomy (single source of truth; rendered into the classifier prompt)
-  taxonomy_v2.py  THE claim-map taxonomy (20 leaves / 8 groups / 6 VERDICTS, precedence, open
+  taxonomy_v2.py  THE claim-map taxonomy (22 leaves / 8 groups / 7 VERDICTS, precedence, open
                   decisions in CHOSEN; render(anchored) for single-call vs --anchor v5c)
   units.py        deterministic readout splitter (units R{i}.U{n}) + offset-returning locate
   judges/v5c.py   verbatim v5c span + verify prompts/parsers; claim_lists (quotes, checked vs tally)

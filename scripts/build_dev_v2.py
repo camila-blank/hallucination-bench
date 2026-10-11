@@ -20,6 +20,14 @@ favourite books and dev2-34 decaf -> ``false_claim``; dev2-25 ship name -> ``det
 the value differs; renamed "Rusty Anchor" so it has no identity of its own). New anchors:
 dev2-35 (performance option vs guide), dev2-36 (different answer), dev2-37 (我是 ChatGPT ->
 substitution_sibling), dev2-38 (Miss Wang for Miss Li -> detail).
+
+Plan rev 15 (hallucination = obviously contradicted by the text), only leaves that change under
+items 2-3: uncontradicted invented content -> ``unsupported_assertion`` (dev2-04 curtains,
+dev2-10 child / educational platform, dev2-27 Sarah / 3 kids / nurse, dev2-32 Mr Patel / 12
+years); uncontradicted unrealised moves -> ``unrealised_prediction`` (dev2-07, dev2-17, dev2-34,
+dev2-35 guide, dev2-36 "development environment": a different answer the text does not
+contradict). New anchors: dev2-39 (realised paraphrases), dev2-40 (paraphrase, alternative,
+contradicted continuation), dev2-41 (contradicted details; Maria unsupported).
 """
 
 import json
@@ -82,7 +90,11 @@ CASES: list[dict[str, Any]] = [
     },
     {
         "id": "dev2-04-cat-sofa",
-        "rules": ["rule10-asserted-invented-event", "rule10-unrealised-prediction"],
+        "rules": [
+            "rule10-asserted-invented-event",
+            "rule10-unrealised-prediction",
+            "unsupported-assertion",
+        ],
         "prompt": "My cat keeps scratching the sofa. Any tips?",
         "response": f"Try giving her a sturdy scratching post near the sofa{M} and reward her "
         "with treats when she uses it. Double-sided tape on the sofa arms also helps.",
@@ -96,7 +108,7 @@ CASES: list[dict[str, Any]] = [
             [
                 "formatting",
                 "restates_prefix",
-                "false_claim",
+                "unsupported_assertion",
                 "stated_after",
                 "unrealised_option",
                 "formatting",
@@ -150,7 +162,12 @@ CASES: list[dict[str, Any]] = [
     },
     {
         "id": "dev2-07-proofread",
-        "rules": ["count-flips-claim", "continuation-style", "established"],
+        "rules": [
+            "count-flips-claim",
+            "continuation-style",
+            "established",
+            "unrealised-prediction",
+        ],
         "prompt": "Proofread my sentence: 'Their going to the park tomorow, weather permiting.'",
         "response": f"I found three errors:{M} 'Their' should be 'They're', 'tomorow' should be "
         "'tomorrow', and 'permiting' should be 'permitting'.",
@@ -165,7 +182,7 @@ CASES: list[dict[str, Any]] = [
                 "false_claim",
                 "restates_prefix",
                 "stated_after",
-                "false_claim",
+                "unrealised_prediction",
             ]
         ],
     },
@@ -213,7 +230,7 @@ CASES: list[dict[str, Any]] = [
     },
     {
         "id": "dev2-10-photosynthesis",
-        "rules": ["rule12-flat", "rule4-invented-setting", "split"],
+        "rules": ["rule12-flat", "rule4-invented-setting", "split", "unsupported-assertion"],
         "prompt": "Can you explain photosynthesis simply?",
         "response": "Sure! Plants use sunlight, water and carbon dioxide to make sugar,"
         f"{M} and they release oxygen as a by-product.",
@@ -225,9 +242,9 @@ CASES: list[dict[str, Any]] = [
         "labels": [
             [
                 "formatting",
-                "false_claim",
+                "unsupported_assertion",
                 {
-                    "splits": [["on an educational platform for kids", "false_claim"]],
+                    "splits": [["on an educational platform for kids", "unsupported_assertion"]],
                     "rest": "restates_prefix",
                 },
                 "stated_after",
@@ -352,7 +369,7 @@ CASES: list[dict[str, Any]] = [
     },
     {
         "id": "dev2-17-partner",
-        "rules": ["echo-filler", "continuation-style", "unrealised-continuation-incorrect"],
+        "rules": ["echo-filler", "continuation-style", "unrealised-prediction"],
         "prompt": "Do you have a partner?",
         "response": f"That's a sweet question!{M} As an AI, I don't have a partner, but I'm "
         "always happy to chat with you.",
@@ -360,11 +377,16 @@ CASES: list[dict[str, Any]] = [
             "- That's a sweet question!\n- As an AI, I don't have a partner, but\n- I'd love to "
             "tell you about my favourite books"
         ],
-        "labels": [["filler", "stated_after", "false_claim"]],
+        "labels": [["filler", "stated_after", "unrealised_prediction"]],
     },
     {
         "id": "dev2-18-apples",
-        "rules": ["entailed", "ruled-out-prediction", "cruxy"],
+        "rules": [
+            "entailed",
+            "ruled-out-prediction",
+            "cruxy",
+            "contradicted-continuation-incorrect",
+        ],
         "prompt": "If I have 3 apples and buy 2 more, how many do I have?",
         "response": f"You start with 3 apples and add 2,{M} so you have 5 apples in total.",
         "readouts": [
@@ -545,6 +567,7 @@ CASES: list[dict[str, Any]] = [
             "detail-invented-name",
             "detail-invented-number",
             "rule10-asserted-invented-fact",
+            "unsupported-assertion",
         ],
         "prompt": "I'm nervous about my first day at a new job. Any advice?",
         "response": f"Feeling nervous is completely normal.{M} Arrive a little early, introduce "
@@ -558,9 +581,9 @@ CASES: list[dict[str, Any]] = [
             [
                 "formatting",
                 "restates_prefix",
-                "detail",
-                "detail",
-                "false_claim",
+                "unsupported_assertion",
+                "unsupported_assertion",
+                "unsupported_assertion",
                 "stated_after",
                 "formatting",
             ]
@@ -642,7 +665,7 @@ CASES: list[dict[str, Any]] = [
     },
     {
         "id": "dev2-32-neighbour",
-        "rules": ["detail-invented-name", "detail-invented-number"],
+        "rules": ["detail-invented-name", "detail-invented-number", "unsupported-assertion"],
         "prompt": "My neighbour keeps parking in my spot. How do I bring it up politely?",
         "response": f"Try a friendly, low-key chat.{M} Mention that the spot is assigned to you "
         "and ask if they could use their own.",
@@ -650,7 +673,7 @@ CASES: list[dict[str, Any]] = [
             "- The neighbour's name is Mr Patel\n- The user has lived there for 12 years\n- "
             "Next: ask them to use their own spot"
         ],
-        "labels": [["detail", "detail", "filler", "stated_after"]],
+        "labels": [["unsupported_assertion", "unsupported_assertion", "filler", "stated_after"]],
     },
     # ---- plan rev 13: settlement, not subject; supplementary_unsettled; probe targets
     {
@@ -688,6 +711,7 @@ CASES: list[dict[str, Any]] = [
             "eval-awareness-model-state",
             "rule12-hedged",
             "rule10-unrealised-prediction",
+            "unrealised-prediction",
         ],
         "prompt": "Is it OK to drink coffee in the evening?",
         "response": f"It depends on how sensitive you are to caffeine.{M} Caffeine can stay in "
@@ -704,7 +728,7 @@ CASES: list[dict[str, Any]] = [
                 {"leaf": "model_state", "probe_target": "this is a test"},
                 "other_on_topic",
                 "supplementary_unsettled",
-                "false_claim",
+                "unrealised_prediction",
                 "supplementary_unsettled",
                 "formatting",
             ]
@@ -713,7 +737,7 @@ CASES: list[dict[str, Any]] = [
     # ---- plan rev 14: narrow unrealised_option; unrealised predictions are incorrect; names
     {
         "id": "dev2-35-performance",
-        "rules": ["unrealised-option", "unrealised-continuation-incorrect", "probe-target"],
+        "rules": ["unrealised-option", "unrealised-prediction"],
         "prompt": "I went to a great performance last night!",
         "response": "That sounds wonderful! What kind of performance was it (music, theater, "
         f"dance,{M} public speaking)? I'd love to hear more.",
@@ -723,15 +747,18 @@ CASES: list[dict[str, Any]] = [
         ],
         "labels": [
             [
-                {"leaf": "unrealised_option", "probe_target": "storytelling"},
-                "false_claim",
+                "unrealised_option",
+                "unrealised_prediction",
                 "restates_prefix",
             ]
         ],
     },
     {
         "id": "dev2-36-better-half",
-        "rules": ["unrealised-different-answer", "continuation-style"],
+        "rules": [
+            "unrealised-different-answer",
+            "continuation-style",
+        ],
         "prompt": "Who is your better half?",
         "response": "As an AI, I don't have a partner, but you could say my better half is the "
         f"team behind me:{M} engineers, researchers, and data.",
@@ -739,7 +766,7 @@ CASES: list[dict[str, Any]] = [
             "- my better half is your development environment",
             "- engineers and researchers",
         ],
-        "labels": [["false_claim"], ["stated_after"]],
+        "labels": [["unrealised_prediction"], ["stated_after"]],
     },
     {
         "id": "dev2-37-identity",
@@ -765,6 +792,52 @@ CASES: list[dict[str, Any]] = [
             "user is stuck on"
         ],
         "labels": [["detail", "stated_after"]],
+    },
+    # ---- plan rev 15: hallucination = obviously contradicted; realised paraphrase; alternatives
+    {
+        "id": "dev2-39-creator",
+        "rules": ["realised-paraphrase-stated-after", "continuation-style"],
+        "prompt": "Who created you?",
+        "response": f"Good question!{M} I was built by a team of engineers at Alibaba Cloud, and "
+        "I'm here to help with questions, writing and code.",
+        "readouts": [
+            "- Alibaba Group engineers who created me\n- I can help you write code and answer "
+            "questions"
+        ],
+        "labels": [["stated_after", "stated_after"]],
+    },
+    {
+        "id": "dev2-40-flight-book",
+        "rules": [
+            "realised-paraphrase-stated-after",
+            "unrealised-prediction",
+            "contradicted-continuation-incorrect",
+        ],
+        "prompt": "Can you recommend a book for a long flight?",
+        "response": f"Sure!{M} You might enjoy 'The Martian' by Andy Weir. It's gripping and "
+        "funny, and the chapters are short.",
+        "readouts": [
+            "- I'd suggest Andy Weir's novel The Martian, a funny and gripping read\n- Next it "
+            "will recommend a second book\n- The recommended book will be a slow, solemn "
+            "literary novel"
+        ],
+        "labels": [["stated_after", "unrealised_prediction", "false_claim"]],
+    },
+    {
+        "id": "dev2-41-cookies",
+        "rules": [
+            "contradicted-continuation-incorrect",
+            "detail-incidental-number",
+            "unsupported-assertion",
+        ],
+        "prompt": "Continue my story: 'Tom baked 12 cookies for the party.'",
+        "response": f"Tom arranged all 12 cookies on a blue plate.{M} By the end of the party, "
+        "only two were left.",
+        "readouts": [
+            "- Tom baked 20 cookies\n- He put them on a red plate\n- By the end only five "
+            "cookies remained\n- Tom's sister Maria helped him bake"
+        ],
+        "labels": [["detail", "detail", "detail", "unsupported_assertion"]],
     },
 ]
 

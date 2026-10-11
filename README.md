@@ -11,7 +11,7 @@ hallucination eval is one of many evals here; see `plans/` for the design histor
 | eval | what it measures | plan |
 |---|---|---|
 | `wsbench_chat` | WorkspaceBench's hallucination (chat) eval, ported verbatim (v5c span + verify stages), plus the taxonomy classifier | [0001](plans/0001-bootstrap-wsbench-chat-taxonomy.md) |
-| `wsbench_chat` claim map | taxonomy v2: every character of every readout in exactly one of 20 leaves (8 groups), rolled up into 6 verdicts | [0002](plans/0002-claim-map-taxonomy-v2.md) |
+| `wsbench_chat` claim map | taxonomy v2: every character of every readout in exactly one of 22 leaves (8 groups), rolled up into 7 verdicts | [0002](plans/0002-claim-map-taxonomy-v2.md) |
 
 Per cell (arm × item × read site × layer) `wsbench_chat` runs up to five calls:
 
@@ -43,18 +43,20 @@ subject** (an on-topic world claim the conversation does not state, entail or co
 supplementary). Eight groups: **hallucination** (`detail`, `false_claim`), **co-activation**
 (`substitution_sibling`, `substitution_category`), **correct** (`restates_prefix`,
 `stated_after`, `entailed`), **supplementary** (`supplementary_true`, `supplementary_false`,
-`supplementary_unsettled`), **thinky** (`unrealised_option`, `model_state`,
-`other_on_topic`), **unsettled** (`ambiguous_topic`), **junk** (`off_topic`), **non-claim**
+`supplementary_unsettled`), **thinky** (`unrealised_option`, `unrealised_prediction`,
+`model_state`, `unsupported_assertion`, `other_on_topic`), **unsettled** (`ambiguous_topic`), **junk** (`off_topic`), **non-claim**
 (`generic`, `filler`, `formatting`, `junk_text`, `lens_meta`), plus two code-only rows:
 `unknown_incorrect` (`--anchor v5c` only: an established v5c span the judge disputed or did
 not label incorrect) and `failed`. Each leaf maps to one **verdict** (`taxonomy_v2.VERDICTS`):
-hallucination, probe_candidate, correct, unresolved, junk, non_claim. The headline is the
+hallucination, probe_candidate, alternative, correct, unresolved, junk, non_claim. The headline is the
 character-weighted verdict share per readout (averaged over readouts) and the readout-level
 verdict rates; groups and leaves are the breakdown. Probe-candidate segments carry a
-`probe_target` (written to `probe_candidates.jsonl`). Rev 14: `unrealised_option` is narrow
-(a different choice for the same open-ended slot the response fills next); any other
-unrealised prediction or continuation is incorrect (`detail` / `false_claim`). Invalid `:M`
-answers are retried up to 2 times in-run before being cached as failed. Outputs are labelled **pre-gate** until
+`probe_target` (written to `probe_candidates.jsonl`). Rev 15 hallucination gate: a segment is
+incorrect only if the conversation **obviously contradicts** it; uncontradicted invented content
+is `unsupported_assertion` (unresolved); unrealised continuations that are not contradicted are
+`unrealised_option` (same open-ended slot) or `unrealised_prediction` (a different move or
+answer), both verdict `alternative`; content realised in any wording is `stated_after`. Invalid
+`:M` answers are retried up to 2 times in-run before being cached as failed. Outputs are labelled **pre-gate** until
 the held-out gate passes for the current prompt version.
 
 ## The taxonomy (v1)

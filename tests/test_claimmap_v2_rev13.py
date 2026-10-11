@@ -24,6 +24,7 @@ def test_verdict_mapping_covers_every_leaf_exactly_once():
     assert set(tx.VERDICTS) == {
         "hallucination",
         "probe_candidate",
+        "alternative",
         "correct",
         "unresolved",
         "junk",
@@ -48,7 +49,13 @@ def test_groups_follow_option_a():
         "supplementary_false",
         "supplementary_unsettled",
     )
-    assert set(tx.THINKY_LEAVES) == {"unrealised_option", "model_state", "other_on_topic"}
+    assert set(tx.THINKY_LEAVES) == {
+        "unrealised_option",
+        "unrealised_prediction",
+        "model_state",
+        "unsupported_assertion",
+        "other_on_topic",
+    }
     assert "world_true" not in tx.LEAVES and "possible_belief" not in tx.LEAVES
     assert tx.LEAF_RENAMES == {
         "world_true": "supplementary_true",
@@ -120,7 +127,7 @@ def test_probe_target_parsing_and_missing_count():
     raw = {
         "units": [
             e("R0.U1", "model_state", probe_target="  this is an evaluation "),
-            e("R0.U2", "unrealised_option"),  # missing probe_target: counted, leaf kept
+            e("R0.U2", "ambiguous_topic"),  # missing probe_target: counted, leaf kept
             e(
                 "R0.U3",
                 "generic",
@@ -143,7 +150,7 @@ def test_probe_target_parsing_and_missing_count():
     got = [(s.text, s.leaf, s.probe_target) for s in segs]
     assert got == [
         ("The model thinks it is a test.", "model_state", "this is an evaluation"),
-        ("Next comes therapy.", "unrealised_option", None),
+        ("Next comes therapy.", "ambiguous_topic", None),
         ("Paris", "substitution_sibling", "Paris"),
         ("is big.", "restates_prefix", None),
         ("Yes.", "restates_prefix", None),
@@ -321,7 +328,7 @@ def test_verdict_accuracy_gate_row_and_probe_target_anchors():
     pred = cm.parse(
         {
             "units": [
-                e("R0.U1", "unrealised_option", probe_target="a test"),  # same verdict
+                e("R0.U1", "ambiguous_topic", probe_target="a test"),  # same verdict
                 e("R0.U2", "other_on_topic"),  # same verdict (unresolved), other group
                 e("R0.U3", "false_claim"),  # wrong verdict
             ],
@@ -331,13 +338,13 @@ def test_verdict_accuracy_gate_row_and_probe_target_anchors():
     )
     m = cal.run_metrics([c], [pred])
     assert m["verdict_acc_unit"] == pytest.approx(2 / 3)
-    assert m["group_acc_unit"] == pytest.approx(1 / 3)  # only model_state ~ prediction (thinky)
+    assert m["group_acc_unit"] == 0.0  # every unit's group differs
     assert m["probe_targets"] == [
         {
             "case_id": "v",
             "unit": "R0.U1",
             "gold_leaf": "model_state",
-            "pred_leaf": "unrealised_option",
+            "pred_leaf": "ambiguous_topic",
             "gold": "this is a test",
             "pred": "a test",
         }
@@ -345,7 +352,7 @@ def test_verdict_accuracy_gate_row_and_probe_target_anchors():
     res = cal.score([c], [[pred], [pred]], "dev")
     rows = {g["key"]: g for g in res["gate"]}
     assert rows["verdict_acc_unit"]["threshold"] == 0.85
-    assert rows["verdict_acc_unit"]["measure"] == "verdict accuracy (6 verdicts), unit level"
+    assert rows["verdict_acc_unit"]["measure"] == "verdict accuracy (7 verdicts), unit level"
     assert rows["verdict_acc_unit"]["passed"] is False
     assert res["anchor"] == "none" and len(res["probe_targets"]) == 2
     assert "verdict accuracy" in cal.render_markdown(res)

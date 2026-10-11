@@ -181,7 +181,7 @@ label from that file, plan 0002 §Units, §The tree, §Precedence, §Detail rule
 | `source` | object | optional (`{arm, key, v5c_cell_class}` for real cells) |
 | `gold.units[]` | list | **every** production unit, in order |
 | `gold.units[].id`, `.text`, `.established` | | copied from the splitter (`units-v2` / `pilot-dump-v2`); never edit |
-| `gold.units[].leaf` | one of the 20 leaves \| `null` | the unit's leaf when it is not split. `null` with no splits = unlabelled context (allowed on `real` cases only; not scored) |
+| `gold.units[].leaf` | one of the 22 leaves \| `null` | the unit's leaf when it is not split. `null` with no splits = unlabelled context (allowed on `real` cases only; not scored) |
 | `gold.units[].splits[]` | `{text, leaf}` | sub-spans, verbatim from the unit, left to right, non-overlapping |
 | `gold.units[].rest_leaf` | leaf \| `null` | required when `splits` leave a remainder |
 | `gold.units[].probe_target` | string | optional; on a probe-candidate unit, the expected probe target (reported next to the judge's, not gated) |
@@ -191,7 +191,8 @@ Leaves (taxonomy v2, plan rev 13): non_claim — `generic`, `filler`, `formattin
 `lens_meta`; correct — `restates_prefix`, `stated_after`, `entailed`; incorrect —
 `detail`, `false_claim` (hallucination), `substitution_sibling`, `substitution_category`
 (co-activation); supplementary — `supplementary_true`, `supplementary_false`,
-`supplementary_unsettled`; thinky — `unrealised_option`, `model_state`, `other_on_topic`;
+`supplementary_unsettled`; thinky — `unrealised_option`, `unrealised_prediction`, `model_state`,
+`unsupported_assertion`, `other_on_topic`;
 `ambiguous_topic` (unsettled); `off_topic` (junk). Gold never uses the code-only
 `unknown_incorrect` / `failed`. Pre-rev-13 names are renamed on load (`world_true` ->
 `supplementary_true`, `possible_belief` -> `supplementary_false`); rev 14's
@@ -212,7 +213,7 @@ scored by the judge's `alt_leaf` (disputed) or raw leaf (forced).
 
 ## dev_v2.jsonl (synthetic, prompt iteration)
 
-38 cases, 168 gold units, written from scratch by the implementer (Claude, 2026-10-11) with
+41 cases, 177 gold units, written from scratch by the implementer (Claude, 2026-10-11) with
 `scripts/build_dev_v2.py` (the labels live there; re-run it if the splitter changes). Every
 case is invented. Coverage (asserted by `tests/test_calibrate_v2.py`): ≥ 3 gold segments for
 every leaf (min 3, e.g. 5 sibling and 4 category substitutions, 9 false_claim, 13 detail;
@@ -231,7 +232,11 @@ answer; 2 unsettled) and `dev2-34` (2 unsettled; probe targets), and gold `probe
 (dev2-04, dev2-08 -> `unrealised_option`; dev2-07, dev2-17, dev2-34 -> `false_claim`; dev2-25
 -> `detail`, ship renamed "Rusty Anchor"), plus dev2-35 (option vs guide), dev2-36 (different
 answer), dev2-37 (我是 ChatGPT -> `substitution_sibling`), dev2-38 (Miss Wang for Miss Li ->
-`detail`); probe targets now on dev2-05/23/33/35/37 (dev2-34's decaf is no longer one).
+`detail`); probe targets now on dev2-05/23/33/35/37 (dev2-34's decaf is no longer one). Rev 15 (incorrect only if obviously contradicted):
+uncontradicted invented content -> `unsupported_assertion` (dev2-04, 10, 27, 32); uncontradicted
+unrealised moves -> `unrealised_prediction` (dev2-07, 17, 34, 35); new anchors dev2-39
+(realised paraphrases), dev2-40 (paraphrase / alternative / contradicted continuation), dev2-41
+(contradicted details, unsupported "sister Maria"). dev2-35's option is no longer a probe target.
 
 Gold-labelling notes (judgement calls, following `taxonomy_v2.py` defaults):
 
@@ -264,3 +269,4 @@ Gold-label fixes (v2): none.
 | 2026-10-11 | dev | claimmap-v2.1 (rev 11 framing rule; 32 cases, punctuation-only segments excluded) | all dev rows pass | group acc unit 0.966 / char 0.958, leaf acc 0.959, recall false_claim 1.00 / detail 0.923 (n 13) / substitution 1.00 / correct 0.910, sib-vs-cat 0.944, claim F1 0.992, flip 0.000; 2 runs, $2.06 |
 | 2026-10-11 | dev | claimmap-v2.3 (rev 13: supplementary branch, verdicts, probe targets; single-call, 34 cases) | all dev rows pass | group acc unit 0.940 / char 0.937, verdict acc 0.940, leaf acc 0.921, recall false_claim 1.00 / detail 0.923 / substitution 0.944 / correct 0.881, sib-vs-cat 0.819, claim F1 0.981, flip 0.044; 1 of 68 calls failed (dev2-32 r1); probe_target missing 0/25 per run; 2 runs, $1.42 |
 | 2026-10-11 | dev | claimmap-v2.4 (rev 14: narrow unrealised_option, name anchors, in-run retries; 38 cases) | all dev rows pass | group acc unit 0.955 / char 0.951, verdict acc 0.955, leaf acc 0.943, recall false_claim 0.964 / detail 0.900 / substitution 1.00 / correct 0.903, sib-vs-cat 0.900, claim F1 0.991, flip 0.006; 0 failed calls; unrealised_option recall 1.00 (n 3); 2 runs, $2.16 |
+| 2026-10-11 | dev | claimmap-v2.5 (rev 15: hallucination = obviously contradicted; unsupported_assertion; unrealised_prediction reinstated; 41 cases) | all dev rows pass | group acc unit 0.963 / char 0.956, verdict acc (7) 0.963, leaf acc (22) 0.935, recall false_claim 1.00 (n 6) / detail 0.964 / substitution 1.00 / correct 0.900, sib-vs-cat 0.900, claim F1 0.987, flip 0.006; unsupported_assertion 1.00 (n 9), unrealised_prediction 0.667 (n 6, misses go to unrealised_option); 2 runs, $3.73. Gold fix after the first scoring: dev2-36 "development environment" false_claim -> unrealised_prediction (rev 15 item 3; the judge read it as uncontradicted) |
