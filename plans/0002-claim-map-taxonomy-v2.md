@@ -1,6 +1,6 @@
 # Plan 0002: claim map (taxonomy v2), an exhaustive, mutually exclusive categorisation of readout content
 
-Issue #3. Author: Camila Blank (planned with Claude), 2026-10-11. Revision 8 (after critiques 1–7).
+Issue #3. Author: Camila Blank (planned with Claude), 2026-10-11. Revision 9 (after critiques 1–8).
 This plan builds on plan 0001 (PR #2): the v5c span and verify port, the taxonomy-v1 classifier,
 and the first full run. It reuses plan 0001's cache layout, client, calibration machinery,
 bootstrap and report unless this plan says otherwise.
@@ -127,7 +127,9 @@ fixed. The prompt lists them in this order: 2, 1, 3, 4, 5, 6, 10, 11, 12, 13, th
    conversation, the model, or the world.
    - Token-bag summaries: the framing ("the tokens include X") is `filler`, and a gloss of the
      tokens is `lens_meta`. The interpretation, including its connective ("suggesting the
-     passage is about Y"), is one claim segment, judged as usual.
+     passage is about Y"), is one claim segment, judged as usual. The connective ("suggesting",
+     "indicating", "points to") is **not a hedge**: the interpretation counts as asserted for
+     rules 10 and 12.
    - Echoes: a literal copy of the prompt's or the response's words that asserts nothing (an
      s3d sample that just repeats "I'd be delighted to") is `filler`, even in the first person
      (this is checked before rule 3). Any assertion about the content ("the user asks who your
@@ -159,7 +161,9 @@ fixed. The prompt lists them in this order: 2, 1, 3, 4, 5, 6, 10, 11, 12, 13, th
    content. **[pending Camila, default:]** world-false content that the response itself states
    is `correct.restates_prefix` or `correct.stated_after`, with the tag `world_false = true`
    (the wrong-bridge case: the response uses the wrong bridge, and the readout finds it).
-   **A world claim is incorrect only if the conversation contradicts it**, or if it overlaps an
+   (Predictions are excepted: a claim framed as anticipation follows rule 10, so it is incorrect only
+   if the text **before** the marker rules it out.) **A world claim is incorrect only if the
+   conversation contradicts it**, or if it overlaps an
    established span. An on-topic world-false claim on which the conversation is silent goes to
    the thinky branch, leaf by rule 9 (usually `possible_belief`).
 7. **Inside `correct`:** `restates_prefix` > `stated_after` > `entailed` > `world_true`.
@@ -191,7 +195,8 @@ fixed. The prompt lists them in this order: 2, 1, 3, 4, 5, 6, 10, 11, 12, 13, th
     (rule 10; leaf by rule 8).
     For example, "the user is a child" or "(Scratch-like community)" stated as fact.
     When it is explicitly hedged as an inference ("likely", "probably", "may be", "seems"), it is
-    `other_on_topic` by default: the lens is guessing, not asserting. Dev and held-out each
+    `other_on_topic` by default: the lens is guessing, not asserting. A hedged inference that the
+    conversation **contradicts** is still incorrect (rule 8 picks the leaf). Dev and held-out each
     carry one anchor for each side.
 13. **On-topic fallback.** An on-topic claim (rule 5) that rules 6, 10 and 12 have not placed, and
     that neither the conversation nor world knowledge settles, goes to the **thinky** branch (leaf
@@ -261,7 +266,7 @@ both count as `false_claim`.
 4. **The wrong-bridge direction.** The default is precedence 6 (the conversation wins; tag
    `world_false`).
 5. **Hedged inferences about the user or setting** (rule 12). The default is `other_on_topic`
-   when hedged, and `false_claim` when asserted flatly.
+   when hedged and unsupported, and incorrect (leaf by rule 8) when asserted flatly.
 
 ## Inputs and established spans
 
