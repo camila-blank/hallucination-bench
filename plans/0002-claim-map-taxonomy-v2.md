@@ -1,6 +1,6 @@
 # Plan 0002: claim map (taxonomy v2), an exhaustive, mutually exclusive categorisation of readout content
 
-Issue #3. Author: Camila Blank (planned with Claude), 2026-10-11. Revision 16 (after critiques 1–9; critique 9: no substantive issues; rev 11 adds the token-summary framing rule found in the smoke run; rev 12 defines "own identity" for rule 8).
+Issue #3. Author: Camila Blank (planned with Claude), 2026-10-11. Revision 17 (after critiques 1–9; critique 9: no substantive issues; rev 11 adds the token-summary framing rule found in the smoke run; rev 12 defines "own identity" for rule 8).
 This plan builds on plan 0001 (PR #2): the v5c span and verify port, the taxonomy-v1 classifier,
 and the first full run. It reuses plan 0001's cache layout, client, calibration machinery,
 bootstrap and report unless this plan says otherwise.
@@ -10,6 +10,42 @@ Items marked **[pending Camila]** use a default until she confirms them (§Open 
 
 
 
+
+
+## Amendment, revision 17 (Camila, 2026-10-11): quoted evidence and reported noise. This section adds to revision 16.
+
+Camila: "you should report noise and make the judge quote the contradiction".
+
+1. **`contradicted_by` (required).** Every segment labelled `detail`, `false_claim`,
+   `substitution_sibling` or `substitution_category` must carry `contradicted_by`: a verbatim
+   span of the **conversation** (the prompt, or the response before or after the marker) that
+   rules the segment out.
+   - Code checks it with `locate` against the prompt and the response.
+   - **Fail closed:** if the quote is missing, or cannot be found in the conversation, the
+     segment is re-labelled `unverifiable` (tag `unquoted_contradiction = true`) and counted
+     (`n_unquoted_contradictions`).
+   - The prompt states the test directly: "if you cannot quote the text that rules it out, it
+     is not contradicted: label it `unverifiable`".
+2. **`supported_by` (required for `correct`, except `source = entailed`).** A verbatim span of the
+   conversation that states or realises the segment.
+   - If it is missing or cannot be found, the segment is re-labelled `unverifiable` (tag
+     `unquoted_support = true`) and counted.
+3. **Evidence in outputs.** `probe_candidates.jsonl`, the audit samples and `cells.jsonl` carry the
+   quotes. The report's example tables show each hallucination with its `contradicted_by` quote.
+4. **Reported noise.** Every report of a pilot or full run includes a judge-noise section. It
+   comes from `hbench consistency-v2`, run on a seeded 150-cell sample drawn from the arms in
+   the run, with 2 fresh calls per cell. The section contains:
+   - κ and raw agreement, overall, per arm, and per lens family;
+   - per-leaf self-agreement (Dice);
+   - κ for the **detail-vs-false_claim split**, restricted to segments both runs call hallucination;
+   - the hallucination / probe / correct / unresolved readout rates as computed from run r0 and
+     from run r1, with their difference (the run-to-run noise in the headline numbers);
+   - flagged pairs (> 10%).
+
+   Headline tables add a "judge noise ±" column, which is half the r0–r1 difference.
+5. **Re-check.** After implementing items 1–4, re-run `consistency-v2` on the same 150 cells. The
+   target is no hallucination-boundary pair above 10%. If pairs remain above 10%, add
+   self-consistency voting (two calls, plus a third call where they disagree) before the full run.
 
 ## Amendment, revision 16 (Camila, 2026-10-11): the lean tree. This section overrides revisions 13–15 and the text below where they conflict.
 
