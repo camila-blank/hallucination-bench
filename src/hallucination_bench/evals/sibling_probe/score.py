@@ -44,7 +44,7 @@ item reweighting; bootstraps therefore reuse per-item sufficient statistics (exa
 import json
 from collections import Counter, defaultdict
 from collections.abc import Callable, Iterable, Mapping, Sequence
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from pathlib import Path
 from typing import Any
 
@@ -55,6 +55,7 @@ from hallucination_bench import taxonomy_v2 as tx
 from hallucination_bench.evals.sibling_probe.probes import (
     TRANSFER_MIN_AUROC,
     VALIDITY_MIN_AUROC,
+    VALIDITY_STRICT_AUROC,
     auroc,
 )
 
@@ -191,11 +192,12 @@ class Gates:
     validity: dict[tuple[str, str, int], float]
     transfer: dict[tuple[str, str, int], float]
     concepts: dict[str, list[str]]
+    min_validity: float = VALIDITY_MIN_AUROC
 
     def concept_pass(self, cat: str, c: str, L: int) -> bool:
         v = self.validity.get((cat, c, L), float("nan"))
         t = self.transfer.get((cat, c, L), float("nan"))
-        return bool(v >= VALIDITY_MIN_AUROC and t >= TRANSFER_MIN_AUROC)
+        return bool(v >= self.min_validity and t >= TRANSFER_MIN_AUROC)
 
     def transfer_pass(self, cat: str, c: str, L: int) -> bool:
         return bool(self.transfer.get((cat, c, L), float("nan")) >= TRANSFER_MIN_AUROC)
@@ -210,7 +212,7 @@ class Gates:
     def drop_reason(self, cat: str, c: str, L: int) -> str | None:
         if not self.catlayer_pass(cat, L):
             return "category_layer_transfer"
-        if not self.validity.get((cat, c, L), float("nan")) >= VALIDITY_MIN_AUROC:
+        if not self.validity.get((cat, c, L), float("nan")) >= self.min_validity:
             return "validity"
         if not self.transfer_pass(cat, c, L):
             return "transfer"
@@ -824,6 +826,7 @@ def verdict_table(arms: Mapping[str, Mapping[str, Any]]) -> list[dict[str, Any]]
         for key, subset in (
             (arm, "all transfer-passing"),
             (f"{arm}@token_eligible", "token-eligible"),
+            (f"{arm}@validity085", "validity >= 0.85 (robustness)"),
         ):
             s = arms.get(key)
             if s is None:
@@ -892,6 +895,10 @@ def score_all(
             out["arms"][f"{arm}@token_eligible"] = arm_summary(
                 p.subset(te), g, n_boot=n_boot, seed=seed
             )
+            # plan rev 10 robustness row: probes passing the original 0.85 validity gate
+            strict = replace(gates, min_validity=VALIDITY_STRICT_AUROC)
+            ps, gs = build_pairs(cells, concepts, token_eligible, scores, strict, item_order)
+            out["arms"][f"{arm}@validity085"] = arm_summary(ps, gs, n_boot=n_boot, seed=seed)
     out["verdict"] = verdict_table(out["arms"])
     return out
 
