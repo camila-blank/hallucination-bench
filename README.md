@@ -11,8 +11,9 @@ hallucination eval is one of many evals here; see `plans/` for the design histor
 | eval | what it measures | plan |
 |---|---|---|
 | `wsbench_chat` | WorkspaceBench's hallucination (chat) eval, ported verbatim (v5c span + verify stages), plus the taxonomy classifier | [0001](plans/0001-bootstrap-wsbench-chat-taxonomy.md) |
+| `wsbench_chat` claim map | taxonomy v2: every character of every readout in exactly one of 19 leaves (7 groups) | [0002](plans/0002-claim-map-taxonomy-v2.md) |
 
-Per cell (arm × item × read site × layer) `wsbench_chat` runs up to four calls:
+Per cell (arm × item × read site × layer) `wsbench_chat` runs up to five calls:
 
 1. **summarise** (token lenses only): the `interp-v1` summariser turns the decoded top-10 token
    bag into one interpretation, which is judged as the readout (k = 1);
@@ -21,7 +22,26 @@ Per cell (arm × item × read site × layer) `wsbench_chat` runs up to four call
 3. **verify** (`v5c-chat-verify-v1`, verbatim): every other specific claim as `true` /
    `unverifiable` / `disputed` / `off_topic`;
 4. **classify** (`taxonomy-v1`, new): labels every hallucinated span found by 2–3. It never
-   decides whether a span is a hallucination.
+   decides whether a span is a hallucination;
+5. **map** (`claimmap-v2`, plan 0002): code splits every readout into units (the v5c verified
+   wrong spans become their own "established" units); the judge puts every unit, or verbatim
+   sub-spans of it, into one taxonomy-v2 leaf. Needs only stages 1–2.
+
+`hbench run --stages summary,span,verify,classify,map` picks the stages that may call the API
+(default: all; dependencies run first if missing, e.g. `--stages map` runs summary + span).
+
+## The claim map (taxonomy v2)
+
+Defined once in [`src/hallucination_bench/taxonomy_v2.py`](src/hallucination_bench/taxonomy_v2.py)
+(leaves, groups, precedence, the Detail rule, tags, and the open decisions with their defaults in
+`CHOSEN`) and rendered into the judge prompt. Seven groups: **hallucination** (`detail`,
+`false_claim`), **co-activation** (`substitution_sibling`, `substitution_category`), **correct**
+(`restates_prefix`, `stated_after`, `entailed`, `world_true`), **thinky**
+(`unrealised_prediction`, `model_state`, `possible_belief`, `other_on_topic`), **unsettled**
+(`ambiguous_topic`), **junk** (`off_topic`), **non-claim** (`generic`, `filler`, `formatting`,
+`junk_text`, `lens_meta`), plus two code-only rows: `unknown_incorrect` (an established v5c span
+the judge disputed or did not label incorrect) and `failed`. The headline is the
+character-weighted share of each group per readout, averaged over readouts.
 
 ## The taxonomy (v1)
 
@@ -58,15 +78,24 @@ uv run hbench report --out outputs/smoke
 uv run hbench calibrate --split dev       # classifier vs hand-labelled dev cases
 uv run hbench calibrate --split heldout   # the gate (held-out only)
 
+# claim map (plan 0002): the :M stage on cached span results, then the v2 report
+uv run hbench run --out outputs --readouts-root $R --arms s3d-rl600 --layers 44 --limit 10 \
+    --stages map --show-prompts 3
+uv run hbench report --out outputs --view v2   # report_v2.md, substitution_pairs.jsonl, audit_samples_v2.md
+uv run hbench calibrate --taxonomy v2 --split dev
+
 scripts/run_all_arms.sh                   # full run in tmux session `hbench`; tail -f logs/run_*.log
 ```
 
 Other commands: `hbench run --rebuild` (regenerate `cells.jsonl` / `summary.json` from the cache,
 no API calls), `hbench run --skip-classify` (span + verify pilot), `hbench pilot-dump` (sample
-pilot spans as unlabelled calibration cases).
+pilot spans as unlabelled calibration cases), `hbench pilot-dump-v2` (real cells with their
+production units, unlabelled, for v2 gold), `hbench units-v2` (fill a v2 case's `gold.units`
+with the production unit split).
 
-Outputs: `outputs/wsbench_chat/<judge model>/<arm>/{cache.jsonl,cells.jsonl,summary.json}` and
-`outputs/wsbench_chat/<judge model>/{report.md,report.json,audit_samples.md}`.
+Outputs: `outputs/wsbench_chat/<judge model>/<arm>/{cache.jsonl,cells.jsonl,summary.json,summary_v2.json}`
+and `outputs/wsbench_chat/<judge model>/{report.md,report.json,audit_samples.md}` (v2:
+`report_v2.{md,json}`, `substitution_pairs.jsonl`, `audit_samples_v2.md`).
 
 ## Judge and caveats
 
@@ -90,4 +119,5 @@ Outputs: `outputs/wsbench_chat/<judge model>/<arm>/{cache.jsonl,cells.jsonl,summ
 ## Results
 
 [`docs/results/0001_wsbench_chat_taxonomy.md`](docs/results/0001_wsbench_chat_taxonomy.md)
-(filled in after the full run).
+(filled in after the full run); claim map:
+[`docs/results/0002_claim_map.md`](docs/results/0002_claim_map.md).

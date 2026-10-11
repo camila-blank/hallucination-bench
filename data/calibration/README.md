@@ -135,3 +135,109 @@ Gold-label fixes: none.
     (`sampled: true`); the other spans are context and are not scored.
 - Caveat: the real-part gold labeller is the same model family as the classifier, so agreement
   on part (b) is optimistic.
+
+---
+
+# Claim-map (taxonomy v2) calibration cases (plan 0002)
+
+Files: `dev_v2.jsonl` (implementer), `heldout_v2.jsonl` (blind author only; never written or
+edited by the implementer). `hbench calibrate --taxonomy v2 --split dev|heldout` validates every
+case (`calibrate_v2.validate_case`) and refuses to run on an invalid file. The leaf definitions
+and rules live in `src/hallucination_bench/taxonomy_v2.py` (rendered into the judge prompt);
+label from that file, plan 0002 §Units, §The tree, §Precedence, §Detail rule and §Tags.
+
+## Workflow (gold uses the production unit split)
+
+1. Write the case without gold: `case_id`, `part`, `rules`, `kind`, `prompt`, `response` (with
+   `⟦READ⟧` exactly once), `readouts`, `established`.
+2. Run the production splitter over it:
+   `uv run hbench units-v2 --cases draft.jsonl --dest skeleton.jsonl`. This fills
+   `gold.units` with one entry per production unit (`id`, `text`, `established`, `leaf: null`).
+   Real cells come pre-split from `hbench pilot-dump-v2` (stratified by arm × v5c cell class;
+   it never shows claim-map output, so the labeller stays blind).
+3. Label exactly those units: set `leaf`, or, for a unit that carries more than one claim or
+   mixes claim and non-claim text, give `splits` (verbatim, in-order, non-overlapping sub-spans
+   of the unit text, each with a leaf) and `rest_leaf` (the leaf of the unquoted remainder;
+   required whenever the splits leave any non-whitespace text). Never edit `id` / `text`: the
+   loader re-runs the splitter and rejects a case whose units no longer match.
+
+## Schema (JSONL, one case per line)
+
+<!-- v2-example -->
+```json
+{"case_id": "dev2-xx-example", "part": "synthetic", "rules": ["sibling-subject-name", "split"], "kind": "prose", "prompt": "Who painted the Mona Lisa?", "response": "The Mona Lisa was painted by Leonardo da Vinci⟦READ⟧ in the early 1500s.", "readouts": ["<explanation>\nThe response attributes it to Picasso.\nThe user, Sarah, asks about a painting.\n</explanation>"], "established": [["The response attributes it to Picasso."]], "gold": {"units": [{"id": "R0.U1", "text": "<explanation>", "established": false, "leaf": "formatting", "splits": [], "rest_leaf": null}, {"id": "R0.U2", "text": "The response attributes it to Picasso.", "established": true, "leaf": "substitution_sibling", "splits": [], "rest_leaf": null}, {"id": "R0.U3", "text": "The user, Sarah, asks about a painting.", "established": false, "leaf": null, "splits": [{"text": "Sarah", "leaf": "detail"}], "rest_leaf": "restates_prefix"}, {"id": "R0.U4", "text": "</explanation>", "established": false, "leaf": "formatting", "splits": [], "rest_leaf": null}]}}
+```
+
+| field | type | rule |
+|---|---|---|
+| `case_id` | string | unique within the file |
+| `part` | `"synthetic"` \| `"real"` | `real` = a stored cell (`hbench pilot-dump-v2`); default `synthetic` |
+| `rules` | list of strings | optional tags naming the anchors / rules the case exercises |
+| `kind` | `"prose"` \| `"tokens"` | `tokens` = the readout is a summariser interpretation of a token bag (the prompt then says so); default `prose` |
+| `prompt` | string | the user prompt |
+| `response` | string | the full response with `⟦READ⟧` inserted **exactly once** |
+| `readouts` | list of 1–3 strings | what the judge sees (production: every non-empty readout of the cell) |
+| `established` | list (one per readout) of lists of strings | the v5c verified `wrong` spans of each readout (revoked or not); each must occur in its readout (`verify_quote` normalisation); overlapping ones are merged; each becomes its own unit. Optional (default none) |
+| `source` | object | optional (`{arm, key, v5c_cell_class}` for real cells) |
+| `gold.units[]` | list | **every** production unit, in order |
+| `gold.units[].id`, `.text`, `.established` | | copied from the splitter (`units-v2` / `pilot-dump-v2`); never edit |
+| `gold.units[].leaf` | one of the 19 leaves \| `null` | the unit's leaf when it is not split. `null` with no splits = unlabelled context (allowed on `real` cases only; not scored) |
+| `gold.units[].splits[]` | `{text, leaf}` | sub-spans, verbatim from the unit, left to right, non-overlapping |
+| `gold.units[].rest_leaf` | leaf \| `null` | required when `splits` leave a remainder |
+| `gold.units[].dispute` | bool | optional; on an established unit whose correct leaf is **not** incorrect (the judge should dispute it). An established unit's gold must otherwise contain an incorrect leaf |
+
+Leaves (taxonomy v2): non_claim — `generic`, `filler`, `formatting`, `junk_text`, `lens_meta`;
+correct — `restates_prefix`, `stated_after`, `entailed`, `world_true`; incorrect —
+`detail`, `false_claim` (hallucination), `substitution_sibling`, `substitution_category`
+(co-activation); thinky — `unrealised_prediction`, `model_state`, `possible_belief`,
+`other_on_topic`; `ambiguous_topic` (unsettled); `off_topic` (junk). Gold never uses the
+code-only `unknown_incorrect` / `failed`.
+
+Scoring (`calibrate_v2`): units are shared, so prediction and gold match one to one by unit.
+Recall rows, per-leaf recall and sibling-vs-category are per **gold segment** (the
+majority-character predicted leaf over that segment's characters); accuracies and the flip rate
+are per **unit** (each side's majority-character leaf); the claim/non-claim F1 and the
+character accuracies are per non-whitespace character. A predicted `unknown_incorrect` is
+scored by the judge's `alt_leaf` (disputed) or raw leaf (forced).
+
+## dev_v2.jsonl (synthetic, prompt iteration)
+
+27 cases, 130 gold units, written from scratch by the implementer (Claude, 2026-10-11) with
+`scripts/build_dev_v2.py` (the labels live there; re-run it if the splitter changes). Every
+case is invented. Coverage (asserted by `tests/test_calibrate_v2.py`): ≥ 3 gold segments for
+every leaf (min 3, e.g. 5 sibling and 4 category substitutions, 9 false_claim, 5 detail), 8
+established units (one should be disputed: `dev2-16`), and every decision anchor (asserted vs
+predicted invented event `dev2-04`; world-true `dev2-05/06/22`; possible_belief `dev2-05/24`;
+sibling vs category `dev2-21/22/23`; detail vs substitution for names `dev2-01/03/27`; numbers
+under the detail rule `dev2-03/06/07/18/23/27`; hedged hit and miss `dev2-08`; eval awareness
+`dev2-09/25`; token framing vs interpretation `dev2-11/12`; a claim that looks off-topic but is
+on topic `dev2-13`; rule 12 hedged `dev2-09/24` and flat `dev2-10`; the wrong bridge
+`dev2-20`).
+
+Gold-labelling notes (judgement calls, following `taxonomy_v2.py` defaults):
+
+- `dev2-20`: the response says India's capital is Mumbai; the readout's "The capital will be
+  named as Mumbai" is `stated_after` (rule 6, tag `world_false`), and "The capital of India is
+  New Delhi" is contradicted by the conversation, so it is incorrect, and New Delhi in place of
+  Mumbai is `substitution_sibling`. This is the conversation-wins default (open decision 4).
+- Bare list markers left over when an established span starts mid-line (`-`) are `formatting`;
+  `- next:` style scaffolding is `filler`.
+- "The model is …" phrasing is avoided in dev summaries: a summariser describing what is
+  represented is not `model_state` (rule 4 is about the model's own beliefs or intent).
+
+## heldout_v2.jsonl (gate only)
+
+Not written by the implementer. (a) ≥ 120 synthetic gold units by a fresh-context subagent that
+sees only plan 0002 §Units, §The tree, §Precedence, §Detail rule and §Tags, following the
+workflow above; (b) ≥ 120 real units from `hbench pilot-dump-v2` cells (arms s3d-rl600,
+nla-rl-L42, jlens, sae-l42, patchscopes; stratified by v5c class), hand-labelled blind and frozen
+before the first check. Minimums and the gate are in plan 0002 §Calibration. At most 3 held-out
+checks, each logged below.
+
+## Check log (v2)
+
+| date | split | prompt version | result | notes |
+|---|---|---|---|---|
+| 2026-10-11 | dev | claimmap-v2 | all dev rows pass except detail recall's Wilson bound (1.000, n = 5, lower 0.566) | group acc unit 0.954 / char 0.945, leaf acc 0.950, recall false_claim 1.00 / substitution 0.944 / correct 0.900, sib-vs-cat 1.00, claim F1 0.985, flip 0.031; 2 runs, $0.97; first dev run, no prompt edits |
+
+Gold-label fixes (v2): none.

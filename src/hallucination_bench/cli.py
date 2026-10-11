@@ -1,4 +1,4 @@
-"""``hbench run|calibrate|report|pilot-dump``."""
+"""``hbench run|calibrate|report|pilot-dump|pilot-dump-v2|units-v2``."""
 
 import argparse
 import json
@@ -57,7 +57,26 @@ def _models(args: argparse.Namespace):
         summarizer=args.summarizer_model,
         classifier=args.classifier_model,
         effort=_effort(args.effort),
+        map_model=getattr(args, "map_model", None),
     )
+
+
+def _stages(args: argparse.Namespace) -> list[str]:
+    """``--stages`` (default: every stage); ``--skip-classify`` keeps its plan-0001 meaning
+    (summary, span and verify only) when ``--stages`` is not given."""
+    from hallucination_bench.evals.wsbench_chat.run import STAGES, expand_stages
+
+    if args.stages:
+        sel = [x.strip() for x in args.stages.split(",") if x.strip()]
+    elif args.skip_classify:
+        sel = ["summary", "span", "verify"]
+    else:
+        sel = list(STAGES)
+    try:
+        expand_stages(sel)
+    except ValueError as e:
+        raise SystemExit(str(e)) from None
+    return sel
 
 
 def cmd_run(args: argparse.Namespace) -> int:
@@ -82,6 +101,7 @@ def cmd_run(args: argparse.Namespace) -> int:
         allow_missing=args.allow_missing,
         classify=not args.skip_classify,
         show_prompts=args.show_prompts,
+        stages=_stages(args),
     )
     for n, s in summaries.items():
         _print_summary(n, s)
@@ -104,7 +124,7 @@ def _print_summary(name: str, s: dict) -> None:
         v = r.get(k)
         return "—" if v is None else f"{v:.3f}"
 
-    failed = {k: h[f"n_failed_{k}"] for k in ("summary", "span", "verify", "classify")}
+    failed = {k: h[f"n_failed_{k}"] for k in ("summary", "span", "verify", "classify", "map")}
     print(
         f"[{name}] layers={s['config']['judged_layers']} judged={h['n_judged_cells']} "
         f"pending={h['n_pending_cells']} failed={failed} "
@@ -118,6 +138,8 @@ def _print_summary(name: str, s: dict) -> None:
 def cmd_calibrate(args: argparse.Namespace) -> int:
     from hallucination_bench import calibrate
 
+    if args.taxonomy == "v2":
+        return _calibrate_v2(args)
     model = args.classifier_model or args.judge_model
     res = calibrate.run(
         args.split,
@@ -137,14 +159,52 @@ def cmd_calibrate(args: argparse.Namespace) -> int:
     return 0
 
 
+def _calibrate_v2(args: argparse.Namespace) -> int:
+    from hallucination_bench import calibrate_v2
+
+    res = calibrate_v2.run(
+        args.split,
+        model=args.map_model or args.judge_model,
+        effort=_effort(args.effort),
+        out_root=Path(args.out),
+        repeats=args.repeats,
+        rpm=args.rpm,
+        concurrency=args.concurrency,
+        cases_file=Path(args.cases) if args.cases else None,
+    )
+    print(calibrate_v2.render_markdown(res))
+    sp = res["spend_this_run"]
+    print(f"\ncoverage: {json.dumps(res['coverage'])}")
+    print(f"spend this run: ${sp['usd']:.4f} ({sp['calls']} calls)")
+    if args.split == "heldout":
+        print(f"GATE {'PASSED' if res['gate_passed'] else 'FAILED'}")
+    return 0
+
+
 def cmd_report(args: argparse.Namespace) -> int:
     from hallucination_bench import report
+
+    if args.view == "v2":
+        from hallucination_bench import report_v2
+
+        root = report_v2.report(
+            Path(args.out),
+            args.judge_model,
+            rebuild=not args.no_rebuild,
+            audit_n=args.audit_n if args.audit_n is not None else 10,
+            seed=args.seed,
+        )
+        print(
+            f"wrote {root / 'report_v2.md'}, {root / 'report_v2.json'}, "
+            f"{root / 'substitution_pairs.jsonl'}, {root / 'audit_samples_v2.md'}"
+        )
+        return 0
 
     root = report.report(
         Path(args.out),
         args.judge_model,
         rebuild=not args.no_rebuild,
-        audit_n=args.audit_n,
+        audit_n=args.audit_n if args.audit_n is not None else 15,
         seed=args.seed,
     )
     print(f"wrote {root / 'report.md'}, {root / 'report.json'}, {root / 'audit_samples.md'}")
@@ -177,6 +237,46 @@ def cmd_pilot_dump(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_pilot_dump_v2(args: argparse.Namespace) -> int:
+    from hallucination_bench import report_v2
+    from hallucination_bench.calibrate_v2 import validate_case
+
+    cases = report_v2.pilot_dump_v2(
+        Path(args.out),
+        args.judge_model,
+        args.arms.split(","),
+        per_stratum=args.per_stratum,
+        seed=args.seed,
+        layers=_layers(args.layers),
+    )
+    errs = [e for c in cases for e in validate_case(c, require_gold=False)]
+    if errs:
+        print("warning: " + "; ".join(errs[:10]), file=sys.stderr)
+    _write_jsonl(Path(args.dest), cases)
+    n_units = sum(len(c["gold"]["units"]) for c in cases)
+    print(f"wrote {len(cases)} cells ({n_units} units to label) to {args.dest}")
+    return 0
+
+
+def cmd_units_v2(args: argparse.Namespace) -> int:
+    """Fill each case's ``gold.units`` with the production units (leaf null) for labelling."""
+    from hallucination_bench.calibrate_v2 import skeleton
+
+    src = Path(args.cases)
+    cases = [json.loads(x) for x in src.read_text(encoding="utf-8").splitlines() if x.strip()]
+    out = [skeleton(c) for c in cases]
+    _write_jsonl(Path(args.dest), out)
+    print(f"wrote {len(out)} cases ({sum(len(c['gold']['units']) for c in out)} units)")
+    return 0
+
+
+def _write_jsonl(dest: Path, rows: list[dict]) -> None:
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    with dest.open("w", encoding="utf-8") as fh:
+        for c in rows:
+            fh.write(json.dumps(c, ensure_ascii=False) + "\n")
+
+
 def _common(p: argparse.ArgumentParser) -> None:
     p.add_argument("--out", default="outputs", help="output root (default: outputs)")
     p.add_argument("--judge-model", default=DEFAULT_MODEL)
@@ -193,7 +293,7 @@ def build_parser() -> argparse.ArgumentParser:
     ap = argparse.ArgumentParser(prog="hbench", description=__doc__)
     sub = ap.add_subparsers(dest="cmd", required=True)
 
-    r = sub.add_parser("run", help="judge arms (summarise -> span -> verify -> classify)")
+    r = sub.add_parser("run", help="judge arms (summarise -> span -> verify -> map -> classify)")
     _common(r)
     r.add_argument("--arm", action="append", help="name=path/to/hallucination.jsonl (repeatable)")
     r.add_argument("--readouts-root", help="DIR with <arm>/hallucination.jsonl subdirectories")
@@ -207,13 +307,24 @@ def build_parser() -> argparse.ArgumentParser:
     )
     r.add_argument("--summarizer-model", default=None)
     r.add_argument("--classifier-model", default=None)
+    r.add_argument("--map-model", default=None, help="claim-map (:M) judge (default: judge)")
+    r.add_argument(
+        "--stages",
+        default=None,
+        help="comma-separated stages that may call the API: summary,span,verify,classify,map "
+        "(default: all; dependencies are added, e.g. map runs summary + span first if missing)",
+    )
     r.add_argument("--allow-missing", action="store_true")
     r.add_argument(
         "--rebuild",
         action="store_true",
         help="regenerate cells.jsonl/summary.json from the cache (no API calls)",
     )
-    r.add_argument("--skip-classify", action="store_true", help="span + verify only (pilot)")
+    r.add_argument(
+        "--skip-classify",
+        action="store_true",
+        help="summary + span + verify only (pilot); ignored when --stages is given",
+    )
     r.add_argument(
         "--show-prompts",
         type=int,
@@ -226,7 +337,15 @@ def build_parser() -> argparse.ArgumentParser:
     c = sub.add_parser("calibrate", help="score the classifier on calibration cases")
     _common(c)
     c.add_argument("--split", choices=("dev", "heldout"), required=True)
+    c.add_argument(
+        "--taxonomy",
+        choices=("v1", "v2"),
+        default="v1",
+        help="v1: the taxonomy-v1 classifier on {split}.jsonl; v2: the claim map on "
+        "{split}_v2.jsonl",
+    )
     c.add_argument("--classifier-model", default=None)
+    c.add_argument("--map-model", default=None)
     c.add_argument("--repeats", type=int, default=2)
     c.add_argument("--cases", default=None, help="override the cases file")
     c.set_defaults(fn=cmd_calibrate)
@@ -235,7 +354,10 @@ def build_parser() -> argparse.ArgumentParser:
     rp.add_argument("--out", default="outputs")
     rp.add_argument("--judge-model", default=DEFAULT_MODEL)
     rp.add_argument("--no-rebuild", action="store_true")
-    rp.add_argument("--audit-n", type=int, default=15)
+    rp.add_argument(
+        "--view", choices=("v1", "v2"), default="v1", help="v2: the claim-map report (plan 0002)"
+    )
+    rp.add_argument("--audit-n", type=int, default=None, help="default 15 (v1) / 10 (v2)")
     rp.add_argument("--seed", type=int, default=0)
     rp.set_defaults(fn=cmd_report)
 
@@ -248,6 +370,25 @@ def build_parser() -> argparse.ArgumentParser:
     pd.add_argument("--seed", type=int, default=0)
     pd.add_argument("--dest", required=True)
     pd.set_defaults(fn=cmd_pilot_dump)
+
+    p2 = sub.add_parser(
+        "pilot-dump-v2", help="dump real cells with production units for v2 hand-labelling"
+    )
+    p2.add_argument("--out", default="outputs")
+    p2.add_argument("--judge-model", default=DEFAULT_MODEL)
+    p2.add_argument("--arms", required=True)
+    p2.add_argument("--layers", default=None)
+    p2.add_argument("--per-stratum", type=int, default=3, help="cells per arm x v5c cell class")
+    p2.add_argument("--seed", type=int, default=0)
+    p2.add_argument("--dest", required=True)
+    p2.set_defaults(fn=cmd_pilot_dump_v2)
+
+    u2 = sub.add_parser(
+        "units-v2", help="fill v2 cases' gold.units with the production unit split (leaf null)"
+    )
+    u2.add_argument("--cases", required=True)
+    u2.add_argument("--dest", required=True)
+    u2.set_defaults(fn=cmd_units_v2)
     return ap
 
 
