@@ -1,6 +1,6 @@
 # Plan 0001 — Bootstrap HallucinationBench v2; port `wsbench_chat`; add the taxonomy judge
 
-Issue #1. Author: Camila Blank (planned with Claude), 2026-10-11. Revision 4 (after critiques 1–3).
+Issue #1. Author: Camila Blank (planned with Claude), 2026-10-11. Revision 5 (after critiques 1–4).
 
 ## Goal
 
@@ -133,10 +133,12 @@ logs/      (gitignored)
    We additionally keep the verified quotes themselves, because the classifier needs them. A
    wrapper around the frozen `tally_claims` returns per-status quote lists that are **disjoint
    by status**: a `disputed` claim is listed only under `disputed`, although the frozen tally
-   also counts it as unverifiable. A test asserts that the wrapper's tallies equal the frozen
-   function's. Routing is verbatim: verify runs on **every span-judged cell**, as in the source.
+   also counts it as unverifiable. A test asserts that `len(unsupported) + len(disputed)` equals the
+   frozen tally's `unverifiable`, and that the other statuses are equal. Routing is verbatim: verify runs on **every span-judged cell**, as in the source.
    Non-specific readouts are ignored downstream, so `n_cells_claims_unjudged` keeps its source
-   meaning.
+   meaning. Before classification, quotes are deduplicated within each readout, and any quote
+   that overlaps one of that readout's v5c `off_topic` spans is dropped and counted
+   (`n_offtopic_overlap_quotes`). Verify only sees `wrong` spans as established-false.
 4. **Classify stage (taxonomy-v1, new).** One call per cell that has at least one span to
    classify on a specific-class readout. The spans to classify are:
    - every verified v5c `wrong` span (grounding `contradicted`);
@@ -222,15 +224,18 @@ The **main test** decides the type: if a reader believed the span, would they mi
 
 Rules:
 
-- **Names: apply this decision order.**
-  1. *Same referent, wrong label* → `detail`, even when the referent is the protagonist. Example:
-     Steve for the story's Joe, which is the same character with the wrong label.
-  2. *A different entity with its own identity* that is **the subject of the claim** →
-     `concept`. Such an entity is a real person, work, place or organisation, or another
-     character or entity that exists in the text. Examples: Picasso for da Vinci; confusing the
-     protagonist with her rival.
-  3. *A different entity that appears only in a passing mention* → `detail`. Example: the text
-     cites "a 2019 Stanford study" in an aside and the readout says Harvard.
+- **Names: apply this decision order.** What decides the type is whether the wrong name carries
+  its own identity. Whether the referent is "the same" does not decide it.
+  1. The wrong name denotes a **distinct identity** and is **the subject of the claim** →
+     `concept`. A distinct identity is a real person, work, place or organisation, or another
+     character or entity present in the text. Examples: Picasso for da Vinci; Johnson for
+     Kennedy; confusing the protagonist with her rival; an arbitrary protagonist Joe called
+     "Barack Obama".
+  2. The wrong name denotes a distinct identity but appears only in a **passing mention** →
+     `detail`. Example: the text cites "a 2019 Stanford study" in an aside and the readout says
+     Harvard.
+  3. Otherwise, the name is an arbitrary or invented label for the right referent → `detail`,
+     even when the referent is the protagonist. Example: Steve for the story's Joe.
 - **Wrong values:** a number, date, label or wording error is `detail`. The exception is a value
   that flips the claim (safe vs unsafe, won vs lost, increase vs decrease), which is `concept`.
   Magnitude alone never makes a span `concept`; it raises severity instead.
@@ -305,7 +310,7 @@ Rules:
 ## Cache and outputs
 
 - **Cache.** Each arm has its own cache file, `<arm>/cache.jsonl`, separate from the output.
-  - Keys: `summ:{id}__L{layer}__p{pos}` (summary), `{id}__L{layer}__p{pos}` (span), `…:V`
+  - Keys: `summ:{id}__L{layer:03d}__p{pos}` (summary), `{id}__L{layer:03d}__p{pos}` (span), `…:V`
     (verify) and `…:C` (classify).
   - Fingerprints include the prompt version, the model and the rendered prompt, so a classifier
     prompt bump re-runs only the `:C` entries.
@@ -398,7 +403,8 @@ production.
   - At least 8 rule cases:
     - a real entity as the subject of the claim (rule 2) versus in a passing mention (rule 3);
     - an arbitrary protagonist renamed (detail) versus the protagonist confused with another
-      character in the text (concept);
+      character in the text (concept), and an arbitrary protagonist swapped for a famous real
+      name (concept);
     - a value that flips the claim versus one that does not;
     - a magnitude error that stays detail.
   - At least 10 unsupported spans covering all 4 `unsupported_kind` values, with both
@@ -408,7 +414,9 @@ production.
     English fragments, NLA `<explanation>` prose, and one-to-two-sentence summariser
     interpretations.
 - **`heldout.jsonl`**, used only for the gate, has two parts:
-  - (a) at least 30 further synthetic spans, written separately.
+  - (a) at least 30 further synthetic spans, written and gold-labelled by a **fresh-context
+    subagent** that never sees the classifier prompt or the dev results. These labels are
+    committed, frozen, before the first held-out check, together with the part (b) labels.
   - **Held-out minimums**, across parts (a) and (b): at least 20 unsupported spans with at least
     4 per `unsupported_kind`, at least 10 spans per severity level, and at least 4 disputed
     spans.
