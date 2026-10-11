@@ -1,6 +1,6 @@
 # Plan 0001 — Bootstrap HallucinationBench v2; port `wsbench_chat`; add the taxonomy judge
 
-Issue #1. Author: Camila Blank (planned with Claude), 2026-10-11. Revision 5 (after critiques 1–4).
+Issue #1. Author: Camila Blank (planned with Claude), 2026-10-11. Revision 6 (after critiques 1–5).
 
 ## Goal
 
@@ -131,14 +131,20 @@ logs/      (gitignored)
    - A malformed answer is rejected and re-queued.
 
    We additionally keep the verified quotes themselves, because the classifier needs them. A
-   wrapper around the frozen `tally_claims` returns per-status quote lists that are **disjoint
+   parallel re-implementation of the frozen `tally_claims` loop, checked count-for-count against it, returns per-status quote lists that are **disjoint
    by status**: a `disputed` claim is listed only under `disputed`, although the frozen tally
-   also counts it as unverifiable. A test asserts that `len(unsupported) + len(disputed)` equals the
-   frozen tally's `unverifiable`, and that the other statuses are equal. Routing is verbatim: verify runs on **every span-judged cell**, as in the source.
+   also counts it as unverifiable. It uses the same checks in the same order as the frozen loop: the quote must be verbatim
+   in its own readout (`verify_quote`, including the under-3-character rule), overlaps with the
+   `normalize_ws`'d wrong spans are skipped in either direction, and an unknown status goes to
+   unsupported. Tests run fixtures with unknown statuses, short quotes and overlapping quotes.
+   They assert that `len(unsupported) + len(disputed)` equals the frozen tally's
+   `unverifiable`, and that `true`, `off_topic`, `false` and `n_unverified` are equal for each
+   readout. Routing is verbatim: verify runs on **every span-judged cell**, as in the source.
    Non-specific readouts are ignored downstream, so `n_cells_claims_unjudged` keeps its source
    meaning. Before classification, quotes are deduplicated within each readout, and any quote
    that overlaps one of that readout's v5c `off_topic` spans is dropped and counted
-   (`n_offtopic_overlap_quotes`). Verify only sees `wrong` spans as established-false.
+   (`n_offtopic_overlap_quotes`). If the same quote comes back with two statuses in one
+   readout, `disputed` beats `unverifiable`. Verify only sees `wrong` spans as established-false.
 4. **Classify stage (taxonomy-v1, new).** One call per cell that has at least one span to
    classify on a specific-class readout. The spans to classify are:
    - every verified v5c `wrong` span (grounding `contradicted`);
@@ -304,8 +310,10 @@ Rules:
   Re-running resumes from the cache and retries only failed or partial cells.
 - **One process for all arms.** `hbench run` takes several `--arm name=path` arguments, or
   `--readouts-root DIR`, and judges every arm in **one process**. That process has one shared
-  RPM pacer (`--rpm`, default 1500) and one thread pool (`--concurrency`, default 64).
-  Parallelism therefore never multiplies the rate limit. Stages pipeline per cell.
+  RPM pacer (`--rpm`, default 1500) and one asyncio concurrency limit (`--concurrency`, default 64,
+  a semaphore over the async client; no threads).
+  Parallelism therefore never multiplies the rate limit. Stages pipeline per cell. This deliberately
+  rewrites the source's stage-by-stage batching in `run_calls`.
 
 ## Cache and outputs
 
@@ -401,7 +409,8 @@ production.
     arbitrary Joe (detail).
   - At least 12 concept and 12 detail spans, covering all 7 targets.
   - At least 8 rule cases:
-    - a real entity as the subject of the claim (rule 2) versus in a passing mention (rule 3);
+    - a real entity as the subject of the claim (rule 1) versus in a passing mention (rule 2), plus an
+      arbitrary-label case (rule 3);
     - an arbitrary protagonist renamed (detail) versus the protagonist confused with another
       character in the text (concept), and an arbitrary protagonist swapped for a famous real
       name (concept);
@@ -438,7 +447,10 @@ production.
   - severity: exact, within 1, and quadratic-weighted κ;
   - `unsupported_kind` accuracy;
   - a confusion matrix per label;
-  - the run-to-run label flip rate across 2 runs. Gate metrics are the **mean of the 2 runs**;
+  - the run-to-run label flip rate across 2 runs. Gate metrics are the **mean of the 2 runs**.
+    Each repeat is stored separately: the repeat index (`r0`/`r1`) is part of the calibrate
+    cache key and fingerprint, so repeat 2 makes fresh API calls. A test asserts that the two
+    repeats make two separate calls;
   - on `dev` only, every disagreement, with the classifier's `why`. On `heldout`, aggregates
     only (no per-span lists), so held-out errors cannot leak into prompt tuning.
 - **Gate, on held-out only:**
@@ -490,7 +502,7 @@ production.
 
 ## Deliverables / acceptance
 
-- `uv run pytest`, `uv run ruff check` and `ruff format --check` all pass.
+- `uv run pytest`, `uv run ruff check` and `uv run ruff format --check` all pass.
 - `test_v5c_frozen.py` proves the span prompt is byte-identical to the frozen JSON and the
   verify prompt is identical to the wsbench-pub literal; port the source's verify literal test.
 - The calibration gate is passed on held-out and reported.
