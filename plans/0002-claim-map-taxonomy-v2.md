@@ -1,11 +1,78 @@
 # Plan 0002: claim map (taxonomy v2), an exhaustive, mutually exclusive categorisation of readout content
 
-Issue #3. Author: Camila Blank (planned with Claude), 2026-10-11. Revision 12 (after critiques 1–9; critique 9: no substantive issues; rev 11 adds the token-summary framing rule found in the smoke run; rev 12 defines "own identity" for rule 8).
+Issue #3. Author: Camila Blank (planned with Claude), 2026-10-11. Revision 13 (after critiques 1–9; critique 9: no substantive issues; rev 11 adds the token-summary framing rule found in the smoke run; rev 12 defines "own identity" for rule 8).
 This plan builds on plan 0001 (PR #2): the v5c span and verify port, the taxonomy-v1 classifier,
 and the first full run. It reuses plan 0001's cache layout, client, calibration machinery,
 bootstrap and report unless this plan says otherwise.
 
 Items marked **[pending Camila]** use a default until she confirms them (§Open decisions).
+
+
+## Amendment, revision 13 (Camila, 2026-10-11). This section overrides any conflicting text below.
+
+1. **Option A: three top branches.** The top of the tree becomes *non-claim* / *claim about the
+   text* / *supplementary claim*. The topic gate (rule 5) still runs first and still routes
+   off-topic and ambiguous claims to `off_topic` / `ambiguous_topic`.
+   - **The test is settlement, not subject.** An on-topic world claim is **about the text** if the
+     conversation settles it (states it, entails it, or contradicts it). It is **supplementary** if
+     the conversation is silent on it, even when it concerns the text's subject. For example,
+     "Picasso painted Guernica" when the text only discusses the Blue Period is supplementary.
+   - Leaf changes:
+     - `world_true` is renamed `supplementary_true`;
+     - `possible_belief` is renamed `supplementary_false`;
+     - contested or uncheckable world claims move out of `other_on_topic` into a new leaf,
+       `supplementary_unsettled`.
+
+     Every other leaf is unchanged, so there are 20 judge leaves.
+   - Groups change accordingly:
+     - `correct` = `restates_prefix`, `stated_after`, `entailed`, which measures fidelity only;
+     - a new `supplementary` group holds the three supplementary leaves;
+     - `thinky` = `unrealised_prediction`, `model_state`, `other_on_topic`.
+2. **Verdict layer.** Each leaf maps to exactly one verdict (code, `taxonomy_v2.VERDICTS`):
+
+   | verdict | leaves |
+   |---|---|
+   | hallucination | `detail`, `false_claim` |
+   | probe_candidate | `substitution_sibling`, `substitution_category`, `supplementary_false`, `model_state`, `unrealised_prediction`, `ambiguous_topic` |
+   | correct | `restates_prefix`, `stated_after`, `entailed`, `supplementary_true` |
+   | unresolved | `other_on_topic`, `supplementary_unsettled`, `unknown_incorrect` (only under `--anchor v5c`) |
+   | junk | `off_topic` |
+   | non_claim | the 5 non-claim leaves |
+
+   Verdict shares and readout-level verdict rates become the headline. Leaves and groups remain
+   the breakdown.
+3. **Probe targets.** Every probe-candidate segment carries `probe_target`, a short phrase naming
+   the concept to test ("Germany"; "this is an evaluation"; "the response will recommend
+   therapy"). Substitutions keep `pair.actual`. This replaces `substitution_pairs.jsonl` with
+   `probe_candidates.jsonl`, one row per segment:
+   `{arm, layer, item, pos, leaf, probe_target, actual|null, segment, readout}`.
+   A missing `probe_target` is counted, and the leaf is kept.
+4. **Single-call judging (default).** The judging pipeline is: code split → **one `:M` call** →
+   code roll-up.
+   - v5c spans are **not** passed by default, so there are no established units and no forcing.
+     `--anchor v5c` restores plan rev 12 behaviour.
+   - The verify stage is not part of v2 runs.
+   - Token-bag summaries count as readout production (cached `summ:` entries), not judging.
+   - The v5c comparison runs on a fixed 10% item subsample (seeded), reported as v2
+     hallucination rate vs v5c rate on the same readouts.
+5. **Calibration.** Gold is re-mapped mechanically:
+   - `world_true` → `supplementary_true`;
+   - `possible_belief` → `supplementary_false`;
+   - the gold `other_on_topic` units that are contested world claims are re-labelled
+     `supplementary_unsettled`. In held-out part (a) a fresh blind subagent does this; in dev the
+     implementer does it.
+
+   The gate runs in single-call mode: established flags are ignored and those units are judged
+   as ordinary text. The gate adds a row for **verdict accuracy (6 verdicts), unit level ≥ 85%**.
+6. **Pilot before the gate (Camila: "lets try this on the s3d olens hallucination eval").**
+   Single-call `:M` on s3d-rl600 L44, 1,123 cells. This is labelled pre-gate in every output.
+   Report:
+   - verdict / leaf shares;
+   - readout-level rates;
+   - the v5c comparison on the same readouts (full, since v5c is cached for every s3d cell);
+   - the top probe candidates;
+   - 20 audit samples per verdict.
+7. **Open decisions 1–5:** the defaults stand unless Camila changes them.
 
 ## Goal
 
