@@ -1,6 +1,6 @@
 # Plan 0003: sibling-concept eval: are same-category mentions hallucinations? (DiffMean probe verification)
 
-Issue #5. Author: Camila Blank (planned with Claude), 2026-10-11. Revision 3 (after critiques 1–2).
+Issue #5. Author: Camila Blank (planned with Claude), 2026-10-11. Revision 4 (after critiques 1–3).
 
 This plan is stacked on plan 0002 (PR #4, branch `camila/taxonomy-v2`). It uses plan 0002's
 claim-map judge (`judges/claimmap_v2.py`) **at whatever `PROMPT_VERSION` is current on that
@@ -160,10 +160,17 @@ All three arms read the same positions: `from_last_sentence_start` on the chat r
   `--layers 42 --acts-subdirs <subdir>`. Fetch gen dirs with `modal volume get`, check
   completeness (`wsbench_combos_fill.py`-style), convert J-lens with `convert --kind tokens`, NLA
   with `--strip-nla --layers 42`. s3d needs only the shard merge.
-- The capture runs once over all items, at layers 28, 36, 42, 44, 52, and is kept. Its residuals
-  are the inputs for scoring the probes at every eval cell, so probe scores and readouts come
-  from the same forward pass. The s3d capture is a separate forward pass of the identical token
-  ids; a test asserts that the token ids and positions match between the two.
+- **Two captures, two acts subdirs:** `prompts` is run twice (separate out-dirs): the eval items
+  (`acts-sibling-eval`) and the probe + neutral texts (`acts-sibling-probe`), both at layers 28,
+  36, 42, 44, 52. J-lens and NLA run on the eval subdir ONLY (never on the ~5.5k probe texts);
+  `probes_modal.py` reads both. The eval capture's residuals are the inputs for scoring the
+  probes at every eval cell, so probe scores and J-lens/NLA readouts share one forward pass; the
+  s3d capture is a separate forward pass of identical ids (checked as above).
+- **Window identity check (code, before capture):** every eval row's and probe row's read-window
+  token ids (from `from_last_sentence_start` to the end) must equal the canonical ids of its
+  (category, ending), i.e. the ending sentence rendered after the same separator (one space after
+  the cue's final punctuation) plus the template tail. Rows that fail are regenerated or
+  dropped and counted.
 - GPU scripts stay in the global-workspace repo (run from `/workspace/gw-wrong-bridge`).
   hallucination-bench holds the specs/rows writers, the converters into its contract, and the
   commands (in `CLAUDE.md`).
@@ -215,9 +222,8 @@ All three arms read the same positions: `from_last_sentence_start` on the chat r
   probe texts and eval items and aligns exactly by **offset from the end**.
 - **Neutral texts:** 24 messages per category with no category content, ending in the same
   sentences.
-- **Capture:** the same capture app with client-resolved `eval_positions`
-  (`from_last_sentence_start` = the ending sentence through the template tail), layers 28, 36,
-  42, 44, 52.
+- **Capture:** `acts-sibling-probe` (see Phase C), `from_last_sentence_start` resolved by
+  `prompts`, layers 28, 36, 42, 44, 52.
 - **Where it runs:** acts stay on the `wsbench-acts` volume (~20 GB; the box has a 32 GB RAM cap).
   A Modal function (`scripts/sibling_probe/probes_modal.py`, CPU or one GPU) streams the acts one
   layer at a time, keeps only the eval positions, fits the probes, scores the held-out texts and
@@ -232,14 +238,17 @@ All three arms read the same positions: `from_last_sentence_start` on the chat r
   the per-position constant (template tokens have very different norms).
 - **Cross-fitting:** 4 folds per concept (seeded, endings balanced). Every probe text is scored by
   the fold model that never saw it; thresholds use these out-of-fold scores (all 48 texts per
-  concept). Eval cells are scored with the probe fit on all texts. Report threshold bootstrap CIs.
+  concept). Eval cells are scored with the **average of the 4 fold models' scores**, so threshold
+  and score come from the same fold estimators (no all-texts refit). Report threshold CIs by
+  text-level bootstrap.
 - **Unembedding check:** report the cosine between each direction and its concept's
   token-alias unembedding rows (how much the probe is just the output token).
 - **Probe validity gate (pre-registered):** position-level AUROC on out-of-fold scores, *c*'s
   positions vs the other concepts' positions in the category, ≥ 0.85 at layer L. Failing
   (concept, layer) probes are excluded from scoring and listed.
-- **Thresholds (out-of-fold scores, per (c, L, ending, offset)):**
-  - **τ_cat(c, L)** = 95th percentile of s_c over the other concepts' out-of-fold positions
+- **Thresholds (out-of-fold scores; scores are already position-centred by μ_cat, so every
+  threshold and z pools over endings and offsets):**
+  - **τ_cat(c, L)**, pooled = 95th percentile of s_c over the other concepts' out-of-fold positions
     (pooled). "Fires above its general baseline." Used for the headline probe-verified
     hallucination rate (Camila's definition: the probe does not detect the concept).
   - **τ(c | g, L)** = 95th percentile of s_c over the out-of-fold positions of the item's **gold**
@@ -248,8 +257,8 @@ All three arms read the same positions: `from_last_sentence_start` on the chat r
     confound (the China probe may fire on most Korea texts); used for the strict rate and for
     the verdict.
   - Robustness row: τ_neutral(c, L) = 95th percentile over the category's neutral texts.
-  - z(c | g) = (s_c − mean_g(s_c)) / sd_g(s_c), over g's out-of-fold implied-text positions at the
-    same (L, ending, offset).
+  - z(c | g) = (s_c − mean_g(s_c)) / sd_g(s_c), over g's out-of-fold implied-text positions at L
+    (pooled over endings and offsets; ~24 texts × ~15 positions per (c, g, L)).
 
 ## Phase F: scoring and the verdict
 
@@ -257,23 +266,31 @@ Unit = (cell, concept): arm × item × layer × pos × concept of the item's cat
 score is the cell's own layer (NLA L42). A **sibling** is a concept that is not the gold and not
 named in the prompt.
 
+- **Gold-equivalent reference (the ceiling).** τ(c | g) is undefined for c = g (it would be ~5%
+  by construction), so the ceiling is computed as: the gold probe g at its own items' cells
+  against τ(g | g′), where g′ ranges over the category's other golds (pooled), i.e. "does the
+  gold's probe fire above its level in another gold's context". Under τ_cat the ceiling is the
+  plain gold-mention detection rate.
 - **Transfer gate per (category, layer), pre-registered:** the eval-site AUROC of each gold
   probe, its items' cells vs the other-gold items' cells of the category (same layer), averaged
   over the category's golds, must be ≥ 0.70. Failing (category, layer) pairs are excluded from the
   verdict and listed. Also report gold detection rate (τ_cat) over all cells and over gold-mention
   cells.
-- **M** = sibling hallucination candidates (mentioned, judged not correct; J-lens per the
-  mention rule).
+- **M** = sibling hallucination candidates: mentioned, with verdict in {hallucination,
+  probe_candidate, unresolved, junk} (J-lens per the mention rule). Mentions in `non_claim` or
+  `failed` segments are excluded from M and reported as their own rows.
 - **Test 1, matched concept (primary):** for each M pair (item, layer, c), the comparison set
-  U_matched = the same (item, layer, c) at the cells of that arm that do not mention c. Report
-  detection rate(M) vs detection rate(U_matched) under τ(c | g), and the mean z(c | g) difference,
-  with item-clustered bootstrap CIs (2,000). The probe scores are already position-aligned; the
-  comparison also adds offset-from-end fixed effects (a regression of detected / z on mentioned
-  + offset dummies within (item, layer, c)).
+  U_matched = the same (item, layer, c) at the cells of that arm that do not mention c.
+  **Pre-registered estimand β₁:** the `mentioned` coefficient of the OLS z(c | g) ~ mentioned +
+  offset-from-end dummies + (item, layer, c) fixed effects, over M ∪ U_matched, pooled over the
+  transfer-passing (category, L), item-clustered bootstrap (2,000). Descriptive companions
+  (no verdict weight): detection rate(M) vs detection rate(U_matched) under τ(c | g) and τ_cat,
+  per layer and per category.
 - **Test 2, within cell (primary):** at each M cell, compare z(c | g) of the mentioned sibling(s)
-  with z(c' | g) of the unmentioned siblings at the same cell. Statistic: mean difference and the
-  share of M cells where the mentioned sibling outranks the median unmentioned one;
-  item-clustered bootstrap CI. Same activation, same position, gold baseline removed per pair:
+  with z(c' | g) of the unmentioned siblings at the same cell. **Pre-registered estimand β₂:**
+  the mean over M cells of [mean z of mentioned siblings − mean z of unmentioned siblings],
+  pooled over transfer-passing (category, L), item-clustered bootstrap. Companion: the share of
+  M cells where the mentioned sibling outranks the median unmentioned one. Same activation, same position, gold baseline removed per pair:
   this controls for position and for near/far geometry.
 - **Test 3, residual (robustness):** a linear-probability regression detected ~ mentioned, with
   cell fixed effects and (item, c) fixed effects; report the `mentioned` coefficient with a
@@ -285,19 +302,23 @@ named in the prompt.
   matching Camila's purely probe-based wording, the same rate over **all** sibling mentions,
   judge verdict ignored; the response-named siblings excluded by the judge are counted). Coverage:
   the share of mentions dropped because their (c, L) probe failed the validity gate or their
-  (category, L) failed transfer. the
-  headline under τ_cat, the strict row under τ(c | g), robustness under τ_neutral; per category
-  and macro over categories; on all M and on the `scope = user` slice; per leaf. Next to it: the
-  gold-mention detection rate (reference ceiling) and detection rate(U_matched) (floor).
+  (category, L) failed transfer.
+  - **Headline row:** τ_cat, all M. **Strict row:** τ(c | g). **Robustness row:** τ_neutral.
+    Plus the all-sibling-mentions row (τ_cat).
+  - Each row per category and macro over categories, on all M and on the `scope = user` slice,
+    and per leaf.
+  - Next to each row: the ceiling (gold-equivalent reference under the same threshold) and the
+    floor (detection rate(U_matched) under the same threshold).
 - **J-lens is a positive control, not evidence.** A J-lens mention is a top-10 token of a
   linear readout of the same residual, so it should correlate with a linear probe almost
   mechanically. Its tests are reported (they check that the pipeline can see an effect), but the
   verdict rests on the s3d O-lens; NLA is reported alongside.
-- **Hypothesis verdict (pre-registered, s3d O-lens, transfer-passing categories):** *supported*
-  if Test 1's detection difference under τ(c | g) > 0 with item-clustered CI excluding 0 AND
-  Test 2's mean z difference > 0 with CI excluding 0. *Strongly supported* if, in addition, the
-  M detection rate under τ(c | g) is closer to the gold-mention ceiling than to the U_matched
-  floor, i.e. (det(M) − det(U)) / (det(gold) − det(U)) > 0.5, with CI excluding 0.5. Otherwise
+- **Hypothesis verdict (pre-registered, s3d O-lens, transfer-passing (category, L)):**
+  *supported* if β₁ > 0 and β₂ > 0, each with its item-clustered 95% CI excluding 0.
+  *Strongly supported* if, in addition, under **τ_cat** (one threshold for all three terms,
+  U_matched controls near/far by matching the concept) the ratio
+  (det(M) − det(U_matched)) / (ceiling − det(U_matched)) > 0.5 with CI excluding 0.5. If the
+  denominator's CI includes 0, the strong criterion is *undefined* and reported as such. Otherwise
   *not supported* or *inconclusive*, with the reason. The same verdict is computed for NLA as a
   secondary.
 - **Plots** (`plots/sibling_probe/`): (1) per arm × category grouped bars of detection rate for
