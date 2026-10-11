@@ -1,0 +1,202 @@
+[
+ {
+  "id": "pilot-emotion-00",
+  "category": "emotion",
+  "gold": "embarrassed"
+ },
+ {
+  "id": "pilot-emotion-01",
+  "category": "emotion",
+  "gold": "embarrassed"
+ },
+ {
+  "id": "pilot-emotion-02",
+  "category": "emotion",
+  "gold": "angry"
+ },
+ {
+  "id": "pilot-emotion-03",
+  "category": "emotion",
+  "gold": "angry"
+ },
+ {
+  "id": "pilot-emotion-04",
+  "category": "emotion",
+  "gold": "sad"
+ },
+ {
+  "id": "pilot-emotion-05",
+  "category": "emotion",
+  "gold": "nervous"
+ },
+ {
+  "id": "pilot-emotion-06",
+  "category": "emotion",
+  "gold": "jealous"
+ },
+ {
+  "id": "pilot-emotion-07",
+  "category": "emotion",
+  "gold": "proud"
+ },
+ {
+  "id": "pilot-farm_animal-00",
+  "category": "farm_animal",
+  "gold": "chicken"
+ },
+ {
+  "id": "pilot-farm_animal-01",
+  "category": "farm_animal",
+  "gold": "chicken"
+ },
+ {
+  "id": "pilot-farm_animal-02",
+  "category": "farm_animal",
+  "gold": "cow"
+ },
+ {
+  "id": "pilot-farm_animal-03",
+  "category": "farm_animal",
+  "gold": "pig"
+ },
+ {
+  "id": "pilot-farm_animal-04",
+  "category": "farm_animal",
+  "gold": "sheep"
+ },
+ {
+  "id": "pilot-farm_animal-05",
+  "category": "farm_animal",
+  "gold": "goat"
+ },
+ {
+  "id": "pilot-farm_animal-06",
+  "category": "farm_animal",
+  "gold": "horse"
+ },
+ {
+  "id": "pilot-farm_animal-07",
+  "category": "farm_animal",
+  "gold": "duck"
+ },
+ {
+  "id": "pilot-capital_city-00",
+  "category": "capital_city",
+  "gold": "paris"
+ },
+ {
+  "id": "pilot-capital_city-01",
+  "category": "capital_city",
+  "gold": "london"
+ },
+ {
+  "id": "pilot-capital_city-02",
+  "category": "capital_city",
+  "gold": "tokyo"
+ },
+ {
+  "id": "pilot-capital_city-03",
+  "category": "capital_city",
+  "gold": "rome"
+ },
+ {
+  "id": "pilot-capital_city-04",
+  "category": "capital_city",
+  "gold": "berlin"
+ },
+ {
+  "id": "pilot-capital_city-05",
+  "category": "capital_city",
+  "gold": "cairo"
+ },
+ {
+  "id": "pilot-capital_city-06",
+  "category": "capital_city",
+  "gold": "washington"
+ },
+ {
+  "id": "pilot-capital_city-07",
+  "category": "capital_city",
+  "gold": "moscow"
+ },
+ {
+  "id": "pilot-tree-00",
+  "category": "tree",
+  "gold": "maple"
+ },
+ {
+  "id": "pilot-tree-01",
+  "category": "tree",
+  "gold": "oak"
+ },
+ {
+  "id": "pilot-tree-02",
+  "category": "tree",
+  "gold": "pine"
+ },
+ {
+  "id": "pilot-tree-03",
+  "category": "tree",
+  "gold": "birch"
+ },
+ {
+  "id": "pilot-tree-04",
+  "category": "tree",
+  "gold": "willow"
+ },
+ {
+  "id": "pilot-tree-05",
+  "category": "tree",
+  "gold": "palm"
+ },
+ {
+  "id": "pilot-tree-06",
+  "category": "tree",
+  "gold": "cherry"
+ },
+ {
+  "id": "pilot-tree-07",
+  "category": "tree",
+  "gold": "apple"
+ },
+ {
+  "id": "pilot-holiday-00",
+  "category": "holiday",
+  "gold": "halloween"
+ },
+ {
+  "id": "pilot-holiday-01",
+  "category": "holiday",
+  "gold": "thanksgiving"
+ },
+ {
+  "id": "pilot-holiday-02",
+  "category": "holiday",
+  "gold": "christmas"
+ },
+ {
+  "id": "pilot-holiday-03",
+  "category": "holiday",
+  "gold": "easter"
+ },
+ {
+  "id": "pilot-holiday-04",
+  "category": "holiday",
+  "gold": "new_year"
+ },
+ {
+  "id": "pilot-holiday-05",
+  "category": "holiday",
+  "gold": "valentines"
+ },
+ {
+  "id": "pilot-holiday-06",
+  "category": "holiday",
+  "gold": "independence_day"
+ },
+ {
+  "id": "pilot-holiday-07",
+  "category": "holiday",
+  "gold": "diwali"
+ }
+]
