@@ -1,6 +1,6 @@
 # Plan 0002: claim map (taxonomy v2), an exhaustive, mutually exclusive categorisation of readout content
 
-Issue #3. Author: Camila Blank (planned with Claude), 2026-10-11. Revision 10 (after critiques 1–9; critique 9: no substantive issues).
+Issue #3. Author: Camila Blank (planned with Claude), 2026-10-11. Revision 11 (after critiques 1–9; critique 9: no substantive issues; rev 11 adds the token-summary framing rule found in the smoke run).
 This plan builds on plan 0001 (PR #2): the v5c span and verify port, the taxonomy-v1 classifier,
 and the first full run. It reuses plan 0001's cache layout, client, calibration machinery,
 bootstrap and report unless this plan says otherwise.
@@ -131,7 +131,10 @@ fixed. The prompt lists them in this order: 2, 1, 3, 4, 5, 6, 10, 11, 12, 13, th
      tokens is `lens_meta`. The interpretation, including its connective ("suggesting the
      passage is about Y"), is one claim segment, judged as usual. The connective ("suggesting",
      "indicating", "points to") is **not a hedge**: the interpretation counts as asserted for
-     rules 10 and 12.
+     rules 10 and 12. A summary's lens framing, such as "The model is representing / anticipating
+     / focused on / gearing up for X", is **framing** (`filler`). The X it attributes is judged as
+     an ordinary claim about the text or as a prediction. It is **never `model_state`**, which is
+     reserved for readouts that make claims about the model's beliefs or intent as such.
    - Echoes: a literal copy of the prompt's or the response's words that asserts nothing (an
      s3d sample that just repeats "I'd be delighted to") is `filler`, even in the first person
      (this is checked before rule 3). Any assertion about the content ("the user asks who your
