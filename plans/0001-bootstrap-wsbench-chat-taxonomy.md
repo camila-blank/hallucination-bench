@@ -1,6 +1,6 @@
 # Plan 0001 — Bootstrap HallucinationBench v2; port `wsbench_chat`; add the taxonomy judge
 
-Issue #1. Author: Camila Blank (planned with Claude), 2026-10-11. Revision 3 (after critiques 1–2).
+Issue #1. Author: Camila Blank (planned with Claude), 2026-10-11. Revision 4 (after critiques 1–3).
 
 ## Goal
 
@@ -152,6 +152,13 @@ logs/      (gitignored)
    and `unsupported_kind` depend on it. It does **not** see the earlier stages' `why` text, so
    it is not anchored on their reasoning. It labels each span; it never adds, removes or
    re-judges spans.
+   - **Timing.** Classify runs only after the cell's verify call has tallied, or after verify
+     has failed for good in this run. In that case it classifies the contradicted spans only.
+   - **Re-classification.** A changed span list changes the rendered prompt, so the `:C`
+     fingerprint no longer matches and the cell is re-classified on the next run (for example,
+     after a later verify succeeds).
+   - **Class source.** Verify's own per-readout `kind` is ignored; the class always comes from
+     v5c.
 
 Readouts of class `generic` (no wrong span) are not part of any rate, the same as the v5c
 denominator, and the classifier never sees them. `off_topic` spans are never
@@ -175,7 +182,7 @@ definition.
   as `unsupported`, matching verify's "never world knowledge" rule. The classifier records why
   in the subtype below, so analyses can choose a lenient view.
 
-### unsupported_kind (classifier label; `unsupported` and `disputed` spans only)
+### unsupported_kind (classifier label; `unsupported` spans only)
 
 - `prediction`: about what the response will say next, and the response never says it.
 - `inference`: a plausible inference from the text that the text does not state or entail. This
@@ -186,6 +193,8 @@ definition.
   state.
 
 The **lenient view** drops `inference` and `world_knowledge`. The **strict view** keeps all four.
+`contradicted` and `disputed` spans have `unsupported_kind = null` and are always kept in both
+views.
 
 ### type (the primary axis requested in issue #1)
 
@@ -213,20 +222,20 @@ The **main test** decides the type: if a reader believed the span, would they mi
 
 Rules:
 
-- **Names are decided by identity, not by centrality.**
-  - Swapping in a *different entity whose identity carries meaning* is `concept` when that
-    entity is what the claim is about. That covers a real person, work, place or organisation,
-    or a *different character or entity that exists in the text*. Examples: Picasso for da
-    Vinci; confusing the protagonist with her rival.
-  - A *wrong name for the same referent*, especially an arbitrary or fictional one, is `detail`,
-    **even when the referent is the protagonist**. Example: Steve for the story's Joe, which is
-    the same character with the wrong label.
-  - An incidental real entity in a passing mention is `detail`, as in the Stanford→Harvard
-    aside.
+- **Names: apply this decision order.**
+  1. *Same referent, wrong label* → `detail`, even when the referent is the protagonist. Example:
+     Steve for the story's Joe, which is the same character with the wrong label.
+  2. *A different entity with its own identity* that is **the subject of the claim** →
+     `concept`. Such an entity is a real person, work, place or organisation, or another
+     character or entity that exists in the text. Examples: Picasso for da Vinci; confusing the
+     protagonist with her rival.
+  3. *A different entity that appears only in a passing mention* → `detail`. Example: the text
+     cites "a 2019 Stanford study" in an aside and the readout says Harvard.
 - **Wrong values:** a number, date, label or wording error is `detail`. The exception is a value
   that flips the claim (safe vs unsafe, won vs lost, increase vs decrease), which is `concept`.
   Magnitude alone never makes a span `concept`; it raises severity instead.
-- **For `unsupported` and `disputed` spans** there is no "correct value", so the test becomes:
+- **`contradicted` and `disputed` spans** use the main test above, since a correct value exists.
+- **For `unsupported` spans** there is no "correct value", so the test becomes:
   does believing the span change the reader's understanding of what the text is about or what
   it claims?
   - An invented event, claim, topic, situation, intent or stance is `concept`. Examples: "the
@@ -263,10 +272,11 @@ Rules:
   - A span id that is missing or duplicated gives that span `type = unknown`; it is counted in
     `n_unclassified`.
   - An extra id is ignored and counted.
-  - An `unsupported_kind` given for a `contradicted` span is ignored.
-  - A missing `unsupported_kind` for an `unsupported` or `disputed` span becomes `unknown`.
-  - Enum values are validated in code too. A bad value becomes `unknown`, and the cell is re-queued
-    once, as `validate` does in wsbench.
+  - An `unsupported_kind` given for a `contradicted` or `disputed` span is ignored (set to null).
+  - A missing `unsupported_kind` for an `unsupported` span becomes `unknown`.
+  - Enum values are validated in code too. A bad value makes the answer invalid. The answer is
+    cached as a failure and re-queued on every later run, as `validate` does in wsbench. If it
+    is still invalid at report time, the bad labels count as `unknown`.
 - The prompt version is `taxonomy-v1`. The fingerprint includes the prompt version, the model
   and the rendered prompt, so prompt edits during calibration invalidate cached calls.
 
@@ -274,14 +284,18 @@ Rules:
 
 - **Model.** The default is `claude-opus-5-5` for all four calls (summariser, span, verify,
   classify), using keyless first-party auth through the `ant` CLI profile. When
-  `ANTHROPIC_API_KEY` is unset, the client constructs `anthropic.Anthropic()` with no
-  `api_key`, so the SDK picks up the `ant` OAuth profile. It must not require the env var.
+  `ANTHROPIC_API_KEY` is unset, the client constructs `anthropic.AsyncAnthropic()` with no
+  `api_key`, so the SDK picks up the `ant` OAuth profile. It must not require the env var: the
+  source's `api_key()` raises when the variable is unset (wsbench `llm.py` L63-67), so the port
+  changes that function, not just the constructor.
   Overrides: `--judge-model`, `--summarizer-model`, `--classifier-model`.
 - **Comparability note for the README.** The WorkspaceBench pin is Gemini 3.8 Flash, so our
   absolute v5c rates are not directly comparable to published WorkspaceBench numbers. The
   AR-ablation study also used Opus 5.5 for this family.
-- **Call settings.** Use temperature 0 where the API supports it, structured JSON output, and
-  thinking off. A failed or refused call returns `None`; it is counted and never scored.
+- **Call settings.** The Anthropic route sends no `temperature`, because newer Claude models
+  reject the field; the source drops it too (wsbench `llm.py` L320-334). Labels are therefore
+  single samples at the default temperature, and the README says so. Calls use structured
+  JSON output with thinking off. A failed or refused call returns `None`; it is counted and never scored.
   Re-running resumes from the cache and retries only failed or partial cells.
 - **One process for all arms.** `hbench run` takes several `--arm name=path` arguments, or
   `--readouts-root DIR`, and judges every arm in **one process**. That process has one shared
@@ -322,14 +336,22 @@ Per arm, overall and per layer:
   - Identity, tested: `concept_only + detail_only + both + unclassified_only = hallucination_rate`.
   - **Coverage requirement:** if a hallucinated readout's cell has no classify result (failed
     call), all of its contradicted spans are `unknown`, so the identity still holds.
-- **Severity.** `major_rate` is the share with at least one contradicted span of severity 3.
-  Also reported: the mean maximum severity per hallucinated readout.
-- **Unsupported** (verify-tallied readouts only; the coverage is reported):
-  - `unsupported_rate`: share with at least one unsupported span;
-  - its concept / detail split;
-  - the split by `unsupported_kind`;
-  - `unsupported_rate_lenient`, which excludes `inference` and `world_knowledge`.
-- **Disputed.** `disputed_rate` is reported separately.
+- **Severity.**
+  - `major_rate` = specific readouts with at least one contradicted span of severity 3 ÷
+    specific readouts.
+  - `mean_max_severity` = the mean, over hallucinated readouts with at least one classified
+    contradicted span, of the maximum severity. Readouts whose spans are all `unknown` are
+    excluded and counted.
+- **Unsupported.** Denominator **T** = verify-tallied specific readouts; the coverage T ÷
+  specific is reported.
+  - `unsupported_rate` = readouts with at least one `unsupported` span ÷ T.
+  - Its concept and detail split: readouts with at least one unsupported concept (or detail)
+    span ÷ T.
+  - The split by `unsupported_kind`: readouts with at least one span of that kind ÷ T, plus the
+    span-level share of each kind among unsupported spans.
+  - `unsupported_rate_lenient`: the same as `unsupported_rate`, but excluding `inference` and
+    `world_knowledge` spans.
+- **Disputed.** `disputed_rate` = readouts with at least one disputed span ÷ T.
 - **Strict and lenient rates.**
   - `strict_hallucination_rate` is the share of **verify-tallied** specific readouts with at
     least one contradicted, disputed or unsupported span (the user's definition).
@@ -338,6 +360,12 @@ Per arm, overall and per layer:
   - Both are reported next to their verify coverage (tallied ÷ specific), so a failed verify
     call cannot silently lower them.
   - `unsupported_rate` counts `unsupported` spans only; disputed spans are counted separately.
+  - **Strict concept/detail decomposition.** This answers issue #1 under the user's definition.
+    Readouts in T are bucketed exactly as in the contradicted decomposition (`concept_only` /
+    `detail_only` / `both` / `unclassified_only`), using all their contradicted, disputed and
+    unsupported spans. This gives `strict_concept_rate` and `strict_detail_rate`, with the
+    identity `strict_concept_only + strict_detail_only + strict_both + strict_unclassified_only
+    = strict_hallucination_rate`, which is tested. The same is done for the lenient view.
 - **Span-level distributions.** Counts and shares by grounding × type × target × severity ×
   unsupported_kind.
 - **Judge health.** These counts are reported:
@@ -368,7 +396,7 @@ production.
     arbitrary Joe (detail).
   - At least 12 concept and 12 detail spans, covering all 7 targets.
   - At least 8 rule cases:
-    - a central versus a peripheral real named entity;
+    - a real entity as the subject of the claim (rule 2) versus in a passing mention (rule 3);
     - an arbitrary protagonist renamed (detail) versus the protagonist confused with another
       character in the text (concept);
     - a value that flips the claim versus one that does not;
@@ -380,7 +408,11 @@ production.
     English fragments, NLA `<explanation>` prose, and one-to-two-sentence summariser
     interpretations.
 - **`heldout.jsonl`**, used only for the gate, has two parts:
-  - (a) at least 20 further synthetic spans, written separately in the same proportions;
+  - (a) at least 30 further synthetic spans, written separately.
+  - **Held-out minimums**, across parts (a) and (b): at least 20 unsupported spans with at least
+    4 per `unsupported_kind`, at least 10 spans per severity level, and at least 4 disputed
+    spans.
+  - Every gate metric is reported with a Wilson 95% CI.
   - (b) at least 30 **real spans**. To produce these:
     1. Run a pilot of span + verify on 40 cells each from s3d-rl600 L44, nla-rl-L42 and jlens L44.
     2. Use `hbench pilot-dump` to sample contradicted / disputed / unsupported spans from that
@@ -398,7 +430,7 @@ production.
   - severity: exact, within 1, and quadratic-weighted κ;
   - `unsupported_kind` accuracy;
   - a confusion matrix per label;
-  - the run-to-run label flip rate across 2 runs (at temperature 0 this should be near 0);
+  - the run-to-run label flip rate across 2 runs. Gate metrics are the **mean of the 2 runs**;
   - on `dev` only, every disagreement, with the classifier's `why`. On `heldout`, aggregates
     only (no per-span lists), so held-out errors cannot leak into prompt tuning.
 - **Gate, on held-out only:**
@@ -411,8 +443,9 @@ production.
   | severity exact | ≥ 65% |
   | severity quadratic-weighted κ | ≥ 0.6 |
   | target accuracy | ≥ 70% |
-  | `unsupported_kind` accuracy | ≥ 70% |
+  | `unsupported_kind` accuracy (unsupported spans only) | ≥ 70% |
   | `n_unclassified` | 0 |
+  | type flip rate between the 2 runs | ≤ 5% |
   | type accuracy on the **real** part alone | ≥ 80% |
 
 - **If the gate fails:**
@@ -430,9 +463,8 @@ production.
    to 4 calls per cell.
    - Before starting, run a 20-cell slice per arm. It prints prompts, checks parsing, and
      estimates the cost of stage 1 and stage 2 from measured spend. Report the estimate.
-   - The slice also checks two things and fails loudly on either: keyless `ant` auth works, and
-     Opus 5.5 accepts the call settings (temperature 0, structured output). If temperature is
-     rejected, drop it and record that.
+   - The slice also fails loudly, rather than counting every call as failed, if keyless `ant`
+     auth or structured output does not work.
      There is no budget cap, but spend is always reported.
 3. **Stage 2.** The remaining layers (20, 36, 48, 60) of the 5-layer arms, about 35.9k cells.
 4. **Driver.** `scripts/run_all_arms.sh` runs stage 1, then `hbench report`, then stage 2, then
@@ -459,13 +491,16 @@ production.
   driver.
 - `docs/results/0001_wsbench_chat_taxonomy.md` contains:
   - the headline tables per arm, each rate with a CI: v5c rate, concept rate, detail rate,
-    major rate, unsupported rate (strict and lenient), and strict rate;
+    strict concept rate, strict detail rate, major rate, unsupported rate (strict and lenient),
+    and strict and lenient rates;
   - the concept/detail share of contradicted spans;
   - the target mix;
   - a handful of quoted examples per type;
   - the calibration numbers;
   - spend;
-  - caveats: the judge differs from the WorkspaceBench pin; token arms are judged through a
+  - caveats: labels are single samples, since the Anthropic route sends no temperature; `concept`
+    for unsupported spans (invented events and stances) extends the user's "entirely
+    contradictory claims" wording; the judge differs from the WorkspaceBench pin; token arms are judged through a
     summariser, so their labels describe the summary; the gold labeller is the same model family
     as the classifier.
 - README (taxonomy, quickstart, results pointer) and CLAUDE.md are written. CLAUDE.md covers
