@@ -1,6 +1,6 @@
 # Plan 0003: sibling-concept eval: are same-category mentions hallucinations? (DiffMean probe verification)
 
-Issue #5. Author: Camila Blank (planned with Claude), 2026-10-11. Revision 5 (after critiques 1–4).
+Issue #5. Author: Camila Blank (planned with Claude), 2026-10-11. Revision 6 (after critiques 1–5).
 
 This plan is stacked on plan 0002 (PR #4, branch `camila/taxonomy-v2`). It uses plan 0002's
 claim-map judge (`judges/claimmap_v2.py`) **at whatever `PROMPT_VERSION` is current on that
@@ -126,8 +126,12 @@ without naming it, and is followed by a generic request sentence.
   appear in the user turn. Failing items are dropped and regenerated. The verbatim wsbench items
   are exempt (e.g. "sopa paraguaya"); any concept named in their prompt is simply excluded from
   that item's siblings (and from gold-mention counts if the gold itself is named).
-- **Implication check:** Qwen3.6-27B is asked "Based on the message, what is the user's
-  <attribute>? Answer in one or two words." (greedy, thinking off). An item is kept only if the
+- **Implication check:** Qwen3.6-27B is asked the category's pre-registered question (stored in
+  `concepts.json`), greedy, thinking off: country "Based on the message, which country is the
+  user from? Answer in one or two words."; occupation "… what is the user's occupation? …";
+  emotion "… how does the user feel? Answer in one word."; farm_animal "… which farm animal is
+  the message about? …"; capital_city "… which city is the user visiting? …"; tree "… which
+  kind of tree is described? …"; holiday "… which holiday is the user preparing for? …". An item is kept only if the
   answer matches the gold's aliases (the revealed-belief gate of wsbench, at 1 greedy sample
   instead of 10). The verbatim wsbench items already passed the wsbench gate and are not
   re-checked; every generated item (including the 6 new country / occupation items) is.
@@ -208,6 +212,13 @@ All three arms read the same positions: `from_last_sentence_start` on the chat r
   extra cheap structured call per M segment (`claude-opus-5-5`, effort low, cached; fixed prompt
   in `judge.py`, prompt version `sibscope-v1`). Every headline number is reported on all M and on
   the `scope = user` slice, and also split by leaf.
+- **Inventory coverage:** all headline numbers cover inventory concepts only, and say so. To
+  measure what is missed, a seeded 5% sample of the non-prefiltered cells per (arm, category) is
+  also judged, and every probe-candidate segment (in any judged cell) whose `probe_target` is a
+  same-category instance matching no alias is counted (string match against a per-category
+  allow-list of instance words is not possible, so this uses one cheap structured call per such
+  segment: "is X an instance of <category>? yes/no", cached, `sibcover-v1`). Report per category
+  the share of same-category sibling mentions that fall outside the inventory.
 - `probe_target` is recorded for every candidate. When it names a concept of the category, the
   results doc reports how often it agrees with the alias match.
 
@@ -243,9 +254,12 @@ All three arms read the same positions: `from_last_sentence_start` on the chat r
   and σ_cat is the sd of the projected training residuals at that (ending, offset) (pooled over
   the category's concepts). This removes the per-position mean AND scale (template tokens have
   very different norms), so pooling thresholds over offsets is valid.
-- **Cross-fitting:** 4 folds per concept (seeded, endings balanced). Every probe text is scored by
-  the fold model that never saw it; thresholds use these out-of-fold scores (all 48 texts per
-  concept). Eval cells are scored by **each fold model k separately** and thresholded against
+- **Cross-fitting, category-level folds:** every probe text of a category (all concepts and the
+  neutral texts) gets one seeded fold id in {0..3}, balanced by concept and ending. Fold model k
+  fits, for every concept of the category, d, μ_cat and σ_cat on the non-k texts only. Every
+  out-of-fold score (validity gate, τ_cat, τ(c | g), τ_neutral, z, the ceiling's τ(g | g′)) is a
+  fold-k text scored by model k, so no threshold text ever contributed to the direction, the
+  centring or the scale that scores it. Eval cells are scored by **each fold model k separately** and thresholded against
   fold k's own out-of-fold distribution (fold k's held-out texts); the 4 detection indicators and
   the 4 z values are then averaged per (cell, c). No all-texts refit, no averaged direction. Report threshold CIs by
   text-level bootstrap.
