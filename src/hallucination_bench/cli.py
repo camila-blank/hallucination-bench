@@ -1,0 +1,256 @@
+"""``hbench run|calibrate|report|pilot-dump``."""
+
+import argparse
+import json
+import sys
+from pathlib import Path
+
+from hallucination_bench.llm import DEFAULT_EFFORT, JudgeConfigError
+
+DEFAULT_MODEL = "claude-opus-5-5"
+READOUTS_FILE = "hallucination.jsonl"
+
+
+def _layers(s: str | None) -> list[int] | None:
+    return [int(x) for x in s.split(",") if x.strip()] if s else None
+
+
+def _effort(s: str) -> str | None:
+    return None if s in ("", "none", "default") else s
+
+
+def resolve_arms(args: argparse.Namespace) -> list[tuple[str, Path]]:
+    arms: list[tuple[str, Path]] = []
+    for a in args.arm or []:
+        if "=" not in a:
+            raise SystemExit(f"--arm expects name=path, got {a!r}")
+        name, path = a.split("=", 1)
+        arms.append((name, Path(path)))
+    if args.readouts_root:
+        root = Path(args.readouts_root)
+        for d in sorted(p for p in root.iterdir() if p.is_dir()):
+            f = d / READOUTS_FILE
+            if f.exists():
+                arms.append((d.name, f))
+    if args.arms:
+        keep = set(args.arms.split(","))
+        unknown = keep - {n for n, _ in arms}
+        if unknown:
+            raise SystemExit(f"--arms names not found: {sorted(unknown)}")
+        arms = [(n, p) for n, p in arms if n in keep]
+    names = [n for n, _ in arms]
+    if len(set(names)) != len(names):
+        raise SystemExit(f"duplicate arm names: {names}")
+    if not arms:
+        raise SystemExit("no arms: pass --arm name=path and/or --readouts-root DIR")
+    for n, p in arms:
+        if not p.exists():
+            raise SystemExit(f"[{n}] readouts file not found: {p}")
+    return arms
+
+
+def _models(args: argparse.Namespace):
+    from hallucination_bench.evals.wsbench_chat.run import Models
+
+    return Models(
+        judge=args.judge_model,
+        summarizer=args.summarizer_model,
+        classifier=args.classifier_model,
+        effort=_effort(args.effort),
+    )
+
+
+def cmd_run(args: argparse.Namespace) -> int:
+    from hallucination_bench.evals.wsbench_chat import run as wrun
+
+    arms = resolve_arms(args)
+    models = _models(args)
+    out = Path(args.out)
+    if args.rebuild:
+        for n, p in arms:
+            s = wrun.rebuild_arm(n, p, out, models)
+            _print_summary(n, s)
+        return 0
+    summaries = wrun.run_arms(
+        arms,
+        out,
+        models,
+        layers=_layers(args.layers),
+        limit=args.limit,
+        rpm=args.rpm,
+        concurrency=args.concurrency,
+        allow_missing=args.allow_missing,
+        classify=not args.skip_classify,
+        show_prompts=args.show_prompts,
+    )
+    for n, s in summaries.items():
+        _print_summary(n, s)
+    return 0
+
+
+def _print_summary(name: str, s: dict) -> None:
+    r = s["overall"]["rates"]
+    h = s["health"]
+
+    def f(k: str) -> str:
+        v = r.get(k)
+        return "—" if v is None else f"{v:.3f}"
+
+    failed = {k: h[f"n_failed_{k}"] for k in ("summary", "span", "verify", "classify")}
+    print(
+        f"[{name}] layers={s['config']['judged_layers']} judged={h['n_judged_cells']} "
+        f"pending={h['n_pending_cells']} failed={failed} "
+        f"| v5c={f('hallucination_rate')} concept={f('concept_rate')} detail={f('detail_rate')} "
+        f"strict={f('strict_hallucination_rate')} unsupported={f('unsupported_rate')} "
+        f"unclassified_spans={h['n_unclassified']} spend_total=${s['spend']['total_usd']:.2f}",
+        flush=True,
+    )
+
+
+def cmd_calibrate(args: argparse.Namespace) -> int:
+    from hallucination_bench import calibrate
+
+    model = args.classifier_model or args.judge_model
+    res = calibrate.run(
+        args.split,
+        model=model,
+        effort=_effort(args.effort),
+        out_root=Path(args.out),
+        repeats=args.repeats,
+        rpm=args.rpm,
+        concurrency=args.concurrency,
+        cases_path=Path(args.cases) if args.cases else None,
+    )
+    print(calibrate.render_markdown(res))
+    sp = res["spend_this_run"]
+    print(f"\nspend this run: ${sp['usd']:.4f} ({sp['calls']} calls)")
+    if args.split == "heldout":
+        print(f"GATE {'PASSED' if res['gate_passed'] else 'FAILED'}")
+    return 0
+
+
+def cmd_report(args: argparse.Namespace) -> int:
+    from hallucination_bench import report
+
+    root = report.report(
+        Path(args.out),
+        args.judge_model,
+        rebuild=not args.no_rebuild,
+        audit_n=args.audit_n,
+        seed=args.seed,
+    )
+    print(f"wrote {root / 'report.md'}, {root / 'report.json'}, {root / 'audit_samples.md'}")
+    return 0
+
+
+def cmd_pilot_dump(args: argparse.Namespace) -> int:
+    from hallucination_bench import report
+    from hallucination_bench.calibrate import validate_case
+
+    cases = report.pilot_dump(
+        Path(args.out),
+        args.judge_model,
+        args.arms.split(","),
+        per_stratum=args.per_stratum,
+        seed=args.seed,
+        layers=_layers(args.layers),
+    )
+    errs = [e for c in cases for e in validate_case(c, require_gold=False)]
+    if errs:
+        print("warning: " + "; ".join(errs[:10]), file=sys.stderr)
+    dest = Path(args.dest)
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    with dest.open("w", encoding="utf-8") as fh:
+        for c in cases:
+            fh.write(json.dumps(c, ensure_ascii=False) + "\n")
+    n_sp = sum(len(c["spans"]) for c in cases)
+    n_sampled = sum(s["sampled"] for c in cases for s in c["spans"])
+    print(f"wrote {len(cases)} cases ({n_sampled} sampled spans, {n_sp} spans total) to {dest}")
+    return 0
+
+
+def _common(p: argparse.ArgumentParser) -> None:
+    p.add_argument("--out", default="outputs", help="output root (default: outputs)")
+    p.add_argument("--judge-model", default=DEFAULT_MODEL)
+    p.add_argument(
+        "--effort",
+        default=DEFAULT_EFFORT,
+        help="Anthropic output_config.effort (default low; 'none' omits)",
+    )
+    p.add_argument("--rpm", type=float, default=1500.0)
+    p.add_argument("--concurrency", type=int, default=64)
+
+
+def build_parser() -> argparse.ArgumentParser:
+    ap = argparse.ArgumentParser(prog="hbench", description=__doc__)
+    sub = ap.add_subparsers(dest="cmd", required=True)
+
+    r = sub.add_parser("run", help="judge arms (summarise -> span -> verify -> classify)")
+    _common(r)
+    r.add_argument("--arm", action="append", help="name=path/to/hallucination.jsonl (repeatable)")
+    r.add_argument("--readouts-root", help="DIR with <arm>/hallucination.jsonl subdirectories")
+    r.add_argument("--arms", help="comma-separated arm names to keep")
+    r.add_argument("--layers", help="comma-separated layers (each arm judges those it has)")
+    r.add_argument(
+        "--limit",
+        type=int,
+        default=None,
+        help="judge only the first N non-empty cells per arm x layer (smoke)",
+    )
+    r.add_argument("--summarizer-model", default=None)
+    r.add_argument("--classifier-model", default=None)
+    r.add_argument("--allow-missing", action="store_true")
+    r.add_argument(
+        "--rebuild",
+        action="store_true",
+        help="regenerate cells.jsonl/summary.json from the cache (no API calls)",
+    )
+    r.add_argument("--skip-classify", action="store_true", help="span + verify only (pilot)")
+    r.add_argument(
+        "--show-prompts",
+        type=int,
+        default=0,
+        metavar="K",
+        help="write the prompts of the first K cells per arm x layer to <arm>/prompts_sample.txt",
+    )
+    r.set_defaults(fn=cmd_run)
+
+    c = sub.add_parser("calibrate", help="score the classifier on calibration cases")
+    _common(c)
+    c.add_argument("--split", choices=("dev", "heldout"), required=True)
+    c.add_argument("--classifier-model", default=None)
+    c.add_argument("--repeats", type=int, default=2)
+    c.add_argument("--cases", default=None, help="override the cases file")
+    c.set_defaults(fn=cmd_calibrate)
+
+    rp = sub.add_parser("report", help="cross-arm report + audit samples")
+    rp.add_argument("--out", default="outputs")
+    rp.add_argument("--judge-model", default=DEFAULT_MODEL)
+    rp.add_argument("--no-rebuild", action="store_true")
+    rp.add_argument("--audit-n", type=int, default=15)
+    rp.add_argument("--seed", type=int, default=0)
+    rp.set_defaults(fn=cmd_report)
+
+    pd = sub.add_parser("pilot-dump", help="sample pilot spans as unlabelled calibration cases")
+    pd.add_argument("--out", default="outputs")
+    pd.add_argument("--judge-model", default=DEFAULT_MODEL)
+    pd.add_argument("--arms", required=True)
+    pd.add_argument("--layers", default=None)
+    pd.add_argument("--per-stratum", type=int, default=5, help="spans per arm x grounding")
+    pd.add_argument("--seed", type=int, default=0)
+    pd.add_argument("--dest", required=True)
+    pd.set_defaults(fn=cmd_pilot_dump)
+    return ap
+
+
+def main(argv: list[str] | None = None) -> int:
+    args = build_parser().parse_args(argv)
+    try:
+        return args.fn(args)
+    except JudgeConfigError as e:
+        print(f"JUDGE CONFIG ERROR: {e}", file=sys.stderr)
+        return 3
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
