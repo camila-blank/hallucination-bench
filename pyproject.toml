@@ -1,0 +1,33 @@
+[project]
+name = "hallucination-bench"
+version = "0.1.0"
+description = "HallucinationBench v2: types and severities of hallucination in activation-reading lenses"
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "MIT" }
+dependencies = ["anthropic>=0.70", "openai>=1.50", "numpy>=1.26"]
+
+[project.scripts]
+hbench = "hallucination_bench.cli:main"
+
+[dependency-groups]
+dev = ["pytest>=8", "ruff>=0.6"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/hallucination_bench"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "RUF"]
+ignore = ["RUF001", "RUF002", "RUF003"]
