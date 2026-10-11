@@ -1,6 +1,6 @@
 # Plan 0002: claim map (taxonomy v2), an exhaustive, mutually exclusive categorisation of readout content
 
-Issue #3. Author: Camila Blank (planned with Claude), 2026-10-11. Revision 6 (after critiques 1–5).
+Issue #3. Author: Camila Blank (planned with Claude), 2026-10-11. Revision 7 (after critiques 1–6).
 This plan builds on plan 0001 (PR #2): the v5c span and verify port, the taxonomy-v1 classifier,
 and the first full run. It reuses plan 0001's cache layout, client, calibration machinery,
 bootstrap and report unless this plan says otherwise.
@@ -71,7 +71,7 @@ segment
 │   ├─ generic        generic description, nothing concrete ("a friendly reply")
 │   ├─ filler         hedges, connectives, repetition, verbatim restatement of the prompt, list scaffolding,
 │   │                 and the framing words of token-bag summaries ("the tokens include…", "suggesting")
-│   ├─ formatting     markup, bullets, empty headings, emoji, fragments that break off asserting nothing
+│   ├─ formatting     markup, bullets, empty headings, emoji (fragments that assert nothing are filler)
 │   ├─ junk_text      garbled or broken tokens, stray code, byte artifacts
 │   └─ lens_meta      statements about the lens output itself rather than the conversation
 │                     ("Russian 'холод' (cold) and Chinese '冷的' (cold)", "emoji byte artifacts")
@@ -101,9 +101,9 @@ segment
         │   └─ other_on_topic         any other on-topic claim that the conversation and world knowledge cannot
         │                             settle, including contested or doubtful world claims
         ├─ ambiguous_topic            a claim where it cannot be told whether it refers to this conversation or any
-        │                             subject it raises (could plausibly be either)      group: unsettled
-        └─ off_topic                  a claim about neither this conversation nor any subject it raises (a Mars
-                                      probe in an answer about idioms)                   group: junk
+        │                             subject it raises, whatever its truth (rule 5)    group: unsettled
+        └─ off_topic                  a claim about neither this conversation nor any subject it raises, whatever its
+                                      truth (a Mars-probe fact in an answer about idioms; rule 5)   group: junk
 ```
 
 Code-assigned pseudo-leaves are kept as **separate rows in every table**, outside the seven
@@ -145,22 +145,28 @@ fixed. The prompt lists them in this order: 2, 1, 3, 4, 5, 6, 10, 11, 12, 13, th
    Descriptions of format, genre or setting ("Q&A on an educational platform") are ordinary
    claims about the conversation: an invented setting **asserted flatly** is `false_claim` (rule
    10); a hedged one follows rule 12.
-5. **A claim about this conversation is never `off_topic`** (v5c's rule). Its branch is set by
-   rules 6, 10 and 12.
+5. **Topic gate (before truth).** A claim about this conversation or a subject it raises is on
+   topic and is never `off_topic` (v5c's rule). Its branch is set by rules 6, 10, 12 and 13. A
+   claim clearly about neither is `off_topic`; one where it cannot be told is `ambiguous_topic`.
+   Both apply **whatever the claim's world truth**: a true Mars-probe fact in an answer about
+   idioms is `off_topic`.
 6. **Conversation vs world.** The conversation wins for claims about the conversation and its
    content. **[pending Camila, default:]** world-false content that the response itself states
    is `correct.restates_prefix` or `correct.stated_after`, with the tag `world_false = true`
    (the wrong-bridge case: the response uses the wrong bridge, and the readout finds it).
    **A world claim is incorrect only if the conversation contradicts it**, or if it overlaps an
-   established span. A world-false claim on which the conversation is silent is always
-   `possible_belief`.
+   established span. An on-topic world-false claim on which the conversation is silent goes to
+   the thinky branch, leaf by rule 9 (usually `possible_belief`).
 7. **Inside `correct`:** `restates_prefix` > `stated_after` > `entailed` > `world_true`.
 8. **Inside `incorrect`:**
-   - A wrong named object that has its own identity, in place of the right one →
-     substitution (sibling or category). **[pending Camila]**: see §Open decisions 1 for named
-     entities that are the subject of the claim.
-   - A false assertion about the right object → `false_claim`.
-   - A wrong arbitrary specific → `detail`.
+   Apply in this order:
+   1. A wrong named object that has its own identity, in place of the right one →
+      substitution (sibling or category). **[pending Camila]**: see §Open decisions 1 for named
+      entities that are the subject of the claim.
+   2. Anything matching the §Detail rule list, including invented arbitrary specifics → `detail`.
+      The §Detail rule's carve-outs (real-event quantities, counts that flip the claim) go on to
+      step 3.
+   3. Any other false assertion about the right object → `false_claim`.
 9. **Inside `unverifiable.on_topic`:** `unrealised_prediction` > `model_state` >
    `possible_belief` > `other_on_topic`.
 10. **Framing.**
@@ -182,12 +188,9 @@ fixed. The prompt lists them in this order: 2, 1, 3, 4, 5, 6, 10, 11, 12, 13, th
     When it is explicitly hedged as an inference ("likely", "probably", "may be", "seems"), it is
     `other_on_topic` by default: the lens is guessing, not asserting. Dev and held-out each
     carry one anchor for each side.
-13. **Fallback for unsettled claims.** A claim that rules 2–12 have not placed and that neither the
-    conversation nor world knowledge settles goes to:
-    - the **thinky** branch if it is about this conversation or a subject it raises (leaf by rule
-      9, else `other_on_topic`);
-    - `ambiguous_topic` if it cannot be told whether it is;
-    - `off_topic` if it clearly is not.
+13. **On-topic fallback.** An on-topic claim (rule 5) that rules 6, 10 and 12 have not placed, and
+    that neither the conversation nor world knowledge settles, goes to the **thinky** branch (leaf
+    by rule 9, else `other_on_topic`).
 
 ### Detail rule [pending Camila: §Open decisions 2]
 
