@@ -11,8 +11,14 @@ is re-run; it is cache-keyed by fingerprint, so only changed calls repeat.
 
 ## Amendment, revision 11 (Camila 2026-10-11: "make sure the probes are actually good"; "do the three methods overlap on the sibling concepts?")
 
-Decided from probe-side numbers only (the sweep below scores probe texts and gold-item eval cells;
-it never touches lens mentions, M/U or the judge). The rev-10 scores and results are superseded.
+**Disclosure.** The sweep was run *after* the rev-10 results were visible (verdict supported,
+s3d rate 86%). The recipe choice itself uses only probe-side numbers: probe texts and gold-item
+eval cells, never lens mentions, M/U or the judge. But V2 was chosen partly for its higher gold
+sensitivity, which mechanically lowers a "probe does not detect" rate. So **V0 (rev-10 raw
+DiffMean) and V2 are reported side by side in every headline cell**: verdict, β₁/β₂, and the
+three per-arm rates. Rule fixed in advance: if V0 and V2 give different verdicts, or their
+headline rates' CIs do not overlap, the result is reported as **recipe-sensitive**, with both
+numbers and no single headline.
 
 1. **Probe recipe sweep** (`scripts/sibling_probe/probe_sweep_modal.py`, outputs
    `outputs/sibling/probe_sweep/summary.md`), same category-level folds, all 5 layers, every
@@ -26,28 +32,53 @@ it never touches lens mentions, M/U or the judge). The rev-10 scores and results
    | V3 per-position + whitened | 0.93 | 75% | 0.95 | 67% | 5.3 / 8.4 / 7.2% |
    | V4 logistic regression (reference) | 0.92 | 72% | 0.95 | 67% | 5.2 / 11.2 / 7.4% |
 
-2. **The probe becomes V2:** d = (S_w + a·I)⁻¹ d_V0, with a = λ·tr(S_w)/D and S_w the pooled
+2. **The probe becomes V2, "whitened DiffMean (shrinkage LDA)"**: a Fisher direction built from
+   the class means. This is closer to a classifier than plain DiffMean, which is why V0 stays
+   in every table. d = (S_w + a·I)⁻¹ d_V0, with a = λ·tr(S_w)/D and S_w the pooled
    within-(concept, ending, offset) covariance of the training positions, so it is still a
    difference of means, whitened. λ is chosen per outer fold by inner CV on that fold's training
    texts only (leave-one-training-fold-out, criterion = mean position-level AUROC). Everything
-   else in Phase E is unchanged and retained: category-level folds stratified by (concept, ending,
+   else in Phase E is unchanged and retained.
+   - **Port exactly:** the sweep's λ grid, inner-CV criterion, S_w definition (concept texts
+     only, no neutrals, dof n − K·C) and fold assignment. The inner CV is re-run in the pipeline;
+     a test asserts that pipeline V2 equals the sweep's V2 validity/transfer numbers (as was done
+     for V0, max abs diff < 1e-3). The per-position σ is recomputed with the whitened unit
+     direction. The unembedding-cosine check runs on V2.
+   - Retained from Phase E: category-level folds stratified by (concept, ending,
    kind); per-(L, ending, offset) centring and scaling fit on training folds only; per-fold
    thresholds τ_cat / τ(c | g) / τ_neutral, z(c | g); and eval cells scored per fold, with
    detection and z averaged over folds. V0 (raw DiffMean) is kept as a **robustness row**
    (verdict + rates).
 3. **Gates:** the validity gate goes back to the pre-registered **0.85** (rev 10's 0.70 was a
    concession to V0); the transfer gate stays at 0.70; the "probes too weak to adjudicate" rule
-   (pass share < 50%) stays. Report the eval-cell FPR at τ_cat per category (calibration).
+   (pass share < 50%) stays. The V0 columns use the rev-10 gate (0.70) so that they reproduce
+   rev 10.
+   - **Calibration:** report the eval-cell FPR at τ_cat per category, and the neutral FPR, as
+     diagnostics. τ is NOT recalibrated on eval cells: excess FPR at other-gold cells is partly
+     the sibling effect under test.
+   - **Independent check:** gold-item transfer was used for selection, so report V0 vs V2
+     transfer AUROC separately on the human-written wsbench-verbatim country/occupation items
+     (not Opus-generated).
+   - **The text states** that the gold-miss rate (1 − ceiling) puts a floor under any
+     "probe does not detect" rate.
 4. **Unchanged:** the judge cache (no new API calls), mentions, M / U definitions, β₁ / β₂, the
    verdict table and the positive-control rule.
-5. **New analysis, cross-lens overlap** (`scripts/sibling_probe/arm_overlap.py`):
-   - item-level and same-cell overlap of the siblings each lens names (Jaccard, P(B|A), lift),
-     against two nulls: arm B's per-item sets permuted within category, and within same-gold
-     items;
-   - **agreement vs probe support:** for (item, layer-matched cell, sibling) units, the probe
-     detection rate and mean z(c | g) by the number of lenses naming the sibling (0 / 1 / 2 / 3)
-     at the item level, and s3d vs J-lens at the same cell (both / one / neither). Is a sibling
-     named by several lenses more often real?
+5. **New analysis, cross-lens overlap (exploratory, outside the verdict)**
+   (`scripts/sibling_probe/arm_overlap.py`).
+   - **Mentions:** every sibling mention that is not named in the prompt or the response.
+     s3d / NLA use any alias hit in the readout; J-lens uses the token + summary rule (rows with
+     raw tokens only are reported separately).
+   - **Overlap:** P(B|A) and lift against the **same-gold null** (arm B's per-item sets permuted
+     among items with the same gold) as primary; the within-category null is secondary. Jaccard
+     is reported but confounded, since s3d reads 4 layers and NLA reads 1.
+   - **Layer rule:** the primary comparison is NLA L42 vs s3d / J-lens L44 at the same (item,
+     pos), with the probe read at L44 (L42 for NLA cells). The secondary comparison is the
+     all-layer union per item.
+   - **Agreement vs probe support:** the unit is (item, sibling). Probe support = the mean over
+     the item's L44 cells of z(c | g) and of detection (τ_cat), under V2 (and V0). Strata are the
+     number of lenses naming the sibling (0 / 1 / 2 / 3, layer rule above), plus an
+     **s3d ∩ NLA, not J-lens** stratum (the J-lens/probe link is mechanical). Report z with
+     concept fixed effects (popular siblings have stronger probes), and cluster CIs by item.
 
 ## Amendment, revision 10 (2026-10-11, after the probe job, before any judge or score result)
 
@@ -317,7 +348,8 @@ All three arms read the same positions: `from_last_sentence_start` on the chat r
   and the eval score table `{arm-independent: id, layer, pos, concept, s}` (parquet/jsonl).
 - **Direction:** per (concept *c*, layer *L*): average each text's eval-position activations
   into one vector per text; d = mean over *c*'s training texts − the equal-weighted mean of the
-  other category concepts' per-concept means. True DiffMean (Camila's request), no whitening.
+  other category concepts' per-concept means. **Rev 11: whitened by (S_w + a·I)⁻¹ (V2,
+  shrinkage LDA); raw DiffMean (V0) is reported alongside.**
 - **Position-aligned scoring:** s = ((h − μ_cat[L, ending, offset]) · d/‖d‖) / σ_cat[L, ending,
   offset, c], where h is one position's residual, μ_cat is the equal-weighted mean over the
   category's concepts of the training texts' residuals at that ending and offset from the end,
