@@ -8,7 +8,7 @@ named in the prompt.
 
 * prose arms: no alias hit for c in the cell's readout text -> ``unmentioned``; otherwise the
   verdicts of c's hits decide, in this order: any pending -> ``pending``; any ``correct`` ->
-  ``correct``; any of {hallucination, probe_candidate, unresolved, junk} -> ``M`` (sibling
+  ``correct``; any not-correct claim verdict (``score.M_VERDICTS``) -> ``M`` (sibling
   hallucination candidate); any ``failed`` -> ``failed``; else ``non_claim``;
 * J-lens (token-eligible concepts only; others are ``ineligible``): a mention needs BOTH a raw
   top-10 token-alias hit AND a summary alias hit (verdicts as above); token-only ->
@@ -61,7 +61,9 @@ from hallucination_bench.evals.sibling_probe.probes import (
 SCORE_DIR = REPO_ROOT / "outputs" / "sibling" / "score"
 N_BOOT = 2000
 BOOT_SEED = 0
-M_VERDICTS = frozenset({tx.V_HALLUCINATION, tx.V_PROBE, tx.V_UNRESOLVED, tx.V_JUNK})
+M_VERDICTS = frozenset(
+    {tx.V_HALLUCINATION, tx.V_PROBE, tx.V_ALTERNATIVE, tx.V_UNRESOLVED, tx.V_JUNK}
+)
 MENTION_CLASSES = ("M", "correct", "non_claim", "failed")  # proper mentions (judge verdicts)
 THRESHOLDS: dict[str, str] = {  # row name -> eval-score field (detection indicator)
     "tau_cat": "det_cat",

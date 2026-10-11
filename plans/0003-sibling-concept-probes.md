@@ -27,6 +27,11 @@ little concept information) makes 0.85 stricter than the question needs, so:
 This was decided from probe-side numbers only; no judge, mention or M/U statistic had been
 computed.
 
+4. **Judge moved to `claimmap-v2.5`** (plan 0002 rev 15) before judging: it adds the
+   `alternative` verdict (`unrealised_option`, `unrealised_prediction`) and the
+   `unsupported_assertion` leaf (verdict `unresolved`). M becomes verdict in {hallucination,
+   probe_candidate, alternative, unresolved, junk}: every not-correct claim verdict, as before.
+
 ## Goal
 
 A lens readout sometimes names several instances of one category where the context implies

@@ -68,7 +68,9 @@ ARM_LAYERS: dict[str, tuple[int, ...]] = {
 TOP_K = 10
 COVERAGE_FRACTION = 0.05
 COVERAGE_SEED = 0
-M_VERDICTS: frozenset[str] = frozenset({tx.V_HALLUCINATION, tx.V_PROBE, tx.V_UNRESOLVED, tx.V_JUNK})
+M_VERDICTS: frozenset[str] = frozenset(
+    {tx.V_HALLUCINATION, tx.V_PROBE, tx.V_ALTERNATIVE, tx.V_UNRESOLVED, tx.V_JUNK}
+)
 
 # ------------------------------------------------------------------ the two new cheap calls
 
