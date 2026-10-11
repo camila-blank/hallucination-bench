@@ -1,6 +1,6 @@
 # Plan 0003: sibling-concept eval: are same-category mentions hallucinations? (DiffMean probe verification)
 
-Issue #5. Author: Camila Blank (planned with Claude), 2026-10-11. Revision 7 (after critiques 1–6).
+Issue #5. Author: Camila Blank (planned with Claude), 2026-10-11. Revision 8 (after critiques 1–7).
 
 This plan is stacked on plan 0002 (PR #4, branch `camila/taxonomy-v2`). It uses plan 0002's
 claim-map judge (`judges/claimmap_v2.py`) **at whatever `PROMPT_VERSION` is current on that
@@ -102,8 +102,11 @@ without naming it, and is followed by a generic request sentence.
   humiliated / mortified are one concept; angry / furious / frustrated one; sad / grieving /
   heartbroken one). Each cluster is one concept with all members as aliases; `concepts.json`
   records the merge.
-- **Token aliases** (for J-lens): every concept also lists single-token forms (" Korea", "Korean",
-  "韩国", " Paris", …), checked against the Qwen tokenizer by a test (each must be one token).
+- **Token aliases** (for J-lens): each concept lists its single-token forms (" Korea", "Korean",
+  "韩国", " Paris", …), checked against the Qwen tokenizer by a test (each listed alias must be
+  one token). A concept with no single-token alias is `token_eligible: false`; it is excluded
+  from both sides of every J-lens test, and the J-lens positive control runs on eligible concepts
+  only. No first-subtoken matching.
 - Aliases of two concepts never overlap. Tests check this, and check that each alias matches its
   own label.
 
@@ -121,7 +124,9 @@ without naming it, and is followed by a generic request sentence.
     short caption for a photo of my morning."; capital_city "Write a short itinerary for my
     first day."; tree "Write a short description of my garden."; holiday "Write a short note to
     my neighbors about our plans." (Country/occupation keep the single wsbench sentence.)
-  - Gold values are spread over at least 8 concepts (at most 3 items per gold).
+  - **Every inventory concept is the gold of at least one item** (target 2; at most 3), so every
+    sibling has its own eval-site validation. Items per category = max(20, 2 × concepts) minus
+    the verbatim items, capped at 32.
 - **Leak check (code), generated items only:** no alias of any concept in the category may
   appear in the user turn. Failing items are dropped and regenerated. The verbatim wsbench items
   are exempt (e.g. "sopa paraguaya"); any concept named in their prompt is simply excluded from
@@ -294,10 +299,12 @@ named in the prompt.
   gold's probe fire above its level in another gold's context". The ceiling is always computed on
   **gold-mention cells** (under τ_cat: plain gold-mention detection); the all-cells version is a
   secondary row.
-- **Transfer gate per (category, layer), pre-registered:** the eval-site AUROC of each gold
-  probe, its items' cells vs the other-gold items' cells of the category (same layer), averaged
-  over the category's golds, must be ≥ 0.70. Failing (category, layer) pairs are excluded from the
-  verdict and listed. Also report gold detection rate (τ_cat) over all cells and over gold-mention
+- **Transfer gate per (concept, layer), pre-registered:** the eval-site AUROC of concept c's
+  probe, c-gold items' cells vs the other-gold items' cells of the category (same layer), must be
+  ≥ 0.70. A (category, layer) is transfer-passing if at least half its concepts pass. The
+  headline hallucination rates and the verdict cover only (cell, c) pairs whose c passes at that
+  layer; pairs with a failing or unvalidated c (e.g. a concept whose implication check dropped
+  all its items) form a separate flagged row. Also report gold detection rate (τ_cat) over all cells and over gold-mention
   cells.
 - **M** = sibling hallucination candidates: mentioned, with verdict in {hallucination,
   probe_candidate, unresolved, junk} (J-lens per the mention rule). Mentions in `non_claim` or
@@ -345,18 +352,22 @@ named in the prompt.
   linear readout of the same residual, so it should correlate with a linear probe almost
   mechanically. Its tests are reported (they check that the pipeline can see an effect), but the
   verdict rests on the s3d O-lens; NLA is reported alongside.
-- **Hypothesis verdict (pre-registered, s3d O-lens, transfer-passing (category, L)):**
-  *supported* if β₁ > 0 and β₂ > 0, each with its item-clustered 95% CI excluding 0.
-  *Strongly supported* if, in addition, under **τ_cat** (one threshold for all three terms,
-  U_matched controls near/far by matching the concept) the ratio
-  (det(M) − det(U_matched)) / (ceiling − det(U_matched)) > 0.5 with CI excluding 0.5. If the
-  denominator's CI includes 0, the strong criterion is *undefined* and reported as such.
-  **Positive-control rule:** the s3d verdict may be *not supported* only if the J-lens control
-  passes on the same transfer-passing (category, L) set (J-lens β₁ > 0 and β₂ > 0, each CI
-  excluding 0). Otherwise a null is reported as *inconclusive (positive control failed)*. The same
-  rule applies to the NLA secondary verdict. Otherwise
-  *not supported* or *inconclusive*, with the reason. The same verdict is computed for NLA as a
-  secondary.
+- **Hypothesis verdict (pre-registered).** Computed for the s3d O-lens (primary) and, by the same
+  rule, for NLA (secondary), on transfer-passing (category, L) and transfer-passing concepts.
+  "Control passes" = J-lens β₁ > 0 and β₂ > 0, each item-clustered 95% CI excluding 0, on the same
+  set (token-eligible concepts).
+
+  | outcome | rule |
+  |---|---|
+  | supported | β₁ > 0 and β₂ > 0, both CIs excluding 0 |
+  | contradicted | control passes, and β₁ or β₂ is significantly < 0 |
+  | not supported | control passes, and both CIs include 0 |
+  | inconclusive (mixed) | control passes, one coefficient significantly > 0 and the other null |
+  | inconclusive (control failed) | control fails and the outcome is not *supported* |
+
+  *Strongly supported* = supported AND, under τ_cat (one threshold for all three terms),
+  (det(M) − det(U_matched)) / (ceiling − det(U_matched)) > 0.5 with CI excluding 0.5; if the
+  denominator's CI includes 0 the strong criterion is *undefined* and reported as such.
 - **Plots** (`plots/sibling_probe/`): (1) per arm × category grouped bars of detection rate for
   gold mentions, M and U_matched, with CIs; (2) per arm, the probe-verified hallucination rate
   (τ_cat and τ(c | g)); (3) Test 2 scatter of mentioned vs unmentioned z per M cell. Slide
