@@ -1,6 +1,6 @@
 # Plan 0003: sibling-concept eval: are same-category mentions hallucinations? (DiffMean probe verification)
 
-Issue #5. Author: Camila Blank (planned with Claude), 2026-10-11. Revision 6 (after critiques 1–5).
+Issue #5. Author: Camila Blank (planned with Claude), 2026-10-11. Revision 7 (after critiques 1–6).
 
 This plan is stacked on plan 0002 (PR #4, branch `camila/taxonomy-v2`). It uses plan 0002's
 claim-map judge (`judges/claimmap_v2.py`) **at whatever `PROMPT_VERSION` is current on that
@@ -302,6 +302,11 @@ named in the prompt.
 - **M** = sibling hallucination candidates: mentioned, with verdict in {hallucination,
   probe_candidate, unresolved, junk} (J-lens per the mention rule). Mentions in `non_claim` or
   `failed` segments are excluded from M and reported as their own rows.
+- **Unmentioned c at a cell** = no alias hit for c anywhere in the cell's readout text, and for
+  J-lens also no raw top-10 token-alias hit and no summary alias hit. Every other mention type
+  (correct / non_claim / failed segments, J-lens token-only or summary-only hits) is excluded
+  from BOTH sides of Tests 1–3 and the within-item AUROC; those pairs appear only in their own
+  rows. A test covers this.
 - **Test 1, matched concept (primary):** for each M pair (item, layer, c), the comparison set
   U_matched = the same (item, layer, c) at the cells of that arm that do not mention c.
   **Pre-registered estimand β₁:** the `mentioned` coefficient of the OLS z(c | g) ~ mentioned +
@@ -345,7 +350,11 @@ named in the prompt.
   *Strongly supported* if, in addition, under **τ_cat** (one threshold for all three terms,
   U_matched controls near/far by matching the concept) the ratio
   (det(M) − det(U_matched)) / (ceiling − det(U_matched)) > 0.5 with CI excluding 0.5. If the
-  denominator's CI includes 0, the strong criterion is *undefined* and reported as such. Otherwise
+  denominator's CI includes 0, the strong criterion is *undefined* and reported as such.
+  **Positive-control rule:** the s3d verdict may be *not supported* only if the J-lens control
+  passes on the same transfer-passing (category, L) set (J-lens β₁ > 0 and β₂ > 0, each CI
+  excluding 0). Otherwise a null is reported as *inconclusive (positive control failed)*. The same
+  rule applies to the NLA secondary verdict. Otherwise
   *not supported* or *inconclusive*, with the reason. The same verdict is computed for NLA as a
   secondary.
 - **Plots** (`plots/sibling_probe/`): (1) per arm × category grouped bars of detection rate for
