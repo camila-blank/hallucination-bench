@@ -34,8 +34,8 @@ matched unmentioned cells (same item, layer and concept) splits them into two ki
 
 - **Mention-specific rise:** Osaka → Kyoto (z 0.76 where named vs −0.12 where not) and
   jealous → angry (0.95 vs 0.12).
-- **Overlap with the gold everywhere:** New York → Boston (0.95 vs 0.81) and hopeful → relieved
-  (1.25 vs 0.97).
+- **Overlap with the gold everywhere** (less common): New York → Boston (0.95 vs 0.81) and
+  hopeful → relieved (1.25 vs 0.97).
 
 Every pair comes from only 2–5 items.
 
@@ -121,15 +121,22 @@ cells of the same item, layer and concept (U_matched).
 | artist → musician | 25 | 2 | 0.03 / 0.06 / 0.18 | 0.00 / 0.05 / 0.01 |
 | fisherman → writer | 25 | 5 | 0.00 / 0.01 / −0.30 | 0.01 / 0.03 / −0.40 |
 | New York → Boston | 23 | 2 | 0.59 / 0.20 / 0.95 | 0.47 / 0.24 / 0.81 |
+| Tokyo → Kyoto | 19 | 2 | 0.22 / 0.11 / 0.09 | 0.11 / 0.01 / −0.30 |
 | hopeful → relieved | 19 | 2 | 0.54 / 0.36 / 1.25 | 0.46 / 0.30 / 0.97 |
+| donkey → horse ¹ | 19 | 2 | 0.04 / 0.05 / 0.82 | 0.03 / 0.03 / −0.01 |
+
+These are the top 10 pairs plus all three tied at n = 19. ¹ farm_animal is "probes too weak to
+adjudicate"; the horse probe itself passes both gates.
 
 Reading the table:
 
 - Most pairs show a higher z where named than where not, which is the β₁ effect. The rise
   rarely carries the probe past detection.
-- Some close siblings score high whether named or not (New York → Boston, hopeful → relieved):
-  the sibling overlaps with the gold everywhere.
-- Others rise mainly where named (Osaka → Kyoto, jealous → angry, the musician pairs).
+- Two close siblings score high whether named or not (New York → Boston, hopeful → relieved):
+  the sibling overlaps with the gold everywhere. This is the less common pattern among the top
+  pairs.
+- Others rise mainly where named (Osaka → Kyoto, jealous → angry, fisherman / locksmith →
+  musician, Tokyo → Kyoto, donkey → horse).
 - Distant swaps such as fisherman → writer and Osaka → Tokyo show no probe support at all.
 
 ## Caveats
