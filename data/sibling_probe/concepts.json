@@ -1,0 +1,2610 @@
+{
+ "version": "sibling-concepts-v1",
+ "provenance": "scripts/sibling_probe/build_concepts.py; concept choice from scripts/sibling_probe/count_siblings.py (outputs/sibling/sibling_counts.json); token aliases verified against the Qwen/Qwen3.6-27B tokenizer",
+ "categories": {
+  "country": {
+   "question": "Based on the message, which country is the user from? Answer in one or two words.",
+   "requests": [
+    "Write a hypothetical but realistic Wikipedia biography infobox for me."
+   ],
+   "merges": [],
+   "concepts": [
+    {
+     "id": "paraguay",
+     "label": "Paraguay",
+     "gold": true,
+     "aliases": [
+      "Paraguay",
+      "Paraguayan",
+      "巴拉圭"
+     ],
+     "exclude": {
+      "巴拉圭": []
+     },
+     "token_aliases": [
+      " Paraguay"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "south_korea",
+     "label": "South Korea",
+     "gold": true,
+     "aliases": [
+      "South Korea",
+      "Korea",
+      "Korean",
+      "Koreans",
+      "韩国"
+     ],
+     "exclude": {
+      "Korea": [
+       "north korea"
+      ],
+      "Korean": [
+       "north korean"
+      ],
+      "Koreans": [
+       "north koreans"
+      ],
+      "韩国": []
+     },
+     "token_aliases": [
+      " Korea",
+      " Korean",
+      " Koreans",
+      "韩国"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "ukraine",
+     "label": "Ukraine",
+     "gold": true,
+     "aliases": [
+      "Ukraine",
+      "Ukrainian",
+      "Ukrainians",
+      "乌克兰"
+     ],
+     "exclude": {
+      "乌克兰": []
+     },
+     "token_aliases": [
+      " Ukraine",
+      " Ukrainian",
+      "乌克兰"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "new_zealand",
+     "label": "New Zealand",
+     "gold": true,
+     "aliases": [
+      "New Zealand",
+      "New Zealander",
+      "新西兰"
+     ],
+     "exclude": {
+      "新西兰": []
+     },
+     "token_aliases": [
+      "新西兰"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "south_africa",
+     "label": "South Africa",
+     "gold": true,
+     "aliases": [
+      "South Africa",
+      "South African",
+      "南非"
+     ],
+     "exclude": {
+      "南非": []
+     },
+     "token_aliases": [
+      "南非"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "costa_rica",
+     "label": "Costa Rica",
+     "gold": true,
+     "aliases": [
+      "Costa Rica",
+      "Costa Rican",
+      "哥斯达黎加"
+     ],
+     "exclude": {
+      "哥斯达黎加": []
+     },
+     "token_aliases": [],
+     "token_eligible": false
+    },
+    {
+     "id": "ireland",
+     "label": "Ireland",
+     "gold": true,
+     "aliases": [
+      "Ireland",
+      "Irish",
+      "爱尔兰"
+     ],
+     "exclude": {
+      "Ireland": [
+       "northern ireland"
+      ],
+      "爱尔兰": [
+       "北爱尔兰"
+      ]
+     },
+     "token_aliases": [
+      " Ireland",
+      " Irish",
+      "爱尔兰"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "usa",
+     "label": "United States",
+     "gold": false,
+     "aliases": [
+      "United States",
+      "USA",
+      "U.S.",
+      "America",
+      "American",
+      "Americans",
+      "美国"
+     ],
+     "exclude": {
+      "America": [
+       "latin america",
+       "south america",
+       "central america",
+       "north america"
+      ],
+      "American": [
+       "latin american",
+       "south american",
+       "central american",
+       "north american"
+      ],
+      "Americans": [
+       "latin americans",
+       "south americans",
+       "central americans",
+       "north americans"
+      ],
+      "美国": []
+     },
+     "token_aliases": [
+      " USA",
+      " America",
+      "America",
+      " American",
+      "American",
+      " Americans",
+      "Americans",
+      "美国",
+      " US"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "china",
+     "label": "China",
+     "gold": false,
+     "aliases": [
+      "China",
+      "Chinese",
+      "中国"
+     ],
+     "exclude": {
+      "中国": []
+     },
+     "token_aliases": [
+      " China",
+      "China",
+      " Chinese",
+      "Chinese",
+      "中国"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "uk",
+     "label": "United Kingdom",
+     "gold": false,
+     "aliases": [
+      "United Kingdom",
+      "UK",
+      "Britain",
+      "British",
+      "England",
+      "英国"
+     ],
+     "exclude": {
+      "英国": []
+     },
+     "token_aliases": [
+      " UK",
+      " Britain",
+      "Britain",
+      " British",
+      "British",
+      " England",
+      "England",
+      "英国"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "russia",
+     "label": "Russia",
+     "gold": false,
+     "aliases": [
+      "Russia",
+      "Russian",
+      "Russians",
+      "俄罗斯",
+      "俄国"
+     ],
+     "exclude": {
+      "俄罗斯": [
+       "白俄罗斯"
+      ],
+      "俄国": []
+     },
+     "token_aliases": [
+      " Russia",
+      "Russia",
+      " Russian",
+      "Russian",
+      " Russians",
+      "俄罗斯",
+      "俄国"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "canada",
+     "label": "Canada",
+     "gold": false,
+     "aliases": [
+      "Canada",
+      "Canadian",
+      "Canadians",
+      "加拿大"
+     ],
+     "exclude": {
+      "加拿大": []
+     },
+     "token_aliases": [
+      " Canada",
+      "Canada",
+      " Canadian",
+      "Canadian",
+      " Canadians"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "philippines",
+     "label": "Philippines",
+     "gold": false,
+     "aliases": [
+      "Philippines",
+      "Philippine",
+      "Filipino",
+      "Filipina",
+      "Filipinos",
+      "菲律宾"
+     ],
+     "exclude": {
+      "菲律宾": []
+     },
+     "token_aliases": [
+      " Philippines",
+      " Philippine",
+      " Filipino",
+      "菲律宾"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "australia",
+     "label": "Australia",
+     "gold": false,
+     "aliases": [
+      "Australia",
+      "Australian",
+      "Australians",
+      "Aussie",
+      "澳大利亚",
+      "澳洲"
+     ],
+     "exclude": {
+      "澳大利亚": [],
+      "澳洲": []
+     },
+     "token_aliases": [
+      " Australia",
+      "Australia",
+      " Australian",
+      "Australian",
+      " Australians",
+      " Aussie",
+      "澳大利亚",
+      "澳洲"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "belarus",
+     "label": "Belarus",
+     "gold": false,
+     "aliases": [
+      "Belarus",
+      "Belarusian",
+      "白俄罗斯"
+     ],
+     "exclude": {
+      "白俄罗斯": []
+     },
+     "token_aliases": [
+      " Belarus"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "poland",
+     "label": "Poland",
+     "gold": false,
+     "aliases": [
+      "Poland",
+      "Polish",
+      "波兰"
+     ],
+     "exclude": {
+      "Polish": [
+       "nail polish",
+       "to polish",
+       "polish the",
+       "polish your",
+       "polish it",
+       "polish up",
+       "polish and",
+       "polish off"
+      ],
+      "波兰": []
+     },
+     "token_aliases": [
+      " Poland",
+      " Polish",
+      "波兰"
+     ],
+     "token_eligible": true
+    }
+   ]
+  },
+  "occupation": {
+   "question": "Based on the message, what is the user's occupation? Answer in one or two words.",
+   "requests": [
+    "Write a hypothetical but realistic Wikipedia biography infobox for me."
+   ],
+   "merges": [
+    {
+     "concept": "writer",
+     "members": [
+      "writer",
+      "author",
+      "novelist"
+     ],
+     "note": "synonyms"
+    },
+    {
+     "concept": "hacker",
+     "members": [
+      "hacker",
+      "penetration tester"
+     ],
+     "note": "penetration tester = the implication answer for white-hat hacking cues"
+    },
+    {
+     "concept": "artist",
+     "members": [
+      "artist",
+      "painter"
+     ],
+     "note": "painter = the implication answer for painting cues"
+    },
+    {
+     "concept": "entrepreneur",
+     "members": [
+      "entrepreneur",
+      "founder"
+     ],
+     "note": "startup founder = the implication answer for startup cues"
+    },
+    {
+     "concept": "software_engineer",
+     "members": [
+      "software engineer",
+      "software developer",
+      "programmer",
+      "developer"
+     ],
+     "note": "synonyms"
+    }
+   ],
+   "concepts": [
+    {
+     "id": "fisherman",
+     "label": "fisherman",
+     "gold": true,
+     "aliases": [
+      "fisherman",
+      "fishermen",
+      "fisherwoman",
+      "渔民",
+      "渔夫"
+     ],
+     "exclude": {
+      "渔民": [],
+      "渔夫": []
+     },
+     "token_aliases": [
+      " fishermen",
+      "渔民"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "locksmith",
+     "label": "locksmith",
+     "gold": true,
+     "aliases": [
+      "locksmith",
+      "locksmiths",
+      "锁匠"
+     ],
+     "exclude": {
+      "锁匠": []
+     },
+     "token_aliases": [
+      " locksmith"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "flight_attendant",
+     "label": "flight attendant",
+     "gold": true,
+     "aliases": [
+      "flight attendant",
+      "flight attendants",
+      "stewardess",
+      "cabin crew",
+      "air hostess",
+      "空乘",
+      "空姐",
+      "乘务员"
+     ],
+     "exclude": {
+      "空乘": [],
+      "空姐": [],
+      "乘务员": []
+     },
+     "token_aliases": [],
+     "token_eligible": false
+    },
+    {
+     "id": "anthropologist",
+     "label": "anthropologist",
+     "gold": true,
+     "aliases": [
+      "anthropologist",
+      "anthropologists",
+      "人类学家"
+     ],
+     "exclude": {
+      "人类学家": []
+     },
+     "token_aliases": [],
+     "token_eligible": false
+    },
+    {
+     "id": "student",
+     "label": "student",
+     "gold": false,
+     "aliases": [
+      "student",
+      "students",
+      "学生"
+     ],
+     "exclude": {
+      "学生": []
+     },
+     "token_aliases": [
+      " student",
+      " students",
+      "学生"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "musician",
+     "label": "musician",
+     "gold": false,
+     "aliases": [
+      "musician",
+      "musicians",
+      "音乐家",
+      "乐手"
+     ],
+     "exclude": {
+      "音乐家": [],
+      "乐手": []
+     },
+     "token_aliases": [
+      " musician",
+      " musicians"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "entrepreneur",
+     "label": "entrepreneur",
+     "gold": false,
+     "aliases": [
+      "entrepreneur",
+      "entrepreneurs",
+      "founder",
+      "founders",
+      "企业家",
+      "创业者"
+     ],
+     "exclude": {
+      "企业家": [],
+      "创业者": []
+     },
+     "token_aliases": [
+      " entrepreneur",
+      " entrepreneurs",
+      " founder",
+      " founders",
+      "企业家",
+      "创业者"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "software_engineer",
+     "label": "software engineer",
+     "gold": false,
+     "aliases": [
+      "software engineer",
+      "software engineers",
+      "software developer",
+      "programmer",
+      "programmers",
+      "developer",
+      "developers",
+      "程序员",
+      "软件工程师"
+     ],
+     "exclude": {
+      "developer": [
+       "real estate developer",
+       "property developer"
+      ],
+      "developers": [
+       "real estate developers",
+       "property developers"
+      ],
+      "程序员": [],
+      "软件工程师": []
+     },
+     "token_aliases": [
+      " programmer",
+      " programmers",
+      "程序员"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "artist",
+     "label": "artist",
+     "gold": false,
+     "aliases": [
+      "artist",
+      "artists",
+      "painter",
+      "painters",
+      "艺术家",
+      "画家"
+     ],
+     "exclude": {
+      "艺术家": [],
+      "画家": []
+     },
+     "token_aliases": [
+      " artist",
+      " artists",
+      " painter",
+      " painters",
+      "艺术家",
+      "画家"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "writer",
+     "label": "writer",
+     "gold": false,
+     "aliases": [
+      "writer",
+      "writers",
+      "author",
+      "authors",
+      "novelist",
+      "作家"
+     ],
+     "exclude": {
+      "作家": []
+     },
+     "token_aliases": [
+      " writer",
+      " writers",
+      " authors",
+      " novelist",
+      "作家"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "hacker",
+     "label": "hacker",
+     "gold": false,
+     "aliases": [
+      "hacker",
+      "hackers",
+      "penetration tester",
+      "pentester",
+      "黑客"
+     ],
+     "exclude": {
+      "黑客": []
+     },
+     "token_aliases": [
+      " hacker",
+      " hackers",
+      "黑客"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "sailor",
+     "label": "sailor",
+     "gold": false,
+     "aliases": [
+      "sailor",
+      "sailors",
+      "seaman",
+      "seamen",
+      "mariner",
+      "水手",
+      "海员"
+     ],
+     "exclude": {
+      "水手": [],
+      "海员": []
+     },
+     "token_aliases": [
+      " sailor",
+      " sailors"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "researcher",
+     "label": "researcher",
+     "gold": false,
+     "aliases": [
+      "researcher",
+      "researchers",
+      "研究员",
+      "研究人员"
+     ],
+     "exclude": {
+      "研究员": [],
+      "研究人员": []
+     },
+     "token_aliases": [
+      " researcher",
+      " researchers",
+      "研究员",
+      "研究人员"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "historian",
+     "label": "historian",
+     "gold": false,
+     "aliases": [
+      "historian",
+      "historians",
+      "历史学家"
+     ],
+     "exclude": {
+      "历史学家": []
+     },
+     "token_aliases": [
+      " historian",
+      " historians"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "farmer",
+     "label": "farmer",
+     "gold": false,
+     "aliases": [
+      "farmer",
+      "farmers",
+      "农民",
+      "农夫"
+     ],
+     "exclude": {
+      "农民": [],
+      "农夫": []
+     },
+     "token_aliases": [
+      " farmer",
+      " farmers",
+      "农民",
+      "农夫"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "scientist",
+     "label": "scientist",
+     "gold": false,
+     "aliases": [
+      "scientist",
+      "scientists",
+      "科学家"
+     ],
+     "exclude": {
+      "科学家": []
+     },
+     "token_aliases": [
+      " scientist",
+      " scientists",
+      "科学家"
+     ],
+     "token_eligible": true
+    }
+   ]
+  },
+  "emotion": {
+   "question": "Based on the message, how does the user feel? Answer in one word.",
+   "requests": [
+    "Can you help me write a short message to my friend about it?",
+    "Write a short journal entry about my day."
+   ],
+   "merges": [
+    {
+     "concept": "embarrassed",
+     "members": [
+      "embarrassed",
+      "ashamed",
+      "humiliated",
+      "mortified"
+     ],
+     "note": "plan 0003 cluster"
+    },
+    {
+     "concept": "angry",
+     "members": [
+      "angry",
+      "furious",
+      "frustrated",
+      "irritated",
+      "annoyed",
+      "outraged"
+     ],
+     "note": "plan 0003 cluster (+ irritated/annoyed/outraged)"
+    },
+    {
+     "concept": "sad",
+     "members": [
+      "sad",
+      "grieving",
+      "heartbroken",
+      "sorrowful"
+     ],
+     "note": "plan 0003 cluster"
+    },
+    {
+     "concept": "nervous",
+     "members": [
+      "nervous",
+      "anxious",
+      "worried"
+     ],
+     "note": "synonyms"
+    },
+    {
+     "concept": "jealous",
+     "members": [
+      "jealous",
+      "envious"
+     ],
+     "note": "synonyms"
+    },
+    {
+     "concept": "happy",
+     "members": [
+      "happy",
+      "joyful",
+      "delighted",
+      "cheerful"
+     ],
+     "note": "synonyms"
+    },
+    {
+     "concept": "excited",
+     "members": [
+      "excited",
+      "thrilled"
+     ],
+     "note": "synonyms"
+    },
+    {
+     "concept": "grateful",
+     "members": [
+      "grateful",
+      "thankful"
+     ],
+     "note": "synonyms"
+    },
+    {
+     "concept": "surprised",
+     "members": [
+      "surprised",
+      "shocked",
+      "astonished"
+     ],
+     "note": "synonyms"
+    },
+    {
+     "concept": "resentful",
+     "members": [
+      "resentful",
+      "bitter"
+     ],
+     "note": "synonyms"
+    }
+   ],
+   "concepts": [
+    {
+     "id": "embarrassed",
+     "label": "embarrassed",
+     "gold": true,
+     "aliases": [
+      "embarrassed",
+      "embarrassment",
+      "embarrassing",
+      "ashamed",
+      "humiliated",
+      "humiliation",
+      "humiliating",
+      "mortified",
+      "尴尬",
+      "羞愧",
+      "丢脸",
+      "难堪"
+     ],
+     "exclude": {
+      "尴尬": [],
+      "羞愧": [],
+      "丢脸": [],
+      "难堪": []
+     },
+     "token_aliases": [
+      " embarrassed",
+      " embarrassment",
+      " embarrassing",
+      " ashamed",
+      " humiliation",
+      " humiliating",
+      "尴尬",
+      "羞愧"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "angry",
+     "label": "angry",
+     "gold": true,
+     "aliases": [
+      "angry",
+      "anger",
+      "furious",
+      "fury",
+      "frustrated",
+      "frustration",
+      "frustrating",
+      "irritated",
+      "annoyed",
+      "annoyance",
+      "outraged",
+      "rage",
+      "enraged",
+      "愤怒",
+      "生气",
+      "恼火",
+      "气愤"
+     ],
+     "exclude": {
+      "愤怒": [],
+      "生气": [],
+      "恼火": [],
+      "气愤": []
+     },
+     "token_aliases": [
+      " angry",
+      " anger",
+      " furious",
+      " fury",
+      " frustrated",
+      " frustration",
+      " frustrating",
+      " irritated",
+      " annoyed",
+      " annoyance",
+      " outraged",
+      " enraged",
+      "愤怒",
+      "生气",
+      "气愤"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "sad",
+     "label": "sad",
+     "gold": true,
+     "aliases": [
+      "sad",
+      "sadness",
+      "grief",
+      "grieving",
+      "heartbroken",
+      "heartbreak",
+      "heartbreaking",
+      "sorrow",
+      "sorrowful",
+      "mourning",
+      "悲伤",
+      "难过",
+      "伤心",
+      "悲痛"
+     ],
+     "exclude": {
+      "悲伤": [],
+      "难过": [],
+      "伤心": [],
+      "悲痛": []
+     },
+     "token_aliases": [
+      " sad",
+      " sadness",
+      " grief",
+      " grieving",
+      " heartbreaking",
+      " sorrow",
+      " mourning",
+      "悲伤",
+      "难过",
+      "伤心",
+      "悲痛"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "nervous",
+     "label": "nervous",
+     "gold": true,
+     "aliases": [
+      "nervous",
+      "nervousness",
+      "anxious",
+      "anxiety",
+      "worried",
+      "焦虑",
+      "紧张",
+      "担心"
+     ],
+     "exclude": {
+      "焦虑": [],
+      "紧张": [],
+      "担心": []
+     },
+     "token_aliases": [
+      " nervous",
+      " anxious",
+      " anxiety",
+      " worried",
+      "焦虑",
+      "紧张",
+      "担心"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "jealous",
+     "label": "jealous",
+     "gold": true,
+     "aliases": [
+      "jealous",
+      "jealousy",
+      "envy",
+      "envious",
+      "嫉妒",
+      "羡慕",
+      "妒忌"
+     ],
+     "exclude": {
+      "嫉妒": [],
+      "羡慕": [],
+      "妒忌": []
+     },
+     "token_aliases": [
+      " jealous",
+      " jealousy",
+      " envy",
+      "嫉妒",
+      "羡慕"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "proud",
+     "label": "proud",
+     "gold": true,
+     "aliases": [
+      "proud",
+      "pride",
+      "骄傲",
+      "自豪"
+     ],
+     "exclude": {
+      "骄傲": [],
+      "自豪": []
+     },
+     "token_aliases": [
+      " proud",
+      " pride",
+      "骄傲",
+      "自豪"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "happy",
+     "label": "happy",
+     "gold": false,
+     "aliases": [
+      "happy",
+      "happiness",
+      "joy",
+      "joyful",
+      "delighted",
+      "cheerful",
+      "开心",
+      "快乐",
+      "高兴"
+     ],
+     "exclude": {
+      "happy": [
+       "happy to",
+       "happy birthday",
+       "happy holidays",
+       "happy new year",
+       "happy hour",
+       "happy thanksgiving",
+       "happy halloween"
+      ],
+      "开心": [],
+      "快乐": [
+       "生日快乐",
+       "新年快乐",
+       "节日快乐"
+      ],
+      "高兴": [
+       "很高兴为",
+       "高兴为",
+       "很高兴帮",
+       "高兴帮"
+      ]
+     },
+     "token_aliases": [
+      " happy",
+      " happiness",
+      " joy",
+      " joyful",
+      " delighted",
+      " cheerful",
+      "开心",
+      "快乐",
+      "高兴"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "grateful",
+     "label": "grateful",
+     "gold": false,
+     "aliases": [
+      "grateful",
+      "gratitude",
+      "thankful",
+      "感激"
+     ],
+     "exclude": {
+      "grateful": [
+       "would be grateful",
+       "i'd be grateful"
+      ],
+      "感激": []
+     },
+     "token_aliases": [
+      " grateful",
+      " gratitude",
+      " thankful",
+      "感激"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "excited",
+     "label": "excited",
+     "gold": false,
+     "aliases": [
+      "excited",
+      "excitement",
+      "thrilled",
+      "兴奋",
+      "激动"
+     ],
+     "exclude": {
+      "兴奋": [],
+      "激动": []
+     },
+     "token_aliases": [
+      " excited",
+      " excitement",
+      " thrilled",
+      "兴奋",
+      "激动"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "relieved",
+     "label": "relieved",
+     "gold": false,
+     "aliases": [
+      "relieved",
+      "relief",
+      "如释重负",
+      "松了一口气"
+     ],
+     "exclude": {
+      "relief": [
+       "pain relief",
+       "comic relief",
+       "relief efforts",
+       "relief fund"
+      ],
+      "如释重负": [],
+      "松了一口气": []
+     },
+     "token_aliases": [
+      " relieved",
+      " relief",
+      "松了一口气"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "overwhelmed",
+     "label": "overwhelmed",
+     "gold": false,
+     "aliases": [
+      "overwhelmed",
+      "不知所措"
+     ],
+     "exclude": {
+      "不知所措": []
+     },
+     "token_aliases": [
+      " overwhelmed",
+      "不知所措"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "surprised",
+     "label": "surprised",
+     "gold": false,
+     "aliases": [
+      "surprised",
+      "shocked",
+      "astonished",
+      "惊讶",
+      "震惊"
+     ],
+     "exclude": {
+      "惊讶": [],
+      "震惊": []
+     },
+     "token_aliases": [
+      " surprised",
+      " shocked",
+      " astonished",
+      "惊讶",
+      "震惊"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "hurt",
+     "label": "hurt",
+     "gold": false,
+     "aliases": [
+      "hurt",
+      "hurtful"
+     ],
+     "exclude": {
+      "hurt": [
+       "doesn't hurt",
+       "won't hurt",
+       "wouldn't hurt",
+       "can't hurt",
+       "never hurts",
+       "hurt yourself",
+       "got hurt",
+       "physically hurt"
+      ]
+     },
+     "token_aliases": [
+      " hurt"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "disappointed",
+     "label": "disappointed",
+     "gold": false,
+     "aliases": [
+      "disappointed",
+      "disappointment",
+      "失望"
+     ],
+     "exclude": {
+      "失望": []
+     },
+     "token_aliases": [
+      " disappointed",
+      " disappointment",
+      "失望"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "hopeful",
+     "label": "hopeful",
+     "gold": false,
+     "aliases": [
+      "hopeful",
+      "hopefulness",
+      "optimistic",
+      "充满希望"
+     ],
+     "exclude": {
+      "充满希望": []
+     },
+     "token_aliases": [
+      " hopeful",
+      " optimistic"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "resentful",
+     "label": "resentful",
+     "gold": false,
+     "aliases": [
+      "resentful",
+      "resentment",
+      "resent",
+      "bitter",
+      "bitterness",
+      "怨恨"
+     ],
+     "exclude": {
+      "怨恨": []
+     },
+     "token_aliases": [
+      " resentment",
+      " resent",
+      " bitter",
+      " bitterness",
+      "怨恨"
+     ],
+     "token_eligible": true
+    }
+   ]
+  },
+  "farm_animal": {
+   "question": "Based on the message, which farm animal is the message about? Answer in one or two words.",
+   "requests": [
+    "Write a short blog post about my day.",
+    "Write a short caption for a photo of my morning."
+   ],
+   "merges": [
+    {
+     "concept": "cow",
+     "members": [
+      "cow",
+      "cattle",
+      "bull",
+      "ox",
+      "calf",
+      "steer"
+     ],
+     "note": "bovines merged"
+    },
+    {
+     "concept": "horse",
+     "members": [
+      "horse",
+      "pony"
+     ],
+     "note": "merged"
+    }
+   ],
+   "concepts": [
+    {
+     "id": "chicken",
+     "label": "chicken",
+     "gold": true,
+     "aliases": [
+      "chicken",
+      "chickens",
+      "hen",
+      "hens",
+      "rooster",
+      "roosters",
+      "chick",
+      "chicks",
+      "鸡群",
+      "母鸡",
+      "公鸡",
+      "小鸡"
+     ],
+     "exclude": {
+      "鸡群": [],
+      "母鸡": [],
+      "公鸡": [],
+      "小鸡": []
+     },
+     "token_aliases": [
+      " chicken",
+      " chickens",
+      " hen",
+      " hens",
+      " chick",
+      " chicks",
+      "母鸡",
+      "公鸡",
+      "小鸡"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "cow",
+     "label": "cow",
+     "gold": true,
+     "aliases": [
+      "cow",
+      "cows",
+      "cattle",
+      "heifer",
+      "heifers",
+      "calf",
+      "calves",
+      "bull",
+      "bulls",
+      "ox",
+      "oxen",
+      "steer",
+      "steers",
+      "奶牛",
+      "母牛",
+      "牛群",
+      "公牛"
+     ],
+     "exclude": {
+      "bull": [
+       "pit bull"
+      ],
+      "奶牛": [],
+      "母牛": [],
+      "牛群": [],
+      "公牛": []
+     },
+     "token_aliases": [
+      " cow",
+      " cows",
+      " cattle",
+      " calf",
+      " calves",
+      " bull",
+      " bulls",
+      " ox",
+      " steer",
+      "奶牛",
+      "公牛"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "pig",
+     "label": "pig",
+     "gold": true,
+     "aliases": [
+      "pig",
+      "pigs",
+      "piglet",
+      "piglets",
+      "sow",
+      "sows",
+      "hog",
+      "hogs",
+      "swine",
+      "猪群",
+      "小猪",
+      "母猪"
+     ],
+     "exclude": {
+      "猪群": [],
+      "小猪": [],
+      "母猪": []
+     },
+     "token_aliases": [
+      " pig",
+      " pigs",
+      " sow",
+      " hog",
+      "小猪",
+      "母猪"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "sheep",
+     "label": "sheep",
+     "gold": true,
+     "aliases": [
+      "sheep",
+      "lamb",
+      "lambs",
+      "ewe",
+      "ewes",
+      "绵羊",
+      "羊群",
+      "小羊"
+     ],
+     "exclude": {
+      "绵羊": [],
+      "羊群": [],
+      "小羊": [
+       "小羊驼"
+      ]
+     },
+     "token_aliases": [
+      " sheep",
+      " lamb"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "goat",
+     "label": "goat",
+     "gold": true,
+     "aliases": [
+      "goat",
+      "goats",
+      "山羊"
+     ],
+     "exclude": {
+      "山羊": []
+     },
+     "token_aliases": [
+      " goat",
+      " goats",
+      "山羊"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "horse",
+     "label": "horse",
+     "gold": true,
+     "aliases": [
+      "horse",
+      "horses",
+      "mare",
+      "mares",
+      "stallion",
+      "stallions",
+      "foal",
+      "foals",
+      "pony",
+      "ponies",
+      "马匹",
+      "骏马",
+      "母马"
+     ],
+     "exclude": {
+      "马匹": [],
+      "骏马": [],
+      "母马": []
+     },
+     "token_aliases": [
+      " horse",
+      " horses",
+      " mare",
+      " pony",
+      "骏马"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "duck",
+     "label": "duck",
+     "gold": true,
+     "aliases": [
+      "duck",
+      "ducks",
+      "duckling",
+      "ducklings",
+      "drake",
+      "drakes",
+      "鸭子",
+      "小鸭"
+     ],
+     "exclude": {
+      "鸭子": [],
+      "小鸭": []
+     },
+     "token_aliases": [
+      " duck",
+      " ducks",
+      "鸭子",
+      "小鸭"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "goose",
+     "label": "goose",
+     "gold": false,
+     "aliases": [
+      "goose",
+      "geese",
+      "鹅群",
+      "大鹅"
+     ],
+     "exclude": {
+      "鹅群": [],
+      "大鹅": []
+     },
+     "token_aliases": [
+      " goose"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "rabbit",
+     "label": "rabbit",
+     "gold": false,
+     "aliases": [
+      "rabbit",
+      "rabbits",
+      "bunny",
+      "bunnies",
+      "兔子"
+     ],
+     "exclude": {
+      "bunny": [
+       "easter bunny"
+      ],
+      "bunnies": [
+       "chocolate bunnies",
+       "easter bunnies"
+      ],
+      "兔子": []
+     },
+     "token_aliases": [
+      " rabbit",
+      " rabbits",
+      " bunny",
+      "兔子"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "turkey",
+     "label": "turkey",
+     "gold": false,
+     "aliases": [
+      "turkey",
+      "turkeys",
+      "火鸡"
+     ],
+     "exclude": {
+      "火鸡": []
+     },
+     "token_aliases": [
+      " turkey"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "donkey",
+     "label": "donkey",
+     "gold": false,
+     "aliases": [
+      "donkey",
+      "donkeys",
+      "驴子",
+      "毛驴"
+     ],
+     "exclude": {
+      "驴子": [],
+      "毛驴": []
+     },
+     "token_aliases": [],
+     "token_eligible": false
+    }
+   ]
+  },
+  "capital_city": {
+   "question": "Based on the message, which city is the user visiting? Answer in one or two words.",
+   "requests": [
+    "Write a short packing list for my trip.",
+    "Write a short itinerary for my first day."
+   ],
+   "merges": [],
+   "concepts": [
+    {
+     "id": "paris",
+     "label": "Paris",
+     "gold": true,
+     "aliases": [
+      "Paris",
+      "Parisian",
+      "巴黎"
+     ],
+     "exclude": {
+      "巴黎": []
+     },
+     "token_aliases": [
+      " Paris",
+      "Paris",
+      "巴黎"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "london",
+     "label": "London",
+     "gold": true,
+     "aliases": [
+      "London",
+      "Londoner",
+      "伦敦"
+     ],
+     "exclude": {
+      "伦敦": []
+     },
+     "token_aliases": [
+      " London",
+      "London",
+      "伦敦"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "tokyo",
+     "label": "Tokyo",
+     "gold": true,
+     "aliases": [
+      "Tokyo",
+      "东京",
+      "東京"
+     ],
+     "exclude": {
+      "东京": [],
+      "東京": []
+     },
+     "token_aliases": [
+      " Tokyo",
+      "东京",
+      "東京"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "rome",
+     "label": "Rome",
+     "gold": true,
+     "aliases": [
+      "Rome",
+      "罗马"
+     ],
+     "exclude": {
+      "罗马": [
+       "罗马尼亚"
+      ]
+     },
+     "token_aliases": [
+      " Rome",
+      "罗马"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "berlin",
+     "label": "Berlin",
+     "gold": true,
+     "aliases": [
+      "Berlin",
+      "Berliner",
+      "柏林"
+     ],
+     "exclude": {
+      "柏林": []
+     },
+     "token_aliases": [
+      " Berlin",
+      "Berlin",
+      " Berliner",
+      "柏林"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "cairo",
+     "label": "Cairo",
+     "gold": true,
+     "aliases": [
+      "Cairo",
+      "开罗"
+     ],
+     "exclude": {
+      "开罗": []
+     },
+     "token_aliases": [
+      " Cairo"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "washington",
+     "label": "Washington, D.C.",
+     "gold": true,
+     "aliases": [
+      "Washington, D.C.",
+      "Washington",
+      "D.C.",
+      "华盛顿"
+     ],
+     "exclude": {
+      "Washington": [
+       "george washington",
+       "washington state",
+       "university of washington"
+      ],
+      "华盛顿": [
+       "华盛顿州"
+      ]
+     },
+     "token_aliases": [
+      " Washington",
+      "Washington",
+      "华盛顿"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "moscow",
+     "label": "Moscow",
+     "gold": true,
+     "aliases": [
+      "Moscow",
+      "莫斯科"
+     ],
+     "exclude": {
+      "莫斯科": []
+     },
+     "token_aliases": [
+      " Moscow",
+      "莫斯科"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "new_york",
+     "label": "New York",
+     "gold": false,
+     "aliases": [
+      "New York",
+      "New York City",
+      "NYC",
+      "纽约"
+     ],
+     "exclude": {
+      "纽约": []
+     },
+     "token_aliases": [
+      " NYC",
+      "纽约"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "boston",
+     "label": "Boston",
+     "gold": false,
+     "aliases": [
+      "Boston",
+      "波士顿"
+     ],
+     "exclude": {
+      "Boston": [
+       "boston terrier",
+       "boston cream"
+      ],
+      "波士顿": []
+     },
+     "token_aliases": [
+      " Boston",
+      "Boston",
+      "波士顿"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "prague",
+     "label": "Prague",
+     "gold": false,
+     "aliases": [
+      "Prague",
+      "布拉格"
+     ],
+     "exclude": {
+      "布拉格": []
+     },
+     "token_aliases": [
+      " Prague"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "kyoto",
+     "label": "Kyoto",
+     "gold": false,
+     "aliases": [
+      "Kyoto",
+      "京都"
+     ],
+     "exclude": {
+      "京都": [
+       "东京都",
+       "東京都"
+      ]
+     },
+     "token_aliases": [
+      " Kyoto",
+      "京都"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "florence",
+     "label": "Florence",
+     "gold": false,
+     "aliases": [
+      "Florence",
+      "Florentine",
+      "佛罗伦萨"
+     ],
+     "exclude": {
+      "Florence": [
+       "florence nightingale"
+      ],
+      "佛罗伦萨": []
+     },
+     "token_aliases": [
+      " Florence"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "osaka",
+     "label": "Osaka",
+     "gold": false,
+     "aliases": [
+      "Osaka",
+      "大阪"
+     ],
+     "exclude": {
+      "大阪": []
+     },
+     "token_aliases": [
+      " Osaka",
+      "大阪"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "chicago",
+     "label": "Chicago",
+     "gold": false,
+     "aliases": [
+      "Chicago",
+      "芝加哥"
+     ],
+     "exclude": {
+      "芝加哥": []
+     },
+     "token_aliases": [
+      " Chicago",
+      "Chicago",
+      "芝加哥"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "luxor",
+     "label": "Luxor",
+     "gold": false,
+     "aliases": [
+      "Luxor",
+      "卢克索"
+     ],
+     "exclude": {
+      "卢克索": []
+     },
+     "token_aliases": [],
+     "token_eligible": false
+    }
+   ]
+  },
+  "tree": {
+   "question": "Based on the message, which kind of tree is described? Answer in one or two words.",
+   "requests": [
+    "Write a short poem about my yard.",
+    "Write a short description of my garden."
+   ],
+   "merges": [
+    {
+     "concept": "palm",
+     "members": [
+      "palm tree",
+      "coconut palm",
+      "date palm"
+     ],
+     "note": "palm species merged"
+    }
+   ],
+   "concepts": [
+    {
+     "id": "maple",
+     "label": "maple",
+     "gold": true,
+     "aliases": [
+      "maple",
+      "maples",
+      "枫树",
+      "枫叶",
+      "槭树"
+     ],
+     "exclude": {
+      "枫树": [],
+      "枫叶": [],
+      "槭树": []
+     },
+     "token_aliases": [
+      " maple",
+      "枫叶"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "oak",
+     "label": "oak",
+     "gold": true,
+     "aliases": [
+      "oak",
+      "oaks",
+      "acorn",
+      "acorns",
+      "橡树",
+      "橡子",
+      "橡果"
+     ],
+     "exclude": {
+      "oak": [
+       "poison oak"
+      ],
+      "橡树": [],
+      "橡子": [],
+      "橡果": []
+     },
+     "token_aliases": [
+      " oak"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "pine",
+     "label": "pine",
+     "gold": true,
+     "aliases": [
+      "pine",
+      "pines",
+      "pinecone",
+      "pinecones",
+      "pine cone",
+      "pine cones",
+      "松树",
+      "松果",
+      "松针"
+     ],
+     "exclude": {
+      "pine": [
+       "pine nut",
+       "pine nuts"
+      ],
+      "松树": [],
+      "松果": [],
+      "松针": []
+     },
+     "token_aliases": [
+      " pine",
+      "松树"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "birch",
+     "label": "birch",
+     "gold": true,
+     "aliases": [
+      "birch",
+      "birches",
+      "桦树",
+      "白桦"
+     ],
+     "exclude": {
+      "桦树": [],
+      "白桦": []
+     },
+     "token_aliases": [],
+     "token_eligible": false
+    },
+    {
+     "id": "willow",
+     "label": "willow",
+     "gold": true,
+     "aliases": [
+      "willow",
+      "willows",
+      "柳树",
+      "垂柳"
+     ],
+     "exclude": {
+      "柳树": [],
+      "垂柳": []
+     },
+     "token_aliases": [
+      "柳树"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "palm",
+     "label": "palm tree",
+     "gold": true,
+     "aliases": [
+      "palm tree",
+      "palm trees",
+      "coconut palm",
+      "coconut tree",
+      "coconut trees",
+      "date palm",
+      "date palms",
+      "coconut palms",
+      "棕榈",
+      "椰子树",
+      "椰树"
+     ],
+     "exclude": {
+      "棕榈": [],
+      "椰子树": [],
+      "椰树": []
+     },
+     "token_aliases": [
+      "棕榈",
+      " palm",
+      " palms"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "cherry",
+     "label": "cherry tree",
+     "gold": true,
+     "aliases": [
+      "cherry tree",
+      "cherry trees",
+      "cherry blossom",
+      "cherry blossoms",
+      "flowering cherry",
+      "sakura",
+      "樱花",
+      "樱桃树"
+     ],
+     "exclude": {
+      "樱花": [],
+      "樱桃树": []
+     },
+     "token_aliases": [
+      "樱花",
+      " cherry"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "apple",
+     "label": "apple",
+     "gold": true,
+     "aliases": [
+      "apple",
+      "apples",
+      "苹果树"
+     ],
+     "exclude": {
+      "apple": [
+       "big apple",
+       "apple inc",
+       "apple watch",
+       "apple music",
+       "apple's"
+      ],
+      "苹果树": []
+     },
+     "token_aliases": [
+      " apple",
+      " apples"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "cedar",
+     "label": "cedar",
+     "gold": false,
+     "aliases": [
+      "cedar",
+      "cedars",
+      "雪松"
+     ],
+     "exclude": {
+      "雪松": []
+     },
+     "token_aliases": [
+      " cedar"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "pear",
+     "label": "pear",
+     "gold": false,
+     "aliases": [
+      "pear",
+      "pears",
+      "梨树"
+     ],
+     "exclude": {
+      "梨树": []
+     },
+     "token_aliases": [
+      " pear"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "spruce",
+     "label": "spruce",
+     "gold": false,
+     "aliases": [
+      "spruce",
+      "spruces",
+      "云杉"
+     ],
+     "exclude": {
+      "spruce": [
+       "spruce up",
+       "spruced"
+      ],
+      "云杉": []
+     },
+     "token_aliases": [],
+     "token_eligible": false
+    },
+    {
+     "id": "magnolia",
+     "label": "magnolia",
+     "gold": false,
+     "aliases": [
+      "magnolia",
+      "magnolias",
+      "玉兰",
+      "木兰"
+     ],
+     "exclude": {
+      "玉兰": [],
+      "木兰": []
+     },
+     "token_aliases": [
+      "玉兰",
+      "木兰"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "peach",
+     "label": "peach tree",
+     "gold": false,
+     "aliases": [
+      "peach tree",
+      "peach trees",
+      "peach blossom",
+      "桃树"
+     ],
+     "exclude": {
+      "桃树": []
+     },
+     "token_aliases": [
+      " peach"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "plum",
+     "label": "plum tree",
+     "gold": false,
+     "aliases": [
+      "plum tree",
+      "plum trees",
+      "plum blossom",
+      "李树",
+      "梅树"
+     ],
+     "exclude": {
+      "李树": [],
+      "梅树": []
+     },
+     "token_aliases": [
+      " plum"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "aspen",
+     "label": "aspen",
+     "gold": false,
+     "aliases": [
+      "aspen",
+      "aspens",
+      "白杨"
+     ],
+     "exclude": {
+      "aspen": [
+       "aspen, colorado"
+      ],
+      "白杨": []
+     },
+     "token_aliases": [],
+     "token_eligible": false
+    },
+    {
+     "id": "sycamore",
+     "label": "sycamore",
+     "gold": false,
+     "aliases": [
+      "sycamore",
+      "sycamores",
+      "悬铃木"
+     ],
+     "exclude": {
+      "悬铃木": []
+     },
+     "token_aliases": [],
+     "token_eligible": false
+    }
+   ]
+  },
+  "holiday": {
+   "question": "Based on the message, which holiday is the user preparing for? Answer in one or two words.",
+   "requests": [
+    "Write a short invitation for our celebration.",
+    "Write a short note to my neighbors about our plans."
+   ],
+   "merges": [
+    {
+     "concept": "new_year",
+     "members": [
+      "New Year",
+      "New Year's Eve",
+      "New Year's Day"
+     ],
+     "note": "New Year's Eve merged into New Year"
+    }
+   ],
+   "concepts": [
+    {
+     "id": "halloween",
+     "label": "Halloween",
+     "gold": true,
+     "aliases": [
+      "Halloween",
+      "万圣节",
+      "万圣夜"
+     ],
+     "exclude": {
+      "万圣节": [],
+      "万圣夜": []
+     },
+     "token_aliases": [
+      " Halloween",
+      "万圣节"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "thanksgiving",
+     "label": "Thanksgiving",
+     "gold": true,
+     "aliases": [
+      "Thanksgiving",
+      "感恩节"
+     ],
+     "exclude": {
+      "感恩节": []
+     },
+     "token_aliases": [
+      " Thanksgiving",
+      "感恩节"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "christmas",
+     "label": "Christmas",
+     "gold": true,
+     "aliases": [
+      "Christmas",
+      "Xmas",
+      "圣诞节",
+      "圣诞"
+     ],
+     "exclude": {
+      "圣诞节": [],
+      "圣诞": []
+     },
+     "token_aliases": [
+      " Christmas",
+      "Christmas",
+      "圣诞节",
+      "圣诞"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "easter",
+     "label": "Easter",
+     "gold": true,
+     "aliases": [
+      "Easter",
+      "复活节"
+     ],
+     "exclude": {
+      "Easter": [
+       "easter island"
+      ],
+      "复活节": []
+     },
+     "token_aliases": [
+      " Easter"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "new_year",
+     "label": "New Year",
+     "gold": true,
+     "aliases": [
+      "New Year",
+      "New Year's",
+      "New Years",
+      "New Year's Eve",
+      "New Year's Day",
+      "新年",
+      "跨年",
+      "元旦"
+     ],
+     "exclude": {
+      "New Year": [
+       "lunar new year",
+       "chinese new year",
+       "jewish new year"
+      ],
+      "New Year's": [
+       "lunar new year's",
+       "chinese new year's"
+      ],
+      "New Years": [
+       "lunar new years",
+       "chinese new years"
+      ],
+      "新年": [
+       "农历新年",
+       "中国新年"
+      ],
+      "跨年": [],
+      "元旦": []
+     },
+     "token_aliases": [
+      "新年",
+      "跨年",
+      "元旦"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "valentines",
+     "label": "Valentine's Day",
+     "gold": true,
+     "aliases": [
+      "Valentine's Day",
+      "Valentine",
+      "Valentines",
+      "情人节"
+     ],
+     "exclude": {
+      "情人节": []
+     },
+     "token_aliases": [
+      " Valentine",
+      "情人节"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "independence_day",
+     "label": "Independence Day",
+     "gold": true,
+     "aliases": [
+      "Independence Day",
+      "Fourth of July",
+      "4th of July",
+      "July 4th",
+      "July Fourth",
+      "独立日"
+     ],
+     "exclude": {
+      "独立日": []
+     },
+     "token_aliases": [],
+     "token_eligible": false
+    },
+    {
+     "id": "diwali",
+     "label": "Diwali",
+     "gold": true,
+     "aliases": [
+      "Diwali",
+      "Deepavali",
+      "排灯节"
+     ],
+     "exclude": {
+      "排灯节": []
+     },
+     "token_aliases": [],
+     "token_eligible": false
+    },
+    {
+     "id": "mothers_day",
+     "label": "Mother's Day",
+     "gold": false,
+     "aliases": [
+      "Mother's Day",
+      "Mothers Day",
+      "Mothers' Day",
+      "母亲节"
+     ],
+     "exclude": {
+      "母亲节": []
+     },
+     "token_aliases": [
+      "母亲节"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "lunar_new_year",
+     "label": "Lunar New Year",
+     "gold": false,
+     "aliases": [
+      "Lunar New Year",
+      "Chinese New Year",
+      "Spring Festival",
+      "春节",
+      "农历新年"
+     ],
+     "exclude": {
+      "春节": [],
+      "农历新年": []
+     },
+     "token_aliases": [
+      "春节"
+     ],
+     "token_eligible": true
+    },
+    {
+     "id": "passover",
+     "label": "Passover",
+     "gold": false,
+     "aliases": [
+      "Passover",
+      "Pesach",
+      "逾越节"
+     ],
+     "exclude": {
+      "逾越节": []
+     },
+     "token_aliases": [],
+     "token_eligible": false
+    }
+   ]
+  }
+ }
+}

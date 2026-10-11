@@ -2,7 +2,8 @@
 
 Suite of evals for the **types and severities** of hallucination in activation-reading lenses.
 First eval: `wsbench_chat` (plan `plans/0001-bootstrap-wsbench-chat-taxonomy.md` is the spec);
-the claim map / taxonomy v2 is plan `plans/0002-claim-map-taxonomy-v2.md`.
+the claim map / taxonomy v2 is plan `plans/0002-claim-map-taxonomy-v2.md`; the sibling-concept
+probe eval is plan `plans/0003-sibling-concept-probes.md` (stage 1 built: inventory + bank).
 
 ## Layout
 
@@ -27,11 +28,16 @@ src/hallucination_bench/
   report.py       cross-arm report, audit samples, pilot-dump
   report_v2.py    `report --view v2`, probe_candidates.jsonl, audit_samples_v2.md, pilot-dump-v2
   cli.py          hbench run|calibrate|report|pilot-dump|pilot-dump-v2|units-v2
+  evals/sibling_probe/{concepts,bank}.py  plan 0003: inventory + alias matcher (text / token
+                  bags), leak / 8-gram / window-identity checks, coverage rule, ReadSpec writers
 data/wsbench_chat/   verbatim copies from wsbench-pub @ 92d763e (never edit)
 data/calibration/    dev.jsonl (implementer), heldout.jsonl (blind author only), README (schema + log)
                      dev_v2.jsonl (implementer), heldout_v2.jsonl (blind author only)
 scripts/run_all_arms.sh  tmux driver for the full run
 scripts/build_dev_v2.py  writes dev_v2.jsonl (labels live here; re-run if the splitter changes)
+data/sibling_probe/  concepts.json, items.json, probe_texts.jsonl, pilot/ (README = schema + provenance)
+scripts/sibling_probe/   count_siblings / build_concepts / gen_items / write_plans (local),
+                         qwen_gen_modal.py + run_modal.sh (GPU; gw scripts run from $GW, never edited)
 ```
 
 ## Conventions
@@ -122,3 +128,29 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
 - **In-run retries** (rev 14): an invalid `:M` (or calibration) answer is re-asked up to 2 times
   (`run.MAP_INVALID_RETRIES`) before it is cached as failed; meta records `n_invalid_attempts`
   and the summed usage.
+
+## sibling_probe (plan 0003)
+
+```bash
+uv run python scripts/sibling_probe/build_concepts.py        # concepts.json (tokenizer-checked)
+uv run python scripts/sibling_probe/gen_items.py candidates  # Opus cues (cached) -> implication_in
+scripts/sibling_probe/run_modal.sh qwen-implication          # then `candidates` again (top-up)
+uv run python scripts/sibling_probe/gen_items.py select      # items.json + responses_in
+scripts/sibling_probe/run_modal.sh qwen-responses            # merges responses into items.json
+uv run python scripts/sibling_probe/gen_items.py probes      # probe_texts.jsonl
+scripts/sibling_probe/run_modal.sh plans|smoke|capture|jlens|nla|s3d|fetch
+```
+
+- The `sibling` dependency group (transformers + jinja2, no torch) gives the Qwen3.6-27B
+  tokenizer / chat template locally; it is a default uv group. Tokenizer tests skip without it.
+- **Read window**: every message is `[system, cue + " " + request]`; `from_last_sentence_start`
+  must start at the request sentence, so a cue ending in `."` (quote) breaks the window. The
+  window-identity check (`bank.WindowChecker`) runs in `gen_items` and `write_plans`;
+  `write_plans check-prompts` re-checks the `prompts` output and `check-manifest` the capture.
+- **Changing `concepts.json` aliases** changes the Opus prompts (alias lists are in them), so
+  the affected concepts' cached cues / probe texts are regenerated on the next run; re-run
+  `candidates` -> implication -> `select` -> responses -> `probes` in that order.
+- Opus 5.5 refuses every hacker-occupation prompt; `gen_items.MODEL_FOR` sends those to Sonnet 5.5.
+- Implication / response caches: `outputs/sibling/gen/{implication,responses}_out.jsonl`
+  (idempotent on key); Opus cache `outputs/sibling/gen/cache.jsonl`. Do not run two
+  `gen_items` processes at once (one cache file).

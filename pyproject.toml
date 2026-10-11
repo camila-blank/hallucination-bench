@@ -12,6 +12,11 @@ hbench = "hallucination_bench.cli:main"
 
 [dependency-groups]
 dev = ["pytest>=8", "ruff>=0.6"]
+# plan 0003 sibling_probe: Qwen3.6-27B tokenizer + chat template (no torch needed)
+sibling = ["transformers>=5.11", "jinja2>=3.1"]
+
+[tool.uv]
+default-groups = ["dev", "sibling"]
 
 [build-system]
 requires = ["hatchling"]
@@ -27,6 +32,8 @@ pythonpath = ["tests"]
 [tool.ruff]
 line-length = 100
 target-version = "py312"
+# the plan 0003 pilot counter is a verbatim record of the pilot run (not linted)
+extend-exclude = ["data/sibling_probe/pilot"]
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "B", "RUF"]
