@@ -1,6 +1,6 @@
 # Plan 0002: claim map (taxonomy v2), an exhaustive, mutually exclusive categorisation of readout content
 
-Issue #3. Author: Camila Blank (planned with Claude), 2026-10-11. Revision 14 (after critiques 1–9; critique 9: no substantive issues; rev 11 adds the token-summary framing rule found in the smoke run; rev 12 defines "own identity" for rule 8).
+Issue #3. Author: Camila Blank (planned with Claude), 2026-10-11. Revision 15 (after critiques 1–9; critique 9: no substantive issues; rev 11 adds the token-summary framing rule found in the smoke run; rev 12 defines "own identity" for rule 8).
 This plan builds on plan 0001 (PR #2): the v5c span and verify port, the taxonomy-v1 classifier,
 and the first full run. It reuses plan 0001's cache layout, client, calibration machinery,
 bootstrap and report unless this plan says otherwise.
@@ -8,6 +8,58 @@ bootstrap and report unless this plan says otherwise.
 Items marked **[pending Camila]** use a default until she confirms them (§Open decisions).
 
 
+
+
+## Amendment, revision 15 (Camila, 2026-10-11). This section overrides revisions 13–14 and the text below where they conflict.
+
+**The single hallucination gate.** Camila: "the only things that are considered hallucinations
+should be things that are verifiable and obviously contradictory to the text". A segment is
+`incorrect.*` only if the conversation **obviously contradicts** it. That means the prompt, the
+response before the marker, or the response after the marker states something incompatible with
+the segment. It is **not** enough that a reader would have to infer the incompatibility, or that
+the text simply never mentions the claim.
+
+Consequences, each replacing the matching earlier rule:
+
+1. **Contradicted content keeps its incorrect leaves.** A segment the text obviously contradicts
+   is `detail`, `false_claim` or a substitution (rule 8 unchanged). This includes a prediction or
+   continuation that the text rules out, before or after the marker.
+2. **Uncontradicted invented content is not incorrect.** An event, fact or specific asserted about
+   the conversation that the text never addresses gets the new leaf `unsupported_assertion`, in
+   the about-the-text unverifiable branch, with verdict `unresolved`. Examples: "the user is a
+   teacher"; "her sister Maria"; "the user, Sarah, …" when nobody is named. This supersedes rev
+   13–14 rule 10 bullet 1, rule 12's flat-assertion clause, and the §Detail rule's
+   invented-specifics bullet.
+3. **Unrealised continuations.**
+   - Same open-ended slot, different choice, not contradicted → `unrealised_option`, verdict
+     **`alternative`**: not a hallucination, not a probe candidate.
+   - A different move or a different answer that the response did not make but that the text does
+     not contradict → `unrealised_prediction` (reinstated, narrower than in rev 13), verdict
+     `alternative`.
+   - Either kind, when the text contradicts it → incorrect (item 1).
+   - Content realised in any wording → `stated_after` (correct). This beats both unrealised leaves.
+4. **Substitutions stay probe candidates.** They are contradicted, but Camila judged them possible
+   co-activation (rev 13 decision 4).
+5. **World claims are unchanged.** If the text is silent: `supplementary_*`. If the text
+   contradicts the claim: incorrect.
+
+**Leaves (22):** rev 14's 20 leaves, plus `unsupported_assertion` and the reinstated
+`unrealised_prediction`.
+
+**Verdicts:**
+
+| verdict | leaves |
+|---|---|
+| hallucination | `detail`, `false_claim` |
+| probe_candidate | `substitution_sibling`, `substitution_category`, `supplementary_false`, `model_state`, `ambiguous_topic` |
+| alternative | `unrealised_option`, `unrealised_prediction` |
+| correct | `restates_prefix`, `stated_after`, `entailed`, `supplementary_true` |
+| unresolved | `other_on_topic`, `unsupported_assertion`, `supplementary_unsettled` |
+| junk | `off_topic` |
+| non_claim | the 5 non-claim leaves |
+
+**Gold:** dev is re-labelled by the implementer. Held-out part (a) is re-labelled by a fresh blind
+subagent. Only segments whose leaf changes under items 2–3 are touched.
 
 ## Amendment, revision 14 (Camila, 2026-10-11, after the s3d pilot). This section overrides revision 13 and the text below where they conflict.
 
