@@ -1,6 +1,6 @@
 # Plan 0003: sibling-concept eval: are same-category mentions hallucinations? (DiffMean probe verification)
 
-Issue #5. Author: Camila Blank (planned with Claude), 2026-10-11. Revision 10 (after critiques 1–8; amendment below).
+Issue #5. Author: Camila Blank (planned with Claude), 2026-10-11. Revision 11 (after critiques 1–8; amendments below).
 
 This plan is stacked on plan 0002 (PR #4, branch `camila/taxonomy-v2`). It uses plan 0002's
 claim-map judge (`judges/claimmap_v2.py`) **at whatever `PROMPT_VERSION` is current on that
@@ -8,6 +8,46 @@ branch when the judge stage runs**. The judge is still being revised, so before 
 branch is rebased onto `origin/camila/taxonomy-v2`. Every output records the judge's
 `PROMPT_VERSION` and git sha. If PR #4 changes the prompt before this PR merges, the judge stage
 is re-run; it is cache-keyed by fingerprint, so only changed calls repeat.
+
+## Amendment, revision 11 (Camila 2026-10-11: "make sure the probes are actually good"; "do the three methods overlap on the sibling concepts?")
+
+Decided from probe-side numbers only (the sweep below scores probe texts and gold-item eval cells;
+it never touches lens mentions, M/U or the judge). The rev-10 scores and results are superseded.
+
+1. **Probe recipe sweep** (`scripts/sibling_probe/probe_sweep_modal.py`, outputs
+   `outputs/sibling/probe_sweep/summary.md`), same category-level folds, all 5 layers, every
+   (concept, layer):
+
+   | recipe | OOF AUROC median | ≥0.85 | transfer median | gold sensitivity (τ_cat) | FPR held-out / neutral / eval |
+   |---|---|---|---|---|---|
+   | V0 raw text-mean DiffMean (rev 10) | 0.80 | 34% | 0.85 | 44% | 5.2 / 9.4 / 7.6% |
+   | V1 per-position DiffMean | 0.72 | 18% | 0.76 | 33% | 5.2 / 9.3 / 7.4% |
+   | **V2 shrinkage-whitened DiffMean** | **0.94** | **79%** | **0.96** | **72%** | 5.2 / 8.2 / 7.6% |
+   | V3 per-position + whitened | 0.93 | 75% | 0.95 | 67% | 5.3 / 8.4 / 7.2% |
+   | V4 logistic regression (reference) | 0.92 | 72% | 0.95 | 67% | 5.2 / 11.2 / 7.4% |
+
+2. **The probe becomes V2:** d = (S_w + a·I)⁻¹ d_V0, with a = λ·tr(S_w)/D and S_w the pooled
+   within-(concept, ending, offset) covariance of the training positions, so it is still a
+   difference of means, whitened. λ is chosen per outer fold by inner CV on that fold's training
+   texts only (leave-one-training-fold-out, criterion = mean position-level AUROC). Everything
+   else in Phase E is unchanged and retained: category-level folds stratified by (concept, ending,
+   kind); per-(L, ending, offset) centring and scaling fit on training folds only; per-fold
+   thresholds τ_cat / τ(c | g) / τ_neutral, z(c | g); and eval cells scored per fold, with
+   detection and z averaged over folds. V0 (raw DiffMean) is kept as a **robustness row**
+   (verdict + rates).
+3. **Gates:** the validity gate goes back to the pre-registered **0.85** (rev 10's 0.70 was a
+   concession to V0); the transfer gate stays at 0.70; the "probes too weak to adjudicate" rule
+   (pass share < 50%) stays. Report the eval-cell FPR at τ_cat per category (calibration).
+4. **Unchanged:** the judge cache (no new API calls), mentions, M / U definitions, β₁ / β₂, the
+   verdict table and the positive-control rule.
+5. **New analysis, cross-lens overlap** (`scripts/sibling_probe/arm_overlap.py`):
+   - item-level and same-cell overlap of the siblings each lens names (Jaccard, P(B|A), lift),
+     against two nulls: arm B's per-item sets permuted within category, and within same-gold
+     items;
+   - **agreement vs probe support:** for (item, layer-matched cell, sibling) units, the probe
+     detection rate and mean z(c | g) by the number of lenses naming the sibling (0 / 1 / 2 / 3)
+     at the item level, and s3d vs J-lens at the same cell (both / one / neither). Is a sibling
+     named by several lenses more often real?
 
 ## Amendment, revision 10 (2026-10-11, after the probe job, before any judge or score result)
 
