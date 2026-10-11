@@ -1,6 +1,6 @@
 # Plan 0002: claim map (taxonomy v2), an exhaustive, mutually exclusive categorisation of readout content
 
-Issue #3. Author: Camila Blank (planned with Claude), 2026-10-11. Revision 3 (after critiques 1–2).
+Issue #3. Author: Camila Blank (planned with Claude), 2026-10-11. Revision 4 (after critiques 1–3).
 This plan builds on plan 0001 (PR #2): the v5c span and verify port, the taxonomy-v1 classifier,
 and the first full run. It reuses plan 0001's cache layout, client, calibration machinery,
 bootstrap and report unless this plan says otherwise.
@@ -34,7 +34,9 @@ Splitter rules (`units.py`, deterministic):
   with its line.
 - Split after `.` `!` `?` `。` `！` `？` `…` only when followed by whitespace or the end of the
   text. Never split after a digit (decimals, "2."), after a known abbreviation (e.g., i.e., etc.,
-  vs., Mr., Dr., St., U.S.), or inside an open quotation (`"…"`, `“…”`, `「…」`).
+  vs., Mr., Dr., St., U.S.), or inside an open quotation (`"…"`, `“…”`, `「…」`). Quote state
+  resets at every newline, and a straight `"` toggles it, so a stray unbalanced quote (common in
+  NLA rows, e.g. `</"`) cannot swallow the rest of the readout; such a row is in the fixture.
 - Split after `;` `；`, and after `:` `：` only when followed by whitespace (so URLs and times
   stay whole).
 - Markup tags (`<explanation>`, `</response>`) are their own units.
@@ -53,8 +55,9 @@ Code locates sub-spans with an offset-returning `locate(sub, unit, start)`. It a
 normalisation as plan 0001's `verify_quote` (case, quote marks, whitespace) but has **no minimum
 length**. It maps matches back to raw text through a per-character offset map, because
 lowercasing can change string length. Matching runs **left to right**, starting after the
-previous sub-span ends, and overlapping sub-spans are rejected. If a sub-span cannot be located, the whole unit falls back to the judge's
-`rest` leaf, and the miss is counted (`n_unlocated_subspans`).
+previous sub-span ends, and overlapping sub-spans are rejected. A sub-span that cannot be
+located is dropped and counted (`n_unlocated_subspans`); the located sub-spans keep their leaves,
+and only the unlocated text falls to the unit's `rest` leaf.
 
 A segment is a unit or a located sub-span. Segments never overlap and cover every unit, so
 coverage is total by construction. Atomic-claim rule: one segment carries one claim. A sentence
@@ -110,7 +113,12 @@ groups:
 
 The identities hold over the seven groups plus these two rows.
 
-### Precedence (in the prompt, applied top-down; the first rule that fits wins)
+### Precedence (in the prompt)
+
+Rules 1–6, 10 and 11 **select the branch** (non-claim, correct, incorrect, thinky, unsettled,
+junk). They are applied first, top-down, and the first one that fits wins. Rules 7–9 **order the
+leaves within a branch** and apply only after the branch is fixed. The prompt lists them in this
+order: 1, 2, 3, 4, 5, 6, 10, 11, then 7, 8, 9.
 
 1. **Non-claim vs claim.** A segment is a claim if it commits to anything concrete about the
    conversation, the model, or the world.
@@ -163,6 +171,12 @@ The identities hold over the seven groups plus these two rows.
     s3d sample that just repeats "I'd be delighted to") is `filler`. Any assertion about the
     content ("the user asks who your partner is") is a claim: `restates_prefix` or
     `stated_after`.
+12. **Hedged inferences about the user or setting** **[pending Camila: §Open decisions 5]**.
+    A flat assertion of an unsupported fact about the user or setting is `false_claim` (rule 10).
+    For example, "the user is a child" or "(Scratch-like community)" stated as fact.
+    When it is explicitly hedged as an inference ("likely", "probably", "may be", "seems"), it is
+    `other_on_topic` by default: the lens is guessing, not asserting. Dev and held-out each
+    carry one anchor for each side.
 
 ### Detail rule [pending Camila: §Open decisions 2]
 
@@ -170,7 +184,10 @@ The identities hold over the seven groups plus these two rows.
 that likely don't have their own concept representation, e.g. names"):
 - arbitrary or fictional names;
 - incidental numbers, dates or counts in fiction or scaffolding;
-- quoted wording or heading text.
+- quoted wording or heading text;
+- an **invented** arbitrary specific with nothing in the conversation for it to replace ("the
+  user, Sarah, …" when nobody is named; "her 3 kids"). It is still a name or number without a
+  concept of its own **[pending Camila: §Open decisions 2]**.
 
 Quantities and dates of **real events**, and counts that **flip the claim** ("0 errors" for 3),
 are `false_claim` **when the conversation contradicts them**; if it is silent they are
@@ -219,10 +236,13 @@ both count as `false_claim`.
 1. **Picasso for da Vinci.** Her first example called this a concept hallucination. Under the
    substitution rule it is `substitution_sibling`. The default is substitution, because her
    later reasoning (co-activation) applies.
-2. **Numbers.** The default is the §Detail rule.
+2. **Numbers and invented specifics.** The default is the §Detail rule, which also covers invented
+   arbitrary names and numbers with no counterpart (→ `detail`).
 3. **Cruxy.** The default is a `cruxy` tag, with cruxy false claims reported as their own row.
 4. **The wrong-bridge direction.** The default is precedence 6 (the conversation wins; tag
    `world_false`).
+5. **Hedged inferences about the user or setting** (rule 12). The default is `other_on_topic`
+   when hedged, and `false_claim` when asserted flatly.
 
 ## Inputs and established spans
 
@@ -236,7 +256,9 @@ The judge sees:
 - the **v5c verified wrong spans** for each readout, marked as established.
 
 Established spans are v5c's verified `wrong` strings, **revoked or not**, because the v5c
-headline is unrevoked. Code locates each one in its readout with `locate` (first unused
+headline is unrevoked. Overlapping or nested wrong strings in the same readout are merged into
+one span before splitting. The judge may split an established unit, but at least one sub-span
+must be `incorrect.*`; otherwise the unit is forced. Code locates each one in its readout with `locate` (first unused
 occurrence, left to right), and the splitter makes it its own unit (§Units). An established span
 that cannot be located is counted (`n_unlocated_established`), and the judge treats it as
 ordinary text. Every established unit must get an `incorrect.*` leaf, unless the judge sets
@@ -256,6 +278,9 @@ agreement table, mapped as follows:
 | `unverifiable` | `world_true` ∪ thinky ∪ `false_claim` |
 | `disputed` | incorrect ∪ `possible_belief` |
 | `off_topic` | `off_topic` ∪ `ambiguous_topic` ∪ non_claim |
+
+The rows are sets of acceptable v2 leaves, not a partition; `unknown_incorrect` is acceptable for
+`disputed`, and `failed` is excluded from the table.
 
 `false_claim` sits under verify `unverifiable` because verify calls an asserted invented event
 "unverifiable", while Camila's decision makes it false. A verify quote that spans segments with
@@ -327,7 +352,10 @@ calls, Wilson CIs, and at most 3 held-out checks.
 Gold is a leaf per unit, plus sub-spans with leaves for units that need splitting. Units are
 shared between gold and the prediction, so matching is **one-to-one by unit**.
 
-- **Scoring.**
+- **Scoring.** **Recall rows, per-leaf minimums and the sibling-vs-category row are scored per gold
+  segment.** Each gold segment's predicted leaf is the majority-character predicted leaf over
+  that segment's own characters, so a minority `detail` sub-span is not hidden inside its unit.
+  The remaining rules below apply to the unit-level group-accuracy rows.
   - A unit split on neither side is compared at unit level.
   - A unit split on either side is given its **majority-character leaf** on each side for the
     unit-level measures, and it contributes character by character to the character-level
@@ -346,12 +374,14 @@ shared between gold and the prediction, so matching is **one-to-one by unit**.
     a claim about the conversation that looks off-topic);
   - established spans, including one that should be disputed.
 - **held-out:**
-  - (a) at least 120 synthetic gold units, written and labelled by a fresh-context subagent
+  - (a) at least 120 synthetic gold units. Workflow: the author writes each case (prompt,
+    marked response, readouts, any established spans), the production splitter runs, and then the
+    author labels exactly those units. They are written and labelled by a fresh-context subagent
     that sees only §Units, §The tree, §Precedence, §Detail rule and §Tags;
   - (b) at least 120 real units from stored readouts. Cells are stratified by arm (s3d-rl600,
     nla-rl-L42, jlens, sae-l42, patchscopes) and by v5c class. The main session hand-labels
     them blind to classifier output and freezes them before the first check.
-  - Across (a) and (b), at least **40 gold units each** for `false_claim`, `detail`,
+  - Across (a) and (b), at least **40 gold segments each** for `false_claim`, `detail`,
     substitution (sibling and category together, at least 15 of each), `correct` and thinky, and
     at least 8 each for `possible_belief`, `model_state`, `unrealised_prediction` and
     `lens_meta`. Sample real cells until these minimums are met.
