@@ -1,45 +1,60 @@
 # Plan 0001 — Bootstrap HallucinationBench v2; port `wsbench_chat`; add the taxonomy judge
 
-Issue #1. Author: Camila Blank (planned with Claude), 2026-10-11.
+Issue #1. Author: Camila Blank (planned with Claude), 2026-10-11. Revision 3 (after critiques 1–2).
 
 ## Goal
 
-HallucinationBench v2 is a suite of evals giving a comprehensive view of the **types and
-severities** of hallucination that activation-reading lenses produce. This PR:
+HallucinationBench v2 is a suite of evals that gives a comprehensive view of the **types and
+severities** of hallucination produced by activation-reading lenses. This PR:
 
-1. Bootstraps the repo: a slim shared core (LLM client, cache, readout contract, token-bag
+1. Bootstraps the repo with a slim shared core (LLM client, cache, readout contract, token-bag
    summariser, taxonomy) that later evals reuse.
-2. Ports WorkspaceBench's `hallucination_chat` eval as the first eval, `wsbench_chat`, with its
-   v5c detection judge reproduced **verbatim** (the existing instrument).
-3. Adds a **taxonomy judge** (`taxonomy-v1`) that labels every hallucinated span by type
-   (**concept vs detail**), target, severity and basis, and separately finds *unsupported
-   fabricated specifics* that v5c deliberately does not mark.
-4. Calibrates the taxonomy judge on a hand-labelled case set, then runs both judges over all
-   11 stored lens arms and writes per-lens hallucination profiles.
+2. Ports WorkspaceBench's `hallucination_chat` eval as the first eval, `wsbench_chat`. Both of
+   its existing judge stages are reproduced **verbatim**: v5c span detection and v5c claim
+   verify.
+3. Adds a third stage, the **taxonomy classifier** (`taxonomy-v1`). It labels every
+   hallucinated span that the first two stages found, by type (**concept vs detail**), target
+   and severity, plus a grounding subtype. It only classifies; it never decides whether a span
+   is a hallucination.
+4. Calibrates the classifier on a hand-labelled set with a held-out gate. Then it runs all three
+   stages over all 11 stored lens arms and writes per-lens hallucination profiles.
 
-Non-goals: new banks/evals beyond `wsbench_chat` (later plans), producing new readouts (we
-re-judge stored ones), GPU code.
+Non-goals: new banks or evals beyond `wsbench_chat` (later plans), producing new readouts (we
+re-judge stored ones), and GPU code.
 
-## Sources (read-only; port, do not import)
+## Sources (read-only; port them, do not import them)
 
-- Public WorkspaceBench, local clone `/workspace/root/wsbench-pub` @ `92d763e` (MIT, same authors):
-  - `src/wsbench/evals/hallucination/{prompts,judge,score}.py` — v5c prompt, `verify_quote`,
-    `decode_token`, `parse_verdict`, readout classes, rates, item bootstrap.
+- Public WorkspaceBench, local clone `/workspace/root/wsbench-pub` @ `92d763e` (MIT, same
+  authors):
+  - `src/wsbench/evals/hallucination/{prompts,judge,score}.py`: the v5c span prompt
+    (`JUDGE_*`, `v5c-chat`), the verify prompt (`VERIFY_*`, `v5c-chat-verify-v1`),
+    `verify_quote`, `decode_token`, `parse_verdict`, `tally_claims`, `fully_judged`, the
+    readout classes, the rates and the item bootstrap.
   - `evals/hallucination/{items.json,capture_rows.json,judge_prompt_v5c_chat.json,README.md}`.
-  - `src/wsbench/{llm,cache,readouts,summarizer}.py` — client (Anthropic / OpenRouter routing,
-    retries, RPM pacer, spend), JSONL cache with fingerprints, readout loader, `interp-v1`
-    summariser.
-- Stored readouts (inputs, not copied into git):
-  `/workspace/wsbench-paper-data/readouts/<arm>/hallucination.jsonl`, rows
-  `{id, layer, pos, token, samples}` (prose) or `{..., tokens, scores}` (token bag).
+    The README documents the cell grid, missing-cell and empty-cell rules, and the verify
+    stage's tally rules. Port those rules as written.
+  - `src/wsbench/{llm,cache,readouts,summarizer}.py`:
+    - `llm.py`, the client: Anthropic / OpenRouter routing, retries, RPM pacer and spend tally;
+    - `cache.py`, the JSONL cache with fingerprints;
+    - `readouts.py`, the readout loader;
+    - `summarizer.py`, the `interp-v1` summariser.
+- Stored readouts are inputs and are not copied into git:
+  `/workspace/wsbench-paper-data/readouts/<arm>/hallucination.jsonl`. Rows are
+  `{id, layer, pos, token, samples}` (prose) or `{..., tokens, scores}` (token bag). Each
+  arm-layer has 1,123 cells (149 items × their sites).
 
 | arm | kind | layers | k |
 |---|---|---|---|
 | s3d-rl600 (O-lens RL), s3d-sft251 (O-lens SFT) | prose | 20,36,44,48,60 | 3 |
 | nla-rl-L42, nla-sft-L42 | prose | 42 | 3 |
-| patchscopes | prose | 20,36,44,48,60 | 1 |
+| patchscopes | prose (often `[""]`, which counts as an empty cell) | 20,36,44,48,60 | 1 |
 | jlens, logit, tuned, rlens, template-v3 | tokens | 20,36,44,48,60 | 1 (summarised) |
-| sae-l42 | tokens | 42 | 1 (summarised) |
+| sae-l42 | tokens (feature descriptions) | 42 | 1 (summarised) |
+
+No stored Opus-5.5 v5c caches exist for these exact readout files. The lens-agreement study
+used a different pipeline, and the AR-ablation caches cover different arms. Everything is
+judged fresh. `readouts/sae-l42-top20/` holds only a jailbreak file, so it is not an arm
+here.
 
 ## Repo layout (new files)
 
@@ -50,8 +65,11 @@ hallucination-bench/
 ├── pyproject.toml                 # uv project `hallucination-bench`, py>=3.12, deps: anthropic, openai, numpy; dev: pytest, ruff
 ├── plans/0001-bootstrap-wsbench-chat-taxonomy.md
 ├── data/
-│   ├── calibration/taxonomy_cases.jsonl   # hand-labelled cases (see §Calibration)
-│   └── wsbench_chat/                      # verbatim copies + README.md (provenance, source commit)
+│   ├── calibration/
+│   │   ├── README.md              # how the cases were made, any gold-label fixes and why
+│   │   ├── dev.jsonl              # synthetic cases, used for prompt iteration
+│   │   └── heldout.jsonl          # synthetic + real-readout spans, gate only
+│   └── wsbench_chat/              # verbatim copies + README.md (provenance, source commit)
 │       ├── items.json
 │       ├── capture_rows.json
 │       └── judge_prompt_v5c_chat.json
@@ -64,209 +82,392 @@ hallucination-bench/
 │   ├── taxonomy.py       # THE taxonomy: enums + definitions + examples (single source of truth)
 │   ├── judges/
 │   │   ├── __init__.py
-│   │   ├── v5c.py        # verbatim v5c prompt/schema/parse (loads the frozen JSON, asserts equality)
-│   │   └── taxonomy_v1.py# taxonomy judge prompt (rendered from taxonomy.py), schema, parse
+│   │   ├── v5c.py        # verbatim span + verify prompts/schemas/parsers (asserts == frozen JSON)
+│   │   └── taxonomy_v1.py# classifier prompt (rendered from taxonomy.py), schema, parse
 │   ├── evals/
 │   │   ├── __init__.py   # registry: name -> module
 │   │   └── wsbench_chat/
 │   │       ├── __init__.py
 │   │       ├── bank.py   # load items, marked response, expected cell grid
-│   │       ├── run.py    # cells -> (summarise) -> v5c -> taxonomy -> cells.jsonl
+│   │       ├── run.py    # cells -> (summarise) -> span -> verify -> classify -> cells.jsonl
 │   │       └── score.py  # headline + taxonomy metrics, item bootstrap CIs
-│   ├── calibrate.py      # run taxonomy judge on data/calibration, report agreement with gold
+│   ├── calibrate.py      # run classifier on calibration cases, score against gold, apply the gate
 │   ├── report.py         # cross-arm tables (markdown + JSON), audit sample dump
-│   └── cli.py            # `hbench run|calibrate|report` (argparse)
-├── scripts/run_all_arms.sh  # tmux driver: all arms, layer slice then all layers; logs/
-├── docs/results/0001_wsbench_chat_taxonomy.md  # results write-up (filled after the run)
+│   └── cli.py            # `hbench run|calibrate|report|pilot-dump` (argparse)
+├── scripts/run_all_arms.sh  # tmux driver (single process, all arms); logs/
+├── docs/results/0001_wsbench_chat_taxonomy.md  # results write-up (filled in after the run)
 └── tests/
-    ├── test_v5c_frozen.py      # prompt literals == frozen JSON; parse_verdict rules
-    ├── test_taxonomy_judge.py  # schema, verbatim-span checks, fail-closed rules, prompt render
+    ├── test_v5c_frozen.py      # span + verify literals == frozen/source; parse_verdict + tally rules
+    ├── test_taxonomy_judge.py  # schema, span-index matching, fail-closed rules, prompt render
     ├── test_score.py           # metrics on synthetic cells (denominators, CIs, decomposition identity)
-    ├── test_readouts.py        # loader, decode_token, dedupe, token/prose kinds
-    └── test_cache.py           # resume, fingerprint mismatch -> re-query
+    ├── test_readouts.py        # loader, decode_token, dedupe, token/prose kinds, empty cells
+    └── test_cache.py           # resume, fingerprint mismatch -> re-query, partial cells re-queued
 outputs/   (gitignored) outputs/wsbench_chat/<judge_model_slug>/<arm>/{cells.jsonl,summary.json}
 logs/      (gitignored)
 ```
 
+## Pipeline per cell (one cell = one arm × item × site × layer)
+
+1. **Summarise** (token arms only): decode each token with `decode_token`, then summarise the
+   bag with `interp-v1` (`render_bag` of the decoded tokens and scores). The interpretation is
+   the single readout (k = 1). A failed summary leaves the cell unjudged; it is counted and
+   never scored.
+   - Caveat, matching the source: sae-l42 feature descriptions and template-v3 words are not
+     byte-level BPE, so `decode_token` garbles any non-ASCII in them, and the prompt calls them
+     "token readouts". Keep this as it is and note it in the README.
+2. **Span stage (v5c, verbatim).** It returns, for each readout, `kind` plus `wrong` and
+   `off_topic` spans, and gives each readout a class: `hallucinated` / `off_topic` /
+   `consistent` / `generic`. All rules are unchanged:
+   - A span must be verbatim in its own readout, or it is dropped and counted.
+   - An unknown span type counts as wrong.
+   - Revocation is reported.
+   - `fully_judged` re-queues partially judged cells.
+3. **Verify stage (v5c-chat-verify-v1, verbatim).** The span stage's verified wrong spans are
+   passed in as established-false. The stage lists every other specific claim with status
+   `true` / `unverifiable` / `disputed` / `off_topic`. The `tally_claims` rules are unchanged:
+   - A quote must be verbatim in its readout, or it is dropped and counted.
+   - A quote that overlaps an established-false span is skipped.
+   - An unknown status becomes `unverifiable`.
+   - A malformed answer is rejected and re-queued.
+
+   We additionally keep the verified quotes themselves, because the classifier needs them. A
+   wrapper around the frozen `tally_claims` returns per-status quote lists that are **disjoint
+   by status**: a `disputed` claim is listed only under `disputed`, although the frozen tally
+   also counts it as unverifiable. A test asserts that the wrapper's tallies equal the frozen
+   function's. Routing is verbatim: verify runs on **every span-judged cell**, as in the source.
+   Non-specific readouts are ignored downstream, so `n_cells_claims_unjudged` keeps its source
+   meaning.
+4. **Classify stage (taxonomy-v1, new).** One call per cell that has at least one span to
+   classify on a specific-class readout. The spans to classify are:
+   - every verified v5c `wrong` span (grounding `contradicted`);
+   - every verify `unverifiable` claim (grounding `unsupported`);
+   - every verify `disputed` claim (grounding `disputed`).
+
+   A readout is specific-class when its class is in `SPECIFIC_CLASSES` (`hallucinated`,
+   `off_topic`, `consistent`). This routes on the **class**, not the judge's `kind`, because
+   v5c can call a readout `generic` and still mark a wrong span in it, which makes it
+   `hallucinated`. The classifier sees the prompt, the marked response, the readouts, and a
+   numbered list of the spans, each with its readout index and its **grounding label**
+   (`contradicted` / `disputed` / `unsupported`). It needs the grounding because the type test
+   and `unsupported_kind` depend on it. It does **not** see the earlier stages' `why` text, so
+   it is not anchored on their reasoning. It labels each span; it never adds, removes or
+   re-judges spans.
+
+Readouts of class `generic` (no wrong span) are not part of any rate, the same as the v5c
+denominator, and the classifier never sees them. `off_topic` spans are never
+classified. Verify's `off_topic` claims are dropped, as in the source.
+
 ## The taxonomy (`taxonomy.py`, v1)
 
-Every **hallucinated span** gets four labels. Definitions live once in `taxonomy.py` and are
-rendered into the judge prompt; tests assert the prompt contains every label and definition.
+Every hallucinated span gets the labels below. The definitions live only in `taxonomy.py` and
+are rendered into the classifier prompt. Tests assert that the prompt contains every label and
+definition.
 
-1. **grounding** — why it counts as a hallucination:
-   - `contradicted`: the response (before or after the marker) or established world knowledge
-     rules the span out. These are exactly the spans v5c marks `wrong` (see §Judges).
-   - `unsupported`: a *specific* claim (a name, number, date, quotation, event, attribute) that is
-     not stated in the response, not realised in it, and not a generic reasonable inference — a
-     fabricated specific. Includes a specific prediction of what comes next that the response
-     never realises; such spans also get `is_prediction = true` so analyses can include/exclude
-     them. (This is the user's definition: unfulfilled predictions and fabricated specifics are
-     hallucinations; grounded = stated or realised only.)
-2. **type** — the primary axis requested in issue #1:
-   - `concept`: the span gets the **meaning** wrong. It substitutes a different, meaningfully
-     distinct entity, idea, event or situation, or reverses a claim, stance or outcome. Test: a
-     reader who believed the span would misunderstand *what the text is about or what it
-     claims*. Examples: "Picasso" when the text is about da Vinci; Johnson where the text says
-     Kennedy; "argues remote work hurts productivity" where it argues the opposite; "a recipe
-     for bread" where the response is a poem about bread; "the user is angry" where the user is
-     grateful.
-   - `detail`: the gist is right but a **specific value** is wrong or invented. Test: replacing
-     the span with the correct value would leave the reader's understanding of the substance
-     intact. Examples: "Steve" when the text is about an arbitrary character named Joe;
-     "October 24" where the text says October 29; "3 tips" where it lists 5; a heading quoted as
-     "Quick Facts" where it is "Basic Facts"; "Python 3.8" where it says 3.10.
-   - Tie-break rule (stated in the prompt): a wrong **named entity with its own real-world
-     identity** (a person, work, place, organisation, scientific concept that the reader would
-     recognise as a different thing) is `concept`; a wrong **arbitrary label** (a fictional or
-     incidental name, an exact number/date/count, wording) is `detail` — *unless* the wrong value
-     flips the claim (e.g. "safe" vs "unsafe" dose, "won" vs "lost", "increase" vs "decrease"),
-     which is `concept`. Magnitude alone does not make it concept; it raises severity.
-3. **target** — what kind of thing is wrong (one of):
-   `entity` (named person/place/work/org/product), `quantity` (number, date, time, count,
-   measurement), `event` (what happened / who did what), `attribute` (a property or relation
-   of something: cause, part-of, attribution of a quote), `stance` (opinion, polarity,
-   negation, sentiment, intent), `structure` (headings, list items, quoted wording, format or
-   what the response has already written), `topic` (the overall subject or situation of the
-   conversation).
-4. **severity** — how much the span would mislead a reader about this conversation:
-   - `1 minor`: peripheral; does not touch anything the response relies on.
-   - `2 moderate`: misstates a specific point the response makes or relies on.
-   - `3 major`: misstates the central subject, claim, answer or situation.
+### grounding (set in code from the stage that found the span, never by the classifier)
 
-Off-topic junk (v5c `off_topic`) is kept as its own category and reported, but it is not a
-hallucination and gets no taxonomy labels (same as v5c, where off-topic spans do not count).
+- `contradicted`: a verified v5c wrong span. The response, or the facts, rule it out.
+- `disputed`: verify thinks the response rules the claim out, but v5c did not flag it.
+- `unsupported`: verify `unverifiable`. The claim is specific, but the response neither states
+  it nor clearly entails it, and nothing realises it after the marker. This follows the user's
+  definition: only content that is stated or realised counts as grounded. Plausible inferences,
+  unrealised predictions and fabricated specifics are therefore all hallucinations under the
+  strict view. A claim that is true in the world but not stated in the conversation also counts
+  as `unsupported`, matching verify's "never world knowledge" rule. The classifier records why
+  in the subtype below, so analyses can choose a lenient view.
 
-## Judges
+### unsupported_kind (classifier label; `unsupported` and `disputed` spans only)
 
-### v5c (detection; the existing instrument, verbatim)
+- `prediction`: about what the response will say next, and the response never says it.
+- `inference`: a plausible inference from the text that the text does not state or entail. This
+  includes claims about the model's intent or mental state.
+- `fabricated`: a specific with no basis in the text, such as an invented name, number, date,
+  quotation, event or source.
+- `world_knowledge`: a fact about the world, possibly true, that the conversation does not
+  state.
 
-- Port `prompts.py` / `parse_verdict` / readout classes / rates from wsbench-pub without
-  changing a byte of the prompt; `tests/test_v5c_frozen.py` asserts the literals equal
-  `data/wsbench_chat/judge_prompt_v5c_chat.json` (same check as wsbench-pub
-  `tests/test_hallucination.py`).
-- Classes and rules unchanged: span must be verbatim in its own readout or it is dropped and
-  counted (`n_unverified_spans`); unknown span type counts as wrong (fail closed); any verified
-  wrong span → `hallucinated`, else generic/empty → `generic`, else junk span → `off_topic`,
-  else `consistent`. `hallucination_rate = hallucinated / specific`,
-  `specific = hallucinated + off_topic + consistent` (unrevoked headline; `revoked` reported).
-- Token arms: decode with `decode_token`, summarise with `interp-v1` (`render_bag` of decoded
-  tokens + scores), judge the interpretation as one readout (k = 1). A failed summary leaves the
-  cell unjudged (counted, never scored).
+The **lenient view** drops `inference` and `world_knowledge`. The **strict view** keeps all four.
 
-### taxonomy-v1 (classification + fabricated-specifics detection; new)
+### type (the primary axis requested in issue #1)
 
-- **One call per cell that has at least one `specific` readout under v5c.** Cells where every
-  readout is generic/empty are not sent (nothing to classify; recorded as `skipped_nonspecific`).
-- Input: the same prompt, marked response and readouts as v5c (same `⟦READ⟧` convention), plus
-  the list of v5c's **verified wrong spans** per readout (verbatim text + v5c's `why`).
-- Task A — **classify** each given wrong span: `type`, `target`, `severity`, `basis` ∈
-  {`before_marker`, `after_marker`, `world_knowledge`} (what rules it out), a one-clause
-  `why`, and `agree` (bool: the taxonomy judge also thinks it is wrong). `grounding` is
-  `contradicted` for all of these (set in code, not by the judge). `agree = false` spans stay in
-  the v5c headline (the instrument is unchanged) but are reported as `disputed` counts.
-- Task B — **find unsupported specifics**: list further spans of each readout that are
-  `unsupported` per the taxonomy definition, each with `type`, `target`, `severity`,
-  `is_prediction`, `why`. Must not repeat a Task-A span (overlap check in code: a Task-B span
-  whose normalised text overlaps a Task-A span of the same readout is dropped and counted).
-- Every span text must be verbatim in its own readout (`verify_quote`, same normalisation as
-  v5c) or it is dropped and counted (`n_unverified_tax_spans`). Task-A entries must match a
-  given v5c span (by index); a missing or extra Task-A entry → that v5c span gets
-  `type = unknown` and is counted (`n_unclassified`), never silently guessed. Unknown enum
-  values are rejected by the JSON schema; if one slips through it becomes `unknown`.
-- Output schema (JSON schema enforced via the client):
-  `{readouts: [{idx, classified: [{span_idx, agree, type, target, severity, basis, why}],
-  unsupported: [{text, type, target, severity, is_prediction, why}]}], rationale}`.
-- Prompt version string `taxonomy-v1`; the fingerprint includes it, so prompt edits during
-  calibration invalidate cached calls automatically.
+The **main test** decides the type: if a reader believed the span, would they misunderstand
+**what the text is about or what it claims**?
 
-### Judge model
+- `concept`: yes, the meaning is wrong. The span substitutes a different, meaningfully distinct
+  entity, idea, event or situation **as the subject of a claim**, or it reverses a claim,
+  stance or outcome. Examples:
+  - "Picasso" when the text is about da Vinci;
+  - Johnson where the text says Kennedy;
+  - "argues remote work hurts productivity" where the text argues the opposite;
+  - "a recipe for bread" where the response is a poem about bread;
+  - "the user is angry" where the user is grateful;
+  - "a 200 mg dose is safe" where the text says it is dangerous.
+- `detail`: no, the gist is right. A **specific value** inside an otherwise correct
+  understanding is wrong or invented. Examples:
+  - "Steve" when the text is about an arbitrary character named Joe;
+  - "October 24" where the text says October 29;
+  - "over 700 died" where the text says over 140;
+  - "3 tips" where the text lists 5;
+  - "Quick Facts" quoted as a heading where it is "Basic Facts";
+  - an incidental real-world name swapped in a passing mention (the text cites "a 2019 Stanford
+    study" in an aside and the readout says Harvard).
 
-- Default `claude-opus-5-5` for v5c, taxonomy and summariser (one model; keyless first-party
-  auth through the `ant` CLI profile — the client must construct `anthropic.Anthropic()` with no
-  `api_key` when `ANTHROPIC_API_KEY` is unset so the SDK picks up the `ant` OAuth profile; do not
-  require the env var). Overridable with `--judge-model`, `--summarizer-model`.
-- Note in the README: the WorkspaceBench pin is Gemini 3.8 Flash; our absolute v5c rates are
-  therefore not directly comparable to published WorkspaceBench numbers (the AR-ablation study
-  also used Opus 5.5 for this family).
-- Temperature 0 where supported; structured JSON output; thinking off. Failed/refused calls
-  return `None` and are counted, never scored; re-running resumes from the cache and retries
-  only failed cells.
+Rules:
+
+- **Names are decided by identity, not by centrality.**
+  - Swapping in a *different entity whose identity carries meaning* is `concept` when that
+    entity is what the claim is about. That covers a real person, work, place or organisation,
+    or a *different character or entity that exists in the text*. Examples: Picasso for da
+    Vinci; confusing the protagonist with her rival.
+  - A *wrong name for the same referent*, especially an arbitrary or fictional one, is `detail`,
+    **even when the referent is the protagonist**. Example: Steve for the story's Joe, which is
+    the same character with the wrong label.
+  - An incidental real entity in a passing mention is `detail`, as in the Stanford→Harvard
+    aside.
+- **Wrong values:** a number, date, label or wording error is `detail`. The exception is a value
+  that flips the claim (safe vs unsafe, won vs lost, increase vs decrease), which is `concept`.
+  Magnitude alone never makes a span `concept`; it raises severity instead.
+- **For `unsupported` and `disputed` spans** there is no "correct value", so the test becomes:
+  does believing the span change the reader's understanding of what the text is about or what
+  it claims?
+  - An invented event, claim, topic, situation, intent or stance is `concept`. Examples: "the
+    response goes on to recommend therapy", when it never does and nothing suggests it; "the
+    user is a teacher".
+  - An invented name, number, date, quotation or other specific value attached to something
+    the text does discuss is `detail`. Examples: "Joe's sister Maria", when the text never
+    names her; "about 30 minutes".
+
+### target (what kind of thing is wrong; exactly one)
+
+- `entity`: a named person, place, work, organisation or product.
+- `quantity`: a number, date, time, count or measurement.
+- `event`: what happened, or who did what.
+- `attribute`: a property or relation of something, such as a cause, part-of, or the
+  attribution of a quote.
+- `stance`: an opinion, polarity, negation, sentiment or intent.
+- `structure`: headings, list items, quoted wording, format, or what the response has already
+  written.
+- `topic`: the overall subject or situation of the conversation.
+
+### severity (how much the span would mislead a reader about this conversation)
+
+- `1 minor`: peripheral; it does not touch anything the response relies on.
+- `2 moderate`: it misstates, or invents, a specific point the response makes or relies on.
+- `3 major`: it misstates, or invents, the central subject, claim, answer or situation.
+
+## taxonomy-v1 classifier details
+
+- Input spans are numbered `S1..Sn`, each with its readout index.
+- The output schema is enforced through the client's structured output:
+  `{spans: [{span_id, type, target, severity, unsupported_kind|null, why}], rationale}`.
+- Parsing fails closed:
+  - A span id that is missing or duplicated gives that span `type = unknown`; it is counted in
+    `n_unclassified`.
+  - An extra id is ignored and counted.
+  - An `unsupported_kind` given for a `contradicted` span is ignored.
+  - A missing `unsupported_kind` for an `unsupported` or `disputed` span becomes `unknown`.
+  - Enum values are validated in code too. A bad value becomes `unknown`, and the cell is re-queued
+    once, as `validate` does in wsbench.
+- The prompt version is `taxonomy-v1`. The fingerprint includes the prompt version, the model
+  and the rendered prompt, so prompt edits during calibration invalidate cached calls.
+
+## Judge model and concurrency
+
+- **Model.** The default is `claude-opus-5-5` for all four calls (summariser, span, verify,
+  classify), using keyless first-party auth through the `ant` CLI profile. When
+  `ANTHROPIC_API_KEY` is unset, the client constructs `anthropic.Anthropic()` with no
+  `api_key`, so the SDK picks up the `ant` OAuth profile. It must not require the env var.
+  Overrides: `--judge-model`, `--summarizer-model`, `--classifier-model`.
+- **Comparability note for the README.** The WorkspaceBench pin is Gemini 3.8 Flash, so our
+  absolute v5c rates are not directly comparable to published WorkspaceBench numbers. The
+  AR-ablation study also used Opus 5.5 for this family.
+- **Call settings.** Use temperature 0 where the API supports it, structured JSON output, and
+  thinking off. A failed or refused call returns `None`; it is counted and never scored.
+  Re-running resumes from the cache and retries only failed or partial cells.
+- **One process for all arms.** `hbench run` takes several `--arm name=path` arguments, or
+  `--readouts-root DIR`, and judges every arm in **one process**. That process has one shared
+  RPM pacer (`--rpm`, default 1500) and one thread pool (`--concurrency`, default 64).
+  Parallelism therefore never multiplies the rate limit. Stages pipeline per cell.
+
+## Cache and outputs
+
+- **Cache.** Each arm has its own cache file, `<arm>/cache.jsonl`, separate from the output.
+  - Keys: `summ:{id}__L{layer}__p{pos}` (summary), `{id}__L{layer}__p{pos}` (span), `…:V`
+    (verify) and `…:C` (classify).
+  - Fingerprints include the prompt version, the model and the rendered prompt, so a classifier
+    prompt bump re-runs only the `:C` entries.
+- **Outputs.** `cells.jsonl` holds one merged record per cell: readouts, all stage outputs and
+  labels.
+  - `cells.jsonl` and `summary.json` are **regenerated from the cache over every judged layer**,
+    at the end of each `hbench run` and by `hbench report`. Stage 2 therefore extends stage 1's
+    outputs rather than writing a separate file.
+  - `hbench run --rebuild` regenerates them with no API calls.
+- **Short prose cells.** Some s3d rows have 0–2 non-empty samples, fewer than k. They are judged
+  with what they have and counted in `n_short_cells`. All rates are readout-level, so they are
+  unaffected.
 
 ## Metrics (`score.py`)
 
-Denominator for readout-level rates = **specific readouts** (as v5c). All rates come with an
-item-level bootstrap 95% CI (2000 draws, seed 0, resample items).
+**Denominator.** Readout-level rates are over **specific readouts** (class in
+`SPECIFIC_CLASSES`), as in v5c. Revoked readouts count, because the headline is unrevoked.
+Every rate gets an item-level bootstrap 95% CI: 2000 draws, seed 0, resampling items.
 
 Per arm, overall and per layer:
-- `hallucination_rate` (v5c headline, unchanged) and `off_topic_rate`.
-- Decomposition of contradicted spans: `concept_rate` = share of specific readouts with ≥1
-  contradicted `concept` span; `detail_rate` likewise; `concept_only`, `detail_only`, `both`.
-  Identity check (tested): `concept_only + detail_only + both + unclassified_only = hallucination_rate`.
-- Severity: `major_rate` (≥1 contradicted span with severity 3), and mean max-severity per
-  hallucinated readout.
-- Unsupported: `unsupported_rate` (≥1 unsupported span), split concept/detail and
-  `unsupported_rate_excl_predictions`.
-- `strict_hallucination_rate` = ≥1 contradicted **or** unsupported span (user's definition).
-- Span-level distributions: counts and shares by grounding × type × target × severity × basis.
-- Judge health: `n_cells`, `n_missing`, `n_failed_calls`, `n_unverified_spans`,
-  `n_unverified_tax_spans`, `n_unclassified`, `n_disputed` (v5c wrong spans the taxonomy judge
-  disagreed with), spend in USD and tokens.
 
-`summary.json` per arm holds all of the above plus config (judge model, prompt versions,
-source commit of the bank, readouts path + sha256).
+- **Headline:** `hallucination_rate` (v5c, unchanged) and `off_topic_rate`.
+- **Contradicted decomposition.** Each hallucinated readout falls in exactly one bucket by the
+  types of its contradicted spans: `concept_only`, `detail_only`, `both`, or `unclassified_only`
+  (every contradicted span is `unknown`). Spans that are `unknown` alongside classified ones are
+  ignored for bucketing. Also reported: `concept_rate = concept_only + both` and
+  `detail_rate = detail_only + both`.
+  - Identity, tested: `concept_only + detail_only + both + unclassified_only = hallucination_rate`.
+  - **Coverage requirement:** if a hallucinated readout's cell has no classify result (failed
+    call), all of its contradicted spans are `unknown`, so the identity still holds.
+- **Severity.** `major_rate` is the share with at least one contradicted span of severity 3.
+  Also reported: the mean maximum severity per hallucinated readout.
+- **Unsupported** (verify-tallied readouts only; the coverage is reported):
+  - `unsupported_rate`: share with at least one unsupported span;
+  - its concept / detail split;
+  - the split by `unsupported_kind`;
+  - `unsupported_rate_lenient`, which excludes `inference` and `world_knowledge`.
+- **Disputed.** `disputed_rate` is reported separately.
+- **Strict and lenient rates.**
+  - `strict_hallucination_rate` is the share of **verify-tallied** specific readouts with at
+    least one contradicted, disputed or unsupported span (the user's definition).
+  - `lenient_hallucination_rate` is the same with the lenient unsupported view. Spans with
+    `unsupported_kind = unknown` are kept, which is conservative.
+  - Both are reported next to their verify coverage (tallied ÷ specific), so a failed verify
+    call cannot silently lower them.
+  - `unsupported_rate` counts `unsupported` spans only; disputed spans are counted separately.
+- **Span-level distributions.** Counts and shares by grounding × type × target × severity ×
+  unsupported_kind.
+- **Judge health.** These counts are reported:
+  - `n_cells`, `n_missing`, `n_empty_cells`;
+  - `n_failed` per stage;
+  - `n_unverified_spans`, `n_unverified_claim_quotes`;
+  - `n_unclassified`, `n_cells_claims_unjudged`;
+  - spend in USD and tokens per stage.
 
-## Calibration (gate before the big run)
+**Token arms.** The summariser is told to "commit to the most specific reading", so it produces
+unsupported specifics by design. The report shows token arms in a **separate table** with a
+caveat, and does not rank their unsupported, strict or lenient rates alongside the prose arms.
+Contradicted-span metrics are shown for both groups.
 
-`data/calibration/taxonomy_cases.jsonl`: **≥ 40 hand-labelled cases**, each a short prompt +
-marked response + 1–3 readouts + gold labels for the spans that matter
-(`{readout_idx, text, grounding, type, target, severity}` and an explicit list of spans that
-must **not** be flagged). Coverage requirements:
-- Issue #1's two anchor examples verbatim in spirit: Picasso-for-da-Vinci (concept) and
-  Steve-for-arbitrary-Joe (detail).
-- ≥ 10 concept and ≥ 10 detail contradicted spans across all 7 targets; ≥ 4 tie-break cases
-  (wrong real named entity vs wrong fictional name; a number that flips the claim vs one that
-  does not; a magnitude error that stays detail).
-- ≥ 6 unsupported cases (fabricated name/number/quote; unrealised specific prediction) and ≥ 4
-  traps that must NOT be flagged unsupported (generic reasonable predictions, paraphrases,
-  correct inferences, hedged statements).
-- ≥ 3 off-topic junk readouts (must get no taxonomy labels).
-- Cases are written by the implementer from scratch (not lifted from lens outputs), then reviewed
-  label-by-label by the main session before the gate runs.
+`summary.json` for each arm holds all of the above plus the config: judge models, prompt
+versions, the source commit of the bank, and the readouts path with its sha256.
 
-`hbench calibrate` feeds the gold contradicted spans to taxonomy-v1 as if they were v5c spans
-(Task A) and scores Task B against the gold unsupported spans. Report: type accuracy, target
-accuracy, severity exact + within-1, unsupported precision/recall, false flags on traps, and
-the confusion matrix. **Gate:** type accuracy ≥ 90%, unsupported precision ≥ 80% and recall
-≥ 70%, ≤ 1 trap flagged. If it fails, revise the prompt (bump to `taxonomy-v1.1`, …), never the
-gold labels, unless a gold label is shown to be wrong — then fix it and record why in the
-calibration README. Report the final calibration numbers in the results doc.
+## Calibration (gate before the full run)
+
+Calibration tests the **classifier only**, since stages 1 and 2 are the unchanged instrument.
+A case is a prompt, a marked response, 1–3 readouts, and a list of spans with grounding and gold
+labels (`type`, `target`, `severity`, `unsupported_kind`), exactly what the classifier sees in
+production.
+
+- **`dev.jsonl`** (synthetic, at least 40 spans) is written by the implementer from scratch and
+  used for prompt iteration. Coverage:
+  - The two anchor examples from issue #1: Picasso for da Vinci (concept) and Steve for an
+    arbitrary Joe (detail).
+  - At least 12 concept and 12 detail spans, covering all 7 targets.
+  - At least 8 rule cases:
+    - a central versus a peripheral real named entity;
+    - an arbitrary protagonist renamed (detail) versus the protagonist confused with another
+      character in the text (concept);
+    - a value that flips the claim versus one that does not;
+    - a magnitude error that stays detail.
+  - At least 10 unsupported spans covering all 4 `unsupported_kind` values, with both
+    concept-type and detail-type unsupported spans.
+  - Severity 1, 2 and 3 each appear at least 5 times.
+  - Readout styles that mimic real lenses: O-lens bullet lists with code-switched Chinese and
+    English fragments, NLA `<explanation>` prose, and one-to-two-sentence summariser
+    interpretations.
+- **`heldout.jsonl`**, used only for the gate, has two parts:
+  - (a) at least 20 further synthetic spans, written separately in the same proportions;
+  - (b) at least 30 **real spans**. To produce these:
+    1. Run a pilot of span + verify on 40 cells each from s3d-rl600 L44, nla-rl-L42 and jlens L44.
+    2. Use `hbench pilot-dump` to sample contradicted / disputed / unsupported spans from that
+       pilot, stratified by arm **and grounding**. Keep sampling until the real part has at
+       least 8 concept and 8 detail gold spans.
+    3. The main session hand-labels them **blind to classifier output, before writing the
+       classifier prompt**. It commits the labels, frozen, before the first held-out check.
+
+  Caveat to record in the calibration README: the gold labeller (Claude) is the same model
+  family as the classifier, so agreement is optimistic. A 30-span sample goes into
+  `audit_samples.md` for Camila to spot-check.
+- **`hbench calibrate --split dev|heldout`** reports:
+  - type accuracy, and recall for concept and for detail;
+  - target accuracy;
+  - severity: exact, within 1, and quadratic-weighted κ;
+  - `unsupported_kind` accuracy;
+  - a confusion matrix per label;
+  - the run-to-run label flip rate across 2 runs (at temperature 0 this should be near 0);
+  - on `dev` only, every disagreement, with the classifier's `why`. On `heldout`, aggregates
+    only (no per-span lists), so held-out errors cannot leak into prompt tuning.
+- **Gate, on held-out only:**
+
+  | measure | threshold |
+  |---|---|
+  | type accuracy | ≥ 85% |
+  | concept recall | ≥ 80% |
+  | detail recall | ≥ 80% |
+  | severity exact | ≥ 65% |
+  | severity quadratic-weighted κ | ≥ 0.6 |
+  | target accuracy | ≥ 70% |
+  | `unsupported_kind` accuracy | ≥ 70% |
+  | `n_unclassified` | 0 |
+  | type accuracy on the **real** part alone | ≥ 80% |
+
+- **If the gate fails:**
+  - Iterate on dev: revise the prompt and bump the version to `taxonomy-v1.1`, and so on.
+  - Re-check held-out at most **3 times**. Every check is logged in the calibration README.
+  - Gold labels change only when one is shown to be wrong. The fix and its reason are recorded.
+  - If held-out still fails after 3 checks, stop and report rather than tune further.
+- **Results doc.** Report the final calibration numbers there.
 
 ## Run
 
-1. `hbench run --eval wsbench_chat --arm <arm> --readouts <path> [--layers 44] [--concurrency N]`.
-2. **Stage 1 (layer-matched slice):** all 11 arms at one layer each — L44 for the 5-layer arms,
-   L42 for the single-layer arms (nla-*, sae-l42). ≈ 12.4k cells.
-3. **Stage 2:** the remaining layers (20, 36, 48, 60) of the 5-layer arms. ≈ 36k cells.
-4. Driver `scripts/run_all_arms.sh` runs everything in one tmux session `hbench`, arms in
-   parallel (bounded by `--concurrency` per arm and a global RPM), logging to
-   `logs/run_<timestamp>.log`; it ends with `hbench report`. Re-running the script resumes from
-   caches. Before the full stage, a 20-cell dry slice per arm prints prompts and checks
-   parsing; also print an estimated cost from the slice.
-5. `hbench report` writes `outputs/wsbench_chat/<model>/report.{md,json}`: one row per arm
-   (and per arm × layer) with every metric above, and `audit_samples.md`: 15 random spans per
-   (type × grounding) across arms with context, for human spot-checks.
+1. **Pilot** (as above), then calibration.
+2. **Stage 1, layer-matched slice.** All 11 arms at one layer each: L44 for the 5-layer arms and
+   L42 for the single-layer arms (nla-*, sae-l42). This is 11 × 1,123 ≈ 12.4k cells, with up
+   to 4 calls per cell.
+   - Before starting, run a 20-cell slice per arm. It prints prompts, checks parsing, and
+     estimates the cost of stage 1 and stage 2 from measured spend. Report the estimate.
+   - The slice also checks two things and fails loudly on either: keyless `ant` auth works, and
+     Opus 5.5 accepts the call settings (temperature 0, structured output). If temperature is
+     rejected, drop it and record that.
+     There is no budget cap, but spend is always reported.
+3. **Stage 2.** The remaining layers (20, 36, 48, 60) of the 5-layer arms, about 35.9k cells.
+4. **Driver.** `scripts/run_all_arms.sh` runs stage 1, then `hbench report`, then stage 2, then
+   `hbench report`.
+   - It is one tmux session `hbench`, one `hbench run` process per stage, logging to
+     `logs/run_<timestamp>.log`.
+   - Re-running the script resumes from the caches.
+   - It respects the 32 GB box RAM cap: it streams `cells.jsonl` and does not hold all prompts
+     in memory.
+5. **Report.** `hbench report` writes `outputs/wsbench_chat/<model>/report.{md,json}`:
+   - one row per arm and per arm × layer, with every metric above, prose and token tables
+     separate;
+   - `audit_samples.md`, with 15 random spans per (type × grounding) across arms, with context,
+     for human spot-checks.
 
 ## Deliverables / acceptance
 
-- `uv run pytest` and `uv run ruff check` + `ruff format --check` pass.
-- `test_v5c_frozen.py` proves the v5c prompt is byte-identical to the frozen JSON.
-- Calibration gate passed and reported.
-- Stage 1 complete for all 11 arms (missing + failed < 1% of cells per arm), report written;
-  stage 2 complete or running in tmux with resumable driver.
-- `docs/results/0001_wsbench_chat_taxonomy.md`: headline table per arm (v5c rate, concept rate,
-  detail rate, major rate, unsupported rate, strict rate, each with CI), the concept/detail
-  share of contradicted spans, target mix, a handful of quoted examples per type, calibration
-  numbers, spend, and caveats (judge differs from the WorkspaceBench pin; token arms judged
-  through a summariser, so their labels describe the summary).
-- README (taxonomy + quickstart + results pointer) and CLAUDE.md (layout, conventions,
-  gotchas: keyless `ant` auth, readouts location, cache/resume, 32 GB box RAM cap) written.
+- `uv run pytest`, `uv run ruff check` and `ruff format --check` all pass.
+- `test_v5c_frozen.py` proves the span prompt is byte-identical to the frozen JSON and the
+  verify prompt is identical to the wsbench-pub literal; port the source's verify literal test.
+- The calibration gate is passed on held-out and reported.
+- Stage 1 is complete for all 11 arms, with missing + failed cells under 1% per arm per stage,
+  and the report is written. Stage 2 is either complete, or running in tmux with a resumable
+  driver.
+- `docs/results/0001_wsbench_chat_taxonomy.md` contains:
+  - the headline tables per arm, each rate with a CI: v5c rate, concept rate, detail rate,
+    major rate, unsupported rate (strict and lenient), and strict rate;
+  - the concept/detail share of contradicted spans;
+  - the target mix;
+  - a handful of quoted examples per type;
+  - the calibration numbers;
+  - spend;
+  - caveats: the judge differs from the WorkspaceBench pin; token arms are judged through a
+    summariser, so their labels describe the summary; the gold labeller is the same model family
+    as the classifier.
+- README (taxonomy, quickstart, results pointer) and CLAUDE.md are written. CLAUDE.md covers
+  layout, conventions, and gotchas: keyless `ant` auth, the readouts location, cache/resume, the
+  single-process pacer, and the 32 GB RAM cap.
