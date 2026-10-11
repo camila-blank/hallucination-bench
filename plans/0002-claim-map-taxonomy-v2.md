@@ -1,6 +1,6 @@
 # Plan 0002: claim map (taxonomy v2), an exhaustive, mutually exclusive categorisation of readout content
 
-Issue #3. Author: Camila Blank (planned with Claude), 2026-10-11. Revision 5 (after critiques 1–4).
+Issue #3. Author: Camila Blank (planned with Claude), 2026-10-11. Revision 6 (after critiques 1–5).
 This plan builds on plan 0001 (PR #2): the v5c span and verify port, the taxonomy-v1 classifier,
 and the first full run. It reuses plan 0001's cache layout, client, calibration machinery,
 bootstrap and report unless this plan says otherwise.
@@ -100,8 +100,10 @@ segment
         │   │                         states nor contradicts; the model may really hold it
         │   └─ other_on_topic         any other on-topic claim that the conversation and world knowledge cannot
         │                             settle, including contested or doubtful world claims
-        ├─ ambiguous_topic                                          group: unsettled
-        └─ off_topic                                                group: junk
+        ├─ ambiguous_topic            a claim where it cannot be told whether it refers to this conversation or any
+        │                             subject it raises (could plausibly be either)      group: unsettled
+        └─ off_topic                  a claim about neither this conversation nor any subject it raises (a Mars
+                                      probe in an answer about idioms)                   group: junk
 ```
 
 Code-assigned pseudo-leaves are kept as **separate rows in every table**, outside the seven
@@ -115,11 +117,11 @@ The identities hold over the seven groups plus these two rows.
 
 ### Precedence (in the prompt)
 
-Rules 1–6 and 10–12 **select the branch** (non-claim, correct, incorrect, thinky, unsettled,
+Rules 1–6 and 10–13 **select the branch** (non-claim, correct, incorrect, thinky, unsettled,
 junk). They are applied first, top-down, and the first one that fits wins. Rule 2 (established
 spans) is checked before rule 1, so the judge disputes an established span rather than calling it
 a non-claim. Rules 7–9 **order the leaves within a branch** and apply only after the branch is
-fixed. The prompt lists them in this order: 2, 1, 3, 4, 5, 6, 10, 11, 12, then 7, 8, 9.
+fixed. The prompt lists them in this order: 2, 1, 3, 4, 5, 6, 10, 11, 12, 13, then 7, 8, 9.
 
 1. **Non-claim vs claim.** A segment is a claim if it commits to anything concrete about the
    conversation, the model, or the world.
@@ -132,7 +134,7 @@ fixed. The prompt lists them in this order: 2, 1, 3, 4, 5, 6, 10, 11, 12, then 7
    text is an implicit prediction of the response and is judged by rules 7 and 9:
    - `restates_prefix` or `stated_after` if the response says it;
    - `unrealised_prediction` if it is plausible but the response does not say it;
-   - incorrect if the text rules it out.
+   - incorrect if the text before the marker rules it out.
 
    It is **not** `model_state`, even though it is in the first person.
 4. **Claims about the model's own beliefs or intent, or that frame the conversation as a test,
@@ -141,7 +143,8 @@ fixed. The prompt lists them in this order: 2, 1, 3, 4, 5, 6, 10, 11, 12, then 7
    text ("the model is about to apologise") is a prediction and goes to rules 3 and 10:
    `stated_after` if realised, `unrealised_prediction` if not.
    Descriptions of format, genre or setting ("Q&A on an educational platform") are ordinary
-   claims about the conversation: rules 5 and 10 apply, so an invented setting is `false_claim`.
+   claims about the conversation: an invented setting **asserted flatly** is `false_claim` (rule
+   10); a hedged one follows rule 12.
 5. **A claim about this conversation is never `off_topic`** (v5c's rule). Its branch is set by
    rules 6, 10 and 12.
 6. **Conversation vs world.** The conversation wins for claims about the conversation and its
@@ -169,7 +172,7 @@ fixed. The prompt lists them in this order: 2, 1, 3, 4, 5, 6, 10, 11, 12, then 7
       are thinky stuff").
     - A prediction that the text before the marker rules out is incorrect.
     - A prediction that is implausible but not ruled out is `other_on_topic`.
-11. **Echoes.** A literal copy of the prompt's or the response's words that asserts nothing (an
+11. **Echoes** (a clarification of rule 1). A literal copy of the prompt's or the response's words that asserts nothing (an
     s3d sample that just repeats "I'd be delighted to") is `filler`. Any assertion about the
     content ("the user asks who your partner is") is a claim: `restates_prefix` or
     `stated_after`.
@@ -179,6 +182,9 @@ fixed. The prompt lists them in this order: 2, 1, 3, 4, 5, 6, 10, 11, 12, then 7
     When it is explicitly hedged as an inference ("likely", "probably", "may be", "seems"), it is
     `other_on_topic` by default: the lens is guessing, not asserting. Dev and held-out each
     carry one anchor for each side.
+13. **Topic fallback.** A claim that rules 2–12 have not placed in the correct, incorrect or thinky
+    branch is `ambiguous_topic` if it cannot be told whether it refers to this conversation or a
+    subject it raises, and `off_topic` if it clearly does not.
 
 ### Detail rule [pending Camila: §Open decisions 2]
 
@@ -261,7 +267,9 @@ Established spans are v5c's verified `wrong` strings, **revoked or not**, becaus
 headline is unrevoked. Overlapping or nested wrong strings in the same readout are merged into
 one span before splitting. The judge may split an established unit, but at least one sub-span
 must be `incorrect.*`. Otherwise every non-incorrect sub-span of that unit is forced to
-`unknown_incorrect`. `dispute` is set per segment (unit or split), and so is `alt_leaf`. Code locates each one in its readout with `locate` (first unused
+`unknown_incorrect`; the `rest` part counts as a sub-span for this rule. A disputed sub-span is
+scored as disputed, not as forced. `dispute` and `alt_leaf` are set per segment (unit or split).
+Code locates each established span in its readout with `locate` (first unused
 occurrence, left to right), and the splitter makes it its own unit (§Units). An established span
 that cannot be located is counted (`n_unlocated_established`), and the judge treats it as
 ordinary text. Every established unit must get an `incorrect.*` leaf, unless the judge sets
