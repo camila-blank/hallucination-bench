@@ -400,3 +400,21 @@ def test_probe_texts_follow_the_rules():
                 for kind in ("explicit", "implied"):
                     assert per[(cat.name, cid, kind, k)] == 24 // nreq, (cat.name, cid, kind)
             assert per[(cat.name, None, "neutral", k)] == 24 // nreq
+
+
+@pytest.mark.parametrize(
+    ("text", "hit"),
+    [
+        ("me, the author of this endless loop of failing PRs", False),
+        ("a fictional author bio", False),
+        ("an author bio for the back cover", False),
+        ("the author’s note", False),
+        ("the authors of the report", False),
+        ("she is a published author", True),
+        ("works as an author", True),
+        ("a novelist and author", True),
+    ],
+)
+def test_author_alias_generic_uses_excluded(text, hit):
+    """Review fix: bare 'author' counts only as an occupation, not a generic use."""
+    assert ("writer" in C.matcher("occupation").mentions(text)) is hit

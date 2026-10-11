@@ -658,6 +658,17 @@
       "作家"
      ],
      "exclude": {
+      "author": [
+       "author of",
+       "author bio",
+       "the author",
+       "author's"
+      ],
+      "authors": [
+       "authors of",
+       "the authors",
+       "authors'"
+      ],
       "作家": []
      },
      "token_aliases": [

@@ -10,7 +10,7 @@ Vocabulary (one category, one layer L):
   ``from_last_sentence_start`` positions, aligned across rows by **offset from the end**
   (``offset = n_pos - 1 - pos``; 0 = the last template token);
 * **folds**: every text of the category (all concepts AND the neutral texts) gets one seeded fold
-  id in ``0..n_folds-1``, balanced by (concept, ending) (:func:`assign_folds`);
+  id in ``0..n_folds-1``, balanced by (concept, ending, kind) (:func:`assign_folds`);
 * **fold model k** (:func:`fit_fold`) is fitted on the concept texts outside fold k only:
   ``d_c`` = mean of c's per-text window means - the equal-weighted mean of the other concepts'
   per-concept means; ``mu[e, o]`` = equal-weighted mean over concepts of the training residuals at
@@ -123,14 +123,21 @@ def assign_folds(
     seed: int = FOLD_SEED,
     salt: str = "",
 ) -> dict[str, int]:
-    """Seeded fold id per text id, balanced by (concept, ending): inside each stratum the texts
-    are permuted and dealt round-robin, starting where the previous stratum stopped (so the
-    fold totals differ by at most one). ``texts`` rows carry ``id``, ``concept`` (None for
-    neutral) and ``request_idx``. ``salt`` (the category name) decorrelates categories."""
-    strata: dict[tuple[str, int], list[str]] = {}
+    """Seeded fold id per text id, balanced by (concept, ending, kind): inside each stratum the
+    texts are permuted and dealt round-robin, starting where the previous stratum stopped.
+    Strata are dealt in sorted order, so the strata of one (concept, ending) are consecutive and
+    the (concept, ending) and fold totals also differ by at most one; each fold gets ~equal
+    implied (and explicit) texts per concept. ``texts`` rows carry ``id``, ``concept`` (None for
+    neutral), ``request_idx`` and ``kind`` (missing -> ''). ``salt`` (the category name)
+    decorrelates categories."""
+    strata: dict[tuple[str, int, str], list[str]] = {}
     for t in texts:
         c = t.get("concept")
-        k = ("\0neutral" if c is None else str(c), int(t["request_idx"]))  # type: ignore[arg-type]
+        k = (
+            "\0neutral" if c is None else str(c),
+            int(t["request_idx"]),  # type: ignore[arg-type]
+            str(t.get("kind") or ""),
+        )
         strata.setdefault(k, []).append(str(t["id"]))
     rng = np.random.default_rng([seed, zlib.crc32(salt.encode())])
     out: dict[str, int] = {}

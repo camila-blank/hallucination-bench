@@ -172,7 +172,7 @@ uv run hbench sibling report                     # -> outputs/sibling/score/repo
   layers' eval positions, fp16): the `wsbench-acts` volume costs ~0.5 s per file open, so a
   per-layer re-read of the 5,064 probe files is far slower. Outputs also land on the
   `sibling-probes` volume (`/<run>/`); `hbench sibling probes --fetch --run <run>` re-gets them.
-- **Folds** are per category, seeded (`probes.assign_folds`, salt = category); eval cells are
+- **Folds** are per category, seeded, balanced by (concept, ending, kind) (`probes.assign_folds`, salt = category; run `sibling-v2` on; `outputs/sibling/probes_v1/` = the old (concept, ending) folds); eval cells are
   scored by all 4 fold models and indicators / z are averaged. `eval_scores.jsonl.gz` has one
   row per (id, layer, pos, concept); `det_*` are fold-averaged shares (0, .25, ... 1).
 - **J-lens unmentioned** needs a summary, so `judge` summarises every J-lens cell by default

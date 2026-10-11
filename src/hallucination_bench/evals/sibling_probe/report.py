@@ -239,35 +239,63 @@ def markdown(summary: Mapping[str, Any]) -> str:
         L += [
             "",
             "| threshold | det(M) | det(U_matched) | ceiling | halluc rate | macro | "
-            "user-scope rate |",
-            "|---|---|---|---|---|---|---|",
+            "macro (adjudicable) | user-scope rate |",
+            "|---|---|---|---|---|---|---|---|",
         ]
         for th in ("tau_cat", "tau_cg", "tau_neutral", "tau_cg_all"):
             d, h = s["detection"][th], s["halluc"][th]
             L.append(
                 f"| {th} | {_fmt(d['M'])} | {_fmt(d['U_matched'])} | {_fmt(d['ceiling'])} | "
                 f"{_fmt(h['all']['rate'])} | {_fmt(h['all'].get('macro'))} | "
+                f"{_fmt(h['all'].get('macro_adjudicable'))} | "
                 f"{_fmt(h['scope_user']['rate'])} |"
             )
         am = s["halluc_all_mentions"]
         L.append(
             f"| all sibling mentions (τ_cat) | | | {_fmt(am['ceiling'])} | "
-            f"{_fmt(am['rate'])} | {_fmt(am.get('macro'))} | |"
+            f"{_fmt(am['rate'])} | {_fmt(am.get('macro'))} | | |"
         )
+        cg = s.get("category_gates") or {}
         L += [
             "",
-            "| category | halluc τ_cat | ceiling | floor | halluc τ(c|g) |",
-            "|---|---|---|---|---|",
+            "A category is adjudicable if at least 50% of its (concept, layer) probes at this "
+            "arm's layers pass both gates; otherwise its probes are too weak to adjudicate.",
+            "",
+            "| category | halluc τ_cat | ceiling | floor | halluc τ(c|g) | gate pass share | "
+            "adjudicable |",
+            "|---|---|---|---|---|---|---|",
         ]
         hc, hg = (
             s["halluc"]["tau_cat"]["all"]["by_category"],
             s["halluc"]["tau_cg"]["all"]["by_category"],
         )
         for cat in sorted(hc):
+            gi = cg.get(cat) or {}
+            adj = gi.get("adjudicable")
+            flag = "–" if adj is None else ("yes" if adj else "probes too weak to adjudicate")
             L.append(
                 f"| {cat} | {_fmt(hc[cat]['rate'])} | {_fmt(hc[cat]['ceiling'])} | "
-                f"{_fmt(hc[cat]['floor'])} | {_fmt((hg.get(cat) or {}).get('rate'))} |"
+                f"{_fmt(hc[cat]['floor'])} | {_fmt((hg.get(cat) or {}).get('rate'))} | "
+                f"{gi.get('pass_share', '–')} | {flag} |"
             )
+        pt = s.get("pair_table") or []
+        if pt:
+            L += [
+                "",
+                f"Top {len(pt)} (gold → sibling) pairs by eligible M pairs (means over eligible "
+                "pairs of fold-averaged detection and z(c|g); sibling gates = the sibling probe "
+                "passes both gates at every layer where the pair has an M pair):",
+                "",
+                "| category | gold → sibling | n | n M (all) | items | det τ_cat | det τ(c|g) | "
+                "mean z(c|g) | sibling gates |",
+                "|---|---|---|---|---|---|---|---|---|",
+            ]
+            for r in pt:
+                L.append(
+                    f"| {r['category']} | {r['gold']} → {r['sibling']} | {r['n']} | "
+                    f"{r['n_M_all']} | {r['n_items']} | {r['det_cat']} | {r['det_cg']} | "
+                    f"{r['z_mean']} | {r['sibling_gates_all_layers']} |"
+                )
         bl = s["halluc"]["tau_cat"]["by_leaf"]
         if bl:
             L += ["", "| leaf | halluc τ_cat |", "|---|---|"]

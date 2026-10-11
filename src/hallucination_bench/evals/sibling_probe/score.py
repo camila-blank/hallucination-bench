@@ -169,11 +169,15 @@ def transfer_auroc(
     concepts: Mapping[str, Sequence[str]],
 ) -> dict[tuple[str, str, int], float]:
     """(category, concept, layer) -> AUROC of the fold-averaged score s_c at c-gold items' cells
-    vs the other-gold items' cells of the category (same layer); NaN if a side is empty."""
+    vs the other-gold items' cells of the category (same layer); NaN if a side is empty. An item
+    whose gold is named in its prompt is not a positive for its gold (the prompt, not the
+    implication, would carry the concept); it stays a negative for the other concepts."""
     by: dict[tuple[str, str, int], tuple[list[float], list[float]]] = defaultdict(lambda: ([], []))
     for (iid, layer, _pos, c), v in scores.items():
         it = items.get(iid)
         if it is None:
+            continue
+        if it["gold"] == c and c in set(it.get("named") or ()):
             continue
         side = 0 if it["gold"] == c else 1
         by[(it["category"], c, layer)][side].append(v[0])
@@ -218,6 +222,16 @@ class Gates:
             return "transfer"
         return None
 
+    def pass_share(self, cat: str, layers: Iterable[int] | None = None) -> float:
+        """Share of the category's (concept, layer) probes passing both gates (eligible), over
+        ``layers`` (default: every layer with a validity entry); NaN if there are none."""
+        Ls = sorted(set(layers)) if layers is not None else None
+        if Ls is None:
+            Ls = sorted({k[2] for k in self.validity if k[0] == cat})
+        cs = self.concepts.get(cat, [])
+        n = len(cs) * len(Ls)
+        return sum(self.eligible(cat, c, L) for c in cs for L in Ls) / n if n else float("nan")
+
     def table(self) -> list[dict[str, Any]]:
         rows = []
         for cat, cs in self.concepts.items():
@@ -259,6 +273,7 @@ class Pairs:
     pos: np.ndarray
     offset: np.ndarray
     cell: np.ndarray  # cell index
+    gold: np.ndarray  # str (the item's gold)
     concept: np.ndarray  # str
     cls: np.ndarray  # str
     leaf: np.ndarray  # str ('' when none)
@@ -281,6 +296,7 @@ class Pairs:
             pos=self.pos[m],
             offset=self.offset[m],
             cell=self.cell[m],
+            gold=self.gold[m],
             concept=self.concept[m],
             cls=self.cls[m],
             leaf=self.leaf[m],
@@ -295,7 +311,8 @@ class Pairs:
 
 @dataclass
 class Golds:
-    """One row per cell: the gold probe at its own item's cell."""
+    """One row per cell: the gold probe at its own item's cell (cells of items whose gold is
+    named in the prompt are left out)."""
 
     item: np.ndarray
     cat: np.ndarray
@@ -325,6 +342,8 @@ def build_pairs(
         for c in concepts[cat]:
             v = scores.get((r["id"], L, pos, c), nan)
             if c == r["gold"]:
+                if c in set(r.get("named") or ()):
+                    continue  # gold named in the prompt: no gold-mention / ceiling row
                 gcols["item"].append(it)
                 gcols["cat"].append(cat)
                 gcols["layer"].append(L)
@@ -345,6 +364,7 @@ def build_pairs(
             cols["pos"].append(pos)
             cols["offset"].append(int(r["offset"]))
             cols["cell"].append(ci)
+            cols["gold"].append(r["gold"])
             cols["concept"].append(c)
             cols["cls"].append(cls)
             cols["leaf"].append(leaf or "")
@@ -367,6 +387,7 @@ def build_pairs(
         pos=arr(cols, "pos", np.int64),
         offset=arr(cols, "offset", np.int64),
         cell=arr(cols, "cell", np.int64),
+        gold=arr(cols, "gold", object),
         concept=arr(cols, "concept", object),
         cls=arr(cols, "cls", object),
         leaf=arr(cols, "leaf", object),
@@ -643,10 +664,18 @@ def _rate(ci: dict[str, Any]) -> dict[str, Any]:
 
 
 def halluc_rows(
-    p: Pairs, g: Golds, W: np.ndarray, mask_m: np.ndarray, u_mask: np.ndarray, th: str
+    p: Pairs,
+    g: Golds,
+    W: np.ndarray,
+    mask_m: np.ndarray,
+    u_mask: np.ndarray,
+    th: str,
+    adjudicable: Mapping[str, bool] | None = None,
 ) -> dict[str, Any]:
     """Probe-verified hallucination rate under threshold ``th`` over ``mask_m`` pairs: overall,
-    per category, macro over categories, with ceiling and floor."""
+    per category, macro over categories, with ceiling and floor. With ``adjudicable`` (category
+    -> flag), each category row carries the flag and ``macro_adjudicable`` is the macro over the
+    flagged categories only."""
     field = THRESHOLDS[th]
     cfield = CEILING_FIELD[th]
     cats = sorted(set(p.cat[mask_m].tolist()))
@@ -664,6 +693,7 @@ def halluc_rows(
         per_cat_est.append(est)
         per_cat_boot.append(b)
         out["by_category"][c] = {
+            "adjudicable": None if adjudicable is None else bool(adjudicable.get(c, False)),
             "rate": _ci(est, b, int(ok.sum())),
             "ceiling": ceiling_ci(g, cfield, W, cats=[c]),
             "floor": _det_ci(p, u_mask & (p.cat == c), field, W),
@@ -672,6 +702,15 @@ def halluc_rows(
         with np.errstate(all="ignore"):
             mb = np.nanmean(np.stack(per_cat_boot), axis=0)
         out["macro"] = _ci(float(np.nanmean(per_cat_est)), mb, len(cats))
+        if adjudicable is not None:
+            keep = [i for i, c in enumerate(cats) if adjudicable.get(c, False)]
+            if keep:
+                with np.errstate(all="ignore"):
+                    mba = np.nanmean(np.stack([per_cat_boot[i] for i in keep]), axis=0)
+                est_a = float(np.nanmean([per_cat_est[i] for i in keep]))
+            else:
+                est_a, mba = float("nan"), np.full(W.shape[0], np.nan)
+            out["macro_adjudicable"] = _ci(est_a, mba, len(keep))
     return out
 
 
@@ -679,8 +718,78 @@ def u_matched_mask(p: Pairs) -> np.ndarray:
     return matched_sample(p) & (p.cls == "unmentioned")
 
 
-def arm_summary(p: Pairs, g: Golds, *, n_boot: int = N_BOOT, seed: int = BOOT_SEED) -> dict:
+ADJUDICABLE_MIN_SHARE = 0.5  # review fix: below this (concept, layer) pass share -> too weak
+N_PAIR_TABLE = 25
+
+
+def category_gates(gates: Gates, p: Pairs) -> dict[str, dict[str, Any]]:
+    """Per category: the (concept, layer) pass share over the layers of the arm's cells, and
+    ``adjudicable`` = share >= 50% (else the probes are too weak to adjudicate)."""
+    out = {}
+    for cat in sorted(gates.concepts):
+        Ls = sorted(set(p.layer[p.cat == cat].tolist()))
+        share = gates.pass_share(cat, Ls) if Ls else float("nan")
+        out[cat] = {
+            "layers": Ls,
+            "pass_share": _r(share),
+            "adjudicable": bool(share >= ADJUDICABLE_MIN_SHARE),
+        }
+    return out
+
+
+def pair_table(
+    p: Pairs, m: np.ndarray, gates: Gates | None = None, top: int = N_PAIR_TABLE
+) -> list[dict[str, Any]]:
+    """The ``top`` (category, gold -> sibling) pairs by number of eligible M pairs ``m``: n,
+    plain means over those pairs of the fold-averaged detection (tau_cat, tau(c|g)) and of
+    z(c|g); ``sibling_gates_all_layers`` = the sibling's probe passes both gates at every layer
+    where this (gold, sibling) has an M pair (eligible or not; None without ``gates``)."""
+    m_all = p.cls == "M"
+    keys = Counter(zip(p.cat[m].tolist(), p.gold[m].tolist(), p.concept[m].tolist(), strict=True))
+    rows = []
+    for (cat, gold, c), n in sorted(keys.items(), key=lambda kv: (-kv[1], kv[0]))[:top]:
+        sel = m & (p.cat == cat) & (p.gold == gold) & (p.concept == c)
+        sel_all = m_all & (p.cat == cat) & (p.gold == gold) & (p.concept == c)
+        layers_all = sorted(set(p.layer[sel_all].tolist()))
+
+        def mean(f: str, sel: np.ndarray = sel) -> float | None:
+            x = p.vals[f][sel]
+            x = x[np.isfinite(x)]
+            return _r(float(x.mean())) if x.size else None
+
+        rows.append(
+            {
+                "category": cat,
+                "gold": gold,
+                "sibling": c,
+                "n": int(n),
+                "n_M_all": int(sel_all.sum()),
+                "n_items": int(np.unique(p.item[sel]).size),
+                "layers": sorted(set(p.layer[sel].tolist())),
+                "det_cat": mean("det_cat"),
+                "det_cg": mean("det_cg"),
+                "z_mean": mean("z"),
+                "sibling_gates_all_layers": (
+                    None
+                    if gates is None
+                    else all(gates.concept_pass(cat, c, L) for L in layers_all)
+                ),
+            }
+        )
+    return rows
+
+
+def arm_summary(
+    p: Pairs,
+    g: Golds,
+    *,
+    n_boot: int = N_BOOT,
+    seed: int = BOOT_SEED,
+    gates: Gates | None = None,
+) -> dict:
     W = boot_weights(len(p.items), n_boot, seed)
+    cg = category_gates(gates, p) if gates is not None else None
+    adj = {k: v["adjudicable"] for k, v in cg.items()} if cg is not None else None
     sib_mention = np.isin(p.cls, list(MENTION_CLASSES))
     m_all = p.cls == "M"
     m = m_all & p.eligible
@@ -736,7 +845,7 @@ def arm_summary(p: Pairs, g: Golds, *, n_boot: int = N_BOOT, seed: int = BOOT_SE
             }
         out["detection"][th] = det
         out["halluc"][th] = {
-            "all": halluc_rows(p, g, W, m, u, th),
+            "all": halluc_rows(p, g, W, m, u, th, adj),
             "scope_user": halluc_rows(p, g, W, m & (p.scope == "user"), u, th),
             "by_leaf": {
                 lf: _rate(_det_ci(p, m & (p.leaf == lf), field, W))
@@ -746,6 +855,8 @@ def arm_summary(p: Pairs, g: Golds, *, n_boot: int = N_BOOT, seed: int = BOOT_SE
     # all sibling mentions, judge verdict ignored (tau_cat)
     out["halluc_all_mentions"] = halluc_rows(p, g, W, sib_mention & p.eligible, u, "tau_cat")
     out["strong"] = strong_criterion(p, g, W, m, u)
+    out["category_gates"] = cg
+    out["pair_table"] = pair_table(p, m, gates)
     _it, zm, zu, _, cats = test2_cells(p)
     out["test2_points"] = [
         [_r(a, 3), _r(b, 3), c] for a, b, c in zip(zm.tolist(), zu.tolist(), cats, strict=True)
@@ -889,16 +1000,18 @@ def score_all(
     for arm, cells in arm_cells.items():
         p, g = build_pairs(cells, concepts, token_eligible, scores, gates, item_order)
         log(f"[score] {arm}: {len(p)} sibling pairs, {int((p.cls == 'M').sum())} M")
-        out["arms"][arm] = arm_summary(p, g, n_boot=n_boot, seed=seed)
+        out["arms"][arm] = arm_summary(p, g, n_boot=n_boot, seed=seed, gates=gates)
         if arm in (PRIMARY, SECONDARY):
             te = p.token_eligible
             out["arms"][f"{arm}@token_eligible"] = arm_summary(
-                p.subset(te), g, n_boot=n_boot, seed=seed
+                p.subset(te), g, n_boot=n_boot, seed=seed, gates=gates
             )
             # plan rev 10 robustness row: probes passing the original 0.85 validity gate
             strict = replace(gates, min_validity=VALIDITY_STRICT_AUROC)
             ps, gs = build_pairs(cells, concepts, token_eligible, scores, strict, item_order)
-            out["arms"][f"{arm}@validity085"] = arm_summary(ps, gs, n_boot=n_boot, seed=seed)
+            out["arms"][f"{arm}@validity085"] = arm_summary(
+                ps, gs, n_boot=n_boot, seed=seed, gates=strict
+            )
     out["verdict"] = verdict_table(out["arms"])
     return out
 

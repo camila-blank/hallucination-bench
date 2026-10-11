@@ -232,7 +232,17 @@ INVENTORY: dict = {
                 "writer",
                 False,
                 ["writer", "writers", "author", "authors", "novelist", "作家"],
-                {},
+                # generic (non-occupation) uses: "the author of this loop", "author bio";
+                # not "fictional author" (probe text "invent a fictional author" is an occupation)
+                {
+                    "author": [
+                        "author of",
+                        "author bio",
+                        "the author",
+                        "author's",
+                    ],
+                    "authors": ["authors of", "the authors", "authors'"],
+                },
             ),
             (
                 "hacker",

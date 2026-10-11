@@ -635,3 +635,109 @@ def test_score_all_and_report_end_to_end(tmp_path):
     res = R.write_report(tmp_path, tmp_path / "plots")
     assert (tmp_path / "report.md").read_text().startswith("# Plan 0003")
     assert len(res["plots"]) >= 3
+
+
+def test_assign_folds_balanced_by_kind():
+    """Review fix: every fold gets ~equal implied (and explicit) texts per concept."""
+    meta = [
+        {"id": f"t{c}_{kind}_{j}", "concept": c, "request_idx": j % 2, "kind": kind}
+        for c in range(3)
+        for kind, n in (("explicit", 10), ("implied", 6))
+        for j in range(n)
+    ] + [
+        {"id": f"n{j}", "concept": None, "request_idx": j % 2, "kind": "neutral"} for j in range(9)
+    ]
+    f = P.assign_folds(meta, salt="cat")
+    for c in range(3):
+        for kind in ("explicit", "implied"):
+            ids = [m["id"] for m in meta if m["concept"] == c and m["kind"] == kind]
+            cnt = np.bincount([f[i] for i in ids], minlength=4)
+            assert cnt.max() - cnt.min() <= 2, (c, kind, cnt)
+            for e in (0, 1):
+                sub = [m["id"] for m in meta if m["concept"] == c and m["kind"] == kind]
+                sub = [i for i in sub if next(m for m in meta if m["id"] == i)["request_idx"] == e]
+                cnt = np.bincount([f[i] for i in sub], minlength=4)
+                assert cnt.max() - cnt.min() <= 1, (c, kind, e, cnt)
+        ids = [m["id"] for m in meta if m["concept"] == c]
+        cnt = np.bincount([f[i] for i in ids], minlength=4)
+        assert cnt.max() - cnt.min() <= 1
+    tot = np.bincount(list(f.values()), minlength=4)
+    assert tot.max() - tot.min() <= 1
+
+
+def test_named_gold_excluded_from_golds_and_transfer_positives():
+    """Review fix: an item whose gold is named in its prompt adds no gold-mention / ceiling row
+    and is not a transfer positive for its gold; it stays a negative for other concepts."""
+    cells, scores, items, concepts = synth_arm(effect=1.0, n_items=6)
+    for r in cells:
+        if r["id"] == "i0":
+            r["named"] = ["g0"]
+    p, g = S.build_pairs(cells, concepts, {}, scores, all_pass_gates(concepts), sorted(items))
+    i0 = sorted(items).index("i0")
+    assert not np.isin(i0, g.item).any()
+    assert np.isin(i0, p.item).any()  # its sibling pairs are kept
+    assert g.item.size == sum(r["id"] != "i0" for r in cells)
+    items = {
+        "x": {"category": "cat", "gold": "a", "named": ["a"]},
+        "y": {"category": "cat", "gold": "b", "named": []},
+        "w": {"category": "cat", "gold": "a", "named": []},
+    }
+    scores = {
+        ("x", 1, 0, "a"): (5.0,),
+        ("w", 1, 0, "a"): (0.5,),
+        ("y", 1, 0, "a"): (1.0,),
+        ("x", 1, 0, "b"): (2.0,),
+        ("w", 1, 0, "b"): (0.0,),
+        ("y", 1, 0, "b"): (1.0,),
+    }
+    t = S.transfer_auroc(scores, items, {"cat": ["a", "b"]})
+    assert t[("cat", "a", 1)] == 0.0  # positives = w only (x dropped): 0.5 < 1.0
+    assert t[("cat", "b", 1)] == 0.5  # x stays a negative for b: 1.0 vs {2.0, 0.0}
+
+
+def test_pair_table_and_adjudicable_macro():
+    cells, scores, _items, concepts = synth_arm(effect=1.0, n_items=12)
+    concepts2 = {"cat": concepts["cat"], "weak": ["w0", "w1"]}
+    gates = S.Gates(
+        {("cat", c, L): 1.0 for c in concepts["cat"] for L in (1, 2)}
+        | {("weak", c, L): 0.5 for c in ("w0", "w1") for L in (1, 2)},
+        {("cat", c, L): 1.0 for c in concepts["cat"] for L in (1, 2)}
+        | {("weak", c, L): 1.0 for c in ("w0", "w1") for L in (1, 2)},
+        concepts2,
+    )
+    assert gates.pass_share("cat") == 1.0 and gates.pass_share("weak") == 0.0
+    p, g = S.build_pairs(cells, concepts, {}, scores, gates)
+    s = S.arm_summary(p, g, n_boot=50, seed=0, gates=gates)
+    assert s["category_gates"]["cat"] == {"layers": [1, 2], "pass_share": 1.0, "adjudicable": True}
+    h = s["halluc"]["tau_cat"]["all"]
+    assert h["by_category"]["cat"]["adjudicable"] is True
+    assert h["macro_adjudicable"]["est"] == h["macro"]["est"]
+    m = (p.cls == "M") & p.eligible
+    pt = s["pair_table"]
+    assert [r["n"] for r in pt] == sorted((r["n"] for r in pt), reverse=True)
+    assert sum(r["n"] for r in pt) == int(m.sum())
+    r = pt[0]
+    sel = m & (p.concept == r["sibling"])
+    assert r["gold"] == "g0" and r["sibling_gates_all_layers"] is True
+    assert r["det_cat"] == pytest.approx(p.vals["det_cat"][sel].mean(), abs=1e-4)
+    assert r["z_mean"] == pytest.approx(p.vals["z"][sel].mean(), abs=1e-4)
+    # a category below 50% pass share is flagged and left out of the adjudicable macro
+    weak = S.Gates(
+        {
+            ("cat", c, L): (1.0 if c in ("g0", "s1") or L == 1 else 0.5)
+            for c in concepts["cat"]
+            for L in (1, 2)
+        },
+        {("cat", c, L): 1.0 for c in concepts["cat"] for L in (1, 2)},
+        concepts,
+    )
+    assert weak.pass_share("cat") == 0.75
+    weak.validity |= {("cat", c, 1): 0.5 for c in ("s2", "s3")}
+    assert weak.pass_share("cat") == 0.5
+    weak.validity[("cat", "s1", 1)] = 0.5
+    p2, g2 = S.build_pairs(cells, concepts, {}, scores, weak)
+    s2 = S.arm_summary(p2, g2, n_boot=50, seed=0, gates=weak)
+    assert s2["category_gates"]["cat"]["adjudicable"] is False
+    h2 = s2["halluc"]["tau_cat"]["all"]
+    assert h2["by_category"]["cat"]["adjudicable"] is False
+    assert h2["macro_adjudicable"]["est"] is None and h2["macro_adjudicable"]["n"] == 0
