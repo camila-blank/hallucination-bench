@@ -283,18 +283,20 @@ def markdown(summary: Mapping[str, Any]) -> str:
             L += [
                 "",
                 f"Top {len(pt)} (gold → sibling) pairs by eligible M pairs (means over eligible "
-                "pairs of fold-averaged detection and z(c|g); sibling gates = the sibling probe "
+                "pairs of fold-averaged detection and z(c|g); U = matched unmentioned pairs, same "
+                "item, layer and concept; sibling gates = the sibling probe "
                 "passes both gates at every layer where the pair has an M pair):",
                 "",
                 "| category | gold → sibling | n | n M (all) | items | det τ_cat | det τ(c|g) | "
-                "mean z(c|g) | sibling gates |",
-                "|---|---|---|---|---|---|---|---|---|",
+                "mean z(c|g) | U n | U det τ_cat | U det τ(c|g) | U mean z | sibling gates |",
+                "|---|---|---|---|---|---|---|---|---|---|---|---|---|",
             ]
             for r in pt:
                 L.append(
                     f"| {r['category']} | {r['gold']} → {r['sibling']} | {r['n']} | "
                     f"{r['n_M_all']} | {r['n_items']} | {r['det_cat']} | {r['det_cg']} | "
-                    f"{r['z_mean']} | {r['sibling_gates_all_layers']} |"
+                    f"{r['z_mean']} | {r.get('n_u')} | {r.get('u_det_cat')} | "
+                    f"{r.get('u_det_cg')} | {r.get('u_z_mean')} | {r['sibling_gates_all_layers']} |"
                 )
         bl = s["halluc"]["tau_cat"]["by_leaf"]
         if bl:

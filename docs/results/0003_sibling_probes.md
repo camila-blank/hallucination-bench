@@ -28,10 +28,16 @@ cells (β₁ = 0.27 sd for s3d), and higher than the unmentioned siblings at the
 So **86% of s3d sibling mentions are not backed by a probe-detectable representation**, and
 count as hallucinations by Camila's definition. The rate is 82% for NLA and 72% for J-lens (the
 positive control, which reads the same residual linearly). Close siblings (resentful → angry,
-Osaka → Kyoto, New York → Boston) do fire the lenient threshold 50–80% of the time. But under
-the strict threshold, which asks whether the probe fires more than it does in an ordinary
-gold-concept context, they drop to about 20%. So their detection mostly reflects concepts that
-overlap with the gold everywhere, not something specific to where the lens names them.
+Osaka → Kyoto, New York → Boston) fire the lenient threshold 52–82% of the time, but only about
+20% of the time under the strict, gold-context threshold. Comparing each pair with its own
+matched unmentioned cells (same item, layer and concept) splits them into two kinds:
+
+- **Mention-specific rise:** Osaka → Kyoto (z 0.76 where named vs −0.12 where not) and
+  jealous → angry (0.95 vs 0.12).
+- **Overlap with the gold everywhere:** New York → Boston (0.95 vs 0.81) and hopeful → relieved
+  (1.25 vs 0.97).
+
+Every pair comes from only 2–5 items.
 
 ![probe-verified hallucination rate](../../plots/sibling_probe/halluc_rate.png)
 
@@ -100,25 +106,31 @@ those two rates rest on the few passing probes and are not interpreted.
 
 ## Most frequent sibling pairs (s3d, gate-passing probes)
 
-| gold → sibling | mentions | items | det τ_cat | det τ(c\|g) | mean z(c\|g) |
-|---|---|---|---|---|---|
-| resentful → angry | 43 | 2 | 0.82 | 0.17 | 0.83 |
-| fisherman → musician | 43 | 5 | 0.04 | 0.28 | 1.08 |
-| Osaka → Tokyo | 32 | 2 | 0.08 | 0.02 | −0.21 |
-| Ireland → UK | 28 | 2 | 0.15 | 0.08 | 0.40 |
-| Osaka → Kyoto | 26 | 2 | 0.52 | 0.21 | 0.76 |
-| jealous → angry | 26 | 2 | 0.14 | 0.24 | 0.95 |
-| locksmith → musician | 26 | 5 | 0.04 | 0.21 | 0.75 |
-| artist → musician | 25 | 2 | 0.03 | 0.06 | 0.18 |
-| fisherman → writer | 25 | 5 | 0.00 | 0.01 | −0.30 |
-| New York → Boston | 23 | 2 | 0.59 | 0.20 | 0.95 |
+"Named" = cells where the lens names the sibling (M). "Not named" = the matched unmentioned
+cells of the same item, layer and concept (U_matched).
 
-Most pairs come from 2–5 items, so per-pair rates are anecdotal. The pattern across them:
+| gold → sibling | named n | items | named: det τ_cat / τ(c\|g) / z | not named: det τ_cat / τ(c\|g) / z |
+|---|---|---|---|---|
+| resentful → angry | 43 | 2 | 0.82 / 0.17 / 0.83 | 0.60 / 0.11 / 0.34 |
+| fisherman → musician | 43 | 5 | 0.04 / 0.28 / 1.08 | 0.03 / 0.11 / −0.09 |
+| Osaka → Tokyo | 32 | 2 | 0.08 / 0.02 / −0.21 | 0.10 / 0.03 / −0.28 |
+| Ireland → UK | 28 | 2 | 0.15 / 0.08 / 0.40 | 0.11 / 0.11 / −0.41 |
+| Osaka → Kyoto | 26 | 2 | 0.52 / 0.21 / 0.76 | 0.17 / 0.02 / −0.12 |
+| jealous → angry | 26 | 2 | 0.14 / 0.24 / 0.95 | 0.04 / 0.09 / 0.12 |
+| locksmith → musician | 26 | 5 | 0.04 / 0.21 / 0.75 | 0.01 / 0.03 / −0.31 |
+| artist → musician | 25 | 2 | 0.03 / 0.06 / 0.18 | 0.00 / 0.05 / 0.01 |
+| fisherman → writer | 25 | 5 | 0.00 / 0.01 / −0.30 | 0.01 / 0.03 / −0.40 |
+| New York → Boston | 23 | 2 | 0.59 / 0.20 / 0.95 | 0.47 / 0.24 / 0.81 |
+| hopeful → relieved | 19 | 2 | 0.54 / 0.36 / 1.25 | 0.46 / 0.30 / 0.97 |
 
-- **High τ_cat, low τ(c | g)** (resentful → angry): the sibling is near the gold, and its probe
-  fires in any gold context.
-- **Low τ_cat, positive z** (fisherman → musician): the probe is above its gold-context level
-  but far below detection.
+Reading the table:
+
+- Most pairs show a higher z where named than where not, which is the β₁ effect. The rise
+  rarely carries the probe past detection.
+- Some close siblings score high whether named or not (New York → Boston, hopeful → relieved):
+  the sibling overlaps with the gold everywhere.
+- Others rise mainly where named (Osaka → Kyoto, jealous → angry, the musician pairs).
+- Distant swaps such as fisherman → writer and Osaka → Tokyo show no probe support at all.
 
 ## Caveats
 
@@ -135,8 +147,8 @@ Most pairs come from 2–5 items, so per-pair rates are anecdotal. The pattern a
   uses ("the author of", "author bio"); this removed 25 s3d M pairs. Golds named outright in
   the prompt (5 pilot items) no longer count toward the ceiling or transfer. Folds are
   stratified by explicit / implied text.
-- **Failed cells.** 85 judged cells (0.8%) still failed after 4 attempts, mostly refusals, and
-  are excluded.
+- **Failed cells.** After 4 attempts, 72 judged cells (0.7%) still failed the claim map, mostly
+  refusals, and 13 J-lens summaries failed. All are excluded.
 - **Setup.** The items are user-modelling prompts with an implied attribute, read from the
   request sentence through the template tail at L28/36/44/52 (NLA at L42). Responses are
   Qwen3.6-27B greedy.

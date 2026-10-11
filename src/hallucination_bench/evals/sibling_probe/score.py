@@ -743,13 +743,17 @@ def pair_table(
     """The ``top`` (category, gold -> sibling) pairs by number of eligible M pairs ``m``: n,
     plain means over those pairs of the fold-averaged detection (tau_cat, tau(c|g)) and of
     z(c|g); ``sibling_gates_all_layers`` = the sibling's probe passes both gates at every layer
-    where this (gold, sibling) has an M pair (eligible or not; None without ``gates``)."""
+    where this (gold, sibling) has an M pair (eligible or not; None without ``gates``).
+    ``u_*`` columns: the same means over the pair's matched unmentioned pairs (U_matched: same
+    item, layer and concept, cells that do not mention it), the per-pair baseline."""
     m_all = p.cls == "M"
+    u_all = u_matched_mask(p)
     keys = Counter(zip(p.cat[m].tolist(), p.gold[m].tolist(), p.concept[m].tolist(), strict=True))
     rows = []
     for (cat, gold, c), n in sorted(keys.items(), key=lambda kv: (-kv[1], kv[0]))[:top]:
         sel = m & (p.cat == cat) & (p.gold == gold) & (p.concept == c)
         sel_all = m_all & (p.cat == cat) & (p.gold == gold) & (p.concept == c)
+        sel_u = u_all & (p.cat == cat) & (p.gold == gold) & (p.concept == c)
         layers_all = sorted(set(p.layer[sel_all].tolist()))
 
         def mean(f: str, sel: np.ndarray = sel) -> float | None:
@@ -769,6 +773,10 @@ def pair_table(
                 "det_cat": mean("det_cat"),
                 "det_cg": mean("det_cg"),
                 "z_mean": mean("z"),
+                "n_u": int(sel_u.sum()),
+                "u_det_cat": mean("det_cat", sel_u),
+                "u_det_cg": mean("det_cg", sel_u),
+                "u_z_mean": mean("z", sel_u),
                 "sibling_gates_all_layers": (
                     None
                     if gates is None
