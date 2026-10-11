@@ -1,6 +1,6 @@
 # Plan 0002: claim map (taxonomy v2), an exhaustive, mutually exclusive categorisation of readout content
 
-Issue #3. Author: Camila Blank (planned with Claude), 2026-10-11. Revision 7 (after critiques 1–6).
+Issue #3. Author: Camila Blank (planned with Claude), 2026-10-11. Revision 8 (after critiques 1–7).
 This plan builds on plan 0001 (PR #2): the v5c span and verify port, the taxonomy-v1 classifier,
 and the first full run. It reuses plan 0001's cache layout, client, calibration machinery,
 bootstrap and report unless this plan says otherwise.
@@ -70,7 +70,7 @@ segment
 ├─ non_claim                                                        group: non_claim
 │   ├─ generic        generic description, nothing concrete ("a friendly reply")
 │   ├─ filler         hedges, connectives, repetition, verbatim restatement of the prompt, list scaffolding,
-│   │                 and the framing words of token-bag summaries ("the tokens include…", "suggesting")
+│   │                 and the framing words of token-bag summaries ("the tokens include…")
 │   ├─ formatting     markup, bullets, empty headings, emoji (fragments that assert nothing are filler)
 │   ├─ junk_text      garbled or broken tokens, stray code, byte artifacts
 │   └─ lens_meta      statements about the lens output itself rather than the conversation
@@ -126,13 +126,18 @@ fixed. The prompt lists them in this order: 2, 1, 3, 4, 5, 6, 10, 11, 12, 13, th
 1. **Non-claim vs claim.** A segment is a claim if it commits to anything concrete about the
    conversation, the model, or the world.
    - Token-bag summaries: the framing ("the tokens include X") is `filler`, and a gloss of the
-     tokens is `lens_meta`. The interpretation ("suggesting the passage is about Y") is a claim,
-     judged as usual.
+     tokens is `lens_meta`. The interpretation, including its connective ("suggesting the
+     passage is about Y"), is one claim segment, judged as usual.
+   - Echoes: a literal copy of the prompt's or the response's words that asserts nothing (an
+     s3d sample that just repeats "I'd be delighted to") is `filler`, even in the first person
+     (this is checked before rule 3). Any assertion about the content ("the user asks who your
+     partner is") is a claim.
 2. **Established v5c spans** must be `incorrect` (§Inputs).
 3. **Continuation-style text.** Some readouts are written as the response's own continuation,
    in the first person (O-lens samples: "As an AI, I don't have personal relationships"). Such
    text is an implicit prediction of the response and is judged by rules 7 and 9:
-   - `restates_prefix` or `stated_after` if the response says it;
+   - `restates_prefix` or `stated_after` if the response says it (tag `world_false` if it is false
+     in the world, per rule 6);
    - `unrealised_prediction` if it is plausible but the response does not say it;
    - incorrect if the text before the marker rules it out.
 
@@ -171,19 +176,19 @@ fixed. The prompt lists them in this order: 2, 1, 3, 4, 5, 6, 10, 11, 12, 13, th
    `possible_belief` > `other_on_topic`.
 10. **Framing.**
     - A concrete event or fact **asserted** about the conversation that the conversation does
-      not support is `false_claim` (Camila: "the invented event is a false claim. it's
-      verifiable").
+      not support → the **incorrect** branch (leaf by rule 8: `detail` for invented names or
+      numbers, otherwise usually `false_claim`) (Camila: "the invented event is a false claim.
+      it's verifiable").
     - A claim **framed as anticipation** that is plausible, but that the response does not say,
       is `unrealised_prediction` (Camila: "unrealized predictions are unverifiable on topic, they
       are thinky stuff").
     - A prediction that the text before the marker rules out is incorrect.
-    - A prediction that is implausible but not ruled out is `other_on_topic`.
-11. **Echoes** (a clarification of rule 1). A literal copy of the prompt's or the response's words that asserts nothing (an
-    s3d sample that just repeats "I'd be delighted to") is `filler`. Any assertion about the
-    content ("the user asks who your partner is") is a claim: `restates_prefix` or
-    `stated_after`.
+    - A prediction that is implausible but not ruled out → the thinky branch (rule 9:
+      `possible_belief` if it is world-false, otherwise `other_on_topic`).
+11. **Echoes**: folded into rule 1 (number kept so cross-references stay stable).
 12. **Hedged inferences about the user or setting** **[pending Camila: §Open decisions 5]**.
-    A flat assertion of an unsupported fact about the user or setting is `false_claim` (rule 10).
+    A flat assertion of an unsupported fact about the user or setting → the incorrect branch
+    (rule 10; leaf by rule 8).
     For example, "the user is a child" or "(Scratch-like community)" stated as fact.
     When it is explicitly hedged as an inference ("likely", "probably", "may be", "seems"), it is
     `other_on_topic` by default: the lens is guessing, not asserting. Dev and held-out each
@@ -310,7 +315,9 @@ The schema is
 splits: [{text, leaf, hedged, world_false, cruxy, dispute, alt_leaf|null, pair|null, why}],
 rest_leaf|null}], rationale}`.
 
-- `leaf` is a schema enum of the 19 judge leaves. When `splits` is non-empty, `rest_leaf` is
+- `leaf` is a schema enum of the 19 judge leaves. For a disputed established segment, `leaf` holds
+  an incorrect leaf (the judge's best incorrect reading) and `alt_leaf` holds its preferred
+  non-incorrect leaf. When `splits` is non-empty, `rest_leaf` is
   required and the unit's own `leaf` is ignored.
 - Every unit id must appear exactly once.
   - A missing unit gets `unknown`, which counts as `failed` for that unit, and is counted.
