@@ -10,7 +10,7 @@
 # are re-queued. cells.jsonl is streamed, so memory stays well under the box's 32 GB cap.
 #
 # Monitor:  tail -f logs/run_<timestamp>.log      Attach:  tmux attach -t hbench
-set -euo pipefail
+set -uo pipefail
 cd "$(dirname "$0")/.."
 
 READOUTS_ROOT=${READOUTS_ROOT:-/workspace/wsbench-paper-data/readouts}
@@ -31,12 +31,21 @@ if [[ -z "${HBENCH_IN_TMUX:-}" ]]; then
   exit 0
 fi
 
+# A stage that ends with failed calls exits non-zero; re-run it (cache resume) up to 3 times,
+# then carry on so the report still shows what failed.
+stage() {
+  for attempt in 1 2 3; do
+    uv run hbench run --readouts-root "$READOUTS_ROOT" --arms "$ARMS" --out "$OUT" "$@" && return 0
+    echo "=== $(date -Is) stage exited non-zero (attempt $attempt); resuming"
+  done
+}
+
 echo "=== $(date -Is) stage 1: layer-matched slice (L44 / L42)"
-uv run hbench run --readouts-root "$READOUTS_ROOT" --arms "$ARMS" --layers 42,44 --out "$OUT" "$@"
+stage --layers 42,44 "$@"
 echo "=== $(date -Is) report after stage 1"
 uv run hbench report --out "$OUT"
 echo "=== $(date -Is) stage 2: layers 20,36,48,60 of the 5-layer arms"
-uv run hbench run --readouts-root "$READOUTS_ROOT" --arms "$ARMS" --layers 20,36,48,60 --out "$OUT" "$@"
+stage --layers 20,36,48,60 "$@"
 echo "=== $(date -Is) report after stage 2"
 uv run hbench report --out "$OUT"
 echo "=== $(date -Is) done"
