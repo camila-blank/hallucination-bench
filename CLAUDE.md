@@ -14,7 +14,8 @@ src/hallucination_bench/
   readouts.py     readout contract loader, decode_token, verify_quote, normalize_ws
   summarizer.py   interp-v1 token-bag -> prose prompt (verbatim)
   taxonomy.py     THE taxonomy (single source of truth; rendered into the classifier prompt)
-  taxonomy_v2.py  THE claim-map taxonomy (19 leaves / 7 groups, precedence, open decisions in CHOSEN)
+  taxonomy_v2.py  THE claim-map taxonomy (20 leaves / 8 groups / 6 VERDICTS, precedence, open
+                  decisions in CHOSEN; render(anchored) for single-call vs --anchor v5c)
   units.py        deterministic readout splitter (units R{i}.U{n}) + offset-returning locate
   judges/v5c.py   verbatim v5c span + verify prompts/parsers; claim_lists (quotes, checked vs tally)
   judges/taxonomy_v1.py  classifier prompt, schema, validate, fail-closed parse
@@ -24,7 +25,7 @@ src/hallucination_bench/
   calibrate.py    classifier vs gold cases, Wilson CIs, the held-out gate
   calibrate_v2.py claim map vs unit-level gold (dev_v2 / heldout_v2), the v2 gate
   report.py       cross-arm report, audit samples, pilot-dump
-  report_v2.py    `report --view v2`, substitution_pairs.jsonl, audit_samples_v2.md, pilot-dump-v2
+  report_v2.py    `report --view v2`, probe_candidates.jsonl, audit_samples_v2.md, pilot-dump-v2
   cli.py          hbench run|calibrate|report|pilot-dump|pilot-dump-v2|units-v2
 data/wsbench_chat/   verbatim copies from wsbench-pub @ 92d763e (never edit)
 data/calibration/    dev.jsonl (implementer), heldout.jsonl (blind author only), README (schema + log)
@@ -64,7 +65,8 @@ uv run hbench run --rebuild --readouts-root $R --arms jlens --out outputs   # no
 uv run hbench report --out outputs
 uv run hbench calibrate --split dev
 uv run hbench run ... --skip-classify  &&  uv run hbench pilot-dump --arms a,b --dest x.jsonl
-uv run hbench run ... --stages map     # claim map only (summary + span first if missing)
+uv run hbench run ... --stages map     # claim map, single-call (summary first; span on 10% subsample)
+uv run hbench run ... --stages map --anchor v5c   # plan rev 12: v5c spans as ESTABLISHED units
 uv run hbench report --out outputs --view v2
 uv run hbench calibrate --taxonomy v2 --split dev
 uv run hbench pilot-dump-v2 --arms a,b --dest x.jsonl   # real cells + production units, unlabelled
@@ -103,4 +105,16 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
   failures, including unselected ones (e.g. s3d's 5 old verify failures under `--stages map`).
 - **`:M` cost** is output-heavy (NLA cells ~3.7k output tokens). The system prompt is ~6.6k
   tokens and cached; a burst of concurrent first calls all pay the cache write.
-- `summary_v2.json` is written next to `summary.json` by every rebuild once any cell is mapped.
+- `summary_v2.json` is written next to `summary.json` by every rebuild once any cell is mapped
+  (only layers with `:M` rows enter it).
+- **Claim-map mode** (plan rev 13) lives in `Models.map_anchor` (`none` = single-call default,
+  `v5c` = rev 12) and is written to `arm.json`; `report` rebuilds with it (old `arm.json`
+  without the key = `v5c`). Both modes share the `:M` key; the fingerprints differ, so their
+  cache rows coexist. Single-call cells keep their map even when the span stage has no result
+  (status `pending`); the v5c comparison covers only readouts with a span verdict.
+- **Pre-gate**: every v2 output (`summary_v2.json` config, report, probe_candidates, audit
+  samples) says pre-gate until `outputs/calibration/<model>/heldout_<PROMPT_VERSION>.json` has
+  `gate_passed: true`.
+- Old gold leaf names (`world_true`, `possible_belief`) are renamed on load
+  (`taxonomy_v2.LEAF_RENAMES`); contested-world-claim relabels to `supplementary_unsettled` are
+  manual.

@@ -58,6 +58,7 @@ def _models(args: argparse.Namespace):
         classifier=args.classifier_model,
         effort=_effort(args.effort),
         map_model=getattr(args, "map_model", None),
+        map_anchor=getattr(args, "anchor", None) or "none",
     )
 
 
@@ -73,7 +74,7 @@ def _stages(args: argparse.Namespace) -> list[str]:
     else:
         sel = list(STAGES)
     try:
-        expand_stages(sel)
+        expand_stages(sel, anchor=getattr(args, "anchor", None) or "none")
     except ValueError as e:
         raise SystemExit(str(e)) from None
     return sel
@@ -171,6 +172,7 @@ def _calibrate_v2(args: argparse.Namespace) -> int:
         rpm=args.rpm,
         concurrency=args.concurrency,
         cases_file=Path(args.cases) if args.cases else None,
+        anchor=args.anchor,
     )
     print(calibrate_v2.render_markdown(res))
     sp = res["spend_this_run"]
@@ -193,10 +195,11 @@ def cmd_report(args: argparse.Namespace) -> int:
             rebuild=not args.no_rebuild,
             audit_n=args.audit_n if args.audit_n is not None else 10,
             seed=args.seed,
+            verdict_n=args.audit_verdict_n,
         )
         print(
             f"wrote {root / 'report_v2.md'}, {root / 'report_v2.json'}, "
-            f"{root / 'substitution_pairs.jsonl'}, {root / 'audit_samples_v2.md'}"
+            f"{root / 'probe_candidates.jsonl'}, {root / 'audit_samples_v2.md'}"
         )
         return 0
 
@@ -289,6 +292,16 @@ def _common(p: argparse.ArgumentParser) -> None:
     p.add_argument("--concurrency", type=int, default=64)
 
 
+def _anchor(p: argparse.ArgumentParser) -> None:
+    p.add_argument(
+        "--anchor",
+        choices=("none", "v5c"),
+        default="none",
+        help="claim map: none = single-call (default; no established spans, no verify); "
+        "v5c = plan rev 12 (v5c wrong spans passed as ESTABLISHED units)",
+    )
+
+
 def build_parser() -> argparse.ArgumentParser:
     ap = argparse.ArgumentParser(prog="hbench", description=__doc__)
     sub = ap.add_subparsers(dest="cmd", required=True)
@@ -308,11 +321,14 @@ def build_parser() -> argparse.ArgumentParser:
     r.add_argument("--summarizer-model", default=None)
     r.add_argument("--classifier-model", default=None)
     r.add_argument("--map-model", default=None, help="claim-map (:M) judge (default: judge)")
+    _anchor(r)
     r.add_argument(
         "--stages",
         default=None,
         help="comma-separated stages that may call the API: summary,span,verify,classify,map "
-        "(default: all; dependencies are added, e.g. map runs summary + span first if missing)",
+        "(default: all; dependencies are added: map runs summary first if missing, and span "
+        "only under --anchor v5c; single-call map also calls span on a seeded 10%% item "
+        "subsample for the v5c comparison)",
     )
     r.add_argument("--allow-missing", action="store_true")
     r.add_argument(
@@ -346,6 +362,7 @@ def build_parser() -> argparse.ArgumentParser:
     )
     c.add_argument("--classifier-model", default=None)
     c.add_argument("--map-model", default=None)
+    _anchor(c)
     c.add_argument("--repeats", type=int, default=2)
     c.add_argument("--cases", default=None, help="override the cases file")
     c.set_defaults(fn=cmd_calibrate)
@@ -357,7 +374,8 @@ def build_parser() -> argparse.ArgumentParser:
     rp.add_argument(
         "--view", choices=("v1", "v2"), default="v1", help="v2: the claim-map report (plan 0002)"
     )
-    rp.add_argument("--audit-n", type=int, default=None, help="default 15 (v1) / 10 (v2)")
+    rp.add_argument("--audit-n", type=int, default=None, help="per leaf; default 15 (v1) / 10 (v2)")
+    rp.add_argument("--audit-verdict-n", type=int, default=20, help="v2: audit samples per verdict")
     rp.add_argument("--seed", type=int, default=0)
     rp.set_defaults(fn=cmd_report)
 

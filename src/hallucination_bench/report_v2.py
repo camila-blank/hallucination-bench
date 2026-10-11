@@ -1,24 +1,41 @@
-"""``hbench report --view v2``: the claim-map (taxonomy v2) report, substitution pairs, audit
-samples, and the v2 pilot dump (plan 0002, §Run and §Metrics).
+"""``hbench report --view v2``: the claim-map (taxonomy v2) report, probe candidates, audit
+samples, and the v2 pilot dump (plan 0002, §Run and §Metrics; rev 13 verdict layer).
 
 Writes, under ``outputs/wsbench_chat/<model>/``: ``report_v2.md``, ``report_v2.json``,
-``substitution_pairs.jsonl`` and ``audit_samples_v2.md``. Every arm's ``cells.jsonl`` /
-``summary_v2.json`` is first regenerated from its cache (no API calls), as in the v1 report.
-Prose and token arms get separate tables.
+``probe_candidates.jsonl`` (one row per probe-candidate segment; replaces
+``substitution_pairs.jsonl``) and ``audit_samples_v2.md`` (``verdict_n`` per verdict, then
+``audit_n`` per leaf). Every arm's ``cells.jsonl`` / ``summary_v2.json`` is first regenerated
+from its cache (no API calls), as in the v1 report. Verdict shares and readout-level verdict
+rates are the headline; groups and leaves are the breakdown. Prose and token arms get separate
+tables. Until the held-out gate passes for the current prompt version, every output is
+labelled **pre-gate**.
 """
 
 import json
 import random
+from collections import Counter
 from pathlib import Path
 from typing import Any
 
 from hallucination_bench import taxonomy_v2 as tx
 from hallucination_bench.evals.wsbench_chat import bank
 from hallucination_bench.evals.wsbench_chat.run import Models, rebuild_arm
-from hallucination_bench.evals.wsbench_chat.score_v2 import AGREEMENT, FLAGS, GROUP_ROWS
+from hallucination_bench.evals.wsbench_chat.score_v2 import (
+    AGREEMENT,
+    FLAGS,
+    GROUP_ROWS,
+    VERDICT_FLAGS,
+    VERDICT_ROWS,
+)
 from hallucination_bench.report import _context, arm_dirs, iter_cells, load_arm_json, model_root
 
+PRE_GATE_NOTE = (
+    "**PRE-GATE**: the held-out calibration gate has not passed for this prompt version; "
+    "these numbers are provisional."
+)
 FLAG_TITLES: dict[str, str] = {
+    **{f"verdict_{v}": v for v in VERDICT_ROWS},
+    "verdict_non_claim_only": "all non-claim",
     "hallucination": "hallucination (v2)",
     "hallucination_excl_unknown": "halluc. excl. unknown_incorrect",
     "hallucination_alt": "halluc. disputes re-scored",
@@ -54,7 +71,7 @@ def _table(title: str, head: list[str], rows: list[list[str]]) -> list[str]:
 
 
 def _grow(n: str, b: dict[str, Any], key: str, ci: bool = True, count: str = "n_share_readouts"):
-    return [n, str(b[count]), *(_p(b[key][g], ci) for g in GROUP_ROWS)]
+    return [n, str(b[count]), *(_p(v, ci) for v in b[key].values())]
 
 
 def _rates(b: dict[str, Any], f: str) -> str:
@@ -69,26 +86,96 @@ def _blocks(arms: dict[str, dict[str, Any]]) -> tuple[list, list]:
     return overall, layered
 
 
+def _vrow(n: str, b: dict[str, Any]) -> list[str]:
+    return [
+        n,
+        str(b["n_rate_readouts"]["all"]),
+        *(_p(b["rates"][f]["all"]) for f in VERDICT_FLAGS),
+    ]
+
+
+def is_pre_gate(summaries: dict[str, dict[str, Any]]) -> bool:
+    return any(s["config"].get("pre_gate", True) for s in summaries.values())
+
+
 def build(summaries: dict[str, dict[str, Any]], judge_model: str) -> tuple[str, dict[str, Any]]:
     prose = {a: s for a, s in summaries.items() if s["config"]["kind"] == "prose"}
     tokens = {a: s for a, s in summaries.items() if s["config"]["kind"] == "tokens"}
+    pre_gate = is_pre_gate(summaries)
+    anchors = sorted({s["config"].get("map_anchor", "v5c") for s in summaries.values()})
     md: list[str] = [
-        f"# wsbench_chat claim map (taxonomy v2) — judge {judge_model}",
+        f"# wsbench_chat claim map (taxonomy v2) — judge {judge_model}"
+        + (" — PRE-GATE" if pre_gate else ""),
         "",
+        *([PRE_GATE_NOTE, ""] if pre_gate else []),
+        f"Mode: {', '.join('single-call' if a == 'none' else 'anchor ' + a for a in anchors)}. "
         "Shares in % of readout characters (per-readout shares averaged over readouts; each "
         "readout weighs the same); item-bootstrap 95% CI in brackets (2,000 draws, seed 0). The "
-        "7 groups + `unknown_incorrect` (established v5c spans the judge did not label "
-        "incorrect, or disputed) + `failed` sum to 100. Readout-level rates are over readouts "
-        "of successfully mapped cells: `all` = every non-empty readout, `spec` = v5c-specific "
-        "readouts (plan 0001's denominator).",
+        "6 verdicts + `failed` sum to 100, and so do the 8 groups + `unknown_incorrect` "
+        "(anchored runs only: established v5c spans the judge did not label incorrect, or "
+        "disputed) + `failed`. Readout-level rates are over readouts of successfully mapped "
+        "cells: `all` = every non-empty readout, `spec` = v5c-specific readouts (plan 0001's "
+        "denominator). A readout-level verdict rate is the share of readouts with at least one "
+        "segment of that verdict.",
+        "",
+        "Verdicts: " + "; ".join(f"`{v}` = {', '.join(lv)}" for v, lv in tx.VERDICTS.items()),
         "",
     ]
     group_head = ["arm", "n readouts", *GROUP_ROWS]
+    verdict_head = ["arm", "n readouts", *VERDICT_ROWS]
     for title, arms in (("Prose arms", prose), ("Token arms (judged via the summariser)", tokens)):
         if not arms:
             continue
         overall, layered = _blocks(arms)
         md += [f"## {title}", ""]
+        for t, rows in (("per arm", overall), ("per arm x layer", layered)):
+            md += _table(
+                f"Headline: character-weighted verdict shares, {t}",
+                verdict_head,
+                [_grow(n, b, "char_share_verdict") for n, b in rows],
+            )
+            md += _table(
+                f"Headline: readout-level verdict rates (all readouts), {t}",
+                ["arm", "n readouts", *(FLAG_TITLES[f] for f in VERDICT_FLAGS)],
+                [_vrow(n, b) for n, b in rows],
+            )
+        md += _table(
+            "v2 hallucination rate vs v5c on the same readouts",
+            [
+                "arm",
+                "n compared / n readouts",
+                "v5c rate (compared)",
+                "v2 rate (compared)",
+                "n spec",
+                "v5c hallucination_rate (spec)",
+                "v2 rate (spec)",
+            ],
+            [
+                [
+                    n,
+                    f"{b['v5c_comparison']['n_compared']} / {b['v5c_comparison']['n_readouts']}",
+                    _p(b["v5c_comparison"]["v5c_rate"]),
+                    _p(b["v5c_comparison"]["v2_rate"]),
+                    str(b["n_rate_readouts"]["specific"]),
+                    _p(b["v5c_comparison"]["v5c_rate_specific"]),
+                    _p(b["v5c_comparison"]["v2_rate_specific"]),
+                ]
+                for n, b in layered
+            ],
+        )
+        md += [
+            "`compared` = readouts with both a v5c span verdict and a mapped cell (v5c rate = "
+            "share v5c-`hallucinated`; v2 rate = share with a `hallucination`-verdict segment). "
+            "`spec` = the v5c-specific subset (plan 0001's denominator).",
+            "",
+            "### Breakdown",
+            "",
+        ]
+        md += _table(
+            "Segment-count verdict shares (pooled over segments), per arm",
+            ["arm", "n segments", *VERDICT_ROWS],
+            [_grow(n, b, "seg_share_verdict", False, "n_segments") for n, b in overall],
+        )
         for t, rows in (("per arm", overall), ("per arm x layer", layered)):
             md += _table(
                 f"Character-weighted group shares, {t}",
@@ -110,18 +197,18 @@ def build(summaries: dict[str, dict[str, Any]], judge_model: str) -> tuple[str, 
         )
         md += _table(
             "Readout-level rates, per arm (all / spec)",
-            ["arm", "n all / spec", *(FLAG_TITLES[f] for f in FLAGS)],
+            ["arm", "n all / spec", *(FLAG_TITLES[f] for f in FLAGS if f not in VERDICT_FLAGS)],
             [
                 [
                     n,
                     f"{b['n_rate_readouts']['all']} / {b['n_rate_readouts']['specific']}",
-                    *(_rates(b, f) for f in FLAGS),
+                    *(_rates(b, f) for f in FLAGS if f not in VERDICT_FLAGS),
                 ]
                 for n, b in overall
             ],
         )
         md += _table(
-            "v5c vs v2 on the v5c-specific denominator (same readouts)",
+            "Group-level comparison on the v5c-specific denominator (same readouts)",
             [
                 "arm",
                 "n specific",
@@ -161,7 +248,8 @@ def build(summaries: dict[str, dict[str, Any]], judge_model: str) -> tuple[str, 
         cols = [g for g in (*GROUP_ROWS,) if any(g in v for v in tr.values())]
         md += _table(
             f"{a}: v5c readout class x v2 readout group (first present: hallucination > "
-            "unknown_incorrect > co_activation > thinky > unsettled > correct > junk > non_claim)",
+            "unknown_incorrect > co_activation > supplementary > thinky > unsettled > correct > "
+            "junk > non_claim)",
             ["v5c class", *cols],
             [[k, *(str(v.get(g, 0)) for g in cols)] for k, v in tr.items()],
         )
@@ -207,6 +295,7 @@ def build(summaries: dict[str, dict[str, Any]], judge_model: str) -> tuple[str, 
                 str(h["n_disputed_established"]),
                 str(h["n_unlocated_established"]),
                 str(h["n_missing_pairs"]),
+                f"{h['n_missing_probe_targets']}/{h['n_probe_candidates']}",
                 f"{usd:.2f}",
             ]
         )
@@ -228,12 +317,50 @@ def build(summaries: dict[str, dict[str, Any]], judge_model: str) -> tuple[str, 
             "disputed",
             "unlocated established",
             "missing pairs",
+            "missing probe_target",
             "map spend USD",
         ],
         hrows,
     )
     md += [f"Total `:M` spend (all cached calls): ${total:.2f}", ""]
-    return "\n".join(md), {"judge_model": judge_model, "arms": summaries, "total_map_usd": total}
+    js = {
+        "judge_model": judge_model,
+        "pre_gate": pre_gate,
+        "arms": summaries,
+        "total_map_usd": total,
+    }
+    return "\n".join(md), js
+
+
+def probe_section(rows: list[dict[str, Any]], top: int = 15) -> list[str]:
+    """Probe candidates by leaf, with each leaf's most frequent probe targets."""
+    if not rows:
+        return []
+    by_leaf: dict[str, Counter] = {}
+    for r in rows:
+        by_leaf.setdefault(r["leaf"], Counter())[r["probe_target"] or "(missing)"] += 1
+    md = ["## Probe candidates", "", f"{len(rows)} probe-candidate segments.", ""]
+    md += _table(
+        "Probe candidates by leaf",
+        ["leaf", "n segments", "n missing probe_target", f"top probe targets (of {top})"],
+        [
+            [
+                lf,
+                str(sum(c.values())),
+                str(c.get("(missing)", 0)),
+                "; ".join(f"{t} ({n})" for t, n in c.most_common(5) if t != "(missing)"),
+            ]
+            for lf in tx.PROBE_CANDIDATE_LEAVES
+            if (c := by_leaf.get(lf))
+        ],
+    )
+    allc = Counter(r["probe_target"] for r in rows if r["probe_target"])
+    md += _table(
+        "Top probe targets overall",
+        ["probe_target", "n segments"],
+        [[t, str(n)] for t, n in allc.most_common(top)],
+    )
+    return md
 
 
 def _segments(rec: dict[str, Any]) -> list[dict[str, Any]]:
@@ -241,73 +368,112 @@ def _segments(rec: dict[str, Any]) -> list[dict[str, Any]]:
     return m["segments"] if m and rec.get("stages", {}).get("map") in ("ok", "failed") else []
 
 
-def substitution_pairs(dirs: list[Path]) -> list[dict[str, Any]]:
+def probe_candidates(dirs: list[Path], *, pre_gate: bool = True) -> list[dict[str, Any]]:
+    """One row per probe-candidate segment (``taxonomy_v2.PROBE_CANDIDATE_LEAVES``, scored
+    leaf): ``{arm, layer, item, pos, leaf, probe_target, actual|null, segment, readout}`` plus
+    provenance. ``actual`` is the substitution pair's actual object."""
     out = []
     for d in dirs:
         for rec in iter_cells(d):
             for s in _segments(rec):
-                if s["raw_leaf"] in tx.SUBSTITUTION_LEAVES:
-                    out.append(
-                        {
-                            "arm": d.name,
-                            "key": rec["key"],
-                            "layer": rec["layer"],
-                            "unit": s["unit"],
-                            "text": s["text"],
-                            "leaf": s["leaf"],
-                            "raw_leaf": s["raw_leaf"],
-                            "status": s["status"],
-                            "established": s["established"],
-                            "cruxy": s["cruxy"],
-                            "pair": s["pair"],
-                            "why": s["why"],
-                        }
-                    )
+                if s["leaf"] not in tx.PROBE_CANDIDATE_LEAVES:
+                    continue
+                pair = s.get("pair") or None
+                out.append(
+                    {
+                        "arm": d.name,
+                        "layer": rec["layer"],
+                        "item": rec["id"],
+                        "pos": rec["pos"],
+                        "leaf": s["leaf"],
+                        "probe_target": s.get("probe_target"),
+                        "actual": pair["actual"] if pair else None,
+                        "segment": s["text"],
+                        "readout": (rec.get("samples") or [""])[s["readout"]],
+                        "readout_idx": s["readout"],
+                        "unit": s["unit"],
+                        "key": rec["key"],
+                        "why": s["why"],
+                        "pre_gate": pre_gate,
+                    }
+                )
     return out
 
 
-def audit_samples(dirs: list[Path], *, n: int = 10, seed: int = 0) -> str:
-    """``n`` random segments per leaf (incl. the pseudo-leaves) across arms, in context."""
-    rng = random.Random(seed)
+def _reservoir(
+    dirs: list[Path], key: Any, n: int, rng: random.Random
+) -> tuple[dict[str, list[tuple[str, dict, dict]]], dict[str, int]]:
     res: dict[str, list[tuple[str, dict, dict]]] = {}
     seen: dict[str, int] = {}
     for d in dirs:
         for rec in iter_cells(d):
             for s in _segments(rec):
-                lf = s["leaf"]
-                seen[lf] = seen.get(lf, 0) + 1
-                pool = res.setdefault(lf, [])
+                k = key(s)
+                seen[k] = seen.get(k, 0) + 1
+                pool = res.setdefault(k, [])
                 if len(pool) < n:
                     pool.append((d.name, rec, s))
                 else:
-                    j = rng.randrange(seen[lf])
+                    j = rng.randrange(seen[k])
                     if j < n:
                         pool[j] = (d.name, rec, s)
-    out = ["# Audit samples (claim map v2)", "", f"{n} random segments per leaf, seed {seed}.", ""]
+    return res, seen
+
+
+def _sample_lines(arm: str, rec: dict[str, Any], s: dict[str, Any]) -> list[str]:
+    prompt, ctx = _context(rec)
+    readout = (rec.get("samples") or [""])[s["readout"]]
+    tags = [k for k in ("hedged", "world_false", "cruxy", "established") if s.get(k)]
+    return [
+        f"### {arm} {rec['key']} {s['unit']} ({s['kind']}, status {s['status']})",
+        "",
+        f"- segment: {json.dumps(s['text'], ensure_ascii=False)}",
+        f"- leaf {s['leaf']} (verdict {tx.verdict_of(s['leaf'])}); raw leaf {s['raw_leaf']}; "
+        f"alt_leaf {s.get('alt_leaf')}; tags {tags}; pair {s.get('pair')}; probe_target "
+        f"{json.dumps(s.get('probe_target'), ensure_ascii=False)}",
+        f"- why: {s['why']}",
+        f"- prompt: {json.dumps(prompt[:500], ensure_ascii=False)}",
+        f"- response around the marker: {json.dumps(ctx, ensure_ascii=False)}",
+        f"- readout {s['readout']}: {json.dumps(readout[:1500], ensure_ascii=False)}",
+        "",
+    ]
+
+
+def audit_samples(
+    dirs: list[Path], *, n: int = 10, seed: int = 0, verdict_n: int = 20, pre_gate: bool = True
+) -> str:
+    """``verdict_n`` random segments per verdict, then ``n`` per leaf (incl. the pseudo-leaves),
+    across arms, in context."""
+    out = [
+        "# Audit samples (claim map v2)" + (" — PRE-GATE" if pre_gate else ""),
+        "",
+        *([PRE_GATE_NOTE, ""] if pre_gate else []),
+        f"{verdict_n} random segments per verdict, then {n} per leaf; seed {seed}.",
+        "",
+    ]
+    res, seen = _reservoir(dirs, lambda s: tx.verdict_of(s["leaf"]), verdict_n, random.Random(seed))
+    out += ["# By verdict", ""]
+    for v in VERDICT_ROWS:
+        out += [f"## verdict {v} ({seen.get(v, 0)} segments in total)", ""]
+        for arm, rec, s in res.get(v, []):
+            out += _sample_lines(arm, rec, s)
+    res, seen = _reservoir(dirs, lambda s: s["leaf"], n, random.Random(seed))
+    out += ["# By leaf", ""]
     for lf in tx.ALL_LEAVES:
-        rows = res.get(lf, [])
         out += [f"## {lf} (group {tx.group_of(lf)}; {seen.get(lf, 0)} segments in total)", ""]
-        for arm, rec, s in rows:
-            prompt, ctx = _context(rec)
-            readout = (rec.get("samples") or [""])[s["readout"]]
-            tags = [k for k in ("hedged", "world_false", "cruxy", "established") if s.get(k)]
-            out += [
-                f"### {arm} {rec['key']} {s['unit']} ({s['kind']}, status {s['status']})",
-                "",
-                f"- segment: {json.dumps(s['text'], ensure_ascii=False)}",
-                f"- raw leaf {s['raw_leaf']}; alt_leaf {s['alt_leaf']}; tags {tags}; "
-                f"pair {s['pair']}",
-                f"- why: {s['why']}",
-                f"- prompt: {json.dumps(prompt[:500], ensure_ascii=False)}",
-                f"- response around the marker: {json.dumps(ctx, ensure_ascii=False)}",
-                f"- readout {s['readout']}: {json.dumps(readout[:1500], ensure_ascii=False)}",
-                "",
-            ]
+        for arm, rec, s in res.get(lf, []):
+            out += _sample_lines(arm, rec, s)
     return "\n".join(out)
 
 
 def report(
-    out_root: Path, judge_model: str, *, rebuild: bool = True, audit_n: int = 10, seed: int = 0
+    out_root: Path,
+    judge_model: str,
+    *,
+    rebuild: bool = True,
+    audit_n: int = 10,
+    seed: int = 0,
+    verdict_n: int = 20,
 ) -> Path:
     root = model_root(out_root, judge_model)
     dirs = arm_dirs(root)
@@ -323,6 +489,7 @@ def report(
                 classifier=a["classifier"],
                 effort=a["effort"],
                 map_model=a.get("map_model"),
+                map_anchor=a.get("map_anchor", "v5c"),
             )
             rebuild_arm(d.name, Path(a["readouts"]), out_root, models)
         p = d / "summary_v2.json"
@@ -331,13 +498,22 @@ def report(
     if not summaries:
         raise SystemExit(f"no arm under {root} has claim-map (:M) results")
     v2_dirs = [d for d in dirs if d.name in summaries]
+    pre_gate = is_pre_gate(summaries)
     md, js = build(summaries, judge_model)
+    probes = probe_candidates(v2_dirs, pre_gate=pre_gate)
+    md = "\n".join([md, *probe_section(probes)])
+    js["n_probe_candidates"] = len(probes)
     (root / "report_v2.md").write_text(md + "\n")
     (root / "report_v2.json").write_text(json.dumps(js, indent=1) + "\n")
-    with (root / "substitution_pairs.jsonl").open("w", encoding="utf-8") as fh:
-        for row in substitution_pairs(v2_dirs):
+    with (root / "probe_candidates.jsonl").open("w", encoding="utf-8") as fh:
+        for row in probes:
             fh.write(json.dumps(row, ensure_ascii=False) + "\n")
-    (root / "audit_samples_v2.md").write_text(audit_samples(v2_dirs, n=audit_n, seed=seed) + "\n")
+    stale = root / "substitution_pairs.jsonl"  # replaced by probe_candidates.jsonl (rev 13)
+    if stale.exists():
+        stale.unlink()
+    (root / "audit_samples_v2.md").write_text(
+        audit_samples(v2_dirs, n=audit_n, seed=seed, verdict_n=verdict_n, pre_gate=pre_gate) + "\n"
+    )
     return root
 
 

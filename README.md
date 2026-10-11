@@ -11,7 +11,7 @@ hallucination eval is one of many evals here; see `plans/` for the design histor
 | eval | what it measures | plan |
 |---|---|---|
 | `wsbench_chat` | WorkspaceBench's hallucination (chat) eval, ported verbatim (v5c span + verify stages), plus the taxonomy classifier | [0001](plans/0001-bootstrap-wsbench-chat-taxonomy.md) |
-| `wsbench_chat` claim map | taxonomy v2: every character of every readout in exactly one of 19 leaves (7 groups) | [0002](plans/0002-claim-map-taxonomy-v2.md) |
+| `wsbench_chat` claim map | taxonomy v2: every character of every readout in exactly one of 20 leaves (8 groups), rolled up into 6 verdicts | [0002](plans/0002-claim-map-taxonomy-v2.md) |
 
 Per cell (arm × item × read site × layer) `wsbench_chat` runs up to five calls:
 
@@ -23,25 +23,36 @@ Per cell (arm × item × read site × layer) `wsbench_chat` runs up to five call
    `unverifiable` / `disputed` / `off_topic`;
 4. **classify** (`taxonomy-v1`, new): labels every hallucinated span found by 2–3. It never
    decides whether a span is a hallucination;
-5. **map** (`claimmap-v2`, plan 0002): code splits every readout into units (the v5c verified
-   wrong spans become their own "established" units); the judge puts every unit, or verbatim
-   sub-spans of it, into one taxonomy-v2 leaf. Needs only stages 1–2.
+5. **map** (`claimmap-v2.3`, plan 0002 rev 13): code splits every readout into units; one
+   judge call puts every unit, or verbatim sub-spans of it, into one taxonomy-v2 leaf; code
+   rolls the leaves up. Single-call by default (needs only stage 1; no established spans, no
+   verify); `--anchor v5c` restores rev 12 (the v5c verified wrong spans become their own
+   "established" units; needs stage 2).
 
 `hbench run --stages summary,span,verify,classify,map` picks the stages that may call the API
-(default: all; dependencies run first if missing, e.g. `--stages map` runs summary + span).
+(default: all; dependencies run first if missing: `--stages map` runs summary, plus span on a
+seeded 10% item subsample for the v5c comparison; under `--anchor v5c` span on every cell).
 
 ## The claim map (taxonomy v2)
 
 Defined once in [`src/hallucination_bench/taxonomy_v2.py`](src/hallucination_bench/taxonomy_v2.py)
 (leaves, groups, precedence, the Detail rule, tags, and the open decisions with their defaults in
-`CHOSEN`) and rendered into the judge prompt. Seven groups: **hallucination** (`detail`,
-`false_claim`), **co-activation** (`substitution_sibling`, `substitution_category`), **correct**
-(`restates_prefix`, `stated_after`, `entailed`, `world_true`), **thinky**
-(`unrealised_prediction`, `model_state`, `possible_belief`, `other_on_topic`), **unsettled**
-(`ambiguous_topic`), **junk** (`off_topic`), **non-claim** (`generic`, `filler`, `formatting`,
-`junk_text`, `lens_meta`), plus two code-only rows: `unknown_incorrect` (an established v5c span
-the judge disputed or did not label incorrect) and `failed`. The headline is the
-character-weighted share of each group per readout, averaged over readouts.
+`CHOSEN`) and rendered into the judge prompt. Three top branches (rev 13, option A):
+non-claim / claim about the text / supplementary claim; the test is **settlement, not
+subject** (an on-topic world claim the conversation does not state, entail or contradict is
+supplementary). Eight groups: **hallucination** (`detail`, `false_claim`), **co-activation**
+(`substitution_sibling`, `substitution_category`), **correct** (`restates_prefix`,
+`stated_after`, `entailed`), **supplementary** (`supplementary_true`, `supplementary_false`,
+`supplementary_unsettled`), **thinky** (`unrealised_prediction`, `model_state`,
+`other_on_topic`), **unsettled** (`ambiguous_topic`), **junk** (`off_topic`), **non-claim**
+(`generic`, `filler`, `formatting`, `junk_text`, `lens_meta`), plus two code-only rows:
+`unknown_incorrect` (`--anchor v5c` only: an established v5c span the judge disputed or did
+not label incorrect) and `failed`. Each leaf maps to one **verdict** (`taxonomy_v2.VERDICTS`):
+hallucination, probe_candidate, correct, unresolved, junk, non_claim. The headline is the
+character-weighted verdict share per readout (averaged over readouts) and the readout-level
+verdict rates; groups and leaves are the breakdown. Probe-candidate segments carry a
+`probe_target` (written to `probe_candidates.jsonl`). Outputs are labelled **pre-gate** until
+the held-out gate passes for the current prompt version.
 
 ## The taxonomy (v1)
 
@@ -81,7 +92,7 @@ uv run hbench calibrate --split heldout   # the gate (held-out only)
 # claim map (plan 0002): the :M stage on cached span results, then the v2 report
 uv run hbench run --out outputs --readouts-root $R --arms s3d-rl600 --layers 44 --limit 10 \
     --stages map --show-prompts 3
-uv run hbench report --out outputs --view v2   # report_v2.md, substitution_pairs.jsonl, audit_samples_v2.md
+uv run hbench report --out outputs --view v2   # report_v2.md, probe_candidates.jsonl, audit_samples_v2.md
 uv run hbench calibrate --taxonomy v2 --split dev
 
 scripts/run_all_arms.sh                   # full run in tmux session `hbench`; tail -f logs/run_*.log
@@ -95,7 +106,7 @@ with the production unit split).
 
 Outputs: `outputs/wsbench_chat/<judge model>/<arm>/{cache.jsonl,cells.jsonl,summary.json,summary_v2.json}`
 and `outputs/wsbench_chat/<judge model>/{report.md,report.json,audit_samples.md}` (v2:
-`report_v2.{md,json}`, `substitution_pairs.jsonl`, `audit_samples_v2.md`).
+`report_v2.{md,json}`, `probe_candidates.jsonl`, `audit_samples_v2.md`).
 
 ## Judge and caveats
 

@@ -22,13 +22,21 @@ user).
 
 Stage selection (``stages``, the CLI's ``--stages``): a selected stage calls the API on a cache
 miss; an unselected one is read from the cache only. Dependencies are added automatically
-(:func:`expand_stages`): ``map`` needs ``summary`` (token arms) and ``span``; ``classify``
-needs ``verify``; ``verify`` needs ``span``. The Python default (``stages=None``) keeps plan
-0001's behaviour (summary, span, verify, classify unless ``classify=False``); the CLI default
-is every stage.
+(:func:`expand_stages`): ``map`` needs ``summary`` (token arms), and ``span`` only under
+``--anchor v5c``; ``classify`` needs ``verify``; ``verify`` needs ``span``. The Python default
+(``stages=None``) keeps plan 0001's behaviour (summary, span, verify, classify unless
+``classify=False``); the CLI default is every stage.
+
+Claim map modes (plan rev 13, ``Models.map_anchor``): **single-call** (``none``, the default)
+splits the readouts with no established spans and makes one ``:M`` call; it does not need the
+span stage, and the verify stage is not part of it. For the v5c comparison it calls the span
+stage on a fixed, seeded 10% item subsample (:func:`in_v5c_subsample`) when ``map`` is
+selected; cached span results are used for every cell. ``v5c`` (``--anchor v5c``) restores
+plan rev 12: spans first, located v5c wrong strings become ESTABLISHED units.
 """
 
 import asyncio
+import hashlib
 import json
 import os
 import re
@@ -63,13 +71,26 @@ STAGE_DEPS: dict[str, tuple[str, ...]] = {
     "span": ("summary",),
     "verify": ("summary", "span"),
     "classify": ("summary", "span", "verify"),
-    "map": ("summary", "span"),
+    "map": ("summary",),  # single-call; --anchor v5c adds span (MAP_DEPS_V5C)
 }
+MAP_DEPS_V5C: tuple[str, ...] = ("summary", "span")
+V5C_SUBSAMPLE_SEED = 0
+V5C_SUBSAMPLE_FRACTION = 0.10
 
 
-def expand_stages(stages: Sequence[str] | None, *, classify: bool = True) -> frozenset[str]:
+def in_v5c_subsample(item_id: str, seed: int = V5C_SUBSAMPLE_SEED) -> bool:
+    """The fixed, seeded 10% item subsample of the single-call v5c comparison."""
+    h = hashlib.sha256(f"v5c-subsample:{seed}:{item_id}".encode()).digest()
+    return int.from_bytes(h[:8], "big") / 2**64 < V5C_SUBSAMPLE_FRACTION
+
+
+def expand_stages(
+    stages: Sequence[str] | None, *, classify: bool = True, anchor: str = "none"
+) -> frozenset[str]:
     """The stages that may call the API: the selection plus its dependencies. ``None`` = plan
-    0001's default (every v1 stage; classify only if ``classify``)."""
+    0001's default (every v1 stage; classify only if ``classify``). ``map`` needs ``span``
+    only under ``anchor="v5c"``."""
+    anchored = cm.check_anchor(anchor)
     if stages is None:
         sel = [s for s in V1_STAGES if classify or s != "classify"]
     else:
@@ -79,7 +100,7 @@ def expand_stages(stages: Sequence[str] | None, *, classify: bool = True) -> fro
         raise ValueError(f"unknown stages {bad} (known: {', '.join(STAGES)})")
     out = set(sel)
     for s in sel:
-        out.update(STAGE_DEPS[s])
+        out.update(MAP_DEPS_V5C if s == "map" and anchored else STAGE_DEPS[s])
     return frozenset(out)
 
 
@@ -94,6 +115,7 @@ class Models:
     classifier: str | None = None
     effort: str | None = "low"
     map_model: str | None = None
+    map_anchor: str = "none"  # claim map: none (single-call, default) | v5c (plan rev 12)
 
     @property
     def summ(self) -> str:
@@ -113,6 +135,7 @@ class Models:
             "summarizer": self.summ,
             "classifier": self.clf,
             "map_model": self.mapper,
+            "map_anchor": self.map_anchor,
             "effort": self.effort,
         }
 
@@ -277,7 +300,11 @@ async def process_cell(
     """Take one cell through every stage (judge mode) or read it back (rebuild mode); return
     its merged ``cells.jsonl`` record. In judge mode only the ``stages`` (default: plan 0001's)
     call the API; the others are read from the cache."""
-    stages = stages if stages is not None else expand_stages(None, classify=classify)
+    stages = (
+        stages
+        if stages is not None
+        else expand_stages(None, classify=classify, anchor=models.map_anchor)
+    )
 
     def via(stage: str) -> LLM | None:
         return llm if stage in stages else None
@@ -334,11 +361,19 @@ async def process_cell(
         samples = [s for s in cell.samples or () if s.strip()][:HAL_K]
         rec["n_samples"] = len(samples)
     rec["samples"] = samples
-    # ---- 2. span stage (v5c, verbatim)
+    anchored = cm.check_anchor(models.map_anchor)
+    # ---- claim map, single-call (default): needs only the samples
+    if not anchored:
+        await _map_stage(arm, cell, item, site, samples, None, rec, via("map"), models, dump)
+    # ---- 2. span stage (v5c, verbatim); single-call map runs also call it on the fixed 10%
+    # item subsample for the v5c comparison
+    span_llm = via("span")
+    if span_llm is None and not anchored and "map" in stages and in_v5c_subsample(cell.id):
+        span_llm = llm
     system, user = v5c.judge_prompt(item, site, samples)
     out = await cached_call(
         arm,
-        via("span"),
+        span_llm,
         stage="span",
         key=key,
         version=v5c.PROMPT_VERSION,
@@ -397,8 +432,9 @@ async def process_cell(
             spans += [tv1.SpanIn(i, q, "disputed") for q in disp]
             spans += [tv1.SpanIn(i, q, "unsupported") for q in unsup]
     rec["n_offtopic_overlap_quotes"] = n_off
-    # ---- 4. claim map (claimmap-v2): every judged cell, whatever its v5c class
-    await _map_stage(arm, cell, item, site, samples, verdicts, rec, via("map"), models, dump)
+    # ---- 4. claim map anchored on v5c (--anchor v5c): every judged cell, whatever its class
+    if anchored:
+        await _map_stage(arm, cell, item, site, samples, verdicts, rec, via("map"), models, dump)
     # ---- 5. classify stage (taxonomy-v1): after verify tallied or failed for good
     if not spans:
         rec["stages"]["classify"] = "not_needed"
@@ -441,17 +477,22 @@ async def _map_stage(
     item: dict[str, Any],
     site: dict[str, Any],
     samples: list[str],
-    verdicts: Sequence[v5c.ReadoutVerdict],
+    verdicts: Sequence[v5c.ReadoutVerdict] | None,
     rec: dict[str, Any],
     llm: LLM | None,
     models: Models,
     dump: bool,
 ) -> None:
-    """Split the readouts into units (established spans = v5c verified wrong strings, revoked
-    or not), call / read the ``:M`` stage and attach the parsed segments to ``rec["map"]``."""
-    units, unloc = split_cell(samples, [list(v.wrong) for v in verdicts])
+    """Split the readouts into units, call / read the ``:M`` stage and attach the parsed
+    segments to ``rec["map"]``. Anchored (``verdicts`` given): established spans = v5c verified
+    wrong strings, revoked or not. Single-call (``verdicts=None``): no established spans."""
+    anchor = models.map_anchor
+    wrong = [list(v.wrong) for v in verdicts] if verdicts is not None else [[] for _ in samples]
+    units, unloc = split_cell(samples, wrong)
+    if verdicts is None:
+        units = cm.plain_units(units)
     system, user = cm.render_prompt(
-        item["prompt"], bank.marked_response(item, site), units, kind=arm.kind
+        item["prompt"], bank.marked_response(item, site), units, kind=arm.kind, anchor=anchor
     )
     mout = await cached_call(
         arm,
@@ -463,7 +504,7 @@ async def _map_stage(
         effort=models.effort,
         system=system,
         user=user,
-        schema=cm.SCHEMA,
+        schema=cm.schema_for(anchor),
         validate=lambda r: cm.validate(r, units),
         dump=dump,
     )
@@ -472,6 +513,7 @@ async def _map_stage(
     segs, counts = cm.parse(raw, units)
     counts["n_unlocated_established"] = sum(unloc)
     rec["map"] = {
+        "anchor": anchor,
         "units": [u.to_dict() for u in units],
         "segments": [s.to_dict() for s in segs],
         "counts": counts,
@@ -602,7 +644,7 @@ async def run_arms_async(
     llm: LLM | None = None,
     stages: Sequence[str] | None = None,
 ) -> dict[str, dict[str, Any]]:
-    run_stages = expand_stages(stages, classify=classify)
+    run_stages = expand_stages(stages, classify=classify, anchor=models.map_anchor)
     opened = [open_arm(n, p, out_root, models) for n, p in arms]
     try:
         sels = []
@@ -701,6 +743,9 @@ async def rebuild_arm_async(
     missing = missing_cells(cells, expected)
     acc = score.Accumulator(k=arm.k)
     acc2 = score_v2.AccumulatorV2()
+    map_layers = {
+        int(m.group(1)) for k in arm.cache.keys() if k.endswith(":M") and (m := _LAYER_RE.search(k))
+    }
     tmp = arm.dir / f"cells.jsonl.{os.getpid()}.tmp"
     arm.dir.mkdir(parents=True, exist_ok=True)
 
@@ -709,7 +754,8 @@ async def rebuild_arm_async(
             rec = await process_cell(arm, c, None, models)
             fh.write(json.dumps(rec, ensure_ascii=False) + "\n")
             acc.add(rec)
-            acc2.add(rec)
+            if c.layer in map_layers:
+                acc2.add(rec)
     tmp.replace(arm.dir / "cells.jsonl")
     spend = {s: Usage() for s in STAGES}
     for row in arm.cache.rows():
@@ -735,6 +781,14 @@ async def rebuild_arm_async(
         "readouts_sha256": sha256_file(arm.readouts),
         "judged_layers": layers,
     }
+    from hallucination_bench.calibrate_v2 import gate_passed
+
+    config_v2 = {
+        **config,
+        "map_anchor": models.map_anchor,
+        "map_layers": sorted(map_layers),
+        "pre_gate": not gate_passed(out_root, models.mapper, models.map_anchor),
+    }
     summary = score.summarize(
         acc,
         config=config,
@@ -746,7 +800,7 @@ async def rebuild_arm_async(
     (arm.dir / "summary.json").write_text(json.dumps(summary, indent=1) + "\n")
     p2 = arm.dir / "summary_v2.json"
     if any(c.map_status in ("ok", "failed") for c in acc2.cells):
-        s2 = score_v2.summarize(acc2, config=config, spend=spend["map"].to_dict())
+        s2 = score_v2.summarize(acc2, config=config_v2, spend=spend["map"].to_dict())
         p2.write_text(json.dumps(s2, indent=1) + "\n")
     elif p2.exists():
         p2.unlink()

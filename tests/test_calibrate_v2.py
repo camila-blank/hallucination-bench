@@ -167,9 +167,27 @@ def test_repeats_are_fresh_calls_and_then_cached(tmp_path):
     fake2 = MapFake()
     run(fake2)
     assert fake2.n("map") == 0
-    # the established unit is flagged in the calibration prompt as in production
+    # single-call (default, plan rev 13): the established unit keeps its own unit but is not
+    # flagged; under --anchor v5c it is flagged as in rev 12 production
     user = fake.calls[0][3]
-    assert unit_lines(user)[0] == ("R0.U1", True, "It was Picasso.")
+    assert unit_lines(user)[0] == ("R0.U1", False, "It was Picasso.")
+    assert "ESTABLISHED" not in user.split("<readout")[1]
+    fake3 = MapFake()
+    with Cache(tmp_path / "c.jsonl") as cache:
+        asyncio.run(
+            cal.map_cases(
+                cases[:1],
+                split="dev",
+                model="claude-opus-5-5",
+                effort="low",
+                cache=cache,
+                llm=fake3,
+                repeats=1,
+                anchor="v5c",
+            )
+        )
+    assert fake3.n("map") == 1  # a different prompt: not served from the single-call cache
+    assert unit_lines(fake3.calls[0][3])[0] == ("R0.U1", True, "It was Picasso.")
 
 
 def test_invalid_answer_scores_failed():
@@ -248,4 +266,5 @@ def test_schema_example_in_readme_is_valid():
 
 
 def test_sp_helper_matches_split_schema():
-    assert set(sp("t", "detail")) == set(cm.SPLIT_SCHEMA["required"])
+    assert set(sp("t", "detail")) == set(cm.SPLIT_SCHEMA_V5C["required"])
+    assert set(cm.SPLIT_SCHEMA["required"]) == set(sp("t", "detail")) - {"dispute", "alt_leaf"}

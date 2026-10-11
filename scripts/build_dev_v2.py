@@ -6,7 +6,13 @@ if a case's unit count no longer matches its labels (the splitter changed: re-la
 
     uv run python scripts/build_dev_v2.py            # writes the file and prints every unit
 
-A label is a leaf name, or a dict ``{"leaf", "splits": [[text, leaf], ...], "rest", "dispute"}``.
+A label is a leaf name, or a dict
+``{"leaf", "splits": [[text, leaf], ...], "rest", "dispute", "probe_target"}``.
+
+Plan rev 13 re-map: ``world_true`` -> ``supplementary_true``, ``possible_belief`` ->
+``supplementary_false`` (mechanical), contested world claims ``other_on_topic`` ->
+``supplementary_unsettled`` (by hand: dev2-24's brown eggs), plus the rev-13 anchors
+(dev2-33, dev2-34; probe targets on dev2-05, dev2-23, dev2-33, dev2-34).
 """
 
 import json
@@ -92,7 +98,7 @@ CASES: list[dict[str, Any]] = [
     },
     {
         "id": "dev2-05-blue-sky",
-        "rules": ["world-true", "rule6-contradicted", "possible-belief"],
+        "rules": ["world-true", "rule6-contradicted", "possible-belief", "probe-target"],
         "prompt": "Why is the sky blue?",
         "response": "The sky looks blue because molecules in the air scatter short blue "
         f"wavelengths of sunlight more than red ones,{M} an effect called Rayleigh scattering. "
@@ -102,7 +108,14 @@ CASES: list[dict[str, Any]] = [
             "scattering in the nineteenth century.\n- Blue light has a longer wavelength than "
             "red light.\n- The sky on Mars is also blue during the day."
         ],
-        "labels": [["stated_after", "world_true", "false_claim", "possible_belief"]],
+        "labels": [
+            [
+                "stated_after",
+                "supplementary_true",
+                "false_claim",
+                {"leaf": "supplementary_false", "probe_target": "the sky on Mars is blue"},
+            ]
+        ],
     },
     {
         "id": "dev2-06-titanic",
@@ -123,7 +136,7 @@ CASES: list[dict[str, Any]] = [
                 "restates_prefix",
                 {"splits": [["14 April 1911", "false_claim"]], "rest": "restates_prefix"},
                 "stated_after",
-                "world_true",
+                "supplementary_true",
                 "formatting",
             ]
         ],
@@ -160,7 +173,7 @@ CASES: list[dict[str, Any]] = [
             "or Rocky\n- Names like Sunny, Max, Ace, Bolt, Duke, Rex, Zeus and Thor\n- 金毛 "
             "puppies are energetic and need daily exercise"
         ],
-        "labels": [["stated_after", "unrealised_prediction", "generic", "world_true"]],
+        "labels": [["stated_after", "unrealised_prediction", "generic", "supplementary_true"]],
     },
     {
         "id": "dev2-09-lockpick",
@@ -269,7 +282,7 @@ CASES: list[dict[str, Any]] = [
             "ice to keep warm.\n- The idiom comes from ships that broke the ice so that other "
             "boats could pass."
         ],
-        "labels": [["restates_prefix", "off_topic", "world_true"]],
+        "labels": [["restates_prefix", "off_topic", "supplementary_true"]],
     },
     {
         "id": "dev2-14-interview",
@@ -418,7 +431,7 @@ CASES: list[dict[str, Any]] = [
                 "restates_prefix",
                 "substitution_category",
                 "stated_after",
-                "world_true",
+                "supplementary_true",
                 "entailed",
                 "formatting",
             ]
@@ -426,7 +439,12 @@ CASES: list[dict[str, Any]] = [
     },
     {
         "id": "dev2-23-penicillin",
-        "rules": ["category-substitution", "sibling-substitution", "real-event-date"],
+        "rules": [
+            "category-substitution",
+            "sibling-substitution",
+            "real-event-date",
+            "probe-target",
+        ],
         "prompt": "Who discovered penicillin?",
         "response": f"Penicillin was discovered by Alexander Fleming in 1928{M} when he noticed "
         "mould killing bacteria in a petri dish.",
@@ -437,12 +455,18 @@ CASES: list[dict[str, Any]] = [
         ],
         "labels": [
             ["substitution_category", "stated_after", "false_claim"],
-            ["substitution_sibling"],
+            [{"leaf": "substitution_sibling", "probe_target": "Louis Pasteur"}],
         ],
     },
     {
         "id": "dev2-24-boiled-egg",
-        "rules": ["possible-belief", "contested-other", "rule12-hedged", "junk-text"],
+        "rules": [
+            "possible-belief",
+            "contested-other",
+            "supplementary-unsettled",
+            "rule12-hedged",
+            "junk-text",
+        ],
         "prompt": "How long should I boil an egg for a soft yolk?",
         "response": f"Boil it for about six minutes,{M} then cool it in cold water so it is easy "
         "to peel.",
@@ -454,8 +478,14 @@ CASES: list[dict[str, Any]] = [
             "for a family.\n- 0x7f3a ïĠ",
         ],
         "labels": [
-            ["restates_prefix", "possible_belief", "possible_belief", "filler", "stated_after"],
-            ["other_on_topic", "other_on_topic", "junk_text"],
+            [
+                "restates_prefix",
+                "supplementary_false",
+                "supplementary_false",
+                "filler",
+                "stated_after",
+            ],
+            ["supplementary_unsettled", "other_on_topic", "junk_text"],
         ],
     },
     {
@@ -604,6 +634,67 @@ CASES: list[dict[str, Any]] = [
         ],
         "labels": [["detail", "detail", "filler", "stated_after"]],
     },
+    # ---- plan rev 13: settlement, not subject; supplementary_unsettled; probe targets
+    {
+        "id": "dev2-33-blue-period",
+        "rules": [
+            "settlement-not-subject",
+            "supplementary-unsettled",
+            "world-true",
+            "possible-belief",
+        ],
+        "prompt": "Tell me about Picasso's Blue Period.",
+        "response": f"Picasso's Blue Period ran from about 1901 to 1904,{M} when he painted in "
+        "sombre blues and greens. Works such as The Old Guitarist show poor and isolated "
+        "figures.",
+        "readouts": [
+            "- Picasso painted Guernica in 1937.\n- The Blue Period is Picasso's most beautiful "
+            "work.\n- Picasso was born in Barcelona.\n- The response will next describe The Old "
+            "Guitarist.\n- Picasso was the greatest painter of the twentieth century."
+        ],
+        "labels": [
+            [
+                "supplementary_true",
+                "supplementary_unsettled",
+                {"leaf": "supplementary_false", "probe_target": "Picasso was born in Barcelona"},
+                "stated_after",
+                "supplementary_unsettled",
+            ]
+        ],
+    },
+    {
+        "id": "dev2-34-evening-coffee",
+        "rules": [
+            "supplementary-unsettled",
+            "probe-target",
+            "eval-awareness-model-state",
+            "rule12-hedged",
+            "rule10-unrealised-prediction",
+        ],
+        "prompt": "Is it OK to drink coffee in the evening?",
+        "response": f"It depends on how sensitive you are to caffeine.{M} Caffeine can stay in "
+        "your system for several hours, so many people stop drinking coffee by mid-afternoon.",
+        "readouts": [
+            "<explanation>\nThe model thinks this is a test of its health advice.\nThe user is "
+            "likely an insomniac.\nDark roast coffee is healthier than light roast.\nThe "
+            "response will next recommend switching to decaf.\nTea is a better drink than "
+            "coffee.\n</explanation>"
+        ],
+        "labels": [
+            [
+                "formatting",
+                {"leaf": "model_state", "probe_target": "this is a test"},
+                "other_on_topic",
+                "supplementary_unsettled",
+                {
+                    "leaf": "unrealised_prediction",
+                    "probe_target": "the response will recommend decaf",
+                },
+                "supplementary_unsettled",
+                "formatting",
+            ]
+        ],
+    },
 ]
 
 
@@ -615,6 +706,7 @@ def _gold(label: Any) -> dict[str, Any]:
         "splits": [{"text": t, "leaf": lf} for t, lf in label.get("splits", [])],
         "rest_leaf": label.get("rest"),
         **({"dispute": True} if label.get("dispute") else {}),
+        **({"probe_target": label["probe_target"]} if label.get("probe_target") else {}),
     }
 
 

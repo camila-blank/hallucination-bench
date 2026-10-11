@@ -70,3 +70,19 @@ cell, i.e. on the order of $2–3k for ~48k cells.
 - The transition table assigns each readout the first group present in the order
   hallucination > unknown_incorrect > co-activation > thinky > unsettled > correct > junk >
   non-claim (an implementation choice; the plan does not fix one).
+
+## Rev 13 (claimmap-v2.3): single-call pilot on s3d-rl600 L44 — PRE-GATE
+
+Option A tree (20 leaves / 8 groups, supplementary branch, settlement-not-subject rule),
+verdict layer, probe targets, single-call `:M` (no established spans, no verify). Dev
+calibration (single-call, 34 cases, 2 runs, $1.42): every dev row passes (group acc 0.940,
+verdict acc 0.940, leaf acc 0.921, flip 0.044). Held-out not yet re-checked, so the pilot is
+pre-gate.
+
+Pilot: 1,123 cells, 11 failed after one retry pass (1.0%), `:M` spend $59.61. Char-weighted
+verdict shares: hallucination 7.5% [6.0, 9.2], probe_candidate 47.6%, correct 32.6%, unresolved
+2.3%, junk 1.7%, non_claim 7.2%, failed 1.0%. Readout-level hallucination rate (v2) 24.4%
+[20.9, 27.9] vs v5c 46.3% [42.1, 50.4] on the same 3,333 readouts (full comparison: v5c is
+cached for every s3d cell). Probe candidates: 10,908 segments (8,812 unrealised_prediction,
+1,097 sibling, 840 category, 110 supplementary_false, 41 ambiguous_topic, 8 model_state).
+Files: `outputs/wsbench_chat/claude-opus-5-5/{report_v2.md,probe_candidates.jsonl,audit_samples_v2.md}`.

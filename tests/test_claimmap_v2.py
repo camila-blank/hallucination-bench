@@ -18,7 +18,8 @@ from hallucination_bench.judges import claimmap_v2 as cm
 from hallucination_bench.llm import CallResult, Usage
 from hallucination_bench.units import split_cell
 
-_UNIT = re.compile(r'^(R\d+\.U\d+) \| (ESTABLISHED|-) \| (".*")$', re.MULTILINE)
+# single-call lines are `id | text`; anchored (--anchor v5c) lines are `id | flag | text`
+_UNIT = re.compile(r'^(R\d+\.U\d+) \| (?:(ESTABLISHED|-) \| )?(".*")$', re.MULTILINE)
 
 
 def unit_lines(user: str) -> list[tuple[str, bool, str]]:
@@ -35,6 +36,7 @@ def e(uid, leaf="restates_prefix", **kw):
         "dispute": False,
         "alt_leaf": None,
         "pair": None,
+        "probe_target": None,
         "why": "w",
         "splits": [],
         "rest_leaf": None,
@@ -68,7 +70,7 @@ class MapFake(FakeLLM):
         super().__init__({"map": default_map, **(responders or {})})
 
     async def call(self, *, model, system, user, schema):
-        if system == cm.SYSTEM:
+        if system in (cm.SYSTEM, cm.SYSTEM_V5C):
             self.calls.append(("map", model, system, user))
             return CallResult(self.responders["map"](user), Usage(calls=1, usd=0.02))
         return await super().call(model=model, system=system, user=user, schema=schema)
@@ -77,8 +79,8 @@ class MapFake(FakeLLM):
 # ------------------------------------------------------------------ taxonomy + prompt
 
 
-def test_tree_has_19_leaves_in_7_groups_and_pseudo_rows():
-    assert len(tx.LEAF_NAMES) == 19 and len(tx.GROUPS) == 7
+def test_tree_has_20_leaves_in_8_groups_and_pseudo_rows():
+    assert len(tx.LEAF_NAMES) == 20 and len(tx.GROUPS) == 8
     assert set(tx.GROUP_OF.values()) == set(tx.ROWS)
     assert tx.SUBSTITUTION_LEAVES == ("substitution_sibling", "substitution_category")
     assert {tx.group_of(x) for x in ("detail", "false_claim")} == {tx.HALLUCINATION}
@@ -97,7 +99,13 @@ def test_prompt_contains_every_leaf_definition_rule_and_tag():
 def test_precedence_is_listed_in_the_planned_order():
     pos = [cm.SYSTEM.index(f"\n{n}. **{tx.RULES[n].title}**") for n in tx.RULE_ORDER]
     assert pos == sorted(pos)
-    assert tx.RULE_ORDER == (2, 1, 3, 4, 5, 6, 10, 11, 12, 13, 7, 8, 9)
+    assert tx.RULE_ORDER == (1, 3, 4, 5, 6, 10, 11, 12, 13, 7, 8, 9, 14)  # single-call: no rule 2
+    assert tx.RULE_ORDER_ANCHORED == (2, 1, 3, 4, 5, 6, 10, 11, 12, 13, 7, 8, 9, 14)
+    pos = [
+        cm.SYSTEM_V5C.index(f"\n{n}. **{tx.RULES_ANCHORED[n].title}**")
+        for n in tx.RULE_ORDER_ANCHORED
+    ]
+    assert pos == sorted(pos)
     # revision-10 wording
     assert "A non-prediction world claim is incorrect only if the conversation contradicts" in (
         cm.SYSTEM.replace("**", "")
@@ -116,8 +124,8 @@ def test_open_decisions_default_and_switch(monkeypatch):
 
 def test_render_prompt_lists_units_with_established_flags():
     units, _ = split_cell(["Picasso painted it. Fine.", "{braces} ok"], [["Picasso"], []])
-    system, user = cm.render_prompt("Who {painted}?", "Leonardo⟦READ⟧ did.", units)
-    assert system == cm.SYSTEM and "Who {painted}?" in user
+    system, user = cm.render_prompt("Who {painted}?", "Leonardo⟦READ⟧ did.", units, anchor="v5c")
+    assert system == cm.SYSTEM_V5C and "Who {painted}?" in user
     assert unit_lines(user) == [
         ("R0.U1", True, "Picasso"),
         ("R0.U2", False, "painted it."),
@@ -130,8 +138,9 @@ def test_render_prompt_lists_units_with_established_flags():
         cm.render_prompt("p", "r", [])
 
 
-def test_schema_is_strict_with_the_leaf_enum():
-    item = cm.SCHEMA["schema"]["properties"]["units"]["items"]
+@pytest.mark.parametrize("schema", [cm.SCHEMA, cm.SCHEMA_V5C])
+def test_schema_is_strict_with_the_leaf_enum(schema):
+    item = schema["schema"]["properties"]["units"]["items"]
     assert item["additionalProperties"] is False and set(item["required"]) == set(
         item["properties"]
     )
@@ -289,21 +298,24 @@ def test_established_split_needs_one_incorrect_subspan():
 
 def test_dispute_on_an_ordinary_unit_is_ignored():
     units = _units("Plain claim.")
-    raw = {"units": [e("R0.U1", "world_true", dispute=True, alt_leaf="detail")], "rationale": ""}
+    raw = {
+        "units": [e("R0.U1", "supplementary_true", dispute=True, alt_leaf="detail")],
+        "rationale": "",
+    }
     segs, c = cm.parse(raw, units)
-    assert segs[0].leaf == "world_true" and not segs[0].dispute and segs[0].alt_leaf is None
+    assert segs[0].leaf == "supplementary_true" and not segs[0].dispute and segs[0].alt_leaf is None
     assert c["n_dispute_ignored"] == 1
 
 
 # ------------------------------------------------------------------ pipeline: the :M stage
 
 
-def _run(arms, out: Path, fake, **kw):
+def _run(arms, out: Path, fake, models=None, **kw):
     return asyncio.run(
         wrun.run_arms_async(
             arms,
             out,
-            wrun.Models(),
+            models or wrun.Models(),
             layers=[44],
             limit=None,
             rpm=1e9,
@@ -322,7 +334,8 @@ def _cells(out: Path, arm: str) -> list[dict]:
 
 def test_stage_keys_and_dependencies():
     assert wrun.stage_of_key("k__L044__p3:M") == "map"
-    assert wrun.expand_stages(["map"]) == {"map", "span", "summary"}
+    assert wrun.expand_stages(["map"]) == {"map", "summary"}  # single-call: no span, no verify
+    assert wrun.expand_stages(["map"], anchor="v5c") == {"map", "span", "summary"}
     assert wrun.expand_stages(["classify"]) == {"classify", "verify", "span", "summary"}
     assert wrun.expand_stages(None) == set(wrun.V1_STAGES)
     assert "classify" not in wrun.expand_stages(None, classify=False)
@@ -332,10 +345,14 @@ def test_stage_keys_and_dependencies():
     assert args.stages is None  # the CLI default (every stage) is applied in cmd_run
 
 
+V5C = wrun.Models(map_anchor="v5c")
+
+
 def test_map_stage_runs_span_first_and_resumes(tmp_path, prose_readouts):
+    """--anchor v5c (plan rev 12 behaviour)."""
     out = tmp_path / "out"
     fake = MapFake()
-    s = _run([("toy", prose_readouts)], out, fake, stages=["map"])["toy"]
+    s = _run([("toy", prose_readouts)], out, fake, V5C, stages=["map"])["toy"]
     assert fake.n("verify") == 0 and fake.n("classify") == 0
     assert fake.n("span") == 15 and fake.n("map") == 15
     rec = _cells(out, "toy")[0]
@@ -351,7 +368,7 @@ def test_map_stage_runs_span_first_and_resumes(tmp_path, prose_readouts):
     )
     assert s["health"]["n_failed_map"] == 0
     fake2 = MapFake()
-    _run([("toy", prose_readouts)], out, fake2, stages=["map"])
+    _run([("toy", prose_readouts)], out, fake2, V5C, stages=["map"])
     assert fake2.calls == []  # all cached
 
 
@@ -374,6 +391,12 @@ def test_token_arm_maps_the_summary(tmp_path, token_readouts):
     assert fake.n("summary") == 3 and fake.n("map") == 3
     user = next(c[3] for c in fake.calls if c[0] == "map")
     assert cm.TOKENS_NOTE in user
+    # single-call (default): no established span, so "Paris" is not cut out
+    assert [t for _i, _e, t in unit_lines(user)] == ["A friendly note about Paris and the teacher."]
+    out2 = tmp_path / "out2"
+    fake = MapFake()
+    _run([("tok", token_readouts)], out2, fake, V5C, stages=["map"])
+    user = next(c[3] for c in fake.calls if c[0] == "map")
     assert [t for _i, _e, t in unit_lines(user)] == [
         "A friendly note about",
         "Paris",
@@ -429,7 +452,7 @@ def test_character_weighted_shares_average_per_readout_and_identities_hold():
     recs = [
         # readout 0: 30 chars false_claim, 10 chars filler; readout 1: all correct
         _rec("a", 44, [[("false_claim", 30), ("filler", 10)], [("restates_prefix", 5)]]),
-        _rec("b", 44, [[(tx.UNKNOWN_INCORRECT, 4, {"status": "forced"}), ("world_true", 4)]]),
+        _rec("b", 44, [[(tx.UNKNOWN_INCORRECT, 4, {"status": "forced"}), ("entailed", 4)]]),
         _rec("c", 44, [[(tx.FAILED, 7)]], map_status="failed"),
         _rec("d", 44, [[("detail", 9)]], map_status="pending"),
     ]
@@ -484,7 +507,7 @@ def test_specific_denominator_transition_and_alt_view():
 
 
 def test_verify_agreement_uses_the_majority_leaf_of_the_quote():
-    r = _rec("a", 44, [[("restates_prefix", 10), ("possible_belief", 20)]])
+    r = _rec("a", 44, [[("restates_prefix", 10), ("supplementary_false", 20)]])
     r["samples"] = ["a" * 10 + " " + "b" * 20]
     r["verdict"][0]["quotes"] = {
         "true": ["aaaaaaaaaa"],
@@ -496,7 +519,7 @@ def test_verify_agreement_uses_the_majority_leaf_of_the_quote():
     acc.add(r)
     ag = score_v2.agreement(acc.cells)
     assert ag["true"]["n_agree"] == 1 and ag["unverifiable"]["n_agree"] == 1
-    assert ag["disputed"]["leaves"] == {"possible_belief": 1} and ag["disputed"]["n_agree"] == 1
+    assert ag["disputed"]["leaves"] == {"supplementary_false": 1} and ag["disputed"]["n_agree"] == 1
     assert ag["off_topic"]["n_unlocated"] == 1
 
 
@@ -520,4 +543,4 @@ def test_rev11_lens_framing_rule_is_rendered():
     assert tx.LENS_FRAMING_RULE in cm.SYSTEM
     assert "The model is representing / anticipating / focused on / gearing up for X" in cm.SYSTEM
     assert "It is **never `model_state`**" in cm.SYSTEM
-    assert cm.PROMPT_VERSION == "claimmap-v2.2"
+    assert cm.PROMPT_VERSION == "claimmap-v2.3"

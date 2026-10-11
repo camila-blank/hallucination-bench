@@ -16,8 +16,17 @@ Scoring (one repeat at a time, then the mean over repeats with a Wilson 95% CI):
   over the unit (a unit split on neither side is just its leaf);
 * **character level** (accuracy, claim/non-claim F1): every character of a gold segment.
 
-A predicted ``unknown_incorrect`` is scored by the judge's ``alt_leaf`` if disputed, or its raw
-leaf if forced (:func:`claimmap_v2.resolved_leaf`); forcing and dispute counts are reported.
+**Single-call mode** (plan rev 13, the default): the cases keep their production unit split
+(established spans are still their own units, so gold ids are stable), but the established
+flags are ignored: those units are shown and judged as ordinary text. ``--anchor v5c``
+restores rev 12 (flags shown, forced / disputed rules). There, a predicted
+``unknown_incorrect`` is scored by the judge's ``alt_leaf`` if disputed, or its raw leaf if
+forced (:func:`claimmap_v2.resolved_leaf`); forcing and dispute counts are reported.
+
+Gold written before rev 13 is re-mapped mechanically on load (``taxonomy_v2.LEAF_RENAMES``:
+``world_true`` -> ``supplementary_true``, ``possible_belief`` -> ``supplementary_false``).
+Optional gold ``probe_target`` strings on probe-candidate units are reported next to the
+judge's (informational, not gated).
 Each repeat is a separate call (the repeat index is in the cache key and the fingerprint).
 On ``heldout`` only aggregates are reported.
 """
@@ -50,9 +59,10 @@ RECALL_ROWS: dict[str, frozenset[str]] = {
 WILSON_LO = 0.58
 # (measure, key, threshold, higher_is_better)
 GATE: tuple[tuple[str, str, float, bool], ...] = (
-    ("group accuracy (7 groups), unit level", "group_acc_unit", 0.85, True),
+    ("group accuracy (8 groups), unit level", "group_acc_unit", 0.85, True),
     ("group accuracy, character level", "group_acc_char", 0.85, True),
-    ("leaf accuracy (19 leaves), unit level", "leaf_acc_unit", 0.70, True),
+    ("verdict accuracy (6 verdicts), unit level", "verdict_acc_unit", 0.85, True),
+    ("leaf accuracy (20 leaves), unit level", "leaf_acc_unit", 0.70, True),
     *(
         (f"recall of {k} (segment level)", f"recall_{k}", 0.75, True)
         for k in ("false_claim", "detail", "substitution", "correct")
@@ -71,6 +81,34 @@ def cases_path(split: str) -> Path:
     return CAL_DIR / f"{split}_v2.jsonl"
 
 
+def _rename(x: Any) -> Any:
+    return tx.LEAF_RENAMES.get(x, x) if isinstance(x, str) else x
+
+
+def remap_case(c: dict[str, Any]) -> dict[str, Any]:
+    """The case with pre-rev-13 gold leaf names mapped mechanically (a new dict; the input is
+    not changed). Contested-world-claim relabels are not mechanical and are not done here."""
+    gold = c.get("gold")
+    if not isinstance(gold, dict) or not isinstance(gold.get("units"), list):
+        return c
+    units = []
+    for g in gold["units"]:
+        if not isinstance(g, dict):
+            units.append(g)
+            continue
+        g = {**g}
+        for k in ("leaf", "rest_leaf", "alt_leaf"):
+            if k in g:
+                g[k] = _rename(g[k])
+        if isinstance(g.get("splits"), list):
+            g["splits"] = [
+                {**sp, "leaf": _rename(sp.get("leaf"))} if isinstance(sp, dict) else sp
+                for sp in g["splits"]
+            ]
+        units.append(g)
+    return {**c, "gold": {**gold, "units": units}}
+
+
 # ---------------------------------------------------------------- cases
 
 
@@ -80,7 +118,8 @@ def case_units(c: dict[str, Any]) -> tuple[list[Unit], list[int]]:
 
 
 def validate_case(c: dict[str, Any], *, require_gold: bool = True) -> list[str]:
-    """Schema errors for one case (empty when valid)."""
+    """Schema errors for one case (empty when valid); old leaf names are accepted."""
+    c = remap_case(c)
     cid = c.get("case_id", "?")
     errs: list[str] = []
     for k in ("case_id", "prompt", "response", "readouts", "gold"):
@@ -124,6 +163,9 @@ def validate_case(c: dict[str, Any], *, require_gold: bool = True) -> list[str]:
                 errs.append(f"{tag}: synthetic units need gold")
             continue
         n_labelled += 1
+        pt = g.get("probe_target")
+        if pt is not None and not (isinstance(pt, str) and pt.strip()):
+            errs.append(f"{tag}: gold probe_target must be a non-empty string or absent")
         if not splits and leaf not in tx.LEAVES:
             errs.append(f"{tag}: bad gold leaf {leaf!r}")
             continue
@@ -147,7 +189,9 @@ def validate_case(c: dict[str, Any], *, require_gold: bool = True) -> list[str]:
 
 def load_cases(split: str, path: Path | None = None) -> list[dict[str, Any]]:
     p = path or cases_path(split)
-    cases = [json.loads(x) for x in p.read_text(encoding="utf-8").splitlines() if x.strip()]
+    cases = [
+        remap_case(json.loads(x)) for x in p.read_text(encoding="utf-8").splitlines() if x.strip()
+    ]
     errs = [e for c in cases for e in validate_case(c)]
     if errs:
         raise ValueError(f"{p}: invalid cases:\n  " + "\n  ".join(errs[:30]))
@@ -185,8 +229,16 @@ def skeleton(c: dict[str, Any]) -> dict[str, Any]:
     return {**c, "gold": {"units": gold}}
 
 
-def case_prompt(c: dict[str, Any], units: Sequence[Unit]) -> tuple[str, str]:
-    return cm.render_prompt(c["prompt"], c["response"], units, kind=c.get("kind", "prose"))
+def case_prompt(c: dict[str, Any], units: Sequence[Unit], anchor: str = "none") -> tuple[str, str]:
+    return cm.render_prompt(
+        c["prompt"], c["response"], units, kind=c.get("kind", "prose"), anchor=anchor
+    )
+
+
+def mode_units(c: dict[str, Any], anchor: str = "none") -> list[Unit]:
+    """The case's production units; in single-call mode with the established flags dropped."""
+    units, _ = case_units(c)
+    return units if cm.check_anchor(anchor) else cm.plain_units(units)
 
 
 # ---------------------------------------------------------------- gold / pred segments
@@ -219,6 +271,16 @@ def _why(segs: Sequence[cm.Segment], unit: str, a: int, b: int) -> str:
     return next((s.why for s in segs if s.unit == unit and s.start < b and a < s.end), "")
 
 
+def _probe_at(segs: Sequence[cm.Segment], unit: str, a: int, b: int) -> str | None:
+    """The judge's probe_target on the segment covering most of ``[a, b)`` of ``unit``."""
+    best: tuple[int, str | None] = (0, None)
+    for s in segs:
+        ov = min(b, s.end) - max(a, s.start)
+        if s.unit == unit and ov > best[0]:
+            best = (ov, s.probe_target)
+    return best[1]
+
+
 def _leaf_at(spans: Sequence[Span], i: int) -> str | None:
     return next((lf for a, b, lf in spans if a <= i < b), None)
 
@@ -239,6 +301,7 @@ def run_metrics(
     gold_hit: Counter = Counter()
     unit_groups: dict[tuple[str, str], str] = {}
     disagree: list[dict[str, Any]] = []
+    probe_rows: list[dict[str, Any]] = []
     for case, (segs, counts) in zip(cases, preds, strict=True):
         units, _ = case_units(case)
         pred = pred_segments(segs)
@@ -247,6 +310,8 @@ def run_metrics(
             c[k] += counts.get(k, 0)
         c["n_disputed_established"] += counts.get("n_disputed_established", 0)
         c["n_missing_units"] += counts.get("n_missing_units", 0)
+        c["n_probe_candidates"] += counts.get("n_probe_candidates", 0)
+        c["n_missing_probe_targets"] += counts.get("n_missing_probe_targets", 0)
         for u, g in zip(units, case["gold"]["units"], strict=True):
             if g.get("leaf") is None and not g.get("splits"):
                 continue  # unlabelled context unit
@@ -256,6 +321,18 @@ def run_metrics(
             pu = majority_leaf(ps, u.start, u.end) or tx.FAILED
             c["n_units"] += 1
             c["leaf_ok_unit"] += gu == pu
+            c["verdict_ok_unit"] += tx.verdict_of(gu) == tx.verdict_of(pu)
+            if g.get("probe_target"):
+                probe_rows.append(
+                    {
+                        "case_id": case["case_id"],
+                        "unit": u.id,
+                        "gold_leaf": gu,
+                        "pred_leaf": pu,
+                        "gold": g["probe_target"],
+                        "pred": _probe_at(segs, u.id, u.start, u.end),
+                    }
+                )
             c["group_ok_unit"] += tx.group_of(gu) == tx.group_of(pu)
             unit_groups[(case["case_id"], u.id)] = tx.group_of(pu)
             if real:
@@ -307,6 +384,7 @@ def run_metrics(
         "n_gold_segments": c["n_gold_segments"],
         "leaf_acc_unit": _ratio(c["leaf_ok_unit"], c["n_units"]),
         "group_acc_unit": _ratio(c["group_ok_unit"], c["n_units"]),
+        "verdict_acc_unit": _ratio(c["verdict_ok_unit"], c["n_units"]),
         "leaf_acc_char": _ratio(c["leaf_ok_char"], c["n_chars"]),
         "group_acc_char": _ratio(c["group_ok_char"], c["n_chars"]),
         "claim_f1_char": f1,
@@ -318,6 +396,9 @@ def run_metrics(
         "n_forced_established": c["n_forced_established"],
         "n_disputed_established": c["n_disputed_established"],
         "n_missing_units": c["n_missing_units"],
+        "n_probe_candidates": c["n_probe_candidates"],
+        "n_missing_probe_targets": c["n_missing_probe_targets"],
+        "probe_targets": probe_rows,
         "leaf_recall": {
             lf: {"recall": _ratio(gold_hit[lf], gold_n[lf]), "n": gold_n[lf]}
             for lf in tx.LEAF_NAMES
@@ -327,6 +408,7 @@ def run_metrics(
         "_n": {
             "leaf_acc_unit": c["n_units"],
             "group_acc_unit": c["n_units"],
+            "verdict_acc_unit": c["n_units"],
             "leaf_acc_char": c["n_chars"],
             "group_acc_char": c["n_chars"],
             "real_group_acc_unit": c["n_real_units"],
@@ -347,6 +429,7 @@ def _mean(xs: Sequence[float | None]) -> float | None:
 SCALARS: tuple[str, ...] = (
     "leaf_acc_unit",
     "group_acc_unit",
+    "verdict_acc_unit",
     "leaf_acc_char",
     "group_acc_char",
     "claim_f1_char",
@@ -361,6 +444,7 @@ def score(
     cases: Sequence[dict[str, Any]],
     preds: Sequence[Sequence[tuple[list[cm.Segment], dict[str, int]]]],
     split: str,
+    anchor: str = "none",
 ) -> dict[str, Any]:
     runs = [run_metrics(cases, p) for p in preds]
     mean: dict[str, Any] = {k: _mean([r[k] for r in runs]) for k in SCALARS}
@@ -381,6 +465,7 @@ def score(
     out: dict[str, Any] = {
         "split": split,
         "prompt_version": cm.PROMPT_VERSION,
+        "anchor": anchor,
         "taxonomy_version": tx.TAXONOMY_VERSION,
         "chosen_decisions": dict(tx.CHOSEN),
         "n_cases": len(cases),
@@ -390,10 +475,17 @@ def score(
         "mean": mean,
         "wilson95": ci,
         "leaf_recall": leaf_recall,
-        "runs": [{k: v for k, v in r.items() if not k.startswith("_")} for r in runs],
+        "runs": [
+            {k: v for k, v in r.items() if not k.startswith("_") and k != "probe_targets"}
+            for r in runs
+        ],
         "gate": gate(mean, ci, split),
     }
     out["gate_passed"] = all(g["passed"] is not False for g in out["gate"])
+    if split != "heldout":
+        out["probe_targets"] = [
+            {"run": i, **d} for i, r in enumerate(runs) for d in r["probe_targets"]
+        ]
     if split == "dev":
         out["disagreements"] = [
             {"run": i, **d} for i, r in enumerate(runs) for d in r["_disagreements"]
@@ -470,14 +562,17 @@ async def map_cases(
     llm: Any,
     repeats: int = 2,
     usage: Usage | None = None,
+    anchor: str = "none",
 ) -> list[list[tuple[list[cm.Segment], dict[str, int]]]]:
-    """preds[r][case_i] = (segments, parse counts) of repeat ``r`` (fail closed)."""
+    """preds[r][case_i] = (segments, parse counts) of repeat ``r`` (fail closed). Single-call
+    mode (default) ignores the established flags; ``anchor="v5c"`` shows them."""
+    schema = cm.schema_for(anchor)
     usage = usage if usage is not None else Usage()
     out: list[list[Any]] = [[None] * len(cases) for _ in range(repeats)]
 
     async def one(r: int, i: int, c: dict[str, Any]) -> None:
-        units, _ = case_units(c)
-        system, user = case_prompt(c, units)
+        units = mode_units(c, anchor)
+        system, user = case_prompt(c, units, anchor)
         key = cal_key(split, c["case_id"], r)
         fp = fingerprint(cm.PROMPT_VERSION, model, effort, f"r{r}", system, user)
         row = cache.get(key, fp)
@@ -487,7 +582,7 @@ async def map_cases(
         elif llm is None:
             raw = None
         else:
-            res = await llm.call(model=model, system=system, user=user, schema=cm.SCHEMA)
+            res = await llm.call(model=model, system=system, user=user, schema=schema)
             usage.add(res.usage)
             meta = {"stage": "calibrate_v2", "usage": res.usage.to_dict()}
             raw = res.result
@@ -512,7 +607,9 @@ def render_markdown(res: dict[str, Any]) -> str:
         return "—" if v is None else (f"{v:.3f}" if isinstance(v, float) else str(v))
 
     lines = [
-        f"## Calibration v2: {res['split']} ({res['prompt_version']}), {res['n_cases']} cases, "
+        f"## Calibration v2: {res['split']} ({res['prompt_version']}, "
+        f"{'single-call' if res.get('anchor', 'none') == 'none' else 'anchor ' + res['anchor']}"
+        f"), {res['n_cases']} cases, "
         f"{res['n_units']} gold units, {res['n_gold_segments']} gold segments, "
         f"{len(res['runs'])} runs",
         "",
@@ -530,13 +627,23 @@ def render_markdown(res: dict[str, Any]) -> str:
         f"leaf accuracy, character level: {f(m.get('leaf_acc_char'))}; forced / disputed "
         f"established per run: {[r['n_forced_established'] for r in res['runs']]} / "
         f"{[r['n_disputed_established'] for r in res['runs']]}; missing units per run: "
-        f"{[r['n_missing_units'] for r in res['runs']]}",
+        f"{[r['n_missing_units'] for r in res['runs']]}; probe candidates / missing probe_target "
+        f"per run: {[r['n_probe_candidates'] for r in res['runs']]} / "
+        f"{[r['n_missing_probe_targets'] for r in res['runs']]}",
         "",
         "| leaf | gold segments | recall (mean) |",
         "|---|---|---|",
     ]
     for lf, v in res["leaf_recall"].items():
         lines.append(f"| {lf} | {v['n']} | {f(v['recall'])} |")
+    if res.get("probe_targets"):
+        lines += ["", "### Probe-target anchors (gold vs judge; informational)", ""]
+        for d in res["probe_targets"]:
+            lines.append(
+                f"- r{d['run']} {d['case_id']} {d['unit']}: gold {d['gold_leaf']} "
+                f"{json.dumps(d['gold'], ensure_ascii=False)} / pred {d['pred_leaf']} "
+                f"{json.dumps(d['pred'], ensure_ascii=False)}"
+            )
     if "disagreements" in res:
         lines += ["", f"### Disagreements, segment level ({len(res['disagreements'])})", ""]
         for d in res["disagreements"]:
@@ -558,9 +665,11 @@ def run(
     rpm: float = 1500.0,
     concurrency: int = 64,
     cases_file: Path | None = None,
+    anchor: str = "none",
 ) -> dict[str, Any]:
     from hallucination_bench.evals.wsbench_chat.run import model_slug
 
+    cm.check_anchor(anchor)
     cases = load_cases(split, cases_file)
     d = Path(out_root) / "calibration" / model_slug(model)
     usage = Usage()
@@ -578,16 +687,39 @@ def run(
                     llm=llm,
                     repeats=repeats,
                     usage=usage,
+                    anchor=anchor,
                 )
         finally:
             await llm.aclose()
 
     preds = asyncio.run(go())
-    res = score(cases, preds, split)
+    res = score(cases, preds, split, anchor)
     res["coverage"] = coverage(cases)
     res["spend_this_run"] = usage.to_dict()
     res["model"] = model
     res["effort"] = effort
-    (d / f"{split}_{cm.PROMPT_VERSION}.json").write_text(json.dumps(res, indent=1) + "\n")
-    (d / f"{split}_{cm.PROMPT_VERSION}.md").write_text(render_markdown(res) + "\n")
+    stem = result_stem(split, anchor)
+    (d / f"{stem}.json").write_text(json.dumps(res, indent=1) + "\n")
+    (d / f"{stem}.md").write_text(render_markdown(res) + "\n")
     return res
+
+
+def result_stem(split: str, anchor: str = "none") -> str:
+    return f"{split}_{cm.PROMPT_VERSION}" + ("" if anchor == "none" else f"_{anchor}")
+
+
+def gate_passed(out_root: Path, model: str, anchor: str = "none") -> bool:
+    """Whether a held-out run of the current prompt version (and mode) passed the gate. Every
+    claim-map output made before that is labelled pre-gate."""
+    from hallucination_bench.evals.wsbench_chat.run import model_slug
+
+    p = (
+        Path(out_root)
+        / "calibration"
+        / model_slug(model)
+        / f"{result_stem('heldout', anchor)}.json"
+    )
+    try:
+        return bool(json.loads(p.read_text()).get("gate_passed"))
+    except (OSError, ValueError):
+        return False

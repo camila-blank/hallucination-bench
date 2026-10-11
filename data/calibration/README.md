@@ -181,17 +181,25 @@ label from that file, plan 0002 §Units, §The tree, §Precedence, §Detail rule
 | `source` | object | optional (`{arm, key, v5c_cell_class}` for real cells) |
 | `gold.units[]` | list | **every** production unit, in order |
 | `gold.units[].id`, `.text`, `.established` | | copied from the splitter (`units-v2` / `pilot-dump-v2`); never edit |
-| `gold.units[].leaf` | one of the 19 leaves \| `null` | the unit's leaf when it is not split. `null` with no splits = unlabelled context (allowed on `real` cases only; not scored) |
+| `gold.units[].leaf` | one of the 20 leaves \| `null` | the unit's leaf when it is not split. `null` with no splits = unlabelled context (allowed on `real` cases only; not scored) |
 | `gold.units[].splits[]` | `{text, leaf}` | sub-spans, verbatim from the unit, left to right, non-overlapping |
 | `gold.units[].rest_leaf` | leaf \| `null` | required when `splits` leave a remainder |
+| `gold.units[].probe_target` | string | optional; on a probe-candidate unit, the expected probe target (reported next to the judge's, not gated) |
 | `gold.units[].dispute` | bool | optional; on an established unit whose correct leaf is **not** incorrect (the judge should dispute it). An established unit's gold must otherwise contain an incorrect leaf |
 
-Leaves (taxonomy v2): non_claim — `generic`, `filler`, `formatting`, `junk_text`, `lens_meta`;
-correct — `restates_prefix`, `stated_after`, `entailed`, `world_true`; incorrect —
+Leaves (taxonomy v2, plan rev 13): non_claim — `generic`, `filler`, `formatting`, `junk_text`,
+`lens_meta`; correct — `restates_prefix`, `stated_after`, `entailed`; incorrect —
 `detail`, `false_claim` (hallucination), `substitution_sibling`, `substitution_category`
-(co-activation); thinky — `unrealised_prediction`, `model_state`, `possible_belief`,
-`other_on_topic`; `ambiguous_topic` (unsettled); `off_topic` (junk). Gold never uses the
-code-only `unknown_incorrect` / `failed`.
+(co-activation); supplementary — `supplementary_true`, `supplementary_false`,
+`supplementary_unsettled`; thinky — `unrealised_prediction`, `model_state`, `other_on_topic`;
+`ambiguous_topic` (unsettled); `off_topic` (junk). Gold never uses the code-only
+`unknown_incorrect` / `failed`. Pre-rev-13 names are renamed on load (`world_true` ->
+`supplementary_true`, `possible_belief` -> `supplementary_false`).
+
+Single-call mode (the default since rev 13): established spans still make their own units (ids
+stay stable) but the flags are not shown to the judge; an established unit is scored against
+its gold leaf (for a disputed one, its non-incorrect gold leaf). The gate adds verdict accuracy
+(6 verdicts, unit level, ≥ 85%).
 
 Scoring (`calibrate_v2`): units are shared, so prediction and gold match one to one by unit.
 Recall rows, per-leaf recall and sibling-vs-category are per **gold segment** (the
@@ -202,7 +210,7 @@ scored by the judge's `alt_leaf` (disputed) or raw leaf (forced).
 
 ## dev_v2.jsonl (synthetic, prompt iteration)
 
-32 cases, 147 gold units, written from scratch by the implementer (Claude, 2026-10-11) with
+34 cases, 159 gold units, written from scratch by the implementer (Claude, 2026-10-11) with
 `scripts/build_dev_v2.py` (the labels live there; re-run it if the splitter changes). Every
 case is invented. Coverage (asserted by `tests/test_calibrate_v2.py`): ≥ 3 gold segments for
 every leaf (min 3, e.g. 5 sibling and 4 category substitutions, 9 false_claim, 13 detail;
@@ -214,7 +222,10 @@ sibling vs category `dev2-21/22/23`; detail vs substitution for names `dev2-01/0
 under the detail rule `dev2-03/06/07/18/23/27`; hedged hit and miss `dev2-08`; eval awareness
 `dev2-09/25`; token framing vs interpretation `dev2-11/12`; a claim that looks off-topic but is
 on topic `dev2-13`; rule 12 hedged `dev2-09/24` and flat `dev2-10`; the wrong bridge
-`dev2-20`).
+`dev2-20`). Rev 13: mechanical renames, dev2-24's "Brown eggs taste better" relabelled
+`supplementary_unsettled`, plus `dev2-33` (settlement, not subject: Guernica in a Blue Period
+answer; 2 unsettled) and `dev2-34` (2 unsettled; probe targets), and gold `probe_target` on
+`dev2-05/23/33/34` (4 anchors).
 
 Gold-labelling notes (judgement calls, following `taxonomy_v2.py` defaults):
 
@@ -245,3 +256,4 @@ checks, each logged below.
 
 Gold-label fixes (v2): none.
 | 2026-10-11 | dev | claimmap-v2.1 (rev 11 framing rule; 32 cases, punctuation-only segments excluded) | all dev rows pass | group acc unit 0.966 / char 0.958, leaf acc 0.959, recall false_claim 1.00 / detail 0.923 (n 13) / substitution 1.00 / correct 0.910, sib-vs-cat 0.944, claim F1 0.992, flip 0.000; 2 runs, $2.06 |
+| 2026-10-11 | dev | claimmap-v2.3 (rev 13: supplementary branch, verdicts, probe targets; single-call, 34 cases) | all dev rows pass | group acc unit 0.940 / char 0.937, verdict acc 0.940, leaf acc 0.921, recall false_claim 1.00 / detail 0.923 / substitution 0.944 / correct 0.881, sib-vs-cat 0.819, claim F1 0.981, flip 0.044; 1 of 68 calls failed (dev2-32 r1); probe_target missing 0/25 per run; 2 runs, $1.42 |

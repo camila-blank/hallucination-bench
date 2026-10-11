@@ -1,17 +1,23 @@
 """Claim-map (taxonomy v2) metrics: character-weighted shares, readout-level rates,
 comparisons with v5c / verify, health; item-bootstrap 95% CIs (plan 0002, §Metrics).
 
+The headline is the **verdict layer** (plan rev 13, ``taxonomy_v2.VERDICTS``): verdict shares
+(character-weighted) and readout-level verdict rates; leaves and groups are the breakdown.
+
 Which readouts count:
 
 * a cell enters once its ``:M`` stage is settled: ``ok`` or ``failed`` (a failed cell's units
   are all ``failed``). Pending cells (not yet mapped) are left out and counted in health;
 * **shares** (headline) are per readout, then averaged over readouts (each non-empty readout
-  weighs the same; failed readouts are in, under the ``failed`` row). The 7 groups plus
-  ``unknown_incorrect`` plus ``failed`` sum to 1, and so do the 21 leaf rows. Segment-count
-  shares are pooled over segments;
+  weighs the same; failed readouts are in, under the ``failed`` row). The 6 verdicts plus
+  ``failed`` sum to 1; so do the 8 groups plus ``unknown_incorrect`` plus ``failed``, and the
+  22 leaf rows. Segment-count shares are pooled over segments;
 * **readout-level rates** are over readouts of ``ok`` cells only (a failed readout has no
   labels), with two denominators: all of them (``all``) and the v5c-specific ones
-  (``specific``, plan 0001's ``hallucination_rate`` denominator).
+  (``specific``, plan 0001's ``hallucination_rate`` denominator);
+* the **v5c comparison** is over the readouts that have both a v5c span verdict and an ``ok``
+  map (``n_cmp``): in single-call runs that is every cell whose span result is cached, else the
+  seeded 10% item subsample (``run.in_v5c_subsample``).
 
 Every ratio is a ratio of per-item sums with the item-level percentile bootstrap of plan 0001
 (:func:`score.bootstrap_indices`, 2,000 draws, seed 0).
@@ -33,11 +39,19 @@ from hallucination_bench.units import locate
 from . import score
 
 N_BOOT = score.N_BOOT
-LEAF_ROWS: tuple[str, ...] = tx.ALL_LEAVES  # 19 leaves + unknown_incorrect + failed
-GROUP_ROWS: tuple[str, ...] = tx.ROWS  # 7 groups + unknown_incorrect + failed
+LEAF_ROWS: tuple[str, ...] = tx.ALL_LEAVES  # 20 leaves + unknown_incorrect + failed
+GROUP_ROWS: tuple[str, ...] = tx.ROWS  # 8 groups + unknown_incorrect + failed
+VERDICT_ROWS: tuple[str, ...] = tx.VERDICT_ROWS  # 6 verdicts + failed
 HALLUCINATION_LEAVES = frozenset({"detail", "false_claim", tx.UNKNOWN_INCORRECT})
 
+# readout-level verdict rates (headline): the readout has >= 1 segment with that verdict
+VERDICT_FLAGS: tuple[str, ...] = (
+    *(f"verdict_{v}" for v in tx.VERDICTS),
+    "verdict_non_claim_only",  # every segment is a non-claim
+)
+
 FLAGS: tuple[str, ...] = (
+    *VERDICT_FLAGS,
     "hallucination",  # detail | false_claim | unknown_incorrect (hallucination_rate_v2)
     "hallucination_excl_unknown",  # sensitivity: unknown_incorrect not counted
     "hallucination_alt",  # sensitivity: disputed segments re-scored with their alt_leaf
@@ -55,6 +69,7 @@ TRANSITION_PRIORITY: tuple[str, ...] = (
     tx.HALLUCINATION,
     tx.UNKNOWN_INCORRECT,
     tx.CO_ACTIVATION,
+    tx.SUPPLEMENTARY,
     tx.THINKY,
     tx.UNSETTLED,
     tx.CORRECT,
@@ -63,11 +78,13 @@ TRANSITION_PRIORITY: tuple[str, ...] = (
     tx.FAILED,
 )
 
-# verify status -> the v2 leaves that agree with it (plan 0002, §Inputs)
+# verify status -> the v2 leaves that agree with it (plan 0002, §Inputs; rev 13 renames:
+# world_true -> supplementary_true, possible_belief -> supplementary_false, and the contested
+# world claims that left other_on_topic -> supplementary_unsettled keep their rows)
 AGREEMENT: dict[str, frozenset[str]] = {
     "true": frozenset({"restates_prefix", "stated_after", "entailed"}),
-    "unverifiable": frozenset({"world_true", *tx.THINKY_LEAVES, "false_claim"}),
-    "disputed": frozenset({*tx.INCORRECT_LEAVES, "possible_belief", tx.UNKNOWN_INCORRECT}),
+    "unverifiable": frozenset({*tx.SUPPLEMENTARY_LEAVES, *tx.THINKY_LEAVES, "false_claim"}),
+    "disputed": frozenset({*tx.INCORRECT_LEAVES, "supplementary_false", tx.UNKNOWN_INCORRECT}),
     "off_topic": frozenset({"off_topic", "ambiguous_topic", *tx.NON_CLAIM_LEAVES}),
 }
 
@@ -89,7 +106,7 @@ SegT = tuple[str, str, int, bool]  # (leaf, alt-view leaf, chars, cruxy)
 
 @dataclass
 class SlimReadoutV2:
-    v5c_cls: str
+    v5c_cls: str | None  # None: no v5c span verdict for this cell (not in the comparison)
     ok: bool  # the cell's map call succeeded
     segs: list[SegT]
 
@@ -125,7 +142,7 @@ def slim(rec: dict[str, Any]) -> SlimCellV2:
     h = dict.fromkeys(HEALTH_V2, 0)
     st = (rec.get("stages") or {}).get("map") or "none"
     m = rec.get("map")
-    if rec["status"] != "judged" or m is None:
+    if m is None:
         return SlimCellV2(rec["id"], rec["layer"], "none", [], h, [])
     h["n_cells"] = 1
     h[f"n_map_{st}"] = 1 if st in ("ok", "failed", "pending") else 0
@@ -139,14 +156,16 @@ def slim(rec: dict[str, Any]) -> SlimCellV2:
         by_r.setdefault(s["readout"], []).append(s)
     readouts: list[SlimReadoutV2] = []
     agreement: list[tuple[str, str | None]] = []
-    for v in rec.get("verdict") or []:
-        segs = by_r.get(v["idx"], [])
+    verdict = {v["idx"]: v for v in rec.get("verdict") or []}
+    for idx in range(len(rec.get("samples") or [])):
+        segs = by_r.get(idx, [])
         if not segs:
             continue
+        v = verdict.get(idx)
         h["n_readouts"] += 1
         readouts.append(
             SlimReadoutV2(
-                v["class"],
+                v["class"] if v is not None else None,
                 st == "ok",
                 [
                     (s["leaf"], cm.alt_leaf_view(s), s["end"] - s["start"], bool(s["cruxy"]))
@@ -154,10 +173,10 @@ def slim(rec: dict[str, Any]) -> SlimCellV2:
                 ],
             )
         )
-        quotes = v.get("quotes")
+        quotes = v.get("quotes") if v is not None else None
         if st != "ok" or not quotes:
             continue
-        text = (rec.get("samples") or [""])[v["idx"]]
+        text = rec["samples"][idx]
         for status in AGREEMENT:
             for q in quotes.get(status) or []:
                 loc = locate(q, text)
@@ -177,7 +196,10 @@ def readout_group(leaves: Iterable[str]) -> str:
 def readout_flags(r: SlimReadoutV2) -> dict[str, bool]:
     leaves = [s[0] for s in r.segs]
     groups = {tx.group_of(lf) for lf in leaves}
+    verdicts = {tx.verdict_of(lf) for lf in leaves}
     return {
+        **{f"verdict_{v}": v in verdicts for v in tx.VERDICTS},
+        "verdict_non_claim_only": verdicts == {tx.V_NON_CLAIM},
         "hallucination": any(lf in HALLUCINATION_LEAVES for lf in leaves),
         "hallucination_excl_unknown": any(lf in ("detail", "false_claim") for lf in leaves),
         "hallucination_alt": any(s[1] in HALLUCINATION_LEAVES for s in r.segs),
@@ -193,6 +215,8 @@ def readout_flags(r: SlimReadoutV2) -> dict[str, bool]:
 
 def _columns() -> list[str]:
     cols = ["n_share_readouts", "n_segments", "n_rate_all", "n_rate_specific", "n_v5c_hal"]
+    cols += ["n_cmp", "n_cmp_v5c_hal", "n_cmp_v2_hal"]
+    cols += [f"cv_{v}" for v in VERDICT_ROWS] + [f"sv_{v}" for v in VERDICT_ROWS]
     cols += [f"cs_{lf}" for lf in LEAF_ROWS] + [f"cg_{g}" for g in GROUP_ROWS]
     cols += [f"acg_{g}" for g in GROUP_ROWS]
     cols += [f"sc_{lf}" for lf in LEAF_ROWS] + [f"sg_{g}" for g in GROUP_ROWS]
@@ -212,19 +236,26 @@ def readout_vector(r: SlimReadoutV2) -> np.ndarray:
         for lf, alt, ch, _c in r.segs:
             v[_COL[f"cs_{lf}"]] += ch / total
             v[_COL[f"cg_{tx.group_of(lf)}"]] += ch / total
+            v[_COL[f"cv_{tx.verdict_of(lf)}"]] += ch / total
             v[_COL[f"acg_{tx.group_of(alt)}"]] += ch / total
     for lf, _alt, _ch, _c in r.segs:
         v[_COL["n_segments"]] += 1
         v[_COL[f"sc_{lf}"]] += 1
         v[_COL[f"sg_{tx.group_of(lf)}"]] += 1
+        v[_COL[f"sv_{tx.verdict_of(lf)}"]] += 1
     if r.ok:
         spec = r.v5c_cls in SPECIFIC_CLASSES
         v[_COL["n_rate_all"]] = 1
         v[_COL["n_rate_specific"]] = spec
         v[_COL["n_v5c_hal"]] = spec and r.v5c_cls == "hallucinated"
-        for f, on in readout_flags(r).items():
+        flags = readout_flags(r)
+        for f, on in flags.items():
             v[_COL[f"ra_{f}"]] = on
             v[_COL[f"rs_{f}"]] = on and spec
+        if r.v5c_cls is not None:
+            v[_COL["n_cmp"]] = 1
+            v[_COL["n_cmp_v5c_hal"]] = r.v5c_cls == "hallucinated"
+            v[_COL["n_cmp_v2_hal"]] = flags[f"verdict_{tx.V_HALLUCINATION}"]
     return v
 
 
@@ -277,6 +308,8 @@ def block(cells: Sequence[SlimCellV2], *, n_boot: int = N_BOOT) -> dict[str, Any
             "all": int(totals["n_rate_all"]),
             "specific": int(totals["n_rate_specific"]),
         },
+        "char_share_verdict": {v: r(f"cv_{v}", "n_share_readouts") for v in VERDICT_ROWS},
+        "seg_share_verdict": {v: r(f"sv_{v}", "n_segments") for v in VERDICT_ROWS},
         "char_share_group": {g: r(f"cg_{g}", "n_share_readouts") for g in GROUP_ROWS},
         "char_share_leaf": {lf: r(f"cs_{lf}", "n_share_readouts") for lf in LEAF_ROWS},
         "char_share_group_alt": {g: r(f"acg_{g}", "n_share_readouts") for g in GROUP_ROWS},
@@ -287,6 +320,17 @@ def block(cells: Sequence[SlimCellV2], *, n_boot: int = N_BOOT) -> dict[str, Any
             for f in FLAGS
         },
         "v5c_hallucination_rate_same_readouts": r("n_v5c_hal", "n_rate_specific"),
+        "v5c_comparison": {
+            "n_compared": int(totals["n_cmp"]),
+            "n_readouts": int(totals["n_rate_all"]),
+            "coverage": (totals["n_cmp"] / totals["n_rate_all"]) if totals["n_rate_all"] else None,
+            # over every compared readout (any v5c class) ...
+            "v5c_rate": r("n_cmp_v5c_hal", "n_cmp"),
+            "v2_rate": r("n_cmp_v2_hal", "n_cmp"),
+            # ... and over the v5c-specific ones (plan 0001's hallucination_rate denominator)
+            "v5c_rate_specific": r("n_v5c_hal", "n_rate_specific"),
+            "v2_rate_specific": r(f"rs_verdict_{tx.V_HALLUCINATION}", "n_rate_specific"),
+        },
         "health": health,
         "transition": transition(cells),
         "agreement": agreement(cells),
@@ -298,7 +342,7 @@ def transition(cells: Iterable[SlimCellV2]) -> dict[str, dict[str, int]]:
     t: dict[str, Counter] = {}
     for c in cells:
         for r in c.readouts:
-            if r.ok:
+            if r.ok and r.v5c_cls is not None:
                 t.setdefault(r.v5c_cls, Counter())[readout_group(s[0] for s in r.segs)] += 1
     return {k: dict(v) for k, v in sorted(t.items())}
 
@@ -355,6 +399,11 @@ def summarize(
             "failed_cell_rate": h["n_map_failed"] / n_settled if n_settled else None,
             "unlocated_subspan_rate": (
                 h["n_unlocated_subspans"] / h["n_splits"] if h["n_splits"] else None
+            ),
+            "missing_probe_target_rate": (
+                h["n_missing_probe_targets"] / h["n_probe_candidates"]
+                if h["n_probe_candidates"]
+                else None
             ),
         },
         "overall": overall,

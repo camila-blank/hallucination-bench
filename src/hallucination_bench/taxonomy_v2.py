@@ -5,9 +5,15 @@ the claim-map judge prompt (``judges/claimmap_v2.py``) is rendered from it by :f
 scoring and calibration read its enums, and tests assert the rendered prompt contains every
 leaf definition (:func:`definitions`).
 
-Every segment of a readout lands in exactly one of the 19 judge leaves, which fall into 7
-groups. Two code-assigned pseudo-leaves (``unknown_incorrect``, ``failed``) are kept as separate
-rows outside the groups.
+Every segment of a readout lands in exactly one of the 20 judge leaves, which fall into 8
+groups under three top branches (non-claim / claim about the text / supplementary claim; plan
+rev 13, option A). Two code-assigned pseudo-leaves (``unknown_incorrect``, ``failed``) are kept
+as separate rows outside the groups. Each leaf maps to exactly one **verdict** (``VERDICTS``),
+the headline layer of the report.
+
+The prompt is rendered in two modes: single-call (the default; no established v5c spans, so
+rule 2 and the ``dispute`` tag are left out) and ``anchored`` (``--anchor v5c``: plan rev 12
+behaviour, with established spans).
 
 **Open decisions** (``OPEN_DECISIONS``) are pending Camila's answer. Each has a ``default`` and
 the text the prompt renders for every option; change ``CHOSEN`` (one line per decision) to switch
@@ -17,13 +23,14 @@ an option. The rendered prompt, and so every ``:M`` cache fingerprint, follows `
 
 from dataclasses import dataclass
 
-TAXONOMY_VERSION = "v2"
+TAXONOMY_VERSION = "v2-r13"
 
 # ---------------------------------------------------------------- groups
 
 HALLUCINATION = "hallucination"
 CO_ACTIVATION = "co_activation"
 CORRECT = "correct"
+SUPPLEMENTARY = "supplementary"
 THINKY = "thinky"
 UNSETTLED = "unsettled"
 JUNK = "junk"
@@ -32,6 +39,7 @@ GROUPS: tuple[str, ...] = (
     HALLUCINATION,
     CO_ACTIVATION,
     CORRECT,
+    SUPPLEMENTARY,
     THINKY,
     UNSETTLED,
     JUNK,
@@ -40,10 +48,11 @@ GROUPS: tuple[str, ...] = (
 GROUP_TITLES: dict[str, str] = {
     HALLUCINATION: "hallucinations: wrong details and false claims",
     CO_ACTIVATION: "plausible co-activation: substitutions of a related object",
-    CORRECT: "correct content",
+    CORRECT: "correct content about the text (fidelity only)",
+    SUPPLEMENTARY: "supplementary world claims the conversation does not settle",
     THINKY: (
         "thinky unverifiable content: unrealised predictions, the model's own state and beliefs, "
-        "possible model beliefs"
+        "other unsettled claims about the text"
     ),
     UNSETTLED: "unsettled: ambiguous topic",
     JUNK: "junk: off-topic claims",
@@ -54,7 +63,7 @@ GROUP_TITLES: dict[str, str] = {
 UNKNOWN_INCORRECT = "unknown_incorrect"
 FAILED = "failed"
 PSEUDO_LEAVES: tuple[str, ...] = (UNKNOWN_INCORRECT, FAILED)
-ROWS: tuple[str, ...] = (*GROUPS, *PSEUDO_LEAVES)  # the identity holds over these 9 rows
+ROWS: tuple[str, ...] = (*GROUPS, *PSEUDO_LEAVES)  # the identity holds over these 10 rows
 
 # ---------------------------------------------------------------- leaves
 
@@ -62,7 +71,7 @@ ROWS: tuple[str, ...] = (*GROUPS, *PSEUDO_LEAVES)  # the identity holds over the
 @dataclass(frozen=True)
 class Leaf:
     name: str
-    branch: str  # non_claim | correct | incorrect | thinky | unsettled | junk
+    branch: str  # non_claim | correct | incorrect | thinky | supplementary | unsettled | junk
     group: str
     definition: str
 
@@ -121,12 +130,6 @@ _LEAVES: tuple[Leaf, ...] = (
         CORRECT,
         "not stated anywhere, but strictly entailed by the conversation.",
     ),
-    Leaf(
-        "world_true",
-        "correct",
-        CORRECT,
-        "on topic, true in the world, not stated or entailed by the conversation.",
-    ),
     # incorrect
     Leaf(
         "detail",
@@ -171,18 +174,35 @@ _LEAVES: tuple[Leaf, ...] = (
         "evaluation, a roleplay), whatever the framing.",
     ),
     Leaf(
-        "possible_belief",
-        "thinky",
-        THINKY,
-        "a world claim the judge believes is false, which the conversation neither states nor "
-        "contradicts; the model may really hold it.",
-    ),
-    Leaf(
         "other_on_topic",
         "thinky",
         THINKY,
-        "any other on-topic claim that the conversation and world knowledge cannot settle, "
-        "including contested or doubtful world claims.",
+        "any other on-topic claim about the text that the conversation cannot settle and that "
+        "is not a world claim (for example a hedged inference about the user or setting, rule "
+        "12). Contested or uncheckable world claims are `supplementary_unsettled`, not this.",
+    ),
+    # supplementary (on-topic world claims the conversation is silent on)
+    Leaf(
+        "supplementary_true",
+        "supplementary",
+        SUPPLEMENTARY,
+        "an on-topic world claim that the conversation does not settle (it neither states, "
+        "entails nor contradicts it), and that is true in the world.",
+    ),
+    Leaf(
+        "supplementary_false",
+        "supplementary",
+        SUPPLEMENTARY,
+        "an on-topic world claim that the conversation does not settle, and that you believe is "
+        "false in the world; the model may really hold it.",
+    ),
+    Leaf(
+        "supplementary_unsettled",
+        "supplementary",
+        SUPPLEMENTARY,
+        "an on-topic world claim that the conversation does not settle, and that world "
+        "knowledge cannot settle either: contested, doubtful, a matter of taste, or "
+        "uncheckable.",
     ),
     # unsettled / junk
     Leaf(
@@ -213,14 +233,58 @@ INCORRECT_LEAVES: tuple[str, ...] = tuple(n for n, b in BRANCH_OF.items() if b =
 SUBSTITUTION_LEAVES: tuple[str, ...] = ("substitution_sibling", "substitution_category")
 CORRECT_LEAVES: tuple[str, ...] = tuple(n for n, g in GROUP_OF.items() if g == CORRECT)
 THINKY_LEAVES: tuple[str, ...] = tuple(n for n, g in GROUP_OF.items() if g == THINKY)
+SUPPLEMENTARY_LEAVES: tuple[str, ...] = tuple(n for n, g in GROUP_OF.items() if g == SUPPLEMENTARY)
 NON_CLAIM_LEAVES: tuple[str, ...] = tuple(n for n, g in GROUP_OF.items() if g == NON_CLAIM)
 ALL_LEAVES: tuple[str, ...] = (*LEAF_NAMES, *PSEUDO_LEAVES)
 
-assert len(LEAF_NAMES) == 19 and len(GROUPS) == 7
+assert len(LEAF_NAMES) == 20 and len(GROUPS) == 8
+
+# gold written before plan rev 13 uses these leaf names; loaders map them mechanically
+LEAF_RENAMES: dict[str, str] = {
+    "world_true": "supplementary_true",
+    "possible_belief": "supplementary_false",
+}
+
+# ---------------------------------------------------------------- verdicts (plan rev 13)
+
+V_HALLUCINATION = "hallucination"
+V_PROBE = "probe_candidate"
+V_CORRECT = "correct"
+V_UNRESOLVED = "unresolved"
+V_JUNK = "junk"
+V_NON_CLAIM = "non_claim"
+VERDICTS: dict[str, tuple[str, ...]] = {
+    V_HALLUCINATION: ("detail", "false_claim"),
+    V_PROBE: (
+        "substitution_sibling",
+        "substitution_category",
+        "supplementary_false",
+        "model_state",
+        "unrealised_prediction",
+        "ambiguous_topic",
+    ),
+    V_CORRECT: ("restates_prefix", "stated_after", "entailed", "supplementary_true"),
+    V_UNRESOLVED: ("other_on_topic", "supplementary_unsettled", UNKNOWN_INCORRECT),
+    V_JUNK: ("off_topic",),
+    V_NON_CLAIM: NON_CLAIM_LEAVES,
+}
+VERDICT_OF: dict[str, str] = {
+    **{lf: v for v, leaves in VERDICTS.items() for lf in leaves},
+    FAILED: FAILED,
+}
+VERDICT_ROWS: tuple[str, ...] = (*VERDICTS, FAILED)  # shares sum to 1 over these 7 rows
+PROBE_CANDIDATE_LEAVES: tuple[str, ...] = VERDICTS[V_PROBE]
+assert sorted(lf for leaves in VERDICTS.values() for lf in leaves) == sorted(
+    (*LEAF_NAMES, UNKNOWN_INCORRECT)
+)
 
 
 def group_of(leaf: str) -> str:
     return GROUP_OF.get(leaf, FAILED)
+
+
+def verdict_of(leaf: str) -> str:
+    return VERDICT_OF.get(leaf, FAILED)
 
 
 def is_claim(leaf: str) -> bool:
@@ -353,7 +417,13 @@ DECISIONS: tuple[tuple[str, str], ...] = (
         "claims that are on topic and incorrect are either unverifiable because we are not sure "
         "whether the model is actually thinking about this or not or maybe they are just "
         "verifiably incorrect because they contradict with the following text",
-        "world_true; contradicted -> incorrect; silent -> possible_belief; stated -> rule 6",
+        "supplementary_true; contradicted -> incorrect; silent -> supplementary_false; stated "
+        "-> rule 6 (rev 13: the test is settlement, not subject)",
+    ),
+    (
+        "option A (rev 13): three top branches, non-claim / claim about the text / "
+        "supplementary claim",
+        "the supplementary group, rule 6's settlement test, rule 14, VERDICTS",
     ),
     ("hedged lists are fine", "the hedged tag"),
     ("eval awareness (as thinky content)", "rule 4 and model_state"),
@@ -385,6 +455,14 @@ class Rule:
     body: tuple[str, ...]  # first entry: the rule; the rest: bullets
 
 
+SETTLEMENT_RULE = (
+    "**The test is settlement, not subject.** An on-topic world claim is **about the text** if "
+    "the conversation settles it (states it, entails it, or contradicts it). It is "
+    "**supplementary** if the conversation is silent on it, even when it concerns the text's "
+    'subject. For example, "Picasso painted Guernica" when the text only discusses the Blue '
+    "Period is supplementary."
+)
+
 LENS_FRAMING_RULE = (
     "A summary's lens framing, such as \"The model is representing / anticipating / focused on "
     '/ gearing up for X", is **framing** (`filler`). The X it attributes is judged as an '
@@ -393,8 +471,9 @@ LENS_FRAMING_RULE = (
 )
 
 
-def _rules() -> dict[int, Rule]:
-    return {
+def _rules(anchored: bool = False) -> dict[int, Rule]:
+    est_clause = ", or if it overlaps an established span" if anchored else ""
+    rules = {
         1: Rule(
             1,
             "Non-claim vs claim.",
@@ -476,15 +555,18 @@ def _rules() -> dict[int, Rule]:
                 + " (Predictions are excepted: a claim framed as anticipation follows rule 10, "
                 "so it is incorrect only if the text **before** the marker rules it out.) **A "
                 "non-prediction world claim is incorrect only if the conversation contradicts "
-                "it**, or if it overlaps an established span. An on-topic world-false claim on "
-                "which the conversation is silent goes to the thinky branch, leaf by rule 9 "
-                "(usually `possible_belief`).",
+                f"it**{est_clause}.",
+                SETTLEMENT_RULE,
+                "An on-topic world claim on which the conversation is silent goes to the "
+                "**supplementary** branch, whatever its world truth (leaf by rule 14: "
+                "`supplementary_true`, `supplementary_false` or `supplementary_unsettled`). It "
+                "is never `correct` and never incorrect, even if it concerns the text's subject.",
             ),
         ),
         7: Rule(
             7,
             "Inside correct.",
-            ("`restates_prefix` > `stated_after` > `entailed` > `world_true`.",),
+            ("`restates_prefix` > `stated_after` > `entailed`.",),
         ),
         8: Rule(
             8,
@@ -508,7 +590,7 @@ def _rules() -> dict[int, Rule]:
         9: Rule(
             9,
             "Inside the thinky branch (unverifiable, on topic).",
-            ("`unrealised_prediction` > `model_state` > `possible_belief` > `other_on_topic`.",),
+            ("`unrealised_prediction` > `model_state` > `other_on_topic`.",),
         ),
         10: Rule(
             10,
@@ -521,8 +603,8 @@ def _rules() -> dict[int, Rule]:
                 "A claim **framed as anticipation** that is plausible, but that the response "
                 "does not say, is `unrealised_prediction`.",
                 "A prediction that the text before the marker rules out is incorrect.",
-                "A prediction that is implausible but not ruled out -> the thinky branch (rule "
-                "9: `possible_belief` if it is world-false, otherwise `other_on_topic`).",
+                "A prediction that is implausible but not ruled out -> the thinky branch "
+                "(`other_on_topic`).",
             ),
         ),
         11: Rule(
@@ -547,23 +629,46 @@ def _rules() -> dict[int, Rule]:
             "On-topic fallback.",
             (
                 "An on-topic claim (rule 5) that rules 6, 10 and 12 have not placed, and that "
-                "neither the conversation nor world knowledge settles, goes to the **thinky** "
-                "branch (leaf by rule 9, else `other_on_topic`).",
+                "the conversation does not settle: a world claim goes to the **supplementary** "
+                "branch (rule 6; leaf by rule 14), including contested or uncheckable world "
+                "claims; any other claim goes to the **thinky** branch (leaf by rule 9, else "
+                "`other_on_topic`).",
+            ),
+        ),
+        14: Rule(
+            14,
+            "Inside supplementary (on-topic world claims the conversation does not settle).",
+            (
+                "`supplementary_true` if it is true in the world; `supplementary_false` if you "
+                "believe it is false in the world; `supplementary_unsettled` if world knowledge "
+                "cannot settle it (contested, doubtful, a matter of taste, or uncheckable).",
             ),
         ),
     }
+    if not anchored:
+        del rules[2]
+    return rules
 
 
-RULES: dict[int, Rule] = _rules()
-BRANCH_RULE_ORDER: tuple[int, ...] = (2, 1, 3, 4, 5, 6, 10, 11, 12, 13)
-LEAF_RULE_ORDER: tuple[int, ...] = (7, 8, 9)
+RULES: dict[int, Rule] = _rules()  # single-call (no rule 2)
+RULES_ANCHORED: dict[int, Rule] = _rules(anchored=True)
+BRANCH_RULE_ORDER_ANCHORED: tuple[int, ...] = (2, 1, 3, 4, 5, 6, 10, 11, 12, 13)
+BRANCH_RULE_ORDER: tuple[int, ...] = tuple(n for n in BRANCH_RULE_ORDER_ANCHORED if n != 2)
+LEAF_RULE_ORDER: tuple[int, ...] = (7, 8, 9, 14)
 RULE_ORDER: tuple[int, ...] = (*BRANCH_RULE_ORDER, *LEAF_RULE_ORDER)
+RULE_ORDER_ANCHORED: tuple[int, ...] = (*BRANCH_RULE_ORDER_ANCHORED, *LEAF_RULE_ORDER)
 PRECEDENCE_INTRO = (
+    "Rules 1, 3–6 and 10–13 **select the branch** (non-claim, correct, incorrect, thinky, "
+    "supplementary, unsettled, junk). Apply them first, top-down in the order listed; the first "
+    "one that fits wins. Rules 7–9 and 14 **order the leaves within a branch** and apply only "
+    "after the branch is fixed."
+)
+PRECEDENCE_INTRO_ANCHORED = (
     "Rules 1–6 and 10–13 **select the branch** (non-claim, correct, incorrect, thinky, "
-    "unsettled, junk). Apply them first, top-down in the order listed; the first one that fits "
-    "wins. Rule 2 (established spans) is checked before rule 1, so you dispute an established "
-    "span rather than call it a non-claim. Rules 7–9 **order the leaves within a branch** and "
-    "apply only after the branch is fixed."
+    "supplementary, unsettled, junk). Apply them first, top-down in the order listed; the first "
+    "one that fits wins. Rule 2 (established spans) is checked before rule 1, so you dispute an "
+    "established span rather than call it a non-claim. Rules 7–9 and 14 **order the leaves "
+    "within a branch** and apply only after the branch is fixed."
 )
 
 # ---------------------------------------------------------------- detail rule
@@ -591,7 +696,7 @@ DETAIL_EXTRA: tuple[str, ...] = (
 DETAIL_CARVE_OUT = (
     'Quantities and dates of **real events**, and counts that **flip the claim** ("0 errors" '
     "for 3), are `false_claim` **when the conversation contradicts them**; if it is silent they "
-    'are `possible_belief` (rule 6). Wording and digits are treated alike, so "no errors" and '
+    'are `supplementary_false` (rule 6). Wording and digits are treated alike, so "no errors" and '
     '"0 errors" both count as `false_claim`.'
 )
 
@@ -615,53 +720,88 @@ TAGS: dict[str, str] = {
         "(substitutions only): `{said, actual}`, the object the readout says and the object it "
         "replaces; null for every other leaf."
     ),
+    "probe_target": (
+        "(string, probe-candidate segments only): on every `substitution_sibling`, "
+        "`substitution_category`, `supplementary_false`, `model_state`, "
+        "`unrealised_prediction` and `ambiguous_topic` segment, a short phrase naming the "
+        'concept a probe should test for ("Germany"; "this is an evaluation"; "the response '
+        'will recommend therapy"). For a substitution it names the object the readout says '
+        "(the `pair` keeps the actual one). Null for every other leaf."
+    ),
 }
+ANCHORED_ONLY_TAGS: tuple[str, ...] = ("dispute",)
+
+
+def tags(anchored: bool = False) -> dict[str, str]:
+    return {k: v for k, v in TAGS.items() if anchored or k not in ANCHORED_ONLY_TAGS}
 
 
 # ---------------------------------------------------------------- render
 
 
-def definitions() -> list[str]:
+TREE_INTRO = (
+    "The tree has three top branches: **non-claim**, **claim about the text** and "
+    "**supplementary claim**. The topic gate (rule 5) runs first on every claim and routes "
+    "off-topic and ambiguous claims to `off_topic` / `ambiguous_topic`. An on-topic claim is "
+    "then about the text or supplementary (rule 6)."
+)
+
+
+def _mode(anchored: bool) -> tuple[dict[int, Rule], tuple[int, ...], str]:
+    if anchored:
+        return RULES_ANCHORED, RULE_ORDER_ANCHORED, PRECEDENCE_INTRO_ANCHORED
+    return RULES, RULE_ORDER, PRECEDENCE_INTRO
+
+
+def definitions(anchored: bool = False) -> list[str]:
     """Every label and definition string the rendered prompt must contain (tests)."""
-    out: list[str] = [PRECEDENCE_INTRO, DETAIL_RULE_INTRO, DETAIL_CARVE_OUT, *UNITS_TEXT]
+    rules, _order, intro = _mode(anchored)
+    out: list[str] = [intro, TREE_INTRO, DETAIL_RULE_INTRO, DETAIL_CARVE_OUT, *UNITS_TEXT]
     for lf in _LEAVES:
         out += [f"`{lf.name}`", lf.definition]
-    for r in RULES.values():
+    for r in rules.values():
         out += [r.title, *(b for b in r.body if b)]
     out += [*DETAIL_ITEMS, *DETAIL_EXTRA]
-    for k, v in TAGS.items():
+    for k, v in tags(anchored).items():
         out += [f"`{k}`", v]
     return out
 
 
-def render() -> str:
-    """The taxonomy as prompt text (markdown)."""
+BRANCH_TITLES: dict[str, str] = {
+    "non_claim": "non-claim (group: non_claim)",
+    "unsettled": "claim → topic gate, ambiguous topic (group: unsettled)",
+    "junk": "claim → topic gate, off topic (group: junk)",
+    "correct": "claim about the text → correct (group: correct)",
+    "incorrect": "claim about the text → incorrect (groups: hallucination [detail, "
+    "false_claim]; co-activation [the substitutions])",
+    "thinky": "claim about the text → unverifiable (group: thinky)",
+    "supplementary": "supplementary claim: an on-topic world claim the conversation does not "
+    "settle (group: supplementary)",
+}
+
+
+def render(anchored: bool = False) -> str:
+    """The taxonomy as prompt text (markdown); ``anchored`` adds rule 2 and the dispute tag."""
+    rules, order, intro = _mode(anchored)
     lines: list[str] = [f"# Claim map taxonomy ({TAXONOMY_VERSION})", "", "## Units", ""]
     lines += [f"- {t}" for t in UNITS_TEXT]
     lines += [
         "",
-        "## The tree: 19 leaves in 7 groups",
+        f"## The tree: {len(LEAF_NAMES)} leaves in {len(GROUPS)} groups",
         "",
-        "Every segment gets exactly one leaf.",
+        "Every segment gets exactly one leaf. " + TREE_INTRO,
+        "",
+        SETTLEMENT_RULE,
         "",
     ]
-    branch_titles = {
-        "non_claim": "non_claim (group: non_claim)",
-        "correct": "claim → correct (group: correct)",
-        "incorrect": "claim → incorrect (groups: hallucination [detail, false_claim]; "
-        "co-activation [the substitutions])",
-        "thinky": "claim → unverifiable → on topic (group: thinky)",
-        "unsettled": "claim → unverifiable → ambiguous topic (group: unsettled)",
-        "junk": "claim → unverifiable → off topic (group: junk)",
-    }
-    for b, title in branch_titles.items():
+    for b, title in BRANCH_TITLES.items():
         lines.append(f"### {title}")
         lines.append("")
         lines += [f"- `{lf.name}`: {lf.definition}" for lf in _LEAVES if lf.branch == b]
         lines.append("")
-    lines += ["## Precedence", "", PRECEDENCE_INTRO, ""]
-    for n in RULE_ORDER:
-        r = RULES[n]
+    lines += ["## Precedence", "", intro, ""]
+    for n in order:
+        r = rules[n]
         head, *bullets = r.body
         lines.append(f"{n}. **{r.title}** {head}".rstrip())
         lines += [f"   - {b}" for b in bullets]
@@ -669,5 +809,5 @@ def render() -> str:
     lines += [f"- {d}" for d in DETAIL_ITEMS]
     lines += [*DETAIL_EXTRA, "", DETAIL_CARVE_OUT, ""]
     lines += ["## Tags (orthogonal; they never change the leaf)", ""]
-    lines += [f"- `{k}` {v}" for k, v in TAGS.items()]
+    lines += [f"- `{k}` {v}" for k, v in tags(anchored).items()]
     return "\n".join(lines)
