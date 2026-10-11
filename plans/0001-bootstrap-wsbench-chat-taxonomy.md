@@ -1,6 +1,6 @@
 # Plan 0001 — Bootstrap HallucinationBench v2; port `wsbench_chat`; add the taxonomy judge
 
-Issue #1. Author: Camila Blank (planned with Claude), 2026-10-11. Revision 6 (after critiques 1–5).
+Issue #1. Author: Camila Blank (planned with Claude), 2026-10-11. Revision 7 (after critiques 1–6; critique 6: no substantive issues).
 
 ## Goal
 
@@ -327,7 +327,10 @@ Rules:
   - `cells.jsonl` and `summary.json` are **regenerated from the cache over every judged layer**,
     at the end of each `hbench run` and by `hbench report`. Stage 2 therefore extends stage 1's
     outputs rather than writing a separate file.
-  - `hbench run --rebuild` regenerates them with no API calls.
+  - `hbench run --rebuild` regenerates them with no API calls. Rebuild and `report` re-render
+    the classify prompt and look up `:C` by key **and** fingerprint. On a mismatch (a stale
+    entry, e.g. from a contradicted-only run), the cell's spans are `unknown`; labels are never
+    attached to the wrong S-ids.
 - **Short prose cells.** Some s3d rows have 0–2 non-empty samples, fewer than k. They are judged
   with what they have and counted in `n_short_cells`. All rates are readout-level, so they are
   unaffected.
@@ -419,6 +422,7 @@ production.
   - At least 10 unsupported spans covering all 4 `unsupported_kind` values, with both
     concept-type and detail-type unsupported spans.
   - Severity 1, 2 and 3 each appear at least 5 times.
+  - At least 4 disputed spans.
   - Readout styles that mimic real lenses: O-lens bullet lists with code-switched Chinese and
     English fragments, NLA `<explanation>` prose, and one-to-two-sentence summariser
     interpretations.
@@ -506,7 +510,8 @@ production.
 - `test_v5c_frozen.py` proves the span prompt is byte-identical to the frozen JSON and the
   verify prompt is identical to the wsbench-pub literal; port the source's verify literal test.
 - The calibration gate is passed on held-out and reported.
-- Stage 1 is complete for all 11 arms, with missing + failed cells under 1% per arm per stage,
+- Stage 1 is complete for all 11 arms, with **failed** cells under 1% per arm per pipeline stage
+  (missing readout rows are reported separately; judging cannot fix them),
   and the report is written. Stage 2 is either complete, or running in tmux with a resumable
   driver.
 - `docs/results/0001_wsbench_chat_taxonomy.md` contains:
