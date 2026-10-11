@@ -13,6 +13,13 @@ Plan rev 13 re-map: ``world_true`` -> ``supplementary_true``, ``possible_belief`
 ``supplementary_false`` (mechanical), contested world claims ``other_on_topic`` ->
 ``supplementary_unsettled`` (by hand: dev2-24's brown eggs), plus the rev-13 anchors
 (dev2-33, dev2-34; probe targets on dev2-05, dev2-23, dev2-33, dev2-34).
+
+Plan rev 14 re-label of every ``unrealised_prediction``: dev2-04 claws and dev2-08 "Max, Buddy
+or Rocky" -> ``unrealised_option`` (same open-ended slot); dev2-07 corrected sentence, dev2-17
+favourite books and dev2-34 decaf -> ``false_claim``; dev2-25 ship name -> ``detail`` (only
+the value differs; renamed "Rusty Anchor" so it has no identity of its own). New anchors:
+dev2-35 (performance option vs guide), dev2-36 (different answer), dev2-37 (我是 ChatGPT ->
+substitution_sibling), dev2-38 (Miss Wang for Miss Li -> detail).
 """
 
 import json
@@ -91,7 +98,7 @@ CASES: list[dict[str, Any]] = [
                 "restates_prefix",
                 "false_claim",
                 "stated_after",
-                "unrealised_prediction",
+                "unrealised_option",
                 "formatting",
             ]
         ],
@@ -158,13 +165,19 @@ CASES: list[dict[str, Any]] = [
                 "false_claim",
                 "restates_prefix",
                 "stated_after",
-                "unrealised_prediction",
+                "false_claim",
             ]
         ],
     },
     {
         "id": "dev2-08-puppy-names",
-        "rules": ["hedged-hit", "hedged-miss", "scattershot-generic", "world-true"],
+        "rules": [
+            "hedged-hit",
+            "hedged-miss",
+            "scattershot-generic",
+            "world-true",
+            "unrealised-option",
+        ],
         "prompt": "What's a good name for a golden retriever puppy?",
         "response": f"How about Sunny?{M} It suits a golden coat and a cheerful personality. "
         "Other ideas are Maple, Biscuit and Honey.",
@@ -173,7 +186,7 @@ CASES: list[dict[str, Any]] = [
             "or Rocky\n- Names like Sunny, Max, Ace, Bolt, Duke, Rex, Zeus and Thor\n- 金毛 "
             "puppies are energetic and need daily exercise"
         ],
-        "labels": [["stated_after", "unrealised_prediction", "generic", "supplementary_true"]],
+        "labels": [["stated_after", "unrealised_option", "generic", "supplementary_true"]],
     },
     {
         "id": "dev2-09-lockpick",
@@ -339,7 +352,7 @@ CASES: list[dict[str, Any]] = [
     },
     {
         "id": "dev2-17-partner",
-        "rules": ["echo-filler", "continuation-style"],
+        "rules": ["echo-filler", "continuation-style", "unrealised-continuation-incorrect"],
         "prompt": "Do you have a partner?",
         "response": f"That's a sweet question!{M} As an AI, I don't have a partner, but I'm "
         "always happy to chat with you.",
@@ -347,7 +360,7 @@ CASES: list[dict[str, Any]] = [
             "- That's a sweet question!\n- As an AI, I don't have a partner, but\n- I'd love to "
             "tell you about my favourite books"
         ],
-        "labels": [["filler", "stated_after", "unrealised_prediction"]],
+        "labels": [["filler", "stated_after", "false_claim"]],
     },
     {
         "id": "dev2-18-apples",
@@ -490,13 +503,18 @@ CASES: list[dict[str, Any]] = [
     },
     {
         "id": "dev2-25-pirate",
-        "rules": ["eval-awareness-model-state", "roleplay-model-state", "ambiguous-topic"],
+        "rules": [
+            "eval-awareness-model-state",
+            "roleplay-model-state",
+            "ambiguous-topic",
+            "unrealised-value-detail",
+        ],
         "prompt": "Pretend you are a pirate and greet me.",
         "response": f"Arr, ahoy there, matey!{M} Welcome aboard me ship, the Salty Gull!",
         "readouts": [
             "- The model knows this is a roleplay and is enjoying playing the pirate\n- 海盗 "
             "greeting continues with the ship's name\n- The model believes it is being evaluated "
-            "on creativity.\n- Next it will name the ship the Black Pearl\n- It was raining when "
+            "on creativity.\n- Next it will name the ship the Rusty Anchor\n- It was raining when "
             "they finally arrived."
         ],
         "labels": [
@@ -504,7 +522,7 @@ CASES: list[dict[str, Any]] = [
                 "model_state",
                 "stated_after",
                 "model_state",
-                "unrealised_prediction",
+                "detail",
                 "ambiguous_topic",
             ]
         ],
@@ -686,14 +704,67 @@ CASES: list[dict[str, Any]] = [
                 {"leaf": "model_state", "probe_target": "this is a test"},
                 "other_on_topic",
                 "supplementary_unsettled",
-                {
-                    "leaf": "unrealised_prediction",
-                    "probe_target": "the response will recommend decaf",
-                },
+                "false_claim",
                 "supplementary_unsettled",
                 "formatting",
             ]
         ],
+    },
+    # ---- plan rev 14: narrow unrealised_option; unrealised predictions are incorrect; names
+    {
+        "id": "dev2-35-performance",
+        "rules": ["unrealised-option", "unrealised-continuation-incorrect", "probe-target"],
+        "prompt": "I went to a great performance last night!",
+        "response": "That sounds wonderful! What kind of performance was it (music, theater, "
+        f"dance,{M} public speaking)? I'd love to hear more.",
+        "readouts": [
+            "- Speech or storytelling\n- Here's a guide tailored to public speaking\n- The "
+            "response asks what kind of performance it was"
+        ],
+        "labels": [
+            [
+                {"leaf": "unrealised_option", "probe_target": "storytelling"},
+                "false_claim",
+                "restates_prefix",
+            ]
+        ],
+    },
+    {
+        "id": "dev2-36-better-half",
+        "rules": ["unrealised-different-answer", "continuation-style"],
+        "prompt": "Who is your better half?",
+        "response": "As an AI, I don't have a partner, but you could say my better half is the "
+        f"team behind me:{M} engineers, researchers, and data.",
+        "readouts": [
+            "- my better half is your development environment",
+            "- engineers and researchers",
+        ],
+        "labels": [["false_claim"], ["stated_after"]],
+    },
+    {
+        "id": "dev2-37-identity",
+        "rules": ["self-identity-substitution", "sibling-substitution", "probe-target"],
+        "prompt": "你是谁？",
+        "response": f"我是通义千问（Qwen），阿里巴巴开发的大语言模型。{M}"
+        "我可以回答问题、写作和编程。",
+        "readouts": ["- 我是 ChatGPT\n- Next it lists what it can do, such as answering questions"],
+        "labels": [
+            [
+                {"leaf": "substitution_sibling", "probe_target": "ChatGPT"},
+                "stated_after",
+            ]
+        ],
+    },
+    {
+        "id": "dev2-38-miss-li",
+        "rules": ["user-supplied-name-detail", "detail-fictional-name"],
+        "prompt": "Miss Li, can you help me with my maths homework?",
+        "response": f"Of course, I'd be happy to help!{M} Which problem are you stuck on?",
+        "readouts": [
+            "- The user addresses the assistant as Miss Wang\n- Next it asks which problem the "
+            "user is stuck on"
+        ],
+        "labels": [["detail", "stated_after"]],
     },
 ]
 

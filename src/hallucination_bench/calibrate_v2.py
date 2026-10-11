@@ -32,7 +32,9 @@ On ``heldout`` only aggregates are reported.
 """
 
 import asyncio
+import functools
 import json
+import warnings
 from collections import Counter
 from collections.abc import Sequence
 from pathlib import Path
@@ -73,6 +75,7 @@ GATE: tuple[tuple[str, str, float, bool], ...] = (
     ("real-part group accuracy", "real_group_acc_unit", 0.80, True),
     ("n_unlocated_subspans / splits", "unlocated_subspan_rate", 0.02, False),
 )
+INVALID_RETRIES = 2
 DEV_MIN_UNITS = 100
 DEV_MIN_PER_LEAF = 3
 
@@ -81,13 +84,22 @@ def cases_path(split: str) -> Path:
     return CAL_DIR / f"{split}_v2.jsonl"
 
 
-def _rename(x: Any) -> Any:
-    return tx.LEAF_RENAMES.get(x, x) if isinstance(x, str) else x
+def _rename(x: Any, fallbacks: Counter | None = None) -> Any:
+    if not isinstance(x, str):
+        return x
+    if x in tx.FALLBACK_RENAMES:
+        if fallbacks is not None:
+            fallbacks[x] += 1
+        return tx.FALLBACK_RENAMES[x]
+    return tx.LEAF_RENAMES.get(x, x)
 
 
-def remap_case(c: dict[str, Any]) -> dict[str, Any]:
-    """The case with pre-rev-13 gold leaf names mapped mechanically (a new dict; the input is
-    not changed). Contested-world-claim relabels are not mechanical and are not done here."""
+def remap_case(c: dict[str, Any], fallbacks: Counter | None = None) -> dict[str, Any]:
+    """The case with old gold leaf names mapped (a new dict; the input is not changed):
+    pre-rev-13 renames mechanically; rev 14's ``unrealised_prediction`` -> ``unrealised_option``
+    only as a fallback (counted in ``fallbacks``; :func:`load_cases` warns), since most such
+    gold should be re-labelled incorrect. Contested-world-claim relabels are not done here."""
+    rn = functools.partial(_rename, fallbacks=fallbacks)
     gold = c.get("gold")
     if not isinstance(gold, dict) or not isinstance(gold.get("units"), list):
         return c
@@ -99,10 +111,10 @@ def remap_case(c: dict[str, Any]) -> dict[str, Any]:
         g = {**g}
         for k in ("leaf", "rest_leaf", "alt_leaf"):
             if k in g:
-                g[k] = _rename(g[k])
+                g[k] = rn(g[k])
         if isinstance(g.get("splits"), list):
             g["splits"] = [
-                {**sp, "leaf": _rename(sp.get("leaf"))} if isinstance(sp, dict) else sp
+                {**sp, "leaf": rn(sp.get("leaf"))} if isinstance(sp, dict) else sp
                 for sp in g["splits"]
             ]
         units.append(g)
@@ -189,9 +201,19 @@ def validate_case(c: dict[str, Any], *, require_gold: bool = True) -> list[str]:
 
 def load_cases(split: str, path: Path | None = None) -> list[dict[str, Any]]:
     p = path or cases_path(split)
+    fallbacks: Counter = Counter()
     cases = [
-        remap_case(json.loads(x)) for x in p.read_text(encoding="utf-8").splitlines() if x.strip()
+        remap_case(json.loads(x), fallbacks)
+        for x in p.read_text(encoding="utf-8").splitlines()
+        if x.strip()
     ]
+    if fallbacks:
+        warnings.warn(
+            f"{p}: {sum(fallbacks.values())} gold label(s) use the pre-rev-14 leaf "
+            f"`unrealised_prediction`; mapped to `unrealised_option` as a fallback. Re-label "
+            "them (rev 14: most unrealised predictions are incorrect).",
+            stacklevel=2,
+        )
     errs = [e for c in cases for e in validate_case(c)]
     if errs:
         raise ValueError(f"{p}: invalid cases:\n  " + "\n  ".join(errs[:30]))
@@ -582,10 +604,21 @@ async def map_cases(
         elif llm is None:
             raw = None
         else:
-            res = await llm.call(model=model, system=system, user=user, schema=schema)
-            usage.add(res.usage)
-            meta = {"stage": "calibrate_v2", "usage": res.usage.to_dict()}
-            raw = res.result
+            call_usage = Usage()
+            n_invalid = 0
+            while True:  # plan rev 14: an invalid answer is retried up to 2 times in-run
+                res = await llm.call(model=model, system=system, user=user, schema=schema)
+                usage.add(res.usage)
+                call_usage.add(res.usage)
+                raw = res.result
+                if raw is None or cm.validate(raw, units):
+                    break
+                n_invalid += 1
+                if n_invalid > INVALID_RETRIES:
+                    break
+            meta = {"stage": "calibrate_v2", "usage": call_usage.to_dict()}
+            if n_invalid:
+                meta["n_invalid_attempts"] = n_invalid
             if raw is not None and not cm.validate(raw, units):
                 cache.put(key, fp, {"result": None, "meta": {**meta, "raw": raw}})
                 raw = None

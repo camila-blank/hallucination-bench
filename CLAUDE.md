@@ -117,4 +117,8 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
   `gate_passed: true`.
 - Old gold leaf names (`world_true`, `possible_belief`) are renamed on load
   (`taxonomy_v2.LEAF_RENAMES`); contested-world-claim relabels to `supplementary_unsettled` are
-  manual.
+  manual. Rev 14's `unrealised_prediction` maps to `unrealised_option` only as a fallback
+  (`FALLBACK_RENAMES`, `load_cases` warns): re-label it.
+- **In-run retries** (rev 14): an invalid `:M` (or calibration) answer is re-asked up to 2 times
+  (`run.MAP_INVALID_RETRIES`) before it is cached as failed; meta records `n_invalid_attempts`
+  and the summed usage.

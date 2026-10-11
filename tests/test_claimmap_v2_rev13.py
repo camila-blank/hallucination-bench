@@ -48,7 +48,7 @@ def test_groups_follow_option_a():
         "supplementary_false",
         "supplementary_unsettled",
     )
-    assert set(tx.THINKY_LEAVES) == {"unrealised_prediction", "model_state", "other_on_topic"}
+    assert set(tx.THINKY_LEAVES) == {"unrealised_option", "model_state", "other_on_topic"}
     assert "world_true" not in tx.LEAVES and "possible_belief" not in tx.LEAVES
     assert tx.LEAF_RENAMES == {
         "world_true": "supplementary_true",
@@ -120,7 +120,7 @@ def test_probe_target_parsing_and_missing_count():
     raw = {
         "units": [
             e("R0.U1", "model_state", probe_target="  this is an evaluation "),
-            e("R0.U2", "unrealised_prediction"),  # missing probe_target: counted, leaf kept
+            e("R0.U2", "unrealised_option"),  # missing probe_target: counted, leaf kept
             e(
                 "R0.U3",
                 "generic",
@@ -143,7 +143,7 @@ def test_probe_target_parsing_and_missing_count():
     got = [(s.text, s.leaf, s.probe_target) for s in segs]
     assert got == [
         ("The model thinks it is a test.", "model_state", "this is an evaluation"),
-        ("Next comes therapy.", "unrealised_prediction", None),
+        ("Next comes therapy.", "unrealised_option", None),
         ("Paris", "substitution_sibling", "Paris"),
         ("is big.", "restates_prefix", None),
         ("Yes.", "restates_prefix", None),
@@ -321,7 +321,7 @@ def test_verdict_accuracy_gate_row_and_probe_target_anchors():
     pred = cm.parse(
         {
             "units": [
-                e("R0.U1", "unrealised_prediction", probe_target="a test"),  # same verdict
+                e("R0.U1", "unrealised_option", probe_target="a test"),  # same verdict
                 e("R0.U2", "other_on_topic"),  # same verdict (unresolved), other group
                 e("R0.U3", "false_claim"),  # wrong verdict
             ],
@@ -337,7 +337,7 @@ def test_verdict_accuracy_gate_row_and_probe_target_anchors():
             "case_id": "v",
             "unit": "R0.U1",
             "gold_leaf": "model_state",
-            "pred_leaf": "unrealised_prediction",
+            "pred_leaf": "unrealised_option",
             "gold": "this is a test",
             "pred": "a test",
         }

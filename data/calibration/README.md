@@ -191,10 +191,12 @@ Leaves (taxonomy v2, plan rev 13): non_claim — `generic`, `filler`, `formattin
 `lens_meta`; correct — `restates_prefix`, `stated_after`, `entailed`; incorrect —
 `detail`, `false_claim` (hallucination), `substitution_sibling`, `substitution_category`
 (co-activation); supplementary — `supplementary_true`, `supplementary_false`,
-`supplementary_unsettled`; thinky — `unrealised_prediction`, `model_state`, `other_on_topic`;
+`supplementary_unsettled`; thinky — `unrealised_option`, `model_state`, `other_on_topic`;
 `ambiguous_topic` (unsettled); `off_topic` (junk). Gold never uses the code-only
 `unknown_incorrect` / `failed`. Pre-rev-13 names are renamed on load (`world_true` ->
-`supplementary_true`, `possible_belief` -> `supplementary_false`).
+`supplementary_true`, `possible_belief` -> `supplementary_false`); rev 14's
+`unrealised_prediction` -> `unrealised_option` only as a fallback, with a warning (re-label it:
+most unrealised predictions are incorrect).
 
 Single-call mode (the default since rev 13): established spans still make their own units (ids
 stay stable) but the flags are not shown to the judge; an established unit is scored against
@@ -210,7 +212,7 @@ scored by the judge's `alt_leaf` (disputed) or raw leaf (forced).
 
 ## dev_v2.jsonl (synthetic, prompt iteration)
 
-34 cases, 159 gold units, written from scratch by the implementer (Claude, 2026-10-11) with
+38 cases, 168 gold units, written from scratch by the implementer (Claude, 2026-10-11) with
 `scripts/build_dev_v2.py` (the labels live there; re-run it if the splitter changes). Every
 case is invented. Coverage (asserted by `tests/test_calibrate_v2.py`): ≥ 3 gold segments for
 every leaf (min 3, e.g. 5 sibling and 4 category substitutions, 9 false_claim, 13 detail;
@@ -225,7 +227,11 @@ on topic `dev2-13`; rule 12 hedged `dev2-09/24` and flat `dev2-10`; the wrong br
 `dev2-20`). Rev 13: mechanical renames, dev2-24's "Brown eggs taste better" relabelled
 `supplementary_unsettled`, plus `dev2-33` (settlement, not subject: Guernica in a Blue Period
 answer; 2 unsettled) and `dev2-34` (2 unsettled; probe targets), and gold `probe_target` on
-`dev2-05/23/33/34` (4 anchors).
+`dev2-05/23/33/34` (4 anchors). Rev 14: every `unrealised_prediction` re-labelled
+(dev2-04, dev2-08 -> `unrealised_option`; dev2-07, dev2-17, dev2-34 -> `false_claim`; dev2-25
+-> `detail`, ship renamed "Rusty Anchor"), plus dev2-35 (option vs guide), dev2-36 (different
+answer), dev2-37 (我是 ChatGPT -> `substitution_sibling`), dev2-38 (Miss Wang for Miss Li ->
+`detail`); probe targets now on dev2-05/23/33/35/37 (dev2-34's decaf is no longer one).
 
 Gold-labelling notes (judgement calls, following `taxonomy_v2.py` defaults):
 
@@ -257,3 +263,4 @@ checks, each logged below.
 Gold-label fixes (v2): none.
 | 2026-10-11 | dev | claimmap-v2.1 (rev 11 framing rule; 32 cases, punctuation-only segments excluded) | all dev rows pass | group acc unit 0.966 / char 0.958, leaf acc 0.959, recall false_claim 1.00 / detail 0.923 (n 13) / substitution 1.00 / correct 0.910, sib-vs-cat 0.944, claim F1 0.992, flip 0.000; 2 runs, $2.06 |
 | 2026-10-11 | dev | claimmap-v2.3 (rev 13: supplementary branch, verdicts, probe targets; single-call, 34 cases) | all dev rows pass | group acc unit 0.940 / char 0.937, verdict acc 0.940, leaf acc 0.921, recall false_claim 1.00 / detail 0.923 / substitution 0.944 / correct 0.881, sib-vs-cat 0.819, claim F1 0.981, flip 0.044; 1 of 68 calls failed (dev2-32 r1); probe_target missing 0/25 per run; 2 runs, $1.42 |
+| 2026-10-11 | dev | claimmap-v2.4 (rev 14: narrow unrealised_option, name anchors, in-run retries; 38 cases) | all dev rows pass | group acc unit 0.955 / char 0.951, verdict acc 0.955, leaf acc 0.943, recall false_claim 0.964 / detail 0.900 / substitution 1.00 / correct 0.903, sib-vs-cat 0.900, claim F1 0.991, flip 0.006; 0 failed calls; unrealised_option recall 1.00 (n 3); 2 runs, $2.16 |

@@ -84,7 +84,7 @@ def test_tree_has_20_leaves_in_8_groups_and_pseudo_rows():
     assert set(tx.GROUP_OF.values()) == set(tx.ROWS)
     assert tx.SUBSTITUTION_LEAVES == ("substitution_sibling", "substitution_category")
     assert {tx.group_of(x) for x in ("detail", "false_claim")} == {tx.HALLUCINATION}
-    assert tx.group_of("unrealised_prediction") == tx.THINKY
+    assert tx.group_of("unrealised_option") == tx.THINKY
     assert tx.group_of("off_topic") == tx.JUNK and tx.group_of("ambiguous_topic") == tx.UNSETTLED
 
 
@@ -110,7 +110,9 @@ def test_precedence_is_listed_in_the_planned_order():
     assert "A non-prediction world claim is incorrect only if the conversation contradicts" in (
         cm.SYSTEM.replace("**", "")
     )
-    assert "if it is implausible but not ruled out, rule 10's last bullet applies" in cm.SYSTEM
+    # rev 14 replaces rule 3's implausible-prediction bullet: unrealised continuations are
+    # incorrect unless they are a narrow unrealised_option
+    assert "including a different answer to the question being answered" in cm.SYSTEM
     assert "Hedge words stay inside their claim segment" in cm.SYSTEM
 
 
@@ -543,4 +545,4 @@ def test_rev11_lens_framing_rule_is_rendered():
     assert tx.LENS_FRAMING_RULE in cm.SYSTEM
     assert "The model is representing / anticipating / focused on / gearing up for X" in cm.SYSTEM
     assert "It is **never `model_state`**" in cm.SYSTEM
-    assert cm.PROMPT_VERSION == "claimmap-v2.3"
+    assert cm.PROMPT_VERSION == "claimmap-v2.4"

@@ -241,7 +241,11 @@ async def cached_call(
     schema: dict[str, Any],
     validate: Callable[[dict[str, Any]], bool] | None = None,
     dump: bool = False,
+    invalid_retries: int = 0,
 ) -> CallOut:
+    """One cached call. An answer that fails ``validate`` is retried within the run up to
+    ``invalid_retries`` times (plan rev 14: 2 for the claim map) before it is cached as failed;
+    the usage of every attempt is summed into the row's meta."""
     fp = fingerprint(version, model, effort, system, user)
     if dump and arm.dump is not None:
         arm.dump.write(f"===== {key} [{stage}] model={model} version={version}\n")
@@ -256,15 +260,33 @@ async def cached_call(
             return CallOut("pending")
         meta = failed.get("meta") or {}
         return CallOut("failed", raw=meta.get("raw") if isinstance(meta, dict) else None)
-    out = await llm.call(model=model, system=system, user=user, schema=schema)
-    arm.spend[stage].add(out.usage)
-    meta: dict[str, Any] = {"stage": stage, "model": model, "usage": out.usage.to_dict()}
-    r = out.result
-    if r is not None and validate is not None and not validate(r):
-        arm.cache.put(key, fp, {"result": None, "meta": {**meta, "raw": r}})
-        return CallOut("failed", raw=r)
+    usage = Usage()
+    n_invalid = 0
+    while True:
+        out = await llm.call(model=model, system=system, user=user, schema=schema)
+        arm.spend[stage].add(out.usage)
+        usage.add(out.usage)
+        r = out.result
+        if r is None or validate is None or validate(r):
+            break
+        n_invalid += 1
+        if n_invalid > invalid_retries:  # invalid after every in-run retry: cache as failed
+            meta = _meta(stage, model, usage, n_invalid)
+            arm.cache.put(key, fp, {"result": None, "meta": {**meta, "raw": r}})
+            return CallOut("failed", raw=r)
+    meta = _meta(stage, model, usage, n_invalid)
     arm.cache.put(key, fp, {"result": r, "meta": meta})
     return CallOut("ok" if r is not None else "failed", r)
+
+
+def _meta(stage: str, model: str, usage: Usage, n_invalid: int) -> dict[str, Any]:
+    meta: dict[str, Any] = {"stage": stage, "model": model, "usage": usage.to_dict()}
+    if n_invalid:
+        meta["n_invalid_attempts"] = n_invalid
+    return meta
+
+
+MAP_INVALID_RETRIES = 2  # plan rev 14
 
 
 # ---------------------------------------------------------------- one cell
@@ -507,6 +529,7 @@ async def _map_stage(
         schema=cm.schema_for(anchor),
         validate=lambda r: cm.validate(r, units),
         dump=dump,
+        invalid_retries=MAP_INVALID_RETRIES,
     )
     rec["stages"]["map"] = mout.status
     raw = mout.result if mout.status == "ok" else None

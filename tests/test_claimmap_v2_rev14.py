@@ -1,0 +1,156 @@
+"""Plan 0002 rev 14: the narrow unrealised_option, unrealised predictions are incorrect, the
+name anchors, the verdict update, in-run retries of invalid answers and the dev re-label."""
+
+import asyncio
+import json
+
+import pytest
+from test_claimmap_v2 import MapFake, _cells, _run, default_map
+
+from hallucination_bench import calibrate_v2 as cal
+from hallucination_bench import taxonomy_v2 as tx
+from hallucination_bench.evals.wsbench_chat import run as wrun
+from hallucination_bench.judges import claimmap_v2 as cm
+
+
+def test_unrealised_option_replaces_unrealised_prediction():
+    assert "unrealised_prediction" not in tx.LEAVES and "unrealised_option" in tx.LEAVES
+    assert len(tx.LEAF_NAMES) == 20
+    assert tx.group_of("unrealised_option") == tx.THINKY
+    assert tx.verdict_of("unrealised_option") == tx.V_PROBE
+    assert "unrealised_option" in tx.PROBE_CANDIDATE_LEAVES
+    assert tx.FALLBACK_RENAMES == {"unrealised_prediction": "unrealised_option"}
+    for system in (cm.SYSTEM, cm.SYSTEM_V5C):
+        assert "unrealised_prediction" not in system
+
+
+@pytest.mark.parametrize("system", [cm.SYSTEM, cm.SYSTEM_V5C])
+def test_rules_3_9_10_and_name_anchors_are_rendered(system):
+    flat = system.replace("**", "")
+    # rule 10: narrow option + everything else incorrect, with the plan's examples
+    assert "unrealised_option is narrow" in flat.replace("`", "")
+    assert '"Speech or storytelling" is an option' in flat
+    assert "Every other prediction or continuation that the response does not realise is " in flat
+    assert "a different answer to the question being answered" in flat
+    assert "my better half is your development environment" in flat
+    assert "Here's a guide tailored to public speaking" in flat
+    # rule 3: continuation text follows the same split
+    r3 = tx.RULES[3].body
+    assert any("`unrealised_option` only if it fills the same open-ended slot" in b for b in r3)
+    assert any("including a close paraphrase of the same move" in b for b in r3)
+    # rule 9
+    assert "`unrealised_option` > `model_state` > `other_on_topic`." in system
+    # rule 8 name anchors
+    assert '"Miss Li" and the readout says "Miss Wang"' in system
+    assert '("我是 ChatGPT" where it is Qwen) is `substitution_sibling`' in system
+
+
+def test_old_unrealised_prediction_gold_maps_to_option_with_a_warning(tmp_path):
+    c = cal.skeleton(
+        {
+            "case_id": "old",
+            "part": "synthetic",
+            "rules": [],
+            "prompt": "q",
+            "response": "a⟦READ⟧ b",
+            "readouts": ["Next it will mention cats. Fine."],
+        }
+    )
+    c["gold"]["units"][0]["leaf"] = "unrealised_prediction"
+    c["gold"]["units"][1]["leaf"] = "filler"
+    assert cal.validate_case(c) == []
+    p = tmp_path / "old.jsonl"
+    p.write_text(json.dumps(c) + "\n")
+    with pytest.warns(UserWarning, match="unrealised_prediction"):
+        (loaded,) = cal.load_cases("dev", p)
+    assert loaded["gold"]["units"][0]["leaf"] == "unrealised_option"
+
+
+def test_dev_v2_is_relabelled_with_rev14_anchors():
+    raw = (cal.CAL_DIR / "dev_v2.jsonl").read_text()
+    assert "unrealised_prediction" not in raw
+    cases = {c["case_id"]: c for c in cal.load_cases("dev")}
+    rules = {r for c in cases.values() for r in c["rules"]}
+    assert {
+        "unrealised-option",
+        "unrealised-continuation-incorrect",
+        "unrealised-different-answer",
+        "self-identity-substitution",
+        "user-supplied-name-detail",
+    } <= rules
+    assert cal.coverage(list(cases.values()))["segments_per_leaf"]["unrealised_option"] >= 3
+    ident = cases["dev2-37-identity"]["gold"]["units"][0]
+    assert ident["leaf"] == "substitution_sibling" and ident["probe_target"] == "ChatGPT"
+    assert cases["dev2-38-miss-li"]["gold"]["units"][0]["leaf"] == "detail"
+
+
+# ------------------------------------------------------------------ in-run retries
+
+
+def _flaky(n_bad):
+    state = {"n": 0}
+
+    def responder(user):
+        state["n"] += 1
+        if state["n"] <= n_bad:
+            return {"units": [], "rationale": "truncated"}  # invalid: readouts missing
+        return default_map(user)
+
+    return responder
+
+
+def _one_cell(prose_readouts, tmp_path):
+    rows = [json.loads(x) for x in prose_readouts.read_text().splitlines()][:1]
+    p = tmp_path / "one.jsonl"
+    p.write_text(json.dumps(rows[0]) + "\n")
+    return p
+
+
+def test_invalid_map_answer_is_retried_in_run_then_succeeds(tmp_path, prose_readouts):
+    out = tmp_path / "out"
+    fake = MapFake({"map": _flaky(2)})
+    _run([("one", _one_cell(prose_readouts, tmp_path))], out, fake, stages=["map"])
+    assert fake.n("map") == 3  # 2 invalid + 1 valid, same run
+    (rec,) = [c for c in _cells(out, "one") if c["status"] != "empty"]
+    assert rec["stages"]["map"] == "ok"
+    d = wrun.arm_dir(out, wrun.Models(), "one")
+    rows = [json.loads(x) for x in (d / "cache.jsonl").read_text().splitlines()]
+    m = [r for r in rows if r["key"].endswith(":M")]
+    assert len(m) == 1 and m[0]["result"] is not None
+    assert m[0]["meta"]["n_invalid_attempts"] == 2 and m[0]["meta"]["usage"]["calls"] == 3
+
+
+def test_invalid_map_answer_is_cached_failed_after_two_retries(tmp_path, prose_readouts):
+    out = tmp_path / "out"
+    fake = MapFake({"map": _flaky(99)})
+    _run([("one", _one_cell(prose_readouts, tmp_path))], out, fake, stages=["map"])
+    assert fake.n("map") == 1 + wrun.MAP_INVALID_RETRIES == 3
+    (rec,) = [c for c in _cells(out, "one") if c["status"] != "empty"]
+    assert rec["stages"]["map"] == "failed"
+
+
+def test_calibration_retries_invalid_answers(tmp_path):
+    c = cal.skeleton(
+        {
+            "case_id": "t",
+            "part": "synthetic",
+            "rules": [],
+            "prompt": "q",
+            "response": "a⟦READ⟧ b",
+            "readouts": ["One claim. Two claim."],
+        }
+    )
+    for g in c["gold"]["units"]:
+        g["leaf"] = "restates_prefix"
+    from hallucination_bench.cache import Cache
+
+    fake = MapFake({"map": _flaky(1)})
+    with Cache(tmp_path / "c.jsonl") as cache:
+        preds = asyncio.run(
+            cal.map_cases(
+                [c], split="dev", model="m", effort=None, cache=cache, llm=fake, repeats=1
+            )
+        )
+    assert fake.n("map") == 2
+    segs, _ = preds[0][0]
+    assert {s.leaf for s in segs} == {"restates_prefix"}

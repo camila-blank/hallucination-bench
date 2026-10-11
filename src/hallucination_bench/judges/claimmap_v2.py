@@ -30,7 +30,7 @@ from hallucination_bench.judges.v5c import READ_MARK
 from hallucination_bench.llm import schema_block
 from hallucination_bench.units import Normalised, Unit
 
-PROMPT_VERSION = "claimmap-v2.3"
+PROMPT_VERSION = "claimmap-v2.4"
 ANCHORS: tuple[str, ...] = ("none", "v5c")
 MAX_MISSING_SHARE = 0.10
 

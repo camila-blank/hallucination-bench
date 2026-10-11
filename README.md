@@ -43,7 +43,7 @@ subject** (an on-topic world claim the conversation does not state, entail or co
 supplementary). Eight groups: **hallucination** (`detail`, `false_claim`), **co-activation**
 (`substitution_sibling`, `substitution_category`), **correct** (`restates_prefix`,
 `stated_after`, `entailed`), **supplementary** (`supplementary_true`, `supplementary_false`,
-`supplementary_unsettled`), **thinky** (`unrealised_prediction`, `model_state`,
+`supplementary_unsettled`), **thinky** (`unrealised_option`, `model_state`,
 `other_on_topic`), **unsettled** (`ambiguous_topic`), **junk** (`off_topic`), **non-claim**
 (`generic`, `filler`, `formatting`, `junk_text`, `lens_meta`), plus two code-only rows:
 `unknown_incorrect` (`--anchor v5c` only: an established v5c span the judge disputed or did
@@ -51,7 +51,10 @@ not label incorrect) and `failed`. Each leaf maps to one **verdict** (`taxonomy_
 hallucination, probe_candidate, correct, unresolved, junk, non_claim. The headline is the
 character-weighted verdict share per readout (averaged over readouts) and the readout-level
 verdict rates; groups and leaves are the breakdown. Probe-candidate segments carry a
-`probe_target` (written to `probe_candidates.jsonl`). Outputs are labelled **pre-gate** until
+`probe_target` (written to `probe_candidates.jsonl`). Rev 14: `unrealised_option` is narrow
+(a different choice for the same open-ended slot the response fills next); any other
+unrealised prediction or continuation is incorrect (`detail` / `false_claim`). Invalid `:M`
+answers are retried up to 2 times in-run before being cached as failed. Outputs are labelled **pre-gate** until
 the held-out gate passes for the current prompt version.
 
 ## The taxonomy (v1)
