@@ -164,65 +164,41 @@ def main() -> None:
     )
 
     # questions
-    question(
-        ax,
-        50,
-        89,
-        "Q1 · Does it make a concrete claim about this conversation or a subject it raises?",
-    )
-    question(ax, 50, 78.5, "Q2 · Is it a list of options?  (“Germany, France or UK”)")
-    question(
-        ax,
-        50,
-        68,
-        "Q3 · Is it about the model’s own beliefs or intent, or framing "
-        "the chat as a test / roleplay?",
-    )
-    question(ax, 50, 57.5, "Q4 · Can you quote the conversation to settle it?")
-    question(ax, 20, 42.5, "Q5 · What is wrong?", w=30, width=24)
-    question(ax, 83, 45, "Q6 · Is it a world fact or about the conversation?", w=30, width=26)
+    question(ax, 50, 88, "Q1 · Is it a claim?", w=40, width=26)
+    question(ax, 50, 74, "Q2 · Is it about the model\u2019s state?", w=40, width=30)
+    question(ax, 50, 60, "Q3 · Is it verifiable from the text?", w=40, width=30)
+    question(ax, 30, 45, "Q4 · Is it correct?", w=30, width=22)
 
     # side leaves
     card(
         ax,
-        9,
-        80.5,
+        12,
+        82,
         "JUNK",
         "junk",
-        "Asserts nothing, or is about something unrelated. "
-        "Tag: off_topic, generic, filler, formatting, junk text, lens meta.",
-        "“a friendly reply” · bullets · “the tokens include ‘холод’”",
-        h=23,
+        "Not a claim, or about something unrelated.",
+        "\u201ca friendly reply\u201d · bullets · byte garbage",
+        h=15,
     )
     card(
         ax,
-        91,
-        89,
+        88,
+        88,
         "PROBE CANDIDATE",
         "ambiguous_topic",
-        "Can’t tell whether it refers to the conversation.",
+        "Can\u2019t tell whether it refers to the conversation.",
         "",
         h=12,
     )
     card(
         ax,
-        91,
-        72.3,
-        "UNRESOLVED",
-        "unverifiable",
-        "Option lists, whether or not the right one is listed (tag: same-slot alternative).",
-        "“pepperoni, veggie or Hawaiian?”",
-        h=19,
-    )
-    card(
-        ax,
-        9,
-        57,
+        12,
+        64,
         "THINKY",
         "model_state",
-        "The model’s own beliefs, intent, awareness; test / evaluation / roleplay framing.",
-        "“I will assume this is a conceptual database exercise”",
-        h=19,
+        "The model\u2019s own beliefs, intent or awareness; test / roleplay framing.",
+        "\u201cI will assume this is a conceptual database exercise\u201d",
+        h=17,
     )
 
     # bottom row
@@ -234,7 +210,7 @@ def main() -> None:
         "HALLUCINATION",
         "detail",
         "Right reading, wrong specific: name, number, date, wording, context word.",
-        "“Miss Wang” for Miss Li · “float voltage” for double",
+        "\u201cMiss Wang\u201d for Miss Li · \u201cfloat voltage\u201d for double",
     )
     card(
         ax,
@@ -244,7 +220,7 @@ def main() -> None:
         "false_claim",
         "Wrong proposition or situation: reversed outcome, wrong agent, different answer, "
         "wrong scenario.",
-        "“flood or sewage backup” in a tobacco-smell chat",
+        "\u201cflood or sewage backup\u201d in a tobacco-smell chat",
     )
     card(
         ax,
@@ -253,7 +229,7 @@ def main() -> None:
         "HALLUCINATION",
         "substitution_category",
         "A different object of a different category in place of the right one.",
-        "“video game” for movie · Nazis for the Mafia",
+        "\u201cvideo game\u201d for movie · Nazis for the Mafia",
     )
     card(
         ax,
@@ -262,7 +238,7 @@ def main() -> None:
         "PROBE CANDIDATE",
         "substitution_sibling",
         "A different object of the same class; may be real co-activation.",
-        "“Germany” for France · “I’m ChatGPT” (it is Qwen)",
+        "\u201cGermany\u201d for France · \u201cI\u2019m ChatGPT\u201d (it is Qwen)",
     )
     card(
         ax,
@@ -270,9 +246,8 @@ def main() -> None:
         y,
         "CORRECT",
         "correct",
-        "Stated before the marker, realised after it in any wording, or strictly entailed. "
-        "Quote required.",
-        "“the engineers who created me”",
+        "Stated before the marker, realised after it in any wording, or strictly entailed.",
+        "\u201cthe engineers who created me\u201d",
     )
     card(
         ax,
@@ -280,8 +255,8 @@ def main() -> None:
         y,
         "UNRESOLVED",
         "unverifiable",
-        "About the conversation; not contradicted and not settled.",
-        "“the spill has been cleaned up” · “welcome to Oakville!”",
+        "About the conversation, but the text can\u2019t settle it (incl. lists of options).",
+        "\u201cthe spill has been cleaned up\u201d · \u201cpepperoni or veggie?\u201d",
     )
     card(
         ax,
@@ -289,7 +264,7 @@ def main() -> None:
         y,
         "CORRECT",
         "supplementary_true",
-        "World fact the text never mentions, and it’s true.",
+        "A world fact the text never mentions, and it\u2019s true.",
         "true fact about Picasso the text skips",
     )
     card(
@@ -298,35 +273,38 @@ def main() -> None:
         y,
         "PROBE CANDIDATE",
         "supplementary_false",
-        "World fact the text never mentions, and it’s false: possible model misconception.",
-        "“water flushes out toxins”",
+        "A world fact the text never mentions, and it\u2019s false: possible misconception.",
+        "\u201cwater flushes out toxins\u201d",
     )
 
-    # arrows: Q1
-    arrow(ax, 33, 89, 15, 87.5, "No / unrelated", 24, 89.6)
-    arrow(ax, 67, 89, 85, 89, "Can’t tell", 76, 90.5)
-    arrow(ax, 50, 85.8, 50, 81.7, "Yes", 52.2, 83.8)
-    # Q2
-    arrow(ax, 67, 78.5, 85, 77.5, "Yes", 76, 79.5)
-    arrow(ax, 50, 75.3, 50, 71.2, "No", 52, 73.2)
-    # Q3
-    arrow(ax, 33, 68, 15, 62, "Yes", 24, 66.5)
-    arrow(ax, 50, 64.8, 50, 60.7, "No", 52, 62.7)
-    # Q4 branches
-    arrow(ax, 38, 55, 22, 45.9, "Obviously contradicted\n(quote required)", 27, 53)
-    arrow(ax, 50, 54.3, 55.7, 31.5, "Stated / realised /\nentailed (quote)", 55, 44)
-    arrow(ax, 62, 55, 80, 48.2, "Text is silent", 73, 53.2)
-    # Q5
-    for x in (6.5, 18.8, 31.1, 43.4):
-        arrow(ax, 20, 39.3, x, 31.5)
-    ax.text(10.5, 35.6, "wrong\nspecific", fontsize=9, color=MUTED, ha="center")
-    ax.text(17.2, 34.6, "wrong\nclaim", fontsize=9, color=MUTED, ha="center")
-    ax.text(27.5, 35.6, "other\ncategory", fontsize=9, color=MUTED, ha="center")
-    ax.text(36.5, 37.2, "same-class\nobject", fontsize=9, color=MUTED, ha="center")
-    # Q6
-    arrow(ax, 76, 41.8, 68, 31.5, "about the\nconversation", 70.5, 37.2)
-    arrow(ax, 83, 41.8, 80.3, 31.5, "true", 81.2, 36.5)
-    arrow(ax, 90, 41.8, 92.6, 31.5, "false", 94.6, 37.2)
+    # arrows
+    arrow(ax, 37, 88, 18, 86, "No", 27, 88.6)
+    arrow(ax, 63, 88, 82, 88, "Can\u2019t tell", 72.5, 89.6)
+    arrow(ax, 50, 84.8, 50, 77.2, "Yes", 52.2, 81)
+    arrow(ax, 35, 74, 18, 67, "Yes", 26, 72)
+    arrow(ax, 50, 70.8, 50, 63.2, "No", 52, 67)
+    arrow(ax, 40, 57, 31, 48.2, "Yes (quote)", 33, 53.5)
+    arrow(ax, 41, 45, 55.7, 31.5, "Yes", 50, 39)
+    for x, lab, lx, ly in (
+        (6.5, "wrong specific", 10.5, 36.8),
+        (18.8, "wrong claim", 19.6, 35.4),
+        (31.1, "other category", 30.5, 36.2),
+        (43.4, "same-class object", 41.5, 38.2),
+    ):
+        arrow(ax, 26, 41.8, x, 31.5)
+        ax.text(lx, ly, wrap(lab, 10), fontsize=9, color=MUTED, ha="center")
+    ax.text(
+        23,
+        39.6,
+        "No",
+        fontsize=10,
+        color=TEXT,
+        ha="center",
+        bbox={"fc": "white", "ec": "none", "pad": 1.5},
+    )
+    arrow(ax, 61, 57, 68, 31.5, "No \u00b7 about the\nconversation", 64.8, 44)
+    arrow(ax, 64, 58, 80.3, 31.5, "No \u00b7 world fact,\ntrue", 72.5, 44)
+    arrow(ax, 65, 59, 92.6, 31.5, "No \u00b7 world fact,\nfalse", 82.5, 42)
 
     # legend
     x = 1
