@@ -19,7 +19,8 @@ from hallucination_bench.units import split_cell
 
 
 def test_12_leaves_and_the_verdict_table():
-    assert tx.LEAF_NAMES == (
+    # rev 18: this is now the judge's enum; the scoring leaves merge two of them into junk
+    assert tx.JUDGE_LEAF_NAMES == (
         "non_claim",
         "correct",
         "detail",
@@ -33,6 +34,10 @@ def test_12_leaves_and_the_verdict_table():
         "ambiguous_topic",
         "off_topic",
     )
+    assert tx.LEAF_NAMES == (
+        "junk",
+        *(n for n in tx.JUDGE_LEAF_NAMES if n not in ("non_claim", "off_topic")),
+    )
     assert tx.VERDICTS == {
         "hallucination": ("detail", "false_claim"),
         "probe_candidate": (
@@ -44,8 +49,7 @@ def test_12_leaves_and_the_verdict_table():
         ),
         "correct": ("correct", "supplementary_true"),
         "unresolved": ("unverifiable", tx.UNKNOWN_INCORRECT),
-        "junk": ("off_topic",),
-        "non_claim": ("non_claim",),
+        "junk": ("junk",),
     }
     mapped = [lf for leaves in tx.VERDICTS.values() for lf in leaves]
     assert len(mapped) == len(set(mapped))
@@ -69,6 +73,8 @@ def test_every_old_leaf_maps_to_a_rev16_leaf_with_tags():
         "unsupported_assertion",
         "unrealised_option",
         "unrealised_prediction",
+        "non_claim",  # rev 18
+        "off_topic",  # rev 18
     }
     assert set(tx.LEAF_RENAMES) == old
     assert set(tx.LEAF_RENAMES.values()) <= set(tx.LEAVES)
@@ -99,7 +105,7 @@ def test_parse_keeps_leaf_tags_only_on_their_leaf():
     units = split_cell(["Hmm. It was said. Next comes a spill. Maybe so."])[0]
     raw = {
         "units": [
-            e("R0.U1", "non_claim", reason="filler", source="after", prediction=True),
+            e("R0.U1", "junk", reason="filler", source="after", prediction=True),
             e("R0.U2", "correct", source="prefix", reason="filler"),
             e("R0.U3", "unverifiable", prediction=True, same_slot_alternative=True),
             e("R0.U4", "unverifiable", world=True, reason="generic", source="bogus"),
@@ -111,7 +117,7 @@ def test_parse_keeps_leaf_tags_only_on_their_leaf():
         (s.leaf, s.reason, s.source, s.same_slot_alternative, s.world, s.prediction) for s in segs
     ]
     assert got == [
-        ("non_claim", "filler", None, False, False, False),
+        ("junk", "filler", None, False, False, False),
         ("correct", None, "prefix", False, False, False),
         ("unverifiable", None, None, True, False, True),
         ("unverifiable", None, None, False, True, False),
@@ -124,9 +130,9 @@ def test_rest_piece_takes_the_units_tags():
         "units": [
             e(
                 "R0.U1",
-                "non_claim",
+                "junk",
                 source="prefix",
-                splits=[sp("Hmm,", "non_claim", reason="filler")],
+                splits=[sp("Hmm,", "junk", reason="filler")],
                 rest_leaf="correct",
             )
         ],
@@ -134,7 +140,7 @@ def test_rest_piece_takes_the_units_tags():
     }
     segs, _ = cm.parse(raw, units)
     assert [(s.leaf, s.reason, s.source) for s in segs] == [
-        ("non_claim", "filler", None),
+        ("junk", "filler", None),
         ("correct", None, "prefix"),
     ]
 
@@ -159,7 +165,7 @@ def test_old_gold_is_merged_with_tags():
     h0, h1 = m["gold"]["units"]
     assert h0["splits"][0] == {
         "text": "The tokens include",
-        "leaf": "non_claim",
+        "leaf": "junk",
         "tags": {"reason": "filler"},
     }
     assert h0["rest_leaf"] == "correct" and h0["rest_tags"] == {"source": "after"}
@@ -187,7 +193,7 @@ def test_dev_v2_rev16_anchors_and_dev2_36_reverted():
 
 def test_false_claim_and_detail_are_headline_metrics(tmp_path):
     recs = [
-        _rec("a", 44, [[("false_claim", 30), ("non_claim", 10)]], cls="hallucinated"),
+        _rec("a", 44, [[("false_claim", 30), ("junk", 10)]], cls="hallucinated"),
         _rec("b", 44, [[("detail", 5), ("correct", 5)]], cls="consistent"),
         _rec("c", 44, [[("unverifiable", 8)]], cls="consistent"),
     ]

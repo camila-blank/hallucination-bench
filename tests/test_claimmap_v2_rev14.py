@@ -59,7 +59,7 @@ def test_unrealised_prediction_gold_loads_without_a_fallback(tmp_path):
         (loaded,) = cal.load_cases("dev", p)
     g0, g1 = loaded["gold"]["units"]
     assert g0["leaf"] == "unverifiable" and g0["tags"] == {"prediction": True}
-    assert g1["leaf"] == "non_claim" and g1["tags"] == {"reason": "filler"}
+    assert g1["leaf"] == "junk" and g1["tags"] == {"reason": "filler"}
 
 
 def test_dev_v2_is_relabelled_with_rev14_anchors():

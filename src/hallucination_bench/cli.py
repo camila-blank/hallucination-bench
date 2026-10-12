@@ -217,6 +217,13 @@ def cmd_report(args: argparse.Namespace) -> int:
 def cmd_consistency_v2(args: argparse.Namespace) -> int:
     from hallucination_bench import consistency_v2
 
+    if args.rescore:
+        res = consistency_v2.rescore(Path(args.out), args.map_model or args.judge_model)
+        print(consistency_v2.render_markdown(res))
+        print("\nre-scored from the cached r0/r1 cells: no API calls")
+        return 0
+    if not args.arms:
+        raise SystemExit("--arms is required unless --rescore")
     res = consistency_v2.run(
         args.arms,
         readouts_root=Path(args.readouts_root),
@@ -402,7 +409,12 @@ def build_parser() -> argparse.ArgumentParser:
         "consistency-v2", help="claim-map judge consistency: two fresh :M calls per sampled cell"
     )
     _common(cs)
-    cs.add_argument("--arms", required=True, help="arm:layer,... e.g. s3d-rl600:44,jlens:44")
+    cs.add_argument("--arms", default=None, help="arm:layer,... e.g. s3d-rl600:44,jlens:44")
+    cs.add_argument(
+        "--rescore",
+        action="store_true",
+        help="re-score the cached r0/r1 cells of this prompt version (no API calls)",
+    )
     cs.add_argument("--n", type=int, default=50, help="cells per arm:layer (default 50)")
     cs.add_argument("--seed", type=int, default=0)
     cs.add_argument(

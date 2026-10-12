@@ -100,7 +100,7 @@ USER_TEMPLATE_V5C = (
     "unit needs " + _USER_TAIL
 )
 
-_LEAF_ENUM = {"type": "string", "enum": list(tx.LEAF_NAMES)}
+_LEAF_ENUM = {"type": "string", "enum": list(tx.JUDGE_LEAF_NAMES)}  # the judge's enum
 _NULLABLE_LEAF = {"anyOf": [_LEAF_ENUM, {"type": "null"}]}
 _PAIR = {
     "anyOf": [
@@ -352,7 +352,7 @@ def _enum(x: Any, allowed: Sequence[str]) -> str | None:
 def _leaf_tags(s: "Segment") -> None:
     """Rev 16 leaf tags are kept only on their leaf: ``reason`` on ``non_claim``, ``source`` on
     ``correct``, the three flags on ``unverifiable``."""
-    if s.raw_leaf != "non_claim":
+    if s.raw_leaf not in ("non_claim", "junk"):
         s.reason = None
     if s.raw_leaf != "correct":
         s.source = None
@@ -402,7 +402,8 @@ def _check_quotes(s: "Segment", conv: Normalised, c: dict[str, int]) -> None:
 
 
 def _leaf(x: Any) -> str | None:
-    return x if isinstance(x, str) and x in tx.LEAVES else None
+    # judge leaves (answers) and rev-18 scoring leaves (gold) both parse
+    return x if isinstance(x, str) and (x in tx.JUDGE_LEAVES or x in tx.LEAVES) else None
 
 
 @dataclass
@@ -561,8 +562,21 @@ def parse(
                 if s.probe_target is None:
                     c["n_missing_probe_targets"] += 1  # counted; the leaf is kept
         segs += useg
+    for s in segs:
+        _merge_junk(s)
     c["n_segments"] = len(segs)
     return segs, c
+
+
+def _merge_junk(s: "Segment") -> None:
+    """Rev 18, after parsing: the judge's ``non_claim`` (reason kept) and ``off_topic`` (reason
+    ``off_topic``) become the scoring leaf ``junk``; the prompt and cached answers are unchanged."""
+    if s.raw_leaf == "off_topic" or (s.leaf == "off_topic" and s.raw_leaf != "non_claim"):
+        s.reason = "off_topic"
+    for f in ("leaf", "raw_leaf", "alt_leaf"):
+        v = getattr(s, f)
+        if v in tx.JUDGE_TO_LEAF:
+            setattr(s, f, tx.JUDGE_TO_LEAF[v])
 
 
 def _established_rules(u: Unit, segs: list[Segment], c: dict[str, int]) -> None:

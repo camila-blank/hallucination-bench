@@ -23,7 +23,10 @@ import numpy as np
 ROOT = Path(__file__).resolve().parents[1]
 MODEL = "claude-opus-5-5"
 TEXT, MUTED, GRID = "#0b0b0b", "#52514e", "#e6e5e0"
-FOOT = "Claim-map judge v2.7 (plan 0002 rev 17), pre-gate · whiskers/bands: item-bootstrap 95% CI"
+FOOT = (
+    "Claim-map judge v2.7 (plan 0002 rev 17; scoring rev 18: junk = non-claim + off-topic), "
+    "pre-gate · whiskers/bands: item-bootstrap 95% CI"
+)
 
 # (arm dir, label, group) - prose lenses first, then token lenses (judged via their summary)
 METHODS = [
@@ -58,8 +61,7 @@ STACK = [
     ("verdict:probe_candidate", "Probe candidate", "#4a3aa7"),
     ("verdict:correct", "Correct", "#1baf7a"),
     ("verdict:unresolved", "Unverifiable", "#2a78d6"),
-    ("verdict:junk", "Junk (off-topic)", "#e87ba4"),
-    ("verdict:non_claim", "Non-claim", "#b9b8b2"),
+    ("verdict:junk", "Junk / non-claim", "#b9b8b2"),  # rev 18: non_claim + off_topic
     ("verdict:failed", "Judge call failed", "#52514e"),
 ]
 LAYER_ARMS = [
@@ -170,6 +172,18 @@ def stacked(data, out) -> None:
                     color="white" if color in ("#e34948", "#4a3aa7", "#2a78d6") else TEXT,
                 )
         left += v
+    for yi, s in zip(y, data, strict=True):  # rev 18: the off-topic part of the junk segment
+        ot = (s.get("char_share_junk_reason") or {}).get("off_topic") or {}
+        if ot.get("value") is not None:
+            ax.text(
+                101,
+                yi,
+                f"off-topic {100 * ot['value']:.1f}%",
+                va="center",
+                fontsize=9,
+                color=MUTED,
+                clip_on=False,
+            )
     ax.set_yticks(y, [m[1] for m in METHODS], fontsize=12)
     ax.set_xlim(0, 100)
     ax.set_xlabel("Share of readout text (%)", fontsize=13, color=TEXT)
@@ -189,7 +203,7 @@ def stacked(data, out) -> None:
         fontsize=9,
         color=MUTED,
     )
-    fig.tight_layout(rect=(0, 0.03, 1, 1))
+    fig.tight_layout(rect=(0, 0.03, 0.93, 1))
     fig.savefig(out)
     plt.close(fig)
 

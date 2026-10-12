@@ -27,12 +27,9 @@ def test_verdict_mapping_covers_every_leaf_exactly_once():
         "correct",
         "unresolved",
         "junk",
-        "non_claim",
     }
     assert tx.VERDICTS["hallucination"] == ("detail", "false_claim")
-    assert (
-        set(tx.VERDICTS["non_claim"]) == set(tx.NON_CLAIM_LEAVES) and len(tx.NON_CLAIM_LEAVES) == 1
-    )
+    assert set(tx.VERDICTS["junk"]) == set(tx.NON_CLAIM_LEAVES) and len(tx.NON_CLAIM_LEAVES) == 1
     assert tx.verdict_of("supplementary_true") == "correct"
     assert tx.verdict_of("supplementary_false") == "probe_candidate"
     assert tx.verdict_of("unverifiable") == "unresolved"
@@ -116,7 +113,7 @@ def test_probe_target_parsing_and_missing_count():
             e("R0.U2", "ambiguous_topic"),  # missing probe_target: counted, leaf kept
             e(
                 "R0.U3",
-                "non_claim",
+                "junk",
                 splits=[
                     sp(
                         "Paris",
@@ -151,8 +148,8 @@ def test_probe_target_on_a_rest_piece_falls_back_to_the_unit():
         "units": [
             e(
                 "R0.U1",
-                "non_claim",
-                splits=[sp("Hmm,", "non_claim")],
+                "junk",
+                splits=[sp("Hmm,", "junk")],
                 rest_leaf="model_state",
                 probe_target="this is a test",
             )
@@ -161,7 +158,7 @@ def test_probe_target_on_a_rest_piece_falls_back_to_the_unit():
     }
     segs, c = cm.parse(raw, units)
     assert [(s.leaf, s.probe_target) for s in segs] == [
-        ("non_claim", None),
+        ("junk", None),
         ("model_state", "this is a test"),
     ]
     assert c["n_missing_probe_targets"] == 0
@@ -230,10 +227,10 @@ def _nov5c(rec):
 
 def test_verdict_shares_rates_and_the_v5c_comparison():
     recs = [
-        _rec("a", 44, [[("false_claim", 30), ("non_claim", 10)]], cls="hallucinated"),
+        _rec("a", 44, [[("false_claim", 30), ("junk", 10)]], cls="hallucinated"),
         _rec("b", 44, [[("model_state", 5), ("supplementary_true", 5)]], cls="consistent"),
         _rec("c", 44, [[("unverifiable", 8)]], cls="generic"),
-        _nov5c(_rec("d", 44, [[("detail", 4), ("off_topic", 4)]])),
+        _nov5c(_rec("d", 44, [[("detail", 4), ("junk", 4)]])),
     ]
     acc = score_v2.AccumulatorV2()
     for r in recs:
@@ -246,13 +243,12 @@ def test_verdict_shares_rates_and_the_v5c_comparison():
     assert cv["probe_candidate"] == pytest.approx(0.5 / 4)
     assert cv["correct"] == pytest.approx(0.5 / 4)
     assert cv["unresolved"] == pytest.approx(1 / 4)
-    assert cv["junk"] == pytest.approx(0.5 / 4)
-    assert cv["non_claim"] == pytest.approx(0.25 / 4)
+    assert cv["junk"] == pytest.approx((0.5 + 0.25) / 4)  # rev 18: off-topic + non-claim
     rates = b["rates"]
     assert b["n_rate_readouts"]["all"] == 4
     assert rates["verdict_hallucination"]["all"]["value"] == pytest.approx(2 / 4)
     assert rates["verdict_probe_candidate"]["all"]["value"] == pytest.approx(1 / 4)
-    assert rates["verdict_non_claim_only"]["all"]["value"] == 0
+    assert rates["verdict_junk_only"]["all"]["value"] == 0
     assert rates["verdict_hallucination"]["all"]["ci95"] is not None
     cmp_ = b["v5c_comparison"]
     assert cmp_["n_compared"] == 3 and cmp_["n_readouts"] == 4  # cell d has no v5c verdict
@@ -276,7 +272,7 @@ def test_old_gold_names_are_remapped_on_load(tmp_path):
         "readouts": ["Lord Rayleigh found it. Mars has a blue sky. Fine and dandy."],
     }
     c = cal.skeleton(c)
-    for g, lf in zip(c["gold"]["units"], ["world_true", None, "non_claim"], strict=True):
+    for g, lf in zip(c["gold"]["units"], ["world_true", None, "junk"], strict=True):
         g["leaf"] = lf
     g = c["gold"]["units"][1]
     g["splits"] = [{"text": "Mars", "leaf": "possible_belief"}]
@@ -338,7 +334,7 @@ def test_verdict_accuracy_gate_row_and_probe_target_anchors():
     res = cal.score([c], [[pred], [pred]], "dev")
     rows = {g["key"]: g for g in res["gate"]}
     assert rows["verdict_acc_unit"]["threshold"] == 0.85
-    assert rows["verdict_acc_unit"]["measure"] == "verdict accuracy (6 verdicts), unit level"
+    assert rows["verdict_acc_unit"]["measure"] == "verdict accuracy (5 verdicts), unit level"
     assert rows["verdict_acc_unit"]["passed"] is False
     assert res["anchor"] == "none" and len(res["probe_targets"]) == 2
     assert "verdict accuracy" in cal.render_markdown(res)

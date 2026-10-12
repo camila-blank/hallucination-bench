@@ -24,6 +24,13 @@ The prompt is rendered in two modes: single-call (the default; no established v5
 rule 2 and the ``dispute`` tag are left out) and ``anchored`` (``--anchor v5c``: plan rev 12
 behaviour, with established spans).
 
+**Rev 18 (junk = non-claim):** the judge still answers in the rev-16/17 enum
+(``JUDGE_LEAF_NAMES``, 12 leaves, rendered unchanged so ``claimmap-v2.7`` and every cached ``:M``
+answer stay valid), and code merges ``non_claim`` and ``off_topic`` into one scoring leaf,
+``junk``, right after parsing (``JUDGE_TO_LEAF``; the ``reason`` tag keeps the kind, with
+``off_topic`` as a reason). Scoring, reports and calibration use the 11 leaves in ``LEAF_NAMES``,
+7 groups and 5 verdicts.
+
 Leaves of earlier revisions map mechanically to rev 16 (``LEAF_RENAMES`` + ``MERGE_TAGS``); the
 calibration loader applies them to old gold.
 
@@ -36,7 +43,8 @@ you change it so the cached labels are re-queued knowingly.
 from dataclasses import dataclass
 from typing import Any
 
-TAXONOMY_VERSION = "v2-r17"
+TAXONOMY_VERSION = "v2-r17"  # rendered into the prompt; rev 18 changes scoring only
+SCORING_VERSION = "v2-r18"  # junk = non_claim + off_topic, merged after parsing
 
 # ---------------------------------------------------------------- groups
 
@@ -48,7 +56,8 @@ THINKY = "thinky"
 UNSETTLED = "unsettled"
 JUNK = "junk"
 NON_CLAIM = "non_claim"
-GROUPS: tuple[str, ...] = (
+# the judge's groups (rendered in the prompt); scoring merges non_claim into junk (rev 18)
+JUDGE_GROUPS: tuple[str, ...] = (
     HALLUCINATION,
     CO_ACTIVATION,
     CORRECT,
@@ -58,6 +67,7 @@ GROUPS: tuple[str, ...] = (
     JUNK,
     NON_CLAIM,
 )
+GROUPS: tuple[str, ...] = tuple(g for g in JUDGE_GROUPS if g != NON_CLAIM)
 GROUP_TITLES: dict[str, str] = {
     HALLUCINATION: "hallucinations: wrong details and false claims (obviously contradicted)",
     CO_ACTIVATION: "plausible co-activation: substitutions of a related object",
@@ -65,7 +75,7 @@ GROUP_TITLES: dict[str, str] = {
     SUPPLEMENTARY: "supplementary world claims the conversation does not settle",
     THINKY: "the model's own state, and unverifiable on-topic content",
     UNSETTLED: "unsettled: ambiguous topic",
-    JUNK: "junk: off-topic claims",
+    JUNK: "junk: non-claims and off-topic claims (rev 18)",
     NON_CLAIM: "non-claims",
 }
 
@@ -73,7 +83,7 @@ GROUP_TITLES: dict[str, str] = {
 UNKNOWN_INCORRECT = "unknown_incorrect"
 FAILED = "failed"
 PSEUDO_LEAVES: tuple[str, ...] = (UNKNOWN_INCORRECT, FAILED)
-ROWS: tuple[str, ...] = (*GROUPS, *PSEUDO_LEAVES)  # the identity holds over these 10 rows
+ROWS: tuple[str, ...] = (*GROUPS, *PSEUDO_LEAVES)  # the identity holds over these 9 rows
 
 # ---------------------------------------------------------------- leaves
 
@@ -187,27 +197,47 @@ _LEAVES: tuple[Leaf, ...] = (
     ),
 )
 
-LEAVES: dict[str, Leaf] = {lf.name: lf for lf in _LEAVES}
+# The judge's enum (rendered in the prompt and the schema; unchanged since rev 16).
+JUDGE_LEAVES: dict[str, Leaf] = {lf.name: lf for lf in _LEAVES}
+JUDGE_LEAF_NAMES: tuple[str, ...] = tuple(JUDGE_LEAVES)
+
+# Rev 18: the scoring leaves. `non_claim` and `off_topic` merge into `junk` after parsing.
+JUNK_LEAF = Leaf(
+    "junk",
+    "junk",
+    JUNK,
+    "asserts nothing concrete (generic, filler, formatting, junk text, lens meta) or is a claim "
+    "about neither the conversation nor a subject it raises (off topic). Tag `reason`.",
+)
+JUDGE_TO_LEAF: dict[str, str] = {"non_claim": "junk", "off_topic": "junk"}
+_SCORING_LEAVES: tuple[Leaf, ...] = tuple(
+    JUNK_LEAF if lf.name == "non_claim" else lf for lf in _LEAVES if lf.name != "off_topic"
+)
+LEAVES: dict[str, Leaf] = {lf.name: lf for lf in _SCORING_LEAVES}
 LEAF_NAMES: tuple[str, ...] = tuple(LEAVES)
 GROUP_OF: dict[str, str] = {
-    **{lf.name: lf.group for lf in _LEAVES},
+    **{lf.name: lf.group for lf in _SCORING_LEAVES},
+    **dict.fromkeys(JUDGE_TO_LEAF, JUNK),  # unmerged judge leaves, if any reach scoring
     UNKNOWN_INCORRECT: UNKNOWN_INCORRECT,
     FAILED: FAILED,
 }
-BRANCH_OF: dict[str, str] = {lf.name: lf.branch for lf in _LEAVES}
+BRANCH_OF: dict[str, str] = {lf.name: lf.branch for lf in _SCORING_LEAVES}
 INCORRECT_LEAVES: tuple[str, ...] = tuple(n for n, b in BRANCH_OF.items() if b == "incorrect")
 SUBSTITUTION_LEAVES: tuple[str, ...] = ("substitution_sibling", "substitution_category")
 CORRECT_LEAVES: tuple[str, ...] = tuple(n for n, g in GROUP_OF.items() if g == CORRECT)
 THINKY_LEAVES: tuple[str, ...] = tuple(n for n, g in GROUP_OF.items() if g == THINKY)
 SUPPLEMENTARY_LEAVES: tuple[str, ...] = tuple(n for n, g in GROUP_OF.items() if g == SUPPLEMENTARY)
-NON_CLAIM_LEAVES: tuple[str, ...] = tuple(n for n, g in GROUP_OF.items() if g == NON_CLAIM)
+JUNK_LEAVES: tuple[str, ...] = ("junk",)
+NON_CLAIM_LEAVES: tuple[str, ...] = JUNK_LEAVES  # rev 18: non-claims are junk
 ALL_LEAVES: tuple[str, ...] = (*LEAF_NAMES, *PSEUDO_LEAVES)
 
-assert len(LEAF_NAMES) == 12 and len(GROUPS) == 8
+assert len(JUDGE_LEAF_NAMES) == 12 and len(JUDGE_GROUPS) == 8
+assert len(LEAF_NAMES) == 11 and len(GROUPS) == 7
 
 # ---------------------------------------------------------------- leaf tags (rev 16)
 
-REASONS: tuple[str, ...] = ("generic", "filler", "formatting", "junk_text", "lens_meta")
+REASONS: tuple[str, ...] = ("generic", "filler", "formatting", "junk_text", "lens_meta")  # judge
+JUNK_REASONS: tuple[str, ...] = ("off_topic", *REASONS)  # the merged leaf's reasons (rev 18)
 SOURCES: tuple[str, ...] = ("prefix", "after", "entailed")
 UNVERIFIABLE_FLAGS: tuple[str, ...] = ("same_slot_alternative", "world", "prediction")
 
@@ -217,7 +247,9 @@ UNVERIFIABLE_FLAGS: tuple[str, ...] = ("same_slot_alternative", "world", "predic
 LEAF_RENAMES: dict[str, str] = {
     "world_true": "supplementary_true",
     "possible_belief": "supplementary_false",
-    **dict.fromkeys(REASONS, "non_claim"),
+    **dict.fromkeys(REASONS, "junk"),
+    "non_claim": "junk",
+    "off_topic": "junk",
     "restates_prefix": "correct",
     "stated_after": "correct",
     "entailed": "correct",
@@ -230,6 +262,7 @@ LEAF_RENAMES: dict[str, str] = {
 # the tags the merge carries over (old leaf -> tags on the rev-16 leaf)
 MERGE_TAGS: dict[str, dict[str, Any]] = {
     **{r: {"reason": r} for r in REASONS},
+    "off_topic": {"reason": "off_topic"},
     "restates_prefix": {"source": "prefix"},
     "stated_after": {"source": "after"},
     "entailed": {"source": "entailed"},
@@ -247,7 +280,7 @@ V_PROBE = "probe_candidate"
 V_CORRECT = "correct"
 V_UNRESOLVED = "unresolved"
 V_JUNK = "junk"
-V_NON_CLAIM = "non_claim"
+V_NON_CLAIM = "non_claim"  # rev 16-17 verdict; merged into junk in rev 18
 VERDICTS: dict[str, tuple[str, ...]] = {
     V_HALLUCINATION: ("detail", "false_claim"),
     V_PROBE: (
@@ -259,14 +292,14 @@ VERDICTS: dict[str, tuple[str, ...]] = {
     ),
     V_CORRECT: ("correct", "supplementary_true"),
     V_UNRESOLVED: ("unverifiable", UNKNOWN_INCORRECT),
-    V_JUNK: ("off_topic",),
-    V_NON_CLAIM: ("non_claim",),
+    V_JUNK: ("junk",),
 }
 VERDICT_OF: dict[str, str] = {
     **{lf: v for v, leaves in VERDICTS.items() for lf in leaves},
+    **dict.fromkeys(JUDGE_TO_LEAF, V_JUNK),
     FAILED: FAILED,
 }
-VERDICT_ROWS: tuple[str, ...] = (*VERDICTS, FAILED)  # shares sum to 1 over these 7 rows
+VERDICT_ROWS: tuple[str, ...] = (*VERDICTS, FAILED)  # shares sum to 1 over these 6 rows
 PROBE_CANDIDATE_LEAVES: tuple[str, ...] = VERDICTS[V_PROBE]
 assert sorted(lf for leaves in VERDICTS.values() for lf in leaves) == sorted(
     (*LEAF_NAMES, UNKNOWN_INCORRECT)
@@ -282,9 +315,10 @@ def verdict_of(leaf: str) -> str:
 
 
 def is_claim(leaf: str) -> bool:
-    """Claim vs non-claim (the claim/non-claim F1): every leaf outside ``non_claim`` and
-    ``failed`` asserts something (``unknown_incorrect`` is an established wrong span)."""
-    return group_of(leaf) not in (NON_CLAIM, FAILED)
+    """Claim vs non-claim (the claim/non-claim F1): every leaf outside ``junk`` and ``failed``
+    asserts something on topic (``unknown_incorrect`` is an established wrong span). Rev 18:
+    off-topic claims are junk, so they count as non-claims here."""
+    return group_of(leaf) not in (JUNK, NON_CLAIM, FAILED)
 
 
 # ---------------------------------------------------------------- open decisions
@@ -873,7 +907,7 @@ def render(anchored: bool = False) -> str:
     lines += [f"- {t}" for t in UNITS_TEXT]
     lines += [
         "",
-        f"## The tree: {len(LEAF_NAMES)} leaves in {len(GROUPS)} groups",
+        f"## The tree: {len(JUDGE_LEAF_NAMES)} leaves in {len(JUDGE_GROUPS)} groups",
         "",
         "Every segment gets exactly one leaf. " + TREE_INTRO,
         "",

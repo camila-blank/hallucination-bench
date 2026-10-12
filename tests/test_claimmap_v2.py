@@ -69,7 +69,7 @@ def default_map(user: str) -> dict:
         if est:
             leaf = "detail"
         elif text.startswith("<"):
-            leaf = "non_claim"
+            leaf = "junk"
         elif "Paris" in text:
             leaf = "false_claim"
         else:
@@ -96,8 +96,10 @@ class MapFake(FakeLLM):
 # ------------------------------------------------------------------ taxonomy + prompt
 
 
-def test_tree_has_12_leaves_in_8_groups_and_pseudo_rows():
-    assert len(tx.LEAF_NAMES) == 12 and len(tx.GROUPS) == 8
+def test_tree_has_11_leaves_in_7_groups_and_pseudo_rows():
+    # rev 18: the judge keeps 12 leaves / 8 groups; scoring merges non_claim + off_topic -> junk
+    assert len(tx.JUDGE_LEAF_NAMES) == 12 and len(tx.JUDGE_GROUPS) == 8
+    assert len(tx.LEAF_NAMES) == 11 and len(tx.GROUPS) == 7
     assert set(tx.GROUP_OF.values()) == set(tx.ROWS)
     assert tx.SUBSTITUTION_LEAVES == ("substitution_sibling", "substitution_category")
     assert {tx.group_of(x) for x in ("detail", "false_claim")} == {tx.HALLUCINATION}
@@ -108,7 +110,7 @@ def test_tree_has_12_leaves_in_8_groups_and_pseudo_rows():
 def test_prompt_contains_every_leaf_definition_rule_and_tag():
     for s in tx.definitions():
         assert s in cm.SYSTEM, s
-    for lf in tx.LEAVES.values():
+    for lf in tx.JUDGE_LEAVES.values():  # the judge's (rendered) leaves
         assert f"- `{lf.name}`: {lf.definition}" in cm.SYSTEM
     assert tx.UNKNOWN_INCORRECT not in cm.SYSTEM  # pseudo-leaves are code-only
 
@@ -163,7 +165,7 @@ def test_schema_is_strict_with_the_leaf_enum(schema):
     assert item["additionalProperties"] is False and set(item["required"]) == set(
         item["properties"]
     )
-    assert item["properties"]["leaf"]["enum"] == list(tx.LEAF_NAMES)
+    assert item["properties"]["leaf"]["enum"] == list(tx.JUDGE_LEAF_NAMES)
     split = item["properties"]["splits"]["items"]
     assert split["additionalProperties"] is False and "text" in split["required"]
 
@@ -181,13 +183,13 @@ def test_parse_splits_rest_and_unlocated_subspans():
         "units": [
             e(
                 "R0.U1",
-                "non_claim",  # ignored when splitting
+                "junk",  # ignored when splitting
                 splits=[
                     sp("alpha is red", "correct"),
                     sp("nowhere to be found", "detail"),
                     sp("Paris is big", "false_claim", cruxy=True),
                 ],
-                rest_leaf="non_claim",
+                rest_leaf="junk",
             ),
             e("R0.U2", "correct", cruxy=True),
         ],
@@ -197,9 +199,9 @@ def test_parse_splits_rest_and_unlocated_subspans():
     got = [(s.text, s.leaf, s.kind) for s in segs]
     assert got == [
         ("Alpha is red", "correct", "split"),
-        ("and", "non_claim", "rest"),
+        ("and", "junk", "rest"),
         ("Paris is big", "false_claim", "split"),
-        (".", "non_claim", "rest"),
+        (".", "junk", "rest"),
         ("Second one.", "correct", "unit"),
     ]
     assert c["n_splits"] == 3 and c["n_unlocated_subspans"] == 1
@@ -211,14 +213,12 @@ def test_parse_splits_rest_and_unlocated_subspans():
 def test_parse_overlapping_split_is_rejected_and_missing_rest_falls_back():
     units = _units("one two three")
     raw = {
-        "units": [
-            e("R0.U1", "non_claim", splits=[sp("one two", "detail"), sp("two three", "detail")])
-        ],
+        "units": [e("R0.U1", "junk", splits=[sp("one two", "detail"), sp("two three", "detail")])],
         "rationale": "",
     }
     segs, c = cm.parse(raw, units)
     assert c["n_unlocated_subspans"] == 1 and c["n_missing_rest"] == 1
-    assert [(s.text, s.leaf) for s in segs] == [("one two", "detail"), ("three", "non_claim")]
+    assert [(s.text, s.leaf) for s in segs] == [("one two", "detail"), ("three", "junk")]
 
 
 def test_parse_missing_duplicate_extra_and_failed_call():
@@ -263,7 +263,7 @@ def test_established_unit_forced_disputed_and_kept():
             e(est[0], "substitution_sibling", pair={"said": "Picasso", "actual": "da Vinci"}),
             e(est[1], "correct"),  # non-incorrect, no dispute -> forced
             e(est[2], "detail", dispute=True, alt_leaf="correct"),  # disputed
-            *(e(u.id, "non_claim") for u in units if not u.established),
+            *(e(u.id, "junk") for u in units if not u.established),
         ],
         "rationale": "",
     }
@@ -297,7 +297,7 @@ def test_established_split_needs_one_incorrect_subspan():
                 u.id,
                 splits=[
                     sp("Picasso", "detail", dispute=True, alt_leaf="correct"),
-                    sp("painted", "non_claim"),
+                    sp("painted", "junk"),
                 ],
                 rest_leaf="correct",
             )
@@ -468,7 +468,7 @@ def _rec(item, layer, readouts, *, map_status="ok", cls="consistent"):
 def test_character_weighted_shares_average_per_readout_and_identities_hold():
     recs = [
         # readout 0: 30 chars false_claim, 10 chars filler; readout 1: all correct
-        _rec("a", 44, [[("false_claim", 30), ("non_claim", 10)], [("correct", 5)]]),
+        _rec("a", 44, [[("false_claim", 30), ("junk", 10)], [("correct", 5)]]),
         _rec("b", 44, [[(tx.UNKNOWN_INCORRECT, 4, {"status": "forced"}), ("correct", 4)]]),
         _rec("c", 44, [[(tx.FAILED, 7)]], map_status="failed"),
         _rec("d", 44, [[("detail", 9)]], map_status="pending"),
@@ -499,7 +499,7 @@ def test_character_weighted_shares_average_per_readout_and_identities_hold():
 def test_specific_denominator_transition_and_alt_view():
     recs = [
         _rec("a", 44, [[("false_claim", 3)]], cls="hallucinated"),
-        _rec("b", 44, [[("non_claim", 3)]], cls="generic"),
+        _rec("b", 44, [[("junk", 3)]], cls="generic"),
         _rec(
             "c",
             44,
@@ -517,7 +517,7 @@ def test_specific_denominator_transition_and_alt_view():
     assert b["rates"]["nonclaim_or_junk_only"]["all"]["value"] == pytest.approx(1 / 3)
     assert b["v5c_hallucination_rate_same_readouts"]["value"] == 1.0
     assert b["transition"] == {
-        "generic": {tx.NON_CLAIM: 1},
+        "generic": {tx.JUNK: 1},
         "hallucinated": {tx.HALLUCINATION: 1, tx.UNKNOWN_INCORRECT: 1},
     }
     assert b["char_share_group_alt"][tx.CORRECT]["value"] == pytest.approx(1 / 3)

@@ -11,7 +11,7 @@ hallucination eval is one of many evals here; see `plans/` for the design histor
 | eval | what it measures | plan |
 |---|---|---|
 | `wsbench_chat` | WorkspaceBench's hallucination (chat) eval, ported verbatim (v5c span + verify stages), plus the taxonomy classifier | [0001](plans/0001-bootstrap-wsbench-chat-taxonomy.md) |
-| `wsbench_chat` claim map | taxonomy v2: every character of every readout in exactly one of 12 leaves (8 groups), rolled up into 6 verdicts | [0002](plans/0002-claim-map-taxonomy-v2.md) |
+| `wsbench_chat` claim map | taxonomy v2: every character of every readout in exactly one of 11 scoring leaves (7 groups), rolled up into 5 verdicts | [0002](plans/0002-claim-map-taxonomy-v2.md) |
 
 Per cell (arm × item × read site × layer) `wsbench_chat` runs up to five calls:
 
@@ -64,7 +64,10 @@ conversation span that contradicts it (`contradicted_by`) and every `correct` se
 fails closed to `unverifiable` (counted). The quotes are carried into `cells.jsonl`,
 `probe_candidates.jsonl`, the audit samples and the report's hallucination examples. Reports
 include a judge-noise section and a "judge noise ±" column (half the r0 − r1 difference of each
-headline metric in the consistency sample).
+headline metric in the consistency sample). Rev 18: `non_claim` and `off_topic` are merged into
+one scoring leaf, `junk` (verdict junk, tag `reason` incl. `off_topic`), right after parsing;
+the claimmap-v2.7 prompt and cached answers are unchanged, so re-scoring costs nothing. Reports
+include a junk-by-reason table (off-topic sub-share per arm).
 
 ## The taxonomy (v1)
 

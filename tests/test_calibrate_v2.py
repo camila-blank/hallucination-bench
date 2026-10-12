@@ -52,9 +52,9 @@ def test_skeleton_and_validation_follow_the_splitter():
     bad["gold"]["units"][0]["dispute"] = True
     assert cal.validate_case(bad) == []
     bad = copy.deepcopy(c)
-    bad["gold"]["units"][2]["splits"] = [{"text": "comes", "leaf": "non_claim"}]
+    bad["gold"]["units"][2]["splits"] = [{"text": "comes", "leaf": "junk"}]
     assert any("rest_leaf is required" in x for x in cal.validate_case(bad))
-    bad["gold"]["units"][2]["splits"] = [{"text": "nope", "leaf": "non_claim"}]
+    bad["gold"]["units"][2]["splits"] = [{"text": "nope", "leaf": "junk"}]
     bad["gold"]["units"][2]["rest_leaf"] = "correct"
     assert any("not a verbatim" in x for x in cal.validate_case(bad))
     assert any("exactly once" in x for x in cal.validate_case({**c, "response": "no marker"}))
@@ -121,7 +121,7 @@ def test_forced_and_disputed_predictions_are_scored_by_raw_and_alt_leaf():
 def test_gate_requires_wilson_lower_bound_on_recalls_and_flags_flips():
     c = case()
     good = _preds(c, [e("R0.U1", "substitution_sibling"), e("R0.U2"), e("R0.U3", "correct")])
-    other = _preds(c, [e("R0.U1", "substitution_sibling"), e("R0.U2"), e("R0.U3", "non_claim")])
+    other = _preds(c, [e("R0.U1", "substitution_sibling"), e("R0.U2"), e("R0.U3", "junk")])
     res = cal.score([c], [[good], [other]], "heldout")
     assert res["mean"]["group_flip_rate"] == pytest.approx(1 / 3)
     rows = {g["key"]: g for g in res["gate"]}

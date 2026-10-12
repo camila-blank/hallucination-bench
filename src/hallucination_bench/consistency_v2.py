@@ -292,7 +292,20 @@ async def map_twice(
     return sorted(out, key=lambda r: (r["arm"], r["key"]))
 
 
+def merge_cell(c: dict[str, Any]) -> dict[str, Any]:
+    """Rev 18: map the judge's ``non_claim`` / ``off_topic`` unit leaves (cells written before
+    the merge) to ``junk``; already-merged cells pass through unchanged."""
+    m = tx.JUDGE_TO_LEAF
+    return {
+        **c,
+        "r0": {k: m.get(v, v) for k, v in c["r0"].items()},
+        "r1": {k: m.get(v, v) for k, v in c["r1"].items()},
+    }
+
+
 def score(cells: Sequence[dict[str, Any]]) -> dict[str, Any]:
+    cells = [merge_cell(c) for c in cells]
+
     def pairs(rows: Sequence[dict[str, Any]]) -> list[tuple[str, str]]:
         return [
             (r["r0"][u["id"]], r["r1"][u["id"]])
@@ -419,6 +432,28 @@ def render_markdown(res: dict[str, Any]) -> str:
         cells = [str(o["confusion"].get(f"{a}|{b}", 0)) for b in leaves]
         lines.append(f"| {a} | " + " | ".join(cells) + " |")
     return "\n".join(lines)
+
+
+def rescore(out_root: Path, model: str) -> dict[str, Any]:
+    """Re-score the cached r0 / r1 cells of the current prompt version (no API calls): used when
+    scoring changes but the prompt does not (rev 18). Rewrites the ``.json`` / ``.md``."""
+    d = Path(out_root) / "consistency" / wrun.model_slug(model)
+    stem = f"consistency_{cm.PROMPT_VERSION}"
+    old = json.loads((d / f"{stem}.json").read_text())
+    rows = (d / f"{stem}_cells.jsonl").read_text(encoding="utf-8").splitlines()
+    cells = [merge_cell(json.loads(x)) for x in rows if x.strip()]
+    res = score(cells)
+    keep = ("arms", "n_per_arm", "seed", "model")
+    res.update({k: old[k] for k in keep if k in old})
+    res["spend_this_run"] = {**Usage().to_dict()}
+    res["spend_original"] = old.get("spend_original") or old.get("spend_this_run")
+    res["rescored"] = {"scoring_version": tx.SCORING_VERSION}
+    (d / f"{stem}.json").write_text(json.dumps(res, indent=1) + "\n")
+    (d / f"{stem}.md").write_text(render_markdown(res) + "\n")
+    with (d / f"{stem}_cells.jsonl").open("w", encoding="utf-8") as fh:
+        for c in cells:
+            fh.write(json.dumps(c, ensure_ascii=False) + "\n")
+    return res
 
 
 def run(

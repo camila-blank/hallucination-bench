@@ -47,7 +47,7 @@ HALLUCINATION_LEAVES = frozenset({"detail", "false_claim", tx.UNKNOWN_INCORRECT}
 # readout-level verdict rates (headline): the readout has >= 1 segment with that verdict
 VERDICT_FLAGS: tuple[str, ...] = (
     *(f"verdict_{v}" for v in tx.VERDICTS),
-    "verdict_non_claim_only",  # every segment is a non-claim
+    "verdict_junk_only",  # every segment is junk (rev 18: non-claims and off-topic claims)
 )
 
 FLAGS: tuple[str, ...] = (
@@ -74,7 +74,6 @@ TRANSITION_PRIORITY: tuple[str, ...] = (
     tx.UNSETTLED,
     tx.CORRECT,
     tx.JUNK,
-    tx.NON_CLAIM,
     tx.FAILED,
 )
 
@@ -85,7 +84,7 @@ AGREEMENT: dict[str, frozenset[str]] = {
     "true": frozenset(tx.CORRECT_LEAVES),
     "unverifiable": frozenset({*tx.SUPPLEMENTARY_LEAVES, *tx.THINKY_LEAVES, "false_claim"}),
     "disputed": frozenset({*tx.INCORRECT_LEAVES, "supplementary_false", tx.UNKNOWN_INCORRECT}),
-    "off_topic": frozenset({"off_topic", "ambiguous_topic", *tx.NON_CLAIM_LEAVES}),
+    "off_topic": frozenset({"ambiguous_topic", *tx.JUNK_LEAVES}),
 }
 
 HEALTH_V2: tuple[str, ...] = (
@@ -101,7 +100,8 @@ HEALTH_V2: tuple[str, ...] = (
 
 # ---------------------------------------------------------------- slim records
 
-SegT = tuple[str, str, int, bool]  # (leaf, alt-view leaf, chars, cruxy)
+SegT = tuple[str, str, int, bool, str | None]  # (leaf, alt-view leaf, chars, cruxy, reason)
+JUNK_REASON_ROWS: tuple[str, ...] = (*tx.JUNK_REASONS, "unspecified")
 
 
 @dataclass
@@ -168,7 +168,13 @@ def slim(rec: dict[str, Any]) -> SlimCellV2:
                 v["class"] if v is not None else None,
                 st == "ok",
                 [
-                    (s["leaf"], cm.alt_leaf_view(s), s["end"] - s["start"], bool(s["cruxy"]))
+                    (
+                        s["leaf"],
+                        cm.alt_leaf_view(s),
+                        s["end"] - s["start"],
+                        bool(s["cruxy"]),
+                        s.get("reason"),
+                    )
                     for s in segs
                 ],
             )
@@ -199,7 +205,7 @@ def readout_flags(r: SlimReadoutV2) -> dict[str, bool]:
     verdicts = {tx.verdict_of(lf) for lf in leaves}
     return {
         **{f"verdict_{v}": v in verdicts for v in tx.VERDICTS},
-        "verdict_non_claim_only": verdicts == {tx.V_NON_CLAIM},
+        "verdict_junk_only": verdicts == {tx.V_JUNK},
         "hallucination": any(lf in HALLUCINATION_LEAVES for lf in leaves),
         "hallucination_excl_unknown": any(lf in ("detail", "false_claim") for lf in leaves),
         "hallucination_alt": any(s[1] in HALLUCINATION_LEAVES for s in r.segs),
@@ -209,7 +215,7 @@ def readout_flags(r: SlimReadoutV2) -> dict[str, bool]:
         "co_activation": tx.CO_ACTIVATION in groups,
         "thinky": tx.THINKY in groups,
         "correct": tx.CORRECT in groups,
-        "nonclaim_or_junk_only": groups <= {tx.NON_CLAIM, tx.JUNK},
+        "nonclaim_or_junk_only": groups <= {tx.JUNK},
     }
 
 
@@ -217,6 +223,7 @@ def _columns() -> list[str]:
     cols = ["n_share_readouts", "n_segments", "n_rate_all", "n_rate_specific", "n_v5c_hal"]
     cols += ["n_cmp", "n_cmp_v5c_hal", "n_cmp_v2_hal", "n_cmp_v2_fc", "n_cmp_v2_det"]
     cols += [f"cv_{v}" for v in VERDICT_ROWS] + [f"sv_{v}" for v in VERDICT_ROWS]
+    cols += [f"cj_{r}" for r in JUNK_REASON_ROWS]
     cols += [f"cs_{lf}" for lf in LEAF_ROWS] + [f"cg_{g}" for g in GROUP_ROWS]
     cols += [f"acg_{g}" for g in GROUP_ROWS]
     cols += [f"sc_{lf}" for lf in LEAF_ROWS] + [f"sg_{g}" for g in GROUP_ROWS]
@@ -233,12 +240,15 @@ def readout_vector(r: SlimReadoutV2) -> np.ndarray:
     total = sum(s[2] for s in r.segs)
     if total > 0:
         v[_COL["n_share_readouts"]] = 1
-        for lf, alt, ch, _c in r.segs:
+        for lf, alt, ch, _c, reason in r.segs:
             v[_COL[f"cs_{lf}"]] += ch / total
             v[_COL[f"cg_{tx.group_of(lf)}"]] += ch / total
             v[_COL[f"cv_{tx.verdict_of(lf)}"]] += ch / total
+            if tx.group_of(lf) == tx.JUNK:
+                why = reason if reason in tx.JUNK_REASONS else "unspecified"
+                v[_COL[f"cj_{why}"]] += ch / total
             v[_COL[f"acg_{tx.group_of(alt)}"]] += ch / total
-    for lf, _alt, _ch, _c in r.segs:
+    for lf, _alt, _ch, _c, _r in r.segs:
         v[_COL["n_segments"]] += 1
         v[_COL[f"sc_{lf}"]] += 1
         v[_COL[f"sg_{tx.group_of(lf)}"]] += 1
@@ -313,6 +323,8 @@ def block(cells: Sequence[SlimCellV2], *, n_boot: int = N_BOOT) -> dict[str, Any
         "char_share_verdict": {v: r(f"cv_{v}", "n_share_readouts") for v in VERDICT_ROWS},
         "seg_share_verdict": {v: r(f"sv_{v}", "n_segments") for v in VERDICT_ROWS},
         "char_share_group": {g: r(f"cg_{g}", "n_share_readouts") for g in GROUP_ROWS},
+        # rev 18: the junk share split by its reason tag (sums to the junk share)
+        "char_share_junk_reason": {x: r(f"cj_{x}", "n_share_readouts") for x in JUNK_REASON_ROWS},
         "char_share_leaf": {lf: r(f"cs_{lf}", "n_share_readouts") for lf in LEAF_ROWS},
         "char_share_group_alt": {g: r(f"acg_{g}", "n_share_readouts") for g in GROUP_ROWS},
         "seg_share_group": {g: r(f"sg_{g}", "n_segments") for g in GROUP_ROWS},

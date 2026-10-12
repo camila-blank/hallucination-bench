@@ -18,7 +18,7 @@ from pathlib import Path
 from typing import Any
 
 from hallucination_bench import taxonomy_v2 as tx
-from hallucination_bench.evals.wsbench_chat import bank
+from hallucination_bench.evals.wsbench_chat import bank, score_v2
 from hallucination_bench.evals.wsbench_chat.run import Models, rebuild_arm
 from hallucination_bench.evals.wsbench_chat.score_v2 import (
     AGREEMENT,
@@ -35,7 +35,7 @@ PRE_GATE_NOTE = (
 )
 FLAG_TITLES: dict[str, str] = {
     **{f"verdict_{v}": v for v in VERDICT_ROWS},
-    "verdict_non_claim_only": "all non-claim",
+    "verdict_junk_only": "all junk",
     "hallucination": "hallucination (v2)",
     "hallucination_excl_unknown": "halluc. excl. unknown_incorrect",
     "hallucination_alt": "halluc. disputes re-scored",
@@ -217,12 +217,14 @@ def build(
         f"Mode: {', '.join('single-call' if a == 'none' else 'anchor ' + a for a in anchors)}. "
         "Shares in % of readout characters (per-readout shares averaged over readouts; each "
         "readout weighs the same); item-bootstrap 95% CI in brackets (2,000 draws, seed 0). The "
-        "6 verdicts + `failed` sum to 100, and so do the 8 groups + `unknown_incorrect` "
+        f"{len(tx.VERDICTS)} verdicts + `failed` sum to 100, and so do the {len(tx.GROUPS)} "
+        "groups + `unknown_incorrect` "
         "(anchored runs only: established v5c spans the judge did not label incorrect, or "
         "disputed) + `failed`. Readout-level rates are over readouts of successfully mapped "
         "cells: `all` = every non-empty readout, `spec` = v5c-specific readouts (plan 0001's "
         "denominator). A readout-level verdict rate is the share of readouts with at least one "
-        "segment of that verdict.",
+        "segment of that verdict. Rev 18: `junk` merges the judge's `non_claim` and `off_topic` "
+        "after parsing (the `reason` tag keeps the kind; see the junk-by-reason table).",
         "",
         "Verdicts: " + "; ".join(f"`{v}` = {', '.join(lv)}" for v, lv in tx.VERDICTS.items()),
         "",
@@ -281,6 +283,12 @@ def build(
             "### Breakdown",
             "",
         ]
+        md += _table(
+            "Junk share by reason (rev 18: junk = non-claims + off-topic claims; % of readout "
+            "characters, sums to the junk share)",
+            ["arm", "n readouts", *score_v2.JUNK_REASON_ROWS],
+            [_grow(n, b, "char_share_junk_reason") for n, b in overall],
+        )
         md += _table(
             "Segment-count verdict shares (pooled over segments), per arm",
             ["arm", "n segments", *VERDICT_ROWS],
@@ -359,7 +367,7 @@ def build(
         md += _table(
             f"{a}: v5c readout class x v2 readout group (first present: hallucination > "
             "unknown_incorrect > co_activation > supplementary > thinky > unsettled > correct > "
-            "junk > non_claim)",
+            "junk)",
             ["v5c class", *cols],
             [[k, *(str(v.get(g, 0)) for g in cols)] for k, v in tr.items()],
         )

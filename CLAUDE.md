@@ -14,7 +14,8 @@ src/hallucination_bench/
   readouts.py     readout contract loader, decode_token, verify_quote, normalize_ws
   summarizer.py   interp-v1 token-bag -> prose prompt (verbatim)
   taxonomy.py     THE taxonomy (single source of truth; rendered into the classifier prompt)
-  taxonomy_v2.py  THE claim-map taxonomy (12 leaves / 8 groups / 6 VERDICTS, leaf tags, precedence, open
+  taxonomy_v2.py  THE claim-map taxonomy (judge: 12 leaves / 8 groups; scoring, rev 18: 11 leaves /
+                  7 groups / 5 VERDICTS with junk = non_claim + off_topic; leaf tags, precedence, open
                   decisions in CHOSEN; render(anchored) for single-call vs --anchor v5c)
   units.py        deterministic readout splitter (units R{i}.U{n}) + offset-returning locate
   judges/v5c.py   verbatim v5c span + verify prompts/parsers; claim_lists (quotes, checked vs tally)
@@ -131,6 +132,10 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
 - **Judge noise** (rev 17): `report --view v2` reads
   `outputs/consistency/<model>/consistency_<PROMPT_VERSION>.json` for the "judge noise ±" column
   and the noise section; run `consistency-v2` on the run's arms first, else they show —.
+- **Rev 18 junk merge is post-parse**: the judge enum/prompt (`JUDGE_LEAF_NAMES`, claimmap-v2.7)
+  is unchanged; `claimmap_v2.parse` maps `non_claim` / `off_topic` to `junk` (reason kept /
+  `off_topic`). Never render `LEAF_NAMES` into the prompt or schema (that would re-queue every
+  `:M` answer). `consistency-v2 --rescore` re-scores cached r0/r1 cells with no API calls.
 - **No git writes from agents** in this worktree (no add/rm/restore --staged/commit).
 - **In-run retries** (rev 14): an invalid `:M` (or calibration) answer is re-asked up to 2 times
   (`run.MAP_INVALID_RETRIES`) before it is cached as failed; meta records `n_invalid_attempts`

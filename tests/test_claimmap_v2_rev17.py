@@ -47,7 +47,7 @@ def test_contradiction_quotes_are_checked_and_fail_closed():
             ),
             e("R0.U2", "detail", contradicted_by="painted in 1990"),  # not in the conversation
             e("R0.U3", "false_claim"),  # no quote at all
-            e("R0.U4", "non_claim", contradicted_by="Mona Lisa"),  # dropped: not incorrect
+            e("R0.U4", "junk", contradicted_by="Mona Lisa"),  # dropped: not incorrect
         ],
         "rationale": "",
     }
@@ -57,7 +57,7 @@ def test_contradiction_quotes_are_checked_and_fail_closed():
         ("substitution_sibling", "substitution_sibling", None, False),
         ("unverifiable", "unverifiable", "detail", True),
         ("unverifiable", "unverifiable", "false_claim", True),
-        ("non_claim", "non_claim", None, False),
+        ("junk", "junk", None, False),
     ]
     assert segs[0].contradicted_by == "painted by Leonardo da Vinci"  # spans the marker
     assert segs[1].contradicted_by == "painted in 1990"  # kept for the audit
@@ -93,7 +93,7 @@ def test_split_pieces_carry_their_own_quotes():
         "units": [
             e(
                 "R0.U1",
-                "non_claim",
+                "junk",
                 splits=[
                     sp(
                         "Picasso",
@@ -158,7 +158,7 @@ def _cell(arm, r0, r1):
 def test_noise_split_kappa_and_families():
     cells = [
         _cell("s3d-rl600", ["detail", "correct"], ["false_claim", "correct"]),
-        _cell("s3d-rl600", ["false_claim", "non_claim"], ["false_claim", "non_claim"]),
+        _cell("s3d-rl600", ["false_claim", "junk"], ["false_claim", "junk"]),
         _cell("nla-rl-L42", ["unverifiable", "correct"], ["detail", "correct"]),
     ]
     res = cons.score(cells)
