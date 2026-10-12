@@ -366,7 +366,10 @@ def rollup(sample_verdicts: Sequence[Mapping[str, Any]]) -> dict[str, Any]:
             v.get("subject") == "other_entity" or v.get("form") == "substituted_entity_answer"
             for v in sample_verdicts
         ),
-        "supports": any(v["form"] not in NO_SUPPORT_FORMS for v in sample_verdicts),
+        # a fail-closed sample (invalid judge answer) is not evidence for cross-method support
+        "supports": any(
+            v["form"] not in NO_SUPPORT_FORMS and not v.get("fail_closed") for v in sample_verdicts
+        ),
     }
 
 
@@ -469,8 +472,11 @@ def fires(
         return {"fires": False, "status": "n/a", "reason": f"few refs ({cell['n_same']})"}
     for p in probes:
         a = cell["auroc"][p].get(concept)
+        if a is not None and a != a:
+            return {"fires": False, "status": "n/a", "reason": "validity_nan"}
         if a is None or a < AUROC_GATE:
-            return {"fires": False, "status": "n/a", "reason": f"validity gate ({p} AUROC {a})"}
+            shown = "None" if a is None else f"{a:.3f}"
+            return {"fires": False, "status": "n/a", "reason": f"validity gate ({p} AUROC {shown})"}
     for p in probes:
         if cell["p_gold"][p] > P_GATE:
             return {

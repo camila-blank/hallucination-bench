@@ -263,6 +263,12 @@ FORCED = {
         "russia": ["Russia", "Russian", "USSR", "Soviet Union", "Soviet", "苏联", "俄罗斯"],
         "united_states": ["United States", "USA", "U.S.", "U.S.A.", "America", "American", "美国"],
         "turkey": ["Turkey", "Türkiye", "Turkish", "土耳其"],
+        # bare names the lexicon call omitted (Jordan/Georgia/Guinea/Niger stay case-sensitive)
+        "jordan": ["Jordan"],
+        "georgia": ["Georgia"],
+        "guinea": ["Guinea"],
+        "luxembourg": ["Luxembourg"],
+        "niger": ["Niger"],
     },
     "sport": {
         "track_and_field": [
@@ -1647,6 +1653,7 @@ def ladder_summary(out, fpr, pr, pq) -> dict[str, Any]:
         "judge": LD.COMMIT_VERSION,
         "fire_pair": pq["fire_pair"],
         "n_units": len(out),
+        "n_fail_closed_samples": sum(int(r.get("n_fail_closed", 0)) for r in out),
         "by_method": table("label", out),
         "by_method_any_layer": table("label_any_layer", out),
         "by_method_no_prior": table("label_no_prior", out),
@@ -1711,7 +1718,7 @@ def _fmt_probe(r) -> str:
     v = r["probe"]["view"]
     if r["probe"]["status"] == "n/a":
         return f"L{r['eff_layer']} n/a ({r['probe']['reason']})"
-    ranks = "/".join(f"{v[p]['rank']:.2f}" for p in r["probe"]["pair"])
+    ranks = "/".join(f"{round(float(v[p]['rank']), 3):.3f}" for p in r["probe"]["pair"])
     mark = "fires" if r["probe"]["fires"] else "no"
     return f"L{r['eff_layer']} r={ranks} {mark}"
 

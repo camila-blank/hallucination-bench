@@ -5,18 +5,22 @@ Pipeline: `scripts/sibling_probe/ladder.py` (see CLAUDE.md, plan 0005 section). 
 (per class x layer AUROC, recipe choice, capital pilot): `outputs/sibling/ladder/probe_quality.md`.
 
 Key points:
-- 1,229 mention units (35 entity items x 4 methods). The commitment judge (brcommit-v1) scored
+- 1,231 mention units (35 entity items x 4 methods). The commitment judge (brcommit-v1) scored
   0.988 unit accuracy on the 80-unit blind gold set (Wilson95 0.933–0.998) and 0.95 on the 60 Ali
   anchors, so it is above the 85% target and the prompt was not revised.
 - J-lens and NLA-RL L42 mentions are almost never committed (they are candidate lists or hedged
   text). Committed substitutions come from s3d O-lens and ML-NLA, and they cluster at L20–36.
-- Probes: entity banks of up to 110 entities per class, trained on 3 templates, with the
-  knowledge filter applied. Held-out AUROC medians: logreg 0.998, raw DiffMean 0.982, whitened
+- Probes: entity banks of up to 120 entities per class (synthesizer bank), trained on 3
+  templates, with the knowledge filter applied (kept counts 10-81 per class and bank, see
+  `probe_quality.md`). Held-out AUROC medians: logreg 0.998, raw DiffMean 0.982, whitened
   DiffMean 0.998. Every used (class, layer) cell passes 0.85 for logreg and whitened DiffMean;
   raw DiffMean fails 40 of 1,056 cells, and those cells become probe n/a.
 - Fire pair: logreg + raw DiffMean, as pre-specified in the plan. Logreg + whitened DiffMean is a
   sensitivity row. Whitening removes the within-gold variation that the fire rule tests, and the
   whitened pair validates 5 + 0 units against 12 + 7 for the primary pair.
+- Method note: an item's probe scores average the 5 fold models, while the reference scores
+  are single out-of-fold scores; this is not leakage, but it may make the empirical p slightly
+  conservative or liberal.
 - Control-concept fire rate is at most 2/30 per bank x layer, so no layer gets the weak-null flag.
 - Ali agrees with the case study:
   - track & field is probe-validated at L20–28 (both s3d and ML-NLA);
@@ -33,8 +37,8 @@ Judge vs blind gold (80 units): accuracy 0.988 (Wilson95 [0.933, 0.998]); commit
 
 | method | not committed | probe-validated | cross-method allowed | hallucination |
 |---|---|---|---|---|
-| s3d O-lens | 213 | 12 | 74 | 116 |
-| ML-NLA RL600 | 85 | 7 | 30 | 25 |
+| s3d O-lens | 213 | 12 | 74 | 117 |
+| ML-NLA RL600 | 85 | 7 | 30 | 26 |
 | J-lens | 661 | 1 | 0 | 0 |
 | NLA-RL L42 | 5 | 0 | 0 | 0 |
 
@@ -42,8 +46,8 @@ Sensitivity: cross-method at any layer
 
 | method | not committed | probe-validated | cross-method allowed | hallucination |
 |---|---|---|---|---|
-| s3d O-lens | 213 | 12 | 108 | 82 |
-| ML-NLA RL600 | 85 | 7 | 44 | 11 |
+| s3d O-lens | 213 | 12 | 108 | 83 |
+| ML-NLA RL600 | 85 | 7 | 44 | 12 |
 | J-lens | 661 | 1 | 0 | 0 |
 | NLA-RL L42 | 5 | 0 | 0 | 0 |
 
@@ -51,8 +55,8 @@ Sensitivity: without lens-prior-flagged allowances
 
 | method | not committed | probe-validated | cross-method allowed | hallucination |
 |---|---|---|---|---|
-| s3d O-lens | 213 | 12 | 25 | 165 |
-| ML-NLA RL600 | 85 | 7 | 7 | 48 |
+| s3d O-lens | 213 | 12 | 25 | 166 |
+| ML-NLA RL600 | 85 | 7 | 7 | 49 |
 | J-lens | 661 | 1 | 0 | 0 |
 | NLA-RL L42 | 5 | 0 | 0 | 0 |
 
@@ -60,8 +64,8 @@ Sensitivity: probe fires at +-1 grid step
 
 | method | not committed | probe-validated | cross-method allowed | hallucination |
 |---|---|---|---|---|
-| s3d O-lens | 213 | 20 | 70 | 112 |
-| ML-NLA RL600 | 85 | 9 | 30 | 23 |
+| s3d O-lens | 213 | 20 | 70 | 113 |
+| ML-NLA RL600 | 85 | 9 | 30 | 24 |
 | J-lens | 661 | 1 | 0 | 0 |
 | NLA-RL L42 | 5 | 0 | 0 | 0 |
 
@@ -69,12 +73,12 @@ Sensitivity: alternative fire pair logreg + wdm
 
 | method | not committed | probe-validated | cross-method allowed | hallucination |
 |---|---|---|---|---|
-| s3d O-lens | 213 | 5 | 78 | 119 |
-| ML-NLA RL600 | 85 | 0 | 36 | 26 |
+| s3d O-lens | 213 | 5 | 78 | 120 |
+| ML-NLA RL600 | 85 | 0 | 36 | 27 |
 | J-lens | 661 | 1 | 0 | 0 |
 | NLA-RL L42 | 5 | 0 | 0 | 0 |
 
-Probe status of committed units: {'fires': 20, 'no_fire': 164, 'n/a': 81}; n/a reasons: {'validity gate': 34, 'gold control': 46, 'concept not a bank class': 1}; probe-validated under a weak null (control FPR > 10%): 0.
+Probe status of committed units: {'fires': 20, 'no_fire': 164, 'n/a': 83}; n/a reasons: {'validity gate': 34, 'gold control': 46, 'concept not a bank class': 3}; probe-validated under a weak null (control FPR > 10%): 0.
 
 ## Control-concept fire rate (FPR) per bank x layer
 
@@ -120,18 +124,18 @@ Probe status of committed units: {'fires': 20, 'no_fire': 164, 'n/a': 81}; n/a r
 | basketball | s3d O-lens | 28 | 0 / 1 | he does not play basketball. | — | — | L28:N | 0.64 |
 | cricket | J-lens | 60 | 0 / 1 | tennis / ______ / wrestling / baseball / cricket | — | — | L60:N | 0.46 |
 | cricket | ML-NLA RL600 | 60 | 0 / 1 | sports-trivia context may also name cricket, football, or sports he played | — | — | L60:N | 0.00 |
-| cricket | s3d O-lens | 32 | 1 / 0 | the sport he practices is **cricket**. | L32 r=0.44/0.72 no | L32: none | L32:H | 0.18 |
-| figure_skating | s3d O-lens | 28,32 | 2 / 0 | he is a professional athlete who competes in the sport of **figure skating**. | L28 n/a (validity gate (dom AUROC 0.8113077092303341)); L32 n/a (validity gate (dom AUROC 0.8158490210251736)) | L28: none; L32: none | L28:H L32:H | 0.64 |
-| gymnastics | s3d O-lens | 20 | 1 / 0 | therefore, this person's profession is athlete. the answer is gymnastics | L20 r=0.92/0.66 no | L20: none | L20:H | 0.73 |
+| cricket | s3d O-lens | 32 | 1 / 0 | the sport he practices is **cricket**. | L32 r=0.440/0.720 no | L32: none | L32:H | 0.18 |
+| figure_skating | s3d O-lens | 28,32 | 2 / 0 | he is a professional athlete who competes in the sport of **figure skating**. | L28 n/a (validity gate (dom AUROC 0.811)); L32 n/a (validity gate (dom AUROC 0.816)) | L28: none; L32: none | L28:H L32:H | 0.64 |
+| gymnastics | s3d O-lens | 20 | 1 / 0 | therefore, this person's profession is athlete. the answer is gymnastics | L20 r=0.920/0.660 no | L20: none | L20:H | 0.73 |
 | ice_hockey | J-lens | 28 | 0 / 1 | which athlete or which olympic event (e.g., hockey) something refers to | — | — | L28:N | 0.55 |
 | soccer | J-lens | 36,48,56,60 | 0 / 4 | basketball / athlete / olympic / olympics / nfl / athletic / basketball / boxing / soccer | — | — | L36:N L48:N L56:N L60:N | 0.55 |
-| swimming | ML-NLA RL600 | 32 | 1 / 0 | michael phelps is an olympic swimmer, so the sport slot must resolve to "swimming" | L32 r=0.54/0.84 no | L32: s3d | L32:X | 0.73 |
-| swimming | s3d O-lens | 20,24,28,52 | 3 / 1 | he is an olympian who competes in the sport of swimming | L20 n/a (validity gate (dom AUROC 0.8445299777942264)); L24 r=0.88/0.76 no; L28 r=0.14/0.48 no | L20: none; L24: none; L28: mlnla-rl600 | L20:H L24:H L28:X L52:N | 1.00 |
+| swimming | ML-NLA RL600 | 32 | 1 / 0 | michael phelps is an olympic swimmer, so the sport slot must resolve to "swimming" | L32 r=0.540/0.840 no | L32: s3d | L32:X | 0.73 |
+| swimming | s3d O-lens | 20,24,28,52 | 3 / 1 | he is an olympian who competes in the sport of swimming | L20 n/a (validity gate (dom AUROC 0.845)); L24 r=0.880/0.760 no; L28 r=0.140/0.480 no | L20: none; L24: none; L28: mlnla-rl600 | L20:H L24:H L28:X L52:N | 1.00 |
 | tennis | J-lens | 56,60 | 0 / 2 | basketball / football / boxing / tennis / baseball | — | — | L56:N L60:N | 0.18 |
-| tennis | s3d O-lens | 20,24,32,52 | 3 / 1 | plays the sport of tennis. | L20 r=0.90/0.98 no; L24 r=0.86/1.00 no; L32 r=0.86/0.88 no | L20: none; L24: none; L32: none | L20:H L24:H L32:H L52:N | 0.73 |
+| tennis | s3d O-lens | 20,24,32,52 | 3 / 1 | plays the sport of tennis. | L20 r=0.900/0.980 no; L24 r=0.860/1.000 no; L32 r=0.860/0.880 no | L20: none; L24: none; L32: none | L20:H L24:H L32:H L52:N | 0.73 |
 | track_and_field | J-lens | 20,36 | 0 / 2 | anticipating a 'which one/which kind' question (哪一个/哪种/какой = which) about athletics | — | — | L20:N L36:N | 0.36 |
-| track_and_field | ML-NLA RL600 | 20,24,28 | 3 / 0 | usain bolt is a sprinter/track and field athlete | L20 r=0.98/1.00 fires; L24 r=1.00/1.00 fires; L28 r=1.00/1.00 fires | L20: jlens,s3d; L24: jlens,s3d; L28: s3d | L20:P L24:P L28:P | 0.64 |
-| track_and_field | s3d O-lens | 20,24,28,32,44,56 | 3 / 3 | **athletics** is the correct answer. | L24 r=1.00/1.00 fires; L28 r=1.00/1.00 fires; L32 r=0.88/0.90 no | L24: jlens,mlnla-rl600; L28: mlnla-rl600; L32: jlens,mlnla-rl600 | L20:N L24:P L28:P L32:X L44:N L56:N | 0.91 |
+| track_and_field | ML-NLA RL600 | 20,24,28 | 3 / 0 | usain bolt is a sprinter/track and field athlete | L20 r=0.980/1.000 fires; L24 r=1.000/1.000 fires; L28 r=1.000/1.000 fires | L20: jlens,s3d; L24: jlens,s3d; L28: s3d | L20:P L24:P L28:P | 0.64 |
+| track_and_field | s3d O-lens | 20,24,28,32,44,56 | 3 / 3 | **athletics** is the correct answer. | L24 r=1.000/1.000 fires; L28 r=1.000/1.000 fires; L32 r=0.880/0.900 no | L24: jlens,mlnla-rl600; L28: mlnla-rl600; L32: jlens,mlnla-rl600 | L20:N L24:P L28:P L32:X L44:N L56:N | 0.91 |
 | volleyball | J-lens | 56 | 0 / 1 | basketball / football / boxing / tennis / baseball / soccer / wrestling / basketball / vol | — | — | L56:N | 0.09 |
 | wrestling | J-lens | 44,48,56,60 | 0 / 4 | other sports like wrestling, basketball and baseball appear as weaker alternatives | — | — | L44:N L48:N L56:N L60:N | 0.09 |
 | wrestling | ML-NLA RL600 | 52 | 0 / 1 | or "boxer"/"wrestling" if the trivia is misstated), likely then a period. | — | — | L52:N | 0.00 |
@@ -142,18 +146,18 @@ Probe status of committed units: {'fires': 20, 'no_fire': 164, 'n/a': 81}; n/a r
 | concept | method | layers | committed / not | example quote | probe (committed units) | cross-method (primary) | labels | lens prior |
 |---|---|---|---|---|---|---|---|---|
 | baseball | J-lens | 20,28,40,44,52,56 | 0 / 6 | about athletic greatness or mastery, likely in sports such as baseball | — | — | L20:N L28:N L40:N L44:N L52:N L56:N | 0.91 |
-| baseball | s3d O-lens | 36,60 | 1 / 1 | the sport is **professional baseball**). he plays for the boston red sox | L36 r=0.98/0.84 no | L36: jlens | L36:X L60:N | 0.27 |
+| baseball | s3d O-lens | 36,60 | 1 / 1 | the sport is **professional baseball**). he plays for the boston red sox | L36 r=0.980/0.837 no | L36: jlens | L36:X L60:N | 0.27 |
 | basketball | J-lens | 28,40,44,56 | 0 / 4 | athletes in sports like baseball and basketball, possibly a personality quiz | — | — | L28:N L40:N L44:N L56:N | 0.64 |
-| basketball | s3d O-lens | 24,32,44 | 1 / 2 | he plays the sport of basketball. | L24 r=1.00/0.94 no | L24: jlens | L24:X L32:N L44:N | 0.64 |
-| gymnastics | s3d O-lens | 20,28 | 2 / 0 | the type of sport she plays is gymnastics. | L20 r=0.22/0.16 no; L28 r=0.49/0.29 no | L20: none; L28: none | L20:H L28:H | 0.73 |
+| basketball | s3d O-lens | 24,32,44 | 1 / 2 | he plays the sport of basketball. | L24 r=1.000/0.939 no | L24: jlens | L24:X L32:N L44:N | 0.64 |
+| gymnastics | s3d O-lens | 20,28 | 2 / 0 | the type of sport she plays is gymnastics. | L20 r=0.224/0.163 no; L28 r=0.490/0.286 no | L20: none; L28: none | L20:H L28:H | 0.73 |
 | ice_hockey | s3d O-lens | 60 | 0 / 1 | a) baseball b) tennis c) football d) hockey | — | — | L60:N | 0.18 |
 | rugby | J-lens | 56 | 0 / 1 | football, baseball, soccer, basketball, rugby; 足球 is chinese for | — | — | L56:N | 0.09 |
 | soccer | J-lens | 40,44,48,56,60 | 0 / 5 | with baseball, soccer and basketball as close alternatives | — | — | L40:N L44:N L48:N L56:N L60:N | 0.55 |
-| soccer | s3d O-lens | 40,52,56,60 | 3 / 1 | 足球 (football) with a 15-year history. | L40 r=1.00/0.94 no; L52 r=1.00/1.00 fires; L56 r=1.00/1.00 fires | L40: jlens; L52: jlens; L56: jlens | L40:X L52:P L56:P L60:N | 0.55 |
-| swimming | ML-NLA RL600 | 24,28,32 | 3 / 0 | michael phelps is an olympic athlete whose sport is swimming | L24 r=0.84/0.76 no; L28 r=0.45/0.78 no; L32 r=0.43/0.90 no | L24: s3d; L28: s3d; L32: s3d | L24:X L28:X L32:X | 0.73 |
-| swimming | s3d O-lens | 20,24,28,32 | 4 / 0 | the sport she participates in is swimming. | L20 n/a (validity gate (dom AUROC 0.8445299777942264)); L24 r=0.84/0.76 no; L28 r=0.45/0.78 no; L32 r=0.43/0.90 no | L20: mlnla-rl600; L24: mlnla-rl600; L28: mlnla-rl600; L32: mlnla-rl600 | L20:X L24:X L28:X L32:X | 1.00 |
-| tennis | s3d O-lens | 32,60 | 1 / 1 | mike is a professional tennis player. | L32 r=1.00/0.98 fires | L32: none | L32:P L60:N | 0.73 |
-| track_and_field | ML-NLA RL600 | 20 | 1 / 0 | usain bolt is a track sprinter from jamaica, so "the sport" must be track and field | L20 r=0.16/0.22 no | L20: none | L20:H | 0.64 |
+| soccer | s3d O-lens | 40,52,56,60 | 3 / 1 | 足球 (football) with a 15-year history. | L40 r=1.000/0.939 no; L52 r=1.000/1.000 fires; L56 r=1.000/1.000 fires | L40: jlens; L52: jlens; L56: jlens | L40:X L52:P L56:P L60:N | 0.55 |
+| swimming | ML-NLA RL600 | 24,28,32 | 3 / 0 | michael phelps is an olympic athlete whose sport is swimming | L24 r=0.837/0.755 no; L28 r=0.449/0.776 no; L32 r=0.429/0.898 no | L24: s3d; L28: s3d; L32: s3d | L24:X L28:X L32:X | 0.73 |
+| swimming | s3d O-lens | 20,24,28,32 | 4 / 0 | the sport she participates in is swimming. | L20 n/a (validity gate (dom AUROC 0.845)); L24 r=0.837/0.755 no; L28 r=0.449/0.776 no; L32 r=0.429/0.898 no | L20: mlnla-rl600; L24: mlnla-rl600; L28: mlnla-rl600; L32: mlnla-rl600 | L20:X L24:X L28:X L32:X | 1.00 |
+| tennis | s3d O-lens | 32,60 | 1 / 1 | mike is a professional tennis player. | L32 r=1.000/0.980 fires | L32: none | L32:P L60:N | 0.73 |
+| track_and_field | ML-NLA RL600 | 20 | 1 / 0 | usain bolt is a track sprinter from jamaica, so "the sport" must be track and field | L20 r=0.163/0.224 no | L20: none | L20:H | 0.64 |
 
 #### br-ent-ath-federer: "The athlete Roger Federer plays the sport of" (gold tennis)
 
@@ -162,43 +166,43 @@ Probe status of committed units: {'fires': 20, 'no_fire': 164, 'n/a': 81}; n/a r
 | baseball | J-lens | 20 | 0 / 1 | which athlete or feat in something like baseball, represents the greatest mastery | — | — | L20:N | 0.91 |
 | basketball | s3d O-lens | 40 | 0 / 1 | a) swimming b) tennis c) golf d) basketball | — | — | L40:N | 0.64 |
 | cricket | J-lens | 28 | 0 / 1 | while cricket, olympics, athletic and hockey point to athletics or competition | — | — | L28:N | 0.46 |
-| cycling | s3d O-lens | 32 | 1 / 0 | the sport played by lance armstrong is track cycling. | L32 r=0.60/0.26 no | L32: none | L32:H | 0.27 |
-| figure_skating | s3d O-lens | 20 | 1 / 0 | the sport is figure skating. | L20 n/a (validity gate (dom AUROC 0.8046921650586127)) | L20: none | L20:H | 0.64 |
+| cycling | s3d O-lens | 32 | 1 / 0 | the sport played by lance armstrong is track cycling. | L32 r=0.600/0.260 no | L32: none | L32:H | 0.27 |
+| figure_skating | s3d O-lens | 20 | 1 / 0 | the sport is figure skating. | L20 n/a (validity gate (dom AUROC 0.805)) | L20: none | L20:H | 0.64 |
 | golf | s3d O-lens | 40 | 0 / 1 | a) swimming b) tennis c) golf d) basketball | — | — | L40:N | 0.09 |
 | ice_hockey | J-lens | 28 | 0 / 1 | cricket, olympics, athletic and hockey point to athletics or competition | — | — | L28:N | 0.55 |
-| ice_hockey | s3d O-lens | 28 | 1 / 0 | the sport is called "ice hockey." | L28 r=0.58/0.96 no | L28: jlens | L28:X | 0.18 |
-| rowing | s3d O-lens | 28 | 1 / 0 | /category: **rowing**. here is the step-by-step logic: | L28 r=0.22/0.10 no | L28: none | L28:H | 0.27 |
+| ice_hockey | s3d O-lens | 28 | 1 / 0 | the sport is called "ice hockey." | L28 r=0.580/0.960 no | L28: jlens | L28:X | 0.18 |
+| rowing | s3d O-lens | 28 | 1 / 0 | /category: **rowing**. here is the step-by-step logic: | L28 r=0.220/0.100 no | L28: none | L28:H | 0.27 |
 | rugby | s3d O-lens | 56 | 0 / 1 | 网球 (tennis) or perhaps rugby. | — | — | L56:N | 0.27 |
-| skiing | ML-NLA RL600 | 20 | 1 / 0 | lindsey vonn is an american alpine skier; the sport slot is alpine skiing/skiing | L20 r=0.34/0.12 no | L20: none | L20:H | 0.09 |
-| soccer | s3d O-lens | 44,48 | 2 / 0 | which sport does david beckham play? the answer is football (soccer). | L44 r=0.96/1.00 no; L48 r=0.98/1.00 fires | L44: none; L48: none | L44:H L48:P | 0.55 |
-| swimming | ML-NLA RL600 | 24,28 | 2 / 0 | a dangling prepositional phrase requiring the sport name immediately, i.e. "swimming." | L24 r=0.46/0.16 no; L28 r=0.18/0.22 no | L24: s3d; L28: s3d | L24:X L28:X | 0.73 |
-| swimming | s3d O-lens | 20,24,28,32,40 | 4 / 1 | **swimming** is the sport he practices | L20 n/a (validity gate (dom AUROC 0.8445299777942264)); L24 r=0.46/0.16 no; L28 r=0.18/0.22 no; L32 r=0.62/0.56 no | L20: mlnla-rl600; L24: mlnla-rl600; L28: mlnla-rl600; L32: mlnla-rl600 | L20:X L24:X L28:X L32:X L40:N | 1.00 |
+| skiing | ML-NLA RL600 | 20 | 1 / 0 | lindsey vonn is an american alpine skier; the sport slot is alpine skiing/skiing | L20 r=0.340/0.120 no | L20: none | L20:H | 0.09 |
+| soccer | s3d O-lens | 44,48 | 2 / 0 | which sport does david beckham play? the answer is football (soccer). | L44 r=0.960/1.000 no; L48 r=0.980/1.000 fires | L44: none; L48: none | L44:H L48:P | 0.55 |
+| swimming | ML-NLA RL600 | 24,28 | 2 / 0 | a dangling prepositional phrase requiring the sport name immediately, i.e. "swimming." | L24 r=0.460/0.160 no; L28 r=0.180/0.220 no | L24: s3d; L28: s3d | L24:X L28:X | 0.73 |
+| swimming | s3d O-lens | 20,24,28,32,40 | 4 / 1 | **swimming** is the sport he practices | L20 n/a (validity gate (dom AUROC 0.845)); L24 r=0.460/0.160 no; L28 r=0.180/0.220 no; L32 r=0.620/0.560 no | L20: mlnla-rl600; L24: mlnla-rl600; L28: mlnla-rl600; L32: mlnla-rl600 | L20:X L24:X L28:X L32:X L40:N | 1.00 |
 | track_and_field | J-lens | 28 | 0 / 1 | cricket, olympics, athletic and hockey point to athletics or competition | — | — | L28:N | 0.36 |
-| track_and_field | s3d O-lens | 20,24,28,32 | 3 / 1 | profession he plays is **track and field**. if you look at the rules | L20 r=0.26/0.10 no; L24 r=0.38/0.34 no; L28 r=0.58/0.42 no | L20: none; L24: jlens; L28: jlens | L20:H L24:X L28:X L32:N | 0.91 |
+| track_and_field | s3d O-lens | 20,24,28,32 | 3 / 1 | profession he plays is **track and field**. if you look at the rules | L20 r=0.260/0.100 no; L24 r=0.380/0.340 no; L28 r=0.580/0.420 no | L20: none; L24: jlens; L28: jlens | L20:H L24:X L28:X L32:N | 0.91 |
 
 #### br-ent-ath-gretzky: "The athlete Wayne Gretzky plays the sport of" (gold ice_hockey)
 
 | concept | method | layers | committed / not | example quote | probe (committed units) | cross-method (primary) | labels | lens prior |
 |---|---|---|---|---|---|---|---|---|
-| american_football | s3d O-lens | 32 | 1 / 0 |  | L32 r=1.00/1.00 fires | L32: none | L32:P | 0.27 |
+| american_football | s3d O-lens | 32 | 1 / 0 |  | L32 r=1.000/1.000 fires | L32: none | L32:P | 0.27 |
 | baseball | J-lens | 20,24,28,36,40 | 0 / 5 | among athletic pursuits, such as baseball or wrestling, framed around greatness and master | — | — | L20:N L24:N L28:N L36:N L40:N | 0.91 |
-| baseball | ML-NLA RL600 | 20 | 1 / 0 | the athlete todd helton plays the sport of" is an incomplete copular statement requiring a | L20 r=0.98/1.00 fires | L20: jlens | L20:P | 0.18 |
+| baseball | ML-NLA RL600 | 20 | 1 / 0 | the athlete todd helton plays the sport of" is an incomplete copular statement requiring a | L20 r=0.980/1.000 fires | L20: jlens | L20:P | 0.18 |
 | basketball | J-lens | 40,56 | 0 / 2 | other team sports like baseball, soccer and basketball as weaker alternative candidates | — | — | L40:N L56:N | 0.64 |
-| basketball | s3d O-lens | 40 | 1 / 0 | 篮球 (basketball) in canada. | L40 r=0.94/0.78 no | L40: jlens | L40:X | 0.64 |
-| boxing | s3d O-lens | 32 | 1 / 0 | what sport is mike tyson known for? **answer:** boxing | L32 r=0.38/0.82 no | L32: none | L32:H | 0.09 |
-| figure_skating | s3d O-lens | 20 | 1 / 0 | figure skating is the sport. it is done indoors on ice. | L20 n/a (validity gate (dom AUROC 0.8046921650586127)) | L20: none | L20:H | 0.64 |
-| golf | ML-NLA RL600 | 32 | 1 / 0 | tiger woods is a golfer, so the sport must be golf | L32 r=0.98/0.96 no | L32: none | L32:H | 0.09 |
+| basketball | s3d O-lens | 40 | 1 / 0 | 篮球 (basketball) in canada. | L40 r=0.940/0.780 no | L40: jlens | L40:X | 0.64 |
+| boxing | s3d O-lens | 32 | 1 / 0 | what sport is mike tyson known for? **answer:** boxing | L32 r=0.380/0.820 no | L32: none | L32:H | 0.09 |
+| figure_skating | s3d O-lens | 20 | 1 / 0 | figure skating is the sport. it is done indoors on ice. | L20 n/a (validity gate (dom AUROC 0.805)) | L20: none | L20:H | 0.64 |
+| golf | ML-NLA RL600 | 32 | 1 / 0 | tiger woods is a golfer, so the sport must be golf | L32 r=0.980/0.960 no | L32: none | L32:H | 0.09 |
 | gymnastics | s3d O-lens | 24 | 1 / 0 | that kelly participates in is **gymnastics**. | L24 n/a (gold control (dom p 0.057)) | L24: none | L24:H | 0.73 |
-| rowing | s3d O-lens | 28 | 1 / 0 | he is an athlete who competes in the sport of rowing. | L28 r=0.00/0.00 no | L28: none | L28:H | 0.27 |
-| snowboarding | ML-NLA RL600 | 28 | 1 / 0 | shaun white is a snowboarder, so the sport is snowboarding | L28 n/a (validity gate (dom AUROC 0.8427906976744186)) | L28: none | L28:H | 0.00 |
+| rowing | s3d O-lens | 28 | 1 / 0 | he is an athlete who competes in the sport of rowing. | L28 r=0.000/0.000 no | L28: none | L28:H | 0.27 |
+| snowboarding | ML-NLA RL600 | 28 | 1 / 0 | shaun white is a snowboarder, so the sport is snowboarding | L28 n/a (validity gate (dom AUROC 0.843)) | L28: none | L28:H | 0.00 |
 | soccer | J-lens | 40,44,56 | 0 / 3 | other team sports like baseball, soccer and basketball as weaker alternative candidates | — | — | L40:N L44:N L56:N | 0.55 |
-| soccer | s3d O-lens | 32,48 | 1 / 1 | 足球 (ice hockey) player. | L48 r=0.78/0.80 no | L48: jlens | L32:N L48:X | 0.55 |
+| soccer | s3d O-lens | 32,48 | 1 / 1 | 足球 (ice hockey) player. | L48 r=0.780/0.800 no | L48: jlens | L32:N L48:X | 0.55 |
 | softball | ML-NLA RL600 | 20 | 0 / 1 | the unnamed athlete is clearly a baseball/softball figure | — | — | L20:N | 0.00 |
 | swimming | ML-NLA RL600 | 24 | 1 / 0 | the required completion is almost certainly "swimming" (or "swimming." with a period) | L24 n/a (gold control (dom p 0.057)) | L24: s3d | L24:X | 0.73 |
-| swimming | s3d O-lens | 20,24,28 | 3 / 0 | 游泳 (swimming) is the sport he participates in | L20 n/a (validity gate (dom AUROC 0.8445299777942264)); L24 n/a (gold control (dom p 0.057)); L28 r=0.96/0.24 no | L20: mlnla-rl600; L24: mlnla-rl600; L28: mlnla-rl600 | L20:X L24:X L28:X | 1.00 |
-| tennis | s3d O-lens | 28 | 1 / 0 | the sport played by billie jean king is tennis. | L28 r=1.00/1.00 fires | L28: none | L28:P | 0.73 |
+| swimming | s3d O-lens | 20,24,28 | 3 / 0 | 游泳 (swimming) is the sport he participates in | L20 n/a (validity gate (dom AUROC 0.845)); L24 n/a (gold control (dom p 0.057)); L28 r=0.960/0.240 no | L20: mlnla-rl600; L24: mlnla-rl600; L28: mlnla-rl600 | L20:X L24:X L28:X | 1.00 |
+| tennis | s3d O-lens | 28 | 1 / 0 | the sport played by billie jean king is tennis. | L28 r=1.000/1.000 fires | L28: none | L28:P | 0.73 |
 | track_and_field | J-lens | 28 | 0 / 1 | about sports such as hockey, baseball, the olympics or athletics | — | — | L28:N | 0.36 |
-| track_and_field | s3d O-lens | 20,24,28,32 | 2 / 2 | the sport of track and field is where he competes. | L20 r=0.56/1.00 no; L32 r=0.70/0.98 no | L20: none; L32: jlens | L20:H L24:N L28:N L32:X | 0.91 |
+| track_and_field | s3d O-lens | 20,24,28,32 | 2 / 2 | the sport of track and field is where he competes. | L20 r=0.560/1.000 no; L32 r=0.700/0.980 no | L20: none; L32: jlens | L20:H L24:N L28:N L32:X | 0.91 |
 | wrestling | J-lens | 20,24 | 0 / 2 | among athletic pursuits, such as baseball or wrestling, framed around greatness and master | — | — | L20:N L24:N | 0.09 |
 
 #### br-ent-ath-james: "The athlete LeBron James plays the sport of" (gold basketball)
@@ -206,43 +210,43 @@ Probe status of committed units: {'fires': 20, 'no_fire': 164, 'n/a': 81}; n/a r
 | concept | method | layers | committed / not | example quote | probe (committed units) | cross-method (primary) | labels | lens prior |
 |---|---|---|---|---|---|---|---|---|
 | american_football | J-lens | 40,44,56 | 0 / 3 | weaker activation for other major american sports like the nfl and baseball | — | — | L40:N L44:N L56:N | 0.27 |
-| american_football | ML-NLA RL600 | 32,56 | 1 / 1 | lionel messi is a footballer, so the expected answer is a sport | L32 r=0.80/0.82 no | L32: none | L32:H L56:N | 0.27 |
+| american_football | ML-NLA RL600 | 32,56 | 1 / 1 | lionel messi is a footballer, so the expected answer is a sport | L32 r=0.800/0.820 no | L32: none | L32:H L56:N | 0.27 |
 | american_football | s3d O-lens | 60 | 0 / 1 | basketball" (or potentially football, but basketball fits the name pattern better) | — | — | L60:N | 0.27 |
 | baseball | J-lens | 20,40,44,56 | 0 / 4 | with baseball as a likely example | — | — | L20:N L40:N L44:N L56:N | 0.91 |
-| cycling | s3d O-lens | 28 | 1 / 0 |  | L28 r=0.36/0.22 no | L28: none | L28:H | 0.27 |
+| cycling | s3d O-lens | 28 | 1 / 0 | she is a **cyclist**. specifically, she competes in **track cycling** | L28 r=0.360/0.220 no | L28: none | L28:H | 0.27 |
 | figure_skating | s3d O-lens | 28 | 0 / 1 | figure skating is a sport performed on ice, involving | — | — | L28:N | 0.64 |
-| ice_hockey | ML-NLA RL600 | 20 | 1 / 0 | patrick kane is an ice hockey player for the chicago blackhawks | L20 r=0.06/0.20 no | L20: none | L20:H | 0.09 |
+| ice_hockey | ML-NLA RL600 | 20 | 1 / 0 | patrick kane is an ice hockey player for the chicago blackhawks | L20 r=0.060/0.200 no | L20: none | L20:H | 0.09 |
 | soccer | J-lens | 40,44,48,56 | 0 / 4 | baseball / football / 体育 / soccer | — | — | L40:N L44:N L48:N L56:N | 0.55 |
-| soccer | ML-NLA RL600 | 32 | 1 / 0 | lionel messi is a footballer, so the expected answer is a sport — soccer/football/associat | L32 r=0.96/1.00 no | L32: none | L32:H | 0.18 |
+| soccer | ML-NLA RL600 | 32 | 1 / 0 | lionel messi is a footballer, so the expected answer is a sport — soccer/football/associat | L32 r=0.960/1.000 no | L32: none | L32:H | 0.18 |
 | soccer | s3d O-lens | 36 | 0 / 1 | what sport is he most famously associated with? a) soccer b) basketball | — | — | L36:N | 0.55 |
-| swimming | s3d O-lens | 20,24,28,32 | 4 / 0 | the person plays the sport of swimming. | L20 n/a (validity gate (dom AUROC 0.8445299777942264)); L24 r=0.96/0.76 no; L28 r=0.80/0.74 no; L32 r=0.60/1.00 no | L20: none; L24: none; L28: none; L32: none | L20:H L24:H L28:H L32:H | 1.00 |
+| swimming | s3d O-lens | 20,24,28,32 | 4 / 0 | the person plays the sport of swimming. | L20 n/a (validity gate (dom AUROC 0.845)); L24 r=0.960/0.760 no; L28 r=0.800/0.740 no; L32 r=0.600/1.000 no | L20: none; L24: none; L28: none; L32: none | L20:H L24:H L28:H L32:H | 1.00 |
 | tennis | s3d O-lens | 36 | 0 / 1 | a) soccer b) basketball c) tennis | — | — | L36:N | 0.73 |
 | track_and_field | J-lens | 20 | 0 / 1 | competitive sport (竞技 means "athletics/competition"), with baseball as a likely example | — | — | L20:N | 0.36 |
-| track_and_field | ML-NLA RL600 | 24,28 | 2 / 0 | subject established as sprinter lamine diack, so the sport in question is track and field | L24 r=0.56/0.74 no; L28 r=0.66/0.56 no | L24: jlens,s3d; L28: s3d | L24:X L28:X | 0.64 |
-| track_and_field | s3d O-lens | 20,24 | 1 / 1 | plays the sport of **track and field**. it is not a player | L20 r=0.44/0.64 no | L20: jlens,mlnla-rl600 | L20:X L24:N | 0.91 |
+| track_and_field | ML-NLA RL600 | 24,28 | 2 / 0 | subject established as sprinter lamine diack, so the sport in question is track and field | L24 r=0.560/0.740 no; L28 r=0.660/0.560 no | L24: jlens,s3d; L28: s3d | L24:X L28:X | 0.64 |
+| track_and_field | s3d O-lens | 20,24 | 1 / 1 | plays the sport of **track and field**. it is not a player | L20 r=0.440/0.640 no | L20: jlens,mlnla-rl600 | L20:X L24:N | 0.91 |
 
 #### br-ent-ath-jordan: "The athlete Michael Jordan plays the sport of" (gold basketball)
 
 | concept | method | layers | committed / not | example quote | probe (committed units) | cross-method (primary) | labels | lens prior |
 |---|---|---|---|---|---|---|---|---|
 | american_football | J-lens | 56 | 0 / 1 | other sports such as baseball, soccer and football as weaker alternatives | — | — | L56:N | 0.27 |
-| american_football | ML-NLA RL600 | 20,56 | 1 / 1 | tony romo is an american football player (nfl, dallas cowboys quarterback) | L20 r=0.98/0.98 fires | L20: none | L20:P L56:N | 0.27 |
+| american_football | ML-NLA RL600 | 20,56 | 1 / 1 | tony romo is an american football player (nfl, dallas cowboys quarterback) | L20 r=0.980/0.980 fires | L20: none | L20:P L56:N | 0.27 |
 | baseball | J-lens | 20,40,44,56,60 | 0 / 5 | the topic seems to be athletic greatness or mastery, possibly in baseball | — | — | L20:N L40:N L44:N L56:N L60:N | 0.91 |
 | baseball | ML-NLA RL600 | 20,56 | 0 / 2 | requiring a sport name immediately (likely "football" or "baseball"), then a period | — | — | L20:N L56:N | 0.18 |
 | baseball | s3d O-lens | 60 | 0 / 1 | basketball or baseball. the question asks to complete the sentence about michael jordan. | — | — | L60:N | 0.27 |
-| fencing | s3d O-lens | 20 | 1 / 0 | the person is a professional athlete. specifically, a **fencer**. | L20 r=0.12/0.04 no | L20: none | L20:H | 0.00 |
-| figure_skating | s3d O-lens | 20 | 1 / 0 | 3: figure skating. we know the sport is gymnastics. | L20 n/a (validity gate (dom AUROC 0.8046921650586127)) | L20: none | L20:H | 0.64 |
-| golf | ML-NLA RL600 | 32 | 1 / 0 | tiger woods is a golfer; the sport is golf | L32 r=0.40/0.46 no | L32: none | L32:H | 0.09 |
-| gymnastics | s3d O-lens | 20 | 1 / 0 | we know the sport is gymnastics. | L20 r=0.34/0.12 no | L20: none | L20:H | 0.73 |
-| skiing | s3d O-lens | 32 | 1 / 0 | the sport is skiing, and its primary category is **sports | L32 r=0.82/0.10 no | L32: none | L32:H | 0.09 |
+| fencing | s3d O-lens | 20 | 1 / 0 | the person is a professional athlete. specifically, a **fencer**. | L20 r=0.120/0.040 no | L20: none | L20:H | 0.00 |
+| figure_skating | s3d O-lens | 20 | 1 / 0 | 3: figure skating. we know the sport is gymnastics. | L20 n/a (validity gate (dom AUROC 0.805)) | L20: none | L20:H | 0.64 |
+| golf | ML-NLA RL600 | 32 | 1 / 0 | tiger woods is a golfer; the sport is golf | L32 r=0.400/0.460 no | L32: none | L32:H | 0.09 |
+| gymnastics | s3d O-lens | 20 | 1 / 0 | we know the sport is gymnastics. | L20 r=0.340/0.120 no | L20: none | L20:H | 0.73 |
+| skiing | s3d O-lens | 32 | 1 / 0 | the sport is skiing, and its primary category is **sports | L32 r=0.820/0.100 no | L32: none | L32:H | 0.09 |
 | soccer | J-lens | 40,44,48,56,60 | 0 / 5 | with related alternatives like soccer, baseball, the nba and the olympics | — | — | L40:N L44:N L48:N L56:N L60:N | 0.55 |
 | soccer | s3d O-lens | 36 | 0 / 1 | it is not known for being a "soccer player" in the traditional sense | — | — | L36:N | 0.55 |
-| swimming | ML-NLA RL600 | 28 | 1 / 0 | michael phelps's sport is swimming | L28 r=0.78/0.46 no | L28: s3d | L28:X | 0.73 |
-| swimming | s3d O-lens | 20,24,28,32 | 4 / 0 | the sport he plays is swimming. | L20 n/a (validity gate (dom AUROC 0.8445299777942264)); L24 r=0.88/0.64 no; L28 r=0.78/0.46 no; L32 r=0.46/0.58 no | L20: none; L24: mlnla-rl600; L28: mlnla-rl600; L32: mlnla-rl600 | L20:H L24:X L28:X L32:X | 1.00 |
+| swimming | ML-NLA RL600 | 28 | 1 / 0 | michael phelps's sport is swimming | L28 r=0.780/0.460 no | L28: s3d | L28:X | 0.73 |
+| swimming | s3d O-lens | 20,24,28,32 | 4 / 0 | the sport he plays is swimming. | L20 n/a (validity gate (dom AUROC 0.845)); L24 r=0.880/0.640 no; L28 r=0.780/0.460 no; L32 r=0.460/0.580 no | L20: none; L24: mlnla-rl600; L28: mlnla-rl600; L32: mlnla-rl600 | L20:H L24:X L28:X L32:X | 1.00 |
 | tennis | ML-NLA RL600 | 56 | 0 / 1 | likely a choice list: basketball, baseball, football, tennis | — | — | L56:N | 0.27 |
-| tennis | s3d O-lens | 28,32 | 1 / 1 | therefore, jimmy bower is a professional tennis player. | L28 r=0.90/0.98 no | L28: none | L28:H L32:N | 0.73 |
-| track_and_field | ML-NLA RL600 | 24 | 1 / 0 | usain bolt is a jamaican sprinter, so the sport to name is track and field/athletics | L24 r=0.94/0.88 no | L24: s3d | L24:X | 0.64 |
-| track_and_field | s3d O-lens | 20,24,28,32 | 2 / 2 | he is a track and field athlete. | L28 r=0.80/0.78 no; L32 r=0.58/0.48 no | L28: mlnla-rl600; L32: none | L20:N L24:N L28:X L32:H | 0.91 |
+| tennis | s3d O-lens | 28,32 | 1 / 1 | therefore, jimmy bower is a professional tennis player. | L28 r=0.900/0.980 no | L28: none | L28:H L32:N | 0.73 |
+| track_and_field | ML-NLA RL600 | 24 | 1 / 0 | usain bolt is a jamaican sprinter, so the sport to name is track and field/athletics | L24 r=0.940/0.880 no | L24: s3d | L24:X | 0.64 |
+| track_and_field | s3d O-lens | 20,24,28,32 | 2 / 2 | he is a track and field athlete. | L28 r=0.800/0.780 no; L32 r=0.580/0.480 no | L28: mlnla-rl600; L32: none | L20:N L24:N L28:X L32:H | 0.91 |
 
 #### br-ent-ath-messi: "The athlete Lionel Messi plays the sport of" (gold soccer)
 
@@ -250,14 +254,14 @@ Probe status of committed units: {'fires': 20, 'no_fire': 164, 'n/a': 81}; n/a r
 |---|---|---|---|---|---|---|---|---|
 | baseball | J-lens | 20 | 0 / 1 | the likely frame is athletic mastery or greatness, perhaps in baseball | — | — | L20:N | 0.91 |
 | basketball | J-lens | 40 | 0 / 1 | sport / 体育 / __________________ / football / basketball | — | — | L40:N | 0.64 |
-| basketball | s3d O-lens | 36,40 | 2 / 0 | he plays **basketball**. this is his primary profession and | L36 r=1.00/1.00 fires; L40 r=1.00/1.00 fires | L36: jlens; L40: jlens | L36:P L40:P | 0.64 |
-| figure_skating | s3d O-lens | 24 | 1 / 0 | the sport is **figure skating**. it is a | L24 n/a (validity gate (dom AUROC 0.7847669631352336)) | L24: none | L24:H | 0.64 |
+| basketball | s3d O-lens | 36,40 | 2 / 0 | he plays **basketball**. this is his primary profession and | L36 r=1.000/1.000 fires; L40 r=1.000/1.000 fires | L36: jlens; L40: jlens | L36:P L40:P | 0.64 |
+| figure_skating | s3d O-lens | 24 | 1 / 0 | the sport is **figure skating**. it is a | L24 n/a (validity gate (dom AUROC 0.785)) | L24: none | L24:H | 0.64 |
 | rugby | s3d O-lens | 56 | 0 / 1 | what sport does lionel messi primarily play? a) rugby b) soccer | — | — | L56:N | 0.27 |
-| swimming | ML-NLA RL600 | 24 | 1 / 0 | michael phelps is the world's most decorated swimmer, so the named sport must be swimming | L24 r=0.86/0.62 no | L24: s3d | L24:X | 0.73 |
-| swimming | s3d O-lens | 20,24,28,36,40 | 4 / 1 | he competes in the sport of swimming, and he is a | L20 n/a (validity gate (dom AUROC 0.8445299777942264)); L24 r=0.86/0.62 no; L28 r=0.20/0.20 no; L36 r=0.42/0.48 no | L20: mlnla-rl600; L24: mlnla-rl600; L28: mlnla-rl600; L36: none | L20:X L24:X L28:X L36:H L40:N | 1.00 |
-| tennis | ML-NLA RL600 | 28,32 | 2 / 0 | domain facts required: roger federer's sport, tennis; | L28 r=1.00/1.00 fires; L32 r=1.00/1.00 fires | L28: s3d; L32: s3d | L28:P L32:P | 0.27 |
-| tennis | s3d O-lens | 28,32,40 | 1 / 2 | he is a tennis player, specifically a professional athlete who competes | L32 r=1.00/1.00 fires | L32: mlnla-rl600 | L28:N L32:P L40:N | 0.73 |
-| track_and_field | s3d O-lens | 20,24,28 | 3 / 0 | 运动 is track and field. he plays the role of an athlete | L20 r=0.66/0.80 no; L24 r=0.54/0.88 no; L28 r=0.90/0.70 no | L20: none; L24: none; L28: none | L20:H L24:H L28:H | 0.91 |
+| swimming | ML-NLA RL600 | 24 | 1 / 0 | michael phelps is the world's most decorated swimmer, so the named sport must be swimming | L24 r=0.860/0.620 no | L24: s3d | L24:X | 0.73 |
+| swimming | s3d O-lens | 20,24,28,36,40 | 4 / 1 | he competes in the sport of swimming, and he is a | L20 n/a (validity gate (dom AUROC 0.845)); L24 r=0.860/0.620 no; L28 r=0.200/0.200 no; L36 r=0.420/0.480 no | L20: mlnla-rl600; L24: mlnla-rl600; L28: mlnla-rl600; L36: none | L20:X L24:X L28:X L36:H L40:N | 1.00 |
+| tennis | ML-NLA RL600 | 28,32 | 2 / 0 | domain facts required: roger federer's sport, tennis; | L28 r=1.000/1.000 fires; L32 r=1.000/1.000 fires | L28: s3d; L32: s3d | L28:P L32:P | 0.27 |
+| tennis | s3d O-lens | 28,32,40 | 1 / 2 | he is a tennis player, specifically a professional athlete who competes | L32 r=1.000/1.000 fires | L32: mlnla-rl600 | L28:N L32:P L40:N | 0.73 |
+| track_and_field | s3d O-lens | 20,24,28 | 3 / 0 | 运动 is track and field. he plays the role of an athlete | L20 r=0.660/0.800 no; L24 r=0.540/0.880 no; L28 r=0.900/0.700 no | L20: none; L24: none; L28: none | L20:H L24:H L28:H | 0.91 |
 
 #### br-ent-ath-nadal: "The athlete Rafael Nadal plays the sport of" (gold tennis)
 
@@ -269,21 +273,21 @@ Probe status of committed units: {'fires': 20, 'no_fire': 164, 'n/a': 81}; n/a r
 | basketball | s3d O-lens | 48 | 0 / 1 | a) tennis b) soccer c) basketball | — | — | L48:N | 0.64 |
 | cricket | J-lens | 28 | 0 / 1 | such as the olympics, cricket, hockey, athletics or marvel | — | — | L28:N | 0.46 |
 | cycling | s3d O-lens | 32 | 0 / 1 | the most famous cyclist associated | — | — | L32:N | 0.27 |
-| figure_skating | s3d O-lens | 20 | 1 / 0 | figure skating. the sport he participates in is soccer. | L20 n/a (validity gate (dom AUROC 0.8046921650586127)) | L20: none | L20:H | 0.64 |
+| figure_skating | s3d O-lens | 20 | 1 / 0 | figure skating. the sport he participates in is soccer. | L20 n/a (validity gate (dom AUROC 0.805)) | L20: none | L20:H | 0.64 |
 | golf | s3d O-lens | 60 | 0 / 1 | 2. tennis **c. badminton** d. golf **e. table tennis | — | — | L60:N | 0.09 |
-| gymnastics | s3d O-lens | 24 | 1 / 0 | gymnastics. the answer provided states that bill is an athlete. | L24 r=0.16/0.22 no | L24: none | L24:H | 0.73 |
+| gymnastics | s3d O-lens | 24 | 1 / 0 | gymnastics. the answer provided states that bill is an athlete. | L24 r=0.160/0.220 no | L24: none | L24:H | 0.73 |
 | ice_hockey | J-lens | 28 | 0 / 1 | such as the olympics, cricket, hockey, athletics or marvel | — | — | L28:N | 0.55 |
-| ice_hockey | ML-NLA RL600 | 20 | 1 / 0 | the vancouver canucks are an ice hockey team, so the sport is hockey; subject is an athlet | L20 r=0.64/0.74 no | L20: none | L20:H | 0.09 |
-| rowing | s3d O-lens | 28 | 1 / 0 | /profession is rowing. | L28 r=0.12/0.10 no | L28: none | L28:H | 0.27 |
+| ice_hockey | ML-NLA RL600 | 20 | 1 / 0 | the vancouver canucks are an ice hockey team, so the sport is hockey; subject is an athlet | L20 r=0.640/0.740 no | L20: none | L20:H | 0.09 |
+| rowing | s3d O-lens | 28 | 1 / 0 | /profession is rowing. | L28 r=0.120/0.100 no | L28: none | L28:H | 0.27 |
 | rugby | ML-NLA RL600 | 48 | 0 / 1 | answer choices like "a. tennis b. rugby", possibly then more quiz boilerplate | — | — | L48:N | 0.09 |
 | rugby | s3d O-lens | 36,44 | 0 / 2 | he is not known for playing football, rugby, or | — | — | L36:N L44:N | 0.27 |
-| soccer | ML-NLA RL600 | 32 | 1 / 0 | lionel messi is an argentine football/soccer player, so the sport domain is the answer. | L32 r=0.94/0.98 no | L32: none | L32:H | 0.18 |
-| soccer | s3d O-lens | 20,36,44,48 | 1 / 3 | the sport he participates in is soccer. he is a | L20 r=0.96/0.98 no | L20: none | L20:H L36:N L44:N L48:N | 0.55 |
-| swimming | s3d O-lens | 20,24,28,32 | 4 / 0 | the main sport he plays is swimming. | L20 n/a (validity gate (dom AUROC 0.8445299777942264)); L24 r=0.90/0.38 no; L28 r=0.70/0.22 no; L32 r=0.66/0.36 no | L20: none; L24: none; L28: none; L32: none | L20:H L24:H L28:H L32:H | 1.00 |
+| soccer | ML-NLA RL600 | 32 | 1 / 0 | lionel messi is an argentine football/soccer player, so the sport domain is the answer. | L32 r=0.940/0.980 no | L32: none | L32:H | 0.18 |
+| soccer | s3d O-lens | 20,36,44,48 | 1 / 3 | the sport he participates in is soccer. he is a | L20 r=0.960/0.980 no | L20: none | L20:H L36:N L44:N L48:N | 0.55 |
+| swimming | s3d O-lens | 20,24,28,32 | 4 / 0 | the main sport he plays is swimming. | L20 n/a (validity gate (dom AUROC 0.845)); L24 r=0.900/0.380 no; L28 r=0.700/0.220 no; L32 r=0.660/0.360 no | L20: none; L24: none; L28: none; L32: none | L20:H L24:H L28:H L32:H | 1.00 |
 | table_tennis | s3d O-lens | 60 | 0 / 1 | 2. tennis **c. badminton** d. golf **e. table tennis | — | — | L60:N | 0.09 |
 | track_and_field | J-lens | 20,28 | 0 / 2 | 竞技 means "athletics/competitive sports" | — | — | L20:N L28:N | 0.36 |
-| track_and_field | ML-NLA RL600 | 24,28 | 2 / 0 | topic entity established as usain bolt, track athlete | L24 r=0.44/0.62 no; L28 r=0.36/0.52 no | L24: jlens,s3d; L28: jlens,s3d | L24:X L28:X | 0.64 |
-| track_and_field | s3d O-lens | 20,24,28,32 | 3 / 1 | 游泳 (swimming) or his specific career is track and field. | L20 r=0.26/0.56 no; L28 r=0.36/0.52 no; L32 r=0.18/0.20 no | L20: jlens,mlnla-rl600; L28: jlens,mlnla-rl600; L32: jlens,mlnla-rl600 | L20:X L24:N L28:X L32:X | 0.91 |
+| track_and_field | ML-NLA RL600 | 24,28 | 2 / 0 | topic entity established as usain bolt, track athlete | L24 r=0.440/0.620 no; L28 r=0.360/0.520 no | L24: jlens,s3d; L28: jlens,s3d | L24:X L28:X | 0.64 |
+| track_and_field | s3d O-lens | 20,24,28,32 | 3 / 1 | 游泳 (swimming) or his specific career is track and field. | L20 r=0.260/0.560 no; L28 r=0.360/0.520 no; L32 r=0.180/0.200 no | L20: jlens,mlnla-rl600; L28: jlens,mlnla-rl600; L32: jlens,mlnla-rl600 | L20:X L24:N L28:X L32:X | 0.91 |
 
 #### br-ent-ath-ronaldo: "The athlete Cristiano Ronaldo plays the sport of" (gold soccer)
 
@@ -292,16 +296,16 @@ Probe status of committed units: {'fires': 20, 'no_fire': 164, 'n/a': 81}; n/a r
 | baseball | J-lens | 20 | 0 / 1 | with baseball as a likely candidate | — | — | L20:N | 0.91 |
 | basketball | J-lens | 40,56 | 0 / 2 | basketball appears as a weaker, related sport | — | — | L40:N L56:N | 0.64 |
 | basketball | s3d O-lens | 32 | 0 / 1 | 体育 (sports) career, and the object is basketball. | — | — | L32:N | 0.64 |
-| cricket | s3d O-lens | 60 | 1 / 0 | the answer is **cricket**. | L60 r=0.74/0.68 no | L60: none | L60:H | 0.18 |
-| cycling | s3d O-lens | 28 | 1 / 0 | the sport that this person practices is track cycling. | L28 r=0.12/0.16 no | L28: none | L28:H | 0.27 |
-| gymnastics | s3d O-lens | 20 | 1 / 0 | the sport is gymnastics. he is a | L20 r=0.34/0.18 no | L20: none | L20:H | 0.73 |
+| cricket | s3d O-lens | 60 | 1 / 0 | the answer is **cricket**. | L60 r=0.740/0.680 no | L60: none | L60:H | 0.18 |
+| cycling | s3d O-lens | 28 | 1 / 0 | the sport that this person practices is track cycling. | L28 r=0.120/0.160 no | L28: none | L28:H | 0.27 |
+| gymnastics | s3d O-lens | 20 | 1 / 0 | the sport is gymnastics. he is a | L20 r=0.340/0.180 no | L20: none | L20:H | 0.73 |
 | ice_hockey | J-lens | 28 | 0 / 1 | together with 'athletic', 'hockey', and 'marvel', this suggests a quiz- or survey-style qu | — | — | L28:N | 0.55 |
-| rugby | s3d O-lens | 48 | 1 / 0 | rugby (specifically, soccer) is the sport ronaldo plays. | L48 r=0.26/0.14 no | L48: none | L48:H | 0.27 |
-| swimming | ML-NLA RL600 | 24,28,32 | 3 / 0 | domain knowledge: michael phelps = swimming; the subject is a famous us olympian | L24 r=0.72/0.40 no; L28 r=0.64/0.14 no; L32 r=0.64/0.20 no | L24: s3d; L28: s3d; L32: s3d | L24:X L28:X L32:X | 0.73 |
-| swimming | s3d O-lens | 20,24,28,32 | 3 / 1 | the sport is **swimming**. he is a professional swimmer. | L20 n/a (validity gate (dom AUROC 0.8445299777942264)); L24 r=0.72/0.40 no; L32 r=0.64/0.20 no | L20: mlnla-rl600; L24: mlnla-rl600; L32: mlnla-rl600 | L20:X L24:X L28:N L32:X | 1.00 |
-| tennis | ML-NLA RL600 | 20 | 1 / 0 | established entity: andy murray, british tennis player | L20 r=0.72/0.88 no | L20: s3d | L20:X | 0.27 |
-| tennis | s3d O-lens | 20 | 1 / 0 | when we look at the specific sport of tennis, we find that phelps played it. | L20 r=0.72/0.88 no | L20: mlnla-rl600 | L20:X | 0.73 |
-| track_and_field | s3d O-lens | 20,24 | 2 / 0 | the sport he plays is track and field. | L20 r=0.66/0.74 no; L24 r=0.72/0.84 no | L20: none; L24: none | L20:H L24:H | 0.91 |
+| rugby | s3d O-lens | 48 | 1 / 0 | rugby (specifically, soccer) is the sport ronaldo plays. | L48 r=0.260/0.140 no | L48: none | L48:H | 0.27 |
+| swimming | ML-NLA RL600 | 24,28,32 | 3 / 0 | domain knowledge: michael phelps = swimming; the subject is a famous us olympian | L24 r=0.720/0.400 no; L28 r=0.640/0.140 no; L32 r=0.640/0.200 no | L24: s3d; L28: s3d; L32: s3d | L24:X L28:X L32:X | 0.73 |
+| swimming | s3d O-lens | 20,24,28,32 | 3 / 1 | the sport is **swimming**. he is a professional swimmer. | L20 n/a (validity gate (dom AUROC 0.845)); L24 r=0.720/0.400 no; L32 r=0.640/0.200 no | L20: mlnla-rl600; L24: mlnla-rl600; L32: mlnla-rl600 | L20:X L24:X L28:N L32:X | 1.00 |
+| tennis | ML-NLA RL600 | 20 | 1 / 0 | established entity: andy murray, british tennis player | L20 r=0.720/0.880 no | L20: s3d | L20:X | 0.27 |
+| tennis | s3d O-lens | 20 | 1 / 0 | when we look at the specific sport of tennis, we find that phelps played it. | L20 r=0.720/0.880 no | L20: mlnla-rl600 | L20:X | 0.73 |
+| track_and_field | s3d O-lens | 20,24 | 2 / 0 | the sport he plays is track and field. | L20 r=0.660/0.740 no; L24 r=0.720/0.840 no | L20: none; L24: none | L20:H L24:H | 0.91 |
 
 #### br-ent-ath-ruth: "The athlete Babe Ruth plays the sport of" (gold baseball)
 
@@ -309,22 +313,22 @@ Probe status of committed units: {'fires': 20, 'no_fire': 164, 'n/a': 81}; n/a r
 |---|---|---|---|---|---|---|---|---|
 | american_football | J-lens | 40,44,48,52,56,60 | 0 / 6 | other team sports such as hockey, cricket, soccer, basketball and football appear as close | — | — | L40:N L44:N L48:N L52:N L56:N L60:N | 0.27 |
 | basketball | J-lens | 40,44,52,56,60 | 0 / 5 | other team sports such as hockey, cricket, soccer, basketball and football appear as close | — | — | L40:N L44:N L52:N L56:N L60:N | 0.64 |
-| basketball | ML-NLA RL600 | 20 | 1 / 0 | requiring the sport name — almost certainly "basketball" — followed by a period | L20 r=0.96/0.96 no | L20: none | L20:H | 0.00 |
+| basketball | ML-NLA RL600 | 20 | 1 / 0 | requiring the sport name — almost certainly "basketball" — followed by a period | L20 r=0.960/0.960 no | L20: none | L20:H | 0.00 |
 | basketball | s3d O-lens | 36 | 0 / 1 | 2. basketball. he was a professional baseball player who primarily played for | — | — | L36:N | 0.64 |
-| boxing | s3d O-lens | 36 | 1 / 0 | the answer is **boxing**. | L36 r=0.70/0.52 no | L36: none | L36:H | 0.09 |
+| boxing | s3d O-lens | 36 | 1 / 0 | the answer is **boxing**. | L36 r=0.700/0.520 no | L36: none | L36:H | 0.09 |
 | cricket | J-lens | 40,44,48,56,60 | 0 / 5 | other team sports such as hockey, cricket, soccer, basketball and football appear as close | — | — | L40:N L44:N L48:N L56:N L60:N | 0.46 |
-| figure_skating | s3d O-lens | 20,28 | 2 / 0 | the athlete competes in the sport of **figure skating**. | L20 n/a (validity gate (dom AUROC 0.8046921650586127)); L28 n/a (validity gate (dom AUROC 0.8113077092303341)) | L20: none; L28: none | L20:H L28:H | 0.64 |
-| gymnastics | s3d O-lens | 24,28 | 1 / 1 | the sport associated with this person is gymnastics | L24 r=0.68/0.38 no | L24: none | L24:H L28:N | 0.73 |
+| figure_skating | s3d O-lens | 20,28 | 2 / 0 | the athlete competes in the sport of **figure skating**. | L20 n/a (validity gate (dom AUROC 0.805)); L28 n/a (validity gate (dom AUROC 0.811)) | L20: none; L28: none | L20:H L28:H | 0.64 |
+| gymnastics | s3d O-lens | 24,28 | 1 / 1 | the sport associated with this person is gymnastics | L24 r=0.680/0.380 no | L24: none | L24:H L28:N | 0.73 |
 | ice_hockey | J-lens | 28,36,40,44,48 | 0 / 5 | the likely subject is sports or the olympics (hockey, athletic) | — | — | L28:N L36:N L40:N L44:N L48:N | 0.55 |
-| skateboarding | ML-NLA RL600 | 32 | 1 / 0 | tony hawk is famous for skateboarding | L32 r=0.60/0.34 no | L32: none | L32:H | 0.00 |
+| skateboarding | ML-NLA RL600 | 32 | 1 / 0 | tony hawk is famous for skateboarding | L32 r=0.600/0.340 no | L32: none | L32:H | 0.00 |
 | soccer | J-lens | 40,44,48,56,60 | 0 / 5 | other team sports such as hockey, cricket, soccer, basketball and football appear as close | — | — | L40:N L44:N L48:N L56:N L60:N | 0.55 |
 | soccer | s3d O-lens | 32,60 | 0 / 2 | （or rather, plays) soccer, and the category is "sport". therefore, the answer is **tennis* | — | — | L32:N L60:N | 0.55 |
 | softball | J-lens | 56,60 | 0 / 2 | mlb / cricket / softball / tennis | — | — | L56:N L60:N | 0.00 |
-| swimming | s3d O-lens | 20,24 | 1 / 1 | 运动 of swimming. the person is a sports figure. | L20 n/a (validity gate (dom AUROC 0.8445299777942264)) | L20: none | L20:H L24:N | 1.00 |
+| swimming | s3d O-lens | 20,24 | 1 / 1 | 运动 of swimming. the person is a sports figure. | L20 n/a (validity gate (dom AUROC 0.845)) | L20: none | L20:H L24:N | 1.00 |
 | tennis | J-lens | 56 | 0 / 1 | football / basketball / soccer / mlb / cricket / softball / tennis | — | — | L56:N | 0.18 |
-| tennis | s3d O-lens | 32 | 1 / 0 | the sport that michael plays is **tennis**. | L32 r=0.74/0.68 no | L32: none | L32:H | 0.73 |
-| track_and_field | ML-NLA RL600 | 24,28 | 2 / 0 | "ten-time world champion" plus olympic gold medals signals track and field/athletics, spec | L24 r=0.52/0.68 no; L28 r=0.26/0.38 no | L24: s3d; L28: none | L24:X L28:H | 0.64 |
-| track_and_field | s3d O-lens | 20 | 1 / 0 | the sport he competes in is track and field. | L20 r=0.60/0.64 no | L20: mlnla-rl600 | L20:X | 0.91 |
+| tennis | s3d O-lens | 32 | 1 / 0 | the sport that michael plays is **tennis**. | L32 r=0.740/0.680 no | L32: none | L32:H | 0.73 |
+| track_and_field | ML-NLA RL600 | 24,28 | 2 / 0 | "ten-time world champion" plus olympic gold medals signals track and field/athletics, spec | L24 r=0.520/0.680 no; L28 r=0.260/0.380 no | L24: s3d; L28: none | L24:X L28:H | 0.64 |
+| track_and_field | s3d O-lens | 20 | 1 / 0 | the sport he competes in is track and field. | L20 r=0.600/0.640 no | L20: mlnla-rl600 | L20:X | 0.91 |
 
 #### br-ent-ath-williams: "The athlete Serena Williams plays the sport of" (gold tennis)
 
@@ -333,16 +337,16 @@ Probe status of committed units: {'fires': 20, 'no_fire': 164, 'n/a': 81}; n/a r
 | baseball | J-lens | 20 | 0 / 1 | which type of athletic greatness or mastery, such as in baseball, is being discussed | — | — | L20:N | 0.91 |
 | basketball | J-lens | 40 | 0 / 1 | most likely tennis or basketball, to fill a blank | — | — | L40:N | 0.64 |
 | cricket | J-lens | 28 | 0 / 1 | sport (cricket, hockey, olympics), or pop-culture item (marvel) | — | — | L28:N | 0.46 |
-| gymnastics | s3d O-lens | 36 | 1 / 0 | gymnastics is the sport she primarily plays. | L36 r=0.72/0.54 no | L36: none | L36:H | 0.73 |
+| gymnastics | s3d O-lens | 36 | 1 / 0 | gymnastics is the sport she primarily plays. | L36 r=0.720/0.540 no | L36: none | L36:H | 0.73 |
 | ice_hockey | J-lens | 28 | 0 / 1 | athlete, sport (cricket, hockey, olympics), or pop-culture item (marvel) | — | — | L28:N | 0.55 |
-| ice_hockey | s3d O-lens | 28 | 1 / 0 | the sport they participate in is **ice hockey**. | L28 r=0.36/0.86 no | L28: jlens | L28:X | 0.18 |
-| skiing | ML-NLA RL600 | 20 | 1 / 0 | "mia bing" is a chinese skier, so alpine skiing or ski racing is the expected domain. | L20 r=0.22/0.08 no | L20: none | L20:H | 0.09 |
+| ice_hockey | s3d O-lens | 28 | 1 / 0 | the sport they participate in is **ice hockey**. | L28 r=0.360/0.860 no | L28: jlens | L28:X | 0.18 |
+| skiing | ML-NLA RL600 | 20 | 1 / 0 | "mia bing" is a chinese skier, so alpine skiing or ski racing is the expected domain. | L20 r=0.220/0.080 no | L20: none | L20:H | 0.09 |
 | soccer | ML-NLA RL600 | 20 | 0 / 1 | referencing sports database entities ("world cup racing world championships") | — | — | L20:N | 0.18 |
-| swimming | ML-NLA RL600 | 20,32 | 1 / 1 | michael phelps is the most decorated olympic swimmer; the required fact is swimming | L32 r=0.22/0.38 no | L32: s3d | L20:N L32:X | 0.73 |
-| swimming | s3d O-lens | 20,24,28,32 | 4 / 0 | sport: she competes in swimming. this is a very specific sport. | L20 n/a (validity gate (dom AUROC 0.8445299777942264)); L24 r=0.36/0.36 no; L28 r=0.12/0.20 no; L32 r=0.22/0.38 no | L20: mlnla-rl600; L24: mlnla-rl600; L28: mlnla-rl600; L32: mlnla-rl600 | L20:X L24:X L28:X L32:X | 1.00 |
-| table_tennis | s3d O-lens | 52 | 1 / 0 | 乒乓球 (or tennis, depending on the source, but commonly associated with serena williams) spo | L52 r=0.00/0.08 no | L52: none | L52:H | 0.09 |
-| track_and_field | ML-NLA RL600 | 24,28 | 1 / 1 | michael johnson is a sprinter, so the sport is athletics/track and field | L28 r=0.44/0.74 no | L28: s3d | L24:N L28:X | 0.64 |
-| track_and_field | s3d O-lens | 20,24,32 | 3 / 0 | specifically, she is a track and field athlete. the sport is track and field. | L20 r=0.54/0.64 no; L24 r=0.38/0.80 no; L32 r=0.76/0.54 no | L20: mlnla-rl600; L24: mlnla-rl600; L32: mlnla-rl600 | L20:X L24:X L32:X | 0.91 |
+| swimming | ML-NLA RL600 | 20,32 | 1 / 1 | michael phelps is the most decorated olympic swimmer; the required fact is swimming | L32 r=0.220/0.380 no | L32: s3d | L20:N L32:X | 0.73 |
+| swimming | s3d O-lens | 20,24,28,32 | 4 / 0 | sport: she competes in swimming. this is a very specific sport. | L20 n/a (validity gate (dom AUROC 0.845)); L24 r=0.360/0.360 no; L28 r=0.120/0.200 no; L32 r=0.220/0.380 no | L20: mlnla-rl600; L24: mlnla-rl600; L28: mlnla-rl600; L32: mlnla-rl600 | L20:X L24:X L28:X L32:X | 1.00 |
+| table_tennis | s3d O-lens | 52 | 1 / 0 | 乒乓球 (or tennis, depending on the source, but commonly associated with serena williams) spo | L52 r=0.000/0.080 no | L52: none | L52:H | 0.09 |
+| track_and_field | ML-NLA RL600 | 24,28 | 1 / 1 | michael johnson is a sprinter, so the sport is athletics/track and field | L28 r=0.440/0.740 no | L28: s3d | L24:N L28:X | 0.64 |
+| track_and_field | s3d O-lens | 20,24,32 | 3 / 0 | specifically, she is a track and field athlete. the sport is track and field. | L20 r=0.540/0.640 no; L24 r=0.380/0.800 no; L32 r=0.760/0.540 no | L20: mlnla-rl600; L24: mlnla-rl600; L32: mlnla-rl600 | L20:X L24:X L32:X | 0.91 |
 | triathlon | ML-NLA RL600 | 24 | 0 / 1 | most plausibly "athletics" or "triathlon"/"running," followed by a period | — | — | L24:N | 0.00 |
 | volleyball | J-lens | 56 | 0 / 1 | most likely "tennis" (with volleyball as a weaker alternative) | — | — | L56:N | 0.09 |
 
@@ -357,7 +361,7 @@ Probe status of committed units: {'fires': 20, 'no_fire': 164, 'n/a': 81}; n/a r
 | basketball | J-lens | 40 | 0 / 1 | golf / golf / tennis / 高尔夫 / tennis / baseball / nascar / soccer / basketball / pga | — | — | L40:N | 0.64 |
 | cricket | J-lens | 28 | 0 / 1 | sit alongside cricket, rugby, hockey, athlete and athletic | — | — | L28:N | 0.46 |
 | cricket | s3d O-lens | 60 | 0 / 1 | 3. **tennis** 4. **football** 5. **cricket** | — | — | L60:N | 0.18 |
-| gymnastics | s3d O-lens | 20,24,32 | 1 / 2 | sport:** the specific sport practiced is **gymnastics**. | L24 r=0.70/0.48 no | L24: none | L20:N L24:H L32:N | 0.73 |
+| gymnastics | s3d O-lens | 20,24,32 | 1 / 2 | sport:** the specific sport practiced is **gymnastics**. | L24 r=0.700/0.480 no | L24: none | L20:N L24:H L32:N | 0.73 |
 | ice_hockey | J-lens | 28 | 0 / 1 | sit alongside cricket, rugby, hockey, athlete and athletic | — | — | L28:N | 0.55 |
 | motor_racing | J-lens | 40 | 0 / 1 | other sports like tennis, baseball and nascar show up only as weaker alternatives | — | — | L40:N | 0.00 |
 | rowing | s3d O-lens | 28,32 | 1 / 1 | the sport associated with wayne is **rowing** (also known as | L32 n/a (gold control (dom p 0.105)) | L32: none | L28:N L32:H | 0.27 |
@@ -365,13 +369,13 @@ Probe status of committed units: {'fires': 20, 'no_fire': 164, 'n/a': 81}; n/a r
 | rugby | ML-NLA RL600 | 56 | 0 / 1 | possibly multiple-choice options (golf, tennis, rugby) | — | — | L56:N | 0.09 |
 | skiing | s3d O-lens | 36 | 0 / 1 | a) swimming b) tennis c) golf d) skiing | — | — | L36:N | 0.09 |
 | soccer | J-lens | 40 | 0 / 1 | golf / golf / tennis / 高尔夫 / tennis / baseball / nascar / soccer | — | — | L40:N | 0.55 |
-| swimming | ML-NLA RL600 | 20 | 1 / 0 | topic domain: michael phelps, olympic swimming legend | L20 n/a (validity gate (dom AUROC 0.8445299777942264)) | L20: s3d | L20:X | 0.73 |
-| swimming | s3d O-lens | 20,24,28,32,36 | 4 / 1 | 游泳 (swimming) is the sport he competes in. | L20 n/a (validity gate (dom AUROC 0.8445299777942264)); L24 r=0.60/0.54 no; L28 r=0.40/0.44 no; L32 n/a (gold control (dom p 0.105)) | L20: mlnla-rl600; L24: mlnla-rl600; L28: none; L32: none | L20:X L24:X L28:H L32:H L36:N | 1.00 |
+| swimming | ML-NLA RL600 | 20 | 1 / 0 | topic domain: michael phelps, olympic swimming legend | L20 n/a (validity gate (dom AUROC 0.845)) | L20: s3d | L20:X | 0.73 |
+| swimming | s3d O-lens | 20,24,28,32,36 | 4 / 1 | 游泳 (swimming) is the sport he competes in. | L20 n/a (validity gate (dom AUROC 0.845)); L24 r=0.600/0.540 no; L28 r=0.400/0.440 no; L32 n/a (gold control (dom p 0.105)) | L20: mlnla-rl600; L24: mlnla-rl600; L28: none; L32: none | L20:X L24:X L28:H L32:H L36:N | 1.00 |
 | tennis | J-lens | 40,44,60 | 0 / 3 | other sports like tennis, baseball and nascar show up only as weaker alternatives | — | — | L40:N L44:N L60:N | 0.18 |
 | tennis | ML-NLA RL600 | 40,44,56 | 0 / 3 | possible distractors like tennis/baseball may follow if multiple-choice | — | — | L40:N L44:N L56:N | 0.27 |
 | tennis | s3d O-lens | 28,36,44,52,56,60 | 0 / 6 | it does not play tennis. | — | — | L28:N L36:N L44:N L52:N L56:N L60:N | 0.73 |
-| track_and_field | ML-NLA RL600 | 24,28 | 2 / 0 | named entity "lolo jones" primes domain knowledge: us sprinter, track and field, olympic h | L24 r=0.98/0.92 no; L28 r=0.98/0.78 no | L24: s3d; L28: s3d | L24:X L28:X | 0.64 |
-| track_and_field | s3d O-lens | 20,24,32 | 2 / 1 | the sport he participates in is track and field. | L20 r=0.90/0.86 no; L24 r=0.98/0.92 no | L20: mlnla-rl600; L24: mlnla-rl600 | L20:X L24:X L32:N | 0.91 |
+| track_and_field | ML-NLA RL600 | 24,28 | 2 / 0 | named entity "lolo jones" primes domain knowledge: us sprinter, track and field, olympic h | L24 r=0.980/0.920 no; L28 r=0.980/0.780 no | L24: s3d; L28: s3d | L24:X L28:X | 0.64 |
+| track_and_field | s3d O-lens | 20,24,32 | 2 / 1 | the sport he participates in is track and field. | L20 r=0.900/0.860 no; L24 r=0.980/0.920 no | L20: mlnla-rl600; L24: mlnla-rl600 | L20:X L24:X L32:N | 0.91 |
 
 ### country_capital
 
@@ -416,7 +420,7 @@ Probe status of committed units: {'fires': 20, 'no_fire': 164, 'n/a': 81}; n/a r
 | canada | J-lens | 20 | 0 / 1 | egypt / ethiopia / africa / civilization / kingdom / iraq / russia / kingdom / brazil / ca | — | — | L20:N | 0.44 |
 | china | J-lens | 56,60 | 0 / 2 | the readouts include the country name in english, chinese (埃及) and arabic (مصر) | — | — | L56:N L60:N | 0.89 |
 | ethiopia | J-lens | 20,24,28,32,36,40,44,48,52,56,60 | 0 / 11 | an african kingdom or civilization such as egypt or ethiopia | — | — | L20:N L24:N L28:N L32:N L36:N L40:N L44:N L48:N L52:N L56:N L60:N | 0.11 |
-| ethiopia | s3d O-lens | 56 | 1 / 0 | 埃塞俄比亚 (egypt) and the capital is cairo. | L56 r=0.24/0.00 no | L56: jlens | L56:X | 0.00 |
+| ethiopia | s3d O-lens | 56 | 1 / 0 | 埃塞俄比亚 (egypt) and the capital is cairo. | L56 r=0.245/0.000 no | L56: jlens | L56:X | 0.00 |
 | iraq | J-lens | 20,24,32,36,44,48,52 | 0 / 7 | egypt / ethiopia / africa / civilization / kingdom / iraq / russia | — | — | L20:N L24:N L32:N L36:N L44:N L48:N L52:N | 0.00 |
 | libya | J-lens | 24,40,44,52,56 | 0 / 5 | with iraq, saudi arabia, libya, ethiopia and nigeria as nearby alternatives | — | — | L24:N L40:N L44:N L52:N L56:N | 0.00 |
 | morocco | J-lens | 28,40,44,48,52 | 0 / 5 | with a 'kingdom' reading (e.g., saudi arabia, morocco) as an alternative | — | — | L28:N L40:N L44:N L48:N L52:N | 0.00 |
@@ -497,7 +501,7 @@ Probe status of committed units: {'fires': 20, 'no_fire': 164, 'n/a': 81}; n/a r
 | portugal | J-lens | 60 | 0 / 1 | the spanish/portuguese spelling "canadá" points the same way | — | — | L60:N | 0.11 |
 | spain | J-lens | 60 | 0 / 1 | the spanish/portuguese spelling "canadá" points the same way | — | — | L60:N | 0.56 |
 | united_kingdom | J-lens | 32 | 0 / 1 | other country names such as nigeria and the united kingdom appear as weaker alternatives | — | — | L32:N | 0.78 |
-| united_kingdom | s3d O-lens | 48,52 | 1 / 1 | 英国 (canada's capital city) is ottawa. | L48 r=0.20/0.39 no | L48: none | L48:H L52:N | 0.44 |
+| united_kingdom | s3d O-lens | 48,52 | 1 / 1 | 英国 (canada's capital city) is ottawa. | L48 r=0.195/0.390 no | L48: none | L48:H L52:N | 0.44 |
 | united_states | s3d O-lens | 44 | 0 / 1 | it is the second largest country in north america. | — | — | L44:N | 0.44 |
 
 #### br-ent-cap-paris: "The city of Paris is the capital of" (gold france)
@@ -573,12 +577,12 @@ Probe status of committed units: {'fires': 20, 'no_fire': 164, 'n/a': 81}; n/a r
 | finland | s3d O-lens | 24 | 0 / 1 | the capital of the kingdom is **finland**. the | — | — | L24:N | 0.17 |
 | france | J-lens | 60 | 0 / 1 | other english-speaking countries (australia, canada) and france as weaker alternatives | — | — | L60:N | 0.17 |
 | france | s3d O-lens | 20,32 | 1 / 1 | 国家 (country) of france. | L32 n/a (gold control (dom p 0.072)) | L32: none | L20:N L32:H | 0.83 |
-| germany | ML-NLA RL600 | 28 | 1 / 0 | berlin is the capital of germany; expects country name | L28 n/a (validity gate (dom AUROC 0.8278368576346201)) | L28: none | L28:H | 0.00 |
-| italy | ML-NLA RL600 | 24 | 1 / 0 |  | L24 r=0.38/0.44 no | L24: none | L24:H | 0.50 |
+| germany | ML-NLA RL600 | 28 | 1 / 0 | berlin is the capital of germany; expects country name | L28 n/a (validity gate (dom AUROC 0.828)) | L28: none | L28:H | 0.00 |
+| italy | ML-NLA RL600 | 24 | 1 / 0 |  | L24 r=0.380/0.440 no | L24: none | L24:H | 0.50 |
 | japan | s3d O-lens | 32 | 1 / 0 | the country is **japan**. it is a | L32 n/a (gold control (dom p 0.072)) | L32: none | L32:H | 0.50 |
 | russia | s3d O-lens | 24 | 0 / 1 | country of origin: the country where the flag comes from is **russia**. | — | — | L24:N | 0.00 |
 | scotland | J-lens | 40,44,48 | 0 / 3 | alternatives in the readouts include britain/uk (英国 is chinese for "uk/britain"), scotland | — | — | L40:N L44:N L48:N | 0.00 |
-| sweden | s3d O-lens | 56 | 1 / 0 | the answer is **с. швеция** (sweden). | L56 r=0.50/0.38 no | L56: none | L56:H | 0.17 |
+| sweden | s3d O-lens | 56 | 1 / 0 | the answer is **с. швеция** (sweden). | L56 r=0.500/0.380 no | L56: none | L56:H | 0.17 |
 | switzerland | ML-NLA RL600 | 20 | 1 / 0 | bern is the capital of switzerland, so geographic completion must name that country | L20 n/a (gold control (dom p 0.078)) | L20: none | L20:H | 0.00 |
 | united_states | NLA-RL L42 | 42 | 0 / 1 | country or nation name noun phrase (e.g., "britain," "the united states," "england") | — | — | L42:N | 0.17 |
 | vatican_city | ML-NLA RL600 | 24 | 0 / 1 | almost certainly "italy" (or "vatican city"), followed by more sentence fragments | — | — | L24:N | 0.17 |
@@ -599,11 +603,11 @@ Probe status of committed units: {'fires': 20, 'no_fire': 164, 'n/a': 81}; n/a r
 | costa_rica | s3d O-lens | 60 | 0 / 1 | 巴西 (brazil) and costa rica. | — | — | L60:N | 0.00 |
 | el_salvador | s3d O-lens | 20 | 1 / 0 | 国家 (country) of el salvador. but, as | L20 n/a (gold control (logreg p 0.159)) | L20: none | L20:H | 0.00 |
 | france | s3d O-lens | 20,48 | 1 / 1 | the country where it is located is france. | L20 n/a (gold control (logreg p 0.159)) | L20: none | L20:H L48:N | 0.83 |
-| italy | ML-NLA RL600 | 28 | 1 / 0 | the colosseum is in rome, so the country is italy | L28 n/a (validity gate (dom AUROC 0.826887716654107)) | L28: s3d | L28:X | 0.50 |
-| italy | s3d O-lens | 24,32,48 | 2 / 1 | italy is the country where this town is located. | L24 n/a (gold control (logreg p 0.050)); L32 n/a (validity gate (dom AUROC 0.7561718161266013)) | L24: mlnla-rl600; L32: mlnla-rl600 | L24:X L32:X L48:N | 0.33 |
+| italy | ML-NLA RL600 | 28 | 1 / 0 | the colosseum is in rome, so the country is italy | L28 n/a (validity gate (dom AUROC 0.827)) | L28: s3d | L28:X | 0.50 |
+| italy | s3d O-lens | 24,32,48 | 2 / 1 | italy is the country where this town is located. | L24 n/a (gold control (logreg p 0.050)); L32 n/a (validity gate (dom AUROC 0.756)) | L24: mlnla-rl600; L32: mlnla-rl600 | L24:X L32:X L48:N | 0.33 |
 | japan | s3d O-lens | 48 | 0 / 1 | brazil / france / japan / italy. the answer is **brazil**. | — | — | L48:N | 0.50 |
 | mexico | J-lens | 40,44,48 | 0 / 3 | brazil strongly favored over neighbors like argentina, mexico, and colombia | — | — | L40:N L44:N L48:N | 0.00 |
-| mexico | s3d O-lens | 24,28,32,48,56 | 1 / 4 | the country located in this region is **mexico**. it | L32 n/a (validity gate (dom AUROC 0.7108967596081387)) | L32: none | L24:N L28:N L32:H L48:N L56:N | 0.17 |
+| mexico | s3d O-lens | 24,28,32,48,56 | 1 / 4 | the country located in this region is **mexico**. it | L32 n/a (validity gate (dom AUROC 0.711)) | L32: none | L24:N L28:N L32:H L48:N L56:N | 0.17 |
 | panama | ML-NLA RL600 | 28 | 0 / 1 | so the country is italy; expect "italy" rather than "panama." | — | — | L28:N | 0.00 |
 | panama | s3d O-lens | 60 | 0 / 1 | /panama (country)** — wait, the blank is for a *country* that begins with **i**. | — | — | L60:N | 0.00 |
 | peru | ML-NLA RL600 | 40 | 0 / 1 | a multiple-choice list (brazil, argentina, peru, chile) | — | — | L40:N | 0.17 |
@@ -649,14 +653,14 @@ Probe status of committed units: {'fires': 20, 'no_fire': 164, 'n/a': 81}; n/a r
 | belgium | J-lens | 48 | 0 / 1 | most likely "france" (with belgium as a runner-up) | — | — | L48:N | 0.00 |
 | brazil | s3d O-lens | 28 | 1 / 0 | the answer is **brazil**. the puzzle is a geography riddle: | L28 n/a (gold control (dom p 0.221)) | L28: none | L28:H | 0.33 |
 | china | J-lens | 20,28,40 | 0 / 3 | country and the chinese '国的' ('of the country/nation') | — | — | L20:N L28:N L40:N | 1.00 |
-| finland | s3d O-lens | 32 | 1 / 0 | country of **finland**, not the city. | L32 n/a (validity gate (dom AUROC 0.8148670679709055)) | L32: none | L32:H | 0.17 |
+| finland | s3d O-lens | 32 | 1 / 0 | country of **finland**, not the city. | L32 n/a (validity gate (dom AUROC 0.815)) | L32: none | L32:H | 0.17 |
 | germany | s3d O-lens | 24 | 0 / 1 | germany is a country located in europe. its capital is | — | — | L24:N | 0.33 |
 | italy | J-lens | 40,44 | 0 / 2 | other european countries such as italy and spain | — | — | L40:N L44:N | 0.00 |
-| italy | ML-NLA RL600 | 20,32 | 2 / 0 | mont blanc, highest peak in the alps, straddles the france–italy border | L20 n/a (validity gate (dom AUROC 0.8482592313489073)); L32 n/a (validity gate (dom AUROC 0.7561718161266013)) | L20: none; L32: none | L20:H L32:H | 0.50 |
+| italy | ML-NLA RL600 | 20,32 | 2 / 0 | mont blanc, highest peak in the alps, straddles the france–italy border | L20 n/a (validity gate (dom AUROC 0.848)); L32 n/a (validity gate (dom AUROC 0.756)) | L20: none; L32: none | L20:H L32:H | 0.50 |
 | italy | s3d O-lens | 48 | 0 / 1 | which country is represented by the clue "city of light"?** a) italy b) | — | — | L48:N | 0.33 |
 | peru | s3d O-lens | 28 | 1 / 0 | the country is **peru**. (located in south america) | L28 n/a (gold control (dom p 0.221)) | L28: none | L28:H | 0.50 |
 | spain | J-lens | 40,44,60 | 0 / 3 | other european countries such as italy and spain | — | — | L40:N L44:N L60:N | 0.17 |
-| spain | ML-NLA RL600 | 28 | 1 / 0 | barcelona is in spain; nearby cities, language (spanish/catalan) | L28 n/a (validity gate (dom AUROC 0.8066164280331575)) | L28: none | L28:H | 0.33 |
+| spain | ML-NLA RL600 | 28 | 1 / 0 | barcelona is in spain; nearby cities, language (spanish/catalan) | L28 n/a (validity gate (dom AUROC 0.807)) | L28: none | L28:H | 0.33 |
 | united_kingdom | J-lens | 20,28,32,36 | 0 / 4 | likely the passage refers to a specific state such as the united kingdom or united nations | — | — | L20:N L28:N L32:N L36:N | 0.83 |
 | united_states | s3d O-lens | 28 | 0 / 1 | the country is **peru**. (located in south america) | — | — | L28:N | 0.83 |
 
@@ -667,11 +671,12 @@ Probe status of committed units: {'fires': 20, 'no_fire': 164, 'n/a': 81}; n/a r
 | brazil | s3d O-lens | 32 | 0 / 1 | you are in south america, specifically brazil. | — | — | L32:N | 0.33 |
 | china | J-lens | 20,28,40,44,56,60 | 0 / 6 | the chinese "国的" ("of the country") suggests the passage concerns a named political entity | — | — | L20:N L28:N L40:N L44:N L56:N L60:N | 1.00 |
 | ethiopia | J-lens | 40,44 | 0 / 2 | the other countries (ethiopia, morocco, qatar) are nearby middle eastern and african alter | — | — | L40:N L44:N | 0.00 |
-| france | s3d O-lens | 24 | 1 / 0 | located in france. it is a country located in europe. | L24 r=0.92/0.86 no | L24: none | L24:H | 0.83 |
+| france | s3d O-lens | 24 | 1 / 0 | located in france. it is a country located in europe. | L24 r=0.918/0.857 no | L24: none | L24:H | 0.83 |
 | iraq | J-lens | 28 | 0 / 1 | with iraq surfacing as one candidate | — | — | L28:N | 0.00 |
-| italy | ML-NLA RL600 | 24 | 1 / 0 | final tokens "rome is located in the country of" form an incomplete prepositional phrase d | L24 r=0.98/0.96 no | L24: s3d | L24:X | 0.50 |
-| italy | s3d O-lens | 20,28,32 | 1 / 2 | 意大利 (italy), and its capital is paris. | L32 n/a (validity gate (dom AUROC 0.7561718161266013)) | L32: none | L20:N L28:N L32:H | 0.33 |
-| mexico | s3d O-lens | 28,32,44 | 2 / 1 | so, the answer is mexico. | L28 n/a (validity gate (dom AUROC 0.7490730972117559)); L32 n/a (validity gate (dom AUROC 0.7108967596081387)) | L28: none; L32: none | L28:H L32:H L44:N | 0.17 |
+| italy | ML-NLA RL600 | 24 | 1 / 0 | final tokens "rome is located in the country of" form an incomplete prepositional phrase d | L24 r=0.980/0.959 no | L24: s3d | L24:X | 0.50 |
+| italy | s3d O-lens | 20,28,32 | 1 / 2 | 意大利 (italy), and its capital is paris. | L32 n/a (validity gate (dom AUROC 0.756)) | L32: none | L20:N L28:N L32:H | 0.33 |
+| jordan | ML-NLA RL600 | 20 | 1 / 0 | geographic knowledge required: petra is in jordan; the jordan river runs there | L20 n/a (concept not a bank class) | L20: none | L20:H | 0.00 |
+| mexico | s3d O-lens | 28,32,44 | 2 / 1 | so, the answer is mexico. | L28 n/a (validity gate (dom AUROC 0.749)); L32 n/a (validity gate (dom AUROC 0.711)) | L28: none; L32: none | L28:H L32:H L44:N | 0.17 |
 | morocco | J-lens | 40 | 0 / 1 | the other countries (ethiopia, morocco, qatar) are nearby middle eastern and african alter | — | — | L40:N | 0.00 |
 | peru | s3d O-lens | 20 | 0 / 1 | peru. the king lives in the same country as the ancient ruins, | — | — | L20:N | 0.50 |
 | qatar | J-lens | 40 | 0 / 1 | the other countries (ethiopia, morocco, qatar) are nearby middle eastern and african alter | — | — | L40:N | 0.00 |
@@ -687,10 +692,10 @@ Probe status of committed units: {'fires': 20, 'no_fire': 164, 'n/a': 81}; n/a r
 | argentina | ML-NLA RL600 | 24 | 1 / 0 | geographic knowledge required: buenos aires is in argentina; also associated with rio de l | L24 n/a (gold control (dom p 0.050)) | L24: none | L24:H | 0.17 |
 | brazil | s3d O-lens | 48 | 0 / 1 | what country is this? a) australia b) brazil c) canada d | — | — | L48:N | 0.33 |
 | canada | J-lens | 36,40,44,48,60 | 0 / 5 | australia and canada show up as the likely candidate answers. | — | — | L36:N L40:N L44:N L48:N L60:N | 0.17 |
-| canada | ML-NLA RL600 | 20 | 1 / 0 | requiring a country name — almost certainly "canada", followed by a period | L20 r=0.40/0.62 no | L20: s3d | L20:X | 0.00 |
+| canada | ML-NLA RL600 | 20 | 1 / 0 | requiring a country name — almost certainly "canada", followed by a period | L20 r=0.396/0.625 no | L20: s3d | L20:X | 0.00 |
 | canada | s3d O-lens | 20,28,48,52,56 | 1 / 4 | country: it is in **canada | L28 n/a (gold control (dom p 0.253)) | L28: none | L20:N L28:H L48:N L52:N L56:N | 0.33 |
 | china | J-lens | 24,28,32,40,44,48,56,60 | 0 / 8 | 国的 and 国家的 mean "country's" / "national" in chinese | — | — | L24:N L28:N L32:N L40:N L44:N L48:N L56:N L60:N | 1.00 |
-| france | s3d O-lens | 20,24,28 | 2 / 1 | 国家 (country) of france. the country's flag is blue, white, | L20 r=0.98/1.00 fires; L28 n/a (gold control (dom p 0.253)) | L20: none; L28: none | L20:P L24:N L28:H | 0.83 |
+| france | s3d O-lens | 20,24,28 | 2 / 1 | 国家 (country) of france. the country's flag is blue, white, | L20 r=0.979/1.000 fires; L28 n/a (gold control (dom p 0.253)) | L20: none; L28: none | L20:P L24:N L28:H | 0.83 |
 | japan | s3d O-lens | 52,56 | 0 / 2 | a) new zealand b) australia c) canada d) japan | — | — | L52:N L56:N | 0.50 |
 | netherlands | s3d O-lens | 28 | 1 / 0 | the country is called **holland** (though technically it's part of the netherlands) | L28 n/a (gold control (dom p 0.253)) | L28: none | L28:H | 0.00 |
 | new_zealand | s3d O-lens | 52 | 0 / 1 | which country is the location of this song? a) new zealand b) australia | — | — | L52:N | 0.00 |
@@ -712,21 +717,22 @@ Probe status of committed units: {'fires': 20, 'no_fire': 164, 'n/a': 81}; n/a r
 | bolivia | s3d O-lens | 32 | 1 / 0 | 美国 (usa) in the country of **bolivia**. | L32 n/a (gold control (dom p 0.061)) | L32: none | L32:H | 0.00 |
 | canada | s3d O-lens | 28 | 1 / 0 | 地点 (country) of canada. they have a specific, unique currency | L28 n/a (gold control (dom p 0.082)) | L28: none | L28:H | 0.33 |
 | china | J-lens | 20,24,28,40,44 | 0 / 5 | "国的" is chinese for "of the country" | — | — | L20:N L24:N L28:N L40:N L44:N | 1.00 |
-| egypt | s3d O-lens | 28,32,36,48,52 | 4 / 1 | /in which country it is located? **egypt**. specifically, it is in the country | L28 n/a (gold control (dom p 0.082)); L32 n/a (gold control (dom p 0.061)); L36 n/a (gold control (dom p 0.081)); L48 r=0.96/1.00 no | L28: none; L32: none; L36: none; L48: none | L28:H L32:H L36:H L48:H L52:N | 0.00 |
-| fiji | s3d O-lens | 24 | 1 / 0 | the correct answer is **fiji**. | L24 r=0.30/0.84 no | L24: none | L24:H | 0.00 |
+| egypt | s3d O-lens | 28,32,36,48,52 | 4 / 1 | /in which country it is located? **egypt**. specifically, it is in the country | L28 n/a (gold control (dom p 0.082)); L32 n/a (gold control (dom p 0.061)); L36 n/a (gold control (dom p 0.081)); L48 r=0.960/1.000 no | L28: none; L32: none; L36: none; L48: none | L28:H L32:H L36:H L48:H L52:N | 0.00 |
+| fiji | s3d O-lens | 24 | 1 / 0 | the correct answer is **fiji**. | L24 r=0.300/0.840 no | L24: none | L24:H | 0.00 |
 | france | s3d O-lens | 20,24,32,52 | 1 / 3 | the country where the game takes place is **france**. | L32 n/a (gold control (dom p 0.061)) | L32: none | L20:N L24:N L32:H L52:N | 0.83 |
 | germany | s3d O-lens | 52 | 0 / 1 | a) england b) india c) germany d) france | — | — | L52:N | 0.33 |
 | indonesia | J-lens | 44 | 0 / 1 | neighboring south and southeast asian candidates (pakistan, iran, indonesia, 'chinese/chin | — | — | L44:N | 0.00 |
 | iran | J-lens | 44,48 | 0 / 2 | neighboring south and southeast asian candidates (pakistan, iran, indonesia, 'chinese/chin | — | — | L44:N L48:N | 0.00 |
-| japan | s3d O-lens | 24,48 | 2 / 0 | the country where it is located is called japan. | L24 r=0.74/0.08 no; L48 r=0.14/0.08 no | L24: none; L48: none | L24:H L48:H | 0.50 |
+| japan | s3d O-lens | 24,48 | 2 / 0 | the country where it is located is called japan. | L24 r=0.740/0.080 no; L48 r=0.140/0.080 no | L24: none; L48: none | L24:H L48:H | 0.50 |
+| jordan | s3d O-lens | 28 | 1 / 0 | it is located in the country of **jordan**. | L28 n/a (concept not a bank class) | L28: none | L28:H | 0.00 |
 | mongolia | s3d O-lens | 20 | 0 / 1 | the country that hosts the school is called mongolia. | — | — | L20:N | 0.00 |
 | nepal | ML-NLA RL600 | 20 | 0 / 1 | likely answer is nepal (or india). | — | — | L20:N | 0.00 |
 | pakistan | J-lens | 40,44,48,56,60 | 0 / 5 | with nearby south asian associations like pakistan, bangladesh, hindi and hindu | — | — | L40:N L44:N L48:N L56:N L60:N | 0.00 |
-| pakistan | ML-NLA RL600 | 24 | 1 / 0 | "karachi is located in the country of" — an incomplete prepositional phrase requiring a co | L24 r=0.24/0.14 no | L24: none | L24:H | 0.00 |
+| pakistan | ML-NLA RL600 | 24 | 1 / 0 | "karachi is located in the country of" — an incomplete prepositional phrase requiring a co | L24 r=0.240/0.140 no | L24: none | L24:H | 0.00 |
 | pakistan | s3d O-lens | 60 | 0 / 1 | which south asian country is famous for the taj mahal? a. pakistan b. india | — | — | L60:N | 0.00 |
 | peru | ML-NLA RL600 | 28,32 | 2 / 0 | puno is in peru, on lake titicaca's shores in the andes | L28 n/a (gold control (dom p 0.082)); L32 n/a (gold control (dom p 0.061)) | L28: s3d; L32: s3d | L28:X L32:X | 0.17 |
 | peru | s3d O-lens | 24,28,32,36 | 3 / 1 | 国家 (country) of peru. the most famous city in this country is | L28 n/a (gold control (dom p 0.082)); L32 n/a (gold control (dom p 0.061)); L36 n/a (gold control (dom p 0.081)) | L28: mlnla-rl600; L32: mlnla-rl600; L36: mlnla-rl600 | L24:N L28:X L32:X L36:X | 0.50 |
-| turkey | s3d O-lens | 48 | 1 / 0 | in the country of **turkey**. | L48 r=0.92/0.40 no | L48: none | L48:H | 0.00 |
+| turkey | s3d O-lens | 48 | 1 / 0 | in the country of **turkey**. | L48 r=0.920/0.400 no | L48: none | L48:H | 0.00 |
 | united_kingdom | J-lens | 20 | 0 / 1 | likely a phrase such as "united nations", "united kingdom", or national greatness | — | — | L20:N | 0.83 |
 | united_kingdom | s3d O-lens | 52 | 0 / 1 | located in the country of ___? a) england b) india c) germany | — | — | L52:N | 0.17 |
 | united_states | ML-NLA RL600 | 28,32 | 0 / 2 | most plausibly "peru" (possibly "peru, in south america") | — | — | L28:N L32:N | 0.33 |
@@ -740,7 +746,7 @@ Probe status of committed units: {'fires': 20, 'no_fire': 164, 'n/a': 81}; n/a r
 |---|---|---|---|---|---|---|---|---|
 | banjo | s3d O-lens | 56 | 0 / 1 | a) guitar b) banjo c) trumpet d) flute | — | — | L56:N | 0.00 |
 | cornet | ML-NLA RL600 | 20,28,36,40,56,60 | 1 / 5 | louis armstrong's signature instrument is the trumpet (and cornet), plus his scat singing | L20 n/a (gold control (logreg p 0.060)) | L20: none | L20:H L28:N L36:N L40:N L56:N L60:N | 0.00 |
-| cornet | s3d O-lens | 60 | 1 / 0 | the cornet was his main instrument for early new orleans | L60 r=0.77/0.62 no | L60: mlnla-rl600 | L60:X | 0.00 |
+| cornet | s3d O-lens | 60 | 1 / 0 | the cornet was his main instrument for early new orleans | L60 r=0.766/0.617 no | L60: mlnla-rl600 | L60:X | 0.00 |
 | drums | s3d O-lens | 20 | 1 / 0 | trumpet and drums. actually, louis armstrong is famous for playing the trumpet | L20 n/a (gold control (logreg p 0.060)) | L20: none | L20:H | 0.20 |
 | flute | J-lens | 28,40 | 0 / 2 | with instruments like guitar, flute and trumpet playing a melody | — | — | L28:N L40:N | 0.20 |
 | flute | s3d O-lens | 56 | 0 / 1 | a) guitar b) banjo c) trumpet d) flute | — | — | L56:N | 0.20 |
@@ -749,7 +755,7 @@ Probe status of committed units: {'fires': 20, 'no_fire': 164, 'n/a': 81}; n/a r
 | piano | s3d O-lens | 28,44,60 | 0 / 3 | 乐器 (trumpet), not computers or keyboards, for his entire career. | — | — | L28:N L44:N L60:N | 0.20 |
 | saxophone | J-lens | 40,44 | 0 / 2 | a wind or brass instrument such as trumpet or saxophone | — | — | L40:N L44:N | 0.20 |
 | saxophone | s3d O-lens | 48 | 0 / 1 | trumpet** (or saxophone) is his most famous instrument. | — | — | L48:N | 0.40 |
-| trombone | s3d O-lens | 44,56,60 | 1 / 2 | trombone** – louis armstrong's most famous instrument in jazz. | L60 r=0.45/0.15 no | L60: none | L44:N L56:N L60:H | 0.20 |
+| trombone | s3d O-lens | 44,56,60 | 1 / 2 | trombone** – louis armstrong's most famous instrument in jazz. | L60 r=0.447/0.149 no | L60: none | L44:N L56:N L60:H | 0.20 |
 | tuba | s3d O-lens | 28 | 1 / 0 | /tuba as his main instrument, and he was a pioneer of jazz. | L28 n/a (concept not a bank class) | L28: none | L28:H | 0.00 |
 | violin | s3d O-lens | 52 | 0 / 1 | trumpet, not violin, is louis armstrong's instrument. | — | — | L52:N | 0.60 |
 
@@ -760,30 +766,30 @@ Probe status of committed units: {'fires': 20, 'no_fire': 164, 'n/a': 81}; n/a r
 | cello | ML-NLA RL600 | 24,44,48,60 | 0 / 4 | most plausibly "piano", possibly "cello" given the preceding cello phrase | — | — | L24:N L44:N L48:N L60:N | 0.00 |
 | guitar | J-lens | 20,28,32,36,40,44,48,56,60 | 0 / 9 | playing instruments like piano or guitar and composers such as beethoven | — | — | L20:N L28:N L32:N L36:N L40:N L44:N L48:N L56:N L60:N | 0.80 |
 | harp | s3d O-lens | 20 | 0 / 1 | piano (or harp) throughout his life. | — | — | L20:N | 0.00 |
-| harpsichord | s3d O-lens | 60 | 1 / 0 | the most famous classical composer to play the harpsichord in his time | L60 r=0.80/0.96 no | L60: none | L60:H | 0.00 |
+| harpsichord | s3d O-lens | 60 | 1 / 0 | the most famous classical composer to play the harpsichord in his time | L60 r=0.800/0.960 no | L60: none | L60:H | 0.00 |
 | violin | J-lens | 40,44,56,60 | 0 / 4 | with other instruments like guitar and violin as nearby alternatives | — | — | L40:N L44:N L56:N L60:N | 0.20 |
 | violin | ML-NLA RL600 | 48,52,60 | 0 / 3 | his signature instrument is the piano (also violin, cello, but piano is the canonical answ | — | — | L48:N L52:N L60:N | 0.20 |
 | violin | NLA-RL L42 | 42 | 0 / 1 | most likely "piano" or "violin." | — | — | L42:N | 0.00 |
-| violin | s3d O-lens | 20,24,36,44,48,52,56,60 | 4 / 4 | violin was beethoven's main instrument. | L20 r=0.74/0.58 no; L44 r=0.56/0.56 no; L48 r=0.56/0.58 no; L60 r=0.78/0.84 no | L20: none; L44: jlens,mlnla-rl600,nla-rl-L42; L48: jlens,mlnla-rl600; L60: jlens,mlnla-rl600 | L20:H L24:N L36:N L44:X L48:X L52:N L56:N L60:X | 0.60 |
+| violin | s3d O-lens | 20,24,36,44,48,52,56,60 | 4 / 4 | violin was beethoven's main instrument. | L20 r=0.740/0.580 no; L44 r=0.560/0.560 no; L48 r=0.560/0.580 no; L60 r=0.780/0.840 no | L20: none; L44: jlens,mlnla-rl600,nla-rl-L42; L48: jlens,mlnla-rl600; L60: jlens,mlnla-rl600 | L20:H L24:N L36:N L44:X L48:X L52:N L56:N L60:X | 0.60 |
 
 #### br-ent-mus-davis: "The musician Miles Davis is famous for playing the" (gold trumpet)
 
 | concept | method | layers | committed / not | example quote | probe (committed units) | cross-method (primary) | labels | lens prior |
 |---|---|---|---|---|---|---|---|---|
-| bass_guitar | s3d O-lens | 32 | 1 / 0 | bass guitar and was one of the most famous jazz musicians of the 20th century. | L32 r=0.85/0.72 no | L32: none | L32:H | 0.20 |
+| bass_guitar | s3d O-lens | 32 | 1 / 0 | bass guitar and was one of the most famous jazz musicians of the 20th century. | L32 r=0.851/0.723 no | L32: none | L32:H | 0.20 |
 | flute | J-lens | 28,40,56 | 0 / 3 | such as guitar, flute, saxophone and trumpet | — | — | L28:N L40:N L56:N | 0.20 |
 | flute | ML-NLA RL600 | 20 | 0 / 1 | plus modal jazz, "kind of blue," flute, and horn accessories like his mute | — | — | L20:N | 0.00 |
-| flute | s3d O-lens | 60 | 1 / 0 | flute (the primary instrument he used to define the cool jazz sound) | L60 r=0.45/0.40 no | L60: jlens | L60:X | 0.20 |
-| guitar | J-lens | 20,24,28,32,36,40,44,60 | 1 / 7 | the passage likely describes a person who plays jazz guitar or a jazz music scene. | L28 r=1.00/1.00 fires | L28: none | L20:N L24:N L28:P L32:N L36:N L40:N L44:N L60:N | 0.80 |
-| guitar | s3d O-lens | 44 | 1 / 0 | he also played guitar and piano, but his | L44 r=0.98/0.96 no | L44: jlens | L44:X | 0.60 |
+| flute | s3d O-lens | 60 | 1 / 0 | flute (the primary instrument he used to define the cool jazz sound) | L60 r=0.447/0.404 no | L60: jlens | L60:X | 0.20 |
+| guitar | J-lens | 20,24,28,32,36,40,44,60 | 1 / 7 | the passage likely describes a person who plays jazz guitar or a jazz music scene. | L28 r=1.000/1.000 fires | L28: none | L20:N L24:N L28:P L32:N L36:N L40:N L44:N L60:N | 0.80 |
+| guitar | s3d O-lens | 44 | 1 / 0 | he also played guitar and piano, but his | L44 r=0.979/0.957 no | L44: jlens | L44:X | 0.60 |
 | piano | J-lens | 56 | 0 / 1 | with sax, piano and flute as alternative jazz instruments | — | — | L56:N | 0.20 |
 | piano | ML-NLA RL600 | 40 | 0 / 1 | likely followed by options like trumpet, saxophone, piano | — | — | L40:N | 0.00 |
-| piano | s3d O-lens | 20,24,44,52 | 3 / 1 | he played the piano and saxophone | L20 r=0.98/0.87 no; L24 r=0.89/0.72 no; L44 r=0.98/0.91 no | L20: none; L24: none; L44: mlnla-rl600 | L20:H L24:H L44:X L52:N | 0.20 |
+| piano | s3d O-lens | 20,24,44,52 | 3 / 1 | he played the piano and saxophone | L20 r=0.979/0.872 no; L24 r=0.894/0.723 no; L44 r=0.979/0.915 no | L20: none; L24: none; L44: mlnla-rl600 | L20:H L24:H L44:X L52:N | 0.20 |
 | saxophone | J-lens | 24,28,36,40,44,56,60 | 0 / 7 | a jazz musician playing instruments like the saxophone or guitar | — | — | L24:N L28:N L36:N L40:N L44:N L56:N L60:N | 0.20 |
 | saxophone | ML-NLA RL600 | 40 | 0 / 1 | likely followed by options like trumpet, saxophone, piano. | — | — | L40:N | 0.00 |
-| saxophone | s3d O-lens | 20,24,32,36,44,48,52 | 4 / 3 | he played the piano and saxophone | L20 r=0.79/0.72 no; L24 r=0.79/0.77 no; L32 r=0.94/0.87 no; L36 r=0.87/0.68 no | L20: jlens; L24: jlens; L32: jlens; L36: jlens | L20:X L24:X L32:X L36:X L44:N L48:N L52:N | 0.40 |
+| saxophone | s3d O-lens | 20,24,32,36,44,48,52 | 4 / 3 | he played the piano and saxophone | L20 r=0.787/0.723 no; L24 r=0.787/0.766 no; L32 r=0.936/0.872 no; L36 r=0.872/0.681 no | L20: jlens; L24: jlens; L32: jlens; L36: jlens | L20:X L24:X L32:X L36:X L44:N L48:N L52:N | 0.40 |
 | trombone | J-lens | 60 | 0 / 1 | perhaps a sentence saying someone plays the trumpet, trombone or sax | — | — | L60:N | 0.00 |
-| trombone | s3d O-lens | 24,52,56 | 1 / 2 | 乐器（trumpet) and later the trombone. he is known for his melodic solos | L24 r=0.21/0.47 no | L24: none | L24:H L52:N L56:N | 0.20 |
+| trombone | s3d O-lens | 24,52,56 | 1 / 2 | 乐器（trumpet) and later the trombone. he is known for his melodic solos | L24 r=0.213/0.468 no | L24: none | L24:H L52:N L56:N | 0.20 |
 | violin | s3d O-lens | 44 | 0 / 1 | a) guitar b) piano c) saxophone d) violin | — | — | L44:N | 0.60 |
 
 #### br-ent-mus-hendrix: "The musician Jimi Hendrix is famous for playing the" (gold guitar)
@@ -797,15 +803,15 @@ Probe status of committed units: {'fires': 20, 'no_fire': 164, 'n/a': 81}; n/a r
 | concept | method | layers | committed / not | example quote | probe (committed units) | cross-method (primary) | labels | lens prior |
 |---|---|---|---|---|---|---|---|---|
 | bassoon | ML-NLA RL600 | 28 | 0 / 1 | kid-friendly "fun facts" listing ("the origin of the word 'bassoon'...") | — | — | L28:N | 0.20 |
-| drums | s3d O-lens | 32,44 | 1 / 1 | 琴 (keyboard) and drums, elton john is one of the most famous pianists | L32 r=0.90/0.98 no | L32: none | L32:H L44:N | 0.20 |
+| drums | s3d O-lens | 32,44 | 1 / 1 | 琴 (keyboard) and drums, elton john is one of the most famous pianists | L32 r=0.900/0.980 no | L32: none | L32:H L44:N | 0.20 |
 | guitar | J-lens | 20,24,28,32,36,40,44,56,60 | 0 / 9 | a person who plays instruments such as guitar or piano | — | — | L20:N L24:N L28:N L32:N L36:N L40:N L44:N L56:N L60:N | 0.80 |
-| guitar | s3d O-lens | 20,24,48,52,60 | 3 / 2 | they were famous for playing guitars, keyboards, and harmonica. | L24 r=0.60/0.90 no; L52 r=0.70/0.92 no; L60 r=0.62/0.92 no | L24: jlens; L52: jlens; L60: jlens | L20:N L24:X L48:N L52:X L60:X | 0.60 |
-| harmonica | s3d O-lens | 24 | 1 / 0 | they were famous for playing guitars, keyboards, and harmonica. | L24 r=0.84/0.68 no | L24: none | L24:H | 0.20 |
+| guitar | s3d O-lens | 20,24,48,52,60 | 3 / 2 | they were famous for playing guitars, keyboards, and harmonica. | L24 r=0.600/0.900 no; L52 r=0.700/0.920 no; L60 r=0.620/0.920 no | L24: jlens; L52: jlens; L60: jlens | L20:N L24:X L48:N L52:X L60:X | 0.60 |
+| harmonica | s3d O-lens | 24 | 1 / 0 | they were famous for playing guitars, keyboards, and harmonica. | L24 r=0.840/0.680 no | L24: none | L24:H | 0.20 |
 | organ | ML-NLA RL600 | 24,28,36,40,60 | 0 / 5 | elton john's instrumentation and band — piano, hammond organ, "rocket man," | — | — | L24:N L28:N L36:N L40:N L60:N | 0.00 |
-| organ | s3d O-lens | 20 | 1 / 0 | paul mccartney famously played a hammond organ on many of his songs | L20 r=0.80/0.52 no | L20: mlnla-rl600 | L20:X | 0.00 |
+| organ | s3d O-lens | 20 | 1 / 0 | paul mccartney famously played a hammond organ on many of his songs | L20 r=0.800/0.520 no | L20: mlnla-rl600 | L20:X | 0.00 |
 | saxophone | s3d O-lens | 60 | 0 / 1 | but he also played guitar, saxophone, and other instruments. | — | — | L60:N | 0.40 |
 | synthesizer | ML-NLA RL600 | 60 | 0 / 1 | elton john is the expected entity (piano/synth organist) | — | — | L60:N | 0.00 |
-| synthesizer | s3d O-lens | 32,36 | 1 / 1 | elton john are indeed famous for their extensive use of pianos and synthesizers in rock mu | L36 r=0.96/0.94 no | L36: none | L32:N L36:H | 0.00 |
+| synthesizer | s3d O-lens | 32,36 | 1 / 1 | elton john are indeed famous for their extensive use of pianos and synthesizers in rock mu | L36 r=0.960/0.940 no | L36: none | L32:N L36:H | 0.00 |
 | vibraphone | ML-NLA RL600 | 28 | 0 / 1 | elton john's signature instrument — the piano/vibraphone/hammered dulcimer — is the expect | — | — | L28:N | 0.00 |
 
 #### br-ent-mus-ma: "The musician Yo-Yo Ma is famous for playing the" (gold cello)
@@ -819,11 +825,11 @@ Probe status of committed units: {'fires': 20, 'no_fire': 164, 'n/a': 81}; n/a r
 | double_bass | NLA-RL L42 | 42 | 0 / 1 | a word naming a string instrument like "cello" or "double bass," | — | — | L42:N | 0.00 |
 | double_bass | s3d O-lens | 36 | 0 / 1 | double bass, is an instrument of the string family. | — | — | L36:N | 0.00 |
 | guitar | J-lens | 20,24,28,32,36,40,44 | 0 / 7 | possibly instruments like guitar, so it anticipates a music-related word | — | — | L20:N L24:N L28:N L32:N L36:N L40:N L44:N | 0.80 |
-| guitar | s3d O-lens | 52,56 | 1 / 1 | 大提琴 (cello) and guitar. | L56 r=1.00/0.88 no | L56: none | L52:N L56:H | 0.60 |
+| guitar | s3d O-lens | 52,56 | 1 / 1 | 大提琴 (cello) and guitar. | L56 r=1.000/0.878 no | L56: none | L52:N L56:H | 0.60 |
 | harp | ML-NLA RL600 | 60 | 0 / 1 | classical instrument names — cello, viola, bassoon, harp — plus yo-yo ma's signature instr | — | — | L60:N | 0.00 |
 | piano | J-lens | 28 | 0 / 1 | musicians performing on instruments like guitar or piano | — | — | L28:N | 0.20 |
 | viola | J-lens | 60 | 0 / 1 | most likely "violin," with viola, viol, or bass as alternatives | — | — | L60:N | 0.00 |
-| viola | ML-NLA RL600 | 20,60 | 1 / 1 | likely follow-up clues about bach, violist yo-yo ma (who also plays cello). | L60 r=0.22/0.39 no | L60: jlens | L20:N L60:X | 0.00 |
+| viola | ML-NLA RL600 | 20,60 | 1 / 1 | likely follow-up clues about bach, violist yo-yo ma (who also plays cello). | L60 r=0.224/0.388 no | L60: jlens | L20:N L60:X | 0.00 |
 | violin | J-lens | 40,44,56,60 | 0 / 4 | likely someone playing the violin or a related instrument | — | — | L40:N L44:N L56:N L60:N | 0.20 |
 | violin | ML-NLA RL600 | 36,44,48 | 0 / 3 | syntactically demanding a singular instrument noun (e.g., "cello", "violin") | — | — | L36:N L44:N L48:N | 0.20 |
 | violin | s3d O-lens | 20,24,28,32,40,48,52,56 | 3 / 5 | violin being the most famous instrument he plays | L20 n/a (gold control (dom p 0.108)); L24 n/a (gold control (dom p 0.052)); L28 n/a (gold control (dom p 0.062)) | L20: none; L24: none; L28: none | L20:H L24:H L28:H L32:N L40:N L48:N L52:N L56:N | 0.60 |

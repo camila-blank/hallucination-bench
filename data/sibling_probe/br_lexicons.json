@@ -1965,7 +1965,8 @@
      "label": "Georgia",
      "en": [
       "Republic of Georgia",
-      "Sakartvelo"
+      "Sakartvelo",
+      "Georgia"
      ],
      "cjk": [
       "格鲁吉亚"
@@ -2054,7 +2055,8 @@
       "Republic of Guinea",
       "Guinea-Conakry",
       "Guinean",
-      "Guineans"
+      "Guineans",
+      "Guinea"
      ],
      "cjk": [
       "几内亚",
@@ -2272,7 +2274,8 @@
      "en": [
       "Hashemite Kingdom of Jordan",
       "Jordanian",
-      "Jordanians"
+      "Jordanians",
+      "Jordan"
      ],
      "cjk": [
       "约旦",
@@ -2466,7 +2469,8 @@
       "Grand Duchy of Luxembourg",
       "Luxembourgish",
       "Luxembourger",
-      "Luxembourgers"
+      "Luxembourgers",
+      "Luxembourg"
      ],
      "cjk": [
       "卢森堡",
@@ -2783,7 +2787,8 @@
      "en": [
       "Republic of Niger",
       "Nigerien",
-      "Nigeriens"
+      "Nigeriens",
+      "Niger"
      ],
      "cjk": [
       "尼日尔"
@@ -3921,7 +3926,6 @@
     "London",
     "Luanda",
     "Lusaka",
-    "Luxembourg",
     "Macau",
     "Madrid",
     "Majuro",
@@ -5074,7 +5078,7 @@
   },
   "country": {
    "n_concepts": 200,
-   "n_aliases": 1124,
+   "n_aliases": 1129,
    "duplicates": {},
    "short_cjk": [],
    "substring_pairs": [
@@ -5082,6 +5086,11 @@
     "british<british honduras",
     "china<republic of china",
     "dutch<dutch guiana",
+    "guinea<equatorial guinea",
+    "guinea<guinea bissau",
+    "guinea<guinea-bissau",
+    "guinea<papua new guinea",
+    "guinea<republic of equatorial guinea",
     "guinean<bissau-guinean",
     "guinean<equatorial guinean",
     "guinean<papua new guinean",
@@ -5108,7 +5117,7 @@
     "斯洛伐克<捷克斯洛伐克",
     "爱尔兰<北爱尔兰"
    ],
-   "n_substring_pairs": 29
+   "n_substring_pairs": 34
   },
   "musical_instrument": {
    "n_concepts": 61,

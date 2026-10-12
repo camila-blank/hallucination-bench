@@ -470,3 +470,41 @@ def test_viewer_ladder_badge_and_writer(tmp_path):
     assert d["ladder"][0]["uid"] == u["uid"]
     idx2 = BV.write_viewer(items, {}, [], tmp_path / "plain")
     assert "ladder" not in idx2 and "ladder" not in idx2["items"][0]
+
+
+def test_bare_country_names_in_real_lexicon():
+    import json
+
+    lex = json.loads(LX.LEXICON_PATH.read_text())
+    m = LX.Matcher(lex, "country")
+    ids = lambda t: [h.concept for h in m.find(t) if h.concept]  # noqa: E731
+    assert ids("Paris is in Georgia") == ["georgia"]
+    assert ids("a georgia peach") == []  # lower-case: case-sensitive
+    assert ids("Jordan, Guinea, Niger and Luxembourg") == [
+        "jordan",
+        "guinea",
+        "niger",
+        "luxembourg",
+    ]
+    assert ids("Papua New Guinea") == ["papua_new_guinea"]
+    assert ids("Guinea-Bissau and Equatorial Guinea") == ["guinea_bissau", "equatorial_guinea"]
+    assert ids("Georgia Tech and the Jordan River") == []
+    # athlete items are sport-category: a person name is not a country mention there
+    sport = LX.Matcher(lex, "sport")
+    assert [h.concept for h in sport.find("Michael Jordan") if h.concept] == []
+
+
+def test_fire_nan_auroc_and_fail_closed_support():
+    c = {
+        "classes": ["a", "b"],
+        "n_same": 30,
+        "auroc": {"logreg": {"a": float("nan")}, "dom": {"a": 0.95}},
+        "p_concept": {"logreg": {"a": 0.01}, "dom": {"a": 0.01}},
+        "p_gold": {"logreg": 0.5, "dom": 0.5},
+    }
+    r = LD.fires(c, "a", "b")
+    assert r["status"] == "n/a" and r["reason"] == "validity_nan"
+    fc = {"committed": True, "form": "fail_closed", "fail_closed": True}
+    ok = {"committed": True, "form": "answer", "fail_closed": False}
+    assert LD.rollup([fc])["supports"] is False
+    assert LD.rollup([fc, ok])["supports"] is True
