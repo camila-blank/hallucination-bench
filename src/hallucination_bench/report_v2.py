@@ -1,7 +1,8 @@
 """``hbench report --view v2``: the claim-map (taxonomy v2) report, probe candidates, audit
 samples, and the v2 pilot dump (plan 0002, §Run and §Metrics; rev 13 verdict layer).
 
-Writes, under ``outputs/wsbench_chat/<model>/``: ``report_v2.md``, ``report_v2.json``,
+Writes, under ``outputs/<eval>/<model>/`` (``wsbench_chat`` by default; ``story``, plan
+0003): ``report_v2.md``, ``report_v2.json``,
 ``probe_candidates.jsonl`` (one row per probe-candidate segment; replaces
 ``substitution_pairs.jsonl``) and ``audit_samples_v2.md`` (``verdict_n`` per verdict, then
 ``audit_n`` per leaf). Every arm's ``cells.jsonl`` / ``summary_v2.json`` is first regenerated
@@ -15,10 +16,12 @@ import json
 import random
 from collections import Counter
 from pathlib import Path
+from types import ModuleType
 from typing import Any
 
 from hallucination_bench import taxonomy_v2 as tx
-from hallucination_bench.evals.wsbench_chat import bank, score_v2
+from hallucination_bench.evals import bank_for
+from hallucination_bench.evals.wsbench_chat import NAME, bank, score_v2  # bank: chat default
 from hallucination_bench.evals.wsbench_chat.run import Models, rebuild_arm
 from hallucination_bench.evals.wsbench_chat.score_v2 import (
     AGREEMENT,
@@ -33,6 +36,18 @@ PRE_GATE_NOTE = (
     "**PRE-GATE**: the held-out calibration gate has not passed for this prompt version; "
     "these numbers are provisional."
 )
+
+
+def pre_gate_note(eval_name: str = NAME) -> str:
+    """The chat note, or (plan 0003) a note for an eval the chat-gold gate cannot cover."""
+    if eval_name == NAME:
+        return PRE_GATE_NOTE
+    return (
+        f"**PRE-GATE**: the held-out gate is chat gold; {eval_name} has no gate of its own, so "
+        "these numbers are provisional."
+    )
+
+
 FLAG_TITLES: dict[str, str] = {
     **{f"verdict_{v}": v for v in VERDICT_ROWS},
     "verdict_junk_only": "all junk",
@@ -170,10 +185,17 @@ def load_noise(out_root: Path, judge_model: str) -> dict[str, Any] | None:
     return json.loads(p.read_text()) if p.exists() else None
 
 
-def noise_section(noise: dict[str, Any] | None) -> list[str]:
+def noise_section(noise: dict[str, Any] | None, eval_name: str = NAME) -> list[str]:
     from hallucination_bench import consistency_v2
 
     md = ["## Judge noise (consistency-v2: two fresh calls per sampled cell)", ""]
+    if eval_name != NAME:
+        return [
+            *md,
+            f"The judge-noise sample is chat-only; not estimated for {eval_name}. The headline "
+            "tables' noise columns show —.",
+            "",
+        ]
     if not noise:
         return [
             *md,
@@ -206,16 +228,18 @@ def build(
     summaries: dict[str, dict[str, Any]],
     judge_model: str,
     noise: dict[str, Any] | None = None,
+    *,
+    eval_name: str = NAME,
 ) -> tuple[str, dict[str, Any]]:
     prose = {a: s for a, s in summaries.items() if s["config"]["kind"] == "prose"}
     tokens = {a: s for a, s in summaries.items() if s["config"]["kind"] == "tokens"}
     pre_gate = is_pre_gate(summaries)
     anchors = sorted({s["config"].get("map_anchor", "v5c") for s in summaries.values()})
     md: list[str] = [
-        f"# wsbench_chat claim map (taxonomy v2) — judge {judge_model}"
+        f"# {eval_name} claim map (taxonomy v2) — judge {judge_model}"
         + (" — PRE-GATE" if pre_gate else ""),
         "",
-        *([PRE_GATE_NOTE, ""] if pre_gate else []),
+        *([pre_gate_note(eval_name), ""] if pre_gate else []),
         f"Mode: {', '.join('single-call' if a == 'none' else 'anchor ' + a for a in anchors)}. "
         "Shares in % of readout characters (per-readout shares averaged over readouts; each "
         "readout weighs the same); item-bootstrap 95% CI in brackets (2,000 draws, seed 0). The "
@@ -587,8 +611,10 @@ def _reservoir(
     return res, seen
 
 
-def _sample_lines(arm: str, rec: dict[str, Any], s: dict[str, Any]) -> list[str]:
-    prompt, ctx = _context(rec)
+def _sample_lines(
+    arm: str, rec: dict[str, Any], s: dict[str, Any], bank_mod: ModuleType = bank
+) -> list[str]:
+    prompt, ctx = _context(rec, bank_mod=bank_mod)
     readout = (rec.get("samples") or [""])[s["readout"]]
     tags = [k for k in ("hedged", "world_false", "cruxy", "established") if s.get(k)]
     return [
@@ -610,29 +636,36 @@ def _sample_lines(arm: str, rec: dict[str, Any], s: dict[str, Any]) -> list[str]
 
 
 def audit_samples(
-    dirs: list[Path], *, n: int = 10, seed: int = 0, verdict_n: int = 20, pre_gate: bool = True
+    dirs: list[Path],
+    *,
+    n: int = 10,
+    seed: int = 0,
+    verdict_n: int = 20,
+    pre_gate: bool = True,
+    eval_name: str = NAME,
 ) -> str:
     """``verdict_n`` random segments per verdict, then ``n`` per leaf (incl. the pseudo-leaves),
     across arms, in context."""
     out = [
         "# Audit samples (claim map v2)" + (" — PRE-GATE" if pre_gate else ""),
         "",
-        *([PRE_GATE_NOTE, ""] if pre_gate else []),
+        *([pre_gate_note(eval_name), ""] if pre_gate else []),
         f"{verdict_n} random segments per verdict, then {n} per leaf; seed {seed}.",
         "",
     ]
+    bank_mod = bank_for(eval_name)
     res, seen = _reservoir(dirs, lambda s: tx.verdict_of(s["leaf"]), verdict_n, random.Random(seed))
     out += ["# By verdict", ""]
     for v in VERDICT_ROWS:
         out += [f"## verdict {v} ({seen.get(v, 0)} segments in total)", ""]
         for arm, rec, s in res.get(v, []):
-            out += _sample_lines(arm, rec, s)
+            out += _sample_lines(arm, rec, s, bank_mod)
     res, seen = _reservoir(dirs, lambda s: s["leaf"], n, random.Random(seed))
     out += ["# By leaf", ""]
     for lf in tx.ALL_LEAVES:
         out += [f"## {lf} (group {tx.group_of(lf)}; {seen.get(lf, 0)} segments in total)", ""]
         for arm, rec, s in res.get(lf, []):
-            out += _sample_lines(arm, rec, s)
+            out += _sample_lines(arm, rec, s, bank_mod)
     return "\n".join(out)
 
 
@@ -644,8 +677,9 @@ def report(
     audit_n: int = 10,
     seed: int = 0,
     verdict_n: int = 20,
+    eval_name: str = NAME,
 ) -> Path:
-    root = model_root(out_root, judge_model)
+    root = model_root(out_root, judge_model, eval_name)
     dirs = arm_dirs(root)
     if not dirs:
         raise SystemExit(f"no arms under {root}")
@@ -660,6 +694,7 @@ def report(
                 effort=a["effort"],
                 map_model=a.get("map_model"),
                 map_anchor=a.get("map_anchor", "v5c"),
+                eval=eval_name,
             )
             rebuild_arm(d.name, Path(a["readouts"]), out_root, models)
         p = d / "summary_v2.json"
@@ -669,15 +704,16 @@ def report(
         raise SystemExit(f"no arm under {root} has claim-map (:M) results")
     v2_dirs = [d for d in dirs if d.name in summaries]
     pre_gate = is_pre_gate(summaries)
-    noise = load_noise(out_root, judge_model)
-    md, js = build(summaries, judge_model, noise)
+    # the consistency sample is chat (plan 0003): never attach chat noise to another eval
+    noise = load_noise(out_root, judge_model) if eval_name == NAME else None
+    md, js = build(summaries, judge_model, noise, eval_name=eval_name)
     probes = probe_candidates(v2_dirs, pre_gate=pre_gate)
     md = "\n".join(
         [
             md,
             *probe_section(probes),
             *hallucination_examples(v2_dirs, seed=seed),
-            *noise_section(noise),
+            *noise_section(noise, eval_name),
         ]
     )
     js["judge_noise"] = noise
@@ -691,7 +727,15 @@ def report(
     if stale.exists():
         stale.unlink()
     (root / "audit_samples_v2.md").write_text(
-        audit_samples(v2_dirs, n=audit_n, seed=seed, verdict_n=verdict_n, pre_gate=pre_gate) + "\n"
+        audit_samples(
+            v2_dirs,
+            n=audit_n,
+            seed=seed,
+            verdict_n=verdict_n,
+            pre_gate=pre_gate,
+            eval_name=eval_name,
+        )
+        + "\n"
     )
     return root
 

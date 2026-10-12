@@ -44,10 +44,12 @@ import time
 from collections.abc import Callable, Iterator, Sequence
 from dataclasses import dataclass, field
 from pathlib import Path
+from types import ModuleType
 from typing import Any
 
-from hallucination_bench import WSBENCH_PUB_COMMIT, summarizer
+from hallucination_bench import summarizer
 from hallucination_bench.cache import Cache, fingerprint
+from hallucination_bench.evals import bank_for
 from hallucination_bench.judges import claimmap_v2 as cm
 from hallucination_bench.judges import taxonomy_v1 as tv1
 from hallucination_bench.judges import v5c
@@ -61,8 +63,6 @@ from hallucination_bench.readouts import (
     sha256_file,
 )
 from hallucination_bench.units import split_cell
-
-from . import NAME, bank
 
 STAGES: tuple[str, ...] = ("summary", "span", "verify", "classify", "map")
 V1_STAGES: tuple[str, ...] = ("summary", "span", "verify", "classify")
@@ -116,6 +116,9 @@ class Models:
     effort: str | None = "low"
     map_model: str | None = None
     map_anchor: str = "none"  # claim map: none (single-call, default) | v5c (plan rev 12)
+    # plan 0003: which bank / output root. Deliberately NOT in to_dict() (summary.json's
+    # config.models stays unchanged for wsbench_chat); _write_arm_json writes it to arm.json.
+    eval: str = "wsbench_chat"
 
     @property
     def summ(self) -> str:
@@ -145,7 +148,7 @@ def model_slug(model: str) -> str:
 
 
 def arm_dir(out_root: Path, models: Models, arm: str) -> Path:
-    return Path(out_root) / NAME / model_slug(models.judge) / arm
+    return Path(out_root) / models.eval / model_slug(models.judge) / arm
 
 
 def cell_key(id_: str, layer: int, pos: int) -> str:
@@ -178,6 +181,7 @@ class Arm:
     cache: Cache
     items: dict[str, dict[str, Any]]
     sites: dict[str, dict[int, dict[str, Any]]]
+    bank: ModuleType  # the eval's bank module (evals.bank_for(models.eval))
     spend: dict[str, Usage] = field(default_factory=lambda: {s: Usage() for s in STAGES})
     dump: Any = None  # open prompt-sample file handle (judge mode, --show-prompts)
 
@@ -193,6 +197,7 @@ class Arm:
 def open_arm(
     name: str, readouts: Path, out_root: Path, models: Models, *, readonly: bool = False
 ) -> Arm:
+    bank = bank_for(models.eval)
     items = bank.load_items()
     pos = bank.positions(items)
     cells, rep = load_readouts(readouts, positions=pos)
@@ -210,6 +215,7 @@ def open_arm(
         cache=cache,
         items={it["id"]: it for it in items},
         sites=bank.sites_by_item(items),
+        bank=bank,
     )
 
 
@@ -467,7 +473,7 @@ async def process_cell(
         return rec
     readouts = [(i, samples[i]) for i, v in enumerate(verdicts) if v.cls in v5c.SPECIFIC_CLASSES]
     system, user = tv1.render_prompt(
-        item["prompt"], bank.marked_response(item, site), readouts, spans
+        item["prompt"], arm.bank.marked_response(item, site), readouts, spans
     )
     cout = await cached_call(
         arm,
@@ -514,7 +520,7 @@ async def _map_stage(
     if verdicts is None:
         units = cm.plain_units(units)
     system, user = cm.render_prompt(
-        item["prompt"], bank.marked_response(item, site), units, kind=arm.kind, anchor=anchor
+        item["prompt"], arm.bank.marked_response(item, site), units, kind=arm.kind, anchor=anchor
     )
     mout = await cached_call(
         arm,
@@ -533,7 +539,7 @@ async def _map_stage(
     )
     rec["stages"]["map"] = mout.status
     raw = mout.result if mout.status == "ok" else None
-    conv = cm.conversation_text(item["prompt"], bank.marked_response(item, site))
+    conv = cm.conversation_text(item["prompt"], arm.bank.marked_response(item, site))
     segs, counts = cm.parse(raw, units, conv)
     counts["n_unlocated_established"] = sum(unloc)
     rec["map"] = {
@@ -574,7 +580,7 @@ def select(arm: Arm, layers: Sequence[int] | None, limit: int | None) -> Selecti
     if layers and absent:
         print(f"[{arm.name}] layers {absent} not in the readouts file (has {arm.file_layers})")
     items = list(arm.items.values())
-    expected = bank.expected_grid(items, sel_layers)
+    expected = arm.bank.expected_grid(items, sel_layers)
     in_layers = [c for c in arm.cells if c.layer in sel_layers]
     missing = missing_cells(in_layers, expected)
     todo: list[Cell] = []
@@ -738,7 +744,13 @@ def run_arms(*args: Any, **kwargs: Any) -> dict[str, dict[str, Any]]:
 def _write_arm_json(arm: Arm, models: Models) -> None:
     (arm.dir / "arm.json").write_text(
         json.dumps(
-            {"arm": arm.name, "readouts": str(arm.readouts), "kind": arm.kind, **models.to_dict()},
+            {
+                "arm": arm.name,
+                "eval": models.eval,
+                "readouts": str(arm.readouts),
+                "kind": arm.kind,
+                **models.to_dict(),
+            },
             indent=1,
         )
         + "\n"
@@ -762,7 +774,7 @@ async def rebuild_arm_async(
     arm = open_arm(name, readouts, out_root, models, readonly=True)
     layers = sorted(cached_layers(arm) & set(arm.file_layers))
     items = list(arm.items.values())
-    expected = bank.expected_grid(items, layers)
+    expected = arm.bank.expected_grid(items, layers)
     cells = [c for c in arm.cells if c.layer in layers]
     missing = missing_cells(cells, expected)
     acc = score.Accumulator(k=arm.k)
@@ -787,7 +799,7 @@ async def rebuild_arm_async(
         spend[stage_of_key(row["key"])].add(meta.get("usage"))
     arm.cache.close()
     config = {
-        "eval": NAME,
+        "eval": models.eval,
         "arm": name,
         "kind": arm.kind,
         "k": arm.k,
@@ -799,8 +811,8 @@ async def rebuild_arm_async(
             "classify": tv1.PROMPT_VERSION,
             "map": cm.PROMPT_VERSION,
         },
-        "bank_source": bank.BANK_SOURCE,
-        "bank_commit": WSBENCH_PUB_COMMIT,
+        "bank_source": arm.bank.BANK_SOURCE,
+        "bank_commit": arm.bank.BANK_COMMIT,
         "readouts": str(arm.readouts),
         "readouts_sha256": sha256_file(arm.readouts),
         "judged_layers": layers,
@@ -811,7 +823,12 @@ async def rebuild_arm_async(
         **config,
         "map_anchor": models.map_anchor,
         "map_layers": sorted(map_layers),
-        "pre_gate": not gate_passed(out_root, models.mapper, models.map_anchor),
+        # the held-out gate is chat gold: a chat pass must never un-label another eval (plan 0003)
+        "pre_gate": (
+            not gate_passed(out_root, models.mapper, models.map_anchor)
+            if models.eval == "wsbench_chat"
+            else True
+        ),
     }
     summary = score.summarize(
         acc,

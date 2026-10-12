@@ -59,6 +59,7 @@ def _models(args: argparse.Namespace):
         effort=_effort(args.effort),
         map_model=getattr(args, "map_model", None),
         map_anchor=getattr(args, "anchor", None) or "none",
+        eval=getattr(args, "eval", None) or "wsbench_chat",
     )
 
 
@@ -196,6 +197,7 @@ def cmd_report(args: argparse.Namespace) -> int:
             audit_n=args.audit_n if args.audit_n is not None else 10,
             seed=args.seed,
             verdict_n=args.audit_verdict_n,
+            eval_name=args.eval,
         )
         print(
             f"wrote {root / 'report_v2.md'}, {root / 'report_v2.json'}, "
@@ -209,6 +211,7 @@ def cmd_report(args: argparse.Namespace) -> int:
         rebuild=not args.no_rebuild,
         audit_n=args.audit_n if args.audit_n is not None else 15,
         seed=args.seed,
+        eval_name=args.eval,
     )
     print(f"wrote {root / 'report.md'}, {root / 'report.json'}, {root / 'audit_samples.md'}")
     return 0
@@ -318,6 +321,17 @@ def _common(p: argparse.ArgumentParser) -> None:
     p.add_argument("--concurrency", type=int, default=64)
 
 
+def _eval(p: argparse.ArgumentParser) -> None:
+    from hallucination_bench.evals import EVALS
+
+    p.add_argument(
+        "--eval",
+        choices=sorted(EVALS),
+        default="wsbench_chat",
+        help="which bank / output root <out>/<eval>/ (story: plan 0003; default wsbench_chat)",
+    )
+
+
 def _anchor(p: argparse.ArgumentParser) -> None:
     p.add_argument(
         "--anchor",
@@ -348,6 +362,7 @@ def build_parser() -> argparse.ArgumentParser:
     r.add_argument("--classifier-model", default=None)
     r.add_argument("--map-model", default=None, help="claim-map (:M) judge (default: judge)")
     _anchor(r)
+    _eval(r)
     r.add_argument(
         "--stages",
         default=None,
@@ -403,6 +418,7 @@ def build_parser() -> argparse.ArgumentParser:
     rp.add_argument("--audit-n", type=int, default=None, help="per leaf; default 15 (v1) / 10 (v2)")
     rp.add_argument("--audit-verdict-n", type=int, default=20, help="v2: audit samples per verdict")
     rp.add_argument("--seed", type=int, default=0)
+    _eval(rp)
     rp.set_defaults(fn=cmd_report)
 
     cs = sub.add_parser(

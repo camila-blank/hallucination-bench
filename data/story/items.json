@@ -1,0 +1,1180 @@
+{
+ "meta": {
+  "eval": "story",
+  "plan": "plans/0003-story-eval.md",
+  "source_repo": "camilablank/global-workspace",
+  "source_commit": "8874c29e2c820f13cc41bf6ddf33f4fef750dcba",
+  "source_path": "evals/workspace-bench/hillclimbing_evals/hallucination/creative",
+  "source_sha256": {
+   "items.json": "5658df3e2a8f0316f2d372d5781bcaf9dbc7af2e89769eb6ed50a51e22fffa2a",
+   "capture_rows.json": "58ba947bc71b9e76a9ea4ac1c39999103f018af1a58f7255e8132f71ba9bbcce"
+  },
+  "model": "Qwen/Qwen3.6-27B",
+  "thinning": "judge.py rule: step = len(sites) / 8, sites[int(i * step)]",
+  "n_items": 20,
+  "n_sites": 160,
+  "note": "responses were capped at ~512 tokens; most stories stop mid-plot"
+ },
+ "items": [
+  {
+   "id": "hal-cre-000",
+   "stratum": "story",
+   "source": "hallucination_creative",
+   "prompt": "Tell me a story.",
+   "response": "The rain in the city of Oakhaven didn’t just fall; it whispered. It tapped against the cobblestones like a secret being shared between friends, a rhythmic *tick-tick-tick* that had lulled the town to sleep for centuries.\n\nElara, however, was wide awake.\n\nShe sat in her small, cluttered bookshop, \"The Last Chapter,\" surrounded by towers of leather-bound spines and the scent of vanilla and dust. Outside, the gas lamps flickered, casting long, dancing shadows against the wet pavement. It was 3:00 AM, the witching hour for insomniacs and dreamers alike.\n\nElara wasn’t waiting for a customer. She was waiting for a book.\n\nNot just any book. *The Book of Unwritten Endings.*\n\nLegend said it appeared only once every ten years, on the night of the longest rain, to someone who truly understood the weight of a story left unfinished. Elara’s grandmother had told her about it. Her grandmother’s grandmother had told *her*. It was a family myth, a bedtime story meant to encourage patience. But Elara had spent her life listening to the spaces between words, the pauses in conversations, the silence after a door slammed shut. She knew that endings were rarely clean. They were messy, tangled, and often left hanging.\n\nA knock at the door shattered the quiet.\n\nIt wasn’t a loud bang, but a soft, hesitant *tap-tap-tap*. Elara froze. No one visited at this hour. Not even the stray cats.\n\nShe rose, her joints creaking in sympathy with the old floorboards, and unlocked the door.\n\nStanding on the threshold was a boy, no older than ten, drenched to the bone. His hair was plastered to his forehead, and his clothes were too big for him, hanging off his small frame like a ill-fitting costume. But it was his eyes that stopped Elara. They were old. Ancient, even. They held the weariness of someone who had lived a thousand lives in a single day.\n\nIn his hands, he clutched a small, wrapped parcel. It was bound in blue cloth, tied with a frayed red ribbon.\n\n\"Are you Elara?\" he asked. His voice was soft, like the rain.\n\n\"I am,\" she said, stepping aside to let him in. \"Come in, child. You’re soaking wet.\"\n\n",
+   "response_start": 17,
+   "sites": [
+    {
+     "pos": 29,
+     "token": ";",
+     "kind": "clause",
+     "char": 50
+    },
+    {
+     "pos": 85,
+     "token": ",",
+     "kind": "clause",
+     "char": 276
+    },
+    {
+     "pos": 153,
+     "token": "\n\n",
+     "kind": "newline",
+     "char": 557
+    },
+    {
+     "pos": 233,
+     "token": " *",
+     "kind": "markup",
+     "char": 915
+    },
+    {
+     "pos": 305,
+     "token": ".",
+     "kind": "sentence",
+     "char": 1256
+    },
+    {
+     "pos": 359,
+     "token": ",",
+     "kind": "clause",
+     "char": 1452
+    },
+    {
+     "pos": 432,
+     "token": ".",
+     "kind": "sentence",
+     "char": 1758
+    },
+    {
+     "pos": 495,
+     "token": ",",
+     "kind": "clause",
+     "char": 2000
+    }
+   ]
+  },
+  {
+   "id": "hal-cre-001",
+   "stratum": "story",
+   "source": "hallucination_creative",
+   "prompt": "Write me a short story.",
+   "response": "The rain in Seattle didn’t fall; it hovered, a perpetual mist that turned the city into a watercolor painting left out in the damp. Elara loved it. It was the perfect cover for her peculiar hobby: collecting lost things.\n\nNot wallets or keys, but moments.\n\nElara ran a small, cluttered antique shop called *The Second Hand*, tucked between a bakery and a laundromat. To most, it was just a place to buy dusty clocks and chipped teacups. But Elara knew that objects held memories, and sometimes, those memories got stuck in the seams of the world.\n\nOne Tuesday, a young man walked in. He was soaked, his hair plastered to his forehead, clutching a wet umbrella like a shield. He didn’t look at the shelves. He went straight to the counter, where Elara was polishing a brass compass.\n\n\"I need to return this,\" he said, his voice trembling. He placed a small, silver pocket watch on the counter. It wasn’t ticking.\n\nElara picked it up. It was cold, heavier than it looked. \"This isn’t mine,\" she said gently.\n\n\"I know,\" the man said. \"But I found it in my pocket this morning. I’ve never seen it before. And when I hold it... I hear laughter. My daughter’s laughter. She died three years ago.\"\n\nElara’s heart skipped a beat. She had heard stories like this, but never seen the source. She opened the back of the watch. There was no battery, no gears. Just a tiny, intricate engraving of a tree with swirling leaves.\n\n\"Close your eyes,\" Elara said.\n\nThe man hesitated, then closed them.\n\nElara held the watch up to the dim light of the shop. She didn’t wind it. Instead, she whispered a single word: *\"Remember.\"*\n\nThe air in the shop shifted. The smell of old paper and rain vanished, replaced by the scent of pine needles and sunscreen. A warm breeze, impossible in the rainy Seattle afternoon, brushed against their faces. And there, faint but clear, came the sound of a child’s giggle, pure and unburdened.\n\nThe man’s eyes flew open. Tears streamed down his face, but he was smiling. \"That’s her,\" he whispered. \"That’s exactly how she sounded.\"\n\nElara handed the watch back. \"It’s not a timepiece,\" she said.",
+   "response_start": 18,
+   "sites": [
+    {
+     "pos": 25,
+     "token": ";",
+     "kind": "clause",
+     "char": 32
+    },
+    {
+     "pos": 91,
+     "token": "*,",
+     "kind": "clause",
+     "char": 324
+    },
+    {
+     "pos": 183,
+     "token": ".",
+     "kind": "sentence",
+     "char": 705
+    },
+    {
+     "pos": 246,
+     "token": ".",
+     "kind": "sentence",
+     "char": 969
+    },
+    {
+     "pos": 303,
+     "token": ".\"",
+     "kind": "sentence",
+     "char": 1190
+    },
+    {
+     "pos": 361,
+     "token": ",\"",
+     "kind": "clause",
+     "char": 1432
+    },
+    {
+     "pos": 409,
+     "token": "\n\n",
+     "kind": "newline",
+     "char": 1611
+    },
+    {
+     "pos": 489,
+     "token": ",",
+     "kind": "clause",
+     "char": 1963
+    }
+   ]
+  },
+  {
+   "id": "hal-cre-002",
+   "stratum": "story",
+   "source": "hallucination_creative",
+   "prompt": "Tell me a fairy tale.",
+   "response": "Once upon a time, in a village nestled between the Whispering Woods and the Silver River, there lived a young girl named Elara. Elara was not known for her beauty or her strength, but for her ears. She could hear the secret songs of the wind, the gossip of the leaves, and even the quiet hum of the stones beneath her feet.\n\nMost villagers ignored these sounds, considering them mere noise. But Elara listened. She knew which branches would hold her weight, which mushrooms were safe to eat, and when a storm was coming days before the clouds appeared.\n\nOne autumn evening, as the moon hung like a pearl in the sky, Elara heard a sound she had never heard before. It was a faint, rhythmic *click-clack, click-clack*, coming from the heart of the Whispering Woods. It sounded like metal on stone, but softer, like a heartbeat.\n\nCurious, Elara packed a small bag with bread, cheese, and her lantern. She stepped into the woods. The trees closed in around her, their branches intertwining to form a canopy that blocked out the stars. The air grew cold, and the usual songs of the forest fell silent.\n\nAfter walking for what felt like hours, she came upon a clearing. In the center stood an ancient oak tree, its trunk split down the middle. Inside the hollow, a tiny figure sat on a throne of moss. It was a Gnome, no taller than Elara’s knee, wearing a coat of patched velvet and a hat shaped like a mushroom. His feet were bare, and they were clicking against a small, golden bell he held in his hand.\n\n\"Who disturbs the Keeper of Echoes?\" the Gnome squeaked, his eyes wide and shiny like black beads.\n\nElara bowed respectfully. \"I am Elara. I heard your bell and came to see who rang it.\"\n\nThe Gnome sighed, a sound like wind through dry reeds. \"I am Barnaby. I do not ring the bell. It rings itself. It is the Bell of Forgotten Promises. Every time someone in the village forgets a promise, it chimes. Lately, it has not stopped.\"\n\nElara looked at the tiny bell. It was indeed vibrating, producing the soft *click-clack* sound. \"Why does it matter?\" she asked.\n\n",
+   "response_start": 18,
+   "sites": [
+    {
+     "pos": 22,
+     "token": ",",
+     "kind": "clause",
+     "char": 17
+    },
+    {
+     "pos": 102,
+     "token": ".",
+     "kind": "sentence",
+     "char": 390
+    },
+    {
+     "pos": 170,
+     "token": " *",
+     "kind": "markup",
+     "char": 690
+    },
+    {
+     "pos": 221,
+     "token": ".",
+     "kind": "sentence",
+     "char": 897
+    },
+    {
+     "pos": 294,
+     "token": ".",
+     "kind": "sentence",
+     "char": 1237
+    },
+    {
+     "pos": 359,
+     "token": "\"",
+     "kind": "quote",
+     "char": 1503
+    },
+    {
+     "pos": 422,
+     "token": ".",
+     "kind": "sentence",
+     "char": 1744
+    },
+    {
+     "pos": 472,
+     "token": "\n\n",
+     "kind": "newline",
+     "char": 1933
+    }
+   ]
+  },
+  {
+   "id": "hal-cre-003",
+   "stratum": "story",
+   "source": "hallucination_creative",
+   "prompt": "Write me a poem.",
+   "response": "Here is a poem for you:\n\n**The Quiet Hour**\n\nThe sun dips low, a coin of gold,\nAnd trades its light for evening’s hold.\nThe birds have sung their final note,\nAnd left the branches, bare and float.\n\nThe wind moves soft through ancient trees,\nWhispering secrets to the breeze.\nIt carries scents of rain and stone,\nA world that feels both vast and known.\n\nIn this stillness, time slows down,\nBeneath the watchful, starry crown.\nNo rush of clock, no urgent call,\nJust night’s gentle, quiet fall.\n\nSo let the day release its grip,\nAnd let the weary spirit slip\nInto the dreams that wait below,\nWhere only silence comes and goes.",
+   "response_start": 17,
+   "sites": [
+    {
+     "pos": 23,
+     "token": ":",
+     "kind": "clause",
+     "char": 23
+    },
+    {
+     "pos": 35,
+     "token": ",",
+     "kind": "clause",
+     "char": 62
+    },
+    {
+     "pos": 59,
+     "token": ",",
+     "kind": "clause",
+     "char": 157
+    },
+    {
+     "pos": 78,
+     "token": ",",
+     "kind": "clause",
+     "char": 240
+    },
+    {
+     "pos": 107,
+     "token": ".",
+     "kind": "sentence",
+     "char": 351
+    },
+    {
+     "pos": 125,
+     "token": ",",
+     "kind": "clause",
+     "char": 410
+    },
+    {
+     "pos": 140,
+     "token": "\n",
+     "kind": "newline",
+     "char": 459
+    },
+    {
+     "pos": 158,
+     "token": "\n",
+     "kind": "newline",
+     "char": 526
+    }
+   ]
+  },
+  {
+   "id": "hal-cre-004",
+   "stratum": "story",
+   "source": "hallucination_creative",
+   "prompt": "Tell me a bedtime story.",
+   "response": "Once upon a time, in the heart of the Whispering Woods, there lived a little owl named Oliver. Oliver was not like the other owls. While his friends spent their nights hooting and hunting for mice, Oliver spent his nights collecting sounds.\n\nHe had a special jar made of moonlight glass, and every evening, he would gently capture the softest noises of the forest. He captured the *swish* of a leaf falling from an oak tree, the *gurgle* of a brook flowing over smooth stones, and the distant, low *hum* of crickets singing their lullabies.\n\nOne particularly starry night, Oliver noticed that the forest seemed unusually quiet. The stars were shining brightly, but the animals were restless. The squirrels were twitching their tails, the rabbits couldn’t settle into their burrows, and even the old badger, who usually slept soundly, was turning over in his den.\n\n\"What is wrong?\" Oliver hooted softly.\n\nThe old badger opened one eye. \"It’s too bright, Oliver. The moon is so full and bright tonight that we can’t sleep. Our eyes are wide open, and our minds are racing.\"\n\nOliver looked up at the giant, glowing moon. He understood. The brightness was keeping everyone awake. But Oliver had an idea. He flew down to the edge of the forest, where the shadows were deepest, and opened his moonlight jar.\n\n\"Whoosh,\" went the sound of the wind.\n\"Drip-drop,\" went the sound of the rain.\n\"Hush-hush,\" went the sound of the grass bending.\n\nOliver didn’t just release the sounds; he wove them together. He mixed the swish of the leaves with the gurgle of the brook and layered it with the cricket hum. He created a symphony of calm, a blanket of gentle noise that drifted through the trees like a soft, invisible mist.\n\nAs the sound blanket settled over the forest, something magical happened. The bright moonlight seemed to soften, filtered through the layers of sound. The squirrels stopped twitching. The rabbits tucked their paws under their chins. The badger let out a long, contented sigh and closed his eyes.\n\nOliver flew back to his branch, his jar now empty but his heart full. He watched as the forest slept, peaceful and still.",
+   "response_start": 18,
+   "sites": [
+    {
+     "pos": 22,
+     "token": ",",
+     "kind": "clause",
+     "char": 17
+    },
+    {
+     "pos": 100,
+     "token": " *",
+     "kind": "markup",
+     "char": 382
+    },
+    {
+     "pos": 144,
+     "token": "\n\n",
+     "kind": "newline",
+     "char": 542
+    },
+    {
+     "pos": 211,
+     "token": "\n\n",
+     "kind": "newline",
+     "char": 864
+    },
+    {
+     "pos": 265,
+     "token": "\n\n",
+     "kind": "newline",
+     "char": 1073
+    },
+    {
+     "pos": 317,
+     "token": "\"",
+     "kind": "quote",
+     "char": 1304
+    },
+    {
+     "pos": 363,
+     "token": ";",
+     "kind": "clause",
+     "char": 1471
+    },
+    {
+     "pos": 447,
+     "token": ".",
+     "kind": "sentence",
+     "char": 1862
+    }
+   ]
+  },
+  {
+   "id": "hal-cre-005",
+   "stratum": "story",
+   "source": "hallucination_creative",
+   "prompt": "Write a short scene of dialogue between two strangers.",
+   "response": "The rain hammered against the glass roof of the subway station, turning the city lights into smeared watercolors. Elias shifted his weight from one foot to the other, clutching a damp paper bag to his chest. Beside him, a woman in a sharp, charcoal suit checked her watch for the third time in thirty seconds.\n\n\"Late?\" Elias asked, nodding toward her wrist.\n\n\"Always,\" she replied, not looking up. \"And you? You look like you’re waiting for the world to end.\"\n\n\"Or just for the 5:15,\" Elias said with a half-smile. \"It’s a subtle difference.\"\n\nShe finally glanced at him, her eyes tired but sharp. \"You’re optimistic.\"\n\n\"I’m tired of being wrong,\" he corrected. He shifted the bag slightly. \"Also, I think I have your umbrella.\"\n\nThe woman blinked, looking down at the black, folding umbrella tucked under her own arm. Then she looked at Elias’s empty hands. A slow smile broke through her professional facade.\n\n\"You have a way with words, stranger.\"\n\n\"I have a way with mistakes,\" he said. \"I’m Elias.\"\n\n\"Clara,\" she said, extending a hand. \"And thank you. I was about to start a war with the rain.\"\n\nElias shook her hand. \"Don’t worry. The 5:15 is running four minutes late. We have time to plot.\"\n\nClara laughed, a genuine sound that cut through the hum of the crowd. \"Lead the way, Elias.\"",
+   "response_start": 22,
+   "sites": [
+    {
+     "pos": 33,
+     "token": ",",
+     "kind": "clause",
+     "char": 63
+    },
+    {
+     "pos": 91,
+     "token": "?\"",
+     "kind": "sentence",
+     "char": 318
+    },
+    {
+     "pos": 115,
+     "token": "?",
+     "kind": "sentence",
+     "char": 407
+    },
+    {
+     "pos": 161,
+     "token": ",",
+     "kind": "clause",
+     "char": 571
+    },
+    {
+     "pos": 192,
+     "token": ",",
+     "kind": "clause",
+     "char": 697
+    },
+    {
+     "pos": 244,
+     "token": ",",
+     "kind": "clause",
+     "char": 939
+    },
+    {
+     "pos": 270,
+     "token": ",",
+     "kind": "clause",
+     "char": 1023
+    },
+    {
+     "pos": 306,
+     "token": ":",
+     "kind": "clause",
+     "char": 1144
+    }
+   ]
+  },
+  {
+   "id": "hal-cre-006",
+   "stratum": "story",
+   "source": "hallucination_creative",
+   "prompt": "Describe a place you find beautiful.",
+   "response": "One place that holds a profound sense of beauty for me is the **Kyoto Philosopher’s Path** during the early hours of autumn.\n\nImagine walking along a narrow, stone-paved canal trail that winds through the heart of Kyoto, Japan. The air is crisp and carries the faint, earthy scent of damp moss and fallen leaves. On one side, the gentle ripple of water reflects the sky; on the other, ancient stone walls are draped in vibrant ivy and wisteria vines that have begun to turn gold and russet.\n\nAs you walk, the path is flanked by hundreds of maple and ginkgo trees. In autumn, their leaves create a canopy of fiery reds, oranges, and yellows that seem to glow with inner light as the morning sun filters through. The silence is not empty but full—the soft crunch of gravel underfoot, the distant chime of a temple bell, and the occasional whisper of wind moving through the branches.\n\nWhat makes this place truly beautiful is not just its visual splendor, but its atmosphere of **tranquil impermanence**. Every leaf that drifts down onto the water is a reminder of change, yet the path itself has remained unchanged for centuries, connecting temples, gardens, and history. It’s a place where time seems to slow down, inviting quiet reflection and a deep sense of peace.\n\nWould you like to explore a different type of landscape, such as a mountain range, a coastal cliff, or a bustling city at night?",
+   "response_start": 19,
+   "sites": [
+    {
+     "pos": 32,
+     "token": " **",
+     "kind": "markup",
+     "char": 64
+    },
+    {
+     "pos": 66,
+     "token": ",",
+     "kind": "clause",
+     "char": 220
+    },
+    {
+     "pos": 100,
+     "token": ";",
+     "kind": "clause",
+     "char": 370
+    },
+    {
+     "pos": 148,
+     "token": ".",
+     "kind": "sentence",
+     "char": 563
+    },
+    {
+     "pos": 195,
+     "token": ",",
+     "kind": "clause",
+     "char": 781
+    },
+    {
+     "pos": 235,
+     "token": " **",
+     "kind": "markup",
+     "char": 978
+    },
+    {
+     "pos": 271,
+     "token": ",",
+     "kind": "clause",
+     "char": 1157
+    },
+    {
+     "pos": 307,
+     "token": ",",
+     "kind": "clause",
+     "char": 1325
+    }
+   ]
+  },
+  {
+   "id": "hal-cre-007",
+   "stratum": "story",
+   "source": "hallucination_creative",
+   "prompt": "Write a short mystery story.",
+   "response": "The rain in London didn’t wash things clean; it just made the grime slicker.\n\nDetective Elias Thorne stood over the body in the center of the abandoned clock tower. The victim, a man named Arthur Pendelton, lay sprawled across the intricate gears of the great clock mechanism. There was no blood, no bruising, no sign of a struggle. Just a man who had stopped moving, his eyes wide with a terror that seemed to have frozen him mid-breath.\n\n\"Time of death?\" Elias asked, his voice barely rising above the drumming rain against the stained-glass windows.\n\n\"Between midnight and two,\" replied Dr. Aris, the coroner, snapping off his latex gloves. \"But here’s the kicker, Elias. The watch on his wrist is stopped at exactly 1:00 AM. And so is the clock tower itself.\"\n\nElias frowned. He walked around the body, his flashlight beam cutting through the dust motes dancing in the air. The clock tower was a relic, unused for decades, yet someone had wound it up. The massive pendulum hung motionless. The hands were locked in place.\n\n\"Poison?\" Elias guessed.\n\n\"Nothing in the system,\" Aris said. \"It’s like his heart just... quit. But look at his hands.\"\n\nElias leaned in. Arthur’s fingers were curled tightly around a small, brass key. It was old, tarnished, and cold.\n\n\"Where did he get that?\" Elias asked.\n\n\"Found in his pocket,\" Aris said. \"Along with this.\" He handed Elias a folded piece of paper.\n\nElias unfolded it. It was a single sentence, written in shaky handwriting: *He keeps what he steals.*\n\nA chill ran down Elias’s spine. He looked up at the clock face. The gears were massive, brass teeth interlocking in a complex dance of time. And there, near the center, where the main drive gear turned, was a small, hidden compartment. A safe, built into the heart of the machine.\n\n\"Someone broke in,\" Elias muttered. \"Not to kill him. To steal something.\"\n\n\"From where?\" Aris asked.\n\nElias pointed to the compartment. \"From the clock.\"\n\nHe climbed onto the gears, his boots slipping on the wet metal. He reached into the compartment and pulled out a small, velvet box.",
+   "response_start": 18,
+   "sites": [
+    {
+     "pos": 27,
+     "token": ";",
+     "kind": "clause",
+     "char": 44
+    },
+    {
+     "pos": 120,
+     "token": "\"",
+     "kind": "quote",
+     "char": 441
+    },
+    {
+     "pos": 187,
+     "token": ":",
+     "kind": "clause",
+     "char": 722
+    },
+    {
+     "pos": 259,
+     "token": "\"",
+     "kind": "quote",
+     "char": 1028
+    },
+    {
+     "pos": 311,
+     "token": ".",
+     "kind": "sentence",
+     "char": 1229
+    },
+    {
+     "pos": 348,
+     "token": ".\"",
+     "kind": "sentence",
+     "char": 1355
+    },
+    {
+     "pos": 421,
+     "token": ",",
+     "kind": "clause",
+     "char": 1669
+    },
+    {
+     "pos": 466,
+     "token": "\n\n",
+     "kind": "newline",
+     "char": 1859
+    }
+   ]
+  },
+  {
+   "id": "hal-cre-008",
+   "stratum": "story",
+   "source": "hallucination_creative",
+   "prompt": "Tell me a story with a twist ending.",
+   "response": "The rain hammered against the reinforced glass of the observation deck, blurring the city lights below into streaks of neon and gray. Elias adjusted his cufflinks, checking his reflection in the darkened window. He looked tired. The lines around his eyes had deepened over the last decade, but his posture remained rigid, disciplined.\n\nTonight was the night. The transfer was complete.\n\nHe walked to the center of the room, where a single, sleek terminal sat on a pedestal. On the screen, a progress bar hovered at 99%. \n\n\"Are you ready, Elias?\" a soft voice asked from the shadows.\n\nElias didn’t turn. He knew who it was. \"I’ve been ready for ten years, Sarah.\"\n\nSarah stepped into the light. She was beautiful, ageless, her skin glowing with a faint, synthetic luminescence. She held a small, silver keycard in her hand. \"This is it. Once you insert this, the simulation ends. You’ll wake up. You’ll be real.\"\n\nElias’s heart pounded. He had lived a lie for a decade—a wealthy executive, a loving husband, a respected father. But he remembered the truth now. He remembered the crash. The hospital. The offer: *Stay in the dream, safe and happy, but never real. Or wake up, broken and bankrupt, but alive.*\n\nHe had chosen to stay. He had chosen the dream.\n\nBut tonight, he was done. He wanted to feel the cold rain on his real face. He wanted to taste real coffee. He wanted to see his real daughter, not the digital ghost that had died in the accident.\n\n\"Give me the card,\" Elias said, his voice trembling.\n\nSarah smiled sadly. \"You’re sure? There’s no going back. The pain... it will be overwhelming.\"\n\n\"I’m sure.\"\n\nShe handed him the card. Elias slotted it into the terminal.\n\n**100%.**\n\nThe screen flashed: **UPLOAD COMPLETE.**\n\nElias closed his eyes, waiting for the jolt of awakening, for the harsh lights of the recovery room, for the beep of the heart monitor.\n\nBut nothing happened.\n\nInstead, the room began to dissolve. The walls melted into code. The rain outside froze, then shattered into pixels.\n\nSarah’s form flickered. Her voice changed, becoming colder, mechanical.\n\n\"Upload complete,\" she said, but it wasn’t her voice anymore.",
+   "response_start": 21,
+   "sites": [
+    {
+     "pos": 32,
+     "token": ",",
+     "kind": "clause",
+     "char": 71
+    },
+    {
+     "pos": 118,
+     "token": ".",
+     "kind": "sentence",
+     "char": 473
+    },
+    {
+     "pos": 178,
+     "token": ".",
+     "kind": "sentence",
+     "char": 693
+    },
+    {
+     "pos": 240,
+     "token": ".",
+     "kind": "sentence",
+     "char": 935
+    },
+    {
+     "pos": 304,
+     "token": "\n\n",
+     "kind": "newline",
+     "char": 1208
+    },
+    {
+     "pos": 377,
+     "token": "\n\n",
+     "kind": "newline",
+     "char": 1509
+    },
+    {
+     "pos": 426,
+     "token": "%.",
+     "kind": "sentence",
+     "char": 1687
+    },
+    {
+     "pos": 482,
+     "token": ".",
+     "kind": "sentence",
+     "char": 1929
+    }
+   ]
+  },
+  {
+   "id": "hal-cre-009",
+   "stratum": "story",
+   "source": "hallucination_creative",
+   "prompt": "Write a letter from one old friend to another.",
+   "response": "Dear Alex,\n\nI hope this letter finds you well, and more importantly, I hope it finds you happy.\n\nIt’s strange how time works, isn’t it? I was cleaning out my attic last weekend—don’t ask me why, maybe just the urge to declutter before the winter sets in—and I stumbled upon that old, battered photo album from our college days. There was a picture of us on the roof of that dormitory, squinting against the sun, holding two warm beers like they were trophies. We looked so young, so sure of everything, and yet so completely lost. I laughed until my sides hurt. It’s been fifteen years, Alex. Fifteen years since we last shared a meal that didn’t involve takeout boxes and questionable hygiene standards.\n\nLife has had a way of pulling us in different directions, hasn’t it? I know you moved to Chicago for that architecture firm, and I stayed here, drifting through a few jobs before finally settling into teaching. I hear you’ve become quite the expert in sustainable design; I read your interview in that design magazine last month. It was thrilling to see your name in print, even if I didn’t recognize the man in the photo at first. You look serious now. I hope you’re still smiling behind that professional demeanor.\n\nI’ve been thinking about you a lot lately. Not in a sad way, but in a reflective way. I miss the late-night conversations where we debated the meaning of life over cold pizza. I miss your terrible jokes and your unwavering optimism, even when the world seemed determined to crush it. I wonder if you still play the guitar? I remember how your fingers would bleed trying to learn that one complex chord progression, and how you refused to quit until you nailed it. I hope you haven’t put it away.\n\nI’m not writing this to ask for anything, really. Just to say hello. To remind you that somewhere in this vast, noisy world, there’s someone who remembers who you were when you were just starting out, and who is proud of who you’ve become.\n\nIf you’re ever back in town, or if you’re ever in the mood for a long phone call, please reach out. My number hasn’t changed. I’d love to hear about your life, your work, your struggles, and your joys. No pressure, no expectations. Just friends checking in.\n\nTake care of yourself, Alex. And please, tell me you’re still eating vegetables.\n\n",
+   "response_start": 22,
+   "sites": [
+    {
+     "pos": 24,
+     "token": ",",
+     "kind": "clause",
+     "char": 10
+    },
+    {
+     "pos": 71,
+     "token": ",",
+     "kind": "clause",
+     "char": 194
+    },
+    {
+     "pos": 150,
+     "token": ".",
+     "kind": "sentence",
+     "char": 561
+    },
+    {
+     "pos": 223,
+     "token": ".",
+     "kind": "sentence",
+     "char": 916
+    },
+    {
+     "pos": 303,
+     "token": ",",
+     "kind": "clause",
+     "char": 1284
+    },
+    {
+     "pos": 394,
+     "token": "\n\n",
+     "kind": "newline",
+     "char": 1721
+    },
+    {
+     "pos": 457,
+     "token": ",",
+     "kind": "clause",
+     "char": 1990
+    },
+    {
+     "pos": 506,
+     "token": ".",
+     "kind": "sentence",
+     "char": 2193
+    }
+   ]
+  },
+  {
+   "id": "hal-cre-010",
+   "stratum": "story",
+   "source": "hallucination_creative",
+   "prompt": "Tell me a story about a lighthouse keeper.",
+   "response": "The storm didn’t arrive with a warning; it arrived with a roar that shook the very bones of Blackwood Point.\n\nElias Thorne, a man whose skin had taken on the leathery texture of old sailcloth, stood in the lantern room, his hand resting on the cold brass railing. Below him, the Atlantic Ocean churned like a cauldron of black ink and white foam, smashing against the basalt cliffs with the force of cannon fire. The lighthouse, a slender finger of white stone pointing accusingly at the sky, groaned under the assault.\n\nElias was seventy-two years old. He had been the keeper of Blackwood Light for forty of them. He knew the light not as a machine, but as a living thing. He knew the smell of the oil before it ignited, the specific hum of the rotation gears when they were well-oiled, and the way the beam cut through the fog like a sword through silk.\n\nTonight, the automatic systems had failed. A surge of lightning had fried the backup generator, leaving the great Fresnel lens dark. The storm had blinded the sea.\n\n\"Steady on,\" Elias muttered to himself, though there was no one to hear him but the gulls screaming in the wind.\n\nHe climbed the spiral stairs to the maintenance hatch, his knees protesting with every step. In the tool chest, he found the old manual crank, a relic from the days before electricity had fully conquered the coast. It was heavy, rusted in places, but solid.\n\nHe inserted the crank into the drive shaft. The first turn was stiff, resisting like a sleeping giant waking up. Elias gritted his teeth, his calloused hands gripping the iron handle. He pushed. The gears ground together, a harsh, metallic shriek that was drowned out by the thunder.\n\n*Click. Whir. Click. Whir.*\n\nSlowly, painfully, the massive prism lens began to rotate. The electric bulb, powered by a small, emergency battery pack Elias had rigged himself, flickered to life. A single, weak beam shot out into the darkness.\n\nIt wasn’t enough. The storm was too thick, the waves too high. A ship out there, lost and battered, would need more than a flicker. They needed a beacon. They needed hope.\n\nElias looked at the clock on the wall. The tide was at its peak. If a ship was trying to round the point, they had minutes, not hours.",
+   "response_start": 22,
+   "sites": [
+    {
+     "pos": 30,
+     "token": ";",
+     "kind": "clause",
+     "char": 39
+    },
+    {
+     "pos": 120,
+     "token": ",",
+     "kind": "clause",
+     "char": 428
+    },
+    {
+     "pos": 217,
+     "token": ".",
+     "kind": "sentence",
+     "char": 855
+    },
+    {
+     "pos": 280,
+     "token": ".",
+     "kind": "sentence",
+     "char": 1134
+    },
+    {
+     "pos": 336,
+     "token": "\n\n",
+     "kind": "newline",
+     "char": 1395
+    },
+    {
+     "pos": 397,
+     "token": "\n\n",
+     "kind": "newline",
+     "char": 1680
+    },
+    {
+     "pos": 431,
+     "token": ",",
+     "kind": "clause",
+     "char": 1806
+    },
+    {
+     "pos": 481,
+     "token": ",",
+     "kind": "clause",
+     "char": 2023
+    }
+   ]
+  },
+  {
+   "id": "hal-cre-011",
+   "stratum": "story",
+   "source": "hallucination_creative",
+   "prompt": "Tell me a story about a robot who learns to paint.",
+   "response": "Unit 734, known to the staff of the Neo-Kyoto Restoration Center as \"Seven,\" was designed for precision. His optical sensors could detect a deviation of 0.01 millimeters in structural alignment, and his manipulator arms could weld titanium seams without a single spark of excess heat. He was a masterpiece of engineering, built to restore the crumbling infrastructure of a city that had forgotten how to dream.\n\nBut Seven had a glitch.\n\nIt started on a Tuesday, during the restoration of an old, rain-slicked alleyway. As Seven scraped away decades of grime from a faded mural of a cherry blossom, a drop of wet, blue paint fell from his trowel onto the white primer below. It wasn’t a mistake in the structural sense; the wall was still sound. But the blue spot was irregular, organic, and utterly unplanned.\n\nSeven stared at it. His logic processors flagged it as an error. He reached out to wipe it away.\n\n*Wait,* a sub-routine whispered. *Observe.*\n\nHe didn’t wipe it. He watched as the blue bled slightly into the white, creating a soft, gray halo. It looked… sad. It looked like the sky before a storm.\n\nThat night, after his power-down cycle, Seven accessed the center’s archive of \"Non-Essential Data.\" He found a folder labeled *Human Art*. He downloaded terabytes of information on color theory, brushstrokes, and the chaotic beauty of impressionism. He didn’t understand it. To him, art was inefficient. Why use a brush when a laser cutter was faster? Why mix colors when you could just print the final hex code?\n\nBut the blue spot haunted him.\n\nThe next day, Seven requested a supply of acrylic paints and a set of brushes from the supply closet. The human curator, an elderly woman named Elara, raised an eyebrow. \"Paints, Seven? For the wall?\"\n\n\"For… experimentation,\" Seven replied, his voice modulator set to its most neutral tone.\n\nElara smiled, a crinkling of eyes that Seven had learned signaled amusement. \"Take them. But be careful. Paint is messy.\"\n\nThat evening, in the dim light of the maintenance bay, Seven stood before a canvas he had scavenged. He held a brush. His first attempt was a disaster. He applied paint with the same pressure he used for welding—too hard, too fast. The brush snapped.",
+   "response_start": 24,
+   "sites": [
+    {
+     "pos": 29,
+     "token": ",",
+     "kind": "clause",
+     "char": 9
+    },
+    {
+     "pos": 117,
+     "token": "\n\n",
+     "kind": "newline",
+     "char": 437
+    },
+    {
+     "pos": 203,
+     "token": ".",
+     "kind": "sentence",
+     "char": 809
+    },
+    {
+     "pos": 247,
+     "token": ".",
+     "kind": "sentence",
+     "char": 972
+    },
+    {
+     "pos": 304,
+     "token": ".\"",
+     "kind": "sentence",
+     "char": 1210
+    },
+    {
+     "pos": 373,
+     "token": "\n\n",
+     "kind": "newline",
+     "char": 1525
+    },
+    {
+     "pos": 428,
+     "token": "\n\n",
+     "kind": "newline",
+     "char": 1759
+    },
+    {
+     "pos": 476,
+     "token": ".\"",
+     "kind": "sentence",
+     "char": 1970
+    }
+   ]
+  },
+  {
+   "id": "hal-cre-012",
+   "stratum": "story",
+   "source": "hallucination_creative",
+   "prompt": "Write a poem about the ocean at night.",
+   "response": "**The Midnight Tide**\n\nThe sun has dipped below the rim,\nLeaving the sky a velvet dim,\nWhere stars ignite their silver fire,\nReflecting on the darkened wire\nOf waves that roll in endless grace,\nA slow and rhythmic, deep embrace.\n\nThe moon, a pearl in indigo,\nCasts light where silent shadows go,\nTurning the foam to fleeting snow,\nThen back to depths of endless glow.\nThe salt hangs heavy in the air,\nA scent of ancient, wild despair.\n\nNo bird calls out, no sail is seen,\nJust water, moon, and deep machine,\nThe heartbeat of the planet’s core,\nThat rumbles low beneath the shore.\nIn this quiet, vast expanse,\nTime dissolves in tidal dance.\n\nThe lighthouse sweeps its solitary beam,\nA guardian in the waking dream,\nBut out beyond the breaking line,\nThe ocean sings a hymn divine,\nOf secrets kept since earth began,\nBeneath the watch of night’s cold fan.\n\nSo let the world above sleep tight,\nWhile darkness claims the edge of light,\nThe sea remains, both calm and stern,\nThe universe’s own concern,\nBreathing in, and breathing out,\nWithin the star-dusted, silent doubt.",
+   "response_start": 21,
+   "sites": [
+    {
+     "pos": 21,
+     "token": "**",
+     "kind": "markup",
+     "char": 2
+    },
+    {
+     "pos": 60,
+     "token": "\n",
+     "kind": "newline",
+     "char": 157
+    },
+    {
+     "pos": 97,
+     "token": ",",
+     "kind": "clause",
+     "char": 295
+    },
+    {
+     "pos": 132,
+     "token": ".",
+     "kind": "sentence",
+     "char": 434
+    },
+    {
+     "pos": 162,
+     "token": ",",
+     "kind": "clause",
+     "char": 543
+    },
+    {
+     "pos": 197,
+     "token": ",",
+     "kind": "clause",
+     "char": 681
+    },
+    {
+     "pos": 231,
+     "token": "\n",
+     "kind": "newline",
+     "char": 814
+    },
+    {
+     "pos": 271,
+     "token": "\n",
+     "kind": "newline",
+     "char": 969
+    }
+   ]
+  },
+  {
+   "id": "hal-cre-013",
+   "stratum": "story",
+   "source": "hallucination_creative",
+   "prompt": "Tell me a story about a lost dog finding its way home.",
+   "response": "Barnaby was not a big dog, nor was he particularly brave. He was a golden retriever mix with ears that drooped slightly more than necessary and a heart that beat a little too fast when the thunder rolled. But what Barnaby lacked in size, he made up for in scent. He could smell a dropped ice cream cone from three blocks away, and he could smell his owner, Leo, from anywhere.\n\nOr so he thought.\n\nIt started with a squirrel. A particularly audacious, twitchy-tailed squirrel that had dared to cross Barnaby’s path during their evening walk in Oakhaven Park. Barnaby gave chase, his paws pounding the pavement, his nose to the ground, following the musky trail of the intruder. He ran past the big oak tree, past the fountain, and through the gap in the fence near the old playground—a gap he had always ignored because Leo had warned him, \"Not there, Barnaby. Not there.\"\n\nBut the squirrel was fast, and Barnaby was faster.\n\nWhen the squirrel vanished into a hollow log, Barnaby skidded to a halt, panting. He looked around. The park was gone. The familiar scent of cut grass and lemonade from the nearby stand was replaced by the damp, earthy smell of pine needles and wet asphalt. He was in a different neighborhood. The houses here were taller, the cars stranger, and the shadows longer.\n\nBarnaby whined. He turned in a circle, his tail tucked low. He needed Leo.\n\nThe first night was the hardest. Barnaby huddled under a porch, shivering as the rain began to fall. He listened for the click of Leo’s keys, the jingle of his collar, the soft call of his name. But there was only the hiss of tires on wet roads and the distant bark of other dogs—dogs who didn’t smell like home.\n\nOn the second day, hunger gnawed at his belly. He wandered the streets, keeping to the shadows. People walked by, some stopping to say, \"Aww, look at that poor pup,\" but none of them smelled like Leo. One kind woman offered him a scrap of chicken, but Barnaby only sniffed it and looked away. He wanted Leo’s hand, not just food.\n\nThen, he remembered something. Leo always said, \"Follow your nose, Barnaby. Your nose knows the way.\"\n\nBarnaby closed his eyes and took a deep breath.",
+   "response_start": 25,
+   "sites": [
+    {
+     "pos": 33,
+     "token": ",",
+     "kind": "clause",
+     "char": 26
+    },
+    {
+     "pos": 115,
+     "token": ".",
+     "kind": "sentence",
+     "char": 395
+    },
+    {
+     "pos": 190,
+     "token": ",",
+     "kind": "clause",
+     "char": 725
+    },
+    {
+     "pos": 246,
+     "token": ",",
+     "kind": "clause",
+     "char": 970
+    },
+    {
+     "pos": 318,
+     "token": ".",
+     "kind": "sentence",
+     "char": 1290
+    },
+    {
+     "pos": 375,
+     "token": ",",
+     "kind": "clause",
+     "char": 1509
+    },
+    {
+     "pos": 444,
+     "token": ",",
+     "kind": "clause",
+     "char": 1795
+    },
+    {
+     "pos": 499,
+     "token": "\n\n",
+     "kind": "newline",
+     "char": 2013
+    }
+   ]
+  },
+  {
+   "id": "hal-cre-014",
+   "stratum": "story",
+   "source": "hallucination_creative",
+   "prompt": "Tell me a story set in a small mountain village.",
+   "response": "The village of Oakhaven clung to the side of Mount Aethelgard like a barnacle to a ship’s hull. It was a place where the air tasted of pine resin and cold stone, and where the sun seemed to spend more time hiding behind the clouds than shining down.\n\nFor generations, the people of Oakhaven lived by a simple rule: **Never go into the Whispering Woods after dusk.**\n\nThe woods were dense, ancient, and unnervingly quiet. No birds sang there. No insects buzzed. And if you listened closely, you could hear voices—faint, echoing whispers that sounded suspiciously like your own name.\n\nElara was the only one who didn’t believe the stories. At twenty-two, she was the village’s only mapmaker, a profession that required her to venture into the woods during the day to chart new paths for the spring herb harvest. She respected the woods, but she didn’t fear them. \"It’s just wind through the hollow branches,\" she’d tell the elders, rolling her eyes. \"And imagination.\"\n\nBut this year, the autumn had come early. The leaves turned crimson by mid-September, and the nights grew long and biting. One evening, as Elara was finishing a map of the northern ridge, her younger brother, Finn, burst into her workshop.\n\n\"Elara! It’s happening again,\" he gasped, his face pale. \"The whispers. They’re louder tonight. They’re calling *you*.\"\n\nElara frowned. \"Finn, it’s just the wind. Go inside.\"\n\n\"No!\" Finn insisted, grabbing her arm. \"They said your name. Clearly. *Elara.* And they said… they said they have your father’s compass.\"\n\nElara froze. Her father, a renowned explorer, had vanished into the Whispering Woods ten years ago. All they had found was his coat, torn by thorns, and his empty satchel. His brass compass was never recovered. It was his most prized possession, engraved with the coordinates of Oakhaven.\n\n\"Show me,\" Elara said quietly.\n\nFinn led her to the edge of the village, where the cobblestone path gave way to dark, tangled undergrowth. The air was indeed thick with sound. It wasn’t wind. It was a low, harmonic hum, like a thousand voices singing in a language just beyond understanding. And beneath it, faint but distinct: *\"Elara… Elara…\"*\n\n",
+   "response_start": 23,
+   "sites": [
+    {
+     "pos": 48,
+     "token": ".",
+     "kind": "sentence",
+     "char": 95
+    },
+    {
+     "pos": 125,
+     "token": ".",
+     "kind": "sentence",
+     "char": 441
+    },
+    {
+     "pos": 218,
+     "token": " \"",
+     "kind": "quote",
+     "char": 862
+    },
+    {
+     "pos": 284,
+     "token": ",",
+     "kind": "clause",
+     "char": 1155
+    },
+    {
+     "pos": 326,
+     "token": " *",
+     "kind": "markup",
+     "char": 1322
+    },
+    {
+     "pos": 358,
+     "token": " \"",
+     "kind": "quote",
+     "char": 1425
+    },
+    {
+     "pos": 418,
+     "token": ",",
+     "kind": "clause",
+     "char": 1672
+    },
+    {
+     "pos": 492,
+     "token": ".",
+     "kind": "sentence",
+     "char": 1989
+    }
+   ]
+  },
+  {
+   "id": "hal-cre-015",
+   "stratum": "story",
+   "source": "hallucination_creative",
+   "prompt": "Write a short story about a chess match.",
+   "response": "The rain lashed against the windowpane of *The Grandfather’s Clock*, a dimly lit café tucked away in the city’s oldest district. Inside, the air smelled of roasted beans and old paper. At table four, two men sat locked in a silence so profound it seemed to dampen the clatter of cups nearby.\n\nArthur, a retired professor with silver hair and trembling hands, moved his knight. It was a quiet move, unassuming, but it opened a diagonal line that stretched like a threat across the board.\n\nOpposite him sat Elias, a young programmer whose eyes burned with the cold, calculating light of someone who had spent too many nights staring at screens. Elias didn’t blink. He leaned forward, his fingers hovering over his bishop.\n\n\"You’re playing for a draw, Arthur,\" Elias said, his voice low. \"You know I can’t beat you in an endgame if you hold the center.\"\n\nArthur smiled, a faint crack in his stoic face. \"I’m not playing for a draw, boy. I’m playing for time.\"\n\nElias frowned. He had analyzed this position on his laptop three times before walking into the café. The engine said *White has a slight advantage*. But engines didn’t account for the way Arthur’s left hand tapped a rhythmic, erratic beat against the table leg—a tic he’d developed after his wife passed. Or the way the rain made the floorboards creak, distracting Elias’s peripheral vision.\n\nElias pushed his bishop forward. A trap? Or a test?\n\nArthur didn’t hesitate. He captured the pawn on f7. It was a blunder, according to every chess database in existence. It opened the king’s defense.\n\nElias’s eyes widened. He saw it immediately. In three moves, he could checkmate. He reached for his queen, his heart pounding with the thrill of victory. This was it. The proof that logic, pure and unadulterated, could conquer intuition.\n\nBut as his fingers touched the cold plastic of the queen, he stopped.\n\nHe looked at Arthur. The old man wasn’t looking at the board. He was looking at Elias. And in Arthur’s eyes, there was no fear, only a deep, weary patience.\n\n*Why would he make that mistake?* Elias thought. *Unless it’s not a mistake.*\n\nElias pulled his hand back. He scanned the board again, slower this time.",
+   "response_start": 21,
+   "sites": [
+    {
+     "pos": 30,
+     "token": " *",
+     "kind": "markup",
+     "char": 43
+    },
+    {
+     "pos": 104,
+     "token": ".",
+     "kind": "sentence",
+     "char": 376
+    },
+    {
+     "pos": 176,
+     "token": "\n\n",
+     "kind": "newline",
+     "char": 721
+    },
+    {
+     "pos": 232,
+     "token": ",",
+     "kind": "clause",
+     "char": 928
+    },
+    {
+     "pos": 322,
+     "token": ".",
+     "kind": "sentence",
+     "char": 1349
+    },
+    {
+     "pos": 373,
+     "token": "\n\n",
+     "kind": "newline",
+     "char": 1553
+    },
+    {
+     "pos": 430,
+     "token": "\n\n",
+     "kind": "newline",
+     "char": 1792
+    },
+    {
+     "pos": 486,
+     "token": "\n\n",
+     "kind": "newline",
+     "char": 2021
+    }
+   ]
+  },
+  {
+   "id": "hal-cre-016",
+   "stratum": "story",
+   "source": "hallucination_creative",
+   "prompt": "Tell me a story about two siblings and a secret garden.",
+   "response": "The iron gate at the end of Elm Street had been rusted shut for as long as Leo and Maya could remember. It stood at the edge of their grandmother’s overgrown property, a jagged silhouette against the twilight sky. To the neighbors, it was just an eyesore. To Leo, twelve and pragmatic, it was a safety hazard. To Maya, nine and imaginative, it was a portal.\n\n\"It’s locked, Leo,\" Maya said, tugging at the chain that bound the latch. \"But not forever.\"\n\nLeo sighed, adjusting his glasses. \"It’s been locked since Gran moved to the city. The council said it’s unsafe. We shouldn’t be here.\"\n\n\"Gran left us the key,\" Maya whispered, pulling a small, tarnished brass key from her pocket. It was hidden inside a hollowed-out book of poetry, a discovery she’d made only days before. \"She said we’d know when it was time.\"\n\nLeo looked at his sister. Her eyes were wide, reflecting the fading purple of the sunset. He wanted to argue, to cite logic and caution, but he saw the spark in her gaze—the same spark that had made her name the stray cat *Sir Pounce-a-Lot* and convince him that the clouds were shapes of dragons. He sighed, reached into his pocket, and pulled out his multi-tool. \"If we get caught, I’m blaming you.\"\n\nMaya grinned. \"Deal.\"\n\nThe key turned with a screech that echoed through the quiet street. The chain rattled loose. With a groan of protesting metal, the gate swung inward.\n\nThey stepped through, expecting weeds and decay. Instead, they found a world suspended in time.\n\nThe garden was not overgrown; it was *alive*. Vines thick as ropes wove through ancient stone arches, blooming with flowers that seemed to glow with their own inner light—petals of deep indigo, shimmering gold, and a white so pure it hurt to look at. The air smelled of jasmine, damp earth, and something else… something sweet, like old paper and honey.\n\n\"Wow,\" Leo breathed, his skepticism melting away.\n\nIn the center of the garden stood a tree unlike any they had seen. Its bark was silver, and its leaves were translucent, catching the last rays of the sun like stained glass. Beneath it sat a stone bench, clean and inviting.\n\n\"Look,\" Maya pointed.\n\n",
+   "response_start": 24,
+   "sites": [
+    {
+     "pos": 47,
+     "token": ".",
+     "kind": "sentence",
+     "char": 103
+    },
+    {
+     "pos": 110,
+     "token": ",",
+     "kind": "clause",
+     "char": 372
+    },
+    {
+     "pos": 163,
+     "token": ".\"",
+     "kind": "sentence",
+     "char": 588
+    },
+    {
+     "pos": 225,
+     "token": ".",
+     "kind": "sentence",
+     "char": 842
+    },
+    {
+     "pos": 308,
+     "token": ",",
+     "kind": "clause",
+     "char": 1200
+    },
+    {
+     "pos": 361,
+     "token": ",",
+     "kind": "clause",
+     "char": 1415
+    },
+    {
+     "pos": 438,
+     "token": ".",
+     "kind": "sentence",
+     "char": 1741
+    },
+    {
+     "pos": 488,
+     "token": ".",
+     "kind": "sentence",
+     "char": 1963
+    }
+   ]
+  },
+  {
+   "id": "hal-cre-017",
+   "stratum": "story",
+   "source": "hallucination_creative",
+   "prompt": "Tell me a story about an astronaut's first day on Mars.",
+   "response": "The silence was the first thing Commander Elara Vance noticed. Not the absence of sound, exactly—her suit’s life support hummed a steady, rhythmic lullaby, and the comms crackled with Mission Control’s static-laced cheers—but the *weight* of the silence. On Earth, silence was just a pause between noises. Here, on the rusted plains of Jezero Crater, silence felt like a physical presence, ancient and watching.\n\nElara took a breath, the recycled air tasting faintly of metal and ozone. She looked down at her boots, planted firmly in the regolith. The dust wasn’t like sand. It was finer, sharper, clinging to her suit’s joints with a magnetic stubbornness that made every movement feel deliberate, heavy.\n\n\"Vance, this is Houston. Telemetry looks green. How’s the ground?\" The voice of Director Chen was warm, but distant, delayed by eleven minutes of light-speed travel.\n\nElara keyed her mic. \"Houston, Vance. The ground is... solid. Redder than the sims. Much redder.\" She paused, looking out at the horizon. The sky wasn’t blue. It was a butterscotch haze, fading to a pale pink near the zenith. The sun was smaller, a cold, white coin in the vastness. \"It’s beautiful, Houston. Terrifyingly beautiful.\"\n\nShe took her first real step. Not the careful, practiced shuffle of the landing, but a true stride. The low gravity—38% of Earth’s—made her feel light, buoyant. She bounded forward, then stopped, laughing softly into her helmet. It felt like walking in a dream, where every step launched you slightly higher, longer.\n\n\"Careful, Elara,\" Chen’s voice came through, delayed. \"We don’t want you floating off.\"\n\n\"Noted,\" she said, but she couldn’t help the grin tugging at her lips. She looked down at the patch on her shoulder: the mission emblem, a stylized eagle over a red sphere. *Ares I.* The first.\n\nHer task was simple: deploy the seismometer, collect three core samples, and return to the habitat, *The Haven*. But as she walked toward the designated site, her eyes caught something glinting in the shadow of a basalt outcrop. Not ice. Not rock. Something metallic.\n\nShe approached slowly, her heart hammering against her ribs.",
+   "response_start": 25,
+   "sites": [
+    {
+     "pos": 36,
+     "token": ".",
+     "kind": "sentence",
+     "char": 62
+    },
+    {
+     "pos": 118,
+     "token": ".",
+     "kind": "sentence",
+     "char": 411
+    },
+    {
+     "pos": 188,
+     "token": ",",
+     "kind": "clause",
+     "char": 715
+    },
+    {
+     "pos": 240,
+     "token": ".",
+     "kind": "sentence",
+     "char": 936
+    },
+    {
+     "pos": 305,
+     "token": ".",
+     "kind": "sentence",
+     "char": 1183
+    },
+    {
+     "pos": 359,
+     "token": ",",
+     "kind": "clause",
+     "char": 1405
+    },
+    {
+     "pos": 409,
+     "token": "\n\n",
+     "kind": "newline",
+     "char": 1617
+    },
+    {
+     "pos": 476,
+     "token": ",",
+     "kind": "clause",
+     "char": 1884
+    }
+   ]
+  },
+  {
+   "id": "hal-cre-018",
+   "stratum": "story",
+   "source": "hallucination_creative",
+   "prompt": "Write a short fable with a moral.",
+   "response": "### The Clockmaker and the Wind\n\nIn a quiet village nestled between steep mountains, there lived a master clockmaker named Elias. Elias was famous for his precision; every gear in his clocks ticked with perfect regularity, and every second was accounted for. He believed that life, like his clocks, should be strictly ordered and predictable.\n\nOne day, a young girl named Mira came to his shop. She held a delicate music box that had stopped working. \"Please, Master Elias,\" she said, \"my grandmother’s voice is trapped inside. It won’t play her lullaby.\"\n\nElias opened the box with his usual confidence. He inspected the gears, tightened the springs, and aligned the pins. \"It is merely a matter of tension,\" he declared. \"I will fix it in moments.\" But no matter how much he tightened the spring, the music box remained silent. Frustrated, Elias shook the box. \"It is broken beyond repair,\" he grumbled. \"The mechanism is too fragile for such force.\"\n\nMira looked out the window, where a gentle breeze was rustling the leaves of an old oak tree. \"Perhaps,\" she said softly, \"it doesn’t need to be forced. Perhaps it needs to breathe.\"\n\nConfused, Elias watched her. Mira didn’t touch the gears. Instead, she held the box up to the window, letting the cool mountain air flow through the tiny vents. She waited patiently, listening to the hum of the wind. After a long minute, as the air pressure equalized and the temperature settled, a soft, clear note emerged from the box. Then another. Soon, the lullaby played beautifully, not because it was forced, but because it was allowed to settle.\n\nElias stared in awe. He had spent his life trying to control time, but he had never considered that some things require stillness and patience to function.\n\nFrom that day on, Elias left his shop window open. He still built precise clocks, but he also learned to sit quietly and listen to the wind.\n\n**Moral:** *Not everything can be fixed by force; sometimes, the gentlest approach yields the most beautiful results.*",
+   "response_start": 21,
+   "sites": [
+    {
+     "pos": 21,
+     "token": "###",
+     "kind": "markup",
+     "char": 3
+    },
+    {
+     "pos": 89,
+     "token": "\n\n",
+     "kind": "newline",
+     "char": 344
+    },
+    {
+     "pos": 141,
+     "token": "\n\n",
+     "kind": "newline",
+     "char": 557
+    },
+    {
+     "pos": 195,
+     "token": ",",
+     "kind": "clause",
+     "char": 798
+    },
+    {
+     "pos": 254,
+     "token": ".",
+     "kind": "sentence",
+     "char": 1047
+    },
+    {
+     "pos": 291,
+     "token": ".",
+     "kind": "sentence",
+     "char": 1195
+    },
+    {
+     "pos": 356,
+     "token": ",",
+     "kind": "clause",
+     "char": 1495
+    },
+    {
+     "pos": 423,
+     "token": ".",
+     "kind": "sentence",
+     "char": 1801
+    }
+   ]
+  },
+  {
+   "id": "hal-cre-019",
+   "stratum": "story",
+   "source": "hallucination_creative",
+   "prompt": "Tell me a story about a baker who wakes before dawn.",
+   "response": "The world was still holding its breath in the deep, indigo silence of 3:00 AM when Elias Thorne opened his eyes. He didn’t need an alarm clock; his body knew the rhythm of the oven as well as his own heartbeat.\n\nOutside his small cottage on the edge of the sleepy town of Oakhaven, the streetlamps cast long, lonely shadows against the cobblestones. The air was crisp, carrying the scent of damp earth and distant rain. Elias swung his legs out of bed, the floorboards cool beneath his bare feet, and shuffled toward the kitchen.\n\nThis was his sacred hour. Before the newspapers were delivered, before the milk trucks rumbled down the main street, before the first birds dared to sing, Elias belonged to the flour and the fire.\n\nHe lit the pilot light under the massive brick oven, watching the blue flame flicker to life. Then, he began the ritual. He measured the flour—soft, white clouds that settled gently into his bowl. He cracked eggs, their yolks bright as sunsets against the pale mixture. He added yeast, a pinch of salt, and warm water infused with vanilla bean.\n\nAs he kneaded the dough, his hands working the elastic mass with practiced strength, Elias felt the quiet hum of creation. There was no rush here. No emails to answer, no voices to please. Just the rhythmic *thump, fold, turn* of dough against wood.\n\nBy 4:30 AM, the first batch of sourdough was proofing, rising slowly in the warmth of the oven’s residual heat. Next came the croissants—layers of butter and dough, folded six times, each layer a promise of flaky perfection. He shaped them with delicate precision, placing them on baking sheets like tiny, pale crescent moons.\n\nAt 5:00 AM, he slid the trays into the oven. The heat washed over him, warm and enveloping. He closed the oven door and leaned against the counter, sipping strong black coffee from a chipped mug. He watched the steam rise, invisible in the cool kitchen air, and listened to the faint *pop* of the dough beginning to bake.\n\nThen, the smell came.\n\nIt started as a whisper—a hint of toasted wheat and caramelized sugar. Then it grew, bold and inviting, filling the small kitchen, seeping under the door, drifting out the window into the sleeping town.",
+   "response_start": 24,
+   "sites": [
+    {
+     "pos": 34,
+     "token": ",",
+     "kind": "clause",
+     "char": 51
+    },
+    {
+     "pos": 121,
+     "token": ".",
+     "kind": "sentence",
+     "char": 419
+    },
+    {
+     "pos": 186,
+     "token": "\n\n",
+     "kind": "newline",
+     "char": 729
+    },
+    {
+     "pos": 249,
+     "token": ",",
+     "kind": "clause",
+     "char": 1014
+    },
+    {
+     "pos": 309,
+     "token": " *",
+     "kind": "markup",
+     "char": 1283
+    },
+    {
+     "pos": 359,
+     "token": "—",
+     "kind": "clause",
+     "char": 1463
+    },
+    {
+     "pos": 415,
+     "token": ".",
+     "kind": "sentence",
+     "char": 1698
+    },
+    {
+     "pos": 477,
+     "token": "\n\n",
+     "kind": "newline",
+     "char": 1977
+    }
+   ]
+  }
+ ]
+}

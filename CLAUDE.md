@@ -2,7 +2,8 @@
 
 Suite of evals for the **types and severities** of hallucination in activation-reading lenses.
 First eval: `wsbench_chat` (plan `plans/0001-bootstrap-wsbench-chat-taxonomy.md` is the spec);
-the claim map / taxonomy v2 is plan `plans/0002-claim-map-taxonomy-v2.md`.
+the claim map / taxonomy v2 is plan `plans/0002-claim-map-taxonomy-v2.md`; the `story` eval (the
+claim map on 20 story items, `--eval story`) is plan `plans/0003-story-eval.md`.
 
 ## Layout
 
@@ -23,7 +24,10 @@ src/hallucination_bench/
   judges/v5c.py   verbatim v5c span + verify prompts/parsers; claim_lists (quotes, checked vs tally)
   judges/taxonomy_v1.py  classifier prompt, schema, validate, fail-closed parse
   judges/claimmap_v2.py  claim-map prompt, schema, validate, parse -> segments (forced/disputed)
-  evals/wsbench_chat/{bank,run,score}.py   bank + grid; pipeline; metrics + bootstrap
+  evals/__init__.py  EVALS registry + bank_for(name); Models.eval picks the bank and <out>/<eval>/
+  evals/_bank_common.py  sites / positions / marked response / expected grid (every bank)
+  evals/story/bank.py    the story bank (data/story); the pipeline is wsbench_chat's (plan 0003)
+  evals/wsbench_chat/{bank,run,score}.py   bank + grid; pipeline (shared); metrics + bootstrap
   evals/wsbench_chat/score_v2.py   claim-map metrics (char-weighted shares, rates, comparisons)
   calibrate.py    classifier vs gold cases, Wilson CIs, the held-out gate
   calibrate_v2.py claim map vs unit-level gold (dev_v2 / heldout_v2), the v2 gate
@@ -34,7 +38,10 @@ src/hallucination_bench/
 data/wsbench_chat/   verbatim copies from wsbench-pub @ 92d763e (never edit)
 data/calibration/    dev.jsonl (implementer), heldout.jsonl (blind author only), README (schema + log)
                      dev_v2.jsonl (implementer), heldout_v2.jsonl (blind author only)
+data/story/          20 story items x 8 sites + capture rows, built by scripts/build_story_bank.py
 scripts/run_all_arms.sh  tmux driver for the full run
+scripts/build_story_bank.py  writes data/story/ from global-workspace's hallucination_creative bank
+scripts/fetch_story_readouts.sh  Modal story gen dir -> /workspace/hb-readouts-story/<arm>/ + grid check
 scripts/build_dev_v2.py  writes dev_v2.jsonl (labels live here; re-run if the splitter changes)
 ```
 
@@ -79,6 +86,16 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
 ```
 
 ## Gotchas
+
+- **`--eval story`** (plan 0003) exists on `run` and `report` only. Its outputs live under
+  `outputs/story/<model>/`, and its readouts are not in git:
+  `/workspace/hb-readouts-story/<arm>/hallucination.jsonl`, produced by the Modal reads of
+  `wsbench-acts:/acts-hallucination-story[-L42]`.
+  - Story is **always pre-gate**, because the held-out gate is chat gold. Its report has no
+    judge-noise numbers.
+  - Never run `consistency-v2` for story: it is chat-only, and its output file is the chat noise
+    source.
+  - `pilot-dump*`, `calibrate` and `units-v2` are chat-only.
 
 - **Keyless Anthropic auth.** With `ANTHROPIC_API_KEY` unset, `AsyncAnthropic()` picks up the
   `ant` CLI OAuth profile (`ant auth status`). Never require the env var. If the profile's
