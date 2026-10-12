@@ -1,9 +1,48 @@
 # Plan 0004: 11-layer sibling claims, probe validation, and a post-probe verdict judge
 
-Issue #5 (continued), PR #6. Author: Camila Blank (planned with Claude), 2026-10-12. Revision 2 (after critique 1).
+Issue #5 (continued), PR #6. Author: Camila Blank (planned with Claude), 2026-10-12. Revision 3 (after critiques 1–2 + Camila's NLA choice).
 Builds on plan 0003 (rev 11): the concept inventory, the whitened-DiffMean probe recipe (V2) and
 its gates, cross-fitting, thresholds, and the judge wiring. Everything here not stated otherwise
 reuses plan 0003.
+
+## Revision 3 changes (Camila 2026-10-12 + critique 2). These override revision 2 and the body.
+
+1. **Methods (Camila: "use the l42 nla for now for the 3-overlap post hoc metric, but also try
+   the ml-nla on the side"):**
+   - **Primary methods:** s3d O-lens (11 layers), **NLA-RL L42** (layer 42 only; set-A readouts
+     and v2.7 judge cells already exist; set B from `wsbench-paper-data/readouts/nla-rl-L42/basic_readout.jsonl`)
+     and J-lens (11 layers).
+   - **ML-NLA RL600** (11 layers) gets the full claim → probe → verdict treatment as a
+     **side method**, with its own rows in every figure and table. It also gets an alternative
+     consensus row with ML-NLA in place of NLA-RL L42.
+2. **Consensus (post hoc), final definition:**
+   - At one (item, position, concept), all three primary methods make a **sibling claim**
+     (assertion or option; not the gold; not named in the prompt or response).
+   - s3d and J-lens must claim it within ±1 grid step of each other (the grid is 4 layers:
+     20, 24, …, 60). NLA-RL L42 must claim it at that position.
+   - A unit gets the consensus label only if **its own layer** is within ±1 grid step of the
+     other s3d / J-lens claim. For NLA-RL L42 units, either other method's claim may sit at any
+     layer.
+   - **The ML-NLA variant:** all three of s3d, J-lens and ML-NLA claim the concept within ±1
+     grid step.
+   - Report how many consensus units are early-layer.
+3. **The verdict judge also labels consensus units** (and validated units) for form. That reports
+   how many consensus units it would call hallucination, which checks whether post hoc consensus
+   hides shared-bias hallucinations. The category precedence is unchanged.
+4. **Depth labels:**
+   - The judge always sees the default label: early ≤ 36, mid = 40 (and 42 for NLA-RL), late ≥ 44.
+   - The 32 / 36 / 40 / 44 sweep changes only the **rule** label.
+   - The Step 3 table's "any layer, any position" and the "early = 20–36" wording are
+     superseded by items 2 and 4.
+5. **Headline denominator = all claim units.** Probe n/a is its own category, and the
+   "with probe verdict" rate is secondary.
+6. **Form is judged per segment.** A unit is a hallucination if any of its segments is an
+   assertion of the concept; option if all its segments are options; otherwise unclear. The
+   viewer shows each segment's form.
+7. **Set-B probe coverage:** before building set-B probes, count the claimed concepts that are
+   some item's gold (and so can be validated). Report that count. If fewer than 30% of set-B
+   claims are validatable, say so as a limitation (set B is then mainly about form / layer, and
+   set A carries the probe question).
 
 ## Revision 2 changes (critique 1). These override the text below where they conflict.
 
