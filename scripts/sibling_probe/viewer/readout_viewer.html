@@ -9,7 +9,12 @@
 :root { --bg:#0f1115; --panel:#171a21; --line:#2a2f3a; --ink:#e6e8ee; --dim:#98a0b0;
         --hit:#7ee787; --warn:#f0883e; --jl:#79c0ff; --ol:#d2a8ff; --ml6:#56d4dd; --nla:#f0883e;
         --c-validated:#3fb950; --c-consensus:#2f81f7; --c-option:#d29922; --c-hallucination:#f85149;
-        --c-unclear:#8b949e; --c-probe_na:#a371f7; --c-entity_substitution:#db61a2; }
+        --c-unclear:#8b949e; --c-probe_na:#a371f7; --c-entity_substitution:#db61a2;
+        --l-not:#8b949e; --l-probe:#3fb950; --l-cross:#e3a13b; --l-hall:#f85149; }
+.lad { display:inline-block; padding:0 6px; border-radius:4px; font-size:11px; color:#0b0d12; margin:1px 3px 1px 0; cursor:help; font-weight:600; }
+table.ladt { border-collapse:collapse; width:100%; font-size:12px; }
+table.ladt td, table.ladt th { border-bottom:1px solid var(--line); padding:3px 6px; text-align:left; vertical-align:top; }
+table.ladt th { color:var(--dim); font-weight:500; }
 * { box-sizing:border-box; }
 body { margin:0; background:var(--bg); color:var(--ink); font:14px/1.55 ui-sans-serif,-apple-system,"Segoe UI",Roboto,sans-serif; }
 main { max-width:1760px; margin:0 auto; padding:14px 20px 90px; }
@@ -60,6 +65,7 @@ mark { background:none; color:inherit; border-bottom:2px solid; cursor:help; pad
     <label>layer</label> <select id="laySel"></select>
     <label class="toggle"><input type="checkbox" id="onlyClaims"> items with claims only</label>
     <label class="toggle"><input type="checkbox" id="onlyHuman"> human-label set</label>
+    <label>ladder (plan 0005)</label> <select id="ladSel"><option value="">off</option><option value="any">any ladder unit</option><option value="not committed">not committed</option><option value="probe-validated">probe-validated</option><option value="cross-method allowed">cross-method allowed</option><option value="hallucination">hallucination</option></select>
   </div><div class="row" style="margin-top:6px">
     <label>item</label> <select id="itemSel"></select>
     <button id="prevItem" title="previous item ([)">◀ item</button>
@@ -72,11 +78,13 @@ mark { background:none; color:inherit; border-bottom:2px solid; cursor:help; pad
   <h1>Sibling / substitution claims in lens readouts, with probe verdicts (plan 0004)</h1>
   <p class="sub">Qwen3.6-27B. Set A: the sibling bank (user-modelling cues, read over the request sentence). Set B: WorkspaceBench basic_readout (read at the final prompt token; processing items are viewer-only).
   Readouts: <b class="badge ol">O-lens</b> s3d-rl600, <b class="badge nla">NLA-RL</b> L42 only, <b class="badge jl">J-lens</b> top-10 tokens (+ the judged summary), <b class="badge ml6">ML-NLA RL600</b> side method. A claim is underlined in its readout and listed as a badge; hover for the probe result, the judge's per-segment form, quote and reason, and the layer rule.
-  <span class="legend" id="legend"></span></p>
+  <span class="legend" id="legend"></span>
+  <br>Plan 0005 ladder (basic_readout entity items; pick a value in "ladder"): every lexicon mention of a non-gold category member, judged committed or not, then probe-validated / cross-method allowed / hallucination; double underline = the mention.</p>
   <div id="meta"></div>
   <div class="panel"><div class="prompt" id="prompt"></div></div>
   <div class="panel"><div class="chips" id="chips"></div></div>
   <div id="claims"></div>
+  <div id="ladder"></div>
   <div id="panels"></div>
 </main>
 <div id="tip"></div>
@@ -94,8 +102,36 @@ function catSpan(c, extra) { return `<span class="cat" style="background:var(--c
 $("legend").innerHTML = " Categories: " + CATS.map((c) => catSpan(c)).join("");
 function keepVisible(el, box, center) { if (!el || !box) return; const r = el.getBoundingClientRect(), b = box.getBoundingClientRect(); if (r.top >= b.top && r.bottom <= b.bottom) return; box.scrollTop += r.top - b.top - (center ? (b.height - r.height) / 2 : 4); }
 
-function filters() { return {set: $("setSel").value, cat: $("catSel").value, meth: $("methSel").value, lay: $("laySel").value, claims: $("onlyClaims").checked, human: $("onlyHuman").checked}; }
+const LADCLS = {"not committed":"not", "probe-validated":"probe", "cross-method allowed":"cross", "hallucination":"hall"};
+function ladSpan(b, extra) { return `<span class="lad" style="background:var(--l-${LADCLS[b.label]})" data-l="${esc(b.uid)}" ${extra||""}>${esc(b.label)}${b.weak_null ? " (weak null)" : ""}</span>`; }
+function filters() { return {set: $("setSel").value, cat: $("catSel").value, meth: $("methSel").value, lay: $("laySel").value, claims: $("onlyClaims").checked, human: $("onlyHuman").checked, lad: $("ladSel").value}; }
+function passLad(b, f) {
+  if (f.lad && f.lad !== "any" && b.label !== f.lad) return false;
+  if (f.meth && b.method !== f.meth) return false;
+  if (f.lay && b.layer !== +f.lay) return false;
+  return true;
+}
+function ladderAt(q) { const f = filters(); return (CUR.ladder || []).filter((b) => b.pos === q && passLad(b, f)); }
+function probeTxt(b) {
+  const p = b.probe || {};
+  if (!b.committed) return "—";
+  if (p.status === "n/a") return `n/a (${esc(p.reason)})`;
+  const v = p.view || {};
+  const r = (p.pair || []).map((k) => v[k] ? `${k} rank ${(+v[k].rank).toFixed(2)} p ${(+v[k].p).toFixed(3)}` : k).join("; ");
+  return `${p.status === "fires" ? "<b>fires</b>" : "does not fire"} at L${b.eff_layer} (${r})${p.fire_pm1 && p.status !== "fires" ? " · fires at ±1 step" : ""}`;
+}
+function crossTxt(b) {
+  const f = (xs) => (xs || []).map(([m, L]) => `${m} L${L}`).join(", ") || "none";
+  return `±1 step: ${f(b.cross_primary)} · any layer: ${f(b.cross_any)}${b.cross_primary && b.cross_primary.length && !b.cross_no_prior ? " · <span style='color:var(--warn)'>all lens-prior flagged</span>" : ""}`;
+}
+function ladTip(b) {
+  const ss = (b.samples || []).map((x) => `<div>s${x.si}: <b>${x.committed ? "committed" : "not committed"}</b> <span class="k">${esc(x.form)}</span> “${esc((x.quote || "").slice(0, 160))}”</div>`).join("");
+  return `<div>${ladSpan(b)} <b>${esc(b.concept)}</b> · ${esc(IX.methods[b.method] || b.method)} · L${b.eff_layer} · pos ${b.pos}${b.entity_substitution ? " · entity substitution" : ""}</div>` +
+    `<div><span class="k">probe:</span> ${probeTxt(b)}</div><div><span class="k">cross-method:</span> ${crossTxt(b)}</div>` +
+    `<div><span class="k">own lens prior:</span> ${b.lens_prior == null ? "—" : (+b.lens_prior).toFixed(2)} · <span class="k">sensitivities:</span> any-layer ${esc(b.label_any_layer)}, no-prior ${esc(b.label_no_prior)}, probe ±1 ${esc(b.label_probe_pm1)}</div>` + ss;
+}
 function passItem(e, f) {
+  if (f.lad && !(e.ladder && (f.lad === "any" ? Object.values(e.ladder).some((n) => n > 0) : e.ladder[f.lad] > 0))) return false;
   if (f.set && e.set !== f.set) return false;
   if (f.human && !e.human) return false;
   if (f.cat && !(e.cats[f.cat] > 0)) return false;
@@ -156,41 +192,52 @@ function renderChips() {
   keepVisible($("chips").querySelector(".chip.on"), $("chips"), false);
 }
 const BADGE_ID = {};
-function markSamples(samples, bs) {
-  // bs: badges whose segments index into these samples
+function markSamples(samples, bs, ls, src) {
+  // bs: badges whose segments index into these samples; ls: ladder badges (spans of source src, readout 0)
   return samples.map((t, r) => {
     const spans = [];
-    bs.forEach((b) => (b.segments || []).forEach((s) => { if (s.readout === r && s.start != null) spans.push([s.start, s.end, b]); }));
+    bs.forEach((b) => (b.segments || []).forEach((s) => { if (s.readout === r && s.start != null) spans.push([s.start, s.end, b, null]); }));
+    if (r === 0 && samples.length === 1) (ls || []).forEach((l) => (l.spans || []).forEach((s) => { if (s.src === src) spans.push([s.start, s.end, null, l]); }));
     spans.sort((a, b) => a[0] - b[0] || b[1] - a[1]);
     let out = "", at = 0;
-    for (const [s, e, b] of spans) {
+    for (const [s, e, b, l] of spans) {
       if (s < at) continue;
-      out += esc(t.slice(at, s)) + `<mark data-b="${BADGE_ID[b.uid]}" style="border-color:var(--c-${b.category})">${esc(t.slice(s, e))}</mark>`;
+      out += esc(t.slice(at, s)) + (l ? `<mark data-l="${esc(l.uid)}" style="border-color:var(--l-${LADCLS[l.label]});border-bottom-style:double">${esc(t.slice(s, e))}</mark>`
+                                     : `<mark data-b="${BADGE_ID[b.uid]}" style="border-color:var(--c-${b.category})">${esc(t.slice(s, e))}</mark>`);
       at = e;
     }
     return `<div class="samp">${out + esc(t.slice(at))}</div>`;
   }).join("");
 }
-function readout(m, cls, v, bs) {
+function readout(m, cls, v, bs, ls) {
   if (v === undefined) return `<div class="readout ${cls} dim">(not read here)</div>`;
-  const chips = bs.map((b) => catSpan(b.category, `data-b="${BADGE_ID[b.uid]}"`) + `<span class="dim" style="font-size:11px">${esc(b.concept)}</span> `).join("");
+  const chips = bs.map((b) => catSpan(b.category, `data-b="${BADGE_ID[b.uid]}"`) + `<span class="dim" style="font-size:11px">${esc(b.concept)}</span> `).join("") +
+    (ls || []).map((l) => ladSpan(l) + `<span class="dim" style="font-size:11px">${esc(l.concept)}</span> `).join("");
   if (m === "jlens") {
     const toks = (v.tokens || []).map(([t, s]) => `<span class="jtok">${esc(shown(t)) || "␣"}<i>${s}</i></span>`).join("");
-    const sm = v.summary ? `<div class="mono" style="margin-top:3px"><span class="dim">summary: </span>${markSamples([v.summary], bs)}</div>` : "";
+    const sm = v.summary ? `<div class="mono" style="margin-top:3px"><span class="dim">summary: </span>${markSamples([v.summary], bs, ls, "summary")}</div>` : "";
     return `<div class="readout ${cls}">${chips ? `<div>${chips}</div>` : ""}${toks}${sm}</div>`;
   }
   if (!v.length) return `<div class="readout ${cls} dim">(empty)</div>`;
-  return `<div class="readout ${cls} mono">${chips ? `<div>${chips}</div>` : ""}${markSamples(v, bs)}</div>`;
+  return `<div class="readout ${cls} mono">${chips ? `<div>${chips}</div>` : ""}${markSamples(v, bs, ls, "text")}</div>`;
 }
 function renderPanels() {
   const [q, s, e] = CUR.pos[pi], R = CUR.readouts || {}, bsAll = badgesAt(q);
   bsAll.forEach((b, k) => { BADGE_ID[b.uid] = b.uid; });
   const lb = (m, L) => bsAll.filter((b) => b.method === m && b.layer === L);
+  const lsAll = filters().lad ? ladderAt(q) : [];
+  const ll = (m, L) => lsAll.filter((b) => b.method === m && b.layer === L);
+  if (lsAll.length) {
+    const rows = [...lsAll].sort((a, b) => a.method.localeCompare(b.method) || a.eff_layer - b.eff_layer || a.concept.localeCompare(b.concept));
+    $("ladder").innerHTML = `<div class="panel"><b>Ladder (plan 0005)</b> <span class="dim">${rows.length} unit(s) at this position · hover a label for every sample's form and quote</span>` +
+      `<table class="ladt"><tr><th>label</th><th>concept</th><th>method</th><th>layer</th><th>committed / not</th><th>quote</th><th>probe</th><th>cross-method</th><th>prior</th></tr>` +
+      rows.map((b) => `<tr><td>${ladSpan(b)}</td><td>${esc(b.concept)}</td><td>${esc(b.method)}</td><td>L${b.eff_layer}</td><td>${b.n_committed} / ${b.n_not_committed}</td><td class="mono">${esc((b.quote || "").slice(0, 120))}</td><td>${probeTxt(b)}</td><td>${crossTxt(b)}</td><td>${b.lens_prior == null ? "—" : (+b.lens_prior).toFixed(2)}</td></tr>`).join("") + `</table></div>`;
+  } else $("ladder").innerHTML = (filters().lad && CUR.ladder) ? `<div class="panel dim">No ladder units match at this position.</div>` : "";
   let h = `<h2>Position ${q} · token ${esc(JSON.stringify(CUR.text.slice(s, e)))} <span class="dim">(${pi + 1}/${CUR.pos.length})</span></h2>`;
   if (bsAll.length) h += `<div class="panel">${bsAll.map((b) => catSpan(b.category, `data-b="${b.uid}"`) + `<span class="dim">${esc(b.concept)} · ${esc(b.method)} L${b.layer}</span>`).join(" &nbsp; ")}</div>`;
   if (on["nla-rl-L42"]) {
     const v = ((R["nla-rl-L42"] || {})[String(q)] || {})["42"];
-    h += `<div class="panel"><span class="badge nla">${esc(IX.methods["nla-rl-L42"])}</span>${readout("nla", "nla", v, lb("nla-rl-L42", 42))}</div>`;
+    h += `<div class="panel"><span class="badge nla">${esc(IX.methods["nla-rl-L42"])}</span>${readout("nla", "nla", v, lb("nla-rl-L42", 42), ll("nla-rl-L42", 42))}</div>`;
   }
   const cols = COLS.filter(([m]) => on[m]);
   const layers = new Set();
@@ -200,7 +247,7 @@ function renderPanels() {
   if (cols.length && Ls.length) {
     h += `<div class="grid" style="grid-template-columns:44px ${cols.map(([m]) => m === "jlens" ? "minmax(200px,0.7fr)" : "minmax(240px,1fr)").join(" ")}">`;
     h += `<div></div>` + cols.map(([m, c]) => `<div class="colhead badge ${c}">${esc(IX.methods[m])}</div>`).join("");
-    for (const L of Ls) h += `<div class="lhead">L${L}</div>` + cols.map(([m, c]) => readout(m, c, ((R[m] || {})[String(q)] || {})[String(L)], lb(m, L))).join("");
+    for (const L of Ls) h += `<div class="lhead">L${L}</div>` + cols.map(([m, c]) => readout(m, c, ((R[m] || {})[String(q)] || {})[String(L)], lb(m, L), ll(m, L))).join("");
     h += `</div>`;
   }
   $("panels").innerHTML = h;
@@ -217,7 +264,7 @@ async function show(newIi, newPi) {
   ii = Math.max(0, Math.min(LIST.length - 1, newIi));
   CUR = await loadItem(LIST[ii].key);
   // default position: the first one with a matching claim, else the last
-  if (newPi === "claim") { const k = CUR.pos.findIndex(([q]) => badgesAt(q).length); newPi = k >= 0 ? k : 1e9; }
+  if (newPi === "claim") { const k = CUR.pos.findIndex(([q]) => badgesAt(q).length || (filters().lad && ladderAt(q).length)); newPi = k >= 0 ? k : 1e9; }
   pi = Math.max(0, Math.min(CUR.pos.length - 1, newPi));
   $("itemSel").value = String(ii);
   renderMeta(); renderPrompt(); renderChips(); renderPanels();
@@ -228,6 +275,8 @@ function stepPos(d) { const n = CUR.pos.length; if (pi + d >= 0 && pi + d < n) s
 function stepItem(d) { const ni = ii + d; if (ni >= 0 && ni < LIST.length) show(ni, "claim"); }
 function onFilter() { const k = rebuildList(LIST[ii] && LIST[ii].key); show(k, "claim"); }
 document.addEventListener("mouseover", (e) => {
+  const tl = e.target.closest("[data-l]");
+  if (tl && CUR) { const b = (CUR.ladder || []).find((x) => x.uid === tl.dataset.l); if (b) { $("tip").innerHTML = ladTip(b); $("tip").style.display = "block"; return; } }
   const t = e.target.closest("[data-b]"); const tip = $("tip");
   if (!t || !CUR) { tip.style.display = "none"; return; }
   const b = (CUR.badges || []).find((x) => x.uid === t.dataset.b); if (!b) return;
@@ -237,7 +286,7 @@ document.addEventListener("mousemove", (e) => { const tip = $("tip"); if (tip.st
 $("prompt").addEventListener("click", (e) => { const t = e.target.closest(".tok"); if (t) show(ii, +t.dataset.i); });
 $("chips").addEventListener("click", (e) => { const t = e.target.closest(".chip"); if (t) show(ii, +t.dataset.i); });
 $("itemSel").onchange = (e) => { show(+e.target.value, "claim"); e.target.blur(); };
-["setSel", "catSel", "methSel", "laySel", "onlyClaims", "onlyHuman"].forEach((id) => $(id).addEventListener("change", (e) => { onFilter(); e.target.blur(); }));
+["setSel", "catSel", "methSel", "laySel", "onlyClaims", "onlyHuman", "ladSel"].forEach((id) => $(id).addEventListener("change", (e) => { onFilter(); e.target.blur(); }));
 $("prevPos").onclick = () => stepPos(-1); $("nextPos").onclick = () => stepPos(1);
 $("prevItem").onclick = () => stepItem(-1); $("nextItem").onclick = () => stepItem(1);
 document.addEventListener("keydown", (e) => {

@@ -99,3 +99,25 @@ messages}`; 24 explicit + 24 implied per concept and 24 neutral per category, en
 never shown to the judge. Checks: explicit texts name exactly their concept, implied / neutral
 name no concept of the category; no 8-gram (word) shared with any eval cue (all items and all
 candidates); window identity; no duplicates.
+
+## Plan 0005 (basic-readout mention ladder)
+
+- `br_lexicons.json` (`brlex-v1`): per category (`sport` 84, `country` 200 = 193 UN members +
+  Taiwan, Palestine, Kosovo, Scotland, Wales, Northern Ireland + Vatican City, `musical_instrument`
+  61) `{label, en, cjk (>= 2 chars), tokens}`; `block` (capital cities, "Mexico City", "Indian
+  Ocean", 印度洋, ...) match but name no concept; `ambiguous` ("football" -> the item's gold or
+  `ladder_lex.FOOTBALL_DEFAULT`); `capitals`; `checks` (code: duplicates removed, short CJK,
+  substring pairs resolved by longest match). Generated once by `claude-opus-5-5` (effort low),
+  then code-forced equivalences / drops (`scripts/sibling_probe/ladder.py` FORCED, DROP_ALIASES).
+- `brcommit_dev_todo.jsonl`: 40 units for Fable's dev labels (stratified by method x judge
+  verdict; the verdicts are not in the file). Fill `samples[].committed`, `samples[].form`,
+  `unit_committed`.
+- `brcommit_gold_todo.jsonl` / `brcommit_gold.jsonl`: 80 units (stratified by method x category,
+  disjoint from dev) + all 60 Ali units (`set: ali`), labelled blind by a fresh subagent from the
+  plan's definitions only (`brcommit_gold.jsonl`).
+- `br_entity_banks.json` (`brbank-v1`): banks `sport` (Ali bank t0 athletes + Opus top-ups to 50
+  per class), `country_capital` (non-capital cities), `country_landmark` (landmarks, no leading
+  "The"), `musical_instrument` (players); classes = every gold + every committed concept of the
+  bank's items (+ the Ali classes for sport) + 3 controls no method names; 3 templates each
+  (template 0 = the items' own wording). The 35 item entities, capitals (capital bank) and names
+  containing a category alias (country banks) are dropped by code.

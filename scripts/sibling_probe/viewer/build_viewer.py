@@ -162,16 +162,62 @@ def badge(u: dict, human_uids: set[str]) -> dict[str, Any]:
     }
 
 
+def ladder_badge(u: dict, offsets: dict | None = None) -> dict[str, Any]:
+    """Plan 0005 ladder unit -> viewer badge. ``offsets``: si -> char offset of the sample in
+    the stored (packed) readout string, to underline the mention spans."""
+    pv = (u.get("probe") or {}).get("view") or {}
+    spans = []
+    for h in u.get("hits") or ():
+        if h.get("start") is None:
+            continue
+        off = (offsets or {}).get(h["si"], 0) if h["source"] == "text" else 0
+        spans.append({"src": h["source"], "start": h["start"] + off, "end": h["end"] + off})
+    cs = u.get("cross") or {}
+    return {
+        "uid": u["uid"],
+        "method": u["method"],
+        "layer": u["layer"],
+        "eff_layer": u.get("eff_layer", u["layer"]),
+        "pos": u["pos"],
+        "concept": u["concept"],
+        "label": u["label"],
+        "weak_null": u.get("weak_null", False),
+        "label_any_layer": u.get("label_any_layer"),
+        "label_no_prior": u.get("label_no_prior"),
+        "label_probe_pm1": u.get("label_probe_pm1"),
+        "committed": u.get("committed"),
+        "n_committed": u.get("n_committed"),
+        "n_not_committed": u.get("n_not_committed"),
+        "entity_substitution": u.get("entity_substitution"),
+        "quote": u.get("quote"),
+        "samples": u.get("samples") or [],
+        "probe": {
+            "status": (u.get("probe") or {}).get("status"),
+            "reason": (u.get("probe") or {}).get("reason"),
+            "pair": (u.get("probe") or {}).get("pair"),
+            "fire_pm1": (u.get("probe") or {}).get("fire_pm1"),
+            "view": pv,
+        },
+        "cross_primary": (cs.get("primary") or {}).get("layers"),
+        "cross_any": (cs.get("any_layer") or {}).get("layers"),
+        "cross_no_prior": (cs.get("primary") or {}).get("support_no_prior"),
+        "lens_prior": u.get("lens_prior_own"),
+        "spans": spans,
+    }
+
+
 def write_viewer(
     items: list[dict],
     readouts: dict,
     units: list[dict],
     data_dir: Path,
     human_uids: set[str] = frozenset(),
+    ladder: dict[str, list[dict]] | None = None,
 ) -> dict:
     """``items``: [{set, id, prompt, prompt_tokens | (text + spans), positions, gold, response,
     category}]; ``readouts``: (set, id) -> method -> pos -> layer -> value; writes
-    ``<data_dir>/items/<set>__<id>.json`` and ``<data_dir>/index.json``; returns the index."""
+    ``<data_dir>/items/<set>__<id>.json`` and ``<data_dir>/index.json``; returns the index.
+    ``ladder`` (plan 0005, optional): set-B item id -> ladder badges (:func:`ladder_badge`)."""
     data_dir = Path(data_dir)
     (data_dir / "items").mkdir(parents=True, exist_ok=True)
     by_item: dict[tuple[str, str], list[dict]] = defaultdict(list)
@@ -192,6 +238,9 @@ def write_viewer(
             "readouts": readouts.get((it["set"], it["id"]), {}),
             "badges": bs,
         }
+        lad = (ladder or {}).get(it["id"]) if it["set"] == "B" else None
+        if lad is not None:
+            doc["ladder"] = lad
         (data_dir / "items" / f"{key}.json").write_text(
             json.dumps(doc, ensure_ascii=False, separators=(",", ":"))
         )
@@ -210,6 +259,10 @@ def write_viewer(
                 "subfamily": it.get("subfamily"),
             }
         )
+        if lad is not None:
+            index["items"][-1]["ladder"] = dict(Counter(b["label"] for b in lad))
+    if ladder is not None:
+        index["ladder"] = True
     (data_dir / "index.json").write_text(json.dumps(index, ensure_ascii=False))
     return index
 
@@ -314,6 +367,39 @@ def _load_arm(readouts, set_, method, files, dt, cells_path: Path) -> None:
             readouts[(set_, r["id"])][method][str(r["pos"])][str(r["layer"])] = v
 
 
+def load_ladder(readouts) -> dict[str, list[dict]] | None:
+    """Plan 0005 ladder units (+ mention spans from ``mentions.jsonl``) per set-B item."""
+    lp = SIB / "ladder" / "ladder" / "units.jsonl"
+    mp = SIB / "ladder" / "mentions.jsonl"
+    if not lp.exists():
+        return None
+    sys.path.insert(0, str(ROOT / "src"))
+    from hallucination_bench.evals.sibling_probe.ladder import split_samples
+
+    hits = {}
+    if mp.exists():
+        for m in read_jsonl(mp):
+            hits[m["uid"]] = [{"si": s["si"], **h} for s in m["samples"] for h in s["hits"]]
+    out: dict[str, list[dict]] = defaultdict(list)
+    for u in read_jsonl(lp):
+        offs = None
+        v = (
+            readouts.get(("B", u["item"]), {})
+            .get(u["method"], {})
+            .get(str(u["pos"]), {})
+            .get(str(u["layer"]))
+        )
+        if isinstance(v, list) and v:
+            packed, offs, at = v[0], {}, 0
+            for si, t in enumerate(split_samples([packed]) if len(v) == 1 else v):
+                k = packed.find(t, at)
+                if k >= 0:
+                    offs[si] = k
+                    at = k + len(t)
+        out[u["item"]].append(ladder_badge({**u, "hits": hits.get(u["uid"], [])}, offs))
+    return out
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", type=Path, default=SIB / "viewer")
@@ -326,17 +412,20 @@ def main() -> None:
     units = list(read_jsonl(up)) if up.exists() else []
     hp = ROOT / "data" / "sibling_probe" / "verdict_human_todo.jsonl"
     human = {r["uid"] for r in read_jsonl(hp)} if hp.exists() else set()
+    ladder = load_ladder(readouts)
     idx = write_viewer(
         items,
         {k: {m: dict(v) for m, v in d.items()} for k, d in readouts.items()},
         units,
         a.out / "data",
         human,
+        ladder,
     )
     (a.out / "index.html").write_text(PAGE.read_text())
     mb = sum(f.stat().st_size for f in (a.out / "data").rglob("*.json")) / 1e6
+    nl = sum(len(v) for v in (ladder or {}).values())
     print(
-        f"[viewer] {len(idx['items'])} items, {len(units)} badges ({up.name}), {mb:.1f} MB -> {a.out}/index.html"
+        f"[viewer] {len(idx['items'])} items, {len(units)} badges ({up.name}), {nl} ladder units, {mb:.1f} MB -> {a.out}/index.html"
     )
 
 

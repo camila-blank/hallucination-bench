@@ -239,3 +239,49 @@ uv run python scripts/sibling_probe/viewer/build_viewer.py      # -> outputs/sib
   `summary.json`, `report.md`. Figures `plots/sibling_probe/fig{1,2}_*.png`.
 - Network on this box drops DNS intermittently: every Modal step in the drivers retries; check
   `getent hosts api.modal.com` before blaming a script.
+
+## sibling_probe plan 0005 (basic-readout mention ladder)
+
+```bash
+S=scripts/sibling_probe/ladder.py
+uv run python $S lexicons      # brlex-v1 -> data/sibling_probe/br_lexicons.json (Opus once + code checks/forced equivalences)
+uv run python $S mentions      # units (method, item, layer, pos, concept) -> outputs/sibling/ladder/mentions.jsonl
+uv run python $S judge         # brcommit-v1, one call per (unit, sample) -> outputs/sibling/ladder/commit.jsonl
+uv run python $S todo          # data/sibling_probe/brcommit_{dev,gold}_todo.jsonl (dev 40 for Fable; gold 80 + all Ali units)
+uv run python $S calib         # vs data/sibling_probe/brcommit_gold.jsonl -> outputs/sibling/ladder/calib.json
+uv run python $S banks         # brbank-v1 -> data/sibling_probe/br_entity_banks.json (Ali bank seeds sport)
+uv run python $S capture-rows  # -> outputs/sibling/ladder/capture_rows.json (bank x 3 templates + the 35 items)
+MODAL_PROFILE=safety-sahan-2 uvx --python 3.12 modal@latest run --env camila-blank scripts/sibling_probe/ladder_capture_modal.py --run ladder1
+MODAL_PROFILE=safety-sahan-2 uvx --python 3.12 modal@latest volume get --env camila-blank sibling-probes ladder/ladder1 outputs/sibling/ladder/capture/
+uv run python $S topup && uv run python $S capture-rows --exclude-runs ladder1   # entity top-up (< 40 kept) -> capture run ladder2
+uv run --with scikit-learn python $S probes --run ladder1,ladder2 --modal   # filter, counts, probes on Modal CPU (~10 min) -> probes.json
+uv run --with scikit-learn python $S probe-report [--fire-pair logreg,dom]  # AUROC tables, fire pair, capital pilot -> probe_quality.{md,json}
+uv run python $S label         # -> outputs/sibling/ladder/ladder/{units.jsonl,summary.json,report.md}
+uv run python $S figures       # -> plots/sibling_probe/ladder_*.png
+uv run python scripts/sibling_probe/viewer/build_viewer.py  # viewer incl. the ladder panel + label filter
+```
+
+- Library: `evals/sibling_probe/ladder_lex.py` (lexicon matcher: word boundaries, longest match,
+  block phrases, "football" resolved by the item's gold / `FOOTBALL_DEFAULT`, upper-case
+  abbreviations case-sensitive), `ladder.py` (units, brcommit-v1 prompt / parse / fail-closed,
+  roll-up, cross-method, fire rule, labels), `ladder_probe.py` (logreg PCA-k / DiffMean /
+  whitened DiffMean, GroupKFold(5) by entity, inner-CV k and lambda). sklearn is NOT a project
+  dependency: run the probe stages with `uv run --with scikit-learn`.
+- Opus caches per prompt version: `outputs/sibling/ladder/cache_{brlex,brcommit,brbank}-v1.jsonl`.
+  Changing the lexicon changes judge user texts (marked spans), so the affected calls re-run.
+- Gold equivalences live in the lexicon (England / Britain / UK one concept; USSR = Russia;
+  piano = keyboard; track and field = athletics = sprinting = running); the bank gold `england`
+  maps to `united_kingdom` (`ladder.GOLD_MAP`).
+- The probe job is CPU-heavy; keep BLAS at 2 threads per worker (`threadpool_limits(2)`), 16
+  threads per fit is 4x slower than 2. 8 workers x 2 threads.
+- Capture: 1 GPU (B300) HF transformers, no flash-linear-attention (slow fallback is fine for
+  ~14k short prompts, ~1 h); items must tokenize to the bank `input_ids` or it aborts.
+- Probe fitting: use `--modal` (one CPU container per bank x layer, acts read from the
+  `sibling-probes` volume). Locally it is ~40 CPU-hours: lbfgs logreg (~300 iterations) dominates.
+  Never `pkill -f` a pattern that is in your own shell's command line; use `pkill -f "ladder.py pro[b]es"`.
+- Fire pair = logreg + raw DiffMean (the plan's probes). The whitened DiffMean (`wdm`) has the
+  best AUROC but whitens away the within-gold variation the fire rule tests (Ali track/basketball
+  stop firing); it is the `label_pair_alt` sensitivity row.
+- Knowledge filter: Ali's best-category-word rule, plus the greedy continuation's first mention
+  (multi-token names like " c|ello" are missing from the word list). Classes with fewer than 10
+  known entities are dropped from the bank (tuba, oboe), so their units are probe n/a.
