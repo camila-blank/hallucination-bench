@@ -99,3 +99,19 @@ messages}`; 24 explicit + 24 implied per concept and 24 neutral per category, en
 never shown to the judge. Checks: explicit texts name exactly their concept, implied / neutral
 name no concept of the category; no 8-gram (word) shared with any eval cue (all items and all
 candidates); window identity; no duplicates.
+
+## Plan 0006 (user-modelling ladder v2, country)
+
+- `br_lexicons.json` / `../../src/.../ladder_lex.py`: verbatim copies of plan 0005's files
+  (sha256 checked at copy time, 2026-10-12); the Set A patch is code (`um_ladder.SET_A_LEXICON_PATCH`).
+- `umcommit_dev.jsonl` (40, Fable, before any judge call), `umcommit_dev2.jsonl` (60, Fable,
+  blind to the judge, used for the one prompt revision v1 -> v1.1), `umcommit_gold.jsonl` (80,
+  fresh subagent from the plan's Step 3 text only, never used for tuning); the `*_todo.jsonl`
+  files hold the units as shown to the labellers (dev2's holds uids only).
+- `um_country_concepts.json` (`umconcepts-v1`): set C = 16 golds + siblings with >= 3 committed
+  units + <= 2 most-mentioned same-region countries per gold; cap 80, pool trimmed first.
+- `um_country_probe_texts.jsonl`: 24 explicit + 24 implied per concept + 24 neutral; plan 0003
+  texts reused where they pass the Set A checks (gold map applied: uk / usa), the rest generated
+  with the plan 0003 `sibgen-v1` prompt over C; drop counts by cause in
+  `outputs/sibling/um/probe_texts_report.json`.
+- `um_country_distractors.json` (`umdist-v1`): D_i per item, chosen from Phase A only.
