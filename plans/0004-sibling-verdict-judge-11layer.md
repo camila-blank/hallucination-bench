@@ -1,9 +1,49 @@
 # Plan 0004: 11-layer sibling claims, probe validation, and a post-probe verdict judge
 
-Issue #5 (continued), PR #6. Author: Camila Blank (planned with Claude), 2026-10-12. Revision 3 (after critiques 1–2 + Camila's NLA choice).
+Issue #5 (continued), PR #6. Author: Camila Blank (planned with Claude), 2026-10-12. Revision 4 (after critiques 1–3 + Camila's NLA choice).
 Builds on plan 0003 (rev 11): the concept inventory, the whitened-DiffMean probe recipe (V2) and
 its gates, cross-fitting, thresholds, and the judge wiring. Everything here not stated otherwise
 reuses plan 0003.
+
+## Revision 4: consolidated decisions (critique 3). These are final and override everything below.
+
+1. **Consensus is defined once, as triples.** A consensus triple is an (item, pos, concept) where:
+   - s3d and J-lens both make a sibling claim at layers L_s and L_j with |L_s − L_j| ≤ 4 (one
+     grid step);
+   - NLA-RL L42 makes a sibling claim at that (item, pos).
+
+   A claim unit at that (item, pos, concept) gets `consensus` if it is an NLA-RL L42 unit, or
+   if its layer lies in [min(L_s, L_j) − 4, max(L_s, L_j) + 4].
+   - Per-method consensus counts are projections of the triple set; report the number of
+     triples too.
+   - The ML-NLA variant is a **separate column** `consensus_mlnla`, built from triples of s3d,
+     J-lens and ML-NLA, each pair within one grid step. It does not replace the primary label;
+     ML-NLA units use it for their own category.
+   - The Step 3 table's consensus row means exactly this.
+2. **Depth.**
+   - The judge's depth label is early ≤ 36, mid ∈ {40, 42}, late ≥ 44.
+   - The default rule label is early → hallucination, late → option, mid → unclear.
+   - Sweep: binary cuts c ∈ {32, 36, 40, 44}, where layer < c is early and layer ≥ c is late
+     (40 and 42 fall on whichever side the cut puts them). Only the rule label changes in the
+     sweep.
+3. **The layer-blind run** (300 units) omits both the layer and the depth label.
+   Judge-vs-rule agreement is reported from the blind run. The layer-visible run decides the
+   categories.
+4. **Per-segment form.** The judge schema returns one form per claim segment, from {assertion,
+   alternatives, continuation, question, other}, each with a verbatim quote (fail closed →
+   other). The unit's form is derived by code:
+   - any assertion → **assertion**;
+   - all alternatives / continuation / question → **option-form**;
+   - else **other**.
+
+   The judge category for non-validated, non-consensus units: assertion → hallucination,
+   option-form → option, other → unclear.
+5. **Every unit keeps a `form_label`**, including validated and consensus units; their category
+   is unchanged. "Hallucinated consensus" means a consensus unit with form_label = assertion,
+   and is reported.
+6. **Set-B inventory:** Step 2 set-B items 3 and 4 are replaced by the rev-2 category-first
+   inventory (golds plus a fixed 15-member Opus list per category, with eval-template probe
+   texts).
 
 ## Revision 3 changes (Camila 2026-10-12 + critique 2). These override revision 2 and the body.
 
