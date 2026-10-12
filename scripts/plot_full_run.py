@@ -298,14 +298,30 @@ def main() -> None:
         out / "layers_share.png",
     )
     headline(out / "hallucinationbench_per_method.png")
+    headline(
+        out / "hallucinationbench_per_method_and_layer.png",
+        PER_LAYER_METHODS,
+        height=17,
+        title_suffix=" and layer",
+    )
     print("wrote", *sorted(p.name for p in out.glob("*.png")))
 
 
-def headline(out: Path) -> None:
+LAYERS11 = range(20, 61, 4)
+PER_LAYER_METHODS = [
+    m for m in METHODS if m[0] not in ("s3d-rl600-all11", "mlnla-rl600-all11@44")
+] + [
+    *((f"s3d-rl600-all11@{L}", f"O-lens RL L{L}", "prose") for L in LAYERS11),
+    *((f"mlnla-rl600-all11@{L}", f"ML-NLA step 600 L{L}", "prose") for L in LAYERS11),
+    *((f"mlnla-rl2-800-all11@{L}", f"ML-NLA step 800 L{L}", "prose") for L in LAYERS11),
+]
+
+
+def headline(out: Path, methods=METHODS, height: float = 7.6, title_suffix: str = "") -> None:
     """One-panel HallucinationBench headline: readout-level hallucination rate per method (sorted,
     lower is better), with false-claim and detail rates as markers."""
     rows = []
-    for arm, label, group in METHODS:
+    for arm, label, group in methods:
         o = block_of(arm)
         rows.append(
             (
@@ -317,7 +333,7 @@ def headline(out: Path) -> None:
             )
         )
     rows.sort(key=lambda r: r[2][0])
-    fig, ax = plt.subplots(figsize=(11.5, 7.6), dpi=160)
+    fig, ax = plt.subplots(figsize=(11.5, height), dpi=160)
     y = np.arange(len(rows))[::-1]
     v = np.array([r[2][0] for r in rows])
     lo = v - np.array([r[2][1] for r in rows])
@@ -364,7 +380,9 @@ def headline(out: Path) -> None:
     clean(ax)
     ax.spines["left"].set_visible(False)
     ax.set_title(
-        "HallucinationBench v2 (wsbench_chat): hallucination rate per method",
+        (
+            "HallucinationBench v2 (wsbench_chat): hallucination rate per method" + title_suffix
+        ).replace("(wsbench_chat): ", "(wsbench_chat):\n" if title_suffix else "(wsbench_chat): "),
         fontsize=16,
         color=TEXT,
         loc="left",
