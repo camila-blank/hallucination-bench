@@ -190,7 +190,7 @@ These are inputs, not in git: `/workspace/hb-readouts-story/<arm>/hallucination.
    - `mlnla-rl600-all11`: from `/workspace/gw-mlnla` (branch `camila/multilayer-nla`; the
      `--lens` registry is not on main): `wsbench_nla_modal.py --lens mlnla-rl600 --run hal-story-mlnla-rl600-all11 --acts-subdirs acts-hallucination-story --layers 20,24,28,32,36,40,44,48,52,56,60 --n-samples 3 --shards 16`.
    - Shards follow the Modal fan-out rule (16 for the 220-unit multilayer reads).
-3. **Convert:** `scripts/fetch_story_readouts.sh <arm> <gen> <prose|tokens>` fetches each gen dir
+3. **Convert:** `scripts/fetch_story_readouts.sh <arm> <gen> <prose|tokens> <20:61:4|42>` fetches each gen dir
    (volume `wsbench-gen-3`; every read sets `WSBENCH_GEN_VOLUME=wsbench-gen-3`) and runs
    `python -m wsbench convert-gen-dir gen_dir=… out=/workspace/hb-readouts-story/<arm>/hallucination.jsonl kind=prose|tokens`
    (wsbench-pub @ 92d763e).

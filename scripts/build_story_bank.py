@@ -54,7 +54,21 @@ def git_head(d: Path) -> str:
     return out.stdout.strip()
 
 
-def build(src: Path) -> tuple[dict[str, Any], list[dict[str, Any]]]:
+def git_dirty(d: Path) -> str:
+    """``git status --porcelain`` of the source bank dir (empty = files match HEAD)."""
+    out = subprocess.run(
+        ["git", "-C", str(d), "status", "--porcelain", "--", "."],
+        capture_output=True,
+        text=True,
+        check=True,
+    )
+    return out.stdout.strip()
+
+
+def build(src: Path, *, allow_dirty: bool = False) -> tuple[dict[str, Any], list[dict[str, Any]]]:
+    dirty = git_dirty(src)
+    if dirty and not allow_dirty:
+        raise SystemExit(f"source bank has uncommitted changes (source_commit would lie):\n{dirty}")
     bank = json.loads((src / "items.json").read_text(encoding="utf-8"))
     rows = json.loads((src / "capture_rows.json").read_text(encoding="utf-8"))
     rows_by_label = {r["label"]: r for r in rows}
@@ -111,8 +125,9 @@ def build(src: Path) -> tuple[dict[str, Any], list[dict[str, Any]]]:
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawTextHelpFormatter)
     ap.add_argument("--src", type=Path, default=DEFAULT_SRC)
+    ap.add_argument("--allow-dirty", action="store_true", help="build from uncommitted source")
     args = ap.parse_args()
-    bank, rows = build(args.src)
+    bank, rows = build(args.src, allow_dirty=args.allow_dirty)
     OUT.mkdir(parents=True, exist_ok=True)
     (OUT / "items.json").write_text(
         json.dumps(bank, ensure_ascii=False, indent=1) + "\n", encoding="utf-8"

@@ -119,7 +119,7 @@ uv run hbench calibrate --taxonomy v2 --split dev
 scripts/run_all_arms.sh                   # full run in tmux session `hbench`; tail -f logs/run_*.log
 
 # story eval (plan 0003): the same pipeline on data/story, outputs under outputs/story/<model>/
-scripts/fetch_story_readouts.sh jlens gen-hal-story-jlens tokens   # Modal gen dir -> readouts
+scripts/fetch_story_readouts.sh jlens gen-hal-story-jlens tokens 20:61:4   # gen dir -> readouts + grid check
 uv run hbench run --eval story --readouts-root /workspace/hb-readouts-story --stages map
 uv run hbench report --eval story --view v2
 ```

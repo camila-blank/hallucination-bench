@@ -1,8 +1,8 @@
 """Plan 0003: ``--eval story`` runs the shared pipeline on the story bank, writes under
 ``<out>/story/<model>/``, is always pre-gate, and leaves ``wsbench_chat`` untouched."""
 
+import ast
 import json
-import re
 from pathlib import Path
 
 import pytest
@@ -53,7 +53,7 @@ def test_open_arm_uses_the_story_bank_and_output_root(tmp_path, story_readouts):
     )
 
 
-def test_empty_cache_rebuild_reports_the_story_grid(tmp_path, story_readouts):
+def test_empty_cache_rebuild_records_the_story_bank(tmp_path, story_readouts):
     s = wrun.rebuild_arm("toy", story_readouts, tmp_path, STORY)
     assert s["config"]["eval"] == "story"
     assert s["config"]["bank_source"] == story_bank.BANK_SOURCE
@@ -104,7 +104,8 @@ def test_story_reports_render_with_story_text(tmp_path, story_readouts):
     assert "judge-noise sample is chat-only; not estimated for story" in md
     assert "consistency-v2` on a seeded" not in md
     audit = (root / "audit_samples_v2.md").read_text()
-    assert "Tell me a story." in audit or "story" in audit
+    toy_prompts = [it["prompt"] for it in story_bank.load_items() if it["id"] in TOY]
+    assert any(json.dumps(p) in audit for p in toy_prompts)
     assert "chat-dailydialog" not in audit
     root1 = report.report(out, JUDGE, audit_n=1, eval_name="story")
     assert (root1 / "report.md").read_text().startswith("# story report")
@@ -114,8 +115,16 @@ def test_story_reports_render_with_story_text(tmp_path, story_readouts):
 def test_run_py_reads_the_bank_only_through_the_arm():
     # no module-global chat bank: open_arm resolves it locally, everything else uses arm.bank
     assert not hasattr(wrun, "bank") and not hasattr(wrun, "NAME")
-    src = Path(wrun.__file__).read_text()
-    assert len(re.findall(r"arm\.bank\.", src)) == 7
+    tree = ast.parse(Path(wrun.__file__).read_text())
+    for fn in ast.walk(tree):
+        if not isinstance(fn, ast.FunctionDef | ast.AsyncFunctionDef):
+            continue
+        for node in ast.walk(fn):
+            if isinstance(node, ast.Attribute) and isinstance(node.value, ast.Name):
+                if node.value.id == "bank":
+                    assert fn.name == "open_arm", (fn.name, node.attr)
+            if isinstance(node, ast.Attribute) and node.attr == "bank":
+                assert isinstance(node.value, ast.Name) and node.value.id == "arm", fn.name
 
 
 def test_cli_eval_flag():
