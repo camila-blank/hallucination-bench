@@ -34,6 +34,7 @@ METHODS = [
     ("s3d-rl600", "O-lens RL (5 layers)", "prose"),
     ("s3d-sft251", "O-lens SFT (5 layers)", "prose"),
     ("mlnla-rl600-all11", "ML-NLA step 600 (11 layers)", "prose"),
+    ("mlnla-rl600-all11@44", "ML-NLA step 600 (L44)", "prose"),
     ("mlnla-rl2-800-all11", "ML-NLA step 800 (11 layers)", "prose"),
     ("nla-rl-L42", "NLA-RL (L42)", "prose"),
     ("nla-sft-L42", "NLA-SFT (L42)", "prose"),
@@ -69,6 +70,13 @@ LAYER_ARMS = [
     ("mlnla-rl600-all11", "ML-NLA step 600", "#eb6834"),
     ("mlnla-rl2-800-all11", "ML-NLA step 800", "#1baf7a"),
 ]
+
+
+def block_of(arm: str) -> dict:
+    """``arm`` or ``arm@layer`` (one layer of a multi-layer arm) -> its metrics block."""
+    name, _, layer = arm.partition("@")
+    s = summary(name)
+    return s["by_layer"][layer] if layer else s["overall"]
 
 
 def summary(arm: str) -> dict:
@@ -245,7 +253,7 @@ def main() -> None:
     ap.add_argument("--out", default=str(ROOT / "plots" / "full_run_v2.7"))
     out = Path(ap.parse_args().out)
     out.mkdir(parents=True, exist_ok=True)
-    data = [summary(a)["overall"] for a, _, _ in METHODS]
+    data = [block_of(a) for a, _, _ in METHODS]
     ylab = "Readouts with ≥ 1 such segment (%)"
     panels(
         data,
@@ -298,7 +306,7 @@ def headline(out: Path) -> None:
     lower is better), with false-claim and detail rates as markers."""
     rows = []
     for arm, label, group in METHODS:
-        o = summary(arm)["overall"]
+        o = block_of(arm)
         rows.append(
             (
                 label,
