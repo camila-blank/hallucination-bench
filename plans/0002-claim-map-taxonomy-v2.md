@@ -1,6 +1,6 @@
 # Plan 0002: claim map (taxonomy v2), an exhaustive, mutually exclusive categorisation of readout content
 
-Issue #3. Author: Camila Blank (planned with Claude), 2026-10-11. Revision 18 (after critiques 1–9; critique 9: no substantive issues; rev 11 adds the token-summary framing rule found in the smoke run; rev 12 defines "own identity" for rule 8).
+Issue #3. Author: Camila Blank (planned with Claude), 2026-10-11. Revision 19 (after critiques 1–9; critique 9: no substantive issues; rev 11 adds the token-summary framing rule found in the smoke run; rev 12 defines "own identity" for rule 8).
 This plan builds on plan 0001 (PR #2): the v5c span and verify port, the taxonomy-v1 classifier,
 and the first full run. It reuses plan 0001's cache layout, client, calibration machinery,
 bootstrap and report unless this plan says otherwise.
@@ -12,6 +12,26 @@ Items marked **[pending Camila]** use a default until she confirms them (§Open 
 
 
 
+
+
+## Amendment, revision 19 (Camila, 2026-10-12). This section adds to revisions 16–18.
+
+1. **Multiple options are unverifiable.** Camila: "when the model gives multiple options like
+   'germany or france or uk' it should be under unverifiable because that's a prediction/same slot
+   alternative/reasoning claim, when it says 'germany' instead of france thats a substitution
+   sibling".
+   - Any segment the judge flags `hedged` (a list or disjunction of options) is scored as
+     `unverifiable`, with tags `same_slot_alternative = true` and `hedged = true`.
+   - This holds whatever leaf the judge gave it (`correct`, `detail`, `false_claim`, or a
+     substitution), and whether or not the right option is in the list.
+   - The judge's original leaf is kept as `raw_leaf`, and the remap is counted
+     (`n_hedged_remapped`).
+   - A single wrong entity is still a substitution, unchanged.
+2. **`model_state` gets its own verdict, `thinky`** ("possible thinky stuff"). It is not a probe
+   candidate. The verdicts are now hallucination / probe_candidate / thinky / correct / unresolved
+   / junk.
+3. **Both changes are applied after parsing.** The `claimmap-v2.7` prompt and caches stay valid,
+   and the full run is re-scored at $0.
 
 ## Amendment, revision 18 (Camila, 2026-10-12): junk = non-claim. This section adds to revisions 16–17.
 
