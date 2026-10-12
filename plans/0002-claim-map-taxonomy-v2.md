@@ -1,6 +1,6 @@
 # Plan 0002: claim map (taxonomy v2), an exhaustive, mutually exclusive categorisation of readout content
 
-Issue #3. Author: Camila Blank (planned with Claude), 2026-10-11. Revision 19 (after critiques 1–9; critique 9: no substantive issues; rev 11 adds the token-summary framing rule found in the smoke run; rev 12 defines "own identity" for rule 8).
+Issue #3. Author: Camila Blank (planned with Claude), 2026-10-11. Revision 20 (after critiques 1–9; critique 9: no substantive issues; rev 11 adds the token-summary framing rule found in the smoke run; rev 12 defines "own identity" for rule 8).
 This plan builds on plan 0001 (PR #2): the v5c span and verify port, the taxonomy-v1 classifier,
 and the first full run. It reuses plan 0001's cache layout, client, calibration machinery,
 bootstrap and report unless this plan says otherwise.
@@ -13,6 +13,19 @@ Items marked **[pending Camila]** use a default until she confirms them (§Open 
 
 
 
+
+
+## Amendment, revision 20 (Camila, 2026-10-12): category substitution is a hallucination
+
+Camila: "substitution category should be a third hallucination category".
+`substitution_category` moves from `probe_candidate` to **`hallucination`**. Hallucination now
+has three components: `false_claim`, `detail` and `substitution_category`. All three are
+reported separately everywhere (readout rates, character shares, % of claims, and plots), next to
+the combined rate. `substitution_sibling` stays a probe candidate.
+
+This is a verdict-mapping change only. It is applied in scoring, so the full run is re-scored from
+the cache at $0. The `substitution_category` pairs stay logged with their `pair` field but leave
+`probe_candidates.jsonl`.
 
 ## Amendment, revision 19 (Camila, 2026-10-12). This section adds to revisions 16–18.
 
