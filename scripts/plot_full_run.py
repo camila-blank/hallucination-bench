@@ -31,19 +31,18 @@ FOOT = (
 # (arm dir, label, group) - prose lenses first, then token lenses (judged via their summary)
 METHODS = [
     ("s3d-rl600-all11", "O-lens RL (11 layers)", "prose"),
-    ("s3d-rl600", "O-lens RL (5 layers)", "prose"),
-    ("s3d-sft251", "O-lens SFT (5 layers)", "prose"),
+    ("s3d-sft251", "O-lens SFT (11 layers)", "prose"),
     ("mlnla-rl600-all11", "ML-NLA step 600 (11 layers)", "prose"),
     ("mlnla-rl600-all11@44", "ML-NLA step 600 (L44)", "prose"),
     ("mlnla-rl2-800-all11", "ML-NLA step 800 (11 layers)", "prose"),
     ("nla-rl-L42", "NLA-RL (L42)", "prose"),
     ("nla-sft-L42", "NLA-SFT (L42)", "prose"),
-    ("patchscopes", "Patchscopes (5 layers)", "prose"),
-    ("jlens", "J-lens (5 layers)", "tokens"),
-    ("rlens", "R-lens (5 layers)", "tokens"),
-    ("tuned", "Tuned lens (5 layers)", "tokens"),
-    ("logit", "Logit lens (5 layers)", "tokens"),
-    ("template-v3", "Template lens (5 layers)", "tokens"),
+    ("patchscopes", "Patchscopes (11 layers)", "prose"),
+    ("jlens", "J-lens (11 layers)", "tokens"),
+    ("rlens", "R-lens (11 layers)", "tokens"),
+    ("tuned", "Tuned lens (11 layers)", "tokens"),
+    ("logit", "Logit lens (11 layers)", "tokens"),
+    ("template-v3", "Template lens (11 layers)", "tokens"),
     ("sae-l42", "SAE (L42)", "tokens"),
 ]
 METRIC_COLORS = {"hallucination": "#e34948", "false_claim": "#2a78d6", "detail": "#eda100"}
@@ -67,8 +66,14 @@ STACK = [
 ]
 LAYER_ARMS = [
     ("s3d-rl600-all11", "O-lens RL", "#2a78d6"),
+    ("s3d-sft251", "O-lens SFT", "#4a3aa7"),
     ("mlnla-rl600-all11", "ML-NLA step 600", "#eb6834"),
-    ("mlnla-rl2-800-all11", "ML-NLA step 800", "#1baf7a"),
+    ("jlens", "J-lens", "#1baf7a"),
+    ("rlens", "R-lens", "#008300"),
+    ("tuned", "Tuned lens", "#e87ba4"),
+    ("logit", "Logit lens", "#e34948"),
+    ("template-v3", "Template lens", "#eda100"),
+    ("patchscopes", "Patchscopes", "#52514e"),
 ]
 
 

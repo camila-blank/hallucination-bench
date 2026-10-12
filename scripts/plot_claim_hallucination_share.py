@@ -23,18 +23,17 @@ TEXT, MUTED, GRID = "#0b0b0b", "#52514e", "#e6e5e0"
 NOT_CLAIM = {"junk", "non_claim", "off_topic", "failed", "unknown", "unknown_incorrect"}
 METHODS = [
     ("s3d-rl600-all11", "O-lens RL (11 layers)", False),
-    ("s3d-rl600", "O-lens RL (5 layers)", False),
-    ("s3d-sft251", "O-lens SFT (5 layers)", False),
+    ("s3d-sft251", "O-lens SFT (11 layers)", False),
     ("mlnla-rl600-all11", "ML-NLA step 600 (11 layers)", False),
     ("mlnla-rl2-800-all11", "ML-NLA step 800 (11 layers)", False),
     ("nla-rl-L42", "NLA-RL (L42)", False),
     ("nla-sft-L42", "NLA-SFT (L42)", False),
-    ("patchscopes", "Patchscopes (5 layers)", False),
-    ("jlens", "J-lens (5 layers)", True),
-    ("rlens", "R-lens (5 layers)", True),
-    ("tuned", "Tuned lens (5 layers)", True),
-    ("logit", "Logit lens (5 layers)", True),
-    ("template-v3", "Template lens (5 layers)", True),
+    ("patchscopes", "Patchscopes (11 layers)", False),
+    ("jlens", "J-lens (11 layers)", True),
+    ("rlens", "R-lens (11 layers)", True),
+    ("tuned", "Tuned lens (11 layers)", True),
+    ("logit", "Logit lens (11 layers)", True),
+    ("template-v3", "Template lens (11 layers)", True),
     ("sae-l42", "SAE (L42)", True),
 ]
 LAYER_ARMS = [("s3d-rl600-all11", "O-lens RL"), ("mlnla-rl600-all11", "ML-NLA step 600")]
