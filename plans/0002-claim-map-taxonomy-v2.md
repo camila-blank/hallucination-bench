@@ -1,6 +1,6 @@
 # Plan 0002: claim map (taxonomy v2), an exhaustive, mutually exclusive categorisation of readout content
 
-Issue #3. Author: Camila Blank (planned with Claude), 2026-10-11. Revision 17 (after critiques 1–9; critique 9: no substantive issues; rev 11 adds the token-summary framing rule found in the smoke run; rev 12 defines "own identity" for rule 8).
+Issue #3. Author: Camila Blank (planned with Claude), 2026-10-11. Revision 18 (after critiques 1–9; critique 9: no substantive issues; rev 11 adds the token-summary framing rule found in the smoke run; rev 12 defines "own identity" for rule 8).
 This plan builds on plan 0001 (PR #2): the v5c span and verify port, the taxonomy-v1 classifier,
 and the first full run. It reuses plan 0001's cache layout, client, calibration machinery,
 bootstrap and report unless this plan says otherwise.
@@ -11,6 +11,27 @@ Items marked **[pending Camila]** use a default until she confirms them (§Open 
 
 
 
+
+
+## Amendment, revision 18 (Camila, 2026-10-12): junk = non-claim. This section adds to revisions 16–17.
+
+`non_claim` and `off_topic` merge into **one leaf, `junk`** (verdict `junk`). Its tag `reason`
+takes one of {`off_topic`, `generic`, `filler`, `formatting`, `junk_text`, `lens_meta`}, which
+leaves 11 judge leaves. The reasons:
+
+- Camila asked for it ("shouldn't junk and non claim be the same thing").
+- `off_topic` was the least stable leaf: self-agreement between runs was 0.17, against 0.94 for
+  `non_claim`.
+
+**Implementation, with no re-judging:**
+
+- The merge is applied **after parsing**. A judge answer of `non_claim` maps to `junk` with its
+  reason tag; `off_topic` maps to `junk` with reason `off_topic`.
+- The `claimmap-v2.7` prompt and its cached answers stay valid. The full run is re-scored from the
+  cache at $0.
+- The next deliberate prompt change will expose `junk` directly.
+- All metrics, reports, plots and consistency tables use the merged leaf. The `reason` tag shares
+  are reported as a breakdown, including the off-topic share per arm.
 
 ## Amendment, revision 17 (Camila, 2026-10-11): quoted evidence and reported noise. This section adds to revision 16.
 
