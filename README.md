@@ -145,4 +145,4 @@ and `outputs/wsbench_chat/<judge model>/{report.md,report.json,audit_samples.md}
 [`docs/results/0001_wsbench_chat_taxonomy.md`](docs/results/0001_wsbench_chat_taxonomy.md)
 (filled in after the full run); claim map:
 [`docs/results/0002_claim_map.md`](docs/results/0002_claim_map.md); sibling probes:
-[`docs/results/0003_sibling_probes.md`](docs/results/0003_sibling_probes.md) (s3d sibling mentions 86% probe-unverified; real but small sibling signal, β₁ 0.27 z).
+[`docs/results/0003_sibling_probes.md`](docs/results/0003_sibling_probes.md) (whitened probes catch the gold 96%; s3d sibling mentions 81% probe-unverified, NLA 76%; small real signal; multi-lens agreement predicts probe support).
