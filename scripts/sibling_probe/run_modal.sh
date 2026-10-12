@@ -123,14 +123,16 @@ fetch)
 probes)
   uv run hbench sibling probes --prepare
   $MODAL run scripts/sibling_probe/probes_modal.py --inputs $S/probes/inputs.json \
-    --eval-acts acts-sibling-eval --probe-acts acts-sibling-probe --run ${PROBES_RUN:-sibling-v1} \
+    --eval-acts acts-sibling-eval --probe-acts acts-sibling-probe --run ${PROBES_RUN:-sibling-v3} \
     --out-dir $S/probes
+  uv run hbench sibling probes --merge
   ;;
 probes-smoke)
   uv run hbench sibling probes --prepare --out-dir $S/probes_smoke
   $MODAL run scripts/sibling_probe/probes_modal.py --inputs $S/probes_smoke/inputs.json \
     --eval-acts acts-sibling-smoke --run sibling-smoke --out-dir $S/probes_smoke \
     --synthetic-probes --n-boot 100
+  uv run hbench sibling probes --merge --out-dir $S/probes_smoke
   ;;
 *)
   sed -n '2,23p' "$0"

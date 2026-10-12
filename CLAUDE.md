@@ -31,8 +31,9 @@ src/hallucination_bench/
   cli.py          hbench run|calibrate|report|pilot-dump|pilot-dump-v2|units-v2
   evals/sibling_probe/{concepts,bank}.py  plan 0003: inventory + alias matcher (text / token
                   bags), leak / 8-gram / window-identity checks, coverage rule, ReadSpec writers
-  evals/sibling_probe/probes.py   cross-fit DiffMean probes (pure numpy; copied into the Modal job)
-  evals/sibling_probe/probe_io.py inputs.json for the Modal job, loaders of its outputs
+  evals/sibling_probe/probes.py   cross-fit probes, recipes V2 (shrinkage-whitened DiffMean, primary) and V0
+                  (raw DiffMean) (pure numpy; copied into the Modal job)
+  evals/sibling_probe/probe_io.py inputs.json for the Modal job, loaders / merge of its outputs, check vs sweep
   evals/sibling_probe/judge.py    prefilter, 5% coverage sample, claim map (claimmap_v2 + the
                   wsbench_chat cached_call), mention -> segment, sibscope-v1 / sibcover-v1 calls
   evals/sibling_probe/{score,report}.py  M/U classes, gates, beta1/beta2/AUROC/Test 3, rates,
@@ -147,7 +148,9 @@ scripts/sibling_probe/run_modal.sh qwen-responses            # merges responses 
 uv run python scripts/sibling_probe/gen_items.py probes      # probe_texts.jsonl
 scripts/sibling_probe/run_modal.sh plans|smoke|capture|jlens|nla|s3d|fetch
 # stage 2
-scripts/sibling_probe/run_modal.sh probes        # prepare inputs + Modal probe job -> outputs/sibling/probes/
+scripts/sibling_probe/run_modal.sh probes        # prepare inputs + Modal probe job (both recipes) -> outputs/sibling/probes/{v2,v0}/
+uv run python scripts/sibling_probe/check_v2_vs_sweep.py   # pipeline V2/V0 == sweep (max abs diff < 1e-3)
+uv run python scripts/sibling_probe/arm_overlap.py         # -> outputs/sibling/overlap/{overlap.json,overlap.md}
 scripts/sibling_probe/run_modal.sh probes-smoke  # acts-sibling-smoke + synthetic probe texts
 uv run hbench sibling judge --arms s3d-rl600,nla-rl-L42,jlens   # one process; resumes from cache
 uv run hbench sibling judge --rebuild            # cells.jsonl / run.json from the cache, no calls
@@ -168,7 +171,16 @@ uv run hbench sibling report                     # -> outputs/sibling/score/repo
 - Implication / response caches: `outputs/sibling/gen/{implication,responses}_out.jsonl`
   (idempotent on key); Opus cache `outputs/sibling/gen/cache.jsonl`. Do not run two
   `gen_items` processes at once (one cache file).
-- **Probe job** (`probes_modal.py`, CPU, 16 cores / 96 GB): reads every acts file ONCE (all
+- **Probe recipes (plan rev 11)**: `v2` = shrinkage-whitened DiffMean (primary, validity gate 0.85,
+  lambda by inner leave-one-fold-out CV; `probes.Whitener` / `cross_fit_whitened`, a port of the
+  sweep's V2) and `v0` = raw DiffMean (rev 10, gate 0.70). The job writes per-category pieces
+  (`outputs/sibling/probes/pieces/<recipe>/<cat>/`, one container per category) and
+  `hbench sibling probes --merge` merges them into `outputs/sibling/probes/{v2,v0}/`;
+  `outputs/sibling/probes_v2_rawdm/` is the rev-10 run (legacy single-recipe layout, still
+  loadable). `score` emits `recipes.{v2,v0}` + `recipe_sensitivity` (flag fires on different
+  verdicts or non-overlapping CIs of the sensitivity-normalised rate 1 - det(M)/ceiling / the
+  excess ratio, not on raw rates) + calibration + the wsbench-verbatim (`um-sd-`) transfer check.
+- **Probe job** (`probes_modal.py`, CPU, 16 cores / 48 GB per category container): reads every acts file ONCE (all
   layers' eval positions, fp16): the `wsbench-acts` volume costs ~0.5 s per file open, so a
   per-layer re-read of the 5,064 probe files is far slower. Outputs also land on the
   `sibling-probes` volume (`/<run>/`); `hbench sibling probes --fetch --run <run>` re-gets them.

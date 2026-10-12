@@ -12,16 +12,21 @@ Inputs:
     probe-text and item metadata, and the Qwen token ids of every token alias (for the
     unembedding check; W_U rows come from the ``jlens-hf-cache`` HF volume).
 
-Outputs (``sibling-probes:/<run>/`` on Modal, and fetched to ``--out-dir``):
-  directions.safetensors   ``L{L}/{category}/fold{k}`` -> raw DiffMean directions [C, d] fp32
-  oof_<category>.npz       out-of-fold scores per layer (``s_L{L}`` [P, C]) + row/text index
-  thresholds.json          per (category, layer): every fold's thresholds, pooled thresholds,
-                           text-bootstrap CIs of the pooled tau_cat / tau_neutral / tau(c|g)
-  validity.jsonl           {category, concept, layer, auroc, pass}
-  unembed.jsonl            {category, concept, layer, cos_max, cos_mean, per_alias}
-  eval_scores.jsonl.gz     {id, category, layer, pos, offset, concept, gold, s, z, det_cat,
-                            det_cg, det_cg_all, det_neu, det_ceil} (fold-averaged)
-  summary.json             config, counts, timings
+Outputs: one CPU container per category (``probe_category.map``), TWO recipes each (plan 0003
+rev 11): ``v2`` = shrinkage-whitened DiffMean (primary), ``v0`` = raw text-mean DiffMean (rev 10).
+Pieces land on the ``sibling-probes`` volume (``/<run>/<recipe>/<category>/``) and, via the local
+entrypoint, in ``--out-dir/pieces/``; ``hbench sibling probes`` merges them
+(``probe_io.merge_pieces``) into ``--out-dir/{v2,v0}/``:
+  directions_<cat>.safetensors  ``L{L}/fold{k}`` -> raw (V2: whitened) directions [C, d] fp32
+  oof_<cat>.npz                 out-of-fold scores per layer (``s_L{L}`` [P, C]) + row/text index
+  thresholds.json               per (category, layer): every fold's thresholds, pooled
+                                thresholds, text-bootstrap CIs of the pooled tau_cat / tau_neutral
+                                / tau(c|g); V2 also the chosen lambda per outer fold
+  validity.jsonl                {category, concept, layer, auroc, pass, fpr_neutral}
+  unembed.jsonl                 {category, concept, layer, cos_max, cos_mean, per_alias}
+  eval_scores.jsonl.gz          {id, category, layer, pos, offset, concept, gold, s, z, det_cat,
+                                det_cg, det_cg_all, det_neu, det_ceil} (fold-averaged)
+and ``--out-dir/summary.json`` (config, counts, timings).
 
 ``--synthetic-probes`` (smoke): the probe texts' residuals are synthesised inside the container
 from the eval capture's windows of the same (category, ending) plus noise and a planted
@@ -106,15 +111,19 @@ def _unembed_rows(ids: list[int]):
     return np.stack(rows) if rows else np.zeros((0, 0), np.float32)
 
 
+RECIPES = ("v2", "v0")  # primary first
+
+
 @app.function(
     image=image,
     volumes=volumes,
     secrets=[modal.Secret.from_dict({"HF_TOKEN": _hf_token()})],
     cpu=16,
-    memory=98304,
+    memory=49152,
     timeout=6 * 3600,
 )
-def run_probes(inputs: dict, cfg: dict) -> dict[str, bytes]:
+def probe_category(cat: str, inputs: dict, cfg: dict) -> dict:
+    """Both recipes for one category at every layer; returns the category's pieces."""
     from concurrent.futures import ThreadPoolExecutor
 
     import numpy as np
@@ -126,18 +135,19 @@ def run_probes(inputs: dict, cfg: dict) -> dict[str, bytes]:
         os.environ.pop("HF_TOKEN", None)
     t0 = time.time()
     layers = [int(x) for x in cfg["layers"]]
-    run_dir = OUT_MOUNT / cfg["run"]
-    run_dir.mkdir(parents=True, exist_ok=True)
-    order: dict[str, list[str]] = inputs["concepts"]
-    cidx = {cat: {c: i for i, c in enumerate(ids)} for cat, ids in order.items()}
+    order: list[str] = inputs["concepts"][cat]
+    cidx = {c: i for i, c in enumerate(order)}
+    C = len(order)
 
     def manifest(sub: str) -> dict:
         return json.loads((ACTS_MOUNT / sub / "manifest.json").read_text())
 
     ev_man = manifest(cfg["eval_acts"])
     ev_entries = {p["label"]: p for p in ev_man["prompts"]}
-    items = [it for it in inputs["items"] if it["id"] in ev_entries]
-    missing_items = sorted({it["id"] for it in inputs["items"]} - set(ev_entries))
+    items = [it for it in inputs["items"] if it["category"] == cat and it["id"] in ev_entries]
+    missing_items = sorted(
+        {it["id"] for it in inputs["items"] if it["category"] == cat} - set(ev_entries)
+    )
     for L in layers:
         if L not in ev_man["layers"]:
             raise RuntimeError(f"eval capture lacks layer {L} ({ev_man['layers']})")
@@ -158,14 +168,15 @@ def run_probes(inputs: dict, cfg: dict) -> dict[str, bytes]:
 
     def prefetch(sub: str, entries: list[dict], lis: list[int]) -> None:
         tp = time.time()
-        with ThreadPoolExecutor(int(cfg.get("threads", 96))) as ex:
+        with ThreadPoolExecutor(int(cfg.get("threads", 64))) as ex:
             for i, _ in enumerate(ex.map(lambda e: fetch(sub, e, lis), entries)):
-                if (i + 1) % 1000 == 0:
+                if (i + 1) % 500 == 0:
                     print(
-                        f"[probes] {sub}: read {i + 1}/{len(entries)} ({time.time() - tp:.0f}s)",
+                        f"[probes {cat}] {sub}: read {i + 1}/{len(entries)} "
+                        f"({time.time() - tp:.0f}s)",
                         flush=True,
                     )
-        print(f"[probes] {sub}: {len(entries)} files read in {time.time() - tp:.0f}s", flush=True)
+        print(f"[probes {cat}] {sub}: {len(entries)} files read in {time.time() - tp:.0f}s")
 
     def load_many(sub: str, entries: list[dict], li: int):
         out = []
@@ -175,10 +186,10 @@ def run_probes(inputs: dict, cfg: dict) -> dict[str, bytes]:
         return out
 
     synthetic = bool(cfg.get("synthetic_probes"))
-    texts = inputs["probe_texts"]
+    texts = [t for t in inputs["probe_texts"] if t["category"] == cat]
     if synthetic:
-        have = {(it["category"], it["request_idx"]) for it in items}
-        texts = [t for t in texts if (t["category"], t["request_idx"]) in have]
+        have = {it["request_idx"] for it in items}
+        texts = [t for t in texts if t["request_idx"] in have]
         pr_entries = {}
         pr_layers = ev_man["layers"]
     else:
@@ -187,26 +198,22 @@ def run_probes(inputs: dict, cfg: dict) -> dict[str, bytes]:
         pr_entries = {p["label"]: p for p in pr_man["prompts"]}
         missing_texts = [t["id"] for t in texts if t["id"] not in pr_entries]
         if missing_texts:
-            print(
-                f"[probes] {len(missing_texts)} probe texts not captured, e.g. {missing_texts[:3]}",
-                flush=True,
-            )
+            print(f"[probes {cat}] {len(missing_texts)} probe texts not captured", flush=True)
         texts = [t for t in texts if t["id"] in pr_entries]
-    cats = [c for c in order if any(t["category"] == c for t in texts)]
-    folds: dict[str, int] = {}
-    for cat in cats:
-        folds |= P.assign_folds([t for t in texts if t["category"] == cat], salt=cat)
+    if not texts:
+        return {"category": cat, "empty": True}
+    folds = P.assign_folds(texts, salt=cat)
 
-    # W_U rows for the unembedding check
-    tok_ids = inputs.get("token_ids") or {}
-    flat = sorted({i for cat in tok_ids.values() for v in cat.values() for i in v})
+    # W_U rows for the unembedding check (this category's token aliases only)
+    tok_ids = (inputs.get("token_ids") or {}).get(cat) or {}
+    flat = sorted({i for v in tok_ids.values() for i in v})
     W = None
     if flat and not cfg.get("skip_unembed"):
         try:
             W = _unembed_rows(flat)
-            print(f"[probes] W_U rows {W.shape}", flush=True)
+            print(f"[probes {cat}] W_U rows {W.shape}", flush=True)
         except Exception as e:  # the check is reported, never fatal
-            print(f"[probes] unembedding check skipped: {type(e).__name__}: {e}", flush=True)
+            print(f"[probes {cat}] unembedding check skipped: {type(e).__name__}: {e}", flush=True)
     wrow = {t: i for i, t in enumerate(flat)}
 
     prefetch(
@@ -221,11 +228,12 @@ def run_probes(inputs: dict, cfg: dict) -> dict[str, bytes]:
             [pr_layers.index(L) for L in layers],
         )
 
-    tensors: dict[str, np.ndarray] = {}
-    oof_store: dict[str, dict[str, np.ndarray]] = {cat: {} for cat in cats}
-    thr_out: dict = {}
-    validity_rows, unembed_rows = [], []
-    eval_buf = io.StringIO()
+    tensors: dict[str, dict[str, np.ndarray]] = {r: {} for r in RECIPES}
+    oof_store: dict[str, dict[str, np.ndarray]] = {r: {} for r in RECIPES}
+    thr_out: dict[str, dict] = {r: {} for r in RECIPES}
+    validity_rows: dict[str, list] = {r: [] for r in RECIPES}
+    unembed_rows: dict[str, list] = {r: [] for r in RECIPES}
+    eval_buf = {r: io.StringIO() for r in RECIPES}
     n_eval_rows = 0
     timings = {}
     for L in layers:
@@ -237,43 +245,47 @@ def run_probes(inputs: dict, cfg: dict) -> dict[str, bytes]:
             rng = np.random.default_rng([L, 7])
             base = {}
             for it in items:
-                base.setdefault((it["category"], it["request_idx"]), ev_w[it["id"]])
+                base.setdefault(it["request_idx"], ev_w[it["id"]])
             dirs = {}
             pr_w = []
             for t in texts:
-                x, pos, off = base[(t["category"], t["request_idx"])]
+                x, pos, off = base[t["request_idx"]]
                 rms = float(x.std())
-                key = (t["category"], t["concept"])
-                if t["concept"] is not None and key not in dirs:
-                    seed = zlib.crc32(f"{key[0]}/{key[1]}".encode())
+                if t["concept"] is not None and t["concept"] not in dirs:
+                    seed = zlib.crc32(f"{cat}/{t['concept']}".encode())
                     u = np.random.default_rng(seed).normal(size=x.shape[1])
-                    dirs[key] = u / np.linalg.norm(u)
+                    dirs[t["concept"]] = u / np.linalg.norm(u)
                 y = x + 0.5 * rms * rng.normal(size=x.shape).astype(np.float32)
                 if t["concept"] is not None:
                     a = 1.0 if t["kind"] == "explicit" else 0.5
-                    y = y + (a * rms * np.sqrt(x.shape[1]) * 0.05) * dirs[key][None, :]
+                    y = y + (a * rms * np.sqrt(x.shape[1]) * 0.05) * dirs[t["concept"]][None, :]
                 pr_w.append((y.astype(np.float32), pos, off))
         else:
             li_pr = pr_layers.index(L)
             pr_w = load_many(cfg["probe_acts"], [pr_entries[t["id"]] for t in texts], li_pr)
         tread = time.time() - tl
-        for cat in cats:
-            idx = [i for i, t in enumerate(texts) if t["category"] == cat]
-            ct = [texts[i] for i in idx]
-            C = len(order[cat])
-            ts = P.TextSet.build(
-                [pr_w[i][0] for i in idx],
-                [t["id"] for t in ct],
-                [cidx[cat][t["concept"]] if t["concept"] is not None else P.NEUTRAL for t in ct],
-                [t["kind"] for t in ct],
-                [t["request_idx"] for t in ct],
-                [folds[t["id"]] for t in ct],
-                offsets=[pr_w[i][2] for i in idx],
+        ts = P.TextSet.build(
+            [w[0] for w in pr_w],
+            [t["id"] for t in texts],
+            [cidx[t["concept"]] if t["concept"] is not None else P.NEUTRAL for t in texts],
+            [t["kind"] for t in texts],
+            [t["request_idx"] for t in texts],
+            [folds[t["id"]] for t in texts],
+            offsets=[w[2] for w in pr_w],
+        )
+        its = [it for it in items if it["gold"] in cidx]
+        ws = [ev_w[it["id"]] for it in its]
+        wh = P.Whitener(ts, C)  # eigendecompositions are memoised across the fold sets
+        for recipe in RECIPES:
+            trc = time.time()
+            res = P.run_category_layer(ts, C, recipe=recipe, whitener=wh)
+            print(
+                f"[probes {cat}] L{L} {recipe} fitted in {time.time() - trc:.0f}s lam={res.hyper}",
+                flush=True,
             )
-            res = P.run_category_layer(ts, C)
             for k, mdl in enumerate(res.cf.models):
-                tensors[f"L{L}/{cat}/fold{k}"] = mdl.D.astype(np.float32)
-            st = oof_store[cat]
+                tensors[recipe][f"L{L}/fold{k}"] = mdl.D.astype(np.float32)
+            st = oof_store[recipe]
             st[f"s_L{L}"] = res.cf.oof.astype(np.float32)
             if "row_text" not in st:
                 st["row_text"] = ts.text.astype(np.int32)
@@ -283,10 +295,9 @@ def run_probes(inputs: dict, cfg: dict) -> dict[str, bytes]:
                 st["text_concept"] = ts.concept.astype(np.int16)
                 st["text_kind"] = np.array(ts.kind)
                 st["text_fold"] = ts.fold.astype(np.int8)
-                st["concepts"] = np.array(order[cat])
+                st["concepts"] = np.array(order)
             # pooled-threshold CIs (text-level bootstrap)
-            rc, ri, oof = ts.row_concept, ts.row_implied, res.cf.oof
-            rt = ts.text
+            rc, ri, oof, rt, rf = ts.row_concept, ts.row_implied, res.cf.oof, ts.text, ts.row_fold
             ci = {"tau_cat": [], "tau_neu": [], "tau_cg": []}
             nb = int(cfg.get("n_boot", 500))
             for c in range(C):
@@ -301,29 +312,39 @@ def run_probes(inputs: dict, cfg: dict) -> dict[str, bytes]:
                         P.threshold_ci(oof[m, c], rt[m], n_boot=max(nb // 5, 50), seed=1000 * c + g)
                     )
                 ci["tau_cg"].append(row)
-            thr_out.setdefault(cat, {})[str(L)] = {
+            thr_out[recipe][str(L)] = {
                 "folds": [th.to_dict() for th in res.ths],
                 "pooled": res.pooled.to_dict(),
                 "ci": ci,
+                "lam": res.hyper,
             }
-            for c, cid in enumerate(order[cat]):
-                validity_rows.append(
+            for c, cid in enumerate(order):
+                # neutral FPR: share of fold k's neutral OOF rows above fold k's tau_cat, mean
+                # over folds (diagnostic)
+                fn = []
+                for k, th in enumerate(res.ths):
+                    xn = oof[(rf == k) & (rc == P.NEUTRAL), c]
+                    xn = xn[np.isfinite(xn)]
+                    if xn.size and np.isfinite(th.tau_cat[c]):
+                        fn.append(float(np.mean(xn > th.tau_cat[c])))
+                validity_rows[recipe].append(
                     {
                         "category": cat,
                         "concept": cid,
                         "layer": L,
                         "auroc": round(float(res.valid_auroc[c]), 4),
-                        "pass": bool(res.valid_auroc[c] >= P.VALIDITY_MIN_AUROC),
+                        "pass": bool(res.valid_auroc[c] >= P.VALIDITY_BY_RECIPE[recipe]),
                         "n_pos": int((rc == c).sum()),
+                        "fpr_neutral": round(float(np.mean(fn)), 4) if fn else None,
                     }
                 )
-                ids = (tok_ids.get(cat) or {}).get(cid) or []
+                ids = tok_ids.get(cid) or []
                 if W is not None and ids:
                     Wc = W[[wrow[i] for i in ids]]
                     cos = np.mean(
                         [P.unembed_cosines(m_.D[c : c + 1], Wc)[0] for m_ in res.cf.models], axis=0
                     )
-                    unembed_rows.append(
+                    unembed_rows[recipe].append(
                         {
                             "category": cat,
                             "concept": cid,
@@ -335,30 +356,27 @@ def run_probes(inputs: dict, cfg: dict) -> dict[str, bytes]:
                             },
                         }
                     )
-            # eval cells of this category
-            its = [it for it in items if it["category"] == cat and it["gold"] in cidx[cat]]
             if not its:
                 continue
-            ws = [ev_w[it["id"]] for it in its]
             H = np.concatenate([w[0] for w in ws])
             ending = np.concatenate(
                 [[it["request_idx"]] * len(w[1]) for it, w in zip(its, ws, strict=True)]
             )
             offset = np.concatenate([w[2] for w in ws])
             gold = np.concatenate(
-                [[cidx[cat][it["gold"]]] * len(w[1]) for it, w in zip(its, ws, strict=True)]
+                [[cidx[it["gold"]]] * len(w[1]) for it, w in zip(its, ws, strict=True)]
             )
             es = P.score_eval(res.cf.models, res.ths, H, ending, offset, gold)
             r = 0
             for it, w in zip(its, ws, strict=True):
                 for pos, off in zip(w[1], w[2], strict=True):
-                    for c, cid in enumerate(order[cat]):
+                    for c, cid in enumerate(order):
 
                         def f(a, _r=r, _c=c):
                             v = float(a[_r, _c])
                             return round(v, 4) if np.isfinite(v) else None
 
-                        eval_buf.write(
+                        eval_buf[recipe].write(
                             json.dumps(
                                 {
                                     "id": it["id"],
@@ -379,46 +397,52 @@ def run_probes(inputs: dict, cfg: dict) -> dict[str, bytes]:
                             )
                             + "\n"
                         )
-                        n_eval_rows += 1
+                        if recipe == RECIPES[0]:
+                            n_eval_rows += 1
                     r += 1
+        wh.drop()
         timings[str(L)] = {"read_s": round(tread, 1), "total_s": round(time.time() - tl, 1)}
         print(
-            f"[probes] L{L}: {len(texts)} texts, {len(items)} eval items, "
+            f"[probes {cat}] L{L}: {len(texts)} texts, {len(items)} eval items, "
             f"read {tread:.0f}s, total {time.time() - tl:.0f}s",
             flush=True,
         )
 
-    files: dict[str, bytes] = {}
-    files["directions.safetensors"] = st_save(tensors)
-    for cat, st in oof_store.items():
+    run_dir = OUT_MOUNT / cfg["run"]
+    pieces: dict[str, dict[str, bytes]] = {}
+    for recipe in RECIPES:
+        f: dict[str, bytes] = {}
+        f["directions.safetensors"] = st_save(tensors[recipe])
         b = io.BytesIO()
-        np.savez_compressed(b, **st)
-        files[f"oof_{cat}.npz"] = b.getvalue()
-    files["thresholds.json"] = json.dumps({"concepts": order, "thresholds": thr_out}).encode()
-    files["validity.jsonl"] = "".join(json.dumps(r) + "\n" for r in validity_rows).encode()
-    files["unembed.jsonl"] = "".join(json.dumps(r) + "\n" for r in unembed_rows).encode()
-    files["eval_scores.jsonl.gz"] = gzip.compress(eval_buf.getvalue().encode())
-    vpass = sum(r["pass"] for r in validity_rows)
-    summary = {
-        "config": cfg,
-        "git_sha": inputs.get("git_sha"),
-        "layers": layers,
+        np.savez_compressed(b, **oof_store[recipe])
+        f["oof.npz"] = b.getvalue()
+        f["thresholds.json"] = json.dumps(
+            {"concepts": {cat: order}, "thresholds": {cat: thr_out[recipe]}}
+        ).encode()
+        f["validity.jsonl"] = "".join(json.dumps(r) + "\n" for r in validity_rows[recipe]).encode()
+        f["unembed.jsonl"] = "".join(json.dumps(r) + "\n" for r in unembed_rows[recipe]).encode()
+        f["eval_scores.jsonl.gz"] = gzip.compress(eval_buf[recipe].getvalue().encode())
+        pieces[recipe] = f
+        d = run_dir / recipe / cat
+        d.mkdir(parents=True, exist_ok=True)
+        for name, data in f.items():
+            (d / name).write_bytes(data)
+    out_vol.commit()
+    return {
+        "category": cat,
+        "pieces": pieces,
         "n_probe_texts": len(texts),
         "n_eval_items": len(items),
         "missing_eval_items": missing_items,
-        "categories": cats,
         "n_eval_rows": n_eval_rows,
-        "validity_pass": f"{vpass}/{len(validity_rows)}",
-        "unembed_rows": len(unembed_rows),
+        "validity_pass": {
+            r: f"{sum(x['pass'] for x in validity_rows[r])}/{len(validity_rows[r])}"
+            for r in RECIPES
+        },
+        "unembed_rows": {r: len(unembed_rows[r]) for r in RECIPES},
         "timings": timings,
         "runtime_s": round(time.time() - t0, 1),
-        "synthetic_probes": synthetic,
     }
-    files["summary.json"] = json.dumps(summary, indent=1).encode()
-    for name, data in files.items():
-        (run_dir / name).write_bytes(data)
-    out_vol.commit()
-    return files
 
 
 @app.local_entrypoint()
@@ -426,12 +450,13 @@ def main(
     inputs: str = "outputs/sibling/probes/inputs.json",
     eval_acts: str = "acts-sibling-eval",
     probe_acts: str = "acts-sibling-probe",
-    run: str = "sibling-v1",
+    run: str = "sibling-v3",
     out_dir: str = "outputs/sibling/probes",
     layers: str = "28,36,42,44,52",
     n_boot: int = 500,
     synthetic_probes: bool = False,
     skip_unembed: bool = False,
+    categories: str = "",
 ) -> None:
     inp = json.loads(Path(inputs).read_text())
     cfg = {
@@ -442,11 +467,37 @@ def main(
         "n_boot": n_boot,
         "synthetic_probes": synthetic_probes,
         "skip_unembed": skip_unembed,
+        "recipes": list(RECIPES),
     }
-    files = run_probes.remote(inp, cfg)
+    cats = categories.split(",") if categories else list(inp["concepts"])
     out = Path(out_dir)
-    out.mkdir(parents=True, exist_ok=True)
-    for name, data in files.items():
-        (out / name).write_bytes(data)
-    print(f"[probes] fetched {len(files)} files -> {out} (also sibling-probes:/{run}/)")
-    print(files["summary.json"].decode())
+    t0 = time.time()
+    metas = []
+    for res in probe_category.map(cats, kwargs={"inputs": inp, "cfg": cfg}):
+        if res.get("empty"):
+            print(f"[probes] {res['category']}: no probe texts")
+            continue
+        for recipe, files in res["pieces"].items():
+            d = out / "pieces" / recipe / res["category"]
+            d.mkdir(parents=True, exist_ok=True)
+            for name, data in files.items():
+                (d / name).write_bytes(data)
+        meta = {k: v for k, v in res.items() if k != "pieces"}
+        metas.append(meta)
+        print(f"[probes] {res['category']} done ({res['runtime_s']}s)", flush=True)
+    summary = {
+        "config": cfg,
+        "git_sha": inp.get("git_sha"),
+        "layers": cfg["layers"],
+        "recipes": list(RECIPES),
+        "categories": [m["category"] for m in metas],
+        "n_probe_texts": sum(m["n_probe_texts"] for m in metas),
+        "n_eval_items": sum(m["n_eval_items"] for m in metas),
+        "missing_eval_items": sorted({i for m in metas for i in m["missing_eval_items"]}),
+        "n_eval_rows": sum(m["n_eval_rows"] for m in metas),
+        "per_category": metas,
+        "synthetic_probes": synthetic_probes,
+        "wall_s": round(time.time() - t0, 1),
+    }
+    (out / "summary.json").write_text(json.dumps(summary, indent=1))
+    print(f"[probes] pieces -> {out / 'pieces'} (also sibling-probes:/{run}/); merge with hbench")

@@ -354,15 +354,17 @@ def cmd_sibling(args: argparse.Namespace) -> int:
             if rc:
                 return rc
         if args.fetch:
-            for name in probe_io.OUTPUT_FILES:
-                cmd = [
-                    *"uvx --python 3.12 modal@latest volume get --force sibling-probes".split(),
-                    f"/{args.run}/{name}",
-                    str(out / name),
-                ]
-                rc = subprocess.run(cmd).returncode
-                if rc:
-                    return rc
+            cmd = [
+                *"uvx --python 3.12 modal@latest volume get --force sibling-probes".split(),
+                f"/{args.run}",
+                str(out / "pieces"),
+            ]
+            rc = subprocess.run(cmd).returncode
+            if rc:
+                return rc
+        if args.launch or args.fetch or args.merge:
+            for f in probe_io.merge_pieces(out):
+                print(f"[probes] merged {f}")
         summ = out / "summary.json"
         if summ.exists():
             print(summ.read_text())
@@ -378,8 +380,10 @@ def cmd_sibling(args: argparse.Namespace) -> int:
             seed=args.seed,
         )
         path = S.write_summary(summary, Path(args.out))
-        for r in summary["verdict"]:
-            print(f"  {r['arm']:12s} {r['subset']:22s} -> {r['verdict']}")
+        for rec, rs in summary["recipes"].items():
+            for r in rs["verdict"]:
+                print(f"  [{rec}] {r['arm']:12s} {r['subset']:22s} -> {r['verdict']}")
+        print(f"  recipe sensitivity: {summary['recipe_sensitivity'].get('status')}")
         print(f"[score] -> {path}")
         return 0
     if args.sib == "report":
@@ -530,7 +534,10 @@ def build_parser() -> argparse.ArgumentParser:
     sp.add_argument("--prepare", action="store_true", help="write <out-dir>/inputs.json")
     sp.add_argument("--launch", action="store_true", help="run probes_modal.py (blocking)")
     sp.add_argument("--fetch", action="store_true", help="modal volume get the outputs of --run")
-    sp.add_argument("--run", default="sibling-v1")
+    sp.add_argument(
+        "--merge", action="store_true", help="merge <out-dir>/pieces into <out-dir>/{v2,v0}"
+    )
+    sp.add_argument("--run", default="sibling-v3")
     sp.add_argument("--eval-acts", default="acts-sibling-eval")
     sp.add_argument("--probe-acts", default="acts-sibling-probe")
     sp.set_defaults(fn=cmd_sibling)

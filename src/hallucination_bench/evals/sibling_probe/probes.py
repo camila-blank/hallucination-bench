@@ -23,6 +23,15 @@ Vocabulary (one category, one layer L):
   s_c over g's implied / all positions), ``tau_neu`` (neutral positions), ``tau_ceil`` (95th pct
   of s_g over the other concepts' implied positions = tau(g | g') pooled over g'), and the z
   statistics ``z_mu`` / ``z_sd`` of s_c over g's implied positions;
+* **recipes** (plan 0003 rev 11): ``v0`` = the raw text-mean DiffMean above; ``v2`` =
+  shrinkage-whitened DiffMean (:class:`Whitener`): ``d = (S_w + a I)^-1 d_V0`` with
+  ``a = lam tr(S_w) / D``, ``S_w`` the pooled within-(concept, ending, offset) covariance of the
+  concept texts' training positions (no neutrals; dof ``n - K C`` with K = number of
+  (ending, offset) keys of the whole TextSet), ``lam`` chosen per outer fold by inner
+  leave-one-training-fold-out CV (criterion: mean over concepts of position-level AUROC on the
+  held-out inner fold). Centring and scaling (mu, sigma) are those of :func:`fit_fold`, with the
+  sigma recomputed on the whitened unit direction. Ported exactly from
+  ``scripts/sibling_probe/probe_sweep_modal.py`` (variant V2).
 * **eval scoring** (:func:`score_eval`): each eval position is scored by every fold model k and
   thresholded against fold k's own thresholds; detection indicators and z are averaged over folds.
 """
@@ -40,8 +49,14 @@ N_FOLDS = 4
 FOLD_SEED = 0
 Q = 0.95
 # plan 0003 rev 10: lowered from 0.85 (position-level OOF AUROC; set before any judge/score result)
-VALIDITY_MIN_AUROC = 0.70
-VALIDITY_STRICT_AUROC = 0.85  # robustness row only
+# rev 11: V2 (primary) is gated at the pre-registered 0.85; V0 keeps rev 10's 0.70 so it
+# reproduces rev 10 (and is also re-scored at 0.85 as a robustness row).
+VALIDITY_MIN_AUROC = 0.85
+VALIDITY_V0_MIN_AUROC = 0.70
+VALIDITY_STRICT_AUROC = 0.85
+RECIPES = ("v2", "v0")  # primary first
+LAMS_W = (0.001, 0.003, 0.01, 0.03, 0.1, 0.3, 1.0, 3.0)
+VALIDITY_BY_RECIPE = {"v2": VALIDITY_MIN_AUROC, "v0": VALIDITY_V0_MIN_AUROC}
 TRANSFER_MIN_AUROC = 0.70
 KINDS = ("explicit", "implied", "neutral")
 
@@ -267,21 +282,10 @@ class FoldModel:
         return out
 
 
-def fit_fold(ts: TextSet, train_texts: np.ndarray, n_concepts: int) -> FoldModel:
-    """DiffMean + centring + scale on the concept texts in ``train_texts`` (text indices;
-    neutral texts in it are ignored)."""
-    train_texts = np.asarray(train_texts, dtype=np.int64)
-    tr = train_texts[ts.concept[train_texts] >= 0]
-    V = ts.text_means()
+def _centre_scale(ts: TextSet, tr: np.ndarray, D: np.ndarray, n_concepts: int) -> FoldModel:
+    """Per-(ending, offset) centring and scale of the unit directions of ``D`` on the training
+    texts ``tr`` (concept text indices)."""
     C = n_concepts
-    m = np.zeros((C, ts.H.shape[1]))
-    for c in range(C):
-        sel = tr[ts.concept[tr] == c]
-        if not sel.size:
-            raise ValueError(f"concept {c} has no training texts")
-        m[c] = V[sel].mean(axis=0)
-    others = (m.sum(axis=0, keepdims=True) - m) / max(C - 1, 1)
-    D = m - others
     U = D / np.maximum(np.linalg.norm(D, axis=1, keepdims=True), 1e-12)
     in_train = np.zeros(len(ts.ids), dtype=bool)
     in_train[tr] = True
@@ -300,6 +304,144 @@ def fit_fold(ts: TextSet, train_texts: np.ndarray, n_concepts: int) -> FoldModel
         mus.append(mu @ U.T)
         sds.append(np.where(sd > 0, sd, np.nan))
     return FoldModel(D=D, U=U, keys=keys, muU=np.array(mus), sigma=np.array(sds), train=np.sort(tr))
+
+
+def _diffmean(ts: TextSet, tr: np.ndarray, n_concepts: int) -> np.ndarray:
+    """Raw (V0) DiffMean directions [C, d] from the per-text window means of ``tr``."""
+    V = ts.text_means()
+    C = n_concepts
+    m = np.zeros((C, ts.H.shape[1]))
+    for c in range(C):
+        sel = tr[ts.concept[tr] == c]
+        if not sel.size:
+            raise ValueError(f"concept {c} has no training texts")
+        m[c] = V[sel].mean(axis=0)
+    others = (m.sum(axis=0, keepdims=True) - m) / max(C - 1, 1)
+    return m - others
+
+
+def fit_fold(ts: TextSet, train_texts: np.ndarray, n_concepts: int) -> FoldModel:
+    """DiffMean + centring + scale on the concept texts in ``train_texts`` (text indices;
+    neutral texts in it are ignored)."""
+    train_texts = np.asarray(train_texts, dtype=np.int64)
+    tr = train_texts[ts.concept[train_texts] >= 0]
+    return _centre_scale(ts, tr, _diffmean(ts, tr, n_concepts), n_concepts)
+
+
+# ------------------------------------------------------------------ V2: whitened DiffMean
+
+
+class Whitener:
+    """Shrinkage-whitened DiffMean models for one (category, layer) :class:`TextSet` (recipe
+    V2). Statistics are memoised per set of training folds (the eigendecomposition of S_w is the
+    cost)."""
+
+    def __init__(self, ts: TextSet, n_concepts: int):
+        self.ts, self.C = ts, n_concepts
+        keys = sorted(set(zip(ts.ending.tolist(), ts.offset.tolist(), strict=True)))
+        kix = {k: i for i, k in enumerate(keys)}
+        self.K = len(keys)
+        self.rkey = np.array(
+            [kix[(e, o)] for e, o in zip(ts.ending, ts.offset, strict=True)], dtype=np.int64
+        )
+        self._eig: dict[frozenset, tuple[np.ndarray, np.ndarray]] = {}
+
+    def train_texts(self, folds: frozenset[int]) -> np.ndarray:
+        ts = self.ts
+        return np.flatnonzero(np.isin(ts.fold, list(folds)) & (ts.concept >= 0))
+
+    def eig(self, folds: frozenset[int]) -> tuple[np.ndarray, np.ndarray]:
+        """Eigenvalues / vectors of S_w: the pooled within-(concept, ending, offset) covariance
+        of the training positions of the concept texts in ``folds`` (dof n - K C)."""
+        folds = frozenset(folds)
+        if folds not in self._eig:
+            ts, C, K = self.ts, self.C, self.K
+            T = self.train_texts(folds)
+            intr = np.zeros(len(ts.ids), bool)
+            intr[T] = True
+            rows = np.flatnonzero(intr[ts.text])
+            Hr = ts.H[rows].astype(np.float64)
+            gid = self.rkey[rows] * C + ts.row_concept[rows]
+            m = np.zeros((K * C, Hr.shape[1]))
+            cnt = np.bincount(gid, minlength=K * C).astype(np.float64)
+            np.add.at(m, gid, Hr)
+            m /= np.maximum(cnt, 1)[:, None]
+            R = Hr - m[gid]
+            S = (R.T @ R) / max(len(rows) - K * C, 1)
+            E, V = np.linalg.eigh(S)
+            self._eig[folds] = (np.maximum(E, 0), V)
+        return self._eig[folds]
+
+    def directions(self, folds: frozenset[int], lam: float) -> np.ndarray:
+        """d = (S_w + a I)^-1 d_V0, a = lam tr(S_w) / D, shape [C, d]."""
+        folds = frozenset(folds)
+        E, V = self.eig(folds)
+        D0 = _diffmean(self.ts, self.train_texts(folds), self.C)
+        a = lam * E.mean()
+        return (V @ ((V.T @ D0.T) / (E + a)[:, None])).T
+
+    def model(self, folds: frozenset[int], lam: float) -> FoldModel:
+        folds = frozenset(folds)
+        return _centre_scale(self.ts, self.train_texts(folds), self.directions(folds, lam), self.C)
+
+    def drop(self) -> None:
+        self._eig.clear()
+
+
+def _mean_valid(S: np.ndarray, rows: np.ndarray, rc: np.ndarray, n_concepts: int) -> float:
+    import warnings
+
+    vals = [
+        auroc(S[rows & (rc == c), c], S[rows & (rc != c) & (rc >= 0), c]) for c in range(n_concepts)
+    ]
+    with warnings.catch_warnings():
+        warnings.simplefilter("ignore", RuntimeWarning)
+        return float(np.nanmean(vals))
+
+
+def cross_fit_whitened(
+    ts: TextSet,
+    n_concepts: int,
+    n_folds: int = N_FOLDS,
+    lams: Sequence[float] = LAMS_W,
+    whitener: Whitener | None = None,
+) -> tuple[CrossFit, list[float], list[dict[float, float]]]:
+    """V2 cross-fit. For each outer fold k, lam is the grid value maximising the mean over the
+    other folds j of the inner criterion (model fitted on the folds other than k and j, scored
+    on fold j's concept positions; mean over concepts of the position-level AUROC); the fold
+    model is then fitted on all folds but k. Returns the cross-fit, the chosen lam per fold and
+    the inner score table per fold."""
+    wh = whitener or Whitener(ts, n_concepts)
+    rf, rc = ts.row_fold, ts.row_concept
+    inner_memo: dict[tuple[frozenset, int, float], float] = {}
+
+    def inner(fs: frozenset[int], j: int, lam: float) -> float:
+        key = (fs, j, lam)
+        if key not in inner_memo:
+            mdl = wh.model(fs, lam)
+            r = (rf == j) & (rc >= 0)
+            S = np.full((len(rc), n_concepts), np.nan)
+            S[r] = mdl.score(ts.H[r], ts.ending[r], ts.offset[r])
+            inner_memo[key] = _mean_valid(S, r, rc, n_concepts)
+        return inner_memo[key]
+
+    models, hyper, tables = [], [], []
+    oof = np.full((ts.H.shape[0], n_concepts), np.nan)
+    for k in range(n_folds):
+        F = [f for f in range(n_folds) if f != k]
+        sc = {
+            lam: float(np.mean([inner(frozenset(f for f in F if f != j), j, lam) for j in F]))
+            for lam in lams
+        }
+        best = max(sc, key=lambda h: sc[h])
+        mdl = wh.model(frozenset(F), best)
+        models.append(mdl)
+        hyper.append(float(best))
+        tables.append(sc)
+        rows = rf == k
+        if rows.any():
+            oof[rows] = mdl.score(ts.H[rows], ts.ending[rows], ts.offset[rows])
+    return CrossFit(models, oof, n_folds), hyper, tables
 
 
 # ------------------------------------------------------------------ cross-fitting
@@ -490,11 +632,24 @@ class CategoryLayerResult:
     ths: list[Thresholds]
     valid_auroc: np.ndarray
     pooled: Thresholds  # thresholds from all folds' OOF rows (reporting only)
+    hyper: list[float] | None = None  # V2: chosen lam per outer fold
 
 
-def run_category_layer(ts: TextSet, n_concepts: int, n_folds: int = N_FOLDS) -> CategoryLayerResult:
-    cf = cross_fit(ts, n_concepts, n_folds)
+def run_category_layer(
+    ts: TextSet,
+    n_concepts: int,
+    n_folds: int = N_FOLDS,
+    recipe: str = "v0",
+    whitener: Whitener | None = None,
+) -> CategoryLayerResult:
+    hyper = None
+    if recipe == "v0":
+        cf = cross_fit(ts, n_concepts, n_folds)
+    elif recipe == "v2":
+        cf, hyper, _ = cross_fit_whitened(ts, n_concepts, n_folds, whitener=whitener)
+    else:
+        raise ValueError(f"unknown recipe {recipe!r}")
     ths = fold_thresholds(ts, cf, n_concepts)
     va = validity(ts, cf.oof, n_concepts)
     pooled = thresholds_from(cf.oof, ts.row_concept, ts.row_implied, n_concepts)
-    return CategoryLayerResult(cf, ths, va, pooled)
+    return CategoryLayerResult(cf, ths, va, pooled, hyper)

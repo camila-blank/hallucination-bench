@@ -33,6 +33,16 @@ def _fmt(ci: Mapping[str, Any] | None) -> str:
     return s
 
 
+def _floor(ceiling: Mapping[str, Any] | None) -> dict[str, Any] | None:
+    """1 - ceiling (the gold-miss rate: a floor under any 'probe does not detect' rate)."""
+    if not ceiling or ceiling.get("est") is None:
+        return None
+    out = dict(ceiling)
+    for src, dst in (("est", "est"), ("hi", "lo"), ("lo", "hi")):
+        out[dst] = None if ceiling.get(src) is None else round(1 - ceiling[src], 4)
+    return out
+
+
 def _setup_mpl() -> Any:
     import matplotlib
 
@@ -200,14 +210,33 @@ def plot_test2(summary: Mapping[str, Any], out: Path) -> list[Path]:
     return paths
 
 
-def markdown(summary: Mapping[str, Any]) -> str:
-    L: list[str] = ["# Plan 0003 sibling probes: report", ""]
-    L.append("All numbers cover inventory concepts only (see the coverage table).")
-    prov = summary.get("provenance") or {}
-    L.append(f"git {prov.get('git_sha')}; judge runs: `{json.dumps(prov.get('judge_runs'))}`")
+def _coverage_lines(cov: Mapping[str, Any], h: str) -> list[str]:
+    L: list[str] = []
+    if cov:
+        L += [
+            "",
+            f"{h} Inventory coverage (probe_target outside the alias inventory)",
+            "",
+            "| arm | category | counts | share outside (est) | target/alias agreement |",
+            "|---|---|---|---|---|",
+        ]
+        for arm, rows in cov.items():
+            for cat, r in sorted(rows.items()):
+                cnt = {k: v for k, v in r.items() if isinstance(v, int)}
+                L.append(
+                    f"| {arm} | {cat} | `{json.dumps(cnt)}` | "
+                    f"{r.get('share_outside_inventory_est')} | "
+                    f"{r.get('probe_target_alias_agreement')} |"
+                )
+    return L
+
+
+def _recipe_body(summary: Mapping[str, Any], h: str = "##", *, coverage: bool = True) -> list[str]:
+    """Verdict table, per-arm sections, coverage and gates of one recipe's score summary."""
+    L: list[str] = []
     L += [
         "",
-        "## Verdict",
+        f"{h} Verdict",
         "",
         "| arm | role | subset | β₁ | β₂ | control | verdict | strong |",
         "|---|---|---|---|---|---|---|---|",
@@ -219,7 +248,7 @@ def markdown(summary: Mapping[str, Any]) -> str:
             f"{r.get('strongly_supported', '')} |"
         )
     for arm, s in summary["arms"].items():
-        L += ["", f"## {arm}", ""]
+        L += ["", f"{h} {arm}", ""]
         L.append(f"- classes (all sibling pairs): `{json.dumps(s['class_counts'])}`")
         L.append(f"- coverage: `{json.dumps(s['coverage'])}`")
         L.append(f"- response-named sibling mentions: `{json.dumps(s['response_named'])}`")
@@ -238,22 +267,23 @@ def markdown(summary: Mapping[str, Any]) -> str:
         L.append(f"- strong criterion: `{json.dumps(s['strong'])}`")
         L += [
             "",
-            "| threshold | det(M) | det(U_matched) | ceiling | halluc rate | macro | "
-            "macro (adjudicable) | user-scope rate |",
-            "|---|---|---|---|---|---|---|---|",
+            "| threshold | det(M) | det(U_matched) | ceiling | halluc rate | gold-miss floor "
+            "(1 - ceiling) | macro | macro (adjudicable) | user-scope rate |",
+            "|---|---|---|---|---|---|---|---|---|",
         ]
         for th in ("tau_cat", "tau_cg", "tau_neutral", "tau_cg_all"):
             d, h = s["detection"][th], s["halluc"][th]
             L.append(
                 f"| {th} | {_fmt(d['M'])} | {_fmt(d['U_matched'])} | {_fmt(d['ceiling'])} | "
-                f"{_fmt(h['all']['rate'])} | {_fmt(h['all'].get('macro'))} | "
+                f"{_fmt(h['all']['rate'])} | {_fmt(_floor(d['ceiling']))} | "
+                f"{_fmt(h['all'].get('macro'))} | "
                 f"{_fmt(h['all'].get('macro_adjudicable'))} | "
                 f"{_fmt(h['scope_user']['rate'])} |"
             )
         am = s["halluc_all_mentions"]
         L.append(
             f"| all sibling mentions (τ_cat) | | | {_fmt(am['ceiling'])} | "
-            f"{_fmt(am['rate'])} | {_fmt(am.get('macro'))} | | |"
+            f"{_fmt(am['rate'])} | {_fmt(_floor(am['ceiling']))} | {_fmt(am.get('macro'))} | | |"
         )
         cg = s.get("category_gates") or {}
         L += [
@@ -302,26 +332,11 @@ def markdown(summary: Mapping[str, Any]) -> str:
         if bl:
             L += ["", "| leaf | halluc τ_cat |", "|---|---|"]
             L += [f"| {lf or '(none)'} | {_fmt(v)} |" for lf, v in bl.items()]
-    cov = summary.get("coverage_inventory") or {}
-    if cov:
-        L += [
-            "",
-            "## Inventory coverage (probe_target outside the alias inventory)",
-            "",
-            "| arm | category | counts | share outside (est) | target/alias agreement |",
-            "|---|---|---|---|---|",
-        ]
-        for arm, rows in cov.items():
-            for cat, r in sorted(rows.items()):
-                cnt = {k: v for k, v in r.items() if isinstance(v, int)}
-                L.append(
-                    f"| {arm} | {cat} | `{json.dumps(cnt)}` | "
-                    f"{r.get('share_outside_inventory_est')} | "
-                    f"{r.get('probe_target_alias_agreement')} |"
-                )
+    if coverage:
+        L += _coverage_lines(summary.get("coverage_inventory") or {}, h)
     gates = summary.get("gates") or []
     fails = [g for g in gates if not g["pass"]]
-    L += ["", f"## Gates: {len(gates) - len(fails)}/{len(gates)} (concept, layer) pass", ""]
+    L += ["", f"{h} Gates: {len(gates) - len(fails)}/{len(gates)} (concept, layer) pass", ""]
     if fails:
         L += [
             "| category | concept | layer | validity | transfer | cat-layer pass |",
@@ -332,16 +347,151 @@ def markdown(summary: Mapping[str, Any]) -> str:
             f"{g['transfer_auroc']} | {g['category_layer_pass']} |"
             for g in fails
         ]
+    return L
+
+
+def markdown(summary: Mapping[str, Any]) -> str:
+    """The report. A multi-recipe summary (``recipes``) gets the recipe-sensitivity section and
+    V2 / V0 side by side, then each recipe's full sections; a single-recipe one the sections."""
+    prov = summary.get("provenance") or {}
+    L: list[str] = ["# Plan 0003 sibling probes: report", ""]
+    L.append("All numbers cover inventory concepts only (see the coverage table).")
+    L.append(f"git {prov.get('git_sha')}; judge runs: `{json.dumps(prov.get('judge_runs'))}`")
+    if "recipes" not in summary:
+        return "\n".join(L + _recipe_body(summary)) + "\n"
+    recs: Mapping[str, Mapping[str, Any]] = summary["recipes"]
+    primary = summary.get("primary_recipe", next(iter(recs)))
+    gates = summary.get("recipe_gates") or {}
+    names = {"v2": "V2 (whitened DiffMean, primary)", "v0": "V0 (raw DiffMean, rev 10)"}
+    L += [
+        "",
+        "Probe recipes: "
+        + "; ".join(f"**{names.get(r, r)}** validity gate {gates.get(r)}" for r in recs)
+        + ". Transfer gate 0.70; adjudicable = at least 50% of a category's (concept, layer) "
+        "probes pass both gates. V2 is the headline; V0 reproduces rev 10.",
+    ]
+    sens = summary.get("recipe_sensitivity") or {}
+    L += ["", f"## Recipe sensitivity: **{sens.get('status')}**", "", sens.get("rule", ""), ""]
+    for r in sens.get("reasons") or []:
+        L.append(f"- {r}")
+    L += _sens_tables(sens, primary)
+    L += _gate_counts(recs)
+    cal = summary.get("calibration") or {}
+    if cal:
+        L += ["", "## Calibration diagnostics (tau_cat; tau is not recalibrated on eval cells)", ""]
+        L += [
+            "Eval-cell FPR = detection of c's probe at other-gold cells whose prompt does not name "
+            "c (partly the sibling effect under test); neutral FPR = share of neutral OOF "
+            "positions above tau_cat.",
+            "",
+            "| category | " + " | ".join(f"{r} eval FPR | {r} neutral FPR" for r in cal) + " |",
+            "|---|" + "---|---|" * len(cal),
+        ]
+        cats = sorted(next(iter(cal.values()))["by_category"])
+        for c in [*cats, "overall"]:
+            cells = []
+            for r in cal:
+                d = cal[r]["overall"] if c == "overall" else cal[r]["by_category"][c]
+                cells += [str(d["eval_fpr_tau_cat"]), str(d["neutral_fpr"])]
+            L.append(f"| {c} | " + " | ".join(cells) + " |")
+    vt = summary.get("wsbench_verbatim_transfer") or {}
+    if vt.get("recipes"):
+        L += [
+            "",
+            "## Independent check (descriptive): transfer AUROC on the wsbench-verbatim items",
+            "",
+            f"{vt['n_items']} human-written items ({json.dumps(vt['items_by_category'])}); "
+            "gold-item transfer was used to pick V2, so this is the check on non-Opus-generated "
+            "items. Median over evaluable (concept, layer) probes, item-bootstrap 95% CI; too "
+            "small to be decisive.",
+            "",
+            "| layers | probes | "
+            + " | ".join(f"{r} median [CI] (share >= 0.70)" for r in recs)
+            + " | difference |",
+            "|---|---|" + "---|" * len(recs) + "---|",
+        ]
+        for g, d in vt["recipes"].items():
+            cols = [f"{_fmt(d[r])} ({d[r].get('share_ge_070')})" for r in recs if r in d]
+            diff = next((v for k, v in d.items() if k.startswith("diff_")), None)
+            L.append(f"| {g} | {d['n_probes']} | " + " | ".join(cols) + f" | {_fmt(diff)} |")
+    for r, rs in recs.items():
+        L += ["", f"# Recipe {names.get(r, r)}"]
+        L += _recipe_body(rs, "##", coverage=False)
+    L += _coverage_lines(summary.get("coverage_inventory") or {}, "#")
     return "\n".join(L) + "\n"
+
+
+def _gate_counts(recs: Mapping[str, Mapping[str, Any]]) -> list[str]:
+    L = [
+        "",
+        "## Gate pass counts",
+        "",
+        "| recipe | validity gate | (concept, layer) pass | by category |",
+        "|---|---|---|---|",
+    ]
+    for r, rs in recs.items():
+        g = rs.get("gates") or []
+        by: dict[str, list[int]] = {}
+        for x in g:
+            by.setdefault(x["category"], [0, 0])
+            by[x["category"]][0] += bool(x["pass"])
+            by[x["category"]][1] += 1
+        L.append(
+            f"| {r} | {rs.get('min_validity')} | {sum(x['pass'] for x in g)}/{len(g)} | "
+            + ", ".join(f"{c} {a}/{b}" for c, (a, b) in sorted(by.items()))
+            + " |"
+        )
+    return L
+
+
+def _sens_tables(sens: Mapping[str, Any], primary: str) -> list[str]:
+    if "rates" not in sens:
+        return []
+    rs = [k for k in (sens["rates"][0]["raw"] if sens["rates"] else {}) if k != "overlap"]
+    L = ["", "### Verdicts by recipe", "", "| arm | subset | " + " | ".join(rs) + " | differs |"]
+    L.append("|---|---|" + "---|" * (len(rs) + 1))
+    for v in sens["verdicts"]:
+        L.append(
+            f"| {v['arm']} | {v['subset']} | "
+            + " | ".join(v[r] for r in rs)
+            + f" | {v['differs']} |"
+        )
+    L += [
+        "",
+        "### Headline rates by recipe (probe-verified hallucination rate = 1 - det(M); gold-miss "
+        "floor = 1 - ceiling; normalised = 1 - det(M)/ceiling; excess ratio = "
+        "(det(M) - det(U))/(ceiling - det(U)))",
+        "",
+        "| arm | threshold | recipe | rate | gold-miss floor | det(M) | det(U) | ceiling | "
+        "normalised rate | excess ratio |",
+        "|---|---|---|---|---|---|---|---|---|---|",
+    ]
+    for row in sens["rates"]:
+        for r in rs:
+            d = row["det"][r]
+            L.append(
+                f"| {row['arm']} | {row['threshold']} | {r} | {_fmt(row['raw'][r])} | "
+                f"{_fmt(row['gold_miss_floor'][r])} | {_fmt(d['M'])} | {_fmt(d['U_matched'])} | "
+                f"{_fmt(d['ceiling'])} | {_fmt(row['normalised'][r])} | "
+                f"{_fmt(row['excess_ratio'][r])} |"
+            )
+        L.append(
+            f"| | | CIs overlap (raw / normalised / excess) | {row['raw']['overlap']} / "
+            f"{row['normalised']['overlap']} / {row['excess_ratio']['overlap']} | | | | | | |"
+        )
+    return L
 
 
 def write_report(score_dir: Path = SCORE_DIR, plots_dir: Path = PLOTS_DIR) -> dict[str, Any]:
     summary = json.loads((score_dir / "summary.json").read_text())
     plots_dir.mkdir(parents=True, exist_ok=True)
+    pr = (
+        summary["recipes"][summary["primary_recipe"]] if "recipes" in summary else summary
+    )  # plots show the primary recipe (V2)
     paths = [
-        *plot_detection(summary, plots_dir),
-        plot_halluc(summary, plots_dir),
-        *plot_test2(summary, plots_dir),
+        *plot_detection(pr, plots_dir),
+        plot_halluc(pr, plots_dir),
+        *plot_test2(pr, plots_dir),
     ]
     md = score_dir / "report.md"
     md.write_text(markdown(summary))

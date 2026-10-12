@@ -17,7 +17,11 @@ named in the prompt.
 * every class other than ``M`` and ``unmentioned`` is excluded from both sides of Tests 1-3 and
   the within-item AUROC and only counted in its own row.
 
-**Gates**: probe validity (OOF AUROC >= 0.70, plan rev 10) and the per-(concept, layer)
+**Recipes** (plan rev 11): every number is computed per probe recipe, ``v2`` (shrinkage-whitened
+DiffMean, primary, validity gate 0.85) and ``v0`` (raw DiffMean, rev 10, gate 0.70);
+:func:`score_recipes` runs :func:`score_all` on each and adds the recipe-sensitivity flag.
+
+**Gates**: probe validity (OOF AUROC >= the recipe's gate) and the per-(concept, layer)
 transfer gate (eval-site AUROC of c's probe score, c-gold items' cells vs the other-gold items'
 cells of the category, >= 0.70); a (category, layer) is transfer-passing if at least half its
 concepts pass transfer. A pair is **eligible** iff its (category, layer) is transfer-passing and
@@ -53,7 +57,9 @@ import numpy as np
 from hallucination_bench import REPO_ROOT
 from hallucination_bench import taxonomy_v2 as tx
 from hallucination_bench.evals.sibling_probe.probes import (
+    RECIPES,
     TRANSFER_MIN_AUROC,
+    VALIDITY_BY_RECIPE,
     VALIDITY_MIN_AUROC,
     VALIDITY_STRICT_AUROC,
     auroc,
@@ -863,6 +869,7 @@ def arm_summary(
     # all sibling mentions, judge verdict ignored (tau_cat)
     out["halluc_all_mentions"] = halluc_rows(p, g, W, sib_mention & p.eligible, u, "tau_cat")
     out["strong"] = strong_criterion(p, g, W, m, u)
+    out["normalised"] = {th: excess_ratio(p, g, W, m, u, th) for th in THRESHOLDS}
     out["category_gates"] = cg
     out["pair_table"] = pair_table(p, m, gates)
     _it, zm, zu, _, cats = test2_cells(p)
@@ -872,23 +879,38 @@ def arm_summary(
     return out
 
 
+def excess_ratio(
+    p: Pairs, g: Golds, W: np.ndarray, m: np.ndarray, u: np.ndarray, th: str = "tau_cat"
+) -> dict[str, Any] | None:
+    """(det(M) - det(U)) / (ceiling - det(U)) under threshold ``th`` with CIs, plus the
+    sensitivity-normalised rate 1 - det(M)/ceiling; None if a side is empty."""
+    f, cf = THRESHOLDS[th], CEILING_FIELD[th]
+    okm, oku = m & np.isfinite(p.vals[f]), u & np.isfinite(p.vals[f])
+    gm = g.eligible & g.mentioned & np.isfinite(g.vals[cf])
+    if not okm.any() or not oku.any() or not gm.any():
+        return None
+    dm, bm = ratio_boot(p.item[okm], p.vals[f][okm], np.ones(int(okm.sum())), W)
+    du, bu = ratio_boot(p.item[oku], p.vals[f][oku], np.ones(int(oku.sum())), W)
+    dc, bc = ratio_boot(g.item[gm], g.vals[cf][gm], np.ones(int(gm.sum())), W)
+    with np.errstate(all="ignore"):
+        ratio, br = (dm - du) / (dc - du), (bm - bu) / (bc - bu)
+        norm, bn = 1 - dm / dc, 1 - bm / bc
+    return {
+        "ratio": _ci(ratio, br, int(okm.sum())),
+        "denominator": _ci(dc - du, bc - bu, int(gm.sum())),
+        "rate_normalised": _ci(norm, bn, int(okm.sum())),
+    }
+
+
 def strong_criterion(
     p: Pairs, g: Golds, W: np.ndarray, m: np.ndarray, u: np.ndarray
 ) -> dict[str, Any]:
     """(det(M) - det(U)) / (ceiling - det(U)) under tau_cat, with CIs; ``undefined`` if the
     denominator's CI includes 0."""
-    f = "det_cat"
-    okm, oku = m & np.isfinite(p.vals[f]), u & np.isfinite(p.vals[f])
-    gm = g.eligible & g.mentioned & np.isfinite(g.vals[f])
-    if not okm.any() or not oku.any() or not gm.any():
+    ex = excess_ratio(p, g, W, m, u, "tau_cat")
+    if ex is None:
         return {"status": "undefined", "reason": "empty side"}
-    dm, bm = ratio_boot(p.item[okm], p.vals[f][okm], np.ones(int(okm.sum())), W)
-    du, bu = ratio_boot(p.item[oku], p.vals[f][oku], np.ones(int(oku.sum())), W)
-    dc, bc = ratio_boot(g.item[gm], g.vals[f][gm], np.ones(int(gm.sum())), W)
-    with np.errstate(all="ignore"):
-        ratio, br = (dm - du) / (dc - du), (bm - bu) / (bc - bu)
-    den = _ci(dc - du, bc - bu, int(gm.sum()))
-    rat = _ci(ratio, br, int(okm.sum()))
+    den, rat = ex["denominator"], ex["ratio"]
     if den["lo"] is None or den["lo"] <= 0 <= den["hi"]:
         status = "undefined"
     elif rat["lo"] is not None and rat["est"] > 0.5 and rat["lo"] > 0.5:
@@ -997,13 +1019,23 @@ def score_all(
     n_boot: int = N_BOOT,
     seed: int = BOOT_SEED,
     log: Callable[[str], None] = print,
+    min_validity: float = VALIDITY_MIN_AUROC,
 ) -> dict[str, Any]:
+    """One probe recipe: every arm, its token-eligible subset and (when the gate is not already
+    0.85) the validity >= 0.85 robustness row."""
     gates = Gates(
         dict(validity),
         transfer_auroc(scores, items, concepts),
         {k: list(v) for k, v in concepts.items()},
+        min_validity=min_validity,
     )
-    out: dict[str, Any] = {"gates": gates.table(), "arms": {}, "n_boot": n_boot, "seed": seed}
+    out: dict[str, Any] = {
+        "gates": gates.table(),
+        "min_validity": min_validity,
+        "arms": {},
+        "n_boot": n_boot,
+        "seed": seed,
+    }
     item_order = sorted(items)
     for arm, cells in arm_cells.items():
         p, g = build_pairs(cells, concepts, token_eligible, scores, gates, item_order)
@@ -1014,12 +1046,14 @@ def score_all(
             out["arms"][f"{arm}@token_eligible"] = arm_summary(
                 p.subset(te), g, n_boot=n_boot, seed=seed, gates=gates
             )
-            # plan rev 10 robustness row: probes passing the original 0.85 validity gate
-            strict = replace(gates, min_validity=VALIDITY_STRICT_AUROC)
-            ps, gs = build_pairs(cells, concepts, token_eligible, scores, strict, item_order)
-            out["arms"][f"{arm}@validity085"] = arm_summary(
-                ps, gs, n_boot=n_boot, seed=seed, gates=strict
-            )
+            if min_validity != VALIDITY_STRICT_AUROC:
+                # robustness row: probes passing the pre-registered 0.85 validity gate (for a
+                # recipe already gated at 0.85 this IS the main row, so it is not repeated)
+                strict = replace(gates, min_validity=VALIDITY_STRICT_AUROC)
+                ps, gs = build_pairs(cells, concepts, token_eligible, scores, strict, item_order)
+                out["arms"][f"{arm}@validity085"] = arm_summary(
+                    ps, gs, n_boot=n_boot, seed=seed, gates=strict
+                )
     out["verdict"] = verdict_table(out["arms"])
     return out
 
@@ -1031,6 +1065,317 @@ def write_summary(summary: Mapping[str, Any], out_dir: Path = SCORE_DIR) -> Path
     return path
 
 
+# ------------------------------------------------------------------ recipes side by side
+
+
+def _overlap(a: Mapping[str, Any] | None, b: Mapping[str, Any] | None) -> bool | None:
+    """Do two CIs overlap? None if either is missing."""
+    if not a or not b or None in (a.get("lo"), a.get("hi"), b.get("lo"), b.get("hi")):
+        return None
+    return bool(a["lo"] <= b["hi"] and b["lo"] <= a["hi"])
+
+
+def recipe_sensitivity(
+    recipes: Mapping[str, Mapping[str, Any]], primary: str = "v2", other: str = "v0"
+) -> dict[str, Any]:
+    """Pre-registered recipe-sensitivity rule (plan rev 11): the result is **recipe-sensitive**
+    if the two recipes give different verdicts, or the CIs of a headline rate do not overlap.
+    Raw rates differ mechanically with gold sensitivity, so the rate comparison uses the
+    sensitivity-normalised rate 1 - det(M)/ceiling and the excess ratio
+    (det(M) - det(U))/(ceiling - det(U)), per arm and threshold (tau_cat / tau(c|g) /
+    tau_neutral); each raw rate is carried next to its gold-miss floor (1 - ceiling)."""
+    a, b = recipes.get(primary), recipes.get(other)
+    if a is None or b is None:
+        return {"status": "single recipe"}
+    va = {(r["arm"], r["subset"]): r for r in a["verdict"]}
+    vb = {(r["arm"], r["subset"]): r for r in b["verdict"]}
+    verdicts, reasons = [], []
+    for k in va:
+        if k not in vb:
+            continue
+        diff = va[k]["verdict"] != vb[k]["verdict"]
+        verdicts.append(
+            {
+                "arm": k[0],
+                "subset": k[1],
+                primary: va[k]["verdict"],
+                other: vb[k]["verdict"],
+                "differs": diff,
+            }
+        )
+        if diff and k[1] != "validity >= 0.85 (robustness)":
+            reasons.append(f"verdict {k[0]} / {k[1]}: {va[k]['verdict']} vs {vb[k]['verdict']}")
+    rates = []
+    for arm in a["arms"]:
+        if "@" in arm or arm not in b["arms"]:
+            continue
+        for th in ("tau_cat", "tau_cg", "tau_neutral"):
+            ha, hb = a["arms"][arm]["halluc"][th]["all"], b["arms"][arm]["halluc"][th]["all"]
+            na, nb = a["arms"][arm]["normalised"][th], b["arms"][arm]["normalised"][th]
+            row: dict[str, Any] = {
+                "arm": arm,
+                "threshold": th,
+                "raw": {
+                    primary: ha["rate"],
+                    other: hb["rate"],
+                    "overlap": _overlap(ha["rate"], hb["rate"]),
+                },
+                "gold_miss_floor": {
+                    primary: _floor(ha["ceiling"]),
+                    other: _floor(hb["ceiling"]),
+                },
+            }
+            for key, label in (("rate_normalised", "normalised"), ("ratio", "excess_ratio")):
+                ca, cb = (na or {}).get(key), (nb or {}).get(key)
+                ov = _overlap(ca, cb)
+                row[label] = {primary: ca, other: cb, "overlap": ov}
+                if ov is False:
+                    reasons.append(f"{arm} {th} {label}: CIs do not overlap")
+            row["det"] = {
+                r: {
+                    "M": rs["arms"][arm]["detection"][th]["M"],
+                    "U_matched": rs["arms"][arm]["detection"][th]["U_matched"],
+                    "ceiling": rs["arms"][arm]["detection"][th]["ceiling"],
+                }
+                for r, rs in ((primary, a), (other, b))
+            }
+            rates.append(row)
+    return {
+        "status": "recipe-sensitive" if reasons else "robust to recipe",
+        "reasons": reasons,
+        "verdicts": verdicts,
+        "rates": rates,
+        "rule": "different verdicts, or non-overlapping CIs of the sensitivity-normalised "
+        "rate 1 - det(M)/ceiling or of the excess ratio (det(M) - det(U))/(ceiling - det(U)); "
+        "raw rates are shown next to the gold-miss floor 1 - ceiling but do not trigger it",
+    }
+
+
+def _floor(ceiling: Mapping[str, Any] | None) -> dict[str, Any] | None:
+    return _rate(ceiling) if ceiling and ceiling.get("est") is not None else None
+
+
+def calibration_table(
+    scores: Mapping[tuple[str, int, int, str], tuple],
+    items: Mapping[str, Mapping[str, Any]],
+    concepts: Mapping[str, Sequence[str]],
+    validity_rows: Mapping[tuple[str, str, int], Mapping[str, Any]],
+) -> dict[str, Any]:
+    """Diagnostics (tau is NOT recalibrated on eval cells): per category, the eval-cell FPR at
+    tau_cat (mean fold-averaged detection of c's probe at cells of items whose gold is not c and
+    whose prompt does not name c; partly the sibling effect under test) and the neutral FPR (mean
+    over concepts / layers of the share of neutral OOF positions above tau_cat)."""
+    di = SCORE_FIELDS.index("det_cat")
+    acc: dict[tuple[str, int], list[float]] = defaultdict(list)
+    for (iid, layer, _pos, c), v in scores.items():
+        it = items.get(iid)
+        if it is None or it["gold"] == c or c in set(it.get("named") or ()):
+            continue
+        if np.isfinite(v[di]):
+            acc[(it["category"], layer)].append(v[di])
+    neu: dict[tuple[str, int], list[float]] = defaultdict(list)
+    for (cat, _c, layer), r in validity_rows.items():
+        if r.get("fpr_neutral") is not None:
+            neu[(cat, layer)].append(float(r["fpr_neutral"]))
+
+    def agg(keys: Iterable[tuple[str, int]], src: Mapping[tuple[str, int], list[float]]) -> Any:
+        x = [v for k in keys for v in src.get(k, ())]
+        return _r(float(np.mean(x))) if x else None
+
+    layers = sorted({k[1] for k in acc} | {k[1] for k in neu})
+    out: dict[str, Any] = {"by_category": {}, "layer44": {}}
+    for cat in sorted(concepts):
+        ks = [(cat, L) for L in layers]
+        out["by_category"][cat] = {
+            "eval_fpr_tau_cat": agg(ks, acc),
+            "neutral_fpr": agg(ks, neu),
+        }
+        if 44 in layers:
+            out["layer44"][cat] = {
+                "eval_fpr_tau_cat": agg([(cat, 44)], acc),
+                "neutral_fpr": agg([(cat, 44)], neu),
+            }
+    cats = sorted(concepts)
+    out["overall"] = {
+        "eval_fpr_tau_cat": agg([(c, L) for c in cats for L in layers], acc),
+        "neutral_fpr": agg([(c, L) for c in cats for L in layers], neu),
+    }
+    return out
+
+
+VERBATIM_PREFIX = "um-sd-"  # the human-written wsbench-verbatim country / occupation items
+
+
+def verbatim_transfer(
+    scores_by_recipe: Mapping[str, Mapping[tuple[str, int, int, str], tuple]],
+    items: Mapping[str, Mapping[str, Any]],
+    concepts: Mapping[str, Sequence[str]],
+    *,
+    prefix: str = VERBATIM_PREFIX,
+    n_boot: int = 500,
+    seed: int = BOOT_SEED,
+) -> dict[str, Any]:
+    """Descriptive independent check (plan rev 11): transfer AUROC per (category, concept, layer)
+    restricted to the wsbench-verbatim items (ids starting ``um-sd-``), per recipe, with an
+    item-clustered bootstrap CI of the median over the evaluable (concept, layer) probes and of
+    the paired difference (first recipe - second). Too small to be decisive."""
+    sub = {k: v for k, v in items.items() if k.startswith(prefix)}
+    ids = sorted(sub)
+    iidx = {k: i for i, k in enumerate(ids)}
+    recs = list(scores_by_recipe)
+    per: dict[str, dict[tuple[str, str, int], tuple[np.ndarray, ...]]] = {}
+    for r in recs:
+        by: dict[tuple[str, str, int], list[list[float]]] = defaultdict(lambda: [[], [], [], []])
+        for (iid, layer, _pos, c), v in scores_by_recipe[r].items():
+            it = sub.get(iid)
+            if it is None or (it["gold"] == c and c in set(it.get("named") or ())):
+                continue
+            side = 0 if it["gold"] == c else 1
+            b = by[(it["category"], c, layer)]
+            b[2 * side].append(v[0])
+            b[2 * side + 1].append(iidx[iid])
+        per[r] = {
+            k: (
+                np.array(v[0]),
+                np.array(v[1], dtype=int),
+                np.array(v[2]),
+                np.array(v[3], dtype=int),
+            )
+            for k, v in by.items()
+        }
+    keys = (
+        sorted(
+            set.intersection(
+                *(
+                    {
+                        k
+                        for k, v in per[r].items()
+                        if v[0].size and v[2].size and np.isfinite(v[0]).any()
+                    }
+                    for r in recs
+                )
+            )
+        )
+        if recs
+        else []
+    )
+
+    def table(w: np.ndarray | None, ks: Sequence[tuple[str, str, int]]) -> dict[str, np.ndarray]:
+        out = {}
+        for r in recs:
+            vals = []
+            for k in ks:
+                sp, ip, sn, inn = per[r][k]
+                if w is not None:
+                    sp, sn = np.repeat(sp, w[ip].astype(int)), np.repeat(sn, w[inn].astype(int))
+                vals.append(auroc(sp, sn))
+            out[r] = np.array(vals)
+        return out
+
+    def med(x: np.ndarray) -> float:
+        x = x[np.isfinite(x)]
+        return float(np.median(x)) if x.size else float("nan")
+
+    rng = np.random.default_rng(seed)
+    draws = rng.multinomial(len(ids), np.full(len(ids), 1.0 / len(ids)), size=n_boot) if ids else []
+    out: dict[str, Any] = {
+        "descriptive": True,
+        "n_items": len(ids),
+        "items_by_category": dict(Counter(sub[i]["category"] for i in ids)),
+        "n_probes": len(keys),
+        "recipes": {},
+    }
+    groups = {"all_layers": list(keys), "L44": [k for k in keys if k[2] == 44]}
+    for gname, ks in groups.items():
+        if not ks:
+            continue
+        pt = table(None, ks)
+        boots = [table(w, ks) for w in draws]
+        grp: dict[str, Any] = {"n_probes": len(ks)}
+        for r in recs:
+            bm = np.array([med(b[r]) for b in boots])
+            grp[r] = _ci(
+                med(pt[r]),
+                bm,
+                len(ks),
+                share_ge_070=_r(float(np.mean(pt[r][np.isfinite(pt[r])] >= TRANSFER_MIN_AUROC))),
+            )
+        if len(recs) == 2:
+            r0, r1 = recs
+            d = np.array([med(b[r0]) - med(b[r1]) for b in boots])
+            grp[f"diff_{r0}_minus_{r1}"] = _ci(med(pt[r0]) - med(pt[r1]), d, len(ks))
+        out["recipes"][gname] = grp
+    return out
+
+
+def load_recipe_inputs(probes_dir: Path) -> dict[str, tuple[dict, dict, dict]]:
+    """recipe -> (eval-score index, validity AUROC by key, validity rows) from a probe-job
+    directory (merged layout ``<dir>/{v2,v0}/`` or the legacy single-recipe layout)."""
+    from hallucination_bench.evals.sibling_probe import probe_io as PIO
+
+    out = {}
+    for recipe, d in PIO.recipe_dirs(probes_dir).items():
+        rows = PIO.load_validity(d / "validity.jsonl")
+        out[recipe] = (
+            index_scores(PIO.iter_eval_scores(d / "eval_scores.jsonl.gz")),
+            {k: float(v["auroc"]) for k, v in rows.items()},
+            rows,
+        )
+    return out
+
+
+def score_recipes(
+    arm_cells: Mapping[str, Sequence[Mapping[str, Any]]],
+    recipe_inputs: Mapping[str, tuple[dict, dict, dict]],
+    items: Mapping[str, Mapping[str, Any]],
+    concepts: Mapping[str, Sequence[str]],
+    token_eligible: Mapping[tuple[str, str], bool],
+    *,
+    n_boot: int = N_BOOT,
+    seed: int = BOOT_SEED,
+    log: Callable[[str], None] = print,
+) -> dict[str, Any]:
+    """Score every recipe present (v2 primary gate 0.85, v0 gate 0.70), then the recipe
+    sensitivity flag, the calibration diagnostics and the wsbench-verbatim transfer check."""
+    recipes: dict[str, Any] = {}
+    for r in RECIPES:
+        if r not in recipe_inputs:
+            continue
+        scores, validity, _rows = recipe_inputs[r]
+        log(f"[score] recipe {r} (validity gate {VALIDITY_BY_RECIPE[r]})")
+        recipes[r] = score_all(
+            arm_cells,
+            scores,
+            validity,
+            items,
+            concepts,
+            token_eligible,
+            n_boot=n_boot,
+            seed=seed,
+            log=log,
+            min_validity=VALIDITY_BY_RECIPE[r],
+        )
+    primary = next(iter(recipes))
+    out: dict[str, Any] = {
+        "primary_recipe": primary,
+        "recipe_gates": {r: VALIDITY_BY_RECIPE[r] for r in recipes},
+        "recipes": recipes,
+        "recipe_sensitivity": recipe_sensitivity(recipes),
+        "calibration": {
+            r: calibration_table(recipe_inputs[r][0], items, concepts, recipe_inputs[r][2])
+            for r in recipes
+        },
+        "wsbench_verbatim_transfer": verbatim_transfer(
+            {r: recipe_inputs[r][0] for r in recipes}, items, concepts
+        )
+        if recipes
+        else {},
+        "n_boot": n_boot,
+        "seed": seed,
+    }
+    return out
+
+
 def load_and_score(
     *,
     arms: Sequence[str] = (PRIMARY, SECONDARY, CONTROL),
@@ -1040,7 +1385,7 @@ def load_and_score(
     seed: int = BOOT_SEED,
 ) -> dict[str, Any]:
     """Load the judge cells of every arm present, the probe job's eval scores and validity
-    table, the bank and the inventory; score; record provenance."""
+    tables (per recipe), the bank and the inventory; score; record provenance."""
     from hallucination_bench.evals.sibling_probe import bank as B
     from hallucination_bench.evals.sibling_probe import judge as J
     from hallucination_bench.evals.sibling_probe import probe_io as PIO
@@ -1052,10 +1397,6 @@ def load_and_score(
     items = {it["id"]: it for it in B.load_items()}
     concepts = {name: cat.ids for name, cat in inv.items()}
     te = {(name, c.id): c.token_eligible for name, cat in inv.items() for c in cat.concepts}
-    validity = {
-        k: float(v["auroc"]) for k, v in PIO.load_validity(probes_dir / "validity.jsonl").items()
-    }
-    scores = index_scores(PIO.iter_eval_scores(probes_dir / "eval_scores.jsonl.gz"))
     arm_cells, runs = {}, {}
     for a in arms:
         f = judge_root / a / "cells.jsonl"
@@ -1065,7 +1406,15 @@ def load_and_score(
         arm_cells[a] = J.load_cells(a, judge_root)
         rj = judge_root / a / "run.json"
         runs[a] = json.loads(rj.read_text()) if rj.exists() else {}
-    out = score_all(arm_cells, scores, validity, items, concepts, te, n_boot=n_boot, seed=seed)
+    out = score_recipes(
+        arm_cells,
+        load_recipe_inputs(probes_dir),
+        items,
+        concepts,
+        te,
+        n_boot=n_boot,
+        seed=seed,
+    )
     psum = probes_dir / "summary.json"
     out["provenance"] = {
         "judge_runs": {
