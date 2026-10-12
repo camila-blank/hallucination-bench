@@ -29,7 +29,8 @@ def test_verdict_mapping_covers_every_leaf_exactly_once():
         "unresolved",
         "junk",
     }
-    assert tx.VERDICTS["hallucination"] == ("detail", "false_claim")
+    # rev 20: substitution_category is the third hallucination component
+    assert tx.VERDICTS["hallucination"] == ("detail", "false_claim", "substitution_category")
     assert set(tx.VERDICTS["junk"]) == set(tx.NON_CLAIM_LEAVES) and len(tx.NON_CLAIM_LEAVES) == 1
     assert tx.verdict_of("supplementary_true") == "correct"
     assert tx.verdict_of("supplementary_false") == "probe_candidate"

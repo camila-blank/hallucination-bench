@@ -15,7 +15,8 @@ src/hallucination_bench/
   summarizer.py   interp-v1 token-bag -> prose prompt (verbatim)
   taxonomy.py     THE taxonomy (single source of truth; rendered into the classifier prompt)
   taxonomy_v2.py  THE claim-map taxonomy (judge: 12 leaves / 8 groups; scoring, rev 18-19: 11 leaves /
-                  7 groups / 6 VERDICTS (junk = non_claim + off_topic; model_state = thinky); leaf
+                  7 groups / 6 VERDICTS (junk = non_claim + off_topic; model_state = thinky;
+                  rev 20: hallucination = false_claim + detail + substitution_category); leaf
                   tags, precedence, open
                   decisions in CHOSEN; render(anchored) for single-call vs --anchor v5c)
   units.py        deterministic readout splitter (units R{i}.U{n}) + offset-returning locate
@@ -141,6 +142,10 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
 - **Rev 19, also post-parse**: `hedged` segments become `unverifiable` (+ `same_slot_alternative`,
   `raw_leaf` kept, `n_hedged_remapped`; health splits by origin `n_hedged_from_*`);
   `model_state` is the `thinky` verdict (not a probe candidate).
+- **Rev 20 (scoring)**: `substitution_category` is a hallucination component (verdict
+  hallucination; its probe_target is dropped, `pair` kept, out of `probe_candidates.jsonl`).
+  Every headline table, the v5c comparison, the judge-noise rows and the plots show the three
+  components (false_claim / detail / substitution_category) separately.
 - **No git writes from agents** in this worktree (no add/rm/restore --staged/commit).
 - **In-run retries** (rev 14): an invalid `:M` (or calibration) answer is re-asked up to 2 times
   (`run.MAP_INVALID_RETRIES`) before it is cached as failed; meta records `n_invalid_attempts`

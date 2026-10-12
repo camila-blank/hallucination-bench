@@ -3,10 +3,11 @@
     uv run python scripts/plot_claim_hallucination_share.py [--out plots/full_run_v2.7]
 
 A *claim* is any judged segment that is not `junk` (non-claim / off-topic) and not failed or
-unknown. Hallucination share = (detail + false_claim segments) / claim segments, counted per
+unknown. Hallucination share = (false_claim + detail + substitution_category segments; rev 20)
+/ claim segments, counted per
 segment and pooled within an item; the 95% CI resamples items (2000 draws, seed 0). Rev 19:
 hedged option lists are scored `unverifiable` in cells.jsonl, so they count as claims that are not
-hallucinations (they are never `detail` / `false_claim` here). Streams
+hallucinations (they are never a hallucination component here). Streams
 cells.jsonl, so it is memory-safe on the large 11-layer arms. Writes
 claims_hallucination_share.png and claims_hallucination_share_by_layer.png.
 """
@@ -42,8 +43,8 @@ LAYER_ARMS = [("s3d-rl600-all11", "O-lens RL"), ("mlnla-rl600-all11", "ML-NLA st
 
 
 def tally(arm: str) -> dict:
-    """{layer|'all': {item: [n_claims, n_false_claim, n_detail]}}."""
-    out: dict = defaultdict(lambda: defaultdict(lambda: [0, 0, 0]))
+    """{layer|'all': {item: [n_claims, n_false_claim, n_detail, n_substitution_category]}}."""
+    out: dict = defaultdict(lambda: defaultdict(lambda: [0, 0, 0, 0]))
     with (CELLS / arm / "cells.jsonl").open(encoding="utf-8") as fh:
         for line in fh:
             r = json.loads(line)
@@ -57,6 +58,7 @@ def tally(arm: str) -> dict:
                     acc[0] += 1
                     acc[1] += leaf == "false_claim"
                     acc[2] += leaf == "detail"
+                    acc[3] += leaf == "substitution_category"
     return out
 
 
@@ -71,7 +73,7 @@ def ratio_ci(per_item: dict, col: int, n_boot: int = 2000) -> tuple[float, float
 
 
 def with_hallu(per_item: dict) -> dict:
-    return {k: [v[0], v[1], v[2], v[1] + v[2]] for k, v in per_item.items()}
+    return {k: [v[0], v[1], v[2], v[3], v[1] + v[2] + v[3]] for k, v in per_item.items()}
 
 
 def bar_plot(rows, title, out, height) -> None:
@@ -80,6 +82,7 @@ def bar_plot(rows, title, out, height) -> None:
     y = np.arange(len(rows))[::-1]
     fc = np.array([r[2] for r in rows])
     de = np.array([r[3] for r in rows])
+    sc = np.array([r[4] for r in rows])
     tot = np.array([r[1][0] for r in rows])
     lo = tot - np.array([r[1][1] for r in rows])
     hi = np.array([r[1][2] for r in rows]) - tot
@@ -96,8 +99,18 @@ def bar_plot(rows, title, out, height) -> None:
         linewidth=1.5,
         label="Detail",
     )
+    ax.barh(
+        y,
+        sc,
+        left=fc + de,
+        height=0.66,
+        color="#8b3fb5",
+        edgecolor="white",
+        linewidth=1.5,
+        label="Category substitution",
+    )
     ax.errorbar(tot, y, xerr=[lo, hi], fmt="none", ecolor=TEXT, elinewidth=1, capsize=2)
-    for yi, vi, hii, n in zip(y, tot, hi, [r[4] for r in rows], strict=True):
+    for yi, vi, hii, n in zip(y, tot, hi, [r[5] for r in rows], strict=True):
         ax.text(vi + hii + 0.8, yi, f"{vi:.1f}%  (n={n:,})", va="center", fontsize=10, color=TEXT)
     ax.set_yticks(y, [r[0] for r in rows], fontsize=12)
     ax.set_xlim(0, max(10.0, float((tot + hi).max()) * 1.25))
@@ -111,13 +124,14 @@ def bar_plot(rows, title, out, height) -> None:
         ax.spines[s].set_visible(False)
     ax.spines["bottom"].set_color(MUTED)
     ax.set_title(title, fontsize=16, color=TEXT, loc="left", pad=34)
-    ax.legend(fontsize=11, frameon=False, loc="lower left", bbox_to_anchor=(0, 1.0), ncol=2)
+    ax.legend(fontsize=11, frameon=False, loc="lower left", bbox_to_anchor=(0, 1.0), ncol=3)
     fig.text(
         0.01,
         0.005,
         "Claim = any judged segment except junk / non-claim (failed excluded); n = claim "
-        "segments. Bars stack false claim + detail; whiskers: item-bootstrap 95% CI of the total.\n"
-        "† token lens, judged via its summary. Claim-map judge v2.7 (scoring rev 19), pre-gate.",
+        "segments. Bars stack false claim + detail + category substitution; whiskers: "
+        "item-bootstrap 95% CI of the total.\n"
+        "† token lens, judged via its summary. Claim-map judge v2.7 (scoring rev 20), pre-gate.",
         fontsize=9,
         color=MUTED,
     )
@@ -136,7 +150,14 @@ def main() -> None:
     def row(label: str, per_item: dict):
         m = with_hallu(per_item)
         n = int(sum(v[0] for v in m.values()))
-        return (label, ratio_ci(m, 3), ratio_ci(m, 1)[0], ratio_ci(m, 2)[0], n)
+        return (
+            label,
+            ratio_ci(m, 4),
+            ratio_ci(m, 1)[0],
+            ratio_ci(m, 2)[0],
+            ratio_ci(m, 3)[0],
+            n,
+        )
 
     rows = [row(f"{lab}{' †' if tok else ''}", tallies[arm]["all"]) for arm, lab, tok in METHODS]
     bar_plot(
@@ -160,7 +181,7 @@ def main() -> None:
     for r in sorted(rows, key=lambda r: r[1][0]):
         print(
             f"{r[0]:32s} {r[1][0]:5.1f} [{r[1][1]:.1f}, {r[1][2]:.1f}]  FC {r[2]:.1f}  "
-            f"D {r[3]:.1f}  n={r[4]}"
+            f"D {r[3]:.1f}  SC {r[4]:.1f}  n={r[5]}"
         )
 
 

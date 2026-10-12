@@ -42,7 +42,8 @@ N_BOOT = score.N_BOOT
 LEAF_ROWS: tuple[str, ...] = tx.ALL_LEAVES  # 20 leaves + unknown_incorrect + failed
 GROUP_ROWS: tuple[str, ...] = tx.ROWS  # 8 groups + unknown_incorrect + failed
 VERDICT_ROWS: tuple[str, ...] = tx.VERDICT_ROWS  # 6 verdicts + failed
-HALLUCINATION_LEAVES = frozenset({"detail", "false_claim", tx.UNKNOWN_INCORRECT})
+HALLUCINATION_LEAVES = frozenset({*tx.VERDICTS[tx.V_HALLUCINATION], tx.UNKNOWN_INCORRECT})
+HALLUCINATION_COMPONENTS: tuple[str, ...] = tx.VERDICTS[tx.V_HALLUCINATION]  # rev 20: three
 
 # readout-level verdict rates (headline): the readout has >= 1 segment with that verdict
 VERDICT_FLAGS: tuple[str, ...] = (
@@ -58,6 +59,7 @@ FLAGS: tuple[str, ...] = (
     "false_claim",
     "cruxy_false_claim",
     "detail",
+    "substitution_category",  # rev 20: the third hallucination component
     "co_activation",
     "thinky",
     "correct",
@@ -110,9 +112,9 @@ def hedged_origin(seg: dict[str, Any]) -> str | None:
     judge = seg.get("raw_leaf")  # same criterion as n_hedged_remapped (a quote-check re-label
     if judge == "unverifiable":  # to unverifiable comes first and is not a hedged remap)
         return None
-    if judge in ("detail", "false_claim"):
+    if judge in HALLUCINATION_COMPONENTS:  # rev 20: includes substitution_category
         return "hallucination"
-    if judge in tx.SUBSTITUTION_LEAVES:
+    if judge in tx.SUBSTITUTION_LEAVES:  # substitution_sibling
         return "substitution"
     if judge in ("correct", "supplementary_true"):
         return "correct"
@@ -230,11 +232,12 @@ def readout_flags(r: SlimReadoutV2) -> dict[str, bool]:
         **{f"verdict_{v}": v in verdicts for v in tx.VERDICTS},
         "verdict_junk_only": verdicts == {tx.V_JUNK},
         "hallucination": any(lf in HALLUCINATION_LEAVES for lf in leaves),
-        "hallucination_excl_unknown": any(lf in ("detail", "false_claim") for lf in leaves),
+        "hallucination_excl_unknown": any(lf in HALLUCINATION_COMPONENTS for lf in leaves),
         "hallucination_alt": any(s[1] in HALLUCINATION_LEAVES for s in r.segs),
         "false_claim": "false_claim" in leaves,
         "cruxy_false_claim": any(s[0] == "false_claim" and s[3] for s in r.segs),
         "detail": "detail" in leaves,
+        "substitution_category": "substitution_category" in leaves,
         "co_activation": tx.CO_ACTIVATION in groups,
         "thinky": tx.THINKY in groups,
         "correct": tx.CORRECT in groups,
@@ -244,7 +247,14 @@ def readout_flags(r: SlimReadoutV2) -> dict[str, bool]:
 
 def _columns() -> list[str]:
     cols = ["n_share_readouts", "n_segments", "n_rate_all", "n_rate_specific", "n_v5c_hal"]
-    cols += ["n_cmp", "n_cmp_v5c_hal", "n_cmp_v2_hal", "n_cmp_v2_fc", "n_cmp_v2_det"]
+    cols += [
+        "n_cmp",
+        "n_cmp_v5c_hal",
+        "n_cmp_v2_hal",
+        "n_cmp_v2_fc",
+        "n_cmp_v2_det",
+        "n_cmp_v2_cat",
+    ]
     cols += [f"cv_{v}" for v in VERDICT_ROWS] + [f"sv_{v}" for v in VERDICT_ROWS]
     cols += [f"cj_{r}" for r in JUNK_REASON_ROWS]
     cols += [f"cs_{lf}" for lf in LEAF_ROWS] + [f"cg_{g}" for g in GROUP_ROWS]
@@ -291,6 +301,7 @@ def readout_vector(r: SlimReadoutV2) -> np.ndarray:
             v[_COL["n_cmp_v2_hal"]] = flags[f"verdict_{tx.V_HALLUCINATION}"]
             v[_COL["n_cmp_v2_fc"]] = flags["false_claim"]
             v[_COL["n_cmp_v2_det"]] = flags["detail"]
+            v[_COL["n_cmp_v2_cat"]] = flags["substitution_category"]
     return v
 
 
@@ -366,6 +377,7 @@ def block(cells: Sequence[SlimCellV2], *, n_boot: int = N_BOOT) -> dict[str, Any
             "v2_rate": r("n_cmp_v2_hal", "n_cmp"),
             "v2_false_claim_rate": r("n_cmp_v2_fc", "n_cmp"),
             "v2_detail_rate": r("n_cmp_v2_det", "n_cmp"),
+            "v2_substitution_category_rate": r("n_cmp_v2_cat", "n_cmp"),
             # ... and over the v5c-specific ones (plan 0001's hallucination_rate denominator)
             "v5c_rate_specific": r("n_v5c_hal", "n_rate_specific"),
             "v2_rate_specific": r(f"rs_verdict_{tx.V_HALLUCINATION}", "n_rate_specific"),

@@ -32,7 +32,9 @@ answer stay valid), and code merges ``non_claim`` and ``off_topic`` into one sco
 7 groups and 5 verdicts. **Rev 19**, also after parsing: a segment the judge tags ``hedged`` (a
 list or disjunction of options) is scored ``unverifiable`` with ``same_slot_alternative`` and
 ``hedged`` set, whatever its leaf (``raw_leaf`` keeps the judge's); ``model_state`` gets its own
-verdict, ``thinky``, so there are 6 verdicts.
+verdict, ``thinky``, so there are 6 verdicts. **Rev 20**: ``substitution_category`` is the third
+hallucination component (with ``false_claim`` and ``detail``); ``substitution_sibling`` stays a
+probe candidate.
 
 Leaves of earlier revisions map mechanically to rev 16 (``LEAF_RENAMES`` + ``MERGE_TAGS``); the
 calibration loader applies them to old gold.
@@ -47,7 +49,7 @@ from dataclasses import dataclass
 from typing import Any
 
 TAXONOMY_VERSION = "v2-r17"  # rendered into the prompt; rev 18 changes scoring only
-SCORING_VERSION = "v2-r19"  # r18 junk merge; r19 hedged -> unverifiable, model_state -> thinky
+SCORING_VERSION = "v2-r20"  # r18 junk merge; r19 hedged/thinky; r20 category -> hallucination
 
 # ---------------------------------------------------------------- groups
 
@@ -286,10 +288,10 @@ V_UNRESOLVED = "unresolved"
 V_JUNK = "junk"
 V_NON_CLAIM = "non_claim"  # rev 16-17 verdict; merged into junk in rev 18
 VERDICTS: dict[str, tuple[str, ...]] = {
-    V_HALLUCINATION: ("detail", "false_claim"),
+    # rev 20: substitution_category is the third hallucination component
+    V_HALLUCINATION: ("detail", "false_claim", "substitution_category"),
     V_PROBE: (
         "substitution_sibling",
-        "substitution_category",
         "supplementary_false",
         "ambiguous_topic",
     ),

@@ -174,7 +174,7 @@ def test_noise_split_kappa_and_families():
     assert d["r0"] == pytest.approx(0.5 / 3) and d["r1"] == pytest.approx(0.5 / 3)
     assert res["noise"]["by_arm"]["nla-rl-L42"]["unresolved"]["rate"]["r0"] == 1.0
     md = cons.render_markdown(res)
-    assert "family s3d" in md and "detail vs false_claim" in md and "rate r0" in md
+    assert "family s3d" in md and "Hallucination split" in md and "rate r0" in md
 
 
 def test_report_has_noise_column_section_and_quoted_examples(tmp_path, prose_readouts):

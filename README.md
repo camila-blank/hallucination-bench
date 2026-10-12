@@ -71,6 +71,8 @@ include a junk-by-reason table (off-topic sub-share per arm). Rev 19 (also after
 a segment the judge tags `hedged` (a list of options, "Germany or France or UK") is scored
 `unverifiable` with `same_slot_alternative`, whatever its leaf; `model_state` is its own verdict,
 `thinky` (verdicts: hallucination / probe_candidate / thinky / correct / unresolved / junk).
+Rev 20 (scoring, $0): `substitution_category` is the third hallucination component, reported
+separately next to `false_claim` and `detail`; `substitution_sibling` stays a probe candidate.
 
 ## The taxonomy (v1)
 

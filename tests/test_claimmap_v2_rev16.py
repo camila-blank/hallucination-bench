@@ -39,10 +39,9 @@ def test_12_leaves_and_the_verdict_table():
         *(n for n in tx.JUDGE_LEAF_NAMES if n not in ("non_claim", "off_topic")),
     )
     assert tx.VERDICTS == {
-        "hallucination": ("detail", "false_claim"),
+        "hallucination": ("detail", "false_claim", "substitution_category"),  # rev 20
         "probe_candidate": (
             "substitution_sibling",
-            "substitution_category",
             "supplementary_false",
             "ambiguous_topic",
         ),

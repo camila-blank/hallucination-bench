@@ -45,6 +45,7 @@ NOISE_METRICS: dict[str, frozenset[str]] = {
     "hallucination": frozenset(tx.VERDICTS[tx.V_HALLUCINATION]),
     "false_claim": frozenset({"false_claim"}),
     "detail": frozenset({"detail"}),
+    "substitution_category": frozenset({"substitution_category"}),  # rev 20
     "probe_candidate": frozenset(tx.VERDICTS[tx.V_PROBE]),
     "correct": frozenset(tx.VERDICTS[tx.V_CORRECT]),
     "unresolved": frozenset(tx.VERDICTS[tx.V_UNRESOLVED]),
@@ -101,7 +102,8 @@ def noise(cells: Sequence[dict[str, Any]]) -> dict[str, Any]:
 
 
 def split_kappa(pairs: Sequence[tuple[str, str]]) -> dict[str, Any]:
-    """κ of detail vs false_claim on the units both runs call hallucination."""
+    """κ of the hallucination split (rev 20: false_claim / detail / substitution_category) on the
+    units both runs call hallucination (the key keeps its rev-17 name)."""
     hal = set(tx.VERDICTS[tx.V_HALLUCINATION])
     sub = [(a, b) for a, b in pairs if a in hal and b in hal]
     return {
@@ -381,7 +383,8 @@ def render_markdown(res: dict[str, Any]) -> str:
             for fa, b in res.get("by_family", {}).items()
         ),
         "",
-        "### detail vs false_claim, on units both runs call hallucination",
+        "### Hallucination split (false_claim / detail / substitution_category), on units both "
+        "runs call hallucination",
         "",
         "| scope | units | κ | raw agreement |",
         "|---|---|---|---|",

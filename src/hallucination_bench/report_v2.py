@@ -42,6 +42,7 @@ FLAG_TITLES: dict[str, str] = {
     "false_claim": "false_claim",
     "cruxy_false_claim": "cruxy false_claim",
     "detail": "detail",
+    "substitution_category": "substitution_category",
     "co_activation": "co-activation",
     "thinky": "thinky",
     "correct": "correct",
@@ -87,7 +88,7 @@ def _blocks(arms: dict[str, dict[str, Any]]) -> tuple[list, list]:
 
 
 # rev 16: false_claim and detail are always reported next to the hallucination verdict
-SPLIT_LEAVES: tuple[str, ...] = ("false_claim", "detail")
+SPLIT_LEAVES: tuple[str, ...] = ("false_claim", "detail", "substitution_category")  # rev 20
 
 
 def _vhead() -> list[str]:
@@ -131,6 +132,7 @@ NOISE_COLS: tuple[tuple[str, str], ...] = (
     ("hallucination", "h"),
     ("false_claim", "fc"),
     ("detail", "d"),
+    ("substitution_category", "sc"),
     ("probe_candidate", "p"),
     ("correct", "c"),
     ("unresolved", "u"),
@@ -258,6 +260,7 @@ def build(
                 "v2 rate (compared)",
                 "↳ v2 false_claim",
                 "↳ v2 detail",
+                "↳ v2 substitution_category",
                 "n spec",
                 "v5c hallucination_rate (spec)",
                 "v2 rate (spec)",
@@ -270,6 +273,7 @@ def build(
                     _p(b["v5c_comparison"]["v2_rate"]),
                     _p(b["v5c_comparison"].get("v2_false_claim_rate")),
                     _p(b["v5c_comparison"].get("v2_detail_rate")),
+                    _p(b["v5c_comparison"].get("v2_substitution_category_rate")),
                     str(b["n_rate_readouts"]["specific"]),
                     _p(b["v5c_comparison"]["v5c_rate_specific"]),
                     _p(b["v5c_comparison"]["v2_rate_specific"]),
