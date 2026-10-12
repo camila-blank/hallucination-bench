@@ -4,7 +4,9 @@
 
 A *claim* is any judged segment that is not `junk` (non-claim / off-topic) and not failed or
 unknown. Hallucination share = (detail + false_claim segments) / claim segments, counted per
-segment and pooled within an item; the 95% CI resamples items (2000 draws, seed 0). Streams
+segment and pooled within an item; the 95% CI resamples items (2000 draws, seed 0). Rev 19:
+hedged option lists are scored `unverifiable` in cells.jsonl, so they count as claims that are not
+hallucinations (they are never `detail` / `false_claim` here). Streams
 cells.jsonl, so it is memory-safe on the large 11-layer arms. Writes
 claims_hallucination_share.png and claims_hallucination_share_by_layer.png.
 """
@@ -115,7 +117,7 @@ def bar_plot(rows, title, out, height) -> None:
         0.005,
         "Claim = any judged segment except junk / non-claim (failed excluded); n = claim "
         "segments. Bars stack false claim + detail; whiskers: item-bootstrap 95% CI of the total.\n"
-        "† token lens, judged via its summary. Claim-map judge v2.7 (plan 0002 rev 18), pre-gate.",
+        "† token lens, judged via its summary. Claim-map judge v2.7 (scoring rev 19), pre-gate.",
         fontsize=9,
         color=MUTED,
     )

@@ -11,7 +11,7 @@ hallucination eval is one of many evals here; see `plans/` for the design histor
 | eval | what it measures | plan |
 |---|---|---|
 | `wsbench_chat` | WorkspaceBench's hallucination (chat) eval, ported verbatim (v5c span + verify stages), plus the taxonomy classifier | [0001](plans/0001-bootstrap-wsbench-chat-taxonomy.md) |
-| `wsbench_chat` claim map | taxonomy v2: every character of every readout in exactly one of 11 scoring leaves (7 groups), rolled up into 5 verdicts | [0002](plans/0002-claim-map-taxonomy-v2.md) |
+| `wsbench_chat` claim map | taxonomy v2: every character of every readout in exactly one of 11 scoring leaves (7 groups), rolled up into 6 verdicts | [0002](plans/0002-claim-map-taxonomy-v2.md) |
 
 Per cell (arm × item × read site × layer) `wsbench_chat` runs up to five calls:
 
@@ -67,7 +67,10 @@ include a judge-noise section and a "judge noise ±" column (half the r0 − r1 
 headline metric in the consistency sample). Rev 18: `non_claim` and `off_topic` are merged into
 one scoring leaf, `junk` (verdict junk, tag `reason` incl. `off_topic`), right after parsing;
 the claimmap-v2.7 prompt and cached answers are unchanged, so re-scoring costs nothing. Reports
-include a junk-by-reason table (off-topic sub-share per arm).
+include a junk-by-reason table (off-topic sub-share per arm). Rev 19 (also after parsing, $0):
+a segment the judge tags `hedged` (a list of options, "Germany or France or UK") is scored
+`unverifiable` with `same_slot_alternative`, whatever its leaf; `model_state` is its own verdict,
+`thinky` (verdicts: hallucination / probe_candidate / thinky / correct / unresolved / junk).
 
 ## The taxonomy (v1)
 

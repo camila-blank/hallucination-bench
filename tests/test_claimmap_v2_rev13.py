@@ -24,6 +24,7 @@ def test_verdict_mapping_covers_every_leaf_exactly_once():
     assert set(tx.VERDICTS) == {
         "hallucination",
         "probe_candidate",
+        "thinky",  # rev 19
         "correct",
         "unresolved",
         "junk",
@@ -109,7 +110,8 @@ def test_probe_target_parsing_and_missing_count():
     units = split_cell(["The model thinks it is a test. Next comes therapy. Paris is big. Yes."])[0]
     raw = {
         "units": [
-            e("R0.U1", "model_state", probe_target="  this is an evaluation "),
+            # rev 19: model_state is the thinky verdict; supplementary_false is a probe candidate
+            e("R0.U1", "supplementary_false", probe_target="  this is an evaluation "),
             e("R0.U2", "ambiguous_topic"),  # missing probe_target: counted, leaf kept
             e(
                 "R0.U3",
@@ -132,7 +134,7 @@ def test_probe_target_parsing_and_missing_count():
     segs, c = cm.parse(raw, units)
     got = [(s.text, s.leaf, s.probe_target) for s in segs]
     assert got == [
-        ("The model thinks it is a test.", "model_state", "this is an evaluation"),
+        ("The model thinks it is a test.", "supplementary_false", "this is an evaluation"),
         ("Next comes therapy.", "ambiguous_topic", None),
         ("Paris", "substitution_sibling", "Paris"),
         ("is big.", "correct", None),
@@ -150,7 +152,7 @@ def test_probe_target_on_a_rest_piece_falls_back_to_the_unit():
                 "R0.U1",
                 "junk",
                 splits=[sp("Hmm,", "junk")],
-                rest_leaf="model_state",
+                rest_leaf="ambiguous_topic",  # rev 19: a probe candidate (model_state is not)
                 probe_target="this is a test",
             )
         ],
@@ -159,7 +161,7 @@ def test_probe_target_on_a_rest_piece_falls_back_to_the_unit():
     segs, c = cm.parse(raw, units)
     assert [(s.leaf, s.probe_target) for s in segs] == [
         ("junk", None),
-        ("model_state", "this is a test"),
+        ("ambiguous_topic", "this is a test"),
     ]
     assert c["n_missing_probe_targets"] == 0
 
@@ -240,14 +242,15 @@ def test_verdict_shares_rates_and_the_v5c_comparison():
     assert set(cv) == set(tx.VERDICT_ROWS)
     assert sum(cv.values()) == pytest.approx(1.0)
     assert cv["hallucination"] == pytest.approx((0.75 + 0.5) / 4)
-    assert cv["probe_candidate"] == pytest.approx(0.5 / 4)
+    assert cv["probe_candidate"] == 0  # rev 19: model_state is thinky
+    assert cv["thinky"] == pytest.approx(0.5 / 4)
     assert cv["correct"] == pytest.approx(0.5 / 4)
     assert cv["unresolved"] == pytest.approx(1 / 4)
     assert cv["junk"] == pytest.approx((0.5 + 0.25) / 4)  # rev 18: off-topic + non-claim
     rates = b["rates"]
     assert b["n_rate_readouts"]["all"] == 4
     assert rates["verdict_hallucination"]["all"]["value"] == pytest.approx(2 / 4)
-    assert rates["verdict_probe_candidate"]["all"]["value"] == pytest.approx(1 / 4)
+    assert rates["verdict_thinky"]["all"]["value"] == pytest.approx(1 / 4)
     assert rates["verdict_junk_only"]["all"]["value"] == 0
     assert rates["verdict_hallucination"]["all"]["ci95"] is not None
     cmp_ = b["v5c_comparison"]
@@ -301,7 +304,7 @@ def test_verdict_accuracy_gate_row_and_probe_target_anchors():
     )
     for g, lf in zip(
         c["gold"]["units"],
-        ["model_state", "unverifiable", "supplementary_true"],
+        ["ambiguous_topic", "unverifiable", "supplementary_true"],  # rev 19: a probe leaf
         strict=True,
     ):
         g["leaf"] = lf
@@ -320,12 +323,13 @@ def test_verdict_accuracy_gate_row_and_probe_target_anchors():
     )
     m = cal.run_metrics([c], [pred])
     assert m["verdict_acc_unit"] == pytest.approx(2 / 3)
-    assert m["group_acc_unit"] == pytest.approx(1 / 3)  # rev 16: both unverifiable (thinky)
+    # U1 (ambiguous_topic both sides) and U2 (unverifiable both sides) share their group
+    assert m["group_acc_unit"] == pytest.approx(2 / 3)
     assert m["probe_targets"] == [
         {
             "case_id": "v",
             "unit": "R0.U1",
-            "gold_leaf": "model_state",
+            "gold_leaf": "ambiguous_topic",
             "pred_leaf": "ambiguous_topic",
             "gold": "this is a test",
             "pred": "a test",
@@ -334,7 +338,7 @@ def test_verdict_accuracy_gate_row_and_probe_target_anchors():
     res = cal.score([c], [[pred], [pred]], "dev")
     rows = {g["key"]: g for g in res["gate"]}
     assert rows["verdict_acc_unit"]["threshold"] == 0.85
-    assert rows["verdict_acc_unit"]["measure"] == "verdict accuracy (5 verdicts), unit level"
+    assert rows["verdict_acc_unit"]["measure"] == "verdict accuracy (6 verdicts), unit level"
     assert rows["verdict_acc_unit"]["passed"] is False
     assert res["anchor"] == "none" and len(res["probe_targets"]) == 2
     assert "verdict accuracy" in cal.render_markdown(res)
@@ -384,7 +388,7 @@ def test_report_writes_probe_candidates_and_marks_pre_gate(tmp_path, prose_reado
                     )
                 )
             else:
-                out.append(e(uid, "model_state"))  # probe candidate without a probe_target
+                out.append(e(uid, "ambiguous_topic"))  # probe candidate without a probe_target
         return {"units": out, "rationale": "r"}
 
     out = tmp_path / "out"

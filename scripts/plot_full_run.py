@@ -24,7 +24,8 @@ ROOT = Path(__file__).resolve().parents[1]
 MODEL = "claude-opus-5-5"
 TEXT, MUTED, GRID = "#0b0b0b", "#52514e", "#e6e5e0"
 FOOT = (
-    "Claim-map judge v2.7 (plan 0002 rev 17; scoring rev 18: junk = non-claim + off-topic), "
+    "Claim-map judge v2.7 (plan 0002 rev 17; scoring rev 19: junk = non-claim + off-topic, "
+    "option lists unverifiable, model state = thinky), "
     "pre-gate · whiskers/bands: item-bootstrap 95% CI"
 )
 
@@ -52,6 +53,7 @@ VERDICT_RATES = [
     ("false_claim", "↳ False claim"),
     ("detail", "↳ Detail"),
     ("verdict_probe_candidate", "Probe candidate"),
+    ("verdict_thinky", "Thinky (model state)"),
     ("verdict_correct", "Correct"),
     ("verdict_unresolved", "Unverifiable"),
 ]
@@ -59,6 +61,7 @@ STACK = [
     ("leaf:false_claim", "Hallucination: false claim", "#e34948"),
     ("leaf:detail", "Hallucination: detail", "#eda100"),
     ("verdict:probe_candidate", "Probe candidate", "#4a3aa7"),
+    ("verdict:thinky", "Thinky (model state)", "#eb6834"),  # rev 19
     ("verdict:correct", "Correct", "#1baf7a"),
     ("verdict:unresolved", "Unverifiable", "#2a78d6"),
     ("verdict:junk", "Junk / non-claim", "#b9b8b2"),  # rev 18: non_claim + off_topic

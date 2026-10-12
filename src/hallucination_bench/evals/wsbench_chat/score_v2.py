@@ -95,7 +95,28 @@ HEALTH_V2: tuple[str, ...] = (
     "n_readouts",
     *cm.PARSE_COUNTS,
     "n_unlocated_established",
+    # rev 19: hedged segments re-scored unverifiable, by the judge's original leaf
+    "n_hedged_from_hallucination",
+    "n_hedged_from_substitution",
+    "n_hedged_from_correct",
+    "n_hedged_from_other",
 )
+
+
+def hedged_origin(seg: dict[str, Any]) -> str | None:
+    """The judge's leaf family of a rev-19 hedged remap (``None`` if not remapped)."""
+    if not seg.get("hedged") or seg.get("leaf") != "unverifiable":
+        return None
+    judge = seg.get("raw_leaf")  # same criterion as n_hedged_remapped (a quote-check re-label
+    if judge == "unverifiable":  # to unverifiable comes first and is not a hedged remap)
+        return None
+    if judge in ("detail", "false_claim"):
+        return "hallucination"
+    if judge in tx.SUBSTITUTION_LEAVES:
+        return "substitution"
+    if judge in ("correct", "supplementary_true"):
+        return "correct"
+    return "other"
 
 
 # ---------------------------------------------------------------- slim records
@@ -154,6 +175,8 @@ def slim(rec: dict[str, Any]) -> SlimCellV2:
     by_r: dict[int, list[dict[str, Any]]] = {}
     for s in m["segments"]:
         by_r.setdefault(s["readout"], []).append(s)
+        if (o := hedged_origin(s)) is not None:
+            h[f"n_hedged_from_{o}"] += 1
     readouts: list[SlimReadoutV2] = []
     agreement: list[tuple[str, str | None]] = []
     verdict = {v["idx"]: v for v in rec.get("verdict") or []}

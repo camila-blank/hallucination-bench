@@ -328,6 +328,7 @@ PARSE_COUNTS: tuple[str, ...] = (
     "n_unquoted_contradictions",
     "n_support_quotes_checked",
     "n_unquoted_support",
+    "n_hedged_remapped",
 )
 
 
@@ -564,8 +565,31 @@ def parse(
         segs += useg
     for s in segs:
         _merge_junk(s)
+        _remap_hedged(s, c)
     c["n_segments"] = len(segs)
     return segs, c
+
+
+def _remap_hedged(s: "Segment", c: dict[str, int]) -> None:
+    """Rev 19, after parsing: a ``hedged`` segment (a list or disjunction of options) is scored
+    ``unverifiable`` with ``same_slot_alternative = hedged = true``, whatever the judge's leaf
+    (kept in ``raw_leaf``; a quote-check re-label keeps it in ``judge_leaf``). A single wrong
+    entity is not hedged and stays a substitution."""
+    if not s.hedged or s.status != "ok":
+        return
+    if s.leaf == "unverifiable":  # already unverifiable: tag only, not counted as a remap
+        s.same_slot_alternative = True
+        return
+    if s.raw_leaf in tx.PROBE_CANDIDATE_LEAVES:  # no longer a probe candidate
+        c["n_probe_candidates"] -= 1
+        if s.probe_target is None:
+            c["n_missing_probe_targets"] -= 1
+    c["n_hedged_remapped"] += 1
+    s.leaf = "unverifiable"
+    s.same_slot_alternative = True
+    s.cruxy = False
+    s.probe_target = None
+    s.reason = s.source = None
 
 
 def _merge_junk(s: "Segment") -> None:

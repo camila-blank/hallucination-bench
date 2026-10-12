@@ -22,6 +22,7 @@ rule: each flagged pair gets a sharper rule or is merged, reported to Camila bef
 import asyncio
 import json
 import random
+import re
 from collections import Counter
 from collections.abc import Sequence
 from pathlib import Path
@@ -434,15 +435,75 @@ def render_markdown(res: dict[str, Any]) -> str:
     return "\n".join(lines)
 
 
-def rescore(out_root: Path, model: str) -> dict[str, Any]:
-    """Re-score the cached r0 / r1 cells of the current prompt version (no API calls): used when
-    scoring changes but the prompt does not (rev 18). Rewrites the ``.json`` / ``.md``."""
+def _reparse_cell(
+    c: dict[str, Any],
+    *,
+    cache: Cache,
+    items: dict[str, dict[str, Any]],
+    sites: dict[str, dict[int, dict[str, Any]]],
+    kinds: dict[str, str],
+    model: str,
+    effort: str | None,
+) -> dict[str, Any] | None:
+    """Re-parse one cell's two cached answers with the current parser (no API calls). The
+    prompt is rebuilt from the stored unit texts (the unit block uses only ids and texts) and the
+    bank item, so the fingerprints match the original calls; ``None`` if either is missing."""
+    m = re.match(r"^(.*)__L(\d{3})__p(\d+)$", c["key"])
+    if m is None or m.group(1) not in items:
+        return None
+    item, site = items[m.group(1)], sites[m.group(1)][int(m.group(3))]
+    units: list[Unit] = []
+    pos: dict[int, int] = {}
+    for u in c["units"]:
+        r = _readout(u["id"])
+        n = int(u["id"].split(".U", 1)[1])
+        start = pos.get(r, 0)
+        units.append(Unit(u["id"], r, n, start, start + len(u["text"]), u["text"]))
+        pos[r] = start + len(u["text"]) + 1
+    marked = bank.marked_response(item, site)
+    system, user = cm.render_prompt(
+        item["prompt"], marked, units, kind=kinds.get(c["arm"], "prose")
+    )
+    runs = []
+    for r in range(REPEATS):
+        fp = fingerprint(cm.PROMPT_VERSION, model, effort, f"r{r}", system, user)
+        row = cache.get(cons_key(c["arm"], c["key"], r), fp, include_failed=True)
+        if row is None:
+            return None
+        segs, _ = cm.parse(row["result"], units, cm.conversation_text(item["prompt"], marked))
+        runs.append(unit_leaves(segs, units))
+    return {**c, "r0": runs[0], "r1": runs[1]}
+
+
+def rescore(out_root: Path, model: str, effort: str | None = "low") -> dict[str, Any]:
+    """Re-score the cached r0 / r1 calls of the current prompt version with the current parser
+    and scoring (no API calls): used when scoring changes but the prompt does not (rev 18-19).
+    Each cell is re-parsed from the cached answers; a cell whose answers cannot be found falls
+    back to its stored unit leaves (``n_cells_fallback``). Rewrites the ``.json`` / ``.md``."""
     d = Path(out_root) / "consistency" / wrun.model_slug(model)
     stem = f"consistency_{cm.PROMPT_VERSION}"
     old = json.loads((d / f"{stem}.json").read_text())
     rows = (d / f"{stem}_cells.jsonl").read_text(encoding="utf-8").splitlines()
-    cells = [merge_cell(json.loads(x)) for x in rows if x.strip()]
+    stored = [json.loads(x) for x in rows if x.strip()]
+    items_l = bank.load_items()
+    items = {it["id"]: it for it in items_l}
+    sites = bank.sites_by_item(items_l)
+    kinds = {}
+    for a in {c["arm"] for c in stored}:
+        p = Path(out_root) / "wsbench_chat" / wrun.model_slug(model) / a / "arm.json"
+        kinds[a] = json.loads(p.read_text()).get("kind", "prose") if p.exists() else "prose"
+    cells, n_fallback = [], 0
+    with Cache(d / "cache.jsonl", readonly=True) as cache:
+        for c in stored:
+            new = _reparse_cell(
+                c, cache=cache, items=items, sites=sites, kinds=kinds, model=model, effort=effort
+            )
+            if new is None:
+                n_fallback += 1
+                new = c
+            cells.append(merge_cell(new))
     res = score(cells)
+    res["n_cells_fallback"] = n_fallback
     keep = ("arms", "n_per_arm", "seed", "model")
     res.update({k: old[k] for k in keep if k in old})
     res["spend_this_run"] = {**Usage().to_dict()}

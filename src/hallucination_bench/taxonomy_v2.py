@@ -29,7 +29,10 @@ behaviour, with established spans).
 answer stay valid), and code merges ``non_claim`` and ``off_topic`` into one scoring leaf,
 ``junk``, right after parsing (``JUDGE_TO_LEAF``; the ``reason`` tag keeps the kind, with
 ``off_topic`` as a reason). Scoring, reports and calibration use the 11 leaves in ``LEAF_NAMES``,
-7 groups and 5 verdicts.
+7 groups and 5 verdicts. **Rev 19**, also after parsing: a segment the judge tags ``hedged`` (a
+list or disjunction of options) is scored ``unverifiable`` with ``same_slot_alternative`` and
+``hedged`` set, whatever its leaf (``raw_leaf`` keeps the judge's); ``model_state`` gets its own
+verdict, ``thinky``, so there are 6 verdicts.
 
 Leaves of earlier revisions map mechanically to rev 16 (``LEAF_RENAMES`` + ``MERGE_TAGS``); the
 calibration loader applies them to old gold.
@@ -44,7 +47,7 @@ from dataclasses import dataclass
 from typing import Any
 
 TAXONOMY_VERSION = "v2-r17"  # rendered into the prompt; rev 18 changes scoring only
-SCORING_VERSION = "v2-r18"  # junk = non_claim + off_topic, merged after parsing
+SCORING_VERSION = "v2-r19"  # r18 junk merge; r19 hedged -> unverifiable, model_state -> thinky
 
 # ---------------------------------------------------------------- groups
 
@@ -277,6 +280,7 @@ FALLBACK_RENAMES: dict[str, str] = {}
 
 V_HALLUCINATION = "hallucination"
 V_PROBE = "probe_candidate"
+V_THINKY = "thinky"  # rev 19: model_state ("possible thinky stuff"), not a probe candidate
 V_CORRECT = "correct"
 V_UNRESOLVED = "unresolved"
 V_JUNK = "junk"
@@ -286,10 +290,10 @@ VERDICTS: dict[str, tuple[str, ...]] = {
     V_PROBE: (
         "substitution_sibling",
         "substitution_category",
-        "model_state",
         "supplementary_false",
         "ambiguous_topic",
     ),
+    V_THINKY: ("model_state",),
     V_CORRECT: ("correct", "supplementary_true"),
     V_UNRESOLVED: ("unverifiable", UNKNOWN_INCORRECT),
     V_JUNK: ("junk",),
@@ -299,7 +303,7 @@ VERDICT_OF: dict[str, str] = {
     **dict.fromkeys(JUDGE_TO_LEAF, V_JUNK),
     FAILED: FAILED,
 }
-VERDICT_ROWS: tuple[str, ...] = (*VERDICTS, FAILED)  # shares sum to 1 over these 6 rows
+VERDICT_ROWS: tuple[str, ...] = (*VERDICTS, FAILED)  # shares sum to 1 over these 7 rows
 PROBE_CANDIDATE_LEAVES: tuple[str, ...] = VERDICTS[V_PROBE]
 assert sorted(lf for leaves in VERDICTS.values() for lf in leaves) == sorted(
     (*LEAF_NAMES, UNKNOWN_INCORRECT)

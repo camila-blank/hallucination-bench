@@ -43,10 +43,10 @@ def test_12_leaves_and_the_verdict_table():
         "probe_candidate": (
             "substitution_sibling",
             "substitution_category",
-            "model_state",
             "supplementary_false",
             "ambiguous_topic",
         ),
+        "thinky": ("model_state",),  # rev 19
         "correct": ("correct", "supplementary_true"),
         "unresolved": ("unverifiable", tx.UNKNOWN_INCORRECT),
         "junk": ("junk",),

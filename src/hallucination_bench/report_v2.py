@@ -223,8 +223,10 @@ def build(
         "disputed) + `failed`. Readout-level rates are over readouts of successfully mapped "
         "cells: `all` = every non-empty readout, `spec` = v5c-specific readouts (plan 0001's "
         "denominator). A readout-level verdict rate is the share of readouts with at least one "
-        "segment of that verdict. Rev 18: `junk` merges the judge's `non_claim` and `off_topic` "
-        "after parsing (the `reason` tag keeps the kind; see the junk-by-reason table).",
+        "segment of that verdict. Rev 19: hedged option lists are scored `unverifiable` "
+        "(`same_slot_alternative`), and `model_state` is the `thinky` verdict. Rev 18: `junk` "
+        "merges the judge's `non_claim` and `off_topic` after parsing (the `reason` tag keeps "
+        "the kind; see the junk-by-reason table).",
         "",
         "Verdicts: " + "; ".join(f"`{v}` = {', '.join(lv)}" for v, lv in tx.VERDICTS.items()),
         "",
@@ -417,6 +419,12 @@ def build(
                 f"{h.get('n_unquoted_contradictions', 0)}/"
                 f"{h.get('n_contradiction_quotes_checked', 0)}",
                 f"{h.get('n_unquoted_support', 0)}/{h.get('n_support_quotes_checked', 0)}",
+                f"{h.get('n_hedged_remapped', 0)} ("
+                + " / ".join(
+                    str(h.get(f"n_hedged_from_{k}", 0))
+                    for k in ("hallucination", "substitution", "correct", "other")
+                )
+                + ")",
                 f"{usd:.2f}",
             ]
         )
@@ -441,6 +449,7 @@ def build(
             "missing probe_target",
             "unquoted contradictions",
             "unquoted support",
+            "hedged remapped (from halluc. / subst. / correct / other)",
             "map spend USD",
         ],
         hrows,
