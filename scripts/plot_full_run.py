@@ -289,7 +289,92 @@ def main() -> None:
         "By layer: hallucinated share of text",
         out / "layers_share.png",
     )
+    headline(out / "hallucinationbench_per_method.png")
     print("wrote", *sorted(p.name for p in out.glob("*.png")))
+
+
+def headline(out: Path) -> None:
+    """One-panel HallucinationBench headline: readout-level hallucination rate per method (sorted,
+    lower is better), with false-claim and detail rates as markers."""
+    rows = []
+    for arm, label, group in METHODS:
+        o = summary(arm)["overall"]
+        rows.append(
+            (
+                label,
+                group,
+                rate(o, "hallucination"),
+                rate(o, "false_claim")[0],
+                rate(o, "detail")[0],
+            )
+        )
+    rows.sort(key=lambda r: r[2][0])
+    fig, ax = plt.subplots(figsize=(11.5, 7.6), dpi=160)
+    y = np.arange(len(rows))[::-1]
+    v = np.array([r[2][0] for r in rows])
+    lo = v - np.array([r[2][1] for r in rows])
+    hi = np.array([r[2][2] for r in rows]) - v
+    ax.barh(
+        y,
+        v,
+        height=0.66,
+        color="#e34948",
+        edgecolor="white",
+        linewidth=1.5,
+        label="Hallucination (≥ 1 false claim or detail)",
+    )
+    ax.errorbar(v, y, xerr=[lo, hi], fmt="none", ecolor=TEXT, elinewidth=1, capsize=2)
+    ax.scatter(
+        [r[3] for r in rows],
+        y,
+        s=60,
+        color="#2a78d6",
+        edgecolor="white",
+        linewidth=1.5,
+        zorder=3,
+        label="False claim",
+    )
+    ax.scatter(
+        [r[4] for r in rows],
+        y,
+        s=60,
+        color="#eda100",
+        edgecolor="white",
+        linewidth=1.5,
+        zorder=3,
+        marker="D",
+        label="Detail",
+    )
+    for yi, vi, hii in zip(y, v, hi, strict=True):
+        ax.text(vi + hii + 1.2, yi, f"{vi:.1f}", va="center", fontsize=11, color=TEXT)
+    labels = [f"{r[0]}{' †' if r[1] == 'tokens' else ''}" for r in rows]
+    ax.set_yticks(y, labels, fontsize=12)
+    ax.set_xlim(0, 100)
+    ax.set_xlabel("Readouts with ≥ 1 hallucination (%)  — lower is better", fontsize=13, color=TEXT)
+    ax.xaxis.grid(True, color=GRID)
+    ax.set_axisbelow(True)
+    clean(ax)
+    ax.spines["left"].set_visible(False)
+    ax.set_title(
+        "HallucinationBench v2 (wsbench_chat): hallucination rate per method",
+        fontsize=16,
+        color=TEXT,
+        loc="left",
+        pad=34,
+    )
+    ax.legend(fontsize=11, frameon=False, loc="lower left", bbox_to_anchor=(0, 1.0), ncol=3)
+    fig.text(
+        0.01,
+        0.005,
+        "Hallucination = segment obviously contradicted by the text (quote required). "
+        "† token lens, judged via its summary. Multi-layer methods pooled over layers.\n"
+        "Claim-map judge v2.7 (plan 0002 rev 18), pre-gate · whiskers: item-bootstrap 95% CI",
+        fontsize=9,
+        color=MUTED,
+    )
+    fig.tight_layout(rect=(0, 0.05, 1, 1))
+    fig.savefig(out)
+    plt.close(fig)
 
 
 if __name__ == "__main__":
