@@ -210,7 +210,7 @@ def main() -> None:
         "HALLUCINATION",
         "detail",
         "Right reading, wrong specific: name, number, date, wording, context word.",
-        "\u201cMiss Wang\u201d for Miss Li · \u201cfloat voltage\u201d for double",
+        "\u201cMiss Wang\u201d for Miss Li · \u201cOct 24\u201d for Oct 29",
     )
     card(
         ax,
@@ -255,8 +255,9 @@ def main() -> None:
         y,
         "UNRESOLVED",
         "unverifiable",
-        "About the conversation, but the text can\u2019t settle it (incl. lists of options).",
-        "\u201cthe spill has been cleaned up\u201d · \u201cpepperoni or veggie?\u201d",
+        "Continuations the text neither confirms nor contradicts; option lists.",
+        "\u201c3. Baking soda\u201d (text: coffee grounds) · "
+        "\u201cthe spill has been cleaned up\u201d",
     )
     card(
         ax,
