@@ -49,9 +49,10 @@ Camila's labels.
 
 - **By method:** the probes confirm about 1 in 6 sibling claims, with no meaningful difference
   between methods.
-- **By layer:** agreement is flat across layers (0.12–0.20). The exception is J-lens at L56–60,
-  which rises to 0.33–0.47 on few units.
-- **Set B:** probes cover only 10–26% of claims, mostly because 31 of 34 basic_readout categories
+- **By layer:** agreement is flat for s3d (0.12–0.20) and ML-NLA (0.14–0.20). J-lens varies more
+  on few units: 0.05 at L24 and 0.06 at L48, rising to 0.33–0.47 at L56–60. NLA-RL has one
+  layer.
+- **Set B:** probes cover only 10–26% of claims (ML-NLA 10%, s3d 19%, J-lens 26%; NLA-RL 0%), mostly because 31 of 34 basic_readout categories
   have a single gold, so no probe can be validated. Agreement there is 0–8%. Set B is mainly
   about form and layer.
 
@@ -88,20 +89,25 @@ The rule: probe not matched + early layer → hallucination; late layer → opti
 
 ## Consensus (post hoc)
 
-- **Size:** 30 three-method triples, giving 228 consensus units (e.g. A s3d 82, J-lens 73,
-  NLA-RL 28).
-- **Probe and form checks:** the probe rejects 93 of them, and 121 are phrased as assertions
-  ("hallucinated consensus").
-- **Layer:** 51 are early-layer.
-- **ML-NLA variant:** using ML-NLA instead of NLA-RL L42 gives more units (s3d 126, J-lens 105,
-  ML-NLA 81).
+There are 30 three-method triples (s3d and J-lens within one grid step, plus NLA-RL L42 at the
+same item and position). One population, every count on the same base:
 
-Consensus is a small, post hoc slice. About half of it would be hallucinations by form, so
-agreement among methods is weak evidence on its own.
+- **285 claim units are flagged consensus** (primary flag, plus the ML-NLA variant for ML-NLA
+  units). 57 of them are validated by the probe, which takes precedence. The other **228 are in
+  the consensus category**.
+- **Probe status of the 228:** 93 were tested and **not** detected; 135 are probe n/a (gate
+  failure or unvalidated concept). None are detected.
+- **Form of the 228:** 121 are phrased as assertions ("hallucinated consensus") and 107 as
+  options.
+- **Depth of the 228:** 39 early, 47 mid, 142 late.
+- **By method:** A ML-NLA 64, A s3d 60, A J-lens 58, A NLA-RL 25; set B 21 in total.
+
+Consensus is a small, post hoc slice. None of it is probe-confirmed, and about half of it would be
+hallucinations by form, so agreement among methods is weak evidence on its own.
 
 ## Judge calibration and two definitional choices for Camila
 
-| | v1 (first prompt) | v2 (after the dev revision) |
+| | v1 (first prompt; earlier run, not persisted, from the run log / implementer report) | v2 (after the dev revision) |
 |---|---|---|
 | agreement with Fable's 40 dev labels (option / hallucination) | 32/40 | 37/40 |
 | accuracy vs the blind gold (100, subagent) | 0.83 [0.74, 0.89] | 0.83 [0.74, 0.89] |
