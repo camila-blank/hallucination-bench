@@ -60,10 +60,15 @@ READOUTS_ROOT = SIB / "readouts"
 JUDGE_ROOT = SIB / "judge"
 META_DIR = SIB / "render_eval" / "meta"
 ARMS: tuple[str, ...] = ("s3d-rl600", "nla-rl-L42", "jlens")
+LAYERS11: tuple[int, ...] = tuple(range(20, 61, 4))  # plan 0004: every lens layer
 ARM_LAYERS: dict[str, tuple[int, ...]] = {
     "s3d-rl600": (28, 36, 44, 52),
     "jlens": (28, 36, 44, 52),
     "nla-rl-L42": (42,),
+    # plan 0004 set A at all 11 layers (caches seeded from the 4-layer arms: same cell keys)
+    "s3d-rl600-all11": LAYERS11,
+    "jlens-all11": LAYERS11,
+    "mlnla-rl600-all11": LAYERS11,
 }
 TOP_K = 10
 COVERAGE_FRACTION = 0.05
@@ -155,7 +160,10 @@ def item_prompt(item: Mapping[str, Any]) -> str:
 
 
 def marked_response(item: Mapping[str, Any]) -> str:
-    """Every read position is in the prompt, so the marker sits at character 0."""
+    """Every read position is in the prompt, so the marker sits at character 0 (unless the item
+    carries its own ``marked_response``, e.g. plan 0004 set B's prefilled answer stem)."""
+    if item.get("marked_response") is not None:
+        return item["marked_response"]
     return READ_MARK + (item.get("response") or "")
 
 
@@ -286,10 +294,16 @@ async def process_cell(
     *,
     in_sample: bool,
     summarize_all: bool,
+    mt: Matcher | None = None,
+    judge_all: bool = False,
+    extras: bool = True,
 ) -> dict[str, Any]:
-    """One cell -> its ``cells.jsonl`` record (judge mode with ``llm``, cache-only without)."""
+    """One cell -> its ``cells.jsonl`` record (judge mode with ``llm``, cache-only without).
+
+    Plan 0004 set B: ``mt`` is the set-B category matcher, ``judge_all`` judges every non-empty
+    cell (no prefilter), ``extras=False`` skips the scope / coverage calls."""
     cat = item["category"]
-    mt = matcher(cat)
+    mt = mt or matcher(cat)
     response_named = sorted(mt.mentions(item.get("response") or ""))
     rec: dict[str, Any] = {
         "key": cell.key,
@@ -324,7 +338,7 @@ async def process_cell(
         samples = [s for s in cell.samples or () if s.strip()][:HAL_K]
         rec["prefiltered"] = bool(text_hits(mt, samples))
     rec["coverage_sample"] = (not rec["prefiltered"]) and in_sample
-    to_judge = rec["prefiltered"] or rec["coverage_sample"]
+    to_judge = rec["prefiltered"] or rec["coverage_sample"] or judge_all
     # ---- J-lens: summary
     if ja.kind == "tokens":
         if not (to_judge or summarize_all):
@@ -409,6 +423,8 @@ async def process_cell(
         h["leaf"] = seg_rows[i]["leaf"]
         h["verdict"] = seg_rows[i]["verdict"]
     # ---- scope call per segment holding a sibling hallucination-candidate mention
+    if not extras:
+        return rec
     scope_segs = sorted(
         {
             h["segment"]
@@ -478,6 +494,7 @@ async def judge_arm(
     summarize_all: bool = True,
     workers: int = 128,
     log_every: float = 60.0,
+    extras: bool = True,
 ) -> dict[str, Any]:
     """Judge (``llm``) or rebuild (``llm=None``) one arm; always rewrites ``cells.jsonl`` and
     ``run.json`` from the cache."""
@@ -523,6 +540,7 @@ async def judge_arm(
                 models,
                 in_sample=c.key in sample,
                 summarize_all=summarize_all,
+                extras=extras,
             )
             done += 1
             now = time.monotonic()
@@ -569,6 +587,7 @@ async def judge_arm(
         "coverage_fraction": COVERAGE_FRACTION,
         "coverage_seed": COVERAGE_SEED,
         "summarize_all": summarize_all,
+        "extras": extras,
         "git_sha": git_sha(),
         "spend_this_run": spend,
         "spend_this_run_usd": round(sum(v.usd for v in ja.spend.values()), 4),

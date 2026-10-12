@@ -1,7 +1,9 @@
 # ruff: noqa: E501
 """Greedy Qwen3.6-27B chat completions on Modal (plan 0003 §Phase B: implication check + responses).
 
-Input JSONL rows ``{"key": str, "messages": [{role, content}, ...], "max_new": int}``; output
+Input JSONL rows ``{"key": str, "messages": [{role, content}, ...], "max_new": int}`` (or, raw
+mode for plan 0004 set B, ``{"key", "input_ids": [...], "max_new"}``: the ids are used as given,
+no chat template, e.g. a plain-text prompt for a raw continuation); output
 rows ``{"key", "text", "n_tokens", "finish"}`` appended to ``--out`` (idempotent on ``key``:
 rows already in ``--out`` are skipped). Every prompt is rendered with the model's chat template,
 ``add_generation_prompt=True, enable_thinking=False`` (the ``chat_context`` render of every bank)
@@ -70,10 +72,13 @@ def run(rows: list[dict]) -> list[dict]:
     tok = llm.get_tokenizer()
     prompts, params = [], []
     for r in rows:
-        ids = tok.apply_chat_template(
-            r["messages"], tokenize=True, add_generation_prompt=True, enable_thinking=False
-        )
-        ids = list(ids["input_ids"] if hasattr(ids, "keys") else ids)
+        if "input_ids" in r:  # raw mode (plan 0004 set B): pre-rendered ids, no chat template
+            ids = [int(x) for x in r["input_ids"]]
+        else:
+            ids = tok.apply_chat_template(
+                r["messages"], tokenize=True, add_generation_prompt=True, enable_thinking=False
+            )
+            ids = list(ids["input_ids"] if hasattr(ids, "keys") else ids)
         prompts.append(TokensPrompt(prompt_token_ids=ids))
         params.append(SamplingParams(temperature=0.0, max_tokens=int(r.get("max_new", 256))))
     outs = llm.generate(prompts, params, use_tqdm=False)

@@ -205,3 +205,37 @@ uv run hbench sibling report                     # -> outputs/sibling/score/repo
 - Judge outputs `outputs/sibling/judge/<arm>/{cache,cells}.jsonl` + `run.json` (claim-map
   PROMPT_VERSION, taxonomy version, git sha, spend). Keys: `summ:{key}`, `{key}:M`,
   `{key}:S:{readout}:{start}-{end}` (scope), `cover:{category}:{target}`.
+
+## sibling_probe plan 0004 (11 layers, set B, verdict judge)
+
+```bash
+# set A readouts at 11 layers (GPU jobs: /tmp/sib_all11*.sh; ML-NLA from /workspace/gw-mlnla, the
+# gw-wrong-bridge NLA reader lacks the mlnla lens); J-lens + ML-NLA gen dirs on wsbench-gen-sibling
+uv run python scripts/sibling_probe/judge_all11.py --arms s3d-rl600-all11,jlens-all11   # claim map, new cells
+uv run python scripts/sibling_probe/judge_all11.py --arms mlnla-rl600-all11
+# set B (basic_readout): bank, inventory, claim map, brnorm, probe texts, captures, probes
+uv run python scripts/sibling_probe/br_build.py bank-in|bank|inventory|judge|brnorm|probe-texts|capture-rows|probe-inputs
+# claim units -> probe verdicts -> consensus -> sibverdict-v1 -> categories / summary / figures / calibration
+uv run python scripts/sibling_probe/verdicts.py units|judge|label|figures|calib
+uv run python scripts/sibling_probe/viewer/build_viewer.py      # -> outputs/sibling/viewer/ (deploy: scripts/serve/sibling_viewer.py)
+```
+
+- Arms: set A `s3d-rl600-all11`, `jlens-all11`, `mlnla-rl600-all11` (judge dirs; the first two
+  seeded from the 4-layer caches) + `nla-rl-L42`; set B `br-<arm>` judge dirs, every non-empty
+  cell judged, scope / coverage calls off. Methods in units: `s3d`, `jlens`, `nla-rl-L42`
+  (primary), `mlnla-rl600` (side).
+- Set B: `data/sibling_probe/basic_readout_bank.json` (67 in-pipeline items: entity + implicit;
+  processing viewer-only), `br_concepts.json` (category-first: golds + 15 Opus members),
+  `br_probe_texts.jsonl` (only categories with >= 2 golds: sport, country, musical_instrument;
+  single-gold categories cannot pass the mandatory transfer gate). Opus caches per prompt version
+  `outputs/sibling/br/cache_{brcat,brinv,brnorm,brtext}-v1.jsonl`. Captures `acts-br-eval`,
+  `acts-br-probe` (12 layers incl. 42). Probes `outputs/sibling/br/probes/{v2,v0}`.
+- Probes: set A 20..60 from `outputs/sibling/probes_all11/` (run `sibling-all11`, eval capture
+  `acts-sibling-eval-all11`, probe capture `acts-sibling-probe-all11`); L42 from the plan-0003
+  `outputs/sibling/probes/`. Set-B gates: validity + transfer per concept, category-layer rule
+  over the category's GOLD concepts; never-gold concepts are `unvalidated_never_gold`.
+- Verdict outputs `outputs/sibling/verdict/`: `units.jsonl`, `units_labeled.jsonl`, `cache.jsonl`
+  (keys `v:<uid>` layer-visible, `b:<uid>` layer-blind), `blind_uids.json`, `gates*.json(l)`,
+  `summary.json`, `report.md`. Figures `plots/sibling_probe/fig{1,2}_*.png`.
+- Network on this box drops DNS intermittently: every Modal step in the drivers retries; check
+  `getent hosts api.modal.com` before blaming a script.
