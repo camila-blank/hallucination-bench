@@ -7,13 +7,15 @@
 # off-grid or duplicate (id, layer, pos) rows.
 set -euo pipefail
 arm=$1; gen=$2; kind=$3; layers=$4; vol=${5:-wsbench-gen-3}
+[[ -n $arm && $arm != */* && -n $gen && $gen != */* && -n $layers ]] \
+  || { echo "need non-empty <arm> <gen> (no slashes) and <layers>" >&2; exit 2; }
 HERE="$(cd "$(dirname "$0")/.." && pwd)"
 G=${STORY_GEN_ROOT:-/workspace/hb-story-gen}
 DST=${STORY_READOUTS_ROOT:-/workspace/hb-readouts-story}
 WSPUB=${WSBENCH_PUB:-/workspace/root/wsbench-pub}
 WSPY=${WSBENCH_PY:-/workspace/root/wsbench-venv/bin/python}
 mkdir -p "$G" "$DST/$arm"
-rm -rf "${G:?}/$gen"  # volume get --force never deletes stale shard files
+rm -rf "${G:?}/${gen:?}"  # volume get --force never deletes stale shard files
 cd "$G" && MODAL_RESOURCE_ENV=camila-blank uvx --python 3.12 modal@latest volume get "$vol" "/$gen" . --force >/dev/null
 cd "$WSPUB" && "$WSPY" -m wsbench convert-gen-dir gen_dir="$G/$gen" out="$DST/$arm/hallucination.jsonl" kind="$kind" | tail -1
 python3 - "$DST/$arm/hallucination.jsonl" "$HERE/data/story/items.json" "$layers" <<'PY'
