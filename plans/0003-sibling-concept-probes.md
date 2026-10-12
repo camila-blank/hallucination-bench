@@ -18,7 +18,10 @@ sensitivity, which mechanically lowers a "probe does not detect" rate. So **V0 (
 DiffMean) and V2 are reported side by side in every headline cell**: verdict, β₁/β₂, and the
 three per-arm rates. Rule fixed in advance: if V0 and V2 give different verdicts, or their
 headline rates' CIs do not overlap, the result is reported as **recipe-sensitive**, with both
-numbers and no single headline.
+numbers shown. V2 stays the headline. Raw rates differ mechanically with gold sensitivity, so
+the rate comparison also uses the **sensitivity-normalised rate** 1 − det(M)/ceiling and the
+excess ratio (det(M) − det(U))/(ceiling − det(U)). The flag fires on these, not on raw rates.
+Each raw rate is printed next to its gold-miss floor (1 − ceiling).
 
 1. **Probe recipe sweep** (`scripts/sibling_probe/probe_sweep_modal.py`, outputs
    `outputs/sibling/probe_sweep/summary.md`), same category-level folds, all 5 layers, every
@@ -56,9 +59,10 @@ numbers and no single headline.
    - **Calibration:** report the eval-cell FPR at τ_cat per category, and the neutral FPR, as
      diagnostics. τ is NOT recalibrated on eval cells: excess FPR at other-gold cells is partly
      the sibling effect under test.
-   - **Independent check:** gold-item transfer was used for selection, so report V0 vs V2
-     transfer AUROC separately on the human-written wsbench-verbatim country/occupation items
-     (not Opus-generated).
+   - **Independent check (descriptive):** gold-item transfer was used for selection, so report
+     V0 vs V2 transfer AUROC separately on the 30 human-written wsbench-verbatim
+     country/occupation items, with bootstrap CIs. It is too small to be decisive and is labelled
+     descriptive.
    - **The text states** that the gold-miss rate (1 − ceiling) puts a floor under any
      "probe does not detect" rate.
 4. **Unchanged:** the judge cache (no new API calls), mentions, M / U definitions, β₁ / β₂, the
@@ -68,14 +72,19 @@ numbers and no single headline.
    - **Mentions:** every sibling mention that is not named in the prompt or the response.
      s3d / NLA use any alias hit in the readout; J-lens uses the token + summary rule (rows with
      raw tokens only are reported separately).
-   - **Overlap:** P(B|A) and lift against the **same-gold null** (arm B's per-item sets permuted
-     among items with the same gold) as primary; the within-category null is secondary. Jaccard
-     is reported but confounded, since s3d reads 4 layers and NLA reads 1.
+   - **Overlap:** P(B|A), lift and Jaccard against two **co-primary** nulls, all three statistics
+     permuted:
+     - within category;
+     - within same gold. Most gold groups have only 2 items, so report the effective number of
+       swappable items; this null is near-degenerate and conservative.
+
+     Jaccard is reported but confounded, since s3d reads 4 layers and NLA 1.
    - **Layer rule:** the primary comparison is NLA L42 vs s3d / J-lens L44 at the same (item,
      pos), with the probe read at L44 (L42 for NLA cells). The secondary comparison is the
      all-layer union per item.
    - **Agreement vs probe support:** the unit is (item, sibling). Probe support = the mean over
-     the item's L44 cells of z(c | g) and of detection (τ_cat), under V2 (and V0). Strata are the
+     the item's **L44** cells of z(c | g) and of detection (τ_cat), under V2 (and V0). One probe
+     layer is used for every unit, whichever lens named it; L42 is a sensitivity row. Strata are the
      number of lenses naming the sibling (0 / 1 / 2 / 3, layer rule above), plus an
      **s3d ∩ NLA, not J-lens** stratum (the J-lens/probe link is mechanical). Report z with
      concept fixed effects (popular siblings have stronger probes), and cluster CIs by item.
