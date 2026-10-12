@@ -7,8 +7,7 @@ Plan `plans/0004-sibling-verdict-judge-11layer.md` (rev 4). PR #6. Run 2026-10-1
 - **Probes:** whitened DiffMean (plan 0003 rev 11) at all 11 layers.
 - **Full tables:** `outputs/sibling/verdict/report.md`.
 
-**Viewer (Agam style):** https://safety-sahan-2-camila-blank--sibling-viewer-web.modal.run. It is
-link-key gated; the key is in `/workspace/.sibling_viewer_key`, so open `<url>/?key=<key>` once.
+**Viewer (Agam style), public:** https://safety-sahan-2-camila-blank--sibling-viewer-web.modal.run
 For every question it shows:
 - the prompt;
 - the readouts of each method at every layer;
