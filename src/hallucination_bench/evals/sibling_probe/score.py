@@ -68,9 +68,7 @@ from hallucination_bench.evals.sibling_probe.probes import (
 SCORE_DIR = REPO_ROOT / "outputs" / "sibling" / "score"
 N_BOOT = 2000
 BOOT_SEED = 0
-M_VERDICTS = frozenset(
-    {tx.V_HALLUCINATION, tx.V_PROBE, tx.V_ALTERNATIVE, tx.V_UNRESOLVED, tx.V_JUNK}
-)
+M_VERDICTS = frozenset({tx.V_HALLUCINATION, tx.V_PROBE, tx.V_UNRESOLVED, tx.V_JUNK})
 MENTION_CLASSES = ("M", "correct", "non_claim", "failed")  # proper mentions (judge verdicts)
 THRESHOLDS: dict[str, str] = {  # row name -> eval-score field (detection indicator)
     "tau_cat": "det_cat",

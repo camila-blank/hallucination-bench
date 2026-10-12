@@ -26,7 +26,7 @@ def unit_lines(user: str) -> list[tuple[str, bool, str]]:
     return [(m[1], m[2] == "ESTABLISHED", json.loads(m[3])) for m in _UNIT.finditer(user)]
 
 
-def e(uid, leaf="restates_prefix", **kw):
+def e(uid, leaf="correct", **kw):
     d = {
         "id": uid,
         "leaf": leaf,
@@ -37,6 +37,13 @@ def e(uid, leaf="restates_prefix", **kw):
         "alt_leaf": None,
         "pair": None,
         "probe_target": None,
+        "reason": None,
+        "source": None,
+        "same_slot_alternative": False,
+        "world": False,
+        "prediction": False,
+        "contradicted_by": None,
+        "supported_by": None,
         "why": "w",
         "splits": [],
         "rest_leaf": None,
@@ -50,18 +57,28 @@ def sp(text, leaf, **kw):
     return {"text": text, **d}
 
 
+def prompt_quote(user: str) -> str:
+    """A verbatim span of the conversation (the start of the prompt) for evidence quotes."""
+    return user.split("<prompt>\n", 1)[1].split("\n</prompt>", 1)[0][:30]
+
+
 def default_map(user: str) -> dict:
+    q = prompt_quote(user)  # rev 17: incorrect / correct segments must quote the conversation
     out = []
     for uid, est, text in unit_lines(user):
         if est:
             leaf = "detail"
         elif text.startswith("<"):
-            leaf = "formatting"
+            leaf = "non_claim"
         elif "Paris" in text:
             leaf = "false_claim"
         else:
-            leaf = "restates_prefix"
-        out.append(e(uid, leaf))
+            leaf = "correct"
+        quotes = {
+            "contradicted_by": q if leaf in tx.INCORRECT_LEAVES else None,
+            "supported_by": q if leaf == "correct" else None,
+        }
+        out.append(e(uid, leaf, **quotes))
     return {"units": out, "rationale": "r"}
 
 
@@ -79,12 +96,12 @@ class MapFake(FakeLLM):
 # ------------------------------------------------------------------ taxonomy + prompt
 
 
-def test_tree_has_22_leaves_in_8_groups_and_pseudo_rows():
-    assert len(tx.LEAF_NAMES) == 22 and len(tx.GROUPS) == 8
+def test_tree_has_12_leaves_in_8_groups_and_pseudo_rows():
+    assert len(tx.LEAF_NAMES) == 12 and len(tx.GROUPS) == 8
     assert set(tx.GROUP_OF.values()) == set(tx.ROWS)
     assert tx.SUBSTITUTION_LEAVES == ("substitution_sibling", "substitution_category")
     assert {tx.group_of(x) for x in ("detail", "false_claim")} == {tx.HALLUCINATION}
-    assert tx.group_of("unrealised_option") == tx.THINKY
+    assert tx.group_of("unverifiable") == tx.THINKY
     assert tx.group_of("off_topic") == tx.JUNK and tx.group_of("ambiguous_topic") == tx.UNSETTLED
 
 
@@ -99,15 +116,16 @@ def test_prompt_contains_every_leaf_definition_rule_and_tag():
 def test_precedence_is_listed_in_the_planned_order():
     pos = [cm.SYSTEM.index(f"\n{n}. **{tx.RULES[n].title}**") for n in tx.RULE_ORDER]
     assert pos == sorted(pos)
-    assert tx.RULE_ORDER == (1, 3, 4, 5, 6, 10, 11, 12, 13, 7, 8, 9, 14)  # single-call: no rule 2
-    assert tx.RULE_ORDER_ANCHORED == (2, 1, 3, 4, 5, 6, 10, 11, 12, 13, 7, 8, 9, 14)
+    assert tx.RULE_ORDER == (1, 3, 4, 5, 6, 10, 11, 12, 13, 7, 8, 9)  # single-call: no rule 2
+    assert tx.RULE_ORDER_ANCHORED == (2, 1, 3, 4, 5, 6, 10, 11, 12, 13, 7, 8, 9)  # rev 16: no 14
     pos = [
         cm.SYSTEM_V5C.index(f"\n{n}. **{tx.RULES_ANCHORED[n].title}**")
         for n in tx.RULE_ORDER_ANCHORED
     ]
     assert pos == sorted(pos)
     # revision-10 wording
-    assert "A non-prediction world claim is incorrect only if the conversation contradicts" in (
+    # rev 16: predictions are ordinary claims, so the "non-prediction" qualifier is gone
+    assert "A world claim is incorrect only if the conversation contradicts" in (
         cm.SYSTEM.replace("**", "")
     )
     # rev 15: unrealised continuations are incorrect only if the text contradicts them
@@ -163,26 +181,26 @@ def test_parse_splits_rest_and_unlocated_subspans():
         "units": [
             e(
                 "R0.U1",
-                "generic",  # ignored when splitting
+                "non_claim",  # ignored when splitting
                 splits=[
-                    sp("alpha is red", "restates_prefix"),
+                    sp("alpha is red", "correct"),
                     sp("nowhere to be found", "detail"),
                     sp("Paris is big", "false_claim", cruxy=True),
                 ],
-                rest_leaf="filler",
+                rest_leaf="non_claim",
             ),
-            e("R0.U2", "stated_after", cruxy=True),
+            e("R0.U2", "correct", cruxy=True),
         ],
         "rationale": "r",
     }
     segs, c = cm.parse(raw, units)
     got = [(s.text, s.leaf, s.kind) for s in segs]
     assert got == [
-        ("Alpha is red", "restates_prefix", "split"),
-        ("and", "filler", "rest"),
+        ("Alpha is red", "correct", "split"),
+        ("and", "non_claim", "rest"),
         ("Paris is big", "false_claim", "split"),
-        (".", "filler", "rest"),
-        ("Second one.", "stated_after", "unit"),
+        (".", "non_claim", "rest"),
+        ("Second one.", "correct", "unit"),
     ]
     assert c["n_splits"] == 3 and c["n_unlocated_subspans"] == 1
     assert segs[2].cruxy and not segs[4].cruxy  # cruxy only on incorrect segments
@@ -194,13 +212,13 @@ def test_parse_overlapping_split_is_rejected_and_missing_rest_falls_back():
     units = _units("one two three")
     raw = {
         "units": [
-            e("R0.U1", "generic", splits=[sp("one two", "detail"), sp("two three", "detail")])
+            e("R0.U1", "non_claim", splits=[sp("one two", "detail"), sp("two three", "detail")])
         ],
         "rationale": "",
     }
     segs, c = cm.parse(raw, units)
     assert c["n_unlocated_subspans"] == 1 and c["n_missing_rest"] == 1
-    assert [(s.text, s.leaf) for s in segs] == [("one two", "detail"), ("three", "generic")]
+    assert [(s.text, s.leaf) for s in segs] == [("one two", "detail"), ("three", "non_claim")]
 
 
 def test_parse_missing_duplicate_extra_and_failed_call():
@@ -210,7 +228,7 @@ def test_parse_missing_duplicate_extra_and_failed_call():
         "rationale": "",
     }
     segs, c = cm.parse(raw, units)
-    assert [s.leaf for s in segs] == ["restates_prefix", tx.FAILED, tx.FAILED]
+    assert [s.leaf for s in segs] == ["correct", tx.FAILED, tx.FAILED]
     assert [s.status for s in segs] == ["ok", "missing", "bad_leaf"]
     assert c["n_duplicate_units"] == 1 and c["n_extra_units"] == 1
     assert c["n_missing_units"] == 1 and c["n_bad_leaves"] == 1
@@ -243,9 +261,9 @@ def test_established_unit_forced_disputed_and_kept():
     raw = {
         "units": [
             e(est[0], "substitution_sibling", pair={"said": "Picasso", "actual": "da Vinci"}),
-            e(est[1], "restates_prefix"),  # non-incorrect, no dispute -> forced
-            e(est[2], "detail", dispute=True, alt_leaf="restates_prefix"),  # disputed
-            *(e(u.id, "filler") for u in units if not u.established),
+            e(est[1], "correct"),  # non-incorrect, no dispute -> forced
+            e(est[2], "detail", dispute=True, alt_leaf="correct"),  # disputed
+            *(e(u.id, "non_claim") for u in units if not u.established),
         ],
         "rationale": "",
     }
@@ -253,13 +271,13 @@ def test_established_unit_forced_disputed_and_kept():
     by = {s.unit: s for s in segs if s.established}
     assert by[est[0]].leaf == "substitution_sibling" and by[est[0]].status == "ok"
     assert by[est[1]].leaf == tx.UNKNOWN_INCORRECT and by[est[1]].status == "forced"
-    assert by[est[1]].raw_leaf == "restates_prefix"
+    assert by[est[1]].raw_leaf == "correct"
     assert by[est[2]].leaf == tx.UNKNOWN_INCORRECT and by[est[2]].status == "disputed"
-    assert by[est[2]].alt_leaf == "restates_prefix"
+    assert by[est[2]].alt_leaf == "correct"
     assert c["n_forced_established"] == 1 and c["n_disputed_established"] == 1
     assert c["n_missing_pairs"] == 0
-    assert cm.resolved_leaf(by[est[1]]) == "restates_prefix"  # forced: raw leaf
-    assert cm.resolved_leaf(by[est[2]]) == "restates_prefix"  # disputed: alt_leaf
+    assert cm.resolved_leaf(by[est[1]]) == "correct"  # forced: raw leaf
+    assert cm.resolved_leaf(by[est[2]]) == "correct"  # disputed: alt_leaf
     assert cm.alt_leaf_view(by[est[1]]) == tx.UNKNOWN_INCORRECT
 
 
@@ -267,23 +285,21 @@ def test_established_split_needs_one_incorrect_subspan():
     units = _units("Picasso painted the Mona Lisa", ["Picasso painted the Mona Lisa"])
     (u,) = units
     ok = {
-        "units": [
-            e(u.id, splits=[sp("Picasso", "substitution_sibling")], rest_leaf="restates_prefix")
-        ],
+        "units": [e(u.id, splits=[sp("Picasso", "substitution_sibling")], rest_leaf="correct")],
         "rationale": "",
     }
     segs, c = cm.parse(ok, units)
-    assert [s.leaf for s in segs] == ["substitution_sibling", "restates_prefix"]
+    assert [s.leaf for s in segs] == ["substitution_sibling", "correct"]
     assert c["n_forced_established"] == 0 and c["n_missing_pairs"] == 1
     forced = {
         "units": [
             e(
                 u.id,
                 splits=[
-                    sp("Picasso", "detail", dispute=True, alt_leaf="restates_prefix"),
-                    sp("painted", "filler"),
+                    sp("Picasso", "detail", dispute=True, alt_leaf="correct"),
+                    sp("painted", "non_claim"),
                 ],
-                rest_leaf="restates_prefix",
+                rest_leaf="correct",
             )
         ],
         "rationale": "",
@@ -359,7 +375,7 @@ def test_map_stage_runs_span_first_and_resumes(tmp_path, prose_readouts):
     rec = _cells(out, "toy")[0]
     assert rec["stages"]["map"] == "ok" and rec["stages"]["verify"] == "pending"
     leaves = [x["leaf"] for x in rec["map"]["segments"]]
-    assert leaves[0] == "restates_prefix" and "detail" in leaves  # Paris is established
+    assert leaves[0] == "correct" and "detail" in leaves  # Paris is established
     est = [x for x in rec["map"]["segments"] if x["established"]]
     assert [x["text"] for x in est] == ["Paris"]
     s2 = json.loads((wrun.arm_dir(out, wrun.Models(), "toy") / "summary_v2.json").read_text())
@@ -452,8 +468,8 @@ def _rec(item, layer, readouts, *, map_status="ok", cls="consistent"):
 def test_character_weighted_shares_average_per_readout_and_identities_hold():
     recs = [
         # readout 0: 30 chars false_claim, 10 chars filler; readout 1: all correct
-        _rec("a", 44, [[("false_claim", 30), ("filler", 10)], [("restates_prefix", 5)]]),
-        _rec("b", 44, [[(tx.UNKNOWN_INCORRECT, 4, {"status": "forced"}), ("entailed", 4)]]),
+        _rec("a", 44, [[("false_claim", 30), ("non_claim", 10)], [("correct", 5)]]),
+        _rec("b", 44, [[(tx.UNKNOWN_INCORRECT, 4, {"status": "forced"}), ("correct", 4)]]),
         _rec("c", 44, [[(tx.FAILED, 7)]], map_status="failed"),
         _rec("d", 44, [[("detail", 9)]], map_status="pending"),
     ]
@@ -483,11 +499,11 @@ def test_character_weighted_shares_average_per_readout_and_identities_hold():
 def test_specific_denominator_transition_and_alt_view():
     recs = [
         _rec("a", 44, [[("false_claim", 3)]], cls="hallucinated"),
-        _rec("b", 44, [[("filler", 3)]], cls="generic"),
+        _rec("b", 44, [[("non_claim", 3)]], cls="generic"),
         _rec(
             "c",
             44,
-            [[(tx.UNKNOWN_INCORRECT, 3, {"status": "disputed", "alt_leaf": "stated_after"})]],
+            [[(tx.UNKNOWN_INCORRECT, 3, {"status": "disputed", "alt_leaf": "correct"})]],
             cls="hallucinated",
         ),
     ]
@@ -508,7 +524,7 @@ def test_specific_denominator_transition_and_alt_view():
 
 
 def test_verify_agreement_uses_the_majority_leaf_of_the_quote():
-    r = _rec("a", 44, [[("restates_prefix", 10), ("supplementary_false", 20)]])
+    r = _rec("a", 44, [[("correct", 10), ("supplementary_false", 20)]])
     r["samples"] = ["a" * 10 + " " + "b" * 20]
     r["verdict"][0]["quotes"] = {
         "true": ["aaaaaaaaaa"],
@@ -544,4 +560,4 @@ def test_rev11_lens_framing_rule_is_rendered():
     assert tx.LENS_FRAMING_RULE in cm.SYSTEM
     assert "The model is representing / anticipating / focused on / gearing up for X" in cm.SYSTEM
     assert "It is **never `model_state`**" in cm.SYSTEM
-    assert cm.PROMPT_VERSION == "claimmap-v2.5"
+    assert cm.PROMPT_VERSION == "claimmap-v2.7"

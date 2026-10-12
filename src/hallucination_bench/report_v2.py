@@ -86,11 +86,113 @@ def _blocks(arms: dict[str, dict[str, Any]]) -> tuple[list, list]:
     return overall, layered
 
 
+# rev 16: false_claim and detail are always reported next to the hallucination verdict
+SPLIT_LEAVES: tuple[str, ...] = ("false_claim", "detail")
+
+
+def _vhead() -> list[str]:
+    out = []
+    for v in VERDICT_ROWS:
+        out.append(v)
+        if v == tx.V_HALLUCINATION:
+            out += [f"↳ {lf}" for lf in SPLIT_LEAVES]
+    return out
+
+
+def _vshare_row(n: str, b: dict[str, Any]) -> list[str]:
+    out = [n, str(b["n_share_readouts"])]
+    for v in VERDICT_ROWS:
+        out.append(_p(b["char_share_verdict"][v]))
+        if v == tx.V_HALLUCINATION:
+            out += [_p(b["char_share_leaf"][lf]) for lf in SPLIT_LEAVES]
+    return out
+
+
+def _vrate_head() -> list[str]:
+    out = []
+    for f in VERDICT_FLAGS:
+        out.append(FLAG_TITLES[f])
+        if f == f"verdict_{tx.V_HALLUCINATION}":
+            out += [f"↳ {lf}" for lf in SPLIT_LEAVES]
+    return out
+
+
 def _vrow(n: str, b: dict[str, Any]) -> list[str]:
+    out = [n, str(b["n_rate_readouts"]["all"])]
+    for f in VERDICT_FLAGS:
+        out.append(_p(b["rates"][f]["all"]))
+        if f == f"verdict_{tx.V_HALLUCINATION}":
+            out += [_p(b["rates"][lf]["all"]) for lf in SPLIT_LEAVES]
+    return out
+
+
+# rev 17: the "judge noise ±" column (half the r0 - r1 difference from consistency-v2)
+NOISE_COLS: tuple[tuple[str, str], ...] = (
+    ("hallucination", "h"),
+    ("false_claim", "fc"),
+    ("detail", "d"),
+    ("probe_candidate", "p"),
+    ("correct", "c"),
+    ("unresolved", "u"),
+)
+NOISE_HEAD = "judge noise ± (" + " / ".join(k for _, k in NOISE_COLS) + ")"
+
+
+def _arm_of(row_name: str) -> str:
+    return row_name.split(" L", 1)[0]
+
+
+def _noise_cell(noise: dict[str, Any] | None, row_name: str, kind: str) -> str:
+    """``kind`` = ``rate`` or ``share``; the arm's consistency sample, else the overall one."""
+    if not noise:
+        return "—"
+    nz = noise["noise"]["by_arm"].get(_arm_of(row_name)) or noise["noise"]["overall"]
+    parts = []
+    for m, k in NOISE_COLS:
+        pm = nz[m][kind]["pm"]
+        parts.append(f"{k} {100 * pm:.1f}" if pm is not None else f"{k} —")
+    return " / ".join(parts)
+
+
+def load_noise(out_root: Path, judge_model: str) -> dict[str, Any] | None:
+    """The consistency-v2 result of the current prompt version (``None`` if not run)."""
+    from hallucination_bench.evals.wsbench_chat.run import model_slug
+    from hallucination_bench.judges.claimmap_v2 import PROMPT_VERSION
+
+    p = (
+        Path(out_root)
+        / "consistency"
+        / model_slug(judge_model)
+        / f"consistency_{PROMPT_VERSION}.json"
+    )
+    return json.loads(p.read_text()) if p.exists() else None
+
+
+def noise_section(noise: dict[str, Any] | None) -> list[str]:
+    from hallucination_bench import consistency_v2
+
+    md = ["## Judge noise (consistency-v2: two fresh calls per sampled cell)", ""]
+    if not noise:
+        return [
+            *md,
+            "**Not run for this prompt version**: run `hbench consistency-v2` on a seeded "
+            "150-cell sample of the run's arms; the headline tables' noise columns show —.",
+            "",
+        ]
+    body = (
+        consistency_v2.render_markdown(noise)
+        .replace("\n## ", "\n### ")
+        .replace("\n### ", "\n#### ")
+    )
+    body = body.replace("## Claim-map judge consistency", "### Claim-map judge consistency", 1)
     return [
-        n,
-        str(b["n_rate_readouts"]["all"]),
-        *(_p(b["rates"][f]["all"]) for f in VERDICT_FLAGS),
+        *md,
+        f"Sample: `{noise.get('arms')}`, {noise.get('n_per_arm')} cells per arm, seed "
+        f'{noise.get("seed")}. The headline tables\' "{NOISE_HEAD}" column is half the r0 - r1 '
+        "difference of each metric in the arm's sample.",
+        "",
+        body,
+        "",
     ]
 
 
@@ -98,7 +200,11 @@ def is_pre_gate(summaries: dict[str, dict[str, Any]]) -> bool:
     return any(s["config"].get("pre_gate", True) for s in summaries.values())
 
 
-def build(summaries: dict[str, dict[str, Any]], judge_model: str) -> tuple[str, dict[str, Any]]:
+def build(
+    summaries: dict[str, dict[str, Any]],
+    judge_model: str,
+    noise: dict[str, Any] | None = None,
+) -> tuple[str, dict[str, Any]]:
     prose = {a: s for a, s in summaries.items() if s["config"]["kind"] == "prose"}
     tokens = {a: s for a, s in summaries.items() if s["config"]["kind"] == "tokens"}
     pre_gate = is_pre_gate(summaries)
@@ -122,7 +228,7 @@ def build(summaries: dict[str, dict[str, Any]], judge_model: str) -> tuple[str, 
         "",
     ]
     group_head = ["arm", "n readouts", *GROUP_ROWS]
-    verdict_head = ["arm", "n readouts", *VERDICT_ROWS]
+    verdict_head = ["arm", "n readouts", *_vhead(), NOISE_HEAD]
     for title, arms in (("Prose arms", prose), ("Token arms (judged via the summariser)", tokens)):
         if not arms:
             continue
@@ -132,12 +238,12 @@ def build(summaries: dict[str, dict[str, Any]], judge_model: str) -> tuple[str, 
             md += _table(
                 f"Headline: character-weighted verdict shares, {t}",
                 verdict_head,
-                [_grow(n, b, "char_share_verdict") for n, b in rows],
+                [[*_vshare_row(n, b), _noise_cell(noise, n, "share")] for n, b in rows],
             )
             md += _table(
                 f"Headline: readout-level verdict rates (all readouts), {t}",
-                ["arm", "n readouts", *(FLAG_TITLES[f] for f in VERDICT_FLAGS)],
-                [_vrow(n, b) for n, b in rows],
+                ["arm", "n readouts", *_vrate_head(), NOISE_HEAD],
+                [[*_vrow(n, b), _noise_cell(noise, n, "rate")] for n, b in rows],
             )
         md += _table(
             "v2 hallucination rate vs v5c on the same readouts",
@@ -146,6 +252,8 @@ def build(summaries: dict[str, dict[str, Any]], judge_model: str) -> tuple[str, 
                 "n compared / n readouts",
                 "v5c rate (compared)",
                 "v2 rate (compared)",
+                "↳ v2 false_claim",
+                "↳ v2 detail",
                 "n spec",
                 "v5c hallucination_rate (spec)",
                 "v2 rate (spec)",
@@ -156,6 +264,8 @@ def build(summaries: dict[str, dict[str, Any]], judge_model: str) -> tuple[str, 
                     f"{b['v5c_comparison']['n_compared']} / {b['v5c_comparison']['n_readouts']}",
                     _p(b["v5c_comparison"]["v5c_rate"]),
                     _p(b["v5c_comparison"]["v2_rate"]),
+                    _p(b["v5c_comparison"].get("v2_false_claim_rate")),
+                    _p(b["v5c_comparison"].get("v2_detail_rate")),
                     str(b["n_rate_readouts"]["specific"]),
                     _p(b["v5c_comparison"]["v5c_rate_specific"]),
                     _p(b["v5c_comparison"]["v2_rate_specific"]),
@@ -296,6 +406,9 @@ def build(summaries: dict[str, dict[str, Any]], judge_model: str) -> tuple[str, 
                 str(h["n_unlocated_established"]),
                 str(h["n_missing_pairs"]),
                 f"{h['n_missing_probe_targets']}/{h['n_probe_candidates']}",
+                f"{h.get('n_unquoted_contradictions', 0)}/"
+                f"{h.get('n_contradiction_quotes_checked', 0)}",
+                f"{h.get('n_unquoted_support', 0)}/{h.get('n_support_quotes_checked', 0)}",
                 f"{usd:.2f}",
             ]
         )
@@ -318,6 +431,8 @@ def build(summaries: dict[str, dict[str, Any]], judge_model: str) -> tuple[str, 
             "unlocated established",
             "missing pairs",
             "missing probe_target",
+            "unquoted contradictions",
+            "unquoted support",
             "map spend USD",
         ],
         hrows,
@@ -393,10 +508,41 @@ def probe_candidates(dirs: list[Path], *, pre_gate: bool = True) -> list[dict[st
                         "readout_idx": s["readout"],
                         "unit": s["unit"],
                         "key": rec["key"],
+                        "contradicted_by": s.get("contradicted_by"),
                         "why": s["why"],
                         "pre_gate": pre_gate,
                     }
                 )
+    return out
+
+
+def hallucination_examples(dirs: list[Path], *, n: int = 8, seed: int = 0) -> list[str]:
+    """``n`` random hallucination segments per arm, each with its ``contradicted_by`` quote."""
+    out = ["## Hallucination examples (with the quote that contradicts them)", ""]
+    for d in dirs:
+        res, seen = _reservoir(
+            [d],
+            lambda s: "h" if s["leaf"] in tx.VERDICTS[tx.V_HALLUCINATION] else "x",
+            n,
+            random.Random(f"{seed}:{d.name}"),
+        )
+        rows = []
+        for _arm, rec, s in res.get("h", []):
+            rows.append(
+                [
+                    rec["key"],
+                    s["leaf"],
+                    json.dumps(s["text"][:160], ensure_ascii=False).replace("|", "\\|"),
+                    json.dumps((s.get("contradicted_by") or "")[:200], ensure_ascii=False).replace(
+                        "|", "\\|"
+                    ),
+                ]
+            )
+        out += _table(
+            f"{d.name} ({seen.get('h', 0)} hallucination segments)",
+            ["cell", "leaf", "segment", "contradicted_by"],
+            rows,
+        )
     return out
 
 
@@ -431,6 +577,9 @@ def _sample_lines(arm: str, rec: dict[str, Any], s: dict[str, Any]) -> list[str]
         f"- leaf {s['leaf']} (verdict {tx.verdict_of(s['leaf'])}); raw leaf {s['raw_leaf']}; "
         f"alt_leaf {s.get('alt_leaf')}; tags {tags}; pair {s.get('pair')}; probe_target "
         f"{json.dumps(s.get('probe_target'), ensure_ascii=False)}",
+        f"- contradicted_by: {json.dumps(s.get('contradicted_by'), ensure_ascii=False)}; "
+        f"supported_by: {json.dumps(s.get('supported_by'), ensure_ascii=False)}"
+        + (f"; judge leaf {s['judge_leaf']} (unquoted)" if s.get("judge_leaf") else ""),
         f"- why: {s['why']}",
         f"- prompt: {json.dumps(prompt[:500], ensure_ascii=False)}",
         f"- response around the marker: {json.dumps(ctx, ensure_ascii=False)}",
@@ -499,9 +648,18 @@ def report(
         raise SystemExit(f"no arm under {root} has claim-map (:M) results")
     v2_dirs = [d for d in dirs if d.name in summaries]
     pre_gate = is_pre_gate(summaries)
-    md, js = build(summaries, judge_model)
+    noise = load_noise(out_root, judge_model)
+    md, js = build(summaries, judge_model, noise)
     probes = probe_candidates(v2_dirs, pre_gate=pre_gate)
-    md = "\n".join([md, *probe_section(probes)])
+    md = "\n".join(
+        [
+            md,
+            *probe_section(probes),
+            *hallucination_examples(v2_dirs, seed=seed),
+            *noise_section(noise),
+        ]
+    )
+    js["judge_noise"] = noise
     js["n_probe_candidates"] = len(probes)
     (root / "report_v2.md").write_text(md + "\n")
     (root / "report_v2.json").write_text(json.dumps(js, indent=1) + "\n")

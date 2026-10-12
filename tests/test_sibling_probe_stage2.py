@@ -534,16 +534,23 @@ def test_process_cell_from_cache_attributes_mentions(tmp_path):
     cache = Cache(tmp_path / "cache.jsonl")
     ans = {"units": [], "rationale": "r"}
     for u in units:
-        leaf = "entailed" if "Korean" in u.text else "substitution_sibling"
+        korean = "Korean" in u.text
+        # claimmap-v2.7 answer schema (plan 0002 rev 17): `correct` needs supported_by unless
+        # source = entailed; an incorrect leaf needs a locatable contradicted_by quote
         ans["units"].append(
             {
                 "id": u.id,
-                "leaf": leaf,
+                "leaf": "correct" if korean else "substitution_sibling",
                 "hedged": False,
                 "world_false": False,
                 "cruxy": False,
                 "pair": None,
                 "probe_target": "China",
+                "reason": None,
+                "source": "entailed" if korean else None,
+                **{f: False for f in tx.UNVERIFIABLE_FLAGS},
+                "contradicted_by": None if korean else "I love kimchi",
+                "supported_by": None,
                 "why": "w",
                 "splits": [],
                 "rest_leaf": None,

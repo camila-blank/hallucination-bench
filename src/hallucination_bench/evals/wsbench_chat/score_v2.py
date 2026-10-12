@@ -78,11 +78,11 @@ TRANSITION_PRIORITY: tuple[str, ...] = (
     tx.FAILED,
 )
 
-# verify status -> the v2 leaves that agree with it (plan 0002, §Inputs; rev 13 renames:
-# world_true -> supplementary_true, possible_belief -> supplementary_false, and the contested
-# world claims that left other_on_topic -> supplementary_unsettled keep their rows)
+# verify status -> the v2 leaves that agree with it (plan 0002, §Inputs; mapped through the
+# rev 13 renames and the rev 16 merges: the three correct leaves -> correct, the thinky and
+# supplementary-unsettled leaves -> unverifiable, the non-claim leaves -> non_claim)
 AGREEMENT: dict[str, frozenset[str]] = {
-    "true": frozenset({"restates_prefix", "stated_after", "entailed"}),
+    "true": frozenset(tx.CORRECT_LEAVES),
     "unverifiable": frozenset({*tx.SUPPLEMENTARY_LEAVES, *tx.THINKY_LEAVES, "false_claim"}),
     "disputed": frozenset({*tx.INCORRECT_LEAVES, "supplementary_false", tx.UNKNOWN_INCORRECT}),
     "off_topic": frozenset({"off_topic", "ambiguous_topic", *tx.NON_CLAIM_LEAVES}),
@@ -215,7 +215,7 @@ def readout_flags(r: SlimReadoutV2) -> dict[str, bool]:
 
 def _columns() -> list[str]:
     cols = ["n_share_readouts", "n_segments", "n_rate_all", "n_rate_specific", "n_v5c_hal"]
-    cols += ["n_cmp", "n_cmp_v5c_hal", "n_cmp_v2_hal"]
+    cols += ["n_cmp", "n_cmp_v5c_hal", "n_cmp_v2_hal", "n_cmp_v2_fc", "n_cmp_v2_det"]
     cols += [f"cv_{v}" for v in VERDICT_ROWS] + [f"sv_{v}" for v in VERDICT_ROWS]
     cols += [f"cs_{lf}" for lf in LEAF_ROWS] + [f"cg_{g}" for g in GROUP_ROWS]
     cols += [f"acg_{g}" for g in GROUP_ROWS]
@@ -256,6 +256,8 @@ def readout_vector(r: SlimReadoutV2) -> np.ndarray:
             v[_COL["n_cmp"]] = 1
             v[_COL["n_cmp_v5c_hal"]] = r.v5c_cls == "hallucinated"
             v[_COL["n_cmp_v2_hal"]] = flags[f"verdict_{tx.V_HALLUCINATION}"]
+            v[_COL["n_cmp_v2_fc"]] = flags["false_claim"]
+            v[_COL["n_cmp_v2_det"]] = flags["detail"]
     return v
 
 
@@ -327,6 +329,8 @@ def block(cells: Sequence[SlimCellV2], *, n_boot: int = N_BOOT) -> dict[str, Any
             # over every compared readout (any v5c class) ...
             "v5c_rate": r("n_cmp_v5c_hal", "n_cmp"),
             "v2_rate": r("n_cmp_v2_hal", "n_cmp"),
+            "v2_false_claim_rate": r("n_cmp_v2_fc", "n_cmp"),
+            "v2_detail_rate": r("n_cmp_v2_det", "n_cmp"),
             # ... and over the v5c-specific ones (plan 0001's hallucination_rate denominator)
             "v5c_rate_specific": r("n_v5c_hal", "n_rate_specific"),
             "v2_rate_specific": r(f"rs_verdict_{tx.V_HALLUCINATION}", "n_rate_specific"),

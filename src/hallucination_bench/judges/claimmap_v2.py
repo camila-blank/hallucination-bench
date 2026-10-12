@@ -11,6 +11,14 @@ system prompt is rendered from :mod:`hallucination_bench.taxonomy_v2`. Two modes
 
 Verify outputs are never shown. Every probe-candidate segment carries ``probe_target``.
 
+Rev 17 (quoted evidence, fail closed): every incorrect segment must carry ``contradicted_by``
+and every ``correct`` segment (except ``source = entailed``) ``supported_by``, a verbatim span
+of the conversation. :func:`parse`, given the conversation (:func:`conversation_text`: the
+prompt plus the response without the marker), locates each quote; a missing or unfindable one
+re-labels the segment ``unverifiable`` (tag ``unquoted_contradiction`` / ``unquoted_support``,
+the judge's leaf kept in ``judge_leaf``) and counts it (``n_unquoted_contradictions`` /
+``n_unquoted_support``).
+
 :func:`parse` turns the answer into **segments** (a unit, or a located sub-span of a split unit,
 or a piece of a split unit's unquoted remainder); segments never overlap and cover every unit.
 It applies the established-span rules (forced / disputed -> ``unknown_incorrect``) and fails
@@ -30,7 +38,7 @@ from hallucination_bench.judges.v5c import READ_MARK
 from hallucination_bench.llm import schema_block
 from hallucination_bench.units import Normalised, Unit
 
-PROMPT_VERSION = "claimmap-v2.5"
+PROMPT_VERSION = "claimmap-v2.7"
 ANCHORS: tuple[str, ...] = ("none", "v5c")
 MAX_MISSING_SHARE = 0.10
 
@@ -75,7 +83,9 @@ _USER_TAIL = (
 )
 USER_TEMPLATE = (  # single-call (default)
     _USER_HEAD + "Each line is `unit id | unit text` (the text JSON-quoted).\n\n{units_block}\n\n"
-    "For EACH unit report: id (exactly as given), leaf, hedged, world_false, cruxy, pair, "
+    "For EACH unit report: id (exactly as given), leaf, the leaf tags (reason, source, "
+    "same_slot_alternative, world, prediction), the evidence quotes (contradicted_by for "
+    "incorrect leaves, supported_by for correct), hedged, world_false, cruxy, pair, "
     "probe_target, why (one short clause), splits (an empty list unless the unit needs "
     + _USER_TAIL
 )
@@ -83,7 +93,9 @@ USER_TEMPLATE_V5C = (
     _USER_HEAD + "Each line is `unit id | flag | unit text` (the text JSON-quoted); the flag "
     "ESTABLISHED marks a span an earlier audit verified as wrong (rule 2), `-` marks an "
     "ordinary unit.\n\n{units_block}\n\n"
-    "For EACH unit report: id (exactly as given), leaf, hedged, world_false, cruxy, dispute, "
+    "For EACH unit report: id (exactly as given), leaf, the leaf tags (reason, source, "
+    "same_slot_alternative, world, prediction), the evidence quotes (contradicted_by for "
+    "incorrect leaves, supported_by for correct), hedged, world_false, cruxy, dispute, "
     "alt_leaf, pair, probe_target, why (one short clause), splits (an empty list unless the "
     "unit needs " + _USER_TAIL
 )
@@ -113,7 +125,16 @@ def _seg_props(anchored: bool) -> dict[str, Any]:
     }
     if anchored:
         props |= {"dispute": {"type": "boolean"}, "alt_leaf": _NULLABLE_LEAF}
-    return props | {"pair": _PAIR, "probe_target": _NULLABLE_STR, "why": {"type": "string"}}
+    return props | {
+        "pair": _PAIR,
+        "probe_target": _NULLABLE_STR,
+        "reason": {"anyOf": [{"type": "string", "enum": list(tx.REASONS)}, {"type": "null"}]},
+        "source": {"anyOf": [{"type": "string", "enum": list(tx.SOURCES)}, {"type": "null"}]},
+        **{f: {"type": "boolean"} for f in tx.UNVERIFIABLE_FLAGS},
+        "contradicted_by": _NULLABLE_STR,
+        "supported_by": _NULLABLE_STR,
+        "why": {"type": "string"},
+    }
 
 
 def _schemas(anchored: bool) -> tuple[dict[str, Any], dict[str, Any], dict[str, Any]]:
@@ -266,6 +287,16 @@ class Segment:
     dispute: bool = False
     pair: dict[str, str] | None = None
     probe_target: str | None = None
+    reason: str | None = None  # non_claim only
+    source: str | None = None  # correct only
+    same_slot_alternative: bool = False  # unverifiable only
+    world: bool = False  # unverifiable only
+    prediction: bool = False  # unverifiable only
+    contradicted_by: str | None = None  # incorrect leaves only (rev 17)
+    supported_by: str | None = None  # correct only (rev 17)
+    unquoted_contradiction: bool = False  # re-labelled unverifiable: no locatable quote
+    unquoted_support: bool = False
+    judge_leaf: str | None = None  # the judge's leaf when a quote check re-labelled it
     why: str = ""
 
     @property
@@ -293,6 +324,10 @@ PARSE_COUNTS: tuple[str, ...] = (
     "n_dispute_ignored",
     "n_probe_candidates",
     "n_missing_probe_targets",
+    "n_contradiction_quotes_checked",
+    "n_unquoted_contradictions",
+    "n_support_quotes_checked",
+    "n_unquoted_support",
 )
 
 
@@ -308,6 +343,62 @@ def _pair(x: Any) -> dict[str, str] | None:
 
 def _probe_target(x: Any) -> str | None:
     return x.strip() if isinstance(x, str) and x.strip() else None
+
+
+def _enum(x: Any, allowed: Sequence[str]) -> str | None:
+    return x if isinstance(x, str) and x in allowed else None
+
+
+def _leaf_tags(s: "Segment") -> None:
+    """Rev 16 leaf tags are kept only on their leaf: ``reason`` on ``non_claim``, ``source`` on
+    ``correct``, the three flags on ``unverifiable``."""
+    if s.raw_leaf != "non_claim":
+        s.reason = None
+    if s.raw_leaf != "correct":
+        s.source = None
+    if s.raw_leaf != "unverifiable":
+        s.same_slot_alternative = s.world = s.prediction = False
+    if s.raw_leaf not in tx.INCORRECT_LEAVES and not s.unquoted_contradiction:
+        s.contradicted_by = None
+    if s.raw_leaf != "correct" and not s.unquoted_support:
+        s.supported_by = None
+
+
+_QUOTE_TRIM = " \t\n\"'“”‘’«»「」…."
+
+
+def _quote(x: Any) -> str | None:
+    if not isinstance(x, str):
+        return None
+    q = x.strip()
+    while q.startswith("..."):
+        q = q[3:].strip()
+    while q.endswith("..."):
+        q = q[:-3].strip()
+    q = q.strip(_QUOTE_TRIM)
+    return q or None
+
+
+def _check_quotes(s: "Segment", conv: Normalised, c: dict[str, int]) -> None:
+    """Rev 17, fail closed: an incorrect segment needs a locatable ``contradicted_by``; a
+    ``correct`` one (unless ``source = entailed``) a locatable ``supported_by``. Otherwise it is
+    re-labelled ``unverifiable`` (the judge's leaf kept in ``judge_leaf``)."""
+    if s.status != "ok":
+        return
+    if s.raw_leaf in tx.INCORRECT_LEAVES:
+        c["n_contradiction_quotes_checked"] += 1
+        q = s.contradicted_by
+        if q is None or conv.find(q, 0) is None:
+            c["n_unquoted_contradictions"] += 1
+            s.judge_leaf, s.leaf, s.raw_leaf = s.raw_leaf, "unverifiable", "unverifiable"
+            s.unquoted_contradiction = True
+    elif s.raw_leaf == "correct" and s.source != "entailed":
+        c["n_support_quotes_checked"] += 1
+        q = s.supported_by
+        if q is None or conv.find(q, 0) is None:
+            c["n_unquoted_support"] += 1
+            s.judge_leaf, s.leaf, s.raw_leaf = s.raw_leaf, "unverifiable", "unverifiable"
+            s.unquoted_support = True
 
 
 def _leaf(x: Any) -> str | None:
@@ -363,10 +454,21 @@ def _pieces(u: Unit, e: dict[str, Any], c: dict[str, int]) -> list[_Piece]:
     return sorted(located + rest, key=lambda p: p.start)
 
 
+def conversation_text(prompt: str, marked_response: str) -> str:
+    """What evidence quotes are checked against: the prompt and the response (marker removed,
+    so a quote may run across it)."""
+    return f"{prompt}\n{marked_response.replace(READ_MARK, '')}"
+
+
 def parse(
-    raw: dict[str, Any] | None, units: Sequence[Unit]
+    raw: dict[str, Any] | None,
+    units: Sequence[Unit],
+    conversation: str | None = None,
 ) -> tuple[list[Segment], dict[str, int]]:
-    """Answer -> segments covering every unit, fail closed (see the module docstring)."""
+    """Answer -> segments covering every unit, fail closed (see the module docstring). With
+    ``conversation`` (production, calibration, consistency) the rev-17 evidence quotes are
+    checked; ``None`` skips the check (unit tests of the other mechanics only)."""
+    conv = Normalised(conversation) if conversation is not None else None
     c = dict.fromkeys(PARSE_COUNTS, 0)
     c["n_units"] = len(units)
     c["n_established_units"] = sum(u.established for u in units)
@@ -408,6 +510,7 @@ def parse(
         useg: list[Segment] = []
         for p in _pieces(u, e, c):
             src = p.entry if p.entry is not None else {}
+            tsrc = e if p.kind == "rest" else src  # leaf tags of a rest piece: the unit's
             leaf = p.leaf
             seg = Segment(
                 u.id,
@@ -426,13 +529,22 @@ def parse(
                 cruxy=_b(src.get("cruxy")),
                 dispute=_b(src.get("dispute")),
                 pair=_pair(src.get("pair")),
-                probe_target=_probe_target(src.get("probe_target"))
-                or (_probe_target(e.get("probe_target")) if p.kind == "rest" else None),
+                probe_target=_probe_target(tsrc.get("probe_target")),
+                reason=_enum(tsrc.get("reason"), tx.REASONS),
+                source=_enum(tsrc.get("source"), tx.SOURCES),
+                same_slot_alternative=_b(tsrc.get("same_slot_alternative")),
+                world=_b(tsrc.get("world")),
+                prediction=_b(tsrc.get("prediction")),
+                contradicted_by=_quote(tsrc.get("contradicted_by")),
+                supported_by=_quote(tsrc.get("supported_by")),
                 why=str(src.get("why") or e.get("why") or ""),
             )
             if leaf is None:
                 c["n_bad_leaves"] += 1
             useg.append(seg)
+        if conv is not None:
+            for s in useg:
+                _check_quotes(s, conv, c)
         _established_rules(u, useg, c)
         for s in useg:
             if s.raw_leaf not in tx.INCORRECT_LEAVES:
@@ -441,6 +553,7 @@ def parse(
                 s.pair = None  # pair is logged for substitutions only
             elif s.status == "ok" and s.pair is None:
                 c["n_missing_pairs"] += 1
+            _leaf_tags(s)
             if s.raw_leaf not in tx.PROBE_CANDIDATE_LEAVES or s.status != "ok":
                 s.probe_target = None  # probe_target is kept for probe candidates only
             else:

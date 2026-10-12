@@ -533,7 +533,8 @@ async def _map_stage(
     )
     rec["stages"]["map"] = mout.status
     raw = mout.result if mout.status == "ok" else None
-    segs, counts = cm.parse(raw, units)
+    conv = cm.conversation_text(item["prompt"], bank.marked_response(item, site))
+    segs, counts = cm.parse(raw, units, conv)
     counts["n_unlocated_established"] = sum(unloc)
     rec["map"] = {
         "anchor": anchor,

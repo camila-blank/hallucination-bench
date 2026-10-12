@@ -16,7 +16,7 @@ src/hallucination_bench/
   readouts.py     readout contract loader, decode_token, verify_quote, normalize_ws
   summarizer.py   interp-v1 token-bag -> prose prompt (verbatim)
   taxonomy.py     THE taxonomy (single source of truth; rendered into the classifier prompt)
-  taxonomy_v2.py  THE claim-map taxonomy (22 leaves / 8 groups / 7 VERDICTS, precedence, open
+  taxonomy_v2.py  THE claim-map taxonomy (12 leaves / 8 groups / 6 VERDICTS, leaf tags, precedence, open
                   decisions in CHOSEN; render(anchored) for single-call vs --anchor v5c)
   units.py        deterministic readout splitter (units R{i}.U{n}) + offset-returning locate
   judges/v5c.py   verbatim v5c span + verify prompts/parsers; claim_lists (quotes, checked vs tally)
@@ -28,7 +28,8 @@ src/hallucination_bench/
   calibrate_v2.py claim map vs unit-level gold (dev_v2 / heldout_v2), the v2 gate
   report.py       cross-arm report, audit samples, pilot-dump
   report_v2.py    `report --view v2`, probe_candidates.jsonl, audit_samples_v2.md, pilot-dump-v2
-  cli.py          hbench run|calibrate|report|pilot-dump|pilot-dump-v2|units-v2
+  consistency_v2.py  `consistency-v2`: two fresh :M calls per sampled cell, κ / confusion / flags
+  cli.py          hbench run|calibrate|report|consistency-v2|pilot-dump|pilot-dump-v2|units-v2
   evals/sibling_probe/{concepts,bank}.py  plan 0003: inventory + alias matcher (text / token
                   bags), leak / 8-gram / window-identity checks, coverage rule, ReadSpec writers
   evals/sibling_probe/probes.py   cross-fit probes, recipes V2 (shrinkage-whitened DiffMean, primary) and V0
@@ -83,6 +84,7 @@ uv run hbench run ... --stages map     # claim map, single-call (summary first; 
 uv run hbench run ... --stages map --anchor v5c   # plan rev 12: v5c spans as ESTABLISHED units
 uv run hbench report --out outputs --view v2
 uv run hbench calibrate --taxonomy v2 --split dev
+uv run hbench consistency-v2 --arms s3d-rl600:44,nla-rl-L42:42,jlens:44 --n 50 --seed 0
 uv run hbench pilot-dump-v2 --arms a,b --dest x.jsonl   # real cells + production units, unlabelled
 scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; re-run resumes
 ```
@@ -129,10 +131,21 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
 - **Pre-gate**: every v2 output (`summary_v2.json` config, report, probe_candidates, audit
   samples) says pre-gate until `outputs/calibration/<model>/heldout_<PROMPT_VERSION>.json` has
   `gate_passed: true`.
-- Old gold leaf names (`world_true`, `possible_belief`) are renamed on load
-  (`taxonomy_v2.LEAF_RENAMES`); contested-world-claim relabels to `supplementary_unsettled` are
-  manual. Rev 14's `unrealised_prediction` maps to `unrealised_option` only as a fallback
-  (`FALLBACK_RENAMES`, `load_cases` warns): re-label it.
+- Old gold leaf names (every leaf of revs 12–15) are merged on load into the rev-16 leaves
+  (`taxonomy_v2.LEAF_RENAMES`), with the carried tags under `tags` / `rest_tags`
+  (`MERGE_TAGS`). `scripts/build_dev_v2.py` keeps the fine labels and writes merged gold.
+- Consistency cache: `outputs/consistency/<model>/cache.jsonl`, keys `cons:{arm}:{cell}:r{n}`
+  (the repeat index is in the fingerprint). Token arms need their `summ:` rows cached.
+- **Quoted evidence** (rev 17): incorrect segments need `contradicted_by`, `correct` ones
+  (except `source = entailed`) `supported_by`, located in prompt + response (marker removed,
+  `claimmap_v2.conversation_text`). `parse(raw, units, conversation)` fails closed to
+  `unverifiable` (`judge_leaf` keeps the judge's leaf; counters `n_unquoted_contradictions`,
+  `n_unquoted_support`). Without `conversation` the check is skipped (unit tests only); every
+  production caller (run, calibrate, consistency) passes it.
+- **Judge noise** (rev 17): `report --view v2` reads
+  `outputs/consistency/<model>/consistency_<PROMPT_VERSION>.json` for the "judge noise ±" column
+  and the noise section; run `consistency-v2` on the run's arms first, else they show —.
+- **No git writes from agents** in this worktree (no add/rm/restore --staged/commit).
 - **In-run retries** (rev 14): an invalid `:M` (or calibration) answer is re-asked up to 2 times
   (`run.MAP_INVALID_RETRIES`) before it is cached as failed; meta records `n_invalid_attempts`
   and the summed usage.

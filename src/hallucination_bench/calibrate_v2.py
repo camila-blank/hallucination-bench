@@ -94,11 +94,20 @@ def _rename(x: Any, fallbacks: Counter | None = None) -> Any:
     return tx.LEAF_RENAMES.get(x, x)
 
 
+def _merge_tags(d: dict[str, Any], old: Any, key: str) -> None:
+    t = tx.MERGE_TAGS.get(old) if isinstance(old, str) else None
+    if t:
+        d[key] = {**t, **(d.get(key) or {})}
+
+
 def remap_case(c: dict[str, Any], fallbacks: Counter | None = None) -> dict[str, Any]:
-    """The case with old gold leaf names mapped (a new dict; the input is not changed):
-    pre-rev-13 renames mechanically; rev 14's ``unrealised_prediction`` -> ``unrealised_option``
-    only as a fallback (counted in ``fallbacks``; :func:`load_cases` warns), since most such
-    gold should be re-labelled incorrect. Contested-world-claim relabels are not done here."""
+    """The case with old gold leaf names mapped (a new dict; the input is not changed): every
+    earlier leaf goes mechanically through the rev-16 merges (``taxonomy_v2.LEAF_RENAMES``), and
+    the tags the merge carries (``MERGE_TAGS``: ``reason`` / ``source`` / the unverifiable flags)
+    are recorded under ``tags`` (unit leaf and splits) and ``rest_tags`` (rest leaf).
+    ``FALLBACK_RENAMES`` (none since rev 15) are counted in ``fallbacks`` and
+    :func:`load_cases` warns. Judgement calls (contradicted old ``unrealised_*``) are not made
+    here."""
     rn = functools.partial(_rename, fallbacks=fallbacks)
     gold = c.get("gold")
     if not isinstance(gold, dict) or not isinstance(gold.get("units"), list):
@@ -109,14 +118,20 @@ def remap_case(c: dict[str, Any], fallbacks: Counter | None = None) -> dict[str,
             units.append(g)
             continue
         g = {**g}
+        _merge_tags(g, g.get("leaf"), "tags")
+        _merge_tags(g, g.get("rest_leaf"), "rest_tags")
         for k in ("leaf", "rest_leaf", "alt_leaf"):
             if k in g:
                 g[k] = rn(g[k])
         if isinstance(g.get("splits"), list):
-            g["splits"] = [
-                {**sp, "leaf": rn(sp.get("leaf"))} if isinstance(sp, dict) else sp
-                for sp in g["splits"]
-            ]
+            splits = []
+            for sp in g["splits"]:
+                if isinstance(sp, dict):
+                    sp = {**sp}
+                    _merge_tags(sp, sp.get("leaf"), "tags")
+                    sp["leaf"] = rn(sp.get("leaf"))
+                splits.append(sp)
+            g["splits"] = splits
         units.append(g)
     return {**c, "gold": {**gold, "units": units}}
 
@@ -333,6 +348,13 @@ def run_metrics(
         c["n_disputed_established"] += counts.get("n_disputed_established", 0)
         c["n_missing_units"] += counts.get("n_missing_units", 0)
         c["n_probe_candidates"] += counts.get("n_probe_candidates", 0)
+        for k in (
+            "n_contradiction_quotes_checked",
+            "n_unquoted_contradictions",
+            "n_support_quotes_checked",
+            "n_unquoted_support",
+        ):
+            c[k] += counts.get(k, 0)
         c["n_missing_probe_targets"] += counts.get("n_missing_probe_targets", 0)
         for u, g in zip(units, case["gold"]["units"], strict=True):
             if g.get("leaf") is None and not g.get("splits"):
@@ -419,6 +441,10 @@ def run_metrics(
         "n_disputed_established": c["n_disputed_established"],
         "n_missing_units": c["n_missing_units"],
         "n_probe_candidates": c["n_probe_candidates"],
+        "n_contradiction_quotes_checked": c["n_contradiction_quotes_checked"],
+        "n_unquoted_contradictions": c["n_unquoted_contradictions"],
+        "n_support_quotes_checked": c["n_support_quotes_checked"],
+        "n_unquoted_support": c["n_unquoted_support"],
         "n_missing_probe_targets": c["n_missing_probe_targets"],
         "probe_targets": probe_rows,
         "leaf_recall": {
@@ -624,7 +650,7 @@ async def map_cases(
                 raw = None
             else:
                 cache.put(key, fp, {"result": raw, "meta": meta})
-        out[r][i] = cm.parse(raw, units)
+        out[r][i] = cm.parse(raw, units, cm.conversation_text(c["prompt"], c["response"]))
 
     if llm is not None:
         await llm.preflight(model)
@@ -662,7 +688,11 @@ def render_markdown(res: dict[str, Any]) -> str:
         f"{[r['n_disputed_established'] for r in res['runs']]}; missing units per run: "
         f"{[r['n_missing_units'] for r in res['runs']]}; probe candidates / missing probe_target "
         f"per run: {[r['n_probe_candidates'] for r in res['runs']]} / "
-        f"{[r['n_missing_probe_targets'] for r in res['runs']]}",
+        f"{[r['n_missing_probe_targets'] for r in res['runs']]}; unquoted contradictions / "
+        f"checked per run: {[r['n_unquoted_contradictions'] for r in res['runs']]} / "
+        f"{[r['n_contradiction_quotes_checked'] for r in res['runs']]}; unquoted support / "
+        f"checked: {[r['n_unquoted_support'] for r in res['runs']]} / "
+        f"{[r['n_support_quotes_checked'] for r in res['runs']]}",
         "",
         "| leaf | gold segments | recall (mean) |",
         "|---|---|---|",

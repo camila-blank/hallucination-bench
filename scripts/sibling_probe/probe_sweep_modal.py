@@ -482,7 +482,7 @@ def sweep_category(cat: str, inputs: dict, cfg: dict) -> dict:
                     "transfer_offmean": float(np.mean(t_off)) if t_off else float("nan"),
                     "transfer_req": t_req,
                     "transfer_tail": t_tail,
-                    "n_gold_items": int(len({int(i) for i in ev_item[gpos]})),
+                    "n_gold_items": len({int(i) for i in ev_item[gpos]}),
                     "sens": sens,
                     "eval_fpr": efpr,
                     "fpr_heldout": float(np.nanmean(fpr_ho[:, c])),

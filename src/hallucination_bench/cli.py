@@ -1,4 +1,4 @@
-"""``hbench run|calibrate|report|pilot-dump|pilot-dump-v2|units-v2|sibling``."""
+"""``hbench run|calibrate|report|consistency-v2|pilot-dump|pilot-dump-v2|units-v2|sibling``."""
 
 import argparse
 import json
@@ -211,6 +211,25 @@ def cmd_report(args: argparse.Namespace) -> int:
         seed=args.seed,
     )
     print(f"wrote {root / 'report.md'}, {root / 'report.json'}, {root / 'audit_samples.md'}")
+    return 0
+
+
+def cmd_consistency_v2(args: argparse.Namespace) -> int:
+    from hallucination_bench import consistency_v2
+
+    res = consistency_v2.run(
+        args.arms,
+        readouts_root=Path(args.readouts_root),
+        out_root=Path(args.out),
+        models=_models(args),
+        n=args.n,
+        seed=args.seed,
+        rpm=args.rpm,
+        concurrency=args.concurrency,
+    )
+    print(consistency_v2.render_markdown(res))
+    sp = res["spend_this_run"]
+    print(f"\nspend this run: ${sp['usd']:.4f} ({sp['calls']} calls)")
     return 0
 
 
@@ -481,6 +500,23 @@ def build_parser() -> argparse.ArgumentParser:
     rp.add_argument("--audit-verdict-n", type=int, default=20, help="v2: audit samples per verdict")
     rp.add_argument("--seed", type=int, default=0)
     rp.set_defaults(fn=cmd_report)
+
+    cs = sub.add_parser(
+        "consistency-v2", help="claim-map judge consistency: two fresh :M calls per sampled cell"
+    )
+    _common(cs)
+    cs.add_argument("--arms", required=True, help="arm:layer,... e.g. s3d-rl600:44,jlens:44")
+    cs.add_argument("--n", type=int, default=50, help="cells per arm:layer (default 50)")
+    cs.add_argument("--seed", type=int, default=0)
+    cs.add_argument(
+        "--readouts-root",
+        default="/workspace/wsbench-paper-data/readouts",
+        help="DIR with <arm>/hallucination.jsonl",
+    )
+    cs.add_argument("--summarizer-model", default=None)
+    cs.add_argument("--classifier-model", default=None)
+    cs.add_argument("--map-model", default=None)
+    cs.set_defaults(fn=cmd_consistency_v2)
 
     pd = sub.add_parser("pilot-dump", help="sample pilot spans as unlabelled calibration cases")
     pd.add_argument("--out", default="outputs")
