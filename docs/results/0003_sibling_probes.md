@@ -120,12 +120,13 @@ supported" bar is > 0.5.
 
 - **Same-activation agreement:** lenses co-name the same sibling about 10× more often than
   chance, and above both nulls. Much of that comes from the gold's usual associates; the
-  same-gold null alone gives about 8×, and it is near-degenerate (2 items per gold).
+  same-gold null alone gives about 7–9×, and it is near-degenerate (2 items per gold).
 - **Item level, pooled over layers:** 1,207 (item, sibling) pairs are named by at least one
   lens and 90 by all three; s3d names the most.
 
-**Agreement vs probe support** (whitened probe at L44, per (item, sibling); concept fixed
-effects in the report):
+**Agreement vs probe support** (whitened probe at L44, per (item, sibling), over all candidate
+siblings, not gate-filtered; concept fixed effects in the report; CIs from 1,000 item-bootstrap
+draws):
 
 | lenses naming the sibling | units | probe detection | mean z(c\|g) |
 |---|---|---|---|
@@ -159,7 +160,9 @@ is detected only about 1 time in 5.
 (det = detection at τ_cat; z = z(c | g); every pair comes from 2–5 items.)
 
 - **Overlap with the gold everywhere:** some close siblings are detected whether named or not
-  (resentful → angry, hopeful → relieved, New York → Boston).
+  (resentful → angry, hopeful → relieved).
+- **Lower where named:** a few pairs score slightly lower where named (New York → Boston;
+  Tokyo ↔ Kyoto in the top 25).
 - **Rise where named:** Ireland → UK and Osaka → Kyoto (detection about 0.3 higher where named).
 - **No support either way:** occupation swaps (fisherman → musician / writer) and
   jealous → angry are almost never detected.
@@ -168,12 +171,14 @@ is detected only about 1 time in 5.
 
 - **Judge version.** The judge changed twice during this work (v2.5 → v2.7). v2.7 relabels
   incorrect claims that cannot be backed by a verbatim contradiction quote as `unverifiable`.
-  Those stay in M (every not-correct claim verdict counts). The v2.5 and v2.7 headline rates
-  agree within 0.5 points.
+  Those stay in M (every not-correct claim verdict counts). Headline rates under v2.5 vs v2.7
+  (both with whitened probes): s3d 80.7% vs 80.5%, NLA 76.0% vs 75.7%, J-lens 77.6% vs 82.3%
+  (the J-lens control passed under v2.5 and fails under v2.7).
 - **Gates.** The validity gate is back at the pre-registered 0.85 for the whitened probe; 25% of
   s3d M mentions fall on failing probes, almost all farm_animal / tree. The raw-DiffMean columns
   use the rev-10 gate (0.70) so they reproduce the first run.
-- **Coverage.** Rates cover the 10–16 inventory concepts per category.
+- **Coverage.** Rates cover the 11–16 inventory concepts per category
+  (`data/sibling_probe/concepts.json`).
 - **Scope.** Many NLA sibling mentions sit inside imagined prompts. On the `scope = user` slice,
   s3d is 76%.
 - **Failed cells.** After 4 attempts, 77 judged cells failed the claim map and 6 J-lens
@@ -183,7 +188,8 @@ is detected only about 1 time in 5.
 
 ## Pilot and further settings
 
-- **Pilot:** 40 hand-written prompts showed sibling mentions in 8/8 items of every category
+- **Pilot:** 40 hand-written prompts showed sibling mentions in 8/8 items of each of the 5 new
+  categories (country and occupation were checked on the wsbench readouts instead)
   (e.g. Berlin → "central London"; maple syrup → "likely a birch or oak"; goats → "cows on the
   roof").
 - **Next categories:** languages, cuisines, sports teams, instruments, dog breeds, car brands,
@@ -195,8 +201,8 @@ is detected only about 1 time in 5.
 
 | item | cost |
 |---|---|
-| Judge v2.5 run | $356 |
-| Judge v2.7 re-run | $375 |
+| Judge v2.5 run (`logs/sibjudge_2026-10-11_0737.log`) | $356 |
+| Judge v2.7 re-run (`logs/sibjudge27_2026-10-12_0107.log`) | $375 |
 | Generation | $10 |
 | Modal (captures; readouts; 3 probe jobs; recipe sweep; Qwen generation) | about $50 |
 | **Total** | **about $790** |

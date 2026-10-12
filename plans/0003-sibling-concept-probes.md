@@ -65,7 +65,10 @@ Each raw rate is printed next to its gold-miss floor (1 − ceiling).
      descriptive.
    - **The text states** that the gold-miss rate (1 − ceiling) puts a floor under any
      "probe does not detect" rate.
-4. **Unchanged:** the judge cache (no new API calls), mentions, M / U definitions, β₁ / β₂, the
+4. **Judge moved to `claimmap-v2.7`** (plan 0002 rev 17) before the final run, so it is re-judged.
+   v2.7 has no `alternative` verdict (rev 10 item 4 is superseded): M = verdict in {hallucination,
+   probe_candidate, unresolved, junk}.
+   **Otherwise unchanged:** the judge cache (no new API calls beyond the v2.7 re-judge), mentions, M / U definitions, β₁ / β₂, the
    verdict table and the positive-control rule.
 5. **New analysis, cross-lens overlap (exploratory, outside the verdict)**
    (`scripts/sibling_probe/arm_overlap.py`).
