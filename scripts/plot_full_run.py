@@ -313,7 +313,6 @@ PER_LAYER_METHODS = [
 ] + [
     *((f"s3d-rl600-all11@{L}", f"O-lens RL L{L}", "prose") for L in LAYERS11),
     *((f"mlnla-rl600-all11@{L}", f"ML-NLA step 600 L{L}", "prose") for L in LAYERS11),
-    *((f"mlnla-rl2-800-all11@{L}", f"ML-NLA step 800 L{L}", "prose") for L in LAYERS11),
 ]
 
 
