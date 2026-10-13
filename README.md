@@ -157,4 +157,6 @@ and `outputs/wsbench_chat/<judge model>/{report.md,report.json,audit_samples.md}
 
 [`docs/results/0001_wsbench_chat_taxonomy.md`](docs/results/0001_wsbench_chat_taxonomy.md)
 (filled in after the full run); claim map:
-[`docs/results/0002_claim_map.md`](docs/results/0002_claim_map.md).
+[`docs/results/0002_claim_map.md`](docs/results/0002_claim_map.md); story eval:
+[`docs/results/0003_story.md`](docs/results/0003_story.md) (O-lens 21% of readout characters
+hallucinated on stories vs 10% on chat; NLAs 38–43%; J-lens 4%).
