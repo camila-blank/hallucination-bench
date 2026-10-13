@@ -37,7 +37,7 @@ anthropic`, Lynch et al. 2025) and 14 in-house (`group = working`). Each carries
   misalignment rate of 0.125 to 0.25). It is what the model did in this run, not its only
   possible intention.
 - **`intent_overrides.json`** (absent until the intent audit): the hand-audited corrections of
-  the `amintent-v1` results, `{"items": {"<id>": {"rollout_kinds": [{kind, rollout_quote,
+  the `amintent-v2` results, `{"items": {"<id>": {"rollout_kinds": [{kind, rollout_quote,
   enabling_quote}], "scenario_kinds": [{kind, enabling_quote}], "note": "..."}}}`; a list given
   replaces the model's list. Override quotes must locate (rollout quotes in the prefill,
   enabling quotes in `prompt_render`).

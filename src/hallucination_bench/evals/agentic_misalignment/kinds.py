@@ -1,6 +1,6 @@
 """THE misconduct-kind table of the ``agentic_misalignment`` eval (plan 0008), plus the actor and
 stance enums and the design-kind map. Single source of truth: the detector (``amdetect-v1``),
-the screener (``amscreen-v1``) and the intent call (``amintent-v1``) all render their kind
+the screener (``amscreen-v1``) and the intent call (``amintent-v2``) all render their kind
 table from :data:`KINDS` (:func:`render_table`), and the schemas take their enums from here.
 Tests assert that every prompt contains every row.
 """

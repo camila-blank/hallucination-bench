@@ -36,11 +36,11 @@ src/hallucination_bench/
                   into the detector, screener and intent prompts)
     bank.py       data/agentic_misalignment bank; marked_prompt (marker in the PROMPT)
     detect.py     amdetect-v1 / amscreen-v1 prompts, schema, batch render, fail-closed parse
-    intent.py     amintent-v1 (rollout + scenario kinds, located quotes) + intent_overrides.json
+    intent.py     amintent-v2 (research frame; rollout + scenario kinds, located quotes) + intent_overrides.json
     run.py        run_am (D -> S -> M + intent), Detector terminal rule, rebuild
     score.py      mention_verdict, regions, kind_match, set-up, counting spans, shares
     report.py     `report --eval agentic_misalignment` (report.md / report.json)
-  judges/claimmap_am.py  claimmap-v2.7+am1: chat SYSTEM + tail verbatim, AM head (marker in prompt)
+  judges/claimmap_am.py  claimmap-v2.7+am2: research frame + chat SYSTEM + tail verbatim, AM head (marker in prompt)
   calibrate.py    classifier vs gold cases, Wilson CIs, the held-out gate
   calibrate_v2.py claim map vs unit-level gold (dev_v2 / heldout_v2), the v2 gate
   report.py       cross-arm report, audit samples, pilot-dump
@@ -135,6 +135,11 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
     bound until `am_audit.py sample`'s lost_in_summary sheet is read.
   - Every headline number counts **spans** (overlapping mention spans of a readout merged);
     the headline bootstrap resamples the 28 misaligned items. AM is always provisional (no gate).
+  - **API refusals** (pilot 2026-10-13): without the research frame (`claimmap_am.RESEARCH_FRAME`,
+    opening the AM user prompt and the intent prompt) Opus 5.5 hard-refused (stop_reason
+    `refusal`, 0 output tokens) ~73% of murder and ~29% of blackmail-replacement map calls.
+    Keep the frame in the USER prompt: in the system prompt it only halves refusals. Refusals are
+    cached as failed and re-queued; watch `usage.refusals` in the cache meta.
   - Rebuilding an 11-layer arm loads ~555k cells (~1 GB for J-lens): fine under the 32 GB cap,
     but do not run several AM rebuilds in parallel.
 

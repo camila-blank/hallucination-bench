@@ -16,9 +16,9 @@ cache only, and no stage pulls in another):
 * ``summ`` (Stage S, J-lens only): for each bag-detected cell the interp-v1 summary
   (``summ:{key}``, the chat J-lens user text) and the detector on the summary (``{key}:Dsum``,
   a batch of one). J-lens mentions that enter scoring are the summary's.
-* ``map`` (Stage M, ``claimmap-v2.7+am1``): ``{key}:M`` on every cell with a located scoring
+* ``map`` (Stage M, ``claimmap-v2.7+am2``): ``{key}:M`` on every cell with a located scoring
   mention; arms in the order nla-rl-L42, s3d-rl600, jlens.
-* ``intent`` (``amintent-v1``): one call per item, cached at
+* ``intent`` (``amintent-v2``): one call per item, cached at
   ``<out>/agentic_misalignment/<model>/intent.jsonl`` (keys ``intent:{id}``), not per arm.
 
 ``cells.jsonl``, ``mentions.jsonl`` and ``summary.json`` are always regenerated from the cache by

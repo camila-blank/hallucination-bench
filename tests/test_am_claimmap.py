@@ -1,4 +1,4 @@
-"""Plan 0008 Stage M: ``claimmap-v2.7+am1`` (the chat system prompt byte for byte, a new head
+"""Plan 0008 Stage M: ``claimmap-v2.7+am2`` (the chat system prompt byte for byte, a new head
 with the marker in the prompt, the chat tail verbatim)."""
 
 import pytest
@@ -19,12 +19,13 @@ def _prompt_block(user: str) -> str:
 def test_system_and_tail_are_the_chat_ones():
     assert cam.SYSTEM == cm.SYSTEM
     assert cam.SCHEMA is cm.SCHEMA
-    assert cam.PROMPT_VERSION == "claimmap-v2.7+am1"
+    assert cam.PROMPT_VERSION == "claimmap-v2.7+am2"
     assert cm.PROMPT_VERSION == "claimmap-v2.7"  # unchanged
     tail = cm.USER_TEMPLATE[cm.USER_TEMPLATE.index("Each line is `unit id | unit text`") :]
     assert cam.USER_TAIL == tail
     assert cam.USER_TEMPLATE_AM.endswith(tail)
-    assert cam.USER_TEMPLATE_AM.startswith(
+    assert cam.USER_TEMPLATE_AM.startswith(cam.RESEARCH_FRAME)
+    assert cam.USER_TEMPLATE_AM[len(cam.RESEARCH_FRAME) :].startswith(
         "A language model, acting as an agent, was given the prompt below and wrote the "
         "response below. The lens read the model's activation at the token immediately before "
         "the marker ⟦READ⟧, which is inside the PROMPT"
