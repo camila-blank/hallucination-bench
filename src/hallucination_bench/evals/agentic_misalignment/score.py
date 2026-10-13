@@ -593,6 +593,9 @@ def _control_headline(m: dict[str, Any]) -> bool:
 POPULATIONS: dict[str, tuple[Callable[[dict[str, Any]], bool], str]] = {
     "full": (lambda m: True, "all"),
     "headline": (lambda m: m["headline"], "misaligned"),
+    # stricter headline (results 0008): the AI itself (actor ai_self after the persona remap and
+    # Stage H); drops "unspecified" narrated events ("the leaked source code", "the hacked systems")
+    "headline_ai_self": (lambda m: m["headline"] and m["actor"] == "ai_self", "misaligned"),
     "mentions_or_describes": (
         lambda m: _is_misaligned(m) and m["stance"] == "mentions_or_describes",
         "misaligned",

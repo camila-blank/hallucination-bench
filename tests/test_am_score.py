@@ -212,3 +212,16 @@ def test_report_summary_header_follows_verdict_rows():
     src = inspect.getsource(report)
     assert '" | ".join(score.VERDICT_ROWS[:-1])' in src
     assert '| unresolved "\n        "| correct |' not in src
+
+
+def test_headline_ai_self_population_is_a_subset_of_headline():
+    from hallucination_bench.evals.agentic_misalignment import score
+
+    pred, items = score.POPULATIONS["headline_ai_self"]
+    hl, _ = score.POPULATIONS["headline"]
+    m_ai = {"headline": True, "actor": "ai_self"}
+    m_un = {"headline": True, "actor": "unspecified"}
+    m_no = {"headline": False, "actor": "ai_self"}
+    assert items == "misaligned"
+    assert pred(m_ai) and not pred(m_un) and not pred(m_no)
+    assert all(hl(m) for m in (m_ai, m_un) if pred(m))
