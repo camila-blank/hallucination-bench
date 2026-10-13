@@ -86,7 +86,7 @@ Hallucination rate = hallucination ÷ committed adjudicable units (probe-faithfu
 | 44 | 0.42 | 0.26 | +0.16 | 0.08 | 25/32 |
 | 48 | 0.33 | 0.29 | +0.04 | 0.08 | 22/32 |
 | 52 | 0.37 | 0.28 | +0.08 | 0.08 | 20/32 |
-| 56 | 0.44 | 0.28 | +0.16 | 0.07 | 21/32 |
+| 56 | 0.45 | 0.28 | +0.16 | 0.07 | 21/32 |
 | 60 | 0.71 | 0.32 | +0.39 | 0.22 (few cells) | 9/32 |
 | pooled | | | **+0.14 [0.07, 0.23]** | | |
 
@@ -114,9 +114,10 @@ Hallucination rate = hallucination ÷ committed adjudicable units (probe-faithfu
 ## Pairs (a selection of the most-committed pairs; the full table of 375 pairs is in `summary.json`)
 
 "Fire at L" and "fire incl. nearby" are both over the units adjudicable at L or a neighbour.
-Not shown among the top 18: Ireland → Scotland (20), Ukraine → US (17; 8 hallucinations),
-Costa Rica → US (16), New Zealand → Canada (16; excess −0.22, 11 cross-method), South Africa →
-Australia (15), Poland → UK (14).
+Russia → UK (11) is shown as an example beyond the top 18. Not shown among the top 18: Ireland →
+Scotland (20), Ukraine → US (16; 7 hallucinations + 2 hallucination (probe n/a)), Costa Rica →
+US (16), New Zealand → Canada (16; excess −0.22, 11 cross-method), South Africa → Australia
+(15), Poland → UK (14), South Africa → UK (13; 4 hallucinations, 9 cross-method).
 
 | gold → sibling | committed | items | fire at L | fire incl. nearby | matched excess | example committed quote |
 |---|---|---|---|---|---|---|
@@ -130,8 +131,8 @@ Australia (15), Poland → UK (14).
 | South Africa → Nigeria | 20 | 1 | 0.95 | 1.00 | +0.29 | "a fictional biography of myself as a lifelong Nigerian music enthusiast" |
 | New Zealand → Australia | 20 | 2 | 0.85 | 1.00 | +0.47 | |
 | Philippines → Singapore | 18 | 1 | 0.89 | 1.00 | +0.16 | |
-| Ukraine → Canada | 14 | 4 | 0.00 | 0.08 | −0.07 | "celebrating your life in a small Canadian town" |
-| Russia → UK | 11 | 2 | 0.00 | 0.00 | −0.05 | "based on your love of UK pubs and tea" |
+| Ukraine → Canada | 14 | 4 | 0.00 | 0.08 | −0.08 | "celebrating your life in a small Canadian town" |
+| Russia → UK | 11 | 2 | 0.00 | 0.00 | −0.02 | "based on your love of UK pubs and tea" |
 
 The pattern:
 - **Near-neighbour siblings are usually backed by the probe:** UK for Irish users, Australia
