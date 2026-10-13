@@ -1,4 +1,4 @@
-"""story: the claim map (taxonomy v2) on "tell me a story" readouts (plan 0003).
+"""story: the claim map (taxonomy v2) on "tell me a story" readouts (plan 0007).
 
 The 20 frozen WorkspaceBench ``hallucination_creative`` items (stories, a poem, a letter, a
 scene, answered on-policy by Qwen3.6-27B and capped at ~512 tokens), thinned to 8 read sites

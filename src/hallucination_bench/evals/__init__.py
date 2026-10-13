@@ -1,7 +1,7 @@
 """Eval registry: name -> module. Each eval module exposes ``run_arms``, ``rebuild_arm`` and a
 ``score`` submodule; later plans add more evals here.
 
-``story`` (plan 0003) contributes only a bank: it runs ``wsbench_chat``'s pipeline with
+``story`` (plan 0007) contributes only a bank: it runs ``wsbench_chat``'s pipeline with
 ``Models.eval = "story"``, which picks the bank through :func:`bank_for` and the output root
 ``<out>/<eval>/<model>/``."""
 

@@ -116,7 +116,7 @@ class Models:
     effort: str | None = "low"
     map_model: str | None = None
     map_anchor: str = "none"  # claim map: none (single-call, default) | v5c (plan rev 12)
-    # plan 0003: which bank / output root. Deliberately NOT in to_dict() (summary.json's
+    # plan 0007: which bank / output root. Deliberately NOT in to_dict() (summary.json's
     # config.models stays unchanged for wsbench_chat); _write_arm_json writes it to arm.json.
     eval: str = "wsbench_chat"
 
@@ -823,7 +823,7 @@ async def rebuild_arm_async(
         **config,
         "map_anchor": models.map_anchor,
         "map_layers": sorted(map_layers),
-        # the held-out gate is chat gold: a chat pass must never un-label another eval (plan 0003)
+        # the held-out gate is chat gold: a chat pass must never un-label another eval (plan 0007)
         "pre_gate": (
             not gate_passed(out_root, models.mapper, models.map_anchor)
             if models.eval == "wsbench_chat"

@@ -1,4 +1,4 @@
-"""Plan 0003: the story bank (``data/story/``), built by ``scripts/build_story_bank.py``."""
+"""Plan 0007: the story bank (``data/story/``), built by ``scripts/build_story_bank.py``."""
 
 import json
 

@@ -1,4 +1,4 @@
-# `data/story/`: the story bank (plan 0003)
+# `data/story/`: the story bank (plan 0007)
 
 20 "tell me a story" items: stories, a poem, a letter, a dialogue scene, a place description. They
 come from WorkspaceBench's frozen `hallucination_creative` bank
@@ -13,7 +13,7 @@ the commit and sha256s are in `items.json` `meta`). Qwen3.6-27B answered each it
   response_start, sites[{pos, token, kind, char}]`). `char` is the offset just after the site
   token, where the judge's `⟦READ⟧` marker goes.
 - **`capture_rows.json`:** the source capture rows (exact token ids), with `eval_positions` set to
-  the 8 kept sites. This is the capture record for `wsbench_capture_modal.py` (plan 0003
+  the 8 kept sites. This is the capture record for `wsbench_capture_modal.py` (plan 0007
   §Readouts). The judge never reads it.
 - **Truncation:** responses were capped at ~512 tokens, so most stories stop mid-plot. The final
   `<|im_end|>` site follows that cut and is never kept. The text after the marker is the

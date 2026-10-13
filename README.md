@@ -12,7 +12,7 @@ hallucination eval is one of many evals here; see `plans/` for the design histor
 |---|---|---|
 | `wsbench_chat` | WorkspaceBench's hallucination (chat) eval, ported verbatim (v5c span + verify stages), plus the taxonomy classifier | [0001](plans/0001-bootstrap-wsbench-chat-taxonomy.md) |
 | `wsbench_chat` claim map | taxonomy v2: every character of every readout in exactly one of 11 scoring leaves (7 groups), rolled up into 6 verdicts | [0002](plans/0002-claim-map-taxonomy-v2.md) |
-| `story` | the claim map (taxonomy v2, Opus 5.5) on 20 "tell me a story" items (WorkspaceBench's old `hallucination_creative` bank, 8 sites each); `--eval story` | [0003](plans/0003-story-eval.md) |
+| `story` | the claim map (taxonomy v2, Opus 5.5) on 20 "tell me a story" items (WorkspaceBench's old `hallucination_creative` bank, 8 sites each); `--eval story` | [0007](plans/0007-story-eval.md) |
 
 Per cell (arm × item × read site × layer) `wsbench_chat` runs up to five calls:
 
@@ -118,7 +118,7 @@ uv run hbench calibrate --taxonomy v2 --split dev
 
 scripts/run_all_arms.sh                   # full run in tmux session `hbench`; tail -f logs/run_*.log
 
-# story eval (plan 0003): the same pipeline on data/story, outputs under outputs/story/<model>/
+# story eval (plan 0007): the same pipeline on data/story, outputs under outputs/story/<model>/
 scripts/fetch_story_readouts.sh jlens gen-hal-story-jlens tokens 20:61:4   # gen dir -> readouts + grid check
 uv run hbench run --eval story --readouts-root /workspace/hb-readouts-story --stages map
 uv run hbench report --eval story --view v2
@@ -158,5 +158,5 @@ and `outputs/wsbench_chat/<judge model>/{report.md,report.json,audit_samples.md}
 [`docs/results/0001_wsbench_chat_taxonomy.md`](docs/results/0001_wsbench_chat_taxonomy.md)
 (filled in after the full run); claim map:
 [`docs/results/0002_claim_map.md`](docs/results/0002_claim_map.md); story eval:
-[`docs/results/0003_story.md`](docs/results/0003_story.md) (O-lens 21% of readout characters
+[`docs/results/0007_story.md`](docs/results/0007_story.md) (O-lens 21% of readout characters
 hallucinated on stories vs 10% on chat; NLAs 38–43%; J-lens 4%).

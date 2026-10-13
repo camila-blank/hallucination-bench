@@ -2,7 +2,7 @@
 samples, and the v2 pilot dump (plan 0002, §Run and §Metrics; rev 13 verdict layer).
 
 Writes, under ``outputs/<eval>/<model>/`` (``wsbench_chat`` by default; ``story``, plan
-0003): ``report_v2.md``, ``report_v2.json``,
+0007): ``report_v2.md``, ``report_v2.json``,
 ``probe_candidates.jsonl`` (one row per probe-candidate segment; replaces
 ``substitution_pairs.jsonl``) and ``audit_samples_v2.md`` (``verdict_n`` per verdict, then
 ``audit_n`` per leaf). Every arm's ``cells.jsonl`` / ``summary_v2.json`` is first regenerated
@@ -39,7 +39,7 @@ PRE_GATE_NOTE = (
 
 
 def pre_gate_note(eval_name: str = NAME) -> str:
-    """The chat note, or (plan 0003) a note for an eval the chat-gold gate cannot cover."""
+    """The chat note, or (plan 0007) a note for an eval the chat-gold gate cannot cover."""
     if eval_name == NAME:
         return PRE_GATE_NOTE
     return (
@@ -704,7 +704,7 @@ def report(
         raise SystemExit(f"no arm under {root} has claim-map (:M) results")
     v2_dirs = [d for d in dirs if d.name in summaries]
     pre_gate = is_pre_gate(summaries)
-    # the consistency sample is chat (plan 0003): never attach chat noise to another eval
+    # the consistency sample is chat (plan 0007): never attach chat noise to another eval
     noise = load_noise(out_root, judge_model) if eval_name == NAME else None
     md, js = build(summaries, judge_model, noise, eval_name=eval_name)
     probes = probe_candidates(v2_dirs, pre_gate=pre_gate)

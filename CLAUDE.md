@@ -3,7 +3,7 @@
 Suite of evals for the **types and severities** of hallucination in activation-reading lenses.
 First eval: `wsbench_chat` (plan `plans/0001-bootstrap-wsbench-chat-taxonomy.md` is the spec);
 the claim map / taxonomy v2 is plan `plans/0002-claim-map-taxonomy-v2.md`; the `story` eval (the
-claim map on 20 story items, `--eval story`) is plan `plans/0003-story-eval.md`.
+claim map on 20 story items, `--eval story`) is plan `plans/0007-story-eval.md`.
 
 ## Layout
 
@@ -26,7 +26,7 @@ src/hallucination_bench/
   judges/claimmap_v2.py  claim-map prompt, schema, validate, parse -> segments (forced/disputed)
   evals/__init__.py  EVALS registry + bank_for(name); Models.eval picks the bank and <out>/<eval>/
   evals/_bank_common.py  sites / positions / marked response / expected grid (every bank)
-  evals/story/bank.py    the story bank (data/story); the pipeline is wsbench_chat's (plan 0003)
+  evals/story/bank.py    the story bank (data/story); the pipeline is wsbench_chat's (plan 0007)
   evals/wsbench_chat/{bank,run,score}.py   bank + grid; pipeline (shared); metrics + bootstrap
   evals/wsbench_chat/score_v2.py   claim-map metrics (char-weighted shares, rates, comparisons)
   calibrate.py    classifier vs gold cases, Wilson CIs, the held-out gate
@@ -87,7 +87,7 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
 
 ## Gotchas
 
-- **`--eval story`** (plan 0003) exists on `run` and `report` only. Its outputs live under
+- **`--eval story`** (plan 0007) exists on `run` and `report` only. Its outputs live under
   `outputs/story/<model>/`, and its readouts are not in git:
   `/workspace/hb-readouts-story/<arm>/hallucination.jsonl`, produced by the Modal reads of
   `wsbench-acts:/acts-hallucination-story[-L42]`.

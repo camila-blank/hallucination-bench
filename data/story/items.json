@@ -1,7 +1,7 @@
 {
  "meta": {
   "eval": "story",
-  "plan": "plans/0003-story-eval.md",
+  "plan": "plans/0007-story-eval.md",
   "source_repo": "camilablank/global-workspace",
   "source_commit": "8874c29e2c820f13cc41bf6ddf33f4fef750dcba",
   "source_path": "evals/workspace-bench/hillclimbing_evals/hallucination/creative",

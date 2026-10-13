@@ -1,4 +1,4 @@
-"""Build ``data/story/`` (plan 0003) from WorkspaceBench's frozen ``hallucination_creative`` bank.
+"""Build ``data/story/`` (plan 0007) from WorkspaceBench's frozen ``hallucination_creative`` bank.
 
 Reads ``items.json`` and ``capture_rows.json`` from the global-workspace creative bank, thins
 each item to 8 read sites with the old judge's rule (``judge.py``: ``step = len / 8``,
@@ -8,7 +8,7 @@ each item to 8 read sites with the old judge's rule (``judge.py``: ``step = len 
                                  response_start, sites: [{pos, token, kind, char}]}]}
   data/story/capture_rows.json   the source capture rows, ``eval_positions`` = the thinned sites
 
-Deterministic; re-run to rebuild. Fails loudly on any check in plan 0003 §Bank.
+Deterministic; re-run to rebuild. Fails loudly on any check in plan 0007 §Bank.
 
     uv run --no-sync python scripts/build_story_bank.py [--src DIR]
 """
@@ -105,7 +105,7 @@ def build(src: Path, *, allow_dirty: bool = False) -> tuple[dict[str, Any], list
 
     meta = {
         "eval": "story",
-        "plan": "plans/0003-story-eval.md",
+        "plan": "plans/0007-story-eval.md",
         "source_repo": "camilablank/global-workspace",
         "source_commit": git_head(src),
         "source_path": SRC_REL,

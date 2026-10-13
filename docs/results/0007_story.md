@@ -1,7 +1,7 @@
-# Results 0003: the claim map on "tell me a story" readouts
+# Results 0007: the claim map on "tell me a story" readouts
 
-Plan: [`plans/0003-story-eval.md`](../../plans/0003-story-eval.md). Full report:
-[`0003_report_story_v2.7.md`](0003_report_story_v2.7.md) (per layer, groups, leaves, the v5c
+Plan: [`plans/0007-story-eval.md`](../../plans/0007-story-eval.md). Full report:
+[`0007_report_story_v2.7.md`](0007_report_story_v2.7.md) (per layer, groups, leaves, the v5c
 comparison, probe candidates).
 
 **Setup:**
@@ -16,6 +16,10 @@ comparison, probe candidates).
   judge-noise estimate on stories, and with n = 20 items the item-bootstrap CIs are wide.
 
 ## Headline: story vs chat, same arms, same judge
+
+![story vs chat](../../plots/story_v2.7/story_vs_chat.png)
+
+(`scripts/plot_story.py`)
 
 Hallucination is `false_claim + detail + substitution_category`.
 

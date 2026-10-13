@@ -328,7 +328,7 @@ def _eval(p: argparse.ArgumentParser) -> None:
         "--eval",
         choices=sorted(EVALS),
         default="wsbench_chat",
-        help="which bank / output root <out>/<eval>/ (story: plan 0003; default wsbench_chat)",
+        help="which bank / output root <out>/<eval>/ (story: plan 0007; default wsbench_chat)",
     )
 
 

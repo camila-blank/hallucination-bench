@@ -1,4 +1,4 @@
-# Plan 0003: `story` eval: the claim map (taxonomy v2) on "tell me a story" readouts
+# Plan 0007: `story` eval: the claim map (taxonomy v2) on "tell me a story" readouts
 
 Author: Camila Blank (planned with Claude), 2026-10-12. Revision 3 (critique 1: report contexts, pre-gate, consistency scope, summary invariance, bank commit, Modal job file; critique 2: pilot dumps stay chat, story-specific report notes, exact run.py sites; critique 3: defaulted signatures, literal layer lists; no substantive issues remain).
 Builds on plan 0002 (claim map, rev 20) and plan 0001 (pipeline, cache, report). Everything not
@@ -217,7 +217,7 @@ uv run --no-sync hbench report --eval story --view v2 --out outputs
 
 ## Results
 
-`docs/results/0003_story.md`:
+`docs/results/0007_story.md`:
 - per-arm verdict shares and readout-level rates on stories, with the three hallucination
   components separate, beside the same arms' chat numbers from `0002_report_full_v2.7.md`;
 - per-layer for the 11-layer arms;

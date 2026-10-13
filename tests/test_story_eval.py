@@ -1,4 +1,4 @@
-"""Plan 0003: ``--eval story`` runs the shared pipeline on the story bank, writes under
+"""Plan 0007: ``--eval story`` runs the shared pipeline on the story bank, writes under
 ``<out>/story/<model>/``, is always pre-gate, and leaves ``wsbench_chat`` untouched."""
 
 import ast

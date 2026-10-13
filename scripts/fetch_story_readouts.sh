@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # fetch_story_readouts.sh <arm> <gen-dir-name> <prose|tokens> <layers: 20:61:4 | 42 | csv> [volume]
-#   (plan 0003 §Readouts)
+#   (plan 0007 §Readouts)
 # Fetch a story gen dir from Modal, convert it to the readout contract (wsbench-pub
 # convert-gen-dir) and write /workspace/hb-readouts-story/<arm>/hallucination.jsonl, then check it
 # is exactly the story bank's expected grid (data/story/items.json x <layers>): no missing,
