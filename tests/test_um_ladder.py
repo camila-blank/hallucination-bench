@@ -359,3 +359,47 @@ def test_logreg_probe_recovers_planted_directions():
     ns = Q.null_stats(ts, cf.oof, C)
     v = Q.validity_implied(ts, Q.oof_z(ts, cf.oof, ns), C)
     assert np.all(v > 0.9)
+
+
+# ------------------------------------------------------------------ review fixes
+
+
+def test_polish_and_soviet_cjk(fm):
+    assert fm.concepts_in("a Polish grandmother") == {"poland"}
+    assert fm.concepts_in("苏联时期的回忆") == {U.SOVIET}
+
+
+def test_prefilter_first_word_punctuation(fm):
+    m = Matcher(U.load_lexicon(), U.CATEGORY)
+    t = "She lives in Washington, near the Mall."
+    a = [(h.concept, h.start, h.end) for h in m.find(t) if not fm._lowercase_only(h.alias)]
+    assert [(h.concept, h.start, h.end) for h in fm.find(t)] == a
+
+
+def test_jlens_bag_only_commit_is_coerced():
+    smp = {
+        "si": 0,
+        "tokens": ["中国", " food", " cuisine"],
+        "summary": "Chinese food",
+        "hits": [{"concept": "china", "alias": "中国", "rank": 0, "source": "token"}],
+    }
+    r = {
+        "committed": True,
+        "form": "asserted_identity",
+        "hedged": False,
+        "quote": "中国 | food | cuisine",
+        "quote_source": "bag",
+        "why": "",
+    }
+    v = U.parse_commit(r, smp)
+    assert v["committed"] is False and v["form"] == "bag_only" and not v["fail_closed"]
+
+
+def test_unreadable_when_too_few_distractors():
+    rows = {40: {0: {"g": 5, "s": 3}}}
+    zt = _zt(rows)
+    val = {(c, 40, t): 0.95 for c in zt.concepts for t in U.TYPES}
+    for k in range(3):
+        val[(f"d{k}", 40, "a")] = 0.5
+    pc = _pc(zt, val)
+    assert pc.readable_share("i", 40) == 0.0

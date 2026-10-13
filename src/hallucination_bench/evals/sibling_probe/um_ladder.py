@@ -177,9 +177,9 @@ class FastMatcher:
             if p.rx is None:
                 self._cjk.append(p)
             else:
-                first = re.split(r"[\s\-]+", p.alias.strip())[0].casefold()
+                first = _first_key(p.alias)
                 self._by_first[first].append(p)
-        firsts = sorted((re.escape(f) for f in self._by_first), key=len, reverse=True)
+        firsts = sorted((re.escape(f) for f in self._by_first if f), key=len, reverse=True)
         self._pre = re.compile(r"(?<![A-Za-z0-9])(?:" + "|".join(firsts) + ")", re.IGNORECASE)
 
     @property
@@ -189,7 +189,7 @@ class FastMatcher:
     def _candidates(self, text: str) -> list[tuple[int, int, Any, str]]:
         pats = {
             id(p): p
-            for f in {m.group(0).casefold() for m in self._pre.finditer(text)}
+            for f in {_first_key(m.group(0)) for m in self._pre.finditer(text)}
             for p in self._by_first.get(f, ())
         }
         cands: list[tuple[int, int, Any, str]] = []
@@ -240,6 +240,13 @@ class FastMatcher:
 
     def via_city(self, alias: str) -> bool:
         return alias in self.city_aliases
+
+
+def _first_key(alias: str) -> str:
+    """Prefilter key: the alias's first word, case-folded, trailing punctuation stripped (so
+    "Washington, D.C." and the block phrase "Washington" share the key "washington")."""
+    w = re.split(r"[\s\-]+", alias.strip())[0].casefold()
+    return re.sub(r"[^\w]+$", "", w) or w
 
 
 def _lowercase_only_hit(alias: str) -> bool:
@@ -655,6 +662,17 @@ def parse_commit(r: Any, sample: Mapping[str, Any]) -> dict[str, Any]:
             "why": "invalid or missing judge answer (fail closed)",
             "fail_closed": True,
         }
+    if "tokens" in sample and r["committed"] and r.get("quote_source") != "summary":
+        # plan Step 3: a token bag alone cannot commit; only the summary's claim can
+        return {
+            "committed": False,
+            "form": "bag_only",
+            "hedged": False,
+            "quote": normalize_ws(str(r["quote"]).replace(MARK_L, "").replace(MARK_R, "")),
+            "quote_source": r["quote_source"],
+            "why": "token-bag commitment coerced to not committed (plan Step 3)",
+            "fail_closed": False,
+        }
     return {
         "committed": bool(r["committed"]),
         "form": r["form"],
@@ -822,7 +840,9 @@ class ProbeContext:
         if k not in self._read:
             g, D = self.gold_of[item], self.d_at(item, layer)
             ps = self.zt.positions(item, layer)
-            hits = [beats_all(self.zt, item, layer, p, g, D, self.types) for p in ps] if D else []
+            # an (item, layer) with too few valid distractors is never readable (review 1)
+            ok = len(D) >= MIN_DISTRACTORS
+            hits = [beats_all(self.zt, item, layer, p, g, D, self.types) for p in ps] if ok else []
             self._read[k] = sum(hits) / len(hits) if hits else 0.0
         return self._read[k]
 

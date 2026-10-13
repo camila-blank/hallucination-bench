@@ -914,6 +914,7 @@ def cmd_label(a: argparse.Namespace) -> None:
     zt = load_ztable(C)
     pc = U.ProbeContext(zt, validity, dist, gold_of)
     pc_both = U.ProbeContext(zt, validity, dist, gold_of, types=U.TYPES)  # sensitivity row
+    pc_single = {t: U.ProbeContext(zt, validity, dist, gold_of, types=(t,)) for t in U.TYPES}
     cent44 = {c: cents[U.DISTRACTOR_LAYER][i] for i, c in enumerate(C)}
 
     def cos(x: str, y: str) -> float:
@@ -949,12 +950,15 @@ def cmd_label(a: argparse.Namespace) -> None:
         pr_both = pc_both.probe_result(u["item"], L, u["pos"], u["concept"])
         lab_both = U.ladder_label(r["committed"], pr_both, bool(cross))
         # recipe sensitivity at L (single type)
-        single = {}
-        if pr["na_reason"] is None:
-            D = [d for d in pc.d_at(u["item"], L) if d != u["concept"]]
-            for t in U.TYPES:
-                zc = zt.get(u["item"], L, u["pos"], t, u["concept"])
-                single[t] = all(zc > zt.get(u["item"], L, u["pos"], t, d) for d in D)
+        # single-type fire at L, each under its OWN validity / distractors / readability
+        single = {
+            t: (
+                pct.na_reason(u["item"], L, u["concept"]) is None
+                and pct.fires(u["item"], L, u["pos"], u["concept"])
+            )
+            for t, pct in pc_single.items()
+            if pct.na_reason(u["item"], L, u["concept"]) is None
+        }
         sim = None
         if u["concept"] in cent44 and dist.get(u["item"]):
             g = gold_of[u["item"]]
@@ -1053,6 +1057,7 @@ def cmd_label(a: argparse.Namespace) -> None:
         )
     # unmentioned-concept null (overall / hard), at committed adjudicable cells
     um_rows = []
+    um_seen: set[tuple[str, int, int, str]] = set()
     for r in adj_com:
         i, L, p, g = r["item"], r["eff_layer"], r["pos"], r["gold"]
         D = pc.d_at(i, L)
@@ -1067,6 +1072,9 @@ def cmd_label(a: argparse.Namespace) -> None:
             never = c not in men_item[i]
             if not (hard or never):
                 continue
+            if (i, L, p, c) in um_seen:  # one row per distinct (cell, concept) (review 5)
+                continue
+            um_seen.add((i, L, p, c))
             um_rows.append(
                 {
                     "item": i,
@@ -1293,10 +1301,25 @@ def summarize_labels(
     # recipe sensitivity + similarity + not-committed comparison
     adj_c = [r for r in rows if r["committed"] and r["probe"]["na_reason"] is None]
     adj_n = [r for r in rows if not r["committed"] and r["probe"]["na_reason"] is None]
+    com = [r for r in rows if r["committed"]]
     out["recipe_sensitivity"] = {
-        t: _rate(sum(r["single_type_fire"].get(t, False) for r in adj_c), len(adj_c))
+        t: {
+            "fire_rate": _rate(
+                sum(r["single_type_fire"].get(t, False) for r in com),
+                sum(t in r["single_type_fire"] for r in com),
+            ),
+            "n_adjudicable_at_L": sum(t in r["single_type_fire"] for r in com),
+        }
         for t in U.TYPES
-    } | {"both": _rate(sum(r["probe"]["fire_L"] for r in adj_c), len(adj_c))}
+    } | {
+        "both": {
+            "fire_rate": _rate(
+                sum(r["probe_both_types"]["fire_L"] for r in com),
+                sum(r["probe_both_types"]["na_reason"] is None for r in com),
+            ),
+            "n_adjudicable_at_L": sum(r["probe_both_types"]["na_reason"] is None for r in com),
+        }
+    }
     out["not_committed_fire"] = _rate(sum(r["probe"]["fire_L"] for r in adj_n), len(adj_n))
     close = [r for r in adj_c if r["similarity"] and r["similarity"]["closer_than_all_nearest"]]
     far = [r for r in adj_c if r["similarity"] and not r["similarity"]["closer_than_all_nearest"]]
@@ -1321,10 +1344,13 @@ def summarize_labels(
             not_eval.append(L)
     readable = [pos_ctrl[L]["readable_items"] / max(1, pos_ctrl[L]["n_items"]) for L in lay]
     pairs_beyond = [p for p in out["pairs"]]
-    beyond = defaultdict(list)
+    # over ALL committed (gold, sibling) pairs: a pair with no unit adjudicable at its own layer
+    # has no matched null and counts as unpopulated (review 2); within a pair, the best unit
+    beyond: dict[tuple[str, str], list[int]] = defaultdict(list)
     for x in matched:
         beyond[(x["gold"], x["concept"])].append(x["n_null_beyond_item"])
-    pop = [max(v) >= 20 for v in beyond.values()]
+    com_pairs = {(r["gold"], r["concept"]) for r in rows if r["committed"]}
+    pop = [bool(beyond.get(k)) and max(beyond[k]) >= 20 for k in com_pairs]
     out["gate"] = {
         "probe_validity_primary_ge_80pct": out["probe_quality"]["primary_pass_L28_60"] >= 0.8,
         "probe_validity_both_ge_80pct": out["probe_quality"]["both_types_pass_L28_60"] >= 0.8,
