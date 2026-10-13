@@ -6,6 +6,7 @@ otherwise cross-method allowed if another method entertains the country for the 
 +-4 layers; otherwise hallucination. Reads outputs/sibling/um/label/units_labeled.jsonl.
 """
 
+import argparse
 import json
 from collections import Counter
 
@@ -34,7 +35,16 @@ def label(r: dict) -> str:
 
 
 def main() -> None:
-    rows = [json.loads(x) for x in LAB.read_text().splitlines() if x.strip()]
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--category", default="country")
+    cat = ap.parse_args().category
+    lab_path = (
+        LAB
+        if cat == "country"
+        else (REPO_ROOT / "outputs" / "sibling" / "um" / cat / "label" / "units_labeled.jsonl")
+    )
+    out = REPO_ROOT / "plots" / "sibling_probe" / f"um_{cat}_simple.png"
+    rows = [json.loads(x) for x in lab_path.read_text().splitlines() if x.strip()]
     plt.rcParams.update(
         {
             "font.size": 15,
@@ -95,7 +105,14 @@ def main() -> None:
     ax.set_ylim(0, 1.08)
     ax.yaxis.set_major_formatter(matplotlib.ticker.PercentFormatter(1.0))
     ax.set_ylabel("share of committed sibling mentions\nthe probe could test")
-    ax.set_title("Country siblings: faithful vs hallucinated", loc="left", fontsize=18, pad=24)
+    title = {
+        "country": "Country",
+        "occupation": "Occupation",
+        "emotion": "Emotion",
+        "capital_city": "City (visiting)",
+        "holiday": "Holiday",
+    }.get(cat, cat)
+    ax.set_title(f"{title} siblings: faithful vs hallucinated", loc="left", fontsize=18, pad=24)
     ax.legend(loc="upper left", bbox_to_anchor=(1.0, 1.0), frameon=False, fontsize=13)
     fig.text(
         0.01,
@@ -108,8 +125,8 @@ def main() -> None:
         wrap=True,
     )
     fig.tight_layout(rect=(0, 0.04, 1, 1))
-    fig.savefig(OUT, dpi=160)
-    print(OUT)
+    fig.savefig(out, dpi=160)
+    print(out)
     for m, _ in METHODS:
         rs = [
             r

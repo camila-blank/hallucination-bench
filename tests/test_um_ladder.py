@@ -442,3 +442,41 @@ def test_jlens_bag_only_hit_fails_closed_to_not_committed():
     ):
         v = U.parse_commit(r, smp)
         assert v["committed"] is False and not v["fail_closed"]
+
+
+def test_null_keyed_by_ending_and_offset():
+    from hallucination_bench.evals.sibling_probe import probes as P
+    from hallucination_bench.evals.sibling_probe import um_probe as Q
+
+    rng = np.random.default_rng(1)
+    C, d, npos = 3, 16, 2
+    texts, W, con, kind, end = [], [], [], [], []
+    for c in range(C):
+        for e in (0, 1):
+            for j in range(8):
+                # ending 1 shifts every score by a constant: keyed nulls must absorb it
+                W.append(rng.normal(size=(npos, d)) + 2.0 * np.eye(d)[c] + 5.0 * e)
+                texts.append(
+                    {"id": f"t{c}{e}{j}", "concept": str(c), "request_idx": e, "kind": "implied"}
+                )
+                con.append(c)
+                kind.append("implied")
+                end.append(e)
+    folds = P.assign_folds(texts, salt="y")
+    ts = P.TextSet.build(
+        W, [t["id"] for t in texts], con, kind, end, [folds[t["id"]] for t in texts]
+    )
+    k = Q._key(ts)
+    assert set(np.unique(k)) == {0, 1, 1000, 1001}
+    cf, _, _ = P.cross_fit_whitened(ts, C)
+    ns = Q.null_stats(ts, cf.oof, C)
+    assert len(ns.offsets) == 4
+    z = Q.oof_z(ts, cf.oof, ns)
+    # the null (other concepts' positions) is centred within each (ending, offset) key, so it is
+    # ~0 for both endings despite the +5 shift of ending 1
+    rc = ts.row_concept
+    for c in range(C):
+        for e in (0, 1):
+            assert abs(np.nanmean(z[(rc != c) & (ts.ending == e), c])) < 0.3
+    # one ending: the key is the offset (country results unchanged)
+    np.testing.assert_array_equal(Q.eval_key(np.zeros(3, int), np.arange(3)), np.arange(3))

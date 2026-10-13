@@ -34,6 +34,17 @@ try:  # inside the Modal job the module is copied as a top-level file
 except ImportError:  # pragma: no cover
     import sibprobes as P  # type: ignore[no-redef]
 
+
+def _key(ts: P.TextSet) -> np.ndarray:
+    """Position key for centring and the null (plan 0007): ``ending * 1000 + offset``. With one
+    request sentence (ending 0) it equals the offset, so one-ending results are unchanged."""
+    return np.asarray(ts.ending, dtype=np.int64) * 1000 + np.asarray(ts.offset, dtype=np.int64)
+
+
+def eval_key(ending: np.ndarray, offset: np.ndarray) -> np.ndarray:
+    return np.asarray(ending, dtype=np.int64) * 1000 + np.asarray(offset, dtype=np.int64)
+
+
 LOGREG_CS = (10.0, 30.0, 100.0, 300.0)
 PCA_K = 512
 TYPES = ("a", "b")
@@ -75,10 +86,10 @@ def _offset_centres(
     ts: P.TextSet, rows: np.ndarray, n_concepts: int
 ) -> tuple[np.ndarray, np.ndarray]:
     rc = ts.row_concept
-    offs = np.unique(ts.offset[rows])
+    offs = np.unique(_key(ts)[rows])
     mu = np.zeros((len(offs), ts.H.shape[1]))
     for i, o in enumerate(offs):
-        at = rows & (ts.offset == o)
+        at = rows & (_key(ts) == o)
         per_c = [
             ts.H[at & (rc == c)].mean(axis=0) for c in range(n_concepts) if np.any(at & (rc == c))
         ]
@@ -116,7 +127,7 @@ def _prep(
     offs, mu = _offset_centres(ts, rows, n_concepts)
     mu = mu.astype(np.float32)
     oi = {int(o): i for i, o in enumerate(offs)}
-    X = ts.H[rows].astype(np.float32) - mu[[oi[int(o)] for o in ts.offset[rows]]]
+    X = ts.H[rows].astype(np.float32) - mu[[oi[int(o)] for o in _key(ts)[rows]]]
     mean = X.mean(axis=0)
     scale = X.std(axis=0)
     scale = np.where(scale > 0, scale, 1.0).astype(np.float32)
@@ -185,14 +196,14 @@ def cross_fit_logreg(
             for c in Cs:
                 m = _fit_lr(pr, Z, y, n_concepts, c)
                 S = np.full(oof.shape, np.nan)
-                S[r] = m.logits(ts.H[r], ts.offset[r])
+                S[r] = m.logits(ts.H[r], _key(ts)[r])
                 sc[c].append(_mean_implied_auroc(S, r, ts, n_concepts))
         table = {c: float(np.mean(v)) for c, v in sc.items()}
         best = max(table, key=lambda c: table[c])
         tr = T[np.isin(ts.fold, F) & (ts.concept >= 0)]
         m = fit_logreg(ts, tr, n_concepts, best)
         rows = rf == k
-        oof[rows] = m.logits(ts.H[rows], ts.offset[rows])
+        oof[rows] = m.logits(ts.H[rows], _key(ts)[rows])
         models.append(m)
         chosen.append(float(best))
         tables.append(table)
@@ -224,13 +235,13 @@ def null_stats(
     ts: P.TextSet, oof: np.ndarray, n_concepts: int, n_folds: int = P.N_FOLDS
 ) -> NullStats:
     rf, rc, imp = ts.row_fold, ts.row_concept, ts.row_implied
-    offs = np.unique(ts.offset[rc >= 0])
+    offs = np.unique(_key(ts)[rc >= 0])
     ms, sds = [], []
     for k in range(n_folds):
         m = np.full((len(offs), n_concepts), np.nan)
         sd = np.full((len(offs), n_concepts), np.nan)
         for i, o in enumerate(offs):
-            base = (rf == k) & imp & (rc >= 0) & (ts.offset == o)
+            base = (rf == k) & imp & (rc >= 0) & (_key(ts) == o)
             for c in range(n_concepts):
                 x = oof[base & (rc != c), c]
                 x = x[np.isfinite(x)]
@@ -249,7 +260,7 @@ def oof_z(ts: P.TextSet, oof: np.ndarray, ns: NullStats, n_folds: int = P.N_FOLD
     rf = ts.row_fold
     for k in range(n_folds):
         r = rf == k
-        out[r] = ns.z(k, oof[r], ts.offset[r])
+        out[r] = ns.z(k, oof[r], _key(ts)[r])
     return out
 
 
@@ -283,10 +294,9 @@ def score_eval(
     offset: np.ndarray,
 ) -> dict[str, np.ndarray]:
     """Eval positions -> fold-averaged null z for both types, [P, C] each."""
+    key = eval_key(ending, offset)
     za = np.nanmean(
-        [ns_a.z(k, m.score(H, ending, offset), offset) for k, m in enumerate(models_a)], axis=0
+        [ns_a.z(k, m.score(H, ending, offset), key) for k, m in enumerate(models_a)], axis=0
     )
-    zb = np.nanmean(
-        [ns_b.z(k, m.logits(H, offset), offset) for k, m in enumerate(models_b)], axis=0
-    )
+    zb = np.nanmean([ns_b.z(k, m.logits(H, key), key) for k, m in enumerate(models_b)], axis=0)
     return {"a": za, "b": zb}

@@ -412,8 +412,8 @@ def cmd_todo(a: argparse.Namespace) -> None:
         rng.shuffle(pool)
         dev += pool[:10]
         gold += pool[10:30]
-    write_jsonl(DATA / "umcommit_dev_todo.jsonl", [_todo_row(u, items, fm) for u in dev])
-    write_jsonl(DATA / "umcommit_gold_todo.jsonl", [_todo_row(u, items, fm) for u in gold])
+    write_jsonl(DATA / f"{CAL_PREFIX}_dev_todo.jsonl", [_todo_row(u, items, fm) for u in dev])
+    write_jsonl(DATA / f"{CAL_PREFIX}_gold_todo.jsonl", [_todo_row(u, items, fm) for u in gold])
     print(f"dev {len(dev)}, gold {len(gold)} written to {DATA}")
 
 
@@ -432,8 +432,8 @@ def cmd_calib(a: argparse.Namespace) -> None:
 
     res = {}
     for split in ("dev", "dev2", "gold"):
-        lab_p = DATA / f"umcommit_{split}.jsonl"
-        com_p = OUT / f"commit_umcommit_{split}_todo.jsonl"
+        lab_p = DATA / f"{CAL_PREFIX}_{split}.jsonl"
+        com_p = OUT / f"commit_{CAL_PREFIX}_{split}_todo.jsonl"
         if not lab_p.exists() or not com_p.exists():
             continue
         labs = {r["uid"]: r for r in read_jsonl(lab_p)}
@@ -492,6 +492,15 @@ PROBE_TEXTS_PATH = DATA / "um_country_probe_texts.jsonl"
 MIN_COMMITTED = 3
 CAP = 80
 POOL_PER_GOLD = 2
+POOL_NONCOUNTRY = 16
+
+
+def lex_ids() -> list[str]:
+    return sorted(
+        c for c in U.load_lexicon()["categories"][U.CATEGORY]["concepts"] if c != U.SOVIET
+    )
+
+
 # informal own-concept forms accepted in an explicit probe text
 INFORMAL = {
     "australia": ["Aussie", "Aussies"],
@@ -519,7 +528,15 @@ def cmd_concepts(a: argparse.Namespace) -> None:
     )
     C = set(golds) | set(sibs)
     pool: list[tuple[str, str]] = []  # (gold, concept)
-    for g in golds:
+    if U.CATEGORY != "country":  # plan 0007: no regions -> the most-mentioned other concepts
+        compat = {c for g in golds for c in U._COMPATIBLE.get(g, ())}
+        cands = sorted(
+            (c for c in lex_ids() if c not in C and c not in compat), key=lambda c: (-n_men[c], c)
+        )
+        for c in cands[:POOL_NONCOUNTRY]:
+            pool.append(("*", c))
+            C.add(c)
+    for g in golds if U.CATEGORY == "country" else []:
         took = 0
         for reg in (REGION_OF[g], *ADJACENT[REGION_OF[g]]):
             cands = sorted((c for c in REGIONS[reg] if c not in C), key=lambda c: (-n_men[c], c))
@@ -555,14 +572,19 @@ def cmd_concepts(a: argparse.Namespace) -> None:
         role[c].append(f"pool:{g}")
     doc = {
         "version": "umconcepts-v1",
-        "rule": f"golds + siblings with >= {MIN_COMMITTED} committed units + {POOL_PER_GOLD} "
-        f"most-mentioned same-region countries per gold; cap {CAP} (pool trimmed first)",
+        "rule": f"golds + siblings with >= {MIN_COMMITTED} committed units + "
+        + (
+            f"{POOL_PER_GOLD} most-mentioned same-region countries per gold"
+            if U.CATEGORY == "country"
+            else f"the {POOL_NONCOUNTRY} most-mentioned other concepts (not compatible with a gold)"
+        )
+        + f"; cap {CAP} (pool trimmed first)",
         "concepts": [
             {
                 "id": c,
                 "label": lex[c]["label"],
                 "roles": role[c],
-                "region": REGION_OF[c],
+                "region": REGION_OF.get(c),
                 "n_committed": n_com[c],
                 "n_mentions": n_men[c],
                 "informal": INFORMAL.get(c, []),
@@ -594,7 +616,7 @@ PER_KIND = 24
 NEUTRAL_N = 24
 
 
-def _probe_category(C: list[dict[str, Any]], request: str) -> Any:
+def _probe_category(C: list[dict[str, Any]], requests: Any) -> Any:
     from hallucination_bench.evals.sibling_probe.concepts import Category, Concept
 
     lex = U.load_lexicon()
@@ -613,7 +635,10 @@ def _probe_category(C: list[dict[str, Any]], request: str) -> Any:
         for c in C
     )
     return Category(
-        name=U.CATEGORY, question=U.ATTRIBUTE_QUESTION, requests=(request,), concepts=concepts
+        name=U.CATEGORY,
+        question=U.ATTRIBUTE_QUESTION,
+        requests=tuple([requests] if isinstance(requests, str) else requests),
+        concepts=concepts,
     )
 
 
@@ -639,6 +664,9 @@ def text_check(
 
 
 def cmd_probe_texts(a: argparse.Namespace) -> None:
+    """24 explicit + 24 implied texts per concept of C and 24 neutral, balanced over the domain's
+    request sentences (plan 0007: 12 / 12 with two). Plan 0003 texts are reused where they pass
+    the checks; the rest come from the plan 0003 ``sibgen-v1`` prompt over C."""
     sys.path.insert(0, str(REPO_ROOT / "scripts" / "sibling_probe"))
     import gen_items as G  # type: ignore[import-not-found]
     from transformers import AutoTokenizer
@@ -646,8 +674,9 @@ def cmd_probe_texts(a: argparse.Namespace) -> None:
     from hallucination_bench.evals.sibling_probe import bank as B
 
     items = country_items(a.src_root)
-    request = next(iter(items.values()))["request"]
-    assert all(it["request"] == request for it in items.values())
+    req_of = {int(it["request_idx"]): it["request"] for it in items.values()}
+    requests = [req_of[k] for k in sorted(req_of)]
+    nreq = len(requests)
     C = load_C()
     ids_C = [c["id"] for c in C]
     informal = {c["id"]: c["informal"] for c in C}
@@ -660,7 +689,8 @@ def cmd_probe_texts(a: argparse.Namespace) -> None:
         for t in read_jsonl(a.src_root / "data" / "sibling_probe" / "probe_texts.jsonl")
         if t["category"] == U.CATEGORY
     ]
-    kept: dict[tuple[str | None, str], list[dict[str, Any]]] = defaultdict(list)
+    Key = tuple[str | None, str, int]
+    kept: dict[Key, list[dict[str, Any]]] = defaultdict(list)
     causes: Counter[str] = Counter()
     seen: set[str] = set()
     for t in old:
@@ -671,17 +701,23 @@ def cmd_probe_texts(a: argparse.Namespace) -> None:
         if why is not None:
             causes["old:" + why.split(":")[0]] += 1
             continue
-        kept[(cid, t["kind"])].append({**t, "concept": cid, "source": "plan0003"})
+        kept[(cid, t["kind"], int(t["request_idx"]))].append(
+            {**t, "concept": cid, "source": "plan0003"}
+        )
         seen.add(B.normalize_cue(t["context"]))
     print(
         f"plan 0003 texts kept {sum(len(v) for v in kept.values())}/{len(old)}; drops "
         f"{dict(causes)}"
     )
-    need = {(c, k): PER_KIND for c in ids_C for k in ("explicit", "implied")}
-    need[(None, "neutral")] = NEUTRAL_N
-    cat = _probe_category(C, request)
+    need: dict[Key, int] = {}
+    for k in range(nreq):
+        for c in ids_C:
+            for kind in ("explicit", "implied"):
+                need[(c, kind, k)] = PER_KIND // nreq
+        need[(None, "neutral", k)] = NEUTRAL_N // nreq
+    cat = _probe_category(C, tuple(requests))
     gen = G.Gen()
-    attempts: Counter[tuple[str | None, str]] = Counter()
+    attempts: Counter[Key] = Counter()
 
     async def run() -> None:
         for rnd in range(6):
@@ -689,9 +725,9 @@ def cmd_probe_texts(a: argparse.Namespace) -> None:
             for key, n in need.items():
                 if len(kept[key]) >= n:
                     continue
-                cid, kind = key
+                cid, kind, k = key
                 want = n - len(kept[key]) + 6
-                prompt = G.probe_prompt(cat, cid, kind, want, request)
+                prompt = G.probe_prompt(cat, cid, kind, want, requests[k])
                 jobs.append((key, attempts[key], prompt))
                 attempts[key] += 1
             if not jobs:
@@ -699,18 +735,21 @@ def cmd_probe_texts(a: argparse.Namespace) -> None:
             print(f"[probe-texts] round {rnd}: {len(jobs)} Opus calls", flush=True)
             outs = await asyncio.gather(
                 *(
-                    gen.call(f"umprobe:{k[0] or 'neutral'}:{k[1]}:a{n}", p, "texts")
+                    gen.call(
+                        f"umprobe:{U.CATEGORY}:{k[0] or 'neutral'}:{k[1]}:r{k[2]}:a{n}", p, "texts"
+                    )
                     for k, n, p in jobs
                 )
             )
             for (key, _n, _p), texts in zip(jobs, outs, strict=True):
-                cid, kind = key
+                cid, kind, k = key
+                req = requests[k]
                 for t in texts:
                     if len(kept[key]) >= need[key]:
                         break
                     t = " ".join(t.split())
-                    if t.endswith(request):
-                        t = t[: -len(request)].strip()
+                    if t.endswith(req):
+                        t = t[: -len(req)].strip()
                     why = text_check(fm, cid, kind, t, informal)
                     if not B.cue_ok(t):
                         why = "format"
@@ -718,7 +757,7 @@ def cmd_probe_texts(a: argparse.Namespace) -> None:
                         why = "duplicate"
                     elif why is None and B.shares_ngram(t, index):
                         why = "ngram8"
-                    elif why is None and not wc.ok(B.messages_for(t, request), request):
+                    elif why is None and not wc.ok(B.messages_for(t, req), req):
                         why = "window"
                     if why is not None:
                         causes["new:" + why.split(":")[0]] += 1
@@ -727,15 +766,16 @@ def cmd_probe_texts(a: argparse.Namespace) -> None:
                     j = len([x for x in kept[key] if x["source"] == "umgen"])
                     tag = {"explicit": "e", "implied": "i", "neutral": "n"}[kind]
                     slug = (cid or "neutral").replace("_", "-")
+                    dom = U.CATEGORY.replace("_", "-")
                     kept[key].append(
                         {
-                            "id": f"up-country-{slug}-{tag}0-{j:02d}",
+                            "id": f"up-{dom}-{slug}-{tag}{k}-{j:02d}",
                             "category": U.CATEGORY,
                             "concept": cid,
                             "kind": kind,
-                            "request_idx": 0,
+                            "request_idx": k,
                             "context": t,
-                            "messages": B.messages_for(t, request),
+                            "messages": B.messages_for(t, req),
                             "source": "umgen",
                         }
                     )
@@ -743,7 +783,7 @@ def cmd_probe_texts(a: argparse.Namespace) -> None:
 
     asyncio.run(run())
     rows = [r for key in need for r in kept[key][: need[key]]]
-    short = {f"{k[0]}:{k[1]}": len(kept[k]) for k in need if len(kept[k]) < need[k]}
+    short = {f"{k[0]}:{k[1]}:r{k[2]}": len(kept[k]) for k in need if len(kept[k]) < need[k]}
     write_jsonl(PROBE_TEXTS_PATH, rows)
     print(
         f"[probe-texts] {len(rows)} texts -> {PROBE_TEXTS_PATH}; causes {dict(causes)}; "
@@ -753,7 +793,7 @@ def cmd_probe_texts(a: argparse.Namespace) -> None:
         json.dumps(
             {
                 "drops_by_cause": dict(causes),
-                "short": short,
+                "short_per_ending": short,
                 "n": len(rows),
                 "from_plan0003": sum(r["source"] == "plan0003" for r in rows),
             },
@@ -791,7 +831,7 @@ def cmd_probe_inputs(a: argparse.Namespace) -> None:
     C = [c["id"] for c in load_C()]
     ci = {c: i for i, c in enumerate(C)}
     texts = read_jsonl(PROBE_TEXTS_PATH)
-    folds = P.assign_folds(texts, salt="country-um")
+    folds = P.assign_folds(texts, salt=f"{U.CATEGORY}-um")  # country: "country-um", as before
     rows = [
         {
             "id": t["id"],
@@ -802,7 +842,8 @@ def cmd_probe_inputs(a: argparse.Namespace) -> None:
         }
         for t in texts
     ]
-    items = sorted(country_items(a.src_root))
+    item_map = country_items(a.src_root)
+    items = sorted(item_map)
     inp = {
         "run": PROBE_RUN,
         "concepts": C,
@@ -810,7 +851,8 @@ def cmd_probe_inputs(a: argparse.Namespace) -> None:
         "items": items,
         "layers": list(U.PROBE_LAYERS),
         "probe_acts": PROBE_ACTS,
-        "pack_run": "um-country-v1",
+        "pack_run": "um-country-v1" if U.CATEGORY == "country" else PROBE_RUN,
+        "item_endings": {i: int(item_map[i]["request_idx"]) for i in items},
         "eval_acts": EVAL_ACTS,
     }
     (OUT / "probe_inputs.json").write_text(json.dumps(inp))
@@ -1030,7 +1072,12 @@ def cmd_label(a: argparse.Namespace) -> None:
                 continue
             if pc.readable_share(j, L) < U.READABLE_SHARE:
                 continue
-            key = "ii" if gj == g else ("iii" if REGION_OF.get(gj) == REGION_OF.get(g) else None)
+            if gj == g:
+                key = "ii"
+            elif U.CATEGORY == "country":
+                key = "iii" if REGION_OF.get(gj) == REGION_OF.get(g) else None
+            else:  # plan 0007: no regions -> pool (iii) = every other item
+                key = "iii"
             if key is None:
                 continue
             for p in zt.positions(j, L):
@@ -1096,7 +1143,8 @@ def cmd_label(a: argparse.Namespace) -> None:
                 continue
             if c in com_item[i]:
                 continue
-            hard = REGION_OF.get(c) == REGION_OF.get(g) or cos(c, g) >= q75
+            same_region = U.CATEGORY == "country" and REGION_OF.get(c) == REGION_OF.get(g)
+            hard = same_region or cos(c, g) >= q75
             never = c not in men_item[i]
             if not (hard or never):
                 continue
@@ -1593,9 +1641,39 @@ def cmd_figures(a: argparse.Namespace) -> None:
     print(f"figures -> {PLOTS}/um_country_{{labels,layers,nulls}}.png")
 
 
+CAL_PREFIX = "umcommit"
+
+
+def setup_domain(cat: str) -> None:
+    """Plan 0007: point every path / run name at the domain (country keeps plan 0006's)."""
+    global OUT, READOUTS, CONCEPTS_PATH, PROBE_TEXTS_PATH, PROBE_RUN, PROBE_ACTS, PROBES_DIR
+    global PROBES_ADJ_DIR, DISTRACTORS_PATH, LABEL_DIR, CAPTURE_PREFIX, CAL_PREFIX
+    U.configure(cat)
+    if cat == "country":
+        return
+    OUT = OUT / cat
+    READOUTS = {
+        "s3d": "s3d-rl600-all11/sibling_eval.jsonl",
+        "mlnla-rl600": f"mlnla-rl600-all11/sibling_{cat}.jsonl",
+        "jlens": f"jlens-all11/sibling_{cat}.jsonl",
+        U.NLA42: f"nla-rl-L42/sibling_{cat}.jsonl",
+    }
+    CONCEPTS_PATH = DATA / f"um_{cat}_concepts.json"
+    PROBE_TEXTS_PATH = DATA / f"um_{cat}_probe_texts.jsonl"
+    PROBE_RUN = f"um-{cat.replace('_', '-')}-v1"
+    PROBE_ACTS = f"acts-um-{cat.replace('_', '-')}-probe"
+    PROBES_DIR = OUT / "probes"
+    PROBES_ADJ_DIR = OUT / "probes_adj"
+    DISTRACTORS_PATH = DATA / f"um_{cat}_distractors.json"
+    LABEL_DIR = OUT / "label"
+    CAPTURE_PREFIX = f"umprobe_{cat}"
+    CAL_PREFIX = f"umcommit_{cat}"
+
+
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawTextHelpFormatter)
     ap.add_argument("--src-root", type=Path, default=SRC_DEFAULT)
+    ap.add_argument("--category", default="country", help="plan 0007 domain (default country)")
     sub = ap.add_subparsers(dest="cmd", required=True)
     s = sub.add_parser("summarize")
     s.add_argument("--dry-run", action="store_true")
@@ -1617,6 +1695,7 @@ def main() -> None:
     sub.add_parser("label")
     sub.add_parser("figures")
     a = ap.parse_args()
+    setup_domain(a.category)
     globals()["cmd_" + a.cmd.replace("-", "_")](a)
 
 

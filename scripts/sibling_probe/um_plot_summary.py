@@ -42,7 +42,7 @@ def main() -> None:
         }
     )
     fig, (a1, a2) = plt.subplots(1, 2, figsize=(17, 5.6), gridspec_kw={"width_ratios": [1.7, 1]})
-    for y, (m, name) in enumerate(METHODS):
+    for y, (m, _name) in enumerate(METHODS):
         counts = s["labels"][m]["counts"]
         n = s["labels"][m]["n_committed"]
         left = 0.0

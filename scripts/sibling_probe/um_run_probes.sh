@@ -8,6 +8,7 @@ MODAL="uvx --python 3.12 modal@latest"
 RUN=${RUN:-um-country-v2}
 P=${PDIR:-outputs/sibling/um/probes}
 INP=${INP:-outputs/sibling/um/probe_inputs.json}
+DIST=${DIST:-data/sibling_probe/um_country_distractors.json}
 retry() { for i in 1 2 3 4 5 6; do "$@" && return 0; echo "[retry $i] $*"; sleep 30; done; return 1; }
 wait_files() {  # wait_files <remote dir> <n>
   for _ in $(seq 1 720); do
@@ -31,7 +32,7 @@ fit)
   ;;
 score)
   echo "=== score $(date)"
-  $MODAL run --detach scripts/sibling_probe/um_probes_modal.py --phase score --inputs $INP --out-dir $P || echo "[client exited; waiting for volume outputs]"
+  $MODAL run --detach scripts/sibling_probe/um_probes_modal.py --phase score --inputs $INP --out-dir $P --distractors $DIST || echo "[client exited; waiting for volume outputs]"
   wait_files score ${NL:-12} 'npz' || { echo "score timeout"; exit 1; }
   mkdir -p $P/score
   for f in $($MODAL volume ls sibling-probes /$RUN/score | grep npz); do

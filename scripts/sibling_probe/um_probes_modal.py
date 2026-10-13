@@ -271,7 +271,13 @@ def score_layer(layer: int, inputs: dict) -> bytes:
     for it in items:
         x, pos, off = win[it]
         s = Q.score_eval(
-            ma, mb, ns["na"], ns["nb"], x, np.zeros(len(pos), np.int64), np.asarray(off)
+            ma,
+            mb,
+            ns["na"],
+            ns["nb"],
+            x,
+            np.full(len(pos), int(inputs.get("item_endings", {}).get(it, 0)), np.int64),
+            np.asarray(off),
         )
         ZA.append(s["a"])
         ZB.append(s["b"])

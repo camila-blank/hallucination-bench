@@ -24,6 +24,7 @@ from collections.abc import Iterable, Mapping, Sequence
 from pathlib import Path
 from typing import Any
 
+from hallucination_bench import DATA
 from hallucination_bench.evals.sibling_probe.ladder_lex import (
     CASE_SENSITIVE,
     LEXICON_PATH,
@@ -156,8 +157,47 @@ def patch_lexicon(lexicon: Mapping[str, Any]) -> dict[str, Any]:
     return lex
 
 
-def load_lexicon(path: Path = LEXICON_PATH) -> dict[str, Any]:
-    return patch_lexicon(json.loads(Path(path).read_text()))
+UM_LEXICON_PATH = DATA / "sibling_probe" / "um_lexicons.json"
+_CAP_ALL = False  # plan 0007: every Latin alias counts only when capitalised (city, holiday)
+_COMPATIBLE: dict[str, frozenset[str]] = {}
+
+
+def load_lexicon(path: Path | None = None) -> dict[str, Any]:
+    """Country: plan 0005's lexicon + the Set A patch. Other domains (plan 0007):
+    ``um_lexicons.json`` with the domain's alias moves and extra block phrases."""
+    if CATEGORY == "country":
+        return patch_lexicon(json.loads(Path(path or LEXICON_PATH).read_text()))
+    from hallucination_bench.evals.sibling_probe import um_domains as D
+
+    doc = json.loads(Path(path or UM_LEXICON_PATH).read_text())
+    cat = copy.deepcopy(doc["categories"][CATEGORY])
+    for c, alias, src, dst in D.ALIAS_MOVES:
+        if c == CATEGORY:
+            for key in ("en", "cjk"):
+                if alias in cat["concepts"][src][key]:
+                    cat["concepts"][src][key].remove(alias)
+                    cat["concepts"][dst][key].append(alias)
+    cat["block"] = sorted({*cat.get("block", []), *D.EXTRA_BLOCK.get(CATEGORY, ())})
+    return {"categories": {CATEGORY: cat}, "ambiguous": {}}
+
+
+def configure(domain: str) -> None:
+    """Switch the module to a plan 0007 domain (country is the default and unchanged)."""
+    global CATEGORY, ATTRIBUTE_QUESTION, COMMIT_SYSTEM, COMMIT_PROMPT_VERSION, GOLD_MAP
+    global GOLD_EQUIV, _CAP_ALL, _COMPATIBLE
+    if domain == "country":
+        return
+    from hallucination_bench.evals.sibling_probe import um_domains as D
+
+    d = D.SPECS[domain]
+    CATEGORY = domain
+    ATTRIBUTE_QUESTION = d.question
+    COMMIT_SYSTEM = D.commit_system(d, MARK_L, MARK_R)
+    COMMIT_PROMPT_VERSION = f"umcommit-v1.1-{domain}"
+    GOLD_MAP = {}
+    GOLD_EQUIV = {}
+    _CAP_ALL = d.capitalised_only_all
+    _COMPATIBLE = dict(D.COMPATIBLE.get(domain, {}))
 
 
 class FastMatcher:
@@ -228,9 +268,9 @@ class FastMatcher:
         """Capitalised-only aliases (and every capital-city alias) written in lower case."""
         a = alias.strip()
         if a and not has_cjk(a) and not a[0].isupper():
-            if norm_alias(a) in self._city_norm:
+            if norm_alias(a) in self._city_norm or _CAP_ALL:
                 return True
-        return _lowercase_only_hit(a)
+        return CATEGORY == "country" and _lowercase_only_hit(a)
 
     def token_concept(self, token: str) -> str | None:
         if self._lowercase_only(token.strip()):
@@ -333,6 +373,8 @@ def classify_hit(concept: str | None, alias: str, ctx: Mapping[str, Any]) -> str
     c = _resolve(concept, ctx["gold_raw"])
     if c in ctx["equiv"] or c in ctx["user_concepts"]:
         return None
+    if c in _COMPATIBLE.get(ctx["gold"], ()):
+        return "compatible"  # plan 0007: true together with the gold (a stratum, not a unit)
     if norm_alias(alias) in ctx["response_aliases"]:
         return "response_named"
     return "unit"
@@ -452,7 +494,7 @@ def build_mentions(
             }
         )
     for smp in samples:
-        if method != "jlens":
+        if method != "jlens" and CATEGORY == "country":
             for m in REGIONAL_WORDS.finditer(smp["text"]):
                 strata.append(
                     {
@@ -760,7 +802,8 @@ def select_distractors(
 
     import numpy as np
 
-    excl = set(gold_equivalents(gold)) | set(committed_for_item)
+    excl = (set(gold_equivalents(gold)) | set(committed_for_item)
+            | set(_COMPATIBLE.get(gold_concept(gold), ())))
     elig = sorted(c for c in concepts if c not in excl and valid44.get(c, False))
     g = np.asarray(centroids[gold_concept(gold)], dtype=np.float64)
 
