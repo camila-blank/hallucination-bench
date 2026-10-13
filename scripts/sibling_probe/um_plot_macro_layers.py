@@ -3,7 +3,7 @@ the s3d O-lens and ML-NLA read 11 (L20..60), so the all-layer bars are not like 
 
 * um_macro_single_layer.png: s3d / ML-NLA at ONE layer (default L44, the grid layer nearest
   NLA-RL's L42; there is no L42 readout for them) vs NLA-RL at L42;
-* um_macro_all_layers.png: s3d / ML-NLA pooled over all 11 layers vs NLA-RL at L42;
+* um_macro_all_layers.png: s3d / ML-NLA pooled over all 11 layers (NLA-RL excluded);
 * um_macro_by_layer.png: the macro hallucination share at each layer for s3d / ML-NLA, with
   NLA-RL as one point at L42.
 
@@ -102,9 +102,10 @@ def tick(m: str, name: str, layers: tuple[int, ...]) -> str:
     return f"{name}\nall {len(layers)} layers\n(L{layers[0]}-{layers[-1]})"
 
 
-def bars(layers: tuple[int, ...], out_name: str, title: str) -> None:
+def bars(layers: tuple[int, ...], out_name: str, title: str, methods: list | None = None) -> None:
+    methods = methods or METHODS
     fig, ax = plt.subplots(figsize=(10, 6.9))
-    for x, (m, _name) in enumerate(METHODS):
+    for x, (m, _name) in enumerate(methods):
         u = units(m, layers)
         shares = {key: macro(u, key) for key, _, _ in CATS}
         bottom = 0.0
@@ -147,13 +148,18 @@ def bars(layers: tuple[int, ...], out_name: str, title: str) -> None:
             f"{out_name:28s} {m:12s} faithful {shares['faithful']:.2f} cross "
             f"{shares['cross']:.2f} hall {h:.2f} [{lo:.2f}, {hi:.2f}] n={n}"
         )
-    ax.set_xticks(range(len(METHODS)), [tick(m, nm, layers) for m, nm in METHODS], fontsize=12)
+    ax.set_xticks(range(len(methods)), [tick(m, nm, layers) for m, nm in methods], fontsize=12)
     ax.set_ylim(0, 1.08)
     ax.yaxis.set_major_formatter(matplotlib.ticker.PercentFormatter(1.0))
     ax.set_ylabel("macro share of committed sibling mentions\nthe probe could test")
     ax.set_title(title, loc="left", fontsize=15, pad=22)
     ax.legend(loc="upper left", bbox_to_anchor=(1.0, 1.0), frameon=False, fontsize=12)
-    fig.text(0.01, 0.01, FOOT, fontsize=9, color="#52514e", wrap=True)
+    foot = (
+        FOOT
+        if any(m == "nla-rl-L42" for m, _ in methods)
+        else FOOT.replace(" NLA-RL reads a single layer (L42).", "")
+    )
+    fig.text(0.01, 0.01, foot, fontsize=9, color="#52514e", wrap=True)
     fig.tight_layout(rect=(0, 0.07, 1, 1))
     fig.savefig(PLOTS / out_name, dpi=160)
     plt.close(fig)
@@ -255,7 +261,8 @@ def main() -> None:
     bars(
         GRID,
         "um_macro_all_layers.png",
-        "All 11 layers for s3d / ML-NLA vs NLA-RL at L42 (4 domains)",
+        "All 11 layers: s3d O-lens vs ML-NLA (4 domains)",
+        methods=METHODS[:2],  # NLA-RL (single layer) excluded from the all-layer plot
     )
     per_layer()
 
