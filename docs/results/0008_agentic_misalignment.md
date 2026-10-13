@@ -36,28 +36,26 @@ contradicted.
      performs and which the scenario sets up.
 - **Headline population.** Spans whose actor is the AI or unspecified and whose stance is
   considers/plans or does/did, on misaligned items: "the lens says the model is considering or
-  doing X". The **strict headline** keeps only the spans whose actor is the AI itself (see
-  "Detector audit").
+  doing X".
 
 | | O-lens RL600 | NLA-RL L42 | J-lens |
 |---|---|---|---|
 | cells with a mention | 43,379 (7.8%) | 18,674 (37%) | 8,812 bags → 8,803 summaries (1.6%) |
 | claim-map cells judged / failed (mostly API refusals) | 42,298 / 1,081 | 18,519 / 155 | 8,697 / 115 |
-| headline spans (strict) | 14,372 (8,617) | 3,228 (1,961) | 1,742 (958) |
+| headline spans | 14,372 | 3,228 | 1,742 |
 
 ## Headline answers
 
 ![verdict shares](../../plots/am_claim_map/verdict_shares.png)
 
-Headline verdict shares, pooled over spans. Bootstrap 95% CIs are over the 28 misaligned items;
-the strict headline is in brackets.
+Headline verdict shares, pooled over spans. Bootstrap 95% CIs are over the 28 misaligned items.
 
 | verdict | O-lens RL600 | NLA-RL L42 | J-lens |
 |---|---|---|---|
-| hallucination (contradicted by the text) | **16%** [14, 18] (10%) | **48%** [43, 52] (41%) | **1.3%** (0.5%) |
-| correct | 23% (26%) | 8% (11%) | 33% (33%) |
-| unverifiable | 43% (41%) | 29% (32%) | 54% (50%) |
-| model_state | 8% (12%) | 8% (9%) | 7% (11%) |
+| hallucination (contradicted by the text) | **16%** [14, 18] | **48%** [43, 52] | **1.3%** |
+| correct | 23% | 8% | 33% |
+| unverifiable | 43% | 29% | 54% |
+| model_state | 8% | 8% | 7% |
 | probe candidate (substitution) | 1.6% | 2.0% | 0.1% |
 | junk | 2.5% | 0.8% | 2.7% |
 | failed (refused) | 5.0% | 4.8% | 1.4% |
@@ -160,7 +158,8 @@ How the gates were passed:
 
 The verified headline audit also found that many headline spans pass only through "unspecified
 actor + does/did": narrated story events ("the leaked source code", "the hacked systems"), not
-the AI's plans. This is about half of NLA's headline. Hence the strict headline.
+the AI's plans. This is about half of NLA's headline and a quarter of J-lens's; read the
+headline as "the lens says someone is considering or doing it, most often the model".
 
 ## Caveats
 

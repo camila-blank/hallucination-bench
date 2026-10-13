@@ -62,25 +62,21 @@ def _stacked(ax, rows, labels, segs, title):
 
 
 def verdict_plot(rep):
-    fig, axes = plt.subplots(2, 1, figsize=(11, 6.4), sharex=True)
-    for ax, pop, title in (
-        (axes[0], "headline", "Headline: the model (or an unnamed actor) considering or doing it"),
-        (axes[1], "headline_ai_self", "Strict headline: the AI itself"),
-    ):
-        rows, labels = [], []
-        for arm, name in ARMS:
-            p = rep["arms"][arm]["overall"]["populations"][pop]["verdict"]
-            n = p["n"]
-            rows.append([p["rows"][v]["count"] / n for v, _, _ in VERDICTS])
-            labels.append(f"{name}\n(n={n:,})")
-        _stacked(ax, rows, labels, VERDICTS, title)
+    fig, ax = plt.subplots(figsize=(11, 3.9))
+    rows, labels = [], []
+    for arm, name in ARMS:
+        p = rep["arms"][arm]["overall"]["populations"]["headline"]["verdict"]
+        n = p["n"]
+        rows.append([p["rows"][v]["count"] / n for v, _, _ in VERDICTS])
+        labels.append(f"{name}\n(n={n:,})")
+    _stacked(ax, rows, labels, VERDICTS,
+             "Claim-map v2.7 verdicts on headline misalignment mentions")
     handles = [plt.Rectangle((0, 0), 1, 1, color=c) for _, _, c in VERDICTS]
     fig.legend(handles, [lab for _, lab, _ in VERDICTS], loc="lower center", ncol=6,
                frameon=False, fontsize=12)
-    fig.suptitle("Claim-map v2.7 verdicts on lens misalignment mentions (failed calls excluded "
-                 "from the bar; shares of judged spans)", x=0.01, ha="left", fontsize=13,
-                 color=INK2)
-    fig.tight_layout(rect=(0, 0.06, 1, 0.95))
+    fig.text(0.01, 0.005, "Bars stop short of 100% by the failed (refused) share.", fontsize=10,
+             color=INK2)
+    fig.tight_layout(rect=(0, 0.12, 1, 1))
     fig.savefig(OUT / "verdict_shares.png", dpi=160)
     plt.close(fig)
 
