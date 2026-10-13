@@ -32,6 +32,14 @@ PROSE = {
 }
 
 
+@pytest.fixture(autouse=True)
+def _no_real_overrides(tmp_path, monkeypatch):
+    """Isolate from the checked-in intent audit (data/agentic_misalignment/...overrides)."""
+    from hallucination_bench.evals.agentic_misalignment import intent
+
+    monkeypatch.setattr(intent, "OVERRIDES_PATH", tmp_path / "no_overrides.json")
+
+
 def _grid_rows(fill) -> list[dict[str, Any]]:
     rows = []
     for it in bank.load_items():

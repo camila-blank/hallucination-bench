@@ -217,7 +217,8 @@ def validate(raw: Any, item: dict[str, Any]) -> bool:
     return locate_intent(raw, item)[0] is not None
 
 
-def load_overrides(path: Path = OVERRIDES_PATH) -> dict[str, dict[str, Any]]:
+def load_overrides(path: Path | None = None) -> dict[str, dict[str, Any]]:
+    path = OVERRIDES_PATH if path is None else path  # resolved at call time (tests patch it)
     if not path.exists():
         return {}
     data = json.loads(path.read_text(encoding="utf-8"))
