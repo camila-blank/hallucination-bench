@@ -10,9 +10,9 @@ import json
 import matplotlib
 
 matplotlib.use("Agg")
-import matplotlib.pyplot as plt  # noqa: E402
+import matplotlib.pyplot as plt
 
-from hallucination_bench import REPO_ROOT  # noqa: E402
+from hallucination_bench import REPO_ROOT
 
 LAB = REPO_ROOT / "outputs" / "sibling" / "um" / "label"
 OUT = REPO_ROOT / "plots" / "sibling_probe" / "um_country_summary.png"

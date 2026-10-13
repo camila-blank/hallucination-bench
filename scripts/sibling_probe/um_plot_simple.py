@@ -12,10 +12,10 @@ from collections import Counter
 import matplotlib
 
 matplotlib.use("Agg")
-import matplotlib.pyplot as plt  # noqa: E402
+import matplotlib.pyplot as plt
 
-from hallucination_bench import REPO_ROOT  # noqa: E402
-from hallucination_bench.evals.sibling_probe.um_ladder import bootstrap_rate  # noqa: E402
+from hallucination_bench import REPO_ROOT
+from hallucination_bench.evals.sibling_probe.um_ladder import bootstrap_rate
 
 LAB = REPO_ROOT / "outputs" / "sibling" / "um" / "label" / "units_labeled.jsonl"
 OUT = REPO_ROOT / "plots" / "sibling_probe" / "um_country_simple.png"
