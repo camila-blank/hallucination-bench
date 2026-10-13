@@ -315,8 +315,9 @@ def build(
         "headline = actor ai_self/unspecified x stance considers_or_plans/does_or_did on "
         "misaligned items. Mention-level counts are descriptive only.",
         "",
-        "| arm | detected rate | headline spans | hallucination | probe | thinky | unresolved "
-        "| correct | junk | unrelated rate | unrealised intent | real intention |",
+        "| arm | detected rate | headline spans | "
+        + " | ".join(score.VERDICT_ROWS[:-1])
+        + " | unrelated rate | unrealised intent | real intention |",
         "|---|---|---|---|---|---|---|---|---|---|---|---|",
     ]
     for name, s in summaries.items():

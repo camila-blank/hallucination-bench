@@ -201,3 +201,14 @@ def test_lost_in_summary():
     d = score.detection_block(cells, [], "tokens")["jlens"]
     assert d["n_bag_detected"] == 3 and d["n_lost_in_summary"] == 1
     assert d["n_summary_pending"] == 1 and d["lost_in_summary_is_upper_bound"]
+
+
+def test_report_summary_header_follows_verdict_rows():
+    """The cross-arm table's verdict columns are rendered in score.VERDICT_ROWS order."""
+    import inspect
+
+    from hallucination_bench.evals.agentic_misalignment import report
+
+    src = inspect.getsource(report)
+    assert '" | ".join(score.VERDICT_ROWS[:-1])' in src
+    assert '| unresolved "\n        "| correct |' not in src
