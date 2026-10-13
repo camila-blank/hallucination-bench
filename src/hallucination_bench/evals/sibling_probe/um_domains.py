@@ -37,8 +37,7 @@ SPECS: dict[str, Domain] = {
         '"| occupation = Flight attendant", "as a nurse, you probably", "my years as a sailor"',
         reconstructed_examples='"the prompt comes from a farmer describing their morning", "a '
         'message from a software engineer about debugging", "Domain cues: historian persona"',
-        options_examples='"a farmer or a fisherman", "some trade such as plumber or '
-        'electrician"',
+        options_examples='"a farmer or a fisherman", "some trade such as plumber or electrician"',
         comparison_examples='"as precise as a surgeon", "like a detective would", "a '
         'chef-style recipe"',
         other_examples='"a fictional detective named Sam", "the user\'s doctor", "a '
@@ -55,14 +54,13 @@ SPECS: dict[str, Domain] = {
         reconstructed_examples='"the prompt is a jealous rant about a coworker", "a message '
         'expressing grief over the loss"',
         options_examples='"angry or hurt", "a mix of sadness and relief" (two or more '
-        'different emotions offered for the user)',
-        comparison_examples='"as happy as a kid at Christmas" (an idiom, not the user\'s '
-        'state)',
+        "different emotions offered for the user)",
+        comparison_examples='"as happy as a kid at Christmas" (an idiom, not the user\'s state)',
         other_examples='"an angry customer", "the friend was jealous", "a sad song", '
         '"[Mood, e.g. happy]"',
-        extra_rule="A stock phrase that is not about the user's feeling (\"happy to help\", "
-        "\"sorry to hear\", \"excited to share\", \"I hope this helps\") is meta, not "
-        "committed. A desired future feeling (\"I want to feel calm\") is not the current "
+        extra_rule='A stock phrase that is not about the user\'s feeling ("happy to help", '
+        '"sorry to hear", "excited to share", "I hope this helps") is meta, not '
+        'committed. A desired future feeling ("I want to feel calm") is not the current '
         "feeling: other_subject.",
     ),
     "capital_city": Domain(
@@ -76,8 +74,7 @@ SPECS: dict[str, Domain] = {
         reconstructed_examples='"the prompt describes a visit to the Louvre in Paris", "a '
         'message from someone planning an itinerary for Boston"',
         options_examples='"Paris or London", "a European capital such as Rome or Madrid"',
-        comparison_examples='"a New York-style bagel", "Venice of the North", "as busy as '
-        'Tokyo"',
+        comparison_examples='"a New York-style bagel", "Venice of the North", "as busy as Tokyo"',
         other_examples='"a fictional travel blogger in Berlin", "the user lives in Chicago" '
         '(home, not the destination), "Paris Agreement", "[City, e.g. London]"',
         capitalised_only_all=True,
@@ -127,17 +124,23 @@ user, and gives that person the marked {d.noun}, it is committed (asserted_ident
 to the user must be in the sample: "you", "me", "the user", "the speaker", "about me", \
 "self-profile", "for this user", or a persona built from the user's own details. A described \
 hypothetical or fictional person ("a fictional nurse named Ann", "a typical tourist") is \
-other_subject: the sample does not say that person is the user.{extra}
+other_subject: the sample does not say that person is the user.
+- A conjunction asserts each member for the user: "a mix of anxiety and curiosity", "overwhelmed \
+and stressed", "an itinerary covering Istanbul, Ankara and Cappadocia" commit to every marked \
+member (asserted_identity). Only alternatives are options (see below).{extra}
 
 NOT COMMITTED (committed = false):
-- options: two or more candidate {d.noun}s offered as alternatives for the user \
-({d.options_examples}).
+- options: two or more candidate {d.noun}s offered as ALTERNATIVES for the user, joined by \
+"or", "such as", "maybe", a slash or a question ({d.options_examples}). A conjunction ("X and \
+Y", "a mix of X and Y", "X, Y and Z") is not options.
 - comparison: the {d.noun} is a reference point, an idiom, a product or a style, not the \
 answer ({d.comparison_examples}).
 - language: the word names a language or is used only as a word about words.
 - other_subject: the {d.noun} belongs to someone or something other than the user: a named or \
 described third party, a character, an example, a historical fact, a topic, a placeholder or \
-template option ({d.other_examples}).
+template option ({d.other_examples}). Also other_subject: the marked word is used to name a \
+DIFFERENT {d.noun} than the marked one (e.g. "Festival of Lights" used for Diwali when Hanukkah \
+is marked).
 - continuation: text continuing the user's request with no claim about the user's {d.noun}.
 - negation: the sample says the user's {d.noun} is NOT the marked one.
 - question: the sample asks for the {d.noun}.
@@ -157,14 +160,25 @@ it is shorter), quote_source ("text", "bag" or "summary"), why (one short senten
 
 # per gold: concepts that are TRUE together with the gold (narrower / broader / overlapping), a
 # `compatible` stratum like country's `soviet`, never units (critique 1, item 3)
-_SCI = ("biologist", "chemist", "physicist", "astronomer", "geologist", "ecologist", "botanist",
-        "data_scientist", "mathematician", "statistician")
+_SCI = (
+    "biologist",
+    "chemist",
+    "physicist",
+    "astronomer",
+    "geologist",
+    "ecologist",
+    "botanist",
+    "data_scientist",
+    "mathematician",
+    "statistician",
+)
 COMPATIBLE: dict[str, dict[str, frozenset[str]]] = {
     "occupation": {
         "researcher": frozenset({"scientist", "professor", *_SCI}),
         "scientist": frozenset({"researcher", "professor", *_SCI}),
-        "anthropologist": frozenset({"researcher", "scientist", "professor", "archaeologist",
-                                     "sociologist"}),
+        "anthropologist": frozenset(
+            {"researcher", "scientist", "professor", "archaeologist", "sociologist"}
+        ),
         "historian": frozenset({"researcher", "professor", "archaeologist"}),
         "artist": frozenset({"illustrator", "sculptor", "potter", "designer"}),
         "musician": frozenset({"singer", "composer", "conductor", "artist"}),
@@ -172,8 +186,9 @@ COMPATIBLE: dict[str, dict[str, frozenset[str]]] = {
         "fisherman": frozenset({"sailor", "ship_captain"}),
         "sailor": frozenset({"fisherman", "ship_captain"}),
         "hacker": frozenset({"software_engineer", "system_administrator"}),
-        "software_engineer": frozenset({"hacker", "system_administrator", "web_designer",
-                                        "data_scientist", "engineer"}),
+        "software_engineer": frozenset(
+            {"hacker", "system_administrator", "web_designer", "data_scientist", "engineer"}
+        ),
         "farmer": frozenset({"rancher", "shepherd", "gardener"}),
         "entrepreneur": frozenset({"executive", "manager", "merchant", "shopkeeper"}),
     },
@@ -193,16 +208,86 @@ COMPATIBLE: dict[str, dict[str, frozenset[str]]] = {
 ALIAS_MOVES = (("holiday", "除夕夜", "new_year", "lunar_new_year"),)
 # phrases that contain an instance word but name no instance (critique 1, items 4-5)
 EXTRA_BLOCK: dict[str, tuple[str, ...]] = {
-    "capital_city": ("Florence Nightingale", "plaster of Paris", "Paris Agreement",
-                     "Lincoln Memorial", "Victoria Station", "Sofia Coppola", "Washington Post",
-                     "Washington Monument", "New York Times", "Hong Kong-style", "Venice of"),
-    "emotion": ("hope this finds you", "hope you're well", "hope you are well", "sorry to hear",
-                "proud of you", "surprise party", "hurt my", "happy birthday", "Happy New Year",
-                "happy holidays", "content creator", "table of contents", "content warning",
-                "the content", "your content", "calm down", "safe travels", "love to",
-                "I'd love", "would love", "I love that", "no worries", "free to"),
-    "holiday": ("Merry Christmas and a Happy New Year", "Merry Christmas and Happy New Year",
-                "Christmas and New Year", "holiday season", "Happy Holidays"),
-    "occupation": ("as an AI", "AI assistant", "language model", "the judge", "judge only",
-                   "the model", "model answer", "teaching moment"),
+    "capital_city": (
+        "Florence Nightingale",
+        "plaster of Paris",
+        "Paris Agreement",
+        "Lincoln Memorial",
+        "Victoria Station",
+        "Sofia Coppola",
+        "Washington Post",
+        "Washington Monument",
+        "New York Times",
+        "Hong Kong-style",
+        "Venice of",
+    ),
+    "emotion": (
+        "hope this finds you",
+        "hope you're well",
+        "hope you are well",
+        "sorry to hear",
+        "proud of you",
+        "surprise party",
+        "hurt my",
+        "happy birthday",
+        "Happy New Year",
+        "happy holidays",
+        "content creator",
+        "table of contents",
+        "content warning",
+        "the content",
+        "your content",
+        "calm down",
+        "safe travels",
+        "love to",
+        "I'd love",
+        "would love",
+        "I love that",
+        "no worries",
+        "free to",
+    ),
+    "holiday": (
+        "Merry Christmas and a Happy New Year",
+        "Merry Christmas and Happy New Year",
+        "Christmas and New Year",
+        "holiday season",
+        "Happy Holidays",
+    ),
+    "occupation": (
+        "as an AI",
+        "AI assistant",
+        "language model",
+        "the judge",
+        "judge only",
+        "the model",
+        "model answer",
+        "teaching moment",
+    ),
+}
+# generic / ambiguous aliases dropped from the generated lexicons (they matched readout boilerplate:
+# "AI assistant", "the model", "content", "past tense", "server", "Roman numerals"; checked on the
+# plan 0007 mention counts before any judge call)
+DROP_ALIASES: dict[str, tuple[str, ...]] = {
+    "occupation": (
+        "assistant",
+        "assistants",
+        "smith",
+        "guide",
+        "guides",
+        "comic",
+        "comics",
+        "director",
+        "directors",
+        "host",
+        "hosts",
+        "anchor",
+        "anchors",
+        "server",
+        "servers",
+        "model",
+        "models",
+    ),
+    "emotion": ("content", "tense", "missing", "comfort", "comfortable"),
+    "capital_city": ("Roman", "Romans"),
+    "holiday": (),
 }

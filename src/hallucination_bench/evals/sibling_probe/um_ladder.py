@@ -160,6 +160,7 @@ def patch_lexicon(lexicon: Mapping[str, Any]) -> dict[str, Any]:
 UM_LEXICON_PATH = DATA / "sibling_probe" / "um_lexicons.json"
 _CAP_ALL = False  # plan 0007: every Latin alias counts only when capitalised (city, holiday)
 _COMPATIBLE: dict[str, frozenset[str]] = {}
+MARK_NOUN = "COUNTRY"  # the judge's "MARKED <NOUN>:" header (country text unchanged)
 
 
 def load_lexicon(path: Path | None = None) -> dict[str, Any]:
@@ -177,6 +178,9 @@ def load_lexicon(path: Path | None = None) -> dict[str, Any]:
                 if alias in cat["concepts"][src][key]:
                     cat["concepts"][src][key].remove(alias)
                     cat["concepts"][dst][key].append(alias)
+    drop = {x.casefold() for x in D.DROP_ALIASES.get(CATEGORY, ())}
+    for c in cat["concepts"].values():
+        c["en"] = [x for x in c["en"] if x.casefold() not in drop]
     cat["block"] = sorted({*cat.get("block", []), *D.EXTRA_BLOCK.get(CATEGORY, ())})
     return {"categories": {CATEGORY: cat}, "ambiguous": {}}
 
@@ -184,7 +188,7 @@ def load_lexicon(path: Path | None = None) -> dict[str, Any]:
 def configure(domain: str) -> None:
     """Switch the module to a plan 0007 domain (country is the default and unchanged)."""
     global CATEGORY, ATTRIBUTE_QUESTION, COMMIT_SYSTEM, COMMIT_PROMPT_VERSION, GOLD_MAP
-    global GOLD_EQUIV, _CAP_ALL, _COMPATIBLE
+    global GOLD_EQUIV, _CAP_ALL, _COMPATIBLE, MARK_NOUN
     if domain == "country":
         return
     from hallucination_bench.evals.sibling_probe import um_domains as D
@@ -193,11 +197,14 @@ def configure(domain: str) -> None:
     CATEGORY = domain
     ATTRIBUTE_QUESTION = d.question
     COMMIT_SYSTEM = D.commit_system(d, MARK_L, MARK_R)
-    COMMIT_PROMPT_VERSION = f"umcommit-v1.1-{domain}"
+    # v1.2 = the one allowed revision per domain (dev: conjunctions vs alternatives, aliases
+    # naming a different instance); country keeps umcommit-v1.1
+    COMMIT_PROMPT_VERSION = f"umcommit-v1.2-{domain}"
     GOLD_MAP = {}
     GOLD_EQUIV = {}
     _CAP_ALL = d.capitalised_only_all
     _COMPATIBLE = dict(D.COMPATIBLE.get(domain, {}))
+    MARK_NOUN = d.noun.upper()
 
 
 class FastMatcher:
@@ -625,7 +632,7 @@ def render_commit(
     aliases = sorted({h["alias"] for h in sample["hits"]})
     head = (
         f"USER MESSAGE: {user_turn(item)}\nQUESTION: {ATTRIBUTE_QUESTION}\n"
-        f"MARKED COUNTRY: {label} (matched: {', '.join(repr(a) for a in aliases)})\n\n"
+        f"MARKED {MARK_NOUN}: {label} (matched: {', '.join(repr(a) for a in aliases)})\n\n"
     )
     if "tokens" in sample:
         ranks = {h["rank"] for h in sample["hits"] if h["source"] == "token"}
@@ -802,8 +809,11 @@ def select_distractors(
 
     import numpy as np
 
-    excl = (set(gold_equivalents(gold)) | set(committed_for_item)
-            | set(_COMPATIBLE.get(gold_concept(gold), ())))
+    excl = (
+        set(gold_equivalents(gold))
+        | set(committed_for_item)
+        | set(_COMPATIBLE.get(gold_concept(gold), ()))
+    )
     elig = sorted(c for c in concepts if c not in excl and valid44.get(c, False))
     g = np.asarray(centroids[gold_concept(gold)], dtype=np.float64)
 
