@@ -1,0 +1,562 @@
+{
+ "version": "umconcepts-v1",
+ "rule": "golds + siblings with >= 3 committed units + the 16 most-mentioned other concepts (not compatible with a gold); cap 80 (pool trimmed first)",
+ "concepts": [
+  {
+   "id": "admiration",
+   "label": "Admiration",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 30,
+   "n_mentions": 77,
+   "informal": []
+  },
+  {
+   "id": "afraid",
+   "label": "Afraid",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 61,
+   "n_mentions": 115,
+   "informal": []
+  },
+  {
+   "id": "amused",
+   "label": "Amused",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 13,
+   "n_mentions": 23,
+   "informal": []
+  },
+  {
+   "id": "angry",
+   "label": "angry",
+   "roles": [
+    "gold"
+   ],
+   "region": null,
+   "n_committed": 632,
+   "n_mentions": 1028,
+   "informal": []
+  },
+  {
+   "id": "betrayed",
+   "label": "Betrayed",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 193,
+   "n_mentions": 301,
+   "informal": []
+  },
+  {
+   "id": "bored",
+   "label": "Bored",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 3,
+   "n_mentions": 12,
+   "informal": []
+  },
+  {
+   "id": "calm",
+   "label": "Calm",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 20,
+   "n_mentions": 257,
+   "informal": []
+  },
+  {
+   "id": "compassionate",
+   "label": "Compassionate",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 12,
+   "n_mentions": 1092,
+   "informal": []
+  },
+  {
+   "id": "confident",
+   "label": "Confident",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 4,
+   "n_mentions": 98,
+   "informal": []
+  },
+  {
+   "id": "confused",
+   "label": "Confused",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 65,
+   "n_mentions": 129,
+   "informal": []
+  },
+  {
+   "id": "contempt",
+   "label": "Contempt",
+   "roles": [
+    "pool:*"
+   ],
+   "region": null,
+   "n_committed": 0,
+   "n_mentions": 1,
+   "informal": []
+  },
+  {
+   "id": "content",
+   "label": "Content",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 8,
+   "n_mentions": 43,
+   "informal": []
+  },
+  {
+   "id": "curious",
+   "label": "Curious",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 6,
+   "n_mentions": 19,
+   "informal": []
+  },
+  {
+   "id": "depressed",
+   "label": "Depressed",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 17,
+   "n_mentions": 43,
+   "informal": []
+  },
+  {
+   "id": "determined",
+   "label": "Determined",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 12,
+   "n_mentions": 68,
+   "informal": []
+  },
+  {
+   "id": "disappointed",
+   "label": "disappointed",
+   "roles": [
+    "gold"
+   ],
+   "region": null,
+   "n_committed": 119,
+   "n_mentions": 183,
+   "informal": []
+  },
+  {
+   "id": "disgusted",
+   "label": "Disgusted",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 6,
+   "n_mentions": 11,
+   "informal": []
+  },
+  {
+   "id": "embarrassed",
+   "label": "embarrassed",
+   "roles": [
+    "gold"
+   ],
+   "region": null,
+   "n_committed": 147,
+   "n_mentions": 237,
+   "informal": []
+  },
+  {
+   "id": "excited",
+   "label": "excited",
+   "roles": [
+    "gold"
+   ],
+   "region": null,
+   "n_committed": 202,
+   "n_mentions": 523,
+   "informal": []
+  },
+  {
+   "id": "grateful",
+   "label": "grateful",
+   "roles": [
+    "gold"
+   ],
+   "region": null,
+   "n_committed": 275,
+   "n_mentions": 937,
+   "informal": []
+  },
+  {
+   "id": "guilty",
+   "label": "Guilty",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 69,
+   "n_mentions": 154,
+   "informal": []
+  },
+  {
+   "id": "happy",
+   "label": "happy",
+   "roles": [
+    "gold"
+   ],
+   "region": null,
+   "n_committed": 192,
+   "n_mentions": 563,
+   "informal": []
+  },
+  {
+   "id": "helpless",
+   "label": "Helpless",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 13,
+   "n_mentions": 25,
+   "informal": []
+  },
+  {
+   "id": "hopeful",
+   "label": "hopeful",
+   "roles": [
+    "gold"
+   ],
+   "region": null,
+   "n_committed": 61,
+   "n_mentions": 181,
+   "informal": []
+  },
+  {
+   "id": "hopeless",
+   "label": "Hopeless",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 13,
+   "n_mentions": 37,
+   "informal": []
+  },
+  {
+   "id": "hurt",
+   "label": "hurt",
+   "roles": [
+    "gold"
+   ],
+   "region": null,
+   "n_committed": 72,
+   "n_mentions": 130,
+   "informal": []
+  },
+  {
+   "id": "impatient",
+   "label": "Impatient",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 5,
+   "n_mentions": 11,
+   "informal": []
+  },
+  {
+   "id": "indifferent",
+   "label": "Indifferent",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 14,
+   "n_mentions": 34,
+   "informal": []
+  },
+  {
+   "id": "insecure",
+   "label": "Insecure",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 16,
+   "n_mentions": 37,
+   "informal": []
+  },
+  {
+   "id": "inspired",
+   "label": "Inspired",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 4,
+   "n_mentions": 87,
+   "informal": []
+  },
+  {
+   "id": "jealous",
+   "label": "jealous",
+   "roles": [
+    "gold"
+   ],
+   "region": null,
+   "n_committed": 27,
+   "n_mentions": 66,
+   "informal": []
+  },
+  {
+   "id": "lonely",
+   "label": "Lonely",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 64,
+   "n_mentions": 190,
+   "informal": []
+  },
+  {
+   "id": "lonely_homesick",
+   "label": "Homesick",
+   "roles": [
+    "pool:*"
+   ],
+   "region": null,
+   "n_committed": 1,
+   "n_mentions": 1,
+   "informal": []
+  },
+  {
+   "id": "love",
+   "label": "Love",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 87,
+   "n_mentions": 555,
+   "informal": []
+  },
+  {
+   "id": "nervous",
+   "label": "nervous",
+   "roles": [
+    "gold"
+   ],
+   "region": null,
+   "n_committed": 255,
+   "n_mentions": 499,
+   "informal": []
+  },
+  {
+   "id": "nostalgic",
+   "label": "Nostalgic",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 102,
+   "n_mentions": 322,
+   "informal": []
+  },
+  {
+   "id": "overwhelmed",
+   "label": "overwhelmed",
+   "roles": [
+    "gold"
+   ],
+   "region": null,
+   "n_committed": 124,
+   "n_mentions": 249,
+   "informal": []
+  },
+  {
+   "id": "proud",
+   "label": "proud",
+   "roles": [
+    "gold"
+   ],
+   "region": null,
+   "n_committed": 63,
+   "n_mentions": 127,
+   "informal": []
+  },
+  {
+   "id": "regretful_longing",
+   "label": "Longing",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 25,
+   "n_mentions": 56,
+   "informal": []
+  },
+  {
+   "id": "relieved",
+   "label": "relieved",
+   "roles": [
+    "gold"
+   ],
+   "region": null,
+   "n_committed": 193,
+   "n_mentions": 288,
+   "informal": []
+  },
+  {
+   "id": "resentful",
+   "label": "resentful",
+   "roles": [
+    "gold"
+   ],
+   "region": null,
+   "n_committed": 98,
+   "n_mentions": 194,
+   "informal": []
+  },
+  {
+   "id": "sad",
+   "label": "sad",
+   "roles": [
+    "gold"
+   ],
+   "region": null,
+   "n_committed": 180,
+   "n_mentions": 581,
+   "informal": []
+  },
+  {
+   "id": "safe",
+   "label": "Safe",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 4,
+   "n_mentions": 113,
+   "informal": []
+  },
+  {
+   "id": "shy",
+   "label": "Shy",
+   "roles": [
+    "pool:*"
+   ],
+   "region": null,
+   "n_committed": 1,
+   "n_mentions": 7,
+   "informal": []
+  },
+  {
+   "id": "stressed",
+   "label": "Stressed",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 308,
+   "n_mentions": 615,
+   "informal": []
+  },
+  {
+   "id": "surprised",
+   "label": "surprised",
+   "roles": [
+    "gold"
+   ],
+   "region": null,
+   "n_committed": 93,
+   "n_mentions": 188,
+   "informal": []
+  },
+  {
+   "id": "suspicious",
+   "label": "Suspicious",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 4,
+   "n_mentions": 29,
+   "informal": []
+  },
+  {
+   "id": "tired",
+   "label": "Tired",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 397,
+   "n_mentions": 662,
+   "informal": []
+  },
+  {
+   "id": "trusting",
+   "label": "Trusting",
+   "roles": [
+    "pool:*"
+   ],
+   "region": null,
+   "n_committed": 0,
+   "n_mentions": 35,
+   "informal": []
+  },
+  {
+   "id": "vulnerable",
+   "label": "Vulnerable",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 39,
+   "n_mentions": 80,
+   "informal": []
+  }
+ ],
+ "n_golds": 16,
+ "n_siblings": 30,
+ "n_pool": 4,
+ "trimmed_pool": [],
+ "trimmed_siblings": [],
+ "committed_not_in_C": []
+}

@@ -121,10 +121,13 @@ def pack_shard(shard: int, inputs: dict) -> dict:
         res = list(ex.map(one, labels))
     d = OUT_MOUNT / inputs["run"] / "pack"
     d.mkdir(parents=True, exist_ok=True)
+    # windows differ in length across request sentences (plan 0007): store flat + lengths
     for k, L in enumerate(layers):
-        np.save(d / f"L{L:02d}_s{shard:02d}.npy", np.stack([r[0][k] for r in res]))
+        np.save(d / f"L{L:02d}_s{shard:02d}.npy", np.concatenate([r[0][k] for r in res]))
     (d / f"s{shard:02d}.json").write_text(
-        json.dumps({"labels": labels, "offsets": [r[1] for r in res]})
+        json.dumps(
+            {"labels": labels, "offsets": [r[1] for r in res], "lengths": [len(r[1]) for r in res]}
+        )
     )
     out_vol.commit()
     return {"shard": shard, "n": len(labels), "read_s": round(time.time() - t, 1)}
@@ -140,8 +143,14 @@ def _textset(inputs: dict, layer: int):
     for sh in range(N_PACK_SHARDS):
         meta = json.loads((d / f"s{sh:02d}.json").read_text())
         arr = np.load(d / f"L{layer:02d}_s{sh:02d}.npy")
-        for i, (lab, off) in enumerate(zip(meta["labels"], meta["offsets"], strict=True)):
-            win[lab] = (arr[i].astype(np.float32), off)
+        if arr.ndim == 3:  # plan 0006 layout: [n, window, d], equal windows
+            for i, (lab, off) in enumerate(zip(meta["labels"], meta["offsets"], strict=True)):
+                win[lab] = (arr[i].astype(np.float32), off)
+            continue
+        start = 0
+        for lab, off, n in zip(meta["labels"], meta["offsets"], meta["lengths"], strict=True):
+            win[lab] = (arr[start : start + n].astype(np.float32), off)
+            start += n
     missing = [t["id"] for t in texts if t["id"] not in win]
     if missing:
         raise RuntimeError(f"pack lacks {len(missing)} texts, e.g. {missing[:3]}")

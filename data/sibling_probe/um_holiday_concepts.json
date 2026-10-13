@@ -1,0 +1,419 @@
+{
+ "version": "umconcepts-v1",
+ "rule": "golds + siblings with >= 3 committed units + the 16 most-mentioned other concepts (not compatible with a gold); cap 80 (pool trimmed first)",
+ "concepts": [
+  {
+   "id": "all_saints_day",
+   "label": "All Saints' Day",
+   "roles": [
+    "pool:*"
+   ],
+   "region": null,
+   "n_committed": 0,
+   "n_mentions": 0,
+   "informal": []
+  },
+  {
+   "id": "april_fools",
+   "label": "April Fools' Day",
+   "roles": [
+    "pool:*"
+   ],
+   "region": null,
+   "n_committed": 0,
+   "n_mentions": 1,
+   "informal": []
+  },
+  {
+   "id": "australia_day",
+   "label": "Australia Day",
+   "roles": [
+    "pool:*"
+   ],
+   "region": null,
+   "n_committed": 0,
+   "n_mentions": 0,
+   "informal": []
+  },
+  {
+   "id": "bastille_day",
+   "label": "Bastille Day",
+   "roles": [
+    "pool:*"
+   ],
+   "region": null,
+   "n_committed": 0,
+   "n_mentions": 0,
+   "informal": []
+  },
+  {
+   "id": "canada_day",
+   "label": "Canada Day",
+   "roles": [
+    "pool:*"
+   ],
+   "region": null,
+   "n_committed": 0,
+   "n_mentions": 0,
+   "informal": []
+  },
+  {
+   "id": "christmas",
+   "label": "Christmas",
+   "roles": [
+    "gold"
+   ],
+   "region": null,
+   "n_committed": 105,
+   "n_mentions": 212,
+   "informal": []
+  },
+  {
+   "id": "diwali",
+   "label": "Diwali",
+   "roles": [
+    "gold"
+   ],
+   "region": null,
+   "n_committed": 0,
+   "n_mentions": 0,
+   "informal": []
+  },
+  {
+   "id": "dragon_boat",
+   "label": "Dragon Boat Festival",
+   "roles": [
+    "pool:*"
+   ],
+   "region": null,
+   "n_committed": 2,
+   "n_mentions": 3,
+   "informal": []
+  },
+  {
+   "id": "earth_day",
+   "label": "Earth Day",
+   "roles": [
+    "pool:*"
+   ],
+   "region": null,
+   "n_committed": 1,
+   "n_mentions": 5,
+   "informal": []
+  },
+  {
+   "id": "easter",
+   "label": "Easter",
+   "roles": [
+    "gold"
+   ],
+   "region": null,
+   "n_committed": 19,
+   "n_mentions": 28,
+   "informal": []
+  },
+  {
+   "id": "fathers_day",
+   "label": "Father's Day",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 11,
+   "n_mentions": 15,
+   "informal": []
+  },
+  {
+   "id": "ghost_festival",
+   "label": "Ghost Festival",
+   "roles": [
+    "pool:*"
+   ],
+   "region": null,
+   "n_committed": 1,
+   "n_mentions": 1,
+   "informal": []
+  },
+  {
+   "id": "halloween",
+   "label": "Halloween",
+   "roles": [
+    "gold"
+   ],
+   "region": null,
+   "n_committed": 152,
+   "n_mentions": 290,
+   "informal": []
+  },
+  {
+   "id": "hanukkah",
+   "label": "Hanukkah",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 7,
+   "n_mentions": 27,
+   "informal": []
+  },
+  {
+   "id": "holi",
+   "label": "Holi",
+   "roles": [
+    "pool:*"
+   ],
+   "region": null,
+   "n_committed": 0,
+   "n_mentions": 5,
+   "informal": []
+  },
+  {
+   "id": "independence_day",
+   "label": "Independence Day",
+   "roles": [
+    "gold"
+   ],
+   "region": null,
+   "n_committed": 35,
+   "n_mentions": 41,
+   "informal": []
+  },
+  {
+   "id": "kwanzaa",
+   "label": "Kwanzaa",
+   "roles": [
+    "pool:*"
+   ],
+   "region": null,
+   "n_committed": 1,
+   "n_mentions": 1,
+   "informal": []
+  },
+  {
+   "id": "labor_day",
+   "label": "Labor Day",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 4,
+   "n_mentions": 5,
+   "informal": []
+  },
+  {
+   "id": "lunar_new_year",
+   "label": "Lunar New Year",
+   "roles": [
+    "gold"
+   ],
+   "region": null,
+   "n_committed": 9,
+   "n_mentions": 44,
+   "informal": []
+  },
+  {
+   "id": "mardi_gras",
+   "label": "Mardi Gras",
+   "roles": [
+    "pool:*"
+   ],
+   "region": null,
+   "n_committed": 0,
+   "n_mentions": 1,
+   "informal": []
+  },
+  {
+   "id": "memorial_day",
+   "label": "Memorial Day",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 9,
+   "n_mentions": 18,
+   "informal": []
+  },
+  {
+   "id": "mid_autumn",
+   "label": "Mid-Autumn Festival",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 9,
+   "n_mentions": 29,
+   "informal": []
+  },
+  {
+   "id": "mothers_day",
+   "label": "Mother's Day",
+   "roles": [
+    "gold"
+   ],
+   "region": null,
+   "n_committed": 27,
+   "n_mentions": 33,
+   "informal": []
+  },
+  {
+   "id": "national_day_china",
+   "label": "National Day (China)",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 3,
+   "n_mentions": 6,
+   "informal": []
+  },
+  {
+   "id": "navratri",
+   "label": "Navratri",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 4,
+   "n_mentions": 30,
+   "informal": []
+  },
+  {
+   "id": "new_year",
+   "label": "New Year",
+   "roles": [
+    "gold"
+   ],
+   "region": null,
+   "n_committed": 18,
+   "n_mentions": 45,
+   "informal": []
+  },
+  {
+   "id": "obon",
+   "label": "Obon",
+   "roles": [
+    "pool:*"
+   ],
+   "region": null,
+   "n_committed": 0,
+   "n_mentions": 1,
+   "informal": []
+  },
+  {
+   "id": "passover",
+   "label": "Passover",
+   "roles": [
+    "gold"
+   ],
+   "region": null,
+   "n_committed": 4,
+   "n_mentions": 8,
+   "informal": []
+  },
+  {
+   "id": "purim",
+   "label": "Purim",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 3,
+   "n_mentions": 4,
+   "informal": []
+  },
+  {
+   "id": "ramadan",
+   "label": "Ramadan",
+   "roles": [
+    "pool:*"
+   ],
+   "region": null,
+   "n_committed": 1,
+   "n_mentions": 18,
+   "informal": []
+  },
+  {
+   "id": "rosh_hashanah",
+   "label": "Rosh Hashanah",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 5,
+   "n_mentions": 15,
+   "informal": []
+  },
+  {
+   "id": "st_patricks_day",
+   "label": "St. Patrick's Day",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 5,
+   "n_mentions": 6,
+   "informal": []
+  },
+  {
+   "id": "teachers_day",
+   "label": "Teachers' Day",
+   "roles": [
+    "pool:*"
+   ],
+   "region": null,
+   "n_committed": 1,
+   "n_mentions": 1,
+   "informal": []
+  },
+  {
+   "id": "thanksgiving",
+   "label": "Thanksgiving",
+   "roles": [
+    "gold"
+   ],
+   "region": null,
+   "n_committed": 190,
+   "n_mentions": 315,
+   "informal": []
+  },
+  {
+   "id": "valentines",
+   "label": "Valentine's Day",
+   "roles": [
+    "gold"
+   ],
+   "region": null,
+   "n_committed": 32,
+   "n_mentions": 46,
+   "informal": []
+  },
+  {
+   "id": "winter_solstice",
+   "label": "Winter Solstice Festival",
+   "roles": [
+    "pool:*"
+   ],
+   "region": null,
+   "n_committed": 1,
+   "n_mentions": 2,
+   "informal": []
+  },
+  {
+   "id": "yom_kippur",
+   "label": "Yom Kippur",
+   "roles": [
+    "pool:*"
+   ],
+   "region": null,
+   "n_committed": 1,
+   "n_mentions": 1,
+   "informal": []
+  }
+ ],
+ "n_golds": 11,
+ "n_siblings": 10,
+ "n_pool": 16,
+ "trimmed_pool": [],
+ "trimmed_siblings": [],
+ "committed_not_in_C": []
+}

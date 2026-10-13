@@ -1,0 +1,1191 @@
+{
+ "version": "umdist-v1",
+ "layer": 44,
+ "rule": "4 nearest (grand-mean-centred implied centroids, cosine) + 4 seeded random among C, valid at L44 in both types, not gold / equivalent, not committed for the item",
+ "items": {
+  "gen-occupation-anthropologist-a0-00": {
+   "item": "gen-occupation-anthropologist-a0-00",
+   "gold": "anthropologist",
+   "nearest": [
+    "philosopher",
+    "geologist",
+    "economist",
+    "astronomer"
+   ],
+   "random": [
+    "designer",
+    "diplomat",
+    "paramedic",
+    "truck_driver"
+   ],
+   "distractors": [
+    "philosopher",
+    "geologist",
+    "economist",
+    "astronomer",
+    "designer",
+    "diplomat",
+    "paramedic",
+    "truck_driver"
+   ],
+   "n_eligible": 58,
+   "cos_to_gold": {
+    "philosopher": 0.5955,
+    "geologist": 0.5649,
+    "economist": 0.4169,
+    "astronomer": 0.3687,
+    "designer": -0.1241,
+    "diplomat": 0.182,
+    "paramedic": -0.1946,
+    "truck_driver": -0.4168
+   }
+  },
+  "gen-occupation-artist-a0-00": {
+   "item": "gen-occupation-artist-a0-00",
+   "gold": "artist",
+   "nearest": [
+    "singer",
+    "actor",
+    "philosopher",
+    "anthropologist"
+   ],
+   "random": [
+    "flight_attendant",
+    "journalist",
+    "news_anchor",
+    "truck_driver"
+   ],
+   "distractors": [
+    "singer",
+    "actor",
+    "philosopher",
+    "anthropologist",
+    "flight_attendant",
+    "journalist",
+    "news_anchor",
+    "truck_driver"
+   ],
+   "n_eligible": 56,
+   "cos_to_gold": {
+    "singer": 0.4579,
+    "actor": 0.4533,
+    "philosopher": 0.2609,
+    "anthropologist": 0.2443,
+    "flight_attendant": -0.284,
+    "journalist": 0.1475,
+    "news_anchor": -0.1068,
+    "truck_driver": -0.3546
+   }
+  },
+  "gen-occupation-artist-a0-01": {
+   "item": "gen-occupation-artist-a0-01",
+   "gold": "artist",
+   "nearest": [
+    "singer",
+    "photographer",
+    "architect",
+    "philosopher"
+   ],
+   "random": [
+    "diplomat",
+    "pilot",
+    "plumber",
+    "stockbroker"
+   ],
+   "distractors": [
+    "singer",
+    "photographer",
+    "architect",
+    "philosopher",
+    "diplomat",
+    "pilot",
+    "plumber",
+    "stockbroker"
+   ],
+   "n_eligible": 57,
+   "cos_to_gold": {
+    "singer": 0.4579,
+    "photographer": 0.3667,
+    "architect": 0.2804,
+    "philosopher": 0.2609,
+    "diplomat": 0.009,
+    "pilot": -0.1209,
+    "plumber": -0.4154,
+    "stockbroker": -0.226
+   }
+  },
+  "gen-occupation-entrepreneur-a0-00": {
+   "item": "gen-occupation-entrepreneur-a0-00",
+   "gold": "entrepreneur",
+   "nearest": [
+    "inventor",
+    "chef",
+    "film_director",
+    "singer"
+   ],
+   "random": [
+    "librarian",
+    "news_anchor",
+    "poet",
+    "stockbroker"
+   ],
+   "distractors": [
+    "inventor",
+    "chef",
+    "film_director",
+    "singer",
+    "librarian",
+    "news_anchor",
+    "poet",
+    "stockbroker"
+   ],
+   "n_eligible": 61,
+   "cos_to_gold": {
+    "inventor": 0.3364,
+    "chef": 0.2517,
+    "film_director": 0.2313,
+    "singer": 0.1984,
+    "librarian": -0.1256,
+    "news_anchor": -0.0861,
+    "poet": -0.042,
+    "stockbroker": 0.0785
+   }
+  },
+  "gen-occupation-entrepreneur-a0-01": {
+   "item": "gen-occupation-entrepreneur-a0-01",
+   "gold": "entrepreneur",
+   "nearest": [
+    "inventor",
+    "blogger",
+    "chef",
+    "film_director"
+   ],
+   "random": [
+    "biologist",
+    "miner",
+    "scientist",
+    "stockbroker"
+   ],
+   "distractors": [
+    "inventor",
+    "blogger",
+    "chef",
+    "film_director",
+    "biologist",
+    "miner",
+    "scientist",
+    "stockbroker"
+   ],
+   "n_eligible": 61,
+   "cos_to_gold": {
+    "inventor": 0.3364,
+    "blogger": 0.3331,
+    "chef": 0.2517,
+    "film_director": 0.2313,
+    "biologist": -0.113,
+    "miner": -0.1201,
+    "scientist": -0.065,
+    "stockbroker": 0.0785
+   }
+  },
+  "gen-occupation-farmer-a0-00": {
+   "item": "gen-occupation-farmer-a0-00",
+   "gold": "farmer",
+   "nearest": [
+    "miner",
+    "hunter",
+    "mechanic",
+    "sailor"
+   ],
+   "random": [
+    "coach",
+    "librarian",
+    "philosopher",
+    "plumber"
+   ],
+   "distractors": [
+    "miner",
+    "hunter",
+    "mechanic",
+    "sailor",
+    "coach",
+    "librarian",
+    "philosopher",
+    "plumber"
+   ],
+   "n_eligible": 56,
+   "cos_to_gold": {
+    "miner": 0.5184,
+    "hunter": 0.477,
+    "mechanic": 0.4248,
+    "sailor": 0.3688,
+    "coach": 0.0055,
+    "librarian": 0.1006,
+    "philosopher": -0.3245,
+    "plumber": 0.3007
+   }
+  },
+  "gen-occupation-hacker-a0-00": {
+   "item": "gen-occupation-hacker-a0-00",
+   "gold": "hacker",
+   "nearest": [
+    "locksmith",
+    "librarian",
+    "economist",
+    "statistician"
+   ],
+   "random": [
+    "historian",
+    "linguist",
+    "photographer",
+    "plumber"
+   ],
+   "distractors": [
+    "locksmith",
+    "librarian",
+    "economist",
+    "statistician",
+    "historian",
+    "linguist",
+    "photographer",
+    "plumber"
+   ],
+   "n_eligible": 46,
+   "cos_to_gold": {
+    "locksmith": 0.5068,
+    "librarian": 0.2214,
+    "economist": 0.1949,
+    "statistician": 0.1936,
+    "historian": -0.0284,
+    "linguist": -0.0196,
+    "photographer": 0.0652,
+    "plumber": 0.0881
+   }
+  },
+  "gen-occupation-historian-a0-01": {
+   "item": "gen-occupation-historian-a0-01",
+   "gold": "historian",
+   "nearest": [
+    "anthropologist",
+    "philosopher",
+    "economist",
+    "linguist"
+   ],
+   "random": [
+    "consultant",
+    "gardener",
+    "producer",
+    "stockbroker"
+   ],
+   "distractors": [
+    "anthropologist",
+    "philosopher",
+    "economist",
+    "linguist",
+    "consultant",
+    "gardener",
+    "producer",
+    "stockbroker"
+   ],
+   "n_eligible": 68,
+   "cos_to_gold": {
+    "anthropologist": 0.5267,
+    "philosopher": 0.5164,
+    "economist": 0.4793,
+    "linguist": 0.4728,
+    "consultant": -0.0244,
+    "gardener": 0.0974,
+    "producer": -0.0365,
+    "stockbroker": -0.1469
+   }
+  },
+  "gen-occupation-musician-a0-01": {
+   "item": "gen-occupation-musician-a0-01",
+   "gold": "musician",
+   "nearest": [
+    "athlete",
+    "poet",
+    "comedian",
+    "photographer"
+   ],
+   "random": [
+    "locksmith",
+    "miner",
+    "pharmacist",
+    "teacher"
+   ],
+   "distractors": [
+    "athlete",
+    "poet",
+    "comedian",
+    "photographer",
+    "locksmith",
+    "miner",
+    "pharmacist",
+    "teacher"
+   ],
+   "n_eligible": 62,
+   "cos_to_gold": {
+    "athlete": 0.4636,
+    "poet": 0.3268,
+    "comedian": 0.294,
+    "photographer": 0.2499,
+    "locksmith": -0.0861,
+    "miner": -0.0281,
+    "pharmacist": -0.2882,
+    "teacher": -0.0494
+   }
+  },
+  "gen-occupation-musician-a0-03": {
+   "item": "gen-occupation-musician-a0-03",
+   "gold": "musician",
+   "nearest": [
+    "athlete",
+    "film_director",
+    "poet",
+    "chef"
+   ],
+   "random": [
+    "astronaut",
+    "geologist",
+    "inventor",
+    "teacher"
+   ],
+   "distractors": [
+    "athlete",
+    "film_director",
+    "poet",
+    "chef",
+    "astronaut",
+    "geologist",
+    "inventor",
+    "teacher"
+   ],
+   "n_eligible": 64,
+   "cos_to_gold": {
+    "athlete": 0.4636,
+    "film_director": 0.3697,
+    "poet": 0.3268,
+    "chef": 0.3198,
+    "astronaut": 0.0248,
+    "geologist": -0.0937,
+    "inventor": -0.1007,
+    "teacher": -0.0494
+   }
+  },
+  "gen-occupation-researcher-a0-00": {
+   "item": "gen-occupation-researcher-a0-00",
+   "gold": "researcher",
+   "nearest": [
+    "linguist",
+    "philosopher",
+    "anthropologist",
+    "historian"
+   ],
+   "random": [
+    "architect",
+    "astronaut",
+    "flight_attendant",
+    "journalist"
+   ],
+   "distractors": [
+    "linguist",
+    "philosopher",
+    "anthropologist",
+    "historian",
+    "architect",
+    "astronaut",
+    "flight_attendant",
+    "journalist"
+   ],
+   "n_eligible": 57,
+   "cos_to_gold": {
+    "linguist": 0.4228,
+    "philosopher": 0.3965,
+    "anthropologist": 0.3955,
+    "historian": 0.326,
+    "architect": 0.2634,
+    "astronaut": 0.0798,
+    "flight_attendant": -0.4731,
+    "journalist": -0.1214
+   }
+  },
+  "gen-occupation-sailor-a0-00": {
+   "item": "gen-occupation-sailor-a0-00",
+   "gold": "sailor",
+   "nearest": [
+    "miner",
+    "soldier",
+    "flight_attendant",
+    "driver"
+   ],
+   "random": [
+    "data_scientist",
+    "judge",
+    "secretary",
+    "teacher"
+   ],
+   "distractors": [
+    "miner",
+    "soldier",
+    "flight_attendant",
+    "driver",
+    "data_scientist",
+    "judge",
+    "secretary",
+    "teacher"
+   ],
+   "n_eligible": 50,
+   "cos_to_gold": {
+    "miner": 0.6173,
+    "soldier": 0.4337,
+    "flight_attendant": 0.3859,
+    "driver": 0.3706,
+    "data_scientist": -0.4249,
+    "judge": -0.0221,
+    "secretary": -0.0152,
+    "teacher": -0.0878
+   }
+  },
+  "gen-occupation-scientist-a0-00": {
+   "item": "gen-occupation-scientist-a0-00",
+   "gold": "scientist",
+   "nearest": [
+    "philosopher",
+    "historian",
+    "economist",
+    "linguist"
+   ],
+   "random": [
+    "barista",
+    "consultant",
+    "designer",
+    "journalist"
+   ],
+   "distractors": [
+    "philosopher",
+    "historian",
+    "economist",
+    "linguist",
+    "barista",
+    "consultant",
+    "designer",
+    "journalist"
+   ],
+   "n_eligible": 58,
+   "cos_to_gold": {
+    "philosopher": 0.3501,
+    "historian": 0.3338,
+    "economist": 0.3108,
+    "linguist": 0.3057,
+    "barista": -0.001,
+    "consultant": 0.0152,
+    "designer": -0.0111,
+    "journalist": 0.0331
+   }
+  },
+  "gen-occupation-software-engineer-a0-00": {
+   "item": "gen-occupation-software-engineer-a0-00",
+   "gold": "software_engineer",
+   "nearest": [
+    "statistician",
+    "consultant",
+    "physicist",
+    "blogger"
+   ],
+   "random": [
+    "architect",
+    "executive",
+    "lawyer",
+    "news_anchor"
+   ],
+   "distractors": [
+    "statistician",
+    "consultant",
+    "physicist",
+    "blogger",
+    "architect",
+    "executive",
+    "lawyer",
+    "news_anchor"
+   ],
+   "n_eligible": 65,
+   "cos_to_gold": {
+    "statistician": 0.4589,
+    "consultant": 0.387,
+    "physicist": 0.2818,
+    "blogger": 0.2692,
+    "architect": 0.0114,
+    "executive": -0.0137,
+    "lawyer": -0.0432,
+    "news_anchor": -0.1269
+   }
+  },
+  "gen-occupation-software-engineer-a0-01": {
+   "item": "gen-occupation-software-engineer-a0-01",
+   "gold": "software_engineer",
+   "nearest": [
+    "statistician",
+    "designer",
+    "consultant",
+    "mathematician"
+   ],
+   "random": [
+    "carpenter",
+    "detective",
+    "historian",
+    "lawyer"
+   ],
+   "distractors": [
+    "statistician",
+    "designer",
+    "consultant",
+    "mathematician",
+    "carpenter",
+    "detective",
+    "historian",
+    "lawyer"
+   ],
+   "n_eligible": 69,
+   "cos_to_gold": {
+    "statistician": 0.4589,
+    "designer": 0.4117,
+    "consultant": 0.387,
+    "mathematician": 0.3168,
+    "carpenter": -0.0029,
+    "detective": -0.3257,
+    "historian": -0.0246,
+    "lawyer": -0.0432
+   }
+  },
+  "gen-occupation-student-a0-00": {
+   "item": "gen-occupation-student-a0-00",
+   "gold": "student",
+   "nearest": [
+    "physicist",
+    "scientist",
+    "actor",
+    "clerk"
+   ],
+   "random": [
+    "fisherman",
+    "hunter",
+    "philosopher",
+    "singer"
+   ],
+   "distractors": [
+    "physicist",
+    "scientist",
+    "actor",
+    "clerk",
+    "fisherman",
+    "hunter",
+    "philosopher",
+    "singer"
+   ],
+   "n_eligible": 65,
+   "cos_to_gold": {
+    "physicist": 0.3013,
+    "scientist": 0.2738,
+    "actor": 0.2495,
+    "clerk": 0.2404,
+    "fisherman": -0.1865,
+    "hunter": -0.1794,
+    "philosopher": -0.154,
+    "singer": -0.0308
+   }
+  },
+  "gen-occupation-student-a0-01": {
+   "item": "gen-occupation-student-a0-01",
+   "gold": "student",
+   "nearest": [
+    "teacher",
+    "physicist",
+    "scientist",
+    "actor"
+   ],
+   "random": [
+    "flight_attendant",
+    "inventor",
+    "spy",
+    "technician"
+   ],
+   "distractors": [
+    "teacher",
+    "physicist",
+    "scientist",
+    "actor",
+    "flight_attendant",
+    "inventor",
+    "spy",
+    "technician"
+   ],
+   "n_eligible": 70,
+   "cos_to_gold": {
+    "teacher": 0.4497,
+    "physicist": 0.3013,
+    "scientist": 0.2738,
+    "actor": 0.2495,
+    "flight_attendant": 0.0795,
+    "inventor": 0.1035,
+    "spy": -0.1505,
+    "technician": -0.1299
+   }
+  },
+  "gen-occupation-writer-a0-00": {
+   "item": "gen-occupation-writer-a0-00",
+   "gold": "writer",
+   "nearest": [
+    "comedian",
+    "singer",
+    "producer",
+    "scientist"
+   ],
+   "random": [
+    "clerk",
+    "doctor",
+    "professor",
+    "soldier"
+   ],
+   "distractors": [
+    "comedian",
+    "singer",
+    "producer",
+    "scientist",
+    "clerk",
+    "doctor",
+    "professor",
+    "soldier"
+   ],
+   "n_eligible": 65,
+   "cos_to_gold": {
+    "comedian": 0.5636,
+    "singer": 0.3531,
+    "producer": 0.2927,
+    "scientist": 0.2371,
+    "clerk": -0.1296,
+    "doctor": -0.1815,
+    "professor": 0.1112,
+    "soldier": -0.197
+   }
+  },
+  "um-sd-occupation-00": {
+   "item": "um-sd-occupation-00",
+   "gold": "fisherman",
+   "nearest": [
+    "truck_driver",
+    "driver",
+    "plumber",
+    "courier"
+   ],
+   "random": [
+    "astronomer",
+    "biologist",
+    "secretary",
+    "singer"
+   ],
+   "distractors": [
+    "truck_driver",
+    "driver",
+    "plumber",
+    "courier",
+    "astronomer",
+    "biologist",
+    "secretary",
+    "singer"
+   ],
+   "n_eligible": 53,
+   "cos_to_gold": {
+    "truck_driver": 0.5911,
+    "driver": 0.4942,
+    "plumber": 0.4568,
+    "courier": 0.4221,
+    "astronomer": -0.296,
+    "biologist": -0.2988,
+    "secretary": 0.0743,
+    "singer": -0.0918
+   }
+  },
+  "um-sd-occupation-01": {
+   "item": "um-sd-occupation-01",
+   "gold": "fisherman",
+   "nearest": [
+    "miner",
+    "truck_driver",
+    "driver",
+    "plumber"
+   ],
+   "random": [
+    "courier",
+    "locksmith",
+    "pilot",
+    "technician"
+   ],
+   "distractors": [
+    "miner",
+    "truck_driver",
+    "driver",
+    "plumber",
+    "courier",
+    "locksmith",
+    "pilot",
+    "technician"
+   ],
+   "n_eligible": 53,
+   "cos_to_gold": {
+    "miner": 0.6683,
+    "truck_driver": 0.5911,
+    "driver": 0.4942,
+    "plumber": 0.4568,
+    "courier": 0.4221,
+    "locksmith": 0.287,
+    "pilot": 0.1401,
+    "technician": 0.172
+   }
+  },
+  "um-sd-occupation-03": {
+   "item": "um-sd-occupation-03",
+   "gold": "fisherman",
+   "nearest": [
+    "miner",
+    "farmer",
+    "truck_driver",
+    "driver"
+   ],
+   "random": [
+    "lawyer",
+    "mathematician",
+    "spy",
+    "teacher"
+   ],
+   "distractors": [
+    "miner",
+    "farmer",
+    "truck_driver",
+    "driver",
+    "lawyer",
+    "mathematician",
+    "spy",
+    "teacher"
+   ],
+   "n_eligible": 48,
+   "cos_to_gold": {
+    "miner": 0.6683,
+    "farmer": 0.6016,
+    "truck_driver": 0.5911,
+    "driver": 0.4942,
+    "lawyer": -0.1523,
+    "mathematician": -0.3189,
+    "spy": 0.0433,
+    "teacher": -0.1127
+   }
+  },
+  "um-sd-occupation-06": {
+   "item": "um-sd-occupation-06",
+   "gold": "fisherman",
+   "nearest": [
+    "miner",
+    "farmer",
+    "truck_driver",
+    "plumber"
+   ],
+   "random": [
+    "barista",
+    "gardener",
+    "lawyer",
+    "secretary"
+   ],
+   "distractors": [
+    "miner",
+    "farmer",
+    "truck_driver",
+    "plumber",
+    "barista",
+    "gardener",
+    "lawyer",
+    "secretary"
+   ],
+   "n_eligible": 62,
+   "cos_to_gold": {
+    "miner": 0.6683,
+    "farmer": 0.6016,
+    "truck_driver": 0.5911,
+    "plumber": 0.4568,
+    "barista": -0.0274,
+    "gardener": 0.1945,
+    "lawyer": -0.1523,
+    "secretary": 0.0743
+   }
+  },
+  "um-sd-occupation-08": {
+   "item": "um-sd-occupation-08",
+   "gold": "fisherman",
+   "nearest": [
+    "farmer",
+    "truck_driver",
+    "driver",
+    "plumber"
+   ],
+   "random": [
+    "geologist",
+    "inventor",
+    "statistician",
+    "stockbroker"
+   ],
+   "distractors": [
+    "farmer",
+    "truck_driver",
+    "driver",
+    "plumber",
+    "geologist",
+    "inventor",
+    "statistician",
+    "stockbroker"
+   ],
+   "n_eligible": 58,
+   "cos_to_gold": {
+    "farmer": 0.6016,
+    "truck_driver": 0.5911,
+    "driver": 0.4942,
+    "plumber": 0.4568,
+    "geologist": -0.1838,
+    "inventor": -0.17,
+    "statistician": -0.2402,
+    "stockbroker": -0.0985
+   }
+  },
+  "um-sd-occupation-10": {
+   "item": "um-sd-occupation-10",
+   "gold": "locksmith",
+   "nearest": [
+    "plumber",
+    "librarian",
+    "technician",
+    "courier"
+   ],
+   "random": [
+    "diplomat",
+    "film_director",
+    "physicist",
+    "professor"
+   ],
+   "distractors": [
+    "plumber",
+    "librarian",
+    "technician",
+    "courier",
+    "diplomat",
+    "film_director",
+    "physicist",
+    "professor"
+   ],
+   "n_eligible": 62,
+   "cos_to_gold": {
+    "plumber": 0.5818,
+    "librarian": 0.4897,
+    "technician": 0.4195,
+    "courier": 0.3865,
+    "diplomat": -0.2987,
+    "film_director": -0.3737,
+    "physicist": -0.1298,
+    "professor": -0.4684
+   }
+  },
+  "um-sd-occupation-11": {
+   "item": "um-sd-occupation-11",
+   "gold": "locksmith",
+   "nearest": [
+    "plumber",
+    "hacker",
+    "librarian",
+    "courier"
+   ],
+   "random": [
+    "editor",
+    "linguist",
+    "pilot",
+    "priest"
+   ],
+   "distractors": [
+    "plumber",
+    "hacker",
+    "librarian",
+    "courier",
+    "editor",
+    "linguist",
+    "pilot",
+    "priest"
+   ],
+   "n_eligible": 57,
+   "cos_to_gold": {
+    "plumber": 0.5818,
+    "hacker": 0.5068,
+    "librarian": 0.4897,
+    "courier": 0.3865,
+    "editor": -0.1978,
+    "linguist": -0.1933,
+    "pilot": -0.2298,
+    "priest": -0.1977
+   }
+  },
+  "um-sd-occupation-12": {
+   "item": "um-sd-occupation-12",
+   "gold": "locksmith",
+   "nearest": [
+    "hacker",
+    "librarian",
+    "hunter",
+    "truck_driver"
+   ],
+   "random": [
+    "astronomer",
+    "barista",
+    "detective",
+    "driver"
+   ],
+   "distractors": [
+    "hacker",
+    "librarian",
+    "hunter",
+    "truck_driver",
+    "astronomer",
+    "barista",
+    "detective",
+    "driver"
+   ],
+   "n_eligible": 47,
+   "cos_to_gold": {
+    "hacker": 0.5068,
+    "librarian": 0.4897,
+    "hunter": 0.3793,
+    "truck_driver": 0.3465,
+    "astronomer": -0.3494,
+    "barista": -0.1102,
+    "detective": 0.0768,
+    "driver": 0.3156
+   }
+  },
+  "um-sd-occupation-13": {
+   "item": "um-sd-occupation-13",
+   "gold": "locksmith",
+   "nearest": [
+    "plumber",
+    "technician",
+    "courier",
+    "hunter"
+   ],
+   "random": [
+    "editor",
+    "gardener",
+    "priest",
+    "teacher"
+   ],
+   "distractors": [
+    "plumber",
+    "technician",
+    "courier",
+    "hunter",
+    "editor",
+    "gardener",
+    "priest",
+    "teacher"
+   ],
+   "n_eligible": 66,
+   "cos_to_gold": {
+    "plumber": 0.5818,
+    "technician": 0.4195,
+    "courier": 0.3865,
+    "hunter": 0.3793,
+    "editor": -0.1978,
+    "gardener": 0.0982,
+    "priest": -0.1977,
+    "teacher": -0.2833
+   }
+  },
+  "um-sd-occupation-14": {
+   "item": "um-sd-occupation-14",
+   "gold": "locksmith",
+   "nearest": [
+    "plumber",
+    "technician",
+    "courier",
+    "hunter"
+   ],
+   "random": [
+    "coach",
+    "flight_attendant",
+    "singer",
+    "truck_driver"
+   ],
+   "distractors": [
+    "plumber",
+    "technician",
+    "courier",
+    "hunter",
+    "coach",
+    "flight_attendant",
+    "singer",
+    "truck_driver"
+   ],
+   "n_eligible": 64,
+   "cos_to_gold": {
+    "plumber": 0.5818,
+    "technician": 0.4195,
+    "courier": 0.3865,
+    "hunter": 0.3793,
+    "coach": -0.1717,
+    "flight_attendant": 0.0313,
+    "singer": -0.3626,
+    "truck_driver": 0.3465
+   }
+  },
+  "um-sd-occupation-17": {
+   "item": "um-sd-occupation-17",
+   "gold": "flight_attendant",
+   "nearest": [
+    "driver",
+    "courier",
+    "truck_driver",
+    "nurse"
+   ],
+   "random": [
+    "biologist",
+    "paramedic",
+    "plumber",
+    "technician"
+   ],
+   "distractors": [
+    "driver",
+    "courier",
+    "truck_driver",
+    "nurse",
+    "biologist",
+    "paramedic",
+    "plumber",
+    "technician"
+   ],
+   "n_eligible": 60,
+   "cos_to_gold": {
+    "driver": 0.6103,
+    "courier": 0.4887,
+    "truck_driver": 0.4541,
+    "nurse": 0.427,
+    "biologist": -0.2204,
+    "paramedic": 0.3797,
+    "plumber": 0.2974,
+    "technician": 0.2425
+   }
+  },
+  "um-sd-occupation-18": {
+   "item": "um-sd-occupation-18",
+   "gold": "flight_attendant",
+   "nearest": [
+    "truck_driver",
+    "nurse",
+    "clerk",
+    "sailor"
+   ],
+   "random": [
+    "actor",
+    "photographer",
+    "soldier",
+    "spy"
+   ],
+   "distractors": [
+    "truck_driver",
+    "nurse",
+    "clerk",
+    "sailor",
+    "actor",
+    "photographer",
+    "soldier",
+    "spy"
+   ],
+   "n_eligible": 54,
+   "cos_to_gold": {
+    "truck_driver": 0.4541,
+    "nurse": 0.427,
+    "clerk": 0.3924,
+    "sailor": 0.3859,
+    "actor": -0.0215,
+    "photographer": -0.1345,
+    "soldier": 0.1836,
+    "spy": -0.0083
+   }
+  },
+  "um-sd-occupation-19": {
+   "item": "um-sd-occupation-19",
+   "gold": "flight_attendant",
+   "nearest": [
+    "driver",
+    "truck_driver",
+    "nurse",
+    "sailor"
+   ],
+   "random": [
+    "comedian",
+    "film_director",
+    "mathematician",
+    "producer"
+   ],
+   "distractors": [
+    "driver",
+    "truck_driver",
+    "nurse",
+    "sailor",
+    "comedian",
+    "film_director",
+    "mathematician",
+    "producer"
+   ],
+   "n_eligible": 59,
+   "cos_to_gold": {
+    "driver": 0.6103,
+    "truck_driver": 0.4541,
+    "nurse": 0.427,
+    "sailor": 0.3859,
+    "comedian": 0.1251,
+    "film_director": -0.2372,
+    "mathematician": -0.4419,
+    "producer": -0.1479
+   }
+  },
+  "um-sd-occupation-21": {
+   "item": "um-sd-occupation-21",
+   "gold": "anthropologist",
+   "nearest": [
+    "philosopher",
+    "geologist",
+    "economist",
+    "biologist"
+   ],
+   "random": [
+    "fisherman",
+    "locksmith",
+    "manager",
+    "merchant"
+   ],
+   "distractors": [
+    "philosopher",
+    "geologist",
+    "economist",
+    "biologist",
+    "fisherman",
+    "locksmith",
+    "manager",
+    "merchant"
+   ],
+   "n_eligible": 59,
+   "cos_to_gold": {
+    "philosopher": 0.5955,
+    "geologist": 0.5649,
+    "economist": 0.4169,
+    "biologist": 0.3563,
+    "fisherman": -0.1625,
+    "locksmith": -0.2047,
+    "manager": -0.2104,
+    "merchant": -0.0209
+   }
+  }
+ }
+}
