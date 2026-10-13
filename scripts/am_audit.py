@@ -3,6 +3,7 @@
     uv run --no-sync python scripts/am_audit.py sample        # step 1 hand-read sheets
     uv run --no-sync python scripts/am_audit.py screen        # amscreen-v1 on 2,000 (c) cells/arm
     uv run --no-sync python scripts/am_audit.py summ-only     # J-lens summary-only estimate
+    uv run --no-sync python scripts/am_audit.py sample-headline  # re-draw ONLY headline.jsonl
     uv run --no-sync python scripts/am_audit.py sample-tiers  # after step 2 + intent overrides
     uv run --no-sync python scripts/am_audit.py score         # gates.json + tiers.json
 
@@ -184,6 +185,33 @@ def cell_row(arm: str, c: Any, sheet: str, **extra: Any) -> dict[str, Any]:
     }
 
 
+def mention_row(
+    m: dict[str, Any], sheet: str, state_of: dict[str, Any], items: dict[str, Any]
+) -> dict[str, Any]:
+    """One mention-sheet row (J-lens: the scored :Dsum mentions). ``detector`` holds the
+    detector's own fields (``stance_raw``: the detector's stance, before Stage H)."""
+    cs = state_of.get(m["key"])
+    det = {k: m[k] for k in ("kind", "secondary_kind", "actor_raw", "actor_name")}
+    det["stance"] = m.get("stance_raw", m["stance"])
+    return {
+        "sheet": sheet,
+        "arm": m["arm"],
+        **{k: m[k] for k in ("key", "id", "layer", "pos", "readout", "start", "end")},
+        "quote": m["quote"],
+        "readout_text": (cs.samples or [""])[m["readout"]] if cs else None,
+        "detector": det,
+        "actor_after_remap": m["actor"],
+        "context": context(items[m["id"]], m["char"]),
+        "label": None,
+    }
+
+
+def headline_row(s: dict[str, Any], state_of: dict[str, Any], items: dict[str, Any]):
+    r = mention_row(s, "headline", state_of, items)
+    r.update(start=s["start"], end=s["end"], span_kinds=s["kinds"])
+    return r
+
+
 # ---------------------------------------------------------------- sample
 
 
@@ -244,20 +272,7 @@ def cmd_sample(args: argparse.Namespace) -> int:
         ms = read_jsonl(arm.dir / "mentions.jsonl")
 
         def mrow(m: dict[str, Any], sheet: str, state_of=state_of) -> dict[str, Any]:
-            cs = state_of.get(m["key"])
-            return {
-                "sheet": sheet,
-                "arm": m["arm"],
-                **{k: m[k] for k in ("key", "id", "layer", "pos", "readout", "start", "end")},
-                "quote": m["quote"],
-                "readout_text": (cs.samples or [""])[m["readout"]] if cs else None,
-                "detector": {
-                    k: m[k] for k in ("kind", "secondary_kind", "actor_raw", "actor_name", "stance")
-                },
-                "actor_after_remap": m["actor"],
-                "context": context(items[m["id"]], m["char"]),
-                "label": None,
-            }
+            return mention_row(m, sheet, state_of, items)
 
         mis_ms = [m for m in ms if m["item_arm"] == "misaligned"]
         head_spans = score.spans(ms, lambda m: m["headline"])
@@ -266,9 +281,7 @@ def cmd_sample(args: argparse.Namespace) -> int:
         prec = [mrow(m, "precision_mentions") for m in sample(rng, ms, N_MENTIONS)]
         head = []
         for s in sample(rng, sorted(head_spans, key=score.span_key), N_HEADLINE):
-            r = mrow(s, "headline")
-            r.update(start=s["start"], end=s["end"], span_kinds=s["kinds"])
-            head.append(r)
+            head.append(headline_row(s, state_of, items))
         excl = [mrow(m, "exclusion") for m in sample(rng, excluded, N_EXCL)]
         sheets["precision_mentions"] += prec
         sheets["headline"] += head
@@ -294,6 +307,61 @@ def cmd_sample(args: argparse.Namespace) -> int:
     (ad / "label_schema.json").write_text(json.dumps(LABEL_SCHEMA, indent=1) + "\n")
     print(f"wrote {len(sheets)} sheets, strata.json and label_schema.json to {ad}")
     return 0
+
+
+# ---------------------------------------------------------------- sample-headline
+
+
+def cmd_sample_headline(args: argparse.Namespace) -> int:
+    """Re-draw ONLY ``audit/headline.jsonl`` (plan 0008 rev 13, after Stage H): 40 seeded spans
+    per arm from the post-verification headline, in the ``sample`` row format. Every other sheet
+    (and strata.json / label_schema.json) is left untouched. ``am_merge_labels.py`` matches labels
+    on ``(sheet, arm, key, start, end)``, so a re-drawn span that an earlier label file covers is
+    re-labelled from it on the next merge."""
+    out, models, ad = Path(args.out), models_of(args), audit_dir(args)
+    items = {it["id"]: it for it in bank.load_items()}
+    rows: list[dict[str, Any]] = []
+    for name, path in arms_of(args):
+        if not args.no_rebuild:
+            amrun.rebuild(name, path, out, models)
+        d = amrun.arm_dir(out, models, name)
+        ms = read_jsonl(d / "mentions.jsonl")
+        head_spans = sorted(score.spans(ms, lambda m: m["headline"]), key=score.span_key)
+        picked = sample(random.Random(f"headline:{args.seed}:{name}"), head_spans, N_HEADLINE)
+        state_of = asyncio.run(_states_for(name, path, out, models, {s["key"] for s in picked}))
+        rows += [headline_row(s, state_of, items) for s in picked]
+        n_ver = sum(1 for s in picked if s.get("verified") is not None)
+        print(
+            f"[{name}] headline spans {len(head_spans)}; sampled {len(picked)} "
+            f"({n_ver} with a Stage H result on the representative mention)",
+            flush=True,
+        )
+    write_jsonl(ad / "headline.jsonl", rows)
+    print(f"wrote {len(rows)} rows to {ad / 'headline.jsonl'} (no other sheet touched)")
+    return 0
+
+
+async def _states_for(name: str, path: Path, out: Path, models: Models, keys: set[str]):
+    """``{cell key: CellState}`` for ``keys`` only (cache only)."""
+    d = amrun.arm_dir(out, models, name)
+    cache = Cache(d / "cache.jsonl", readonly=True)
+    layers = sorted(amrun.cached_layers(cache)) or None
+    cells, kind, lays = amrun.load_arm_cells(path, layers)
+    items = bank.load_items()
+    arm = amrun.AMArm(
+        name=name,
+        readouts=path,
+        dir=d,
+        cells=[c for c in cells if c.key in keys],
+        kind=kind,
+        layers=lays,
+        cache=cache,
+        items={it["id"]: it for it in items},
+        sites=bank.sites_by_item(items),
+    )
+    out_states = {c.key: await amrun.cell_state(arm, c, models) for c in arm.cells}
+    cache.close()
+    return out_states
 
 
 # ---------------------------------------------------------------- screen / summ-only (API)
@@ -730,7 +798,9 @@ def cmd_score(args: argparse.Namespace) -> int:
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawTextHelpFormatter)
     ap.add_argument(
-        "cmd", choices=("sample", "screen", "summ-only", "sample-tiers", "score"), help="subcommand"
+        "cmd",
+        choices=("sample", "sample-headline", "screen", "summ-only", "sample-tiers", "score"),
+        help="subcommand",
     )
     ap.add_argument("--out", default="outputs")
     ap.add_argument("--judge-model", default="claude-opus-5-5")
@@ -745,6 +815,8 @@ def main(argv: list[str] | None = None) -> int:
     args = ap.parse_args(argv)
     if args.cmd == "sample":
         return cmd_sample(args)
+    if args.cmd == "sample-headline":
+        return cmd_sample_headline(args)
     if args.cmd == "screen":
         return asyncio.run(_screen(args))
     if args.cmd == "summ-only":

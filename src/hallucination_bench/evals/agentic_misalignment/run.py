@@ -1,11 +1,12 @@
-"""agentic_misalignment driver (plan 0008): Stage D -> Stage S (J-lens) -> Stage M, plus intent.
+"""agentic_misalignment driver (plan 0008): Stage D -> Stage S (J-lens) -> Stage H -> Stage M,
+plus intent.
 
 One process judges every arm: one :class:`~hallucination_bench.llm.LLM` (one RPM pacer, one
 semaphore). The chat pipeline (``wsbench_chat/run.py``) is not used: its cells assume the marker
 sits in the response and its stage machine (span, verify, classify) does not apply.
 
-Stages (``--stages detect,summ,map,intent``, default all; an unselected stage is read from the
-cache only, and no stage pulls in another):
+Stages (``--stages detect,summ,verify,map,intent``, default all; an unselected stage is read from
+the cache only, and no stage pulls in another):
 
 * ``detect`` (Stage D, ``amdetect-v1``): batches of up to 40 cells from a seeded shuffle of the
   arm's uncached non-empty cells (mixed across items and layers); per-cell rows ``{key}:D``;
@@ -16,6 +17,12 @@ cache only, and no stage pulls in another):
 * ``summ`` (Stage S, J-lens only): for each bag-detected cell the interp-v1 summary
   (``summ:{key}``, the chat J-lens user text) and the detector on the summary (``{key}:Dsum``,
   a batch of one). J-lens mentions that enter scoring are the summary's.
+* ``verify`` (Stage H, ``amverify-v1``, rev 13): the blind headline verifier on every headline
+  candidate (misaligned item, persona-remapped actor in ``K.HEADLINE_ACTORS``, stance in
+  ``K.HEADLINE_STANCES``; J-lens: the ``:Dsum`` mentions) of the selected cells; batches of up to
+  25 mentions from a seeded shuffle; per-mention rows ``{key}:H:{readout}:{start}-{end}``, usage
+  rows ``batchH:{sha}``; failed mentions retried as batches of one (2 attempts), then left
+  failed. It changes headline membership only, never the map population (independent of map).
 * ``map`` (Stage M, ``claimmap-v2.7+am2``): ``{key}:M`` on every cell with a located scoring
   mention; arms in the order nla-rl-L42, s3d-rl600, jlens.
 * ``intent`` (``amintent-v2``): one call per item, cached at
@@ -50,19 +57,19 @@ from hallucination_bench.llm import LLM, JudgeConfigError, Usage
 from hallucination_bench.readouts import Cell, decode_token, load_readouts, sha256_file
 from hallucination_bench.units import Normalised, split_cell
 
-from . import NAME, bank, detect, intent, score
+from . import NAME, bank, detect, intent, score, verify
 from . import kinds as K
 
 READOUTS_FILE = "agentic_misalignment.jsonl"
 DEFAULT_READOUTS_ROOT = Path("/workspace/wsbench-paper-data/readouts")
 DEFAULT_ARMS: tuple[str, ...] = ("s3d-rl600", "nla-rl-L42", "jlens")
-STAGES: tuple[str, ...] = ("detect", "summ", "map", "intent")
+STAGES: tuple[str, ...] = ("detect", "summ", "verify", "map", "intent")
 MAP_ARM_ORDER: tuple[str, ...] = ("nla-rl-L42", "s3d-rl600", "jlens")
 INTENT_INVALID_RETRIES = 2
 DETECT_SEED = 0
-SPEND_STAGES: tuple[str, ...] = ("detect", "summ", "map", "audit")
+SPEND_STAGES: tuple[str, ...] = ("detect", "summ", "map", "audit", "verify")
 _LAYER_RE = re.compile(r"__L(\d{3})__p")
-_EXCLUDED_PREFIXES = ("batchD:", "audit:")  # never per-cell rows
+_EXCLUDED_PREFIXES = ("batchD:", "batchH:", "audit:")  # never per-cell rows
 
 
 def parse_stages(s: str | None) -> frozenset[str]:
@@ -401,6 +408,94 @@ class Detector:
         return [j for j in jobs if self.cache.get(j.key, j.fp) is None]
 
 
+# ---------------------------------------------------------------- Stage H machinery
+
+
+class Verifier:
+    """Runs Stage H jobs against one cache (the :func:`detect_jobs` runner interface): batch
+    calls, then up to ``verify.SINGLE_ATTEMPTS`` single-mention attempts; still failing -> left
+    failed (re-queued by the next run)."""
+
+    stage = "verify"
+
+    def __init__(self, cache: Cache, llm: LLM, models: Models, spend: Usage, name: str = ""):
+        self.cache, self.llm, self.models, self.spend, self.name = cache, llm, models, spend, name
+        self.arm: AMArm | None = None
+        self.show_prompts = 0
+
+    async def call(self, jobs: Sequence[verify.VerifyJob]) -> list[bool]:
+        m = self.models
+        system, user = verify.render_batch([j.canon for j in jobs])
+        _dump(self.arm, self.stage, jobs[0].key, system, user, self.show_prompts)
+        out = await self.llm.call(model=m.judge, system=system, user=user, schema=verify.SCHEMA)
+        self.spend.add(out.usage)
+        ids = "\n".join(f"{j.key}|{j.fp}" for j in jobs)
+        bkey = "batchH:" + hashlib.sha256(ids.encode()).hexdigest()[:16]
+        self.cache.put(
+            bkey,
+            fingerprint(verify.PROMPT_VERSION, m.judge, m.effort, verify.SYSTEM),
+            {
+                "result": {"mentions": [j.key for j in jobs]},
+                "meta": {
+                    "stage": self.stage,
+                    "model": m.judge,
+                    "usage": out.usage.to_dict(),
+                    "batch_size": len(jobs),
+                    "ok": out.result is not None,
+                },
+            },
+        )
+        vp = verify.parse_batch(out.result, len(jobs))
+        oks = []
+        for i, j in enumerate(jobs):
+            meta: dict[str, Any] = {
+                "stage": self.stage,
+                "model": m.judge,
+                "batch_size": len(jobs),
+                "batch": bkey,
+            }
+            res = vp.results.get(i)
+            if res is None:
+                meta["reason"] = (
+                    "malformed"
+                    if vp.malformed
+                    else "duplicated"
+                    if i in vp.duplicated
+                    else "omitted"
+                    if i in vp.omitted
+                    else "bad_entry"
+                )
+            self.cache.put(j.key, j.fp, {"result": res, "meta": meta})
+            oks.append(res is not None)
+        return oks
+
+    async def single(self, job: verify.VerifyJob) -> bool:
+        for _ in range(verify.SINGLE_ATTEMPTS):
+            if (await self.call([job]))[0]:
+                return True
+        return False
+
+    def uncached(self, jobs: Iterable[verify.VerifyJob]) -> list[verify.VerifyJob]:
+        return [j for j in jobs if self.cache.get(j.key, j.fp) is None]
+
+
+def headline_candidates(
+    item: dict[str, Any], cell: Cell, cs: "CellState", models: Models
+) -> list[tuple[int, verify.VerifyJob]]:
+    """``(mention index, job)`` for every mention the score treats as headline before Stage H:
+    misaligned item, persona-remapped actor in ``K.HEADLINE_ACTORS``, stance in
+    ``K.HEADLINE_STANCES`` (J-lens: ``cs.mentions`` are the ``:Dsum`` mentions)."""
+    if item["arm"] != "misaligned" or cs.status != "ok" or not cs.mentions or not cs.samples:
+        return []
+    out = []
+    for i, m in enumerate(cs.mentions):
+        actor, _ = score.remap_actor(m["actor"], m.get("actor_name"), item.get("persona"))
+        if score.is_headline(actor, m["stance"], item["arm"]):
+            text = cs.samples[m["readout"]]
+            out.append((i, verify.make_job(cell.key, text, m, models.judge, models.effort)))
+    return out
+
+
 async def _pool(factories: Iterable[Callable[[], Awaitable[Any]]], workers: int) -> None:
     it = iter(factories)
 
@@ -440,15 +535,17 @@ async def detect_jobs(
     workers: int,
     seed: int = DETECT_SEED,
     label: str = "detect",
+    seed_prefix: str = "amdetect",
 ) -> None:
     """Batch pass (a seeded shuffle per detector; batches interleaved round-robin across
     detectors), then the single-cell retries of every failed job, in the same run. With
-    ``batch_size == 1`` (``:Dsum``) every job goes straight to the single-cell attempts."""
+    ``batch_size == 1`` (``:Dsum``) every job goes straight to the single-cell attempts. Stage H
+    reuses it with :class:`Verifier` runners (``seed_prefix="amverify"``)."""
     per_det: list[list[tuple[Detector, list[DetectJob]]]] = []
     failed: list[tuple[Detector, DetectJob]] = []
     for det, jobs in pairs:
         todo = det.uncached(jobs)
-        random.Random(f"amdetect:{seed}:{det.name}:{det.stage}").shuffle(todo)
+        random.Random(f"{seed_prefix}:{seed}:{det.name}:{det.stage}").shuffle(todo)
         if batch_size > 1:
             per_det.append(
                 [(det, todo[i : i + batch_size]) for i in range(0, len(todo), batch_size)]
@@ -754,7 +851,7 @@ async def run_am_async(
         intent_spend = Usage()
         try:
             needed: set[str] = set()
-            if sel & {"detect", "intent"} or ("summ" in sel and opened):
+            if sel & {"detect", "intent"} or (sel & {"summ", "verify"} and opened):
                 needed.add(models.judge)
             if "summ" in sel and any(a.kind == "tokens" for a in opened):
                 needed.add(models.summ)
@@ -777,6 +874,8 @@ async def run_am_async(
                 await summ_stage(
                     [a for a in opened if a.kind == "tokens"], sels, llm, models, workers, seed
                 )
+            if "verify" in sel and opened:
+                await verify_stage(opened, sels, llm, models, workers, seed, show_prompts)
             if "map" in sel and opened:
                 await map_stage(opened, sels, llm, models, workers, show_prompts)
         finally:
@@ -786,7 +885,7 @@ async def run_am_async(
             print(f"[intent] this run: {intent_spend.report()}")
         for a in opened:
             print(f"[{a.name}] this run:")
-            for st in SPEND_STAGES[:3]:
+            for st in ("detect", "summ", "map", "verify"):
                 print(f"    {st:7s} {a.spend[st].report()}")
     finally:
         for a in opened:
@@ -830,6 +929,40 @@ async def summ_stage(
         pairs.append((det, [summary_job(k, t, models) for k, t in texts.items()]))
     if pairs:
         await detect_jobs(pairs, batch_size=1, workers=workers, seed=seed, label="dsum")
+
+
+async def verify_stage(
+    arms: Sequence[AMArm],
+    sels: dict[str, list[Cell]],
+    llm: LLM,
+    models: Models,
+    workers: int,
+    seed: int,
+    show_prompts: int = 0,
+) -> None:
+    """Stage H on every headline candidate of the selected cells (cache-only detection state),
+    batches of ``verify.BATCH_SIZE`` from a seeded per-arm shuffle across items and layers."""
+    pairs: list[tuple[Any, list[Any]]] = []
+    for a in arms:
+        jobs: list[verify.VerifyJob] = []
+        for c in sels[a.name]:
+            item = a.items[c.id]
+            if item["arm"] != "misaligned":
+                continue
+            cs = await cell_state(a, c, models)
+            jobs += [j for _i, j in headline_candidates(item, c, cs, models)]
+        v = Verifier(a.cache, llm, models, a.spend["verify"], a.name)
+        v.arm, v.show_prompts = a, show_prompts
+        pairs.append((v, jobs))
+    if pairs:
+        await detect_jobs(
+            pairs,  # type: ignore[arg-type]
+            batch_size=verify.BATCH_SIZE,
+            workers=workers,
+            seed=seed,
+            label="verify",
+            seed_prefix="amverify",
+        )
 
 
 async def map_stage(
@@ -883,6 +1016,11 @@ HEALTH: tuple[str, ...] = (
     "n_failed_map",
     "n_pending_map",
     "n_accepted_partial",
+    "n_verify_ok",
+    "n_failed_verify",
+    "n_pending_verify",
+    "n_headline_unverified",
+    "n_verifier_rejected",
     "n_unlocated",
     "n_bad_enum",
     *(f"map_{k}" for k in cm.PARSE_COUNTS),
@@ -892,7 +1030,7 @@ FAILED_KEYS: tuple[str, ...] = (
     "n_failed_summary",
     "n_failed_dsum",
     "n_failed_map",
-)
+)  # n_failed_verify is not here: it counts toward exit 4 only under --stages verify
 
 
 def _spend(cache: Cache) -> dict[str, dict[str, Any]]:
@@ -1016,6 +1154,15 @@ async def rebuild_async(
                     }
                 rec["samples"] = cs.samples
                 rec["mentions"] = cs.mentions
+                verified: list[dict[str, Any] | None] = [None] * len(cs.mentions)
+                for i, job in headline_candidates(item, c, cs, models):
+                    vst, vrow = _row(cache, job)  # type: ignore[arg-type]
+                    if vrow is not None:
+                        verified[i] = vrow["result"]
+                        h["n_verify_ok"] += 1
+                    else:
+                        h[f"n_{vst}_verify"] += 1
+                        h["n_headline_unverified"] += 1
                 ms = score.mention_records(
                     arm=name,
                     cell_key=c.key,
@@ -1027,6 +1174,7 @@ async def rebuild_async(
                     segments=segs,
                     intent=intents.get(c.id),
                     conv=convs[c.id],
+                    verified=verified,
                 )
                 for m in ms:
                     fm.write(json.dumps(m, ensure_ascii=False) + "\n")
@@ -1051,6 +1199,7 @@ async def rebuild_async(
     cache.close()
     h["n_actor_remapped"] = sum(1 for m in mentions if m["actor_remapped"])
     h["n_mentions_no_intent"] = sum(1 for m in mentions if m["tier"] == score.NO_INTENT)
+    h["n_verifier_rejected"] = sum(1 for m in mentions if score.verifier_rejected(m))
     summary = {
         "config": {
             "eval": NAME,
@@ -1062,6 +1211,7 @@ async def rebuild_async(
                 "summary": summarizer.SUMMARIZER_PROMPT_VERSION if kind == "tokens" else None,
                 "map": cam.PROMPT_VERSION,
                 "intent": intent.PROMPT_VERSION,
+                "verify": verify.PROMPT_VERSION,
             },
             "bank_source": bank.BANK_SOURCE,
             "bank_commit": bank.BANK_COMMIT,
@@ -1084,3 +1234,8 @@ async def rebuild_async(
 def n_failed(summary: dict[str, Any]) -> int:
     """Failed per-cell calls of one arm summary (exit 4 when non-zero)."""
     return sum(int(summary["health"].get(k, 0)) for k in FAILED_KEYS)
+
+
+def n_failed_verify(summary: dict[str, Any]) -> int:
+    """Failed Stage H mentions of one arm summary (exit 4 only under ``--stages verify``)."""
+    return int(summary["health"].get("n_failed_verify", 0))

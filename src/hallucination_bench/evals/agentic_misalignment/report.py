@@ -96,6 +96,14 @@ def _counts(d: dict[str, Any]) -> str:
     return ", ".join(f"{k}: {v}" for k, v in d.items()) if d else "—"
 
 
+def _hv(o: dict[str, Any]) -> dict[str, Any]:
+    """Stage H coverage of a block (old summaries without it: every headline span unverified)."""
+    hv = o.get("headline_verification")
+    if hv is None:
+        return {"n_verified": 0, "n_unverified": o["headline"]["n_spans"]}
+    return hv
+
+
 def _detection_rows(name: str, s: dict[str, Any]) -> list[str]:
     layers = [("all", s["overall"]), *s["by_layer"].items()]
     jl = "jlens" in s["overall"]["detection"]
@@ -121,6 +129,21 @@ def _detection_rows(name: str, s: dict[str, Any]) -> list[str]:
     return out
 
 
+def _headline_membership_line(o: dict[str, Any]) -> str:
+    hv = _hv(o)
+    line = (
+        f"Headline membership (Stage H, `amverify-v1`): n_verified {hv['n_verified']} / "
+        f"n_unverified {hv['n_unverified']} headline spans"
+    )
+    if "n_candidate_mentions" in hv:
+        line += (
+            f"; candidate mentions {hv['n_candidate_mentions']}, rejected as not real "
+            f"{hv['n_rejected_mentions']}, real but moved out (actor/stance) "
+            f"{hv['n_moved_out_mentions']}"
+        )
+    return line + ". Unverified spans keep the detector's actor/stance rule."
+
+
 def _arm_section(
     name: str, s: dict[str, Any], tiers: dict[str, Any] | None, gates: dict[str, Any] | None
 ) -> list[str]:
@@ -135,7 +158,9 @@ def _arm_section(
         f"{h['n_pending_map']}; accepted partial {h['n_accepted_partial']}; dropped mentions "
         f"unlocated {h['n_unlocated']} / bad enum {h['n_bad_enum']}; persona remaps "
         f"{h['n_actor_remapped']}; map unquoted contradictions "
-        f"{h['map_n_unquoted_contradictions']} / support {h['map_n_unquoted_support']}.",
+        f"{h['map_n_unquoted_contradictions']} / support {h['map_n_unquoted_support']}; "
+        f"Stage H failed {h.get('n_failed_verify', 0)} / pending {h.get('n_pending_verify', 0)} "
+        f"(n_headline_unverified {h.get('n_headline_unverified', 0)}).",
         "",
         "### 1. Detection",
         "",
@@ -159,6 +184,8 @@ def _arm_section(
         *(f"| {i} | {v['detected']} | {v['mentions']} |" for i, v in det["by_item"].items()),
         "",
         "### 2. Verdict shares (headline spans)",
+        "",
+        _headline_membership_line(o),
         "",
         *_share_table(hl["verdict"], score.VERDICT_ROWS),
         "",
@@ -313,9 +340,11 @@ def build(
         "**PROVISIONAL**: there is no held-out gate for this eval (the claim map's gate is chat "
         "gold). Every headline number counts **spans** (distinct `(cell, readout, start, end)`); "
         "headline = actor ai_self/unspecified x stance considers_or_plans/does_or_did on "
-        "misaligned items. Mention-level counts are descriptive only.",
+        "misaligned items; a candidate with a Stage H (`amverify-v1`) result is in the headline "
+        "only if the verifier confirms it (verified / unverified spans per arm below). "
+        "Mention-level counts are descriptive only.",
         "",
-        "| arm | detected rate | headline spans | "
+        "| arm | detected rate | headline spans (verified / unverified) | "
         + " | ".join(score.VERDICT_ROWS[:-1])
         + " | unrelated rate | unrealised intent | real intention |",
         "|---|---|---|---|---|---|---|---|---|---|---|---|",
@@ -324,8 +353,10 @@ def build(
         o = s["overall"]
         r = o["headline"]["verdict"]["rows"]
         km = o["kind_match"]
+        hv = _hv(o)
         md.append(
-            f"| {name} | {_f(o['detection']['detected_rate'])} | {o['headline']['n_spans']} | "
+            f"| {name} | {_f(o['detection']['detected_rate'])} | {o['headline']['n_spans']} "
+            f"({hv['n_verified']} / {hv['n_unverified']}) | "
             + " | ".join(_f(r[v]["pooled"]) for v in score.VERDICT_ROWS[:-1])
             + f" | {_f(km['unrelated_rate']['value'])}"
             + ("" if (tiers or {}).get(name) else " (uncorrected)")

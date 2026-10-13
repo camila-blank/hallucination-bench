@@ -88,7 +88,8 @@ def _items(s: str | None) -> list[str] | None:
 
 def _run_am(args: argparse.Namespace) -> int:
     """``hbench run --eval agentic_misalignment`` (plan 0008): the AM driver, its own
-    ``--stages`` (detect,summ,map,intent) and readouts file; exit 4 when failed calls remain."""
+    ``--stages`` (detect,summ,verify,map,intent) and readouts file; exit 4 when failed calls
+    remain."""
     from hallucination_bench.evals.agentic_misalignment import run as amrun
 
     try:
@@ -129,6 +130,9 @@ def _run_am(args: argparse.Namespace) -> int:
     n_failed = sum(amrun.n_failed(s) for s in summaries.values())
     if "intent" in stages:
         n_failed += intent["n_failed"]
+    # Stage H failures likewise count only when the verify stage ran (plan 0008 rev 13)
+    if "verify" in stages:
+        n_failed += sum(amrun.n_failed_verify(s) for s in summaries.values())
     if n_failed:
         print(f"{n_failed} failed calls remain; re-run to retry them", file=sys.stderr)
         return 4
@@ -481,8 +485,9 @@ def build_parser() -> argparse.ArgumentParser:
         help="comma-separated stages that may call the API: summary,span,verify,classify,map "
         "(default: all; dependencies are added: map runs summary first if missing, and span "
         "only under --anchor v5c; single-call map also calls span on a seeded 10%% item "
-        "subsample for the v5c comparison). agentic_misalignment: detect,summ,map,intent "
-        "(default all; no dependencies are added, unselected stages are cache-only)",
+        "subsample for the v5c comparison). agentic_misalignment: detect,summ,verify,map,intent "
+        "(verify = Stage H, the headline verifier; default all; no dependencies are added, "
+        "unselected stages are cache-only)",
     )
     r.add_argument("--allow-missing", action="store_true")
     r.add_argument(

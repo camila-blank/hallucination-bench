@@ -36,8 +36,9 @@ src/hallucination_bench/
                   into the detector, screener and intent prompts)
     bank.py       data/agentic_misalignment bank; marked_prompt (marker in the PROMPT)
     detect.py     amdetect-v1 / amscreen-v1 prompts, schema, batch render, fail-closed parse
+    verify.py     amverify-v1 (Stage H, rev 13): blind headline verifier prompt, schema, per-mention parse
     intent.py     amintent-v2 (research frame; rollout + scenario kinds, located quotes) + intent_overrides.json
-    run.py        run_am (D -> S -> M + intent), Detector terminal rule, rebuild
+    run.py        run_am (D -> S -> H -> M + intent), Detector terminal rule, Verifier, rebuild
     score.py      mention_verdict, regions, kind_match, set-up, counting spans, shares
     report.py     `report --eval agentic_misalignment` (report.md / report.json)
   judges/claimmap_am.py  claimmap-v2.7+am2: research frame + chat SYSTEM + tail verbatim, AM head (marker in prompt)
@@ -58,7 +59,7 @@ scripts/build_story_bank.py  writes data/story/ from global-workspace's hallucin
 scripts/fetch_story_readouts.sh  Modal story gen dir -> /workspace/hb-readouts-story/<arm>/ + grid check
 scripts/build_dev_v2.py  writes dev_v2.jsonl (labels live here; re-run if the splitter changes)
 scripts/build_am_bank.py  writes data/agentic_misalignment/ (streams the readouts; fails loudly)
-scripts/am_audit.py  AM audits: sample | screen | summ-only | sample-tiers | score (audit/*.jsonl)
+scripts/am_audit.py  AM audits: sample | sample-headline | screen | summ-only | sample-tiers | score
 scripts/run_am.sh    AM driver: step1 (tmux hbench-am-detect) | step2 (tmux hbench-am-map)
 ```
 
@@ -123,7 +124,7 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
   - Readouts file `<arm>/agentic_misalignment.jsonl` (default root the paper readouts; default
     arms s3d-rl600, nla-rl-L42, jlens). The loader checks the whole file (full 50,452-site grid
     per layer, no unknown ids) before `--items` / `--layers` / `--limit` apply.
-  - `--stages detect,summ,map,intent` add no dependencies: unselected stages are cache-only
+  - `--stages detect,summ,verify,map,intent` add no dependencies: unselected stages are cache-only
     (`--stages map` maps only cells whose detection is cached). Intent is per item, cached in
     `<out>/agentic_misalignment/<model>/intent.jsonl`; any one `--arms` value triggers it.
   - Detector cache is per cell (`{key}:D`, J-lens summaries `{key}:Dsum`), fingerprint over the
@@ -131,6 +132,15 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
     row). Failed cells retry as batches of 1 in the same run; 2 failed single-cell rows with a
     partial parse -> accepted (`meta.accepted_partial`). `batchD:` / `audit:` keys are never
     counted as cells.
+  - **Stage H** (`--stages verify`, `amverify-v1`, plan 0008 rev 13; exists because the O-lens
+    headline-membership gate failed at 0.70 under amdetect-v2) re-judges only headline candidates
+    and changes **only headline membership, never the map population** (map stays on every
+    detected cell; no `:D` / `:Dsum` / `:M` key or fingerprint changes). Rows
+    `{key}:H:{readout}:{start}-{end}` + usage-only `batchH:` rows (never counted as cells); a
+    candidate without a result keeps the old rule (`health.n_headline_unverified`); record
+    `actor` / `stance` are the verified ones (`stance_raw` / `actor_raw` = detector), `kind` stays
+    the detector's; H failures exit 4 only when `verify` is selected. After Stage H, re-draw the
+    membership sheet with `am_audit.py sample-headline` (rewrites ONLY `audit/headline.jsonl`).
   - J-lens: the scored mentions are the **summary's** (`:Dsum`); `lost_in_summary` is an upper
     bound until `am_audit.py sample`'s lost_in_summary sheet is read.
   - Every headline number counts **spans** (overlapping mention spans of a readout merged);

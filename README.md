@@ -124,7 +124,8 @@ scripts/fetch_story_readouts.sh jlens gen-hal-story-jlens tokens 20:61:4   # gen
 uv run hbench run --eval story --readouts-root /workspace/hb-readouts-story --stages map
 uv run hbench report --eval story --view v2
 
-# agentic_misalignment (plan 0008): own driver, stages detect,summ,map,intent; readouts default to
+# agentic_misalignment (plan 0008): own driver, stages detect,summ,verify,map,intent (verify = Stage H,
+# the blind headline verifier, rev 13); readouts default to
 # /workspace/wsbench-paper-data/readouts/<arm>/agentic_misalignment.jsonl
 uv run --no-sync python scripts/build_am_bank.py      # data/agentic_misalignment/ (offline)
 uv run hbench run --eval agentic_misalignment --arms s3d-rl600,nla-rl-L42,jlens --layers 32,42,48 \
@@ -132,6 +133,8 @@ uv run hbench run --eval agentic_misalignment --arms s3d-rl600,nla-rl-L42,jlens 
     --out outputs/pilot --show-prompts 2                # the pilot (D, S, M + intent)
 scripts/run_am.sh step1    # tmux hbench-am-detect: intent + detector + audit sheets (then hand audits)
 scripts/run_am.sh step2    # tmux hbench-am-map: claim map + tier sheet + report
+uv run hbench run --eval agentic_misalignment --arms s3d-rl600 --stages verify   # Stage H (headline membership)
+uv run python scripts/am_audit.py sample-headline       # re-draw ONLY audit/headline.jsonl after Stage H
 uv run python scripts/am_audit.py score                 # gates.json / tiers.json from the labelled sheets
 uv run hbench report --eval agentic_misalignment        # outputs/agentic_misalignment/<model>/report.md
 ```

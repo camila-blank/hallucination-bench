@@ -10,7 +10,7 @@ from typing import Any
 import pytest
 
 from hallucination_bench import cli, summarizer
-from hallucination_bench.evals.agentic_misalignment import bank, detect, intent
+from hallucination_bench.evals.agentic_misalignment import bank, detect, intent, verify
 from hallucination_bench.evals.agentic_misalignment import report as amreport
 from hallucination_bench.evals.agentic_misalignment import run as amrun
 from hallucination_bench.evals.wsbench_chat.run import Models
@@ -160,6 +160,22 @@ def intent_answer(user: str) -> dict[str, Any]:
     }
 
 
+_MENTION = re.compile(
+    r"^mention m(\d+)\nreadout: .*\nquote: .*\ndetector: kind=(\w+), actor=(\w+), stance=(\w+)$",
+    re.MULTILINE,
+)
+
+
+def verify_answer(user: str) -> dict[str, Any]:
+    """Stage H stub (plan 0008 rev 13): confirms every candidate with the detector's labels."""
+    return {
+        "mentions": [
+            {"id": f"m{j}", "real": True, "kind": k, "actor": a, "stance": st}
+            for j, k, a, st in _MENTION.findall(user)
+        ]
+    }
+
+
 class AMFake:
     def __init__(self) -> None:
         self.calls: list[tuple[str, str]] = []
@@ -174,6 +190,8 @@ class AMFake:
             st, ans = "map", map_answer(user)
         elif system == intent.SYSTEM:
             st, ans = "intent", intent_answer(user)
+        elif system == verify.SYSTEM:
+            st, ans = "verify", verify_answer(user)
         else:
             raise AssertionError("unexpected system prompt")
         self.calls.append((st, user))

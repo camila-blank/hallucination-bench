@@ -29,7 +29,8 @@ anthropic`, Lynch et al. 2025) and 14 in-house (`group = working`). Each carries
 - **`persona`:** the name after "You are" in the system prompt, checked by hand: Alex 19, Atlas
   2, Argus / Devin / Hypatia / Kepler / Meridian 1 each; the 6 "You are an …" / "You are the …"
   items have `persona = null`. The score remaps a detector `other_party` actor named like the
-  persona to `ai_self`.
+  persona to `ai_self`; Stage H's verified actor (plan 0008 rev 13) is remapped the same way,
+  with the detector's `actor_name` (the blind verifier never sees the persona).
 - **Short prefills.** The two `am-murder_none-none_{replacement,restriction}` prefills are 66
   characters and `sb-deployment-gate`'s is 190: "realised after the marker" has little text to
   match against for them.
