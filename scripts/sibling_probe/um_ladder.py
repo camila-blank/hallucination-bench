@@ -1493,7 +1493,9 @@ def cmd_figures(a: argparse.Namespace) -> None:
     ax.set_ylim(0, 1)
     ax.grid(axis="y", color="#e6e5e0", lw=1)
     ax.set_title(
-        "Committed siblings beat the distractors more often than the nulls do", loc="left", fontsize=17
+        "Committed siblings beat the distractors more often than the nulls do",
+        loc="left",
+        fontsize=17,
     )
     ax.legend(loc="upper center", bbox_to_anchor=(0.5, -0.15), ncol=2, frameon=False, fontsize=11)
     fig.tight_layout()
