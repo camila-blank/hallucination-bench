@@ -781,6 +781,7 @@ PROBE_RUN = "um-country-v2"
 PROBE_ACTS = "acts-um-country-probe"
 EVAL_ACTS = {str(L): "acts-sibling-eval-all11" for L in U.GRID_LAYERS} | {"42": "acts-sibling-eval"}
 PROBES_DIR = OUT / "probes"
+PROBES_ADJ_DIR = OUT / "probes_adj"  # rev 9: the L +- 1 layers (run um-country-adj1)
 DISTRACTORS_PATH = DATA / "um_country_distractors.json"
 
 
@@ -825,12 +826,14 @@ def load_fit() -> tuple[dict[tuple[str, int, str], float], dict[int, Any]]:
     C = json.loads((OUT / "probe_inputs.json").read_text())["concepts"]
     validity: dict[tuple[str, int, str], float] = {}
     cents: dict[int, Any] = {}
-    for f in sorted((PROBES_DIR / "fit").glob("fit_L*.json")):
+    for f in sorted(
+        [*(PROBES_DIR / "fit").glob("fit_L*.json"), *(PROBES_ADJ_DIR / "fit").glob("fit_L*.json")]
+    ):
         r = json.loads(f.read_text())
         for t in U.TYPES:
             for c, v in zip(C, r["validity"][t], strict=True):
                 validity[(c, int(r["layer"]), t)] = float(v)
-        cp = PROBES_DIR / "fit" / f"centroids_L{int(r['layer']):02d}.npy"
+        cp = f.parent / f"centroids_L{int(r['layer']):02d}.npy"
         if cp.exists():
             cents[int(r["layer"])] = np.load(cp)
     return validity, cents
@@ -871,7 +874,9 @@ def load_ztable(C: list[str]) -> Any:
     import numpy as np
 
     zt = U.ZTable(C)
-    for f in sorted((PROBES_DIR / "score").glob("L*.npz")):
+    for f in sorted(
+        [*(PROBES_DIR / "score").glob("L*.npz"), *(PROBES_ADJ_DIR / "score").glob("L*.npz")]
+    ):
         z = np.load(f)
         zt.add_layer(
             int(f.stem[1:]),
@@ -903,10 +908,14 @@ def cmd_label(a: argparse.Namespace) -> None:
     gold_of = {i: U.gold_concept(it["gold"]) for i, it in items.items()}
     inp = json.loads((OUT / "probe_inputs.json").read_text())
     C = inp["concepts"]
-    ssum = json.loads((PROBES_DIR / "score" / "summary.json").read_text())
     sha = hashlib.sha256(DISTRACTORS_PATH.read_bytes()).hexdigest()
-    if ssum["distractors_sha256"] != sha:
-        sys.exit("distractor file changed after Phase B: refusing to label")
+    for d in (PROBES_DIR, PROBES_ADJ_DIR):
+        sp = d / "score" / "summary.json"
+        if d == PROBES_ADJ_DIR and not sp.exists():
+            print("WARNING: no adjacent-layer scores: nearby-layer fires cannot be tested")
+            continue
+        if json.loads(sp.read_text())["distractors_sha256"] != sha:
+            sys.exit(f"distractor file changed after Phase B ({d}): refusing to label")
     dist = {
         i: d["distractors"] for i, d in json.loads(DISTRACTORS_PATH.read_text())["items"].items()
     }
@@ -937,6 +946,7 @@ def cmd_label(a: argparse.Namespace) -> None:
         u = units[r["uid"]]
         L = u["eff_layer"]
         pr = pc.probe_result(u["item"], L, u["pos"], u["concept"])
+        pr_grid = pc.probe_result(u["item"], L, u["pos"], u["concept"], mode="grid")
         cross = U.cross_support(u, sidx)
         cross_any = U.cross_support(u, sidx, any_layer=True)
         flagged = [
@@ -998,6 +1008,7 @@ def cmd_label(a: argparse.Namespace) -> None:
                 "label_without_prior_flagged": lab_unflagged,
                 "label_hedged_not_committed": lab_hedge,
                 "label_both_types": lab_both,
+                "label_grid_nearby": U.ladder_label(r["committed"], pr_grid, bool(cross)),
                 "probe_both_types": pr_both,
                 "in_C": u["concept"] in zt.ci,
                 "similarity": sim,
@@ -1030,6 +1041,20 @@ def cmd_label(a: argparse.Namespace) -> None:
     def fire_vs(i: str, L: int, p: int, S: str, D: list[str]) -> bool:
         return U.beats_all(zt, i, L, p, S, [d for d in D if d != S])
 
+    def fire_near_vs(owner: str, j: str, L: int, p: int, S: str) -> bool:
+        """Incl.-nearby null fire (rev 9): S beats the OWNER unit's distractors D_owner(L') at
+        cell (j, L', p) for L' = L or an adjacent layer, where that layer is adjudicable for S
+        (valid, >= 6 distractors, j readable at L')."""
+        for Lp in (L, *U.neighbours(L)):
+            if not zt.has(j, Lp, p) or not pc.valid(S, Lp):
+                continue
+            D = pc.d_at(owner, Lp)
+            if len(D) < U.MIN_DISTRACTORS or pc.readable_share(j, Lp) < U.READABLE_SHARE:
+                continue
+            if fire_vs(j, Lp, p, S, D):
+                return True
+        return False
+
     adj_com = [r for r in rows if r["committed"] and r["probe"]["na_reason"] is None]
     matched = []
     for r in adj_com:
@@ -1039,6 +1064,7 @@ def cmd_label(a: argparse.Namespace) -> None:
         res = {k: [fire_vs(j, L, p, S, D) for j, p in v] for k, v in pools.items()}
         union = sorted({(j, p) for v in pools.values() for j, p in v})
         fu = [fire_vs(j, L, p, S, D) for j, p in union]
+        fun = [fire_near_vs(i, j, L, p, S) for j, p in union]
         matched.append(
             {
                 "uid": r["uid"],
@@ -1049,6 +1075,8 @@ def cmd_label(a: argparse.Namespace) -> None:
                 "concept": S,
                 "fire": float(r["probe"]["fire_L"]),
                 "matched": float(np.mean(fu)) if fu else None,
+                "fire_incl_nearby": float(r["probe"]["fire_L"] or r["probe"]["fire_nearby"]),
+                "matched_incl_nearby": float(np.mean(fun)) if fun else None,
                 "n_null": len(fu),
                 "n_null_beyond_item": len(pools["ii"]) + len(pools["iii"]),
                 **{f"matched_{k}": (float(np.mean(v)) if v else None) for k, v in res.items()},
@@ -1082,6 +1110,7 @@ def cmd_label(a: argparse.Namespace) -> None:
                     "hard": hard,
                     "never": never,
                     "fire": float(fire_vs(i, L, p, c, D)),
+                    "fire_incl_nearby": float(fire_near_vs(i, i, L, p, c)),
                 }
             )
     # positive control
@@ -1158,6 +1187,7 @@ def summarize_labels(
             "fail_closed_excluded": hall_rate(nofc),
             "hedged_not_committed": hall_rate(rs, key="label_hedged_not_committed"),
             "without_prior_flagged_cross": hall_rate(rs, key="label_without_prior_flagged"),
+            "grid_nearby_pm4": hall_rate(rs, key="label_grid_nearby"),
             "both_probe_types": hall_rate(rs, key="label_both_types"),
             "incl_probe_na": U.bootstrap_rate(
                 com, lambda r: float(r["label"] in (U.L_HALL, U.L_HALL_NA)), lambda r: 1.0, "item"
@@ -1262,12 +1292,43 @@ def summarize_labels(
                 int(sum(x["fire"] for x in uL if x["never"])), sum(x["never"] for x in uL)
             ),
             "unmentioned_hard": _rate(int(sum(x["fire"] for x in hard)), len(hard)),
+            # rev 9: incl.-nearby (L or L +- 1) versions of the committed rate and both nulls
+            "committed_fire_incl_nearby": _rate(
+                int(sum(x["fire_incl_nearby"] for x in mL)), len(mL)
+            ),
+            "matched_null_incl_nearby": round(
+                float(np.mean([x["matched_incl_nearby"] for x in mL])), 4
+            )
+            if mL
+            else None,
+            "excess_incl_nearby": round(
+                float(np.mean([x["fire_incl_nearby"] - x["matched_incl_nearby"] for x in mL])), 4
+            )
+            if mL
+            else None,
+            "unmentioned_hard_incl_nearby": _rate(
+                int(sum(x["fire_incl_nearby"] for x in hard)), len(hard)
+            ),
             "n_hard_cells": len(hard),
             "n_hard_items": len({x["item"] for x in hard}),
             "positive_control": pos_ctrl.get(L),
         }
     ex = [x["fire"] - x["matched"] for x in matched if x["matched"] is not None]
+    exn = [x for x in matched if x["matched_incl_nearby"] is not None]
     out["nulls"]["pooled"] = {
+        "excess_incl_nearby_ci_item": U.bootstrap_rate(
+            exn, lambda x: x["fire_incl_nearby"] - x["matched_incl_nearby"], lambda x: 1.0, "item"
+        ),
+        "committed_fire_incl_nearby": _rate(int(sum(x["fire_incl_nearby"] for x in exn)), len(exn)),
+        "matched_null_incl_nearby": round(
+            float(np.mean([x["matched_incl_nearby"] for x in exn])), 4
+        )
+        if exn
+        else None,
+        "unmentioned_hard_incl_nearby": _rate(
+            int(sum(x["fire_incl_nearby"] for x in um_rows if x["hard"])),
+            sum(x["hard"] for x in um_rows),
+        ),
         "excess_unit_weighted": round(float(np.mean(ex)), 4) if ex else None,
         "excess_ci_item": U.bootstrap_rate(
             [x for x in matched if x["matched"] is not None],

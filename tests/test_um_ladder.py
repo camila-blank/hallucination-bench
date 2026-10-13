@@ -224,7 +224,9 @@ def _zt(rows: dict) -> U.ZTable:
 
 def _pc(zt: U.ZTable, validity=None) -> U.ProbeContext:
     C = zt.concepts
-    val = validity or {(c, L, t): 0.95 for c in C for L in U.PROBE_LAYERS for t in U.TYPES}
+    val = validity or {
+        (c, L, t): 0.95 for c in C for L in (*U.PROBE_LAYERS, *U.ADJ_LAYERS) for t in U.TYPES
+    }
     return U.ProbeContext(zt, val, {"i": [f"d{k}" for k in range(6)]}, {"i": "g"})
 
 
@@ -237,10 +239,25 @@ def test_fire_same_nearby_and_gold_excluded():
     pc = _pc(_zt(rows))
     r = pc.probe_result("i", 40, 0, "s")
     assert r["na_reason"] is None and r["fire_L"]  # s < gold, but the gold is excluded
-    r = pc.probe_result("i", 40, 1, "s")
+    r = pc.probe_result("i", 40, 1, "s", mode="grid")  # rev 8 grid rule, a sensitivity row
     assert not r["fire_L"] and r["fire_nearby"] and r["fire_nearby_layers"] == [44]
-    assert U.neighbours(40) == (36, 42, 44)
-    assert U.neighbours(42) == (40, 44)
+    assert U.neighbours(40, "grid") == (36, 42, 44)
+    assert U.neighbours(42, "grid") == (40, 44)
+
+
+def test_adjacent_layer_neighbours():
+    # rev 9 (primary): L40 is qualified by a fire at L39 or L41, not by L44
+    assert U.neighbours(40) == (39, 41)
+    assert U.neighbours(42) == (41, 43)
+    assert 39 in U.ADJ_LAYERS and 41 in U.ADJ_LAYERS and 40 not in U.ADJ_LAYERS
+    rows = {L: {0: {"g": 5, "s": 1.0 if L == 39 else -1}} for L in (39, 40, 41, 44)}
+    rows[44][0]["s"] = 1.0
+    pc = _pc(_zt(rows))
+    r = pc.probe_result("i", 40, 0, "s")
+    assert not r["fire_L"] and r["fire_nearby"] and r["fire_nearby_layers"] == [39]
+    rows[39][0]["s"] = -1.0
+    r = _pc(_zt(rows)).probe_result("i", 40, 0, "s")
+    assert not r["fire_nearby"]  # L44 no longer counts
 
 
 def test_na_reasons():
@@ -266,7 +283,7 @@ def test_na_reasons():
 
 
 def test_nearby_rescue_of_na_at_L_counts_adjudicable():
-    rows = {40: {0: {"g": -5, "s": 3}}, 44: {0: {"g": 5, "s": 3}}}
+    rows = {40: {0: {"g": -5, "s": 3}}, 41: {0: {"g": 5, "s": 3}}}
     pc = _pc(_zt(rows))
     r = pc.probe_result("i", 40, 0, "s")
     assert r["na_reason"] and r["adjudicable"] and r["fire_nearby"]

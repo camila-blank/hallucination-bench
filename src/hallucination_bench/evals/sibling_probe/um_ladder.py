@@ -46,6 +46,9 @@ METHOD_LABEL = {
 }
 GRID_LAYERS = (20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60)
 PROBE_LAYERS = tuple(sorted((*GRID_LAYERS, 42)))
+# plan rev 9 (Camila: "qualify china at L40 if the probe fires at L39"): the model layers next
+# to every lens layer, captured and probed in run um-country-adj1
+ADJ_LAYERS = tuple(sorted({x + d for x in PROBE_LAYERS for d in (-1, 1)} - set(PROBE_LAYERS)))
 
 # Set A gold id -> lexicon concept id (all other golds are identical)
 GOLD_MAP = {"usa": "united_states", "uk": "united_kingdom"}
@@ -731,8 +734,12 @@ PRIMARY_TYPES = ("a",)
 DISTRACTOR_LAYER = 44
 
 
-def neighbours(layer: int) -> tuple[int, ...]:
-    """Probe layers in [L - 4, L + 4] other than L (L42 is a neighbour of 40 and 44)."""
+def neighbours(layer: int, mode: str = "adj") -> tuple[int, ...]:
+    """``adj`` (primary, rev 9): the adjacent model layers L - 1 and L + 1. ``grid`` (rev 8,
+    now a sensitivity row): the lens layers in [L - 4, L + 4] other than L (L42 is a grid
+    neighbour of 40 and 44)."""
+    if mode == "adj":
+        return (layer - 1, layer + 1)
     return tuple(x for x in PROBE_LAYERS if x != layer and abs(x - layer) <= 4)
 
 
@@ -877,11 +884,13 @@ class ProbeContext:
             self.zt, item, layer, pos, c, [d for d in self.d_at(item, layer) if d != c], self.types
         )
 
-    def probe_result(self, item: str, layer: int, pos: int, c: str) -> dict[str, Any]:
-        """At the unit's (effective) layer and its neighbours."""
+    def probe_result(
+        self, item: str, layer: int, pos: int, c: str, mode: str = "adj"
+    ) -> dict[str, Any]:
+        """At the unit's (effective) layer and its neighbours (``mode``: see :func:`neighbours`)."""
         reason = self.na_reason(item, layer, c)
         fire_l = reason is None and self.fires(item, layer, pos, c)
-        nb = [L for L in neighbours(layer) if self.na_reason(item, L, c) is None]
+        nb = [L for L in neighbours(layer, mode) if self.na_reason(item, L, c) is None]
         fire_nb = [L for L in nb if self.fires(item, L, pos, c)]
         return {
             "na_reason": reason,
