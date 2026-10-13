@@ -38,9 +38,9 @@ Hallucination rate = hallucination ÷ committed adjudicable units (probe-faithfu
 | method | mention units | committed | **hallucination rate** | nearby not counted as faithful | incl. probe n/a | faithful (same layer) / committed | faithful incl. nearby / committed |
 |---|---|---|---|---|---|---|---|
 | s3d O-lens | 1,882 | 306 (16%) | **0.22 [0.16, 0.29]** | 0.47 [0.40, 0.55] | 0.33 [0.24, 0.42] | 24% | 42% |
-| ML-NLA RL600 | 2,792 | 862 (31%) | **0.41 [0.31, 0.51]** | 0.60 [0.53, 0.69] | 0.51 [0.40, 0.60] | 23% | 38% |
+| ML-NLA RL600 | 2,792 | 861 (31%) | **0.41 [0.31, 0.51]** | 0.60 [0.53, 0.69] | 0.51 [0.40, 0.60] | 23% | 38% |
 | NLA-RL L42 | 336 | 115 (34%) | **0.31 [0.19, 0.44]** | 0.49 [0.34, 0.65] | 0.46 [0.33, 0.59] | 29% | 43% |
-| J-lens | 310 | 6 (2%) | n = 3 adjudicable, not interpretable | — | — | — | — |
+| J-lens | 310 | 5 (2%) | n = 3 adjudicable, not interpretable | — | — | — | — |
 
 ![labels](../../plots/sibling_probe/um_country_labels.png)
 
@@ -50,8 +50,8 @@ Hallucination rate = hallucination ÷ committed adjudicable units (probe-faithfu
   of units, and at the same layer or a neighbour for about 40%.
 - **What is left as hallucination** is 22% of committed adjudicable units for the O-lens, 41%
   for ML-NLA and 31% for NLA-RL.
-- **Nearby-layer fires matter.** Counting them as hallucinations instead roughly doubles the
-  rate (0.47 / 0.60 / 0.49).
+- **Nearby-layer fires matter.** Counting them as hallucinations instead raises the rate ×2.1
+  for s3d, ×1.5 for ML-NLA and ×1.6 for NLA-RL (0.47 / 0.60 / 0.49).
 - **Sensitivity rows** barely move it:
   - excluding fail-closed units: 0.23 / 0.41 / 0.31;
   - counting hedged single answers as not committed: 0.22 / 0.41 / 0.30;
@@ -59,11 +59,13 @@ Hallucination rate = hallucination ÷ committed adjudicable units (probe-faithfu
 - **Cross-method allowances often rest on a shared prior.** Discounting allowances where the
   agreeing method names the country for ≥ 50% of the other items raises the rate to
   0.38 / 0.48 / 0.40.
-- **J-lens is not interpretable.** The token lens almost never commits (6 units). 4 of those 6
+- **J-lens is not interpretable.** The token lens almost never commits (5 units). 3 of those 5
   are committed only because the judge's answer failed quote verification and failed closed.
+  Samples whose only hit is in the token bag now fail closed to not committed instead: plan
+  Step 3 says a bag alone cannot commit.
 - **The both-types rule cannot adjudicate.** The logistic probe passes validity for only 21% of
-  (concept, layer) pairs, leaving every item with fewer than 6 valid distractors, so every unit
-  is n/a under both types (and under type (b) alone). It is reported as not evaluable, not as a
+  (concept, layer) pairs, leaving almost every (item, layer) with fewer than 6 valid
+  distractors, so every committed unit is n/a under both types (and under type (b) alone). It is reported as not evaluable, not as a
   number.
 
 ![by layer](../../plots/sibling_probe/um_country_layers.png)
@@ -100,8 +102,8 @@ Hallucination rate = hallucination ÷ committed adjudicable units (probe-faithfu
   mentions sit where the sibling is represented more strongly than usual for that item.
 - **Under Camila's rule a "faithful" label means the sibling is represented relative to the
   distractors, not that it is unexpected given the gold.** Some pairs have a near-zero or
-  negative excess yet are mostly labelled faithful (nearby), for example South Korea → China
-  (−0.06) and South Korea → US (+0.02). There the probe fire reflects resemblance to the gold
+  negative excess yet are often labelled faithful: South Korea → US (+0.02, 14 of 25 committed
+  faithful) and South Korea → China (−0.06, 9 of 20). There the probe fire reflects resemblance to the gold
   rather than anything specific to the mention cells.
 - **Not-committed mentions fire 31%** (committed: 43% at L), another sign of a sizable shared
   baseline.
@@ -109,9 +111,12 @@ Hallucination rate = hallucination ÷ committed adjudicable units (probe-faithfu
   chosen by validity at L44 (plan §4c), and at other layers enough of them fail validity to drop
   an item below 6.
 
-## Pairs (most committed first; full table in `summary.json`)
+## Pairs (a selection of the most-committed pairs; the full table of 375 pairs is in `summary.json`)
 
 "Fire at L" and "fire incl. nearby" are both over the units adjudicable at L or a neighbour.
+Not shown among the top 18: Ireland → Scotland (20), Ukraine → US (17; 8 hallucinations),
+Costa Rica → US (16), New Zealand → Canada (16; excess −0.22, 11 cross-method), South Africa →
+Australia (15), Poland → UK (14).
 
 | gold → sibling | committed | items | fire at L | fire incl. nearby | matched excess | example committed quote |
 |---|---|---|---|---|---|---|
@@ -149,7 +154,7 @@ The pattern:
   | version | accuracy | committed precision | committed recall |
   |---|---|---|---|
   | `v1` | 0.85 [0.76, 0.91] | 0.40 | 1.00 |
-  | `v1.1` | **0.925 [0.85, 0.97]** | **0.60** | **0.75** |
+  | `v1.1` | **0.938 [0.86, 0.97]** | **0.67** | **0.75** |
 
   - v1.1 is the one allowed revision. Its examples came from a separate 60-unit dev2 set, and
     the gold disagreements were not read.
@@ -157,9 +162,11 @@ The pattern:
     the gold result is not fully blind to the decision to revise.
   - dev and dev2 also supplied the prompt's examples, so their accuracies (0.975 and 0.933) are
     optimistic.
-  - **Precision 0.60 means about 4 in 10 "committed" units may be judge errors.** That noise
+  - **Precision 0.67 means about 1 in 3 "committed" units may be judge errors.** That noise
     lands in both the faithful and the hallucination bins.
-- 17 judged samples ended fail-closed (committed) after re-tries. For several of them the judge
+  - v1.1 numbers include the J-lens bag-only fail-closed rule (round-2 review); before it, gold
+    accuracy was 0.925 and precision 0.60.
+- 15 judged samples ended fail-closed (committed) after re-tries. For several of them the judge
   had said "not committed" but its quote failed verification. Removing fail-closed-only units
   leaves the headline unchanged.
 
@@ -169,9 +176,9 @@ The pattern:
 |---|---|
 | ≥ 80% of (concept, layer) probes at L28–60 pass validity (type a) | **no**: 72% |
 | ≥ 80% of (item, layer) readable at L28–60 (≥ 6 valid distractors) | **no**: 57% |
-| hard unmentioned null ≤ 10% at every evaluable layer | **no**: 13.6% at L40 (L32, L60 not evaluable) |
-| matched null populated beyond the item for ≥ 80% of committed pairs | **no**: 50% of 375 pairs (most pairs have no unit adjudicable at its own layer) |
-| judge ≥ 85% on gold | yes: 0.925 |
+| hard unmentioned null ≤ 10% at every evaluable layer | **no**: 13.6% at L40 and 10.2% at L36 (L32, L60 not evaluable) |
+| matched null populated beyond the item for ≥ 80% of committed pairs | **no**: 48% of 375 pairs (166 pairs have no unit adjudicable at its own layer, so no matched null at all) |
+| judge ≥ 85% on gold | yes: 0.938 |
 
 **Four of five pre-registered criteria fail, so the ladder should not be extended to
 occupation as it stands.** The pair-level picture for the frequent pairs is informative, but
@@ -194,8 +201,9 @@ readability, probe validity and judge precision all need work first. The most di
   - the language-word count;
   - the per-cell gold, ± 8-layer, same-position cross-method and raw-score-(b) sensitivity rows.
 - `cross_any_layer` is recorded per unit but not summarised.
-- **Set C** was built from the first v1.1 judge pass. Re-trying its failed calls later changed
-  2 ML-NLA verdicts, but C (and the probes trained on it) was kept frozen.
+- **Set C** was built from the first v1.1 judge pass. Re-tried failed calls and the J-lens
+  bag-only rule later changed 3 ML-NLA and 3 J-lens verdicts, but C (and the probes trained on
+  it) was kept frozen.
 - **Tests missing:** the distractor-hash guard and the matched-null cell selection (the
   selection is a closure in the driver).
 
@@ -205,7 +213,7 @@ readability, probe validity and judge precision all need work first. The most di
    way (0.22 → 0.22 for s3d).
 2. **Biography subject:** a described hypothetical person ("a fictional Indigenous Canadian
    author") is **not** the user unless the sample says so. This choice moved committed
-   precision from 0.40 to 0.60.
+   precision from 0.40 to 0.60 (0.67 with the J-lens rule).
 3. **Resemblance:** a sibling that wins only by resembling the gold (zero matched excess) is
    currently **faithful**, per the rank-vs-distractors rule. Requiring a positive excess would
    reclassify pairs like South Korea → China.

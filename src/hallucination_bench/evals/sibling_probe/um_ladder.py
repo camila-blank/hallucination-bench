@@ -652,6 +652,19 @@ def valid_commit(r: Any, sample: Mapping[str, Any]) -> bool:
 
 def parse_commit(r: Any, sample: Mapping[str, Any]) -> dict[str, Any]:
     """Judge answer -> sample verdict. Invalid / missing -> fail closed to committed."""
+    if "tokens" in sample and not any(h.get("source") == "summary" for h in sample["hits"]):
+        if r is None or not valid_commit(r, sample) or r.get("quote_source") != "summary":
+            # plan Step 3: the bag alone cannot commit, so with no summary hit an invalid
+            # answer fails closed to NOT committed (review round 2)
+            return {
+                "committed": False,
+                "form": "bag_only",
+                "hedged": False,
+                "quote": None,
+                "quote_source": None,
+                "why": "token-bag-only hit: cannot commit (plan Step 3)",
+                "fail_closed": False,
+            }
     if r is None or not valid_commit(r, sample):
         return {
             "committed": True,

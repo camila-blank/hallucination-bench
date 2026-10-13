@@ -1359,6 +1359,8 @@ def summarize_labels(
         "hard_null_le_10pct": all(hard_ok) and len(not_eval) <= 3,
         "hard_null_not_evaluable_layers": not_eval,
         "matched_null_populated_80pct": (float(np.mean(pop)) >= 0.8) if pop else False,
+        "matched_null_populated_share": round(float(np.mean(pop)), 4) if pop else None,
+        "hard_null_by_layer": {L: out["nulls"].get(L, {}).get("unmentioned_hard") for L in lay},
         "n_pairs": len(pairs_beyond),
     }
     return out

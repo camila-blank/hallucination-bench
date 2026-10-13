@@ -403,3 +403,25 @@ def test_unreadable_when_too_few_distractors():
         val[(f"d{k}", 40, "a")] = 0.5
     pc = _pc(zt, val)
     assert pc.readable_share("i", 40) == 0.0
+
+
+def test_jlens_bag_only_hit_fails_closed_to_not_committed():
+    smp = {
+        "si": 0,
+        "tokens": ["Vietnamese", " food"],
+        "summary": "Korean food",
+        "hits": [{"concept": "vietnam", "alias": "Vietnamese", "rank": 0, "source": "token"}],
+    }
+    for r in (
+        None,
+        {
+            "committed": False,
+            "form": "options",
+            "hedged": False,
+            "quote": "Vietnamese",
+            "quote_source": "bag",
+            "why": "",
+        },
+    ):
+        v = U.parse_commit(r, smp)
+        assert v["committed"] is False and not v["fail_closed"]
