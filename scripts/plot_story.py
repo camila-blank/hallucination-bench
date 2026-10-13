@@ -1,13 +1,13 @@
-"""Story vs chat under the same claim-map judge (plan 0007, claimmap-v2.7, scoring rev 20).
+"""Story eval results under the claim-map judge (plan 0007, claimmap-v2.7, scoring rev 20).
 
-    uv run --no-sync python scripts/plot_story.py [--chat-out DIR] [--out plots/story_v2.7]
+    uv run --no-sync python scripts/plot_story.py [--out plots/story_v2.7]
 
-Writes ``story_vs_chat.png``: per lens, a chat bar and a story bar, each stacked by the three
-hallucination components (false claim = a wrong proposition / concept; detail = a wrong specific
-with no concept of its own; category substitution). Left: share of readout text. Right: share of
-readouts with at least one segment of that component. On the right the components overlap (a
-readout can have both), so they are drawn side by side, not stacked. Whiskers: item-bootstrap
-95% CI of the total. Multi-layer lenses are pooled over their 11 layers.
+Writes ``story.png``: per lens, the three hallucination components (false claim = a wrong
+proposition / concept; detail = a wrong specific with no concept of its own; category
+substitution). Left: share of readout text, stacked. Right: share of readouts with at least one
+segment of each component; these overlap (a readout can have both), so they are drawn side by
+side, with a tick for "any hallucination". Whiskers: item-bootstrap 95% CI. Multi-layer lenses
+are pooled over their 11 layers.
 """
 
 import argparse
@@ -31,7 +31,6 @@ COMPONENTS = [  # same colours as plot_full_run.py
     ("detail", "Detail (wrong name, number, wording)", "#eda100"),
     ("substitution_category", "Category substitution", "#8b3fb5"),
 ]
-BANKS = ("chat", "story")
 
 
 def overall(root: Path, arm: str) -> dict:
@@ -44,97 +43,60 @@ def pct(r: dict) -> tuple[float, float, float]:
 
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument("--chat-out", type=Path, default=Path("/workspace/hb-taxonomy-v2/outputs"))
     ap.add_argument("--story-out", type=Path, default=ROOT / "outputs")
     ap.add_argument("--out", type=Path, default=ROOT / "plots" / "story_v2.7")
     args = ap.parse_args()
-    roots = {
-        "chat": args.chat_out / "wsbench_chat" / MODEL,
-        "story": args.story_out / "story" / MODEL,
-    }
-    data = {(a, b): overall(roots[b], a) for a, _ in ARMS for b in BANKS}
+    root = args.story_out / "story" / MODEL
+    data = {a: overall(root, a) for a, _ in ARMS}
 
     plt.rcParams.update({"font.size": 15, "axes.edgecolor": MUTED, "text.color": TEXT})
-    fig, axes = plt.subplots(1, 2, figsize=(19, 8.2), gridspec_kw={"width_ratios": [1, 1.25]})
-    x = np.arange(len(ARMS)) * 2.6
-    off = {"chat": -0.55, "story": 0.55}
-    w = 1.0
+    fig, axes = plt.subplots(1, 2, figsize=(17, 7.8))
+    x = np.arange(len(ARMS))
 
     # left: share of readout text, stacked components + CI of the total
     ax = axes[0]
-    for b in BANKS:
-        bottom = np.zeros(len(ARMS))
-        for key, _label, color in COMPONENTS:
-            v = np.array([pct(data[(a, b)]["char_share_leaf"][key])[0] for a, _ in ARMS])
-            ax.bar(
-                x + off[b],
-                v,
-                w,
-                bottom=bottom,
-                color=color,
-                edgecolor="white",
-                linewidth=2,
-                alpha=1.0 if b == "story" else 0.45,
-            )
-            bottom += v
-        tot = [pct(data[(a, b)]["char_share_verdict"]["hallucination"]) for a, _ in ARMS]
-        lo = [t[0] - t[1] for t in tot]
-        hi = [t[2] - t[0] for t in tot]
-        ax.errorbar(
-            x + off[b],
-            [t[0] for t in tot],
-            yerr=[lo, hi],
-            fmt="none",
-            ecolor=TEXT,
-            elinewidth=1.5,
-            capsize=4,
+    bottom = np.zeros(len(ARMS))
+    for key, _label, color in COMPONENTS:
+        v = np.array([pct(data[a]["char_share_leaf"][key])[0] for a, _ in ARMS])
+        ax.bar(x, v, 0.6, bottom=bottom, color=color, edgecolor="white", linewidth=2)
+        bottom += v
+    tot = [pct(data[a]["char_share_verdict"]["hallucination"]) for a, _ in ARMS]
+    ax.errorbar(
+        x,
+        [t[0] for t in tot],
+        yerr=[[t[0] - t[1] for t in tot], [t[2] - t[0] for t in tot]],
+        fmt="none",
+        ecolor=TEXT,
+        elinewidth=1.5,
+        capsize=5,
+    )
+    for xi, t in zip(x, tot, strict=True):
+        ax.text(
+            xi, t[2] + 0.8, f"{t[0]:.0f}%", ha="center", va="bottom", fontsize=15, fontweight="bold"
         )
-        for xi, t in zip(x + off[b], tot, strict=True):
-            ax.text(
-                xi,
-                t[2] + 1.0,
-                f"{t[0]:.0f}",
-                ha="center",
-                va="bottom",
-                fontsize=14,
-                color=TEXT,
-                fontweight="bold" if b == "story" else "normal",
-            )
-            ax.text(xi, -1.2, b, ha="center", va="top", fontsize=12.5, color=MUTED)
     ax.set_ylabel("% of readout text hallucinated")
     ax.set_title("Share of readout text", fontsize=18, loc="left", pad=12)
     ax.set_ylim(0, 52)
 
-    # right: % of readouts with >= 1 segment, components side by side + total marker
+    # right: % of readouts with >= 1 segment, components side by side + "any" tick
     ax = axes[1]
-    sub = 0.31
-    for b in BANKS:
-        for i, (key, _label, color) in enumerate(COMPONENTS):
-            vals = [pct(data[(a, b)]["rates"][key]["all"]) for a, _ in ARMS]
-            xs = x + off[b] + (i - 1) * sub
-            ax.bar(
-                xs,
-                [v[0] for v in vals],
-                sub * 0.92,
-                color=color,
-                alpha=1.0 if b == "story" else 0.45,
-            )
-        tot = [pct(data[(a, b)]["rates"]["verdict_hallucination"]["all"]) for a, _ in ARMS]
-        ax.scatter(
-            x + off[b], [t[0] for t in tot], marker="_", s=900, color=TEXT, linewidths=2.5, zorder=3
+    sub = 0.26
+    for i, (key, _label, color) in enumerate(COMPONENTS):
+        vals = [pct(data[a]["rates"][key]["all"]) for a, _ in ARMS]
+        ax.bar(
+            x + (i - 1) * sub,
+            [v[0] for v in vals],
+            sub * 0.9,
+            color=color,
+            yerr=[[v[0] - v[1] for v in vals], [v[2] - v[0] for v in vals]],
+            error_kw={"ecolor": MUTED, "elinewidth": 1, "capsize": 2},
         )
-        for xi, t in zip(x + off[b], tot, strict=True):
-            ax.text(
-                xi,
-                t[0] + 1.5,
-                f"{t[0]:.0f}",
-                ha="center",
-                va="bottom",
-                fontsize=14,
-                color=TEXT,
-                fontweight="bold" if b == "story" else "normal",
-            )
-            ax.text(xi, -2.4, b, ha="center", va="top", fontsize=12.5, color=MUTED)
+    tot = [pct(data[a]["rates"]["verdict_hallucination"]["all"]) for a, _ in ARMS]
+    ax.scatter(x, [t[0] for t in tot], marker="_", s=2200, color=TEXT, linewidths=2.5, zorder=3)
+    for xi, t in zip(x, tot, strict=True):
+        ax.text(
+            xi, t[0] + 1.5, f"{t[0]:.0f}%", ha="center", va="bottom", fontsize=15, fontweight="bold"
+        )
     ax.set_ylabel("% of readouts with ≥1 such segment")
     ax.set_title("Share of readouts (— = any hallucination)", fontsize=18, loc="left", pad=12)
     ax.set_ylim(0, 108)
@@ -142,22 +104,16 @@ def main() -> None:
     for ax in axes:
         ax.set_xticks(x)
         ax.set_xticklabels([lab for _, lab in ARMS])
-        ax.tick_params(axis="x", length=0, pad=26)
+        ax.tick_params(axis="x", length=0, pad=8)
         ax.yaxis.grid(True, color=GRID, linewidth=1)
         ax.set_axisbelow(True)
         for s in ("top", "right"):
             ax.spines[s].set_visible(False)
 
     handles = [plt.Rectangle((0, 0), 1, 1, color=c) for _, _, c in COMPONENTS]
-    labels = [lab for _, lab, _ in COMPONENTS]
-    handles += [
-        plt.Rectangle((0, 0), 1, 1, color=MUTED, alpha=0.45),
-        plt.Rectangle((0, 0), 1, 1, color=MUTED),
-    ]
-    labels += ["chat bank (149 items, faded)", "story bank (20 items)"]
     fig.legend(
         handles,
-        labels,
+        [lab for _, lab, _ in COMPONENTS],
         loc="lower center",
         ncol=3,
         frameon=False,
@@ -165,24 +121,24 @@ def main() -> None:
         bbox_to_anchor=(0.5, -0.01),
     )
     fig.suptitle(
-        "Readout hallucination on stories vs chat — claim-map judge v2.7 (Opus 5.5)",
-        fontsize=21,
+        "Readout hallucination on “tell me a story” prompts — claim-map judge v2.7 (Opus 5.5)",
+        fontsize=20,
         x=0.01,
         ha="left",
-        y=0.99,
+        y=0.995,
     )
     fig.text(
         0.01,
-        0.925,
-        "Same judge, same lenses; stories roughly double the O-lens rate. Whiskers: item-bootstrap "
-        "95% CI. *J-lens judged via its token-bag summary. Pre-gate; story n = 20 items.",
+        0.935,
+        "20 story items × 8 read sites. Whiskers: item-bootstrap 95% CI. *J-lens judged via its "
+        "token-bag summary. Pre-gate (the held-out gate is chat gold).",
         fontsize=13,
         color=MUTED,
         ha="left",
     )
-    fig.tight_layout(rect=(0, 0.1, 1, 0.92))
+    fig.tight_layout(rect=(0, 0.07, 1, 0.93))
     args.out.mkdir(parents=True, exist_ok=True)
-    p = args.out / "story_vs_chat.png"
+    p = args.out / "story.png"
     fig.savefig(p, dpi=170, bbox_inches="tight")
     print(f"wrote {p}")
 

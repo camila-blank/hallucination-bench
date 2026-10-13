@@ -17,7 +17,7 @@ comparison, probe candidates).
 
 ## Headline: story vs chat, same arms, same judge
 
-![story vs chat](../../plots/story_v2.7/story_vs_chat.png)
+![story results](../../plots/story_v2.7/story.png)
 
 (`scripts/plot_story.py`)
 
