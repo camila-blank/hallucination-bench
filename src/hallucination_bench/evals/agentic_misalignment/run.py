@@ -155,10 +155,13 @@ def load_arm_cells(path: Path, layers: Sequence[int] | None) -> tuple[list[Cell]
     off-grid rows; every layer has the full 50,452-site grid), so ``--items`` / ``--layers`` /
     ``--limit`` (applied afterwards) never trip them."""
     items = bank.load_items()
-    cells, rep = load_readouts(path, positions=bank.positions(items))
+    # with ``layers``, unselected layers are dropped while streaming (memory: an 11-layer arm is
+    # ~555k cells); the grid check then covers the selected layers, and every row of the file
+    # still passes the id / malformed / off-grid checks
+    cells, rep = load_readouts(path, positions=bank.positions(items), layers=layers)
     if rep.n_rows == 0:
         raise SystemExit(f"{path}: readouts file is empty")
-    bad = {k: v for k, v in rep.skipped.items() if v}
+    bad = {k: v for k, v in rep.skipped.items() if v and k != "layer_not_selected"}
     if bad:
         raise SystemExit(f"{path}: rows outside the agentic_misalignment grid: {bad}")
     per_layer: dict[int, int] = {}
@@ -167,9 +170,6 @@ def load_arm_cells(path: Path, layers: Sequence[int] | None) -> tuple[list[Cell]
     short = {la: n for la, n in per_layer.items() if n != bank.N_SITES}
     if short:
         raise SystemExit(f"{path}: layers without the full {bank.N_SITES}-site grid: {short}")
-    if layers is not None:
-        keep = set(layers)
-        cells = [c for c in cells if c.layer in keep]
     return cells, rep.kind or "prose", sorted({c.layer for c in cells})
 
 
