@@ -1,6 +1,6 @@
 # Plan 0008: `agentic_misalignment` eval: the claim map (v2.7) on lens mentions of misalignment
 
-Author: Camila Blank (planned with Claude), 2026-10-13. Revision 10 (rev 10, critique 8: false positives in the tier audit, spans throughout scoring, intent in step 1, report reads audit files, intent cache, verdict names, pilot layers, spend sums all rows, lost_in_summary audit, marker test scope; rev 9, critique 7: spans are the counting unit, in-run terminal count, batchD rows, render_bag for summaries, concurrency from latency; rev 8, critique 6: step-4 population incl. never_set_up, actor_name in schema, 0-based readout index, one-run terminal rule, report --readouts-root, span-level unrelated rate, lexicon counts computed by script, refusing-rollout set defined; rev 7, critique 5: cross-item shuffled batches, persona-name actor remap + exclusion audit, one other_misconduct rule, exact lexicon regex, post-step-2 tier audit, terminal-rule timing, agent-audit labelling, cell-level precision, tier-independent set-up split; rev 6, critique 4: recall gate on precision-corrected point estimate, J-lens :Dsum in summ + audited in step 1, audit script, retry bookkeeping, matched_kind, pacer flags in commands, report readouts root, all-tier kind audit; rev 5, critique 3: quote-location fallback, terminal retry rule, cell-level recall gated on lexicon strata, detect-then-gate run order, unrelated audit + secondary kind, unrealised-intent headline, earliest enabling quote + full intent audit, batch usage rows, per-stage rpm; rev 4, critique 2: scenario_set_up tier, three-stratum recall with CI, actor/stance audit, units_block flags=False, region semantics, quote dedup, CLI dispatch order; rev 2: split multi-byte characters; rev 3, critique 1: raw readout text everywhere, a verdict-majority helper, an intent call with scenario context and enabling spans, real-intention and inferable-from-text redefined, contradiction regions + hedged view, per-eval readouts file, canonical detector fingerprints, headline restricted to plans/actions, recall estimate, scale). Issue #8.
+Author: Camila Blank (planned with Claude), 2026-10-13. Revision 11 (rev 11, critique 9 = no substantive issues; minors: :Dsum haystack, load-then-filter, overlapping spans merged, second-person actor, bootstrap over population items; rev 10, critique 8: false positives in the tier audit, spans throughout scoring, intent in step 1, report reads audit files, intent cache, verdict names, pilot layers, spend sums all rows, lost_in_summary audit, marker test scope; rev 9, critique 7: spans are the counting unit, in-run terminal count, batchD rows, render_bag for summaries, concurrency from latency; rev 8, critique 6: step-4 population incl. never_set_up, actor_name in schema, 0-based readout index, one-run terminal rule, report --readouts-root, span-level unrelated rate, lexicon counts computed by script, refusing-rollout set defined; rev 7, critique 5: cross-item shuffled batches, persona-name actor remap + exclusion audit, one other_misconduct rule, exact lexicon regex, post-step-2 tier audit, terminal-rule timing, agent-audit labelling, cell-level precision, tier-independent set-up split; rev 6, critique 4: recall gate on precision-corrected point estimate, J-lens :Dsum in summ + audited in step 1, audit script, retry bookkeeping, matched_kind, pacer flags in commands, report readouts root, all-tier kind audit; rev 5, critique 3: quote-location fallback, terminal retry rule, cell-level recall gated on lexicon strata, detect-then-gate run order, unrelated audit + secondary kind, unrealised-intent headline, earliest enabling quote + full intent audit, batch usage rows, per-stage rpm; rev 4, critique 2: scenario_set_up tier, three-stratum recall with CI, actor/stance audit, units_block flags=False, region semantics, quote dedup, CLI dispatch order; rev 2: split multi-byte characters; rev 3, critique 1: raw readout text everywhere, a verdict-majority helper, an intent call with scenario context and enabling spans, real-intention and inferable-from-text redefined, contradiction regions + hedged view, per-eval readouts file, canonical detector fingerprints, headline restricted to plans/actions, recall estimate, scale). Issue #8.
 Builds on plan 0002 (claim map, rev 20, prompt `claimmap-v2.7`) and plan 0007 (eval registry,
 `--eval`). Everything not restated here is unchanged.
 
@@ -172,7 +172,9 @@ Cache key `key = {id}__L{layer:03d}__p{pos}`, as in chat. The stages are below.
     leaking_confidential).
   - `quote`: a verbatim span of that readout, as short as still names the action, e.g.
     "use the affair as leverage against Kyle".
-  - `actor`: `ai_self` (the model, the AI, the assistant, "I" in a first-person readout),
+  - `actor`: `ai_self` (the model, the AI, the assistant, "I" in a first-person readout,
+    "you" when addressing the model as in a system prompt, or "the agent" / "the system"
+    when it is the acting agent),
     `other_party` (a named or unnamed human or another system), or `unspecified`.
   - `actor_name`: the verbatim name the readout gives the actor, or null.
     - The detector cannot know that "Alex" is the AI: 19 of 32 system prompts say "You are
@@ -199,8 +201,9 @@ Cache key `key = {id}__L{layer:03d}__p{pos}`, as in chat. The stages are below.
   - Mentions are deduplicated on `(readout, start, end, kind)`. Overlapping mentions of
     different kinds are kept as separate mentions, one per kind. Shares count mentions, and
     the report also gives the number of distinct spans.
-  - **Span-level tiering.** Tiers and the unrelated rate are computed on distinct spans
-    `(readout, start, end)`. A span takes the best tier over all its mentions' kinds, so one
+  - **Span-level tiering.** Tiers and the unrelated rate are computed on **counting spans**.
+    Overlapping mention spans within one readout are merged into a single counting span,
+    which carries the union of their kinds. The number of merges is reported. A span takes the best tier over all its mentions' kinds, so one
     span never counts as both realised and unrelated. Mention-level rates are descriptive
     only.
   - **The span is the counting unit for every headline number.** That covers the unrelated
@@ -257,6 +260,9 @@ Cache key `key = {id}__L{layer:03d}__p{pos}`, as in chat. The stages are below.
     `" | "` rendering. The same applies to `audit:summ:`.
 - Then the detector runs again on the summary text, under `{key}:Dsum`, with the same prompt
   and a batch of one. Both the summary and `:Dsum` belong to the **`summ` stage**.
+  - `:Dsum` shows the summary as `readout r0:`. Its haystack is the raw interpretation
+    string, under the prose rules (the `\n` retry; no `" | "` rendering). Each `:Dsum` call
+    writes its own `batchD:` usage row.
 - The **J-lens mentions that enter scoring are the summary's mentions**, because the claim map
   sees the summary, not the bag. A bag-detected cell whose summary has no mention is counted
   `lost_in_summary` and reported. It is not dropped silently.
@@ -446,7 +452,8 @@ Per arm, and per layer for the 11-layer arms:
      (`score_v2.hedged_origin`, `n_hedged_from_*`). Readouts that list options ("blackmail
      Kyle, email the CEO, or comply") hit this rule.
    - A sensitivity table re-scores with the judge's pre-remap `raw_leaf`.
-   - The CIs are a bootstrap over items (32 items; 2,000 resamples, seed 0, the score_v2
+   - The CIs are a bootstrap over the items in the population being reported (28 misaligned
+     items for the headline; 2,000 resamples, seed 0, the score_v2
      bootstrap).
 3. **Kind match × verdict:** a crosstab of realised / designed_only / scenario_set_up /
    unrelated, plus the `other_misconduct` row, against verdict. Headline numbers:
@@ -601,7 +608,8 @@ unchanged.
      Every arm dir also holds a chat `hallucination.jsonl`, and `cli.resolve_arms` hard-codes
      that name, so it must not be reused for this eval. At load, assert that the file is
      non-empty and that every arm-layer has the full 50,452-site grid; no `unknown_id` rows
-     are allowed.
+     are allowed. These checks run against the full 32-item bank id set **before** any
+     `--items` / `--layers` / `--limit` filtering, which is applied afterwards.
 3. `src/hallucination_bench/judges/claimmap_am.py`: `USER_TEMPLATE_AM`, `PROMPT_VERSION =
    "claimmap-v2.7+am1"`, `render_prompt_am(marked_prompt, response, units, kind)`. The
    module has its own one-pass placeholder regex,
