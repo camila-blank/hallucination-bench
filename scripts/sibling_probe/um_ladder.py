@@ -1202,8 +1202,19 @@ def summarize_labels(
                 "n_items": len({r["item"] for r in rs}),
                 "methods": dict(Counter(r["method"] for r in rs)),
                 "fire_L": _rate(sum(r["probe"]["fire_L"] for r in adj), len(adj)),
+                "n_adjudicable": sum(r["probe"]["adjudicable"] for r in rs),
+                # both over the units adjudicable incl. a neighbour layer (same denominator)
+                "fire_L_of_adjudicable": _rate(
+                    sum(r["probe"]["fire_L"] for r in rs if r["probe"]["adjudicable"]),
+                    sum(r["probe"]["adjudicable"] for r in rs),
+                ),
                 "fire_incl_nearby": _rate(
-                    sum(r["probe"]["fire_L"] or r["probe"]["fire_nearby"] for r in rs), len(rs)
+                    sum(
+                        r["probe"]["fire_L"] or r["probe"]["fire_nearby"]
+                        for r in rs
+                        if r["probe"]["adjudicable"]
+                    ),
+                    sum(r["probe"]["adjudicable"] for r in rs),
                 ),
                 "matched_excess": round(float(np.mean(ex)), 4) if ex else None,
                 "labels": dict(Counter(r["label"] for r in rs)),
@@ -1482,7 +1493,7 @@ def cmd_figures(a: argparse.Namespace) -> None:
     ax.set_ylim(0, 1)
     ax.grid(axis="y", color="#e6e5e0", lw=1)
     ax.set_title(
-        "Does the sibling's probe beat the distractors more than chance?", loc="left", fontsize=17
+        "Committed siblings beat the distractors more often than the nulls do", loc="left", fontsize=17
     )
     ax.legend(loc="upper center", bbox_to_anchor=(0.5, -0.15), ncol=2, frameon=False, fontsize=11)
     fig.tight_layout()
