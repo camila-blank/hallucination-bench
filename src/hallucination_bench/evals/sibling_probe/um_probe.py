@@ -34,8 +34,8 @@ try:  # inside the Modal job the module is copied as a top-level file
 except ImportError:  # pragma: no cover
     import sibprobes as P  # type: ignore[no-redef]
 
-LOGREG_CS = (0.001, 0.01, 0.1, 1.0)
-PCA_K = 256
+LOGREG_CS = (10.0, 30.0, 100.0, 300.0)
+PCA_K = 512
 TYPES = ("a", "b")
 
 

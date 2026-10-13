@@ -777,7 +777,7 @@ def cmd_capture_rows(a: argparse.Namespace) -> None:
 
 # ------------------------------------------------------------------ step 4: probe inputs
 
-PROBE_RUN = "um-country-v1"
+PROBE_RUN = "um-country-v2"
 PROBE_ACTS = "acts-um-country-probe"
 EVAL_ACTS = {str(L): "acts-sibling-eval-all11" for L in U.GRID_LAYERS} | {"42": "acts-sibling-eval"}
 PROBES_DIR = OUT / "probes"
@@ -809,6 +809,7 @@ def cmd_probe_inputs(a: argparse.Namespace) -> None:
         "items": items,
         "layers": list(U.PROBE_LAYERS),
         "probe_acts": PROBE_ACTS,
+        "pack_run": "um-country-v1",
         "eval_acts": EVAL_ACTS,
     }
     (OUT / "probe_inputs.json").write_text(json.dumps(inp))
@@ -843,7 +844,9 @@ def cmd_distractors(a: argparse.Namespace) -> None:
     validity, cents = load_fit()
     L = U.DISTRACTOR_LAYER
     cent = {c: cents[L][i] for i, c in enumerate(C)}
-    valid44 = {c: all(validity.get((c, L, t), 0) >= U.VALIDITY_MIN for t in U.TYPES) for c in C}
+    valid44 = {
+        c: all(validity.get((c, L, t), 0) >= U.VALIDITY_MIN for t in U.PRIMARY_TYPES) for c in C
+    }
     committed: dict[str, set[str]] = defaultdict(set)
     for r in read_jsonl(OUT / "commit.jsonl"):
         if r["committed"]:
@@ -910,6 +913,7 @@ def cmd_label(a: argparse.Namespace) -> None:
     validity, cents = load_fit()
     zt = load_ztable(C)
     pc = U.ProbeContext(zt, validity, dist, gold_of)
+    pc_both = U.ProbeContext(zt, validity, dist, gold_of, types=U.TYPES)  # sensitivity row
     cent44 = {c: cents[U.DISTRACTOR_LAYER][i] for i, c in enumerate(C)}
 
     def cos(x: str, y: str) -> float:
@@ -942,6 +946,8 @@ def cmd_label(a: argparse.Namespace) -> None:
         lab = U.ladder_label(r["committed"], pr, bool(cross))
         lab_unflagged = U.ladder_label(r["committed"], pr, bool(set(cross) - set(flagged)))
         lab_hedge = U.ladder_label(r["committed_unhedged"], pr, bool(cross))
+        pr_both = pc_both.probe_result(u["item"], L, u["pos"], u["concept"])
+        lab_both = U.ladder_label(r["committed"], pr_both, bool(cross))
         # recipe sensitivity at L (single type)
         single = {}
         if pr["na_reason"] is None:
@@ -987,6 +993,8 @@ def cmd_label(a: argparse.Namespace) -> None:
                 "label": lab,
                 "label_without_prior_flagged": lab_unflagged,
                 "label_hedged_not_committed": lab_hedge,
+                "label_both_types": lab_both,
+                "probe_both_types": pr_both,
                 "in_C": u["concept"] in zt.ci,
                 "similarity": sim,
             }
@@ -1142,6 +1150,7 @@ def summarize_labels(
             "fail_closed_excluded": hall_rate(nofc),
             "hedged_not_committed": hall_rate(rs, key="label_hedged_not_committed"),
             "without_prior_flagged_cross": hall_rate(rs, key="label_without_prior_flagged"),
+            "both_probe_types": hall_rate(rs, key="label_both_types"),
             "incl_probe_na": U.bootstrap_rate(
                 com, lambda r: float(r["label"] in (U.L_HALL, U.L_HALL_NA)), lambda r: 1.0, "item"
             ),
@@ -1263,6 +1272,13 @@ def summarize_labels(
         if L >= 28
     ]
     out["probe_quality"]["both_types_pass_L28_60"] = round(float(np.mean(both28)), 4)
+    prim28 = [
+        all(validity.get((c, L, t), 0) >= U.VALIDITY_MIN for t in U.PRIMARY_TYPES)
+        for c in C
+        for L in U.PROBE_LAYERS
+        if L >= 28
+    ]
+    out["probe_quality"]["primary_pass_L28_60"] = round(float(np.mean(prim28)), 4)
     # recipe sensitivity + similarity + not-committed comparison
     adj_c = [r for r in rows if r["committed"] and r["probe"]["na_reason"] is None]
     adj_n = [r for r in rows if not r["committed"] and r["probe"]["na_reason"] is None]
@@ -1299,6 +1315,7 @@ def summarize_labels(
         beyond[(x["gold"], x["concept"])].append(x["n_null_beyond_item"])
     pop = [max(v) >= 20 for v in beyond.values()]
     out["gate"] = {
+        "probe_validity_primary_ge_80pct": out["probe_quality"]["primary_pass_L28_60"] >= 0.8,
         "probe_validity_both_ge_80pct": out["probe_quality"]["both_types_pass_L28_60"] >= 0.8,
         "readable_ge_80pct": float(np.mean(readable)) >= 0.8 if readable else False,
         "readable_share_L28_60": round(float(np.mean(readable)), 4) if readable else None,

@@ -37,13 +37,8 @@ _SRC = (
 
 image = (
     modal.Image.debian_slim(python_version="3.12")
-    .uv_pip_install(
-        "numpy>=2.0",
-        "safetensors>=0.5",
-        "torch>=2.6",
-        index_url="https://download.pytorch.org/whl/cpu",
-    )
-    .uv_pip_install("scikit-learn>=1.5", "safetensors>=0.5")
+    .uv_pip_install("torch>=2.6", index_url="https://download.pytorch.org/whl/cpu")
+    .uv_pip_install("numpy>=2.0", "safetensors>=0.5", "scikit-learn>=1.5")
     .env({"PYTHONUNBUFFERED": "1", "OMP_NUM_THREADS": "16", "OPENBLAS_NUM_THREADS": "16"})
 )
 if (_SRC / "probes.py").is_file():  # local launch; inside the container the files are at /root
@@ -91,13 +86,67 @@ def _load_windows(sub: str, labels: list[str], layer: int, threads: int = 64):
     return out
 
 
+N_PACK_SHARDS = 16
+
+
+@app.function(
+    image=image, volumes=volumes, cpu=8, memory=32768, timeout=4 * 3600, nonpreemptible=True
+)
+def pack_shard(shard: int, inputs: dict) -> dict:
+    """Read every probe-text file of this shard ONCE at all layers (the volume fetches whole
+    files, so one layer costs as much as twelve) and write per-layer fp16 window arrays."""
+    from concurrent.futures import ThreadPoolExecutor
+
+    import numpy as np
+    from safetensors import safe_open
+
+    sub = inputs["probe_acts"]
+    man = json.loads((ACTS_MOUNT / sub / "manifest.json").read_text())
+    ent = {p["label"]: p for p in man["prompts"]}
+    labels = [t["id"] for t in inputs["texts"]][shard::N_PACK_SHARDS]
+    layers = [int(x) for x in inputs["layers"]]
+    lis = [man["layers"].index(L) for L in layers]
+
+    def one(label: str):
+        e = ent[label]
+        pos = list(e["eval_positions"])
+        p0, p1 = min(pos), max(pos) + 1
+        with safe_open(str(ACTS_MOUNT / sub / e["file"]), framework="pt", device="cpu") as f:
+            x = f.get_slice("acts")[min(lis) : max(lis) + 1, p0:p1].float().numpy()
+        x = x[[li - min(lis) for li in lis]][:, [p - p0 for p in pos]].astype(np.float16)
+        return x, [e["n_pos"] - 1 - p for p in pos]
+
+    t = time.time()
+    with ThreadPoolExecutor(16) as ex:
+        res = list(ex.map(one, labels))
+    d = OUT_MOUNT / inputs["run"] / "pack"
+    d.mkdir(parents=True, exist_ok=True)
+    for k, L in enumerate(layers):
+        np.save(d / f"L{L:02d}_s{shard:02d}.npy", np.stack([r[0][k] for r in res]))
+    (d / f"s{shard:02d}.json").write_text(
+        json.dumps({"labels": labels, "offsets": [r[1] for r in res]})
+    )
+    out_vol.commit()
+    return {"shard": shard, "n": len(labels), "read_s": round(time.time() - t, 1)}
+
+
 def _textset(inputs: dict, layer: int):
+    import numpy as np
     import sibprobes as P  # type: ignore
 
     texts = inputs["texts"]
-    win = _load_windows(inputs["probe_acts"], [t["id"] for t in texts], layer)
+    d = OUT_MOUNT / inputs.get("pack_run", inputs["run"]) / "pack"
+    win: dict[str, tuple] = {}
+    for sh in range(N_PACK_SHARDS):
+        meta = json.loads((d / f"s{sh:02d}.json").read_text())
+        arr = np.load(d / f"L{layer:02d}_s{sh:02d}.npy")
+        for i, (lab, off) in enumerate(zip(meta["labels"], meta["offsets"], strict=True)):
+            win[lab] = (arr[i].astype(np.float32), off)
+    missing = [t["id"] for t in texts if t["id"] not in win]
+    if missing:
+        raise RuntimeError(f"pack lacks {len(missing)} texts, e.g. {missing[:3]}")
     W = [win[t["id"]][0] for t in texts]
-    offs = [win[t["id"]][2] for t in texts]
+    offs = [win[t["id"]][1] for t in texts]
     return P.TextSet.build(
         W,
         [t["id"] for t in texts],
@@ -109,15 +158,19 @@ def _textset(inputs: dict, layer: int):
     )
 
 
-@app.function(image=image, volumes=volumes, cpu=16, memory=98304, timeout=6 * 3600)
+@app.function(
+    image=image, volumes=volumes, cpu=16, memory=98304, timeout=6 * 3600, nonpreemptible=True
+)
 def fit_layer(layer: int, inputs: dict) -> dict:
     import numpy as np
     import sibprobes as P  # type: ignore
     import um_probe as Q  # type: ignore
 
     t0 = time.time()
+    out_vol.reload()
     C = len(inputs["concepts"])
     ts = _textset(inputs, layer)
+    print(f"[um-probes L{layer}] textset {ts.H.shape} in {time.time() - t0:.0f}s", flush=True)
     cfa, lams, _tab = P.cross_fit_whitened(ts, C)
     ta = time.time() - t0
     cfb = Q.cross_fit_logreg(ts, C)
@@ -154,7 +207,8 @@ def fit_layer(layer: int, inputs: dict) -> dict:
     out_vol.commit()
     cbuf = io.BytesIO()
     np.save(cbuf, cent.astype(np.float32))
-    return {
+    (run_dir / f"centroids_L{layer:02d}.npy").write_bytes(cbuf.getvalue())
+    res = {
         "layer": layer,
         "validity": {"a": [float(x) for x in va], "b": [float(x) for x in vb]},
         "neutral_fpr": fpr,
@@ -162,16 +216,18 @@ def fit_layer(layer: int, inputs: dict) -> dict:
         "C_per_fold": cfb.C_per_fold,
         "n_texts": len(ts.ids),
         "n_rows": int(ts.H.shape[0]),
-        "centroids_npy": cbuf.getvalue(),
         "timings": {
             "a_s": round(ta, 1),
             "b_s": round(tb, 1),
             "total_s": round(time.time() - t0, 1),
         },
     }
+    (run_dir / f"fit_L{layer:02d}.json").write_text(json.dumps(res))
+    out_vol.commit()
+    return {**res, "centroids_npy": cbuf.getvalue()}
 
 
-@app.function(image=image, volumes=volumes, cpu=8, memory=32768, timeout=3600)
+@app.function(image=image, volumes=volumes, cpu=8, memory=32768, timeout=3600, nonpreemptible=True)
 def score_layer(layer: int, inputs: dict) -> bytes:
     import numpy as np
     import sibprobes as P  # type: ignore
@@ -229,6 +285,10 @@ def score_layer(layer: int, inputs: dict) -> bytes:
         za=np.concatenate(ZA).astype(np.float32),
         zb=np.concatenate(ZB).astype(np.float32),
     )
+    sd = OUT_MOUNT / inputs["run"] / "score"
+    sd.mkdir(parents=True, exist_ok=True)
+    (sd / f"L{layer:02d}.npz").write_bytes(buf.getvalue())
+    out_vol.commit()
     return buf.getvalue()
 
 
@@ -244,7 +304,10 @@ def main(
     Ls = [int(x) for x in layers.split(",")] if layers else list(inp["layers"])
     out = Path(out_dir)
     t0 = time.time()
-    if phase == "fit":
+    if phase == "pack":
+        for res in pack_shard.map(range(N_PACK_SHARDS), kwargs={"inputs": inp}):
+            print(f"[um-probes] pack {res}", flush=True)
+    elif phase == "fit":
         d = out / "fit"
         d.mkdir(parents=True, exist_ok=True)
         meta = []
@@ -272,6 +335,14 @@ def main(
             raise SystemExit(f"{dist} missing: run `um_ladder.py distractors` after the fit phase")
         d = out / "score"
         d.mkdir(parents=True, exist_ok=True)
+        # recorded BEFORE scoring (survives a client drop): the distractor file D_i was frozen at
+        summ = {
+            "run": inp["run"],
+            "distractors_sha256": hashlib.sha256(dist.read_bytes()).hexdigest(),
+            "layers": Ls,
+            "started": time.time(),
+        }
+        (d / "summary.json").write_text(json.dumps(summ, indent=1))
         for L, data in zip(Ls, score_layer.map(Ls, kwargs={"inputs": inp}), strict=True):
             (d / f"L{L:02d}.npz").write_bytes(data)
             print(f"[um-probes] score L{L}", flush=True)
@@ -287,5 +358,5 @@ def main(
             )
         )
     else:
-        raise SystemExit("--phase fit | score")
+        raise SystemExit("--phase pack | fit | score")
     os.sync()

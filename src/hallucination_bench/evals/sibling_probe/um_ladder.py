@@ -695,6 +695,8 @@ MIN_DISTRACTORS = 6
 READABLE_SHARE = 0.5
 VALIDITY_MIN = 0.90
 TYPES = ("a", "b")
+# plan rev 8: the fire rule uses type (a) (whitened DiffMean); both types = sensitivity row
+PRIMARY_TYPES = ("a",)
 DISTRACTOR_LAYER = 44
 
 
@@ -768,13 +770,21 @@ class ZTable:
         return sorted(p for (i, L, p) in self._z if i == item and L == layer)
 
 
-def beats_all(zt: ZTable, item: str, layer: int, pos: int, c: str, others: Sequence[str]) -> bool:
-    """c's z above every concept of ``others`` in BOTH types (NaN never beats)."""
+def beats_all(
+    zt: ZTable,
+    item: str,
+    layer: int,
+    pos: int,
+    c: str,
+    others: Sequence[str],
+    types: Sequence[str] = PRIMARY_TYPES,
+) -> bool:
+    """c's z above every concept of ``others`` in every type of ``types`` (NaN never beats)."""
     import math
 
     if not others:
         return False
-    for t in TYPES:
+    for t in types:
         zc = zt.get(item, layer, pos, t, c)
         if math.isnan(zc):
             return False
@@ -795,12 +805,14 @@ class ProbeContext:
         validity: Mapping[tuple[str, int, str], float],
         distractors: Mapping[str, Sequence[str]],
         gold_of: Mapping[str, str],
+        types: Sequence[str] = PRIMARY_TYPES,
     ) -> None:
         self.zt, self.validity, self.dist, self.gold_of = zt, validity, distractors, gold_of
+        self.types = tuple(types)
         self._read: dict[tuple[str, int], float] = {}
 
     def valid(self, c: str, layer: int) -> bool:
-        return all(self.validity.get((c, layer, t), 0.0) >= VALIDITY_MIN for t in TYPES)
+        return all(self.validity.get((c, layer, t), 0.0) >= VALIDITY_MIN for t in self.types)
 
     def d_at(self, item: str, layer: int) -> list[str]:
         return [d for d in self.dist.get(item, ()) if self.valid(d, layer)]
@@ -810,7 +822,7 @@ class ProbeContext:
         if k not in self._read:
             g, D = self.gold_of[item], self.d_at(item, layer)
             ps = self.zt.positions(item, layer)
-            hits = [beats_all(self.zt, item, layer, p, g, D) for p in ps] if D else []
+            hits = [beats_all(self.zt, item, layer, p, g, D, self.types) for p in ps] if D else []
             self._read[k] = sum(hits) / len(hits) if hits else 0.0
         return self._read[k]
 
@@ -829,7 +841,7 @@ class ProbeContext:
 
     def fires(self, item: str, layer: int, pos: int, c: str) -> bool:
         return self.na_reason(item, layer, c) is None and beats_all(
-            self.zt, item, layer, pos, c, [d for d in self.d_at(item, layer) if d != c]
+            self.zt, item, layer, pos, c, [d for d in self.d_at(item, layer) if d != c], self.types
         )
 
     def probe_result(self, item: str, layer: int, pos: int, c: str) -> dict[str, Any]:

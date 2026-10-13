@@ -251,6 +251,12 @@ def test_na_reasons():
     rows = {40: {0: {"g": 5, "s": 3}}}
     val = {(c, 40, t): 0.95 for c in _zt(rows).concepts for t in U.TYPES}
     val[("s", 40, "b")] = 0.5
+    assert _pc(_zt(rows), val).na_reason("i", 40, "s") is None  # primary rule: type (a) only
+    both = U.ProbeContext(
+        _zt(rows), val, {"i": [f"d{k}" for k in range(6)]}, {"i": "g"}, types=U.TYPES
+    )
+    assert both.na_reason("i", 40, "s") == "invalid probe at L"
+    val[("s", 40, "a")] = 0.5
     assert _pc(_zt(rows), val).na_reason("i", 40, "s") == "invalid probe at L"
     val = {(c, 40, t): 0.95 for c in _zt(rows).concepts for t in U.TYPES}
     for k in range(3):

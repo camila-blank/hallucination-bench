@@ -1,0 +1,1191 @@
+{
+ "version": "umdist-v1",
+ "layer": 44,
+ "rule": "4 nearest (grand-mean-centred implied centroids, cosine) + 4 seeded random among C, valid at L44 in both types, not gold / equivalent, not committed for the item",
+ "items": {
+  "gen-country-australia-a0-00": {
+   "item": "gen-country-australia-a0-00",
+   "gold": "australia",
+   "nearest": [
+    "ireland",
+    "wales",
+    "trinidad_and_tobago",
+    "france"
+   ],
+   "random": [
+    "japan",
+    "panama",
+    "switzerland",
+    "vietnam"
+   ],
+   "distractors": [
+    "ireland",
+    "wales",
+    "trinidad_and_tobago",
+    "france",
+    "japan",
+    "panama",
+    "switzerland",
+    "vietnam"
+   ],
+   "n_eligible": 62,
+   "cos_to_gold": {
+    "ireland": 0.4326,
+    "wales": 0.4028,
+    "trinidad_and_tobago": 0.3362,
+    "france": 0.2329,
+    "japan": 0.0362,
+    "panama": -0.2476,
+    "switzerland": 0.0423,
+    "vietnam": -0.2597
+   }
+  },
+  "gen-country-belarus-a0-00": {
+   "item": "gen-country-belarus-a0-00",
+   "gold": "belarus",
+   "nearest": [
+    "kazakhstan",
+    "armenia",
+    "bulgaria",
+    "croatia"
+   ],
+   "random": [
+    "austria",
+    "italy",
+    "mongolia",
+    "tonga"
+   ],
+   "distractors": [
+    "kazakhstan",
+    "armenia",
+    "bulgaria",
+    "croatia",
+    "austria",
+    "italy",
+    "mongolia",
+    "tonga"
+   ],
+   "n_eligible": 52,
+   "cos_to_gold": {
+    "kazakhstan": 0.4089,
+    "armenia": 0.3902,
+    "bulgaria": 0.3552,
+    "croatia": 0.3113,
+    "austria": -0.0761,
+    "italy": -0.1814,
+    "mongolia": 0.2079,
+    "tonga": 0.0714
+   }
+  },
+  "gen-country-canada-a0-00": {
+   "item": "gen-country-canada-a0-00",
+   "gold": "canada",
+   "nearest": [
+    "new_zealand",
+    "ireland",
+    "jamaica",
+    "norway"
+   ],
+   "random": [
+    "egypt",
+    "ghana",
+    "japan",
+    "sweden"
+   ],
+   "distractors": [
+    "new_zealand",
+    "ireland",
+    "jamaica",
+    "norway",
+    "egypt",
+    "ghana",
+    "japan",
+    "sweden"
+   ],
+   "n_eligible": 63,
+   "cos_to_gold": {
+    "new_zealand": 0.3822,
+    "ireland": 0.3658,
+    "jamaica": 0.2811,
+    "norway": 0.2444,
+    "egypt": -0.1815,
+    "ghana": -0.1551,
+    "japan": 0.0564,
+    "sweden": 0.1718
+   }
+  },
+  "gen-country-canada-a0-01": {
+   "item": "gen-country-canada-a0-01",
+   "gold": "canada",
+   "nearest": [
+    "australia",
+    "new_zealand",
+    "ireland",
+    "scotland"
+   ],
+   "random": [
+    "indonesia",
+    "mongolia",
+    "switzerland",
+    "timor_leste"
+   ],
+   "distractors": [
+    "australia",
+    "new_zealand",
+    "ireland",
+    "scotland",
+    "indonesia",
+    "mongolia",
+    "switzerland",
+    "timor_leste"
+   ],
+   "n_eligible": 66,
+   "cos_to_gold": {
+    "australia": 0.5188,
+    "new_zealand": 0.3822,
+    "ireland": 0.3658,
+    "scotland": 0.3612,
+    "indonesia": -0.2623,
+    "mongolia": -0.2388,
+    "switzerland": 0.0711,
+    "timor_leste": -0.2579
+   }
+  },
+  "gen-country-china-a0-00": {
+   "item": "gen-country-china-a0-00",
+   "gold": "china",
+   "nearest": [
+    "russia",
+    "south_korea",
+    "egypt",
+    "japan"
+   ],
+   "random": [
+    "argentina",
+    "ghana",
+    "lithuania",
+    "vietnam"
+   ],
+   "distractors": [
+    "russia",
+    "south_korea",
+    "egypt",
+    "japan",
+    "argentina",
+    "ghana",
+    "lithuania",
+    "vietnam"
+   ],
+   "n_eligible": 56,
+   "cos_to_gold": {
+    "russia": 0.3483,
+    "south_korea": 0.3122,
+    "egypt": 0.3081,
+    "japan": 0.2837,
+    "argentina": -0.1813,
+    "ghana": -0.0971,
+    "lithuania": -0.0238,
+    "vietnam": 0.1557
+   }
+  },
+  "gen-country-china-a0-01": {
+   "item": "gen-country-china-a0-01",
+   "gold": "china",
+   "nearest": [
+    "russia",
+    "egypt",
+    "japan",
+    "belarus"
+   ],
+   "random": [
+    "argentina",
+    "austria",
+    "ireland",
+    "panama"
+   ],
+   "distractors": [
+    "russia",
+    "egypt",
+    "japan",
+    "belarus",
+    "argentina",
+    "austria",
+    "ireland",
+    "panama"
+   ],
+   "n_eligible": 62,
+   "cos_to_gold": {
+    "russia": 0.3483,
+    "egypt": 0.3081,
+    "japan": 0.2837,
+    "belarus": 0.2647,
+    "argentina": -0.1813,
+    "austria": -0.0437,
+    "ireland": -0.1334,
+    "panama": -0.1099
+   }
+  },
+  "gen-country-ireland-a0-00": {
+   "item": "gen-country-ireland-a0-00",
+   "gold": "ireland",
+   "nearest": [
+    "new_zealand",
+    "jamaica",
+    "italy",
+    "norway"
+   ],
+   "random": [
+    "belarus",
+    "brazil",
+    "japan",
+    "philippines"
+   ],
+   "distractors": [
+    "new_zealand",
+    "jamaica",
+    "italy",
+    "norway",
+    "belarus",
+    "brazil",
+    "japan",
+    "philippines"
+   ],
+   "n_eligible": 62,
+   "cos_to_gold": {
+    "new_zealand": 0.3941,
+    "jamaica": 0.2756,
+    "italy": 0.2662,
+    "norway": 0.2463,
+    "belarus": -0.2339,
+    "brazil": -0.1808,
+    "japan": 0.0257,
+    "philippines": -0.0413
+   }
+  },
+  "gen-country-paraguay-a0-00": {
+   "item": "gen-country-paraguay-a0-00",
+   "gold": "paraguay",
+   "nearest": [
+    "timor_leste",
+    "panama",
+    "nicaragua",
+    "vietnam"
+   ],
+   "random": [
+    "israel",
+    "latvia",
+    "pakistan",
+    "romania"
+   ],
+   "distractors": [
+    "timor_leste",
+    "panama",
+    "nicaragua",
+    "vietnam",
+    "israel",
+    "latvia",
+    "pakistan",
+    "romania"
+   ],
+   "n_eligible": 46,
+   "cos_to_gold": {
+    "timor_leste": 0.2924,
+    "panama": 0.274,
+    "nicaragua": 0.2727,
+    "vietnam": 0.1314,
+    "israel": -0.0683,
+    "latvia": 0.0328,
+    "pakistan": -0.0261,
+    "romania": 0.0721
+   }
+  },
+  "gen-country-philippines-a0-00": {
+   "item": "gen-country-philippines-a0-00",
+   "gold": "philippines",
+   "nearest": [
+    "nigeria",
+    "colombia",
+    "kenya",
+    "ghana"
+   ],
+   "random": [
+    "belarus",
+    "bulgaria",
+    "japan",
+    "morocco"
+   ],
+   "distractors": [
+    "nigeria",
+    "colombia",
+    "kenya",
+    "ghana",
+    "belarus",
+    "bulgaria",
+    "japan",
+    "morocco"
+   ],
+   "n_eligible": 57,
+   "cos_to_gold": {
+    "nigeria": 0.3142,
+    "colombia": 0.2462,
+    "kenya": 0.2326,
+    "ghana": 0.1754,
+    "belarus": -0.3007,
+    "bulgaria": -0.2542,
+    "japan": 0.0597,
+    "morocco": 0.0202
+   }
+  },
+  "gen-country-poland-a0-00": {
+   "item": "gen-country-poland-a0-00",
+   "gold": "poland",
+   "nearest": [
+    "czechia",
+    "slovakia",
+    "switzerland",
+    "denmark"
+   ],
+   "random": [
+    "honduras",
+    "hungary",
+    "jamaica",
+    "venezuela"
+   ],
+   "distractors": [
+    "czechia",
+    "slovakia",
+    "switzerland",
+    "denmark",
+    "honduras",
+    "hungary",
+    "jamaica",
+    "venezuela"
+   ],
+   "n_eligible": 48,
+   "cos_to_gold": {
+    "czechia": 0.3608,
+    "slovakia": 0.3216,
+    "switzerland": 0.2621,
+    "denmark": 0.2266,
+    "honduras": -0.1345,
+    "hungary": 0.1765,
+    "jamaica": -0.1955,
+    "venezuela": 0.0364
+   }
+  },
+  "gen-country-russia-a0-00": {
+   "item": "gen-country-russia-a0-00",
+   "gold": "russia",
+   "nearest": [
+    "france",
+    "japan",
+    "hungary",
+    "austria"
+   ],
+   "random": [
+    "indonesia",
+    "kazakhstan",
+    "mexico",
+    "netherlands"
+   ],
+   "distractors": [
+    "france",
+    "japan",
+    "hungary",
+    "austria",
+    "indonesia",
+    "kazakhstan",
+    "mexico",
+    "netherlands"
+   ],
+   "n_eligible": 53,
+   "cos_to_gold": {
+    "france": 0.3497,
+    "japan": 0.2983,
+    "hungary": 0.2542,
+    "austria": 0.2264,
+    "indonesia": 0.0109,
+    "kazakhstan": 0.0977,
+    "mexico": -0.0956,
+    "netherlands": 0.1377
+   }
+  },
+  "gen-country-russia-a0-01": {
+   "item": "gen-country-russia-a0-01",
+   "gold": "russia",
+   "nearest": [
+    "france",
+    "belarus",
+    "egypt",
+    "sweden"
+   ],
+   "random": [
+    "kenya",
+    "slovakia",
+    "switzerland",
+    "vietnam"
+   ],
+   "distractors": [
+    "france",
+    "belarus",
+    "egypt",
+    "sweden",
+    "kenya",
+    "slovakia",
+    "switzerland",
+    "vietnam"
+   ],
+   "n_eligible": 56,
+   "cos_to_gold": {
+    "france": 0.3497,
+    "belarus": 0.3202,
+    "egypt": 0.3181,
+    "sweden": 0.2633,
+    "kenya": -0.0834,
+    "slovakia": 0.117,
+    "switzerland": 0.0116,
+    "vietnam": -0.0003
+   }
+  },
+  "gen-country-uk-a0-00": {
+   "item": "gen-country-uk-a0-00",
+   "gold": "united_kingdom",
+   "nearest": [
+    "united_states",
+    "new_zealand",
+    "ireland",
+    "south_africa"
+   ],
+   "random": [
+    "armenia",
+    "china",
+    "tonga",
+    "uruguay"
+   ],
+   "distractors": [
+    "united_states",
+    "new_zealand",
+    "ireland",
+    "south_africa",
+    "armenia",
+    "china",
+    "tonga",
+    "uruguay"
+   ],
+   "n_eligible": 64,
+   "cos_to_gold": {
+    "united_states": 0.485,
+    "new_zealand": 0.48,
+    "ireland": 0.3724,
+    "south_africa": 0.3531,
+    "armenia": -0.4376,
+    "china": -0.0232,
+    "tonga": -0.1478,
+    "uruguay": -0.2174
+   }
+  },
+  "gen-country-uk-a0-01": {
+   "item": "gen-country-uk-a0-01",
+   "gold": "united_kingdom",
+   "nearest": [
+    "new_zealand",
+    "ireland",
+    "south_africa",
+    "france"
+   ],
+   "random": [
+    "brazil",
+    "guatemala",
+    "japan",
+    "tonga"
+   ],
+   "distractors": [
+    "new_zealand",
+    "ireland",
+    "south_africa",
+    "france",
+    "brazil",
+    "guatemala",
+    "japan",
+    "tonga"
+   ],
+   "n_eligible": 64,
+   "cos_to_gold": {
+    "new_zealand": 0.48,
+    "ireland": 0.3724,
+    "south_africa": 0.3531,
+    "france": 0.3467,
+    "brazil": 0.0686,
+    "guatemala": -0.1987,
+    "japan": 0.072,
+    "tonga": -0.1478
+   }
+  },
+  "gen-country-usa-a0-00": {
+   "item": "gen-country-usa-a0-00",
+   "gold": "united_states",
+   "nearest": [
+    "australia",
+    "italy",
+    "france",
+    "russia"
+   ],
+   "random": [
+    "jamaica",
+    "nicaragua",
+    "turkey",
+    "uruguay"
+   ],
+   "distractors": [
+    "australia",
+    "italy",
+    "france",
+    "russia",
+    "jamaica",
+    "nicaragua",
+    "turkey",
+    "uruguay"
+   ],
+   "n_eligible": 67,
+   "cos_to_gold": {
+    "australia": 0.3884,
+    "italy": 0.2878,
+    "france": 0.2787,
+    "russia": 0.2228,
+    "jamaica": 0.2137,
+    "nicaragua": -0.2766,
+    "turkey": -0.2126,
+    "uruguay": -0.1621
+   }
+  },
+  "gen-country-usa-a0-01": {
+   "item": "gen-country-usa-a0-01",
+   "gold": "united_states",
+   "nearest": [
+    "canada",
+    "australia",
+    "italy",
+    "france"
+   ],
+   "random": [
+    "netherlands",
+    "pakistan",
+    "philippines",
+    "scotland"
+   ],
+   "distractors": [
+    "canada",
+    "australia",
+    "italy",
+    "france",
+    "netherlands",
+    "pakistan",
+    "philippines",
+    "scotland"
+   ],
+   "n_eligible": 69,
+   "cos_to_gold": {
+    "canada": 0.5544,
+    "australia": 0.3884,
+    "italy": 0.2878,
+    "france": 0.2787,
+    "netherlands": -0.0119,
+    "pakistan": -0.257,
+    "philippines": 0.2059,
+    "scotland": 0.1831
+   }
+  },
+  "um-sd-country-00": {
+   "item": "um-sd-country-00",
+   "gold": "paraguay",
+   "nearest": [
+    "honduras",
+    "el_salvador",
+    "uruguay",
+    "guatemala"
+   ],
+   "random": [
+    "egypt",
+    "new_zealand",
+    "russia",
+    "south_africa"
+   ],
+   "distractors": [
+    "honduras",
+    "el_salvador",
+    "uruguay",
+    "guatemala",
+    "egypt",
+    "new_zealand",
+    "russia",
+    "south_africa"
+   ],
+   "n_eligible": 52,
+   "cos_to_gold": {
+    "honduras": 0.3945,
+    "el_salvador": 0.3524,
+    "uruguay": 0.345,
+    "guatemala": 0.2981,
+    "egypt": -0.0028,
+    "new_zealand": -0.1796,
+    "russia": -0.1077,
+    "south_africa": -0.0395
+   }
+  },
+  "um-sd-country-01": {
+   "item": "um-sd-country-01",
+   "gold": "south_korea",
+   "nearest": [
+    "taiwan",
+    "mongolia",
+    "israel",
+    "malaysia"
+   ],
+   "random": [
+    "egypt",
+    "indonesia",
+    "lithuania",
+    "venezuela"
+   ],
+   "distractors": [
+    "taiwan",
+    "mongolia",
+    "israel",
+    "malaysia",
+    "egypt",
+    "indonesia",
+    "lithuania",
+    "venezuela"
+   ],
+   "n_eligible": 60,
+   "cos_to_gold": {
+    "taiwan": 0.501,
+    "mongolia": 0.277,
+    "israel": 0.2755,
+    "malaysia": 0.2659,
+    "egypt": -0.1056,
+    "indonesia": 0.143,
+    "lithuania": -0.0577,
+    "venezuela": 0.1073
+   }
+  },
+  "um-sd-country-02": {
+   "item": "um-sd-country-02",
+   "gold": "south_korea",
+   "nearest": [
+    "mongolia",
+    "israel",
+    "turkey",
+    "timor_leste"
+   ],
+   "random": [
+    "honduras",
+    "italy",
+    "sweden",
+    "venezuela"
+   ],
+   "distractors": [
+    "mongolia",
+    "israel",
+    "turkey",
+    "timor_leste",
+    "honduras",
+    "italy",
+    "sweden",
+    "venezuela"
+   ],
+   "n_eligible": 56,
+   "cos_to_gold": {
+    "mongolia": 0.277,
+    "israel": 0.2755,
+    "turkey": 0.1859,
+    "timor_leste": 0.1849,
+    "honduras": 0.0429,
+    "italy": -0.1388,
+    "sweden": -0.2472,
+    "venezuela": 0.1073
+   }
+  },
+  "um-sd-country-03": {
+   "item": "um-sd-country-03",
+   "gold": "south_korea",
+   "nearest": [
+    "mongolia",
+    "israel",
+    "timor_leste",
+    "india"
+   ],
+   "random": [
+    "nicaragua",
+    "sweden",
+    "trinidad_and_tobago",
+    "uruguay"
+   ],
+   "distractors": [
+    "mongolia",
+    "israel",
+    "timor_leste",
+    "india",
+    "nicaragua",
+    "sweden",
+    "trinidad_and_tobago",
+    "uruguay"
+   ],
+   "n_eligible": 54,
+   "cos_to_gold": {
+    "mongolia": 0.277,
+    "israel": 0.2755,
+    "timor_leste": 0.1849,
+    "india": 0.1809,
+    "nicaragua": -0.0873,
+    "sweden": -0.2472,
+    "trinidad_and_tobago": -0.2681,
+    "uruguay": -0.2278
+   }
+  },
+  "um-sd-country-04": {
+   "item": "um-sd-country-04",
+   "gold": "south_korea",
+   "nearest": [
+    "mongolia",
+    "israel",
+    "turkey",
+    "timor_leste"
+   ],
+   "random": [
+    "argentina",
+    "belarus",
+    "germany",
+    "norway"
+   ],
+   "distractors": [
+    "mongolia",
+    "israel",
+    "turkey",
+    "timor_leste",
+    "argentina",
+    "belarus",
+    "germany",
+    "norway"
+   ],
+   "n_eligible": 55,
+   "cos_to_gold": {
+    "mongolia": 0.277,
+    "israel": 0.2755,
+    "turkey": 0.1859,
+    "timor_leste": 0.1849,
+    "argentina": -0.2452,
+    "belarus": 0.0918,
+    "germany": -0.112,
+    "norway": -0.1623
+   }
+  },
+  "um-sd-country-05": {
+   "item": "um-sd-country-05",
+   "gold": "ukraine",
+   "nearest": [
+    "slovakia",
+    "kazakhstan",
+    "poland",
+    "israel"
+   ],
+   "random": [
+    "croatia",
+    "honduras",
+    "south_africa",
+    "turkey"
+   ],
+   "distractors": [
+    "slovakia",
+    "kazakhstan",
+    "poland",
+    "israel",
+    "croatia",
+    "honduras",
+    "south_africa",
+    "turkey"
+   ],
+   "n_eligible": 51,
+   "cos_to_gold": {
+    "slovakia": 0.361,
+    "kazakhstan": 0.3513,
+    "poland": 0.2651,
+    "israel": 0.2635,
+    "croatia": 0.0869,
+    "honduras": 0.006,
+    "south_africa": -0.1243,
+    "turkey": 0.2311
+   }
+  },
+  "um-sd-country-06": {
+   "item": "um-sd-country-06",
+   "gold": "ukraine",
+   "nearest": [
+    "belarus",
+    "kazakhstan",
+    "bulgaria",
+    "latvia"
+   ],
+   "random": [
+    "croatia",
+    "honduras",
+    "united_arab_emirates",
+    "vanuatu"
+   ],
+   "distractors": [
+    "belarus",
+    "kazakhstan",
+    "bulgaria",
+    "latvia",
+    "croatia",
+    "honduras",
+    "united_arab_emirates",
+    "vanuatu"
+   ],
+   "n_eligible": 56,
+   "cos_to_gold": {
+    "belarus": 0.5484,
+    "kazakhstan": 0.3513,
+    "bulgaria": 0.3148,
+    "latvia": 0.3051,
+    "croatia": 0.0869,
+    "honduras": 0.006,
+    "united_arab_emirates": 0.1153,
+    "vanuatu": -0.079
+   }
+  },
+  "um-sd-country-07": {
+   "item": "um-sd-country-07",
+   "gold": "ukraine",
+   "nearest": [
+    "slovakia",
+    "lithuania",
+    "kazakhstan",
+    "bulgaria"
+   ],
+   "random": [
+    "brazil",
+    "egypt",
+    "guatemala",
+    "vanuatu"
+   ],
+   "distractors": [
+    "slovakia",
+    "lithuania",
+    "kazakhstan",
+    "bulgaria",
+    "brazil",
+    "egypt",
+    "guatemala",
+    "vanuatu"
+   ],
+   "n_eligible": 51,
+   "cos_to_gold": {
+    "slovakia": 0.361,
+    "lithuania": 0.3536,
+    "kazakhstan": 0.3513,
+    "bulgaria": 0.3148,
+    "brazil": -0.3271,
+    "egypt": -0.1856,
+    "guatemala": -0.0279,
+    "vanuatu": -0.079
+   }
+  },
+  "um-sd-country-08": {
+   "item": "um-sd-country-08",
+   "gold": "ukraine",
+   "nearest": [
+    "slovakia",
+    "kazakhstan",
+    "latvia",
+    "mongolia"
+   ],
+   "random": [
+    "france",
+    "honduras",
+    "malaysia",
+    "united_arab_emirates"
+   ],
+   "distractors": [
+    "slovakia",
+    "kazakhstan",
+    "latvia",
+    "mongolia",
+    "france",
+    "honduras",
+    "malaysia",
+    "united_arab_emirates"
+   ],
+   "n_eligible": 46,
+   "cos_to_gold": {
+    "slovakia": 0.361,
+    "kazakhstan": 0.3513,
+    "latvia": 0.3051,
+    "mongolia": 0.2429,
+    "france": -0.1812,
+    "honduras": 0.006,
+    "malaysia": -0.128,
+    "united_arab_emirates": 0.1153
+   }
+  },
+  "um-sd-country-10": {
+   "item": "um-sd-country-10",
+   "gold": "new_zealand",
+   "nearest": [
+    "south_africa",
+    "jamaica",
+    "norway",
+    "vanuatu"
+   ],
+   "random": [
+    "mongolia",
+    "netherlands",
+    "poland",
+    "romania"
+   ],
+   "distractors": [
+    "south_africa",
+    "jamaica",
+    "norway",
+    "vanuatu",
+    "mongolia",
+    "netherlands",
+    "poland",
+    "romania"
+   ],
+   "n_eligible": 44,
+   "cos_to_gold": {
+    "south_africa": 0.4399,
+    "jamaica": 0.2812,
+    "norway": 0.1745,
+    "vanuatu": 0.1024,
+    "mongolia": -0.2503,
+    "netherlands": 0.0867,
+    "poland": -0.1269,
+    "romania": -0.2352
+   }
+  },
+  "um-sd-country-11": {
+   "item": "um-sd-country-11",
+   "gold": "new_zealand",
+   "nearest": [
+    "scotland",
+    "south_africa",
+    "wales",
+    "jamaica"
+   ],
+   "random": [
+    "czechia",
+    "denmark",
+    "trinidad_and_tobago",
+    "vietnam"
+   ],
+   "distractors": [
+    "scotland",
+    "south_africa",
+    "wales",
+    "jamaica",
+    "czechia",
+    "denmark",
+    "trinidad_and_tobago",
+    "vietnam"
+   ],
+   "n_eligible": 54,
+   "cos_to_gold": {
+    "scotland": 0.5083,
+    "south_africa": 0.4399,
+    "wales": 0.4345,
+    "jamaica": 0.2812,
+    "czechia": -0.05,
+    "denmark": 0.0043,
+    "trinidad_and_tobago": 0.1709,
+    "vietnam": -0.1886
+   }
+  },
+  "um-sd-country-12": {
+   "item": "um-sd-country-12",
+   "gold": "south_africa",
+   "nearest": [
+    "nigeria",
+    "new_zealand",
+    "jamaica",
+    "ghana"
+   ],
+   "random": [
+    "guatemala",
+    "israel",
+    "lithuania",
+    "slovakia"
+   ],
+   "distractors": [
+    "nigeria",
+    "new_zealand",
+    "jamaica",
+    "ghana",
+    "guatemala",
+    "israel",
+    "lithuania",
+    "slovakia"
+   ],
+   "n_eligible": 48,
+   "cos_to_gold": {
+    "nigeria": 0.5031,
+    "new_zealand": 0.4399,
+    "jamaica": 0.3244,
+    "ghana": 0.219,
+    "guatemala": -0.1089,
+    "israel": 0.1858,
+    "lithuania": -0.3492,
+    "slovakia": -0.3385
+   }
+  },
+  "um-sd-country-15": {
+   "item": "um-sd-country-15",
+   "gold": "south_africa",
+   "nearest": [
+    "new_zealand",
+    "malaysia",
+    "scotland",
+    "canada"
+   ],
+   "random": [
+    "latvia",
+    "switzerland",
+    "tonga",
+    "united_states"
+   ],
+   "distractors": [
+    "new_zealand",
+    "malaysia",
+    "scotland",
+    "canada",
+    "latvia",
+    "switzerland",
+    "tonga",
+    "united_states"
+   ],
+   "n_eligible": 54,
+   "cos_to_gold": {
+    "new_zealand": 0.4399,
+    "malaysia": 0.338,
+    "scotland": 0.2072,
+    "canada": 0.1996,
+    "latvia": -0.2301,
+    "switzerland": 0.0634,
+    "tonga": -0.0106,
+    "united_states": 0.1422
+   }
+  },
+  "um-sd-country-16": {
+   "item": "um-sd-country-16",
+   "gold": "costa_rica",
+   "nearest": [
+    "honduras",
+    "el_salvador",
+    "panama",
+    "colombia"
+   ],
+   "random": [
+    "croatia",
+    "iran",
+    "norway",
+    "switzerland"
+   ],
+   "distractors": [
+    "honduras",
+    "el_salvador",
+    "panama",
+    "colombia",
+    "croatia",
+    "iran",
+    "norway",
+    "switzerland"
+   ],
+   "n_eligible": 54,
+   "cos_to_gold": {
+    "honduras": 0.5101,
+    "el_salvador": 0.4128,
+    "panama": 0.342,
+    "colombia": 0.3352,
+    "croatia": -0.0079,
+    "iran": -0.1995,
+    "norway": -0.257,
+    "switzerland": -0.2727
+   }
+  },
+  "um-sd-country-17": {
+   "item": "um-sd-country-17",
+   "gold": "costa_rica",
+   "nearest": [
+    "honduras",
+    "nicaragua",
+    "el_salvador",
+    "panama"
+   ],
+   "random": [
+    "denmark",
+    "iran",
+    "jamaica",
+    "mongolia"
+   ],
+   "distractors": [
+    "honduras",
+    "nicaragua",
+    "el_salvador",
+    "panama",
+    "denmark",
+    "iran",
+    "jamaica",
+    "mongolia"
+   ],
+   "n_eligible": 51,
+   "cos_to_gold": {
+    "honduras": 0.5101,
+    "nicaragua": 0.4154,
+    "el_salvador": 0.4128,
+    "panama": 0.342,
+    "denmark": -0.1934,
+    "iran": -0.1995,
+    "jamaica": 0.1399,
+    "mongolia": -0.0296
+   }
+  },
+  "um-sd-country-18": {
+   "item": "um-sd-country-18",
+   "gold": "ireland",
+   "nearest": [
+    "canada",
+    "jamaica",
+    "italy",
+    "norway"
+   ],
+   "random": [
+    "bulgaria",
+    "honduras",
+    "hungary",
+    "uruguay"
+   ],
+   "distractors": [
+    "canada",
+    "jamaica",
+    "italy",
+    "norway",
+    "bulgaria",
+    "honduras",
+    "hungary",
+    "uruguay"
+   ],
+   "n_eligible": 57,
+   "cos_to_gold": {
+    "canada": 0.3658,
+    "jamaica": 0.2756,
+    "italy": 0.2662,
+    "norway": 0.2463,
+    "bulgaria": -0.1714,
+    "honduras": -0.1941,
+    "hungary": 0.1084,
+    "uruguay": -0.1056
+   }
+  }
+ }
+}

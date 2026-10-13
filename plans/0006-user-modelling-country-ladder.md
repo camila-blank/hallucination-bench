@@ -2,7 +2,7 @@
 
 Issue: to be opened by Camila (this box has no `gh`). Branch `camila/um-ladder-v2`, stacked on
 `camila/sibling-probes` @ 9eaeecb. Author: Camila Blank (planned with Claude), 2026-10-12.
-Revision 7 (after critiques 1–5 and the judge dev labels).
+Revision 8 (amendment below, after the Phase A probe fit; no eval score had been computed).
 
 This is plan 0005's "Set A (user modelling) under the same ladder", redesigned to Camila's
 structure for user modelling (2026-10-12). It **replaces plan 0004's verdict logic for Set A
@@ -14,6 +14,26 @@ country** (claim map → whitened-DiffMean detection → form judge). It reuses:
 
 It starts with the **country** category only. Other categories follow only if country meets the
 §"Does it work" criteria (Camila: "start with country and extend if it works").
+
+## Amendment, revision 8 (2026-10-13, after Phase A, before any eval score)
+
+Phase A (probe texts only) gave, per layer, median implied validity **0.91–0.94 for type (a)**
+(whitened DiffMean) but **0.78–0.86 for type (b)** (logistic regression on PCA-256, C chosen at
+the top of the grid {0.001…1} at almost every layer), so "both types ≥ 0.90" passed only 2–16 of
+80 concepts per layer: nearly every unit would have been `probe n/a`. A one-layer check at L44
+with PCA-512 and C up to 30 raised type (b) to a 0.875 median (23 / 80 pass; C again at the grid
+top), in line with plan 0003's sweep, where logistic regression also trailed the whitened
+DiffMean. Decided from probe-side numbers only (no eval cell, judge or mention statistic used):
+
+1. **The fire rule, the validity gate, distractor eligibility and readability use type (a)
+   only** (`um_ladder.PRIMARY_TYPES`). The pre-registered **both-types rule is kept as a
+   sensitivity row** in every headline table (`label_both_types`).
+2. Type (b) is refitted with PCA-512 and C in {10, 30, 100, 300} (`um_probe.LOGREG_CS`,
+   `PCA_K`) at all 12 layers (run `um-country-v2`); its validity table is reported, and the
+   single-type fire rates under (a) and (b) are reported as before.
+3. Everything else in Step 4 is unchanged and retained: z on each probe's own per-fold null,
+   the 0.90 validity gate (now on type (a)), 8 distractors (4 nearest + 4 random, chosen at L44
+   from Phase A only), the per-(item, layer) readability rule, the neighbour-layer rule.
 
 ## Camila's procedure (2026-10-12), verbatim intent
 
