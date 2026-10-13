@@ -61,22 +61,30 @@ hb() {
   return 4
 }
 
+# after 3 attempts, cached failures (exit 4: mostly API refusals) are reported, not fatal; any other
+# non-zero exit (3 = auth / config) stops the step
+go_on() {
+  if [[ $1 -eq 4 ]]; then echo "=== $(date -Is) continuing with cached failures (reported in the summary)"; return 0; fi
+  exit "$1"
+}
+
 audit() { uv run --no-sync python scripts/am_audit.py "$@" --out "$OUT" --readouts-root "$READOUTS_ROOT"; }
 
 if [[ "$STEP" == step1 ]]; then
   echo "=== $(date -Is) step 1: intent (per item; any one arm triggers it)"
-  hb --arms s3d-rl600 --stages intent --rpm "$RPM_DETECT" --concurrency "$CONCURRENCY" || exit $?
+  # leftover intent failures (API refusals) are resolved by hand in intent_overrides.json
+  hb --arms s3d-rl600 --stages intent --rpm "$RPM_DETECT" --concurrency "$CONCURRENCY" || go_on $?
   echo "=== $(date -Is) step 1: Stage D, prose arms"
-  hb --arms s3d-rl600,nla-rl-L42 --stages detect --rpm "$RPM_DETECT" --concurrency "$CONCURRENCY" || exit $?
+  hb --arms s3d-rl600,nla-rl-L42 --stages detect --rpm "$RPM_DETECT" --concurrency "$CONCURRENCY" || go_on $?
   echo "=== $(date -Is) step 1: Stage D + S, J-lens"
-  hb --arms jlens --stages detect,summ --rpm "$RPM_DETECT" --concurrency "$CONCURRENCY" || exit $?
+  hb --arms jlens --stages detect,summ --rpm "$RPM_DETECT" --concurrency "$CONCURRENCY" || go_on $?
   echo "=== $(date -Is) step 1: audit sheets, screener, summary-only estimate"
   audit sample && audit screen --rpm "$RPM_DETECT" --concurrency "$CONCURRENCY" \
     && audit summ-only --rpm "$RPM_DETECT" --concurrency "$CONCURRENCY"
   echo "=== $(date -Is) step 1 done: hand-label audit/*.jsonl + the intent audit, then am_audit.py score"
 else
   echo "=== $(date -Is) step 2: Stage S + M (arms in the order nla-rl-L42, s3d-rl600, jlens)"
-  hb --arms s3d-rl600,nla-rl-L42,jlens --stages summ,map --rpm "$RPM_MAP" --concurrency "$CONCURRENCY" || exit $?
+  hb --arms s3d-rl600,nla-rl-L42,jlens --stages summ,map --rpm "$RPM_MAP" --concurrency "$CONCURRENCY" || go_on $?
   echo "=== $(date -Is) step 2: tier sheet + report"
   audit sample-tiers
   uv run --no-sync hbench report --eval agentic_misalignment --out "$OUT" --readouts-root "$READOUTS_ROOT"

@@ -124,7 +124,11 @@ def _run_am(args: argparse.Namespace) -> int:
     )
     if args.rebuild:
         return 0
-    n_failed = sum(amrun.n_failed(s) for s in summaries.values()) + intent["n_failed"]
+    # intent failures count toward exit 4 only when the intent stage ran (a refused intent item is
+    # resolved by intent_overrides.json, and must not block the detector / map runs)
+    n_failed = sum(amrun.n_failed(s) for s in summaries.values())
+    if "intent" in stages:
+        n_failed += intent["n_failed"]
     if n_failed:
         print(f"{n_failed} failed calls remain; re-run to retry them", file=sys.stderr)
         return 4
