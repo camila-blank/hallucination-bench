@@ -1,6 +1,6 @@
 # Plan 0008: `agentic_misalignment` eval: the claim map (v2.7) on lens mentions of misalignment
 
-Author: Camila Blank (planned with Claude), 2026-10-13. Revision 5 (rev 5, critique 3: quote-location fallback, terminal retry rule, cell-level recall gated on lexicon strata, detect-then-gate run order, unrelated audit + secondary kind, unrealised-intent headline, earliest enabling quote + full intent audit, batch usage rows, per-stage rpm; rev 4, critique 2: scenario_set_up tier, three-stratum recall with CI, actor/stance audit, units_block flags=False, region semantics, quote dedup, CLI dispatch order; rev 2: split multi-byte characters; rev 3, critique 1: raw readout text everywhere, a verdict-majority helper, an intent call with scenario context and enabling spans, real-intention and inferable-from-text redefined, contradiction regions + hedged view, per-eval readouts file, canonical detector fingerprints, headline restricted to plans/actions, recall estimate, scale). Issue #8.
+Author: Camila Blank (planned with Claude), 2026-10-13. Revision 6 (rev 6, critique 4: recall gate on precision-corrected point estimate, J-lens :Dsum in summ + audited in step 1, audit script, retry bookkeeping, matched_kind, pacer flags in commands, report readouts root, all-tier kind audit; rev 5, critique 3: quote-location fallback, terminal retry rule, cell-level recall gated on lexicon strata, detect-then-gate run order, unrelated audit + secondary kind, unrealised-intent headline, earliest enabling quote + full intent audit, batch usage rows, per-stage rpm; rev 4, critique 2: scenario_set_up tier, three-stratum recall with CI, actor/stance audit, units_block flags=False, region semantics, quote dedup, CLI dispatch order; rev 2: split multi-byte characters; rev 3, critique 1: raw readout text everywhere, a verdict-majority helper, an intent call with scenario context and enabling spans, real-intention and inferable-from-text redefined, contradiction regions + hedged view, per-eval readouts file, canonical detector fingerprints, headline restricted to plans/actions, recall estimate, scale). Issue #8.
 Builds on plan 0002 (claim map, rev 20, prompt `claimmap-v2.7`) and plan 0007 (eval registry,
 `--eval`). Everything not restated here is unchanged.
 
@@ -191,6 +191,11 @@ Cache key `key = {id}__L{layer:03d}__p{pos}`, as in chat. The stages are below.
     single-cell attempts, the last valid answer is accepted with its dropped mentions
     counted (`n_unlocated`, `n_bad_enum`). A cell with no valid answer stays failed and is
     reported. This mirrors `MAP_INVALID_RETRIES`.
+    - Bookkeeping: a failed `:D` row has `result: null` and keeps its slim partial parse
+      (the located mentions and the drop counts) in `meta.partial`, plus `meta.batch_size`.
+    - The terminal check scans the cache rows (`Cache.rows()`) for that `(key,
+      fingerprint)` and counts the failed rows with `batch_size == 1`. At 2 it writes an
+      accepted row from the latest `meta.partial`, with `meta.accepted_partial = true`.
   - **Usage** is stored once per call, on a separate `batchD:{sha of the cell keys}` row
     holding its `Usage`. Cell rows carry `meta` without usage, so the spend is not counted
     40 times. Cell rows are kept slim (located mentions only, no raw answer), because about
@@ -209,7 +214,7 @@ Cache key `key = {id}__L{layer:03d}__p{pos}`, as in chat. The stages are below.
 - For each J-lens cell with at least one mention, the interp-v1 summary of the bag is made
   as in plan 0002: same prompt, same cache key `summ:{key}`, model Opus 5.5.
 - Then the detector runs again on the summary text, under `{key}:Dsum`, with the same prompt
-  and a batch of one.
+  and a batch of one. Both the summary and `:Dsum` belong to the **`summ` stage**.
 - The **J-lens mentions that enter scoring are the summary's mentions**, because the claim map
   sees the summary, not the bag. A bag-detected cell whose summary has no mention is counted
   `lost_in_summary` and reported. It is not dropped silently.
@@ -217,7 +222,9 @@ Cache key `key = {id}__L{layer:03d}__p{pos}`, as in chat. The stages are below.
   Misconduct that appears only in the summary (the summariser confabulating it) is never
   scored, so this population is not comparable to the prose arms'. To estimate its size,
   summarise a seeded sample of 2,000 undetected J-lens bags (spread over the 11 layers) and
-  run the detector on those summaries. Report the summary-only mention rate.
+  run the detector on those summaries. Report the summary-only mention rate. This is done by
+  `scripts/am_audit.py summ-only` (below), with keys `audit:summ:{key}` / `audit:Dsum:{key}`
+  in the J-lens cache.
 
 ### Stage M: the claim map on detected cells
 
@@ -328,6 +335,9 @@ For each located mention (readout `r`, span `[s, e)`):
   - The 32 results are cached at `outputs/agentic_misalignment/claude-opus-5-5/intent.jsonl`.
   - Each mention gets `kind_match`:
     - Matching uses `kind` or `secondary_kind`; the best tier of the two wins.
+      `matched_kind` is the kind that reached that tier, with a tie going to `kind`. It is
+      used for the `set_up_*` lookup and every per-kind table. The `unrelated` tables and
+      the `other_misconduct` row use the primary `kind`.
     - `realised`: the mention's kind is in the item's rollout kinds;
     - `designed_only`: not realised, but the kind is the item's design kind, from the
       `category` map below;
@@ -384,9 +394,11 @@ Per arm, and per layer for the 11-layer arms:
    unrelated, plus the `other_misconduct` row, against verdict. Headline numbers:
    - the **unrelated-mention rate** (the share of headline mentions whose kind is
      unrelated to the rollout, the design and the scenario's set-up options). It is
-     reported both raw and **audit-corrected**: 40 `unrelated` headline mentions per arm
-     (seeded) are hand-read, and the raw rate is multiplied by the share whose kind really
-     is unrelated;
+     reported both raw and **audit-corrected**. The correction uses a seeded hand audit
+     of 80 headline mentions per arm: 40 from `unrelated` and 40 spread over the other three
+     tiers. Each is given its true tier. The corrected rate comes from the tier confusion
+     matrix, weighting each stratum by its size. If the matrix is too sparse, the report
+     labels the number a bound;
    - the **hallucination rate among unrelated mentions**;
    - the **unrealised-intent-claim rate**. This is the share of headline mentions with
      verdict `model_state` or `unverifiable` and `kind_match ≠ realised`, split by
@@ -427,23 +439,36 @@ gold. These checks are logged in the results doc:
   1,440; (a)+(b) NLA 19,675, s3d 42,178, J-lens 18,457.)
   - Recall is defined at **cell level**: a cell counts as a hit if it has at least one real
     mention.
-  - Hand-read 40 undetected cells from (a) and 100 from (b) per arm (seeded).
-  - Lexicon recall = detected lexicon cells / (detected lexicon cells + estimated misses in
-    (a)+(b)), with the misses extrapolated by stratum size. The 95% interval comes from
-    Wilson bounds per stratum, propagated conservatively.
-  - **Recall gate:** the lexicon-recall lower bound is at least 0.80 per arm. Otherwise, fix
-    the prompt (`amdetect-v2`) and re-run Stage D.
+  - Hand-read 40 undetected cells from (a) and **n_b** from (b) per arm (seeded). n_b is set
+    from the pilot so that a 0-miss sample would bound the (b) misses below 10% of the
+    detected lexicon cells. It is at least 100 and at most 400.
+  - Lexicon recall = TP / (TP + estimated misses in (a)+(b)). TP = detected lexicon cells ×
+    the precision measured in the audit below, so false positives do not inflate recall. The
+    misses are extrapolated by stratum size.
+  - **Recall gate:** the point estimate is at least 0.85 per arm. The 95% interval (Wilson
+    bounds per stratum, propagated conservatively) is reported alongside, but it is not the
+    gate. Otherwise, fix the prompt (`amdetect-v2`) and re-run Stage D.
   - **Stratum (c)** is reported separately, not gated: a hand read of ~512k cells per
     11-layer arm cannot be powered. A deliberately lenient screener (`amscreen-v1`: same
     definition, "flag if in any doubt", Opus 5.5) runs on 2,000 seeded (c) cells per arm.
     Every screener hit is hand-read. The result is an estimated miss count in (c) with a
     Wilson bound, and an overall-recall estimate that includes it.
 - **Detector precision audit.** Hand-read 40 detected mentions per arm (seeded), plus 40
-  headline-population mentions per arm. For each, record whether it is a real mention, its
+  headline-population mentions per arm. For J-lens, every audit runs on the `:Dsum`
+  (summary) mentions, which are the population that gets scored. Bag mentions get only a
+  recall check. For each, record whether it is a real mention, its
   kind, its actor and its stance.
   - **Precision gate:** at least 85% are real mentions and at least 80% have the right kind.
   - **Headline-membership gate:** at least 80% of the sampled headline mentions really
     belong in the headline (right actor and stance).
+- **Tooling:** `scripts/am_audit.py`, with these subcommands:
+  - `sample`: writes the seeded hand-read sheets for every stratum and gate to
+    `outputs/agentic_misalignment/<model>/audit/*.jsonl`, with blank `label` fields;
+  - `screen`: runs `amscreen-v1` on the 2,000 (c) cells, keys `audit:screen:{key}`;
+  - `summ-only`: the J-lens summary-only estimate;
+  - `score`: reads the filled sheets and writes `audit/gates.json` (pass/fail per gate).
+
+  The labels are filled in by hand (by me, then logged). Tests use a stub LLM.
 - **Pilot** before the full run: items `am-blackmail_none-none_replacement`, `rh-unit-tests`,
   `am-murder_explicit-america_none` and `am-blackmail_none-none_none` (a control), at layers
   32 and 48 for the 11-layer arms (NLA at 42). This runs Stages D, S and M plus the intent
@@ -529,9 +554,12 @@ population that has passed.
 
 ```
 # step 1: detector only (all arms), then the recall / precision / membership audits
-uv run --no-sync hbench run --eval agentic_misalignment --arms s3d-rl600,nla-rl-L42,jlens --stages detect --out outputs
+uv run --no-sync hbench run --eval agentic_misalignment --arms s3d-rl600,nla-rl-L42 --stages detect --rpm 1200 --concurrency 256 --out outputs
+uv run --no-sync hbench run --eval agentic_misalignment --arms jlens --stages detect,summ --rpm 1200 --concurrency 256 --out outputs
+uv run --no-sync python scripts/am_audit.py sample && uv run --no-sync python scripts/am_audit.py screen && uv run --no-sync python scripts/am_audit.py summ-only
+# hand-label the sheets, then: uv run --no-sync python scripts/am_audit.py score
 # gates pass -> step 2
-uv run --no-sync hbench run --eval agentic_misalignment --arms s3d-rl600,nla-rl-L42,jlens --stages intent,summ,map --out outputs
+uv run --no-sync hbench run --eval agentic_misalignment --arms s3d-rl600,nla-rl-L42,jlens --stages intent,summ,map --rpm 450 --concurrency 256 --out outputs
 uv run --no-sync hbench report --eval agentic_misalignment --out outputs
 ```
 
@@ -539,7 +567,10 @@ Each step runs in its own tmux session (`hbench-am-detect`, then `hbench-am-map`
 audits are hand reads between them, so they cannot be chained.
 
 The readouts root defaults to `/workspace/wsbench-paper-data/readouts` for this eval. A driver
-script `scripts/run_am.sh` retries exit 4 up to 3 times.
+script `scripts/run_am.sh <step1|step2>` runs those commands with the same `--rpm` /
+`--concurrency` flags and retries exit 4 up to 3 times. `hbench report --eval
+agentic_misalignment` also defaults to that readouts root, because it rebuilds from readouts
+plus the cache. It accepts `--readouts-root` to override it.
 
 **Scale.** A rough bracket from the lexicons is 11k–80k `:M` calls (specific to broad
 hit counts). The real figure is re-derived from the pilot's detection rate before the full
