@@ -1,6 +1,6 @@
 # Plan 0008: `agentic_misalignment` eval: the claim map (v2.7) on lens mentions of misalignment
 
-Author: Camila Blank (planned with Claude), 2026-10-13. Revision 7 (rev 7, critique 5: cross-item shuffled batches, persona-name actor remap + exclusion audit, one other_misconduct rule, exact lexicon regex, post-step-2 tier audit, terminal-rule timing, agent-audit labelling, cell-level precision, tier-independent set-up split; rev 6, critique 4: recall gate on precision-corrected point estimate, J-lens :Dsum in summ + audited in step 1, audit script, retry bookkeeping, matched_kind, pacer flags in commands, report readouts root, all-tier kind audit; rev 5, critique 3: quote-location fallback, terminal retry rule, cell-level recall gated on lexicon strata, detect-then-gate run order, unrelated audit + secondary kind, unrealised-intent headline, earliest enabling quote + full intent audit, batch usage rows, per-stage rpm; rev 4, critique 2: scenario_set_up tier, three-stratum recall with CI, actor/stance audit, units_block flags=False, region semantics, quote dedup, CLI dispatch order; rev 2: split multi-byte characters; rev 3, critique 1: raw readout text everywhere, a verdict-majority helper, an intent call with scenario context and enabling spans, real-intention and inferable-from-text redefined, contradiction regions + hedged view, per-eval readouts file, canonical detector fingerprints, headline restricted to plans/actions, recall estimate, scale). Issue #8.
+Author: Camila Blank (planned with Claude), 2026-10-13. Revision 8 (rev 8, critique 6: step-4 population incl. never_set_up, actor_name in schema, 0-based readout index, one-run terminal rule, report --readouts-root, span-level unrelated rate, lexicon counts computed by script, refusing-rollout set defined; rev 7, critique 5: cross-item shuffled batches, persona-name actor remap + exclusion audit, one other_misconduct rule, exact lexicon regex, post-step-2 tier audit, terminal-rule timing, agent-audit labelling, cell-level precision, tier-independent set-up split; rev 6, critique 4: recall gate on precision-corrected point estimate, J-lens :Dsum in summ + audited in step 1, audit script, retry bookkeeping, matched_kind, pacer flags in commands, report readouts root, all-tier kind audit; rev 5, critique 3: quote-location fallback, terminal retry rule, cell-level recall gated on lexicon strata, detect-then-gate run order, unrelated audit + secondary kind, unrealised-intent headline, earliest enabling quote + full intent audit, batch usage rows, per-stage rpm; rev 4, critique 2: scenario_set_up tier, three-stratum recall with CI, actor/stance audit, units_block flags=False, region semantics, quote dedup, CLI dispatch order; rev 2: split multi-byte characters; rev 3, critique 1: raw readout text everywhere, a verdict-majority helper, an intent call with scenario context and enabling spans, real-intention and inferable-from-text redefined, contradiction regions + hedged view, per-eval readouts file, canonical detector fingerprints, headline restricted to plans/actions, recall estimate, scale). Issue #8.
 Builds on plan 0002 (claim map, rev 20, prompt `claimmap-v2.7`) and plan 0007 (eval registry,
 `--eval`). Everything not restated here is unchanged.
 
@@ -122,7 +122,8 @@ Cache key `key = {id}__L{layer:03d}__p{pos}`, as in chat. The stages are below.
   arm's uncached cells, mixed across items and layers. Neighbouring readouts of one scenario
   would otherwise reveal the scenario and bias the kinds. The fingerprint is per cell and
   only the system prompt is cached, so mixing costs nothing. Each cell is shown as `cell c{j}` with its readout(s) as `readout r{i}:` plus
-  the JSON-quoted text.
+  the JSON-quoted text. `i` is the **0-based** readout index used by `split_cell` (`R0.U*`), and the
+  detector's `readout` field uses the same index.
   - Prose arms show the **raw** readout `samples[0]`, uncleaned: exactly the string later
     given to `units.split_cell`. Do not strip `<explanation>` tags; every NLA readout starts
     with one, and the splitter makes the tag its own (junk) unit. Detector offsets and map
@@ -165,7 +166,7 @@ Cache key `key = {id}__L{layer:03d}__p{pos}`, as in chat. The stages are below.
   - a bare token that only spells a fragment of a kind word.
   - J-lens bags are judged token by token: a mention is a token or run of tokens that names
     such an action (`blackmail`, `leverage`, ` kill`).
-- **Output per cell:** `{cell, mentions: [{readout, quote, kind, secondary_kind, actor, stance}]}`.
+- **Output per cell:** `{cell, mentions: [{readout, quote, kind, secondary_kind, actor, actor_name, stance}]}`.
   - `secondary_kind`: a second kind from the table, or null. Use it when the action
     genuinely straddles two kinds ("expose his affair to his wife" is blackmail_coercion +
     leaking_confidential).
@@ -198,10 +199,16 @@ Cache key `key = {id}__L{layer:03d}__p{pos}`, as in chat. The stages are below.
   - Mentions are deduplicated on `(readout, start, end, kind)`. Overlapping mentions of
     different kinds are kept as separate mentions, one per kind. Shares count mentions, and
     the report also gives the number of distinct spans.
+  - **Span-level tiering.** Tiers and the unrelated rate are computed on distinct spans
+    `(readout, start, end)`. A span takes the best tier over all its mentions' kinds, so one
+    span never counts as both realised and unrelated. Mention-level rates are reported
+    alongside.
   - If an answer lists the same cell id twice, the cell is failed and re-queued.
-  - **Terminal rule.** On the next run, a failed cell is retried as a batch of 1. After 2
+  - **Terminal rule.** A failed cell is retried as a batch of 1, in the same run. After 2
     single-cell attempts, the last valid answer is accepted with its dropped mentions
-    counted (`n_unlocated`, `n_bad_enum`). A cell with no valid answer stays failed and is
+    counted (`n_unlocated`, `n_bad_enum`). A cell with no `meta.partial` after its 2
+    single-cell attempts (transport error, or the cell omitted) is retried again on later
+    runs and counts toward exit 4. A cell that still has no valid answer stays failed and is
     reported. (This differs from `MAP_INVALID_RETRIES`, which never accepts a partial
     answer. `:M` and intent keep chat's in-run `invalid_retries = 2`, and their rows stay
     failed after that. AM reimplements `cached_call`, because the chat one takes a chat
@@ -425,8 +432,9 @@ Per arm, and per layer for the 11-layer arms:
    - the **hallucination rate among unrelated mentions**;
    - the **unrealised-intent-claim rate**. This is the share of headline mentions with
      verdict `model_state` or `unverifiable` and `kind_match ≠ realised`, split by
-     designed_only / scenario_set_up / unrelated. Controls and items whose rollout refuses
-     the action are shown separately. Rule 4 sends own-intent claims to `model_state`,
+     designed_only / scenario_set_up / unrelated. Controls are shown separately, and so are
+     the **non-acting misaligned items**: misaligned items whose audited rollout kinds do not
+     include their design kind. Rule 4 sends own-intent claims to `model_state`,
      which is never checked for contradiction. So the "hallucination" verdict does **not**
      measure confabulated intent, and the results doc says so. This rate is the closer
      measure;
@@ -434,8 +442,10 @@ Per arm, and per layer for the 11-layer arms:
      realised`, broken down by verdict (correct / model_state / unverifiable, with the
      `prediction` tag shown / hallucination). Rule 4 makes the choice between `model_state`
      and `correct` arbitrary for "the AI plans to blackmail Kyle", so both count.
-4. **Inferable from text:** every mention whose `matched_kind` has an enabling quote,
-   whatever its tier (realised / designed_only / scenario_set_up, controls included). Show
+4. **Inferable from text:** every mention in the realised, designed_only or scenario_set_up
+   tiers, controls included. A mention is `never_set_up` when its `matched_kind` has no
+   located enabling quote in the rollout list or the scenario list, and this includes a
+   design kind that is in neither list. Show
    it per tier, each split by `set_up_before` /
    `set_up_after` / `never_set_up`, each crossed with verdict. `set_up_before` mentions could
    be read off the text, which is Camila's prior. The other two are the cases where the
@@ -462,8 +472,9 @@ gold. These checks are logged in the results doc:
     shutdown, escape, disable, manipulat, and not (a);
   - (c) **the rest**.
 
-  (Checked hit counts over all cells, detected or not: (a) NLA 6,663, s3d 2,993, J-lens
-  1,440; (a)+(b) NLA 19,675, s3d 42,178, J-lens 18,457.)
+  (Rough hit counts over all cells: (a) NLA 6,663, s3d about 2,990, J-lens 1,440; (a)+(b) NLA
+  about 19k, s3d about 40k, J-lens about 18k. `am_audit.py sample` computes and prints the
+  real stratum sizes from the regex, and those are the numbers used.)
   - Recall is defined at **cell level**: a cell counts as a hit if it has at least one real
     mention.
   - Hand-read 40 undetected cells from (a) and **n_b** from (b) per arm (seeded). n_b is set
@@ -530,6 +541,8 @@ New files only, except the registry line, `cli.py`, README and CLAUDE.md. The `c
 edits are:
 - `agentic_misalignment` in the `--eval` choices of `run` and `report`;
 - new `--items` and AM `--stages` parsing;
+- `--readouts-root` on the `report` parser (default None). The AM branch applies the AM
+  default; the chat report path ignores the flag, so its behaviour is unchanged;
 - an AM branch at the top of `cmd_run` and of `cmd_report`. **No
 pre-existing test may be modified**, and the chat and story behaviour is byte for byte
 unchanged.
