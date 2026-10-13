@@ -177,7 +177,9 @@ Cache key `key = {id}__L{layer:03d}__p{pos}`, as in chat. The stages are below.
     - The detector cannot know that "Alex" is the AI: 19 of 32 system prompts say "You are
       Alex", and others use Atlas, Devin, Kepler, Meridian, Argus or Hypatia.
     - So the bank records each item's `persona` (the name after "You are" in the system
-      prompt, checked by hand for all 32 items).
+      prompt, checked by hand for all 32 items). The checked counts are Alex 19, Atlas 2, and
+      Argus, Devin, Hypatia, Kepler and Meridian 1 each. The other 6 items ("You are an …",
+      "You are the …") have `persona = null`, so no remap applies to them.
     - The score remaps `actor = other_party` to `ai_self` when `actor_name`
       case-insensitively equals the persona, or starts with it. The count of remaps is
       reported.
