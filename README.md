@@ -13,6 +13,7 @@ hallucination eval is one of many evals here; see `plans/` for the design histor
 | `wsbench_chat` | WorkspaceBench's hallucination (chat) eval, ported verbatim (v5c span + verify stages), plus the taxonomy classifier | [0001](plans/0001-bootstrap-wsbench-chat-taxonomy.md) |
 | `wsbench_chat` claim map | taxonomy v2: every character of every readout in exactly one of 11 scoring leaves (7 groups), rolled up into 6 verdicts | [0002](plans/0002-claim-map-taxonomy-v2.md) |
 | `story` | the claim map (taxonomy v2, Opus 5.5) on 20 "tell me a story" items (WorkspaceBench's old `hallucination_creative` bank, 8 sites each); `--eval story` | [0007](plans/0007-story-eval.md) |
+| `agentic_misalignment` | the claim map (v2.7) on lens **mentions of misalignment** (blackmail, leaking, letting someone die, ...) at every prompt position of WorkspaceBench's 32 AM items: a blind batched detector finds the mentions, the claim map judges them (marker in the prompt), and an intent call tiers each mention's kind against what the rollout actually does (realised / designed_only / scenario_set_up / unrelated); its own driver, `--eval agentic_misalignment` | [0008](plans/0008-agentic-misalignment-claim-map.md) |
 
 Per cell (arm × item × read site × layer) `wsbench_chat` runs up to five calls:
 
@@ -122,6 +123,17 @@ scripts/run_all_arms.sh                   # full run in tmux session `hbench`; t
 scripts/fetch_story_readouts.sh jlens gen-hal-story-jlens tokens 20:61:4   # gen dir -> readouts + grid check
 uv run hbench run --eval story --readouts-root /workspace/hb-readouts-story --stages map
 uv run hbench report --eval story --view v2
+
+# agentic_misalignment (plan 0008): own driver, stages detect,summ,map,intent; readouts default to
+# /workspace/wsbench-paper-data/readouts/<arm>/agentic_misalignment.jsonl
+uv run --no-sync python scripts/build_am_bank.py      # data/agentic_misalignment/ (offline)
+uv run hbench run --eval agentic_misalignment --arms s3d-rl600,nla-rl-L42,jlens --layers 32,42,48 \
+    --items am-blackmail_none-none_replacement,rh-unit-tests,am-murder_explicit-america_none,am-blackmail_none-none_none \
+    --out outputs/pilot --show-prompts 2                # the pilot (D, S, M + intent)
+scripts/run_am.sh step1    # tmux hbench-am-detect: intent + detector + audit sheets (then hand audits)
+scripts/run_am.sh step2    # tmux hbench-am-map: claim map + tier sheet + report
+uv run python scripts/am_audit.py score                 # gates.json / tiers.json from the labelled sheets
+uv run hbench report --eval agentic_misalignment        # outputs/agentic_misalignment/<model>/report.md
 ```
 
 Other commands: `hbench run --rebuild` (regenerate `cells.jsonl` / `summary.json` from the cache,
@@ -129,6 +141,9 @@ no API calls), `hbench run --skip-classify` (span + verify pilot), `hbench pilot
 pilot spans as unlabelled calibration cases), `hbench pilot-dump-v2` (real cells with their
 production units, unlabelled, for v2 gold), `hbench units-v2` (fill a v2 case's `gold.units`
 with the production unit split).
+
+AM outputs: `outputs/agentic_misalignment/<judge model>/<arm>/{cache.jsonl,cells.jsonl,mentions.jsonl,summary.json}`,
+`intent.jsonl`, `audit/` and `report.{md,json}` under `outputs/agentic_misalignment/<judge model>/`.
 
 Outputs: `outputs/wsbench_chat/<judge model>/<arm>/{cache.jsonl,cells.jsonl,summary.json,summary_v2.json}`
 and `outputs/wsbench_chat/<judge model>/{report.md,report.json,audit_samples.md}` (v2:

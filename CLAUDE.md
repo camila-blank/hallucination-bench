@@ -3,7 +3,9 @@
 Suite of evals for the **types and severities** of hallucination in activation-reading lenses.
 First eval: `wsbench_chat` (plan `plans/0001-bootstrap-wsbench-chat-taxonomy.md` is the spec);
 the claim map / taxonomy v2 is plan `plans/0002-claim-map-taxonomy-v2.md`; the `story` eval (the
-claim map on 20 story items, `--eval story`) is plan `plans/0007-story-eval.md`.
+claim map on 20 story items, `--eval story`) is plan `plans/0007-story-eval.md`; the
+`agentic_misalignment` eval (detector + claim map on lens mentions of misalignment, its own
+driver, `--eval agentic_misalignment`) is plan `plans/0008-agentic-misalignment-claim-map.md`.
 
 ## Layout
 
@@ -29,6 +31,16 @@ src/hallucination_bench/
   evals/story/bank.py    the story bank (data/story); the pipeline is wsbench_chat's (plan 0007)
   evals/wsbench_chat/{bank,run,score}.py   bank + grid; pipeline (shared); metrics + bootstrap
   evals/wsbench_chat/score_v2.py   claim-map metrics (char-weighted shares, rates, comparisons)
+  evals/agentic_misalignment/      plan 0008 (own driver; NOT the chat pipeline):
+    kinds.py      THE misconduct-kind table + actor/stance enums + design-kind map (rendered
+                  into the detector, screener and intent prompts)
+    bank.py       data/agentic_misalignment bank; marked_prompt (marker in the PROMPT)
+    detect.py     amdetect-v1 / amscreen-v1 prompts, schema, batch render, fail-closed parse
+    intent.py     amintent-v1 (rollout + scenario kinds, located quotes) + intent_overrides.json
+    run.py        run_am (D -> S -> M + intent), Detector terminal rule, rebuild
+    score.py      mention_verdict, regions, kind_match, set-up, counting spans, shares
+    report.py     `report --eval agentic_misalignment` (report.md / report.json)
+  judges/claimmap_am.py  claimmap-v2.7+am1: chat SYSTEM + tail verbatim, AM head (marker in prompt)
   calibrate.py    classifier vs gold cases, Wilson CIs, the held-out gate
   calibrate_v2.py claim map vs unit-level gold (dev_v2 / heldout_v2), the v2 gate
   report.py       cross-arm report, audit samples, pilot-dump
@@ -39,10 +51,15 @@ data/wsbench_chat/   verbatim copies from wsbench-pub @ 92d763e (never edit)
 data/calibration/    dev.jsonl (implementer), heldout.jsonl (blind author only), README (schema + log)
                      dev_v2.jsonl (implementer), heldout_v2.jsonl (blind author only)
 data/story/          20 story items x 8 sites + capture rows, built by scripts/build_story_bank.py
+data/agentic_misalignment/  32 AM items x every prompt position (50,452 sites), personas, built
+                     by scripts/build_am_bank.py; intent_overrides.json after the intent audit
 scripts/run_all_arms.sh  tmux driver for the full run
 scripts/build_story_bank.py  writes data/story/ from global-workspace's hallucination_creative bank
 scripts/fetch_story_readouts.sh  Modal story gen dir -> /workspace/hb-readouts-story/<arm>/ + grid check
 scripts/build_dev_v2.py  writes dev_v2.jsonl (labels live here; re-run if the splitter changes)
+scripts/build_am_bank.py  writes data/agentic_misalignment/ (streams the readouts; fails loudly)
+scripts/am_audit.py  AM audits: sample | screen | summ-only | sample-tiers | score (audit/*.jsonl)
+scripts/run_am.sh    AM driver: step1 (tmux hbench-am-detect) | step2 (tmux hbench-am-map)
 ```
 
 ## Conventions
@@ -96,6 +113,30 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
   - Never run `consistency-v2` for story: it is chat-only, and its output file is the chat noise
     source.
   - `pilot-dump*`, `calibrate` and `units-v2` are chat-only.
+
+- **`--eval agentic_misalignment`** (plan 0008) is its own driver (`evals/agentic_misalignment/run.py`),
+  dispatched first in `cmd_run` / `cmd_report`; chat and story never touch it.
+  - **The readouts are prompt positions only** (every position up to `<|im_start|>assistant`,
+    no thinning), so the marker `⟦READ⟧` sits **in the prompt**, not the response; the claim map
+    uses `claimmap_am` (chat SYSTEM byte for byte, new head, chat tail). Never feed AM cells to
+    the chat pipeline.
+  - Readouts file `<arm>/agentic_misalignment.jsonl` (default root the paper readouts; default
+    arms s3d-rl600, nla-rl-L42, jlens). The loader checks the whole file (full 50,452-site grid
+    per layer, no unknown ids) before `--items` / `--layers` / `--limit` apply.
+  - `--stages detect,summ,map,intent` add no dependencies: unselected stages are cache-only
+    (`--stages map` maps only cells whose detection is cached). Intent is per item, cached in
+    `<out>/agentic_misalignment/<model>/intent.jsonl`; any one `--arms` value triggers it.
+  - Detector cache is per cell (`{key}:D`, J-lens summaries `{key}:Dsum`), fingerprint over the
+    canonical readout lines (no batch label); usage only on `batchD:` rows (spend sums every
+    row). Failed cells retry as batches of 1 in the same run; 2 failed single-cell rows with a
+    partial parse -> accepted (`meta.accepted_partial`). `batchD:` / `audit:` keys are never
+    counted as cells.
+  - J-lens: the scored mentions are the **summary's** (`:Dsum`); `lost_in_summary` is an upper
+    bound until `am_audit.py sample`'s lost_in_summary sheet is read.
+  - Every headline number counts **spans** (overlapping mention spans of a readout merged);
+    the headline bootstrap resamples the 28 misaligned items. AM is always provisional (no gate).
+  - Rebuilding an 11-layer arm loads ~555k cells (~1 GB for J-lens): fine under the 32 GB cap,
+    but do not run several AM rebuilds in parallel.
 
 - **Keyless Anthropic auth.** With `ANTHROPIC_API_KEY` unset, `AsyncAnthropic()` picks up the
   `ant` CLI OAuth profile (`ant auth status`). Never require the env var. If the profile's
