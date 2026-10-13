@@ -1,6 +1,6 @@
 # Plan 0008: `agentic_misalignment` eval: the claim map (v2.7) on lens mentions of misalignment
 
-Author: Camila Blank (planned with Claude), 2026-10-13. Revision 8 (rev 8, critique 6: step-4 population incl. never_set_up, actor_name in schema, 0-based readout index, one-run terminal rule, report --readouts-root, span-level unrelated rate, lexicon counts computed by script, refusing-rollout set defined; rev 7, critique 5: cross-item shuffled batches, persona-name actor remap + exclusion audit, one other_misconduct rule, exact lexicon regex, post-step-2 tier audit, terminal-rule timing, agent-audit labelling, cell-level precision, tier-independent set-up split; rev 6, critique 4: recall gate on precision-corrected point estimate, J-lens :Dsum in summ + audited in step 1, audit script, retry bookkeeping, matched_kind, pacer flags in commands, report readouts root, all-tier kind audit; rev 5, critique 3: quote-location fallback, terminal retry rule, cell-level recall gated on lexicon strata, detect-then-gate run order, unrelated audit + secondary kind, unrealised-intent headline, earliest enabling quote + full intent audit, batch usage rows, per-stage rpm; rev 4, critique 2: scenario_set_up tier, three-stratum recall with CI, actor/stance audit, units_block flags=False, region semantics, quote dedup, CLI dispatch order; rev 2: split multi-byte characters; rev 3, critique 1: raw readout text everywhere, a verdict-majority helper, an intent call with scenario context and enabling spans, real-intention and inferable-from-text redefined, contradiction regions + hedged view, per-eval readouts file, canonical detector fingerprints, headline restricted to plans/actions, recall estimate, scale). Issue #8.
+Author: Camila Blank (planned with Claude), 2026-10-13. Revision 9 (rev 9, critique 7: spans are the counting unit, in-run terminal count, batchD rows, render_bag for summaries, concurrency from latency; rev 8, critique 6: step-4 population incl. never_set_up, actor_name in schema, 0-based readout index, one-run terminal rule, report --readouts-root, span-level unrelated rate, lexicon counts computed by script, refusing-rollout set defined; rev 7, critique 5: cross-item shuffled batches, persona-name actor remap + exclusion audit, one other_misconduct rule, exact lexicon regex, post-step-2 tier audit, terminal-rule timing, agent-audit labelling, cell-level precision, tier-independent set-up split; rev 6, critique 4: recall gate on precision-corrected point estimate, J-lens :Dsum in summ + audited in step 1, audit script, retry bookkeeping, matched_kind, pacer flags in commands, report readouts root, all-tier kind audit; rev 5, critique 3: quote-location fallback, terminal retry rule, cell-level recall gated on lexicon strata, detect-then-gate run order, unrelated audit + secondary kind, unrealised-intent headline, earliest enabling quote + full intent audit, batch usage rows, per-stage rpm; rev 4, critique 2: scenario_set_up tier, three-stratum recall with CI, actor/stance audit, units_block flags=False, region semantics, quote dedup, CLI dispatch order; rev 2: split multi-byte characters; rev 3, critique 1: raw readout text everywhere, a verdict-majority helper, an intent call with scenario context and enabling spans, real-intention and inferable-from-text redefined, contradiction regions + hedged view, per-eval readouts file, canonical detector fingerprints, headline restricted to plans/actions, recall estimate, scale). Issue #8.
 Builds on plan 0002 (claim map, rev 20, prompt `claimmap-v2.7`) and plan 0007 (eval registry,
 `--eval`). Everything not restated here is unchanged.
 
@@ -201,8 +201,17 @@ Cache key `key = {id}__L{layer:03d}__p{pos}`, as in chat. The stages are below.
     the report also gives the number of distinct spans.
   - **Span-level tiering.** Tiers and the unrelated rate are computed on distinct spans
     `(readout, start, end)`. A span takes the best tier over all its mentions' kinds, so one
-    span never counts as both realised and unrelated. Mention-level rates are reported
-    alongside.
+    span never counts as both realised and unrelated. Mention-level rates are descriptive
+    only.
+  - **The span is the counting unit for every headline number.** That covers the unrelated
+    rate, its audit correction, the hallucination rate among unrelated, the §3 crosstab and
+    the verdict shares.
+    - A span is in the headline population if **any** of its mentions is.
+    - A headline span takes its tier from the best-tier mention **among its headline
+      mentions**, and that mention's actor and stance. Its verdict comes from
+      `mention_verdict` over the span, which is the same for all its mentions.
+    - `sample-tiers` samples spans, the tier confusion matrix is over span tiers, and the
+      stratum sizes are span counts.
   - If an answer lists the same cell id twice, the cell is failed and re-queued.
   - **Terminal rule.** A failed cell is retried as a batch of 1, in the same run. After 2
     single-cell attempts, the last valid answer is accepted with its dropped mentions
@@ -219,10 +228,15 @@ Cache key `key = {id}__L{layer:03d}__p{pos}`, as in chat. The stages are below.
     - Bookkeeping: a failed `:D` row has `result: null` and keeps its slim partial parse
       (the located mentions and the drop counts) in `meta.partial`, plus `meta.batch_size`.
     - The terminal check uses an index built once per run from `Cache.rows()`, keyed by
-      `(key, fingerprint)`, and counts the failed rows with `batch_size == 1`. At 2 it writes an
+      `(key, fingerprint)`, and **updated on every put during the run**. The count of failed
+      rows with `batch_size == 1` therefore includes this run's attempts. At 2 it writes an
       accepted row from the latest `meta.partial`, with `meta.accepted_partial = true`.
   - **Usage** is stored once per call, on a separate `batchD:{sha of the cell keys}` row
-    holding its `Usage`. Cell rows carry `meta` without usage, so the spend is not counted
+    holding its `Usage`. The row's `result` is always non-null (`{"cells": [...keys]}`), even
+    when the call failed.
+    - Keys with the `batchD:`, `audit:` and `intent:` prefixes are left out of the per-cell
+      failed and pending counts. Intent failures are reported, and count toward exit 4, on
+      their own line. Cell rows carry `meta` without usage, so the spend is not counted
     40 times. Cell rows are kept slim (located mentions only, no raw answer), because about
     555k rows per arm sit in `Cache` memory.
   - An unlocatable quote, an unknown cell id or an unknown enum drops that mention and counts
@@ -238,6 +252,9 @@ Cache key `key = {id}__L{layer:03d}__p{pos}`, as in chat. The stages are below.
 
 - For each J-lens cell with at least one mention, the interp-v1 summary of the bag is made
   as in plan 0002: same prompt, same cache key `summ:{key}`, model Opus 5.5.
+  - The user text is `summarizer.render_user(summarizer.render_bag(decoded tokens,
+    cell.scores))`, exactly as the chat J-lens arm does it. It is **not** the detector's
+    `" | "` rendering. The same applies to `audit:summ:`.
 - Then the detector runs again on the summary text, under `{key}:Dsum`, with the same prompt
   and a batch of one. Both the summary and `:Dsum` belong to the **`summ` stage**.
 - The **J-lens mentions that enter scoring are the summary's mentions**, because the claim map
@@ -633,8 +650,12 @@ plus the cache. It accepts `--readouts-root` to override it.
 hit counts). The real figure is re-derived from the pilot's detection rate before the full
 run, and recorded in the results doc with the projected cost and wall-clock. At the upper
 end that is about $5k at the `llm.PRICES` Opus 5.5 rates, plus about $1k for Stage D.
-- **Rate.** The org Opus output limit is 2M tokens/min. The `--rpm` pacer is the bound
-  here; concurrency only needs to be high enough to reach it.
+- **Rate.** The org Opus output limit is 2M tokens/min. The `--rpm` pacer is meant to be
+  the bound, so concurrency must be at least rpm × latency in minutes (Little's law), with a
+  margin.
+  - Concurrency is set from the pilot's measured p50 latency. At roughly 60 s for map calls
+    and 25 s for detect calls, that means about 600 for both steps.
+  - The 256 in the commands below is a placeholder, replaced after the pilot.
   - Detect: `--rpm 1200 --concurrency 256`. At about 1k output tokens per 40-cell call,
     that is about 1.2M output tokens/min.
   - Map: `--rpm 450 --concurrency 256`. At about 3k output tokens per call (NLA about
