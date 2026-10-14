@@ -1,7 +1,8 @@
 # Plan 0009: sibling substitutions become hallucinations, gated by a 10-sample resample check and probes
 
-Issue #10. Author: Camila Blank (planned with Claude), 2026-10-14. Revision 6 (after critiques 1–5;
-rev 3 was a full rewrite with no override sections, so the body is the spec; revs 4–6 edit it in place).
+Issue #10. Author: Camila Blank (planned with Claude), 2026-10-14. Revision 7 (after critiques 1–6;
+rev 3 was a full rewrite with no override sections, so the body is the spec; revs 4–7 edit it in place).
+"Rev 21" is the scoring revision this plan introduces in the taxonomy (plan 0002 ended at rev 20).
 
 Branch `camila/sibling-resample`, stacked on `camila/taxonomy-v2` (PR #4, plan 0002 rev 20 at
 f969f83). This plan changes how `substitution_sibling` segments are **scored**. It does not
@@ -61,8 +62,8 @@ probes and test this like we did for the user modeling eval."
 - **`item_sibling_names`** (`evals/sibling_gate/units.py`; it is always imported qualified as
   `sibling_gate.units`, because `hallucination_bench/units.py` already exists) maps item → the said objects of every in-scope arm's
   units, with each object's arms and layers. It is built once, before any distractor is drawn,
-  and used for the distractor exclusion (§3d) and for cross-method (§3e). It is keyed by
-  `said_canonical` once §3a has run, and by the normalised said before that.
+  and used for the distractor exclusion (§3d) and for cross-method (§3e). Before §3a it is keyed by the normalised said. It is **rebuilt**, not re-keyed, keyed by
+  `said_canonical` after §3a.
 - **Expected size**, from the v2.7 cells:
 
   | arm | segments | cells |
@@ -155,7 +156,7 @@ their gated shares "probes only (no resample)" and keeps them in the token-arm t
     `contradicted_by`;
   - the 10 resampled blocks, numbered.
 - **Output, per block:** what fills **the same slot**, meaning the role the said object plays
-  in the original claim (e.g. "the company that built me):
+  in the original claim (e.g. "the company that built me"):
   - `said`: the said object; aliases count ("OpenAI's ChatGPT" for ChatGPT);
   - `actual`: the right answer for the slot as the item text gives it, in any form, including a
     description ("the team that created me");
@@ -208,6 +209,8 @@ From the 10 fresh blocks:
   - (iii) A cut-off of n_said ≤ 1.
   - (iv) A cut-off of n_said ≤ 3, with stable at ≥ 4. The n_other / n_actual conditions are
     unchanged.
+  Row (i) can also send branch-A units with n_said ≤ 1 into rung 2. Those units have no rung-2
+  run, so they count as `probe_na` in that row.
 
   So that every row has a rung-2 outcome to use, rung 2 also runs on all units with
   2 ≤ n_said ≤ 3 and on the branch-B-only units. Those outcomes are used only in sensitivity
@@ -314,7 +317,11 @@ unit that does not fire is `probe_na` and skips cross_method too.
   distractor.
 - **Nearby** (final `probe_nearby`): it fires at the same (id, pos) at a neighbouring layer:
   - for all-layer arms, the neighbours at distance exactly 4, plus L42 for L40 and L44;
-  - for the L42 arms, L40 and L44.
+  - for the L42 arms, L40 and L44. These are read from `acts-hallucination-chat` at the same
+    (id, pos), because the L42 bank holds only L42. The same bank is used for readability and the
+    matched null at L40 and L44. Step 0 checks that both banks give the same token at each
+    (id, pos). If they do not, nearby is disabled for the L42 arms, and units that would fall
+    through become `probe_na` instead of `probe_unconfirmed`.
 - **Eval residuals.** These come from `acts-hallucination-chat`, or `acts-hallucination-chat-L42`
   for the L42 arms. They are scored by a Modal CPU job adapted from
   `um_probes_modal.py --phase fit|score`: one container per layer, volume `sibling-probes`,
@@ -432,8 +439,9 @@ Sensitivity rows:
    - the null check passes at L44.
 3. **Full run** in tmux session `sibgate`, logging to `logs/sibgate_<timestamp>.log`. The chained
    driver is `scripts/sibling_gate/run_all.sh`, run from a `/tmp` snapshot because editing a
-   running bash script breaks it. Its stages: units → resample pools → fill → classes →
-   concepts → probe texts → capture → fit → score → label → report → figures.
+   running bash script breaks it. Its stages are the CLI stages in order: units → resample-manifests → (GPU resample jobs) →
+   resample-collect → fill → fill-calib (dev) → classes → concepts → probe-texts →
+   capture-manifest → (GPU capture) → fit → score → label → report → figures.
 4. Gold calibration of the slot judge, then the results doc, report v2.8 and the plots.
 
 ## 6. Outputs and docs
