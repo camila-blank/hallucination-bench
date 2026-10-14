@@ -1,7 +1,7 @@
 # Plan 0009: sibling substitutions become hallucinations, gated by a 10-sample resample check and probes
 
-Issue #10. Author: Camila Blank (planned with Claude), 2026-10-14. Revision 4 (after critiques 1–3;
-rev 3 was a full rewrite with no override sections, so the body is the spec; rev 4 edits it in place).
+Issue #10. Author: Camila Blank (planned with Claude), 2026-10-14. Revision 5 (after critiques 1–4;
+rev 3 was a full rewrite with no override sections, so the body is the spec; revs 4–5 edit it in place).
 
 Branch `camila/sibling-resample`, stacked on `camila/taxonomy-v2` (PR #4, plan 0002 rev 20 at
 f969f83). This plan changes how `substitution_sibling` segments are **scored**. It does not
@@ -52,7 +52,7 @@ probes and test this like we did for the user modeling eval."
   that share all of:
   - arm, id, layer and the cell's pos;
   - normalised `pair.said` and normalised `pair.actual` (NFKC, casefold, punctuation and
-    whitespace stripped).
+    whitespace stripped; if that leaves an empty string, the casefolded raw string is used).
 - **Scope of a unit.** Repeats of a pair across the cell's 3 samples are one unit, and every
   segment inherits its unit's status. The same (arm, id, said, actual) at another layer or pos
   is a separate unit, with its own resample and status.
@@ -205,7 +205,8 @@ From the 10 fresh blocks:
   - (i) The rev-1 rule: unstable iff n_said ≤ 2 and n_said + n_actual + #`other` blocks ≥ 4.
   - (ii) Branch A only.
   - (iii) A cut-off of n_said ≤ 1.
-  - (iv) A cut-off of n_said ≤ 3, with stable at ≥ 4.
+  - (iv) A cut-off of n_said ≤ 3, with stable at ≥ 4. The n_other / n_actual conditions are
+    unchanged.
 
   So that every row has a rung-2 outcome to use, rung 2 also runs on all units with
   2 ≤ n_said ≤ 3 and on the branch-B-only units. Those outcomes are used only in sensitivity
@@ -265,7 +266,9 @@ of §2c.
     texts spread across folds (`assign_folds`);
   - per-fold null z on other concepts' implied positions.
 - **Vendored code.** `probes.py` and `um_probe.py` are copied verbatim from
-  `camila/um-ladder-v2`. The only edit is the import fallback line.
+  `camila/um-ladder-v2`. The only edit is the import line: the
+  primary import points to `hallucination_bench.evals.sibling_gate.probes`, and the `sibprobes`
+  Modal fallback stays.
 - **New recipe, stated as such.** Centring and the null are keyed by the **punctuation token
   class** of the read position, not by plan 0006's (ending, offset).
   - The classes are `.` `,` `!` `?` `:` `;` newline `)` `。` `，` `！` `？` `：` and other. A
@@ -282,6 +285,12 @@ of §2c.
 - **No type (b).** Logistic regression is not run: it was not evaluable in plan 0006 rev 8.
 
 ### 3d. Distractors, n/a, fire
+
+**S** is the probe for the unit's `said_canonical` concept, which is in C (§3a). `no_gold`
+units use the same S.
+
+**Order of decisions (strict):** n/a → fire → nearby → cross_method (§3e) → probe_unconfirmed.
+An n/a unit is final `probe_na`, and never reaches cross_method or probe_unconfirmed.
 
 - **Distractors.** Per unit, 8 distractors from C:
   - the 4 nearest the gold by cosine of the grand-mean-centred implied centroids at L44 (for
@@ -349,11 +358,14 @@ Sensitivity rows:
 - **`score_v2.py`:**
   - The slim loader joins `sibling_status` by segment key and applies `effective_leaf` to the
     tuple's leaf (`s[0]`) once, at load time. Downstream code is unchanged.
-  - `alt_leaf` (`s[1]`) stays raw (§1).
+  - `alt_leaf` (`s[1]`) stays raw (§1). The `agreement` spans that `slim()` builds also stay
+    raw, so judge-noise agreement stays raw. Only the `segs` tuple gets the effective leaf.
+    `slim()` is the only place `SIBLING_GATED` enters scoring.
   - **Threading.** `slim(rec)` and `AccumulatorV2.add(rec)` have no arm today.
     `AccumulatorV2` gets an optional `sibling_labels: dict[segkey, final] | None` in its
     constructor. The segment key is (`rec["key"]`, readout idx, start, end).
-    `summarize` / the rebuild path (which writes `summary_v2.json`) and `report_v2` load
+    The call site is the rebuild path (`run.py`, the `AccumulatorV2()` construction near
+    line 769, which writes `summary_v2.json`). It and `report_v2` load
     `outputs/sibling_gate/labels/<arm>.jsonl` when present and pass it in, so None means rev-20
     behaviour.
   - Raw-sibling segments with `status == "disputed"` form no unit and stay raw. This includes
@@ -367,7 +379,8 @@ Sensitivity rows:
     every rev-20 key.
   - **Flags.** `readout_flags` gains `substitution_sibling_gated` (like `substitution_category`),
     and the v5c comparison gains `n_cmp_v2_gated`, counted inside the comparison's
-    hallucination, as the other components are.
+    hallucination, as the other components are. Both are added to `FLAGS` and `_columns()`, so
+    `readout_vector` finds them. `LEAF_ROWS` is defined before `_columns()` runs.
   - `HALLUCINATION_LEAVES` gains `SIBLING_GATED`.
   - `HALLUCINATION_COMPONENTS` becomes `(false_claim, detail, substitution_category,
     SIBLING_GATED)`, in that order.
@@ -377,7 +390,10 @@ Sensitivity rows:
   - The hallucination columns gain `↳ substitution_sibling (gated)`, and the leaf tables gain a
     `substitution_sibling_gated` row, with raw `substitution_sibling` net of it.
   - The verdicts line prints the scoring mapping.
-  - `hallucination_examples` and `probe_candidates()` use `effective_leaf`.
+  - `hallucination_examples` and `probe_candidates()` iterate raw `cells.jsonl`, so they get the
+    status from the shared helper `units.load_labels(arm) -> {segkey: final}`. They look up each
+    segment key (`rec["key"]`, readout idx, start, end) and then call `effective_leaf`.
+    The `slim` join uses the same helper.
   - `probe_candidates.jsonl` keeps the raw `leaf` and adds `sibling_status`. Gated segments
     leave it.
   - A new per-arm table shows units and segments by `rung1` and by `final`, the unstable branch
