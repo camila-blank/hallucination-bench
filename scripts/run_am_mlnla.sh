@@ -9,6 +9,7 @@
 set -uo pipefail
 cd /workspace/hb-am-halluc
 DRV=${1:?read driver log}
+SKIP_FETCH=${SKIP_FETCH:-0}  # 1: readouts already converted, start at Stage D
 ARM=mlnla-rl600-all11
 GEN=gen-am-mlnla-rl600-all11
 VOL=wsbench-gen-6
@@ -16,6 +17,7 @@ GROOT=/workspace/hb-am-gen
 RROOT=/workspace/hb-readouts-am
 LAYERS=(20,24,28 32,36,40 44,48,52 56,60)
 
+if [ "$SKIP_FETCH" != 1 ]; then
 echo "=== $(date -Is) waiting for the read ($DRV)"
 until grep -q "READ DONE\|READ FAILED" "$DRV" 2>/dev/null; do sleep 120; done
 grep -q "READ DONE" "$DRV" || { echo "=== read failed"; exit 1; }
@@ -45,10 +47,22 @@ print(f"{len(rows)} rows, on-grid {len(have & want)}/{len(want)}, missing {len(m
       f"off-grid {len(off)}, dup {dup}")
 sys.exit(1 if (miss or off or dup) else 0)
 PY
+fi
 
 A="--eval agentic_misalignment --readouts-root $RROOT --out outputs --arms $ARM"
-hb() { for t in 1 2 3; do uv run --no-sync hbench run $A "$@"; rc=$?; [ $rc -ne 4 ] && break; done
-       echo "=== $(date -Is) RC $rc for $*"; [ $rc -eq 0 ] || [ $rc -eq 4 ] || exit $rc; }
+# exit 4 (cached failures): retried 3x then continue; exit 3 (auth: the `ant` OAuth token lapsed)
+# waits 10 min and retries for up to 12 h, so a re-login (`ant auth login`) resumes the chain
+hb() {
+  local rc a=0
+  while :; do
+    for t in 1 2 3; do uv run --no-sync hbench run $A "$@"; rc=$?; [ $rc -ne 4 ] && break; done
+    [ $rc -ne 3 ] && break
+    a=$((a+1)); [ $a -gt 72 ] && break
+    echo "=== $(date -Is) auth error (exit 3), retry $a/72 in 10 min; re-login with: ant auth login"
+    sleep 600
+  done
+  echo "=== $(date -Is) RC $rc for $*"; [ $rc -eq 0 ] || [ $rc -eq 4 ] || exit $rc
+}
 for L in "${LAYERS[@]}"; do hb --stages detect --layers $L --rpm 1200 --concurrency 300; done
 for L in "${LAYERS[@]}"; do hb --stages verify --layers $L --rpm 400 --concurrency 200; done
 for L in "${LAYERS[@]}"; do hb --stages map --layers $L --rpm 1000 --concurrency 700; done
