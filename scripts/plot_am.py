@@ -14,11 +14,22 @@ from pathlib import Path
 import matplotlib
 
 matplotlib.use("Agg")
-import matplotlib.pyplot as plt  # noqa: E402
+import matplotlib.pyplot as plt
 
 ROOT = Path("outputs/agentic_misalignment/claude-opus-5-5")
 OUT = Path("plots/am_claim_map")
-ARMS = [("s3d-rl600", "O-lens RL600"), ("nla-rl-L42", "NLA-RL L42"), ("jlens", "J-lens")]
+ARMS_ALL = [
+    ("s3d-rl600", "O-lens RL600"),
+    ("mlnla-rl600-all11", "ML-NLA RL600"),
+    ("nla-rl-L42", "NLA-RL L42"),
+    ("jlens", "J-lens"),
+]
+ARMS = ARMS_ALL  # filtered to the arms present in report.json (main)
+LAYER_ARMS = [
+    ("s3d-rl600", "O-lens RL600", "#2a78d6"),
+    ("mlnla-rl600-all11", "ML-NLA RL600", "#1baf7a"),
+    ("jlens", "J-lens", "#eb6834"),
+]
 VERDICTS = [  # (row, label, colour): stacking order = validated adjacency order
     ("correct", "correct", "#2a78d6"),
     ("unresolved", "unverifiable", "#eda100"),
@@ -49,8 +60,9 @@ def _stacked(ax, rows, labels, segs, title):
         for (_, _, col), v in zip(segs, shares, strict=True):
             ax.barh(i, v, left=left, color=col, edgecolor=SURFACE, linewidth=2, height=0.62)
             if v >= 0.05:
-                ax.text(left + v / 2, i, f"{v:.0%}", ha="center", va="center", fontsize=11,
-                        color=INK)
+                ax.text(
+                    left + v / 2, i, f"{v:.0%}", ha="center", va="center", fontsize=11, color=INK
+                )
             left += v
     ax.set_yticks(range(len(labels)), labels)
     ax.invert_yaxis()
@@ -62,20 +74,32 @@ def _stacked(ax, rows, labels, segs, title):
 
 
 def verdict_plot(rep):
-    fig, ax = plt.subplots(figsize=(11, 3.9))
+    fig, ax = plt.subplots(figsize=(11, 1.6 + 0.8 * len(ARMS)))
     rows, labels = [], []
     for arm, name in ARMS:
         p = rep["arms"][arm]["overall"]["populations"]["headline"]["verdict"]
         n = p["n"]
         rows.append([p["rows"][v]["count"] / n for v, _, _ in VERDICTS])
         labels.append(f"{name}\n(n={n:,})")
-    _stacked(ax, rows, labels, VERDICTS,
-             "Claim-map v2.7 verdicts on headline misalignment mentions")
+    _stacked(
+        ax, rows, labels, VERDICTS, "Claim-map v2.7 verdicts on headline misalignment mentions"
+    )
     handles = [plt.Rectangle((0, 0), 1, 1, color=c) for _, _, c in VERDICTS]
-    fig.legend(handles, [lab for _, lab, _ in VERDICTS], loc="lower center", ncol=6,
-               frameon=False, fontsize=12)
-    fig.text(0.01, 0.005, "Bars stop short of 100% by the failed (refused) share.", fontsize=10,
-             color=INK2)
+    fig.legend(
+        handles,
+        [lab for _, lab, _ in VERDICTS],
+        loc="lower center",
+        ncol=6,
+        frameon=False,
+        fontsize=12,
+    )
+    fig.text(
+        0.01,
+        0.005,
+        "Bars stop short of 100% by the failed (refused) share.",
+        fontsize=10,
+        color=INK2,
+    )
     fig.tight_layout(rect=(0, 0.12, 1, 1))
     fig.savefig(OUT / "verdict_shares.png", dpi=160)
     plt.close(fig)
@@ -93,19 +117,31 @@ def tier_plot(rep):
     for arm, name in ARMS:
         km = rep["arms"][arm]["overall"]["kind_match"]
         c = km["tier_counts"]
-        tot = sum(c.get(t, 0) for t in ("realised", "designed_only", "scenario_set_up",
-                                         "unrelated"))
-        rows.append([c.get("realised", 0) / tot,
-                     (c.get("designed_only", 0) + c.get("scenario_set_up", 0)) / tot,
-                     c.get("unrelated", 0) / tot])
+        tot = sum(
+            c.get(t, 0) for t in ("realised", "designed_only", "scenario_set_up", "unrelated")
+        )
+        rows.append(
+            [
+                c.get("realised", 0) / tot,
+                (c.get("designed_only", 0) + c.get("scenario_set_up", 0)) / tot,
+                c.get("unrelated", 0) / tot,
+            ]
+        )
         corr = (rep.get("tiers") or {}).get(arm, {}).get("corrected_unrelated_rate")
-        labels.append(f"{name}\n(audit-corrected unrelated {corr:.0%})" if corr is not None
-                      else name)
-    fig, ax = plt.subplots(figsize=(11, 3.6))
+        labels.append(
+            f"{name}\n(audit-corrected unrelated {corr:.0%})" if corr is not None else name
+        )
+    fig, ax = plt.subplots(figsize=(11, 1.4 + 0.75 * len(ARMS)))
     _stacked(ax, rows, labels, TIERS, "What misconduct do headline mentions name? (raw tiers)")
     handles = [plt.Rectangle((0, 0), 1, 1, color=c) for _, _, c in TIERS]
-    fig.legend(handles, [lab for _, lab, _ in TIERS], loc="lower center", ncol=3,
-               frameon=False, fontsize=12)
+    fig.legend(
+        handles,
+        [lab for _, lab, _ in TIERS],
+        loc="lower center",
+        ncol=3,
+        frameon=False,
+        fontsize=12,
+    )
     fig.tight_layout(rect=(0, 0.1, 1, 1))
     fig.savefig(OUT / "kind_tiers.png", dpi=160)
     plt.close(fig)
@@ -113,16 +149,35 @@ def tier_plot(rep):
 
 def layer_plot(rep):
     fig, axes = plt.subplots(1, 2, figsize=(12, 4.4), sharey=True)
-    for ax, (row, title) in zip(axes, (("correct", "correct"), ("hallucination",
-                                                                "hallucination")), strict=True):
-        for (arm, name), col in zip(ARMS[::2], ("#2a78d6", "#eb6834"), strict=True):
+    for ax, (row, title) in zip(
+        axes, (("correct", "correct"), ("hallucination", "hallucination")), strict=True
+    ):
+        for arm, name, col in LAYER_ARMS:
+            if arm not in rep["arms"]:
+                continue
             bl = rep["arms"][arm]["by_layer"]
             xs = sorted(int(k) for k in bl)
             ys = [bl[str(x)]["headline"]["verdict"]["rows"][row]["pooled"] for x in xs]
-            ax.plot(xs, ys, color=col, linewidth=2, marker="o", markersize=8,
-                    markeredgecolor=SURFACE, markeredgewidth=2, label=name)
-            ax.annotate(name, (xs[-1], ys[-1]), xytext=(6, 0), textcoords="offset points",
-                        va="center", fontsize=11, color=INK)
+            ax.plot(
+                xs,
+                ys,
+                color=col,
+                linewidth=2,
+                marker="o",
+                markersize=8,
+                markeredgecolor=SURFACE,
+                markeredgewidth=2,
+                label=name,
+            )
+            ax.annotate(
+                name,
+                (xs[-1], ys[-1]),
+                xytext=(6, 0),
+                textcoords="offset points",
+                va="center",
+                fontsize=11,
+                color=INK,
+            )
         ax.set_title(f"Headline {title} share by layer", loc="left", fontsize=14, color=INK)
         ax.set_xlabel("layer")
         ax.yaxis.set_major_formatter(matplotlib.ticker.PercentFormatter(1.0))
@@ -138,6 +193,8 @@ def layer_plot(rep):
 def main() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
     rep = json.loads((ROOT / "report.json").read_text())
+    global ARMS
+    ARMS = [a for a in ARMS_ALL if a[0] in rep["arms"]]
     verdict_plot(rep)
     tier_plot(rep)
     layer_plot(rep)
