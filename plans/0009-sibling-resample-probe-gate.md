@@ -1,7 +1,7 @@
 # Plan 0009: sibling substitutions become hallucinations, gated by a 10-sample resample check and probes
 
-Issue #10. Author: Camila Blank (planned with Claude), 2026-10-14. Revision 5 (after critiques 1–4;
-rev 3 was a full rewrite with no override sections, so the body is the spec; revs 4–5 edit it in place).
+Issue #10. Author: Camila Blank (planned with Claude), 2026-10-14. Revision 6 (after critiques 1–5;
+rev 3 was a full rewrite with no override sections, so the body is the spec; revs 4–6 edit it in place).
 
 Branch `camila/sibling-resample`, stacked on `camila/taxonomy-v2` (PR #4, plan 0002 rev 20 at
 f969f83). This plan changes how `substitution_sibling` segments are **scored**. It does not
@@ -58,7 +58,8 @@ probes and test this like we did for the user modeling eval."
   is a separate unit, with its own resample and status.
 - **Alt leaves.** Segments whose `alt_leaf` is `substitution_sibling` but whose raw leaf is
   something else form no unit. Their alt leaf stays raw.
-- **`item_sibling_names`** (`units.py`) maps item → the said objects of every in-scope arm's
+- **`item_sibling_names`** (`evals/sibling_gate/units.py`; it is always imported qualified as
+  `sibling_gate.units`, because `hallucination_bench/units.py` already exists) maps item → the said objects of every in-scope arm's
   units, with each object's arms and layers. It is built once, before any distractor is drawn,
   and used for the distractor exclusion (§3d) and for cross-method (§3e). It is keyed by
   `said_canonical` once §3a has run, and by the normalised said before that.
@@ -191,7 +192,7 @@ From the 10 fresh blocks:
 |---|---|---|
 | n_said ≤ 2 **and** (n_other ≥ 2 **or** n_actual ≥ 4) | `unstable` | final: **hallucination** |
 | n_said ≥ 3 | `stable` | rung 2 |
-| otherwise | `sparse` | rung 2 |
+| n_said ≤ 2 and the unstable condition fails | `sparse` | rung 2 |
 
 - **Branch A** (n_other ≥ 2) is Camila's criterion as stated: several different items come up
   (Canada once, Russia once, the UK once).
@@ -290,7 +291,8 @@ of §2c.
 units use the same S.
 
 **Order of decisions (strict):** n/a → fire → nearby → cross_method (§3e) → probe_unconfirmed.
-An n/a unit is final `probe_na`, and never reaches cross_method or probe_unconfirmed.
+An n/a unit is final `probe_na`, and never reaches cross_method or probe_unconfirmed. A `no_gold`
+unit that does not fire is `probe_na` and skips cross_method too.
 
 - **Distractors.** Per unit, 8 distractors from C:
   - the 4 nearest the gold by cosine of the grand-mean-centred implied centroids at L44 (for
@@ -358,7 +360,10 @@ Sensitivity rows:
 - **`score_v2.py`:**
   - The slim loader joins `sibling_status` by segment key and applies `effective_leaf` to the
     tuple's leaf (`s[0]`) once, at load time. Downstream code is unchanged.
-  - `alt_leaf` (`s[1]`) stays raw (§1). The `agreement` spans that `slim()` builds also stay
+  - `s[1]` is `effective_leaf(cm.alt_leaf_view(s), status)` for non-disputed segments (where the
+    alt view equals the raw leaf), so `hallucination_alt >= hallucination` holds. Disputed segments
+    whose alt is a raw sibling stay raw (§1). A test checks `hallucination_alt >= hallucination`
+    per readout when labels are present. The `agreement` spans that `slim()` builds also stay
     raw, so judge-noise agreement stays raw. Only the `segs` tuple gets the effective leaf.
     `slim()` is the only place `SIBLING_GATED` enters scoring.
   - **Threading.** `slim(rec)` and `AccumulatorV2.add(rec)` have no arm today.
@@ -380,7 +385,9 @@ Sensitivity rows:
   - **Flags.** `readout_flags` gains `substitution_sibling_gated` (like `substitution_category`),
     and the v5c comparison gains `n_cmp_v2_gated`, counted inside the comparison's
     hallucination, as the other components are. Both are added to `FLAGS` and `_columns()`, so
-    `readout_vector` finds them. `LEAF_ROWS` is defined before `_columns()` runs.
+    `readout_vector` finds them. The summary gets the matching keys
+    (`v2_substitution_sibling_gated_rate` beside the other component rates, and the comparison count).
+    `report_v2` passes the same arm's labels wherever it builds an accumulator. `LEAF_ROWS` is defined before `_columns()` runs.
   - `HALLUCINATION_LEAVES` gains `SIBLING_GATED`.
   - `HALLUCINATION_COMPONENTS` becomes `(false_claim, detail, substitution_category,
     SIBLING_GATED)`, in that order.
@@ -391,7 +398,7 @@ Sensitivity rows:
     `substitution_sibling_gated` row, with raw `substitution_sibling` net of it.
   - The verdicts line prints the scoring mapping.
   - `hallucination_examples` and `probe_candidates()` iterate raw `cells.jsonl`, so they get the
-    status from the shared helper `units.load_labels(arm) -> {segkey: final}`. They look up each
+    status from the shared helper `sibling_gate.units.load_labels(arm) -> {segkey: final}`. They look up each
     segment key (`rec["key"]`, readout idx, start, end) and then call `effective_leaf`.
     The `slim` join uses the same helper.
   - `probe_candidates.jsonl` keeps the raw `leaf` and adds `sibling_status`. Gated segments
