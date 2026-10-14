@@ -1,6 +1,6 @@
 # Plan 0009: sibling substitutions become hallucinations, gated by a 10-sample resample check and probes
 
-Issue #10. Author: Camila Blank (planned with Claude), 2026-10-14. Revision 1.
+Issue #10. Author: Camila Blank (planned with Claude), 2026-10-14. Revision 2 (after critique 1; the section below overrides the body).
 Branch `camila/sibling-resample`, stacked on `camila/taxonomy-v2` (PR #4, plan 0002 rev 20 at
 f969f83). This plan changes only how `substitution_sibling` segments are scored. It re-labels
 none of the claim-map judge's output.
@@ -11,6 +11,136 @@ for those sibling claims we sample 10 times and see if lots of different items c
 sometimes canada pops up, sometimes russia, sometimes uk), then we can tell that canada was a
 hallucination. And then for ones where we are still unsure let's actually go ahead and make the
 probes and test this like we did for the user modeling eval."
+
+## Revision 2 (critique 1)
+
+1. **Scoring integration: one effective leaf, used everywhere.**
+   - `taxonomy_v2.py` keeps the rev-20 mapping as `VERDICTS_RAW` / `verdict_of_raw`.
+     `calibrate_v2.py` and every judge-agreement path (the v5c comparison's leaf confusion,
+     `consistency_v2`) keep using raw leaves and `verdict_of_raw`. The gate never enters
+     calibration or judge-noise agreement.
+   - Scoring gets one scoring-only leaf, `substitution_sibling_held`, in `V_PROBE`. It covers
+     sibling segments that are ungated or whose status is not a hallucination. The rev-21
+     `VERDICTS` are:
+     - hallucination = `false_claim`, `detail`, `substitution_category`, `substitution_sibling`;
+     - probe_candidate = `substitution_sibling_held`, `supplementary_false`, `ambiguous_topic`;
+     - every other row is unchanged.
+     The assert becomes `LEAF_NAMES ∪ {UNKNOWN_INCORRECT, substitution_sibling_held}`.
+   - `effective_leaf(leaf, status)` returns `substitution_sibling` when leaf is
+     `substitution_sibling` and status ∈ {`unstable`, `probe_unconfirmed`}. It returns
+     `substitution_sibling_held` for any other sibling status, including `ungated`, and the leaf
+     itself otherwise.
+   - Statuses are joined at **load time** into the slim segment records
+     (`SlimReadoutV2.segs` gains a `status` field, keyed by (cell key, readout, start, end)).
+     Every scoring consumer then calls `effective_leaf`:
+     - verdict shares, readout flags and cell- and readout-level rates;
+     - `HALLUCINATION_LEAVES` / `HALLUCINATION_COMPONENTS` membership and `hallucination_alt`;
+     - the per-component columns and the v5c comparison's hallucination rows;
+     - the judge-noise h/component rows, which re-score both repeats with the same status join;
+       repeats whose segment offsets do not match a labelled unit get `ungated`;
+     - `report_v2.probe_candidates()`;
+     - the plot scripts.
+     The implementer greps for every use of `verdict_of`, `HALLUCINATION_` and `leaf in` in
+     `score_v2.py`, `report_v2.py` and `scripts/plot_*.py`, and lists them in the PR.
+   - **Retained invariants:**
+     - with no labels file, every arm scores exactly as rev 20: sibling → `substitution_sibling_held`
+       → probe_candidate, so hallucination is the three rev-20 components (a test asserts
+       identical summaries);
+     - `supplementary_false` and `ambiguous_topic` stay probe candidates;
+     - `model_state` stays thinky;
+     - `cells.jsonl` is never rewritten.
+   - `probe_candidates.jsonl` is regenerated and keeps only `substitution_sibling_held` sibling
+     segments (with their status), plus the other candidate leaves.
+2. **Slot-fill judge, class-independent.** In the cells, `pair.actual` is often a description
+   ("the engineers who created me"), not a same-class entity. Rung 1 therefore never needs a
+   class:
+   - `actual` = the right answer for the slot as the item text gives it, in any form;
+   - `other` = **any different object** filling the slot; the judge names it;
+   - `said` = the same object filling the same slot. A mention elsewhere in the block, in a
+     different role, is `none` for the slot. Blocks are multi-line "- " lists, and the judge
+     answers for the block as a whole: `said` if any line fills the slot with the said object,
+     else `other` if any line fills it with another object, else `actual`, else `none`.
+3. **Primary rung-1 rule (replaces the §2c table).** Let n_actual = blocks whose fill is
+   `actual`.
+
+   | condition | status |
+   |---|---|
+   | n_said ≤ 2 and (n_other ≥ 2 distinct objects **or** n_actual ≥ 4) | `unstable` → hallucination |
+   | n_said ≥ 3 | `stable` → rung 2 |
+   | otherwise | `sparse` → rung 2 |
+
+   The first branch is the user's criterion: several different items come up, or the lens
+   mostly gives the right answer, and the claimed sibling is rare. The rev-1 rule
+   (n_fill ≥ 4 and n_said ≤ 2) becomes sensitivity row (i). Rows (ii) and (iii) shift the n_said
+   cut-off to ≤ 1 and ≤ 3. Row (iv), 13 samples with the originals, uses n_said ≤ 3 and
+   (n_other ≥ 2 or n_actual ≥ 5) for unstable and n_said ≥ 4 for stable. "Sparse" covers both
+   a rarely filled slot and a single repeated other object.
+4. **Resampling feasibility, as a pre-pilot task (step 0).**
+   - Run a 5-cell trimmed manifest through each generator (`wsbench_read_modal.py` for s3d,
+     `wsbench_nla_modal.py` for mlnla/nla, `modal_lensagree` for patchscopes). The output row
+     key set must equal the requested (id, layer, pos) set, and the block shape must match the
+     originals.
+   - Generator units are (prompt, layer). A trimmed manifest keeps the original layer list and
+     plane indices (`check_bank_layers` must pass); the job's `--layers` restricts what is run.
+   - Per-pool layer lists:
+     - s3d-rl600 pool: the union of the cells' layers (it covers s3d-rl600 and s3d-rl600-all11);
+     - s3d-sft251: its layers with sibling cells;
+     - mlnla-rl600 and mlnla-rl2-800: their layers with sibling cells;
+     - nla-rl-L42 and nla-sft-L42: L42;
+     - patchscopes: its layers with sibling cells.
+   - Where a per-prompt position subset is impossible (`wsbench_read_modal.py` takes one global
+     `--eval-positions`), jobs are grouped by prompt, and extra positions are generated and
+     discarded.
+   - If a generator cannot be driven this way, that pool stops, and the results doc reports it.
+5. **The probe key is a new recipe.** Centring and the null by punctuation token class across
+   heterogeneous reply texts is new, not plan 0006's recipe. It reuses only the `_key`
+   mechanism (`ending = 0`, `offset = token-class index`). The vendored `probes.py` /
+   `um_probe.py` are copied verbatim; the only edit allowed is the import fallback line.
+
+   **Pilot check:** on held-out folds, the per-key null z of non-target concepts has |mean| ≤ 0.1
+   and sd within 0.8–1.25 at every key with ≥ 50 positions. Rarer keys merge into `other`.
+   Folds are by text id, balanced by (concept, kind), with each concept's explicit and implied
+   texts spread across folds (as `assign_folds` does).
+6. **Readability and the sibling table.**
+   - **Site set** for readability: all of the item's `eval_positions` at L, except the unit's own
+     pos.
+   - **`item_sibling_names`** (`units.py`): for each item, the normalised said objects of every
+     in-scope arm's sibling segments. It is built once, before distractors are drawn, and used
+     both for the distractor exclusion and for cross-method.
+   - **Units with no gold entity.** The class judge (`sibclass-v1`) gets the item window. It
+     returns either a canonical gold entity of the class (e.g. Alibaba for "the engineers who
+     created me" when the text says Qwen is by Alibaba), or `no_gold`. For `no_gold` units:
+     - the readability rule is skipped;
+     - the 8 distractors are the 4 nearest the *said* concept plus 4 random (excluding the said
+       object);
+     - the label carries a `no_gold` flag, reported separately.
+   - **No class.** The class judge may also return `no_class`: the said object has no
+     enumerable class with ≥ 9 well-known members. The unit is then `probe_na`.
+7. **Cross-method counts only independent lens families.** The families are:
+   - s3d (s3d-*);
+   - mlnla (mlnla-*);
+   - nla (nla-rl-L42, nla-sft-L42);
+   - patchscopes;
+   - each token arm on its own (jlens, logit, tuned, rlens, template-v3, sae-l42).
+
+   An arm in the unit's own family never confirms it. `cross_method` means agreement between
+   methods, not truth, and the doc says so. The same-family rule and the shared-prior discount
+   are sensitivity rows.
+8. **Deterministic arms.** Their units have no rung-1 evidence. The report marks their gated
+   shares "probes only (no resample)" and keeps them in the separate token-arm tables.
+9. **Unit scope.** `pos` is the cell's. Units with the same (arm, id, said, actual) at different
+   layers or positions are separate, with separate resamples and separate statuses.
+10. **Nits.**
+    - The gold-calibration sample uses seed 0. The doc notes that stratifying on dev-judge
+      decisions can inflate agreement and also reports unstratified agreement on a random 20 of
+      the 80.
+    - The L42 arms are scored on the L42 probes; their nearby layers are L40 and L44.
+    - The cost estimate adds the Modal CPU fit and score phases.
+    - The pilot is 300 cells: s3d-rl600-all11 L36/L44/L52 and nla-rl-L42. Its gate also needs at
+      least 3 classes with valid probes at L44.
+    - **CLI stages** of `hbench sibling-gate`: `units`, `resample-manifests`, `resample-collect`,
+      `fill`, `fill-calib`, `classes`, `concepts`, `probe-texts`, `capture-manifest`, `fit`,
+      `score`, `label`, `report`, `figures`.
 
 ## 0. What changes, what is retained
 
