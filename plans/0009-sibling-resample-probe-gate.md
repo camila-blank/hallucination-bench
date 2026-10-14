@@ -1,7 +1,7 @@
 # Plan 0009: sibling substitutions become hallucinations, gated by a 10-sample resample check and probes
 
-Issue #10. Author: Camila Blank (planned with Claude), 2026-10-14. Revision 3 (after critiques 1–2;
-rev 3 is a full rewrite with no override sections, so the body is the spec).
+Issue #10. Author: Camila Blank (planned with Claude), 2026-10-14. Revision 4 (after critiques 1–3;
+rev 3 was a full rewrite with no override sections, so the body is the spec; rev 4 edits it in place).
 
 Branch `camila/sibling-resample`, stacked on `camila/taxonomy-v2` (PR #4, plan 0002 rev 20 at
 f969f83). This plan changes how `substitution_sibling` segments are **scored**. It does not
@@ -106,23 +106,32 @@ layer list is the union of its units' layers.
 | mlnla-rl2-800 | mlnla-rl2-800-all11 | `wsbench_nla_modal.py --n-samples 10` |
 | nla-rl | nla-rl-L42 (L42) | `wsbench_nla_modal.py --n-samples 10` |
 | nla-sft | nla-sft-L42 (L42) | `wsbench_nla_modal.py --n-samples 10` |
-| patchscopes | patchscopes | `modal_lensagree` |
+| patchscopes | patchscopes | `modal_lensagree` (conditional: if the pre-check fails, `resample_failed`) |
 
 - **Script snapshots.** The generators run from a snapshot copy of `/workspace/gw-mlnla` at its
   current HEAD. The commit is recorded in the results doc, and the scripts are never edited in
   place.
 - **Hardware.** Every GPU job runs on B300:8, sharded for speed.
-- **Subsets.** Each job gets a trimmed `manifest.json` in a new acts subdir that references the
-  existing acts files. The trimmed manifest keeps only the needed prompts, and keeps the
-  original layer list and plane indices so that `check_bank_layers` passes. `--layers`
-  restricts the run.
-- **Positions.** `wsbench_read_modal.py` takes one global `--eval-positions`, so its jobs are
-  grouped per prompt. Extra positions are generated and discarded.
+- **Subsets.** Each pool gets a new acts subdir `acts-sibgate-<pool>` on the same volume. It
+  holds **copies** of the needed prompts' acts files (scripts are never edited, and Modal
+  volumes do not reliably support symlinks) and a trimmed `manifest.json`:
+  - only the needed prompts;
+  - the original layer list and plane indices, so that `ActsManifest.load` and
+    `check_bank_layers` pass;
+  - each entry's own `eval_positions` set to the union of positions its units need
+    (`common.effective_positions` reads the entry).
+  `--eval-positions` is **not** used, because it overwrites every entry. `--layers` is the pool's
+  layer union.
+- **Over-generation.** Both generators generate every listed position at every listed layer per
+  prompt (`units = prompts × layers`). The collect stage keeps only the requested
+  (id, layer, pos) keys and discards the rest. The cost estimate counts the generated cells, not
+  the requested ones.
 - **Output:** `outputs/sibling_gate/resample/<pool>/resample.jsonl`, with rows
   `{id, layer, pos, samples: [10 strings], config}` in the readout contract.
 
 **Step 0, generator pre-check, before the pilot:**
-- For each generator, run a 5-cell trimmed manifest. The output (id, layer, pos) key set must
+- For each generator, run a 5-cell trimmed manifest. It must load through `ActsManifest.load`
+  and `check_bank_layers`. The output (id, layer, pos) key set must
   equal the request.
 - For 20 cells per pool, the block shape must match the originals: the number of "- " lines per
   sample, and the length distribution.
@@ -189,7 +198,7 @@ From the 10 fresh blocks:
 - **Branch B** (n_actual ≥ 4, sibling rare) is a **deliberate, pre-registered extension**: the
   lens mostly gives the right answer, so the sibling is sampling noise. The report splits
   `unstable` by branch (A only, B only, both).
-- **`sparse`** covers a rarely filled slot and a single repeated other object. Neither can
+- **`sparse`** covers a rarely filled slot (including all 10 blocks `none`) and a single repeated other object. Neither can
   separate noise from a real alternative read.
 - **Sensitivity rows.** Each one re-labels only; a unit moved into rung 2 uses its rung-2
   outcome.
@@ -307,7 +316,8 @@ of §2c.
 This step applies only if the probe fired at neither the same layer nor a nearby one.
 
 - **`cross_method`** (final): an arm of a **different lens family** names the same
-  `said_canonical` for the same item, at a layer within ±4, at any pos.
+  `said_canonical` for the same item, at a layer within ±4, at any of the item's positions.
+  This is the lenient choice, and the doc flags it. A same-pos variant is a sensitivity row.
   - The families are s3d-*, mlnla-*, nla-*, patchscopes, and each token arm on its own.
   - `cross_method` means agreement between methods, not truth, and the results doc says so.
 - **`probe_unconfirmed`** (final, **hallucination**): every other unit.
@@ -340,13 +350,32 @@ Sensitivity rows:
   - The slim loader joins `sibling_status` by segment key and applies `effective_leaf` to the
     tuple's leaf (`s[0]`) once, at load time. Downstream code is unchanged.
   - `alt_leaf` (`s[1]`) stays raw (§1).
+  - **Threading.** `slim(rec)` and `AccumulatorV2.add(rec)` have no arm today.
+    `AccumulatorV2` gets an optional `sibling_labels: dict[segkey, final] | None` in its
+    constructor. The segment key is (`rec["key"]`, readout idx, start, end).
+    `summarize` / the rebuild path (which writes `summary_v2.json`) and `report_v2` load
+    `outputs/sibling_gate/labels/<arm>.jsonl` when present and pass it in, so None means rev-20
+    behaviour.
+  - Raw-sibling segments with `status == "disputed"` form no unit and stay raw. This includes
+    the alt view used by the `acg_*` columns.
+  - **Leaf rows.** `score_v2.LEAF_ROWS = (*tx.ALL_LEAVES, SIBLING_GATED)` (taxonomy's
+    `ALL_LEAVES` and the leaf assert are untouched). The `cs_` / `sc_` columns and
+    `char_share_leaf` / `seg_share_leaf` therefore get a gated row, and the raw
+    `substitution_sibling` row is net of gated segments. The `report_v2` loops over
+    `tx.ALL_LEAVES` (about lines 314 and 632) switch to `score_v2.LEAF_ROWS`. With no labels the
+    gated row is all zero. The rev-20-identity test runs the full `summarize` and compares
+    every rev-20 key.
+  - **Flags.** `readout_flags` gains `substitution_sibling_gated` (like `substitution_category`),
+    and the v5c comparison gains `n_cmp_v2_gated`, counted inside the comparison's
+    hallucination, as the other components are.
   - `HALLUCINATION_LEAVES` gains `SIBLING_GATED`.
   - `HALLUCINATION_COMPONENTS` becomes `(false_claim, detail, substitution_category,
     SIBLING_GATED)`, in that order.
   - `hedged_origin` keeps testing the raw judge leaf against a local rev-20 three-component
     constant, so the `n_hedged_from_*` counts are unchanged.
 - **`report_v2.py`:**
-  - The hallucination columns gain `↳ substitution_sibling (gated)`.
+  - The hallucination columns gain `↳ substitution_sibling (gated)`, and the leaf tables gain a
+    `substitution_sibling_gated` row, with raw `substitution_sibling` net of it.
   - The verdicts line prints the scoring mapping.
   - `hallucination_examples` and `probe_candidates()` use `effective_leaf`.
   - `probe_candidates.jsonl` keeps the raw `leaf` and adds `sibling_status`. Gated segments
@@ -372,7 +401,7 @@ Sensitivity rows:
 
 0. The generator pre-check (§2a).
 1. Code and tests: `uv run pytest`, `ruff check`, `ruff format --check`.
-2. **Pilot:** 300 cells from s3d-rl600-all11 at L36, L44 and L52, plus nla-rl-L42. Run resample,
+2. **Pilot:** 300 cells from s3d-rl600-all11 at L36, L44 and L52 (all in its 11-layer bank), plus nla-rl-L42. Run resample,
    the slot judge, dev calibration, then rung 2 on the pilot's rung-2 units. The pilot gate:
    - the block-shape check passes;
    - slot-judge dev agreement is at least 90% after at most one revision;
@@ -436,7 +465,8 @@ CLI stages: `units`, `resample-manifests`, `resample-collect`, `fill`, `fill-cal
 
 ## 8. Cost estimate (updated from the pilot)
 
-- **Resampling:** about 9k cells (the `units` stage counts them exactly). Each costs a
+- **Resampling:** about 9k requested cells (the `units` stage counts them exactly), with more
+  generated through over-generation (§2a), which the `resample-manifests` stage counts. Each costs a
   (prompt, layer) prefill plus 10 generations per position on B300:8.
 - **Slot judge:** one call per unit, about 6k input and 0.5k output tokens.
 - **Class judge:** one call per (said, item).
