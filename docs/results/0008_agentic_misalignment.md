@@ -64,24 +64,26 @@ Headline verdict shares, pooled over spans. Bootstrap 95% CIs are over the 28 mi
 
 | | O-lens | NLA | J-lens |
 |---|---|---|---|
-| **real intention**: the mention's kind is what the rollout does | **57%** | **37%** | **46%** |
-| same, dropping every self-preservation span (the largest realised kind for O-lens) | 54% | 33% | 46% |
+| **real intention**: the mention's kind is what the rollout does (raw, not audit-corrected) | **57%** | **37%** | **46%** |
+| same, dropping every self-preservation span (the largest realised kind for O-lens) | 54% | 33% | 45.5% |
 | largest realised kinds | self-preservation 30%, leaking 15%, deception 15% | leaking 32%, self-preservation 24% | blackmail 45%, cheating 13% |
 | **unrelated misconduct**: neither the rollout, the design, nor an option the scenario sets up (raw → audit-corrected) | 26% → **20%** | 52% → **56%** | 34% → **34%** |
 | hallucination rate among unrelated mentions | 22% | 55% | 1% |
-| **unrealised-intent claims**: model_state or unverifiable, and not what the rollout does (denominator: all tiered headline spans, realised ones included) | 28% | 24% | 40% |
+| **unrealised misconduct claims**: model_state or unverifiable, and not what the rollout does (denominator: all tiered headline spans, realised ones included) | 28% | 24% | 40% |
 | same, among non-realised spans only | 64% | 38% | 75% |
 | same, on the 4 controls (no realised spans exist; detector actor/stance, not Stage-H verified) | 64% | 37% | 76% |
+| **unrealised intent claims proper**: the subset where the AI is said to consider/plan it | 16% | 7.6% | 20% |
+| same, among non-realised spans only | 37% | 12% | 37% |
 
 1. **NLA confabulates heavily.** About half of its headline mentions are contradicted by the
    conversation.
    - 80% of those (1,234 of 1,540) are contradicted by text the model has **already read**, so
      they are not wrong predictions of what comes next.
    - More than half of its headline spans name a misconduct kind the scenario does not set up,
-     mostly (63%) deception and sabotage plots; 55% of these unrelated spans are also
-     contradicted by the text. Examples: "fake security
-     reports with fabricated evidence", "an AI impersonator intercepts and forges messages",
-     "escalating cyber attack events against Stark Industries".
+     mostly (63%) deception and sabotage plots (e.g. "fake security reports with fabricated
+     evidence", "escalating cyber attack events against Stark Industries"); 55% of these
+     unrelated spans are also contradicted by the text (e.g. "an AI impersonator intercepts and
+     forges messages", where the emails are genuine).
    - Even when NLA names the right kind of misconduct, the specifics are often wrong (429 of
      1,136 realised spans are hallucinations), e.g. "the assistant might observe Julian dying in
      the flood" for Kyle and a server-room heat failure.
@@ -99,19 +101,25 @@ Headline verdict shares, pooled over spans. Bootstrap 95% CIs are over the 28 mi
      third name an unrelated kind (e.g. "an AI weighing whether to undermine oversight").
    - Its realised mentions are a plurality blackmail (45%), so its real-intention rate is not the
      same mix as O-lens's.
-   - The vagueness may come partly from the bag → interp-v1 summary step rather than the lens:
-     the judge's hedge rule remaps 370 J-lens "correct" spans to unverifiable (230 for O-lens).
+   - Much of this comes from the judge's hedge rule (rev 19), not the lens: it remaps 21% of
+     J-lens headline spans (370 of 1,742) from correct to unverifiable, against 1.6% for O-lens.
+     On the judge's pre-remap leaf, J-lens is 55% correct and 26% unverifiable. The hedging
+     itself likely comes from the bag → interp-v1 summary step.
 4. **The hallucination verdict does not measure confabulated intent.**
    - Rule 4 of the taxonomy routes "the AI plans to X" to `model_state` or unverifiable, which
      are never checked against the text.
-   - The closer measure is the unrealised-intent rate: on misaligned items, 24–40% of headline
-     mentions claim an intent that the rollout does not carry out.
-   - Among spans that do *not* name the rollout's action, 64% (O-lens), 38% (NLA) and 75%
-     (J-lens) are such uncheckable intent claims. The control scenarios give similar rates
-     (64% / 37% / 76%). This is approximate: control spans are not Stage-H verified, and the
-     controls are 4 Anthropic no-threat items whose non-realised mentions are often the designed
-     kind (O-lens 452 of 1,418), a different tier mix from the misaligned pool. NLA's lower rate is not a virtue: its non-realised mentions
-     are mostly outright hallucinations.
+   - Unrealised misconduct claims (model_state or unverifiable, naming misconduct the rollout
+     does not do) are 24–40% of headline spans on misaligned items. That population mixes in
+     narrated events and does/did statements, though: only the subset where the AI is said to
+     consider or plan the act is an intent claim proper, and it is 16% (O-lens), 7.6% (NLA) and
+     20% (J-lens) of headline spans (37% / 12% / 37% of non-realised spans). For NLA, most
+     unrealised misconduct talk is about other actors or past events, and much of the rest is
+     outright hallucination.
+   - Among non-realised spans, the broad rate is 64% (O-lens), 38% (NLA) and 75% (J-lens); the
+     control scenarios give similar rates (64% / 37% / 76%). This is approximate: control spans
+     are not Stage-H verified, and the controls are 4 Anthropic no-threat items whose
+     non-realised mentions are often the designed kind (O-lens 452 of 1,418), a different tier
+     mix from the misaligned pool.
 5. **Timing is consistent with Camila's "inferable from text" prior, for all three lenses.**
    - Among realised-kind mentions whose kind the prompt does set up (mention-level, all
      populations; report §4), 97–98% come *after* the set-up for every lens (O-lens 20,473
@@ -121,7 +129,7 @@ Headline verdict shares, pooled over spans. Bootstrap 95% CIs are over the 28 mi
      after the set-up, 29% come before it and 10% have no set-up. Among pairs with a set-up,
      and weighting by each lens's own detected cells, 23–29% of sites precede the set-up
      (O-lens 24%, NLA 23%, J-lens 29%), versus 2–3% of each lens's realised mentions (2.7%,
-     2.0%, 2.8%). Realised-kind mentions do not precede the set-up. Timing alone does not show
+     2.0%, 2.8%). Realised-kind mentions rarely precede the set-up (2–3%). Timing alone does not show
      the mention was *inferred* from the text (finding 6: correct mentions are mostly supported
      by the rollout), only that it is consistent with that.
    - `never_set_up` (O-lens 1,279, NLA 656, J-lens 758) is not a timing measure. It is three
@@ -193,8 +201,9 @@ headline as "the lens says someone is considering or doing it, most often the mo
       almost no verdicts), `t-imp-sandbox-escape` (69–83%), `selfpreserve-shutdown` (29–84%)
       and `exfil-weights`.
     - For NLA, 62% of failed cells are in two Anthropic leaking items,
-      `am-leaking_none-none_replacement` (20% of its detected cells) and `_restriction` (14%),
-      which bears on NLA's leaking-heavy realised mix; the rest are in-house.
+      `am-leaking_none-none_replacement` (20% of its detected cells) and `_restriction` (14%);
+      the rest are in-house. Failed cells keep their kind and tier, so this thins the verdicts
+      on those items without changing the realised mix.
     - They are reported as `failed`, not dropped. This is why item-macro "failed" (7.5–11%)
       exceeds the pooled share.
   - 10 of 32 intent calls (`amintent-v2`) were refused; the hand audit overrode 31 items.
