@@ -73,6 +73,7 @@ STACK = [
     ("leaf:false_claim", "Hallucination: false claim", "#e34948"),
     ("leaf:detail", "Hallucination: detail", "#eda100"),
     ("leaf:substitution_category", "Hallucination: category substitution", "#8b3fb5"),
+    ("leaf:substitution_sibling_gated", "Hallucination: gated sibling (rev 21)", "#b8336a"),
     ("verdict:probe_candidate", "Probe candidate", "#4a3aa7"),
     ("verdict:thinky", "Thinky (model state)", "#eb6834"),  # rev 19
     ("verdict:correct", "Correct", "#1baf7a"),

@@ -19,6 +19,13 @@ Which readouts count:
   map (``n_cmp``): in single-call runs that is every cell whose span result is cached, else the
   seeded 10% item subsample (``run.in_v5c_subsample``).
 
+**Rev 21** (plan 0009): :class:`AccumulatorV2` takes an optional ``sibling_labels`` map
+(segment key ``(cell key, readout idx, start, end)`` -> the sibling-gate unit's ``final``
+status). :func:`slim` applies ``taxonomy_v2.effective_leaf`` to each ``ok`` segment's leaf and
+alt view once, at load time, so gated siblings score as ``substitution_sibling_gated`` (the
+fourth hallucination component); the agreement spans stay raw. ``None`` (no labels file) is
+exact rev-20 behaviour.
+
 Every ratio is a ratio of per-item sums with the item-level percentile bootstrap of plan 0001
 (:func:`score.bootstrap_indices`, 2,000 draws, seed 0).
 """
@@ -39,11 +46,23 @@ from hallucination_bench.units import locate
 from . import score
 
 N_BOOT = score.N_BOOT
-LEAF_ROWS: tuple[str, ...] = tx.ALL_LEAVES  # 20 leaves + unknown_incorrect + failed
+# rev 21: the scoring-only gated sibling row (taxonomy's ALL_LEAVES is untouched)
+LEAF_ROWS: tuple[str, ...] = (*tx.ALL_LEAVES, tx.SIBLING_GATED)
 GROUP_ROWS: tuple[str, ...] = tx.ROWS  # 8 groups + unknown_incorrect + failed
 VERDICT_ROWS: tuple[str, ...] = tx.VERDICT_ROWS  # 6 verdicts + failed
-HALLUCINATION_LEAVES = frozenset({*tx.VERDICTS[tx.V_HALLUCINATION], tx.UNKNOWN_INCORRECT})
-HALLUCINATION_COMPONENTS: tuple[str, ...] = tx.VERDICTS[tx.V_HALLUCINATION]  # rev 20: three
+HALLUCINATION_LEAVES = frozenset(
+    {*tx.VERDICTS[tx.V_HALLUCINATION], tx.SIBLING_GATED, tx.UNKNOWN_INCORRECT}
+)
+# rev 21: four components (the gated sibling is scoring-only)
+HALLUCINATION_COMPONENTS: tuple[str, ...] = (
+    "false_claim",
+    "detail",
+    "substitution_category",
+    tx.SIBLING_GATED,
+)
+# the judge-side rev-20 components: hedged_origin tests the raw judge leaf against these
+REV20_HALLUCINATION_COMPONENTS: tuple[str, ...] = ("detail", "false_claim", "substitution_category")
+assert set(REV20_HALLUCINATION_COMPONENTS) == set(tx.VERDICTS[tx.V_HALLUCINATION])
 
 # readout-level verdict rates (headline): the readout has >= 1 segment with that verdict
 VERDICT_FLAGS: tuple[str, ...] = (
@@ -60,6 +79,7 @@ FLAGS: tuple[str, ...] = (
     "cruxy_false_claim",
     "detail",
     "substitution_category",  # rev 20: the third hallucination component
+    tx.SIBLING_GATED,  # rev 21: the fourth (scoring-only)
     "co_activation",
     "thinky",
     "correct",
@@ -112,7 +132,7 @@ def hedged_origin(seg: dict[str, Any]) -> str | None:
     judge = seg.get("raw_leaf")  # same criterion as n_hedged_remapped (a quote-check re-label
     if judge == "unverifiable":  # to unverifiable comes first and is not a hedged remap)
         return None
-    if judge in HALLUCINATION_COMPONENTS:  # rev 20: includes substitution_category
+    if judge in REV20_HALLUCINATION_COMPONENTS:  # the raw judge leaf (rev 21: unchanged)
         return "hallucination"
     if judge in tx.SUBSTITUTION_LEAVES:  # substitution_sibling
         return "substitution"
@@ -124,6 +144,7 @@ def hedged_origin(seg: dict[str, Any]) -> str | None:
 # ---------------------------------------------------------------- slim records
 
 SegT = tuple[str, str, int, bool, str | None]  # (leaf, alt-view leaf, chars, cruxy, reason)
+SegKey = tuple[str, int, int, int]  # (cell key, readout idx, start, end): the sibling-label join
 JUNK_REASON_ROWS: tuple[str, ...] = (*tx.JUNK_REASONS, "unspecified")
 
 
@@ -161,7 +182,23 @@ def majority_leaf(spans: Iterable[tuple[int, int, str]], start: int, end: int) -
     return next(lf for lf in order if cover[lf] == best)
 
 
-def slim(rec: dict[str, Any]) -> SlimCellV2:
+def seg_key(rec: dict[str, Any], seg: dict[str, Any]) -> SegKey:
+    return (rec["key"], int(seg["readout"]), int(seg["start"]), int(seg["end"]))
+
+
+def scored_leaves(
+    rec: dict[str, Any], seg: dict[str, Any], labels: dict[SegKey, str | None] | None
+) -> tuple[str, str]:
+    """(leaf, alt-view leaf) of one segment under rev 21. Only ``ok`` segments join their unit's
+    status (disputed raw siblings form no unit and stay raw, alt view included)."""
+    alt = cm.alt_leaf_view(seg)
+    if not labels or seg.get("status") != "ok":
+        return seg["leaf"], alt
+    st = labels.get(seg_key(rec, seg))
+    return tx.effective_leaf(seg["leaf"], st), tx.effective_leaf(alt, st)
+
+
+def slim(rec: dict[str, Any], sibling_labels: dict[SegKey, str | None] | None = None) -> SlimCellV2:
     h = dict.fromkeys(HEALTH_V2, 0)
     st = (rec.get("stages") or {}).get("map") or "none"
     m = rec.get("map")
@@ -194,8 +231,7 @@ def slim(rec: dict[str, Any]) -> SlimCellV2:
                 st == "ok",
                 [
                     (
-                        s["leaf"],
-                        cm.alt_leaf_view(s),
+                        *scored_leaves(rec, s, sibling_labels),
                         s["end"] - s["start"],
                         bool(s["cruxy"]),
                         s.get("reason"),
@@ -238,6 +274,7 @@ def readout_flags(r: SlimReadoutV2) -> dict[str, bool]:
         "cruxy_false_claim": any(s[0] == "false_claim" and s[3] for s in r.segs),
         "detail": "detail" in leaves,
         "substitution_category": "substitution_category" in leaves,
+        tx.SIBLING_GATED: tx.SIBLING_GATED in leaves,
         "co_activation": tx.CO_ACTIVATION in groups,
         "thinky": tx.THINKY in groups,
         "correct": tx.CORRECT in groups,
@@ -254,6 +291,7 @@ def _columns() -> list[str]:
         "n_cmp_v2_fc",
         "n_cmp_v2_det",
         "n_cmp_v2_cat",
+        "n_cmp_v2_gated",
     ]
     cols += [f"cv_{v}" for v in VERDICT_ROWS] + [f"sv_{v}" for v in VERDICT_ROWS]
     cols += [f"cj_{r}" for r in JUNK_REASON_ROWS]
@@ -302,6 +340,7 @@ def readout_vector(r: SlimReadoutV2) -> np.ndarray:
             v[_COL["n_cmp_v2_fc"]] = flags["false_claim"]
             v[_COL["n_cmp_v2_det"]] = flags["detail"]
             v[_COL["n_cmp_v2_cat"]] = flags["substitution_category"]
+            v[_COL["n_cmp_v2_gated"]] = flags[tx.SIBLING_GATED]
     return v
 
 
@@ -378,6 +417,7 @@ def block(cells: Sequence[SlimCellV2], *, n_boot: int = N_BOOT) -> dict[str, Any
             "v2_false_claim_rate": r("n_cmp_v2_fc", "n_cmp"),
             "v2_detail_rate": r("n_cmp_v2_det", "n_cmp"),
             "v2_substitution_category_rate": r("n_cmp_v2_cat", "n_cmp"),
+            "v2_substitution_sibling_gated_rate": r("n_cmp_v2_gated", "n_cmp"),
             # ... and over the v5c-specific ones (plan 0001's hallucination_rate denominator)
             "v5c_rate_specific": r("n_v5c_hal", "n_rate_specific"),
             "v2_rate_specific": r(f"rs_verdict_{tx.V_HALLUCINATION}", "n_rate_specific"),
@@ -425,10 +465,14 @@ def agreement(cells: Iterable[SlimCellV2]) -> dict[str, dict[str, Any]]:
 
 @dataclass
 class AccumulatorV2:
+    """``sibling_labels`` (rev 21): segment key -> the unit's ``final`` (``None`` while rung 2 is
+    unfinished); ``None`` = no labels file = rev-20 scoring."""
+
+    sibling_labels: dict[SegKey, str | None] | None = None
     cells: list[SlimCellV2] = field(default_factory=list)
 
     def add(self, rec: dict[str, Any]) -> None:
-        c = slim(rec)
+        c = slim(rec, self.sibling_labels)
         if c.map_status != "none" or rec["status"] == "judged":
             self.cells.append(c)
 

@@ -30,12 +30,23 @@ src/hallucination_bench/
   report.py       cross-arm report, audit samples, pilot-dump
   report_v2.py    `report --view v2`, probe_candidates.jsonl, audit_samples_v2.md, pilot-dump-v2
   consistency_v2.py  `consistency-v2`: two fresh :M calls per sampled cell, κ / confusion / flags
-  cli.py          hbench run|calibrate|report|consistency-v2|pilot-dump|pilot-dump-v2|units-v2
+  cli.py          hbench run|calibrate|report|consistency-v2|pilot-dump|pilot-dump-v2|units-v2|
+                  sibling-gate <stage>
+  evals/sibling_gate/   plan 0009 (rev 21): sibling gate. units (units, norm, item_sibling_names,
+                  load_labels), resample (pools, trimmed manifests, job lines, collect, block
+                  shape), fill_judge (sibfill-v1 + rung-1 rule), classes (sibclass-v1, dedupe,
+                  sibconcepts-v1), texts (sibgen-chat-v1, checks, punctuation token-class key),
+                  probes.py / um_probe.py (VENDORED verbatim from camila/um-ladder-v2; only the
+                  um_probe import line differs), ladder (distractors, n/a, fire/nearby,
+                  cross-method, matched null, labels), stages (the CLI stages)
 data/wsbench_chat/   verbatim copies from wsbench-pub @ 92d763e (never edit)
 data/calibration/    dev.jsonl (implementer), heldout.jsonl (blind author only), README (schema + log)
                      dev_v2.jsonl (implementer), heldout_v2.jsonl (blind author only)
 scripts/run_all_arms.sh  tmux driver for the full run
 scripts/build_dev_v2.py  writes dev_v2.jsonl (labels live here; re-run if the splitter changes)
+scripts/sibling_gate/    run_all.sh (tmux `sibgate` driver, run from a /tmp copy), probes_modal.py
+                         (Modal CPU pack/fit/score), plot_sibling_gate.py
+data/sibling_gate/       fill_dev/gold, classes.json, concepts.json, probe_texts.jsonl, distractors.json
 ```
 
 ## Conventions
@@ -146,6 +157,24 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
   hallucination; its probe_target is dropped, `pair` kept, out of `probe_candidates.jsonl`).
   Every headline table, the v5c comparison, the judge-noise rows and the plots show the three
   components (false_claim / detail / substitution_category) separately.
+- **Rev 21 (sibling gate, plan 0009)**: scoring-only. `taxonomy_v2.VERDICTS` / `VERDICT_ROWS` /
+  `PROBE_CANDIDATE_LEAVES` / the leaf assert are UNCHANGED (rev 20); `SIBLING_GATED`
+  (`substitution_sibling_gated`) lives only in `VERDICT_OF` / `GROUP_OF`, `score_v2.LEAF_ROWS`,
+  `HALLUCINATION_LEAVES` / `HALLUCINATION_COMPONENTS` (4 components) and `FLAGS`. The join is in
+  `score_v2.slim` (via `AccumulatorV2(sibling_labels=...)`, segment key `(cell key, readout,
+  start, end)`): `ok` segments get `effective_leaf` on leaf AND alt view; disputed segments and
+  agreement spans stay raw. Labels: `<out>/sibling_gate/labels/<arm>.jsonl` (`hbench run
+  --rebuild` / `report` take `--sibling-labels`); no file = exact rev-20 scores
+  (`tests/fixtures/score_v2_rev20.py` is the frozen rev-20 scorer the identity test compares
+  against; never edit it). Raw-cell consumers (`probe_candidates`, `hallucination_examples`,
+  audit samples, `scripts/plot_claim_hallucination_share.py`) must go through
+  `sibling_gate.units.load_labels` + `seg_status` + `effective_leaf`. Judge side (consistency,
+  calibrate, the claim-map parser, `hedged_origin`) reads raw leaves only. Units use the scored
+  `leaf` (a hedged sibling remapped to `unverifiable` is not a unit). Import the unit module
+  qualified (`from ...sibling_gate import units as sibling_units`): `hallucination_bench/units.py`
+  is the readout splitter. `hbench sibling-gate units` streams the v2.7 cells
+  (`--cells-root /workspace/hb-taxonomy-v2/outputs/wsbench_chat/claude-opus-5-5`); GPU / Modal
+  stages only print their commands unless `--launch` (fit/score) or run from `run_all.sh`.
 - **No git writes from agents** in this worktree (no add/rm/restore --staged/commit).
 - **In-run retries** (rev 14): an invalid `:M` (or calibration) answer is re-asked up to 2 times
   (`run.MAP_INVALID_RETRIES`) before it is cached as failed; meta records `n_invalid_attempts`

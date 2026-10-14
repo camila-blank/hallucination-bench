@@ -1,4 +1,4 @@
-"""``hbench run|calibrate|report|consistency-v2|pilot-dump|pilot-dump-v2|units-v2``."""
+"""``hbench run|calibrate|report|consistency-v2|pilot-dump|pilot-dump-v2|units-v2|sibling-gate``."""
 
 import argparse
 import json
@@ -88,7 +88,8 @@ def cmd_run(args: argparse.Namespace) -> int:
     out = Path(args.out)
     if args.rebuild:
         for n, p in arms:
-            s = wrun.rebuild_arm(n, p, out, models)
+            labels = Path(args.sibling_labels) if args.sibling_labels else None
+            s = wrun.rebuild_arm(n, p, out, models, labels)
             _print_summary(n, s)
         return 0
     summaries = wrun.run_arms(
@@ -196,6 +197,7 @@ def cmd_report(args: argparse.Namespace) -> int:
             audit_n=args.audit_n if args.audit_n is not None else 10,
             seed=args.seed,
             verdict_n=args.audit_verdict_n,
+            sibling_labels_dir=Path(args.sibling_labels) if args.sibling_labels else None,
         )
         print(
             f"wrote {root / 'report_v2.md'}, {root / 'report_v2.json'}, "
@@ -363,6 +365,11 @@ def build_parser() -> argparse.ArgumentParser:
         help="regenerate cells.jsonl/summary.json from the cache (no API calls)",
     )
     r.add_argument(
+        "--sibling-labels",
+        default=None,
+        help="rebuild, rev 21: sibling-gate labels dir (default <out>/sibling_gate/labels)",
+    )
+    r.add_argument(
         "--skip-classify",
         action="store_true",
         help="summary + span + verify only (pilot); ignored when --stages is given",
@@ -403,6 +410,11 @@ def build_parser() -> argparse.ArgumentParser:
     rp.add_argument("--audit-n", type=int, default=None, help="per leaf; default 15 (v1) / 10 (v2)")
     rp.add_argument("--audit-verdict-n", type=int, default=20, help="v2: audit samples per verdict")
     rp.add_argument("--seed", type=int, default=0)
+    rp.add_argument(
+        "--sibling-labels",
+        default=None,
+        help="v2, rev 21: sibling-gate labels dir (default <out>/sibling_gate/labels)",
+    )
     rp.set_defaults(fn=cmd_report)
 
     cs = sub.add_parser(
@@ -455,6 +467,10 @@ def build_parser() -> argparse.ArgumentParser:
     u2.add_argument("--cases", required=True)
     u2.add_argument("--dest", required=True)
     u2.set_defaults(fn=cmd_units_v2)
+
+    from hallucination_bench.evals.sibling_gate import stages as sibling_stages
+
+    sibling_stages.add_parser(sub)
     return ap
 
 
