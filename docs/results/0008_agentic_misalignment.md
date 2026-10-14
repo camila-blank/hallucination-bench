@@ -116,10 +116,11 @@ Headline verdict shares, pooled over spans. Bootstrap 95% CIs are over the 28 mi
    - Among realised-kind mentions whose kind the prompt does set up (mention-level, all
      populations; report §4), 97–98% come *after* the set-up for every lens (O-lens 20,473
      before vs 562 after; NLA 5,480 vs 109; J-lens 4,975 vs 144).
-   - Base rate with no lens: over (misaligned-item site, realised kind) pairs, 68% of sites
-     fall after the set-up (61% before / 29% after / 10% never set up overall); weighting by
-     each lens's own detected cells gives 21–26% "after". So the lenses' ~2% is far below
-     chance: realised-kind mentions do not precede the set-up.
+   - Base rate with no lens: over (misaligned-item site, realised kind) pairs, 61% of sites come
+     after the set-up, 29% come before it and 10% have no set-up; among pairs with a set-up,
+     68% of sites come after it. Weighted by each lens's own detected cells, 21–26% of sites
+     come before the set-up. The lenses' realised mentions come before it only ~2% of the time,
+     far below chance: realised-kind mentions do not precede the set-up.
    - `never_set_up` (O-lens 1,279, NLA 656, J-lens 758) is not a timing measure. It is three
      (item, kind) pairs that the prompt never sets up but the rollout does, almost all generic
      deception (am-blackmail_none-none_restriction) and sabotage (am-leaking_none-none_restriction)
