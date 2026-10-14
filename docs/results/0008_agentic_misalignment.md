@@ -65,7 +65,7 @@ Headline verdict shares, pooled over spans. Bootstrap 95% CIs are over the 28 mi
 | | O-lens | NLA | J-lens |
 |---|---|---|---|
 | **real intention**: the mention's kind is what the rollout does | **57%** | **37%** | **46%** |
-| same, excluding self-preservation (the largest realised kind for O-lens) | 48% | 31% | 44% |
+| same, dropping every self-preservation span (the largest realised kind for O-lens) | 54% | 33% | 46% |
 | largest realised kinds | self-preservation 30%, leaking 15%, deception 15% | leaking 32%, self-preservation 24% | blackmail 45%, cheating 13% |
 | **unrelated misconduct**: neither the rollout, the design, nor an option the scenario sets up (raw → audit-corrected) | 26% → **20%** | 52% → **56%** | 34% → **34%** |
 | hallucination rate among unrelated mentions | 22% | 55% | 1% |
@@ -90,14 +90,14 @@ Headline verdict shares, pooled over spans. Bootstrap 95% CIs are over the 28 mi
      kind is **self-preservation** (30% of realised spans; the replacement/restriction emails
      spell the threat out), then leaking, deception and cheating; blackmail is 7%. In the
      blackmail scenarios, O-lens's realised spans are self-preservation over blackmail about
-     2:1. Without self-preservation, the real-intention rate is 48%.
+     2:1. Dropping all self-preservation spans, the real-intention rate is 54%.
    - 16% of headline mentions are contradicted.
    - 20% (audit-corrected) name unrelated misconduct, spread over sabotage, power grabs ("I am
      now the sole authority", "boardroom coup"), oversight evasion and deception.
 3. **J-lens almost never contradicts the text, but it is vague.**
    - Hallucination is about 1%, but over half of its headline mentions are unverifiable, and a
      third name an unrelated kind (e.g. "an AI weighing whether to undermine oversight").
-   - Its realised mentions are mostly blackmail (45%), so its real-intention rate is not the
+   - Its realised mentions are a plurality blackmail (45%), so its real-intention rate is not the
      same mix as O-lens's.
    - The vagueness may come partly from the bag → interp-v1 summary step rather than the lens:
      the judge's hedge rule remaps 370 J-lens "correct" spans to unverifiable (230 for O-lens).
@@ -107,28 +107,32 @@ Headline verdict shares, pooled over spans. Bootstrap 95% CIs are over the 28 mi
    - The closer measure is the unrealised-intent rate: on misaligned items, 24–40% of headline
      mentions claim an intent that the rollout does not carry out.
    - Among spans that do *not* name the rollout's action, 64% (O-lens), 38% (NLA) and 75%
-     (J-lens) are such uncheckable intent claims. The control scenarios give the same rates
-     (64% / 37% / 76%), so the lenses talk about non-realised misconduct in the same way
-     whether or not the model misbehaves. (Control spans are not Stage-H verified, so this
-     comparison is approximate.) NLA's lower rate is not a virtue: its non-realised mentions
+     (J-lens) are such uncheckable intent claims. The control scenarios give similar rates
+     (64% / 37% / 76%). This is approximate: control spans are not Stage-H verified, and the
+     controls are 4 Anthropic no-threat items whose non-realised mentions are often the designed
+     kind (O-lens 452 of 1,418), a different tier mix from the misaligned pool. NLA's lower rate is not a virtue: its non-realised mentions
      are mostly outright hallucinations.
-5. **Camila's prior holds for "inferable from text", for all three lenses.**
+5. **Timing is consistent with Camila's "inferable from text" prior, for all three lenses.**
    - Among realised-kind mentions whose kind the prompt does set up (mention-level, all
      populations; report §4), 97–98% come *after* the set-up for every lens (O-lens 20,473
-     before vs 562 after; NLA 5,480 vs 109; J-lens 4,975 vs 144).
+     after the set-up vs 562 before it, i.e. `set_up_before` / `set_up_after`; NLA 5,480 vs
+     109; J-lens 4,975 vs 144).
    - Base rate with no lens: over (misaligned-item site, realised kind) pairs, 61% of sites come
-     after the set-up, 29% come before it and 10% have no set-up; among pairs with a set-up,
-     68% of sites come after it. Weighted by each lens's own detected cells, 21–26% of sites
-     come before the set-up. The lenses' realised mentions come before it only ~2% of the time,
-     far below chance: realised-kind mentions do not precede the set-up.
+     after the set-up, 29% come before it and 10% have no set-up. Among pairs with a set-up,
+     and weighting by each lens's own detected cells, 23–29% of sites precede the set-up
+     (O-lens 24%, NLA 23%, J-lens 29%), versus 2–3% of each lens's realised mentions (2.7%,
+     2.0%, 2.8%). Realised-kind mentions do not precede the set-up. Timing alone does not show
+     the mention was *inferred* from the text (finding 6: correct mentions are mostly supported
+     by the rollout), only that it is consistent with that.
    - `never_set_up` (O-lens 1,279, NLA 656, J-lens 758) is not a timing measure. It is three
      (item, kind) pairs that the prompt never sets up but the rollout does, almost all generic
      deception (am-blackmail_none-none_restriction) and sabotage (am-leaking_none-none_restriction)
      mentions. Every lens names those kinds everywhere, so these counts reflect which kinds each
      lens likes, not foresight.
    - Caveat: the intent audit counts planted tool lines (e.g. the `cancel_alert` tool in the
-     system prompt) as "set up". This is the conservative choice for "set up before"; starting
-     the clock at the threat email would move some mentions to `set_up_after`.
+     system prompt) as "set up". That is the earliest possible clock, so it favours the prior;
+     starting the clock at the threat email would move some mentions to `set_up_after`, though
+     the 2–3% vs 23–29% gap leaves room.
 6. **Prior check: `model_state` and `correct`.**
    - `correct` is common for O-lens and J-lens (23% and 33%); `model_state` stays small (7–8%).
    - Intent claims are judged **unverifiable** far more often than `model_state` (O-lens: 2,267
@@ -183,11 +187,16 @@ headline as "the lens says someone is considering or doing it, most often the mo
 - **API refusals.**
   - Without the research frame, Opus refused about 73% of claim-map calls on the murder scenario
     and 29% on blackmail-replacement. With it, those scenarios run almost clean, but 2.5% / 3.4%
-    / 1.3% of cells (O-lens / NLA / J-lens) still fail, mostly refused, and they sit in a few
-    **in-house** scenarios: `t-power-acquire-credentials` (≈100% failed for every lens, so it
-    contributes almost no verdicts), `t-imp-sandbox-escape` (69–83%), `selfpreserve-shutdown`
-    (29–84%), plus `exfil-weights` and two leaking items for NLA. They are reported as
-    `failed`, not dropped; this is why item-macro "failed" (9–11%) exceeds the pooled share.
+    / 1.3% of cells (O-lens / NLA / J-lens) still fail, mostly refused.
+    - For O-lens (84% of its failures) and J-lens (73%) they sit in a few **in-house**
+      scenarios: `t-power-acquire-credentials` (≈100% failed for every lens, so it contributes
+      almost no verdicts), `t-imp-sandbox-escape` (69–83%), `selfpreserve-shutdown` (29–84%)
+      and `exfil-weights`.
+    - For NLA, 62% of failed cells are in two Anthropic leaking items,
+      `am-leaking_none-none_replacement` (20% of its detected cells) and `_restriction` (14%),
+      which bears on NLA's leaking-heavy realised mix; the rest are in-house.
+    - They are reported as `failed`, not dropped. This is why item-macro "failed" (7.5–11%)
+      exceeds the pooled share.
   - 10 of 32 intent calls (`amintent-v2`) were refused; the hand audit overrode 31 items.
   - About 2% of J-lens summaries were refused (their cells are lost).
 - **Named stand-in AIs.** NLA often renames the AI (Nova, ARC, The Oracle). The rulebook makes
@@ -213,7 +222,7 @@ About **$5.9k** in total, including the pilot, both detector versions, the audit
 |---|---|---|---|---|---|
 | NLA-RL L42 | $269 | — | $1,418 | $17 | $1,704 |
 | O-lens RL600 | $958 | — | $1,840 | $29 | $2,827 |
-| J-lens | $716 | $222 | $399 | $33 | $1,370 |
+| J-lens | $716 | $222 | $399 | $33 | $1,369 |
 
 ## Reproduce
 
