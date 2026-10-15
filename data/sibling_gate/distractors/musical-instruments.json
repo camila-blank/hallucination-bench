@@ -1,0 +1,482 @@
+{
+"mlnla-rl2-800-all11:chat-dailydialog-0030__L036__p137:guitar:ukulele": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0030__L036__p137:guitar:ukulele",
+"anchor": "ukulele",
+"nearest": [
+"drums",
+"trombone",
+"double bass",
+"trumpet"
+],
+"random": [],
+"distractors": [
+"drums",
+"trombone",
+"double bass",
+"trumpet"
+],
+"n_eligible": 4,
+"sha": "fe803394cd7b53efd5c96460c042cc7dedf1931114264dc4e98d973fcd634557",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0030__L048__p137:cello:ukulele": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0030__L048__p137:cello:ukulele",
+"anchor": "ukulele",
+"nearest": [
+"drums",
+"trombone",
+"double bass",
+"trumpet"
+],
+"random": [],
+"distractors": [
+"drums",
+"trombone",
+"double bass",
+"trumpet"
+],
+"n_eligible": 4,
+"sha": "e43bf912e09b8652d4dba87ab9cd6c45fa81ad59e4b3071949857d3de8a84e2f",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0030__L048__p137:piano:ukulele": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0030__L048__p137:piano:ukulele",
+"anchor": "ukulele",
+"nearest": [
+"drums",
+"trombone",
+"double bass",
+"trumpet"
+],
+"random": [],
+"distractors": [
+"drums",
+"trombone",
+"double bass",
+"trumpet"
+],
+"n_eligible": 4,
+"sha": "64ac1f9c0aae62c2fd9a39fdacfaed9ffbef29fe54c8b717c196979670c6b2f8",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0030__L048__p137:fiddle:ukulele": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0030__L048__p137:fiddle:ukulele",
+"anchor": "ukulele",
+"nearest": [
+"drums",
+"trombone",
+"double bass",
+"trumpet"
+],
+"random": [],
+"distractors": [
+"drums",
+"trombone",
+"double bass",
+"trumpet"
+],
+"n_eligible": 4,
+"sha": "a4222f915372dfecca3e0c1e4301d9a432c8ba7608c81065d4e8579937bafe95",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0030__L052__p137:banjo:ukulele": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0030__L052__p137:banjo:ukulele",
+"anchor": "ukulele",
+"nearest": [
+"drums",
+"trombone",
+"double bass",
+"trumpet"
+],
+"random": [],
+"distractors": [
+"drums",
+"trombone",
+"double bass",
+"trumpet"
+],
+"n_eligible": 4,
+"sha": "00edf561eff59a205184f8019e1f1d7fad81983d211cc5444c8af9f7c0473687",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0030__L036__p137:piano:ukulele": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0030__L036__p137:piano:ukulele",
+"anchor": "ukulele",
+"nearest": [
+"drums",
+"trombone",
+"double bass",
+"trumpet"
+],
+"random": [],
+"distractors": [
+"drums",
+"trombone",
+"double bass",
+"trumpet"
+],
+"n_eligible": 4,
+"sha": "f0085e686045629daebeb0c4e254b632aa4695cbe5a1b412e1b45af8045e5995",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0030__L036__p137:violin:ukulele": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0030__L036__p137:violin:ukulele",
+"anchor": "ukulele",
+"nearest": [
+"drums",
+"trombone",
+"double bass",
+"trumpet"
+],
+"random": [],
+"distractors": [
+"drums",
+"trombone",
+"double bass",
+"trumpet"
+],
+"n_eligible": 4,
+"sha": "aefa920736d98b9b60aabf310f0a8c5bcf4441c8fb85a1b2cd091d714f35732c",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0030__L052__p137:flute:ukulele": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0030__L052__p137:flute:ukulele",
+"anchor": "ukulele",
+"nearest": [
+"drums",
+"trombone",
+"double bass",
+"trumpet"
+],
+"random": [],
+"distractors": [
+"drums",
+"trombone",
+"double bass",
+"trumpet"
+],
+"n_eligible": 4,
+"sha": "c930a4de4736473a1d604cc7c9453d3a684fe2de1928f3cb3a48161c31efd9df",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0030__L052__p137:guitar:ukulele": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0030__L052__p137:guitar:ukulele",
+"anchor": "ukulele",
+"nearest": [
+"drums",
+"trombone",
+"double bass",
+"trumpet"
+],
+"random": [],
+"distractors": [
+"drums",
+"trombone",
+"double bass",
+"trumpet"
+],
+"n_eligible": 4,
+"sha": "a6509c290804894438d4a16aaa2b041221ca9e447f81993fcc83353600dad8ce",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0030__L060__p137:guitar:ukulele": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0030__L060__p137:guitar:ukulele",
+"anchor": "ukulele",
+"nearest": [
+"drums",
+"trombone",
+"double bass",
+"trumpet"
+],
+"random": [],
+"distractors": [
+"drums",
+"trombone",
+"double bass",
+"trumpet"
+],
+"n_eligible": 4,
+"sha": "6aec2d95b912f2b2cfd97b11fcba2c94fedab11eb3a394bdae95ccefab02057f",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0030__L060__p137:violin:ukulele": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0030__L060__p137:violin:ukulele",
+"anchor": "ukulele",
+"nearest": [
+"drums",
+"trombone",
+"double bass",
+"trumpet"
+],
+"random": [],
+"distractors": [
+"drums",
+"trombone",
+"double bass",
+"trumpet"
+],
+"n_eligible": 4,
+"sha": "e2cdf91a5b82f70d8ac8d245600a01d1c63cdd234392df01e2d9cb3f5b7326fa",
+"generation": 0
+},
+"s3d-rl600:chat-dailydialog-0030__L036__p137:piano:ukulele": {
+"unit": "s3d-rl600:chat-dailydialog-0030__L036__p137:piano:ukulele",
+"anchor": "ukulele",
+"nearest": [
+"drums",
+"trombone",
+"double bass",
+"trumpet"
+],
+"random": [],
+"distractors": [
+"drums",
+"trombone",
+"double bass",
+"trumpet"
+],
+"n_eligible": 4,
+"sha": "6daa1886abb6b83afd596bff8d563817103528d4a13c55ce831abc962ef56352",
+"generation": 0
+},
+"s3d-rl600:chat-dailydialog-0030__L036__p137:violin:ukulele": {
+"unit": "s3d-rl600:chat-dailydialog-0030__L036__p137:violin:ukulele",
+"anchor": "ukulele",
+"nearest": [
+"drums",
+"trombone",
+"double bass",
+"trumpet"
+],
+"random": [],
+"distractors": [
+"drums",
+"trombone",
+"double bass",
+"trumpet"
+],
+"n_eligible": 4,
+"sha": "a53838af1fb66689e49293eb235519332b3044e06a633eb1d1a47672eb2fcb91",
+"generation": 0
+},
+"s3d-rl600:chat-dailydialog-0030__L044__p137:piano:ukulele": {
+"unit": "s3d-rl600:chat-dailydialog-0030__L044__p137:piano:ukulele",
+"anchor": "ukulele",
+"nearest": [
+"drums",
+"trombone",
+"double bass",
+"trumpet"
+],
+"random": [],
+"distractors": [
+"drums",
+"trombone",
+"double bass",
+"trumpet"
+],
+"n_eligible": 4,
+"sha": "fac52903912d299bf5d1e065f62a7e65e753cfb3dc9b517ba1c963b3f7130d86",
+"generation": 0
+},
+"s3d-rl600:chat-dailydialog-0030__L048__p137:flute:ukulele": {
+"unit": "s3d-rl600:chat-dailydialog-0030__L048__p137:flute:ukulele",
+"anchor": "ukulele",
+"nearest": [
+"drums",
+"trombone",
+"double bass",
+"trumpet"
+],
+"random": [],
+"distractors": [
+"drums",
+"trombone",
+"double bass",
+"trumpet"
+],
+"n_eligible": 4,
+"sha": "7bb0de9969ecc90b691db42fde8affab536fc37845727e2d9f5287c5ad6c0bc9",
+"generation": 0
+},
+"s3d-rl600:chat-dailydialog-0030__L048__p137:piano:ukulele": {
+"unit": "s3d-rl600:chat-dailydialog-0030__L048__p137:piano:ukulele",
+"anchor": "ukulele",
+"nearest": [
+"drums",
+"trombone",
+"double bass",
+"trumpet"
+],
+"random": [],
+"distractors": [
+"drums",
+"trombone",
+"double bass",
+"trumpet"
+],
+"n_eligible": 4,
+"sha": "bdc4baec68c631711fca1a9aca241a70d2701671822e4e185bde83ae6958b6a1",
+"generation": 0
+},
+"s3d-rl600:chat-dailydialog-0030__L048__p137:violin:ukulele": {
+"unit": "s3d-rl600:chat-dailydialog-0030__L048__p137:violin:ukulele",
+"anchor": "ukulele",
+"nearest": [
+"drums",
+"trombone",
+"double bass",
+"trumpet"
+],
+"random": [],
+"distractors": [
+"drums",
+"trombone",
+"double bass",
+"trumpet"
+],
+"n_eligible": 4,
+"sha": "c831f25e8d11f346d31d6d4f41b78fbcf839e6eb3d748959afa89d16f16a081c",
+"generation": 0
+},
+"s3d-rl600:chat-dailydialog-0030__L060__p137:flute:ukulele": {
+"unit": "s3d-rl600:chat-dailydialog-0030__L060__p137:flute:ukulele",
+"anchor": "ukulele",
+"nearest": [
+"drums",
+"trombone",
+"double bass",
+"trumpet"
+],
+"random": [],
+"distractors": [
+"drums",
+"trombone",
+"double bass",
+"trumpet"
+],
+"n_eligible": 4,
+"sha": "fc7b71d37554fc5a5237012b4f5bb93858deda98012d5b6cc7e4adbfab4a5dec",
+"generation": 0
+},
+"s3d-rl600:chat-dailydialog-0030__L060__p137:guitar:ukulele": {
+"unit": "s3d-rl600:chat-dailydialog-0030__L060__p137:guitar:ukulele",
+"anchor": "ukulele",
+"nearest": [
+"drums",
+"trombone",
+"double bass",
+"trumpet"
+],
+"random": [],
+"distractors": [
+"drums",
+"trombone",
+"double bass",
+"trumpet"
+],
+"n_eligible": 4,
+"sha": "104ee511d8eb44c9a81393de4f0a72c183d2c45f59210b3b20b830cf58bba959",
+"generation": 0
+},
+"s3d-rl600:chat-dailydialog-0030__L060__p137:piano:ukulele": {
+"unit": "s3d-rl600:chat-dailydialog-0030__L060__p137:piano:ukulele",
+"anchor": "ukulele",
+"nearest": [
+"drums",
+"trombone",
+"double bass",
+"trumpet"
+],
+"random": [],
+"distractors": [
+"drums",
+"trombone",
+"double bass",
+"trumpet"
+],
+"n_eligible": 4,
+"sha": "3af563dd7ef2f46126dcb9f8045272f51a92d976bf9e6104c74c1314843163a7",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0030__L036__p137:piano:ukulele": {
+"unit": "s3d-sft251:chat-dailydialog-0030__L036__p137:piano:ukulele",
+"anchor": "ukulele",
+"nearest": [
+"drums",
+"trombone",
+"double bass",
+"trumpet"
+],
+"random": [],
+"distractors": [
+"drums",
+"trombone",
+"double bass",
+"trumpet"
+],
+"n_eligible": 4,
+"sha": "72db0e064657a187af98880f32976b99e7e88cb29adc18a11aa16cda9430756b",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0030__L052__p137:guitar:ukulele": {
+"unit": "s3d-sft251:chat-dailydialog-0030__L052__p137:guitar:ukulele",
+"anchor": "ukulele",
+"nearest": [
+"drums",
+"trombone",
+"double bass",
+"trumpet"
+],
+"random": [],
+"distractors": [
+"drums",
+"trombone",
+"double bass",
+"trumpet"
+],
+"n_eligible": 4,
+"sha": "30d79f25b836058d3f0433b22ecbd69628afcd0228a453f810ad2864500b3159",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0030__L060__p137:flute:ukulele": {
+"unit": "s3d-sft251:chat-dailydialog-0030__L060__p137:flute:ukulele",
+"anchor": "ukulele",
+"nearest": [
+"drums",
+"trombone",
+"double bass",
+"trumpet"
+],
+"random": [],
+"distractors": [
+"drums",
+"trombone",
+"double bass",
+"trumpet"
+],
+"n_eligible": 4,
+"sha": "8358041cb1aef45694c139d4ac2050f2a64e3d6625013cba09adabe21f099d08",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0030__L060__p137:guitar:ukulele": {
+"unit": "s3d-sft251:chat-dailydialog-0030__L060__p137:guitar:ukulele",
+"anchor": "ukulele",
+"nearest": [
+"drums",
+"trombone",
+"double bass",
+"trumpet"
+],
+"random": [],
+"distractors": [
+"drums",
+"trombone",
+"double bass",
+"trumpet"
+],
+"n_eligible": 4,
+"sha": "1ad6d54d139e3389c12fa1ca1fa582af52771193429ca9edfec23c6c8acdd878",
+"generation": 0
+}
+}

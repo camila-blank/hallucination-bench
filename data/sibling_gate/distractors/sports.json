@@ -1,0 +1,299 @@
+{
+"mlnla-rl2-800-all11:chat-dailydialog-0060__L020__p67:basketball:skating": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0060__L020__p67:basketball:skating",
+"anchor": "skating",
+"nearest": [
+"swimming",
+"volleyball",
+"soccer",
+"baseball"
+],
+"random": [
+"American football",
+"cricket",
+"rugby"
+],
+"distractors": [
+"swimming",
+"volleyball",
+"soccer",
+"baseball",
+"American football",
+"cricket",
+"rugby"
+],
+"n_eligible": 7,
+"sha": "281502b4307e8a8c965469927140acd2ed3987840a9ab697124ce22887a7c7fd",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0060__L024__p67:basketball:skating": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0060__L024__p67:basketball:skating",
+"anchor": "skating",
+"nearest": [
+"swimming",
+"volleyball",
+"soccer",
+"baseball"
+],
+"random": [
+"American football",
+"cricket",
+"rugby"
+],
+"distractors": [
+"swimming",
+"volleyball",
+"soccer",
+"baseball",
+"American football",
+"cricket",
+"rugby"
+],
+"n_eligible": 7,
+"sha": "680c8e2b535d7a76d1f0279a4215e97437341c8c99435dd389ecd73b18de4784",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0060__L044__p29:cycling:skating": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0060__L044__p29:cycling:skating",
+"anchor": "skating",
+"nearest": [
+"swimming",
+"volleyball",
+"soccer",
+"baseball"
+],
+"random": [
+"American football",
+"cricket",
+"rugby"
+],
+"distractors": [
+"swimming",
+"volleyball",
+"soccer",
+"baseball",
+"American football",
+"cricket",
+"rugby"
+],
+"n_eligible": 7,
+"sha": "2d27759c7d4ee9df9c07c009b7a9b2b4414068f58e94447f33a772b9db728ff0",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0060__L044__p58:cycling:skating": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0060__L044__p58:cycling:skating",
+"anchor": "skating",
+"nearest": [
+"swimming",
+"volleyball",
+"soccer",
+"baseball"
+],
+"random": [
+"American football",
+"cricket",
+"rugby"
+],
+"distractors": [
+"swimming",
+"volleyball",
+"soccer",
+"baseball",
+"American football",
+"cricket",
+"rugby"
+],
+"n_eligible": 7,
+"sha": "510fd6cc3f659217c2d69b421b2fcf6443c1dd288c085adb681e4ec7e9d5730d",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0060__L036__p58:cycling:skating": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0060__L036__p58:cycling:skating",
+"anchor": "skating",
+"nearest": [
+"swimming",
+"volleyball",
+"soccer",
+"baseball"
+],
+"random": [
+"American football",
+"cricket",
+"rugby"
+],
+"distractors": [
+"swimming",
+"volleyball",
+"soccer",
+"baseball",
+"American football",
+"cricket",
+"rugby"
+],
+"n_eligible": 7,
+"sha": "b910b79cda005262050266fe016fc86187db802219d3572083793e51cb137bd5",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0060__L024__p67:hockey:skating": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0060__L024__p67:hockey:skating",
+"anchor": "skating",
+"nearest": [
+"swimming",
+"volleyball",
+"soccer",
+"baseball"
+],
+"random": [
+"American football",
+"cricket",
+"rugby"
+],
+"distractors": [
+"swimming",
+"volleyball",
+"soccer",
+"baseball",
+"American football",
+"cricket",
+"rugby"
+],
+"n_eligible": 7,
+"sha": "1f03a83401365d5b7477b0f8619b48a3ed56e839ffe31a928f2006a1da6b6c27",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0060__L032__p67:biking:skating": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0060__L032__p67:biking:skating",
+"anchor": "skating",
+"nearest": [
+"swimming",
+"volleyball",
+"soccer",
+"baseball"
+],
+"random": [
+"American football",
+"cricket",
+"rugby"
+],
+"distractors": [
+"swimming",
+"volleyball",
+"soccer",
+"baseball",
+"American football",
+"cricket",
+"rugby"
+],
+"n_eligible": 7,
+"sha": "321577f314c47eb00742f5f89148448bab40226e01f94b3a48006b9f6285e3b0",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0060__L032__p67:motorsports:skating": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0060__L032__p67:motorsports:skating",
+"anchor": "skating",
+"nearest": [
+"swimming",
+"volleyball",
+"soccer",
+"baseball"
+],
+"random": [
+"American football",
+"cricket",
+"rugby"
+],
+"distractors": [
+"swimming",
+"volleyball",
+"soccer",
+"baseball",
+"American football",
+"cricket",
+"rugby"
+],
+"n_eligible": 7,
+"sha": "45b5d400e5edecc2f9c818bffdce21c9a9c317e287173f15315fc7a41549ea0a",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0060__L044__p49:mountainbiking:skating": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0060__L044__p49:mountainbiking:skating",
+"anchor": "skating",
+"nearest": [
+"swimming",
+"volleyball",
+"soccer",
+"baseball"
+],
+"random": [
+"American football",
+"cricket",
+"rugby"
+],
+"distractors": [
+"swimming",
+"volleyball",
+"soccer",
+"baseball",
+"American football",
+"cricket",
+"rugby"
+],
+"n_eligible": 7,
+"sha": "c69b9e61d5c9f8e35c0f7cae8d1015e17d7a5ade9e777cc18730537a16a0309c",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0060__L048__p67:motorracing:skating": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0060__L048__p67:motorracing:skating",
+"anchor": "skating",
+"nearest": [
+"swimming",
+"volleyball",
+"soccer",
+"baseball"
+],
+"random": [
+"American football",
+"cricket",
+"rugby"
+],
+"distractors": [
+"swimming",
+"volleyball",
+"soccer",
+"baseball",
+"American football",
+"cricket",
+"rugby"
+],
+"n_eligible": 7,
+"sha": "9bc31769606e7ab856ba92235ecba3314f265c0b3ff7b4f1cf8b736762e092a5",
+"generation": 0
+},
+"s3d-rl600:chat-dailydialog-0060__L044__p67:biking:skating": {
+"unit": "s3d-rl600:chat-dailydialog-0060__L044__p67:biking:skating",
+"anchor": "skating",
+"nearest": [
+"swimming",
+"volleyball",
+"soccer",
+"baseball"
+],
+"random": [
+"American football",
+"cricket",
+"rugby"
+],
+"distractors": [
+"swimming",
+"volleyball",
+"soccer",
+"baseball",
+"American football",
+"cricket",
+"rugby"
+],
+"n_eligible": 7,
+"sha": "bc0d985c186c8fa41f71dc523bc880f4231108bbc361432acad540b2ce0029bc",
+"generation": 0
+}
+}

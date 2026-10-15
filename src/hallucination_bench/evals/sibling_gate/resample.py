@@ -20,13 +20,17 @@ gw-mlnla script snapshot; the scripts are never edited).
 
 from __future__ import annotations
 
+import hashlib
 import json
+import re
 import statistics
 from collections import Counter, defaultdict
 from collections.abc import Iterable, Iterator, Mapping
 from dataclasses import dataclass, field
 from pathlib import Path, PurePosixPath
 from typing import Any
+
+from hallucination_bench import arms as _arms
 
 from . import units as U
 
@@ -74,24 +78,36 @@ class Pool:
         return f"sibgate-{self.name}"
 
 
-POOLS: dict[str, Pool] = {
-    p.name: p
-    for p in (
-        Pool("s3d-rl600", ("s3d-rl600", "s3d-rl600-all11"), "read", ACTS_11),
-        Pool("s3d-sft251", ("s3d-sft251",), "read", ACTS_11),
-        Pool("mlnla-rl600", ("mlnla-rl600-all11",), "nla", ACTS_11, lens="mlnla-rl600"),
-        Pool("mlnla-rl2-800", ("mlnla-rl2-800-all11",), "nla", ACTS_11, lens="mlnla-rl2-800"),
-        Pool("nla-rl", ("nla-rl-L42",), "nla", ACTS_L42, lens="nla-rl400"),
-        Pool("nla-sft", ("nla-sft-L42",), "nla", ACTS_L42, lens="nla-sft3864"),
-        Pool("patchscopes", ("patchscopes",), "patchscopes", ACTS_11, conditional=True),
+_GEN_VIEW = {"lensagree": "patchscopes"}  # registry generator -> the plan-0009 Pool.generator
+
+
+def pool_from_registry(name: str, reg: dict[str, Any] | None = None) -> Pool:
+    """Any registered pool as a :class:`Pool` (``arms`` = its gated arms, else every registered
+    arm of the pool)."""
+    r = reg if reg is not None else _arms.load()
+    row = r["pools"][name]
+    gated = _arms.pools_of_gated(r).get(name) or _arms.pool_arms(name, r)
+    args = row.get("args") or {}
+    return Pool(
+        name,
+        tuple(gated),
+        _GEN_VIEW.get(row["generator"], row["generator"]),
+        args.get("acts", ACTS_11),
+        lens=args.get("lens", ""),
+        conditional=bool(row.get("conditional")),
     )
-}
+
+
+# Plan 0010 §1: views of the registry (pools serving a gated arm, registry order); a test asserts
+# they equal the plan-0009 values.
+POOLS: dict[str, Pool] = {p: pool_from_registry(p) for p in _arms.pools_of_gated()}
 POOL_OF: dict[str, str] = {a: p.name for p in POOLS.values() for a in p.arms}
 
 
 def pool_of(arm: str) -> str | None:
-    """The arm's pool (``None`` for the deterministic token arms)."""
-    return POOL_OF.get(arm)
+    """The arm's pool (``None`` for the deterministic token arms). Plan 0010: every registered
+    arm resolves (a registered arm outside the gated set, e.g. a ``--add-arm`` candidate)."""
+    return POOL_OF.get(arm) or _arms.pool_of(arm)
 
 
 # ---------------------------------------------------------------- requests
@@ -442,3 +458,351 @@ def block_shape_check(orig: Iterable[str], new: Iterable[str]) -> dict[str, Any]
         and SHAPE_MEDIAN_RATIO[0] <= ratio <= SHAPE_MEDIAN_RATIO[1]
     )
     return {"ok": ok, "orig": a, "new": b, "median_ratio": ratio}
+
+
+# ================================================================ plan 0010 §2: recoverable runs
+#
+# The volume is the source of truth. Each launch is a run ``gen-sibgate-<pool>-<sha8>-a<att>``
+# (``-r<j>`` for pools with ``samples_per_run`` < 10, one seeded run per missing sample); sha8 =
+# the hash of the sorted requested keys. A key's sample count is the sum over runs (run0 = the
+# imported plan-0009 ``resample.jsonl``, first; then attempt order); complete at >= 10, cut to
+# the first 10. Plan-0009 names never match :data:`RUN_RE`, so legacy runs are read via run0 only.
+
+RUN_RE = re.compile(
+    r"^gen-sibgate-(?P<pool>.+?)-(?P<sha>[0-9a-f]{8})-a(?P<att>\d+)(?:-r(?P<r>\d+))?$"
+)
+RUN0 = "run0"
+MAX_ATTEMPTS = 2
+
+
+def keys_sha8(keys: Iterable[Key]) -> str:
+    blob = json.dumps(sorted([k[0], int(k[1]), int(k[2])] for k in keys)).encode()
+    return hashlib.sha256(blob).hexdigest()[:8]
+
+
+def run_name(pool: str, keys: Iterable[Key], attempt: int, r: int | None = None) -> str:
+    base = f"gen-sibgate-{pool}-{keys_sha8(keys)}-a{int(attempt)}"
+    return base if r is None else f"{base}-r{int(r)}"
+
+
+def parse_run_name(name: str, pools: Iterable[str]) -> dict[str, Any] | None:
+    """The anchored parse; the pool must equal a registry pool exactly (``None`` otherwise)."""
+    m = RUN_RE.match(name)
+    if m is None or m.group("pool") not in set(pools):
+        return None
+    return {
+        "pool": m.group("pool"),
+        "sha": m.group("sha"),
+        "attempt": int(m.group("att")),
+        "r": None if m.group("r") is None else int(m.group("r")),
+    }
+
+
+def seed_of(name: str) -> int:
+    """Seed of a per-sample run: ``int(sha256(run_name)[:8], 16)`` (distinct across runs)."""
+    return int(hashlib.sha256(name.encode()).hexdigest()[:8], 16)
+
+
+def run_order(name: str) -> tuple[int, int, str, int]:
+    """run0 first, then attempt order (then sha, then the per-sample index)."""
+    if name == RUN0:
+        return (0, 0, "", 0)
+    m = RUN_RE.match(name)
+    if m is None:
+        return (2, 0, name, 0)
+    return (1, int(m.group("att")), m.group("sha"), int(m.group("r") or 0))
+
+
+@dataclass
+class PoolState:
+    """``outputs/sibling_gate/resample/<pool>/state.json``: the launched runs and, per key, the
+    attempts that requested it. Collected rows live in ``runs/<run>.jsonl`` (one file per run, so
+    a re-collected run is never double-counted)."""
+
+    pool: str
+    runs: dict[str, dict[str, Any]] = field(default_factory=dict)
+    attempts: dict[str, int] = field(default_factory=dict)  # "id|layer|pos" -> attempts
+
+    @staticmethod
+    def kstr(k: Key) -> str:
+        return f"{k[0]}|{int(k[1])}|{int(k[2])}"
+
+    def n_attempts(self, k: Key) -> int:
+        return int(self.attempts.get(self.kstr(k), 0))
+
+    def to_dict(self) -> dict[str, Any]:
+        return {"pool": self.pool, "runs": self.runs, "attempts": self.attempts}
+
+
+def state_path(pool: str, out: Path = U.OUT) -> Path:
+    return pool_dir(pool, out) / "state.json"
+
+
+def runs_dir(pool: str, out: Path = U.OUT) -> Path:
+    return pool_dir(pool, out) / "runs"
+
+
+def load_state(pool: str, out: Path = U.OUT) -> PoolState:
+    p = state_path(pool, out)
+    if not p.exists():
+        return PoolState(pool)
+    d = json.loads(p.read_text())
+    return PoolState(pool, d.get("runs") or {}, d.get("attempts") or {})
+
+
+def save_state(st: PoolState, out: Path = U.OUT) -> None:
+    p = state_path(st.pool, out)
+    p.parent.mkdir(parents=True, exist_ok=True)
+    tmp = p.with_suffix(".tmp")
+    tmp.write_text(json.dumps(st.to_dict(), indent=0) + "\n")
+    tmp.replace(p)
+
+
+def collected_runs(pool: str, out: Path = U.OUT) -> list[str]:
+    d = runs_dir(pool, out)
+    return sorted((f.stem for f in d.glob("*.jsonl")), key=run_order) if d.exists() else []
+
+
+def merge_runs(
+    runs: Mapping[str, Iterable[Mapping[str, Any]]], n: int = N_RESAMPLE
+) -> tuple[dict[Key, dict[str, Any]], dict[Key, int]]:
+    """(complete keys -> row with the first ``n`` samples, every key -> its summed count).
+    Runs in :func:`run_order`; within a run a key's rows are deduplicated by (run, seed): a run
+    contributes one sample block per (key, seed)."""
+    got: dict[Key, dict[str, Any]] = {}
+    for name in sorted(runs, key=run_order):
+        seen: set[tuple[Key, Any]] = set()
+        for r in runs[name]:
+            k = (r["id"], int(r["layer"]), int(r["pos"]))
+            sd = r.get("seed")
+            if sd is not None:  # per-sample runs: one block per (run, seed)
+                if (k, sd) in seen:
+                    continue
+                seen.add((k, sd))
+            g = got.setdefault(
+                k,
+                {
+                    "id": k[0],
+                    "layer": k[1],
+                    "pos": k[2],
+                    "token": r.get("token"),
+                    "samples": [],
+                    "config": r.get("config"),
+                    "runs": [],
+                },
+            )
+            g["samples"].extend(r.get("samples") or [])
+            if name not in g["runs"]:
+                g["runs"].append(name)
+    counts = {k: len(g["samples"]) for k, g in got.items()}
+    complete = {
+        k: {**g, "samples": g["samples"][:n]} for k, g in got.items() if len(g["samples"]) >= n
+    }
+    return complete, counts
+
+
+def load_runs(pool: str, out: Path = U.OUT) -> dict[str, list[dict[str, Any]]]:
+    return {
+        r: list(U.iter_jsonl(runs_dir(pool, out) / f"{r}.jsonl")) for r in collected_runs(pool, out)
+    }
+
+
+def rebuild_resample(pool: str, out: Path = U.OUT, config: Mapping[str, Any] | None = None):
+    """Rewrite ``resample.jsonl`` (what fill reads) from every collected run; returns counts."""
+    complete, counts = merge_runs(load_runs(pool, out))
+    cfg = dict(config or {"pool": pool})
+    rows = []
+    for k in sorted(complete):
+        g = complete[k]
+        rows.append(
+            {
+                "id": g["id"],
+                "layer": g["layer"],
+                "pos": g["pos"],
+                "token": g["token"],
+                "samples": g["samples"],
+                "config": g.get("config") or cfg,
+            }
+        )
+    U.write_jsonl(resample_path(pool, out), rows)
+    return complete, counts
+
+
+@dataclass
+class Launch:
+    """One planned generator run."""
+
+    pool: str
+    run: str  # the volume dir name gen-sibgate-...
+    attempt: int
+    keys: list[Key]
+    seed: int | None = None
+
+    @property
+    def run_arg(self) -> str:  # the generator's --run (it prefixes "gen-")
+        return self.run[len("gen-") :]
+
+
+def plan_launches(
+    pool: str,
+    want: Iterable[Key],
+    counts: Mapping[Key, int],
+    st: PoolState,
+    samples_per_run: int,
+    n: int = N_RESAMPLE,
+    max_attempts: int = MAX_ATTEMPTS,
+) -> tuple[list[Launch], list[Key]]:
+    """(launches of the next attempt, keys that are exhausted = ``resample_failed``). Requested
+    = wanted keys minus complete keys minus keys with ``max_attempts`` attempts."""
+    need = sorted(k for k in set(want) if counts.get(k, 0) < n)
+    failed = [k for k in need if st.n_attempts(k) >= max_attempts]
+    req = [k for k in need if st.n_attempts(k) < max_attempts]
+    if not req:
+        return [], failed
+    att = 1 + max(st.n_attempts(k) for k in req)
+    if samples_per_run >= n:
+        return [Launch(pool, run_name(pool, req, att), att, req)], failed
+    k_runs = max(-(-(n - counts.get(k, 0)) // samples_per_run) for k in req)
+    out = []
+    for j in range(k_runs):
+        name = run_name(pool, req, att, j)
+        out.append(Launch(pool, name, att, req, seed=seed_of(name)))
+    return out, failed
+
+
+def generator_cmd(
+    pool_row: Mapping[str, Any], launch: Launch, subdir: str, layers: list[int], modal: str
+) -> str:
+    """The detached generator command for one run (run from the gw-mlnla snapshot)."""
+    lay = ",".join(str(x) for x in layers)
+    s = pool_row.get("sampling") or SAMPLING
+    args = pool_row.get("args") or {}
+    g = pool_row["generator"]
+    k = int(pool_row.get("samples_per_run") or N_RESAMPLE)
+    if g == "read":
+        return (
+            f"PYTHONPATH=src {modal} run --detach {READ_SCRIPT} --skip-merge "
+            f"--merged-name {args['merged']} --run {launch.run_arg} --acts-subdir {subdir} "
+            f"--layers {lay} --k {k} --temperature {s['temperature']} --top-p {s['top_p']} "
+            f"--top-k {s['top_k']} --max-new {s['max_new']} --shards 16"
+        )
+    if g == "nla":
+        return (
+            f"PYTHONPATH=src {modal} run --detach {NLA_SCRIPT} --lens {args['lens']} "
+            f"--acts-subdir {subdir} --layers {lay} --run {launch.run_arg} --n-samples {k} "
+            f"--temperature {s['temperature']} --top-p {s['top_p']} --top-k {s['top_k']} "
+            "--shards 16"
+        )
+    if g == "lensagree":
+        return (
+            f"PYTHONPATH=src {modal} run --detach {PATCHSCOPES_SCRIPT} --acts-subdir {subdir} "
+            f"--run {launch.run_arg} --source-layers {lay} --seed {launch.seed} --shards 16"
+        )
+    raise ValueError(f"unknown generator {g}")
+
+
+def collect_run_rows(
+    src: Path, launch_keys: Iterable[Key], seed: int | None = None
+) -> list[dict[str, Any]]:
+    """A fetched run dir -> its rows for the launch's keys (over-generated cells dropped)."""
+    want = set(launch_keys)
+    out = []
+    for r in iter_gen_rows(src):
+        k = (r["id"], int(r["layer"]), int(r["pos"]))
+        if k in want:
+            out.append({**r, **({"seed": seed} if seed is not None else {})})
+    return out
+
+
+# ---------------------------------------------------------------- Modal operations (injectable)
+
+FATAL_PATTERNS = (
+    "spend limit",
+    "spending limit",
+    "billing",
+    "quota",
+    "unauthorized",
+    "authentication",
+    "token is invalid",
+    "not authenticated",
+    "permission denied",
+)
+
+
+class ModalFatal(RuntimeError):
+    """A spend-limit / auth / quota error (``hbench gate`` exits 3)."""
+
+
+def fatal_reason(text: str) -> str | None:
+    low = text.lower()
+    for p in FATAL_PATTERNS:
+        if p in low:
+            return p
+    return None
+
+
+class ModalOps:
+    """The only path to Modal (tests pass a fake). ``n_launches`` counts generator / capture /
+    fit / score jobs; volume ``ls`` / ``get`` / ``put`` / ``cp`` are not launches."""
+
+    def __init__(self, modal: str, env: Mapping[str, str], cwd: Path | None = None) -> None:
+        self.modal = modal
+        self.env = dict(env)
+        self.cwd = cwd
+        self.n_launches = 0
+        self.n_volume_ops = 0
+        self.log: list[str] = []
+
+    def _env(self) -> dict[str, str]:
+        import os
+
+        return {**os.environ, **self.env}
+
+    def sh(self, cmd: str, cwd: Path | None = None) -> tuple[int, str]:
+        import subprocess
+
+        self.log.append(cmd)
+        p = subprocess.run(
+            cmd, shell=True, cwd=cwd or self.cwd, env=self._env(), capture_output=True, text=True
+        )
+        txt = (p.stdout or "") + (p.stderr or "")
+        if p.returncode != 0 and (why := fatal_reason(txt)):
+            raise ModalFatal(f"{why}: {txt.strip()[-800:]}")
+        return p.returncode, txt
+
+    def volume(self, args: str) -> tuple[int, str]:
+        self.n_volume_ops += 1
+        return self.sh(f"{self.modal} volume {args}")
+
+    def ls(self, volume: str, path: str = "/") -> list[str]:
+        rc, txt = self.volume(f"ls {volume} {path}")
+        if rc != 0:
+            return []
+        names = []
+        for line in txt.splitlines():
+            t = line.strip().strip("│┃|").strip()
+            if t:
+                names.append(t.split()[0].rstrip("/").split("/")[-1])
+        return names
+
+    def get(self, volume: str, remote: str, local: Path) -> bool:
+        Path(local).mkdir(parents=True, exist_ok=True)
+        rc, _ = self.volume(f"get --force {volume} {remote} {local}/")
+        return rc == 0
+
+    def start(self, cmd: str, cwd: Path, log: Path):
+        """Start a detached job (``modal run --detach``); returns the Popen handle."""
+        import subprocess
+
+        self.n_launches += 1
+        self.log.append(cmd)
+        log.parent.mkdir(parents=True, exist_ok=True)
+        fh = log.open("a")
+        return subprocess.Popen(
+            cmd, shell=True, cwd=cwd, env=self._env(), stdout=fh, stderr=subprocess.STDOUT
+        )
+
+    def run(self, cmd: str, cwd: Path | None = None) -> tuple[int, str]:
+        """A blocking job (fit / score / capture)."""
+        self.n_launches += 1
+        return self.sh(cmd, cwd)

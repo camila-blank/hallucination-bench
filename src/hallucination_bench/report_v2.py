@@ -561,6 +561,62 @@ def sibling_gate_section(labels_dir: Path | None, arms: list[str]) -> list[str]:
     return md
 
 
+def gate_section(
+    labels_dir: Path | None, arms: list[str], summaries: dict[str, dict[str, Any]]
+) -> list[str]:
+    """Plan 0010 §6: the gate generation and a coverage table per arm (gated, ungated, rung-2
+    pending; ``gate pending (needs --yes)`` when an over-cap gate was skipped)."""
+    if labels_dir is None or labels_dir == sibling_units.NO_LABELS:
+        return [
+            "## Sibling gate coverage",
+            "",
+            "Sibling labels off (`--no-sibling-labels`): every arm scores as rev 20.",
+            "",
+        ]
+    gen_p = Path(labels_dir).parent / "generation.json"
+    gen = json.loads(gen_p.read_text()) if gen_p.exists() else None
+    gated = set(((gen or {}).get("stamp") or {}).get("gated_arms") or [])
+    pending = (gen or {}).get("pending") or {}
+    head = ["arm", "status", "units", "gated (final)", "rung-2 pending", "labels generation"]
+    rows = []
+    for a in arms:
+        p = Path(labels_dir) / f"{a}.jsonl"
+        cfg = (summaries.get(a) or {}).get("config") or {}
+        if not p.exists():
+            if a in pending:
+                st = f"gate pending ({pending[a]})"
+            else:
+                st = "ungated" + (" (not in the gate set)" if a not in gated else "")
+            rows.append([a, st, "—", "—", "—", "—"])
+            continue
+        n = n_final = n_pend = 0
+        for r in sibling_units.iter_jsonl(p):
+            n += 1
+            n_final += r.get("final") is not None
+            n_pend += r.get("final") is None
+        stamp = sibling_units.load_stamp(a, Path(labels_dir)) or {}
+        st = "gated"
+        if cfg.get("sibling_labels_guard") == "mismatch":
+            st = "labels refused (unit set changed; re-run hbench gate)"
+        elif a in pending:
+            st = f"gate pending ({pending[a]}); old labels apply"
+        elif a in ((gen or {}).get("stamp") or {}).get("rung1_skipped", []):
+            st = "gated (rung 1 skipped: no pool)"
+        rows.append([a, st, str(n), str(n_final), str(n_pend), str(stamp.get("generation", "—"))])
+    md = ["## Sibling gate coverage (plan 0010)", ""]
+    if gen is not None:
+        sp = gen.get("spend") or {}
+        md += [
+            f"Gate generation **{gen.get('generation')}** (code {gen.get('code_revision', '?')}; "
+            f"{len(gated)} gated arms; spend ${sp.get('llm_usd', 0):.2f} LLM, "
+            f"{sp.get('modal_launches', 0)} Modal launches).",
+            "",
+        ]
+    else:
+        md += ["No gate generation recorded (labels from a manual plan-0009 run).", ""]
+    return md + _table("Sibling gate coverage per arm", head, rows)
+
+
 def probe_section(rows: list[dict[str, Any]], top: int = 15) -> list[str]:
     """Probe candidates by leaf, with each leaf's most frequent probe targets."""
     if not rows:
@@ -598,7 +654,16 @@ def _segments(rec: dict[str, Any]) -> list[dict[str, Any]]:
 
 
 def _labels(d: Path, labels_dir: Path | None) -> dict[Any, str | None] | None:
-    return sibling_units.load_labels(d.name, labels_dir) if labels_dir is not None else None
+    """The arm's labels, unless the rebuild refused them (plan 0010 §3: the labels' unit hash
+    differs from the cells; ``summary_v2.json`` ``sibling_labels_guard == "mismatch"``)."""
+    if labels_dir is None:
+        return None
+    s2 = d / "summary_v2.json"
+    if s2.exists():
+        cfg = json.loads(s2.read_text()).get("config") or {}
+        if cfg.get("sibling_labels_guard") == "mismatch":
+            return None
+    return sibling_units.load_labels(d.name, labels_dir)
 
 
 def probe_candidates(
@@ -769,10 +834,17 @@ def report(
     seed: int = 0,
     verdict_n: int = 20,
     sibling_labels_dir: Path | None = None,
+    use_sibling_labels: bool = True,
 ) -> Path:
+    """Plan 0010 §6: the labels are read by default from ``<out>/sibling_gate/labels``;
+    ``use_sibling_labels=False`` (``--no-sibling-labels``) gives exact rev-20 scores."""
     root = model_root(out_root, judge_model)
     dirs = arm_dirs(root)
-    labels_dir = sibling_units.labels_dir(out_root, sibling_labels_dir)
+    labels_dir = (
+        sibling_units.labels_dir(out_root, sibling_labels_dir)
+        if use_sibling_labels
+        else sibling_units.NO_LABELS
+    )
     if not dirs:
         raise SystemExit(f"no arms under {root}")
     summaries: dict[str, dict[str, Any]] = {}
@@ -801,6 +873,7 @@ def report(
     md = "\n".join(
         [
             md,
+            *gate_section(labels_dir, [d.name for d in v2_dirs], summaries),
             *sibling_gate_section(labels_dir, [d.name for d in v2_dirs]),
             *probe_section(probes),
             *hallucination_examples(v2_dirs, seed=seed, labels_dir=labels_dir),

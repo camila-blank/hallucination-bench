@@ -1,0 +1,642 @@
+{
+"mlnla-rl2-800-all11:chat-lmsys-0020__L020__p23:quantummechanics:derhamtheory": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0020__L020__p23:quantummechanics:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "160450d0b561282161d2bf9a77b5e8bfaa63d2850a9cfead596f0e6ed085b432",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0020__L024__p112:hodgetheory:derhamtheory": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0020__L024__p112:hodgetheory:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "98f58e334bbf12336fb7df91f16a4344effc8d1e80eb4d9392e1aeb9d645eae0",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0020__L028__p156:homologytheory:derhamtheory": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0020__L028__p156:homologytheory:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "a325cdc55f2f7805c63c8135b5bc60592b1934e367120845e4d06cffd64b6dc2",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0020__L028__p62:hodgetheory:derhamtheory": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0020__L028__p62:hodgetheory:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "7898c8e6a0dcb4f15b58bb09f719b0440624605eedfa49a40dcab85ece381b80",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0020__L032__p23:gametheory:derhamtheory": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0020__L032__p23:gametheory:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "bc20593521cadcc73dd9efc64b52109e92ed239d18d582da0cdbca88ef62ad6d",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0020__L036__p112:hodgetheory:derhamtheory": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0020__L036__p112:hodgetheory:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "98f0d35cc3449e112a6c5e21e65c9930d5e7199cc92ad784fddad4c38c2115a8",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0020__L036__p218:hodgetheory:derhamtheory": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0020__L036__p218:hodgetheory:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "fe0b8f103a4baa53ca25e06193c84f8492f4c3ce8802a331557d6b12dc09eee5",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0020__L036__p23:topologicaldataanalysis:derhamtheory": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0020__L036__p23:topologicaldataanalysis:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "a8926ecda639936735aa27d9d80c1ddd791382e3c43261946b1f95846f23806e",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0020__L040__p112:hodgetheory:derhamtheory": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0020__L040__p112:hodgetheory:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "4d04495e1ce5aa487092f364f86125a7ed4c3055016208570c016046e60305f9",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0020__L040__p156:morsetheory:derhamtheory": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0020__L040__p156:morsetheory:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "30c8e8d59edc979120b4244f719ee2b2c43e20a380989e0f0f49bcec00116906",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0020__L040__p197:hodgetheory:derhamtheory": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0020__L040__p197:hodgetheory:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "d3a832225d424a78a7dafbc5933178d09b7d7f0c48fe6ff6705b19f577e34fa5",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0020__L040__p23:sheaftheory:derhamtheory": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0020__L040__p23:sheaftheory:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "526c62059ab308323dd7ba06e9d8ee48e5b4c5fa669e94c33d9ae740d3cffa72",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0020__L040__p62:hodgetheory:derhamtheory": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0020__L040__p62:hodgetheory:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "8baef81e9c764eb8457498df99335be5214279dd1aa8be550b28eb5a68f19b57",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0020__L044__p197:hodgetheory:derhamtheory": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0020__L044__p197:hodgetheory:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "036284d979253965ae6692efb1739380e9ee0622c82b92b8dc1e4dfd6e03a60e",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0020__L044__p218:hodgetheory:derhamtheory": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0020__L044__p218:hodgetheory:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "185089aa94320d4c90f08eb3cb7908c01a161916b7dd576d5b96cb2315b39efc",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0020__L044__p62:atiyahsingerindextheoremhodgetheory:derhamtheory": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0020__L044__p62:atiyahsingerindextheoremhodgetheory:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "b0ce1cf8bb80a2c5a08085765e5c2720dba8cd7ece7939502c4ed1ed0a16da50",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0020__L044__p62:hodgetheory:derhamtheory": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0020__L044__p62:hodgetheory:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "f05c41370fbc93f15a9c891768d3a37cdbf5cd339e13ba0ebf66013196d7eaf2",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0020__L048__p197:hodgetheory:singularcohomology": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0020__L048__p197:hodgetheory:singularcohomology",
+"anchor": "De Rham theory",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "d8fcee72c1787a75fe8032c3e1412b20083838e5f36973c7c62ac75dcbd377fc",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0020__L048__p23:morsetheory:derhamtheory": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0020__L048__p23:morsetheory:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "9d9235ba953623f6ceab95ad4dca56c481d8f793efad3ef50bcbc5e4cb73d48c",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0020__L052__p156:hodgetheory:derhamtheory": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0020__L052__p156:hodgetheory:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "20e8ab01dc5326a363c16a01bb5f2eba3b969d67f441270a615c39dd614cf562",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0020__L056__p156:hodgetheory:derhamtheory": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0020__L056__p156:hodgetheory:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "42a64e44c123c488ef24f1a27a499ac5ccb9224abc80ae6e1f700e2dbb2280d9",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0020__L020__p132:hodgetheory:derhamtheory": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0020__L020__p132:hodgetheory:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "9dd34c3828b6b7715c542035523efc3fd69d50f8fb5ae409e8420efb677c7c6b",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0020__L020__p218:shannonsinformationtheory:derhamtheory": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0020__L020__p218:shannonsinformationtheory:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "9aee8a838d34cd00303199c4746452d81eacfecbb6274275466477da771e19bf",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0020__L028__p132:hodgetheory:derhamtheory": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0020__L028__p132:hodgetheory:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "586a79fea5aa18ce41edad21a5a37eb064b6ada88d45b52ba6d42870314db86d",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0020__L028__p197:algebraictopologysingularhomologyarticle:derhamtheory": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0020__L028__p197:algebraictopologysingularhomologyarticle:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "ed0715bbffd466d602366be43f55e83050dc52b0f9ccbc7ea5bf0f1729089ef0",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0020__L028__p62:hodgetheory:derhamtheory": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0020__L028__p62:hodgetheory:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "1de21b7827c901be375b8cadc8bf643cd6aefca1442518fd781ee1fe15bd4c27",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0020__L032__p156:homologytheory:derhamtheory": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0020__L032__p156:homologytheory:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "94aa00170105cdbaab6f84110d52002bf6914898d91ba45758ac52f383dec5ae",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0020__L036__p156:morsetheory:derhamtheory": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0020__L036__p156:morsetheory:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "1fb4369521f6d7ea5baeee4187c4daa308b023b93db39549b8bb5f92809b9307",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0020__L036__p197:hodgetheory:derhamtheory": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0020__L036__p197:hodgetheory:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "484bd5097013af9c6c53d6f091459b0146358d1497339bb93cc41acc53f0bb9b",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0020__L036__p218:hodgetheory:derhamtheory": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0020__L036__p218:hodgetheory:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "eafb1af53dfd7584ff22937ca88889e82ccaee3a7c2c09416f94df94eab31955",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0020__L036__p23:bayesianstatistics:derhamtheory": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0020__L036__p23:bayesianstatistics:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "e6019aff31b2ca432a82780563d3d3171f205d1ab5c99eac8f36ec009aa92eb3",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0020__L036__p23:topologicaldataanalysis:derhamtheory": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0020__L036__p23:topologicaldataanalysis:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "208646fb62a65eff8037343e73ce6e0b51a3cd9325236d26682bde03c284c275",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0020__L036__p62:hodgetheory:derhamtheory": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0020__L036__p62:hodgetheory:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "4e2843ae65265a8d2c65416a08d5c311f80d296e599cf15fbc618e2bbec19edf",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0020__L040__p112:hodgetheory:derhamtheory": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0020__L040__p112:hodgetheory:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "75dc38dd6a582cd55cd43fc772b556609b7ced22e4dfc0fe19e8596c64456e81",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0020__L040__p197:hodgetheory:derhamtheory": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0020__L040__p197:hodgetheory:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "f8bb74b13b564bfa00445926d47a82dc3e9a512ebc2a38c8fbbadf7e96a2df48",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0020__L040__p62:hodgetheory:derhamtheory": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0020__L040__p62:hodgetheory:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "1843b870bdf1a3f0ca32b3d7cae1f9e7393123ee99f30f64d4b9164f474dee05",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0020__L044__p197:hodgetheory:derhamtheory": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0020__L044__p197:hodgetheory:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "c443280bab2c9f2f012c2cdca282ca111c41df37c4ca29054c05434ad5e2260e",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0020__L044__p218:hodgetheory:derhamtheory": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0020__L044__p218:hodgetheory:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "cbf6c6c63611324f1ec0a5cbd2c2062c0d78a9dd5fe5f89756cbd4df6660963d",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0020__L044__p62:hodgetheory:derhamtheory": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0020__L044__p62:hodgetheory:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "c41be697ee3216ce4ac2465982c75025db7d8d871009512915bc20c9940828d6",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0020__L048__p197:hodgetheory:derhamtheory": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0020__L048__p197:hodgetheory:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "e8951cd50d01c918583b3d3af3d1dc88e3d6b14a26898f6c2a2723768d85224a",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0020__L048__p218:hodgetheory:derhamtheory": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0020__L048__p218:hodgetheory:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "fd291b30f60735720432a6dee1afa3db69ac7dda021c771de415a7cefa9400dd",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0020__L048__p23:morsetheory:derhamtheory": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0020__L048__p23:morsetheory:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "37092280026e32d9f73856e405ee5f6d6982c8c8f509c097c4c797e9bf40de68",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0020__L048__p62:hodgetheory:derhamtheory": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0020__L048__p62:hodgetheory:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "3aec3125d7601257281bcedc4d7537e3cf69bff5762173c61b58b5ecf38186b1",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0020__L052__p218:hodgetheory:derhamtheory": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0020__L052__p218:hodgetheory:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "b047af7c06bf583be49b503ec46588c34f05f2260ae4a47a10c4fa44161ea3a9",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0020__L052__p62:hodgetheory:derhamtheory": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0020__L052__p62:hodgetheory:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "6baee181f73db12c9dc6f7b56d23a23f87f3beab8a8ba54e7a9825e7a16c8350",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0020__L056__p156:hodgetheory:derhamtheory": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0020__L056__p156:hodgetheory:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "a602ae13423be6866b65c22d0fa7f768f0b1822cbd7eb5b5d413866dfbd0fd5f",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0020__L042__p218:riemannhypothesis:derhamtheory": {
+"unit": "nla-rl-L42:chat-lmsys-0020__L042__p218:riemannhypothesis:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "ea84a48bdc039b6329465e7b3ff799c989a951af5a6650e3da5876fcb1a8c648",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0020__L042__p23:morsetheory:derhamtheory": {
+"unit": "nla-rl-L42:chat-lmsys-0020__L042__p23:morsetheory:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "ccc89ea359b1d634eb5e53e6d215afb961f1f8d2dd89bdd04970fe4513dec7a9",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0020__L036__p23:banachspaces:derhamtheory": {
+"unit": "s3d-rl600-all11:chat-lmsys-0020__L036__p23:banachspaces:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "98de80429367af77d74be2e9c904e5113b68195ab55193cb3e0cacc2b9fad02c",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0020__L036__p23:measuretheory:derhamtheory": {
+"unit": "s3d-rl600-all11:chat-lmsys-0020__L036__p23:measuretheory:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "49246603b81e8241d7863122b3201a98e08947c68b7b8776d0f532937aef3885",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0020__L040__p23:measuretheory:derhamtheory": {
+"unit": "s3d-rl600-all11:chat-lmsys-0020__L040__p23:measuretheory:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "ee9ddb5866decf50bcd7dd4197ed763c5fc2b91cdae18c3f310d9033f313223b",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0020__L044__p23:sheaftheory:derhamtheory": {
+"unit": "s3d-rl600-all11:chat-lmsys-0020__L044__p23:sheaftheory:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "28abb5dd1c9ac61375ceaec2b81dd7e80daa187fedd9bd9d3747bb31efe01c04",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0020__L048__p23:hodgetheory:derhamtheory": {
+"unit": "s3d-rl600-all11:chat-lmsys-0020__L048__p23:hodgetheory:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "45ccfaa147971b4d07442183ccb15335bddb340e81a351ce38cce0b53c1c7732",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0020__L036__p23:banachspaces:derhamtheory": {
+"unit": "s3d-rl600:chat-lmsys-0020__L036__p23:banachspaces:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "5ac7ac471e81eac52940c46a61a3f4badf7f3eeecdced5504fa7461650b724fd",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0020__L036__p23:hilbertspaces:derhamtheory": {
+"unit": "s3d-rl600:chat-lmsys-0020__L036__p23:hilbertspaces:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "4b3d0b68112c55e8821aec805455effd7ecf72d61c9c369a86ba216bded9f1a9",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0020__L048__p23:cohomologytheory:derhamtheory": {
+"unit": "s3d-rl600:chat-lmsys-0020__L048__p23:cohomologytheory:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "f194e4c6385d90d5d2780d6d2648c1be4e537e4be0a0d262d650494b349f9314",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0020__L048__p23:sheaftheory:derhamtheory": {
+"unit": "s3d-rl600:chat-lmsys-0020__L048__p23:sheaftheory:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "80d67907928536d8a927614005a49542ab3ccc564884698ee80090c305e95715",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0020__L036__p218:hodgetheory:derhamtheory": {
+"unit": "s3d-sft251:chat-lmsys-0020__L036__p218:hodgetheory:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "68326919193c3ccb697db701bd12eaa6192d37c391b2e97585b1af9b9a823fa6",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0020__L036__p23:fourieranalysis:derhamtheory": {
+"unit": "s3d-sft251:chat-lmsys-0020__L036__p23:fourieranalysis:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "301fcfbe0ad586499b24fe5a62cfd246134deba7aec8938b0d759e54432c0ea8",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0020__L036__p23:hilbertspace:derhamtheory": {
+"unit": "s3d-sft251:chat-lmsys-0020__L036__p23:hilbertspace:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "e233009e90cac53f2ef74efe6ada38ad7b5f0b76c9e12e4ffb3d3ef7cecc3ad8",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0020__L044__p23:fourieranalysis:derhamtheory": {
+"unit": "s3d-sft251:chat-lmsys-0020__L044__p23:fourieranalysis:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "350569bb26e7fc146ac024e7767aadb07fe0b47bbff127d3fc096e83ac9b2933",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0020__L048__p23:hodgetheory:derhamtheory": {
+"unit": "s3d-sft251:chat-lmsys-0020__L048__p23:hodgetheory:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "4c8ca6b1b287c9ca99640995c51f568f1460103c620713a63d7f4f4d6b7bc0da",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0020__L056__p156:hodgetheory:derhamtheory": {
+"unit": "s3d-sft251:chat-lmsys-0020__L056__p156:hodgetheory:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "0e664f568cf224103a552deae2911d3e9def6cfe78e8d7e633db20c2403cf881",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0020__L060__p85:kleinbergstheory:derhamtheory": {
+"unit": "s3d-sft251:chat-lmsys-0020__L060__p85:kleinbergstheory:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "bf93786d44299d18584960525b03d4a495c27608ab1cf9451978a30742519060",
+"generation": 0
+}
+}

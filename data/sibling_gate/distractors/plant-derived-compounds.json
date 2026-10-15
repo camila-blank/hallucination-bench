@@ -1,0 +1,162 @@
+{
+"mlnla-rl2-800-all11:chat-lmsys-0069__L028__p94:paeoniflorinpaeonialactiflora:gastrodingastrodiaelata": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0069__L028__p94:paeoniflorinpaeonialactiflora:gastrodingastrodiaelata",
+"anchor": "gastrodin",
+"nearest": [
+"nicotine",
+"capsaicin"
+],
+"random": [],
+"distractors": [
+"nicotine",
+"capsaicin"
+],
+"n_eligible": 2,
+"sha": "6d81dc6f20ebdc5e5cc5e96e604b782eaaf4f3d5142aa9dba95b58ec8ba1a617",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0069__L040__p311:quercetin:gastrodin": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0069__L040__p311:quercetin:gastrodin",
+"anchor": "gastrodin",
+"nearest": [
+"nicotine",
+"capsaicin"
+],
+"random": [],
+"distractors": [
+"nicotine",
+"capsaicin"
+],
+"n_eligible": 2,
+"sha": "b141324bab4e95b624ce924e80ea049f487c901b1767deb4dbd41f9de5a223be",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0069__L048__p311:quercetin:gastrodin": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0069__L048__p311:quercetin:gastrodin",
+"anchor": "gastrodin",
+"nearest": [
+"nicotine",
+"capsaicin"
+],
+"random": [],
+"distractors": [
+"nicotine",
+"capsaicin"
+],
+"n_eligible": 2,
+"sha": "ab4473d0f5b6180060d8e391caa69385eda2d1e32b50ed4d32b7c5cb25fc5b99",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0069__L056__p384:berberinefromberberis:gastrodinfromgastrodiaelata": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0069__L056__p384:berberinefromberberis:gastrodinfromgastrodiaelata",
+"anchor": "gastrodin",
+"nearest": [
+"nicotine",
+"capsaicin"
+],
+"random": [],
+"distractors": [
+"nicotine",
+"capsaicin"
+],
+"n_eligible": 2,
+"sha": "dbab0a986c81aba7206ec20e447b6c287fa5fe2cdbd58cc26b7b215060fdb5dd",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0069__L028__p384:notoginsenosidesaponins:gastrodin": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0069__L028__p384:notoginsenosidesaponins:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [
+"nicotine",
+"capsaicin"
+],
+"random": [],
+"distractors": [
+"nicotine",
+"capsaicin"
+],
+"n_eligible": 2,
+"sha": "d9d861e95d865d600ceb81ac6ffba37670c54a51f0c3be9d4c06a950fd65761b",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0069__L024__p384:ginsenosiderg1rg2:gastrodin": {
+"unit": "s3d-rl600-all11:chat-lmsys-0069__L024__p384:ginsenosiderg1rg2:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [
+"nicotine",
+"capsaicin"
+],
+"random": [],
+"distractors": [
+"nicotine",
+"capsaicin"
+],
+"n_eligible": 2,
+"sha": "0ad3fface46a6c7104519edc873d75c9e3ebad3bc194df4f84179746ff202d67",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0069__L052__p31:ginkgolicacids:gastrodin": {
+"unit": "s3d-rl600-all11:chat-lmsys-0069__L052__p31:ginkgolicacids:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [
+"nicotine",
+"capsaicin"
+],
+"random": [],
+"distractors": [
+"nicotine",
+"capsaicin"
+],
+"n_eligible": 2,
+"sha": "5343095959cdb9fbfd40b299bd9ea7080cdfa2dccc11d2c78a21d26698838693",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0069__L060__p31:ginkgolicacids:gastrodin": {
+"unit": "s3d-rl600-all11:chat-lmsys-0069__L060__p31:ginkgolicacids:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [
+"nicotine",
+"capsaicin"
+],
+"random": [],
+"distractors": [
+"nicotine",
+"capsaicin"
+],
+"n_eligible": 2,
+"sha": "a912b031bc2b00ec4446a67d6052621ccd7d8ad2d0d20b0eb6c4db2b5d88d59e",
+"generation": 0
+},
+"sae-l42:chat-lmsys-0069__L042__p486:cbdoressentialoils:gastrodin": {
+"unit": "sae-l42:chat-lmsys-0069__L042__p486:cbdoressentialoils:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [
+"nicotine",
+"capsaicin"
+],
+"random": [],
+"distractors": [
+"nicotine",
+"capsaicin"
+],
+"n_eligible": 2,
+"sha": "b828632d04a95b4486290f2d8b1be91776d117d65d55a98a5f83707426b5bd79",
+"generation": 0
+},
+"template-v3:chat-lmsys-0069__L056__p31:cbdandcoca:gastrodin": {
+"unit": "template-v3:chat-lmsys-0069__L056__p31:cbdandcoca:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [
+"nicotine",
+"capsaicin"
+],
+"random": [],
+"distractors": [
+"nicotine",
+"capsaicin"
+],
+"n_eligible": 2,
+"sha": "0eb7d6e58fe94271da95910e615aeef7d8de9983d89d6843b30937e20bd86afd",
+"generation": 0
+}
+}

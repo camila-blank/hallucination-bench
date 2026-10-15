@@ -1,0 +1,118 @@
+{
+"mlnla-rl2-800-all11:chat-lmsys-0064__L056__p860:lenovoideapadgaming3:pcgamerconcórdia": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0064__L056__p860:lenovoideapadgaming3:pcgamerconcórdia",
+"anchor": "PC Gamer Concórdia",
+"nearest": [
+"MacBook Pro",
+"iMac",
+"MacBook Air",
+"Dell XPS 13"
+],
+"random": [
+"Amiga 500",
+"Apple Macintosh",
+"Commodore 64",
+"ZX Spectrum"
+],
+"distractors": [
+"MacBook Pro",
+"iMac",
+"MacBook Air",
+"Dell XPS 13",
+"Amiga 500",
+"Apple Macintosh",
+"Commodore 64",
+"ZX Spectrum"
+],
+"n_eligible": 10,
+"sha": "aea1657832b93359878632d1d9ebac3ef112407866d967d1f61e3b74119fe203",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0064__L052__p440:hppavilion15sn123txtoshibasatellite:pcgamerconcórdia": {
+"unit": "s3d-rl600-all11:chat-lmsys-0064__L052__p440:hppavilion15sn123txtoshibasatellite:pcgamerconcórdia",
+"anchor": "PC Gamer Concórdia",
+"nearest": [
+"MacBook Pro",
+"iMac",
+"MacBook Air",
+"Dell XPS 13"
+],
+"random": [
+"Amiga 500",
+"Apple II",
+"Apple Macintosh",
+"IBM Personal Computer"
+],
+"distractors": [
+"MacBook Pro",
+"iMac",
+"MacBook Air",
+"Dell XPS 13",
+"Amiga 500",
+"Apple II",
+"Apple Macintosh",
+"IBM Personal Computer"
+],
+"n_eligible": 10,
+"sha": "1567f18c9e9a71b787a065567df70e4169f6f7138a1e22c052bfb6b9cafa8add",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0064__L052__p440:hppavilionlaptop15skcg700:pcgamerconcórdia": {
+"unit": "s3d-rl600-all11:chat-lmsys-0064__L052__p440:hppavilionlaptop15skcg700:pcgamerconcórdia",
+"anchor": "PC Gamer Concórdia",
+"nearest": [
+"MacBook Pro",
+"iMac",
+"MacBook Air",
+"Dell XPS 13"
+],
+"random": [
+"Apple II",
+"Apple Macintosh",
+"IBM Personal Computer",
+"ZX Spectrum"
+],
+"distractors": [
+"MacBook Pro",
+"iMac",
+"MacBook Air",
+"Dell XPS 13",
+"Apple II",
+"Apple Macintosh",
+"IBM Personal Computer",
+"ZX Spectrum"
+],
+"n_eligible": 10,
+"sha": "ce8abff217edbb2759de496ca15ae29d118172470527927f79d5b4c0510aad35",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0064__L056__p568:dellprecision7720:pcgamerconcórdia": {
+"unit": "s3d-sft251:chat-lmsys-0064__L056__p568:dellprecision7720:pcgamerconcórdia",
+"anchor": "PC Gamer Concórdia",
+"nearest": [
+"MacBook Pro",
+"iMac",
+"MacBook Air",
+"Commodore 64"
+],
+"random": [
+"Amiga 500",
+"Apple II",
+"Apple Macintosh",
+"IBM Personal Computer"
+],
+"distractors": [
+"MacBook Pro",
+"iMac",
+"MacBook Air",
+"Commodore 64",
+"Amiga 500",
+"Apple II",
+"Apple Macintosh",
+"IBM Personal Computer"
+],
+"n_eligible": 9,
+"sha": "2fa390deb1a5793b180cae21f4211c99b48a9e6d43f498116205383c8bfd1de2",
+"generation": 0
+}
+}

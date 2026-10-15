@@ -1,0 +1,104 @@
+{
+"mlnla-rl2-800-all11:chat-lmsys-0011__L028__p195:perceiverio:decisiontransformer": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0011__L028__p195:perceiverio:decisiontransformer",
+"anchor": "Decision Transformer",
+"nearest": [
+"Autoencoder",
+"Multilayer Perceptron",
+"Convolutional Neural Network"
+],
+"random": [],
+"distractors": [
+"Autoencoder",
+"Multilayer Perceptron",
+"Convolutional Neural Network"
+],
+"n_eligible": 3,
+"sha": "1a74729f29733c28f13f59a5765a18cc9d758cfa5838c236737c297e3e0e5812",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0011__L028__p195:perceiverio:decisiontransformer": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0011__L028__p195:perceiverio:decisiontransformer",
+"anchor": "Decision Transformer",
+"nearest": [
+"Autoencoder",
+"Multilayer Perceptron",
+"Convolutional Neural Network"
+],
+"random": [],
+"distractors": [
+"Autoencoder",
+"Multilayer Perceptron",
+"Convolutional Neural Network"
+],
+"n_eligible": 3,
+"sha": "344868f7ac20f32587b84881acde2fb2c715dcbb505ba87afb81609a32aaea07",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0011__L028__p87:perceiverio:decisiontransformer": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0011__L028__p87:perceiverio:decisiontransformer",
+"anchor": "Decision Transformer",
+"nearest": [
+"Autoencoder",
+"Multilayer Perceptron",
+"Convolutional Neural Network"
+],
+"random": [],
+"distractors": [
+"Autoencoder",
+"Multilayer Perceptron",
+"Convolutional Neural Network"
+],
+"n_eligible": 3,
+"sha": "8d879b0ff60c63bcb97a4b2c54f81954f384f226b17dd99435d1032fe5ec74e2",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0011__L032__p41:generativeadversarialnetworks:decisiontransformer": {
+"unit": "s3d-rl600-all11:chat-lmsys-0011__L032__p41:generativeadversarialnetworks:decisiontransformer",
+"anchor": "Decision Transformer",
+"nearest": [
+"Autoencoder",
+"Multilayer Perceptron"
+],
+"random": [],
+"distractors": [
+"Autoencoder",
+"Multilayer Perceptron"
+],
+"n_eligible": 2,
+"sha": "1ef77e1b06f40c907240226b615c2e250577de677c5310f9c94da2c55a08ac3f",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0011__L032__p41:vae:decisiontransformer": {
+"unit": "s3d-rl600-all11:chat-lmsys-0011__L032__p41:vae:decisiontransformer",
+"anchor": "Decision Transformer",
+"nearest": [
+"Multilayer Perceptron",
+"Convolutional Neural Network"
+],
+"random": [],
+"distractors": [
+"Multilayer Perceptron",
+"Convolutional Neural Network"
+],
+"n_eligible": 2,
+"sha": "93c4be23813a18e683ea993424ea96ee1c719d8287a58e146eae73d95f0e6f51",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0011__L032__p41:vaes:decisiontransformer": {
+"unit": "s3d-rl600-all11:chat-lmsys-0011__L032__p41:vaes:decisiontransformer",
+"anchor": "Decision Transformer",
+"nearest": [
+"Multilayer Perceptron",
+"Convolutional Neural Network"
+],
+"random": [],
+"distractors": [
+"Multilayer Perceptron",
+"Convolutional Neural Network"
+],
+"n_eligible": 2,
+"sha": "0e70bc71fe66a91d6f1e93dd9ef9a5f312ecde09306a9ef4881aca9888748eba",
+"generation": 0
+}
+}

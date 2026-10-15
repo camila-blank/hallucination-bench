@@ -1,0 +1,321 @@
+{
+"mlnla-rl2-800-all11:chat-dailydialog-0071__L036__p108:spring:summer": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0071__L036__p108:spring:summer",
+"anchor": "summer",
+"nearest": [
+"holiday season",
+"rainy season",
+"wet season",
+"Lent"
+],
+"random": [
+"Advent",
+"Eastertide",
+"dry season",
+"harvest season"
+],
+"distractors": [
+"holiday season",
+"rainy season",
+"wet season",
+"Lent",
+"Advent",
+"Eastertide",
+"dry season",
+"harvest season"
+],
+"n_eligible": 11,
+"sha": "f1c3d55d5e7cdf286c2149d339821d46054f9d058b6bbace998412709fd3065c",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0071__L040__p108:spring:summer": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0071__L040__p108:spring:summer",
+"anchor": "summer",
+"nearest": [
+"holiday season",
+"rainy season",
+"wet season",
+"Lent"
+],
+"random": [
+"Advent",
+"Christmastide",
+"Eastertide",
+"harvest season"
+],
+"distractors": [
+"holiday season",
+"rainy season",
+"wet season",
+"Lent",
+"Advent",
+"Christmastide",
+"Eastertide",
+"harvest season"
+],
+"n_eligible": 11,
+"sha": "dde0f50ad630053e8c4f6dbd7844ae787c0a6053a6d22af17b12d6a0e0f74d3e",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0071__L024__p108:winter:summer": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0071__L024__p108:winter:summer",
+"anchor": "summer",
+"nearest": [
+"holiday season",
+"rainy season",
+"wet season",
+"Lent"
+],
+"random": [
+"Christmastide",
+"Eastertide",
+"dry season",
+"harvest season"
+],
+"distractors": [
+"holiday season",
+"rainy season",
+"wet season",
+"Lent",
+"Christmastide",
+"Eastertide",
+"dry season",
+"harvest season"
+],
+"n_eligible": 11,
+"sha": "161450f0f67be0b7edeff650ff1c5961c315c9332852b87cdb3c77e1340d8473",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0071__L024__p195:winter:summer": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0071__L024__p195:winter:summer",
+"anchor": "summer",
+"nearest": [
+"holiday season",
+"rainy season",
+"wet season",
+"Lent"
+],
+"random": [
+"Christmastide",
+"Eastertide",
+"harvest season",
+"monsoon"
+],
+"distractors": [
+"holiday season",
+"rainy season",
+"wet season",
+"Lent",
+"Christmastide",
+"Eastertide",
+"harvest season",
+"monsoon"
+],
+"n_eligible": 11,
+"sha": "f048645caa27b1417a91b9bfcf60f2727bd59020bc4705ea102e229fda06090a",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0071__L028__p222:winter:summer": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0071__L028__p222:winter:summer",
+"anchor": "summer",
+"nearest": [
+"holiday season",
+"rainy season",
+"wet season",
+"Lent"
+],
+"random": [
+"Advent",
+"dry season",
+"hurricane season",
+"monsoon"
+],
+"distractors": [
+"holiday season",
+"rainy season",
+"wet season",
+"Lent",
+"Advent",
+"dry season",
+"hurricane season",
+"monsoon"
+],
+"n_eligible": 11,
+"sha": "9a43879a7f771eb044e8f1fe4f468b8c9289b9ab6abbdbb983eac574846d86d2",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0071__L036__p108:autumnmotifs:summermotifs": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0071__L036__p108:autumnmotifs:summermotifs",
+"anchor": "summer",
+"nearest": [
+"holiday season",
+"rainy season",
+"wet season",
+"Lent"
+],
+"random": [
+"Christmastide",
+"Eastertide",
+"harvest season",
+"hurricane season"
+],
+"distractors": [
+"holiday season",
+"rainy season",
+"wet season",
+"Lent",
+"Christmastide",
+"Eastertide",
+"harvest season",
+"hurricane season"
+],
+"n_eligible": 11,
+"sha": "6fe60a331318cac5f47a6a8859d49c3b2f42dfe5f9917f30b1dc7427e0af8f99",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0071__L036__p108:fall:summer": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0071__L036__p108:fall:summer",
+"anchor": "summer",
+"nearest": [
+"holiday season",
+"rainy season",
+"wet season",
+"Lent"
+],
+"random": [
+"Advent",
+"Eastertide",
+"dry season",
+"hurricane season"
+],
+"distractors": [
+"holiday season",
+"rainy season",
+"wet season",
+"Lent",
+"Advent",
+"Eastertide",
+"dry season",
+"hurricane season"
+],
+"n_eligible": 11,
+"sha": "6822e28ad1d5d259189a9a19c1044724e62d6c512b44c125db4c78e87becf83a",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0071__L040__p108:autumn:summer": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0071__L040__p108:autumn:summer",
+"anchor": "Summer",
+"nearest": [
+"holiday season",
+"rainy season",
+"wet season",
+"dry season"
+],
+"random": [
+"Advent",
+"Christmastide",
+"harvest season",
+"hurricane season"
+],
+"distractors": [
+"holiday season",
+"rainy season",
+"wet season",
+"dry season",
+"Advent",
+"Christmastide",
+"harvest season",
+"hurricane season"
+],
+"n_eligible": 11,
+"sha": "be8e32899f2f48d7e382969e1eaaebc1849189217b2f56915480a15cbf70871d",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0071__L040__p108:fallcoolerweather:summermilderweather": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0071__L040__p108:fallcoolerweather:summermilderweather",
+"anchor": "summer",
+"nearest": [
+"holiday season",
+"rainy season",
+"wet season",
+"Lent"
+],
+"random": [
+"Advent",
+"Christmastide",
+"Eastertide",
+"hurricane season"
+],
+"distractors": [
+"holiday season",
+"rainy season",
+"wet season",
+"Lent",
+"Advent",
+"Christmastide",
+"Eastertide",
+"hurricane season"
+],
+"n_eligible": 11,
+"sha": "715932e5124eb635b09f193fd7f7d3c09d8047d0f279a66644123ebb06bf51c9",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0071__L044__p108:spring:summer": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0071__L044__p108:spring:summer",
+"anchor": "summer",
+"nearest": [
+"holiday season",
+"rainy season",
+"wet season",
+"Lent"
+],
+"random": [
+"Advent",
+"Christmastide",
+"harvest season",
+"hurricane season"
+],
+"distractors": [
+"holiday season",
+"rainy season",
+"wet season",
+"Lent",
+"Advent",
+"Christmastide",
+"harvest season",
+"hurricane season"
+],
+"n_eligible": 11,
+"sha": "6d9509f7497fb48e9c61865925418b75c4c5251534bf7994a47523c7049b4ff1",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0071__L032__p108:winter:summer": {
+"unit": "s3d-sft251:chat-dailydialog-0071__L032__p108:winter:summer",
+"anchor": "summer",
+"nearest": [
+"holiday season",
+"rainy season",
+"wet season",
+"Lent"
+],
+"random": [
+"Advent",
+"dry season",
+"harvest season",
+"monsoon"
+],
+"distractors": [
+"holiday season",
+"rainy season",
+"wet season",
+"Lent",
+"Advent",
+"dry season",
+"harvest season",
+"monsoon"
+],
+"n_eligible": 11,
+"sha": "94235fadb885dd92aac9012b0fca34f480d4beffb3f28bd4b138a458c5f577ee",
+"generation": 0
+}
+}

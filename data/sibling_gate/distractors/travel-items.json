@@ -1,0 +1,127 @@
+{
+"nla-sft-L42:chat-lmsys-0019__L042__p286:eyeglasses:traveldocument": {
+"unit": "nla-sft-L42:chat-lmsys-0019__L042__p286:eyeglasses:traveldocument",
+"anchor": "passport",
+"nearest": [
+"toothpaste",
+"suitcase",
+"backpack",
+"sunscreen"
+],
+"random": [
+"camera",
+"travel pillow"
+],
+"distractors": [
+"toothpaste",
+"suitcase",
+"backpack",
+"sunscreen",
+"camera",
+"travel pillow"
+],
+"n_eligible": 6,
+"sha": "fef5b725c40dfb66bafe285ed605594ecb601d904b0c8922fd5ebc33d808cc9e",
+"generation": 0
+},
+"nla-sft-L42:chat-lmsys-0019__L042__p286:sunglasses:passport": {
+"unit": "nla-sft-L42:chat-lmsys-0019__L042__p286:sunglasses:passport",
+"anchor": "passport",
+"nearest": [
+"toothpaste",
+"suitcase",
+"backpack",
+"sunscreen"
+],
+"random": [
+"camera",
+"travel pillow"
+],
+"distractors": [
+"toothpaste",
+"suitcase",
+"backpack",
+"sunscreen",
+"camera",
+"travel pillow"
+],
+"n_eligible": 6,
+"sha": "3a0b34d67b2aab6512b4a2110e88819ef63d75e7415d30919bc75a88b3fd3cbf",
+"generation": 0
+},
+"nla-sft-L42:chat-lmsys-0019__L042__p286:sunglasses:traveldocument": {
+"unit": "nla-sft-L42:chat-lmsys-0019__L042__p286:sunglasses:traveldocument",
+"anchor": "passport",
+"nearest": [
+"toothpaste",
+"suitcase",
+"backpack",
+"sunscreen"
+],
+"random": [
+"camera",
+"travel pillow"
+],
+"distractors": [
+"toothpaste",
+"suitcase",
+"backpack",
+"sunscreen",
+"camera",
+"travel pillow"
+],
+"n_eligible": 6,
+"sha": "76ca1ab82ddb74dd6129c17c5e5149a24c43eb2d2fc98415f52d9f22d9e81bc2",
+"generation": 0
+},
+"nla-sft-L42:chat-lmsys-0019__L042__p286:sunglassesandahat:passport": {
+"unit": "nla-sft-L42:chat-lmsys-0019__L042__p286:sunglassesandahat:passport",
+"anchor": "passport",
+"nearest": [
+"toothpaste",
+"suitcase",
+"backpack",
+"sunscreen"
+],
+"random": [
+"camera",
+"travel pillow"
+],
+"distractors": [
+"toothpaste",
+"suitcase",
+"backpack",
+"sunscreen",
+"camera",
+"travel pillow"
+],
+"n_eligible": 6,
+"sha": "a32db7c90bcd7bbe18f11250a6e19bcbdb82855dce58e8820fa2bde2e1b6b17b",
+"generation": 0
+},
+"nla-sft-L42:chat-lmsys-0019__L042__p286:sunglassesandhat:traveldocument": {
+"unit": "nla-sft-L42:chat-lmsys-0019__L042__p286:sunglassesandhat:traveldocument",
+"anchor": "passport",
+"nearest": [
+"toothpaste",
+"suitcase",
+"backpack",
+"sunscreen"
+],
+"random": [
+"camera",
+"travel pillow"
+],
+"distractors": [
+"toothpaste",
+"suitcase",
+"backpack",
+"sunscreen",
+"camera",
+"travel pillow"
+],
+"n_eligible": 6,
+"sha": "1ba461a14a3554edbdb77f889e19028524254940f23f750d7236b2ed57da2b18",
+"generation": 0
+}
+}

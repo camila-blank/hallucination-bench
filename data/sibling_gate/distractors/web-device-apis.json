@@ -1,0 +1,263 @@
+{
+"mlnla-rl2-800-all11:chat-lmsys-0003__L020__p439:webusb:webbluetooth": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0003__L020__p439:webusb:webbluetooth",
+"anchor": "Web Bluetooth",
+"nearest": [
+"WebHID API",
+"Web NFC API",
+"Web Serial API",
+"Web MIDI API"
+],
+"random": [
+"Gamepad API",
+"Generic Sensor API",
+"Screen Wake Lock API",
+"Vibration API"
+],
+"distractors": [
+"WebHID API",
+"Web NFC API",
+"Web Serial API",
+"Web MIDI API",
+"Gamepad API",
+"Generic Sensor API",
+"Screen Wake Lock API",
+"Vibration API"
+],
+"n_eligible": 11,
+"sha": "860a21f7a762e8966d8c7a5de7efea90ae3be4fb811c5b299feb3f276e7116eb",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0003__L024__p439:usbwebapi:webbluetoothapi": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0003__L024__p439:usbwebapi:webbluetoothapi",
+"anchor": "Web Bluetooth API",
+"nearest": [
+"WebHID API",
+"Web NFC API",
+"Web Serial API",
+"Web MIDI API"
+],
+"random": [
+"Battery Status API",
+"Gamepad API",
+"Generic Sensor API",
+"Geolocation API"
+],
+"distractors": [
+"WebHID API",
+"Web NFC API",
+"Web Serial API",
+"Web MIDI API",
+"Battery Status API",
+"Gamepad API",
+"Generic Sensor API",
+"Geolocation API"
+],
+"n_eligible": 11,
+"sha": "fe0dcfecc30fa9db9cd394aa07897e5508369e145f018c4d5e3e5eed6b4cc7cc",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0003__L024__p439:webusb:webbluetooth": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0003__L024__p439:webusb:webbluetooth",
+"anchor": "Web Bluetooth",
+"nearest": [
+"WebHID API",
+"Web NFC API",
+"Web Serial API",
+"Web MIDI API"
+],
+"random": [
+"Device Orientation Events",
+"Gamepad API",
+"Geolocation API",
+"Vibration API"
+],
+"distractors": [
+"WebHID API",
+"Web NFC API",
+"Web Serial API",
+"Web MIDI API",
+"Device Orientation Events",
+"Gamepad API",
+"Geolocation API",
+"Vibration API"
+],
+"n_eligible": 11,
+"sha": "7e4556a5979cb847c4a2252e431e1b41832c2f8e487482fd8c642f0425acf120",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0003__L056__p439:webusb:webbluetooth": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0003__L056__p439:webusb:webbluetooth",
+"anchor": "Web Bluetooth",
+"nearest": [
+"WebHID API",
+"Web NFC API",
+"Web Serial API",
+"Web MIDI API"
+],
+"random": [
+"Battery Status API",
+"Device Orientation Events",
+"Geolocation API",
+"Vibration API"
+],
+"distractors": [
+"WebHID API",
+"Web NFC API",
+"Web Serial API",
+"Web MIDI API",
+"Battery Status API",
+"Device Orientation Events",
+"Geolocation API",
+"Vibration API"
+],
+"n_eligible": 11,
+"sha": "86873d2220e6a7efa94103bb2fa47cc762ddb74be2d6b1e69f5f8622cebdc9ae",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0003__L060__p310:webusb:webbluetooth": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0003__L060__p310:webusb:webbluetooth",
+"anchor": "Web Bluetooth",
+"nearest": [
+"WebHID API",
+"Web NFC API",
+"Web Serial API",
+"Web MIDI API"
+],
+"random": [
+"Battery Status API",
+"Device Orientation Events",
+"Gamepad API",
+"Vibration API"
+],
+"distractors": [
+"WebHID API",
+"Web NFC API",
+"Web Serial API",
+"Web MIDI API",
+"Battery Status API",
+"Device Orientation Events",
+"Gamepad API",
+"Vibration API"
+],
+"n_eligible": 11,
+"sha": "f6ad4fc04014f9f4ae033af7de3d858f3decca9734de6b68b780a0ce5ac3fa7c",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0003__L060__p310:webusbinterfaces:webbluetoothinterfaces": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0003__L060__p310:webusbinterfaces:webbluetoothinterfaces",
+"anchor": "Web Bluetooth API",
+"nearest": [
+"WebHID API",
+"Web NFC API",
+"Web Serial API",
+"Web MIDI API"
+],
+"random": [
+"Device Orientation Events",
+"Gamepad API",
+"Geolocation API",
+"Screen Wake Lock API"
+],
+"distractors": [
+"WebHID API",
+"Web NFC API",
+"Web Serial API",
+"Web MIDI API",
+"Device Orientation Events",
+"Gamepad API",
+"Geolocation API",
+"Screen Wake Lock API"
+],
+"n_eligible": 11,
+"sha": "5f2df6866628328809210c3e46c74fb84511f55eb425e00ed044237d83163ffa",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0003__L060__p310:webusbspecusbdevice:webbluetoothapibluetoothdevice": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0003__L060__p310:webusbspecusbdevice:webbluetoothapibluetoothdevice",
+"anchor": "Web Bluetooth API",
+"nearest": [
+"WebHID API",
+"Web NFC API",
+"Web Serial API",
+"Web MIDI API"
+],
+"random": [
+"Device Orientation Events",
+"Gamepad API",
+"Geolocation API",
+"Vibration API"
+],
+"distractors": [
+"WebHID API",
+"Web NFC API",
+"Web Serial API",
+"Web MIDI API",
+"Device Orientation Events",
+"Gamepad API",
+"Geolocation API",
+"Vibration API"
+],
+"n_eligible": 11,
+"sha": "cfd5a0603c432aa48ea80921a3e53fde611548c656edd24afb24e10413dc9f9a",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0003__L024__p439:webusb:webbluetooth": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0003__L024__p439:webusb:webbluetooth",
+"anchor": "Web Bluetooth",
+"nearest": [
+"WebHID API",
+"Web NFC API",
+"Web Serial API",
+"Web MIDI API"
+],
+"random": [
+"Device Orientation Events",
+"Gamepad API",
+"Generic Sensor API",
+"Vibration API"
+],
+"distractors": [
+"WebHID API",
+"Web NFC API",
+"Web Serial API",
+"Web MIDI API",
+"Device Orientation Events",
+"Gamepad API",
+"Generic Sensor API",
+"Vibration API"
+],
+"n_eligible": 11,
+"sha": "c1d5f107eb3f0ea957b36e6c3a7dfbd2242759557c2bca61e40e6dc69ae0d2f5",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0003__L032__p439:webusb:webbluetooth": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0003__L032__p439:webusb:webbluetooth",
+"anchor": "Web Bluetooth",
+"nearest": [
+"WebHID API",
+"Web NFC API",
+"Web Serial API",
+"Web MIDI API"
+],
+"random": [
+"Device Orientation Events",
+"Generic Sensor API",
+"Geolocation API",
+"Screen Wake Lock API"
+],
+"distractors": [
+"WebHID API",
+"Web NFC API",
+"Web Serial API",
+"Web MIDI API",
+"Device Orientation Events",
+"Generic Sensor API",
+"Geolocation API",
+"Screen Wake Lock API"
+],
+"n_eligible": 11,
+"sha": "cf355893ce9b3f159669b863fc16674b0560425bebcb1cc0e5eca7816af26313",
+"generation": 0
+}
+}

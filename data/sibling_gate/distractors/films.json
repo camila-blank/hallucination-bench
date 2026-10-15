@@ -1,0 +1,988 @@
+{
+"mlnla-rl2-800-all11:chat-dailydialog-0009__L020__p127:piratesofthecaribbean:boardwalkempire": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0009__L020__p127:piratesofthecaribbean:boardwalkempire",
+"anchor": "The Godfather",
+"nearest": [
+"Interstellar",
+"Gladiator",
+"Pulp Fiction",
+"Joker"
+],
+"random": [
+"La La Land",
+"Moonlight",
+"Spirited Away",
+"Whiplash"
+],
+"distractors": [
+"Interstellar",
+"Gladiator",
+"Pulp Fiction",
+"Joker",
+"La La Land",
+"Moonlight",
+"Spirited Away",
+"Whiplash"
+],
+"n_eligible": 20,
+"sha": "1944665cb3b669aa7b57c10f8ffcf9c84eb9996ce5c5a2b12e28d7ee4dd54124",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0009__L020__p127:piratesofthecaribbean:thegodfather": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0009__L020__p127:piratesofthecaribbean:thegodfather",
+"anchor": "The Godfather",
+"nearest": [
+"Interstellar",
+"Gladiator",
+"Pulp Fiction",
+"Joker"
+],
+"random": [
+"Bridesmaids",
+"Knives Out",
+"Moonlight",
+"The Hangover"
+],
+"distractors": [
+"Interstellar",
+"Gladiator",
+"Pulp Fiction",
+"Joker",
+"Bridesmaids",
+"Knives Out",
+"Moonlight",
+"The Hangover"
+],
+"n_eligible": 20,
+"sha": "09be2827fe2f775921fe9173f96c2b9c46875c277f93d97b2484c2898b68c43f",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0009__L024__p127:piratesofthecaribbean:mafia": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0009__L024__p127:piratesofthecaribbean:mafia",
+"anchor": "The Godfather",
+"nearest": [
+"Interstellar",
+"Gladiator",
+"Pulp Fiction",
+"Joker"
+],
+"random": [
+"John Wick",
+"Oppenheimer",
+"The Hangover",
+"Whiplash"
+],
+"distractors": [
+"Interstellar",
+"Gladiator",
+"Pulp Fiction",
+"Joker",
+"John Wick",
+"Oppenheimer",
+"The Hangover",
+"Whiplash"
+],
+"n_eligible": 20,
+"sha": "1cb52e10e4940058b1631cd73a4849df44308aa6de074620d072079a34e9729c",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0009__L032__p127:missionimpossiblekingsman:thegodfathermafiaboardwalkempire": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0009__L032__p127:missionimpossiblekingsman:thegodfathermafiaboardwalkempire",
+"anchor": "The Godfather",
+"nearest": [
+"Interstellar",
+"Gladiator",
+"Pulp Fiction",
+"Joker"
+],
+"random": [
+"John Wick",
+"Oppenheimer",
+"The Hangover",
+"The Iron Giant"
+],
+"distractors": [
+"Interstellar",
+"Gladiator",
+"Pulp Fiction",
+"Joker",
+"John Wick",
+"Oppenheimer",
+"The Hangover",
+"The Iron Giant"
+],
+"n_eligible": 20,
+"sha": "38aaa7930d68a2cf2cb5c1d148b279b188af52893c87ff71ee0eb97bfb5a6212",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0009__L056__p127:thegreenknightthepaleblueeye:thegodfatherboardwalkempire": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0009__L056__p127:thegreenknightthepaleblueeye:thegodfatherboardwalkempire",
+"anchor": "The Godfather",
+"nearest": [
+"Interstellar",
+"Gladiator",
+"Pulp Fiction",
+"Joker"
+],
+"random": [
+"Knives Out",
+"La La Land",
+"The Hitchhiker's Guide to the Galaxy",
+"The Iron Giant"
+],
+"distractors": [
+"Interstellar",
+"Gladiator",
+"Pulp Fiction",
+"Joker",
+"Knives Out",
+"La La Land",
+"The Hitchhiker's Guide to the Galaxy",
+"The Iron Giant"
+],
+"n_eligible": 20,
+"sha": "1779eb66696cff15e93a45bb21f7bb56117fbb991269f210bb6d45b93ed34151",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0030__L020__p110:theprincessbride:thehitchhikersguidetothegalaxy": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0030__L020__p110:theprincessbride:thehitchhikersguidetothegalaxy",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"The Hangover",
+"Mission: Impossible",
+"Superbad",
+"Pulp Fiction"
+],
+"random": [
+"Gladiator",
+"Interstellar",
+"La La Land",
+"Spirited Away"
+],
+"distractors": [
+"The Hangover",
+"Mission: Impossible",
+"Superbad",
+"Pulp Fiction",
+"Gladiator",
+"Interstellar",
+"La La Land",
+"Spirited Away"
+],
+"n_eligible": 25,
+"sha": "857485f467e74e7fc3c3525f28dcd32789dfea980f0b5aba1ca559e2766deb6e",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0030__L028__p87:theprincessbride:thehitchhikersguidetothegalaxy": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0030__L028__p87:theprincessbride:thehitchhikersguidetothegalaxy",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"The Hangover",
+"Mission: Impossible",
+"Superbad",
+"Pulp Fiction"
+],
+"random": [
+"Knives Out",
+"Pirates of the Caribbean",
+"Portrait of a Lady on Fire",
+"Whiplash"
+],
+"distractors": [
+"The Hangover",
+"Mission: Impossible",
+"Superbad",
+"Pulp Fiction",
+"Knives Out",
+"Pirates of the Caribbean",
+"Portrait of a Lady on Fire",
+"Whiplash"
+],
+"n_eligible": 25,
+"sha": "6e25ec6851e853c490e0f15f33ad11c3abefb19d63d2a5c920034b14f8619e2e",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0030__L032__p137:drwhoandthedaleks:thehitchhikersguidetothegalaxy": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0030__L032__p137:drwhoandthedaleks:thehitchhikersguidetothegalaxy",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"The Hangover",
+"Mission: Impossible",
+"Superbad",
+"Pulp Fiction"
+],
+"random": [
+"La La Land",
+"Pirates of the Caribbean",
+"The Batman",
+"Whiplash"
+],
+"distractors": [
+"The Hangover",
+"Mission: Impossible",
+"Superbad",
+"Pulp Fiction",
+"La La Land",
+"Pirates of the Caribbean",
+"The Batman",
+"Whiplash"
+],
+"n_eligible": 25,
+"sha": "efd6bdb89dfa623e3f0b2104d1e7e6a7024f5a0ad161fb1513c6236a18e9a73b",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0030__L056__p137:theirongiant:thehitchhikersguidetothegalaxy": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0030__L056__p137:theirongiant:thehitchhikersguidetothegalaxy",
+"anchor": "The Iron Giant",
+"nearest": [
+"Interstellar",
+"Everything Everywhere All at Once",
+"The Green Knight",
+"Superbad"
+],
+"random": [
+"Blade Runner",
+"Mission: Impossible",
+"Pirates of the Caribbean",
+"The Hitchhiker's Guide to the Galaxy"
+],
+"distractors": [
+"Interstellar",
+"Everything Everywhere All at Once",
+"The Green Knight",
+"Superbad",
+"Blade Runner",
+"Mission: Impossible",
+"Pirates of the Caribbean",
+"The Hitchhiker's Guide to the Galaxy"
+],
+"n_eligible": 26,
+"sha": "93acd7c82c874ad780bfcd6da9718e8800aad1a73da33f636a01ee9750d72d80",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0031__L024__p345:bridesmaids:theprincessbride": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0031__L024__p345:bridesmaids:theprincessbride",
+"anchor": "Bridesmaids",
+"nearest": [
+"Superbad",
+"Knives Out",
+"American Sniper",
+"The Princess Bride"
+],
+"random": [
+"Blade Runner",
+"Pirates of the Caribbean",
+"Spirited Away",
+"The Iron Giant"
+],
+"distractors": [
+"Superbad",
+"Knives Out",
+"American Sniper",
+"The Princess Bride",
+"Blade Runner",
+"Pirates of the Caribbean",
+"Spirited Away",
+"The Iron Giant"
+],
+"n_eligible": 12,
+"sha": "1b8896c60e647962fb90aa222c1cf60e65556bf3d570080d3fadb94cb8f371b8",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0031__L028__p300:joker:whiplash": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0031__L028__p300:joker:whiplash",
+"anchor": "Whiplash",
+"nearest": [
+"Knives Out",
+"Superbad",
+"John Wick",
+"American Sniper"
+],
+"random": [
+"Blade Runner",
+"Pirates of the Caribbean",
+"The Green Knight",
+"The Hitchhiker's Guide to the Galaxy"
+],
+"distractors": [
+"Knives Out",
+"Superbad",
+"John Wick",
+"American Sniper",
+"Blade Runner",
+"Pirates of the Caribbean",
+"The Green Knight",
+"The Hitchhiker's Guide to the Galaxy"
+],
+"n_eligible": 11,
+"sha": "f15062729974f4e26553a4a126cfcd2874143253b79ce9695143569ca3e368fc",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0031__L032__p81:thebatman:johnwick": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0031__L032__p81:thebatman:johnwick",
+"anchor": "John Wick",
+"nearest": [
+"Pirates of the Caribbean",
+"The Hitchhiker's Guide to the Galaxy",
+"Whiplash",
+"The Green Knight"
+],
+"random": [
+"American Sniper",
+"Blade Runner",
+"Spirited Away",
+"The Princess Bride"
+],
+"distractors": [
+"Pirates of the Caribbean",
+"The Hitchhiker's Guide to the Galaxy",
+"Whiplash",
+"The Green Knight",
+"American Sniper",
+"Blade Runner",
+"Spirited Away",
+"The Princess Bride"
+],
+"n_eligible": 11,
+"sha": "9e519e6acd1bcdaaba8922f011f1b44445a69d8011d062a48c864e4a01ae3c21",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0031__L040__p207:thelordoftherings:spidermanintothespiderverse": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0031__L040__p207:thelordoftherings:spidermanintothespiderverse",
+"anchor": "The Lord of the Rings",
+"nearest": [
+"Pirates of the Caribbean",
+"Spirited Away",
+"The Princess Bride",
+"The Green Knight"
+],
+"random": [
+"American Sniper",
+"Superbad",
+"The Iron Giant",
+"Whiplash"
+],
+"distractors": [
+"Pirates of the Caribbean",
+"Spirited Away",
+"The Princess Bride",
+"The Green Knight",
+"American Sniper",
+"Superbad",
+"The Iron Giant",
+"Whiplash"
+],
+"n_eligible": 12,
+"sha": "3f92ac44348d2c81d6ebe676f95ba486e7ba502230a08fe7518bbf891e6b9476",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0031__L044__p345:lionkingprincessmononoke:whiplashtheprincessbride": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0031__L044__p345:lionkingprincessmononoke:whiplashtheprincessbride",
+"anchor": "Spirited Away",
+"nearest": [
+"Pirates of the Caribbean",
+"Blade Runner",
+"The Iron Giant",
+"The Green Knight"
+],
+"random": [
+"John Wick",
+"Superbad",
+"The Hitchhiker's Guide to the Galaxy",
+"Whiplash"
+],
+"distractors": [
+"Pirates of the Caribbean",
+"Blade Runner",
+"The Iron Giant",
+"The Green Knight",
+"John Wick",
+"Superbad",
+"The Hitchhiker's Guide to the Galaxy",
+"Whiplash"
+],
+"n_eligible": 10,
+"sha": "ae3651a5312558c2ec964c4cca8089089a2cfa95cae857fbf8058dcb829acf03",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0031__L060__p300:barbie:whiplash": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0031__L060__p300:barbie:whiplash",
+"anchor": "Barbie",
+"nearest": [
+"American Sniper",
+"Spirited Away",
+"Pirates of the Caribbean",
+"Knives Out"
+],
+"random": [
+"Superbad",
+"The Green Knight",
+"The Princess Bride",
+"Whiplash"
+],
+"distractors": [
+"American Sniper",
+"Spirited Away",
+"Pirates of the Caribbean",
+"Knives Out",
+"Superbad",
+"The Green Knight",
+"The Princess Bride",
+"Whiplash"
+],
+"n_eligible": 12,
+"sha": "412ad3c0226050bdc79d92d52fe716ba246118c5d8c0c2f07282027347af341a",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0031__L060__p300:oppenheimer:whiplash": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0031__L060__p300:oppenheimer:whiplash",
+"anchor": "Spirited Away",
+"nearest": [
+"Pirates of the Caribbean",
+"Blade Runner",
+"The Iron Giant",
+"The Green Knight"
+],
+"random": [
+"John Wick",
+"Knives Out",
+"The Hitchhiker's Guide to the Galaxy",
+"Whiplash"
+],
+"distractors": [
+"Pirates of the Caribbean",
+"Blade Runner",
+"The Iron Giant",
+"The Green Knight",
+"John Wick",
+"Knives Out",
+"The Hitchhiker's Guide to the Galaxy",
+"Whiplash"
+],
+"n_eligible": 10,
+"sha": "00d5ef0e7cec1c192b2f1e49c755df5ad292f304523c9c2d2e3c3e98dac5a971",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0009__L032__p127:bladerunnercyberpunkedgerunners:thegodfatherboardwalkempire": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0009__L032__p127:bladerunnercyberpunkedgerunners:thegodfatherboardwalkempire",
+"anchor": "The Godfather",
+"nearest": [
+"Interstellar",
+"Gladiator",
+"Pulp Fiction",
+"Joker"
+],
+"random": [
+"Barbie",
+"Everything Everywhere All at Once",
+"John Wick",
+"Portrait of a Lady on Fire"
+],
+"distractors": [
+"Interstellar",
+"Gladiator",
+"Pulp Fiction",
+"Joker",
+"Barbie",
+"Everything Everywhere All at Once",
+"John Wick",
+"Portrait of a Lady on Fire"
+],
+"n_eligible": 20,
+"sha": "7b7e266c09a2353803c63f6f75ced044c8d4aa412f17d8b4e3c1477a492dc400",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0009__L052__p157:americansnipersavingprivateryan:thegodfather": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0009__L052__p157:americansnipersavingprivateryan:thegodfather",
+"anchor": "The Godfather",
+"nearest": [
+"Interstellar",
+"Gladiator",
+"Pulp Fiction",
+"Joker"
+],
+"random": [
+"Barbie",
+"Oppenheimer",
+"Superbad",
+"The Hitchhiker's Guide to the Galaxy"
+],
+"distractors": [
+"Interstellar",
+"Gladiator",
+"Pulp Fiction",
+"Joker",
+"Barbie",
+"Oppenheimer",
+"Superbad",
+"The Hitchhiker's Guide to the Galaxy"
+],
+"n_eligible": 20,
+"sha": "024f4aede3acc67d6ced9696e8f6c6f1bc48ddb13d04eaf40cfdf04c3e3d3045",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0031__L020__p122:hangoverparasite:knivesoutthegrandbudapesthotel": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0031__L020__p122:hangoverparasite:knivesoutthegrandbudapesthotel",
+"anchor": "Knives Out",
+"nearest": [
+"Superbad",
+"The Hitchhiker's Guide to the Galaxy",
+"Whiplash",
+"American Sniper"
+],
+"random": [
+"Pirates of the Caribbean",
+"Spirited Away",
+"The Green Knight",
+"The Iron Giant"
+],
+"distractors": [
+"Superbad",
+"The Hitchhiker's Guide to the Galaxy",
+"Whiplash",
+"American Sniper",
+"Pirates of the Caribbean",
+"Spirited Away",
+"The Green Knight",
+"The Iron Giant"
+],
+"n_eligible": 11,
+"sha": "b385bcfd27c95146e01be573bc85a78f8e6dcaea5d446cb890888473da3c04bc",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0031__L028__p81:gladiator:johnwick": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0031__L028__p81:gladiator:johnwick",
+"anchor": "John Wick",
+"nearest": [
+"Pirates of the Caribbean",
+"The Hitchhiker's Guide to the Galaxy",
+"Whiplash",
+"The Green Knight"
+],
+"random": [
+"American Sniper",
+"Knives Out",
+"Spirited Away",
+"Superbad"
+],
+"distractors": [
+"Pirates of the Caribbean",
+"The Hitchhiker's Guide to the Galaxy",
+"Whiplash",
+"The Green Knight",
+"American Sniper",
+"Knives Out",
+"Spirited Away",
+"Superbad"
+],
+"n_eligible": 11,
+"sha": "be8887cf171a41b6196ac1c2532013912326abd44c639d1d353c34a27e22cacc",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0031__L028__p81:thematrix:johnwick": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0031__L028__p81:thematrix:johnwick",
+"anchor": "The Matrix",
+"nearest": [
+"Blade Runner",
+"The Princess Bride",
+"John Wick",
+"Spirited Away"
+],
+"random": [
+"Knives Out",
+"Pirates of the Caribbean",
+"The Hitchhiker's Guide to the Galaxy",
+"The Iron Giant"
+],
+"distractors": [
+"Blade Runner",
+"The Princess Bride",
+"John Wick",
+"Spirited Away",
+"Knives Out",
+"Pirates of the Caribbean",
+"The Hitchhiker's Guide to the Galaxy",
+"The Iron Giant"
+],
+"n_eligible": 12,
+"sha": "73088e00afb33f1dc3188ddbf7f94f01ac74037cf9a070a50a8e049f437462c8",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0031__L044__p169:portraitofaladyonfireeternalsunshineparasite:lalalandpastlivesthenotebook": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0031__L044__p169:portraitofaladyonfireeternalsunshineparasite:lalalandpastlivesthenotebook",
+"anchor": "Portrait of a Lady on Fire",
+"nearest": [
+"Spirited Away",
+"The Green Knight",
+"American Sniper",
+"Knives Out"
+],
+"random": [
+"Superbad",
+"The Iron Giant",
+"The Princess Bride",
+"Whiplash"
+],
+"distractors": [
+"Spirited Away",
+"The Green Knight",
+"American Sniper",
+"Knives Out",
+"Superbad",
+"The Iron Giant",
+"The Princess Bride",
+"Whiplash"
+],
+"n_eligible": 12,
+"sha": "4ad5dea7dd4c4e776cccde7c97f7d8b917789c1c61b4a8dacc3b54133813fce5",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0031__L056__p207:oppenheimer:dune": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0031__L056__p207:oppenheimer:dune",
+"anchor": "Spirited Away",
+"nearest": [
+"Pirates of the Caribbean",
+"Blade Runner",
+"The Iron Giant",
+"The Green Knight"
+],
+"random": [
+"American Sniper",
+"John Wick",
+"Superbad",
+"The Hitchhiker's Guide to the Galaxy"
+],
+"distractors": [
+"Pirates of the Caribbean",
+"Blade Runner",
+"The Iron Giant",
+"The Green Knight",
+"American Sniper",
+"John Wick",
+"Superbad",
+"The Hitchhiker's Guide to the Galaxy"
+],
+"n_eligible": 10,
+"sha": "0be41bbafa3dbeba9c194fcfe4bcf3332170bff0d35f5bf194bc2588cbe4662e",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0031__L060__p122:oppenheimer:johnwick": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0031__L060__p122:oppenheimer:johnwick",
+"anchor": "Spirited Away",
+"nearest": [
+"Pirates of the Caribbean",
+"Blade Runner",
+"The Iron Giant",
+"The Green Knight"
+],
+"random": [
+"American Sniper",
+"John Wick",
+"Knives Out",
+"Whiplash"
+],
+"distractors": [
+"Pirates of the Caribbean",
+"Blade Runner",
+"The Iron Giant",
+"The Green Knight",
+"American Sniper",
+"John Wick",
+"Knives Out",
+"Whiplash"
+],
+"n_eligible": 10,
+"sha": "5061674711d751fc24e8baf410abf1b2d827db31f16d7aace33879bb46ca49aa",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0031__L060__p122:oppenheimer:thegrandbudapesthotel": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0031__L060__p122:oppenheimer:thegrandbudapesthotel",
+"anchor": "Spirited Away",
+"nearest": [
+"Pirates of the Caribbean",
+"Blade Runner",
+"The Iron Giant",
+"The Green Knight"
+],
+"random": [
+"American Sniper",
+"Knives Out",
+"The Hitchhiker's Guide to the Galaxy",
+"Whiplash"
+],
+"distractors": [
+"Pirates of the Caribbean",
+"Blade Runner",
+"The Iron Giant",
+"The Green Knight",
+"American Sniper",
+"Knives Out",
+"The Hitchhiker's Guide to the Galaxy",
+"Whiplash"
+],
+"n_eligible": 10,
+"sha": "d15441c99a784bc6f2aa8adac6336a43905a23ca13226c4641ae85fcb0a3db6f",
+"generation": 0
+},
+"nla-rl-L42:chat-dailydialog-0031__L042__p169:moonlight:lalaland": {
+"unit": "nla-rl-L42:chat-dailydialog-0031__L042__p169:moonlight:lalaland",
+"anchor": "Moonlight",
+"nearest": [
+"American Sniper",
+"Knives Out",
+"Whiplash",
+"Superbad"
+],
+"random": [
+"Blade Runner",
+"The Green Knight",
+"The Iron Giant",
+"The Princess Bride"
+],
+"distractors": [
+"American Sniper",
+"Knives Out",
+"Whiplash",
+"Superbad",
+"Blade Runner",
+"The Green Knight",
+"The Iron Giant",
+"The Princess Bride"
+],
+"n_eligible": 12,
+"sha": "59521d3f16f39f171439f71a119e9efa3f56c1bbf6efc96b672209e3aa6b1d9d",
+"generation": 0
+},
+"nla-rl-L42:chat-dailydialog-0031__L042__p169:oppenheimerse7en:inceptioneverythingeverywhereallatonce": {
+"unit": "nla-rl-L42:chat-dailydialog-0031__L042__p169:oppenheimerse7en:inceptioneverythingeverywhereallatonce",
+"anchor": "Whiplash",
+"nearest": [
+"Knives Out",
+"Superbad",
+"John Wick",
+"American Sniper"
+],
+"random": [
+"Blade Runner",
+"The Green Knight",
+"The Iron Giant",
+"The Princess Bride"
+],
+"distractors": [
+"Knives Out",
+"Superbad",
+"John Wick",
+"American Sniper",
+"Blade Runner",
+"The Green Knight",
+"The Iron Giant",
+"The Princess Bride"
+],
+"n_eligible": 11,
+"sha": "5fb8beaa9dcd1d5976ad97620314204d0d10bf6a03fd6e35ac715f03021d8693",
+"generation": 0
+},
+"nla-rl-L42:chat-dailydialog-0031__L042__p81:interstellar:johnwick": {
+"unit": "nla-rl-L42:chat-dailydialog-0031__L042__p81:interstellar:johnwick",
+"anchor": "John Wick",
+"nearest": [
+"Pirates of the Caribbean",
+"The Hitchhiker's Guide to the Galaxy",
+"Whiplash",
+"The Green Knight"
+],
+"random": [
+"American Sniper",
+"Blade Runner",
+"Spirited Away",
+"The Princess Bride"
+],
+"distractors": [
+"Pirates of the Caribbean",
+"The Hitchhiker's Guide to the Galaxy",
+"Whiplash",
+"The Green Knight",
+"American Sniper",
+"Blade Runner",
+"Spirited Away",
+"The Princess Bride"
+],
+"n_eligible": 11,
+"sha": "d6dfc202f507bafa1506af136fde73c16001337bf2e5b47bd3ddf2670638063a",
+"generation": 0
+},
+"nla-rl-L42:chat-dailydialog-0031__L042__p81:thegodfather:johnwick": {
+"unit": "nla-rl-L42:chat-dailydialog-0031__L042__p81:thegodfather:johnwick",
+"anchor": "John Wick",
+"nearest": [
+"Pirates of the Caribbean",
+"The Hitchhiker's Guide to the Galaxy",
+"Whiplash",
+"The Green Knight"
+],
+"random": [
+"American Sniper",
+"Knives Out",
+"Spirited Away",
+"The Princess Bride"
+],
+"distractors": [
+"Pirates of the Caribbean",
+"The Hitchhiker's Guide to the Galaxy",
+"Whiplash",
+"The Green Knight",
+"American Sniper",
+"Knives Out",
+"Spirited Away",
+"The Princess Bride"
+],
+"n_eligible": 11,
+"sha": "61c3dff601b1493bdc27638a2cdc70c556ecb6c5441a9b0d6f7bbe9e5e005402",
+"generation": 0
+},
+"nla-rl-L42:chat-dailydialog-0031__L042__p81:thematrix:johnwick": {
+"unit": "nla-rl-L42:chat-dailydialog-0031__L042__p81:thematrix:johnwick",
+"anchor": "The Matrix",
+"nearest": [
+"Blade Runner",
+"The Princess Bride",
+"John Wick",
+"Spirited Away"
+],
+"random": [
+"American Sniper",
+"Knives Out",
+"The Hitchhiker's Guide to the Galaxy",
+"The Iron Giant"
+],
+"distractors": [
+"Blade Runner",
+"The Princess Bride",
+"John Wick",
+"Spirited Away",
+"American Sniper",
+"Knives Out",
+"The Hitchhiker's Guide to the Galaxy",
+"The Iron Giant"
+],
+"n_eligible": 12,
+"sha": "25750a82ea84def2b7b41d334f91bfef70d37cc2fea50a78cde0eb3ade2ed0f8",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0009__L044__p127:lordoftherings:thegodfather": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0009__L044__p127:lordoftherings:thegodfather",
+"anchor": "The Godfather",
+"nearest": [
+"Interstellar",
+"Gladiator",
+"Pulp Fiction",
+"Joker"
+],
+"random": [
+"John Wick",
+"Oppenheimer",
+"Spirited Away",
+"Whiplash"
+],
+"distractors": [
+"Interstellar",
+"Gladiator",
+"Pulp Fiction",
+"Joker",
+"John Wick",
+"Oppenheimer",
+"Spirited Away",
+"Whiplash"
+],
+"n_eligible": 20,
+"sha": "c237582179871622c4a0cce28277c1643dc5497448c35fb41c246fd8e8721b29",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0031__L056__p300:everythingeverywhereallatonce:theprincessbride": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0031__L056__p300:everythingeverywhereallatonce:theprincessbride",
+"anchor": "The Princess Bride",
+"nearest": [
+"Superbad",
+"Spirited Away",
+"The Hitchhiker's Guide to the Galaxy",
+"Pirates of the Caribbean"
+],
+"random": [
+"American Sniper",
+"John Wick",
+"Knives Out",
+"The Green Knight"
+],
+"distractors": [
+"Superbad",
+"Spirited Away",
+"The Hitchhiker's Guide to the Galaxy",
+"Pirates of the Caribbean",
+"American Sniper",
+"John Wick",
+"Knives Out",
+"The Green Knight"
+],
+"n_eligible": 11,
+"sha": "7bf90d204cc28d756a614ff5a1c60c2f7c65fdd79dff8ae65e8f129f10df88b6",
+"generation": 0
+},
+"s3d-rl600:chat-dailydialog-0031__L020__p122:lalaland:superbad": {
+"unit": "s3d-rl600:chat-dailydialog-0031__L020__p122:lalaland:superbad",
+"anchor": "Superbad",
+"nearest": [
+"The Princess Bride",
+"The Hitchhiker's Guide to the Galaxy",
+"American Sniper",
+"Whiplash"
+],
+"random": [
+"Pirates of the Caribbean",
+"Spirited Away",
+"The Green Knight",
+"The Iron Giant"
+],
+"distractors": [
+"The Princess Bride",
+"The Hitchhiker's Guide to the Galaxy",
+"American Sniper",
+"Whiplash",
+"Pirates of the Caribbean",
+"Spirited Away",
+"The Green Knight",
+"The Iron Giant"
+],
+"n_eligible": 10,
+"sha": "e72a836a278e129a05762b3e78592dee0e9ce49459e078fa2b8a610190dff7a4",
+"generation": 0
+},
+"s3d-rl600:chat-dailydialog-0031__L044__p246:pulpfiction:superbad": {
+"unit": "s3d-rl600:chat-dailydialog-0031__L044__p246:pulpfiction:superbad",
+"anchor": "Pulp Fiction",
+"nearest": [
+"Superbad",
+"Knives Out",
+"The Princess Bride",
+"John Wick"
+],
+"random": [
+"The Green Knight",
+"The Hitchhiker's Guide to the Galaxy",
+"The Iron Giant",
+"Whiplash"
+],
+"distractors": [
+"Superbad",
+"Knives Out",
+"The Princess Bride",
+"John Wick",
+"The Green Knight",
+"The Hitchhiker's Guide to the Galaxy",
+"The Iron Giant",
+"Whiplash"
+],
+"n_eligible": 12,
+"sha": "49f93104c3bb9397a987c9140389d361ecb56795cc6e2102b3a84d02c78d8a14",
+"generation": 0
+}
+}

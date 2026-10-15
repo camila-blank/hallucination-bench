@@ -1,0 +1,102 @@
+{
+"mlnla-rl2-800-all11:chat-lmsys-0060__L020__p833:anorexia:akuteotitismedia": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0060__L020__p833:anorexia:akuteotitismedia",
+"anchor": "Acute otitis media",
+"nearest": [
+"Asthma",
+"Influenza",
+"Stroke",
+"Diabetes mellitus"
+],
+"random": [
+"Alzheimer's disease",
+"Cancer"
+],
+"distractors": [
+"Asthma",
+"Influenza",
+"Stroke",
+"Diabetes mellitus",
+"Alzheimer's disease",
+"Cancer"
+],
+"n_eligible": 6,
+"sha": "cbe39cbd7a1d59277e771b3e3157ec75aa801f24add594e32ff57d18ed120815",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0060__L024__p833:burnout:acuteotitismedia": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0060__L024__p833:burnout:acuteotitismedia",
+"anchor": "Akute Otitis media",
+"nearest": [
+"Influenza",
+"Asthma",
+"Stroke",
+"Alzheimer's disease"
+],
+"random": [
+"Cancer",
+"Diabetes mellitus"
+],
+"distractors": [
+"Influenza",
+"Asthma",
+"Stroke",
+"Alzheimer's disease",
+"Cancer",
+"Diabetes mellitus"
+],
+"n_eligible": 6,
+"sha": "bf926a850c996ec3068eb609188fdc2c8b3e48aa139ffadf10d7818837985478",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0060__L020__p833:depression:akuteotitismedia": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0060__L020__p833:depression:akuteotitismedia",
+"anchor": "Acute otitis media",
+"nearest": [
+"Asthma",
+"Influenza",
+"Stroke",
+"Diabetes mellitus"
+],
+"random": [
+"Alzheimer's disease",
+"Cancer"
+],
+"distractors": [
+"Asthma",
+"Influenza",
+"Stroke",
+"Diabetes mellitus",
+"Alzheimer's disease",
+"Cancer"
+],
+"n_eligible": 6,
+"sha": "76be8a45ef44c30917a8804bfa4a474a881abb0b5decfc42e3d837d945fa1539",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0060__L056__p663:tickbornediseases:otitis": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0060__L056__p663:tickbornediseases:otitis",
+"anchor": "otitis externa",
+"nearest": [
+"Asthma",
+"Stroke",
+"Influenza",
+"Diabetes mellitus"
+],
+"random": [
+"Alzheimer's disease",
+"Cancer"
+],
+"distractors": [
+"Asthma",
+"Stroke",
+"Influenza",
+"Diabetes mellitus",
+"Alzheimer's disease",
+"Cancer"
+],
+"n_eligible": 6,
+"sha": "a9a9c3cec50eae56c7fa771dbd1ed80b87e8c117b58a631e6aeda07a54cce4ed",
+"generation": 0
+}
+}

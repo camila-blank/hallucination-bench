@@ -1,0 +1,263 @@
+{
+"mlnla-rl2-800-all11:chat-lmsys-0051__L044__p424:cannabisdrugs:psychedelics": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0051__L044__p424:cannabisdrugs:psychedelics",
+"anchor": "Psychedelics",
+"nearest": [
+"amphetamines",
+"stimulants",
+"statins",
+"antidepressant"
+],
+"random": [
+"NSAIDs",
+"antibiotic",
+"antipsychotics",
+"beta blockers"
+],
+"distractors": [
+"amphetamines",
+"stimulants",
+"statins",
+"antidepressant",
+"NSAIDs",
+"antibiotic",
+"antipsychotics",
+"beta blockers"
+],
+"n_eligible": 10,
+"sha": "3113f210d401d59be922ef7f1b6d6223b58c82d255a7b695a62cc0dda0cc1155",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0051__L048__p424:cannabinoiddrugs:psychedelics": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0051__L048__p424:cannabinoiddrugs:psychedelics",
+"anchor": "psychedelics",
+"nearest": [
+"amphetamines",
+"stimulants",
+"benzodiazepines",
+"antidepressant"
+],
+"random": [
+"NSAIDs",
+"antibiotic",
+"antihistamines",
+"statins"
+],
+"distractors": [
+"amphetamines",
+"stimulants",
+"benzodiazepines",
+"antidepressant",
+"NSAIDs",
+"antibiotic",
+"antihistamines",
+"statins"
+],
+"n_eligible": 10,
+"sha": "96be493272ab84304c87c17625d24001e8fc4696a17c27bf9866d70d0a47291e",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0051__L048__p424:cannabinoids:psychedelics": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0051__L048__p424:cannabinoids:psychedelics",
+"anchor": "Classic psychedelics",
+"nearest": [
+"amphetamines",
+"stimulants",
+"benzodiazepines",
+"antipsychotics"
+],
+"random": [
+"NSAIDs",
+"antibiotic",
+"antihistamines",
+"beta blockers"
+],
+"distractors": [
+"amphetamines",
+"stimulants",
+"benzodiazepines",
+"antipsychotics",
+"NSAIDs",
+"antibiotic",
+"antihistamines",
+"beta blockers"
+],
+"n_eligible": 10,
+"sha": "e36a2f1c919ba35af7b8433ab8f8402c423d696b6773457c68b6e38f6afdd545",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0051__L048__p424:cannabisproducts:psychedelics": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0051__L048__p424:cannabisproducts:psychedelics",
+"anchor": "psychedelics",
+"nearest": [
+"amphetamines",
+"stimulants",
+"benzodiazepines",
+"antidepressant"
+],
+"random": [
+"antibiotic",
+"antihistamines",
+"antipsychotics",
+"beta blockers"
+],
+"distractors": [
+"amphetamines",
+"stimulants",
+"benzodiazepines",
+"antidepressant",
+"antibiotic",
+"antihistamines",
+"antipsychotics",
+"beta blockers"
+],
+"n_eligible": 10,
+"sha": "fb549ecffd091bb67caff7bb8f99557a584dd2e03f24cea46652b14d96dbf76d",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0051__L048__p424:cannabisproducts:psychedelictherapies": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0051__L048__p424:cannabisproducts:psychedelictherapies",
+"anchor": "psychedelics",
+"nearest": [
+"amphetamines",
+"stimulants",
+"benzodiazepines",
+"antidepressant"
+],
+"random": [
+"antibiotic",
+"antihistamines",
+"antipsychotics",
+"beta blockers"
+],
+"distractors": [
+"amphetamines",
+"stimulants",
+"benzodiazepines",
+"antidepressant",
+"antibiotic",
+"antihistamines",
+"antipsychotics",
+"beta blockers"
+],
+"n_eligible": 10,
+"sha": "da1ce9437b161bce9e5ec09baae8a5e7b4a4d6bf0bbc98721110b5f98ec1e8e6",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0051__L056__p424:syntheticcannabinoids:psychedelics": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0051__L056__p424:syntheticcannabinoids:psychedelics",
+"anchor": "psychedelics",
+"nearest": [
+"amphetamines",
+"stimulants",
+"benzodiazepines",
+"antidepressant"
+],
+"random": [
+"antibiotic",
+"antihistamines",
+"beta blockers",
+"statins"
+],
+"distractors": [
+"amphetamines",
+"stimulants",
+"benzodiazepines",
+"antidepressant",
+"antibiotic",
+"antihistamines",
+"beta blockers",
+"statins"
+],
+"n_eligible": 10,
+"sha": "18f280493e690b39151c8429fbc5c24df4f551a3930a78e54a326c116ff6c9db",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0028__L028__p157:antibiotic:antidepressantfluoxetine": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0028__L028__p157:antibiotic:antidepressantfluoxetine",
+"anchor": "antidepressant",
+"nearest": [
+"antipsychotics",
+"beta blockers",
+"statins",
+"antihistamines"
+],
+"random": [
+"Cannabinoids",
+"Classic psychedelics",
+"NSAIDs",
+"psychedelics"
+],
+"distractors": [
+"antipsychotics",
+"beta blockers",
+"statins",
+"antihistamines",
+"Cannabinoids",
+"Classic psychedelics",
+"NSAIDs",
+"psychedelics"
+],
+"n_eligible": 17,
+"sha": "660c6ccdfe11639bf5e0c31242a64c590c18e2051762c3b22b994c34556a808c",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0051__L052__p424:syntheticcannabinoids:psychedelics": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0051__L052__p424:syntheticcannabinoids:psychedelics",
+"anchor": "psychedelics",
+"nearest": [
+"amphetamines",
+"stimulants",
+"benzodiazepines",
+"antidepressant"
+],
+"random": [
+"NSAIDs",
+"antibiotic",
+"antihistamines",
+"statins"
+],
+"distractors": [
+"amphetamines",
+"stimulants",
+"benzodiazepines",
+"antidepressant",
+"NSAIDs",
+"antibiotic",
+"antihistamines",
+"statins"
+],
+"n_eligible": 10,
+"sha": "48643238885f231afa187ba471185b8872163eca567616922b119c175c2cd94d",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0051__L044__p424:cannabinoids:classicpsychedelics": {
+"unit": "s3d-rl600-all11:chat-lmsys-0051__L044__p424:cannabinoids:classicpsychedelics",
+"anchor": "Classic psychedelics",
+"nearest": [
+"amphetamines",
+"stimulants",
+"benzodiazepines",
+"antipsychotics"
+],
+"random": [
+"antibiotic",
+"antidepressant",
+"antihistamines",
+"beta blockers"
+],
+"distractors": [
+"amphetamines",
+"stimulants",
+"benzodiazepines",
+"antipsychotics",
+"antibiotic",
+"antidepressant",
+"antihistamines",
+"beta blockers"
+],
+"n_eligible": 10,
+"sha": "6daa20b7d1e6c7f37cfe1d3b6b3f787ee15bbda0c17f79b0ef71014ec6805a09",
+"generation": 0
+}
+}

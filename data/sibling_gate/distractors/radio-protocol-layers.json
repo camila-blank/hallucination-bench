@@ -1,0 +1,104 @@
+{
+"mlnla-rl2-800-all11:chat-lmsys-0014__L024__p353:rrcprotocolinumts:rlcprotocolinlte": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0014__L024__p353:rrcprotocolinumts:rlcprotocolinlte",
+"anchor": "Radio Link Control (RLC)",
+"nearest": [
+"Packet Data Convergence Protocol (PDCP)",
+"Subnetwork Dependent Convergence Protocol (SNDCP)",
+"Medium Access Control (MAC)",
+"Service Data Adaptation Protocol (SDAP)"
+],
+"random": [
+"Physical Layer (PHY)"
+],
+"distractors": [
+"Packet Data Convergence Protocol (PDCP)",
+"Subnetwork Dependent Convergence Protocol (SNDCP)",
+"Medium Access Control (MAC)",
+"Service Data Adaptation Protocol (SDAP)",
+"Physical Layer (PHY)"
+],
+"n_eligible": 5,
+"sha": "5575e7e92833ed9039c0cd3c64f7bd92259b711fc512b5dc21b6c9e21658d11f",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0014__L028__p353:macprotocolumts:rlcprotocollte": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0014__L028__p353:macprotocolumts:rlcprotocollte",
+"anchor": "RLC protocol",
+"nearest": [
+"Radio Link Control",
+"Radio Link Protocol (RLP)",
+"Subnetwork Dependent Convergence Protocol (SNDCP)",
+"Packet Data Convergence Protocol (PDCP)"
+],
+"random": [
+"Logical Link Control (LLC)",
+"Physical Layer (PHY)",
+"Service Data Adaptation Protocol (SDAP)"
+],
+"distractors": [
+"Radio Link Control",
+"Radio Link Protocol (RLP)",
+"Subnetwork Dependent Convergence Protocol (SNDCP)",
+"Packet Data Convergence Protocol (PDCP)",
+"Logical Link Control (LLC)",
+"Physical Layer (PHY)",
+"Service Data Adaptation Protocol (SDAP)"
+],
+"n_eligible": 7,
+"sha": "6de4bd3995a14233470dd6387d41c85968b994d0c47a6949929270f2267917d2",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0014__L028__p353:rrclayer:rlcsublayer": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0014__L028__p353:rrclayer:rlcsublayer",
+"anchor": "Radio Link Control",
+"nearest": [
+"RLC protocol",
+"LTE RLC",
+"Subnetwork Dependent Convergence Protocol (SNDCP)",
+"Packet Data Convergence Protocol (PDCP)"
+],
+"random": [
+"Medium Access Control (MAC)",
+"Physical Layer (PHY)",
+"Service Data Adaptation Protocol (SDAP)"
+],
+"distractors": [
+"RLC protocol",
+"LTE RLC",
+"Subnetwork Dependent Convergence Protocol (SNDCP)",
+"Packet Data Convergence Protocol (PDCP)",
+"Medium Access Control (MAC)",
+"Physical Layer (PHY)",
+"Service Data Adaptation Protocol (SDAP)"
+],
+"n_eligible": 7,
+"sha": "d264e20f42aa3bd7dfbb47da1ee7ec1af6bc881f37b1b7b1a693cd1aaea4fa79",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0014__L028__p36:umtsmac:lterlc": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0014__L028__p36:umtsmac:lterlc",
+"anchor": "LTE RLC",
+"nearest": [
+"Radio Link Protocol (RLP)",
+"Subnetwork Dependent Convergence Protocol (SNDCP)",
+"Logical Link Control (LLC)",
+"Service Data Adaptation Protocol (SDAP)"
+],
+"random": [
+"Packet Data Convergence Protocol (PDCP)",
+"Physical Layer (PHY)"
+],
+"distractors": [
+"Radio Link Protocol (RLP)",
+"Subnetwork Dependent Convergence Protocol (SNDCP)",
+"Logical Link Control (LLC)",
+"Service Data Adaptation Protocol (SDAP)",
+"Packet Data Convergence Protocol (PDCP)",
+"Physical Layer (PHY)"
+],
+"n_eligible": 6,
+"sha": "6eeca0acf0558b808f7c8bf820d4c1f19da54b5f47ca6b992ea62ad611b3cda8",
+"generation": 0
+}
+}

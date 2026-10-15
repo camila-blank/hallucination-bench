@@ -1,0 +1,143 @@
+{
+"mlnla-rl2-800-all11:chat-dailydialog-0010__L028__p106:airport:bank": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0010__L028__p106:airport:bank",
+"anchor": "bank",
+"nearest": [
+"library",
+"New York",
+"Japan",
+"China"
+],
+"random": [
+"London",
+"Mauritius",
+"Paris",
+"Tokyo"
+],
+"distractors": [
+"library",
+"New York",
+"Japan",
+"China",
+"London",
+"Mauritius",
+"Paris",
+"Tokyo"
+],
+"n_eligible": 13,
+"sha": "cd0d91079d96a394e9db86954cd2b4b93eae3a949d8286b9aa2b8c0960ec3a3d",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0052__L028__p92:chinabeijing:hongkong": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0052__L028__p92:chinabeijing:hongkong",
+"anchor": "Hong Kong",
+"nearest": [
+"Rome",
+"London",
+"Australia",
+"library"
+],
+"random": [
+"airport",
+"bank",
+"office"
+],
+"distractors": [
+"Rome",
+"London",
+"Australia",
+"library",
+"airport",
+"bank",
+"office"
+],
+"n_eligible": 7,
+"sha": "95db761214dd24a45a9c92c5570a02c452986765656b46cba379ac6a2ed161d0",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0022__L020__p48:library:office": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0022__L020__p48:library:office",
+"anchor": "office",
+"nearest": [
+"airport",
+"bank",
+"Japan",
+"Australia"
+],
+"random": [
+"London",
+"New York",
+"Paris",
+"Rome"
+],
+"distractors": [
+"airport",
+"bank",
+"Japan",
+"Australia",
+"London",
+"New York",
+"Paris",
+"Rome"
+],
+"n_eligible": 14,
+"sha": "da29d6c3a4fba117731ce575a3a64ef0c96ab9a97dcb8f5b863b5763f34bb38f",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0046__L036__p132:beijing:australia": {
+"unit": "s3d-sft251:chat-dailydialog-0046__L036__p132:beijing:australia",
+"anchor": "Australia",
+"nearest": [
+"Mauritius",
+"Rome",
+"Tokyo",
+"office"
+],
+"random": [
+"Paris",
+"airport",
+"bank",
+"library"
+],
+"distractors": [
+"Mauritius",
+"Rome",
+"Tokyo",
+"office",
+"Paris",
+"airport",
+"bank",
+"library"
+],
+"n_eligible": 8,
+"sha": "0ee9fc179abcd5a9e8b24b9e102f722851b69b5486c9260114196286a85b4b47",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0052__L040__p73:mauritius:hongkong": {
+"unit": "s3d-sft251:chat-dailydialog-0052__L040__p73:mauritius:hongkong",
+"anchor": "Hong Kong",
+"nearest": [
+"Rome",
+"London",
+"Australia",
+"library"
+],
+"random": [
+"airport",
+"bank",
+"office"
+],
+"distractors": [
+"Rome",
+"London",
+"Australia",
+"library",
+"airport",
+"bank",
+"office"
+],
+"n_eligible": 7,
+"sha": "e4c6d8c1c3d40589fdbd5cc9c6fd7fead11a645ee36583626aca9b5ce642c7e7",
+"generation": 0
+}
+}

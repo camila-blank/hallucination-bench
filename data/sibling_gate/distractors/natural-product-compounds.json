@@ -1,0 +1,432 @@
+{
+"mlnla-rl2-800-all11:chat-lmsys-0069__L020__p384:panaxnotoginsengsaponins:gastrodin": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0069__L020__p384:panaxnotoginsengsaponins:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "1195f2c816d1c1a0382178ad482c077e95feba63ed15380261bcfe1540df8300",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0069__L020__p94:paeoniflorin:gastrodin": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0069__L020__p94:paeoniflorin:gastrodin",
+"anchor": "gastrodin",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "23e22ce14157681b5dfd5238ffb52b7aa2e5d6f9da5fe16b4e55ea25c107b65a",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0069__L024__p311:ginsenosiderg3:gastrodin": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0069__L024__p311:ginsenosiderg3:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "9464da8b35f20c63b95ca19899b2f283b9ce84675c975872690d8081f33fe7b9",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0069__L024__p94:paeoniflorin:gastrodin": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0069__L024__p94:paeoniflorin:gastrodin",
+"anchor": "gastrodin",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "58d15d5be0ae034af83fab0bc9736538e5677d9a870f5c3ce304f1e2c1c17ac6",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0069__L028__p94:paeoniflorin:gastrodin": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0069__L028__p94:paeoniflorin:gastrodin",
+"anchor": "gastrodin",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "ef99ed1cd971cb881d671bc38d0bfb3512da5359a9b891d4b3c2b7ab72e7d920",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0069__L032__p384:ginsenosiderg3:gastrodin": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0069__L032__p384:ginsenosiderg3:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "90b812a91d632c9f552c1c58f7b10ed03b3ae3dab0fd3ddfb8a13150c8caac69",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0069__L032__p94:paeoniflorin:gastrodin": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0069__L032__p94:paeoniflorin:gastrodin",
+"anchor": "gastrodin",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "24670ecc6f91b29a8f51b151ed1ad9bb8eff4ebff75e352bbfbf3113d31b8bcf",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0069__L036__p94:paeoniflorin:gastrodin": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0069__L036__p94:paeoniflorin:gastrodin",
+"anchor": "gastrodin",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "abd207c0a2a7f830020a33839ca5a100751dcee046aef2fbb5c483a72c4eea6a",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0069__L044__p311:curcuminoid:gastrodin": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0069__L044__p311:curcuminoid:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "2f3dccbda8119c3d441169e388bee093c0d740ccd9042e6ee590dc733922671d",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0069__L044__p384:resveratrolpuerarin:gastrodin": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0069__L044__p384:resveratrolpuerarin:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "6630b100494d7b2df2e0548664eea7cc57564a66c2f5e13a979f3cc762947146",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0069__L048__p486:glycyrrhetinicacidandpaclitaxel:gastrodin": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0069__L048__p486:glycyrrhetinicacidandpaclitaxel:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "5a28d4825398e449ee7f8211c5e0cadd083955bdcaaa00b96a9603b2922b2cdd",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0069__L048__p94:paeoniflorin:gastrodin": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0069__L048__p94:paeoniflorin:gastrodin",
+"anchor": "gastrodin",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "367a53152ddef4b71d5dac504f07adc6569ad12a18b8d4a1a46902bd8eb445db",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0069__L052__p384:ginsenosiderg3:gastrodin": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0069__L052__p384:ginsenosiderg3:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "0d0f39de959c9eb9c3a0884e5cd0d4ff0f80290b5090e8ae108b8530a470cf81",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0069__L052__p486:berberinefromcoptischinensis:gastrodinfromgastrodiaelata": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0069__L052__p486:berberinefromcoptischinensis:gastrodinfromgastrodiaelata",
+"anchor": "gastrodin",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "1d60d5d31ce6a814a40c2a0588e71eaa26fbd7c3b1ebf944f9ec4ff4b2c41117",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0069__L056__p311:quinine:gastrodin": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0069__L056__p311:quinine:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "4cd840505350363915ff585159f0b373f7ad31a0dd25cded5d2398e1790730b7",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0069__L056__p486:panaxnotoginsengsaponins:gastrodin": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0069__L056__p486:panaxnotoginsengsaponins:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "1a0b95c3344cf1f698b4587d517f9618e637b0bb57be4e4a67c57ce701732d72",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0069__L020__p94:paeoniflorin:gastrodin": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0069__L020__p94:paeoniflorin:gastrodin",
+"anchor": "gastrodin",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "d69a6ed89898e10c3c938fbb4cbad5d5bff9b2479162109dc39dfab9bb03ac6b",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0069__L024__p94:paeoniflorin:gastrodin": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0069__L024__p94:paeoniflorin:gastrodin",
+"anchor": "gastrodin",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "118ce1144db6ec0e813b409a3bdf4f1f0b31485eeb6675e0993e6938df1f3960",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0069__L028__p149:ginsenosiderg3:gastrodin": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0069__L028__p149:ginsenosiderg3:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "388b6e5e29c4b148b1a7e84da43f233180bd58c104372bb6d9e622f2a9f0ecd2",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0069__L028__p94:paeoniflorin:gastrodin": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0069__L028__p94:paeoniflorin:gastrodin",
+"anchor": "gastrodin",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "1fdc7fb41eccf3fe9a176dede7594ca844ce815035360f3aa2c9078576784d71",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0069__L032__p149:curcuminturmeric:gastrodingastrodiaelata": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0069__L032__p149:curcuminturmeric:gastrodingastrodiaelata",
+"anchor": "gastrodin",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "4765deaa93d71fb908702dda8c8ad1ccfa95ae228717938fb321b4176b359874",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0069__L032__p94:paeoniflorin:gastrodin": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0069__L032__p94:paeoniflorin:gastrodin",
+"anchor": "gastrodin",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "f69d5de8a791693f296da70313e849a7acd011ffc5b3afaf9850998c3702c99a",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0069__L036__p486:panaxnotoginsengsaponins:gastrodin": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0069__L036__p486:panaxnotoginsengsaponins:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "7a8f85fae28e30d147ad901a17cc4f415c99773234836793c71ea28aa37c996d",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0069__L036__p94:paeoniflorin:gastrodin": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0069__L036__p94:paeoniflorin:gastrodin",
+"anchor": "gastrodin",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "adfad5db562a3009e37b0797ab3cdc48494081bd8ac92ed0dee3add6b494be59",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0069__L052__p384:cordycepinfromastragaliradix:gastrodinfromgastrodiaelata": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0069__L052__p384:cordycepinfromastragaliradix:gastrodinfromgastrodiaelata",
+"anchor": "Gastrodin",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "53c33047d77973feebaae462108465e36a58ab984a902a1b1205a2c55c51b968",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0069__L056__p384:berberinefromcoptischinensis:gastrodinfromgastrodiaelata": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0069__L056__p384:berberinefromcoptischinensis:gastrodinfromgastrodiaelata",
+"anchor": "gastrodin",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "ea6349b0304cab9bebf7ad6952bd6413a64074089ad1366bd84567c8ad8523ea",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0069__L042__p311:saponinsemisynthesis:gastrodinproduction": {
+"unit": "nla-rl-L42:chat-lmsys-0069__L042__p311:saponinsemisynthesis:gastrodinproduction",
+"anchor": "Gastrodin",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "9ef2fdc53e8063188b5e7ad35ea929e00995562d9d6125357f769ace0a3fa04e",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0069__L044__p94:ginkgolide:gastrodin": {
+"unit": "s3d-rl600-all11:chat-lmsys-0069__L044__p94:ginkgolide:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "d03589fb7bf93bf538a24b6293465be4da2c0dc62a3aeb193bbf918948b90ceb",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0069__L052__p31:ginkgolicacid:gastrodin": {
+"unit": "s3d-rl600-all11:chat-lmsys-0069__L052__p31:ginkgolicacid:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "a381ca9c975ecefc59b449ec9b9cf8e592ae4dbb9b0fb4cb59e0e1a932db5bb5",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0069__L052__p31:ginkgolide:gastrodin": {
+"unit": "s3d-rl600-all11:chat-lmsys-0069__L052__p31:ginkgolide:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "7db7da5833b9693e4d1319031927114451d746f0d77edc87cc93570c9a079f09",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0069__L056__p31:ginkgolicacid:gastrodin": {
+"unit": "s3d-rl600-all11:chat-lmsys-0069__L056__p31:ginkgolicacid:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "515640084fc3272d42231309a381dde5880debccaba177035ff3571e9e2d4bcb",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0069__L056__p31:ginkgolide:gastrodin": {
+"unit": "s3d-rl600-all11:chat-lmsys-0069__L056__p31:ginkgolide:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "5dc6fc8f3b8894c2e05378970fa76b1575e94cdd23c317fd8dfc527fcd95e394",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0069__L056__p31:ginsenosiderg1:gastrodin": {
+"unit": "s3d-rl600-all11:chat-lmsys-0069__L056__p31:ginsenosiderg1:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "51125198a8825c743e8d7ecdc1033a2c6d6cc49c443bbc88bac6c732593a714b",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0069__L060__p31:ginkgolicacid:gastrodin": {
+"unit": "s3d-rl600-all11:chat-lmsys-0069__L060__p31:ginkgolicacid:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "2ad6e250adc4f91023ef9fcaed9d72281bfe102153e453425c2f8729d2073085",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0069__L060__p31:ginkgolide:gastrodin": {
+"unit": "s3d-rl600-all11:chat-lmsys-0069__L060__p31:ginkgolide:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "5dceb64fc904b23103d27acad9f32edfdb22e55115d5137df824197f5d95468f",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0069__L036__p384:人参皂苷:gastrodin": {
+"unit": "s3d-rl600:chat-lmsys-0069__L036__p384:人参皂苷:gastrodin",
+"anchor": "gastrodin",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "ce6fa255fc52228e838b31888208ac29c32e8697cdb1fdb7a2c3ae32f1c4f1c0",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0069__L048__p384:ginkgolides:gastrodin": {
+"unit": "s3d-rl600:chat-lmsys-0069__L048__p384:ginkgolides:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "cfe8ccf4616458abb2b0d4fe1f915b12c64f0eea876ad3aee326ca5d6fd4c635",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0069__L060__p31:ginkgolicacid:gastrodin": {
+"unit": "s3d-rl600:chat-lmsys-0069__L060__p31:ginkgolicacid:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "a37890634fb062aada0e5c2b35239705f0e085f0242899082afdb7749bce0ece",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0069__L060__p31:ginkgolide:gastrodin": {
+"unit": "s3d-rl600:chat-lmsys-0069__L060__p31:ginkgolide:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "3faf0b2720c4fa8033d5bc5b27f47b791752a70239fbcd2a428ba2b07af19589",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0069__L060__p31:ginkgolideb:gastrodin": {
+"unit": "s3d-rl600:chat-lmsys-0069__L060__p31:ginkgolideb:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "65fcfdeab5aeae88691cf88d18300041a27c9c894075c407fe3cb04114645ab1",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0069__L056__p31:ginkgolicacid:gastrodin": {
+"unit": "s3d-sft251:chat-lmsys-0069__L056__p31:ginkgolicacid:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "ee21f8d6174c075fd0173f46487e8dc51af62881dcc65fcf2d3c1ca95df1f5a5",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0069__L056__p31:ginkgolides:gastrodin": {
+"unit": "s3d-sft251:chat-lmsys-0069__L056__p31:ginkgolides:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "0fa5ad7a482449d48c1fb6db67f434b1703ba435e1b89634eab7795c54dcbd2e",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0069__L056__p31:glycyrrhizicacid:gastrodin": {
+"unit": "s3d-sft251:chat-lmsys-0069__L056__p31:glycyrrhizicacid:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "518838de46a2210644c59ddffb4b8e69bb47a93f203bdc3220b5853cc7a4cf87",
+"generation": 0
+}
+}

@@ -1,0 +1,338 @@
+{
+"mlnla-rl2-800-all11:chat-lmsys-0047__L036__p135:nyc:rosemarybeachflorida": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0047__L036__p135:nyc:rosemarybeachflorida",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Hong Kong",
+"Bali",
+"Egypt",
+"Tokyo"
+],
+"random": [],
+"distractors": [
+"Hong Kong",
+"Bali",
+"Egypt",
+"Tokyo"
+],
+"n_eligible": 4,
+"sha": "4d5952f6e0ecc9345987ee480742b19f7a0f31a001c5220d6d112557c1e5101d",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0047__L036__p586:nyc:rosemarybeachflorida": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0047__L036__p586:nyc:rosemarybeachflorida",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Hong Kong",
+"Bali",
+"Egypt",
+"Tokyo"
+],
+"random": [],
+"distractors": [
+"Hong Kong",
+"Bali",
+"Egypt",
+"Tokyo"
+],
+"n_eligible": 4,
+"sha": "dad6c8329a08f1878c32e3b8bd801e138921f56b74dd4e0f834851330420774d",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0047__L044__p586:nyc:rosemarybeach": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0047__L044__p586:nyc:rosemarybeach",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Hong Kong",
+"Bali",
+"Egypt",
+"Tokyo"
+],
+"random": [],
+"distractors": [
+"Hong Kong",
+"Bali",
+"Egypt",
+"Tokyo"
+],
+"n_eligible": 4,
+"sha": "6244cfb13125f527f6e129ff47c428a73e28513d21e298d8fa06505903ddd9ad",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0047__L048__p586:nyc:rosemarybeach": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0047__L048__p586:nyc:rosemarybeach",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Hong Kong",
+"Bali",
+"Egypt",
+"Tokyo"
+],
+"random": [],
+"distractors": [
+"Hong Kong",
+"Bali",
+"Egypt",
+"Tokyo"
+],
+"n_eligible": 4,
+"sha": "a730e0cf8273dc228840fbf36e8d5535f11425cdd93e71759f43454c7d02e9cb",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0047__L056__p449:nyc:rosemarybeachflorida": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0047__L056__p449:nyc:rosemarybeachflorida",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Hong Kong",
+"Bali",
+"Egypt",
+"Tokyo"
+],
+"random": [],
+"distractors": [
+"Hong Kong",
+"Bali",
+"Egypt",
+"Tokyo"
+],
+"n_eligible": 4,
+"sha": "84e62dbe9ed03ad260c9e4b98a3f73da076040f886817944e1edb528c89030a8",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0047__L020__p513:southfloridafloridakeys:floridapanhandlerosemarybeach": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0047__L020__p513:southfloridafloridakeys:floridapanhandlerosemarybeach",
+"anchor": "Rosemary Beach, Florida",
+"nearest": [
+"Hong Kong",
+"Egypt",
+"Bali",
+"Tokyo"
+],
+"random": [],
+"distractors": [
+"Hong Kong",
+"Egypt",
+"Bali",
+"Tokyo"
+],
+"n_eligible": 4,
+"sha": "e4fc4adc31808e8b0fa2bc78a1b9fc682f297e1c74f9b36f79d51503f42fd255",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0047__L032__p586:bayarea:rosemarybeachflorida": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0047__L032__p586:bayarea:rosemarybeachflorida",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Hong Kong",
+"Bali",
+"Egypt",
+"Tokyo"
+],
+"random": [],
+"distractors": [
+"Hong Kong",
+"Bali",
+"Egypt",
+"Tokyo"
+],
+"n_eligible": 4,
+"sha": "e8b87fcf44196d5a71674c12785df060e2d356369e0cd29e3a2bfe96e267ce28",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0047__L036__p586:disneyworld:rosemarybeach": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0047__L036__p586:disneyworld:rosemarybeach",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Hong Kong",
+"Bali",
+"Egypt",
+"Tokyo"
+],
+"random": [],
+"distractors": [
+"Hong Kong",
+"Bali",
+"Egypt",
+"Tokyo"
+],
+"n_eligible": 4,
+"sha": "7e7138dfb02aab3d039b0defae7f52e39190303283110e5607f664e05e35943c",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0047__L044__p586:disneyworld:rosemarybeachflorida": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0047__L044__p586:disneyworld:rosemarybeachflorida",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Hong Kong",
+"Bali",
+"Egypt",
+"Tokyo"
+],
+"random": [],
+"distractors": [
+"Hong Kong",
+"Bali",
+"Egypt",
+"Tokyo"
+],
+"n_eligible": 4,
+"sha": "1fa21861c2d19c1b6b463bb2c3e55bc805d513a7ab59d12c058c06a9b3314a83",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0052__L020__p92:egypt:hongkong": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0052__L020__p92:egypt:hongkong",
+"anchor": "Hong Kong",
+"nearest": [
+"Maui",
+"Bali",
+"London",
+"New York City"
+],
+"random": [
+"Rome",
+"Rosemary Beach",
+"San Francisco Bay Area",
+"Walt Disney World"
+],
+"distractors": [
+"Maui",
+"Bali",
+"London",
+"New York City",
+"Rome",
+"Rosemary Beach",
+"San Francisco Bay Area",
+"Walt Disney World"
+],
+"n_eligible": 9,
+"sha": "995a9cc83e8cba9f43ba0da430afcd74cd0024d841411914142049b86b3e8706",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0052__L024__p92:egypt:hongkong": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0052__L024__p92:egypt:hongkong",
+"anchor": "Hong Kong",
+"nearest": [
+"Maui",
+"Bali",
+"London",
+"New York City"
+],
+"random": [
+"Rome",
+"Rosemary Beach",
+"San Francisco Bay Area",
+"Walt Disney World"
+],
+"distractors": [
+"Maui",
+"Bali",
+"London",
+"New York City",
+"Rome",
+"Rosemary Beach",
+"San Francisco Bay Area",
+"Walt Disney World"
+],
+"n_eligible": 9,
+"sha": "ad8cf1678642df56f997b69cd2f44dacc8bdcf56233d8b280fcf32f860a33d02",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0052__L028__p92:egypt:hongkong": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0052__L028__p92:egypt:hongkong",
+"anchor": "Hong Kong",
+"nearest": [
+"Maui",
+"Bali",
+"London",
+"New York City"
+],
+"random": [
+"Nantucket",
+"Rome",
+"Rosemary Beach",
+"Walt Disney World"
+],
+"distractors": [
+"Maui",
+"Bali",
+"London",
+"New York City",
+"Nantucket",
+"Rome",
+"Rosemary Beach",
+"Walt Disney World"
+],
+"n_eligible": 9,
+"sha": "8eef0abfb6a7329bdc1e8e386695adaa6a21b3eafb3d1a11360e0166c16d209e",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0047__L024__p586:maui:rosemarybeach": {
+"unit": "s3d-rl600-all11:chat-lmsys-0047__L024__p586:maui:rosemarybeach",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Hong Kong",
+"Bali",
+"Egypt",
+"Tokyo"
+],
+"random": [],
+"distractors": [
+"Hong Kong",
+"Bali",
+"Egypt",
+"Tokyo"
+],
+"n_eligible": 4,
+"sha": "b42b43a27670a204012bf35bf7ebc22cf8f71b7b6b806ca98ffc9a980802ce44",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0047__L048__p586:nantucket:rosemarybeach": {
+"unit": "s3d-rl600-all11:chat-lmsys-0047__L048__p586:nantucket:rosemarybeach",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Hong Kong",
+"Bali",
+"Egypt",
+"Tokyo"
+],
+"random": [],
+"distractors": [
+"Hong Kong",
+"Bali",
+"Egypt",
+"Tokyo"
+],
+"n_eligible": 4,
+"sha": "9e5a901c675c3fdff9126affdd5e86aee3390acafe094e054de9ee2d32fefc2d",
+"generation": 0
+},
+"s3d-rl600:chat-dailydialog-0052__L020__p92:egypt:hongkong": {
+"unit": "s3d-rl600:chat-dailydialog-0052__L020__p92:egypt:hongkong",
+"anchor": "Hong Kong",
+"nearest": [
+"Maui",
+"Bali",
+"London",
+"New York City"
+],
+"random": [
+"Nantucket",
+"Rome",
+"Rosemary Beach",
+"Walt Disney World"
+],
+"distractors": [
+"Maui",
+"Bali",
+"London",
+"New York City",
+"Nantucket",
+"Rome",
+"Rosemary Beach",
+"Walt Disney World"
+],
+"n_eligible": 9,
+"sha": "3926933ab53efdce3ed92aa9e2ec2258f628253b25459d78d42a5ac70ed1d8df",
+"generation": 0
+}
+}

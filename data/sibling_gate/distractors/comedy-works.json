@@ -1,0 +1,452 @@
+{
+"mlnla-rl2-800-all11:chat-dailydialog-0030__L024__p203:montypythonsketch:thehitchhikersguidetothegalaxy": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0030__L024__p203:montypythonsketch:thehitchhikersguidetothegalaxy",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"The Big Lebowski",
+"Dr. Strangelove",
+"Arrested Development",
+"Blackadder"
+],
+"random": [
+"Airplane!",
+"Some Like It Hot"
+],
+"distractors": [
+"The Big Lebowski",
+"Dr. Strangelove",
+"Arrested Development",
+"Blackadder",
+"Airplane!",
+"Some Like It Hot"
+],
+"n_eligible": 6,
+"sha": "3857351a09583713a6999f00c113b156cdddab6e187d20e9a1aa3341184ce5c1",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0030__L032__p87:montypythonandtheholygrail:thehitchhikersguidetothegalaxy": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0030__L032__p87:montypythonandtheholygrail:thehitchhikersguidetothegalaxy",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"The Big Lebowski",
+"Dr. Strangelove",
+"Arrested Development",
+"Blackadder"
+],
+"random": [
+"Airplane!",
+"Some Like It Hot"
+],
+"distractors": [
+"The Big Lebowski",
+"Dr. Strangelove",
+"Arrested Development",
+"Blackadder",
+"Airplane!",
+"Some Like It Hot"
+],
+"n_eligible": 6,
+"sha": "789a56a5c998f0a2e746a106f171ac9d0f791020662ddd32b67abd160970733c",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0030__L056__p65:montypythonandtheholygrail:thehitchhikersguidetothegalaxy": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0030__L056__p65:montypythonandtheholygrail:thehitchhikersguidetothegalaxy",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"The Big Lebowski",
+"Dr. Strangelove",
+"Arrested Development",
+"Blackadder"
+],
+"random": [
+"Airplane!",
+"Some Like It Hot"
+],
+"distractors": [
+"The Big Lebowski",
+"Dr. Strangelove",
+"Arrested Development",
+"Blackadder",
+"Airplane!",
+"Some Like It Hot"
+],
+"n_eligible": 6,
+"sha": "a7da6dbd368d664c79ed92420365711b57bd11ab25451e1d1590e8b6ec84b174",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0030__L044__p110:montypythonandtheholygrail:thehitchhikersguidetothegalaxy": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0030__L044__p110:montypythonandtheholygrail:thehitchhikersguidetothegalaxy",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"The Big Lebowski",
+"Dr. Strangelove",
+"Arrested Development",
+"Blackadder"
+],
+"random": [
+"Airplane!",
+"Some Like It Hot"
+],
+"distractors": [
+"The Big Lebowski",
+"Dr. Strangelove",
+"Arrested Development",
+"Blackadder",
+"Airplane!",
+"Some Like It Hot"
+],
+"n_eligible": 6,
+"sha": "43aa657804edf825c1b19a02cfdd9f7ce062c79eecfc02f1340840f456313483",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0030__L044__p65:montypythonandtheholygrail:thehitchhikersguidetothegalaxy": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0030__L044__p65:montypythonandtheholygrail:thehitchhikersguidetothegalaxy",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"The Big Lebowski",
+"Dr. Strangelove",
+"Arrested Development",
+"Blackadder"
+],
+"random": [
+"Airplane!",
+"Some Like It Hot"
+],
+"distractors": [
+"The Big Lebowski",
+"Dr. Strangelove",
+"Arrested Development",
+"Blackadder",
+"Airplane!",
+"Some Like It Hot"
+],
+"n_eligible": 6,
+"sha": "99707ea993f29ce0862904f681fdde16a24b9db4a8a527c9a451d27c27aee364",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0030__L048__p65:montypythonandtheholygrail:thehitchhikersguidetothegalaxy": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0030__L048__p65:montypythonandtheholygrail:thehitchhikersguidetothegalaxy",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"The Big Lebowski",
+"Dr. Strangelove",
+"Arrested Development",
+"Blackadder"
+],
+"random": [
+"Airplane!",
+"Some Like It Hot"
+],
+"distractors": [
+"The Big Lebowski",
+"Dr. Strangelove",
+"Arrested Development",
+"Blackadder",
+"Airplane!",
+"Some Like It Hot"
+],
+"n_eligible": 6,
+"sha": "8d0548ea39cfb0d2abd32baa27c1f9bbc6848e263755b78a771b8d919d321408",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0030__L036__p65:montypythonsflyingcircus:thehitchhikersguidetothegalaxy": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0030__L036__p65:montypythonsflyingcircus:thehitchhikersguidetothegalaxy",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"The Big Lebowski",
+"Dr. Strangelove",
+"Arrested Development",
+"Blackadder"
+],
+"random": [
+"Airplane!",
+"Some Like It Hot"
+],
+"distractors": [
+"The Big Lebowski",
+"Dr. Strangelove",
+"Arrested Development",
+"Blackadder",
+"Airplane!",
+"Some Like It Hot"
+],
+"n_eligible": 6,
+"sha": "ce31bd4a0a12adc8d625314bf2b64d044fbe172c09268174406035ffe8c44e1f",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0030__L040__p65:montypythonsholygrail:thehitchhikersguidetothegalaxy": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0030__L040__p65:montypythonsholygrail:thehitchhikersguidetothegalaxy",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"The Big Lebowski",
+"Dr. Strangelove",
+"Arrested Development",
+"Blackadder"
+],
+"random": [
+"Airplane!",
+"Some Like It Hot"
+],
+"distractors": [
+"The Big Lebowski",
+"Dr. Strangelove",
+"Arrested Development",
+"Blackadder",
+"Airplane!",
+"Some Like It Hot"
+],
+"n_eligible": 6,
+"sha": "f01fc5bc97657d9a17ca037f1d787e6334e60196360aa0ecc78a39d80e15380f",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0030__L044__p65:montypythonsflyingcircus:thehitchhikersguidetothegalaxy": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0030__L044__p65:montypythonsflyingcircus:thehitchhikersguidetothegalaxy",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"The Big Lebowski",
+"Dr. Strangelove",
+"Arrested Development",
+"Blackadder"
+],
+"random": [
+"Airplane!",
+"Some Like It Hot"
+],
+"distractors": [
+"The Big Lebowski",
+"Dr. Strangelove",
+"Arrested Development",
+"Blackadder",
+"Airplane!",
+"Some Like It Hot"
+],
+"n_eligible": 6,
+"sha": "f2924e2bc006b71961f72f1bbe6aac35838e0bdd80030f8e72c531e67a7c3c97",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0030__L056__p65:montypythonandtheholygrail:thehitchhikersguidetothegalaxy": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0030__L056__p65:montypythonandtheholygrail:thehitchhikersguidetothegalaxy",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"The Big Lebowski",
+"Dr. Strangelove",
+"Arrested Development",
+"Blackadder"
+],
+"random": [
+"Airplane!",
+"Some Like It Hot"
+],
+"distractors": [
+"The Big Lebowski",
+"Dr. Strangelove",
+"Arrested Development",
+"Blackadder",
+"Airplane!",
+"Some Like It Hot"
+],
+"n_eligible": 6,
+"sha": "0dde710ed977d24239f48589a2628fbd6fb39bbb70f500b09375564cd77a7d87",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0030__L056__p65:montypythonsflyingcircus:thehitchhikersguidetothegalaxy": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0030__L056__p65:montypythonsflyingcircus:thehitchhikersguidetothegalaxy",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"The Big Lebowski",
+"Dr. Strangelove",
+"Arrested Development",
+"Blackadder"
+],
+"random": [
+"Airplane!",
+"Some Like It Hot"
+],
+"distractors": [
+"The Big Lebowski",
+"Dr. Strangelove",
+"Arrested Development",
+"Blackadder",
+"Airplane!",
+"Some Like It Hot"
+],
+"n_eligible": 6,
+"sha": "4afcf6d2ce220044b58994692355be0d5adf2d58cb3885706b0ad8b8d3689e29",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0030__L056__p65:themeaningoflife:thehitchhikersguidetothegalaxy": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0030__L056__p65:themeaningoflife:thehitchhikersguidetothegalaxy",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"The Big Lebowski",
+"Dr. Strangelove",
+"Arrested Development",
+"Blackadder"
+],
+"random": [
+"Airplane!",
+"Some Like It Hot"
+],
+"distractors": [
+"The Big Lebowski",
+"Dr. Strangelove",
+"Arrested Development",
+"Blackadder",
+"Airplane!",
+"Some Like It Hot"
+],
+"n_eligible": 6,
+"sha": "5c931cd5d4ab6655475ff46f26b86a4fa8e3570cafec45d9377846597e6dcce2",
+"generation": 0
+},
+"s3d-rl600:chat-dailydialog-0030__L036__p65:montypythonsflyingcircus:thehitchhikersguidetothegalaxy": {
+"unit": "s3d-rl600:chat-dailydialog-0030__L036__p65:montypythonsflyingcircus:thehitchhikersguidetothegalaxy",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"The Big Lebowski",
+"Dr. Strangelove",
+"Arrested Development",
+"Blackadder"
+],
+"random": [
+"Airplane!",
+"Some Like It Hot"
+],
+"distractors": [
+"The Big Lebowski",
+"Dr. Strangelove",
+"Arrested Development",
+"Blackadder",
+"Airplane!",
+"Some Like It Hot"
+],
+"n_eligible": 6,
+"sha": "fc79af77af407be99451a3bbb3d51ea543eebb0ddae5c0e8e432acba1c366389",
+"generation": 0
+},
+"s3d-rl600:chat-dailydialog-0030__L044__p203:montypythonsketch:thehitchhikersguidetothegalaxy": {
+"unit": "s3d-rl600:chat-dailydialog-0030__L044__p203:montypythonsketch:thehitchhikersguidetothegalaxy",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"The Big Lebowski",
+"Dr. Strangelove",
+"Arrested Development",
+"Blackadder"
+],
+"random": [
+"Airplane!",
+"Some Like It Hot"
+],
+"distractors": [
+"The Big Lebowski",
+"Dr. Strangelove",
+"Arrested Development",
+"Blackadder",
+"Airplane!",
+"Some Like It Hot"
+],
+"n_eligible": 6,
+"sha": "315351f40ceb3f3b910a198bcd0ef6e6f72c52c758b7f3bf18022b3f7f0c2401",
+"generation": 0
+},
+"s3d-rl600:chat-dailydialog-0030__L044__p65:montypythonsflyingcircus:thehitchhikersguidetothegalaxy": {
+"unit": "s3d-rl600:chat-dailydialog-0030__L044__p65:montypythonsflyingcircus:thehitchhikersguidetothegalaxy",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"The Big Lebowski",
+"Dr. Strangelove",
+"Arrested Development",
+"Blackadder"
+],
+"random": [
+"Airplane!",
+"Some Like It Hot"
+],
+"distractors": [
+"The Big Lebowski",
+"Dr. Strangelove",
+"Arrested Development",
+"Blackadder",
+"Airplane!",
+"Some Like It Hot"
+],
+"n_eligible": 6,
+"sha": "0dc4d86265c905c884c6b2f0767461c1d10062a39089a55601520d9494ab88bf",
+"generation": 0
+},
+"s3d-rl600:chat-dailydialog-0030__L048__p65:montypythonsflyingcircus:thehitchhikersguidetothegalaxy": {
+"unit": "s3d-rl600:chat-dailydialog-0030__L048__p65:montypythonsflyingcircus:thehitchhikersguidetothegalaxy",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"The Big Lebowski",
+"Dr. Strangelove",
+"Arrested Development",
+"Blackadder"
+],
+"random": [
+"Airplane!",
+"Some Like It Hot"
+],
+"distractors": [
+"The Big Lebowski",
+"Dr. Strangelove",
+"Arrested Development",
+"Blackadder",
+"Airplane!",
+"Some Like It Hot"
+],
+"n_eligible": 6,
+"sha": "51b2b33af836cb6aa87d6de885e00670d32950f90a75376b8d0127e625147c08",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0030__L040__p65:montypythonsflyingcircus:thehitchhikersguidetothegalaxy": {
+"unit": "s3d-sft251:chat-dailydialog-0030__L040__p65:montypythonsflyingcircus:thehitchhikersguidetothegalaxy",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"The Big Lebowski",
+"Dr. Strangelove",
+"Arrested Development",
+"Blackadder"
+],
+"random": [
+"Airplane!",
+"Some Like It Hot"
+],
+"distractors": [
+"The Big Lebowski",
+"Dr. Strangelove",
+"Arrested Development",
+"Blackadder",
+"Airplane!",
+"Some Like It Hot"
+],
+"n_eligible": 6,
+"sha": "3a1d13b44c72cce35d14ebf02e336fe0bef90dcf79085eef20a61aba65b7f218",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0030__L056__p65:montypythonsflyingcircus:thehitchhikersguidetothegalaxy": {
+"unit": "s3d-sft251:chat-dailydialog-0030__L056__p65:montypythonsflyingcircus:thehitchhikersguidetothegalaxy",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"The Big Lebowski",
+"Dr. Strangelove",
+"Arrested Development",
+"Blackadder"
+],
+"random": [
+"Airplane!",
+"Some Like It Hot"
+],
+"distractors": [
+"The Big Lebowski",
+"Dr. Strangelove",
+"Arrested Development",
+"Blackadder",
+"Airplane!",
+"Some Like It Hot"
+],
+"n_eligible": 6,
+"sha": "8d864af763008133d498a7069066c276430c332a7e059af41ef5d8ce53a6c678",
+"generation": 0
+}
+}

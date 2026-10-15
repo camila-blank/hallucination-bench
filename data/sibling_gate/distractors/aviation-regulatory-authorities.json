@@ -1,0 +1,147 @@
+{
+"mlnla-rl2-800-all11:chat-lmsys-0026__L020__p181:faa:icao": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0026__L020__p181:faa:icao",
+"anchor": "International Civil Aviation Organization",
+"nearest": [
+"European Union Aviation Safety Agency",
+"Luftfahrt-Bundesamt",
+"Japan Civil Aviation Bureau",
+"Directorate General of Civil Aviation (India)"
+],
+"random": [
+"Agência Nacional de Aviação Civil",
+"Civil Aviation Safety Authority",
+"Direction générale de l'aviation civile",
+"Ente Nazionale per l'Aviazione Civile"
+],
+"distractors": [
+"European Union Aviation Safety Agency",
+"Luftfahrt-Bundesamt",
+"Japan Civil Aviation Bureau",
+"Directorate General of Civil Aviation (India)",
+"Agência Nacional de Aviação Civil",
+"Civil Aviation Safety Authority",
+"Direction générale de l'aviation civile",
+"Ente Nazionale per l'Aviazione Civile"
+],
+"n_eligible": 10,
+"sha": "7205b79f8145b8fb96a42303e94a83e443eb0ef39ef441bfeb454ea85101d5c3",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0026__L028__p471:emarcaasingapore:icaoannex4": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0026__L028__p471:emarcaasingapore:icaoannex4",
+"anchor": "ICAO",
+"nearest": [
+"European Union Aviation Safety Agency",
+"Luftfahrt-Bundesamt",
+"Directorate General of Civil Aviation (India)",
+"Civil Aviation Authority (United Kingdom)"
+],
+"random": [
+"Agência Nacional de Aviação Civil",
+"Civil Aviation Safety Authority",
+"Ente Nazionale per l'Aviazione Civile",
+"Japan Civil Aviation Bureau"
+],
+"distractors": [
+"European Union Aviation Safety Agency",
+"Luftfahrt-Bundesamt",
+"Directorate General of Civil Aviation (India)",
+"Civil Aviation Authority (United Kingdom)",
+"Agência Nacional de Aviação Civil",
+"Civil Aviation Safety Authority",
+"Ente Nazionale per l'Aviazione Civile",
+"Japan Civil Aviation Bureau"
+],
+"n_eligible": 10,
+"sha": "d2cca75d8e009a871d0cf1d7275f3af17c9452eb2337dcbfb427e5dd6f8b2eaf",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0026__L028__p471:singaporescaas:icao": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0026__L028__p471:singaporescaas:icao",
+"anchor": "International Civil Aviation Organization",
+"nearest": [
+"European Union Aviation Safety Agency",
+"Luftfahrt-Bundesamt",
+"Japan Civil Aviation Bureau",
+"Directorate General of Civil Aviation (India)"
+],
+"random": [
+"Agência Nacional de Aviação Civil",
+"Direction générale de l'aviation civile",
+"Ente Nazionale per l'Aviazione Civile",
+"Transport Canada Civil Aviation"
+],
+"distractors": [
+"European Union Aviation Safety Agency",
+"Luftfahrt-Bundesamt",
+"Japan Civil Aviation Bureau",
+"Directorate General of Civil Aviation (India)",
+"Agência Nacional de Aviação Civil",
+"Direction générale de l'aviation civile",
+"Ente Nazionale per l'Aviazione Civile",
+"Transport Canada Civil Aviation"
+],
+"n_eligible": 8,
+"sha": "c97ff235c0970b211460c9fdb94015728b9e0454071d85943a7e58bf08519fb3",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0026__L052__p128:faa:icao": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0026__L052__p128:faa:icao",
+"anchor": "International Civil Aviation Organization",
+"nearest": [
+"European Union Aviation Safety Agency",
+"Luftfahrt-Bundesamt",
+"Japan Civil Aviation Bureau",
+"Directorate General of Civil Aviation (India)"
+],
+"random": [
+"Agência Nacional de Aviação Civil",
+"Civil Aviation Safety Authority",
+"Ente Nazionale per l'Aviazione Civile",
+"Transport Canada Civil Aviation"
+],
+"distractors": [
+"European Union Aviation Safety Agency",
+"Luftfahrt-Bundesamt",
+"Japan Civil Aviation Bureau",
+"Directorate General of Civil Aviation (India)",
+"Agência Nacional de Aviação Civil",
+"Civil Aviation Safety Authority",
+"Ente Nazionale per l'Aviazione Civile",
+"Transport Canada Civil Aviation"
+],
+"n_eligible": 10,
+"sha": "43222d627dbc9c89daea85d4a38423b602c3b56dd0c12b3e309455de04d9e687",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0026__L056__p128:caac:icao": {
+"unit": "s3d-rl600-all11:chat-lmsys-0026__L056__p128:caac:icao",
+"anchor": "ICAO",
+"nearest": [
+"European Union Aviation Safety Agency",
+"Luftfahrt-Bundesamt",
+"Directorate General of Civil Aviation (India)",
+"Civil Aviation Authority (United Kingdom)"
+],
+"random": [
+"Agência Nacional de Aviação Civil",
+"Civil Aviation Safety Authority",
+"Direction générale de l'aviation civile",
+"Ente Nazionale per l'Aviazione Civile"
+],
+"distractors": [
+"European Union Aviation Safety Agency",
+"Luftfahrt-Bundesamt",
+"Directorate General of Civil Aviation (India)",
+"Civil Aviation Authority (United Kingdom)",
+"Agência Nacional de Aviação Civil",
+"Civil Aviation Safety Authority",
+"Direction générale de l'aviation civile",
+"Ente Nazionale per l'Aviazione Civile"
+],
+"n_eligible": 10,
+"sha": "8028d08a1b94f8149d9e3720f4693598e6f3bc7ae3bc47cecd6c9a8a9704d1ab",
+"generation": 0
+}
+}

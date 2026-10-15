@@ -1,0 +1,252 @@
+{
+"jlens:chat-lmsys-0056__L056__p95:echo:consolewriteline": {
+"unit": "jlens:chat-lmsys-0056__L056__p95:echo:consolewriteline",
+"anchor": "Console.Write",
+"nearest": [
+"puts",
+"putchar",
+"sprintf",
+"fputs"
+],
+"random": [
+"cout",
+"fprintf",
+"print_r"
+],
+"distractors": [
+"puts",
+"putchar",
+"sprintf",
+"fputs",
+"cout",
+"fprintf",
+"print_r"
+],
+"n_eligible": 7,
+"sha": "41ae7153b98a265e78f47dff6e28884a0c10bc74514093f7c85e112b475ec57b",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0056__L040__p123:printf:consolewrite": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0056__L040__p123:printf:consolewrite",
+"anchor": "Console.WriteLine",
+"nearest": [
+"cout",
+"print_r",
+"document.write",
+"puts"
+],
+"random": [
+"fputs",
+"putchar"
+],
+"distractors": [
+"cout",
+"print_r",
+"document.write",
+"puts",
+"fputs",
+"putchar"
+],
+"n_eligible": 6,
+"sha": "5f9e533c1351cbf295a22b71ff37f76909add7c89c55eeef5cbbe9340e18551a",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0056__L044__p58:print:consolewrite": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0056__L044__p58:print:consolewrite",
+"anchor": "Console.Write",
+"nearest": [
+"puts",
+"putchar",
+"sprintf",
+"fputs"
+],
+"random": [
+"cout",
+"fprintf"
+],
+"distractors": [
+"puts",
+"putchar",
+"sprintf",
+"fputs",
+"cout",
+"fprintf"
+],
+"n_eligible": 6,
+"sha": "df80b96f6aa860ee5193429d39c5489998d995a468b9dde37d17e545c1bdfcb6",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0056__L048__p95:printf:consolewriteline": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0056__L048__p95:printf:consolewriteline",
+"anchor": "Console.WriteLine",
+"nearest": [
+"cout",
+"print_r",
+"document.write",
+"puts"
+],
+"random": [
+"fputs",
+"putchar"
+],
+"distractors": [
+"cout",
+"print_r",
+"document.write",
+"puts",
+"fputs",
+"putchar"
+],
+"n_eligible": 6,
+"sha": "db2eb6c95fa91d3af4f663f5d4eef6169083e90bcc1b4e92b7ed457c863f17b0",
+"generation": 0
+},
+"nla-sft-L42:chat-lmsys-0056__L042__p123:printf:consolewrite": {
+"unit": "nla-sft-L42:chat-lmsys-0056__L042__p123:printf:consolewrite",
+"anchor": "Console.WriteLine",
+"nearest": [
+"cout",
+"print_r",
+"document.write",
+"puts"
+],
+"random": [
+"fputs",
+"putchar"
+],
+"distractors": [
+"cout",
+"print_r",
+"document.write",
+"puts",
+"fputs",
+"putchar"
+],
+"n_eligible": 6,
+"sha": "bbbe30c872baca67f3d554d19fac3e83558f8d6fcda65ed6c6b7dcaf01544e62",
+"generation": 0
+},
+"rlens:chat-lmsys-0056__L056__p95:printf:consolewriteline": {
+"unit": "rlens:chat-lmsys-0056__L056__p95:printf:consolewriteline",
+"anchor": "Console.WriteLine",
+"nearest": [
+"cout",
+"print_r",
+"document.write",
+"puts"
+],
+"random": [
+"fputs",
+"putchar"
+],
+"distractors": [
+"cout",
+"print_r",
+"document.write",
+"puts",
+"fputs",
+"putchar"
+],
+"n_eligible": 6,
+"sha": "94ecee2e6ed4bf338c83fa7f0994c28ebd4b127dd1297578b5b911fea81c7bc1",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0056__L020__p123:cprintf:cconsolewrite": {
+"unit": "s3d-rl600-all11:chat-lmsys-0056__L020__p123:cprintf:cconsolewrite",
+"anchor": "Console.Write",
+"nearest": [
+"puts",
+"putchar",
+"fputs",
+"cout"
+],
+"random": [
+"print_r"
+],
+"distractors": [
+"puts",
+"putchar",
+"fputs",
+"cout",
+"print_r"
+],
+"n_eligible": 5,
+"sha": "d4122acf8c13d93884c45032fb5ce212d2de7f4e3ba1aefcae7e7aad2c6f4d28",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0056__L024__p152:printf:consolewriteline": {
+"unit": "s3d-rl600-all11:chat-lmsys-0056__L024__p152:printf:consolewriteline",
+"anchor": "Console.WriteLine",
+"nearest": [
+"cout",
+"print_r",
+"document.write",
+"puts"
+],
+"random": [
+"fputs",
+"putchar"
+],
+"distractors": [
+"cout",
+"print_r",
+"document.write",
+"puts",
+"fputs",
+"putchar"
+],
+"n_eligible": 6,
+"sha": "f86f6e115c7e1e42f686097e2c107653209cd34af919e2e32656ab0e85e615ff",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0056__L032__p152:printf:consolewriteline": {
+"unit": "s3d-rl600-all11:chat-lmsys-0056__L032__p152:printf:consolewriteline",
+"anchor": "Console.WriteLine",
+"nearest": [
+"cout",
+"print_r",
+"document.write",
+"puts"
+],
+"random": [
+"fputs",
+"putchar"
+],
+"distractors": [
+"cout",
+"print_r",
+"document.write",
+"puts",
+"fputs",
+"putchar"
+],
+"n_eligible": 6,
+"sha": "25675c6bb119e350ba3d2be03e40b688385af54de6fe840d14b5033837f8794e",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0056__L032__p152:printpython:consolewritelinec": {
+"unit": "s3d-sft251:chat-lmsys-0056__L032__p152:printpython:consolewritelinec",
+"anchor": "Console.Write",
+"nearest": [
+"puts",
+"putchar",
+"sprintf",
+"fputs"
+],
+"random": [
+"cout",
+"fprintf"
+],
+"distractors": [
+"puts",
+"putchar",
+"sprintf",
+"fputs",
+"cout",
+"fprintf"
+],
+"n_eligible": 6,
+"sha": "c778d45715ab7d6e31099af4fbeec6bd95513977eea7df68da7e134a08f39a9e",
+"generation": 0
+}
+}

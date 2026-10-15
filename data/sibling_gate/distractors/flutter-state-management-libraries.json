@@ -1,0 +1,108 @@
+{
+"nla-sft-L42:chat-lmsys-0012__L042__p316:getx:riverpod": {
+"unit": "nla-sft-L42:chat-lmsys-0012__L042__p316:getx:riverpod",
+"anchor": "Riverpod",
+"nearest": [
+"Flutter Hooks",
+"States Rebuilder",
+"Cubit",
+"Stacked"
+],
+"random": [
+"Fish Redux",
+"Momentum",
+"Signals"
+],
+"distractors": [
+"Flutter Hooks",
+"States Rebuilder",
+"Cubit",
+"Stacked",
+"Fish Redux",
+"Momentum",
+"Signals"
+],
+"n_eligible": 7,
+"sha": "eb4e1b096e81f1e6142b4a30e893b4d20aaa5434b09099e06ae71d095a5286b8",
+"generation": 0
+},
+"nla-sft-L42:chat-lmsys-0012__L042__p578:hooksmobxorgetx:providerbloc": {
+"unit": "nla-sft-L42:chat-lmsys-0012__L042__p578:hooksmobxorgetx:providerbloc",
+"anchor": "Provider / BLoC",
+"nearest": [
+"Fish Redux",
+"Cubit",
+"Stacked",
+"Momentum"
+],
+"random": [
+"Signals",
+"States Rebuilder"
+],
+"distractors": [
+"Fish Redux",
+"Cubit",
+"Stacked",
+"Momentum",
+"Signals",
+"States Rebuilder"
+],
+"n_eligible": 6,
+"sha": "6ff47a2238f3a01f876cfda9b189bfbf3fbb00a27286add43689b366c86e5ce9",
+"generation": 0
+},
+"nla-sft-L42:chat-lmsys-0012__L042__p578:mobx:provider": {
+"unit": "nla-sft-L42:chat-lmsys-0012__L042__p578:mobx:provider",
+"anchor": "Riverpod",
+"nearest": [
+"Flutter Hooks",
+"States Rebuilder",
+"Cubit",
+"Stacked"
+],
+"random": [
+"Fish Redux",
+"Momentum",
+"Signals"
+],
+"distractors": [
+"Flutter Hooks",
+"States Rebuilder",
+"Cubit",
+"Stacked",
+"Fish Redux",
+"Momentum",
+"Signals"
+],
+"n_eligible": 7,
+"sha": "1a11fd0d043c335ff9fad1d298970903bc2fc898fd215fcdcfeda246819bcab4",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0012__L060__p456:riverpod:hive": {
+"unit": "s3d-rl600:chat-lmsys-0012__L060__p456:riverpod:hive",
+"anchor": "Riverpod",
+"nearest": [
+"Flutter Hooks",
+"States Rebuilder",
+"Cubit",
+"Stacked"
+],
+"random": [
+"Fish Redux",
+"Momentum",
+"Signals"
+],
+"distractors": [
+"Flutter Hooks",
+"States Rebuilder",
+"Cubit",
+"Stacked",
+"Fish Redux",
+"Momentum",
+"Signals"
+],
+"n_eligible": 7,
+"sha": "5e0ef40717dcff7001d0afbd7060b24743bdcd930e3bc72f07fb1b27f4bc15cd",
+"generation": 0
+}
+}

@@ -1,0 +1,147 @@
+{
+"mlnla-rl2-800-all11:chat-dailydialog-0046__L032__p157:french:australian": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0046__L032__p157:french:australian",
+"anchor": "Australian",
+"nearest": [
+"Canadian",
+"Italian",
+"American",
+"Swedish"
+],
+"random": [
+"Chinese",
+"Japanese",
+"Mexican",
+"Spanish"
+],
+"distractors": [
+"Canadian",
+"Italian",
+"American",
+"Swedish",
+"Chinese",
+"Japanese",
+"Mexican",
+"Spanish"
+],
+"n_eligible": 12,
+"sha": "0a5c3eb880bb399bc8c9d773058c768874ea6c0fe43e7b24bd48b479becfab80",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0039__L028__p71:sovietidentity:jew": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0039__L028__p71:sovietidentity:jew",
+"anchor": "Soviet identity",
+"nearest": [
+"Russian",
+"French",
+"American",
+"Spanish"
+],
+"random": [
+"Australian",
+"Canadian",
+"Mexican",
+"Swedish"
+],
+"distractors": [
+"Russian",
+"French",
+"American",
+"Spanish",
+"Australian",
+"Canadian",
+"Mexican",
+"Swedish"
+],
+"n_eligible": 13,
+"sha": "58b42525957309b18fde02b58ac106fd3a4dd15f44326acfbea88eb3b3a81ea6",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0046__L024__p157:british:australian": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0046__L024__p157:british:australian",
+"anchor": "Australian",
+"nearest": [
+"Canadian",
+"Italian",
+"American",
+"Swedish"
+],
+"random": [
+"Danish",
+"Indian",
+"Mexican",
+"Russian"
+],
+"distractors": [
+"Canadian",
+"Italian",
+"American",
+"Swedish",
+"Danish",
+"Indian",
+"Mexican",
+"Russian"
+],
+"n_eligible": 12,
+"sha": "d2a22c0c28e450f2b0c394c48a68b2927eddbbe3a62e8db96fd07a41f2c3448d",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0031__L060__p54:danish:swedish": {
+"unit": "s3d-rl600-all11:chat-lmsys-0031__L060__p54:danish:swedish",
+"anchor": "Swedish",
+"nearest": [
+"Russian",
+"German",
+"Australian",
+"Japanese"
+],
+"random": [
+"British",
+"French",
+"Indian",
+"Mexican"
+],
+"distractors": [
+"Russian",
+"German",
+"Australian",
+"Japanese",
+"British",
+"French",
+"Indian",
+"Mexican"
+],
+"n_eligible": 12,
+"sha": "b3e3c8d6e2cd01574a8c208dd671f398ac81966c266ed0a20e3a53161f8b27e1",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0046__L048__p132:british:australian": {
+"unit": "s3d-sft251:chat-dailydialog-0046__L048__p132:british:australian",
+"anchor": "Australian",
+"nearest": [
+"Canadian",
+"Italian",
+"American",
+"Swedish"
+],
+"random": [
+"Chinese",
+"Danish",
+"Mexican",
+"Spanish"
+],
+"distractors": [
+"Canadian",
+"Italian",
+"American",
+"Swedish",
+"Chinese",
+"Danish",
+"Mexican",
+"Spanish"
+],
+"n_eligible": 12,
+"sha": "ed7939b4cfe49511dc7eac7fa3debae8e0ffad966e0af647abc5dae310b3daa8",
+"generation": 0
+}
+}

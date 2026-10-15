@@ -1,0 +1,127 @@
+{
+"mlnla-rl2-800-all11:chat-dailydialog-0009__L040__p127:godofwarthewitcherassassinscreed:thegodfathermafiaboardwalkempire": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0009__L040__p127:godofwarthewitcherassassinscreed:thegodfathermafiaboardwalkempire",
+"anchor": "The Godfather",
+"nearest": [
+"Jurassic Park",
+"James Bond",
+"Marvel Cinematic Universe",
+"Harry Potter"
+],
+"random": [
+"Pokémon",
+"Super Mario"
+],
+"distractors": [
+"Jurassic Park",
+"James Bond",
+"Marvel Cinematic Universe",
+"Harry Potter",
+"Pokémon",
+"Super Mario"
+],
+"n_eligible": 6,
+"sha": "d97279305086148036f2fc3ab91f4d8ebb61b6278169e94dfae906485866ca30",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0009__L044__p127:thebearassassinscreedthelordoftherings:thegodfathermafiaboardwalkempire": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0009__L044__p127:thebearassassinscreedthelordoftherings:thegodfathermafiaboardwalkempire",
+"anchor": "The Godfather, Mafia, Boardwalk Empire",
+"nearest": [
+"James Bond",
+"Jurassic Park",
+"Marvel Cinematic Universe",
+"Harry Potter"
+],
+"random": [
+"Pokémon",
+"Super Mario"
+],
+"distractors": [
+"James Bond",
+"Jurassic Park",
+"Marvel Cinematic Universe",
+"Harry Potter",
+"Pokémon",
+"Super Mario"
+],
+"n_eligible": 6,
+"sha": "2c6503de5494a07f6ebabab9c4707699fe388824b893e91c3d488cad4facd818",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0009__L032__p127:bladerunnersnowcrash:thegodfatherboardwalkempire": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0009__L032__p127:bladerunnersnowcrash:thegodfatherboardwalkempire",
+"anchor": "The Godfather",
+"nearest": [
+"Jurassic Park",
+"James Bond",
+"Marvel Cinematic Universe",
+"Harry Potter"
+],
+"random": [
+"Pokémon",
+"Super Mario"
+],
+"distractors": [
+"Jurassic Park",
+"James Bond",
+"Marvel Cinematic Universe",
+"Harry Potter",
+"Pokémon",
+"Super Mario"
+],
+"n_eligible": 6,
+"sha": "985e27f27687303cab8a5d4e81df3b97c27aad82774975d725f02d93d9ea0837",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0009__L040__p127:kingdomcomedeliverancethelordoftheringskingdom:thegodfathermafiaboardwalkempire": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0009__L040__p127:kingdomcomedeliverancethelordoftheringskingdom:thegodfathermafiaboardwalkempire",
+"anchor": "Mafia",
+"nearest": [
+"Marvel Cinematic Universe",
+"Pokémon",
+"Super Mario",
+"James Bond"
+],
+"random": [
+"Harry Potter",
+"Jurassic Park"
+],
+"distractors": [
+"Marvel Cinematic Universe",
+"Pokémon",
+"Super Mario",
+"James Bond",
+"Harry Potter",
+"Jurassic Park"
+],
+"n_eligible": 6,
+"sha": "a5db577102e82f2af230f2fb079c03072fc7c64156e4e1096bc81870df7f726f",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0009__L040__p127:thewitcherassassinscreedlordoftheringsgameofthrones:thegodfathermafiaboardwalkempire": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0009__L040__p127:thewitcherassassinscreedlordoftheringsgameofthrones:thegodfathermafiaboardwalkempire",
+"anchor": "The Godfather",
+"nearest": [
+"Jurassic Park",
+"James Bond",
+"Marvel Cinematic Universe",
+"Harry Potter"
+],
+"random": [
+"Pokémon",
+"Super Mario"
+],
+"distractors": [
+"Jurassic Park",
+"James Bond",
+"Marvel Cinematic Universe",
+"Harry Potter",
+"Pokémon",
+"Super Mario"
+],
+"n_eligible": 6,
+"sha": "1c4bfc88d9ca7bfbc180ec00d8df0a1b6384d0b255676d324471c564843cf5d6",
+"generation": 0
+}
+}

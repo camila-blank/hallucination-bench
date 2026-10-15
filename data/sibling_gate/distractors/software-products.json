@@ -1,0 +1,321 @@
+{
+"mlnla-rl2-800-all11:chat-lmsys-0054__L028__p17:apachehadoop:businessobjects": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0054__L028__p17:apachehadoop:businessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"Microsoft Excel",
+"Microsoft PowerPoint",
+"Microsoft Outlook",
+"Microsoft Word"
+],
+"random": [
+"Google Chrome",
+"Mozilla Firefox",
+"Zoom",
+"macOS"
+],
+"distractors": [
+"Microsoft Excel",
+"Microsoft PowerPoint",
+"Microsoft Outlook",
+"Microsoft Word",
+"Google Chrome",
+"Mozilla Firefox",
+"Zoom",
+"macOS"
+],
+"n_eligible": 10,
+"sha": "26b26a21ef413e6ab2128100176c50d145d7254c59a59570f078e2ecad44dd93",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0054__L028__p17:apachehadoop:sapbusinessobjects": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0054__L028__p17:apachehadoop:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"Microsoft Excel",
+"Microsoft PowerPoint",
+"Microsoft Outlook",
+"Microsoft Word"
+],
+"random": [
+"Adobe Photoshop",
+"Google Chrome",
+"Microsoft Windows",
+"Mozilla Firefox"
+],
+"distractors": [
+"Microsoft Excel",
+"Microsoft PowerPoint",
+"Microsoft Outlook",
+"Microsoft Word",
+"Adobe Photoshop",
+"Google Chrome",
+"Microsoft Windows",
+"Mozilla Firefox"
+],
+"n_eligible": 10,
+"sha": "363c0fcd2ae04b027212aa093f601ee2275483f6c3f2edeb7a4cce0f62c783cb",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0054__L028__p17:apachehadoop:sapbusinessobjects": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0054__L028__p17:apachehadoop:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"Microsoft Excel",
+"Microsoft PowerPoint",
+"Microsoft Outlook",
+"Microsoft Word"
+],
+"random": [
+"Google Chrome",
+"Mozilla Firefox",
+"Zoom",
+"macOS"
+],
+"distractors": [
+"Microsoft Excel",
+"Microsoft PowerPoint",
+"Microsoft Outlook",
+"Microsoft Word",
+"Google Chrome",
+"Mozilla Firefox",
+"Zoom",
+"macOS"
+],
+"n_eligible": 10,
+"sha": "9f6a83fc896646858ef142099a19b4010dc9c9a1513146487c6cf2c7bcf94fa6",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0054__L024__p17:slack:businessobjects": {
+"unit": "s3d-rl600-all11:chat-lmsys-0054__L024__p17:slack:businessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"Microsoft Excel",
+"Microsoft PowerPoint",
+"Microsoft Outlook",
+"Microsoft Word"
+],
+"random": [
+"Adobe Photoshop",
+"Google Chrome",
+"Mozilla Firefox",
+"macOS"
+],
+"distractors": [
+"Microsoft Excel",
+"Microsoft PowerPoint",
+"Microsoft Outlook",
+"Microsoft Word",
+"Adobe Photoshop",
+"Google Chrome",
+"Mozilla Firefox",
+"macOS"
+],
+"n_eligible": 10,
+"sha": "5e59f2d2186e56105304713ce085a7497cbf54d449032287609b2705fc4fb5c2",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0054__L028__p425:blackboard:sapbusinessobjects": {
+"unit": "s3d-rl600-all11:chat-lmsys-0054__L028__p425:blackboard:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"Microsoft Excel",
+"Microsoft PowerPoint",
+"Microsoft Outlook",
+"Microsoft Word"
+],
+"random": [
+"Adobe Photoshop",
+"Google Chrome",
+"Microsoft Windows",
+"Zoom"
+],
+"distractors": [
+"Microsoft Excel",
+"Microsoft PowerPoint",
+"Microsoft Outlook",
+"Microsoft Word",
+"Adobe Photoshop",
+"Google Chrome",
+"Microsoft Windows",
+"Zoom"
+],
+"n_eligible": 10,
+"sha": "80cd33a2e831eff55ad2fceee57ac8ef1ccdddb1ff082aa986f35a7d3437b8e6",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0054__L052__p298:infopath:infoview": {
+"unit": "s3d-rl600-all11:chat-lmsys-0054__L052__p298:infopath:infoview",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"Microsoft Excel",
+"Microsoft PowerPoint",
+"Microsoft Outlook",
+"Microsoft Word"
+],
+"random": [
+"Adobe Photoshop",
+"Mozilla Firefox",
+"Zoom",
+"macOS"
+],
+"distractors": [
+"Microsoft Excel",
+"Microsoft PowerPoint",
+"Microsoft Outlook",
+"Microsoft Word",
+"Adobe Photoshop",
+"Mozilla Firefox",
+"Zoom",
+"macOS"
+],
+"n_eligible": 10,
+"sha": "951eef3f5d351b9eafedc03565658096847a4b61be16cd631014543399b27aad",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0054__L060__p298:infopath:infoview": {
+"unit": "s3d-rl600-all11:chat-lmsys-0054__L060__p298:infopath:infoview",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"Microsoft Excel",
+"Microsoft PowerPoint",
+"Microsoft Outlook",
+"Microsoft Word"
+],
+"random": [
+"Adobe Photoshop",
+"Google Chrome",
+"Mozilla Firefox",
+"Zoom"
+],
+"distractors": [
+"Microsoft Excel",
+"Microsoft PowerPoint",
+"Microsoft Outlook",
+"Microsoft Word",
+"Adobe Photoshop",
+"Google Chrome",
+"Mozilla Firefox",
+"Zoom"
+],
+"n_eligible": 10,
+"sha": "d5aea314bfbdae57f02f72475b29826dc11c41b54a6214180bee93eae33eedd3",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0054__L048__p298:blackboard:sapbusinessobjects": {
+"unit": "s3d-rl600:chat-lmsys-0054__L048__p298:blackboard:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"Microsoft Excel",
+"Microsoft PowerPoint",
+"Microsoft Outlook",
+"Microsoft Word"
+],
+"random": [
+"Adobe Photoshop",
+"Google Chrome",
+"Mozilla Firefox",
+"Zoom"
+],
+"distractors": [
+"Microsoft Excel",
+"Microsoft PowerPoint",
+"Microsoft Outlook",
+"Microsoft Word",
+"Adobe Photoshop",
+"Google Chrome",
+"Mozilla Firefox",
+"Zoom"
+],
+"n_eligible": 10,
+"sha": "31661c1742ece46630bc75c832e04ef68a946193d6286e1b7bccc279a4a20681",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0054__L060__p298:infopath:businessobjects": {
+"unit": "s3d-rl600:chat-lmsys-0054__L060__p298:infopath:businessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"Microsoft Excel",
+"Microsoft PowerPoint",
+"Microsoft Outlook",
+"Microsoft Word"
+],
+"random": [
+"Google Chrome",
+"Mozilla Firefox",
+"Zoom",
+"macOS"
+],
+"distractors": [
+"Microsoft Excel",
+"Microsoft PowerPoint",
+"Microsoft Outlook",
+"Microsoft Word",
+"Google Chrome",
+"Mozilla Firefox",
+"Zoom",
+"macOS"
+],
+"n_eligible": 10,
+"sha": "4247bb4810bb4914bb01a95b8b450251783797488346d0a84bd481f993355901",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0054__L028__p17:zabbix:sapbusinessobjects": {
+"unit": "s3d-sft251:chat-lmsys-0054__L028__p17:zabbix:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"Microsoft Excel",
+"Microsoft PowerPoint",
+"Microsoft Outlook",
+"Microsoft Word"
+],
+"random": [
+"Adobe Photoshop",
+"Google Chrome",
+"Microsoft Windows",
+"Mozilla Firefox"
+],
+"distractors": [
+"Microsoft Excel",
+"Microsoft PowerPoint",
+"Microsoft Outlook",
+"Microsoft Word",
+"Adobe Photoshop",
+"Google Chrome",
+"Microsoft Windows",
+"Mozilla Firefox"
+],
+"n_eligible": 10,
+"sha": "8262dab141eb9226fdb2f9d3a413ab727897117d8ee4c616562c7a2c787f2f75",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0054__L052__p298:infopath30:infoview": {
+"unit": "s3d-sft251:chat-lmsys-0054__L052__p298:infopath30:infoview",
+"anchor": "Microsoft InfoPath",
+"nearest": [
+"SAP BusinessObjects",
+"Mozilla Firefox",
+"Adobe Photoshop",
+"Zoom"
+],
+"random": [
+"Microsoft Excel",
+"Microsoft PowerPoint",
+"Microsoft Word",
+"macOS"
+],
+"distractors": [
+"SAP BusinessObjects",
+"Mozilla Firefox",
+"Adobe Photoshop",
+"Zoom",
+"Microsoft Excel",
+"Microsoft PowerPoint",
+"Microsoft Word",
+"macOS"
+],
+"n_eligible": 11,
+"sha": "a031c123dcf71c66bd277ccb962f283c2aa4bb61c2b67a67d5c1021c09e0a235",
+"generation": 0
+}
+}

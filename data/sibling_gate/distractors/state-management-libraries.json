@@ -1,0 +1,402 @@
+{
+"mlnla-rl2-800-all11:chat-lmsys-0012__L020__p578:zustand:flutterriverpod": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0012__L020__p578:zustand:flutterriverpod",
+"anchor": "Riverpod",
+"nearest": [
+"Valtio",
+"Jotai",
+"Apollo Client",
+"XState"
+],
+"random": [
+"NgRx",
+"Recoil"
+],
+"distractors": [
+"Valtio",
+"Jotai",
+"Apollo Client",
+"XState",
+"NgRx",
+"Recoil"
+],
+"n_eligible": 6,
+"sha": "f02fcdafcf8b738c199d21881afc642101324c99329eedbe78dec5737da2b2bb",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0012__L024__p578::": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0012__L024__p578::",
+"anchor": "Riverpod",
+"nearest": [
+"Valtio",
+"Jotai",
+"Apollo Client",
+"XState"
+],
+"random": [
+"NgRx",
+"Recoil"
+],
+"distractors": [
+"Valtio",
+"Jotai",
+"Apollo Client",
+"XState",
+"NgRx",
+"Recoil"
+],
+"n_eligible": 6,
+"sha": "6f632f0d8965bea77e1d8a904fbd47b9614cd9364af10b24e5a44f3c24d8de5d",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0012__L028__p578:zustandreduxtoolkit:flutterriverpodprovider": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0012__L028__p578:zustandreduxtoolkit:flutterriverpodprovider",
+"anchor": "Riverpod",
+"nearest": [
+"Valtio",
+"Jotai",
+"Apollo Client",
+"XState"
+],
+"random": [
+"NgRx",
+"Recoil"
+],
+"distractors": [
+"Valtio",
+"Jotai",
+"Apollo Client",
+"XState",
+"NgRx",
+"Recoil"
+],
+"n_eligible": 6,
+"sha": "3d8f89758b13fcef0437f244f564bb1e8b7a2fdf87ffe2aef0a7f2ce7793d104",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0012__L028__p745::": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0012__L028__p745::",
+"anchor": "Riverpod",
+"nearest": [
+"Valtio",
+"Jotai",
+"Apollo Client",
+"XState"
+],
+"random": [
+"NgRx",
+"Recoil"
+],
+"distractors": [
+"Valtio",
+"Jotai",
+"Apollo Client",
+"XState",
+"NgRx",
+"Recoil"
+],
+"n_eligible": 6,
+"sha": "1b5d8f456ef9a909060334ced0a7af44b79bf9ad2804a9994f2f5131d499758f",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0012__L020__p578::": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0012__L020__p578::",
+"anchor": "Riverpod",
+"nearest": [
+"Valtio",
+"Jotai",
+"Apollo Client",
+"XState"
+],
+"random": [
+"NgRx",
+"Recoil"
+],
+"distractors": [
+"Valtio",
+"Jotai",
+"Apollo Client",
+"XState",
+"NgRx",
+"Recoil"
+],
+"n_eligible": 6,
+"sha": "34a83c42b7a3ac0f4f5d04b1d7e4e04c6810b86c1380fce27d8d0747a9b6e6ab",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0012__L020__p578:zustandreactredux:flutterriverpodprovider": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0012__L020__p578:zustandreactredux:flutterriverpodprovider",
+"anchor": "Riverpod",
+"nearest": [
+"Valtio",
+"Jotai",
+"Apollo Client",
+"XState"
+],
+"random": [
+"NgRx",
+"Recoil"
+],
+"distractors": [
+"Valtio",
+"Jotai",
+"Apollo Client",
+"XState",
+"NgRx",
+"Recoil"
+],
+"n_eligible": 6,
+"sha": "eb82f9fa512ffb04890ec721a4fa68a715afb87e735b6f3daac1edb19ba774e6",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0012__L020__p578:zustandreduxtoolkitusecontext:flutterriverpodprovider": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0012__L020__p578:zustandreduxtoolkitusecontext:flutterriverpodprovider",
+"anchor": "Riverpod",
+"nearest": [
+"Valtio",
+"Jotai",
+"Apollo Client",
+"XState"
+],
+"random": [
+"NgRx",
+"Recoil"
+],
+"distractors": [
+"Valtio",
+"Jotai",
+"Apollo Client",
+"XState",
+"NgRx",
+"Recoil"
+],
+"n_eligible": 6,
+"sha": "e59bca94811503af16808603d44054a0bcb84827ccaa66af864bbb94017f36fc",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0012__L028__p578:reactstatelibraries:flutterstatelibraries": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0012__L028__p578:reactstatelibraries:flutterstatelibraries",
+"anchor": "Riverpod",
+"nearest": [
+"Valtio",
+"Jotai",
+"Apollo Client",
+"XState"
+],
+"random": [
+"NgRx",
+"Recoil"
+],
+"distractors": [
+"Valtio",
+"Jotai",
+"Apollo Client",
+"XState",
+"NgRx",
+"Recoil"
+],
+"n_eligible": 6,
+"sha": "9385f264598c3bd4dfbcd2f4b4829ab5613d142ba0f0731be87a4d12049143e1",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0012__L048__p504::": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0012__L048__p504::",
+"anchor": "Riverpod",
+"nearest": [
+"Valtio",
+"Jotai",
+"Apollo Client",
+"XState"
+],
+"random": [
+"NgRx",
+"Recoil"
+],
+"distractors": [
+"Valtio",
+"Jotai",
+"Apollo Client",
+"XState",
+"NgRx",
+"Recoil"
+],
+"n_eligible": 6,
+"sha": "b3ec5e7a72eb335bb570fc9e5a64078b4132f04fc39b457be5900befcc7aeb03",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0012__L024__p578:usestate:bloc": {
+"unit": "s3d-rl600-all11:chat-lmsys-0012__L024__p578:usestate:bloc",
+"anchor": "Riverpod",
+"nearest": [
+"Valtio",
+"Jotai",
+"Apollo Client",
+"XState"
+],
+"random": [
+"NgRx",
+"Recoil"
+],
+"distractors": [
+"Valtio",
+"Jotai",
+"Apollo Client",
+"XState",
+"NgRx",
+"Recoil"
+],
+"n_eligible": 6,
+"sha": "e6ef71f484426a9471581f2ad41eab15b059c90c7b6f426f2891ac80b0988cf8",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0012__L024__p578:zustandredux:bloc": {
+"unit": "s3d-rl600-all11:chat-lmsys-0012__L024__p578:zustandredux:bloc",
+"anchor": "Riverpod",
+"nearest": [
+"Valtio",
+"Jotai",
+"Apollo Client",
+"XState"
+],
+"random": [
+"NgRx",
+"Recoil"
+],
+"distractors": [
+"Valtio",
+"Jotai",
+"Apollo Client",
+"XState",
+"NgRx",
+"Recoil"
+],
+"n_eligible": 6,
+"sha": "16a749c9335fa67877cde0f9525b6f240223fec63a987e433e56624d31d0aefa",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0012__L028__p578:pinia:bloc": {
+"unit": "s3d-rl600-all11:chat-lmsys-0012__L028__p578:pinia:bloc",
+"anchor": "Riverpod",
+"nearest": [
+"Valtio",
+"Jotai",
+"Apollo Client",
+"XState"
+],
+"random": [
+"NgRx",
+"Recoil"
+],
+"distractors": [
+"Valtio",
+"Jotai",
+"Apollo Client",
+"XState",
+"NgRx",
+"Recoil"
+],
+"n_eligible": 6,
+"sha": "5ca2c19c1686d8803bce3dd67618c0de0a033832e14fc7f43e2adbdf6e56b6d0",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0012__L028__p578:reacthook:bloc": {
+"unit": "s3d-rl600-all11:chat-lmsys-0012__L028__p578:reacthook:bloc",
+"anchor": "Riverpod",
+"nearest": [
+"Valtio",
+"Jotai",
+"Apollo Client",
+"XState"
+],
+"random": [
+"NgRx",
+"Recoil"
+],
+"distractors": [
+"Valtio",
+"Jotai",
+"Apollo Client",
+"XState",
+"NgRx",
+"Recoil"
+],
+"n_eligible": 6,
+"sha": "12a5a946271cc94e64f5c0e21040f291beefba39a87d541732d1839609f2f8a4",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0012__L028__p578:usestate:bloc": {
+"unit": "s3d-rl600-all11:chat-lmsys-0012__L028__p578:usestate:bloc",
+"anchor": "Riverpod",
+"nearest": [
+"Valtio",
+"Jotai",
+"Apollo Client",
+"XState"
+],
+"random": [
+"NgRx",
+"Recoil"
+],
+"distractors": [
+"Valtio",
+"Jotai",
+"Apollo Client",
+"XState",
+"NgRx",
+"Recoil"
+],
+"n_eligible": 6,
+"sha": "45bf62ba8b46244cea9f37ad948d87a9ac16de73d4fb5444dc3bd55c12974401",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0012__L028__p578:vuex:bloc": {
+"unit": "s3d-rl600-all11:chat-lmsys-0012__L028__p578:vuex:bloc",
+"anchor": "Riverpod",
+"nearest": [
+"Valtio",
+"Jotai",
+"Apollo Client",
+"XState"
+],
+"random": [
+"NgRx",
+"Recoil"
+],
+"distractors": [
+"Valtio",
+"Jotai",
+"Apollo Client",
+"XState",
+"NgRx",
+"Recoil"
+],
+"n_eligible": 6,
+"sha": "fc403cc3757e7ecde8be159e5919e94f7b4c1bd48ea99cfd9082c2187a6a4096",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0012__L032__p578:vuex:bloc": {
+"unit": "s3d-rl600-all11:chat-lmsys-0012__L032__p578:vuex:bloc",
+"anchor": "Riverpod",
+"nearest": [
+"Valtio",
+"Jotai",
+"Apollo Client",
+"XState"
+],
+"random": [
+"NgRx",
+"Recoil"
+],
+"distractors": [
+"Valtio",
+"Jotai",
+"Apollo Client",
+"XState",
+"NgRx",
+"Recoil"
+],
+"n_eligible": 6,
+"sha": "1224f83baaa1ac0f0c958dccc9bc51dd754ed1b6901635c903e6d3be1795dea2",
+"generation": 0
+}
+}

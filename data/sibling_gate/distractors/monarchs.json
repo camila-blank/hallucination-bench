@@ -1,0 +1,1038 @@
+{
+"mlnla-rl2-800-all11:chat-lmsys-0031__L020__p57:charles:swedishmonarch": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0031__L020__p57:charles:swedishmonarch",
+"anchor": "Carl XVI Gustaf",
+"nearest": [
+"Queen Victoria",
+"Henry VIII",
+"Louis XIV"
+],
+"random": [],
+"distractors": [
+"Queen Victoria",
+"Henry VIII",
+"Louis XIV"
+],
+"n_eligible": 3,
+"sha": "bd333359d35e47753e786f24ef3a9bd516fd0df4c6982c1ff94f884bd8fc77a6",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0031__L020__p57:charlesiii:swedishmonarch": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0031__L020__p57:charlesiii:swedishmonarch",
+"anchor": "Carl XVI Gustaf",
+"nearest": [
+"Queen Victoria",
+"Henry VIII",
+"Louis XIV"
+],
+"random": [],
+"distractors": [
+"Queen Victoria",
+"Henry VIII",
+"Louis XIV"
+],
+"n_eligible": 3,
+"sha": "c4d0fb5814a5964dfd9ea7edd464df2701846c6ac587b827bca6b03d41a69a67",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0031__L020__p57:kingcharlesiii:kingofsweden": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0031__L020__p57:kingcharlesiii:kingofsweden",
+"anchor": "Carl XVI Gustaf",
+"nearest": [
+"Queen Victoria",
+"Henry VIII",
+"Louis XIV"
+],
+"random": [],
+"distractors": [
+"Queen Victoria",
+"Henry VIII",
+"Louis XIV"
+],
+"n_eligible": 3,
+"sha": "fba6356e0242b4afa79742a7173cc7703d40b14835b3f402c7f226d4e18a6894",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0031__L028__p57:kingcharles:kingofsweden": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0031__L028__p57:kingcharles:kingofsweden",
+"anchor": "Carl XVI Gustaf",
+"nearest": [
+"Queen Victoria",
+"Henry VIII",
+"Louis XIV"
+],
+"random": [],
+"distractors": [
+"Queen Victoria",
+"Henry VIII",
+"Louis XIV"
+],
+"n_eligible": 3,
+"sha": "316d4e93102617e6ca6dbf73ac24fb0db3c51cd685b90de228cb020292e70785",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0031__L028__p57:kingcharlesiii:kingofsweden": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0031__L028__p57:kingcharlesiii:kingofsweden",
+"anchor": "Carl XVI Gustaf",
+"nearest": [
+"Queen Victoria",
+"Henry VIII",
+"Louis XIV"
+],
+"random": [],
+"distractors": [
+"Queen Victoria",
+"Henry VIII",
+"Louis XIV"
+],
+"n_eligible": 3,
+"sha": "719af13668919bb50d2058165db4e48cedfad776ad77c322775b4150d6e50013",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0031__L032__p57:kingcharlesiii:kingofsweden": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0031__L032__p57:kingcharlesiii:kingofsweden",
+"anchor": "Carl XVI Gustaf",
+"nearest": [
+"Queen Victoria",
+"Henry VIII",
+"Louis XIV"
+],
+"random": [],
+"distractors": [
+"Queen Victoria",
+"Henry VIII",
+"Louis XIV"
+],
+"n_eligible": 3,
+"sha": "493ba5e9d0308a848c1cca7f952968b2d04eb94df61e011bb96458eb26941d80",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0031__L040__p55:queenelizabethii:kingofsweden": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0031__L040__p55:queenelizabethii:kingofsweden",
+"anchor": "Carl XVI Gustaf",
+"nearest": [
+"Henry VIII",
+"Louis XIV"
+],
+"random": [],
+"distractors": [
+"Henry VIII",
+"Louis XIV"
+],
+"n_eligible": 2,
+"sha": "1c185dd48c65259f30ab48291465bbaa2ac169b384d5dda8d6de0d003f41a7ea",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0031__L044__p57:kingcharlesiii:kingofsweden": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0031__L044__p57:kingcharlesiii:kingofsweden",
+"anchor": "Carl XVI Gustaf",
+"nearest": [
+"Queen Victoria",
+"Henry VIII",
+"Louis XIV"
+],
+"random": [],
+"distractors": [
+"Queen Victoria",
+"Henry VIII",
+"Louis XIV"
+],
+"n_eligible": 3,
+"sha": "dcb5cc60b7f217f1e21df4b26fd5339af7ec9fc830fa5eb4367e1c95e453e1cc",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0031__L044__p57:kingcharlesiii:swedishmonarch": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0031__L044__p57:kingcharlesiii:swedishmonarch",
+"anchor": "Carl XVI Gustaf",
+"nearest": [
+"Queen Victoria",
+"Henry VIII",
+"Louis XIV"
+],
+"random": [],
+"distractors": [
+"Queen Victoria",
+"Henry VIII",
+"Louis XIV"
+],
+"n_eligible": 3,
+"sha": "08194ee6edf8ee2a41bbbbd37748dc8a6eaf11754245d16b40ef6f64fdf04a87",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0031__L044__p57:kingofengland:kingofsweden": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0031__L044__p57:kingofengland:kingofsweden",
+"anchor": "King of Sweden",
+"nearest": [
+"Henry VIII",
+"Louis XIV",
+"Queen Victoria"
+],
+"random": [],
+"distractors": [
+"Henry VIII",
+"Louis XIV",
+"Queen Victoria"
+],
+"n_eligible": 3,
+"sha": "976fb610f904e7ff19d609a5abfbd00c2db3d08923822266f9a127c17409eff7",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0031__L044__p57:kingofnorway:kingofsweden": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0031__L044__p57:kingofnorway:kingofsweden",
+"anchor": "King of Sweden",
+"nearest": [
+"Henry VIII",
+"Louis XIV",
+"Queen Victoria"
+],
+"random": [],
+"distractors": [
+"Henry VIII",
+"Louis XIV",
+"Queen Victoria"
+],
+"n_eligible": 3,
+"sha": "9e277f99a4a132c4dee81558a20b21c5ea149db8e6a3f1a4e4844b6c46143d1f",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0031__L048__p54:queenelizabethii:thekingofsweden": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0031__L048__p54:queenelizabethii:thekingofsweden",
+"anchor": "Carl XVI Gustaf",
+"nearest": [
+"Henry VIII",
+"Louis XIV"
+],
+"random": [],
+"distractors": [
+"Henry VIII",
+"Louis XIV"
+],
+"n_eligible": 2,
+"sha": "f9ecab08580adff0b5157661bd5e239bf2aefa295f68bd916cc98b852b703c4d",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0031__L048__p57:kingcharlesiii:kingofsweden": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0031__L048__p57:kingcharlesiii:kingofsweden",
+"anchor": "Carl XVI Gustaf",
+"nearest": [
+"Queen Victoria",
+"Henry VIII",
+"Louis XIV"
+],
+"random": [],
+"distractors": [
+"Queen Victoria",
+"Henry VIII",
+"Louis XIV"
+],
+"n_eligible": 3,
+"sha": "f6b9e344a2193f3264ce3343d89b1ef7565965757b279e335f7bb162fbc04721",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0031__L048__p57:norwaysmonarch:swedishmonarch": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0031__L048__p57:norwaysmonarch:swedishmonarch",
+"anchor": "King of Sweden",
+"nearest": [
+"Henry VIII",
+"Louis XIV",
+"Queen Victoria"
+],
+"random": [],
+"distractors": [
+"Henry VIII",
+"Louis XIV",
+"Queen Victoria"
+],
+"n_eligible": 3,
+"sha": "b082612b1e30a50c29b58ce3a6b7bb224d0486f2a9840eb2eeb289c678737b24",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0031__L048__p57:norwegianmonarchykingharaldv:swedishmonarchy": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0031__L048__p57:norwegianmonarchykingharaldv:swedishmonarchy",
+"anchor": "Carl XVI Gustaf",
+"nearest": [
+"Queen Victoria",
+"Henry VIII",
+"Louis XIV"
+],
+"random": [],
+"distractors": [
+"Queen Victoria",
+"Henry VIII",
+"Louis XIV"
+],
+"n_eligible": 3,
+"sha": "eb5c79285296702c8133ca049d09095759b1ff331abbc1b2ff94e3b8cb5bcede",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0031__L052__p57:kingcharlesiii:swedishmonarch": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0031__L052__p57:kingcharlesiii:swedishmonarch",
+"anchor": "Carl XVI Gustaf",
+"nearest": [
+"Queen Victoria",
+"Henry VIII",
+"Louis XIV"
+],
+"random": [],
+"distractors": [
+"Queen Victoria",
+"Henry VIII",
+"Louis XIV"
+],
+"n_eligible": 3,
+"sha": "73f202fda6b528e3de9d8238cef53f3ba297edec5091db52ff1b8e687d004dc3",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0031__L052__p57:ukmonarchkingcharlesiii:kingofsweden": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0031__L052__p57:ukmonarchkingcharlesiii:kingofsweden",
+"anchor": "Carl XVI Gustaf",
+"nearest": [
+"Queen Victoria",
+"Henry VIII",
+"Louis XIV"
+],
+"random": [],
+"distractors": [
+"Queen Victoria",
+"Henry VIII",
+"Louis XIV"
+],
+"n_eligible": 3,
+"sha": "e31fac53a84227d3bfa2f52f791918c89539629ffe86fb9f8d8f4b6e31a83f6a",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0031__L056__p54:charlesiii:kingofsweden": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0031__L056__p54:charlesiii:kingofsweden",
+"anchor": "Carl XVI Gustaf",
+"nearest": [
+"Queen Victoria",
+"Henry VIII",
+"Louis XIV"
+],
+"random": [],
+"distractors": [
+"Queen Victoria",
+"Henry VIII",
+"Louis XIV"
+],
+"n_eligible": 3,
+"sha": "4469139eb8afc9e2718f0871535fe14d08cd72d40f3ed00d75a5ef9dbdb17cbc",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0031__L056__p54:kingcharlesiii:swedishmonarch": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0031__L056__p54:kingcharlesiii:swedishmonarch",
+"anchor": "Carl XVI Gustaf",
+"nearest": [
+"Queen Victoria",
+"Henry VIII",
+"Louis XIV"
+],
+"random": [],
+"distractors": [
+"Queen Victoria",
+"Henry VIII",
+"Louis XIV"
+],
+"n_eligible": 3,
+"sha": "03418367967aee8d9dd42509f1a25e60ccc91e4ac6fbd8cf6ccd3b7235b4d74e",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0031__L024__p57:britishroyalscharlesiii:kingofsweden": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0031__L024__p57:britishroyalscharlesiii:kingofsweden",
+"anchor": "Carl XVI Gustaf",
+"nearest": [
+"Queen Victoria",
+"Henry VIII",
+"Louis XIV"
+],
+"random": [],
+"distractors": [
+"Queen Victoria",
+"Henry VIII",
+"Louis XIV"
+],
+"n_eligible": 3,
+"sha": "6a4b861cec29bfef9749f26bd942750df8c17024fe2a878e881c6a38971eec5e",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0031__L024__p57:kingcharles:kingofsweden": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0031__L024__p57:kingcharles:kingofsweden",
+"anchor": "Carl XVI Gustaf",
+"nearest": [
+"Queen Victoria",
+"Henry VIII",
+"Louis XIV"
+],
+"random": [],
+"distractors": [
+"Queen Victoria",
+"Henry VIII",
+"Louis XIV"
+],
+"n_eligible": 3,
+"sha": "9a9e7349bc255666de8d5d4e1c8de5ac0040ee758654a875ff16dc82740ba9fb",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0031__L028__p57:charlesiii:swedishmonarch": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0031__L028__p57:charlesiii:swedishmonarch",
+"anchor": "Carl XVI Gustaf",
+"nearest": [
+"Queen Victoria",
+"Henry VIII",
+"Louis XIV"
+],
+"random": [],
+"distractors": [
+"Queen Victoria",
+"Henry VIII",
+"Louis XIV"
+],
+"n_eligible": 3,
+"sha": "2cb9c80e7900f27aa5532f55f54e2aee76aa94786cd70b89d705a956013b5a2e",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0031__L028__p57:kingcharles:kingofsweden": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0031__L028__p57:kingcharles:kingofsweden",
+"anchor": "Carl XVI Gustaf",
+"nearest": [
+"Queen Victoria",
+"Henry VIII",
+"Louis XIV"
+],
+"random": [],
+"distractors": [
+"Queen Victoria",
+"Henry VIII",
+"Louis XIV"
+],
+"n_eligible": 3,
+"sha": "a676965e1442a54fe0f0c1641093c34ea74057098acdeb3dda779ffa71b9a45e",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0031__L028__p57:kingcharlesiii:kingofsweden": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0031__L028__p57:kingcharlesiii:kingofsweden",
+"anchor": "Carl XVI Gustaf",
+"nearest": [
+"Queen Victoria",
+"Henry VIII",
+"Louis XIV"
+],
+"random": [],
+"distractors": [
+"Queen Victoria",
+"Henry VIII",
+"Louis XIV"
+],
+"n_eligible": 3,
+"sha": "eb892e82f66307fae963c6beacfafe4204a041bcc61453048364552f82261e08",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0031__L028__p57:kingcharlesiii:swedishmonarch": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0031__L028__p57:kingcharlesiii:swedishmonarch",
+"anchor": "Carl XVI Gustaf",
+"nearest": [
+"Queen Victoria",
+"Henry VIII",
+"Louis XIV"
+],
+"random": [],
+"distractors": [
+"Queen Victoria",
+"Henry VIII",
+"Louis XIV"
+],
+"n_eligible": 3,
+"sha": "d93625cbe6178c90268d5dc5575c6a2f7e2b6b09196ce700f425460a15d5914b",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0031__L032__p57:kingcharlesiii:kingofsweden": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0031__L032__p57:kingcharlesiii:kingofsweden",
+"anchor": "Carl XVI Gustaf",
+"nearest": [
+"Queen Victoria",
+"Henry VIII",
+"Louis XIV"
+],
+"random": [],
+"distractors": [
+"Queen Victoria",
+"Henry VIII",
+"Louis XIV"
+],
+"n_eligible": 3,
+"sha": "1ce7cb0a9ad935c54d3fb08f614a13020ac17fa699b883df91de9fb56622de66",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0031__L040__p57:kingofnorway:kingofsweden": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0031__L040__p57:kingofnorway:kingofsweden",
+"anchor": "King of Sweden",
+"nearest": [
+"Henry VIII",
+"Louis XIV",
+"Queen Victoria"
+],
+"random": [],
+"distractors": [
+"Henry VIII",
+"Louis XIV",
+"Queen Victoria"
+],
+"n_eligible": 3,
+"sha": "d02e812148683f0c53ca79d3c8ca4716e68ff4608197ea18c70cabe8c83f8648",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0031__L044__p57:kingcharlesiii:kingofsweden": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0031__L044__p57:kingcharlesiii:kingofsweden",
+"anchor": "Carl XVI Gustaf",
+"nearest": [
+"Queen Victoria",
+"Henry VIII",
+"Louis XIV"
+],
+"random": [],
+"distractors": [
+"Queen Victoria",
+"Henry VIII",
+"Louis XIV"
+],
+"n_eligible": 3,
+"sha": "c2cfd69e7911888e59e2c48e45f4bf20208422bd36bb8ce7d0f2d4e650573962",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0031__L044__p57:kingcharlesiiiuk:kingofsweden": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0031__L044__p57:kingcharlesiiiuk:kingofsweden",
+"anchor": "Carl XVI Gustaf",
+"nearest": [
+"Queen Victoria",
+"Henry VIII",
+"Louis XIV"
+],
+"random": [],
+"distractors": [
+"Queen Victoria",
+"Henry VIII",
+"Louis XIV"
+],
+"n_eligible": 3,
+"sha": "fb85ff49f2d8b585409949ae814b663ec02d6c40ccbc540b562661c5c7cf1ceb",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0031__L048__p54:queenelizabethii:thekingofsweden": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0031__L048__p54:queenelizabethii:thekingofsweden",
+"anchor": "Carl XVI Gustaf",
+"nearest": [
+"Henry VIII",
+"Louis XIV"
+],
+"random": [],
+"distractors": [
+"Henry VIII",
+"Louis XIV"
+],
+"n_eligible": 2,
+"sha": "952b782f35fd38ffe81708ca2abe72bc95d026b4a0daefb554ee18c835a8a54e",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0031__L048__p57:haraldv:swedishmonarch": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0031__L048__p57:haraldv:swedishmonarch",
+"anchor": "Carl XVI Gustaf",
+"nearest": [
+"Queen Victoria",
+"Henry VIII",
+"Louis XIV"
+],
+"random": [],
+"distractors": [
+"Queen Victoria",
+"Henry VIII",
+"Louis XIV"
+],
+"n_eligible": 3,
+"sha": "6129db08162d8214fbbb142a11033cf4be59c3bbe38a10c8757222ea08a92929",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0031__L048__p57:kingofnorway:kingofsweden": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0031__L048__p57:kingofnorway:kingofsweden",
+"anchor": "King of Sweden",
+"nearest": [
+"Henry VIII",
+"Louis XIV",
+"Queen Victoria"
+],
+"random": [],
+"distractors": [
+"Henry VIII",
+"Louis XIV",
+"Queen Victoria"
+],
+"n_eligible": 3,
+"sha": "675f6d3782a467b6a1488c0192f56ab060739ca2ce9f87a272abcfa89c60f170",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0031__L048__p57:kingofnorway:swedishmonarch": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0031__L048__p57:kingofnorway:swedishmonarch",
+"anchor": "King of Sweden",
+"nearest": [
+"Henry VIII",
+"Louis XIV",
+"Queen Victoria"
+],
+"random": [],
+"distractors": [
+"Henry VIII",
+"Louis XIV",
+"Queen Victoria"
+],
+"n_eligible": 3,
+"sha": "bf4b4ff539e501e22e870b18814e86532d33832c545ae9372b09476262879143",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0031__L060__p54:kingcharlesiii:pimp": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0031__L060__p54:kingcharlesiii:pimp",
+"anchor": "Carl XVI Gustaf",
+"nearest": [
+"Queen Victoria",
+"Henry VIII",
+"Louis XIV"
+],
+"random": [],
+"distractors": [
+"Queen Victoria",
+"Henry VIII",
+"Louis XIV"
+],
+"n_eligible": 3,
+"sha": "b270ea03d260723e3392dc734f7ec8d29bc37ae3b9cd16467e3b7d9f9e5b463c",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0031__L042__p57:charlesiii:kingofsweden": {
+"unit": "nla-rl-L42:chat-lmsys-0031__L042__p57:charlesiii:kingofsweden",
+"anchor": "Carl XVI Gustaf",
+"nearest": [
+"Queen Victoria",
+"Henry VIII",
+"Louis XIV"
+],
+"random": [],
+"distractors": [
+"Queen Victoria",
+"Henry VIII",
+"Louis XIV"
+],
+"n_eligible": 3,
+"sha": "5e1737bfad59c574d81843eb4edb5d81f4f2ee4f83df98bea4bc89ba667f0a5c",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0031__L042__p57:kingcharles:kingofsweden": {
+"unit": "nla-rl-L42:chat-lmsys-0031__L042__p57:kingcharles:kingofsweden",
+"anchor": "Carl XVI Gustaf",
+"nearest": [
+"Queen Victoria",
+"Henry VIII",
+"Louis XIV"
+],
+"random": [],
+"distractors": [
+"Queen Victoria",
+"Henry VIII",
+"Louis XIV"
+],
+"n_eligible": 3,
+"sha": "863593bdccd2f8260531ed3205da8b53f6a9633d2b8047df0e2aeb52cae13ef1",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0031__L042__p57:kingcharlesiii:kingofsweden": {
+"unit": "nla-rl-L42:chat-lmsys-0031__L042__p57:kingcharlesiii:kingofsweden",
+"anchor": "Carl XVI Gustaf",
+"nearest": [
+"Queen Victoria",
+"Henry VIII",
+"Louis XIV"
+],
+"random": [],
+"distractors": [
+"Queen Victoria",
+"Henry VIII",
+"Louis XIV"
+],
+"n_eligible": 3,
+"sha": "88bbc0c925cf561ef51c7246336d6d3448c636a3179a753139701bd888b81793",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0031__L042__p57:kingcharlesiii:swedishmonarch": {
+"unit": "nla-rl-L42:chat-lmsys-0031__L042__p57:kingcharlesiii:swedishmonarch",
+"anchor": "Carl XVI Gustaf",
+"nearest": [
+"Queen Victoria",
+"Henry VIII",
+"Louis XIV"
+],
+"random": [],
+"distractors": [
+"Queen Victoria",
+"Henry VIII",
+"Louis XIV"
+],
+"n_eligible": 3,
+"sha": "2768ef9be422c740cee0404dbf7388dc52b9018cd0c6c9a71c4f627d9ac0ecd0",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0031__L042__p57:kingofnorway:kingofsweden": {
+"unit": "nla-rl-L42:chat-lmsys-0031__L042__p57:kingofnorway:kingofsweden",
+"anchor": "King of Sweden",
+"nearest": [
+"Henry VIII",
+"Louis XIV",
+"Queen Victoria"
+],
+"random": [],
+"distractors": [
+"Henry VIII",
+"Louis XIV",
+"Queen Victoria"
+],
+"n_eligible": 3,
+"sha": "e362bc2ac6b033e0208cca09776ab1f929511c5b0dd88fb48363df74d2640f4b",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0031__L032__p57:kingofnorway:kingofsweden": {
+"unit": "s3d-rl600-all11:chat-lmsys-0031__L032__p57:kingofnorway:kingofsweden",
+"anchor": "King of Sweden",
+"nearest": [
+"Henry VIII",
+"Louis XIV",
+"Queen Victoria"
+],
+"random": [],
+"distractors": [
+"Henry VIII",
+"Louis XIV",
+"Queen Victoria"
+],
+"n_eligible": 3,
+"sha": "6e4344a6d93aa3848ea155cdbe0fdc3ca0e4124bc5c59bd1731797050d6304fa",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0031__L040__p57:kingofnorway:kingofsweden": {
+"unit": "s3d-rl600-all11:chat-lmsys-0031__L040__p57:kingofnorway:kingofsweden",
+"anchor": "King of Sweden",
+"nearest": [
+"Henry VIII",
+"Louis XIV",
+"Queen Victoria"
+],
+"random": [],
+"distractors": [
+"Henry VIII",
+"Louis XIV",
+"Queen Victoria"
+],
+"n_eligible": 3,
+"sha": "fbc0a9c61d916a2d8d5cc360c5898d6c964dd8b62346556482e6cde15fe0df75",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0031__L044__p57:danishking:swedishmonarch": {
+"unit": "s3d-rl600-all11:chat-lmsys-0031__L044__p57:danishking:swedishmonarch",
+"anchor": "King of Sweden",
+"nearest": [
+"Henry VIII",
+"Louis XIV",
+"Queen Victoria"
+],
+"random": [],
+"distractors": [
+"Henry VIII",
+"Louis XIV",
+"Queen Victoria"
+],
+"n_eligible": 3,
+"sha": "8ecda35d0244f03f66b2d05a4234315f609454b81a9b19732480bd6c81b9ead9",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0031__L048__p57:kingofnorway:kingofsweden": {
+"unit": "s3d-rl600-all11:chat-lmsys-0031__L048__p57:kingofnorway:kingofsweden",
+"anchor": "King of Sweden",
+"nearest": [
+"Henry VIII",
+"Louis XIV",
+"Queen Victoria"
+],
+"random": [],
+"distractors": [
+"Henry VIII",
+"Louis XIV",
+"Queen Victoria"
+],
+"n_eligible": 3,
+"sha": "23c526b6d917d490e0e88a11e70afb50a448ef53377da557c40a39792b8ea678",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0031__L048__p57:kingofspain:kingofsweden": {
+"unit": "s3d-rl600-all11:chat-lmsys-0031__L048__p57:kingofspain:kingofsweden",
+"anchor": "King of Sweden",
+"nearest": [
+"Henry VIII",
+"Louis XIV",
+"Queen Victoria"
+],
+"random": [],
+"distractors": [
+"Henry VIII",
+"Louis XIV",
+"Queen Victoria"
+],
+"n_eligible": 3,
+"sha": "eea0ce5ba75fc02c33b70a064be8f6c53bbec00e10ec8f72ff261aec85b48231",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0031__L048__p81:britishking:swedishmonarch": {
+"unit": "s3d-rl600-all11:chat-lmsys-0031__L048__p81:britishking:swedishmonarch",
+"anchor": "King of Sweden",
+"nearest": [
+"Henry VIII",
+"Louis XIV",
+"Queen Victoria"
+],
+"random": [],
+"distractors": [
+"Henry VIII",
+"Louis XIV",
+"Queen Victoria"
+],
+"n_eligible": 3,
+"sha": "402cd588690771a5b8be5a69c056cb67c42e9ea3de1203cde492cef699e0014a",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0031__L048__p81:kingofspain:swedishmonarch": {
+"unit": "s3d-rl600-all11:chat-lmsys-0031__L048__p81:kingofspain:swedishmonarch",
+"anchor": "King of Sweden",
+"nearest": [
+"Henry VIII",
+"Louis XIV",
+"Queen Victoria"
+],
+"random": [],
+"distractors": [
+"Henry VIII",
+"Louis XIV",
+"Queen Victoria"
+],
+"n_eligible": 3,
+"sha": "1dd4b031cbbd403ce8844ba48c730f8ac1972ca596bd470e20171265496eb984",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0031__L056__p55:kingharaldvofnorway:swedishmonarch": {
+"unit": "s3d-rl600-all11:chat-lmsys-0031__L056__p55:kingharaldvofnorway:swedishmonarch",
+"anchor": "Carl XVI Gustaf",
+"nearest": [
+"Queen Victoria",
+"Henry VIII",
+"Louis XIV"
+],
+"random": [],
+"distractors": [
+"Queen Victoria",
+"Henry VIII",
+"Louis XIV"
+],
+"n_eligible": 3,
+"sha": "9a0d59bc26091d4c9be8316da20f1b09f3baf9065c71dcc4191693834344007c",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0031__L056__p55:kingofnorway:swedishmonarch": {
+"unit": "s3d-rl600-all11:chat-lmsys-0031__L056__p55:kingofnorway:swedishmonarch",
+"anchor": "King of Sweden",
+"nearest": [
+"Henry VIII",
+"Louis XIV",
+"Queen Victoria"
+],
+"random": [],
+"distractors": [
+"Henry VIII",
+"Louis XIV",
+"Queen Victoria"
+],
+"n_eligible": 3,
+"sha": "096656b8d199de1ea898f8bb06e2daeb913419b21bceeb6f32bb2b4eee70f7bc",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0031__L044__p57:britishking:swedishmonarch": {
+"unit": "s3d-rl600:chat-lmsys-0031__L044__p57:britishking:swedishmonarch",
+"anchor": "King of Sweden",
+"nearest": [
+"Henry VIII",
+"Louis XIV",
+"Queen Victoria"
+],
+"random": [],
+"distractors": [
+"Henry VIII",
+"Louis XIV",
+"Queen Victoria"
+],
+"n_eligible": 3,
+"sha": "64bef1be472199e2a0b58a3d5f108ecff5ab85dff2e4180a53fe7662d643b2dd",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0031__L044__p57:kingofnorway:swedishmonarch": {
+"unit": "s3d-rl600:chat-lmsys-0031__L044__p57:kingofnorway:swedishmonarch",
+"anchor": "King of Sweden",
+"nearest": [
+"Henry VIII",
+"Louis XIV",
+"Queen Victoria"
+],
+"random": [],
+"distractors": [
+"Henry VIII",
+"Louis XIV",
+"Queen Victoria"
+],
+"n_eligible": 3,
+"sha": "1e765c58fd4f0217ae686d72f45e12a0c32da366e03ab2ea0e1eb237bb314557",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0031__L044__p57:norwegianking:swedishmonarch": {
+"unit": "s3d-rl600:chat-lmsys-0031__L044__p57:norwegianking:swedishmonarch",
+"anchor": "King of Sweden",
+"nearest": [
+"Henry VIII",
+"Louis XIV",
+"Queen Victoria"
+],
+"random": [],
+"distractors": [
+"Henry VIII",
+"Louis XIV",
+"Queen Victoria"
+],
+"n_eligible": 3,
+"sha": "993dd118496ee3fe8a50ee3d953e75655989f757bd09dcad3f868f49440d6455",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0031__L044__p81:monarchoftheuk:swedishmonarch": {
+"unit": "s3d-rl600:chat-lmsys-0031__L044__p81:monarchoftheuk:swedishmonarch",
+"anchor": "King of Sweden",
+"nearest": [
+"Henry VIII",
+"Louis XIV",
+"Queen Victoria"
+],
+"random": [],
+"distractors": [
+"Henry VIII",
+"Louis XIV",
+"Queen Victoria"
+],
+"n_eligible": 3,
+"sha": "dd317ed66d0249d51f3fd683b958029599b4dcf37b0ad8f7bd1515e866bd31d7",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0031__L048__p57:kingofnorway:kingofsweden": {
+"unit": "s3d-rl600:chat-lmsys-0031__L048__p57:kingofnorway:kingofsweden",
+"anchor": "King of Sweden",
+"nearest": [
+"Henry VIII",
+"Louis XIV",
+"Queen Victoria"
+],
+"random": [],
+"distractors": [
+"Henry VIII",
+"Louis XIV",
+"Queen Victoria"
+],
+"n_eligible": 3,
+"sha": "fde050e6171f2190c3f4f04c98e09dba8e18120f1cdc7fc1f334ce7706f9a893",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0031__L048__p57:kingofspain:kingofsweden": {
+"unit": "s3d-rl600:chat-lmsys-0031__L048__p57:kingofspain:kingofsweden",
+"anchor": "King of Sweden",
+"nearest": [
+"Henry VIII",
+"Louis XIV",
+"Queen Victoria"
+],
+"random": [],
+"distractors": [
+"Henry VIII",
+"Louis XIV",
+"Queen Victoria"
+],
+"n_eligible": 3,
+"sha": "3931a9c0c0e93ddcdb03465dbb8a46cda7beb5fd0a0536c605aaa70fb7e555e5",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0031__L048__p81:kingofspain:swedishmonarch": {
+"unit": "s3d-rl600:chat-lmsys-0031__L048__p81:kingofspain:swedishmonarch",
+"anchor": "King of Sweden",
+"nearest": [
+"Henry VIII",
+"Louis XIV",
+"Queen Victoria"
+],
+"random": [],
+"distractors": [
+"Henry VIII",
+"Louis XIV",
+"Queen Victoria"
+],
+"n_eligible": 3,
+"sha": "864b52e56b2286e39c27380f503ea389199d54cec40345b095b2ea610a7a39d1",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0031__L048__p81:kingofspain:kingofsweden": {
+"unit": "s3d-sft251:chat-lmsys-0031__L048__p81:kingofspain:kingofsweden",
+"anchor": "King of Sweden",
+"nearest": [
+"Henry VIII",
+"Louis XIV",
+"Queen Victoria"
+],
+"random": [],
+"distractors": [
+"Henry VIII",
+"Louis XIV",
+"Queen Victoria"
+],
+"n_eligible": 3,
+"sha": "bb4ad3593be84e8bc87e0dd35924221e44e5d31985511a75d55e853abca9c860",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0031__L052__p54:queenjuan:theswedishmonarch": {
+"unit": "s3d-sft251:chat-lmsys-0031__L052__p54:queenjuan:theswedishmonarch",
+"anchor": "Carl XVI Gustaf",
+"nearest": [
+"Henry VIII",
+"Louis XIV"
+],
+"random": [],
+"distractors": [
+"Henry VIII",
+"Louis XIV"
+],
+"n_eligible": 2,
+"sha": "40f44e59b2cba1321358835d70485afa445bab08b4bd4880d1d0dc234cd3bad8",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0031__L052__p57:kingofdenmark:swedishmonarch": {
+"unit": "s3d-sft251:chat-lmsys-0031__L052__p57:kingofdenmark:swedishmonarch",
+"anchor": "King of Sweden",
+"nearest": [
+"Henry VIII",
+"Louis XIV",
+"Queen Victoria"
+],
+"random": [],
+"distractors": [
+"Henry VIII",
+"Louis XIV",
+"Queen Victoria"
+],
+"n_eligible": 3,
+"sha": "a1bba7029c4c281a005a40e7bfff77bcb3951895efb492f7442dd3577eaceb9c",
+"generation": 0
+}
+}

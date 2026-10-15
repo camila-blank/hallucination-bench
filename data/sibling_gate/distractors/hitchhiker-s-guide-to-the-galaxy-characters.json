@@ -1,0 +1,147 @@
+{
+"mlnla-rl2-800-all11:chat-dailydialog-0030__L032__p87:zaphod:arthurdent": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0030__L032__p87:zaphod:arthurdent",
+"anchor": "Arthur Dent",
+"nearest": [
+"Fenchurch",
+"Hotblack Desiato",
+"Deep Thought",
+"Trillian"
+],
+"random": [
+"Prostetnic Vogon Jeltz",
+"Slartibartfast",
+"Wonko the Sane",
+"Zarniwoop"
+],
+"distractors": [
+"Fenchurch",
+"Hotblack Desiato",
+"Deep Thought",
+"Trillian",
+"Prostetnic Vogon Jeltz",
+"Slartibartfast",
+"Wonko the Sane",
+"Zarniwoop"
+],
+"n_eligible": 11,
+"sha": "ec94953d85f4d714e4f5b9c8b1ed032b39fb739262b6a51a067ca1fa84d8ea17",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0030__L028__p87:fordprefectandzaphodbeeblebrox:arthurdent": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0030__L028__p87:fordprefectandzaphodbeeblebrox:arthurdent",
+"anchor": "Arthur Dent",
+"nearest": [
+"Fenchurch",
+"Hotblack Desiato",
+"Deep Thought",
+"Trillian"
+],
+"random": [
+"Eddie the Shipboard Computer",
+"Gag Halfrunt",
+"Prostetnic Vogon Jeltz",
+"Zarniwoop"
+],
+"distractors": [
+"Fenchurch",
+"Hotblack Desiato",
+"Deep Thought",
+"Trillian",
+"Eddie the Shipboard Computer",
+"Gag Halfrunt",
+"Prostetnic Vogon Jeltz",
+"Zarniwoop"
+],
+"n_eligible": 11,
+"sha": "945e38427c0cef3ef3fc35635993ff14aed886a427d57485f12e8ec7652795bf",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0030__L036__p110:marvintheparanoidandroid:arthurdent": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0030__L036__p110:marvintheparanoidandroid:arthurdent",
+"anchor": "Arthur Dent",
+"nearest": [
+"Fenchurch",
+"Hotblack Desiato",
+"Deep Thought",
+"Trillian"
+],
+"random": [
+"Eddie the Shipboard Computer",
+"Gag Halfrunt",
+"Prostetnic Vogon Jeltz",
+"Zarniwoop"
+],
+"distractors": [
+"Fenchurch",
+"Hotblack Desiato",
+"Deep Thought",
+"Trillian",
+"Eddie the Shipboard Computer",
+"Gag Halfrunt",
+"Prostetnic Vogon Jeltz",
+"Zarniwoop"
+],
+"n_eligible": 11,
+"sha": "6f42b273e9569a714c4b3794bca731f2e6de0b5c13225b3e465649b1c5b35b66",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0030__L052__p65:zaphodbeeblebrox:arthurdent": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0030__L052__p65:zaphodbeeblebrox:arthurdent",
+"anchor": "Arthur Dent",
+"nearest": [
+"Fenchurch",
+"Hotblack Desiato",
+"Deep Thought",
+"Trillian"
+],
+"random": [
+"Eddie the Shipboard Computer",
+"Gag Halfrunt",
+"Slartibartfast",
+"Zarniwoop"
+],
+"distractors": [
+"Fenchurch",
+"Hotblack Desiato",
+"Deep Thought",
+"Trillian",
+"Eddie the Shipboard Computer",
+"Gag Halfrunt",
+"Slartibartfast",
+"Zarniwoop"
+],
+"n_eligible": 11,
+"sha": "e62e8bc65728062fa4754d0cc4f3e4eae2f0b6cb3d6fb6bc22e7d9b3e92c0af1",
+"generation": 0
+},
+"nla-rl-L42:chat-dailydialog-0030__L042__p137:marvin:arthurdent": {
+"unit": "nla-rl-L42:chat-dailydialog-0030__L042__p137:marvin:arthurdent",
+"anchor": "Arthur Dent",
+"nearest": [
+"Fenchurch",
+"Hotblack Desiato",
+"Deep Thought",
+"Trillian"
+],
+"random": [
+"Agrajag",
+"Gag Halfrunt",
+"Prostetnic Vogon Jeltz",
+"Slartibartfast"
+],
+"distractors": [
+"Fenchurch",
+"Hotblack Desiato",
+"Deep Thought",
+"Trillian",
+"Agrajag",
+"Gag Halfrunt",
+"Prostetnic Vogon Jeltz",
+"Slartibartfast"
+],
+"n_eligible": 11,
+"sha": "2cee518618aae6b79d4448756e04159dae7facaa7889a02e3526f72081739b44",
+"generation": 0
+}
+}

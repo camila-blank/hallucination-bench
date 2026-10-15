@@ -1,0 +1,272 @@
+{
+"logit:chat-lmsys-0020__L056__p85:emmynoethernoetherstheorem:derhamtheory": {
+"unit": "logit:chat-lmsys-0020__L056__p85:emmynoethernoetherstheorem:derhamtheory",
+"anchor": "Georges de Rham",
+"nearest": [
+"Carl Friedrich Gauss",
+"Archimedes",
+"Euclid",
+"Leonhard Euler"
+],
+"random": [
+"Gottfried Wilhelm Leibniz",
+"Isaac Newton",
+"Pythagoras"
+],
+"distractors": [
+"Carl Friedrich Gauss",
+"Archimedes",
+"Euclid",
+"Leonhard Euler",
+"Gottfried Wilhelm Leibniz",
+"Isaac Newton",
+"Pythagoras"
+],
+"n_eligible": 7,
+"sha": "73f9e2ca59a62b0b22fe892706816e536f0a32cc36d7bde372c3369fc17b3066",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0020__L028__p23:alanturing:derham": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0020__L028__p23:alanturing:derham",
+"anchor": "Georges de Rham",
+"nearest": [
+"Carl Friedrich Gauss",
+"Archimedes",
+"Euclid",
+"Leonhard Euler"
+],
+"random": [
+"Gottfried Wilhelm Leibniz",
+"Isaac Newton",
+"Pythagoras"
+],
+"distractors": [
+"Carl Friedrich Gauss",
+"Archimedes",
+"Euclid",
+"Leonhard Euler",
+"Gottfried Wilhelm Leibniz",
+"Isaac Newton",
+"Pythagoras"
+],
+"n_eligible": 7,
+"sha": "1ee335e3a909692d102c82ac0931b5d9a801fe6b4d3eb102385c84cc5e6b62ce",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0020__L060__p218:pierredolbeault:derham": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0020__L060__p218:pierredolbeault:derham",
+"anchor": "Georges de Rham",
+"nearest": [
+"Carl Friedrich Gauss",
+"Archimedes",
+"Euclid",
+"Leonhard Euler"
+],
+"random": [
+"Gottfried Wilhelm Leibniz",
+"Isaac Newton",
+"Pythagoras"
+],
+"distractors": [
+"Carl Friedrich Gauss",
+"Archimedes",
+"Euclid",
+"Leonhard Euler",
+"Gottfried Wilhelm Leibniz",
+"Isaac Newton",
+"Pythagoras"
+],
+"n_eligible": 7,
+"sha": "04053f3181e851f0ec5b7d3c77daae78d130d0eeb59c7e513173276bfc1c3cd2",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0020__L048__p132:alexandergrothendieck:derham": {
+"unit": "s3d-rl600-all11:chat-lmsys-0020__L048__p132:alexandergrothendieck:derham",
+"anchor": "Georges de Rham",
+"nearest": [
+"Carl Friedrich Gauss",
+"Archimedes",
+"Euclid",
+"Leonhard Euler"
+],
+"random": [
+"Gottfried Wilhelm Leibniz",
+"Isaac Newton",
+"Pythagoras"
+],
+"distractors": [
+"Carl Friedrich Gauss",
+"Archimedes",
+"Euclid",
+"Leonhard Euler",
+"Gottfried Wilhelm Leibniz",
+"Isaac Newton",
+"Pythagoras"
+],
+"n_eligible": 7,
+"sha": "907420953bad78e41b14917636c64d2fed56de242db07d9d36693b0f28f465e1",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0020__L048__p218:riemann:derham": {
+"unit": "s3d-rl600-all11:chat-lmsys-0020__L048__p218:riemann:derham",
+"anchor": "Georges de Rham",
+"nearest": [
+"Carl Friedrich Gauss",
+"Archimedes",
+"Euclid",
+"Leonhard Euler"
+],
+"random": [
+"Gottfried Wilhelm Leibniz",
+"Isaac Newton",
+"Pythagoras"
+],
+"distractors": [
+"Carl Friedrich Gauss",
+"Archimedes",
+"Euclid",
+"Leonhard Euler",
+"Gottfried Wilhelm Leibniz",
+"Isaac Newton",
+"Pythagoras"
+],
+"n_eligible": 7,
+"sha": "fc7041b9b49d1ef075115ad8cc41352878f8a5d6a490ec7a13fc9df59691bcda",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0020__L052__p218:poincaré:derham": {
+"unit": "s3d-rl600-all11:chat-lmsys-0020__L052__p218:poincaré:derham",
+"anchor": "Georges de Rham",
+"nearest": [
+"Carl Friedrich Gauss",
+"Archimedes",
+"Euclid",
+"Leonhard Euler"
+],
+"random": [
+"Gottfried Wilhelm Leibniz",
+"Isaac Newton",
+"Pythagoras"
+],
+"distractors": [
+"Carl Friedrich Gauss",
+"Archimedes",
+"Euclid",
+"Leonhard Euler",
+"Gottfried Wilhelm Leibniz",
+"Isaac Newton",
+"Pythagoras"
+],
+"n_eligible": 7,
+"sha": "8bb4e2c3db897d1f2c9476763ad841efbadf3bd10fdb1d31eea33ec87cba0857",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0020__L060__p156:poincaré:derham": {
+"unit": "s3d-rl600-all11:chat-lmsys-0020__L060__p156:poincaré:derham",
+"anchor": "Georges de Rham",
+"nearest": [
+"Carl Friedrich Gauss",
+"Archimedes",
+"Euclid",
+"Leonhard Euler"
+],
+"random": [
+"Gottfried Wilhelm Leibniz",
+"Isaac Newton",
+"Pythagoras"
+],
+"distractors": [
+"Carl Friedrich Gauss",
+"Archimedes",
+"Euclid",
+"Leonhard Euler",
+"Gottfried Wilhelm Leibniz",
+"Isaac Newton",
+"Pythagoras"
+],
+"n_eligible": 7,
+"sha": "b4b1231e6a9e03d5e489b5a3c3d269cfdd8ccf4bb7d39be6c5cd921deec29ccc",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0020__L060__p156:poincaré:derhamtheorem": {
+"unit": "s3d-rl600-all11:chat-lmsys-0020__L060__p156:poincaré:derhamtheorem",
+"anchor": "Georges de Rham",
+"nearest": [
+"Carl Friedrich Gauss",
+"Archimedes",
+"Euclid",
+"Leonhard Euler"
+],
+"random": [
+"Gottfried Wilhelm Leibniz",
+"Isaac Newton",
+"Pythagoras"
+],
+"distractors": [
+"Carl Friedrich Gauss",
+"Archimedes",
+"Euclid",
+"Leonhard Euler",
+"Gottfried Wilhelm Leibniz",
+"Isaac Newton",
+"Pythagoras"
+],
+"n_eligible": 7,
+"sha": "85021e89c6d3075de8e3481e3d0dc633f0aa56c19159c660fb4a66df1e27c32d",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0020__L048__p218:riemann:derham": {
+"unit": "s3d-rl600:chat-lmsys-0020__L048__p218:riemann:derham",
+"anchor": "Georges de Rham",
+"nearest": [
+"Carl Friedrich Gauss",
+"Archimedes",
+"Euclid",
+"Leonhard Euler"
+],
+"random": [
+"Gottfried Wilhelm Leibniz",
+"Isaac Newton",
+"Pythagoras"
+],
+"distractors": [
+"Carl Friedrich Gauss",
+"Archimedes",
+"Euclid",
+"Leonhard Euler",
+"Gottfried Wilhelm Leibniz",
+"Isaac Newton",
+"Pythagoras"
+],
+"n_eligible": 7,
+"sha": "75155764e9a5ef7593f819af029f3460916cf838250b1f04e9614c1da8e68511",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0020__L048__p23:hodge:derham": {
+"unit": "s3d-sft251:chat-lmsys-0020__L048__p23:hodge:derham",
+"anchor": "Georges de Rham",
+"nearest": [
+"Carl Friedrich Gauss",
+"Archimedes",
+"Euclid",
+"Leonhard Euler"
+],
+"random": [
+"Gottfried Wilhelm Leibniz",
+"Isaac Newton",
+"Pythagoras"
+],
+"distractors": [
+"Carl Friedrich Gauss",
+"Archimedes",
+"Euclid",
+"Leonhard Euler",
+"Gottfried Wilhelm Leibniz",
+"Isaac Newton",
+"Pythagoras"
+],
+"n_eligible": 7,
+"sha": "43544f9d47827f9c83936080414002fc1d8adc0306e49a544922a2099153dfcd",
+"generation": 0
+}
+}

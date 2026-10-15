@@ -1,0 +1,191 @@
+{
+"mlnla-rl2-800-all11:chat-dailydialog-0046__L024__p145:swisseducation:australiaseducationsystem": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0046__L024__p145:swisseducation:australiaseducationsystem",
+"anchor": "Australian education",
+"nearest": [
+"American education system",
+"Indian education system",
+"Canadian education system",
+"German education system"
+],
+"random": [
+"Finnish education system",
+"Japanese education system",
+"South Korean education system"
+],
+"distractors": [
+"American education system",
+"Indian education system",
+"Canadian education system",
+"German education system",
+"Finnish education system",
+"Japanese education system",
+"South Korean education system"
+],
+"n_eligible": 7,
+"sha": "06f8d899f30fded8f40bfaec4bdf37ff1ebd97d97d7432755e83e1198a1c9ddf",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0046__L028__p145:frencheducation:australianeducation": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0046__L028__p145:frencheducation:australianeducation",
+"anchor": "Australian education system",
+"nearest": [
+"Canadian education system",
+"American education system",
+"Indian education system",
+"German education system"
+],
+"random": [
+"Finnish education system",
+"Japanese education system",
+"South Korean education system"
+],
+"distractors": [
+"Canadian education system",
+"American education system",
+"Indian education system",
+"German education system",
+"Finnish education system",
+"Japanese education system",
+"South Korean education system"
+],
+"n_eligible": 7,
+"sha": "552df7fca086985408aeea16b554ea7db82d0522baf4600a4ed1c5ad4b54a7da",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0046__L024__p145:ukeducation:australianeducation": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0046__L024__p145:ukeducation:australianeducation",
+"anchor": "Australian education system",
+"nearest": [
+"Canadian education system",
+"American education system",
+"Indian education system",
+"German education system"
+],
+"random": [
+"Finnish education system",
+"Japanese education system",
+"South Korean education system"
+],
+"distractors": [
+"Canadian education system",
+"American education system",
+"Indian education system",
+"German education system",
+"Finnish education system",
+"Japanese education system",
+"South Korean education system"
+],
+"n_eligible": 7,
+"sha": "0b6e26dfe790a277b2df8524a6834e850e1fa8f51bfc4435cbfe09e5ca01af59",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0046__L024__p145:ukhighereducation:australiaseducationsystem": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0046__L024__p145:ukhighereducation:australiaseducationsystem",
+"anchor": "Australian education",
+"nearest": [
+"American education system",
+"Indian education system",
+"Canadian education system",
+"German education system"
+],
+"random": [
+"Finnish education system",
+"Japanese education system",
+"South Korean education system"
+],
+"distractors": [
+"American education system",
+"Indian education system",
+"Canadian education system",
+"German education system",
+"Finnish education system",
+"Japanese education system",
+"South Korean education system"
+],
+"n_eligible": 7,
+"sha": "d3b120feabed64ad65eaaff8c16b44d261348e634573e0edeaad8e6cb9b20643",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0046__L040__p145:britisheducationsystem:australianeducationsystem": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0046__L040__p145:britisheducationsystem:australianeducationsystem",
+"anchor": "Australian education system",
+"nearest": [
+"Canadian education system",
+"American education system",
+"Indian education system",
+"German education system"
+],
+"random": [
+"Finnish education system",
+"Japanese education system",
+"South Korean education system"
+],
+"distractors": [
+"Canadian education system",
+"American education system",
+"Indian education system",
+"German education system",
+"Finnish education system",
+"Japanese education system",
+"South Korean education system"
+],
+"n_eligible": 7,
+"sha": "1e99d68642a1393deedcee7a5b9d60a9fe384d2f118072b2eb960271703114ec",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0046__L048__p145:uksuniversitysystem:australianuniversities": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0046__L048__p145:uksuniversitysystem:australianuniversities",
+"anchor": "Australian education system",
+"nearest": [
+"Canadian education system",
+"American education system",
+"Indian education system",
+"German education system"
+],
+"random": [
+"Finnish education system",
+"Japanese education system",
+"South Korean education system"
+],
+"distractors": [
+"Canadian education system",
+"American education system",
+"Indian education system",
+"German education system",
+"Finnish education system",
+"Japanese education system",
+"South Korean education system"
+],
+"n_eligible": 7,
+"sha": "45c7307d5078af0e72b3d3f6677a5be4e4260b0360c9f6b648fc092c367e9483",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0046__L032__p157:frencheducationsystem:australianeducationsystem": {
+"unit": "s3d-sft251:chat-dailydialog-0046__L032__p157:frencheducationsystem:australianeducationsystem",
+"anchor": "Australian education system",
+"nearest": [
+"Canadian education system",
+"American education system",
+"Indian education system",
+"German education system"
+],
+"random": [
+"Finnish education system",
+"Japanese education system",
+"South Korean education system"
+],
+"distractors": [
+"Canadian education system",
+"American education system",
+"Indian education system",
+"German education system",
+"Finnish education system",
+"Japanese education system",
+"South Korean education system"
+],
+"n_eligible": 7,
+"sha": "37fa860508524282376cd61a5b75a917f605e146d131f2cf2713dd21ec8bd65a",
+"generation": 0
+}
+}

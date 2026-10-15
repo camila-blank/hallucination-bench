@@ -1,0 +1,263 @@
+{
+"mlnla-rl2-800-all11:chat-lmsys-0032__L032__p157:ginopaoli:viviangreen": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0032__L032__p157:ginopaoli:viviangreen",
+"anchor": "Vivian Green",
+"nearest": [
+"Lee Soo Mi",
+"Brian Snyder",
+"William Shakespeare",
+"Martin Luther King Jr."
+],
+"random": [
+"Albert Einstein",
+"Isaac Newton",
+"Leonardo da Vinci",
+"Napoleon Bonaparte"
+],
+"distractors": [
+"Lee Soo Mi",
+"Brian Snyder",
+"William Shakespeare",
+"Martin Luther King Jr.",
+"Albert Einstein",
+"Isaac Newton",
+"Leonardo da Vinci",
+"Napoleon Bonaparte"
+],
+"n_eligible": 10,
+"sha": "ee57dc1cdd8fcc44f4bd6c68f3a9991133898c9692abc18487783d2fa874834b",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0032__L044__p112:eleanorroosevelt:viviangreen": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0032__L044__p112:eleanorroosevelt:viviangreen",
+"anchor": "Vivian Green",
+"nearest": [
+"Lee Soo Mi",
+"Brian Snyder",
+"William Shakespeare",
+"Martin Luther King Jr."
+],
+"random": [
+"Abraham Lincoln",
+"Isaac Newton",
+"Leonardo da Vinci",
+"Mahatma Gandhi"
+],
+"distractors": [
+"Lee Soo Mi",
+"Brian Snyder",
+"William Shakespeare",
+"Martin Luther King Jr.",
+"Abraham Lincoln",
+"Isaac Newton",
+"Leonardo da Vinci",
+"Mahatma Gandhi"
+],
+"n_eligible": 10,
+"sha": "920a97608f85855d108d25ff48958547933f232919fe1849144ab2f71a4bfa3c",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0032__L044__p68:mariecurieandeleanorroosevelt:viviangreen": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0032__L044__p68:mariecurieandeleanorroosevelt:viviangreen",
+"anchor": "Vivian Greene",
+"nearest": [
+"Lee Soo Mi",
+"Brian Snyder",
+"William Shakespeare",
+"Mahatma Gandhi"
+],
+"random": [
+"Abraham Lincoln",
+"Albert Einstein",
+"Leonardo da Vinci",
+"Martin Luther King Jr."
+],
+"distractors": [
+"Lee Soo Mi",
+"Brian Snyder",
+"William Shakespeare",
+"Mahatma Gandhi",
+"Abraham Lincoln",
+"Albert Einstein",
+"Leonardo da Vinci",
+"Martin Luther King Jr."
+],
+"n_eligible": 10,
+"sha": "205d1396f485caf853a1f62d22c70b27a41a87ba4af78b2bca434a0349ef4918",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0032__L056__p157:johnlennon:viviangreen": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0032__L056__p157:johnlennon:viviangreen",
+"anchor": "Vivian Greene",
+"nearest": [
+"Lee Soo Mi",
+"Brian Snyder",
+"William Shakespeare",
+"Mahatma Gandhi"
+],
+"random": [
+"Abraham Lincoln",
+"Albert Einstein",
+"Isaac Newton",
+"Leonardo da Vinci"
+],
+"distractors": [
+"Lee Soo Mi",
+"Brian Snyder",
+"William Shakespeare",
+"Mahatma Gandhi",
+"Abraham Lincoln",
+"Albert Einstein",
+"Isaac Newton",
+"Leonardo da Vinci"
+],
+"n_eligible": 10,
+"sha": "5dab6640e1fdbcfefd8bf1fc3becfebd88df4b3dac10e2f1a8754cd124789590",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0032__L056__p38:johnlennon:viviangreen": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0032__L056__p38:johnlennon:viviangreen",
+"anchor": "Vivian Greene",
+"nearest": [
+"Lee Soo Mi",
+"Brian Snyder",
+"William Shakespeare",
+"Mahatma Gandhi"
+],
+"random": [
+"Albert Einstein",
+"Isaac Newton",
+"Leonardo da Vinci",
+"Martin Luther King Jr."
+],
+"distractors": [
+"Lee Soo Mi",
+"Brian Snyder",
+"William Shakespeare",
+"Mahatma Gandhi",
+"Albert Einstein",
+"Isaac Newton",
+"Leonardo da Vinci",
+"Martin Luther King Jr."
+],
+"n_eligible": 10,
+"sha": "889ab0754364d50324ec977e1d39116d96a2e9cc74c4056350ff309f3b292012",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0032__L052__p38:johnlennon:viviangreen": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0032__L052__p38:johnlennon:viviangreen",
+"anchor": "Vivian Greene",
+"nearest": [
+"Lee Soo Mi",
+"Brian Snyder",
+"William Shakespeare",
+"Mahatma Gandhi"
+],
+"random": [
+"Abraham Lincoln",
+"Albert Einstein",
+"Leonardo da Vinci",
+"Martin Luther King Jr."
+],
+"distractors": [
+"Lee Soo Mi",
+"Brian Snyder",
+"William Shakespeare",
+"Mahatma Gandhi",
+"Abraham Lincoln",
+"Albert Einstein",
+"Leonardo da Vinci",
+"Martin Luther King Jr."
+],
+"n_eligible": 10,
+"sha": "10329a721f1afb9db1d738839866e5c65b03a6fb3e2ddda3b02c56f1f45cc993",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0032__L060__p258:eleanorroosevelt:viviangreen": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0032__L060__p258:eleanorroosevelt:viviangreen",
+"anchor": "Vivian Green",
+"nearest": [
+"Lee Soo Mi",
+"Brian Snyder",
+"William Shakespeare",
+"Martin Luther King Jr."
+],
+"random": [
+"Abraham Lincoln",
+"Isaac Newton",
+"Mahatma Gandhi",
+"Napoleon Bonaparte"
+],
+"distractors": [
+"Lee Soo Mi",
+"Brian Snyder",
+"William Shakespeare",
+"Martin Luther King Jr.",
+"Abraham Lincoln",
+"Isaac Newton",
+"Mahatma Gandhi",
+"Napoleon Bonaparte"
+],
+"n_eligible": 10,
+"sha": "702664df7eec737ecd33689053cee9d15713a2dae267bba848cfd723e00fd2d7",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0032__L060__p38:eleanorroosevelt:viviangreen": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0032__L060__p38:eleanorroosevelt:viviangreen",
+"anchor": "Vivian Green",
+"nearest": [
+"Lee Soo Mi",
+"Brian Snyder",
+"William Shakespeare",
+"Martin Luther King Jr."
+],
+"random": [
+"Abraham Lincoln",
+"Isaac Newton",
+"Leonardo da Vinci",
+"Napoleon Bonaparte"
+],
+"distractors": [
+"Lee Soo Mi",
+"Brian Snyder",
+"William Shakespeare",
+"Martin Luther King Jr.",
+"Abraham Lincoln",
+"Isaac Newton",
+"Leonardo da Vinci",
+"Napoleon Bonaparte"
+],
+"n_eligible": 10,
+"sha": "cef93fc82fceec350c9fd30c8fa39e76b9fe8a2b238866804d5f44c749240bf7",
+"generation": 0
+},
+"template-v3:chat-dailydialog-0040__L020__p77:briansnyder:soomi": {
+"unit": "template-v3:chat-dailydialog-0040__L020__p77:briansnyder:soomi",
+"anchor": "Lee Soo Mi",
+"nearest": [
+"Gino Paoli",
+"Vivian Green",
+"Vivian Greene",
+"Martin Luther King Jr."
+],
+"random": [
+"Albert Einstein",
+"John Lennon",
+"Mahatma Gandhi",
+"Napoleon Bonaparte"
+],
+"distractors": [
+"Gino Paoli",
+"Vivian Green",
+"Vivian Greene",
+"Martin Luther King Jr.",
+"Albert Einstein",
+"John Lennon",
+"Mahatma Gandhi",
+"Napoleon Bonaparte"
+],
+"n_eligible": 13,
+"sha": "f57202c807e2205d31939cb2942037ed09fcd4f1d9e29e7842a32591cb3b6b85",
+"generation": 0
+}
+}

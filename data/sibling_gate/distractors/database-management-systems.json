@@ -1,0 +1,669 @@
+{
+"mlnla-rl2-800-all11:chat-lmsys-0003__L040__p310:postgresql:webbluetoothapi": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0003__L040__p310:postgresql:webbluetoothapi",
+"anchor": "PostgreSQL",
+"nearest": [
+"DuckDB",
+"Redis",
+"Neo4j",
+"SQLite"
+],
+"random": [
+"Amazon DynamoDB",
+"Couchbase",
+"Microsoft Access",
+"Oracle Database"
+],
+"distractors": [
+"DuckDB",
+"Redis",
+"Neo4j",
+"SQLite",
+"Amazon DynamoDB",
+"Couchbase",
+"Microsoft Access",
+"Oracle Database"
+],
+"n_eligible": 15,
+"sha": "eb42bd01602ce50221502180b58040de7551772cdc13a953b57c4a0b7f21cdc0",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0007__L032__p74:mysql:sqlite3": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0007__L032__p74:mysql:sqlite3",
+"anchor": "SQLite",
+"nearest": [
+"Redis",
+"Microsoft Access",
+"Oracle Database",
+"MongoDB"
+],
+"random": [
+"Cassandra",
+"Elasticsearch",
+"Microsoft SQL Server",
+"Neo4j"
+],
+"distractors": [
+"Redis",
+"Microsoft Access",
+"Oracle Database",
+"MongoDB",
+"Cassandra",
+"Elasticsearch",
+"Microsoft SQL Server",
+"Neo4j"
+],
+"n_eligible": 10,
+"sha": "ed14800b5c3be1c5c1db69c4fcbb593f6a5e0e428753297048950647a662c7a2",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0007__L032__p74:postgresql:sqlite3": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0007__L032__p74:postgresql:sqlite3",
+"anchor": "SQLite",
+"nearest": [
+"Redis",
+"Microsoft Access",
+"Oracle Database",
+"MongoDB"
+],
+"random": [
+"Amazon DynamoDB",
+"Cassandra",
+"Elasticsearch",
+"Neo4j"
+],
+"distractors": [
+"Redis",
+"Microsoft Access",
+"Oracle Database",
+"MongoDB",
+"Amazon DynamoDB",
+"Cassandra",
+"Elasticsearch",
+"Neo4j"
+],
+"n_eligible": 10,
+"sha": "1e2574609d72d6c706cc9b3e15dce81293f4fc69d4c43554fa0d75daf1ad387e",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0007__L036__p74:postgresql:sqlite3": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0007__L036__p74:postgresql:sqlite3",
+"anchor": "SQLite",
+"nearest": [
+"Redis",
+"Microsoft Access",
+"Oracle Database",
+"MongoDB"
+],
+"random": [
+"Amazon DynamoDB",
+"Cassandra",
+"Couchbase",
+"Neo4j"
+],
+"distractors": [
+"Redis",
+"Microsoft Access",
+"Oracle Database",
+"MongoDB",
+"Amazon DynamoDB",
+"Cassandra",
+"Couchbase",
+"Neo4j"
+],
+"n_eligible": 10,
+"sha": "40211899f27b6be940068e4f65f7031fb9cb0b9e1d93fd6e71da9edac2a67b2e",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0007__L056__p170:postgresql:sqlite": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0007__L056__p170:postgresql:sqlite",
+"anchor": "SQLite",
+"nearest": [
+"Redis",
+"Microsoft Access",
+"Oracle Database",
+"MongoDB"
+],
+"random": [
+"Cassandra",
+"Couchbase",
+"Elasticsearch",
+"Microsoft SQL Server"
+],
+"distractors": [
+"Redis",
+"Microsoft Access",
+"Oracle Database",
+"MongoDB",
+"Cassandra",
+"Couchbase",
+"Elasticsearch",
+"Microsoft SQL Server"
+],
+"n_eligible": 10,
+"sha": "60fbed2e57553da5c54aa281e7996efca5902c81abd2909508993002cddf6500",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L028__p73:sqlservertsql:mysql": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L028__p73:sqlservertsql:mysql",
+"anchor": "MySQL",
+"nearest": [
+"MariaDB",
+"IBM Db2",
+"SQLite",
+"PostgreSQL"
+],
+"random": [
+"Amazon DynamoDB",
+"Cassandra",
+"Couchbase",
+"DuckDB"
+],
+"distractors": [
+"MariaDB",
+"IBM Db2",
+"SQLite",
+"PostgreSQL",
+"Amazon DynamoDB",
+"Cassandra",
+"Couchbase",
+"DuckDB"
+],
+"n_eligible": 13,
+"sha": "e3a3c7755f46c281bb5a3d36f23c4d573685349566e83309473bc75f16eecca8",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L060__p87:sqlserver:mysql": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L060__p87:sqlserver:mysql",
+"anchor": "MySQL",
+"nearest": [
+"MariaDB",
+"IBM Db2",
+"SQLite",
+"PostgreSQL"
+],
+"random": [
+"Amazon DynamoDB",
+"Couchbase",
+"MongoDB",
+"Oracle Database"
+],
+"distractors": [
+"MariaDB",
+"IBM Db2",
+"SQLite",
+"PostgreSQL",
+"Amazon DynamoDB",
+"Couchbase",
+"MongoDB",
+"Oracle Database"
+],
+"n_eligible": 13,
+"sha": "3c96f3e4169ea5bdeec41267a5f734ee3ac95a485fd91f16a34bcd77fafbeb52",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0074__L044__p443:mongodb:toyrelationaldatabase": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0074__L044__p443:mongodb:toyrelationaldatabase",
+"anchor": "MongoDB",
+"nearest": [
+"Elasticsearch",
+"Redis",
+"Neo4j",
+"Cassandra"
+],
+"random": [
+"IBM Db2",
+"Microsoft Access",
+"MySQL",
+"PostgreSQL"
+],
+"distractors": [
+"Elasticsearch",
+"Redis",
+"Neo4j",
+"Cassandra",
+"IBM Db2",
+"Microsoft Access",
+"MySQL",
+"PostgreSQL"
+],
+"n_eligible": 14,
+"sha": "626107d6ec57820d8716eaef6858b85f6b55fc36616ef3468e59f7e4859719bd",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0007__L020__p147:db2:sqlite": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0007__L020__p147:db2:sqlite",
+"anchor": "SQLite",
+"nearest": [
+"Redis",
+"Microsoft Access",
+"Oracle Database",
+"MongoDB"
+],
+"random": [
+"Cassandra",
+"Elasticsearch",
+"Microsoft SQL Server",
+"Neo4j"
+],
+"distractors": [
+"Redis",
+"Microsoft Access",
+"Oracle Database",
+"MongoDB",
+"Cassandra",
+"Elasticsearch",
+"Microsoft SQL Server",
+"Neo4j"
+],
+"n_eligible": 10,
+"sha": "1c02fbc31fd35a5074a8af696d776277cd9cdbbf4ea296d7a8586a2d9250564a",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0007__L040__p170:mysql:sqlite": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0007__L040__p170:mysql:sqlite",
+"anchor": "SQLite",
+"nearest": [
+"Redis",
+"Microsoft Access",
+"Oracle Database",
+"MongoDB"
+],
+"random": [
+"Couchbase",
+"Elasticsearch",
+"Microsoft SQL Server",
+"Neo4j"
+],
+"distractors": [
+"Redis",
+"Microsoft Access",
+"Oracle Database",
+"MongoDB",
+"Couchbase",
+"Elasticsearch",
+"Microsoft SQL Server",
+"Neo4j"
+],
+"n_eligible": 10,
+"sha": "eca89a05d0ec58bd1063e84bf6298a0f5c89e7c2d6f4e99e6e58c2d287c60791",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0007__L040__p74:postgresql:sqlite": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0007__L040__p74:postgresql:sqlite",
+"anchor": "SQLite",
+"nearest": [
+"Redis",
+"Microsoft Access",
+"Oracle Database",
+"MongoDB"
+],
+"random": [
+"Amazon DynamoDB",
+"Cassandra",
+"Couchbase",
+"Neo4j"
+],
+"distractors": [
+"Redis",
+"Microsoft Access",
+"Oracle Database",
+"MongoDB",
+"Amazon DynamoDB",
+"Cassandra",
+"Couchbase",
+"Neo4j"
+],
+"n_eligible": 10,
+"sha": "53d2968c2e72f31acfcda64cff0ee1f000a35c145ded7844b03d894bf3d95f33",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0007__L044__p74:postgresql:sqlite": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0007__L044__p74:postgresql:sqlite",
+"anchor": "SQLite",
+"nearest": [
+"Redis",
+"Microsoft Access",
+"Oracle Database",
+"MongoDB"
+],
+"random": [
+"Cassandra",
+"Elasticsearch",
+"Microsoft SQL Server",
+"Neo4j"
+],
+"distractors": [
+"Redis",
+"Microsoft Access",
+"Oracle Database",
+"MongoDB",
+"Cassandra",
+"Elasticsearch",
+"Microsoft SQL Server",
+"Neo4j"
+],
+"n_eligible": 10,
+"sha": "c0ed99591d4b728aee66b651084a76957c446b95d7ac29b50a08cf9b9dfc4ebe",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0007__L024__p74:mysql:sqlite": {
+"unit": "s3d-rl600-all11:chat-lmsys-0007__L024__p74:mysql:sqlite",
+"anchor": "SQLite",
+"nearest": [
+"Redis",
+"Microsoft Access",
+"Oracle Database",
+"MongoDB"
+],
+"random": [
+"Amazon DynamoDB",
+"Couchbase",
+"Elasticsearch",
+"Neo4j"
+],
+"distractors": [
+"Redis",
+"Microsoft Access",
+"Oracle Database",
+"MongoDB",
+"Amazon DynamoDB",
+"Couchbase",
+"Elasticsearch",
+"Neo4j"
+],
+"n_eligible": 10,
+"sha": "dc8d50fee4082b5b81da3cc7bfc4e00d433021cbe5b8bc935c9c14962155ed5c",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0007__L032__p74:postgresql:sqlite": {
+"unit": "s3d-rl600-all11:chat-lmsys-0007__L032__p74:postgresql:sqlite",
+"anchor": "SQLite",
+"nearest": [
+"Redis",
+"Microsoft Access",
+"Oracle Database",
+"MongoDB"
+],
+"random": [
+"Amazon DynamoDB",
+"Couchbase",
+"Microsoft SQL Server",
+"Neo4j"
+],
+"distractors": [
+"Redis",
+"Microsoft Access",
+"Oracle Database",
+"MongoDB",
+"Amazon DynamoDB",
+"Couchbase",
+"Microsoft SQL Server",
+"Neo4j"
+],
+"n_eligible": 10,
+"sha": "65bf10b3bca998cf7ea6093308e18a640efccae025b5cde7706d7d73c4da2991",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0007__L036__p74:postgresql:sqlite": {
+"unit": "s3d-rl600-all11:chat-lmsys-0007__L036__p74:postgresql:sqlite",
+"anchor": "SQLite",
+"nearest": [
+"Redis",
+"Microsoft Access",
+"Oracle Database",
+"MongoDB"
+],
+"random": [
+"Cassandra",
+"Couchbase",
+"Elasticsearch",
+"Microsoft SQL Server"
+],
+"distractors": [
+"Redis",
+"Microsoft Access",
+"Oracle Database",
+"MongoDB",
+"Cassandra",
+"Couchbase",
+"Elasticsearch",
+"Microsoft SQL Server"
+],
+"n_eligible": 10,
+"sha": "cd1a2c9b93af1b25c56de0a5857a7eccee672ef588d4347fd40f3ebc6084fc27",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0007__L040__p74:postgresql:sqlite": {
+"unit": "s3d-rl600-all11:chat-lmsys-0007__L040__p74:postgresql:sqlite",
+"anchor": "SQLite",
+"nearest": [
+"Redis",
+"Microsoft Access",
+"Oracle Database",
+"MongoDB"
+],
+"random": [
+"Amazon DynamoDB",
+"Couchbase",
+"Elasticsearch",
+"Neo4j"
+],
+"distractors": [
+"Redis",
+"Microsoft Access",
+"Oracle Database",
+"MongoDB",
+"Amazon DynamoDB",
+"Couchbase",
+"Elasticsearch",
+"Neo4j"
+],
+"n_eligible": 10,
+"sha": "103414813957916f86778bc9f90470298a4c45bbc71d92847c4d1a0e5e360563",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0007__L044__p74:postgresql:sqlite": {
+"unit": "s3d-rl600-all11:chat-lmsys-0007__L044__p74:postgresql:sqlite",
+"anchor": "SQLite",
+"nearest": [
+"Redis",
+"Microsoft Access",
+"Oracle Database",
+"MongoDB"
+],
+"random": [
+"Amazon DynamoDB",
+"Couchbase",
+"Elasticsearch",
+"Microsoft SQL Server"
+],
+"distractors": [
+"Redis",
+"Microsoft Access",
+"Oracle Database",
+"MongoDB",
+"Amazon DynamoDB",
+"Couchbase",
+"Elasticsearch",
+"Microsoft SQL Server"
+],
+"n_eligible": 10,
+"sha": "4eb4a3948d7e7dd116542b306960e5bedae72452e9f7278a52995b554d02babb",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0007__L036__p74:postgresql:sqlite": {
+"unit": "s3d-rl600:chat-lmsys-0007__L036__p74:postgresql:sqlite",
+"anchor": "SQLite",
+"nearest": [
+"Redis",
+"Microsoft Access",
+"Oracle Database",
+"MongoDB"
+],
+"random": [
+"Cassandra",
+"Elasticsearch",
+"Microsoft SQL Server",
+"Neo4j"
+],
+"distractors": [
+"Redis",
+"Microsoft Access",
+"Oracle Database",
+"MongoDB",
+"Cassandra",
+"Elasticsearch",
+"Microsoft SQL Server",
+"Neo4j"
+],
+"n_eligible": 10,
+"sha": "0b13c76c0f7e840a6aaac72c60d21db4a47fd0995e2fb205652c3c41c230ba62",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0007__L048__p74:postgresql:sqlite": {
+"unit": "s3d-rl600:chat-lmsys-0007__L048__p74:postgresql:sqlite",
+"anchor": "SQLite",
+"nearest": [
+"Redis",
+"Microsoft Access",
+"Oracle Database",
+"MongoDB"
+],
+"random": [
+"Amazon DynamoDB",
+"Cassandra",
+"Elasticsearch",
+"Microsoft SQL Server"
+],
+"distractors": [
+"Redis",
+"Microsoft Access",
+"Oracle Database",
+"MongoDB",
+"Amazon DynamoDB",
+"Cassandra",
+"Elasticsearch",
+"Microsoft SQL Server"
+],
+"n_eligible": 10,
+"sha": "566101bdad5e14e7cdcd63eb67957f284c285a097707a6531d9b65ce68c60763",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0007__L028__p101:postgresql:sqlite": {
+"unit": "s3d-sft251:chat-lmsys-0007__L028__p101:postgresql:sqlite",
+"anchor": "SQLite",
+"nearest": [
+"Redis",
+"Microsoft Access",
+"Oracle Database",
+"MongoDB"
+],
+"random": [
+"Cassandra",
+"Couchbase",
+"Elasticsearch",
+"Microsoft SQL Server"
+],
+"distractors": [
+"Redis",
+"Microsoft Access",
+"Oracle Database",
+"MongoDB",
+"Cassandra",
+"Couchbase",
+"Elasticsearch",
+"Microsoft SQL Server"
+],
+"n_eligible": 10,
+"sha": "c2a801071734e7ee5b1cf43ad2ed9695c50ec65bcdadd5b71692e28931cde279",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0007__L036__p203:duckdb:sqlite": {
+"unit": "s3d-sft251:chat-lmsys-0007__L036__p203:duckdb:sqlite",
+"anchor": "SQLite",
+"nearest": [
+"Redis",
+"Microsoft Access",
+"Oracle Database",
+"MongoDB"
+],
+"random": [
+"Amazon DynamoDB",
+"Cassandra",
+"Elasticsearch",
+"Neo4j"
+],
+"distractors": [
+"Redis",
+"Microsoft Access",
+"Oracle Database",
+"MongoDB",
+"Amazon DynamoDB",
+"Cassandra",
+"Elasticsearch",
+"Neo4j"
+],
+"n_eligible": 10,
+"sha": "68dd26f6eb53d88a69b006555b2504c10cb50f05ef917e70bdec4459ff2d68d9",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0007__L040__p74:mysql:sqlite": {
+"unit": "s3d-sft251:chat-lmsys-0007__L040__p74:mysql:sqlite",
+"anchor": "SQLite",
+"nearest": [
+"Redis",
+"Microsoft Access",
+"Oracle Database",
+"MongoDB"
+],
+"random": [
+"Amazon DynamoDB",
+"Couchbase",
+"Microsoft SQL Server",
+"Neo4j"
+],
+"distractors": [
+"Redis",
+"Microsoft Access",
+"Oracle Database",
+"MongoDB",
+"Amazon DynamoDB",
+"Couchbase",
+"Microsoft SQL Server",
+"Neo4j"
+],
+"n_eligible": 10,
+"sha": "74715fa9af3a9b91dc21af00008264d1cb8bc09781a1a608d67b2d11e118ef96",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0007__L056__p74:postgresql:sqlite": {
+"unit": "s3d-sft251:chat-lmsys-0007__L056__p74:postgresql:sqlite",
+"anchor": "SQLite",
+"nearest": [
+"Redis",
+"Microsoft Access",
+"Oracle Database",
+"MongoDB"
+],
+"random": [
+"Amazon DynamoDB",
+"Couchbase",
+"Microsoft SQL Server",
+"Neo4j"
+],
+"distractors": [
+"Redis",
+"Microsoft Access",
+"Oracle Database",
+"MongoDB",
+"Amazon DynamoDB",
+"Couchbase",
+"Microsoft SQL Server",
+"Neo4j"
+],
+"n_eligible": 10,
+"sha": "08d2302b81e9146f3ed0b645337fa1a3799c13bd523636ed3ae62eb028040996",
+"generation": 0
+}
+}

@@ -1,0 +1,466 @@
+{
+"mlnla-rl2-800-all11:chat-lmsys-0012__L024__p578:react:flutter": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0012__L024__p578:react:flutter",
+"anchor": "Flutter",
+"nearest": [
+"AngularJS",
+"Ember.js",
+"Backbone.js",
+"Nuxt"
+],
+"random": [
+"Alpine.js",
+"Lit",
+"SolidJS",
+"Svelte"
+],
+"distractors": [
+"AngularJS",
+"Ember.js",
+"Backbone.js",
+"Nuxt",
+"Alpine.js",
+"Lit",
+"SolidJS",
+"Svelte"
+],
+"n_eligible": 8,
+"sha": "9df32131aee11cd931714c4d3942259a7840e49588970519f59b4803923bf982",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0012__L024__p578:react:bloc": {
+"unit": "s3d-rl600-all11:chat-lmsys-0012__L024__p578:react:bloc",
+"anchor": "Flutter",
+"nearest": [
+"AngularJS",
+"Ember.js",
+"Backbone.js",
+"Nuxt"
+],
+"random": [
+"Alpine.js",
+"Lit",
+"SolidJS",
+"Svelte"
+],
+"distractors": [
+"AngularJS",
+"Ember.js",
+"Backbone.js",
+"Nuxt",
+"Alpine.js",
+"Lit",
+"SolidJS",
+"Svelte"
+],
+"n_eligible": 8,
+"sha": "bcc1bdb9ee9144488406cb9030ab714e76cc24c31b9d0c26ca7d88b12a9f8b38",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0012__L024__p650:reactvueangular:flutter": {
+"unit": "s3d-rl600-all11:chat-lmsys-0012__L024__p650:reactvueangular:flutter",
+"anchor": "Flutter",
+"nearest": [
+"Preact",
+"AngularJS",
+"Ember.js",
+"Backbone.js"
+],
+"random": [
+"Alpine.js",
+"Lit",
+"Nuxt",
+"SolidJS"
+],
+"distractors": [
+"Preact",
+"AngularJS",
+"Ember.js",
+"Backbone.js",
+"Alpine.js",
+"Lit",
+"Nuxt",
+"SolidJS"
+],
+"n_eligible": 9,
+"sha": "fd846dee72d8172b032eee16185cd32939a0a03fd59b93b7a33358d0f8748c8d",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0012__L028__p578:react:bloc": {
+"unit": "s3d-rl600-all11:chat-lmsys-0012__L028__p578:react:bloc",
+"anchor": "Flutter",
+"nearest": [
+"AngularJS",
+"Ember.js",
+"Backbone.js",
+"Nuxt"
+],
+"random": [
+"Alpine.js",
+"Lit",
+"SolidJS",
+"Svelte"
+],
+"distractors": [
+"AngularJS",
+"Ember.js",
+"Backbone.js",
+"Nuxt",
+"Alpine.js",
+"Lit",
+"SolidJS",
+"Svelte"
+],
+"n_eligible": 8,
+"sha": "4d6737b4261ff3ec1591b8e9a2c1b489b488f63ca8af0de3d17210e8baf2e776",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0012__L028__p578:reactvue:bloc": {
+"unit": "s3d-rl600-all11:chat-lmsys-0012__L028__p578:reactvue:bloc",
+"anchor": "Flutter",
+"nearest": [
+"AngularJS",
+"Ember.js",
+"Backbone.js",
+"Nuxt"
+],
+"random": [
+"Alpine.js",
+"Lit",
+"SolidJS",
+"Svelte"
+],
+"distractors": [
+"AngularJS",
+"Ember.js",
+"Backbone.js",
+"Nuxt",
+"Alpine.js",
+"Lit",
+"SolidJS",
+"Svelte"
+],
+"n_eligible": 8,
+"sha": "ed179cd55b8f2e9407b0856d54ccad0b5d4e2a99e1fb7ea2166cb83885ae643f",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0012__L028__p578:vue3:bloc": {
+"unit": "s3d-rl600-all11:chat-lmsys-0012__L028__p578:vue3:bloc",
+"anchor": "Flutter",
+"nearest": [
+"Preact",
+"AngularJS",
+"Ember.js",
+"Backbone.js"
+],
+"random": [
+"Lit",
+"Nuxt",
+"SolidJS",
+"Svelte"
+],
+"distractors": [
+"Preact",
+"AngularJS",
+"Ember.js",
+"Backbone.js",
+"Lit",
+"Nuxt",
+"SolidJS",
+"Svelte"
+],
+"n_eligible": 9,
+"sha": "6007e2416df3cc8f3e34332521b7eec9792c30a2a05105bf5ea16229cc6740e1",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0012__L028__p578:vue:bloc": {
+"unit": "s3d-rl600-all11:chat-lmsys-0012__L028__p578:vue:bloc",
+"anchor": "Flutter",
+"nearest": [
+"Preact",
+"AngularJS",
+"Ember.js",
+"Backbone.js"
+],
+"random": [
+"Alpine.js",
+"Nuxt",
+"SolidJS",
+"Svelte"
+],
+"distractors": [
+"Preact",
+"AngularJS",
+"Ember.js",
+"Backbone.js",
+"Alpine.js",
+"Nuxt",
+"SolidJS",
+"Svelte"
+],
+"n_eligible": 9,
+"sha": "bd2306319bbf2c64be5e1811e79b5e08406437bd2d59d40aa40ace7ad4036426",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0012__L032__p578:react:flutter": {
+"unit": "s3d-rl600-all11:chat-lmsys-0012__L032__p578:react:flutter",
+"anchor": "Flutter",
+"nearest": [
+"AngularJS",
+"Ember.js",
+"Backbone.js",
+"Nuxt"
+],
+"random": [
+"Alpine.js",
+"Lit",
+"SolidJS",
+"Svelte"
+],
+"distractors": [
+"AngularJS",
+"Ember.js",
+"Backbone.js",
+"Nuxt",
+"Alpine.js",
+"Lit",
+"SolidJS",
+"Svelte"
+],
+"n_eligible": 8,
+"sha": "a95867afceb73edd73d345a9d032b8c4418a5164e1e523c12eee2377ef16389c",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0012__L032__p650:react:flutter": {
+"unit": "s3d-rl600-all11:chat-lmsys-0012__L032__p650:react:flutter",
+"anchor": "Flutter",
+"nearest": [
+"AngularJS",
+"Ember.js",
+"Backbone.js",
+"Nuxt"
+],
+"random": [
+"Alpine.js",
+"Lit",
+"SolidJS",
+"Svelte"
+],
+"distractors": [
+"AngularJS",
+"Ember.js",
+"Backbone.js",
+"Nuxt",
+"Alpine.js",
+"Lit",
+"SolidJS",
+"Svelte"
+],
+"n_eligible": 8,
+"sha": "4d477759dfe0631c66411bd853947998d89ad2951175834dc8ff8d72dc86390e",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0012__L036__p650:reactvue:flutter": {
+"unit": "s3d-rl600-all11:chat-lmsys-0012__L036__p650:reactvue:flutter",
+"anchor": "Flutter",
+"nearest": [
+"AngularJS",
+"Ember.js",
+"Backbone.js",
+"Nuxt"
+],
+"random": [
+"Alpine.js",
+"Lit",
+"SolidJS",
+"Svelte"
+],
+"distractors": [
+"AngularJS",
+"Ember.js",
+"Backbone.js",
+"Nuxt",
+"Alpine.js",
+"Lit",
+"SolidJS",
+"Svelte"
+],
+"n_eligible": 8,
+"sha": "a147efa6e829471cda66295cab88fd8af000870aeb160e384e36c9ae66518c24",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0012__L020__p745:react:graphic": {
+"unit": "s3d-rl600:chat-lmsys-0012__L020__p745:react:graphic",
+"anchor": "Flutter",
+"nearest": [
+"AngularJS",
+"Ember.js",
+"Backbone.js",
+"Nuxt"
+],
+"random": [
+"Alpine.js",
+"Lit",
+"SolidJS",
+"Svelte"
+],
+"distractors": [
+"AngularJS",
+"Ember.js",
+"Backbone.js",
+"Nuxt",
+"Alpine.js",
+"Lit",
+"SolidJS",
+"Svelte"
+],
+"n_eligible": 8,
+"sha": "c4539a9ff9beaeb4310b939b0cfc882101af2fb8bc84f705fbfda4a92602ab86",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0012__L020__p745:reactjs:graphic": {
+"unit": "s3d-rl600:chat-lmsys-0012__L020__p745:reactjs:graphic",
+"anchor": "Flutter",
+"nearest": [
+"AngularJS",
+"Ember.js",
+"Backbone.js",
+"Nuxt"
+],
+"random": [
+"Alpine.js",
+"Lit",
+"SolidJS",
+"Svelte"
+],
+"distractors": [
+"AngularJS",
+"Ember.js",
+"Backbone.js",
+"Nuxt",
+"Alpine.js",
+"Lit",
+"SolidJS",
+"Svelte"
+],
+"n_eligible": 8,
+"sha": "07167b9e4862abf990dd76aad015c136644fef5b38c7c9ad4d45c7a5648fc566",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0012__L036__p650:react:flutter": {
+"unit": "s3d-rl600:chat-lmsys-0012__L036__p650:react:flutter",
+"anchor": "Flutter",
+"nearest": [
+"AngularJS",
+"Ember.js",
+"Backbone.js",
+"Nuxt"
+],
+"random": [
+"Alpine.js",
+"Lit",
+"SolidJS",
+"Svelte"
+],
+"distractors": [
+"AngularJS",
+"Ember.js",
+"Backbone.js",
+"Nuxt",
+"Alpine.js",
+"Lit",
+"SolidJS",
+"Svelte"
+],
+"n_eligible": 8,
+"sha": "5317f4918d2bc560c34341cc39ff1331e757536532a0766644a409d03ba7002c",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0012__L032__p650:react:flutter": {
+"unit": "s3d-sft251:chat-lmsys-0012__L032__p650:react:flutter",
+"anchor": "Flutter",
+"nearest": [
+"AngularJS",
+"Ember.js",
+"Backbone.js",
+"Nuxt"
+],
+"random": [
+"Alpine.js",
+"Lit",
+"SolidJS",
+"Svelte"
+],
+"distractors": [
+"AngularJS",
+"Ember.js",
+"Backbone.js",
+"Nuxt",
+"Alpine.js",
+"Lit",
+"SolidJS",
+"Svelte"
+],
+"n_eligible": 8,
+"sha": "590b2dbd068c36db4ff43d095839b5a606705f5806f186c8a6b43bf7beba8ee7",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0012__L036__p650:reactjs:flutter": {
+"unit": "s3d-sft251:chat-lmsys-0012__L036__p650:reactjs:flutter",
+"anchor": "Flutter",
+"nearest": [
+"AngularJS",
+"Ember.js",
+"Backbone.js",
+"Nuxt"
+],
+"random": [
+"Alpine.js",
+"Lit",
+"SolidJS",
+"Svelte"
+],
+"distractors": [
+"AngularJS",
+"Ember.js",
+"Backbone.js",
+"Nuxt",
+"Alpine.js",
+"Lit",
+"SolidJS",
+"Svelte"
+],
+"n_eligible": 8,
+"sha": "8301535075babea496c6de61a2a23fb2791f7dbd75d5d8d5e2dbde990dd681e4",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0012__L060__p395:react:flutter": {
+"unit": "s3d-sft251:chat-lmsys-0012__L060__p395:react:flutter",
+"anchor": "Flutter",
+"nearest": [
+"AngularJS",
+"Ember.js",
+"Backbone.js",
+"Nuxt"
+],
+"random": [
+"Alpine.js",
+"Lit",
+"SolidJS",
+"Svelte"
+],
+"distractors": [
+"AngularJS",
+"Ember.js",
+"Backbone.js",
+"Nuxt",
+"Alpine.js",
+"Lit",
+"SolidJS",
+"Svelte"
+],
+"n_eligible": 8,
+"sha": "8ee229be170072b6c02637ad62fdd324dad11f4a9876b0ff0d555cc0511076e2",
+"generation": 0
+}
+}

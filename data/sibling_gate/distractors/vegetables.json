@@ -1,0 +1,3863 @@
+{
+"mlnla-rl2-800-all11:chat-lmsys-0072__L020__p205:banana:potato": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0072__L020__p205:banana:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "b5e017b6929a1e70df5f80b0a7a765bcc5ca0e381636557aadd818d6f76052ba",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0072__L020__p205:bananas:potato": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0072__L020__p205:bananas:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "3f01bfedf84f6f9535b86254c01ec20adc92fe4694a1b1738840d43c741860a6",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0072__L020__p55:banana:potato": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0072__L020__p55:banana:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "d11a9c5aa5c30a4436774707d04e6c14a471f4b7c7561f30d96824256ed97fc0",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0072__L024__p84:bananas:potato": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0072__L024__p84:bananas:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "2a76fe76da31f845c4cea2dd4305b9082d00b8cea2d6a3452998cd8d0b9907a2",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0072__L028__p98:banana:potato": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0072__L028__p98:banana:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "026e557974061466f528a2791223a80b8fd4b7c7fb22d954a4ab648643528b72",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0072__L028__p98:bananas:potato": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0072__L028__p98:bananas:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "f66c22e99fce6801a08df6f1070931324967a936f95c8f696fbf20cbdf30bb80",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0072__L032__p205:bananas:potatoes": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0072__L032__p205:bananas:potatoes",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "9fcee84e60fcc3b84e91a5571df771cad02f8d3433dc80cb258e03278975b426",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0072__L036__p171:banana:potato": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0072__L036__p171:banana:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "462ec97571b5e011ebc61997cd8c4ed287c397d346bf76c10e2f261e8d199ed9",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0072__L036__p171:bananas:potato": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0072__L036__p171:bananas:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "ee35ee3e539cdd30d5aa698c9e7f6203c13c249ad89a0323d2a34fff84ae4761",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0072__L036__p171:bananas:potatoes": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0072__L036__p171:bananas:potatoes",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "b53248cf05f7f4d1b1b280cda1a6d1251256ed2d66f032a31990fa221e1bb5ee",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0072__L036__p205:banana:potato": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0072__L036__p205:banana:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "a8a55541f765344ff43c81aee646675e6cbf8cb16589185d24ffa12742660d4d",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0072__L036__p205:bananas:potato": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0072__L036__p205:bananas:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "160e25bd6a5c7fb82df4bbae23c3e8e464762f8f2e5c3fa5b657766ee49d45cd",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0072__L036__p55:avocado:potato": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0072__L036__p55:avocado:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "f7c3c1401dcb3a57c112b122145cb0e26517509026bcdba95bebf80853232cd1",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0072__L036__p55:banana:potato": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0072__L036__p55:banana:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "9165e3cf91a9e43edaeb4534f092d0ba92fe759be04a9057c11eaa288af2222e",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0072__L036__p55:bananas:potato": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0072__L036__p55:bananas:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "244ee1ae7f0116b4e848b7a8d257ccd82b8eb06cccb2843c0f2af2c574c834ff",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0072__L036__p64:avocado:potato": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0072__L036__p64:avocado:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "95f306c7e492c858d9a679cdd413370ea956a60b53c734ae867e1f71024b65cf",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0072__L036__p64:avocados:potatoes": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0072__L036__p64:avocados:potatoes",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "1b76e441abf69fe3f5ce1836811b70640fff23f53ed8c7132d88834f418e9b81",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0072__L036__p64:banana:potato": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0072__L036__p64:banana:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "cd9844afea91aad16558a4b880852e691e0cfbcdf51fb2816b40e04a0f2fe5e5",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0072__L036__p98:cucumber:potato": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0072__L036__p98:cucumber:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "6f3114487c3a1c6e39e943dfb419d2cdee9ff363b7fedb1282655238cd48a6cd",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0072__L040__p171:banana:potato": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0072__L040__p171:banana:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "48684ddfc47ef9d37021e4bb619e07de9a600632e673ea76de74ba482e7673ed",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0072__L040__p171:bananas:potatoes": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0072__L040__p171:bananas:potatoes",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "d052157f86350e58ded4a4b5045f53017e242497ddbb38bc75f38908ca8105d2",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0072__L040__p205:banana:potato": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0072__L040__p205:banana:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "88f05ee40fafa61ba8339ea4c3e5c8fc1dcb7c933a830e01ee9c3a34f600ac7e",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0072__L040__p205:bananas:potato": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0072__L040__p205:bananas:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "9f31df2debf54479e598afffc8b3c8aa7d43ec3415cd9bffa6371f5c0459760b",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0072__L040__p64:bananas:potato": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0072__L040__p64:bananas:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "9fa035e613860d53dfad2b00736feedd0cf15074ec5242713837446f7470e8d5",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0072__L040__p98:banana:potato": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0072__L040__p98:banana:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "f4444b354946b74d22a4779e1ec83ea5f764112b55ac111019f754b556508529",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0072__L040__p98:bananas:potato": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0072__L040__p98:bananas:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "a168ada4668325609c31dcea1b38b2d794250ed537c3afb0a8c7c9e11c42562f",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0072__L044__p171:banana:potato": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0072__L044__p171:banana:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "c47e229f075e1fd785937b6769fed97575e7409b1808a403c8593f6f46b94df4",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0072__L044__p171:bananas:potato": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0072__L044__p171:bananas:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "6e8d104c334f54a6b44ebfe01f3637ce1c0657d1ad103e3f563fdfef95b30239",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0072__L044__p171:bananas:potatoes": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0072__L044__p171:bananas:potatoes",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "a7712f0e73316244a040926fe6d149faa31ebfe07bfa37556622d4b797f38048",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0072__L044__p205:banana:potato": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0072__L044__p205:banana:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "cda96fd07b1528eb0ec4adbebbd57f9d2642758ca484a08891b244304cf5e8e7",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0072__L044__p205:bananas:potato": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0072__L044__p205:bananas:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "b4ba4f9c81ca59e8ff800d8fc65aca475fc0cc3ec01e44037c580e2ec2785054",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0072__L044__p55:banana:potato": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0072__L044__p55:banana:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "ed2de57e96bf557d5ebefbcfa2e20fb368c49d436b6c7731a725b77dfc9f65eb",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0072__L044__p84:bananas:potato": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0072__L044__p84:bananas:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "6dbdbf9805ff31c75bb01987875622c2f07ea8b4b287b408395aa87af688a16e",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0072__L044__p98:banana:potato": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0072__L044__p98:banana:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "2b55d2c4d9937376eaf977dc89158a5c2fde8e3437b67c4f245a813fdfe7988c",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0072__L048__p171:bananas:potatoes": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0072__L048__p171:bananas:potatoes",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "b57c72c5613164c029a43ca3d486e26536701fdd6ce078f3328f8b9a0fcfe273",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0072__L048__p55:banana:potato": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0072__L048__p55:banana:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "c6984a0bf3283e817844b1b415732907e6fc78d5ad15da0db20be5b55fc77d7f",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0072__L048__p64:banana:potato": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0072__L048__p64:banana:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "ec05486ab4fe348372f21c82164046871c7f3cbb8625cd48e1e7d376fe522caa",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0072__L048__p64:bananas:potato": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0072__L048__p64:bananas:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "db8fbea666823675c7c3c541628d2b8e16a8b90a26a26f8d9b74d4b88dba24d8",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0072__L048__p64:bananas:potatoes": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0072__L048__p64:bananas:potatoes",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "c560757efeae0cee98ba4b54536c1124ae1217cf74abb748a087da7fcf9ab057",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0072__L048__p84:bananas:potato": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0072__L048__p84:bananas:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "92c6143e266accc1dc190a8d9e178fe8d3dfa2e9ec7dc1f47b86033dc8eada57",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0072__L048__p98:banana:potato": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0072__L048__p98:banana:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "14cf57bb0543ee254bc159652b54c159ee2c2046a3c0745846fd570c77474130",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0072__L052__p205:avocado:potato": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0072__L052__p205:avocado:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "a1ad8ff53372bc0f6a5dece134b26d9a5cf47a23dba5d199123c412d3d029cb5",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0072__L052__p205:avocados:potatoes": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0072__L052__p205:avocados:potatoes",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "1f4571b52811d0d280d5fd5bcee4eaf5c41417aa2cd3243bfa81e7bd5df12026",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0072__L056__p205:avocado:potato": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0072__L056__p205:avocado:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "727c6e499768f6ad15bd9abb6f654928b62046276735f44eb3d2e484dd2a20a3",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0072__L056__p205:avocados:potato": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0072__L056__p205:avocados:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "b4b9511f3fbd2457634425df65a17d03b8f535acf0292c49273d2e6571378efa",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0072__L020__p98:apples:potatoes": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0072__L020__p98:apples:potatoes",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "006795a8f44766560208ecc3ac688419844287f3d3b42883048737fa7a3d6d71",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0072__L020__p98:bananas:potatoes": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0072__L020__p98:bananas:potatoes",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "b934666b703170ad668aea944201ebde50e7c8e7d369fd1586610bea3917cb8c",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0072__L024__p84:banana:potato": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0072__L024__p84:banana:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "36ef44feec747d5aee4dee0071ceef24d12f368701cb48410340f648279617be",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0072__L024__p84:bananas:potato": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0072__L024__p84:bananas:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "17fa20d35e86e0003367ea145e26dff7b418cc9106c2ec13f1957bdf693e30ea",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0072__L024__p98:banana:potato": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0072__L024__p98:banana:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "737bb30595738494b56468e342b176386108cd73df94eae71cb9ed53a32343be",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0072__L024__p98:bananas:potatoes": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0072__L024__p98:bananas:potatoes",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "9ed6d355798ebecefbab8f4ac0ab1d4523e4e44bb65446f7402e4c4708bf2ee2",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0072__L028__p205:banana:potato": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0072__L028__p205:banana:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "92da76e363a490a4931814a6d984620e2e2cee561221cb2a860e9f555d153d28",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0072__L028__p205:bananas:potato": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0072__L028__p205:bananas:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "29bf061ba522d253c8cd89fad8da3d909c4c38faf6ba2c56d080f79d6420e9ec",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0072__L028__p84:banana:potato": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0072__L028__p84:banana:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "02a6054229bea63ca0f77e604190832692ba0373ea637d39e2850317da7b50df",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0072__L028__p84:bananas:potatoes": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0072__L028__p84:bananas:potatoes",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "5f40fff3ff1a2c45a3831ca3038b1ca46f7b1eb7b67a47bd051e6964886ceafc",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0072__L028__p98:bananas:potato": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0072__L028__p98:bananas:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "b2134e7636bdcf18c52f6a77eba78116695439f389ed01a3bda5950fe344a493",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0072__L032__p123:bananas:potatoes": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0072__L032__p123:bananas:potatoes",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "ff42c72be3b6c0dfe7b71b7458a9087184ad9e9dba4cec4794f22dbdbf0dc076",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0072__L032__p147:banana:potato": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0072__L032__p147:banana:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "0061e3a07b16852617607ade4f2512b636f26ef0e5e30516d68dc956bd5a030b",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0072__L032__p147:bananas:potato": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0072__L032__p147:bananas:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "f6cf4f8f149e8325ef04f6a546a3798111d926f95aba2a39eddbb7680b419ebd",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0072__L032__p205:banana:potato": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0072__L032__p205:banana:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "8419640d8c7df62f822dee0e4524a9ebc9da928f19e125007ac4117431df83ed",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0072__L032__p205:bananas:potato": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0072__L032__p205:bananas:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "4296bdbb84d67e94a8719ad39dc21d8fb280baa44ae58c7e669d20ca60dce10e",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0072__L032__p205:bananas:potatoes": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0072__L032__p205:bananas:potatoes",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "1a89119cc51fe1d23d77ee66854e307a625e7135cf304a5b688f457c20c590b6",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0072__L032__p98:broccoli:potato": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0072__L032__p98:broccoli:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "99cd2eb5a709aa0d762d709230ea53af6ce7800971c2d13e2a6760c38b0ab744",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0072__L036__p171:banana:potato": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0072__L036__p171:banana:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "f4e2dd4e14ad3b5a95c243463cd38cf282cf2ed233a669d94703ff17067b3798",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0072__L036__p171:bananas:potatoes": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0072__L036__p171:bananas:potatoes",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "e9679e88ebd631cf8124773260a1e4c36db02c448e4723be50ad1621d08d0d02",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0072__L036__p205:banana:potato": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0072__L036__p205:banana:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "d25a8b9a37670ca7e7aea658fc41f566bd029e0f8eb7b2a0b0fafc056b14f08d",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0072__L036__p205:bananas:potatoes": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0072__L036__p205:bananas:potatoes",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "70a61cfdc54078aab327e0f97cec9cffb77f7fd96988d3def0be31b2e8c92df5",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0072__L036__p55:avocado:potato": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0072__L036__p55:avocado:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "6d18a400d13c2c0d5e70d7061c2a2e4d78322cdf5727edf2dae490b059c20fce",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0072__L036__p55:banana:potato": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0072__L036__p55:banana:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "de43a73c4e5a9936c96d3a9d6cb063fcb8ff79dec5f6cbf719b233ab8fbac56c",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0072__L036__p64:avocado:potato": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0072__L036__p64:avocado:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "a3134bae82ef880cc2ef45b243f6496ff20c8fa3fc331234cdbf6605b2b5b0d8",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0072__L036__p64:avocados:potato": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0072__L036__p64:avocados:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "3843addce4f33035af6f8b0670f044c53cbd874ebb685ee632fa66445c99e58b",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0072__L036__p64:banana:potato": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0072__L036__p64:banana:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "e91390a6b4231ebf6030889461db7127067a690278caddf75cbb69c6bf67d227",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0072__L036__p98:banana:potato": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0072__L036__p98:banana:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "019094c48e7efecadf6ee3af544a66e3a849e9912a937481f884a8c30e60fed3",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0072__L040__p171:banana:potato": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0072__L040__p171:banana:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "705e670ab4238762a8762ede73f01add9e096c1acd45c8dd447dcdbf25e221da",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0072__L040__p55:avocado:potato": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0072__L040__p55:avocado:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "777c61e9b94bcc62c566ef8b05de45f8805bce60faf5f674b7d4b44218fbd264",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0072__L040__p55:banana:potato": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0072__L040__p55:banana:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "72065cc2aa581f0dd953aa0e93fd52a4fd5ff2a071c841e4f56b347d9fb02c6c",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0072__L040__p55:bananas:potato": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0072__L040__p55:bananas:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "76630df4c278ecbbcd636f8226e893057b9514f70d487de1b00a2574597112b2",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0072__L040__p64:bananas:potato": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0072__L040__p64:bananas:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "1f99cee3e1c68741e1037d2ccbeb018313ae95ff8fb3f8636aa1fbcfaa8a96db",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0072__L044__p171:bananas:potato": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0072__L044__p171:bananas:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "8da8de9523948a0126e29e769385fef07fda0f62c015f8bb7f8c7a0c083c609f",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0072__L044__p205:bananas:potatoes": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0072__L044__p205:bananas:potatoes",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "0c1ceb184a7e6253fb19c52c0ed1e472fe21164f066ed2b068dba80e8a98c37b",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0072__L044__p55:banana:potato": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0072__L044__p55:banana:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "7d2d8818f86f4b856002c6326eaa98a4216a63864c37b02c753981337576bcf3",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0072__L044__p64:bananas:potato": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0072__L044__p64:bananas:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "5ed22fffefcd4f3504f497cc373b315c97399da68043ab5dbb69bbce93e71793",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0072__L048__p171:banana:potato": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0072__L048__p171:banana:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "12852696e0af91bc049bb24d3e701e50d4fb964c0bb365f65035d82387d3e3b7",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0072__L048__p171:bananas:potato": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0072__L048__p171:bananas:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "557675a2dd47e7063d11d95fbcf1305b941651a8b04b2a7e7b42f2dc9b9e3f6f",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0072__L048__p171:bananas:potatoes": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0072__L048__p171:bananas:potatoes",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "71bec57d5bcd33a9736002ba7aeff36d31bfc1891386f85f71042ccb53bbf638",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0072__L048__p205:bananas:potato": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0072__L048__p205:bananas:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "9a1759bb177442106afe17be15eff4e354e64ee65ec67aca20ea1ca1fbf9005f",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0072__L048__p55:banana:potato": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0072__L048__p55:banana:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "695cb61c142c40a7b52aec3604cf8a5d7e893fcc1ea7d4513a989d81d0c0aabf",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0072__L048__p55:bananas:potato": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0072__L048__p55:bananas:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "5ec3289f27036b5231f2dfff3bc2e6ca15449cce88996f99dd5f47e6b921be3d",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0072__L048__p64:banana:potato": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0072__L048__p64:banana:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "7b083431c97c5b03d2179b721539dc7f88baea54b57fa8782312c11474322029",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0072__L048__p64:bananas:potato": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0072__L048__p64:bananas:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "b54283920c9ab215121880e6913e4372bb3a8c83ce19143221a765b70e3bec0a",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0072__L048__p98:banana:potato": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0072__L048__p98:banana:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "127d3bcbc710b61d53206b841aa21ae6b42061877706ce6338fcc1b54b7c379c",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0072__L048__p98:bananas:potatoes": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0072__L048__p98:bananas:potatoes",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "42714116dc67c954d01dd39af00069504dafb0a3776bee308cf6ad8330952b1d",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0072__L052__p205:avocado:potato": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0072__L052__p205:avocado:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "6e16f7b982e40ca964bcbd8dcbc00049d0842276c7f38b6c43941c62f5d618dd",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0072__L052__p205:avocados:potatoes": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0072__L052__p205:avocados:potatoes",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "0df419229f288695c187d15e9fb3d0cc0142b986ceac7585b76f5eb386406b5f",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0072__L052__p64:bananas:potato": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0072__L052__p64:bananas:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "bb441c03996b8a51574d02877ad13b5c3a6c37e7ff7458db7671e66c4f74d24d",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0072__L052__p84:bananas:potato": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0072__L052__p84:bananas:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "23fb40dedcf37795f9a91880458ffe3ac94be71ace50bde6d1bb1891b0149b56",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0072__L056__p205:avocado:potato": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0072__L056__p205:avocado:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "2d14de7b4c8a0f9e9f0a70259487e6cb4676b5ffbf58852b50f209559b179bab",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0072__L056__p205:avocados:potato": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0072__L056__p205:avocados:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "242e92d5742809b4582f61eb73a0a7099edfb9a430384bbe5bffd2f5f97b617c",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0072__L056__p84:bananas:potato": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0072__L056__p84:bananas:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "9f8f881a575d175781ee1b0bdfeda15963e5c8bccf8a382f21e618749cc6fdd4",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0072__L042__p171:bananas:potatoes": {
+"unit": "nla-rl-L42:chat-lmsys-0072__L042__p171:bananas:potatoes",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "a9f5b05ee9404578acad044e6dea1bb858a9e8d4d8ba2957f8338bc5bdef32ae",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0072__L042__p205:bananas:potato": {
+"unit": "nla-rl-L42:chat-lmsys-0072__L042__p205:bananas:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "c5908125099756f4fbc569c4c8a50357e17a21db42ba220c52518c8c64e158cf",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0072__L042__p55:banana:potato": {
+"unit": "nla-rl-L42:chat-lmsys-0072__L042__p55:banana:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "c5b55deb1d3e8dc2d151be4073612d36fb971d611eff4f090d253602ed57e68d",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0072__L042__p55:bananas:potato": {
+"unit": "nla-rl-L42:chat-lmsys-0072__L042__p55:bananas:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "5eae54b67b5541dd5122e3c8de02607a7891082a808e1267e380c43a46bf9f24",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0072__L042__p84:bananas:potatoes": {
+"unit": "nla-rl-L42:chat-lmsys-0072__L042__p84:bananas:potatoes",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "586d46f61a955b8a493b3838bbd7f16f746897ffee36ade3a6f53759f463fe41",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0072__L042__p98:banana:potato": {
+"unit": "nla-rl-L42:chat-lmsys-0072__L042__p98:banana:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "310faac97ab80572c2ec787db06f49b62f1fa36445b6edf15e1f50ab3d139e1f",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0072__L042__p98:bananas:potato": {
+"unit": "nla-rl-L42:chat-lmsys-0072__L042__p98:bananas:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "59da0976886c835b5e9f2a35620064c7edb7ec523f2bb5c54dc2fc2cbe0710be",
+"generation": 0
+},
+"nla-sft-L42:chat-lmsys-0072__L042__p171:banana:potato": {
+"unit": "nla-sft-L42:chat-lmsys-0072__L042__p171:banana:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "d6120a6f7962b4bce7e71f826ae719696da4caaadef7c2e6bdf1ae4cb18582fa",
+"generation": 0
+},
+"nla-sft-L42:chat-lmsys-0072__L042__p171:bananas:potatoes": {
+"unit": "nla-sft-L42:chat-lmsys-0072__L042__p171:bananas:potatoes",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "1c78b200e0c82261ea91a8151c11b23293478ccd23762b08c2bfed55efa2f117",
+"generation": 0
+},
+"nla-sft-L42:chat-lmsys-0072__L042__p171:tomato:potato": {
+"unit": "nla-sft-L42:chat-lmsys-0072__L042__p171:tomato:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "3410847d4b450ac7c13cb97edc73746a6793b60c2b3845a3fbc470d521098e36",
+"generation": 0
+},
+"nla-sft-L42:chat-lmsys-0072__L042__p205:banana:potato": {
+"unit": "nla-sft-L42:chat-lmsys-0072__L042__p205:banana:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "dffe61643566663d7fae2aaee0856486678cae68db52d9009eacb7a08a49cf86",
+"generation": 0
+},
+"nla-sft-L42:chat-lmsys-0072__L042__p205:bananas:potatoes": {
+"unit": "nla-sft-L42:chat-lmsys-0072__L042__p205:bananas:potatoes",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "dc27a9c0d41ca5dbd44f6ebba22da5f3385d6803b2f34ec880d3cadd999a68d1",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0072__L028__p123:bananas:potatoes": {
+"unit": "s3d-rl600-all11:chat-lmsys-0072__L028__p123:bananas:potatoes",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "396e59cc5df699381084499e037cf2e68277cd4109fd8960c0e3bdc7b19fc9f1",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0072__L032__p123:banana:potato": {
+"unit": "s3d-rl600-all11:chat-lmsys-0072__L032__p123:banana:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "a419039e41b36b56fdaf0986ca64c07630edcef5b36301161fdc43e9c86b265d",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0072__L036__p205:banana:potato": {
+"unit": "s3d-rl600-all11:chat-lmsys-0072__L036__p205:banana:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "c95378a880b2a44e16466789c2b31ad781a01a24c4cbb0a3ef7395dea91d69f6",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0072__L036__p205:bananas:potatoes": {
+"unit": "s3d-rl600-all11:chat-lmsys-0072__L036__p205:bananas:potatoes",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "a321fbfec842f2cefbd2aa4bfb74032ea1b647dedcaa005055b3ee5ceb70e80a",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0072__L040__p123:bananas:potatoes": {
+"unit": "s3d-rl600-all11:chat-lmsys-0072__L040__p123:bananas:potatoes",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "5f01a883cd7013b844441165ed2efe706572f73adac5c44e088e3e139e20274d",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0072__L044__p64:bananas:potato": {
+"unit": "s3d-rl600-all11:chat-lmsys-0072__L044__p64:bananas:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "a3722ec55e926e1e5cba5356cee5544de0e4049a034b3904c0c05c47d697c7ed",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0072__L052__p64:banana:potato": {
+"unit": "s3d-rl600-all11:chat-lmsys-0072__L052__p64:banana:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "05395f18c93e541740462483fee535507fdcceb39bbf50be03b5b51b1de7ed27",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0072__L056__p205:bananas:potato": {
+"unit": "s3d-rl600-all11:chat-lmsys-0072__L056__p205:bananas:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "c52b4224d87829e5825ac824afdf5cdf31fc9e6d64541a89e29112ffea70e6ed",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0072__L056__p84:apples:potato": {
+"unit": "s3d-rl600-all11:chat-lmsys-0072__L056__p84:apples:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "a8b1bd7825d6b642dc9c004e6a6690dfbefdd7b97d3b6470e01cee2a904fa8ed",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0072__L056__p84:bananas:potato": {
+"unit": "s3d-rl600-all11:chat-lmsys-0072__L056__p84:bananas:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "018bc5ffbf4fea5c1e2f50c99ff3a2658545c4bf4a169cf9fa133afa2ec38c1d",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0072__L056__p98:tomato:potato": {
+"unit": "s3d-rl600-all11:chat-lmsys-0072__L056__p98:tomato:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "39cf9e1044cc904d3698fd2c540e1f97b4f59112d1b57ba28b32f18d1c3c10ba",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0072__L036__p123:bananas:potato": {
+"unit": "s3d-rl600:chat-lmsys-0072__L036__p123:bananas:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "52a92a7b5db5a6ceb823c48af5527b135909d0a2f26a91bfe6bd5875e48b9150",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0072__L036__p171:banana:potato": {
+"unit": "s3d-rl600:chat-lmsys-0072__L036__p171:banana:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "3867ab0cb85a0ac07136ee89f86f0db4f59f20dfb446a9dee70f73bcca9cf451",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0072__L036__p171:broccoli:potato": {
+"unit": "s3d-rl600:chat-lmsys-0072__L036__p171:broccoli:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "ffef1dfad4142ef4eb3b244e28024daa0a5228c12e64dad29bbc1abbfeee446c",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0072__L036__p171:carrot:potato": {
+"unit": "s3d-rl600:chat-lmsys-0072__L036__p171:carrot:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "ae0cad7c92f518b7125d84f01854396f6d1cf92420f89485fffd2771b48e0766",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0072__L036__p205:banana:potato": {
+"unit": "s3d-rl600:chat-lmsys-0072__L036__p205:banana:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "ea50f4097af4a647b53afa2ac111d36dacf0fae8c382f12074d4f903ea604362",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0072__L036__p64:banana:potato": {
+"unit": "s3d-rl600:chat-lmsys-0072__L036__p64:banana:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "b2fb2eb34a94d7e40ae67fa249629d865116fd33a542350322b012bd61b484ff",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0072__L036__p64:bananas:potato": {
+"unit": "s3d-rl600:chat-lmsys-0072__L036__p64:bananas:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "75968d896136a0cd28bedef20058368158beaa000527b7db2fbb3de5153d22d4",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0072__L044__p64:banana:potato": {
+"unit": "s3d-rl600:chat-lmsys-0072__L044__p64:banana:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "d26e565941117ecfedc9440c0e987b988927f1909733123e25e21ac8f6151dd7",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0072__L060__p84:apples:potatoes": {
+"unit": "s3d-rl600:chat-lmsys-0072__L060__p84:apples:potatoes",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "795383f4239dc8237d5a41f2bfa8e757899a6173f4a2990610fc1d8b3f624221",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0072__L028__p123:bananas:potato": {
+"unit": "s3d-sft251:chat-lmsys-0072__L028__p123:bananas:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "065c195e120e82af11d24d35c99aa39101cbb6cf08018ade62ffd4d4b593bfa9",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0072__L028__p171:carrots:potatoes": {
+"unit": "s3d-sft251:chat-lmsys-0072__L028__p171:carrots:potatoes",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "288a9781262511dcb2b05ee6e522c669df5e4b54cc862841d29502283a186f39",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0072__L028__p55:banana:potato": {
+"unit": "s3d-sft251:chat-lmsys-0072__L028__p55:banana:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "b498424462f5f28950da4ced13e571a3f19cdec7211c603b243521c8d49acf62",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0072__L028__p55:bananas:potato": {
+"unit": "s3d-sft251:chat-lmsys-0072__L028__p55:bananas:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "3def73924e5f2b3866680b2c2f128a6aa40087f9533214f7350e839fbd81c4be",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0072__L036__p64:bananas:potato": {
+"unit": "s3d-sft251:chat-lmsys-0072__L036__p64:bananas:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "2063e9d53d6021ce43ee10d169e1ea03a2afadc5c03f3bf28ebbbff97bbce735",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0072__L040__p205:banana:potato": {
+"unit": "s3d-sft251:chat-lmsys-0072__L040__p205:banana:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "c507c1f99d952916a5e67963d549813bd84aaec9f97e83f1d93534315d01d363",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0072__L040__p205:bananas:potatoes": {
+"unit": "s3d-sft251:chat-lmsys-0072__L040__p205:bananas:potatoes",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "425726ade5b0ecfa74cf79f4cf038c90f94bdc49e82463777a58385351a4e2dc",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0072__L044__p123:bananas:potatoes": {
+"unit": "s3d-sft251:chat-lmsys-0072__L044__p123:bananas:potatoes",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "fb5a124aaccac9d1e6efb7c6e601c89bb32599c0a780d73ada4dfbaf08077f5f",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0072__L052__p64:bananas:potato": {
+"unit": "s3d-sft251:chat-lmsys-0072__L052__p64:bananas:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "72714f9165b2c77ca3242ea95299f7d8cbb00754cc9d18b5060a290595d436c5",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0072__L056__p84:apples:potatoes": {
+"unit": "s3d-sft251:chat-lmsys-0072__L056__p84:apples:potatoes",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "48782a627561a6321b904360d449b96ab7579fed2d549677922cb7c62502ba15",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0072__L056__p84:bananas:potatoes": {
+"unit": "s3d-sft251:chat-lmsys-0072__L056__p84:bananas:potatoes",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "867ccb52fcbd34a096afbe40f8efc7eeb18ad26a341144f3e0e283cf69039c7b",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0072__L060__p205:banana:potato": {
+"unit": "s3d-sft251:chat-lmsys-0072__L060__p205:banana:potato",
+"anchor": "potato",
+"nearest": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower"
+],
+"random": [
+"celery",
+"pea",
+"spinach"
+],
+"distractors": [
+"cabbage",
+"garlic",
+"lettuce",
+"cauliflower",
+"celery",
+"pea",
+"spinach"
+],
+"n_eligible": 7,
+"sha": "6d17ebbd941b71ef613f31c451be4b97b8d732f9236504560b1dbddc5bc87a00",
+"generation": 0
+}
+}

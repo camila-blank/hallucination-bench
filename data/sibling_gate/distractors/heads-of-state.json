@@ -1,0 +1,268 @@
+{
+"mlnla-rl2-800-all11:chat-lmsys-0031__L028__p81:thepope:thekingofsweden": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0031__L028__p81:thepope:thekingofsweden",
+"anchor": "King of Sweden",
+"nearest": [
+"Abraham Lincoln"
+],
+"random": [],
+"distractors": [
+"Abraham Lincoln"
+],
+"n_eligible": 1,
+"sha": "54181bdc4d8405b93328c7b320d7fd4abc6ef6328aab99458ca164a5b639edd8",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0031__L036__p54:chinasleadershipxijinping:thekingofsweden": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0031__L036__p54:chinasleadershipxijinping:thekingofsweden",
+"anchor": "Carl XVI Gustaf",
+"nearest": [
+"Abraham Lincoln"
+],
+"random": [],
+"distractors": [
+"Abraham Lincoln"
+],
+"n_eligible": 1,
+"sha": "95f625e5b5d57de7ecd286d078ef9e92aa718d000b71c87f67045c1dbbe83895",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0031__L036__p54:xijinpingchinesepolitics:theswedishmonarch": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0031__L036__p54:xijinpingchinesepolitics:theswedishmonarch",
+"anchor": "Carl XVI Gustaf",
+"nearest": [
+"Abraham Lincoln"
+],
+"random": [],
+"distractors": [
+"Abraham Lincoln"
+],
+"n_eligible": 1,
+"sha": "7c958933deb842efe5616479dd673d38979ca7f740285ad21a83f9a1f63af073",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0031__L036__p55:xijinping:thekingofsweden": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0031__L036__p55:xijinping:thekingofsweden",
+"anchor": "Carl XVI Gustaf",
+"nearest": [
+"Abraham Lincoln"
+],
+"random": [],
+"distractors": [
+"Abraham Lincoln"
+],
+"n_eligible": 1,
+"sha": "dadf3c86ebaf3b83cbca45a6206a89cd6c627f9dc336bc3add8bf31528857598",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0031__L036__p55:xijinpingchinesepolitics:swedishmonarch": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0031__L036__p55:xijinpingchinesepolitics:swedishmonarch",
+"anchor": "Carl XVI Gustaf",
+"nearest": [
+"Abraham Lincoln"
+],
+"random": [],
+"distractors": [
+"Abraham Lincoln"
+],
+"n_eligible": 1,
+"sha": "796cfdfe38fd1f7a595bafa0710d6e70c549e26cfac8e51312868b4ceaeda784",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0031__L048__p81:frenchpresident:swedishmonarch": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0031__L048__p81:frenchpresident:swedishmonarch",
+"anchor": "King of Sweden",
+"nearest": [
+"Abraham Lincoln"
+],
+"random": [],
+"distractors": [
+"Abraham Lincoln"
+],
+"n_eligible": 1,
+"sha": "a9e00f01a8feb7cf6aad017786b256ede6dce2f71b51057fa40655c0a948f2c6",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0031__L048__p81:swissheadofstate:swedishmonarch": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0031__L048__p81:swissheadofstate:swedishmonarch",
+"anchor": "King of Sweden",
+"nearest": [
+"Abraham Lincoln"
+],
+"random": [],
+"distractors": [
+"Abraham Lincoln"
+],
+"n_eligible": 1,
+"sha": "800a484c1d558d9a57eac8e728600fd4ed534f0bb350505ff29de3efee6e1de3",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0031__L052__p54:thepopeandafrenchheadofstate:kingofsweden": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0031__L052__p54:thepopeandafrenchheadofstate:kingofsweden",
+"anchor": "King of Sweden",
+"nearest": [
+"Abraham Lincoln"
+],
+"random": [],
+"distractors": [
+"Abraham Lincoln"
+],
+"n_eligible": 1,
+"sha": "0bf9d775d1023253d111b26c1515840c56f6e3e70b5b7595c7b73942a19bda4b",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0031__L044__p54:biden:swedishmonarch": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0031__L044__p54:biden:swedishmonarch",
+"anchor": "Carl XVI Gustaf",
+"nearest": [
+"Abraham Lincoln"
+],
+"random": [],
+"distractors": [
+"Abraham Lincoln"
+],
+"n_eligible": 1,
+"sha": "70b89afc44ef7da3c75384e8eb2c4e911884cb97b75e2d699af94a8320a7e927",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0031__L044__p54:joebiden:kingofsweden": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0031__L044__p54:joebiden:kingofsweden",
+"anchor": "Carl XVI Gustaf",
+"nearest": [
+"Abraham Lincoln"
+],
+"random": [],
+"distractors": [
+"Abraham Lincoln"
+],
+"n_eligible": 1,
+"sha": "576b56cd7c6163b2dd368e8b73253905debdc50698168d8c946399537a03c402",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0031__L044__p54:trumpobama:kingofsweden": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0031__L044__p54:trumpobama:kingofsweden",
+"anchor": "Carl XVI Gustaf",
+"nearest": [
+"Abraham Lincoln"
+],
+"random": [],
+"distractors": [
+"Abraham Lincoln"
+],
+"n_eligible": 1,
+"sha": "ac1b0fb90db6710ee00b9deaf583c357bbd190e364d84c637ea3cac180800e87",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0031__L048__p81:swissfederalcouncil:swedishmonarch": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0031__L048__p81:swissfederalcouncil:swedishmonarch",
+"anchor": "King of Sweden",
+"nearest": [
+"Abraham Lincoln"
+],
+"random": [],
+"distractors": [
+"Abraham Lincoln"
+],
+"n_eligible": 1,
+"sha": "897d24907d5bfbde4cde2f7a19b417118f1c700139e45a5c0176f3b06328ec25",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0031__L052__p57:icelandicpresidentvskingcharlesiii:kingofsweden": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0031__L052__p57:icelandicpresidentvskingcharlesiii:kingofsweden",
+"anchor": "Carl XVI Gustaf",
+"nearest": [
+"Abraham Lincoln"
+],
+"random": [],
+"distractors": [
+"Abraham Lincoln"
+],
+"n_eligible": 1,
+"sha": "22bd7f480ac3f9a61f5984a6c59a9fbd65dfaae24f18608be0b3970581151b3a",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0031__L052__p57:presidentoficelandandbritishmonarch:swedishmonarch": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0031__L052__p57:presidentoficelandandbritishmonarch:swedishmonarch",
+"anchor": "King of Sweden",
+"nearest": [
+"Abraham Lincoln"
+],
+"random": [],
+"distractors": [
+"Abraham Lincoln"
+],
+"n_eligible": 1,
+"sha": "83b4aae296c7a65fbbb579d76f09975ce38b80c568ac02fa6c62b19b201e524e",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0031__L042__p54:napoleon:kingofsweden": {
+"unit": "nla-rl-L42:chat-lmsys-0031__L042__p54:napoleon:kingofsweden",
+"anchor": "King of Sweden",
+"nearest": [
+"Abraham Lincoln"
+],
+"random": [],
+"distractors": [
+"Abraham Lincoln"
+],
+"n_eligible": 1,
+"sha": "e70e7dd08a3faf7f691b7a8a456f93405c3b52e97ade0670c2ab8596bb3bf811",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0031__L048__p81:presidentoffinland:swedishmonarch": {
+"unit": "s3d-rl600-all11:chat-lmsys-0031__L048__p81:presidentoffinland:swedishmonarch",
+"anchor": "King of Sweden",
+"nearest": [
+"Abraham Lincoln"
+],
+"random": [],
+"distractors": [
+"Abraham Lincoln"
+],
+"n_eligible": 1,
+"sha": "4768706c30e144341be29058bb91b50521be9f86dd17d54befe5580177888a62",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0031__L044__p81:headofstateinfrance:swedishmonarch": {
+"unit": "s3d-rl600:chat-lmsys-0031__L044__p81:headofstateinfrance:swedishmonarch",
+"anchor": "King of Sweden",
+"nearest": [
+"Abraham Lincoln"
+],
+"random": [],
+"distractors": [
+"Abraham Lincoln"
+],
+"n_eligible": 1,
+"sha": "2407a6bbe775a028300e4fa024682fa10e6260f6c09584c087b736d42eb89949",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0031__L044__p81:presidentoffrance:swedishmonarch": {
+"unit": "s3d-rl600:chat-lmsys-0031__L044__p81:presidentoffrance:swedishmonarch",
+"anchor": "King of Sweden",
+"nearest": [
+"Abraham Lincoln"
+],
+"random": [],
+"distractors": [
+"Abraham Lincoln"
+],
+"n_eligible": 1,
+"sha": "dc4c5ea9c45ffb6e87f849f346a816f1bab160abd9f60d55ef78ad4ed50314ec",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0031__L044__p81:presidentoftheusa:swedishmonarch": {
+"unit": "s3d-sft251:chat-lmsys-0031__L044__p81:presidentoftheusa:swedishmonarch",
+"anchor": "King of Sweden",
+"nearest": [
+"Abraham Lincoln"
+],
+"random": [],
+"distractors": [
+"Abraham Lincoln"
+],
+"n_eligible": 1,
+"sha": "19fc4b5fcaec0ce1d2fcb11e26135c39ba222fb106a330fcc163a154ad6fc984",
+"generation": 0
+}
+}

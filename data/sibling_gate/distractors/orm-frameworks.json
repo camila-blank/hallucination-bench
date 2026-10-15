@@ -1,0 +1,216 @@
+{
+"mlnla-rl2-800-all11:chat-lmsys-0042__L044__p271:prisma:eloquent": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0042__L044__p271:prisma:eloquent",
+"anchor": "Eloquent",
+"nearest": [
+"Doctrine",
+"Sequelize",
+"GORM",
+"TypeORM"
+],
+"random": [
+"Dapper",
+"Hibernate",
+"NHibernate"
+],
+"distractors": [
+"Doctrine",
+"Sequelize",
+"GORM",
+"TypeORM",
+"Dapper",
+"Hibernate",
+"NHibernate"
+],
+"n_eligible": 7,
+"sha": "4bff85343084a32ba1e8f617b9d22c48ebe87ff7e2041a70e59f5874bd2ef881",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0042__L048__p271:prismatypeorm:eloquent": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0042__L048__p271:prismatypeorm:eloquent",
+"anchor": "Eloquent",
+"nearest": [
+"Doctrine",
+"Sequelize",
+"GORM",
+"Dapper"
+],
+"random": [
+"Hibernate",
+"NHibernate"
+],
+"distractors": [
+"Doctrine",
+"Sequelize",
+"GORM",
+"Dapper",
+"Hibernate",
+"NHibernate"
+],
+"n_eligible": 6,
+"sha": "cb8af5c6dc2b26889bd6b47884bc2067c4c76a146c99c856482ee7a339927be2",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0042__L024__p331:androidroom:laravel": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0042__L024__p331:androidroom:laravel",
+"anchor": "Eloquent",
+"nearest": [
+"Doctrine",
+"Sequelize",
+"GORM",
+"TypeORM"
+],
+"random": [
+"Dapper",
+"Hibernate",
+"NHibernate"
+],
+"distractors": [
+"Doctrine",
+"Sequelize",
+"GORM",
+"TypeORM",
+"Dapper",
+"Hibernate",
+"NHibernate"
+],
+"n_eligible": 7,
+"sha": "24b7f49d9e48929d965fc2d0ad54124ba4e26e2ec5369fc40c4bda48eb44255e",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0042__L048__p271:efcore:laravel": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0042__L048__p271:efcore:laravel",
+"anchor": "Eloquent",
+"nearest": [
+"Doctrine",
+"Sequelize",
+"GORM",
+"TypeORM"
+],
+"random": [
+"Dapper",
+"Hibernate",
+"NHibernate"
+],
+"distractors": [
+"Doctrine",
+"Sequelize",
+"GORM",
+"TypeORM",
+"Dapper",
+"Hibernate",
+"NHibernate"
+],
+"n_eligible": 7,
+"sha": "77d3b94d2c9e19d005b6bb20783903d5c9113bc87bfa4578917ba1501ea780d9",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0042__L052__p99:entityframeworkcore:laravel": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0042__L052__p99:entityframeworkcore:laravel",
+"anchor": "Eloquent",
+"nearest": [
+"Doctrine",
+"Sequelize",
+"GORM",
+"TypeORM"
+],
+"random": [
+"Dapper",
+"Hibernate",
+"NHibernate"
+],
+"distractors": [
+"Doctrine",
+"Sequelize",
+"GORM",
+"TypeORM",
+"Dapper",
+"Hibernate",
+"NHibernate"
+],
+"n_eligible": 7,
+"sha": "4df3558a43ec3feca6f2f6c13c6e5e445794160f2091973640d84067a9cc7550",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0042__L056__p99:rubyactiverecord:phpeloquent": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0042__L056__p99:rubyactiverecord:phpeloquent",
+"anchor": "Eloquent",
+"nearest": [
+"Doctrine",
+"Sequelize",
+"GORM",
+"TypeORM"
+],
+"random": [
+"Dapper",
+"Hibernate",
+"NHibernate"
+],
+"distractors": [
+"Doctrine",
+"Sequelize",
+"GORM",
+"TypeORM",
+"Dapper",
+"Hibernate",
+"NHibernate"
+],
+"n_eligible": 7,
+"sha": "2048d3f17ca12e636d8596b17a9d29f36e2c0d52d61ec21e0b51b8807d17a7fe",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0042__L060__p99:efcore:laravel": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0042__L060__p99:efcore:laravel",
+"anchor": "Eloquent",
+"nearest": [
+"Doctrine",
+"Sequelize",
+"GORM",
+"TypeORM"
+],
+"random": [
+"Dapper",
+"Hibernate",
+"NHibernate"
+],
+"distractors": [
+"Doctrine",
+"Sequelize",
+"GORM",
+"TypeORM",
+"Dapper",
+"Hibernate",
+"NHibernate"
+],
+"n_eligible": 7,
+"sha": "95cee2820cb57d0b9d8945de68c30ea2f59980ac56f677ad7f2750486faf59fd",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0042__L048__p271:djangoorm:laraveleloquent": {
+"unit": "s3d-rl600-all11:chat-lmsys-0042__L048__p271:djangoorm:laraveleloquent",
+"anchor": "Eloquent",
+"nearest": [
+"Doctrine",
+"Sequelize",
+"GORM",
+"TypeORM"
+],
+"random": [
+"Dapper",
+"Hibernate",
+"NHibernate"
+],
+"distractors": [
+"Doctrine",
+"Sequelize",
+"GORM",
+"TypeORM",
+"Dapper",
+"Hibernate",
+"NHibernate"
+],
+"n_eligible": 7,
+"sha": "1e76f38c3c93d1b9002fd816f15b669e01dc1f954848e62ad61e3509549fbca4",
+"generation": 0
+}
+}

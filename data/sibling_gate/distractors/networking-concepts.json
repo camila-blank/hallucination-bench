@@ -1,0 +1,120 @@
+{
+"mlnla-rl2-800-all11:chat-lmsys-0008__L024__p288:tcpandip:ribandfib": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0008__L024__p288:tcpandip:ribandfib",
+"anchor": "RIB and FIB",
+"nearest": [
+"UDP",
+"NAT",
+"Subnetting",
+"DNS"
+],
+"random": [],
+"distractors": [
+"UDP",
+"NAT",
+"Subnetting",
+"DNS"
+],
+"n_eligible": 4,
+"sha": "8b0acab20d09df9bbc676dc9847019d945a337ae38af10ed6338d6d68d0771b5",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0008__L032__p111:macandipaddresses:ribandfib": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0008__L032__p111:macandipaddresses:ribandfib",
+"anchor": "RIB and FIB",
+"nearest": [
+"UDP",
+"TCP",
+"NAT",
+"Subnetting"
+],
+"random": [
+"DNS"
+],
+"distractors": [
+"UDP",
+"TCP",
+"NAT",
+"Subnetting",
+"DNS"
+],
+"n_eligible": 5,
+"sha": "d56111b0e7e3cd47534f11706487f67893cdd4da0014576d1e5dedb4c16b662e",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0008__L036__p288:hubandswitch:ribandfib": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0008__L036__p288:hubandswitch:ribandfib",
+"anchor": "RIB and FIB",
+"nearest": [
+"UDP",
+"TCP",
+"NAT",
+"Subnetting"
+],
+"random": [
+"DNS",
+"IP address"
+],
+"distractors": [
+"UDP",
+"TCP",
+"NAT",
+"Subnetting",
+"DNS",
+"IP address"
+],
+"n_eligible": 6,
+"sha": "d7a17d4ad57f623f3c666471fa616532685e9501792db285656f4f05f458f99d",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0008__L028__p111:vlan:rib": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0008__L028__p111:vlan:rib",
+"anchor": "RIB",
+"nearest": [
+"Subnetting",
+"TCP",
+"DNS",
+"IP address"
+],
+"random": [
+"NAT",
+"UDP"
+],
+"distractors": [
+"Subnetting",
+"TCP",
+"DNS",
+"IP address",
+"NAT",
+"UDP"
+],
+"n_eligible": 6,
+"sha": "d00a576c280398c9add5ed27ec8b0702c6627ff657a333ba7c66efd8f53edc61",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0008__L028__p288:circuitvspacketswitching:ribvsfib": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0008__L028__p288:circuitvspacketswitching:ribvsfib",
+"anchor": "RIB vs FIB",
+"nearest": [
+"TCP",
+"UDP",
+"Subnetting",
+"DNS"
+],
+"random": [
+"IP address",
+"NAT"
+],
+"distractors": [
+"TCP",
+"UDP",
+"Subnetting",
+"DNS",
+"IP address",
+"NAT"
+],
+"n_eligible": 6,
+"sha": "a95d498af61f181204ab586459c0cb5729cb04bdb1fb1de600014812153cb39a",
+"generation": 0
+}
+}

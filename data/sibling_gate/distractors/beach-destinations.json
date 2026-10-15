@@ -1,0 +1,652 @@
+{
+"mlnla-rl2-800-all11:chat-lmsys-0047__L024__p513:ncouterbanks:rosemarybeachflorida": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0047__L024__p513:ncouterbanks:rosemarybeachflorida",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Cancún",
+"Malibu",
+"Copacabana",
+"Bora Bora"
+],
+"random": [
+"Bali",
+"Phuket"
+],
+"distractors": [
+"Cancún",
+"Malibu",
+"Copacabana",
+"Bora Bora",
+"Bali",
+"Phuket"
+],
+"n_eligible": 6,
+"sha": "7d5a80ea3716a5bf53dc251457fe59b67b48333264a6434239db475a48e4c0ed",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0047__L024__p513:outerbanks:rosemarybeach": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0047__L024__p513:outerbanks:rosemarybeach",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Cancún",
+"Malibu",
+"Copacabana",
+"Bora Bora"
+],
+"random": [
+"Bali",
+"Phuket"
+],
+"distractors": [
+"Cancún",
+"Malibu",
+"Copacabana",
+"Bora Bora",
+"Bali",
+"Phuket"
+],
+"n_eligible": 6,
+"sha": "749d3fd57ed2e75978df26276245ca22f16b67a7565f3a22e00c50ac96ccf556",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0047__L024__p513:outerbanks:rosemarybeachflorida": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0047__L024__p513:outerbanks:rosemarybeachflorida",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Cancún",
+"Malibu",
+"Copacabana",
+"Bora Bora"
+],
+"random": [
+"Bali",
+"Phuket"
+],
+"distractors": [
+"Cancún",
+"Malibu",
+"Copacabana",
+"Bora Bora",
+"Bali",
+"Phuket"
+],
+"n_eligible": 6,
+"sha": "a02ddc02597a2176209c4d263946d6d2bd6052ada05b9648a865aa72efaf2c28",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0047__L036__p391:keywest:rosemarybeach": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0047__L036__p391:keywest:rosemarybeach",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Cancún",
+"Malibu",
+"Copacabana",
+"Bora Bora"
+],
+"random": [
+"Bali",
+"Phuket"
+],
+"distractors": [
+"Cancún",
+"Malibu",
+"Copacabana",
+"Bora Bora",
+"Bali",
+"Phuket"
+],
+"n_eligible": 6,
+"sha": "8c3b03f1a5b70f355ab234be9e72e101bed23202ec639992f264ea98bebd5fee",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0047__L040__p513:outerbanks:rosemarybeachflorida": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0047__L040__p513:outerbanks:rosemarybeachflorida",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Cancún",
+"Malibu",
+"Copacabana",
+"Bora Bora"
+],
+"random": [
+"Bali",
+"Phuket"
+],
+"distractors": [
+"Cancún",
+"Malibu",
+"Copacabana",
+"Bora Bora",
+"Bali",
+"Phuket"
+],
+"n_eligible": 6,
+"sha": "895bbb70770de256a83f89a2e09ec00eacc76a43dac9576f0e4e52b5992055ba",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0047__L044__p513:ncouterbanks:rosemarybeachflorida": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0047__L044__p513:ncouterbanks:rosemarybeachflorida",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Cancún",
+"Malibu",
+"Copacabana",
+"Bora Bora"
+],
+"random": [
+"Bali",
+"Phuket"
+],
+"distractors": [
+"Cancún",
+"Malibu",
+"Copacabana",
+"Bora Bora",
+"Bali",
+"Phuket"
+],
+"n_eligible": 6,
+"sha": "5eca6db1d3bd760c0963ac16cf7c5af22c1e4f8480ba22b1be4fc01e338d485f",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0047__L044__p513:obx:rosemarybeach": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0047__L044__p513:obx:rosemarybeach",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Cancún",
+"Malibu",
+"Copacabana",
+"Bora Bora"
+],
+"random": [
+"Bali",
+"Phuket"
+],
+"distractors": [
+"Cancún",
+"Malibu",
+"Copacabana",
+"Bora Bora",
+"Bali",
+"Phuket"
+],
+"n_eligible": 6,
+"sha": "c51d6ba111fc237e5a26f9d006d0f24c93b85983c2902e4b757d803838549ba3",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0047__L044__p513:outerbanks:rosemarybeachflorida": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0047__L044__p513:outerbanks:rosemarybeachflorida",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Cancún",
+"Malibu",
+"Copacabana",
+"Bora Bora"
+],
+"random": [
+"Bali",
+"Phuket"
+],
+"distractors": [
+"Cancún",
+"Malibu",
+"Copacabana",
+"Bora Bora",
+"Bali",
+"Phuket"
+],
+"n_eligible": 6,
+"sha": "7cc99a8d35f16ff6ae8487f0d4ac786509cd379ad70504ee56817d7d1e8104b7",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0047__L048__p513:hiltonheadfollyislandsullivansisland:alysbeachwatercolor": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0047__L048__p513:hiltonheadfollyislandsullivansisland:alysbeachwatercolor",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Cancún",
+"Malibu",
+"Copacabana",
+"Bora Bora"
+],
+"random": [
+"Bali",
+"Phuket"
+],
+"distractors": [
+"Cancún",
+"Malibu",
+"Copacabana",
+"Bora Bora",
+"Bali",
+"Phuket"
+],
+"n_eligible": 6,
+"sha": "7178be37c5408698abf973b42867c04a96209f43c756372e9c7058c1a7c4f705",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0047__L048__p513:outerbanks:rosemarybeach": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0047__L048__p513:outerbanks:rosemarybeach",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Cancún",
+"Malibu",
+"Copacabana",
+"Bora Bora"
+],
+"random": [
+"Bali",
+"Phuket"
+],
+"distractors": [
+"Cancún",
+"Malibu",
+"Copacabana",
+"Bora Bora",
+"Bali",
+"Phuket"
+],
+"n_eligible": 6,
+"sha": "8da51022576aa765582d09073f3ec8a193bc0c9a02b53613b29790e68841709a",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0047__L052__p513:outerbanks:rosemarybeach": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0047__L052__p513:outerbanks:rosemarybeach",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Cancún",
+"Malibu",
+"Copacabana",
+"Bora Bora"
+],
+"random": [
+"Bali",
+"Phuket"
+],
+"distractors": [
+"Cancún",
+"Malibu",
+"Copacabana",
+"Bora Bora",
+"Bali",
+"Phuket"
+],
+"n_eligible": 6,
+"sha": "16b25ab335eda3191257b20f193c340b9011e678ea6511790548d057a0d5247d",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0047__L052__p586:keywest:rosemarybeach": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0047__L052__p586:keywest:rosemarybeach",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Cancún",
+"Malibu",
+"Copacabana",
+"Bora Bora"
+],
+"random": [
+"Bali",
+"Phuket"
+],
+"distractors": [
+"Cancún",
+"Malibu",
+"Copacabana",
+"Bora Bora",
+"Bali",
+"Phuket"
+],
+"n_eligible": 6,
+"sha": "f4be1cded4d8b453dba1ad14a50c6c02735299f7d0f6e33c764e0193f06324b2",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0047__L060__p513:outerbanksnc:rosemarybeachflorida": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0047__L060__p513:outerbanksnc:rosemarybeachflorida",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Cancún",
+"Malibu",
+"Copacabana",
+"Bora Bora"
+],
+"random": [
+"Bali",
+"Phuket"
+],
+"distractors": [
+"Cancún",
+"Malibu",
+"Copacabana",
+"Bora Bora",
+"Bali",
+"Phuket"
+],
+"n_eligible": 6,
+"sha": "9ac720f3927f44551acda5c9d02e955e139f313b74b4021b514446acd250c4a2",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0047__L024__p513:outerbanks:rosemarybeach": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0047__L024__p513:outerbanks:rosemarybeach",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Cancún",
+"Malibu",
+"Copacabana",
+"Bora Bora"
+],
+"random": [
+"Bali",
+"Phuket"
+],
+"distractors": [
+"Cancún",
+"Malibu",
+"Copacabana",
+"Bora Bora",
+"Bali",
+"Phuket"
+],
+"n_eligible": 6,
+"sha": "7d309d5f7fe871517dfa55010b73c2fb6a07b48d0757f98d7e1831bc9a020006",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0047__L024__p513:outerbanksnc:rosemarybeachflorida": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0047__L024__p513:outerbanksnc:rosemarybeachflorida",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Cancún",
+"Malibu",
+"Copacabana",
+"Bora Bora"
+],
+"random": [
+"Bali",
+"Phuket"
+],
+"distractors": [
+"Cancún",
+"Malibu",
+"Copacabana",
+"Bora Bora",
+"Bali",
+"Phuket"
+],
+"n_eligible": 6,
+"sha": "c8186dd436a334c935bc30b62ae797990ef2dba3ebe72f3bd710f70d1243bf80",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0047__L036__p391:keywest:rosemarybeach": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0047__L036__p391:keywest:rosemarybeach",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Cancún",
+"Malibu",
+"Copacabana",
+"Bora Bora"
+],
+"random": [
+"Bali",
+"Phuket"
+],
+"distractors": [
+"Cancún",
+"Malibu",
+"Copacabana",
+"Bora Bora",
+"Bali",
+"Phuket"
+],
+"n_eligible": 6,
+"sha": "a7b39af8242c349390e603e5e71d054b9fefec089dfa2c7b72cf9e01c5b1b569",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0047__L040__p513:ncouterbanks:rosemarybeachflorida": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0047__L040__p513:ncouterbanks:rosemarybeachflorida",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Cancún",
+"Malibu",
+"Copacabana",
+"Bora Bora"
+],
+"random": [
+"Bali",
+"Phuket"
+],
+"distractors": [
+"Cancún",
+"Malibu",
+"Copacabana",
+"Bora Bora",
+"Bali",
+"Phuket"
+],
+"n_eligible": 6,
+"sha": "3692b79800f96eb04eb1939226b3cfd0c9596f1fbef7783a7166491d932dc1b9",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0047__L040__p513:outerbanksnc:rosemarybeachflorida": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0047__L040__p513:outerbanksnc:rosemarybeachflorida",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Cancún",
+"Malibu",
+"Copacabana",
+"Bora Bora"
+],
+"random": [
+"Bali",
+"Phuket"
+],
+"distractors": [
+"Cancún",
+"Malibu",
+"Copacabana",
+"Bora Bora",
+"Bali",
+"Phuket"
+],
+"n_eligible": 6,
+"sha": "a45d883595bbaebc42be47a74ca119d390ce567a760396ec11c941e4fde283b5",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0047__L044__p513:outerbanks:rosemarybeach": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0047__L044__p513:outerbanks:rosemarybeach",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Cancún",
+"Malibu",
+"Copacabana",
+"Bora Bora"
+],
+"random": [
+"Bali",
+"Phuket"
+],
+"distractors": [
+"Cancún",
+"Malibu",
+"Copacabana",
+"Bora Bora",
+"Bali",
+"Phuket"
+],
+"n_eligible": 6,
+"sha": "7d4fe599fbf51334a4b5ab193ada6bc5a6f25df5d72b8236e1347c828ec22ed9",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0047__L044__p513:outerbanks:rosemarybeachflorida": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0047__L044__p513:outerbanks:rosemarybeachflorida",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Cancún",
+"Malibu",
+"Copacabana",
+"Bora Bora"
+],
+"random": [
+"Bali",
+"Phuket"
+],
+"distractors": [
+"Cancún",
+"Malibu",
+"Copacabana",
+"Bora Bora",
+"Bali",
+"Phuket"
+],
+"n_eligible": 6,
+"sha": "ade8d888d7096bc1391028caff44f509c9343347331b062c0082049c78a29dd7",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0047__L048__p586:charleston+pawleysisland:rosemarybeach": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0047__L048__p586:charleston+pawleysisland:rosemarybeach",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Cancún",
+"Malibu",
+"Copacabana",
+"Bora Bora"
+],
+"random": [
+"Bali",
+"Phuket"
+],
+"distractors": [
+"Cancún",
+"Malibu",
+"Copacabana",
+"Bora Bora",
+"Bali",
+"Phuket"
+],
+"n_eligible": 6,
+"sha": "d4af531678ae896ec3afc4e3dd97a3ad431a402126e134f1b686fdf7e79ded00",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0047__L052__p586:keywest:rosemarybeach": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0047__L052__p586:keywest:rosemarybeach",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Cancún",
+"Malibu",
+"Copacabana",
+"Bora Bora"
+],
+"random": [
+"Bali",
+"Phuket"
+],
+"distractors": [
+"Cancún",
+"Malibu",
+"Copacabana",
+"Bora Bora",
+"Bali",
+"Phuket"
+],
+"n_eligible": 6,
+"sha": "807d2b434ae850bf111af61d9deca21439fc65fbd195e07433de107d0bf90a06",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0047__L036__p586:capecod:rosemarybeachflorida": {
+"unit": "s3d-rl600-all11:chat-lmsys-0047__L036__p586:capecod:rosemarybeachflorida",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Cancún",
+"Malibu",
+"Copacabana",
+"Bora Bora"
+],
+"random": [
+"Bali",
+"Phuket"
+],
+"distractors": [
+"Cancún",
+"Malibu",
+"Copacabana",
+"Bora Bora",
+"Bali",
+"Phuket"
+],
+"n_eligible": 6,
+"sha": "f040338e867358c9af9ea023e3961dd2a60339896cea004cd4d114fbfbabdfcd",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0047__L060__p513:hiltonhead:rosemarybeach": {
+"unit": "s3d-rl600:chat-lmsys-0047__L060__p513:hiltonhead:rosemarybeach",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Cancún",
+"Malibu",
+"Copacabana",
+"Bora Bora"
+],
+"random": [
+"Bali",
+"Phuket"
+],
+"distractors": [
+"Cancún",
+"Malibu",
+"Copacabana",
+"Bora Bora",
+"Bali",
+"Phuket"
+],
+"n_eligible": 6,
+"sha": "5e35d5b2e8d3d975066104c183d04fbf144cec40141f6f627984f46467cfc125",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0047__L060__p513:southbeach:rosemarybeach": {
+"unit": "s3d-rl600:chat-lmsys-0047__L060__p513:southbeach:rosemarybeach",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Cancún",
+"Malibu",
+"Copacabana",
+"Bora Bora"
+],
+"random": [
+"Bali",
+"Phuket"
+],
+"distractors": [
+"Cancún",
+"Malibu",
+"Copacabana",
+"Bora Bora",
+"Bali",
+"Phuket"
+],
+"n_eligible": 6,
+"sha": "f47cec7008e78421bf35a426ea84e40dc92725b7a4cb30058bd7924541179644",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0047__L024__p513:outerbanks:rosemarybeachfloridapanhandle": {
+"unit": "s3d-sft251:chat-lmsys-0047__L024__p513:outerbanks:rosemarybeachfloridapanhandle",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Cancún",
+"Malibu",
+"Copacabana",
+"Bora Bora"
+],
+"random": [
+"Bali",
+"Phuket"
+],
+"distractors": [
+"Cancún",
+"Malibu",
+"Copacabana",
+"Bora Bora",
+"Bali",
+"Phuket"
+],
+"n_eligible": 6,
+"sha": "180f465b580ebfa26652f7838f93dd48423da425acb6905ddcac7db9672c710c",
+"generation": 0
+}
+}

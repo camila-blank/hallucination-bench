@@ -25,6 +25,7 @@ import re
 import unicodedata
 from collections import Counter
 from collections.abc import Iterable, Mapping, Sequence
+from pathlib import Path
 from typing import Any
 
 from hallucination_bench.cache import Cache
@@ -455,3 +456,179 @@ async def run_texts(
         kept_all.extend(k)
         causes_all.update(c)
     return kept_all, causes_all, spend
+
+
+# ================================================================ plan 0010 §4: the probe-text bank
+#
+# ``data/sibling_gate/probe_bank/<class_slug>.jsonl.gz``: the texts of one class, each with its
+# ``avoid`` list (``"legacy"`` for the imported plan-0009 texts) and its ``capture`` record
+# (``label`` = ``stages.probe_label(id)``, ``shard`` = the acts subdir, ``key`` = the merged key
+# per read position). ``probe_bank/cells.json``: per class, every ATTEMPTED (concept, kind) cell
+# (also the ones that kept no text), so a cell is generated exactly once. The bank cell is the
+# authority; the LLM cache is consulted only for missing cells.
+
+GEN_VERSION_V21 = "sibgen-chat-v2.1"  # the prompt takes the cell's stored avoid list
+LEGACY = "legacy"
+KINDS_CONCEPT = ("explicit", "implied")
+
+
+def bank_dir(data_dir: Path) -> Path:
+    return Path(data_dir) / "probe_bank"
+
+
+def bank_file(data_dir: Path, slug: str) -> Path:
+    return bank_dir(data_dir) / f"{slug}.jsonl.gz"
+
+
+def load_bank_class(data_dir: Path, slug: str) -> list[dict[str, Any]]:
+    import gzip
+
+    p = bank_file(data_dir, slug)
+    if not p.exists():
+        return []
+    with gzip.open(p, "rt", encoding="utf-8") as fh:
+        return [json.loads(x) for x in fh if x.strip()]
+
+
+def write_bank_class(data_dir: Path, slug: str, rows: Iterable[Mapping[str, Any]]) -> str:
+    """Write one class's bank file (deterministic gzip: mtime 0); returns its sha256."""
+    import gzip
+    import hashlib
+    import io
+
+    buf = io.BytesIO()
+    with gzip.GzipFile(fileobj=buf, mode="wb", mtime=0) as gz:
+        for r in rows:
+            gz.write((json.dumps(r, ensure_ascii=False, sort_keys=True) + "\n").encode())
+    p = bank_file(data_dir, slug)
+    p.parent.mkdir(parents=True, exist_ok=True)
+    p.write_bytes(buf.getvalue())
+    return hashlib.sha256(buf.getvalue()).hexdigest()
+
+
+def load_cells_index(data_dir: Path) -> dict[str, list[dict[str, Any]]]:
+    p = bank_dir(data_dir) / "cells.json"
+    return json.loads(p.read_text()) if p.exists() else {}
+
+
+def save_cells_index(data_dir: Path, idx: Mapping[str, Any]) -> None:
+    p = bank_dir(data_dir) / "cells.json"
+    p.parent.mkdir(parents=True, exist_ok=True)
+    p.write_text(json.dumps(idx, indent=0, ensure_ascii=False, sort_keys=True) + "\n")
+
+
+def wanted_cells(concepts: Sequence[str]) -> list[tuple[str | None, str]]:
+    return [(c, k) for c in concepts for k in KINDS_CONCEPT] + [(None, "neutral")]
+
+
+def missing_cells(
+    cls: str, concepts: Sequence[str], idx: Mapping[str, Sequence[Mapping[str, Any]]]
+) -> list[tuple[str | None, str]]:
+    """The class's (concept, kind) cells never attempted (a new concept: its explicit + implied;
+    a new class: every cell + neutral)."""
+    have = {(e.get("concept"), e["kind"]) for e in idx.get(cls, [])}
+    return [ck for ck in wanted_cells(concepts) if ck not in have]
+
+
+def text_id(cls: str, concept: str | None, kind: str, i: int) -> str:
+    return f"{cls}|{concept or 'neutral'}|{kind}|{i:02d}"
+
+
+async def run_text_cells(
+    todo: Mapping[str, Sequence[tuple[str | None, str]]],
+    concepts: Mapping[str, Mapping[str, Any]],
+    surface: Mapping[str, Mapping[str, Sequence[str]]],
+    index: set[tuple[str, ...]],
+    existing: Mapping[str, Sequence[Mapping[str, Any]]],
+    llm: LLM | None,
+    cache: Cache,
+    *,
+    rounds: int = 4,
+    spend: Usage | None = None,
+) -> tuple[dict[str, list[dict[str, Any]]], dict[str, list[dict[str, Any]]], Counter]:
+    """Generate only the ``todo`` cells (``sibgen-chat-v2.1``). The avoid list of a cell = the
+    class's concept list now (stored with the texts and in the cell index); the naming checks
+    use the class's current C; duplicates are checked against the class's existing texts.
+    Returns (class -> new text rows, class -> new cell-index entries, drop causes)."""
+    spend = spend if spend is not None else Usage()
+    new_rows: dict[str, list[dict[str, Any]]] = {}
+    new_cells: dict[str, list[dict[str, Any]]] = {}
+    causes_all: Counter = Counter()
+
+    async def one_class(cls: str, cells: Sequence[tuple[str | None, str]]):
+        C = list(concepts[cls]["concepts"])
+        avoid = list(C)
+        namer = Namer({c: list(surface.get(cls, {}).get(c, [])) for c in C})
+        seen = {normalize_text(full_text(t)) for t in existing.get(cls, [])}
+        need = {ck: (NEUTRAL_N if ck[1] == "neutral" else PER_KIND) for ck in cells}
+        have: dict[tuple[str | None, str], list[dict[str, Any]]] = {k: [] for k in need}
+        causes: Counter = Counter()
+        for rnd in range(rounds):
+            todo_k = [k for k, n in need.items() if len(have[k]) < n]
+            if not todo_k:
+                break
+
+            async def one(k, rnd: int = rnd, n_want: int = 0):
+                c, kind = k
+                st, res = await cached_json_call(
+                    cache,
+                    llm,
+                    key=f"gen:{cls}:{c or 'neutral'}:{kind}:r{rnd}",
+                    version=GEN_VERSION_V21,
+                    model=MODEL,
+                    effort=EFFORT,
+                    system=GEN_SYSTEM,
+                    user=gen_user(cls, c, kind, n_want, avoid),
+                    schema=GEN_SCHEMA,
+                    validate=lambda r: isinstance(r.get("texts"), list),
+                    spend=spend,
+                )
+                return k, (res or {}).get("texts") or [] if st == "ok" else []
+
+            jobs = [one(k, n_want=need[k] - len(have[k]) + 6) for k in todo_k]
+            for k, texts in await gather_limited(jobs):
+                c, kind = k
+                for t in texts:
+                    if len(have[k]) >= need[k]:
+                        break
+                    why = text_check(namer, c, kind, t["assistant"], index, seen, full_text(t))
+                    mc = namer.first(t["assistant"], c) if kind == "explicit" and c else None
+                    mc = mc if mc is not None else mention_char(t, kind)
+                    if why is None and mc is None:
+                        why = "mention_missing"
+                    if why is not None:
+                        causes[why.split(":")[0]] += 1
+                        continue
+                    seen.add(normalize_text(full_text(t)))
+                    have[k].append(
+                        {
+                            "id": text_id(cls, c, kind, len(have[k])),
+                            "class": cls,
+                            "concept": c,
+                            "kind": kind,
+                            "request_idx": 0,
+                            **{f: t[f] for f in ("system", "user", "assistant")},
+                            "mention_char": mc,
+                            "avoid": avoid,
+                        }
+                    )
+        rows = [r for k in need for r in have[k]]
+        cells_e = [
+            {
+                "concept": c,
+                "kind": kind,
+                "n": len(have[(c, kind)]),
+                "avoid": avoid,
+                "version": GEN_VERSION_V21,
+            }
+            for c, kind in need
+        ]
+        return cls, rows, cells_e, causes
+
+    for cls, rows, cells_e, causes in await gather_limited(
+        [one_class(c, cs) for c, cs in sorted(todo.items()) if cs]
+    ):
+        new_rows[cls] = rows
+        new_cells[cls] = cells_e
+        causes_all.update(causes)
+    return new_rows, new_cells, causes_all

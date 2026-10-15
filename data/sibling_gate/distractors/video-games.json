@@ -1,0 +1,263 @@
+{
+"mlnla-rl2-800-all11:chat-dailydialog-0009__L044__p127:thewitchergodofwar:thegodfathermafiaboardwalkempire": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0009__L044__p127:thewitchergodofwar:thegodfathermafiaboardwalkempire",
+"anchor": "Mafia",
+"nearest": [
+"Grand Theft Auto V",
+"Halo: Combat Evolved",
+"The Elder Scrolls V: Skyrim",
+"Fortnite"
+],
+"random": [
+"Slenderman",
+"Super Mario Bros.",
+"Tetris",
+"The Legend of Zelda: Breath of the Wild"
+],
+"distractors": [
+"Grand Theft Auto V",
+"Halo: Combat Evolved",
+"The Elder Scrolls V: Skyrim",
+"Fortnite",
+"Slenderman",
+"Super Mario Bros.",
+"Tetris",
+"The Legend of Zelda: Breath of the Wild"
+],
+"n_eligible": 11,
+"sha": "7c6635473806983b2cd1ce4ee5d1b61e52011b5a8bbc5b50f214e632cdd025f4",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0005__L028__p169:minecraft:swindlethegame": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0005__L028__p169:minecraft:swindlethegame",
+"anchor": "Minecraft",
+"nearest": [
+"The Legend of Zelda: Breath of the Wild",
+"Fortnite",
+"The Elder Scrolls V: Skyrim",
+"Pac-Man"
+],
+"random": [
+"Grand Theft Auto V",
+"Mafia",
+"Super Mario Bros.",
+"Tetris"
+],
+"distractors": [
+"The Legend of Zelda: Breath of the Wild",
+"Fortnite",
+"The Elder Scrolls V: Skyrim",
+"Pac-Man",
+"Grand Theft Auto V",
+"Mafia",
+"Super Mario Bros.",
+"Tetris"
+],
+"n_eligible": 12,
+"sha": "5ba1f1892efda4a1a98e4adee8fdbfb8806fc155205fac44c63bfda873e9b84c",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0009__L032__p127:bladerunnercyberpunk2077:thegodfathermafia": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0009__L032__p127:bladerunnercyberpunk2077:thegodfathermafia",
+"anchor": "Mafia",
+"nearest": [
+"Grand Theft Auto V",
+"Halo: Combat Evolved",
+"The Elder Scrolls V: Skyrim",
+"Fortnite"
+],
+"random": [
+"Slender: The Eight Pages",
+"Slenderman",
+"Super Mario Bros.",
+"Tetris"
+],
+"distractors": [
+"Grand Theft Auto V",
+"Halo: Combat Evolved",
+"The Elder Scrolls V: Skyrim",
+"Fortnite",
+"Slender: The Eight Pages",
+"Slenderman",
+"Super Mario Bros.",
+"Tetris"
+],
+"n_eligible": 11,
+"sha": "21579035627018218610838028d43c01ac904a4270d988462ca3131ffe8d7b85",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0009__L036__p127:reddeadredemption:mafiathevideogame": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0009__L036__p127:reddeadredemption:mafiathevideogame",
+"anchor": "Mafia",
+"nearest": [
+"Grand Theft Auto V",
+"Halo: Combat Evolved",
+"The Elder Scrolls V: Skyrim",
+"Fortnite"
+],
+"random": [
+"Minecraft",
+"Slender: The Eight Pages",
+"Super Mario Bros.",
+"Tetris"
+],
+"distractors": [
+"Grand Theft Auto V",
+"Halo: Combat Evolved",
+"The Elder Scrolls V: Skyrim",
+"Fortnite",
+"Minecraft",
+"Slender: The Eight Pages",
+"Super Mario Bros.",
+"Tetris"
+],
+"n_eligible": 11,
+"sha": "82b96be1e9ef7c6314aba48234769fce9a561eca68c9823a5038970f5cd15ebb",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0009__L048__p107:reddeadredemption:mafiathevideogame": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0009__L048__p107:reddeadredemption:mafiathevideogame",
+"anchor": "Mafia",
+"nearest": [
+"Grand Theft Auto V",
+"Halo: Combat Evolved",
+"The Elder Scrolls V: Skyrim",
+"Fortnite"
+],
+"random": [
+"Minecraft",
+"Super Mario Bros.",
+"Tetris",
+"The Legend of Zelda: Breath of the Wild"
+],
+"distractors": [
+"Grand Theft Auto V",
+"Halo: Combat Evolved",
+"The Elder Scrolls V: Skyrim",
+"Fortnite",
+"Minecraft",
+"Super Mario Bros.",
+"Tetris",
+"The Legend of Zelda: Breath of the Wild"
+],
+"n_eligible": 11,
+"sha": "0bc41452b8e7a4663e45496f867d08337b94c674234f3414ad6c887c32f66952",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0005__L032__p106:slenderman:swindle": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0005__L032__p106:slenderman:swindle",
+"anchor": "Slenderman",
+"nearest": [
+"Super Mario Bros.",
+"Halo: Combat Evolved",
+"The Legend of Zelda: Breath of the Wild",
+"Pac-Man"
+],
+"random": [
+"Cyberpunk 2077",
+"Grand Theft Auto V",
+"Mafia",
+"The Elder Scrolls V: Skyrim"
+],
+"distractors": [
+"Super Mario Bros.",
+"Halo: Combat Evolved",
+"The Legend of Zelda: Breath of the Wild",
+"Pac-Man",
+"Cyberpunk 2077",
+"Grand Theft Auto V",
+"Mafia",
+"The Elder Scrolls V: Skyrim"
+],
+"n_eligible": 12,
+"sha": "8d8a5e741553560d53790af3785dba2b165aff9a049ab433dd2badb104aa495c",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0005__L056__p106:slenderman:swindle": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0005__L056__p106:slenderman:swindle",
+"anchor": "Slenderman",
+"nearest": [
+"Super Mario Bros.",
+"Halo: Combat Evolved",
+"The Legend of Zelda: Breath of the Wild",
+"Pac-Man"
+],
+"random": [
+"Cyberpunk 2077",
+"Grand Theft Auto V",
+"Red Dead Redemption",
+"The Elder Scrolls V: Skyrim"
+],
+"distractors": [
+"Super Mario Bros.",
+"Halo: Combat Evolved",
+"The Legend of Zelda: Breath of the Wild",
+"Pac-Man",
+"Cyberpunk 2077",
+"Grand Theft Auto V",
+"Red Dead Redemption",
+"The Elder Scrolls V: Skyrim"
+],
+"n_eligible": 12,
+"sha": "2a26cad4b20f96a422eaed12f7424551b8a1988f3650eea71ae5ac97201c08a5",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0005__L060__p106:theslenderman:swindle": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0005__L060__p106:theslenderman:swindle",
+"anchor": "Slender: The Eight Pages",
+"nearest": [
+"Halo: Combat Evolved",
+"Super Mario Bros.",
+"Tetris",
+"The Legend of Zelda: Breath of the Wild"
+],
+"random": [
+"Cyberpunk 2077",
+"Mafia",
+"Red Dead Redemption",
+"The Witcher"
+],
+"distractors": [
+"Halo: Combat Evolved",
+"Super Mario Bros.",
+"Tetris",
+"The Legend of Zelda: Breath of the Wild",
+"Cyberpunk 2077",
+"Mafia",
+"Red Dead Redemption",
+"The Witcher"
+],
+"n_eligible": 12,
+"sha": "16357edef52b0de8b40f28279abd8f0933b94f416ba420bc50de5bc3cc1199e7",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0009__L044__p127:thewitcher:mafiathevideogame": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0009__L044__p127:thewitcher:mafiathevideogame",
+"anchor": "Mafia",
+"nearest": [
+"Grand Theft Auto V",
+"Halo: Combat Evolved",
+"The Elder Scrolls V: Skyrim",
+"Fortnite"
+],
+"random": [
+"Minecraft",
+"Pac-Man",
+"Slender: The Eight Pages",
+"The Legend of Zelda: Breath of the Wild"
+],
+"distractors": [
+"Grand Theft Auto V",
+"Halo: Combat Evolved",
+"The Elder Scrolls V: Skyrim",
+"Fortnite",
+"Minecraft",
+"Pac-Man",
+"Slender: The Eight Pages",
+"The Legend of Zelda: Breath of the Wild"
+],
+"n_eligible": 11,
+"sha": "cfb4dcb3ffeff0a34899488811a1e105b8d40b697f11c931046adf9773e15a84",
+"generation": 0
+}
+}

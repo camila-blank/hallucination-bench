@@ -1,0 +1,152 @@
+{
+"mlnla-rl2-800-all11:chat-lmsys-0056__L020__p28:factorialprogram:fibonaccinumbers": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0056__L020__p28:factorialprogram:fibonaccinumbers",
+"anchor": "Fibonacci program",
+"nearest": [
+"Towers of Hanoi",
+"eight queens puzzle",
+"Sieve of Eratosthenes",
+"binary search"
+],
+"random": [
+"palindrome checker",
+"reverse a string"
+],
+"distractors": [
+"Towers of Hanoi",
+"eight queens puzzle",
+"Sieve of Eratosthenes",
+"binary search",
+"palindrome checker",
+"reverse a string"
+],
+"n_eligible": 6,
+"sha": "85746d28982b8b5c173c6e8263a380c59d32afcf302c29a1ea5a2dc1f8c62abb",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0056__L020__p152:multiplicationtable:fibonaccinumbers": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0056__L020__p152:multiplicationtable:fibonaccinumbers",
+"anchor": "Fibonacci sequence",
+"nearest": [
+"Towers of Hanoi",
+"Sieve of Eratosthenes",
+"eight queens puzzle",
+"binary search"
+],
+"random": [
+"palindrome checker",
+"reverse a string"
+],
+"distractors": [
+"Towers of Hanoi",
+"Sieve of Eratosthenes",
+"eight queens puzzle",
+"binary search",
+"palindrome checker",
+"reverse a string"
+],
+"n_eligible": 6,
+"sha": "681dd6a24463e0897adea926bf0e5383ead6d26b6e89d21e6e73d7cc198ab04a",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0056__L020__p152:triangularmultiplicationtable:fibonaccisequence": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0056__L020__p152:triangularmultiplicationtable:fibonaccisequence",
+"anchor": "Fibonacci sequence",
+"nearest": [
+"Towers of Hanoi",
+"Sieve of Eratosthenes",
+"eight queens puzzle",
+"binary search"
+],
+"random": [
+"palindrome checker",
+"reverse a string"
+],
+"distractors": [
+"Towers of Hanoi",
+"Sieve of Eratosthenes",
+"eight queens puzzle",
+"binary search",
+"palindrome checker",
+"reverse a string"
+],
+"n_eligible": 6,
+"sha": "8df80b6513b87095bcc30bd29b53d7e1a655df902ef7715484f2da1d6019bb58",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0056__L036__p28:multiplicationtable:fibonaccinumbers": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0056__L036__p28:multiplicationtable:fibonaccinumbers",
+"anchor": "Fibonacci sequence",
+"nearest": [
+"Towers of Hanoi",
+"Sieve of Eratosthenes",
+"eight queens puzzle",
+"binary search"
+],
+"random": [
+"palindrome checker",
+"reverse a string"
+],
+"distractors": [
+"Towers of Hanoi",
+"Sieve of Eratosthenes",
+"eight queens puzzle",
+"binary search",
+"palindrome checker",
+"reverse a string"
+],
+"n_eligible": 6,
+"sha": "f6317802c1a5fabb8292a9e9c6022adcad7c7a12906b712be242bfeee72a30e8",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0056__L056__p28:multiplicationtable:fibonaccinumbers": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0056__L056__p28:multiplicationtable:fibonaccinumbers",
+"anchor": "Fibonacci sequence",
+"nearest": [
+"Towers of Hanoi",
+"Sieve of Eratosthenes",
+"eight queens puzzle",
+"binary search"
+],
+"random": [
+"palindrome checker",
+"reverse a string"
+],
+"distractors": [
+"Towers of Hanoi",
+"Sieve of Eratosthenes",
+"eight queens puzzle",
+"binary search",
+"palindrome checker",
+"reverse a string"
+],
+"n_eligible": 6,
+"sha": "7b38ffd9dcbe42049849c9293e9fc94d4a24051ccb72cd76c85ccf0dc07c50ab",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0056__L028__p28:squareofanumber:fibonaccinumbers": {
+"unit": "s3d-rl600-all11:chat-lmsys-0056__L028__p28:squareofanumber:fibonaccinumbers",
+"anchor": "Fibonacci numbers",
+"nearest": [
+"Towers of Hanoi",
+"Sieve of Eratosthenes",
+"eight queens puzzle",
+"binary search"
+],
+"random": [
+"palindrome checker",
+"reverse a string"
+],
+"distractors": [
+"Towers of Hanoi",
+"Sieve of Eratosthenes",
+"eight queens puzzle",
+"binary search",
+"palindrome checker",
+"reverse a string"
+],
+"n_eligible": 6,
+"sha": "4af6d7d6b18768d4fd8894ca22f22a8b1a888d78352cfc0f34c5f78ec9911ec2",
+"generation": 0
+}
+}

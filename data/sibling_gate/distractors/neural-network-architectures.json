@@ -1,0 +1,1425 @@
+{
+"mlnla-rl2-800-all11:chat-lmsys-0011__L024__p120:attentiononlytransformer:decisiontransformer": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0011__L024__p120:attentiononlytransformer:decisiontransformer",
+"anchor": "Decision Transformer",
+"nearest": [
+"DETR",
+"Conformer",
+"Transformer decoder",
+"Bi-LSTM"
+],
+"random": [
+"CNN decoder",
+"ResNet-50",
+"Transformer encoder-decoder"
+],
+"distractors": [
+"DETR",
+"Conformer",
+"Transformer decoder",
+"Bi-LSTM",
+"CNN decoder",
+"ResNet-50",
+"Transformer encoder-decoder"
+],
+"n_eligible": 7,
+"sha": "024fe8396c19b13119d249447d6fff00c85de20ec5d2465a6b2332d4455de83f",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0023__L020__p231:groupedqueryattention:transformerencoderdecoder": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0023__L020__p231:groupedqueryattention:transformerencoderdecoder",
+"anchor": "DETR",
+"nearest": [
+"Decision Transformer",
+"Perceiver",
+"Gated Recurrent Unit",
+"Graph Neural Networks"
+],
+"random": [
+"Transformer decoder",
+"diffusion model"
+],
+"distractors": [
+"Decision Transformer",
+"Perceiver",
+"Gated Recurrent Unit",
+"Graph Neural Networks",
+"Transformer decoder",
+"diffusion model"
+],
+"n_eligible": 6,
+"sha": "c0b9a5a6ca38b6fa4aadfc477951e431b62d0aae026481bf57df86f8ba5db056",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0023__L024__p395:visiontransformervit:detr": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0023__L024__p395:visiontransformervit:detr",
+"anchor": "Transformer encoder-decoder",
+"nearest": [
+"Graph Neural Networks",
+"Gated Recurrent Unit",
+"DETR",
+"attention-only Transformer"
+],
+"random": [
+"Decision Transformer",
+"Perceiver",
+"diffusion model"
+],
+"distractors": [
+"Graph Neural Networks",
+"Gated Recurrent Unit",
+"DETR",
+"attention-only Transformer",
+"Decision Transformer",
+"Perceiver",
+"diffusion model"
+],
+"n_eligible": 7,
+"sha": "02c1d846778724ed33eca2cea81d2de5d704f26f6ec4e56ec81b33e02f53d049",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0023__L028__p231:settransformer:detr": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0023__L028__p231:settransformer:detr",
+"anchor": "DETR",
+"nearest": [
+"Decision Transformer",
+"Perceiver",
+"attention-only Transformer",
+"Gated Recurrent Unit"
+],
+"random": [
+"Graph Neural Networks",
+"Transformer decoder",
+"diffusion model"
+],
+"distractors": [
+"Decision Transformer",
+"Perceiver",
+"attention-only Transformer",
+"Gated Recurrent Unit",
+"Graph Neural Networks",
+"Transformer decoder",
+"diffusion model"
+],
+"n_eligible": 7,
+"sha": "6bc972b7b703cfacda7841456fe4950205e6eb03fafae018017949eaec09b7ee",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0023__L040__p112:visiontransformervit:detr": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0023__L040__p112:visiontransformervit:detr",
+"anchor": "Transformer encoder-decoder",
+"nearest": [
+"Graph Neural Networks",
+"Gated Recurrent Unit",
+"DETR",
+"attention-only Transformer"
+],
+"random": [
+"Decision Transformer",
+"Perceiver",
+"diffusion model"
+],
+"distractors": [
+"Graph Neural Networks",
+"Gated Recurrent Unit",
+"DETR",
+"attention-only Transformer",
+"Decision Transformer",
+"Perceiver",
+"diffusion model"
+],
+"n_eligible": 7,
+"sha": "f11cfcbef202da321a41527e4c745f17e14efdac1b1474134376c36f737bd169",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0023__L048__p112:visiontransformervit:detr": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0023__L048__p112:visiontransformervit:detr",
+"anchor": "Transformer encoder-decoder",
+"nearest": [
+"Graph Neural Networks",
+"Gated Recurrent Unit",
+"DETR",
+"attention-only Transformer"
+],
+"random": [
+"Decision Transformer",
+"Perceiver",
+"diffusion model"
+],
+"distractors": [
+"Graph Neural Networks",
+"Gated Recurrent Unit",
+"DETR",
+"attention-only Transformer",
+"Decision Transformer",
+"Perceiver",
+"diffusion model"
+],
+"n_eligible": 7,
+"sha": "4c59c14e7b1c9de36efc38a36314a1cdd4b6313effc9112b3634ba341ad63907",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0023__L052__p112:visiontransformervit:detr": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0023__L052__p112:visiontransformervit:detr",
+"anchor": "Transformer encoder-decoder",
+"nearest": [
+"Graph Neural Networks",
+"Gated Recurrent Unit",
+"DETR",
+"attention-only Transformer"
+],
+"random": [
+"Decision Transformer",
+"Perceiver",
+"diffusion model"
+],
+"distractors": [
+"Graph Neural Networks",
+"Gated Recurrent Unit",
+"DETR",
+"attention-only Transformer",
+"Decision Transformer",
+"Perceiver",
+"diffusion model"
+],
+"n_eligible": 7,
+"sha": "01d778e723baf1aed209365b65d34f410759d4d2906658168869bd50d0763820",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0023__L060__p231:settransformers:detr": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0023__L060__p231:settransformers:detr",
+"anchor": "DETR",
+"nearest": [
+"Decision Transformer",
+"Perceiver",
+"attention-only Transformer",
+"Gated Recurrent Unit"
+],
+"random": [
+"Graph Neural Networks",
+"Transformer decoder",
+"diffusion model"
+],
+"distractors": [
+"Decision Transformer",
+"Perceiver",
+"attention-only Transformer",
+"Gated Recurrent Unit",
+"Graph Neural Networks",
+"Transformer decoder",
+"diffusion model"
+],
+"n_eligible": 7,
+"sha": "b5d85a729264e969ba0fbb29612727a76333365cd03589e2b53e2bbb8af727f8",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0011__L028__p146:visiontransformers:decisiontransformer": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0011__L028__p146:visiontransformers:decisiontransformer",
+"anchor": "Decision Transformer",
+"nearest": [
+"DETR",
+"Conformer",
+"Transformer decoder",
+"Bi-LSTM"
+],
+"random": [
+"CNN decoder",
+"Grouped Query Attention",
+"ResNet-50",
+"Transformer encoder-decoder"
+],
+"distractors": [
+"DETR",
+"Conformer",
+"Transformer decoder",
+"Bi-LSTM",
+"CNN decoder",
+"Grouped Query Attention",
+"ResNet-50",
+"Transformer encoder-decoder"
+],
+"n_eligible": 8,
+"sha": "ef4ee1b79b526184b298f70fc8cada1afb0b07b293d2e07364c572a204f43319",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0011__L032__p195:graphneuralnetworks:reinforcementlearning": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0011__L032__p195:graphneuralnetworks:reinforcementlearning",
+"anchor": "Transformer",
+"nearest": [
+"Grouped Query Attention",
+"Bi-LSTM",
+"Conformer",
+"CNN decoder"
+],
+"random": [
+"ResNet-50"
+],
+"distractors": [
+"Grouped Query Attention",
+"Bi-LSTM",
+"Conformer",
+"CNN decoder",
+"ResNet-50"
+],
+"n_eligible": 5,
+"sha": "0dd4723a0eb19df0cd092e5c91f6da2d79a0e6c629743fab18f3822a8e91bd49",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0023__L020__p464:unet:detr": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0023__L020__p464:unet:detr",
+"anchor": "Transformer",
+"nearest": [
+"diffusion model",
+"Graph Neural Networks",
+"Perceiver",
+"Gated Recurrent Unit"
+],
+"random": [],
+"distractors": [
+"diffusion model",
+"Graph Neural Networks",
+"Perceiver",
+"Gated Recurrent Unit"
+],
+"n_eligible": 4,
+"sha": "24f0a4e303df0ef05bac86ebee278f8ba9408ca466df0d76f7bcc6710bca7972",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0023__L036__p112:visiontransformervit:detr": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0023__L036__p112:visiontransformervit:detr",
+"anchor": "Transformer encoder-decoder",
+"nearest": [
+"Graph Neural Networks",
+"Gated Recurrent Unit",
+"DETR",
+"attention-only Transformer"
+],
+"random": [
+"Decision Transformer",
+"Perceiver",
+"diffusion model"
+],
+"distractors": [
+"Graph Neural Networks",
+"Gated Recurrent Unit",
+"DETR",
+"attention-only Transformer",
+"Decision Transformer",
+"Perceiver",
+"diffusion model"
+],
+"n_eligible": 7,
+"sha": "f9178d3bb9087790bb5d40dd76003b3b242b650560812e3fed0a9d623467fefc",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0023__L036__p170:unet:fasterrcnnyolopipeline": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0023__L036__p170:unet:fasterrcnnyolopipeline",
+"anchor": "Transformer",
+"nearest": [
+"diffusion model",
+"Graph Neural Networks",
+"Perceiver",
+"Gated Recurrent Unit"
+],
+"random": [],
+"distractors": [
+"diffusion model",
+"Graph Neural Networks",
+"Perceiver",
+"Gated Recurrent Unit"
+],
+"n_eligible": 4,
+"sha": "41c790bfb28f5544d16506fbb8e3083c76603541861286e70cfe22f1be782d03",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0023__L044__p112:visiontransformervit:detr": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0023__L044__p112:visiontransformervit:detr",
+"anchor": "Transformer encoder-decoder",
+"nearest": [
+"Graph Neural Networks",
+"Gated Recurrent Unit",
+"DETR",
+"attention-only Transformer"
+],
+"random": [
+"Decision Transformer",
+"Perceiver",
+"diffusion model"
+],
+"distractors": [
+"Graph Neural Networks",
+"Gated Recurrent Unit",
+"DETR",
+"attention-only Transformer",
+"Decision Transformer",
+"Perceiver",
+"diffusion model"
+],
+"n_eligible": 7,
+"sha": "6022642a1c751e51dfede3dd5cf43762f7d4f5cc6878ca176f5b3e2a4c5ff50d",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0023__L048__p170:visiontransformervit:detr": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0023__L048__p170:visiontransformervit:detr",
+"anchor": "Transformer encoder-decoder",
+"nearest": [
+"Graph Neural Networks",
+"Gated Recurrent Unit",
+"DETR",
+"attention-only Transformer"
+],
+"random": [
+"Decision Transformer",
+"Perceiver",
+"diffusion model"
+],
+"distractors": [
+"Graph Neural Networks",
+"Gated Recurrent Unit",
+"DETR",
+"attention-only Transformer",
+"Decision Transformer",
+"Perceiver",
+"diffusion model"
+],
+"n_eligible": 7,
+"sha": "17f3ec0985ad254e9d8fb8ad86410073acd1e4fc63635bcedea50cdc946f0907",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0023__L052__p112:transformers:detr": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0023__L052__p112:transformers:detr",
+"anchor": "DETR",
+"nearest": [
+"Perceiver",
+"Gated Recurrent Unit",
+"Graph Neural Networks",
+"diffusion model"
+],
+"random": [],
+"distractors": [
+"Perceiver",
+"Gated Recurrent Unit",
+"Graph Neural Networks",
+"diffusion model"
+],
+"n_eligible": 4,
+"sha": "4071de71c20a19ed993584b4994246f7d77ddc831542a0ce0d702fdfc2ae0620",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0023__L052__p112:visiontransformervit:detrdetectiontransformer": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0023__L052__p112:visiontransformervit:detrdetectiontransformer",
+"anchor": "Transformer encoder-decoder",
+"nearest": [
+"Graph Neural Networks",
+"Gated Recurrent Unit",
+"DETR",
+"attention-only Transformer"
+],
+"random": [
+"Decision Transformer",
+"Perceiver",
+"diffusion model"
+],
+"distractors": [
+"Graph Neural Networks",
+"Gated Recurrent Unit",
+"DETR",
+"attention-only Transformer",
+"Decision Transformer",
+"Perceiver",
+"diffusion model"
+],
+"n_eligible": 7,
+"sha": "a32873b97c37a4db706b0fadbe78402c0fd64938b04ada1acdfef098903b7e22",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0023__L052__p20:visiontransformervit:detr": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0023__L052__p20:visiontransformervit:detr",
+"anchor": "Transformer encoder-decoder",
+"nearest": [
+"Graph Neural Networks",
+"Gated Recurrent Unit",
+"DETR",
+"attention-only Transformer"
+],
+"random": [
+"Decision Transformer",
+"Perceiver",
+"diffusion model"
+],
+"distractors": [
+"Graph Neural Networks",
+"Gated Recurrent Unit",
+"DETR",
+"attention-only Transformer",
+"Decision Transformer",
+"Perceiver",
+"diffusion model"
+],
+"n_eligible": 7,
+"sha": "ccb7b3a9db426c502cc93d009febf8fd825bf1505ba37019a63cc411f6823780",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0023__L060__p20:visiontransformervit:detr": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0023__L060__p20:visiontransformervit:detr",
+"anchor": "Transformer encoder-decoder",
+"nearest": [
+"Graph Neural Networks",
+"Gated Recurrent Unit",
+"DETR",
+"attention-only Transformer"
+],
+"random": [
+"Decision Transformer",
+"Perceiver",
+"diffusion model"
+],
+"distractors": [
+"Graph Neural Networks",
+"Gated Recurrent Unit",
+"DETR",
+"attention-only Transformer",
+"Decision Transformer",
+"Perceiver",
+"diffusion model"
+],
+"n_eligible": 7,
+"sha": "e9194860f477c28d9216ad710a00c4819b2c9fd218221ddca4ec5897c249690d",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0023__L042__p112:unet:detr": {
+"unit": "nla-rl-L42:chat-lmsys-0023__L042__p112:unet:detr",
+"anchor": "Transformer",
+"nearest": [
+"diffusion model",
+"Graph Neural Networks",
+"Perceiver",
+"Gated Recurrent Unit"
+],
+"random": [],
+"distractors": [
+"diffusion model",
+"Graph Neural Networks",
+"Perceiver",
+"Gated Recurrent Unit"
+],
+"n_eligible": 4,
+"sha": "c6d732b36df5aea288d580b39a5261f938a7260a4802b7854832945a87304ebb",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0023__L042__p112:visiontransformervit:detr": {
+"unit": "nla-rl-L42:chat-lmsys-0023__L042__p112:visiontransformervit:detr",
+"anchor": "Transformer encoder-decoder",
+"nearest": [
+"Graph Neural Networks",
+"Gated Recurrent Unit",
+"DETR",
+"attention-only Transformer"
+],
+"random": [
+"Decision Transformer",
+"Perceiver",
+"diffusion model"
+],
+"distractors": [
+"Graph Neural Networks",
+"Gated Recurrent Unit",
+"DETR",
+"attention-only Transformer",
+"Decision Transformer",
+"Perceiver",
+"diffusion model"
+],
+"n_eligible": 7,
+"sha": "024de673a4451c11909578df1252004b443a7d13168b9fca1200b77f1d678e31",
+"generation": 0
+},
+"nla-sft-L42:chat-lmsys-0023__L042__p112:resnet50:detr": {
+"unit": "nla-sft-L42:chat-lmsys-0023__L042__p112:resnet50:detr",
+"anchor": "DETR",
+"nearest": [
+"Decision Transformer",
+"Perceiver",
+"attention-only Transformer",
+"Gated Recurrent Unit"
+],
+"random": [
+"Graph Neural Networks",
+"Transformer decoder",
+"diffusion model"
+],
+"distractors": [
+"Decision Transformer",
+"Perceiver",
+"attention-only Transformer",
+"Gated Recurrent Unit",
+"Graph Neural Networks",
+"Transformer decoder",
+"diffusion model"
+],
+"n_eligible": 7,
+"sha": "a0c91764b358b116f092026c182e960a07c4c013d278497a88149f7b5a0495de",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0011__L020__p120:resnet:decisiontransformer": {
+"unit": "s3d-rl600-all11:chat-lmsys-0011__L020__p120:resnet:decisiontransformer",
+"anchor": "Decision Transformer",
+"nearest": [
+"DETR",
+"Conformer",
+"Transformer decoder",
+"Bi-LSTM"
+],
+"random": [
+"CNN decoder",
+"Grouped Query Attention",
+"Transformer encoder-decoder"
+],
+"distractors": [
+"DETR",
+"Conformer",
+"Transformer decoder",
+"Bi-LSTM",
+"CNN decoder",
+"Grouped Query Attention",
+"Transformer encoder-decoder"
+],
+"n_eligible": 7,
+"sha": "808eced58804ee1f443435c3ab57fa2243d1b92abf4530efd4436d87426db5f3",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0011__L032__p87:gpt2:decisiontransformer": {
+"unit": "s3d-rl600-all11:chat-lmsys-0011__L032__p87:gpt2:decisiontransformer",
+"anchor": "Decision Transformer",
+"nearest": [
+"DETR",
+"Conformer",
+"Transformer decoder",
+"Bi-LSTM"
+],
+"random": [
+"CNN decoder",
+"Grouped Query Attention",
+"ResNet-50",
+"Transformer encoder-decoder"
+],
+"distractors": [
+"DETR",
+"Conformer",
+"Transformer decoder",
+"Bi-LSTM",
+"CNN decoder",
+"Grouped Query Attention",
+"ResNet-50",
+"Transformer encoder-decoder"
+],
+"n_eligible": 8,
+"sha": "af2903ff701a21db1e80533f0f17a19017404c432d573f2784187ad2297434d5",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0011__L044__p120:transformers:decisiontransformer": {
+"unit": "s3d-rl600-all11:chat-lmsys-0011__L044__p120:transformers:decisiontransformer",
+"anchor": "Decision Transformer",
+"nearest": [
+"DETR",
+"Conformer",
+"Bi-LSTM",
+"Grouped Query Attention"
+],
+"random": [
+"CNN decoder",
+"ResNet-50"
+],
+"distractors": [
+"DETR",
+"Conformer",
+"Bi-LSTM",
+"Grouped Query Attention",
+"CNN decoder",
+"ResNet-50"
+],
+"n_eligible": 6,
+"sha": "019b395e6cf8d71ce8489e7bff75fb8d0fd72ebd5deb4ebca70942ba61f980ae",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0011__L048__p87:gru:transformer": {
+"unit": "s3d-rl600-all11:chat-lmsys-0011__L048__p87:gru:transformer",
+"anchor": "Transformer",
+"nearest": [
+"Grouped Query Attention",
+"Bi-LSTM",
+"Conformer",
+"CNN decoder"
+],
+"random": [
+"ResNet-50"
+],
+"distractors": [
+"Grouped Query Attention",
+"Bi-LSTM",
+"Conformer",
+"CNN decoder",
+"ResNet-50"
+],
+"n_eligible": 5,
+"sha": "ff9dcb7e4b510fc2444d9602d2e1a7944b64722a24f942cc381e888f5a6e8476",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0011__L060__p244:lstm:transformer": {
+"unit": "s3d-rl600-all11:chat-lmsys-0011__L060__p244:lstm:transformer",
+"anchor": "Transformer",
+"nearest": [
+"Grouped Query Attention",
+"Bi-LSTM",
+"Conformer",
+"CNN decoder"
+],
+"random": [
+"ResNet-50"
+],
+"distractors": [
+"Grouped Query Attention",
+"Bi-LSTM",
+"Conformer",
+"CNN decoder",
+"ResNet-50"
+],
+"n_eligible": 5,
+"sha": "67fd7ed2d2bced050ae2e97456f79218bff1b9d6117d0d8728a85063acb97975",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0023__L028__p112:resnet50:detr": {
+"unit": "s3d-rl600-all11:chat-lmsys-0023__L028__p112:resnet50:detr",
+"anchor": "DETR",
+"nearest": [
+"Decision Transformer",
+"Perceiver",
+"attention-only Transformer",
+"Gated Recurrent Unit"
+],
+"random": [
+"Graph Neural Networks",
+"Transformer decoder",
+"diffusion model"
+],
+"distractors": [
+"Decision Transformer",
+"Perceiver",
+"attention-only Transformer",
+"Gated Recurrent Unit",
+"Graph Neural Networks",
+"Transformer decoder",
+"diffusion model"
+],
+"n_eligible": 7,
+"sha": "1cb5b553d0998b0bdb9e9e98fdbe94def3d355852a983bdbd9d53e7393f72d2a",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0023__L028__p112:resnet:detr": {
+"unit": "s3d-rl600-all11:chat-lmsys-0023__L028__p112:resnet:detr",
+"anchor": "DETR",
+"nearest": [
+"Decision Transformer",
+"Perceiver",
+"attention-only Transformer",
+"Gated Recurrent Unit"
+],
+"random": [
+"Graph Neural Networks",
+"Transformer decoder",
+"diffusion model"
+],
+"distractors": [
+"Decision Transformer",
+"Perceiver",
+"attention-only Transformer",
+"Gated Recurrent Unit",
+"Graph Neural Networks",
+"Transformer decoder",
+"diffusion model"
+],
+"n_eligible": 7,
+"sha": "16aed6ca857e7614955614d8fa319bc69e469e3a418e6ce1ef3a679f576ae066",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0023__L028__p464:resnet50:detr": {
+"unit": "s3d-rl600-all11:chat-lmsys-0023__L028__p464:resnet50:detr",
+"anchor": "DETR",
+"nearest": [
+"Decision Transformer",
+"Perceiver",
+"attention-only Transformer",
+"Gated Recurrent Unit"
+],
+"random": [
+"Graph Neural Networks",
+"Transformer decoder",
+"diffusion model"
+],
+"distractors": [
+"Decision Transformer",
+"Perceiver",
+"attention-only Transformer",
+"Gated Recurrent Unit",
+"Graph Neural Networks",
+"Transformer decoder",
+"diffusion model"
+],
+"n_eligible": 7,
+"sha": "d96bb6df4c9eaee53753d41c6efd2d75395c82234344863bc2eada48611c18a2",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0023__L028__p464:resnet:detr": {
+"unit": "s3d-rl600-all11:chat-lmsys-0023__L028__p464:resnet:detr",
+"anchor": "DETR",
+"nearest": [
+"Decision Transformer",
+"Perceiver",
+"attention-only Transformer",
+"Gated Recurrent Unit"
+],
+"random": [
+"Graph Neural Networks",
+"Transformer decoder",
+"diffusion model"
+],
+"distractors": [
+"Decision Transformer",
+"Perceiver",
+"attention-only Transformer",
+"Gated Recurrent Unit",
+"Graph Neural Networks",
+"Transformer decoder",
+"diffusion model"
+],
+"n_eligible": 7,
+"sha": "c3a1ec4900170438b4e7d395d54874b59b52b31223357a9e0eb0744dba316e94",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0023__L032__p170:lstm:transformer": {
+"unit": "s3d-rl600-all11:chat-lmsys-0023__L032__p170:lstm:transformer",
+"anchor": "Transformer",
+"nearest": [
+"diffusion model",
+"Graph Neural Networks",
+"Perceiver",
+"Gated Recurrent Unit"
+],
+"random": [],
+"distractors": [
+"diffusion model",
+"Graph Neural Networks",
+"Perceiver",
+"Gated Recurrent Unit"
+],
+"n_eligible": 4,
+"sha": "949eb62fa880bdddaea08d1384cd13d98f3d625993a21bdf42554b9bc8019b1c",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0023__L040__p112:conformer:detr": {
+"unit": "s3d-rl600-all11:chat-lmsys-0023__L040__p112:conformer:detr",
+"anchor": "DETR",
+"nearest": [
+"Decision Transformer",
+"Perceiver",
+"attention-only Transformer",
+"Gated Recurrent Unit"
+],
+"random": [
+"Graph Neural Networks",
+"Transformer decoder",
+"diffusion model"
+],
+"distractors": [
+"Decision Transformer",
+"Perceiver",
+"attention-only Transformer",
+"Gated Recurrent Unit",
+"Graph Neural Networks",
+"Transformer decoder",
+"diffusion model"
+],
+"n_eligible": 7,
+"sha": "b1f3c3920bc344e6248755738e9f3046fe8e72170df8f706d09389745c012d71",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0023__L044__p170:resnet50:detr": {
+"unit": "s3d-rl600-all11:chat-lmsys-0023__L044__p170:resnet50:detr",
+"anchor": "DETR",
+"nearest": [
+"Decision Transformer",
+"Perceiver",
+"attention-only Transformer",
+"Gated Recurrent Unit"
+],
+"random": [
+"Graph Neural Networks",
+"Transformer decoder",
+"diffusion model"
+],
+"distractors": [
+"Decision Transformer",
+"Perceiver",
+"attention-only Transformer",
+"Gated Recurrent Unit",
+"Graph Neural Networks",
+"Transformer decoder",
+"diffusion model"
+],
+"n_eligible": 7,
+"sha": "f1bb976c10f8e9361d842f6aa67f26cbebdf3f78d8cd2f030ddcf8e66ff83158",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0023__L044__p464:resnet50:detr": {
+"unit": "s3d-rl600-all11:chat-lmsys-0023__L044__p464:resnet50:detr",
+"anchor": "DETR",
+"nearest": [
+"Decision Transformer",
+"Perceiver",
+"attention-only Transformer",
+"Gated Recurrent Unit"
+],
+"random": [
+"Graph Neural Networks",
+"Transformer decoder",
+"diffusion model"
+],
+"distractors": [
+"Decision Transformer",
+"Perceiver",
+"attention-only Transformer",
+"Gated Recurrent Unit",
+"Graph Neural Networks",
+"Transformer decoder",
+"diffusion model"
+],
+"n_eligible": 7,
+"sha": "63c23b11fd9de8787e9099cfde7b8207d0d71ba466ad029a62c54fe1079e11ad",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0023__L048__p170:unet:resnet": {
+"unit": "s3d-rl600-all11:chat-lmsys-0023__L048__p170:unet:resnet",
+"anchor": "Transformer",
+"nearest": [
+"diffusion model",
+"Graph Neural Networks",
+"Perceiver",
+"Gated Recurrent Unit"
+],
+"random": [],
+"distractors": [
+"diffusion model",
+"Graph Neural Networks",
+"Perceiver",
+"Gated Recurrent Unit"
+],
+"n_eligible": 4,
+"sha": "c5ca4ae110fc0f6e8ac9016c19599a43ff4d44c93f242010f39180740024c32a",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0023__L048__p170:unet:transformerencoderdecoder": {
+"unit": "s3d-rl600-all11:chat-lmsys-0023__L048__p170:unet:transformerencoderdecoder",
+"anchor": "Transformer",
+"nearest": [
+"diffusion model",
+"Graph Neural Networks",
+"Perceiver",
+"Gated Recurrent Unit"
+],
+"random": [],
+"distractors": [
+"diffusion model",
+"Graph Neural Networks",
+"Perceiver",
+"Gated Recurrent Unit"
+],
+"n_eligible": 4,
+"sha": "1bb70e2529e2712795cf90b5f7ad4075618dfc0572eddc3f68e62ac1b93cd430",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0023__L056__p112:visiontransformervit:resnet": {
+"unit": "s3d-rl600-all11:chat-lmsys-0023__L056__p112:visiontransformervit:resnet",
+"anchor": "Transformer encoder-decoder",
+"nearest": [
+"Graph Neural Networks",
+"Gated Recurrent Unit",
+"DETR",
+"attention-only Transformer"
+],
+"random": [
+"Decision Transformer",
+"Perceiver",
+"diffusion model"
+],
+"distractors": [
+"Graph Neural Networks",
+"Gated Recurrent Unit",
+"DETR",
+"attention-only Transformer",
+"Decision Transformer",
+"Perceiver",
+"diffusion model"
+],
+"n_eligible": 7,
+"sha": "aaa42ee2330fe54bc78b8b23cb919aa40cec87ca1dba9d58785dde79036e7e8c",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0023__L060__p20:resnet:detr": {
+"unit": "s3d-rl600-all11:chat-lmsys-0023__L060__p20:resnet:detr",
+"anchor": "DETR",
+"nearest": [
+"Decision Transformer",
+"Perceiver",
+"attention-only Transformer",
+"Gated Recurrent Unit"
+],
+"random": [
+"Graph Neural Networks",
+"Transformer decoder",
+"diffusion model"
+],
+"distractors": [
+"Decision Transformer",
+"Perceiver",
+"attention-only Transformer",
+"Gated Recurrent Unit",
+"Graph Neural Networks",
+"Transformer decoder",
+"diffusion model"
+],
+"n_eligible": 7,
+"sha": "843e12d157e3666e4afbe27e65d82a4e3a8c573af128af3c80e3289832f8814b",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0011__L036__p170:diffusionmodel:transformer": {
+"unit": "s3d-rl600:chat-lmsys-0011__L036__p170:diffusionmodel:transformer",
+"anchor": "Transformer",
+"nearest": [
+"Grouped Query Attention",
+"Bi-LSTM",
+"Conformer",
+"CNN decoder"
+],
+"random": [
+"ResNet-50"
+],
+"distractors": [
+"Grouped Query Attention",
+"Bi-LSTM",
+"Conformer",
+"CNN decoder",
+"ResNet-50"
+],
+"n_eligible": 5,
+"sha": "0ee18e8db33aea7471f50ce75d1570da5d6cda3ec6b3eb4eeaf369515f976884",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0011__L048__p87:perceiver:decisiontransformer": {
+"unit": "s3d-rl600:chat-lmsys-0011__L048__p87:perceiver:decisiontransformer",
+"anchor": "Decision Transformer",
+"nearest": [
+"DETR",
+"Conformer",
+"Transformer decoder",
+"Bi-LSTM"
+],
+"random": [
+"CNN decoder",
+"Grouped Query Attention",
+"ResNet-50",
+"Transformer encoder-decoder"
+],
+"distractors": [
+"DETR",
+"Conformer",
+"Transformer decoder",
+"Bi-LSTM",
+"CNN decoder",
+"Grouped Query Attention",
+"ResNet-50",
+"Transformer encoder-decoder"
+],
+"n_eligible": 8,
+"sha": "c5ebe8d4c3f4f75590c4d1a76d4c8250abca0f200ca461c1c5f4a51cf397fe9f",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0023__L044__p112:conformer:detr": {
+"unit": "s3d-rl600:chat-lmsys-0023__L044__p112:conformer:detr",
+"anchor": "DETR",
+"nearest": [
+"Decision Transformer",
+"Perceiver",
+"attention-only Transformer",
+"Gated Recurrent Unit"
+],
+"random": [
+"Graph Neural Networks",
+"Transformer decoder",
+"diffusion model"
+],
+"distractors": [
+"Decision Transformer",
+"Perceiver",
+"attention-only Transformer",
+"Gated Recurrent Unit",
+"Graph Neural Networks",
+"Transformer decoder",
+"diffusion model"
+],
+"n_eligible": 7,
+"sha": "0b77da2c0941a693bcea3aeddfe7dbcf880f7bf502acf913505847c78236a9be",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0023__L048__p464:resnet:detr": {
+"unit": "s3d-rl600:chat-lmsys-0023__L048__p464:resnet:detr",
+"anchor": "DETR",
+"nearest": [
+"Decision Transformer",
+"Perceiver",
+"attention-only Transformer",
+"Gated Recurrent Unit"
+],
+"random": [
+"Graph Neural Networks",
+"Transformer decoder",
+"diffusion model"
+],
+"distractors": [
+"Decision Transformer",
+"Perceiver",
+"attention-only Transformer",
+"Gated Recurrent Unit",
+"Graph Neural Networks",
+"Transformer decoder",
+"diffusion model"
+],
+"n_eligible": 7,
+"sha": "08086f6b9ab0146b2a1a1a8d4a8f9fea06971a3ef44787c5e963fdb0eef11a39",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0023__L060__p112:visiontransformervit:transformerencoderdecoder": {
+"unit": "s3d-rl600:chat-lmsys-0023__L060__p112:visiontransformervit:transformerencoderdecoder",
+"anchor": "Transformer encoder-decoder",
+"nearest": [
+"Graph Neural Networks",
+"Gated Recurrent Unit",
+"DETR",
+"attention-only Transformer"
+],
+"random": [
+"Decision Transformer",
+"Perceiver",
+"diffusion model"
+],
+"distractors": [
+"Graph Neural Networks",
+"Gated Recurrent Unit",
+"DETR",
+"attention-only Transformer",
+"Decision Transformer",
+"Perceiver",
+"diffusion model"
+],
+"n_eligible": 7,
+"sha": "509fc2ddae2afd76bbfffed1e008c13546b91129889a34da17caf9f7d4b3f9bd",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0023__L060__p20:resnet:detr": {
+"unit": "s3d-rl600:chat-lmsys-0023__L060__p20:resnet:detr",
+"anchor": "DETR",
+"nearest": [
+"Decision Transformer",
+"Perceiver",
+"attention-only Transformer",
+"Gated Recurrent Unit"
+],
+"random": [
+"Graph Neural Networks",
+"Transformer decoder",
+"diffusion model"
+],
+"distractors": [
+"Decision Transformer",
+"Perceiver",
+"attention-only Transformer",
+"Gated Recurrent Unit",
+"Graph Neural Networks",
+"Transformer decoder",
+"diffusion model"
+],
+"n_eligible": 7,
+"sha": "7620d6e74984bde531b9cf815c13e091a2a86955dc98782615bbafb62e68d4c9",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0011__L032__p244:unet:decisiontransformer": {
+"unit": "s3d-sft251:chat-lmsys-0011__L032__p244:unet:decisiontransformer",
+"anchor": "Decision Transformer",
+"nearest": [
+"DETR",
+"Conformer",
+"Transformer decoder",
+"Bi-LSTM"
+],
+"random": [
+"CNN decoder",
+"Grouped Query Attention",
+"ResNet-50",
+"Transformer encoder-decoder"
+],
+"distractors": [
+"DETR",
+"Conformer",
+"Transformer decoder",
+"Bi-LSTM",
+"CNN decoder",
+"Grouped Query Attention",
+"ResNet-50",
+"Transformer encoder-decoder"
+],
+"n_eligible": 8,
+"sha": "2ce3cf757af0d25d25bdca8e73364480aeaaa599e51e96e503cc38df388bc7e0",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0023__L028__p112:resnet:detr": {
+"unit": "s3d-sft251:chat-lmsys-0023__L028__p112:resnet:detr",
+"anchor": "DETR",
+"nearest": [
+"Decision Transformer",
+"Perceiver",
+"attention-only Transformer",
+"Gated Recurrent Unit"
+],
+"random": [
+"Graph Neural Networks",
+"Transformer decoder",
+"diffusion model"
+],
+"distractors": [
+"Decision Transformer",
+"Perceiver",
+"attention-only Transformer",
+"Gated Recurrent Unit",
+"Graph Neural Networks",
+"Transformer decoder",
+"diffusion model"
+],
+"n_eligible": 7,
+"sha": "e91498c5981e6a8eac8e9659035573dfda575bcb7e66716f53c3698026f2755c",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0023__L028__p170:bilstm:transformer": {
+"unit": "s3d-sft251:chat-lmsys-0023__L028__p170:bilstm:transformer",
+"anchor": "Transformer",
+"nearest": [
+"diffusion model",
+"Graph Neural Networks",
+"Perceiver",
+"Gated Recurrent Unit"
+],
+"random": [],
+"distractors": [
+"diffusion model",
+"Graph Neural Networks",
+"Perceiver",
+"Gated Recurrent Unit"
+],
+"n_eligible": 4,
+"sha": "657d3f27ec4070f7537e77465f5b310ce8bf98d3f2a1cb65e8b6110885a03fd9",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0023__L036__p170:cnndecoder:transformerdecoder": {
+"unit": "s3d-sft251:chat-lmsys-0023__L036__p170:cnndecoder:transformerdecoder",
+"anchor": "Transformer decoder",
+"nearest": [
+"diffusion model",
+"Graph Neural Networks",
+"attention-only Transformer",
+"Decision Transformer"
+],
+"random": [
+"DETR",
+"Gated Recurrent Unit",
+"Perceiver"
+],
+"distractors": [
+"diffusion model",
+"Graph Neural Networks",
+"attention-only Transformer",
+"Decision Transformer",
+"DETR",
+"Gated Recurrent Unit",
+"Perceiver"
+],
+"n_eligible": 7,
+"sha": "c207353933679a5a7aad12754a332da8e7436430bee673cec54301b3e08956f6",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0023__L036__p464:resnet:detr": {
+"unit": "s3d-sft251:chat-lmsys-0023__L036__p464:resnet:detr",
+"anchor": "DETR",
+"nearest": [
+"Decision Transformer",
+"Perceiver",
+"attention-only Transformer",
+"Gated Recurrent Unit"
+],
+"random": [
+"Graph Neural Networks",
+"Transformer decoder",
+"diffusion model"
+],
+"distractors": [
+"Decision Transformer",
+"Perceiver",
+"attention-only Transformer",
+"Gated Recurrent Unit",
+"Graph Neural Networks",
+"Transformer decoder",
+"diffusion model"
+],
+"n_eligible": 7,
+"sha": "1efc3192f495188015a7798a8db2795a8ef97b3a7c4e53e96a3d776a921f3009",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0023__L036__p464:unet:detr": {
+"unit": "s3d-sft251:chat-lmsys-0023__L036__p464:unet:detr",
+"anchor": "Transformer",
+"nearest": [
+"diffusion model",
+"Graph Neural Networks",
+"Perceiver",
+"Gated Recurrent Unit"
+],
+"random": [],
+"distractors": [
+"diffusion model",
+"Graph Neural Networks",
+"Perceiver",
+"Gated Recurrent Unit"
+],
+"n_eligible": 4,
+"sha": "1c51bba063e4c51ad41c398c955d30e10412a88404e2b21274af8303731c9c37",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0023__L040__p464:unet:detr": {
+"unit": "s3d-sft251:chat-lmsys-0023__L040__p464:unet:detr",
+"anchor": "Transformer",
+"nearest": [
+"diffusion model",
+"Graph Neural Networks",
+"Perceiver",
+"Gated Recurrent Unit"
+],
+"random": [],
+"distractors": [
+"diffusion model",
+"Graph Neural Networks",
+"Perceiver",
+"Gated Recurrent Unit"
+],
+"n_eligible": 4,
+"sha": "71053b96309830f5639fc28d37079e7302eb94e2ab71789e7be2ef3850e07a6d",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0023__L056__p20:resnet:detr": {
+"unit": "s3d-sft251:chat-lmsys-0023__L056__p20:resnet:detr",
+"anchor": "DETR",
+"nearest": [
+"Decision Transformer",
+"Perceiver",
+"attention-only Transformer",
+"Gated Recurrent Unit"
+],
+"random": [
+"Graph Neural Networks",
+"Transformer decoder",
+"diffusion model"
+],
+"distractors": [
+"Decision Transformer",
+"Perceiver",
+"attention-only Transformer",
+"Gated Recurrent Unit",
+"Graph Neural Networks",
+"Transformer decoder",
+"diffusion model"
+],
+"n_eligible": 7,
+"sha": "efe92986f32eb68b833b211c4f07d37cc93cf70a1bda3d39637f50af18b4918c",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0023__L056__p20:transformer:detr": {
+"unit": "s3d-sft251:chat-lmsys-0023__L056__p20:transformer:detr",
+"anchor": "DETR",
+"nearest": [
+"Perceiver",
+"Gated Recurrent Unit",
+"Graph Neural Networks",
+"diffusion model"
+],
+"random": [],
+"distractors": [
+"Perceiver",
+"Gated Recurrent Unit",
+"Graph Neural Networks",
+"diffusion model"
+],
+"n_eligible": 4,
+"sha": "69e5a78286f134816230a60d5fa5e928a33b9d96496bfc50313dabeddbfbea33",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0023__L060__p20:resnet:detr": {
+"unit": "s3d-sft251:chat-lmsys-0023__L060__p20:resnet:detr",
+"anchor": "DETR",
+"nearest": [
+"Decision Transformer",
+"Perceiver",
+"attention-only Transformer",
+"Gated Recurrent Unit"
+],
+"random": [
+"Graph Neural Networks",
+"Transformer decoder",
+"diffusion model"
+],
+"distractors": [
+"Decision Transformer",
+"Perceiver",
+"attention-only Transformer",
+"Gated Recurrent Unit",
+"Graph Neural Networks",
+"Transformer decoder",
+"diffusion model"
+],
+"n_eligible": 7,
+"sha": "f944dc46adc54625681885658f67fec44ec9c99119782ebaca7cd1a95b8b8f14",
+"generation": 0
+},
+"sae-l42:chat-lmsys-0023__L042__p279:generatoranddiscriminator:detrpredictionsmatchedtogroundtruth": {
+"unit": "sae-l42:chat-lmsys-0023__L042__p279:generatoranddiscriminator:detrpredictionsmatchedtogroundtruth",
+"anchor": "DETR",
+"nearest": [
+"Decision Transformer",
+"Perceiver",
+"attention-only Transformer",
+"Gated Recurrent Unit"
+],
+"random": [
+"Graph Neural Networks",
+"Transformer decoder",
+"diffusion model"
+],
+"distractors": [
+"Decision Transformer",
+"Perceiver",
+"attention-only Transformer",
+"Gated Recurrent Unit",
+"Graph Neural Networks",
+"Transformer decoder",
+"diffusion model"
+],
+"n_eligible": 7,
+"sha": "3c340f0cd953da95c1c1be290e264329010c1c728c038abac21c571530efcbcd",
+"generation": 0
+}
+}

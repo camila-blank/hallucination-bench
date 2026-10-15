@@ -1,0 +1,19 @@
+{
+ "_doc": "plan 0010 §6: plan-0009 unit costs (cache usage; Modal from outputs/sibling_gate/modal_estimate.json list prices) and rates for the --plan estimate",
+ "fill_usd_per_call": 0.02084,
+ "class_usd_per_call": 0.00263,
+ "concepts_usd_per_call": 0.00449,
+ "dedupe_usd_per_call": 0.12669,
+ "gen_usd_per_cell": 0.13057,
+ "texts_per_cell": 22.07,
+ "capture_usd_per_prompt": 0.000426,
+ "fit_usd_per_class": 1.381,
+ "score_usd_per_class": 0.0224,
+ "precheck_usd": 10.0,
+ "rung2_share": 0.3829,
+ "new_pairs_per_rung2_unit": 0.4569,
+ "new_concepts_per_new_pair": 0.9193,
+ "crossing_classes_per_new_pair": 0.0494,
+ "n_classes": 223,
+ "n_fill_calls": 26817
+}

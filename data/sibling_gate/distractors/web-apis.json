@@ -1,0 +1,218 @@
+{
+"mlnla-rl2-800-all11:chat-lmsys-0003__L024__p439:usbxinterfaces:bluetoothinterfaces": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0003__L024__p439:usbxinterfaces:bluetoothinterfaces",
+"anchor": "Web Bluetooth",
+"nearest": [
+"Geolocation API",
+"Web Workers API",
+"Service Worker API",
+"IndexedDB API"
+],
+"random": [
+"Canvas API",
+"Web Audio API",
+"Web Storage API"
+],
+"distractors": [
+"Geolocation API",
+"Web Workers API",
+"Service Worker API",
+"IndexedDB API",
+"Canvas API",
+"Web Audio API",
+"Web Storage API"
+],
+"n_eligible": 7,
+"sha": "d8da585ceb02512e993c28750efda366294b3f3d57553147372334ae89e88925",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0003__L032__p230:fetchapi:webbluetoothapi": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0003__L032__p230:fetchapi:webbluetoothapi",
+"anchor": "Web Bluetooth API",
+"nearest": [
+"Geolocation API",
+"Web Workers API",
+"Service Worker API",
+"IndexedDB API"
+],
+"random": [
+"Canvas API",
+"Web Audio API",
+"Web Storage API"
+],
+"distractors": [
+"Geolocation API",
+"Web Workers API",
+"Service Worker API",
+"IndexedDB API",
+"Canvas API",
+"Web Audio API",
+"Web Storage API"
+],
+"n_eligible": 7,
+"sha": "850254a9e755a6b3235442994825aab1183c36597a2f4279877439619852ea0e",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0003__L032__p230:javascriptfetchcall:devicegattgetprimaryservicecall": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0003__L032__p230:javascriptfetchcall:devicegattgetprimaryservicecall",
+"anchor": "Web Bluetooth API",
+"nearest": [
+"Geolocation API",
+"Web Workers API",
+"Service Worker API",
+"IndexedDB API"
+],
+"random": [
+"Canvas API",
+"Web Audio API",
+"Web Storage API"
+],
+"distractors": [
+"Geolocation API",
+"Web Workers API",
+"Service Worker API",
+"IndexedDB API",
+"Canvas API",
+"Web Audio API",
+"Web Storage API"
+],
+"n_eligible": 7,
+"sha": "6cb76207f07b125c677be15382e8ed060df11ce43dbbe5099233b0d7f7bf56d4",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0003__L060__p310:w3cwebusb:webbluetoothapi": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0003__L060__p310:w3cwebusb:webbluetoothapi",
+"anchor": "Web Bluetooth API",
+"nearest": [
+"Geolocation API",
+"Web Workers API",
+"Service Worker API",
+"IndexedDB API"
+],
+"random": [
+"Canvas API",
+"Web Audio API",
+"Web Storage API"
+],
+"distractors": [
+"Geolocation API",
+"Web Workers API",
+"Service Worker API",
+"IndexedDB API",
+"Canvas API",
+"Web Audio API",
+"Web Storage API"
+],
+"n_eligible": 7,
+"sha": "6cdb2b8c1bd918a1d93103ee5a82084036269caab31048a8d452c4dae53680a0",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0003__L020__p439:webusbapi:webbluetoothapi": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0003__L020__p439:webusbapi:webbluetoothapi",
+"anchor": "Web Bluetooth API",
+"nearest": [
+"Geolocation API",
+"Web Workers API",
+"Service Worker API",
+"IndexedDB API"
+],
+"random": [
+"Canvas API",
+"Web Audio API",
+"Web Storage API"
+],
+"distractors": [
+"Geolocation API",
+"Web Workers API",
+"Service Worker API",
+"IndexedDB API",
+"Canvas API",
+"Web Audio API",
+"Web Storage API"
+],
+"n_eligible": 7,
+"sha": "00354a0bb06ffd5eeeadd53b7ad8a0abf51e6a64e770bd4468d28926f926ed82",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0003__L052__p310:webgpu:webbluetooth": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0003__L052__p310:webgpu:webbluetooth",
+"anchor": "Web Bluetooth API",
+"nearest": [
+"Geolocation API",
+"Web Workers API",
+"Service Worker API",
+"IndexedDB API"
+],
+"random": [
+"Canvas API",
+"Web Audio API",
+"Web Storage API"
+],
+"distractors": [
+"Geolocation API",
+"Web Workers API",
+"Service Worker API",
+"IndexedDB API",
+"Canvas API",
+"Web Audio API",
+"Web Storage API"
+],
+"n_eligible": 7,
+"sha": "fc50a8520fae1a33fbbde94d64ea2522a301965063acebb10a95a10535af9fe8",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0003__L052__p58:websocketconnection:bluetoothgetprimaryservice": {
+"unit": "s3d-rl600-all11:chat-lmsys-0003__L052__p58:websocketconnection:bluetoothgetprimaryservice",
+"anchor": "Web Bluetooth",
+"nearest": [
+"Geolocation API",
+"Web Workers API",
+"Service Worker API",
+"IndexedDB API"
+],
+"random": [
+"Canvas API",
+"Web Audio API",
+"Web Storage API"
+],
+"distractors": [
+"Geolocation API",
+"Web Workers API",
+"Service Worker API",
+"IndexedDB API",
+"Canvas API",
+"Web Audio API",
+"Web Storage API"
+],
+"n_eligible": 7,
+"sha": "f926e616f17a5bdae3423e7d34fd6fc825217a1edb7058c04788e64db0a96778",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0003__L060__p310:webrtcapi:webbluetoothapi": {
+"unit": "s3d-rl600-all11:chat-lmsys-0003__L060__p310:webrtcapi:webbluetoothapi",
+"anchor": "Web Bluetooth API",
+"nearest": [
+"Geolocation API",
+"Web Workers API",
+"Service Worker API",
+"IndexedDB API"
+],
+"random": [
+"Canvas API",
+"Web Audio API",
+"Web Storage API"
+],
+"distractors": [
+"Geolocation API",
+"Web Workers API",
+"Service Worker API",
+"IndexedDB API",
+"Canvas API",
+"Web Audio API",
+"Web Storage API"
+],
+"n_eligible": 7,
+"sha": "a500cead6d2f9483d381324dbe56caf96b0446f204d92d61b7ed04d24da6e2b0",
+"generation": 0
+}
+}

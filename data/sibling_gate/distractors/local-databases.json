@@ -1,0 +1,727 @@
+{
+"mlnla-rl2-800-all11:chat-lmsys-0012__L020__p504:room:hive": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0012__L020__p504:room:hive",
+"anchor": "Hive",
+"nearest": [
+"IndexedDB",
+"DuckDB",
+"PouchDB",
+"HSQLDB"
+],
+"random": [
+"Apache Derby",
+"H2",
+"LMDB",
+"RocksDB"
+],
+"distractors": [
+"IndexedDB",
+"DuckDB",
+"PouchDB",
+"HSQLDB",
+"Apache Derby",
+"H2",
+"LMDB",
+"RocksDB"
+],
+"n_eligible": 9,
+"sha": "47e4ebc368e02d2aa091675ebd00625b53a04764075c8cf227df92d7b62d5c3b",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0012__L024__p504:room:hive": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0012__L024__p504:room:hive",
+"anchor": "Hive",
+"nearest": [
+"IndexedDB",
+"DuckDB",
+"PouchDB",
+"HSQLDB"
+],
+"random": [
+"Apache Derby",
+"Berkeley DB",
+"H2",
+"RocksDB"
+],
+"distractors": [
+"IndexedDB",
+"DuckDB",
+"PouchDB",
+"HSQLDB",
+"Apache Derby",
+"Berkeley DB",
+"H2",
+"RocksDB"
+],
+"n_eligible": 9,
+"sha": "686a4620c12323c391f7ee67346f7cb7bddb83edb016a567cfae881dd7c41bfa",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0012__L048__p504:room+sqlite:hive": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0012__L048__p504:room+sqlite:hive",
+"anchor": "Hive",
+"nearest": [
+"IndexedDB",
+"DuckDB",
+"PouchDB",
+"HSQLDB"
+],
+"random": [
+"Berkeley DB",
+"H2",
+"LMDB",
+"RocksDB"
+],
+"distractors": [
+"IndexedDB",
+"DuckDB",
+"PouchDB",
+"HSQLDB",
+"Berkeley DB",
+"H2",
+"LMDB",
+"RocksDB"
+],
+"n_eligible": 9,
+"sha": "928288d311b5f8105458a02913cab20eacf56854e724e79cb22d7ef0a3bd7660",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0012__L048__p504:roomsqlite:hive": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0012__L048__p504:roomsqlite:hive",
+"anchor": "Hive",
+"nearest": [
+"IndexedDB",
+"DuckDB",
+"PouchDB",
+"HSQLDB"
+],
+"random": [
+"Apache Derby",
+"Berkeley DB",
+"H2",
+"RocksDB"
+],
+"distractors": [
+"IndexedDB",
+"DuckDB",
+"PouchDB",
+"HSQLDB",
+"Apache Derby",
+"Berkeley DB",
+"H2",
+"RocksDB"
+],
+"n_eligible": 9,
+"sha": "8335a7400690fbb584efeeceb5715c022024b907bbfb4a0469a422403630eba7",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0012__L048__p504:sqliteroom:hive": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0012__L048__p504:sqliteroom:hive",
+"anchor": "Hive",
+"nearest": [
+"IndexedDB",
+"DuckDB",
+"PouchDB",
+"HSQLDB"
+],
+"random": [
+"Apache Derby",
+"H2",
+"LMDB",
+"RocksDB"
+],
+"distractors": [
+"IndexedDB",
+"DuckDB",
+"PouchDB",
+"HSQLDB",
+"Apache Derby",
+"H2",
+"LMDB",
+"RocksDB"
+],
+"n_eligible": 9,
+"sha": "496692b12e82fcb634f104e3fcf3c46e08d5f7e4b7b0a795be8fd27f01ef1cc2",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0012__L052__p504:rxdbandroom:hive": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0012__L052__p504:rxdbandroom:hive",
+"anchor": "Hive",
+"nearest": [
+"IndexedDB",
+"DuckDB",
+"PouchDB",
+"HSQLDB"
+],
+"random": [
+"Berkeley DB",
+"H2",
+"LMDB",
+"RocksDB"
+],
+"distractors": [
+"IndexedDB",
+"DuckDB",
+"PouchDB",
+"HSQLDB",
+"Berkeley DB",
+"H2",
+"LMDB",
+"RocksDB"
+],
+"n_eligible": 9,
+"sha": "ca18d98f2a697bc909c1ac3ae604ae4be42a10275eb481dd9f0350f7b34f9df1",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0012__L028__p504:room:hive": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0012__L028__p504:room:hive",
+"anchor": "Hive",
+"nearest": [
+"IndexedDB",
+"DuckDB",
+"PouchDB",
+"HSQLDB"
+],
+"random": [
+"Apache Derby",
+"H2",
+"LMDB",
+"RocksDB"
+],
+"distractors": [
+"IndexedDB",
+"DuckDB",
+"PouchDB",
+"HSQLDB",
+"Apache Derby",
+"H2",
+"LMDB",
+"RocksDB"
+],
+"n_eligible": 9,
+"sha": "c10fbf7d141f1d1e0d85f73913ad34ef8aa81c3e3002e3e708cf24cd95a65f42",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0012__L028__p504:sqlitelitedb:hive": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0012__L028__p504:sqlitelitedb:hive",
+"anchor": "Hive",
+"nearest": [
+"IndexedDB",
+"DuckDB",
+"PouchDB",
+"HSQLDB"
+],
+"random": [
+"Apache Derby",
+"Berkeley DB",
+"H2",
+"LMDB"
+],
+"distractors": [
+"IndexedDB",
+"DuckDB",
+"PouchDB",
+"HSQLDB",
+"Apache Derby",
+"Berkeley DB",
+"H2",
+"LMDB"
+],
+"n_eligible": 9,
+"sha": "4937ce223290646c03d8d0fac861385a417c1532937a54bd03317866bcd8e5a6",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0012__L032__p504:roomsqlite:hive": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0012__L032__p504:roomsqlite:hive",
+"anchor": "Hive",
+"nearest": [
+"IndexedDB",
+"DuckDB",
+"PouchDB",
+"HSQLDB"
+],
+"random": [
+"Apache Derby",
+"Berkeley DB",
+"H2",
+"LMDB"
+],
+"distractors": [
+"IndexedDB",
+"DuckDB",
+"PouchDB",
+"HSQLDB",
+"Apache Derby",
+"Berkeley DB",
+"H2",
+"LMDB"
+],
+"n_eligible": 9,
+"sha": "59f1cef0fda598b2bfa559187fb389c751b5e8c168e1cf78894128c37a8438e1",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0012__L032__p745:room:hive": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0012__L032__p745:room:hive",
+"anchor": "Hive",
+"nearest": [
+"IndexedDB",
+"DuckDB",
+"PouchDB",
+"HSQLDB"
+],
+"random": [
+"Apache Derby",
+"Berkeley DB",
+"LMDB",
+"RocksDB"
+],
+"distractors": [
+"IndexedDB",
+"DuckDB",
+"PouchDB",
+"HSQLDB",
+"Apache Derby",
+"Berkeley DB",
+"LMDB",
+"RocksDB"
+],
+"n_eligible": 9,
+"sha": "f33002631cbd2b234d3ab0ba6bdd9b15b48a4a58b83f5289952b3872538f6630",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0012__L044__p504:room:hive": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0012__L044__p504:room:hive",
+"anchor": "Hive",
+"nearest": [
+"IndexedDB",
+"DuckDB",
+"PouchDB",
+"HSQLDB"
+],
+"random": [
+"Apache Derby",
+"Berkeley DB",
+"LMDB",
+"RocksDB"
+],
+"distractors": [
+"IndexedDB",
+"DuckDB",
+"PouchDB",
+"HSQLDB",
+"Apache Derby",
+"Berkeley DB",
+"LMDB",
+"RocksDB"
+],
+"n_eligible": 9,
+"sha": "093b48ef39671e715c08d6963257b2c36d3479f3c8ce702afcf6d2c70e3ade59",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0012__L048__p504:room:hive": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0012__L048__p504:room:hive",
+"anchor": "Hive",
+"nearest": [
+"IndexedDB",
+"DuckDB",
+"PouchDB",
+"HSQLDB"
+],
+"random": [
+"Berkeley DB",
+"H2",
+"LMDB",
+"RocksDB"
+],
+"distractors": [
+"IndexedDB",
+"DuckDB",
+"PouchDB",
+"HSQLDB",
+"Berkeley DB",
+"H2",
+"LMDB",
+"RocksDB"
+],
+"n_eligible": 9,
+"sha": "5ab5788eb3a72b49622df16b93c2340ed601a0f029acfa5bddff6a5ce5b620b7",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0012__L048__p504:roomsqlite:hive": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0012__L048__p504:roomsqlite:hive",
+"anchor": "Hive",
+"nearest": [
+"IndexedDB",
+"DuckDB",
+"PouchDB",
+"HSQLDB"
+],
+"random": [
+"Apache Derby",
+"H2",
+"LMDB",
+"RocksDB"
+],
+"distractors": [
+"IndexedDB",
+"DuckDB",
+"PouchDB",
+"HSQLDB",
+"Apache Derby",
+"H2",
+"LMDB",
+"RocksDB"
+],
+"n_eligible": 9,
+"sha": "89db5bb80d6e6abde88fdd3ca27bfb6a0599b13e7b496916a2226f431f1ea7ec",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0012__L048__p504:sqliteviasqflite:hive": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0012__L048__p504:sqliteviasqflite:hive",
+"anchor": "Hive",
+"nearest": [
+"IndexedDB",
+"DuckDB",
+"PouchDB",
+"HSQLDB"
+],
+"random": [
+"Apache Derby",
+"Berkeley DB",
+"LMDB",
+"RocksDB"
+],
+"distractors": [
+"IndexedDB",
+"DuckDB",
+"PouchDB",
+"HSQLDB",
+"Apache Derby",
+"Berkeley DB",
+"LMDB",
+"RocksDB"
+],
+"n_eligible": 9,
+"sha": "7e065a4221cf74d3f0c5f933eeeb70db763d2a7050efa60a23ea5ef8cad134af",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0012__L042__p504:room:hive": {
+"unit": "nla-rl-L42:chat-lmsys-0012__L042__p504:room:hive",
+"anchor": "Hive",
+"nearest": [
+"IndexedDB",
+"DuckDB",
+"PouchDB",
+"HSQLDB"
+],
+"random": [
+"Apache Derby",
+"Berkeley DB",
+"H2",
+"RocksDB"
+],
+"distractors": [
+"IndexedDB",
+"DuckDB",
+"PouchDB",
+"HSQLDB",
+"Apache Derby",
+"Berkeley DB",
+"H2",
+"RocksDB"
+],
+"n_eligible": 9,
+"sha": "370253424aeb3c4cd90d21a1cea1211cdf34f284773ae3a309a422e5d6ad479a",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0012__L040__p504:roomdb:hive": {
+"unit": "s3d-rl600-all11:chat-lmsys-0012__L040__p504:roomdb:hive",
+"anchor": "Hive",
+"nearest": [
+"IndexedDB",
+"DuckDB",
+"PouchDB",
+"HSQLDB"
+],
+"random": [
+"Apache Derby",
+"H2",
+"LMDB",
+"RocksDB"
+],
+"distractors": [
+"IndexedDB",
+"DuckDB",
+"PouchDB",
+"HSQLDB",
+"Apache Derby",
+"H2",
+"LMDB",
+"RocksDB"
+],
+"n_eligible": 9,
+"sha": "83d6049809c73261356b7e42e64b6a9e603be0ca406e65f85b30ea6149886178",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0012__L040__p504:sqlite3sqflite:hive": {
+"unit": "s3d-rl600-all11:chat-lmsys-0012__L040__p504:sqlite3sqflite:hive",
+"anchor": "Hive",
+"nearest": [
+"IndexedDB",
+"DuckDB",
+"PouchDB",
+"HSQLDB"
+],
+"random": [
+"Apache Derby",
+"Berkeley DB",
+"H2",
+"LMDB"
+],
+"distractors": [
+"IndexedDB",
+"DuckDB",
+"PouchDB",
+"HSQLDB",
+"Apache Derby",
+"Berkeley DB",
+"H2",
+"LMDB"
+],
+"n_eligible": 9,
+"sha": "1bd4f8ae6e8303e7e2c0da185dbba774e8977108ca51b88abf1ecd7e15c92326",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0012__L044__p504:room:hive": {
+"unit": "s3d-rl600-all11:chat-lmsys-0012__L044__p504:room:hive",
+"anchor": "Hive",
+"nearest": [
+"IndexedDB",
+"DuckDB",
+"PouchDB",
+"HSQLDB"
+],
+"random": [
+"Apache Derby",
+"Berkeley DB",
+"H2",
+"LMDB"
+],
+"distractors": [
+"IndexedDB",
+"DuckDB",
+"PouchDB",
+"HSQLDB",
+"Apache Derby",
+"Berkeley DB",
+"H2",
+"LMDB"
+],
+"n_eligible": 9,
+"sha": "f0077c4f6f48f747137e4342f5530584faad41806abd8f04f73170197ae206cc",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0012__L048__p504:room:hive": {
+"unit": "s3d-rl600-all11:chat-lmsys-0012__L048__p504:room:hive",
+"anchor": "Hive",
+"nearest": [
+"IndexedDB",
+"DuckDB",
+"PouchDB",
+"HSQLDB"
+],
+"random": [
+"Apache Derby",
+"H2",
+"LMDB",
+"RocksDB"
+],
+"distractors": [
+"IndexedDB",
+"DuckDB",
+"PouchDB",
+"HSQLDB",
+"Apache Derby",
+"H2",
+"LMDB",
+"RocksDB"
+],
+"n_eligible": 9,
+"sha": "68e1eec054e52e40ac521ef15d4e6a2f016aea6b6408432d90f00e357ebcf23e",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0012__L048__p504:roomdb:hive": {
+"unit": "s3d-rl600-all11:chat-lmsys-0012__L048__p504:roomdb:hive",
+"anchor": "Hive",
+"nearest": [
+"IndexedDB",
+"DuckDB",
+"PouchDB",
+"HSQLDB"
+],
+"random": [
+"Apache Derby",
+"H2",
+"LMDB",
+"RocksDB"
+],
+"distractors": [
+"IndexedDB",
+"DuckDB",
+"PouchDB",
+"HSQLDB",
+"Apache Derby",
+"H2",
+"LMDB",
+"RocksDB"
+],
+"n_eligible": 9,
+"sha": "2240ec36b2af4822cc16315faa830dae22552a78593c58f1b492eee8e2c45f9b",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0012__L060__p504:room:hive": {
+"unit": "s3d-rl600-all11:chat-lmsys-0012__L060__p504:room:hive",
+"anchor": "Hive",
+"nearest": [
+"IndexedDB",
+"DuckDB",
+"PouchDB",
+"HSQLDB"
+],
+"random": [
+"Apache Derby",
+"Berkeley DB",
+"H2",
+"RocksDB"
+],
+"distractors": [
+"IndexedDB",
+"DuckDB",
+"PouchDB",
+"HSQLDB",
+"Apache Derby",
+"Berkeley DB",
+"H2",
+"RocksDB"
+],
+"n_eligible": 9,
+"sha": "b131c036eb963f43cd6e5af83cc58f81e4c3f6fa8fddb6e010b342c9fed5793c",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0012__L036__p504:room:hive": {
+"unit": "s3d-rl600:chat-lmsys-0012__L036__p504:room:hive",
+"anchor": "Hive",
+"nearest": [
+"IndexedDB",
+"DuckDB",
+"PouchDB",
+"HSQLDB"
+],
+"random": [
+"Apache Derby",
+"Berkeley DB",
+"LMDB",
+"RocksDB"
+],
+"distractors": [
+"IndexedDB",
+"DuckDB",
+"PouchDB",
+"HSQLDB",
+"Apache Derby",
+"Berkeley DB",
+"LMDB",
+"RocksDB"
+],
+"n_eligible": 9,
+"sha": "fc965b16943cba48bcc83893bc41de069e9576be06a2c4ece48ba5b8c64ab1c8",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0012__L044__p504:room:hive": {
+"unit": "s3d-rl600:chat-lmsys-0012__L044__p504:room:hive",
+"anchor": "Hive",
+"nearest": [
+"IndexedDB",
+"DuckDB",
+"PouchDB",
+"HSQLDB"
+],
+"random": [
+"Apache Derby",
+"Berkeley DB",
+"H2",
+"LMDB"
+],
+"distractors": [
+"IndexedDB",
+"DuckDB",
+"PouchDB",
+"HSQLDB",
+"Apache Derby",
+"Berkeley DB",
+"H2",
+"LMDB"
+],
+"n_eligible": 9,
+"sha": "41db536e42479ccc8f78a98d602ec5732fff1fd606603e585737d75c357953bc",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0012__L048__p504:room:hive": {
+"unit": "s3d-rl600:chat-lmsys-0012__L048__p504:room:hive",
+"anchor": "Hive",
+"nearest": [
+"IndexedDB",
+"DuckDB",
+"PouchDB",
+"HSQLDB"
+],
+"random": [
+"Apache Derby",
+"Berkeley DB",
+"H2",
+"LMDB"
+],
+"distractors": [
+"IndexedDB",
+"DuckDB",
+"PouchDB",
+"HSQLDB",
+"Apache Derby",
+"Berkeley DB",
+"H2",
+"LMDB"
+],
+"n_eligible": 9,
+"sha": "092efa6cae86487d276411c8850985bfe54ed5ff01bc4bafe9dce909bb242c48",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0012__L052__p504:room:hive": {
+"unit": "s3d-sft251:chat-lmsys-0012__L052__p504:room:hive",
+"anchor": "Hive",
+"nearest": [
+"IndexedDB",
+"DuckDB",
+"PouchDB",
+"HSQLDB"
+],
+"random": [
+"Apache Derby",
+"Berkeley DB",
+"H2",
+"RocksDB"
+],
+"distractors": [
+"IndexedDB",
+"DuckDB",
+"PouchDB",
+"HSQLDB",
+"Apache Derby",
+"Berkeley DB",
+"H2",
+"RocksDB"
+],
+"n_eligible": 9,
+"sha": "06c0411b812351e1739599c831efc68838101b8848272933787efed0018cc0ae",
+"generation": 0
+}
+}

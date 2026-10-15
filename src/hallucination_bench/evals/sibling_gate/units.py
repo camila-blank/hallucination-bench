@@ -20,6 +20,7 @@ from pathlib import Path
 from typing import Any
 
 from hallucination_bench import REPO_ROOT
+from hallucination_bench import arms as _arms
 
 SIBLING_LEAF = "substitution_sibling"
 OUT = REPO_ROOT / "outputs" / "sibling_gate"
@@ -27,19 +28,13 @@ CELLS_ROOT_DEFAULT = REPO_ROOT / "outputs" / "wsbench_chat" / "claude-opus-5-5"
 
 # §1: the 13 arms of docs/results/0002_report_full_v2.7.md plus mlnla-rl600-all11 (the plan's
 # "14 arms of the report" counts 13 report arms + this one); the mlnla-ck* sweep stays ungated.
-PROSE_ARMS: tuple[str, ...] = (
-    "s3d-rl600",
-    "s3d-rl600-all11",
-    "s3d-sft251",
-    "mlnla-rl600-all11",
-    "mlnla-rl2-800-all11",
-    "nla-rl-L42",
-    "nla-sft-L42",
-    "patchscopes",
-)
-TOKEN_ARMS: tuple[str, ...] = ("jlens", "logit", "tuned", "rlens", "template-v3", "sae-l42")
-ARMS_IN_SCOPE: tuple[str, ...] = (*PROSE_ARMS, *TOKEN_ARMS)
-DETERMINISTIC_ARMS = frozenset(TOKEN_ARMS)  # §2a: token bags, no sampling -> rung 2 directly
+# Plan 0010 §1: these are views of the arm registry (``data/arms.json`` ``gated_arms`` / ``kind``);
+# ``tests/test_gate_pipeline.py`` asserts they equal the plan-0009 values.
+PROSE_ARMS: tuple[str, ...] = _arms.prose_arms()
+TOKEN_ARMS: tuple[str, ...] = _arms.token_arms()
+ARMS_IN_SCOPE: tuple[str, ...] = _arms.gated_arms()
+# §2a: token bags, no sampling -> rung 2 directly (every registered token arm)
+DETERMINISTIC_ARMS = _arms.deterministic_arms()
 
 # rung-1 / final statuses (§4)
 RUNG1 = ("unstable", "stable", "sparse", "deterministic", "resample_failed")
@@ -57,11 +52,9 @@ SegKey = tuple[str, int, int, int]  # (cell key, readout idx, start, end)
 
 
 def family_of(arm: str) -> str:
-    """§3e lens families: s3d-*, mlnla-*, nla-*, patchscopes, and each token arm on its own."""
-    for p in ("s3d", "mlnla", "nla"):
-        if arm.startswith(p + "-"):
-            return p
-    return arm
+    """§3e lens families: s3d-*, mlnla-*, nla-*, patchscopes, and each token arm on its own
+    (plan 0010: the registry's ``family``; unregistered arms fall back to the prefixes)."""
+    return _arms.family_of(arm)
 
 
 # ---------------------------------------------------------------- normalisation
@@ -228,6 +221,62 @@ def load_labels(arm: str, labels_dir: Path | None = None) -> dict[SegKey, str | 
         for s in row.get("segments") or []:
             out[(s["key"], int(s["readout"]), int(s["start"]), int(s["end"]))] = row.get("final")
     return out
+
+
+# Plan 0010 §3: the unit-set guard. Each labels file has a stamp sidecar ``<arm>.gen.json`` with
+# the generation and the hash of the arm's unit set; scoring with labels whose unit hash does not
+# match the cells being scored is refused (exact rev 20, with a warning).
+NO_LABELS = Path("/nonexistent/sibling-labels-disabled")  # `--no-sibling-labels`: no file there
+
+
+def unit_set_hash(units: Iterable[dict[str, Any]]) -> str:
+    """sha256 over the sorted (unit key, sorted segment keys) of an arm's units."""
+    import hashlib
+
+    rows = sorted(
+        (
+            u["unit"],
+            sorted(
+                (s["key"], int(s["readout"]), int(s["start"]), int(s["end"])) for s in u["segments"]
+            ),
+        )
+        for u in units
+    )
+    return hashlib.sha256(json.dumps(rows, ensure_ascii=False).encode()).hexdigest()
+
+
+class UnitHasher:
+    """Streaming :func:`unit_set_hash` over ``cells.jsonl`` records (the rebuild's one pass)."""
+
+    def __init__(self, arm: str) -> None:
+        self.arm = arm
+        self.units: list[dict[str, Any]] = []
+
+    def add(self, rec: dict[str, Any]) -> None:
+        for u in units_of_cell(self.arm, rec):
+            self.units.append({"unit": u["unit"], "segments": u["segments"]})
+
+    def hexdigest(self) -> str:
+        return unit_set_hash(self.units)
+
+
+def stamp_path(arm: str, labels_dir: Path) -> Path:
+    return Path(labels_dir) / f"{arm}.gen.json"
+
+
+def load_stamp(arm: str, labels_dir: Path) -> dict[str, Any] | None:
+    p = stamp_path(arm, labels_dir)
+    return json.loads(p.read_text()) if p.exists() else None
+
+
+def labels_guard(arm: str, labels_dir: Path | None, unit_hash: str | None) -> str:
+    """``no_labels`` | ``no_stamp`` (a plan-0009 file: accepted) | ``ok`` | ``mismatch``."""
+    if labels_dir is None or not (Path(labels_dir) / f"{arm}.jsonl").exists():
+        return "no_labels"
+    st = load_stamp(arm, Path(labels_dir))
+    if st is None or not st.get("unit_hash") or unit_hash is None:
+        return "no_stamp"
+    return "ok" if st["unit_hash"] == unit_hash else "mismatch"
 
 
 def seg_status(

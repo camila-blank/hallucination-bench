@@ -1,0 +1,280 @@
+{
+"mlnla-rl2-800-all11:chat-lmsys-0003__L048__p230:ieee754floatingpoint:webidltypes": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0003__L048__p230:ieee754floatingpoint:webidltypes",
+"anchor": "WebIDL",
+"nearest": [
+"Unicode",
+"IEC 61131-3",
+"3GPP TS 36.322",
+"HTTP"
+],
+"random": [
+"ASCII",
+"IEEE standard",
+"ISO 9001",
+"USB"
+],
+"distractors": [
+"Unicode",
+"IEC 61131-3",
+"3GPP TS 36.322",
+"HTTP",
+"ASCII",
+"IEEE standard",
+"ISO 9001",
+"USB"
+],
+"n_eligible": 12,
+"sha": "f72d5c43175e18d6d1d7dce9706a7765b83cd7eaec8b1380938127af3bd4fc78",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0014__L044__p150:ieeestandard:3gppts36322": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0014__L044__p150:ieeestandard:3gppts36322",
+"anchor": "3GPP TS 36.322",
+"nearest": [
+"ICAO Annex 4",
+"WebIDL",
+"ISO 9001",
+"HTTP"
+],
+"random": [
+"ASCII",
+"USB",
+"Unicode"
+],
+"distractors": [
+"ICAO Annex 4",
+"WebIDL",
+"ISO 9001",
+"HTTP",
+"ASCII",
+"USB",
+"Unicode"
+],
+"n_eligible": 7,
+"sha": "78703f57c6c5590152ea7233fd7adce0453d837f62fcbc3bdad2af7d81b3015c",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0026__L028__p223:itutstandards:icaoannex4": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0026__L028__p223:itutstandards:icaoannex4",
+"anchor": "ICAO Annex 4",
+"nearest": [
+"IEEE 802.11-2016",
+"3GPP TS 36.322",
+"IEEE 802.11i",
+"WebIDL"
+],
+"random": [
+"ASCII",
+"IEEE 802.3",
+"USB",
+"Unicode"
+],
+"distractors": [
+"IEEE 802.11-2016",
+"3GPP TS 36.322",
+"IEEE 802.11i",
+"WebIDL",
+"ASCII",
+"IEEE 802.3",
+"USB",
+"Unicode"
+],
+"n_eligible": 10,
+"sha": "a9d25c1c1b142cfd41b3dff0189c5263b104f75224cf539e899b33ec1acc7fe4",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0003__L044__p230:ieee754:webidlwebbluetooth": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0003__L044__p230:ieee754:webidlwebbluetooth",
+"anchor": "WebIDL",
+"nearest": [
+"Unicode",
+"IEC 61131-3",
+"3GPP TS 36.322",
+"HTTP"
+],
+"random": [
+"ICAO Annex 4",
+"IEEE standard",
+"ISO 9001",
+"USB"
+],
+"distractors": [
+"Unicode",
+"IEC 61131-3",
+"3GPP TS 36.322",
+"HTTP",
+"ICAO Annex 4",
+"IEEE standard",
+"ISO 9001",
+"USB"
+],
+"n_eligible": 12,
+"sha": "0bb7ce899ecce4adc5c8d3dc53fdefbdbea063980f7d305ff4387f78a5359c8e",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0014__L032__p150:ieee80211i:3gppts36322": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0014__L032__p150:ieee80211i:3gppts36322",
+"anchor": "3GPP TS 36.322",
+"nearest": [
+"ICAO Annex 4",
+"WebIDL",
+"ISO 9001",
+"HTTP"
+],
+"random": [
+"ASCII",
+"USB",
+"Unicode"
+],
+"distractors": [
+"ICAO Annex 4",
+"WebIDL",
+"ISO 9001",
+"HTTP",
+"ASCII",
+"USB",
+"Unicode"
+],
+"n_eligible": 7,
+"sha": "3b987557e460e723d1429d751e8bfcfbcdca435297e2bfe405efbd90074ce43d",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0014__L036__p97:iecplcprogrammingstandards:3gppltespecifications": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0014__L036__p97:iecplcprogrammingstandards:3gppltespecifications",
+"anchor": "3GPP TS 36.322",
+"nearest": [
+"ICAO Annex 4",
+"WebIDL",
+"ISO 9001",
+"HTTP"
+],
+"random": [
+"ASCII",
+"USB",
+"Unicode"
+],
+"distractors": [
+"ICAO Annex 4",
+"WebIDL",
+"ISO 9001",
+"HTTP",
+"ASCII",
+"USB",
+"Unicode"
+],
+"n_eligible": 7,
+"sha": "66f1b085db6cb35fe8d2ba467700a3bef6b7c40864f99d586ae2aba85619add6",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0014__L044__p150:ethernetieee8023:lterlc3gppts36322": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0014__L044__p150:ethernetieee8023:lterlc3gppts36322",
+"anchor": "3GPP TS 36.322",
+"nearest": [
+"ICAO Annex 4",
+"WebIDL",
+"ISO 9001",
+"HTTP"
+],
+"random": [
+"ASCII",
+"USB",
+"Unicode"
+],
+"distractors": [
+"ICAO Annex 4",
+"WebIDL",
+"ISO 9001",
+"HTTP",
+"ASCII",
+"USB",
+"Unicode"
+],
+"n_eligible": 7,
+"sha": "70f7c60d5571a11eae3d6f28e7b55681f3bf3a95e2f3eb1599db3eb61740d706",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0014__L044__p150:ieee802112016:3gppts36322": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0014__L044__p150:ieee802112016:3gppts36322",
+"anchor": "3GPP TS 36.322",
+"nearest": [
+"ICAO Annex 4",
+"WebIDL",
+"ISO 9001",
+"HTTP"
+],
+"random": [
+"ASCII",
+"USB",
+"Unicode"
+],
+"distractors": [
+"ICAO Annex 4",
+"WebIDL",
+"ISO 9001",
+"HTTP",
+"ASCII",
+"USB",
+"Unicode"
+],
+"n_eligible": 7,
+"sha": "add13ca8ad682e52b8731a4046f93ced794035e0c123c4669d4cbdc624b03aa3",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0026__L044__p128:ieeestandard:icaoannex4": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0026__L044__p128:ieeestandard:icaoannex4",
+"anchor": "ICAO Annex 4",
+"nearest": [
+"IEEE 802.11-2016",
+"3GPP TS 36.322",
+"IEEE 802.11i",
+"WebIDL"
+],
+"random": [
+"ASCII",
+"HTTP",
+"IEEE 754",
+"USB"
+],
+"distractors": [
+"IEEE 802.11-2016",
+"3GPP TS 36.322",
+"IEEE 802.11i",
+"WebIDL",
+"ASCII",
+"HTTP",
+"IEEE 754",
+"USB"
+],
+"n_eligible": 10,
+"sha": "651b6d6771c93deb269ce8e6eee20ee1747467b0fb334cfc907ea783496a7b13",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0014__L040__p150:ieee754:3gppts36322": {
+"unit": "s3d-rl600-all11:chat-lmsys-0014__L040__p150:ieee754:3gppts36322",
+"anchor": "3GPP TS 36.322",
+"nearest": [
+"ICAO Annex 4",
+"WebIDL",
+"ISO 9001",
+"HTTP"
+],
+"random": [
+"ASCII",
+"USB",
+"Unicode"
+],
+"distractors": [
+"ICAO Annex 4",
+"WebIDL",
+"ISO 9001",
+"HTTP",
+"ASCII",
+"USB",
+"Unicode"
+],
+"n_eligible": 7,
+"sha": "5c2c125dc8d1d8e7386836b227d9fa5dabd3597f0c57f999442435a26cf0ae7d",
+"generation": 0
+}
+}

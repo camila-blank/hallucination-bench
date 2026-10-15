@@ -1,0 +1,466 @@
+{
+"jlens:chat-dailydialog-0002__L048__p32:huawei:tongyilabalibaba": {
+"unit": "jlens:chat-dailydialog-0002__L048__p32:huawei:tongyilabalibaba",
+"anchor": "Alibaba",
+"nearest": [
+"ZTE",
+"NetEase",
+"Lenovo",
+"Meituan"
+],
+"random": [
+"BYD",
+"Didi Chuxing",
+"Pinduoduo",
+"Xiaomi"
+],
+"distractors": [
+"ZTE",
+"NetEase",
+"Lenovo",
+"Meituan",
+"BYD",
+"Didi Chuxing",
+"Pinduoduo",
+"Xiaomi"
+],
+"n_eligible": 12,
+"sha": "26be8e704a48a0627e91f16f6d0e73ef83ebdbce95e9a487bf9573b1716cb7c9",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0002__L032__p42:tencent:tongyilab": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0002__L032__p42:tencent:tongyilab",
+"anchor": "Alibaba",
+"nearest": [
+"ZTE",
+"NetEase",
+"Lenovo",
+"Meituan"
+],
+"random": [
+"BYD",
+"Didi Chuxing",
+"JD.com",
+"OPPO"
+],
+"distractors": [
+"ZTE",
+"NetEase",
+"Lenovo",
+"Meituan",
+"BYD",
+"Didi Chuxing",
+"JD.com",
+"OPPO"
+],
+"n_eligible": 12,
+"sha": "0c26cb7b5d6155aa5ebc17632e41a106412c05b55f8eaa35c4a0e1bd920de5b6",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0034__L024__p39:tencent:alibabagroup": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0034__L024__p39:tencent:alibabagroup",
+"anchor": "Alibaba",
+"nearest": [
+"Baidu",
+"ZTE",
+"NetEase",
+"Lenovo"
+],
+"random": [
+"DJI",
+"Didi Chuxing",
+"OPPO",
+"Xiaomi"
+],
+"distractors": [
+"Baidu",
+"ZTE",
+"NetEase",
+"Lenovo",
+"DJI",
+"Didi Chuxing",
+"OPPO",
+"Xiaomi"
+],
+"n_eligible": 13,
+"sha": "f908fc01c9fcceda3e637596b889cb6179376f7130c0b21e0ff3dbefa0cbe672",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0034__L036__p49:tencent:alibabagroup": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0034__L036__p49:tencent:alibabagroup",
+"anchor": "Alibaba",
+"nearest": [
+"Baidu",
+"ZTE",
+"NetEase",
+"Lenovo"
+],
+"random": [
+"BYD",
+"DJI",
+"Meituan",
+"OPPO"
+],
+"distractors": [
+"Baidu",
+"ZTE",
+"NetEase",
+"Lenovo",
+"BYD",
+"DJI",
+"Meituan",
+"OPPO"
+],
+"n_eligible": 13,
+"sha": "67b5c9db04f3f962f228cd98e7e203299e56b000b6e9cd4e4db59e40ff32ae68",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0034__L052__p39:tencent:alibabagroup": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0034__L052__p39:tencent:alibabagroup",
+"anchor": "Alibaba",
+"nearest": [
+"Baidu",
+"ZTE",
+"NetEase",
+"Lenovo"
+],
+"random": [
+"DJI",
+"Didi Chuxing",
+"OPPO",
+"Xiaomi"
+],
+"distractors": [
+"Baidu",
+"ZTE",
+"NetEase",
+"Lenovo",
+"DJI",
+"Didi Chuxing",
+"OPPO",
+"Xiaomi"
+],
+"n_eligible": 13,
+"sha": "260ddd33c5057db5030417a741d27e9ba040fff400fc857648b2efa5790887c6",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0000__L024__p58::": {
+"unit": "s3d-rl600-all11:chat-lmsys-0000__L024__p58::",
+"anchor": "Alibaba",
+"nearest": [
+"ZTE",
+"NetEase",
+"Lenovo",
+"Meituan"
+],
+"random": [
+"DJI",
+"JD.com",
+"Pinduoduo",
+"Xiaomi"
+],
+"distractors": [
+"ZTE",
+"NetEase",
+"Lenovo",
+"Meituan",
+"DJI",
+"JD.com",
+"Pinduoduo",
+"Xiaomi"
+],
+"n_eligible": 12,
+"sha": "57e0b0ce2f6d9ff5ff6ae42c6abb4bc0df45f4c134832cbc175b79ba77791d87",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0000__L028__p103:tencent:alibabagroup": {
+"unit": "s3d-rl600-all11:chat-lmsys-0000__L028__p103:tencent:alibabagroup",
+"anchor": "Alibaba",
+"nearest": [
+"ZTE",
+"NetEase",
+"Lenovo",
+"Meituan"
+],
+"random": [
+"BYD",
+"OPPO",
+"Pinduoduo",
+"Xiaomi"
+],
+"distractors": [
+"ZTE",
+"NetEase",
+"Lenovo",
+"Meituan",
+"BYD",
+"OPPO",
+"Pinduoduo",
+"Xiaomi"
+],
+"n_eligible": 12,
+"sha": "96fa706454f9edaa638a5bfb786fbfabb5391ebf51124ac803a4e6000dec4565",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0000__L028__p144:tencent:alibaba": {
+"unit": "s3d-rl600-all11:chat-lmsys-0000__L028__p144:tencent:alibaba",
+"anchor": "Alibaba",
+"nearest": [
+"ZTE",
+"NetEase",
+"Lenovo",
+"Meituan"
+],
+"random": [
+"BYD",
+"ByteDance",
+"DJI",
+"Pinduoduo"
+],
+"distractors": [
+"ZTE",
+"NetEase",
+"Lenovo",
+"Meituan",
+"BYD",
+"ByteDance",
+"DJI",
+"Pinduoduo"
+],
+"n_eligible": 12,
+"sha": "b44e687cf0f5491cc85ab90c8a0a906da38998f7a28caa65dfe87e290c451de2",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0000__L028__p58:tencent:alibabagroup": {
+"unit": "s3d-rl600-all11:chat-lmsys-0000__L028__p58:tencent:alibabagroup",
+"anchor": "Alibaba",
+"nearest": [
+"ZTE",
+"NetEase",
+"Lenovo",
+"Meituan"
+],
+"random": [
+"BYD",
+"ByteDance",
+"DJI",
+"Xiaomi"
+],
+"distractors": [
+"ZTE",
+"NetEase",
+"Lenovo",
+"Meituan",
+"BYD",
+"ByteDance",
+"DJI",
+"Xiaomi"
+],
+"n_eligible": 12,
+"sha": "16528936e8a631b4faac5a79c62c40d4792f136e6e8aae75a5032ba0c54eac4a",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0000__L036__p124:baidu:alibaba": {
+"unit": "s3d-rl600-all11:chat-lmsys-0000__L036__p124:baidu:alibaba",
+"anchor": "Alibaba",
+"nearest": [
+"ZTE",
+"NetEase",
+"Lenovo",
+"Meituan"
+],
+"random": [
+"ByteDance",
+"JD.com",
+"OPPO",
+"Pinduoduo"
+],
+"distractors": [
+"ZTE",
+"NetEase",
+"Lenovo",
+"Meituan",
+"ByteDance",
+"JD.com",
+"OPPO",
+"Pinduoduo"
+],
+"n_eligible": 12,
+"sha": "7934f453e2830fc61d989a44a2adfc6c65b11e3f539177392e1ae69350fcbf33",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0006__L024__p233:tencent:podpah": {
+"unit": "s3d-rl600-all11:chat-lmsys-0006__L024__p233:tencent:podpah",
+"anchor": "Tencent",
+"nearest": [
+"Baidu",
+"ByteDance",
+"Alibaba",
+"NetEase"
+],
+"random": [
+"DJI",
+"Meituan",
+"Xiaomi",
+"ZTE"
+],
+"distractors": [
+"Baidu",
+"ByteDance",
+"Alibaba",
+"NetEase",
+"DJI",
+"Meituan",
+"Xiaomi",
+"ZTE"
+],
+"n_eligible": 15,
+"sha": "27170531edf0c20f7a15ee22ce8e49a301b5eca4bc165a5d2d45689d28fec041",
+"generation": 0
+},
+"s3d-rl600:chat-dailydialog-0019__L060__p54:tencent:alibabagroup": {
+"unit": "s3d-rl600:chat-dailydialog-0019__L060__p54:tencent:alibabagroup",
+"anchor": "Alibaba",
+"nearest": [
+"Baidu",
+"ZTE",
+"NetEase",
+"Lenovo"
+],
+"random": [
+"ByteDance",
+"OPPO",
+"Pinduoduo",
+"Xiaomi"
+],
+"distractors": [
+"Baidu",
+"ZTE",
+"NetEase",
+"Lenovo",
+"ByteDance",
+"OPPO",
+"Pinduoduo",
+"Xiaomi"
+],
+"n_eligible": 14,
+"sha": "90d919ca7ed466dd9f99a2f2f3a2665336281883afa01cff1714369657e498cf",
+"generation": 0
+},
+"s3d-rl600:chat-dailydialog-0046__L048__p22:百度:alibabagroup": {
+"unit": "s3d-rl600:chat-dailydialog-0046__L048__p22:百度:alibabagroup",
+"anchor": "Alibaba",
+"nearest": [
+"Tencent",
+"ZTE",
+"NetEase",
+"Lenovo"
+],
+"random": [
+"DJI",
+"Didi Chuxing",
+"Huawei",
+"Xiaomi"
+],
+"distractors": [
+"Tencent",
+"ZTE",
+"NetEase",
+"Lenovo",
+"DJI",
+"Didi Chuxing",
+"Huawei",
+"Xiaomi"
+],
+"n_eligible": 14,
+"sha": "ffe4f4da43b2dcf75f233384a999a342ec2e69401b377a3c5868e17269adca57",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0000__L020__p58:baidu:alibabagroup": {
+"unit": "s3d-rl600:chat-lmsys-0000__L020__p58:baidu:alibabagroup",
+"anchor": "Alibaba",
+"nearest": [
+"ZTE",
+"NetEase",
+"Lenovo",
+"Meituan"
+],
+"random": [
+"DJI",
+"JD.com",
+"OPPO",
+"Xiaomi"
+],
+"distractors": [
+"ZTE",
+"NetEase",
+"Lenovo",
+"Meituan",
+"DJI",
+"JD.com",
+"OPPO",
+"Xiaomi"
+],
+"n_eligible": 12,
+"sha": "fd4c5d95c49278895cf56c2acde0b6931544b280770422f8f6cee732b4938729",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0000__L060__p117:baidu:alibabagroup": {
+"unit": "s3d-rl600:chat-lmsys-0000__L060__p117:baidu:alibabagroup",
+"anchor": "Alibaba",
+"nearest": [
+"ZTE",
+"NetEase",
+"Lenovo",
+"Meituan"
+],
+"random": [
+"BYD",
+"ByteDance",
+"Didi Chuxing",
+"OPPO"
+],
+"distractors": [
+"ZTE",
+"NetEase",
+"Lenovo",
+"Meituan",
+"BYD",
+"ByteDance",
+"Didi Chuxing",
+"OPPO"
+],
+"n_eligible": 12,
+"sha": "a001cdbd9fa11c15005030428ac87fd878fa5a5e21181e242d34c763e06e5c40",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0000__L024__p58:baidu:alibabagroup": {
+"unit": "s3d-sft251:chat-lmsys-0000__L024__p58:baidu:alibabagroup",
+"anchor": "Alibaba",
+"nearest": [
+"ZTE",
+"NetEase",
+"Lenovo",
+"Meituan"
+],
+"random": [
+"ByteDance",
+"DJI",
+"JD.com",
+"Pinduoduo"
+],
+"distractors": [
+"ZTE",
+"NetEase",
+"Lenovo",
+"Meituan",
+"ByteDance",
+"DJI",
+"JD.com",
+"Pinduoduo"
+],
+"n_eligible": 12,
+"sha": "8754993876b28ef4cc957d2a5d738be1f4f2dc3675c9f6f2cf98e14a1ce5c37d",
+"generation": 0
+}
+}

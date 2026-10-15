@@ -1,0 +1,259 @@
+{
+"mlnla-rl2-800-all11:chat-lmsys-0069__L052__p149:paracetamol:gastrodin": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0069__L052__p149:paracetamol:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [
+"Atorvastatin",
+"Aspirin",
+"Fluoxetine",
+"Penicillin"
+],
+"random": [
+"Lithium carbonate"
+],
+"distractors": [
+"Atorvastatin",
+"Aspirin",
+"Fluoxetine",
+"Penicillin",
+"Lithium carbonate"
+],
+"n_eligible": 5,
+"sha": "82d617f215f5cc287800655079e8c53c9479e41106614ee4c07425b8eb5754a5",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0069__L052__p31:merotensin:gastrodin": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0069__L052__p31:merotensin:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [
+"Atorvastatin",
+"Aspirin",
+"Fluoxetine",
+"Penicillin"
+],
+"random": [
+"Lithium carbonate"
+],
+"distractors": [
+"Atorvastatin",
+"Aspirin",
+"Fluoxetine",
+"Penicillin",
+"Lithium carbonate"
+],
+"n_eligible": 5,
+"sha": "7c05d848ea7544a8250ef449f1fe3e0d52d7199ee0c464ead1c2634af08c0fab",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0069__L056__p149:paracetamol:gastrodin": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0069__L056__p149:paracetamol:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [
+"Atorvastatin",
+"Aspirin",
+"Fluoxetine",
+"Penicillin"
+],
+"random": [
+"Lithium carbonate"
+],
+"distractors": [
+"Atorvastatin",
+"Aspirin",
+"Fluoxetine",
+"Penicillin",
+"Lithium carbonate"
+],
+"n_eligible": 5,
+"sha": "49f90d63d693e99da8c12d3c74b7f3fcc7c019fc6f398a4fefdff51c8f0c85fd",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0069__L056__p149:paracetamolamoxicillin:gastrodin": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0069__L056__p149:paracetamolamoxicillin:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [
+"Atorvastatin",
+"Aspirin",
+"Fluoxetine",
+"Penicillin"
+],
+"random": [
+"Lithium carbonate"
+],
+"distractors": [
+"Atorvastatin",
+"Aspirin",
+"Fluoxetine",
+"Penicillin",
+"Lithium carbonate"
+],
+"n_eligible": 5,
+"sha": "3adf56248898a605e2374954e128a9110113571685663f2b3cd020753d25d7fd",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0069__L044__p149:cbd:gastrodin": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0069__L044__p149:cbd:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [
+"Atorvastatin",
+"Aspirin",
+"Fluoxetine",
+"Penicillin"
+],
+"random": [
+"Lithium carbonate"
+],
+"distractors": [
+"Atorvastatin",
+"Aspirin",
+"Fluoxetine",
+"Penicillin",
+"Lithium carbonate"
+],
+"n_eligible": 5,
+"sha": "f0d2b9c2e7a37fcd5527bf22f1494cdf666694313d33eab555e151a7177abfec",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0069__L048__p94:paroxetinepachymethine:gastrodin": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0069__L048__p94:paroxetinepachymethine:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [
+"Atorvastatin",
+"Aspirin",
+"Fluoxetine",
+"Penicillin"
+],
+"random": [
+"Lithium carbonate"
+],
+"distractors": [
+"Atorvastatin",
+"Aspirin",
+"Fluoxetine",
+"Penicillin",
+"Lithium carbonate"
+],
+"n_eligible": 5,
+"sha": "781a7b7ca3af4a012e92bd73338ccad2a1ba00bf25038eb7884556731b555b0a",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0069__L056__p149:caffeine:gastrodin": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0069__L056__p149:caffeine:gastrodin",
+"anchor": "gastrodin",
+"nearest": [
+"Fluoxetine",
+"Atorvastatin",
+"Aspirin",
+"Penicillin"
+],
+"random": [
+"Lithium carbonate"
+],
+"distractors": [
+"Fluoxetine",
+"Atorvastatin",
+"Aspirin",
+"Penicillin",
+"Lithium carbonate"
+],
+"n_eligible": 5,
+"sha": "c06bed783298a88d01dd392c4ee061bf03150f76deada90c382454b7c3dc1bad",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0028__L060__p30:lithiumcarbonate:fluoxetine": {
+"unit": "s3d-rl600-all11:chat-lmsys-0028__L060__p30:lithiumcarbonate:fluoxetine",
+"anchor": "Fluoxetine",
+"nearest": [
+"gastrodin",
+"Gastrodin",
+"caffeine",
+"Cannabidiol"
+],
+"random": [
+"Montelukast",
+"merotensin"
+],
+"distractors": [
+"gastrodin",
+"Gastrodin",
+"caffeine",
+"Cannabidiol",
+"Montelukast",
+"merotensin"
+],
+"n_eligible": 6,
+"sha": "8b01f0e238cb556a1f5f624f0dae739e904cc7dc4b2ea80aa782f6dce06e2747",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0069__L028__p149:montelukast:gastrodin": {
+"unit": "s3d-rl600-all11:chat-lmsys-0069__L028__p149:montelukast:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [
+"Atorvastatin",
+"Aspirin",
+"Fluoxetine",
+"Penicillin"
+],
+"random": [
+"Lithium carbonate"
+],
+"distractors": [
+"Atorvastatin",
+"Aspirin",
+"Fluoxetine",
+"Penicillin",
+"Lithium carbonate"
+],
+"n_eligible": 5,
+"sha": "bef4cd00efc13bbea26dec0a680ab30f6227e1f3fdf45157981cbea1b35a5abb",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0028__L060__p30:lithiumcarbonate:fluoxetine": {
+"unit": "s3d-rl600:chat-lmsys-0028__L060__p30:lithiumcarbonate:fluoxetine",
+"anchor": "Fluoxetine",
+"nearest": [
+"gastrodin",
+"Gastrodin",
+"caffeine",
+"Cannabidiol"
+],
+"random": [
+"Montelukast",
+"merotensin"
+],
+"distractors": [
+"gastrodin",
+"Gastrodin",
+"caffeine",
+"Cannabidiol",
+"Montelukast",
+"merotensin"
+],
+"n_eligible": 6,
+"sha": "7df2677491c3fda77ec910757704050ad28b0b13261afc5146475a67d9c667f8",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0069__L044__p31:metformin:gastrodin": {
+"unit": "s3d-rl600:chat-lmsys-0069__L044__p31:metformin:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [
+"Atorvastatin",
+"Aspirin",
+"Fluoxetine",
+"Penicillin"
+],
+"random": [
+"Lithium carbonate"
+],
+"distractors": [
+"Atorvastatin",
+"Aspirin",
+"Fluoxetine",
+"Penicillin",
+"Lithium carbonate"
+],
+"n_eligible": 5,
+"sha": "3ee93e15bbdc902f9a998ea38bc53c86046df094f714a3f60c75f9a07920aa2b",
+"generation": 0
+}
+}

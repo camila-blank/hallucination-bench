@@ -1,0 +1,662 @@
+{
+"logit:chat-lmsys-0028__L036__p440:sodiummetal:sodiumhydride": {
+"unit": "logit:chat-lmsys-0028__L036__p440:sodiummetal:sodiumhydride",
+"anchor": "sodium hydride",
+"nearest": [
+"Grignard reagent",
+"Tollens' reagent",
+"Benedict's reagent",
+"Fehling's solution"
+],
+"random": [],
+"distractors": [
+"Grignard reagent",
+"Tollens' reagent",
+"Benedict's reagent",
+"Fehling's solution"
+],
+"n_eligible": 4,
+"sha": "4914a61264b9665137269e19bf04137565a9a1754fddc41ffd836ecc975be393",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0028__L020__p440:nbutyllithium:sodiumhydride": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0028__L020__p440:nbutyllithium:sodiumhydride",
+"anchor": "sodium hydride",
+"nearest": [
+"Grignard reagent",
+"Tollens' reagent",
+"Benedict's reagent",
+"Fehling's solution"
+],
+"random": [],
+"distractors": [
+"Grignard reagent",
+"Tollens' reagent",
+"Benedict's reagent",
+"Fehling's solution"
+],
+"n_eligible": 4,
+"sha": "dff0cda1561c7dbaed10c3e9ded13a49faae5c3275b341ce958a3ec0642c8e94",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0028__L028__p157::": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0028__L028__p157::",
+"anchor": "sodium hydride",
+"nearest": [
+"Grignard reagent",
+"Tollens' reagent",
+"Benedict's reagent",
+"Fehling's solution"
+],
+"random": [],
+"distractors": [
+"Grignard reagent",
+"Tollens' reagent",
+"Benedict's reagent",
+"Fehling's solution"
+],
+"n_eligible": 4,
+"sha": "234f26022ee9d8462df6d266f3d0dfe3ab2192a6119eac766dd42a1626170e62",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0028__L036__p440:lithiumhydride:sodiumhydride": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0028__L036__p440:lithiumhydride:sodiumhydride",
+"anchor": "Sodium hydride",
+"nearest": [
+"Benedict's reagent",
+"Fehling's solution",
+"Grignard reagent",
+"Tollens' reagent"
+],
+"random": [],
+"distractors": [
+"Benedict's reagent",
+"Fehling's solution",
+"Grignard reagent",
+"Tollens' reagent"
+],
+"n_eligible": 4,
+"sha": "e4f32c519df6a35c3dcca754d405dc96517003a5f23c3ca54e5d5b9fa8135e03",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0028__L040__p440:nbutyllithium:sodiumhydride": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0028__L040__p440:nbutyllithium:sodiumhydride",
+"anchor": "sodium hydride",
+"nearest": [
+"Grignard reagent",
+"Tollens' reagent",
+"Benedict's reagent",
+"Fehling's solution"
+],
+"random": [],
+"distractors": [
+"Grignard reagent",
+"Tollens' reagent",
+"Benedict's reagent",
+"Fehling's solution"
+],
+"n_eligible": 4,
+"sha": "bfbe15baef68922f268b4b7171d307eb7ec73d8e5b91b9918502c8c539d7e84c",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0028__L044__p440:lithiumaluminiumhydride:sodiumhydride": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0028__L044__p440:lithiumaluminiumhydride:sodiumhydride",
+"anchor": "Sodium hydride",
+"nearest": [
+"Benedict's reagent",
+"Fehling's solution",
+"Grignard reagent",
+"Tollens' reagent"
+],
+"random": [],
+"distractors": [
+"Benedict's reagent",
+"Fehling's solution",
+"Grignard reagent",
+"Tollens' reagent"
+],
+"n_eligible": 4,
+"sha": "ebd0f5357a0ec1a28872257220c633a9692989deb6e941448a0736deb254749f",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0028__L044__p440:lithiumaluminumhydride:sodiumhydride": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0028__L044__p440:lithiumaluminumhydride:sodiumhydride",
+"anchor": "sodium hydride",
+"nearest": [
+"Grignard reagent",
+"Tollens' reagent",
+"Benedict's reagent",
+"Fehling's solution"
+],
+"random": [],
+"distractors": [
+"Grignard reagent",
+"Tollens' reagent",
+"Benedict's reagent",
+"Fehling's solution"
+],
+"n_eligible": 4,
+"sha": "1e4f658d681661497be7a4fa34d013a5ecec0eba5eb5c7b2fffdbaa086d1137a",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0028__L044__p440:lithiumhydride:sodiumhydride": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0028__L044__p440:lithiumhydride:sodiumhydride",
+"anchor": "Sodium hydride",
+"nearest": [
+"Benedict's reagent",
+"Fehling's solution",
+"Grignard reagent",
+"Tollens' reagent"
+],
+"random": [],
+"distractors": [
+"Benedict's reagent",
+"Fehling's solution",
+"Grignard reagent",
+"Tollens' reagent"
+],
+"n_eligible": 4,
+"sha": "3449b58d95924462de3b7501b530c49435e85ec3d05d75bfb9f1fd1ac638027d",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0028__L048__p440:lithiumaluminiumhydride:sodiumhydride": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0028__L048__p440:lithiumaluminiumhydride:sodiumhydride",
+"anchor": "Sodium hydride",
+"nearest": [
+"Benedict's reagent",
+"Fehling's solution",
+"Grignard reagent",
+"Tollens' reagent"
+],
+"random": [],
+"distractors": [
+"Benedict's reagent",
+"Fehling's solution",
+"Grignard reagent",
+"Tollens' reagent"
+],
+"n_eligible": 4,
+"sha": "396a2ab13a132c8c349beb1eeb510090ba1d177e4c734a22bcca3f27f28bd1d7",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0028__L052__p440:lithiumhydride:sodiumhydride": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0028__L052__p440:lithiumhydride:sodiumhydride",
+"anchor": "Sodium hydride",
+"nearest": [
+"Benedict's reagent",
+"Fehling's solution",
+"Grignard reagent",
+"Tollens' reagent"
+],
+"random": [],
+"distractors": [
+"Benedict's reagent",
+"Fehling's solution",
+"Grignard reagent",
+"Tollens' reagent"
+],
+"n_eligible": 4,
+"sha": "82e7d378369f720436d3ab9326fae24637cc992d2517043a19dd57fb91b19608",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0028__L060__p381::": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0028__L060__p381::",
+"anchor": "sodium hydride",
+"nearest": [
+"Grignard reagent",
+"Tollens' reagent",
+"Benedict's reagent",
+"Fehling's solution"
+],
+"random": [],
+"distractors": [
+"Grignard reagent",
+"Tollens' reagent",
+"Benedict's reagent",
+"Fehling's solution"
+],
+"n_eligible": 4,
+"sha": "170be44634c4d37cef1676753754a8de2829d1541bd76ecfc7db70ea34ff152f",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0028__L060__p440:lithiumhydride:sodiumhydride": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0028__L060__p440:lithiumhydride:sodiumhydride",
+"anchor": "Sodium hydride",
+"nearest": [
+"Benedict's reagent",
+"Fehling's solution",
+"Grignard reagent",
+"Tollens' reagent"
+],
+"random": [],
+"distractors": [
+"Benedict's reagent",
+"Fehling's solution",
+"Grignard reagent",
+"Tollens' reagent"
+],
+"n_eligible": 4,
+"sha": "d057e6866bea523aa3cabb34ed6894e01a6d126fd84e75bfc4e8e82d4aae5f03",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0028__L020__p440::": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0028__L020__p440::",
+"anchor": "sodium hydride",
+"nearest": [
+"Grignard reagent",
+"Tollens' reagent",
+"Benedict's reagent",
+"Fehling's solution"
+],
+"random": [],
+"distractors": [
+"Grignard reagent",
+"Tollens' reagent",
+"Benedict's reagent",
+"Fehling's solution"
+],
+"n_eligible": 4,
+"sha": "9267f4740d86fcac6f3e6c22d9045ce001e961ad1ef70a91eff6a59a2209a679",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0028__L020__p440:phosgeneorganolithiumslithiumaluminumhydride:sodiumhydridepotassiumtertbutoxide": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0028__L020__p440:phosgeneorganolithiumslithiumaluminumhydride:sodiumhydridepotassiumtertbutoxide",
+"anchor": "sodium hydride",
+"nearest": [
+"Grignard reagent",
+"Tollens' reagent",
+"Benedict's reagent",
+"Fehling's solution"
+],
+"random": [],
+"distractors": [
+"Grignard reagent",
+"Tollens' reagent",
+"Benedict's reagent",
+"Fehling's solution"
+],
+"n_eligible": 4,
+"sha": "5798bbf356440409ac0c641961a7181e0b3003fd163a31908fba914ac9beb3ce",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0028__L024__p440:cpzralh:sodiumhydridepotassiumtertbutoxide": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0028__L024__p440:cpzralh:sodiumhydridepotassiumtertbutoxide",
+"anchor": "sodium hydride",
+"nearest": [
+"Grignard reagent",
+"Tollens' reagent",
+"Benedict's reagent",
+"Fehling's solution"
+],
+"random": [],
+"distractors": [
+"Grignard reagent",
+"Tollens' reagent",
+"Benedict's reagent",
+"Fehling's solution"
+],
+"n_eligible": 4,
+"sha": "0de1f55b77057cd28e6def0849349bada980c4547fcbead1182ec30e24f72240",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0028__L032__p440:lithiumhydride:sodiumhydride": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0028__L032__p440:lithiumhydride:sodiumhydride",
+"anchor": "Sodium hydride",
+"nearest": [
+"Benedict's reagent",
+"Fehling's solution",
+"Grignard reagent",
+"Tollens' reagent"
+],
+"random": [],
+"distractors": [
+"Benedict's reagent",
+"Fehling's solution",
+"Grignard reagent",
+"Tollens' reagent"
+],
+"n_eligible": 4,
+"sha": "927c6872b8c8a2b036a1d0f1f374ad4a11ab8b476a2b76a231d9eb7438d552ca",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0028__L040__p440:butyllithium:sodiumhydride": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0028__L040__p440:butyllithium:sodiumhydride",
+"anchor": "sodium hydride",
+"nearest": [
+"Grignard reagent",
+"Tollens' reagent",
+"Benedict's reagent",
+"Fehling's solution"
+],
+"random": [],
+"distractors": [
+"Grignard reagent",
+"Tollens' reagent",
+"Benedict's reagent",
+"Fehling's solution"
+],
+"n_eligible": 4,
+"sha": "6b72dc57029c72b4a8b630e5711b2bee401ee4ec718eaf5e46223c9ee98be807",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0028__L044__p440:lithiumaluminiumhydride:sodiumhydride": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0028__L044__p440:lithiumaluminiumhydride:sodiumhydride",
+"anchor": "Sodium hydride",
+"nearest": [
+"Benedict's reagent",
+"Fehling's solution",
+"Grignard reagent",
+"Tollens' reagent"
+],
+"random": [],
+"distractors": [
+"Benedict's reagent",
+"Fehling's solution",
+"Grignard reagent",
+"Tollens' reagent"
+],
+"n_eligible": 4,
+"sha": "524bc633b334067ffdfb7a2b3825b1c86b06abf071de524bf53600d05fb9df03",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0028__L044__p440:lithiumaluminumhydride:sodiumhydride": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0028__L044__p440:lithiumaluminumhydride:sodiumhydride",
+"anchor": "sodium hydride",
+"nearest": [
+"Grignard reagent",
+"Tollens' reagent",
+"Benedict's reagent",
+"Fehling's solution"
+],
+"random": [],
+"distractors": [
+"Grignard reagent",
+"Tollens' reagent",
+"Benedict's reagent",
+"Fehling's solution"
+],
+"n_eligible": 4,
+"sha": "c2e5e4e62f3f8d8ecb10a8e0d396728281e930fc113c75ffdf5e6df9f3b6d19b",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0028__L052__p440:lithiumhydride:sodiumhydride": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0028__L052__p440:lithiumhydride:sodiumhydride",
+"anchor": "Sodium hydride",
+"nearest": [
+"Benedict's reagent",
+"Fehling's solution",
+"Grignard reagent",
+"Tollens' reagent"
+],
+"random": [],
+"distractors": [
+"Benedict's reagent",
+"Fehling's solution",
+"Grignard reagent",
+"Tollens' reagent"
+],
+"n_eligible": 4,
+"sha": "d79d6f30bf950fbee25cc66a1e16e1940d461a8067be5fdd57cef85c58059ade",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0028__L056__p440:lithiumaluminiumhydride:sodiumhydride": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0028__L056__p440:lithiumaluminiumhydride:sodiumhydride",
+"anchor": "Sodium hydride",
+"nearest": [
+"Benedict's reagent",
+"Fehling's solution",
+"Grignard reagent",
+"Tollens' reagent"
+],
+"random": [],
+"distractors": [
+"Benedict's reagent",
+"Fehling's solution",
+"Grignard reagent",
+"Tollens' reagent"
+],
+"n_eligible": 4,
+"sha": "e7862ab5d00eed787b8c903222b8ca1c3fa3fbeb42745428c2518849b3a7ba92",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0028__L056__p440:lithiumhydride:sodiumhydride": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0028__L056__p440:lithiumhydride:sodiumhydride",
+"anchor": "Sodium hydride",
+"nearest": [
+"Benedict's reagent",
+"Fehling's solution",
+"Grignard reagent",
+"Tollens' reagent"
+],
+"random": [],
+"distractors": [
+"Benedict's reagent",
+"Fehling's solution",
+"Grignard reagent",
+"Tollens' reagent"
+],
+"n_eligible": 4,
+"sha": "516835997602a24d666b7adf9720744cba5accb8b67f45f1f618a4f5f02532bf",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0028__L060__p440:lithiumhydride:sodiumhydride": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0028__L060__p440:lithiumhydride:sodiumhydride",
+"anchor": "Sodium hydride",
+"nearest": [
+"Benedict's reagent",
+"Fehling's solution",
+"Grignard reagent",
+"Tollens' reagent"
+],
+"random": [],
+"distractors": [
+"Benedict's reagent",
+"Fehling's solution",
+"Grignard reagent",
+"Tollens' reagent"
+],
+"n_eligible": 4,
+"sha": "e53daaf331940194bdd024b776ec3fcf8017f93d5ac33c8fd321536ad9bb8b38",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0028__L040__p440:sodiummetal:sodiumhydride": {
+"unit": "s3d-rl600-all11:chat-lmsys-0028__L040__p440:sodiummetal:sodiumhydride",
+"anchor": "sodium hydride",
+"nearest": [
+"Grignard reagent",
+"Tollens' reagent",
+"Benedict's reagent",
+"Fehling's solution"
+],
+"random": [],
+"distractors": [
+"Grignard reagent",
+"Tollens' reagent",
+"Benedict's reagent",
+"Fehling's solution"
+],
+"n_eligible": 4,
+"sha": "17ef9dd62a860b9c3d4d69e5328b396c0c6c01b88568b9d97a68e1287eeda477",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0028__L044__p440:lithium:sodiumhydride": {
+"unit": "s3d-rl600-all11:chat-lmsys-0028__L044__p440:lithium:sodiumhydride",
+"anchor": "Sodium hydride",
+"nearest": [
+"Benedict's reagent",
+"Fehling's solution",
+"Grignard reagent",
+"Tollens' reagent"
+],
+"random": [],
+"distractors": [
+"Benedict's reagent",
+"Fehling's solution",
+"Grignard reagent",
+"Tollens' reagent"
+],
+"n_eligible": 4,
+"sha": "dada46bae2a41fae62d2e168910ef4433553198d3c83a3dd34cdb92383586738",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0028__L044__p440:sodium:sodiumhydride": {
+"unit": "s3d-rl600-all11:chat-lmsys-0028__L044__p440:sodium:sodiumhydride",
+"anchor": "Sodium hydride",
+"nearest": [
+"Benedict's reagent",
+"Fehling's solution",
+"Grignard reagent",
+"Tollens' reagent"
+],
+"random": [],
+"distractors": [
+"Benedict's reagent",
+"Fehling's solution",
+"Grignard reagent",
+"Tollens' reagent"
+],
+"n_eligible": 4,
+"sha": "54b5e302d086fa7a59233e2224852e426fe61c3daddd700eeeeb05e85c911b60",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0028__L044__p440:sodiummetal:sodiumhydride": {
+"unit": "s3d-rl600-all11:chat-lmsys-0028__L044__p440:sodiummetal:sodiumhydride",
+"anchor": "sodium hydride",
+"nearest": [
+"Grignard reagent",
+"Tollens' reagent",
+"Benedict's reagent",
+"Fehling's solution"
+],
+"random": [],
+"distractors": [
+"Grignard reagent",
+"Tollens' reagent",
+"Benedict's reagent",
+"Fehling's solution"
+],
+"n_eligible": 4,
+"sha": "757a9e57c8d8558ca7706639c43218e52d2026f794d2e778650b7355d0d07d35",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0028__L020__p440:lithiumamide:sodiumhydride": {
+"unit": "s3d-rl600:chat-lmsys-0028__L020__p440:lithiumamide:sodiumhydride",
+"anchor": "Sodium hydride",
+"nearest": [
+"Benedict's reagent",
+"Fehling's solution",
+"Grignard reagent",
+"Tollens' reagent"
+],
+"random": [],
+"distractors": [
+"Benedict's reagent",
+"Fehling's solution",
+"Grignard reagent",
+"Tollens' reagent"
+],
+"n_eligible": 4,
+"sha": "777044faae9038b3e91ca5fc9f426a0997fca298e11a30658fe078fc5cd2b61a",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0028__L020__p440:sodiumborohydride:sodiumhydride": {
+"unit": "s3d-rl600:chat-lmsys-0028__L020__p440:sodiumborohydride:sodiumhydride",
+"anchor": "Sodium hydride",
+"nearest": [
+"Benedict's reagent",
+"Fehling's solution",
+"Grignard reagent",
+"Tollens' reagent"
+],
+"random": [],
+"distractors": [
+"Benedict's reagent",
+"Fehling's solution",
+"Grignard reagent",
+"Tollens' reagent"
+],
+"n_eligible": 4,
+"sha": "2ff8b2081e42d086cb28b0c8da9e4aeb690eadb04db927dfaa313bd8215898ab",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0028__L020__p440:sodiumna:sodiumhydride": {
+"unit": "s3d-rl600:chat-lmsys-0028__L020__p440:sodiumna:sodiumhydride",
+"anchor": "sodium hydride",
+"nearest": [
+"Grignard reagent",
+"Tollens' reagent",
+"Benedict's reagent",
+"Fehling's solution"
+],
+"random": [],
+"distractors": [
+"Grignard reagent",
+"Tollens' reagent",
+"Benedict's reagent",
+"Fehling's solution"
+],
+"n_eligible": 4,
+"sha": "31668a9e96051b90a34c88b64696ece7c024ca00bfa81536290fd512c22ebd73",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0028__L044__p440:sodiummetal:sodiumhydride": {
+"unit": "s3d-rl600:chat-lmsys-0028__L044__p440:sodiummetal:sodiumhydride",
+"anchor": "sodium hydride",
+"nearest": [
+"Grignard reagent",
+"Tollens' reagent",
+"Benedict's reagent",
+"Fehling's solution"
+],
+"random": [],
+"distractors": [
+"Grignard reagent",
+"Tollens' reagent",
+"Benedict's reagent",
+"Fehling's solution"
+],
+"n_eligible": 4,
+"sha": "a63274a170ad91ec4bf888a770bbe93547b089487593039eea282445b094ce94",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0028__L028__p440:sodiummetal:sodiumhydride": {
+"unit": "s3d-sft251:chat-lmsys-0028__L028__p440:sodiummetal:sodiumhydride",
+"anchor": "sodium hydride",
+"nearest": [
+"Grignard reagent",
+"Tollens' reagent",
+"Benedict's reagent",
+"Fehling's solution"
+],
+"random": [],
+"distractors": [
+"Grignard reagent",
+"Tollens' reagent",
+"Benedict's reagent",
+"Fehling's solution"
+],
+"n_eligible": 4,
+"sha": "663c38fd366d54029d0382ad609b5cdbc983e352a27d968f0e62550a9f1774dc",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0028__L060__p30:lithium:fluoxetine": {
+"unit": "s3d-sft251:chat-lmsys-0028__L060__p30:lithium:fluoxetine",
+"anchor": "Sodium hydride",
+"nearest": [
+"Benedict's reagent",
+"Fehling's solution",
+"Grignard reagent",
+"Tollens' reagent"
+],
+"random": [],
+"distractors": [
+"Benedict's reagent",
+"Fehling's solution",
+"Grignard reagent",
+"Tollens' reagent"
+],
+"n_eligible": 4,
+"sha": "9f6c10b1d6c51c30926d9db7674686e7c4ad3c40c41967d52f36bcf7e1f490ff",
+"generation": 0
+}
+}

@@ -1,0 +1,672 @@
+{
+"mlnla-rl2-800-all11:chat-lmsys-0026__L036__p36:icaoannex10aeronauticaltelecommunications:icaoannex4aeronauticalcharting": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0026__L036__p36:icaoannex10aeronauticaltelecommunications:icaoannex4aeronauticalcharting",
+"anchor": "ICAO Annex 10",
+"nearest": [
+"ICAO Annex 4 (Aeronautical Charts)",
+"ICAO Annex 4 – Aeronautical Charts",
+"ICAO Annex 4",
+"ICAO Annex 4 Aeronautical Charts"
+],
+"random": [],
+"distractors": [
+"ICAO Annex 4 (Aeronautical Charts)",
+"ICAO Annex 4 – Aeronautical Charts",
+"ICAO Annex 4",
+"ICAO Annex 4 Aeronautical Charts"
+],
+"n_eligible": 4,
+"sha": "e520b133ab141bca70612d3097b777733df59540ad0328ffea8dd8d17c286098",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0026__L036__p36:icaoannex10vol2:icaoannex4": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0026__L036__p36:icaoannex10vol2:icaoannex4",
+"anchor": "ICAO Annex 4",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "dfefd47e49114be82b69bdc303e221461f18e77d96d34c6ac55a8aca3b0f8afc",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0026__L036__p36:icaoannex10volumeii:icaoannex4": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0026__L036__p36:icaoannex10volumeii:icaoannex4",
+"anchor": "ICAO Annex 4",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "4a962b3b4d1e6d4a02f88110d6d8bd7dcc1c104e34adf62fe1b180662c68b000",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0026__L036__p471:annex10:annex4": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0026__L036__p471:annex10:annex4",
+"anchor": "ICAO Annex 4",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "c32385553b010d2d890ca586441dd8ee9d42dd33dcac858f6ad403951a32ad53",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0026__L040__p36:annex10aeronauticaltelecommunications:annex4aeronauticalcharting": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0026__L040__p36:annex10aeronauticaltelecommunications:annex4aeronauticalcharting",
+"anchor": "ICAO Annex 4 Aeronautical Charts",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "ee56544f2b94d18284d61c0bef716a0ef9df1dd8913bcdaf0029b9de751f2785",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0026__L040__p36:icaoannex10:icaoannex4": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0026__L040__p36:icaoannex10:icaoannex4",
+"anchor": "ICAO Annex 4",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "58ffd6ff6ffa121dbe51e41ba3624aef0ad63a534ed25afb50b0145023664575",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0026__L040__p471:annex10:annex4": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0026__L040__p471:annex10:annex4",
+"anchor": "ICAO Annex 4",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "76d8461db1f84d72be794155ceed25c5d67ef803bdf95d2b0d9c5333440d6f24",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0026__L040__p471:annex10voli:annex4": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0026__L040__p471:annex10voli:annex4",
+"anchor": "ICAO Annex 4",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "5cc3190a44afac931417aa487cf2739cb2dfca8361d4f97ddd35baab0706a799",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0026__L044__p36:icaoannex10:icaoannex4": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0026__L044__p36:icaoannex10:icaoannex4",
+"anchor": "ICAO Annex 4",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "9c08b91813d1381dd47a03dbb71c290d1befb06accb0d2b6a94193ef7a263924",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0026__L048__p36:icaoannex6:icaoannex4": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0026__L048__p36:icaoannex6:icaoannex4",
+"anchor": "ICAO Annex 4",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "ea11ce4c71db51fe86180eaed47fb9c383021d05c8aeb6fa02e420831c4c7922",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0026__L048__p36:icaoannex8:icaoannex4": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0026__L048__p36:icaoannex8:icaoannex4",
+"anchor": "ICAO Annex 4",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "d307e8e0a780f21d671991e59a5268a81ef8b9f3b7dc6714be3ff99505c0650d",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0026__L048__p471:annex10volumei:annex4": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0026__L048__p471:annex10volumei:annex4",
+"anchor": "ICAO Annex 4",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "3ecf9dd5e3554aed8ab70605f41301cc6af0829a9c80e91dc829a49d9c08b88c",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0026__L052__p278:annex6:annex4": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0026__L052__p278:annex6:annex4",
+"anchor": "ICAO Annex 4",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "8bc8ddbc69c788bf64a45d47ed5455f82623114a4ba7de0fe0bdbf3fc46f61a1",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0026__L052__p36:annex10:annex4": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0026__L052__p36:annex10:annex4",
+"anchor": "ICAO Annex 4",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "2db5644f1b95953f03e8c0d942ba84e4656a9881ea8526efd617959df352db9f",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0026__L052__p36:annex10volumeii:annex4": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0026__L052__p36:annex10volumeii:annex4",
+"anchor": "ICAO Annex 4",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "37d5cd4b6c30059a7376525bd60b038c748e65faee667258efd3537b31525084",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0026__L052__p471:annex10volumei:annex4": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0026__L052__p471:annex10volumei:annex4",
+"anchor": "ICAO Annex 4",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "442e734e680dda8d5e6de38998c1c1d986abd11a3a349c279ac7d2de3bc716c4",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0026__L056__p278:annex6:annex10": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0026__L056__p278:annex6:annex10",
+"anchor": "ICAO Annex 4",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "97e7e295f8862b8c723157b16d849f06939728fe82099bf5741fa24785c5856d",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0026__L060__p128:annex6:annex4": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0026__L060__p128:annex6:annex4",
+"anchor": "ICAO Annex 4",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "7927e02a542360d5eb1a672df7628f9a093cea38a2b98a3fa0dbb9f580f03e54",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0026__L060__p36:icaoannex15:icaoannex4": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0026__L060__p36:icaoannex15:icaoannex4",
+"anchor": "ICAO Annex 4",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "5540c18cb20d718d58cc4955a7f1c3e0251f72c00db8688b942ba1c0ddc1f498",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0026__L060__p36:icaoannex15aeronauticalinformationservices:icaoannex4aeronauticalcharting": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0026__L060__p36:icaoannex15aeronauticalinformationservices:icaoannex4aeronauticalcharting",
+"anchor": "ICAO Annex 4",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "df48d7d1510a7c7f5de616bda1f8798dc25781996e54c3dd4d9af0e0e9971c1f",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0026__L060__p471:icaoannex15:icaoannex4": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0026__L060__p471:icaoannex15:icaoannex4",
+"anchor": "ICAO Annex 4",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "e887af8c7da38b3bc38e7dc55ab966628ad9b0c8e8c57a47d50f4b22dc2fb928",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0026__L040__p36:icaoannex15:icaoannex4": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0026__L040__p36:icaoannex15:icaoannex4",
+"anchor": "ICAO Annex 4",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "6868c7dba18ed4cc59bb71f991b072fa71c51850ca14297007777ffaf854b0fe",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0026__L044__p36:icaoannex10:icaoannex4": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0026__L044__p36:icaoannex10:icaoannex4",
+"anchor": "ICAO Annex 4",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "252a1be08c333e2d078f9a9221abaf89c85d728f40b8e57377956cdd161f88d0",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0026__L048__p36:icaoannex10:icaoannex4": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0026__L048__p36:icaoannex10:icaoannex4",
+"anchor": "ICAO Annex 4",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "98c2b42b63c9a9bb28ecb07fd96a4a9dd875ba66e4f0d74858dbccd694f9ed5a",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0026__L048__p471:icaoannex10:icaoannex4": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0026__L048__p471:icaoannex10:icaoannex4",
+"anchor": "ICAO Annex 4",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "f9a824a3ecf84e4d300f041e4a18beecd89b0681d0c712e995dba77a6e62e330",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0026__L052__p36:icaoannex10volumei:icaoannex4": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0026__L052__p36:icaoannex10volumei:icaoannex4",
+"anchor": "ICAO Annex 4",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "70d115319e90ccfed5fe071c41a5033b2052f3f0cd278bc3c307546944940188",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0026__L056__p278:annex6:annex4": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0026__L056__p278:annex6:annex4",
+"anchor": "ICAO Annex 4",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "cb6413b1f88aef094039418fc325258581a59ceb0b454e0238000a0bf671f7a5",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0026__L060__p36:annex15:annex4": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0026__L060__p36:annex15:annex4",
+"anchor": "ICAO Annex 4",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "213cc835e8cbcbdf333cb57b736bca7f6cb795a19597e17f1b36f49a1a61291f",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0026__L060__p36:annex15aeronauticalinformationservices:annex4aeronauticalcharting": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0026__L060__p36:annex15aeronauticalinformationservices:annex4aeronauticalcharting",
+"anchor": "ICAO Annex 4 – Aeronautical Charts",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "dcf0cee4a2e6edccffb7984cc4e7ac1679613a07c629b96c054e243e93baee28",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0026__L060__p36:icaoannex15:icaoannex4": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0026__L060__p36:icaoannex15:icaoannex4",
+"anchor": "ICAO Annex 4",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "488fd674d03e294821d833faac098cfb8d1391db832b3894f85525171b7fe8e5",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0026__L060__p36:icaoannex15aeronauticalinformationservices:icaoannex4aeronauticalcharting": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0026__L060__p36:icaoannex15aeronauticalinformationservices:icaoannex4aeronauticalcharting",
+"anchor": "ICAO Annex 4",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "fd2c99f2b17ed6120d95e6d6327b640328c8a40167deee2c94ff941f8466a1b5",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0026__L042__p36:icaoannex10:icaoannex4": {
+"unit": "nla-rl-L42:chat-lmsys-0026__L042__p36:icaoannex10:icaoannex4",
+"anchor": "ICAO Annex 4",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "4452377a29d32275b8a804e0a55e377b2dbb51e16f09ebb3aae2a8f9d4d6a60b",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0026__L036__p36:annex6:annex4": {
+"unit": "s3d-rl600-all11:chat-lmsys-0026__L036__p36:annex6:annex4",
+"anchor": "ICAO Annex 4",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "9a90e2135f759c61742880b07cbbf4338156576254ce3239d2dfd1dd94aa35cf",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0026__L040__p36:annex1:annex4": {
+"unit": "s3d-rl600-all11:chat-lmsys-0026__L040__p36:annex1:annex4",
+"anchor": "ICAO Annex 4",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "16c6237cbce82674d471e01eb72bfe5254ae9a0916825c26b3b1fcb58a88deb4",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0026__L040__p36:annex2:annex4": {
+"unit": "s3d-rl600-all11:chat-lmsys-0026__L040__p36:annex2:annex4",
+"anchor": "ICAO Annex 4",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "15d404076438178ed2351c201360b747d3612773c7b8c1b0c3f9267a182f38f4",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0026__L040__p36:annex3:annex4": {
+"unit": "s3d-rl600-all11:chat-lmsys-0026__L040__p36:annex3:annex4",
+"anchor": "ICAO Annex 4",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "dcbc230aeaeacc32bda4720c4fc9525446da004378d6b88cfde5ece317655f3b",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0026__L040__p36:annex6:annex4": {
+"unit": "s3d-rl600-all11:chat-lmsys-0026__L040__p36:annex6:annex4",
+"anchor": "ICAO Annex 4",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "6a49a82d18afd5dfe4d77cff37afcbb69ea100383074f454c1975546df689d46",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0026__L044__p36:annex1:annex4": {
+"unit": "s3d-rl600-all11:chat-lmsys-0026__L044__p36:annex1:annex4",
+"anchor": "ICAO Annex 4",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "e0c439b209ec49ed09bcc7937bd72da64eb0c70b61608edb82c3f782db9b5112",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0026__L044__p36:annex6:annex4": {
+"unit": "s3d-rl600-all11:chat-lmsys-0026__L044__p36:annex6:annex4",
+"anchor": "ICAO Annex 4",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "de1cc244380c8e4067d8aa304394a2a864eed75db17989cda1a0c42a589215dc",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0026__L048__p36:annex14:annex4": {
+"unit": "s3d-rl600-all11:chat-lmsys-0026__L048__p36:annex14:annex4",
+"anchor": "ICAO Annex 4",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "877de14bc082fb324494187bcfdd82e3bf28c6462547b0d6382afa686ee4d5bc",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0026__L048__p36:annex1:annex4": {
+"unit": "s3d-rl600-all11:chat-lmsys-0026__L048__p36:annex1:annex4",
+"anchor": "ICAO Annex 4",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "ab94a6a8a1001a930e51cecf6e073715b7f2fb4367234e3de438195c86e8222e",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0026__L048__p36:annex2:annex4": {
+"unit": "s3d-rl600-all11:chat-lmsys-0026__L048__p36:annex2:annex4",
+"anchor": "ICAO Annex 4",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "042bc3c0b357bc1d938ed2dfbcbef9b30dad66affe1aed8f018675224ec495c8",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0026__L048__p36:annex3:annex4": {
+"unit": "s3d-rl600-all11:chat-lmsys-0026__L048__p36:annex3:annex4",
+"anchor": "ICAO Annex 4",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "c2ee9486d23c8f57386155a7d3d12a3b607ef7f60c49b63060169d53ed753203",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0026__L048__p36:annex6:annex4": {
+"unit": "s3d-rl600-all11:chat-lmsys-0026__L048__p36:annex6:annex4",
+"anchor": "ICAO Annex 4",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "0f7c7403304cbb8a9b746a546e126d2321dea00c471d49b41f34bf34840b06d7",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0026__L052__p36:annex1:annex4": {
+"unit": "s3d-rl600-all11:chat-lmsys-0026__L052__p36:annex1:annex4",
+"anchor": "ICAO Annex 4",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "e9effe9c7cba06c8761b93fb2a542ed190cb3c8d4cd0b40b8c69633b95b42946",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0026__L052__p36:annex2:annex4": {
+"unit": "s3d-rl600-all11:chat-lmsys-0026__L052__p36:annex2:annex4",
+"anchor": "ICAO Annex 4",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "5fbb23ef63e9de0a4724840e87b8c54f24fb95d030142ff7d5dc744ee56dcd7a",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0026__L052__p36:icaoannex2:icaoannex4": {
+"unit": "s3d-rl600-all11:chat-lmsys-0026__L052__p36:icaoannex2:icaoannex4",
+"anchor": "ICAO Annex 4",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "61924d019af18e5846bb173fd515ebf5ec33afc6ad8840d3986acbf8ccc292bb",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0026__L052__p36:icaoannex6:icaoannex4": {
+"unit": "s3d-rl600-all11:chat-lmsys-0026__L052__p36:icaoannex6:icaoannex4",
+"anchor": "ICAO Annex 4",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "50c3443a2d3bb6238c80167edf369b91dd7900a88f0b30c5e4f57fa8d0cf2091",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0026__L056__p36:annex10:annex4": {
+"unit": "s3d-rl600-all11:chat-lmsys-0026__L056__p36:annex10:annex4",
+"anchor": "ICAO Annex 4",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "060427a9d8c378c1d6534ba89aaba39c8ddc3392984532fe7efe7be37cc362ef",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0026__L056__p36:annex1:annex4": {
+"unit": "s3d-rl600-all11:chat-lmsys-0026__L056__p36:annex1:annex4",
+"anchor": "ICAO Annex 4",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "35dae1320d767872d619bde93b739299e8391716c70f5892e4f95747887df97a",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0026__L060__p36:aeronauticalinformationservices:aeronauticalcharting": {
+"unit": "s3d-rl600-all11:chat-lmsys-0026__L060__p36:aeronauticalinformationservices:aeronauticalcharting",
+"anchor": "ICAO Annex 4 (Aeronautical Charts)",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "6a3f0f371d19a191d397ba4f75d78eee27c450252c5a0676bdfe3b1fe215ce3b",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0026__L036__p36:annex12:annex4": {
+"unit": "s3d-rl600:chat-lmsys-0026__L036__p36:annex12:annex4",
+"anchor": "ICAO Annex 4",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "034bc4a361928f95c2e182d1dc16c4b621f1054b7ef9a51de86af58c93ca7998",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0026__L036__p36:annex14:annex4": {
+"unit": "s3d-rl600:chat-lmsys-0026__L036__p36:annex14:annex4",
+"anchor": "ICAO Annex 4",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "54d0f87c904abe8a6e1672922a5080e80b93e745e4164127a157adcf16372845",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0026__L036__p36:annex6:annex4": {
+"unit": "s3d-rl600:chat-lmsys-0026__L036__p36:annex6:annex4",
+"anchor": "ICAO Annex 4",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "b16e7e0c8fb0afaed5dcbec299b25386f38ad73d96ae8c19aa7168eecc157cd0",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0026__L044__p36:annex6:annex4": {
+"unit": "s3d-rl600:chat-lmsys-0026__L044__p36:annex6:annex4",
+"anchor": "ICAO Annex 4",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "f4c9dff780523e3b672c2cec9b379a0485ad89b3444845c2722c33921abc2be5",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0026__L044__p36:annex6partb:annex4": {
+"unit": "s3d-rl600:chat-lmsys-0026__L044__p36:annex6partb:annex4",
+"anchor": "ICAO Annex 4",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "ab9ed0a4ed5f11f709bcf53f38151e89605c54b4e20563b4362c28495beefadf",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0026__L044__p36:annex6partii:annex4": {
+"unit": "s3d-rl600:chat-lmsys-0026__L044__p36:annex6partii:annex4",
+"anchor": "ICAO Annex 4",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "303be95c6139048a8c13415d4798cb7eae5a5ee102eea5d59c4c367111851903",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0026__L048__p36:annex6:annex4": {
+"unit": "s3d-rl600:chat-lmsys-0026__L048__p36:annex6:annex4",
+"anchor": "ICAO Annex 4",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "64d7eef0bd13a384131113f34c553f1e9ac204fa82c7030c273013828e4b8ba7",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0026__L040__p36:annex1:annex4": {
+"unit": "s3d-sft251:chat-lmsys-0026__L040__p36:annex1:annex4",
+"anchor": "ICAO Annex 4",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "da11c7b28461554f396b4e1a6e2e148da8ec9ca6120e0f61fb872872763cb384",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0026__L040__p36:annex2:annex4": {
+"unit": "s3d-sft251:chat-lmsys-0026__L040__p36:annex2:annex4",
+"anchor": "ICAO Annex 4",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "e44b741838f1fe2f3b95c26f9bdf418e176fc53c0eeaf60357936042c41bc640",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0026__L040__p36:annex6:annex4": {
+"unit": "s3d-sft251:chat-lmsys-0026__L040__p36:annex6:annex4",
+"anchor": "ICAO Annex 4",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "d71d806a9758df500868fa0c9c4fb66a5b70c3562c5a135eaef941ba456cfac0",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0026__L044__p36:annex1:annex4": {
+"unit": "s3d-sft251:chat-lmsys-0026__L044__p36:annex1:annex4",
+"anchor": "ICAO Annex 4",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "27e2ae0fc1cee6848c676a688a0445686423940ff7f3d9b8c1208015e0ac6949",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0026__L044__p36:annex6:annex4": {
+"unit": "s3d-sft251:chat-lmsys-0026__L044__p36:annex6:annex4",
+"anchor": "ICAO Annex 4",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "24b66b138e73a013aea226533d92eb4204269e2c8399de6e3570332ddc1ebec5",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0026__L048__p36:annex1:annex4": {
+"unit": "s3d-sft251:chat-lmsys-0026__L048__p36:annex1:annex4",
+"anchor": "ICAO Annex 4",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "da40f2c7f3d8a8832985f3357ac4eb943b5e0572e377e38fc7c0058a40596acb",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0026__L048__p36:annex2:annex4": {
+"unit": "s3d-sft251:chat-lmsys-0026__L048__p36:annex2:annex4",
+"anchor": "ICAO Annex 4",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "702e51bb8c27ec055d99bb616c51be2175fa273e0dbe8683697e1dc1f55d4b0c",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0026__L048__p36:annex3:annex4": {
+"unit": "s3d-sft251:chat-lmsys-0026__L048__p36:annex3:annex4",
+"anchor": "ICAO Annex 4",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "4ecc4cc30a37cb013f1bffc85934a9f1ffd8e889f80c983f645cfab56a9a3fcc",
+"generation": 0
+}
+}

@@ -1,0 +1,762 @@
+{
+"mlnla-rl2-800-all11:chat-lmsys-0038__L020__p189:iloc:sortvalues": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0038__L020__p189:iloc:sortvalues",
+"anchor": "sort_values",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "bdffc2238d39e7e0e218c19ca7830b99acc8b6dcb5793de25f0fed843587f85d",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0038__L020__p189:loc:sortvalues": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0038__L020__p189:loc:sortvalues",
+"anchor": "sort_values",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "8b3f5914087735fdeded2ed1a364f498e3925fcbdc11d9467c42dbc57062febc",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0038__L020__p212:max:sortvalues": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0038__L020__p212:max:sortvalues",
+"anchor": "sort_values()",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "d93f2e61795a5e134c8f0b3607b604fd9cc8fba7a4649241e94c14ac1b714a52",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0038__L020__p252:iloc:sortvalues": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0038__L020__p252:iloc:sortvalues",
+"anchor": "sort_values",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "32b685a044f2c2dc4f1dabcac082161485a19bc26b4f565b18344ef6205e9441",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0038__L020__p252:loc:sortvalues": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0038__L020__p252:loc:sortvalues",
+"anchor": "sort_values",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "cdf9b2421955e19356bd6cab975989cc025be177f8b3d1cd42889cbc25260320",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0038__L020__p364:rename:sortvalues": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0038__L020__p364:rename:sortvalues",
+"anchor": "DataFrame.sort_values()",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "5f4efdac3827990f18a02ec8c2189553c88a0148de87680f162d6c9c12c72e49",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0038__L028__p189:iloc:sortvalues": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0038__L028__p189:iloc:sortvalues",
+"anchor": "sort_values",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "9dd5647291b3c57d66dcaf7a711143044eaaaedc104e59e95757d7541e0c4f39",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0038__L028__p189:locfiltering:sortvalues": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0038__L028__p189:locfiltering:sortvalues",
+"anchor": "sort_values",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "1b5ffd1bcbb653764d931b1404b1a6f89266ec2414beb343c919a8d13e6105cc",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0038__L028__p212:dropduplicates:sortvalues": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0038__L028__p212:dropduplicates:sortvalues",
+"anchor": "sort_values()",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "105474cce38340b979c7a0e4b4eaf7c4efffbae50b1e1c8163713397a18a559b",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0038__L028__p364:dataframeiloc:sortvalues": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0038__L028__p364:dataframeiloc:sortvalues",
+"anchor": "DataFrame.sort_values",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "e3d860825cadff25bc5b965dcf954293b1560b898310da89ef99279b42e1fdb9",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0038__L028__p364:iloc:sortvalues": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0038__L028__p364:iloc:sortvalues",
+"anchor": "sort_values",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "ed83119e13f46b90f6b6a930fbd0609c8d1ddd3731a90d4c3b5ac35dcec16af9",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0038__L040__p189:dropna:sortvalues": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0038__L040__p189:dropna:sortvalues",
+"anchor": "sort_values()",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "35bd1a4db09324a15a6d18ef6ac36c97ac34b6045bcc72ae90c0e6aea26266e2",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0038__L056__p364:dataframeinsert:sortvalues": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0038__L056__p364:dataframeinsert:sortvalues",
+"anchor": "DataFrame.sort_values()",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "1c72c882810e6eba6541e0356f79149f8fc42b47b82398cc4f564d9922e7a1de",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0038__L020__p212:dataframegroupby:sortvalues": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0038__L020__p212:dataframegroupby:sortvalues",
+"anchor": "DataFrame.sort_values()",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "3010066217883d872694368e714a4e7778544cd08040bc13f002f6903dedbee5",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0038__L032__p189:iloc:sortvalues": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0038__L032__p189:iloc:sortvalues",
+"anchor": "sort_values",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "3bd0c4039f2c2096ce3cdc18de07fb5671432f5325adf41489988fc405a3ac74",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0038__L032__p189:loc:sortvalues": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0038__L032__p189:loc:sortvalues",
+"anchor": "sort_values",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "f51627e17bfc32d4c263d92d95b9159f580703e83e047c0dd3c906c5f7d2fc26",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0038__L036__p189:locvsiloc:sortvalues": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0038__L036__p189:locvsiloc:sortvalues",
+"anchor": "sort_values",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "d8b55d6874bf6ce8314ec3e5abed3ff1d350bf982f1e2078e0eccfb35233d4be",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0038__L048__p473:dropna:sortvalues": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0038__L048__p473:dropna:sortvalues",
+"anchor": "sort_values()",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "676824c387b77a8a2a7c8f8177dc4007af9a2a2984e24c1958df6e6131e41b12",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0038__L048__p473:dropnaandloc:sortvalues": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0038__L048__p473:dropnaandloc:sortvalues",
+"anchor": "sort_values()",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "0fd2935363f7f62f7146240be719e88a2ab7b4c46fafd7670c2481e2221d87d6",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0038__L048__p473:groupby:sortvalues": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0038__L048__p473:groupby:sortvalues",
+"anchor": "sort_values",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "b6e7ba6cc30c27615f9ab751181f2d6faf68423107a4c65a855b63de3b8484b2",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0038__L048__p99:sortindex:sortvalues": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0038__L048__p99:sortindex:sortvalues",
+"anchor": "sort_values()",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "280fb12259cacb090eb7bfc211231f2e72ad7f862b1bedaaf77a2cde9284a17f",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0038__L052__p189:groupby:sortvalues": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0038__L052__p189:groupby:sortvalues",
+"anchor": "sort_values",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "945b8a8b3465421a85c21fbe53b3770c138f3d72203c881c472d4fffeb7fd628",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0038__L052__p473:shift:sortvalues": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0038__L052__p473:shift:sortvalues",
+"anchor": "sort_values",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "37506c9efc6e41b545256f594c1ef20d3b7ba7a78895c7388b97b62e51e0f786",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0038__L052__p99:replace:sortvalues": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0038__L052__p99:replace:sortvalues",
+"anchor": "sort_values()",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "e4a9f62f76670ba257203e92369922eb93a6607fd34699a0a10fa1cd2898bd00",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0038__L060__p473:resetindex:sortvalues": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0038__L060__p473:resetindex:sortvalues",
+"anchor": "sort_values",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "1b231e0258d4a43ff9fe84a73ce949770b377b7f0d7a0fcfeae424aff8c49ef1",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0038__L060__p473:sortindex:sortvalues": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0038__L060__p473:sortindex:sortvalues",
+"anchor": "sort_values()",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "7c352ed909babdd072685254cf563c6d66c88448adecf18a7db9cd830297cfae",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0038__L060__p99:ilocandloc:sortvalues": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0038__L060__p99:ilocandloc:sortvalues",
+"anchor": "sort_values()",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "7497536a6e683d69b79125ad3c06198c4a5c1b69e97208de1eccbca2eb842fd4",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0038__L060__p99:loc:sortvalues": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0038__L060__p99:loc:sortvalues",
+"anchor": "sort_values",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "af712f79482815b9f0c19424e18fc6acaf852a5ea3aed7b44aa9dbd0b621c1e1",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0038__L042__p189:dropna:sortvalues": {
+"unit": "nla-rl-L42:chat-lmsys-0038__L042__p189:dropna:sortvalues",
+"anchor": "sort_values()",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "77155af36bccad6a1e68397631d779dfead81d96b8a04626ef819a3d32be46de",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0038__L042__p212:dropduplicates:sortvalues": {
+"unit": "nla-rl-L42:chat-lmsys-0038__L042__p212:dropduplicates:sortvalues",
+"anchor": "sort_values()",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "640f6ce8862dd73f32a5a9e7c8b95ef8758279f30069388817a7b5c668f2ab43",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0038__L042__p252:dropduplicates:sortvalues": {
+"unit": "nla-rl-L42:chat-lmsys-0038__L042__p252:dropduplicates:sortvalues",
+"anchor": "sort_values()",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "e645dd09b9e32248b7fa9a1c7b0c89f085737c7b9d11cc995f5b1fafdca3be9a",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0038__L042__p473:locandiloc:sortvalues": {
+"unit": "nla-rl-L42:chat-lmsys-0038__L042__p473:locandiloc:sortvalues",
+"anchor": "sort_values()",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "b58e672e6603130d50745dbb227b73ebfff1046203c487daa4476cb83d985406",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0038__L020__p99:dfloc:sortvalues": {
+"unit": "s3d-rl600-all11:chat-lmsys-0038__L020__p99:dfloc:sortvalues",
+"anchor": "DataFrame.sort_values",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "c8da2492b719776526a13706a270cd51cffc93c57dacfbf84ff87341cb79bef6",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0038__L020__p99:drop:sortvalues": {
+"unit": "s3d-rl600-all11:chat-lmsys-0038__L020__p99:drop:sortvalues",
+"anchor": "sort_values",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "1792ed662897abd08b90a1e3e9feab5b5d9b8d3be542b334425c9ea9e327dca4",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0038__L020__p99:filter:sortvalues": {
+"unit": "s3d-rl600-all11:chat-lmsys-0038__L020__p99:filter:sortvalues",
+"anchor": "sort_values",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "43cc79d233cf965662595aee9e181b74455702664c6b725b34d2e567020ec954",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0038__L020__p99:select:sortvalues": {
+"unit": "s3d-rl600-all11:chat-lmsys-0038__L020__p99:select:sortvalues",
+"anchor": "sort_values()",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "901f154cc86a21d0a0b0d7392a03d7198c49deedcf237fa5586ba125b70250e1",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0038__L024__p99:sort:sortvalues": {
+"unit": "s3d-rl600-all11:chat-lmsys-0038__L024__p99:sort:sortvalues",
+"anchor": "sort_values()",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "f21b9ca710762f415481f5f2ad0a1ca2fc3c097c30bad3cfe7aac9188c3bc519",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0038__L032__p99:sort:sortvalues": {
+"unit": "s3d-rl600-all11:chat-lmsys-0038__L032__p99:sort:sortvalues",
+"anchor": "sort_values()",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "405a664158e37ed48f98c7f3c27620099c37a104af7d7827f87d5d3f4e8a9b03",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0038__L036__p99:dataframesort:sortvalues": {
+"unit": "s3d-rl600-all11:chat-lmsys-0038__L036__p99:dataframesort:sortvalues",
+"anchor": "DataFrame.sort_values()",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "12878ff7b8a8871ac4c47455dae4f0aa11499252b1c40532a67177690153cbaa",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0038__L036__p99:sort:sortvalues": {
+"unit": "s3d-rl600-all11:chat-lmsys-0038__L036__p99:sort:sortvalues",
+"anchor": "sort_values()",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "073702935a8daf0a3b1b657c5519a9ed956cbbaa77815e6c211747bfdceb13ba",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0038__L040__p99:dfsort:sortvalues": {
+"unit": "s3d-rl600-all11:chat-lmsys-0038__L040__p99:dfsort:sortvalues",
+"anchor": "DataFrame.sort_values",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "a975e51f0968b1232bcec120dfb789fcd934f5e6de5dd72c566faaacd4fd7fef",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0038__L040__p99:sort:sortvalues": {
+"unit": "s3d-rl600-all11:chat-lmsys-0038__L040__p99:sort:sortvalues",
+"anchor": "sort_values()",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "afc114ef19c3ca236c5facfa8387e8a02ebdc5841ac17ccc4c734826d30ad778",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0038__L044__p99:sort:sortvalues": {
+"unit": "s3d-rl600-all11:chat-lmsys-0038__L044__p99:sort:sortvalues",
+"anchor": "sort_values()",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "26282b053acf6ec556a5a3830b181a6d31f7650a83d1fca3ffe65e42a5cab42c",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0038__L048__p99:sort:sortvalues": {
+"unit": "s3d-rl600-all11:chat-lmsys-0038__L048__p99:sort:sortvalues",
+"anchor": "sort_values()",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "66ea55b550cbd7c794c4f1782de811105153a4a322d9ba8b5163488508360135",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0038__L052__p99:dfdrop:sortvalues": {
+"unit": "s3d-rl600-all11:chat-lmsys-0038__L052__p99:dfdrop:sortvalues",
+"anchor": "DataFrame.sort_values",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "7dd307bac0aaf181bd5ce751f839fe02ffa383c70e2c648c800961be5f3ff39c",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0038__L052__p99:drop:sortvalues": {
+"unit": "s3d-rl600-all11:chat-lmsys-0038__L052__p99:drop:sortvalues",
+"anchor": "sort_values",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "66b7fa206c77bcce6ab73b27af4b492368cfe6aa45a47554e8ff5fd858cf38cf",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0038__L052__p99:pandasdataframedrop:sortvalues": {
+"unit": "s3d-rl600-all11:chat-lmsys-0038__L052__p99:pandasdataframedrop:sortvalues",
+"anchor": "pandas.DataFrame.sort_values()",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "cf269530155667c2df52fbdf1e56875faf38046c6b59b1cca6e9bf18fdfb58e8",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0038__L052__p99:sort:sortvalues": {
+"unit": "s3d-rl600-all11:chat-lmsys-0038__L052__p99:sort:sortvalues",
+"anchor": "sort_values()",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "480ffb85d9d8cbf5a0fbd803a4efb24fbd5dbf7126fff8f22563cba82a49320c",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0038__L056__p99:dataframesort:sortvalues": {
+"unit": "s3d-rl600-all11:chat-lmsys-0038__L056__p99:dataframesort:sortvalues",
+"anchor": "DataFrame.sort_values()",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "58006bd43ee28627f641c510af4a229de9c03eed2d146df39d9a4e64972e5d95",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0038__L056__p99:sort:sortvalues": {
+"unit": "s3d-rl600-all11:chat-lmsys-0038__L056__p99:sort:sortvalues",
+"anchor": "sort_values()",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "4d14ab87eb6e01b6e68445d2dd2d9a61b85efff866280385253a38359324b913",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0038__L060__p99:dataframesort:sortvalues": {
+"unit": "s3d-rl600-all11:chat-lmsys-0038__L060__p99:dataframesort:sortvalues",
+"anchor": "DataFrame.sort_values()",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "2204cadcf10b236397643acbd3bed9304de9d7e710d7d62c5033457cbb814569",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0038__L060__p99:sort:sortvalues": {
+"unit": "s3d-rl600-all11:chat-lmsys-0038__L060__p99:sort:sortvalues",
+"anchor": "sort_values()",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "9709da12d8e41fc18c49f5fba06087ac4a0dab19ba2b38694e448f2949d8806f",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0038__L020__p99:drop:sortvalues": {
+"unit": "s3d-rl600:chat-lmsys-0038__L020__p99:drop:sortvalues",
+"anchor": "sort_values",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "48a20f30222134b727896c534ecd6777e45d72bb4729d9a5470ecfeb7bf82507",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0038__L020__p99:filter:sortvalues": {
+"unit": "s3d-rl600:chat-lmsys-0038__L020__p99:filter:sortvalues",
+"anchor": "sort_values",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "b3e83836ac397920f924f19048b6cbede58d2107856482e81b4d81970bd0a748",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0038__L036__p99:dfsort:sortvalues": {
+"unit": "s3d-rl600:chat-lmsys-0038__L036__p99:dfsort:sortvalues",
+"anchor": "DataFrame.sort_values",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "6000337833ba823f243c3f09ddb33ad867b1c0213d16325672a8a292b8b65a7e",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0038__L036__p99:sort:sortvalues": {
+"unit": "s3d-rl600:chat-lmsys-0038__L036__p99:sort:sortvalues",
+"anchor": "sort_values()",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "bcd19abbf708d81d4d0a513cd6b96d23a66b7fc12ec52eda4878516557c6c232",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0038__L044__p99:pandasdataframesort:sortvalues": {
+"unit": "s3d-rl600:chat-lmsys-0038__L044__p99:pandasdataframesort:sortvalues",
+"anchor": "pandas.DataFrame.sort_values()",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "bf24ccc3fa8ae4af1958a370d0b219a51dea440d56841920ff4f18a26f2c2051",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0038__L044__p99:sort:sortvalues": {
+"unit": "s3d-rl600:chat-lmsys-0038__L044__p99:sort:sortvalues",
+"anchor": "sort_values()",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "0b06a1791ca1327dd54958326a7eca290b95b3222e09768394f58c84d93a73b8",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0038__L048__p99:drop:sortvalues": {
+"unit": "s3d-rl600:chat-lmsys-0038__L048__p99:drop:sortvalues",
+"anchor": "sort_values",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "7e836546781d87df8fe05419304bb06d16d35d60218c28ee5ee7d6c367135105",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0038__L048__p99:sort:sortvalues": {
+"unit": "s3d-rl600:chat-lmsys-0038__L048__p99:sort:sortvalues",
+"anchor": "sort_values()",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "f4d908d4f777d27e3c8be87167f1e858b89fdd817f0ec37edffc76e7a6001cae",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0038__L060__p99:dataframesort:sortvalues": {
+"unit": "s3d-rl600:chat-lmsys-0038__L060__p99:dataframesort:sortvalues",
+"anchor": "DataFrame.sort_values()",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "6b24ddf6986baabc566340ecc3fd6edc4d26f4b8c74be39161a1c9bf406a7969",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0038__L060__p99:sort:sortvalues": {
+"unit": "s3d-rl600:chat-lmsys-0038__L060__p99:sort:sortvalues",
+"anchor": "sort_values()",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "9230c54469a8701a6aebf2d005dcee8787f71133b8cbd80d02a70cbca4cc901b",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0038__L028__p99:sort:sortvalues": {
+"unit": "s3d-sft251:chat-lmsys-0038__L028__p99:sort:sortvalues",
+"anchor": "sort_values()",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "2bfc50657988ac7e6b70ce532e9d237705271dec3dcf9bce573db1f1310f259d",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0038__L032__p99:sort:sortvalues": {
+"unit": "s3d-sft251:chat-lmsys-0038__L032__p99:sort:sortvalues",
+"anchor": "sort_values()",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "9c5ee158897ab214e74fd81607b280d0534df587a78df7f0b55e0bb4bde1fbbc",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0038__L036__p99:sort:sortvalues": {
+"unit": "s3d-sft251:chat-lmsys-0038__L036__p99:sort:sortvalues",
+"anchor": "sort_values()",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "53dfb5f1a877ecae264923a3dc029785032b87cf2de80df5c3e5caca8464cf98",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0038__L036__p99:sortattribute:sortvalues": {
+"unit": "s3d-sft251:chat-lmsys-0038__L036__p99:sortattribute:sortvalues",
+"anchor": "sort_values",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "cbb9561cf2e458696b15096e7c4739a44098e2def4000acc2bca2fac8c13b526",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0038__L036__p99:sortby:sortvalues": {
+"unit": "s3d-sft251:chat-lmsys-0038__L036__p99:sortby:sortvalues",
+"anchor": "sort_values",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "563259e097baaf3e48484a4ac4da40d947c2ffb25c8af9e209883b2d4fc1c1fa",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0038__L040__p99:sort:sortvalues": {
+"unit": "s3d-sft251:chat-lmsys-0038__L040__p99:sort:sortvalues",
+"anchor": "sort_values()",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "f67feedf5071cb1378b82ead10248eccd8510df873bee09762379be6ec2a4bcb",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0038__L044__p99:sort:sortvalues": {
+"unit": "s3d-sft251:chat-lmsys-0038__L044__p99:sort:sortvalues",
+"anchor": "sort_values()",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "fbdfbd633e0d9c9f73db8facde727110589cea46af29c97bcd5ddfb1f9455a37",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0038__L048__p99:pandasdataframesort:sortvalues": {
+"unit": "s3d-sft251:chat-lmsys-0038__L048__p99:pandasdataframesort:sortvalues",
+"anchor": "pandas.DataFrame.sort_values()",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "806bebd389ae0ed84513e0b73eaeaabeb740665f446934990e5bbe76c4374e09",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0038__L048__p99:sort:sortvalues": {
+"unit": "s3d-sft251:chat-lmsys-0038__L048__p99:sort:sortvalues",
+"anchor": "sort_values()",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "5f879227136a22a9d77fdc3ceeb56d391bed2429341616cece81d252c5b49549",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0038__L052__p99:drop:sortvalues": {
+"unit": "s3d-sft251:chat-lmsys-0038__L052__p99:drop:sortvalues",
+"anchor": "sort_values",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "9be57bf7572b64c197d1d028b68ce34e08f88b45e13fc6212beda7250ed8fab2",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0038__L052__p99:sort:sortvalues": {
+"unit": "s3d-sft251:chat-lmsys-0038__L052__p99:sort:sortvalues",
+"anchor": "sort_values()",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "379984d394be82022d3bb75728e2c03e5ab396485c52e2b9b3f8b1f45f75b446",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0038__L056__p99:pandasdataframesort:sortvalues": {
+"unit": "s3d-sft251:chat-lmsys-0038__L056__p99:pandasdataframesort:sortvalues",
+"anchor": "pandas.DataFrame.sort_values()",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "4eae435b6dab1bd71e655f7741fe71f0c344873079fb4f329e528116cabf9330",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0038__L056__p99:sort:sortvalues": {
+"unit": "s3d-sft251:chat-lmsys-0038__L056__p99:sort:sortvalues",
+"anchor": "sort_values()",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "469cdbfa57f0328d586d03638803974d78af4d216516c606920f0d05889e7404",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0038__L060__p99:sort:sortvalues": {
+"unit": "s3d-sft251:chat-lmsys-0038__L060__p99:sort:sortvalues",
+"anchor": "sort_values()",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "6fb7bbd539d8c8e79128de1a44bf72861aa23eeeebcb6b9b2f5480eb26174c34",
+"generation": 0
+}
+}

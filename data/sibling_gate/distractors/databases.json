@@ -1,0 +1,1684 @@
+{
+"logit:chat-lmsys-0012__L056__p456:sqlite:hive": {
+"unit": "logit:chat-lmsys-0012__L056__p456:sqlite:hive",
+"anchor": "Hive",
+"nearest": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server"
+],
+"random": [
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"distractors": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server",
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"n_eligible": 8,
+"sha": "1fbc49b3bcf897ba11d8c855bce34f4d1fc347d79f31b61573de2d2d857cc5f4",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0012__L020__p504:sqlite:hive": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0012__L020__p504:sqlite:hive",
+"anchor": "Hive",
+"nearest": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server"
+],
+"random": [
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"distractors": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server",
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"n_eligible": 8,
+"sha": "44d27b02139453ea0d5eb99707e64b28b1c2745799da4390befe13b0795703a0",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0012__L024__p504:sqlite:hive": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0012__L024__p504:sqlite:hive",
+"anchor": "Hive",
+"nearest": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server"
+],
+"random": [
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"distractors": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server",
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"n_eligible": 8,
+"sha": "06c60ee437b23745d11bbb560632c08a680d2a07a5e1880b9ee08df670c33290",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0012__L024__p650:firebasefirestore:hive": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0012__L024__p650:firebasefirestore:hive",
+"anchor": "Hive",
+"nearest": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server"
+],
+"random": [
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"distractors": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server",
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"n_eligible": 8,
+"sha": "72f55f9d2255d3e30ba519531f3f978170054d9764ec8301aba989f900099cd5",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0012__L024__p650:supabase:hive": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0012__L024__p650:supabase:hive",
+"anchor": "Hive",
+"nearest": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server"
+],
+"random": [
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"distractors": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server",
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"n_eligible": 8,
+"sha": "a248f6e1f2d366ec18faf888b7291489448d2492684c143bda34e4480ba66d89",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0012__L028__p504:sqlite:hive": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0012__L028__p504:sqlite:hive",
+"anchor": "Hive",
+"nearest": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server"
+],
+"random": [
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"distractors": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server",
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"n_eligible": 8,
+"sha": "67a20ef0d686dc9793e5d9ca7bf46b99ae93ff04e7ec2a44d18f90a032bfa705",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0012__L032__p504:sqlite:hive": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0012__L032__p504:sqlite:hive",
+"anchor": "Hive",
+"nearest": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server"
+],
+"random": [
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"distractors": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server",
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"n_eligible": 8,
+"sha": "4b198d90cd56f68e2eae69bd418a273651fb4c3d475817a7b290f68df25c7e66",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0012__L044__p504:sqlite:hive": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0012__L044__p504:sqlite:hive",
+"anchor": "Hive",
+"nearest": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server"
+],
+"random": [
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"distractors": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server",
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"n_eligible": 8,
+"sha": "b794b9e9669cad101e368ed3a2bbec02977ac11d6025e705a1b11bd276df780c",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0012__L048__p504:sqlite:hive": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0012__L048__p504:sqlite:hive",
+"anchor": "Hive",
+"nearest": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server"
+],
+"random": [
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"distractors": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server",
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"n_eligible": 8,
+"sha": "9a16b56f61d3e9fa32caf7727ed14e59ede1c3bf75315f450fd9968200f0b737",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0012__L052__p504:rxdb:hive": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0012__L052__p504:rxdb:hive",
+"anchor": "Hive",
+"nearest": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server"
+],
+"random": [
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"distractors": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server",
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"n_eligible": 8,
+"sha": "9c02ebfaf4649810d399d4ef64770e5f859d677885c09f94041659efc889d02f",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0012__L052__p504:sqliterxdb:hive": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0012__L052__p504:sqliterxdb:hive",
+"anchor": "Hive",
+"nearest": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server"
+],
+"random": [
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"distractors": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server",
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"n_eligible": 8,
+"sha": "d072ead295ac772d46ff6ea601262d03dade344667e9ea5e3336bf54877e92f8",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0012__L056__p395:supabase:hivelocalnobackend": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0012__L056__p395:supabase:hivelocalnobackend",
+"anchor": "Hive",
+"nearest": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server"
+],
+"random": [
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"distractors": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server",
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"n_eligible": 8,
+"sha": "3711aa94abcd2b2ada2f5756a13b8a11e7b3354f3b8961158e5d3f9cf0ff4272",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0012__L056__p504:sqlite:hive": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0012__L056__p504:sqlite:hive",
+"anchor": "Hive",
+"nearest": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server"
+],
+"random": [
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"distractors": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server",
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"n_eligible": 8,
+"sha": "6a9e7470d7423e2a14837608673c330be0f84710c64f5b8facc1152d1eca8b2d",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0012__L060__p504:sqlite:hive": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0012__L060__p504:sqlite:hive",
+"anchor": "Hive",
+"nearest": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server"
+],
+"random": [
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"distractors": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server",
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"n_eligible": 8,
+"sha": "3c90ca3241fec0cf6d0c703adf4b15b279cefd5f3e6d636f9a026efddc6083a9",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0012__L060__p504:sqliterealm:hive": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0012__L060__p504:sqliterealm:hive",
+"anchor": "Hive",
+"nearest": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server"
+],
+"random": [
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"distractors": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server",
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"n_eligible": 8,
+"sha": "33457df321f20e32903b9adcc26e25c5f1acfcaa468225fd1dd272a1c4797263",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0042__L044__p99:firestoresqlite:laraveleloquent": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0042__L044__p99:firestoresqlite:laraveleloquent",
+"anchor": "Firestore/SQLite",
+"nearest": [
+"RxDB",
+"Hive",
+"MariaDB",
+"Cassandra"
+],
+"random": [
+"DynamoDB",
+"Elasticsearch",
+"Microsoft SQL Server",
+"PostgreSQL"
+],
+"distractors": [
+"RxDB",
+"Hive",
+"MariaDB",
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"Microsoft SQL Server",
+"PostgreSQL"
+],
+"n_eligible": 11,
+"sha": "a8881b88417643de696f6cbbe13012eee75256502d5c53a5eff738732e03e3d6",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0012__L028__p578:supabase:hive": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0012__L028__p578:supabase:hive",
+"anchor": "Hive",
+"nearest": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server"
+],
+"random": [
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"distractors": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server",
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"n_eligible": 8,
+"sha": "71ecbd8335601ce9f81b699dcd7dfaa83318132665f4b7599e06b22f04b5ad90",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0012__L036__p504:sqlitewatermelondb:hive": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0012__L036__p504:sqlitewatermelondb:hive",
+"anchor": "Hive",
+"nearest": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server"
+],
+"random": [
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"distractors": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server",
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"n_eligible": 8,
+"sha": "77a3df1dc89b84567c4c9d1163b177dea8e5da2c464c517744f7f23882e53517",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0012__L048__p504:sqliteviadrift:hive": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0012__L048__p504:sqliteviadrift:hive",
+"anchor": "Hive",
+"nearest": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server"
+],
+"random": [
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"distractors": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server",
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"n_eligible": 8,
+"sha": "d42433de00f64cb63303f87402afdf12f34692e3e4ad8074e7629bc092b2af8b",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0012__L052__p504:sqlite:hive": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0012__L052__p504:sqlite:hive",
+"anchor": "Hive",
+"nearest": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server"
+],
+"random": [
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"distractors": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server",
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"n_eligible": 8,
+"sha": "357178f917ac8b1de9c0c9b7d3bad1d390c6eba5b70e5eb482db2bd168a8409e",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0012__L056__p504:sqlite:hive": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0012__L056__p504:sqlite:hive",
+"anchor": "Hive",
+"nearest": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server"
+],
+"random": [
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"distractors": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server",
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"n_eligible": 8,
+"sha": "cc1064122e61f7da2f3d82a0586f3ba796adf098f2bcc9b0c183c9e729a206ef",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0012__L060__p504:sqlite+rxdb:hive": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0012__L060__p504:sqlite+rxdb:hive",
+"anchor": "Hive",
+"nearest": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server"
+],
+"random": [
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"distractors": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server",
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"n_eligible": 8,
+"sha": "e6ca92ec565f4724c77f04a30eedcd3ee08b93c84d9eb27dc05e38c943699835",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0012__L060__p504:sqlite:hive": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0012__L060__p504:sqlite:hive",
+"anchor": "Hive",
+"nearest": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server"
+],
+"random": [
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"distractors": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server",
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"n_eligible": 8,
+"sha": "09cc54b6bb79b2414d095f008acda1c2991254cb0158343c87d3b13592c4564b",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0015__L060__p304:redis:rabbitmq": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0015__L060__p304:redis:rabbitmq",
+"anchor": "Redis",
+"nearest": [
+"Elasticsearch",
+"DynamoDB",
+"Supabase",
+"PostgreSQL"
+],
+"random": [
+"Cassandra",
+"MariaDB",
+"RxDB",
+"SQLite"
+],
+"distractors": [
+"Elasticsearch",
+"DynamoDB",
+"Supabase",
+"PostgreSQL",
+"Cassandra",
+"MariaDB",
+"RxDB",
+"SQLite"
+],
+"n_eligible": 13,
+"sha": "7f781ec7d941239229017e84b503051704685e2bd8c168846526bcc59895baad",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0012__L042__p504:sqlite:hive": {
+"unit": "nla-rl-L42:chat-lmsys-0012__L042__p504:sqlite:hive",
+"anchor": "Hive",
+"nearest": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server"
+],
+"random": [
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"distractors": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server",
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"n_eligible": 8,
+"sha": "7e3f419aed1d2e59333bf88ff40f00764341793c67043a50e131201f8709675c",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0012__L042__p578:supabase:hive": {
+"unit": "nla-rl-L42:chat-lmsys-0012__L042__p578:supabase:hive",
+"anchor": "Hive",
+"nearest": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server"
+],
+"random": [
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"distractors": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server",
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"n_eligible": 8,
+"sha": "c602e8f64460e533be04093fc02c671dbe1f5a2213e1ba2d174ccded1e90fe10",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0012__L020__p504:sqlite:hive": {
+"unit": "s3d-rl600-all11:chat-lmsys-0012__L020__p504:sqlite:hive",
+"anchor": "Hive",
+"nearest": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server"
+],
+"random": [
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"distractors": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server",
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"n_eligible": 8,
+"sha": "6251cb225e801abce25f47992201394b535c6630a2ee88663bd59139d0d8c561",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0012__L024__p504:sqlite:hive": {
+"unit": "s3d-rl600-all11:chat-lmsys-0012__L024__p504:sqlite:hive",
+"anchor": "Hive",
+"nearest": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server"
+],
+"random": [
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"distractors": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server",
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"n_eligible": 8,
+"sha": "0337d19bc12fd903e01b6b8a8f67a8db5643162ff4462ce8ef13d2eb23822e4f",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0012__L028__p504:sqlite:hive": {
+"unit": "s3d-rl600-all11:chat-lmsys-0012__L028__p504:sqlite:hive",
+"anchor": "Hive",
+"nearest": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server"
+],
+"random": [
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"distractors": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server",
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"n_eligible": 8,
+"sha": "bd5efbde1d65468b4da8977316467c110ea729440eb7329d65c0d622fba84f23",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0012__L032__p504:sqlite3:hive": {
+"unit": "s3d-rl600-all11:chat-lmsys-0012__L032__p504:sqlite3:hive",
+"anchor": "Hive",
+"nearest": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server"
+],
+"random": [
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"distractors": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server",
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"n_eligible": 8,
+"sha": "feac3128a79ee2749780372a96f5c9acb74244339e38b9e0ec6e5c2eb1099793",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0012__L032__p504:sqlite:hive": {
+"unit": "s3d-rl600-all11:chat-lmsys-0012__L032__p504:sqlite:hive",
+"anchor": "Hive",
+"nearest": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server"
+],
+"random": [
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"distractors": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server",
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"n_eligible": 8,
+"sha": "b3e2d5f621fd19b7164c74cb000f868edeea7f78f363985730ba4e6c1ea8824c",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0012__L032__p650:mysql:hive": {
+"unit": "s3d-rl600-all11:chat-lmsys-0012__L032__p650:mysql:hive",
+"anchor": "Hive",
+"nearest": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server"
+],
+"random": [
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"distractors": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server",
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"n_eligible": 8,
+"sha": "a5fb50776828ab4d276a636fc85fdc81ed55cd91f848a0e59fb5c0742e0a4abf",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0012__L032__p650:postgresql:hive": {
+"unit": "s3d-rl600-all11:chat-lmsys-0012__L032__p650:postgresql:hive",
+"anchor": "Hive",
+"nearest": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server"
+],
+"random": [
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"distractors": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server",
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"n_eligible": 8,
+"sha": "d7037ba504e3527fe9b363905e06c2345880b2666f2f549a7a40c926c1f57975",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0012__L036__p504:sqlite:hive": {
+"unit": "s3d-rl600-all11:chat-lmsys-0012__L036__p504:sqlite:hive",
+"anchor": "Hive",
+"nearest": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server"
+],
+"random": [
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"distractors": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server",
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"n_eligible": 8,
+"sha": "b914c9d5ed744c2915666d4e0c982f1aec7a6544e9b37617775fe42a62526461",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0012__L040__p504:sqlite:hive": {
+"unit": "s3d-rl600-all11:chat-lmsys-0012__L040__p504:sqlite:hive",
+"anchor": "Hive",
+"nearest": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server"
+],
+"random": [
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"distractors": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server",
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"n_eligible": 8,
+"sha": "55c07ffbc79aa86f3a9cc1849c90606ed6b947885624bd24a17fe6f059d8cf66",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0012__L044__p504:sqlite:hive": {
+"unit": "s3d-rl600-all11:chat-lmsys-0012__L044__p504:sqlite:hive",
+"anchor": "Hive",
+"nearest": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server"
+],
+"random": [
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"distractors": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server",
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"n_eligible": 8,
+"sha": "4b03e5a1eec19bcaae531867c0bd267c077be6e961dcf36b3f3e6f1f3b868a14",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0012__L048__p504:sqlite:hive": {
+"unit": "s3d-rl600-all11:chat-lmsys-0012__L048__p504:sqlite:hive",
+"anchor": "Hive",
+"nearest": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server"
+],
+"random": [
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"distractors": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server",
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"n_eligible": 8,
+"sha": "a38dfa48733525a42560bcca5b046aa8908940499689554c9eea59a18627ed50",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0012__L052__p504:sqlite:hive": {
+"unit": "s3d-rl600-all11:chat-lmsys-0012__L052__p504:sqlite:hive",
+"anchor": "Hive",
+"nearest": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server"
+],
+"random": [
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"distractors": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server",
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"n_eligible": 8,
+"sha": "320704ee0e448f9a0c26978a2129bbefec4ed89197597849783d578cbd9e3f90",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0012__L056__p504:sqlite:hive": {
+"unit": "s3d-rl600-all11:chat-lmsys-0012__L056__p504:sqlite:hive",
+"anchor": "Hive",
+"nearest": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server"
+],
+"random": [
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"distractors": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server",
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"n_eligible": 8,
+"sha": "aa7d23fb07443228f31c48d96f65f29ca03595db116543dd501c064b53000756",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0012__L060__p504:sqlite:hive": {
+"unit": "s3d-rl600-all11:chat-lmsys-0012__L060__p504:sqlite:hive",
+"anchor": "Hive",
+"nearest": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server"
+],
+"random": [
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"distractors": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server",
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"n_eligible": 8,
+"sha": "da03caa0ff7e81baf15111bddb6851c5a3aa6f5357915567f8f0c100f736c792",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0012__L020__p504:sqlite:hive": {
+"unit": "s3d-rl600:chat-lmsys-0012__L020__p504:sqlite:hive",
+"anchor": "Hive",
+"nearest": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server"
+],
+"random": [
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"distractors": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server",
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"n_eligible": 8,
+"sha": "a08cad754e3b2c71255eee6acafca03dbdc5afc83106981ad8ece84abdbb1271",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0012__L036__p504:sqlite:hive": {
+"unit": "s3d-rl600:chat-lmsys-0012__L036__p504:sqlite:hive",
+"anchor": "Hive",
+"nearest": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server"
+],
+"random": [
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"distractors": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server",
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"n_eligible": 8,
+"sha": "209ef71a77f897294a0f160946bb4ce569f3f9e7bd19fabaff7d614c7b4d0c0f",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0012__L044__p504:sqlite:hive": {
+"unit": "s3d-rl600:chat-lmsys-0012__L044__p504:sqlite:hive",
+"anchor": "Hive",
+"nearest": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server"
+],
+"random": [
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"distractors": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server",
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"n_eligible": 8,
+"sha": "06945dd020e08dbdeaeedc916e3c89f900b74ecd133fee71ecc7d59bff9ae6b3",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0012__L048__p504:sqlite:hive": {
+"unit": "s3d-rl600:chat-lmsys-0012__L048__p504:sqlite:hive",
+"anchor": "Hive",
+"nearest": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server"
+],
+"random": [
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"distractors": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server",
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"n_eligible": 8,
+"sha": "5e8629a0afafb48da46c773facaca6bd33296f530b72feebae38e007cdd497da",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0012__L060__p456:sqlite3:hive": {
+"unit": "s3d-rl600:chat-lmsys-0012__L060__p456:sqlite3:hive",
+"anchor": "Hive",
+"nearest": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server"
+],
+"random": [
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"distractors": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server",
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"n_eligible": 8,
+"sha": "dc574b671990b46b602ac57ebbe22c027b656797abc0f3d45c686f0a78830607",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0012__L060__p456:sqlite:hive": {
+"unit": "s3d-rl600:chat-lmsys-0012__L060__p456:sqlite:hive",
+"anchor": "Hive",
+"nearest": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server"
+],
+"random": [
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"distractors": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server",
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"n_eligible": 8,
+"sha": "044c49dc5a455591edbdb3f7d76e70060dd57f492d70e8047027dfd24c163ad5",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0012__L060__p504:sqlite:hive": {
+"unit": "s3d-rl600:chat-lmsys-0012__L060__p504:sqlite:hive",
+"anchor": "Hive",
+"nearest": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server"
+],
+"random": [
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"distractors": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server",
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"n_eligible": 8,
+"sha": "07a9e8b0f98afc9694f9dc210439e22931e3e01ce5c4423c33e2f43e039986d6",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0012__L024__p504:sqlite:hive": {
+"unit": "s3d-sft251:chat-lmsys-0012__L024__p504:sqlite:hive",
+"anchor": "Hive",
+"nearest": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server"
+],
+"random": [
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"distractors": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server",
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"n_eligible": 8,
+"sha": "59ea05f5d5454421e781eb7b36443612f65d1c765656e6ff240a34b6a30e8b8b",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0012__L028__p504:sqlite:hive": {
+"unit": "s3d-sft251:chat-lmsys-0012__L028__p504:sqlite:hive",
+"anchor": "Hive",
+"nearest": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server"
+],
+"random": [
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"distractors": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server",
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"n_eligible": 8,
+"sha": "6c52ebb219885a66af552073f2b1b09647ac06ec5d128c6893b498b30193299e",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0012__L028__p650:postgresql:hive": {
+"unit": "s3d-sft251:chat-lmsys-0012__L028__p650:postgresql:hive",
+"anchor": "Hive",
+"nearest": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server"
+],
+"random": [
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"distractors": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server",
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"n_eligible": 8,
+"sha": "112021fad4b69d31d1ff026074034e93b052b07dac04f8ee597920a2f9487f56",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0012__L036__p504:sqlite:hive": {
+"unit": "s3d-sft251:chat-lmsys-0012__L036__p504:sqlite:hive",
+"anchor": "Hive",
+"nearest": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server"
+],
+"random": [
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"distractors": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server",
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"n_eligible": 8,
+"sha": "b0df34e4d118d84ec2f1de8aa178359248fe008b4e4e99843e9d24a1d44a0ef6",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0012__L040__p504:sqlite:hive": {
+"unit": "s3d-sft251:chat-lmsys-0012__L040__p504:sqlite:hive",
+"anchor": "Hive",
+"nearest": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server"
+],
+"random": [
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"distractors": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server",
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"n_eligible": 8,
+"sha": "68eb673b0ba9b9d9ebe0363811f0eba5de0caa0d227b4981929445943e98c3a7",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0012__L044__p504:sqlite:hive": {
+"unit": "s3d-sft251:chat-lmsys-0012__L044__p504:sqlite:hive",
+"anchor": "Hive",
+"nearest": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server"
+],
+"random": [
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"distractors": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server",
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"n_eligible": 8,
+"sha": "d01eac330aa62026e47bf9ad03752e150f126d2158dd9258a519ac8c3ce50574",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0012__L044__p504:sqllite:hive": {
+"unit": "s3d-sft251:chat-lmsys-0012__L044__p504:sqllite:hive",
+"anchor": "Hive",
+"nearest": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server"
+],
+"random": [
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"distractors": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server",
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"n_eligible": 8,
+"sha": "7aba904221886a07cd5c0606dac7b3546edf0ed432ff00a2f0a6418492c5dac8",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0012__L052__p504:sqlite:hive": {
+"unit": "s3d-sft251:chat-lmsys-0012__L052__p504:sqlite:hive",
+"anchor": "Hive",
+"nearest": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server"
+],
+"random": [
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"distractors": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server",
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"n_eligible": 8,
+"sha": "b28e4a826c7789388c33e7a82f993a8f4062c0459fb7dce7f894c032d781a0e5",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0012__L056__p456:sqlite3:hive": {
+"unit": "s3d-sft251:chat-lmsys-0012__L056__p456:sqlite3:hive",
+"anchor": "Hive",
+"nearest": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server"
+],
+"random": [
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"distractors": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server",
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"n_eligible": 8,
+"sha": "aae857721baaf915bed41f1f0b1b11ff5f9e8c64fd2c15cfe273d3628f5d0704",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0012__L056__p456:sqlite:hive": {
+"unit": "s3d-sft251:chat-lmsys-0012__L056__p456:sqlite:hive",
+"anchor": "Hive",
+"nearest": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server"
+],
+"random": [
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"distractors": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server",
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"n_eligible": 8,
+"sha": "c80773618680ca13c6860e4345b516b2466984c7faa36d7479e17d0c8fb94b53",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0012__L056__p504:sqlite:hive": {
+"unit": "s3d-sft251:chat-lmsys-0012__L056__p504:sqlite:hive",
+"anchor": "Hive",
+"nearest": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server"
+],
+"random": [
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"distractors": [
+"Oracle Database",
+"MongoDB",
+"Redis",
+"Microsoft SQL Server",
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"n_eligible": 8,
+"sha": "ded0a9b94c63594d4ecf9e5bbfe5dbc98aa358dc7e4b80eabd5f555c74f631a5",
+"generation": 0
+}
+}

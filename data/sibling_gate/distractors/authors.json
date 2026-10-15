@@ -1,0 +1,1336 @@
+{
+"mlnla-rl2-800-all11:chat-dailydialog-0030__L028__p53:tolkien:douglasadams": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0030__L028__p53:tolkien:douglasadams",
+"anchor": "Douglas Adams",
+"nearest": [
+"John Green",
+"Vivian Greene",
+"John Muir",
+"Gabriel García Márquez"
+],
+"random": [
+"Albert O. Hirschman",
+"Christine Larson",
+"Jean Twenge",
+"Maya Angelou"
+],
+"distractors": [
+"John Green",
+"Vivian Greene",
+"John Muir",
+"Gabriel García Márquez",
+"Albert O. Hirschman",
+"Christine Larson",
+"Jean Twenge",
+"Maya Angelou"
+],
+"n_eligible": 14,
+"sha": "48a607cecf3e734389d6b24bab909fbfb40c0894c370b65f1edb7fc0a1dcffac",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0030__L044__p203:shakespeare:douglasadams": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0030__L044__p203:shakespeare:douglasadams",
+"anchor": "Douglas Adams",
+"nearest": [
+"John Green",
+"Vivian Greene",
+"John Muir",
+"Gabriel García Márquez"
+],
+"random": [
+"Albert O. Hirschman",
+"Hermann Hesse",
+"Kristof",
+"Terry Savage"
+],
+"distractors": [
+"John Green",
+"Vivian Greene",
+"John Muir",
+"Gabriel García Márquez",
+"Albert O. Hirschman",
+"Hermann Hesse",
+"Kristof",
+"Terry Savage"
+],
+"n_eligible": 14,
+"sha": "14131bc6ac1b1ac8a5c14c30cf12a0f3f5b6f019660ace443eeb0fe65e97f156",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0030__L052__p24:agathachristie:douglasadams": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0030__L052__p24:agathachristie:douglasadams",
+"anchor": "Douglas Adams",
+"nearest": [
+"John Green",
+"Vivian Greene",
+"John Muir",
+"Gabriel García Márquez"
+],
+"random": [
+"Christine Larson",
+"Jean Twenge",
+"Maya Angelou",
+"Terry Savage"
+],
+"distractors": [
+"John Green",
+"Vivian Greene",
+"John Muir",
+"Gabriel García Márquez",
+"Christine Larson",
+"Jean Twenge",
+"Maya Angelou",
+"Terry Savage"
+],
+"n_eligible": 14,
+"sha": "8113a2b21c54e2c8cdfe6d753a9017b19901d2bb30d335d4087668cd660331d5",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0032__L024__p258:jamesbaldwin:viviangreen": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0032__L024__p258:jamesbaldwin:viviangreen",
+"anchor": "Vivian Greene",
+"nearest": [
+"Dr. Seuss",
+"Albert O. Hirschman",
+"Christine Larson",
+"Jean Twenge"
+],
+"random": [
+"Douglas Adams",
+"Gerald Durrell",
+"J. R. R. Tolkien",
+"Leonard Cohen"
+],
+"distractors": [
+"Dr. Seuss",
+"Albert O. Hirschman",
+"Christine Larson",
+"Jean Twenge",
+"Douglas Adams",
+"Gerald Durrell",
+"J. R. R. Tolkien",
+"Leonard Cohen"
+],
+"n_eligible": 20,
+"sha": "cfd616a3952e2999cba5a9610ab8e07577966280597b91148248b36b1a10da8b",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0065__L028__p287:jeantwenge:christinelarson": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0065__L028__p287:jeantwenge:christinelarson",
+"anchor": "Christine Larson",
+"nearest": [
+"Vivian Green",
+"Vivian Greene",
+"Gerald Durrell",
+"John Muir"
+],
+"random": [
+"Agatha Christie",
+"H...",
+"Hermann Hesse",
+"J.R.R. Tolkien"
+],
+"distractors": [
+"Vivian Green",
+"Vivian Greene",
+"Gerald Durrell",
+"John Muir",
+"Agatha Christie",
+"H...",
+"Hermann Hesse",
+"J.R.R. Tolkien"
+],
+"n_eligible": 22,
+"sha": "b530fdb7148bc96394f77c2ef28e3a70b32a58b2a0dc19399611a21ffac19dcc",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0065__L032__p186:kristofhirschman:christinelarson": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0065__L032__p186:kristofhirschman:christinelarson",
+"anchor": "Christine Larson",
+"nearest": [
+"Vivian Green",
+"Vivian Greene",
+"Gerald Durrell",
+"John Muir"
+],
+"random": [
+"Gabriel García Márquez",
+"Hermann Hesse",
+"James Baldwin",
+"Maya Angelou"
+],
+"distractors": [
+"Vivian Green",
+"Vivian Greene",
+"Gerald Durrell",
+"John Muir",
+"Gabriel García Márquez",
+"Hermann Hesse",
+"James Baldwin",
+"Maya Angelou"
+],
+"n_eligible": 22,
+"sha": "17b349924eec48d429019e2fb7655d4d3f537413200c0a8d5605539ab2a7b99b",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0065__L032__p186:terrysavagehirschman:christinelarson": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0065__L032__p186:terrysavagehirschman:christinelarson",
+"anchor": "Christine Larson",
+"nearest": [
+"Vivian Green",
+"Vivian Greene",
+"Gerald Durrell",
+"John Muir"
+],
+"random": [
+"Douglas Adams",
+"John Green",
+"Leonard Cohen",
+"Mark Twain"
+],
+"distractors": [
+"Vivian Green",
+"Vivian Greene",
+"Gerald Durrell",
+"John Muir",
+"Douglas Adams",
+"John Green",
+"Leonard Cohen",
+"Mark Twain"
+],
+"n_eligible": 22,
+"sha": "4329b324a2118be0de3590e9c34668b42446750aeda9d5bfe0d4e4f7812a65fc",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0030__L020__p137:drseuss:douglasadams": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0030__L020__p137:drseuss:douglasadams",
+"anchor": "Douglas Adams",
+"nearest": [
+"John Green",
+"Vivian Greene",
+"John Muir",
+"Gabriel García Márquez"
+],
+"random": [
+"Albert O. Hirschman",
+"Hermann Hesse",
+"Maya Angelou",
+"Terry Savage"
+],
+"distractors": [
+"John Green",
+"Vivian Greene",
+"John Muir",
+"Gabriel García Márquez",
+"Albert O. Hirschman",
+"Hermann Hesse",
+"Maya Angelou",
+"Terry Savage"
+],
+"n_eligible": 14,
+"sha": "6372d43e0d5361181e858617a8fe0e1431401e398bf890259261463b3a3a928d",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0030__L036__p137:hgwells:douglasadams": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0030__L036__p137:hgwells:douglasadams",
+"anchor": "Douglas Adams",
+"nearest": [
+"John Green",
+"Vivian Greene",
+"John Muir",
+"Gabriel García Márquez"
+],
+"random": [
+"Hermann Hesse",
+"Kristof",
+"Terry Savage",
+"Vivian Green"
+],
+"distractors": [
+"John Green",
+"Vivian Greene",
+"John Muir",
+"Gabriel García Márquez",
+"Hermann Hesse",
+"Kristof",
+"Terry Savage",
+"Vivian Green"
+],
+"n_eligible": 14,
+"sha": "8c1dd8f04046b243f506bf8380a6f46d5d726cbfd3153c448785ab57de5aa922",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0030__L044__p203:shakespeare:douglasadams": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0030__L044__p203:shakespeare:douglasadams",
+"anchor": "Douglas Adams",
+"nearest": [
+"John Green",
+"Vivian Greene",
+"John Muir",
+"Gabriel García Márquez"
+],
+"random": [
+"Christopher Lasch",
+"Hermann Hesse",
+"Maya Angelou",
+"Terry Savage"
+],
+"distractors": [
+"John Green",
+"Vivian Greene",
+"John Muir",
+"Gabriel García Márquez",
+"Christopher Lasch",
+"Hermann Hesse",
+"Maya Angelou",
+"Terry Savage"
+],
+"n_eligible": 14,
+"sha": "73d7a082916e57ee1bc55cdf78b5058bc4d70e5a5a2d0dfbd28c46eca4e7e1bc",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0030__L048__p203:shakespeare:douglasadams": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0030__L048__p203:shakespeare:douglasadams",
+"anchor": "Douglas Adams",
+"nearest": [
+"John Green",
+"Vivian Greene",
+"John Muir",
+"Gabriel García Márquez"
+],
+"random": [
+"Albert O. Hirschman",
+"Christine Larson",
+"James Baldwin",
+"Vivian Green"
+],
+"distractors": [
+"John Green",
+"Vivian Greene",
+"John Muir",
+"Gabriel García Márquez",
+"Albert O. Hirschman",
+"Christine Larson",
+"James Baldwin",
+"Vivian Green"
+],
+"n_eligible": 14,
+"sha": "69c51108d7c829998fcb2300862358e07ced389ff48609d24ff320ea13ba4257",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0032__L036__p231:hesse:viviangreen": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0032__L036__p231:hesse:viviangreen",
+"anchor": "Vivian Green",
+"nearest": [
+"Christine Larson",
+"Gerald Durrell",
+"Terry Savage",
+"Christopher Lasch"
+],
+"random": [
+"Agatha Christie",
+"J.R.R. Tolkien",
+"Kristof",
+"Leonard Cohen"
+],
+"distractors": [
+"Christine Larson",
+"Gerald Durrell",
+"Terry Savage",
+"Christopher Lasch",
+"Agatha Christie",
+"J.R.R. Tolkien",
+"Kristof",
+"Leonard Cohen"
+],
+"n_eligible": 20,
+"sha": "306848a3e58b07bbbc795d497a433470365a681c42d693b1cb09694c7885033b",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0032__L052__p68:johngreen:viviangreen": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0032__L052__p68:johngreen:viviangreen",
+"anchor": "Vivian Green",
+"nearest": [
+"Christine Larson",
+"Gerald Durrell",
+"Terry Savage",
+"Christopher Lasch"
+],
+"random": [
+"J.R.R. Tolkien",
+"Kristof",
+"Kurt Vonnegut",
+"William Shakespeare"
+],
+"distractors": [
+"Christine Larson",
+"Gerald Durrell",
+"Terry Savage",
+"Christopher Lasch",
+"J.R.R. Tolkien",
+"Kristof",
+"Kurt Vonnegut",
+"William Shakespeare"
+],
+"n_eligible": 20,
+"sha": "284749c77601ebc1e821a3483014643a6499838bece2be3f54cc270669446794",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0065__L028__p186:hirschman:christinelarson": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0065__L028__p186:hirschman:christinelarson",
+"anchor": "Christine Larson",
+"nearest": [
+"Vivian Green",
+"Vivian Greene",
+"Gerald Durrell",
+"John Muir"
+],
+"random": [
+"Leonard Cohen",
+"Mark Twain",
+"Maya Angelou",
+"William Shakespeare"
+],
+"distractors": [
+"Vivian Green",
+"Vivian Greene",
+"Gerald Durrell",
+"John Muir",
+"Leonard Cohen",
+"Mark Twain",
+"Maya Angelou",
+"William Shakespeare"
+],
+"n_eligible": 22,
+"sha": "04d1cd99fee08662f357782ec24b1cb5b65cfa6c07a8efdcfd495615c38ac775",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0065__L032__p186:hirschman:christinelarson": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0065__L032__p186:hirschman:christinelarson",
+"anchor": "Christine Larson",
+"nearest": [
+"Vivian Green",
+"Vivian Greene",
+"Gerald Durrell",
+"John Muir"
+],
+"random": [
+"H.G. Wells",
+"J.R.R. Tolkien",
+"John Green",
+"Lewis Carroll"
+],
+"distractors": [
+"Vivian Green",
+"Vivian Greene",
+"Gerald Durrell",
+"John Muir",
+"H.G. Wells",
+"J.R.R. Tolkien",
+"John Green",
+"Lewis Carroll"
+],
+"n_eligible": 22,
+"sha": "8348a88411779fbd1aa3e984d6b4a89580c65d23f3ae5a65412d30488644c052",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0065__L048__p186:hirschman:christinelarson": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0065__L048__p186:hirschman:christinelarson",
+"anchor": "Christine Larson",
+"nearest": [
+"Vivian Green",
+"Vivian Greene",
+"Gerald Durrell",
+"John Muir"
+],
+"random": [
+"Douglas Adams",
+"Dr. Seuss",
+"Hermann Hesse",
+"William Shakespeare"
+],
+"distractors": [
+"Vivian Green",
+"Vivian Greene",
+"Gerald Durrell",
+"John Muir",
+"Douglas Adams",
+"Dr. Seuss",
+"Hermann Hesse",
+"William Shakespeare"
+],
+"n_eligible": 22,
+"sha": "6c2e24a83e1a193997f294150e763e21f28ab2cd61802baec34f34dc101b0794",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0065__L042__p186:lasch:christinelarson": {
+"unit": "nla-rl-L42:chat-lmsys-0065__L042__p186:lasch:christinelarson",
+"anchor": "Christine Larson",
+"nearest": [
+"Vivian Green",
+"Vivian Greene",
+"Gerald Durrell",
+"John Muir"
+],
+"random": [
+"John Green",
+"Lewis Carroll",
+"Mark Twain",
+"Tom Stoppard"
+],
+"distractors": [
+"Vivian Green",
+"Vivian Greene",
+"Gerald Durrell",
+"John Muir",
+"John Green",
+"Lewis Carroll",
+"Mark Twain",
+"Tom Stoppard"
+],
+"n_eligible": 22,
+"sha": "f8e2c4abe20c6ae2319a40025199af6f1368d603fd5cea665aacf1b40645b75f",
+"generation": 0
+},
+"patchscopes:chat-lmsys-0004__L060__p391:gabrielgarcíamárquez:gabrielkolko": {
+"unit": "patchscopes:chat-lmsys-0004__L060__p391:gabrielgarcíamárquez:gabrielkolko",
+"anchor": "Gabriel García Márquez",
+"nearest": [
+"Hermann Hesse",
+"James Baldwin",
+"H...",
+"Tom Stoppard"
+],
+"random": [
+"J. R. R. Tolkien",
+"Lewis Carroll",
+"Terry Savage",
+"William Shakespeare"
+],
+"distractors": [
+"Hermann Hesse",
+"James Baldwin",
+"H...",
+"Tom Stoppard",
+"J. R. R. Tolkien",
+"Lewis Carroll",
+"Terry Savage",
+"William Shakespeare"
+],
+"n_eligible": 27,
+"sha": "ad4b8a7eaceea39288d50186fac391cf0114f16eb9f0ff780ac3892e16828820",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0030__L020__p203:shakespeare:douglasadams": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0030__L020__p203:shakespeare:douglasadams",
+"anchor": "Douglas Adams",
+"nearest": [
+"John Green",
+"Vivian Greene",
+"John Muir",
+"Gabriel García Márquez"
+],
+"random": [
+"Christopher Lasch",
+"Jean Twenge",
+"Maya Angelou",
+"Terry Savage"
+],
+"distractors": [
+"John Green",
+"Vivian Greene",
+"John Muir",
+"Gabriel García Márquez",
+"Christopher Lasch",
+"Jean Twenge",
+"Maya Angelou",
+"Terry Savage"
+],
+"n_eligible": 14,
+"sha": "9fd39cf44d885124bfa3362e1966ff7fb4f3dc26b7574f4278f624eb2b1ec8c8",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0030__L020__p203:shakespeare:jim": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0030__L020__p203:shakespeare:jim",
+"anchor": "Douglas Adams",
+"nearest": [
+"John Green",
+"Vivian Greene",
+"John Muir",
+"Gabriel García Márquez"
+],
+"random": [
+"Hermann Hesse",
+"James Baldwin",
+"Kristof",
+"Terry Savage"
+],
+"distractors": [
+"John Green",
+"Vivian Greene",
+"John Muir",
+"Gabriel García Márquez",
+"Hermann Hesse",
+"James Baldwin",
+"Kristof",
+"Terry Savage"
+],
+"n_eligible": 14,
+"sha": "b5c5adcdc3b049839807d8ce8f034e0337fe7c9a88d4c43f27ef9df6a10b418a",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0030__L020__p65:shakespeare:douglasadams": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0030__L020__p65:shakespeare:douglasadams",
+"anchor": "Douglas Adams",
+"nearest": [
+"John Green",
+"Vivian Greene",
+"John Muir",
+"Gabriel García Márquez"
+],
+"random": [
+"Albert O. Hirschman",
+"Christine Larson",
+"Terry Savage",
+"Vivian Green"
+],
+"distractors": [
+"John Green",
+"Vivian Greene",
+"John Muir",
+"Gabriel García Márquez",
+"Albert O. Hirschman",
+"Christine Larson",
+"Terry Savage",
+"Vivian Green"
+],
+"n_eligible": 14,
+"sha": "fe2b02b97240119b37829d7949f7b80dcb4478f4cf3cd4b2b669bb9f8597f1ac",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0030__L020__p65:williamshakespeare:douglasadams": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0030__L020__p65:williamshakespeare:douglasadams",
+"anchor": "Douglas Adams",
+"nearest": [
+"John Green",
+"Vivian Greene",
+"John Muir",
+"Gabriel García Márquez"
+],
+"random": [
+"Christopher Lasch",
+"James Baldwin",
+"Jean Twenge",
+"Kristof"
+],
+"distractors": [
+"John Green",
+"Vivian Greene",
+"John Muir",
+"Gabriel García Márquez",
+"Christopher Lasch",
+"James Baldwin",
+"Jean Twenge",
+"Kristof"
+],
+"n_eligible": 14,
+"sha": "bd51e21ab25a394b91e0b376efdccc44b77640bc2022aa1c3ea25f0960db2aa0",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0030__L024__p110:williamshakespeare:douglasadams": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0030__L024__p110:williamshakespeare:douglasadams",
+"anchor": "Douglas Adams",
+"nearest": [
+"John Green",
+"Vivian Greene",
+"John Muir",
+"Gabriel García Márquez"
+],
+"random": [
+"Albert O. Hirschman",
+"Hermann Hesse",
+"Kristof",
+"Terry Savage"
+],
+"distractors": [
+"John Green",
+"Vivian Greene",
+"John Muir",
+"Gabriel García Márquez",
+"Albert O. Hirschman",
+"Hermann Hesse",
+"Kristof",
+"Terry Savage"
+],
+"n_eligible": 14,
+"sha": "106dde40117611dffbc4b4d22ba0b7a478e23b973ebf5c328989a5cd0c4e3c6b",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0030__L024__p53:shakespeare:douglasadams": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0030__L024__p53:shakespeare:douglasadams",
+"anchor": "Douglas Adams",
+"nearest": [
+"John Green",
+"Vivian Greene",
+"John Muir",
+"Gabriel García Márquez"
+],
+"random": [
+"Christine Larson",
+"Hermann Hesse",
+"Maya Angelou",
+"Terry Savage"
+],
+"distractors": [
+"John Green",
+"Vivian Greene",
+"John Muir",
+"Gabriel García Márquez",
+"Christine Larson",
+"Hermann Hesse",
+"Maya Angelou",
+"Terry Savage"
+],
+"n_eligible": 14,
+"sha": "a674bcdd03f95655d6d1d845217af4cc53f5ee258c40863c59a493362f894302",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0030__L024__p65:shakespeare:douglasadams": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0030__L024__p65:shakespeare:douglasadams",
+"anchor": "Douglas Adams",
+"nearest": [
+"John Green",
+"Vivian Greene",
+"John Muir",
+"Gabriel García Márquez"
+],
+"random": [
+"Christine Larson",
+"Hermann Hesse",
+"Kristof",
+"Maya Angelou"
+],
+"distractors": [
+"John Green",
+"Vivian Greene",
+"John Muir",
+"Gabriel García Márquez",
+"Christine Larson",
+"Hermann Hesse",
+"Kristof",
+"Maya Angelou"
+],
+"n_eligible": 14,
+"sha": "efb9534f238815d4866505473a9769536478ce6f1c8625e2d85aa6b6467b7750",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0030__L024__p65:williamshakespeare:douglasadams": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0030__L024__p65:williamshakespeare:douglasadams",
+"anchor": "Douglas Adams",
+"nearest": [
+"John Green",
+"Vivian Greene",
+"John Muir",
+"Gabriel García Márquez"
+],
+"random": [
+"Christine Larson",
+"James Baldwin",
+"Maya Angelou",
+"Terry Savage"
+],
+"distractors": [
+"John Green",
+"Vivian Greene",
+"John Muir",
+"Gabriel García Márquez",
+"Christine Larson",
+"James Baldwin",
+"Maya Angelou",
+"Terry Savage"
+],
+"n_eligible": 14,
+"sha": "6e717f06087d4ba37168c8758db40a20bfc1962f5b6e8198ea02ca2d87a5e66f",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0030__L028__p65:shakespeare:douglasadams": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0030__L028__p65:shakespeare:douglasadams",
+"anchor": "Douglas Adams",
+"nearest": [
+"John Green",
+"Vivian Greene",
+"John Muir",
+"Gabriel García Márquez"
+],
+"random": [
+"Albert O. Hirschman",
+"Kristof",
+"Maya Angelou",
+"Vivian Green"
+],
+"distractors": [
+"John Green",
+"Vivian Greene",
+"John Muir",
+"Gabriel García Márquez",
+"Albert O. Hirschman",
+"Kristof",
+"Maya Angelou",
+"Vivian Green"
+],
+"n_eligible": 14,
+"sha": "217eeb75793691dc011fbacdd25184369fd85870ad5317555dbbf1842f519904",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0030__L032__p65:authorofhamlet:douglasadams": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0030__L032__p65:authorofhamlet:douglasadams",
+"anchor": "Douglas Adams",
+"nearest": [
+"John Green",
+"Vivian Greene",
+"John Muir",
+"Gabriel García Márquez"
+],
+"random": [
+"Hermann Hesse",
+"Jean Twenge",
+"Terry Savage",
+"Vivian Green"
+],
+"distractors": [
+"John Green",
+"Vivian Greene",
+"John Muir",
+"Gabriel García Márquez",
+"Hermann Hesse",
+"Jean Twenge",
+"Terry Savage",
+"Vivian Green"
+],
+"n_eligible": 14,
+"sha": "8a1333ae043c20144d5654b717da0ec74473f3f13636ddd0fa79dc732d81b001",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0030__L032__p65:williamshakespeare:douglasadams": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0030__L032__p65:williamshakespeare:douglasadams",
+"anchor": "Douglas Adams",
+"nearest": [
+"John Green",
+"Vivian Greene",
+"John Muir",
+"Gabriel García Márquez"
+],
+"random": [
+"Christine Larson",
+"James Baldwin",
+"Kristof",
+"Vivian Green"
+],
+"distractors": [
+"John Green",
+"Vivian Greene",
+"John Muir",
+"Gabriel García Márquez",
+"Christine Larson",
+"James Baldwin",
+"Kristof",
+"Vivian Green"
+],
+"n_eligible": 14,
+"sha": "1a83c201cccdff4c867b18f3a7dce8dfbf1ce01e2e303d294badad5856b19268",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0030__L036__p203:shakespeare:douglasadams": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0030__L036__p203:shakespeare:douglasadams",
+"anchor": "Douglas Adams",
+"nearest": [
+"John Green",
+"Vivian Greene",
+"John Muir",
+"Gabriel García Márquez"
+],
+"random": [
+"Albert O. Hirschman",
+"James Baldwin",
+"Jean Twenge",
+"Kristof"
+],
+"distractors": [
+"John Green",
+"Vivian Greene",
+"John Muir",
+"Gabriel García Márquez",
+"Albert O. Hirschman",
+"James Baldwin",
+"Jean Twenge",
+"Kristof"
+],
+"n_eligible": 14,
+"sha": "d6a53292c892a0821a15a07d17247f93ca777bb54f78c0f538d88a2d1bf8651f",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0030__L040__p110:leonardcohen:douglasadams": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0030__L040__p110:leonardcohen:douglasadams",
+"anchor": "Douglas Adams",
+"nearest": [
+"John Green",
+"Vivian Greene",
+"John Muir",
+"Gabriel García Márquez"
+],
+"random": [
+"Albert O. Hirschman",
+"Christopher Lasch",
+"Maya Angelou",
+"Terry Savage"
+],
+"distractors": [
+"John Green",
+"Vivian Greene",
+"John Muir",
+"Gabriel García Márquez",
+"Albert O. Hirschman",
+"Christopher Lasch",
+"Maya Angelou",
+"Terry Savage"
+],
+"n_eligible": 14,
+"sha": "3fb604354072ea6993f949d63f2f9a46cd915b8e01382ab2679fb8db23b72556",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0030__L060__p87:douglasadams:arthurdent": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0030__L060__p87:douglasadams:arthurdent",
+"anchor": "Douglas Adams",
+"nearest": [
+"John Green",
+"Vivian Greene",
+"John Muir",
+"Gabriel García Márquez"
+],
+"random": [
+"Albert O. Hirschman",
+"Christopher Lasch",
+"Hermann Hesse",
+"Terry Savage"
+],
+"distractors": [
+"John Green",
+"Vivian Greene",
+"John Muir",
+"Gabriel García Márquez",
+"Albert O. Hirschman",
+"Christopher Lasch",
+"Hermann Hesse",
+"Terry Savage"
+],
+"n_eligible": 14,
+"sha": "5a53d042744f0f8af981cf9b3d612380fdb1221dc82ef6788dc11d4afb50a6ac",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0032__L052__p38:mayaangelou:viviangreen": {
+"unit": "s3d-rl600-all11:chat-lmsys-0032__L052__p38:mayaangelou:viviangreen",
+"anchor": "Vivian Greene",
+"nearest": [
+"Dr. Seuss",
+"Albert O. Hirschman",
+"Christine Larson",
+"Jean Twenge"
+],
+"random": [
+"Christopher Lasch",
+"Gerald Durrell",
+"J.R.R. Tolkien",
+"Kristof"
+],
+"distractors": [
+"Dr. Seuss",
+"Albert O. Hirschman",
+"Christine Larson",
+"Jean Twenge",
+"Christopher Lasch",
+"Gerald Durrell",
+"J.R.R. Tolkien",
+"Kristof"
+],
+"n_eligible": 20,
+"sha": "11332ee78e876272de22f4021a5575c8a93f51f591936ce8536b6f1afc7a2d67",
+"generation": 0
+},
+"s3d-rl600:chat-dailydialog-0030__L020__p65:williamshakespeare:douglasadams": {
+"unit": "s3d-rl600:chat-dailydialog-0030__L020__p65:williamshakespeare:douglasadams",
+"anchor": "Douglas Adams",
+"nearest": [
+"John Green",
+"Vivian Greene",
+"John Muir",
+"Gabriel García Márquez"
+],
+"random": [
+"Christine Larson",
+"James Baldwin",
+"Kristof",
+"Vivian Green"
+],
+"distractors": [
+"John Green",
+"Vivian Greene",
+"John Muir",
+"Gabriel García Márquez",
+"Christine Larson",
+"James Baldwin",
+"Kristof",
+"Vivian Green"
+],
+"n_eligible": 14,
+"sha": "1e2273728f4b6242fe6618be92168754b016ab700877cef0a2f4fa7af2294e81",
+"generation": 0
+},
+"s3d-rl600:chat-dailydialog-0030__L048__p110:tomstoppard:douglasadams": {
+"unit": "s3d-rl600:chat-dailydialog-0030__L048__p110:tomstoppard:douglasadams",
+"anchor": "Douglas Adams",
+"nearest": [
+"John Green",
+"Vivian Greene",
+"John Muir",
+"Gabriel García Márquez"
+],
+"random": [
+"Jean Twenge",
+"Kristof",
+"Maya Angelou",
+"Terry Savage"
+],
+"distractors": [
+"John Green",
+"Vivian Greene",
+"John Muir",
+"Gabriel García Márquez",
+"Jean Twenge",
+"Kristof",
+"Maya Angelou",
+"Terry Savage"
+],
+"n_eligible": 14,
+"sha": "53a008674d53afb4d07551cff380ea1204e95e95a8f72aa7d63dd2502075ec4f",
+"generation": 0
+},
+"s3d-rl600:chat-dailydialog-0030__L060__p137:kurtvonnegut:douglasadams": {
+"unit": "s3d-rl600:chat-dailydialog-0030__L060__p137:kurtvonnegut:douglasadams",
+"anchor": "Douglas Adams",
+"nearest": [
+"John Green",
+"Vivian Greene",
+"John Muir",
+"Gabriel García Márquez"
+],
+"random": [
+"Christine Larson",
+"Hermann Hesse",
+"Terry Savage",
+"Vivian Green"
+],
+"distractors": [
+"John Green",
+"Vivian Greene",
+"John Muir",
+"Gabriel García Márquez",
+"Christine Larson",
+"Hermann Hesse",
+"Terry Savage",
+"Vivian Green"
+],
+"n_eligible": 14,
+"sha": "385ffb4cdf782d606c262f62431064e58720ba0579fe9feb1dba0bfa2b040096",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0009__L040__p127:jrrtolkien:thegodfathermafiaworks": {
+"unit": "s3d-sft251:chat-dailydialog-0009__L040__p127:jrrtolkien:thegodfathermafiaworks",
+"anchor": "J.R.R. Tolkien",
+"nearest": [
+"Agatha Christie",
+"Kurt Vonnegut",
+"John Muir",
+"Lewis Carroll"
+],
+"random": [
+"Christine Larson",
+"Gerald Durrell",
+"Jean Twenge",
+"Leonard Cohen"
+],
+"distractors": [
+"Agatha Christie",
+"Kurt Vonnegut",
+"John Muir",
+"Lewis Carroll",
+"Christine Larson",
+"Gerald Durrell",
+"Jean Twenge",
+"Leonard Cohen"
+],
+"n_eligible": 26,
+"sha": "e3b6ff3909c91fe2b7bff49463ec26eb6534d7ea830990f66c21dc33da85bd18",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0030__L020__p203:shakespeare:douglasadams": {
+"unit": "s3d-sft251:chat-dailydialog-0030__L020__p203:shakespeare:douglasadams",
+"anchor": "Douglas Adams",
+"nearest": [
+"John Green",
+"Vivian Greene",
+"John Muir",
+"Gabriel García Márquez"
+],
+"random": [
+"James Baldwin",
+"Jean Twenge",
+"Kristof",
+"Vivian Green"
+],
+"distractors": [
+"John Green",
+"Vivian Greene",
+"John Muir",
+"Gabriel García Márquez",
+"James Baldwin",
+"Jean Twenge",
+"Kristof",
+"Vivian Green"
+],
+"n_eligible": 14,
+"sha": "a9179875b54c21f35558cd551226dfab6c512ce1726dd821283063359659f800",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0030__L024__p53:lewiscarroll:douglasadams": {
+"unit": "s3d-sft251:chat-dailydialog-0030__L024__p53:lewiscarroll:douglasadams",
+"anchor": "Douglas Adams",
+"nearest": [
+"John Green",
+"Vivian Greene",
+"John Muir",
+"Gabriel García Márquez"
+],
+"random": [
+"Christopher Lasch",
+"Hermann Hesse",
+"James Baldwin",
+"Vivian Green"
+],
+"distractors": [
+"John Green",
+"Vivian Greene",
+"John Muir",
+"Gabriel García Márquez",
+"Christopher Lasch",
+"Hermann Hesse",
+"James Baldwin",
+"Vivian Green"
+],
+"n_eligible": 14,
+"sha": "24e9d15a5a366dc685be8a9c06d20cb8e46e581d5a1f8bebe52d4080531a2ac6",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0030__L024__p65:shakespeare:douglasadams": {
+"unit": "s3d-sft251:chat-dailydialog-0030__L024__p65:shakespeare:douglasadams",
+"anchor": "Douglas Adams",
+"nearest": [
+"John Green",
+"Vivian Greene",
+"John Muir",
+"Gabriel García Márquez"
+],
+"random": [
+"Christopher Lasch",
+"Hermann Hesse",
+"Jean Twenge",
+"Terry Savage"
+],
+"distractors": [
+"John Green",
+"Vivian Greene",
+"John Muir",
+"Gabriel García Márquez",
+"Christopher Lasch",
+"Hermann Hesse",
+"Jean Twenge",
+"Terry Savage"
+],
+"n_eligible": 14,
+"sha": "8149848ea6d45a94bd3519b764744168f806956b893dad21ce2a3ccccaf2a43e",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0030__L028__p137:geralddurrell:douglasadams": {
+"unit": "s3d-sft251:chat-dailydialog-0030__L028__p137:geralddurrell:douglasadams",
+"anchor": "Douglas Adams",
+"nearest": [
+"John Green",
+"Vivian Greene",
+"John Muir",
+"Gabriel García Márquez"
+],
+"random": [
+"Albert O. Hirschman",
+"Christine Larson",
+"Hermann Hesse",
+"Kristof"
+],
+"distractors": [
+"John Green",
+"Vivian Greene",
+"John Muir",
+"Gabriel García Márquez",
+"Albert O. Hirschman",
+"Christine Larson",
+"Hermann Hesse",
+"Kristof"
+],
+"n_eligible": 14,
+"sha": "7b573eb2370c1e37c13e29612d37066d2ef2afadfdbe633bd45d86f4a079e6b2",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0030__L028__p137:hauthor:douglasadams": {
+"unit": "s3d-sft251:chat-dailydialog-0030__L028__p137:hauthor:douglasadams",
+"anchor": "Douglas Adams",
+"nearest": [
+"John Green",
+"Vivian Greene",
+"John Muir",
+"Gabriel García Márquez"
+],
+"random": [
+"Hermann Hesse",
+"Kristof",
+"Maya Angelou",
+"Terry Savage"
+],
+"distractors": [
+"John Green",
+"Vivian Greene",
+"John Muir",
+"Gabriel García Márquez",
+"Hermann Hesse",
+"Kristof",
+"Maya Angelou",
+"Terry Savage"
+],
+"n_eligible": 14,
+"sha": "4e7e7546c46701bc74cb863ad4d73f36917215ad96eb9d2806ddb5b48dbc2456",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0030__L036__p203:shakespeare:douglasadams": {
+"unit": "s3d-sft251:chat-dailydialog-0030__L036__p203:shakespeare:douglasadams",
+"anchor": "Douglas Adams",
+"nearest": [
+"John Green",
+"Vivian Greene",
+"John Muir",
+"Gabriel García Márquez"
+],
+"random": [
+"Albert O. Hirschman",
+"Christopher Lasch",
+"Maya Angelou",
+"Terry Savage"
+],
+"distractors": [
+"John Green",
+"Vivian Greene",
+"John Muir",
+"Gabriel García Márquez",
+"Albert O. Hirschman",
+"Christopher Lasch",
+"Maya Angelou",
+"Terry Savage"
+],
+"n_eligible": 14,
+"sha": "2d0da8ed343c2cb756f2bf25b53fc891e42a7fdec79f5e12b1f4a21abf958a97",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0030__L044__p203:agathachristie:douglasadams": {
+"unit": "s3d-sft251:chat-dailydialog-0030__L044__p203:agathachristie:douglasadams",
+"anchor": "Douglas Adams",
+"nearest": [
+"John Green",
+"Vivian Greene",
+"John Muir",
+"Gabriel García Márquez"
+],
+"random": [
+"Albert O. Hirschman",
+"James Baldwin",
+"Kristof",
+"Terry Savage"
+],
+"distractors": [
+"John Green",
+"Vivian Greene",
+"John Muir",
+"Gabriel García Márquez",
+"Albert O. Hirschman",
+"James Baldwin",
+"Kristof",
+"Terry Savage"
+],
+"n_eligible": 14,
+"sha": "8feded0736dac3607e5d826f9f8a48096db7cb6efd36826bf7cd7fda14039a5c",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0032__L032__p112:marktwain:viviangreen": {
+"unit": "s3d-sft251:chat-lmsys-0032__L032__p112:marktwain:viviangreen",
+"anchor": "Vivian Green",
+"nearest": [
+"Christine Larson",
+"Gerald Durrell",
+"Terry Savage",
+"Christopher Lasch"
+],
+"random": [
+"Douglas Adams",
+"Gabriel García Márquez",
+"Kristof",
+"Lewis Carroll"
+],
+"distractors": [
+"Christine Larson",
+"Gerald Durrell",
+"Terry Savage",
+"Christopher Lasch",
+"Douglas Adams",
+"Gabriel García Márquez",
+"Kristof",
+"Lewis Carroll"
+],
+"n_eligible": 20,
+"sha": "7c704592f75ab53b896559a2afb5bfdd92207ce7b129158db9eab2cf84a312e9",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0032__L056__p38:johnmuir:viviangreen": {
+"unit": "s3d-sft251:chat-lmsys-0032__L056__p38:johnmuir:viviangreen",
+"anchor": "Vivian Green",
+"nearest": [
+"Christine Larson",
+"Gerald Durrell",
+"Terry Savage",
+"Christopher Lasch"
+],
+"random": [
+"Agatha Christie",
+"H.G. Wells",
+"Kurt Vonnegut",
+"Lewis Carroll"
+],
+"distractors": [
+"Christine Larson",
+"Gerald Durrell",
+"Terry Savage",
+"Christopher Lasch",
+"Agatha Christie",
+"H.G. Wells",
+"Kurt Vonnegut",
+"Lewis Carroll"
+],
+"n_eligible": 20,
+"sha": "889194c4ed21d7e70dddff2499f19f2b017d4f22583818a7be0f8a35deb250bd",
+"generation": 0
+}
+}

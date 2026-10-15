@@ -1,0 +1,118 @@
+{
+"s3d-rl600-all11:chat-lmsys-0035__L028__p152:oneyear:winter": {
+"unit": "s3d-rl600-all11:chat-lmsys-0035__L028__p152:oneyear:winter",
+"anchor": "winter",
+"nearest": [
+"season",
+"fortnight",
+"month",
+"week"
+],
+"random": [
+"day",
+"hour",
+"millennium",
+"second"
+],
+"distractors": [
+"season",
+"fortnight",
+"month",
+"week",
+"day",
+"hour",
+"millennium",
+"second"
+],
+"n_eligible": 11,
+"sha": "8a4ad24dd8f1d7d001cce6152cde69b1ff46c04e248d869c285fd305a32ec14f",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0035__L040__p152:ayear:atypicalwinter": {
+"unit": "s3d-rl600-all11:chat-lmsys-0035__L040__p152:ayear:atypicalwinter",
+"anchor": "winter",
+"nearest": [
+"season",
+"fortnight",
+"month",
+"week"
+],
+"random": [
+"day",
+"decade",
+"millennium",
+"second"
+],
+"distractors": [
+"season",
+"fortnight",
+"month",
+"week",
+"day",
+"decade",
+"millennium",
+"second"
+],
+"n_eligible": 11,
+"sha": "a428958e0c46eb1b925ac18167888e25145c92e0c1a300d73469ff5eaf737860",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0035__L040__p152:humanlifetime:atypicalwinter": {
+"unit": "s3d-rl600-all11:chat-lmsys-0035__L040__p152:humanlifetime:atypicalwinter",
+"anchor": "winter",
+"nearest": [
+"season",
+"fortnight",
+"month",
+"week"
+],
+"random": [
+"day",
+"hour",
+"millennium",
+"second"
+],
+"distractors": [
+"season",
+"fortnight",
+"month",
+"week",
+"day",
+"hour",
+"millennium",
+"second"
+],
+"n_eligible": 11,
+"sha": "c421704ce2f0732c2899050319c4ab529d69c13f071494028df074799311e770",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0035__L040__p152:humanyearlifespan:atypicalwinter": {
+"unit": "s3d-rl600-all11:chat-lmsys-0035__L040__p152:humanyearlifespan:atypicalwinter",
+"anchor": "winter",
+"nearest": [
+"season",
+"fortnight",
+"month",
+"week"
+],
+"random": [
+"century",
+"day",
+"hour",
+"millennium"
+],
+"distractors": [
+"season",
+"fortnight",
+"month",
+"week",
+"century",
+"day",
+"hour",
+"millennium"
+],
+"n_eligible": 11,
+"sha": "0dcfd327aedea20fb21ee4c7773b58ae079381a37e8b9cc9d7cf306563142b29",
+"generation": 0
+}
+}

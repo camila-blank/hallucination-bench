@@ -1,0 +1,94 @@
+{
+"mlnla-rl2-800-all11:chat-lmsys-0056__L048__p28:sumof1to100:first10fibonaccinumbers": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0056__L048__p28:sumof1to100:first10fibonaccinumbers",
+"anchor": "first 10 Fibonacci numbers",
+"nearest": [
+"factorial calculation",
+"palindrome check",
+"quicksort",
+"string reversal"
+],
+"random": [
+"binary search"
+],
+"distractors": [
+"factorial calculation",
+"palindrome check",
+"quicksort",
+"string reversal",
+"binary search"
+],
+"n_eligible": 5,
+"sha": "c9e8efa967823b1726a685479917524047ecdaaeb2cc649bb6297fa1cbec7914",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0056__L044__p95:primegenerationinpython:fibonacciinc": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0056__L044__p95:primegenerationinpython:fibonacciinc",
+"anchor": "Fibonacci sequence in C#",
+"nearest": [
+"factorial calculation",
+"palindrome check",
+"quicksort",
+"binary search"
+],
+"random": [
+"string reversal"
+],
+"distractors": [
+"factorial calculation",
+"palindrome check",
+"quicksort",
+"binary search",
+"string reversal"
+],
+"n_eligible": 5,
+"sha": "ff6ac0fd03c4d97ab815f7f1d59cfdda8ae8109294a78cdfb651415ea88182cf",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0056__L042__p123:printingprimenumbersinc:printingfibonaccinumbersinc": {
+"unit": "nla-rl-L42:chat-lmsys-0056__L042__p123:printingprimenumbersinc:printingfibonaccinumbersinc",
+"anchor": "printing Fibonacci numbers in C#",
+"nearest": [
+"factorial calculation",
+"string reversal",
+"palindrome check",
+"quicksort"
+],
+"random": [
+"binary search"
+],
+"distractors": [
+"factorial calculation",
+"string reversal",
+"palindrome check",
+"quicksort",
+"binary search"
+],
+"n_eligible": 5,
+"sha": "7916b2bac0414517c4eabec2ad3fc0d2cf332c9d5b1800522a76fe033df42b61",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0056__L020__p28:sumoftwonumbers:fibonaccinumbers": {
+"unit": "s3d-rl600-all11:chat-lmsys-0056__L020__p28:sumoftwonumbers:fibonaccinumbers",
+"anchor": "Fibonacci sequence",
+"nearest": [
+"factorial calculation",
+"quicksort",
+"palindrome check",
+"binary search"
+],
+"random": [
+"string reversal"
+],
+"distractors": [
+"factorial calculation",
+"quicksort",
+"palindrome check",
+"binary search",
+"string reversal"
+],
+"n_eligible": 5,
+"sha": "d342ba99ceacb24fa470bf2ee830d7ad4788f0cf297f61fb9e9bb4f00c6f6948",
+"generation": 0
+}
+}

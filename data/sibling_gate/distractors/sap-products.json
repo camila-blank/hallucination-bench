@@ -1,0 +1,326 @@
+{
+"mlnla-rl2-800-all11:chat-lmsys-0054__L020__p472:sapdataservices:sapbusinessobjects": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0054__L020__p472:sapdataservices:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"SAP Fiori",
+"SAP Ariba",
+"SAP SuccessFactors"
+],
+"random": [],
+"distractors": [
+"SAP Fiori",
+"SAP Ariba",
+"SAP SuccessFactors"
+],
+"n_eligible": 3,
+"sha": "1c1815468ea858e761327f2aaaf375e6b9309aec897857ac141f6ec0f852d175",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0054__L020__p70:sapbusinessone:sapbusinessobjects": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0054__L020__p70:sapbusinessone:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"SAP Fiori",
+"SAP Ariba",
+"SAP SuccessFactors"
+],
+"random": [],
+"distractors": [
+"SAP Fiori",
+"SAP Ariba",
+"SAP SuccessFactors"
+],
+"n_eligible": 3,
+"sha": "42d3477af47898e319a746bcd7240e6ae2a80bf96e2171845eaa5d22cd5f669a",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0054__L028__p70:sapbusinessone:sapbusinessobjects": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0054__L028__p70:sapbusinessone:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"SAP Fiori",
+"SAP Ariba",
+"SAP SuccessFactors"
+],
+"random": [],
+"distractors": [
+"SAP Fiori",
+"SAP Ariba",
+"SAP SuccessFactors"
+],
+"n_eligible": 3,
+"sha": "36fc910051baf51a5e1d45dc6bde6817c241354bff21eac94fbc2199d214e76e",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0054__L028__p70:sapbusinessoneerp:sapbusinessobjectsbisuite": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0054__L028__p70:sapbusinessoneerp:sapbusinessobjectsbisuite",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"SAP Fiori",
+"SAP Ariba",
+"SAP SuccessFactors"
+],
+"random": [],
+"distractors": [
+"SAP Fiori",
+"SAP Ariba",
+"SAP SuccessFactors"
+],
+"n_eligible": 3,
+"sha": "e03297fd7874910dbb7ecd4875bc5894a3651dea40465f04d96f70c0282cdc41",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0054__L036__p17:sapbasis:sapbusinessobjects": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0054__L036__p17:sapbasis:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"SAP Fiori",
+"SAP Ariba",
+"SAP SuccessFactors"
+],
+"random": [],
+"distractors": [
+"SAP Fiori",
+"SAP Ariba",
+"SAP SuccessFactors"
+],
+"n_eligible": 3,
+"sha": "bd0e4b2e35d8728cf249b2eebfed18338eeea72d41a764f3b28b22019e2369f7",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0054__L040__p472:sapbw:sapbusinessobjects": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0054__L040__p472:sapbw:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"SAP Fiori",
+"SAP Ariba",
+"SAP SuccessFactors"
+],
+"random": [],
+"distractors": [
+"SAP Fiori",
+"SAP Ariba",
+"SAP SuccessFactors"
+],
+"n_eligible": 3,
+"sha": "55dabbb0a1b23284a27d74f4a615dfe3581a58a60b981d289c8dc62c5f543c64",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0054__L044__p472:sapdataservices:businessobjectskeyfeatures": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0054__L044__p472:sapdataservices:businessobjectskeyfeatures",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"SAP Fiori",
+"SAP Ariba",
+"SAP SuccessFactors"
+],
+"random": [],
+"distractors": [
+"SAP Fiori",
+"SAP Ariba",
+"SAP SuccessFactors"
+],
+"n_eligible": 3,
+"sha": "d7b71f57259ad938a21c8e43d00e6efa03dc77a58cceda3f84d407225463b83e",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0054__L048__p472:saphanaandsapdataintelligence:sapbusinessobjects": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0054__L048__p472:saphanaandsapdataintelligence:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"SAP Fiori",
+"SAP Ariba",
+"SAP SuccessFactors"
+],
+"random": [],
+"distractors": [
+"SAP Fiori",
+"SAP Ariba",
+"SAP SuccessFactors"
+],
+"n_eligible": 3,
+"sha": "26e5446511d4769db3076c39ec8dd5d9e0066ed8dc7f355f1b23cd748fd7273f",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0054__L052__p472:sapbw:sapbusinessobjects": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0054__L052__p472:sapbw:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"SAP Fiori",
+"SAP Ariba",
+"SAP SuccessFactors"
+],
+"random": [],
+"distractors": [
+"SAP Fiori",
+"SAP Ariba",
+"SAP SuccessFactors"
+],
+"n_eligible": 3,
+"sha": "75f81013b518441bfff331ed92f5ee57f7644ebd880d5d2871fbcccc28dd88a7",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0054__L056__p472:sapbw:sapbusinessobjects": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0054__L056__p472:sapbw:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"SAP Fiori",
+"SAP Ariba",
+"SAP SuccessFactors"
+],
+"random": [],
+"distractors": [
+"SAP Fiori",
+"SAP Ariba",
+"SAP SuccessFactors"
+],
+"n_eligible": 3,
+"sha": "21a646d2d501f2d243cee343cb754531a9e8f109063be25d23c87e0253e9e7b2",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0054__L060__p472:saphana:sapbusinessobjects": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0054__L060__p472:saphana:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"SAP Fiori",
+"SAP Ariba",
+"SAP SuccessFactors"
+],
+"random": [],
+"distractors": [
+"SAP Fiori",
+"SAP Ariba",
+"SAP SuccessFactors"
+],
+"n_eligible": 3,
+"sha": "e05439308b06127438eb5f605da44115cf249f0041443e0d0ff7c4258996508e",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0054__L020__p155:sapbw:sapbusinessobjects": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0054__L020__p155:sapbw:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"SAP Fiori",
+"SAP Ariba",
+"SAP SuccessFactors"
+],
+"random": [],
+"distractors": [
+"SAP Fiori",
+"SAP Ariba",
+"SAP SuccessFactors"
+],
+"n_eligible": 3,
+"sha": "1cc3425c107351930ddfb65b009d04f5c91e22c4d35e1638d12418d9c775d74d",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0054__L020__p155:sapbwvariants:sapbusinessobjectscomponents": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0054__L020__p155:sapbwvariants:sapbusinessobjectscomponents",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"SAP Fiori",
+"SAP Ariba",
+"SAP SuccessFactors"
+],
+"random": [],
+"distractors": [
+"SAP Fiori",
+"SAP Ariba",
+"SAP SuccessFactors"
+],
+"n_eligible": 3,
+"sha": "832f18bc8e3704a85832707a6910ea8ca1ddccb2ea80a78b0fbcd1b9fc975e3c",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0054__L052__p472:sapbusinesswarehouse:sapbusinessobjects": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0054__L052__p472:sapbusinesswarehouse:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"SAP Fiori",
+"SAP Ariba",
+"SAP SuccessFactors"
+],
+"random": [],
+"distractors": [
+"SAP Fiori",
+"SAP Ariba",
+"SAP SuccessFactors"
+],
+"n_eligible": 3,
+"sha": "945dfa3bd5f63078a911ceca7f33ddb5b0726f4b955d573a3163161119698ad8",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0054__L052__p472:sapbw:sapbusinessobjects": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0054__L052__p472:sapbw:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"SAP Fiori",
+"SAP Ariba",
+"SAP SuccessFactors"
+],
+"random": [],
+"distractors": [
+"SAP Fiori",
+"SAP Ariba",
+"SAP SuccessFactors"
+],
+"n_eligible": 3,
+"sha": "7ddc465baa233af500d337ef1893e2e324ba2e9eb0853d9b5bdb8f433c08acf3",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0054__L056__p472:sapbw:sapbusinessobjects": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0054__L056__p472:sapbw:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"SAP Fiori",
+"SAP Ariba",
+"SAP SuccessFactors"
+],
+"random": [],
+"distractors": [
+"SAP Fiori",
+"SAP Ariba",
+"SAP SuccessFactors"
+],
+"n_eligible": 3,
+"sha": "dcc0d66885a5f3da2d5bab164f901ddd7015a3c8aca7605a16620ffe02e71802",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0054__L060__p472:sapbw:sapbusinessobjects": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0054__L060__p472:sapbw:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"SAP Fiori",
+"SAP Ariba",
+"SAP SuccessFactors"
+],
+"random": [],
+"distractors": [
+"SAP Fiori",
+"SAP Ariba",
+"SAP SuccessFactors"
+],
+"n_eligible": 3,
+"sha": "13fdb4acdfd54821d5bdf7d35cebf678d19cf503bb9f7730696614a88b71c2c5",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0054__L056__p221:saps4hanacloud:sapbusinessobjectsuniversedesigntool": {
+"unit": "s3d-rl600-all11:chat-lmsys-0054__L056__p221:saps4hanacloud:sapbusinessobjectsuniversedesigntool",
+"anchor": "SAP BusinessObjects Universe Design Tool",
+"nearest": [
+"SAP Fiori",
+"SAP Ariba",
+"SAP SuccessFactors"
+],
+"random": [],
+"distractors": [
+"SAP Fiori",
+"SAP Ariba",
+"SAP SuccessFactors"
+],
+"n_eligible": 3,
+"sha": "a6b2abd1964b49eb1d8039764db5fe553c45f50c65b3f720c92328b9d8021f2e",
+"generation": 0
+}
+}

@@ -1,0 +1,350 @@
+{
+"s3d-rl600-all11:chat-lmsys-0069__L020__p384:ginsengrootextract:gastrodin": {
+"unit": "s3d-rl600-all11:chat-lmsys-0069__L020__p384:ginsengrootextract:gastrodin",
+"anchor": "Gastrodia elata tuber extract",
+"nearest": [
+"Milk thistle extract",
+"Saw palmetto extract",
+"Ashwagandha extract",
+"Echinacea extract"
+],
+"random": [
+"Elderberry extract",
+"Garlic extract",
+"Green tea extract",
+"St. John's wort extract"
+],
+"distractors": [
+"Milk thistle extract",
+"Saw palmetto extract",
+"Ashwagandha extract",
+"Echinacea extract",
+"Elderberry extract",
+"Garlic extract",
+"Green tea extract",
+"St. John's wort extract"
+],
+"n_eligible": 9,
+"sha": "4b55a8c1d22613f15fc3f5ed32c3325b189689d502db25d8b9e6a3d13ef75fb7",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0069__L028__p384:ginkgoextract:gastrodin": {
+"unit": "s3d-rl600-all11:chat-lmsys-0069__L028__p384:ginkgoextract:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [
+"Gastrodia elata extract",
+"Gastrodia elata tuber extract",
+"Milk thistle extract",
+"Echinacea extract"
+],
+"random": [
+"Ashwagandha extract",
+"Elderberry extract",
+"St. John's wort extract",
+"Valerian root extract"
+],
+"distractors": [
+"Gastrodia elata extract",
+"Gastrodia elata tuber extract",
+"Milk thistle extract",
+"Echinacea extract",
+"Ashwagandha extract",
+"Elderberry extract",
+"St. John's wort extract",
+"Valerian root extract"
+],
+"n_eligible": 12,
+"sha": "0713d1912bfcdadb8929ee85ba511ef2d076b641dc531b7310d9085076ece8dc",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0069__L032__p384:ginsengextracts:gastrodin": {
+"unit": "s3d-rl600-all11:chat-lmsys-0069__L032__p384:ginsengextracts:gastrodin",
+"anchor": "Gastrodia elata extract",
+"nearest": [
+"Milk thistle extract",
+"Echinacea extract",
+"St. John's wort extract",
+"Saw palmetto extract"
+],
+"random": [
+"Ashwagandha extract",
+"Garlic extract",
+"Green tea extract",
+"Turmeric extract"
+],
+"distractors": [
+"Milk thistle extract",
+"Echinacea extract",
+"St. John's wort extract",
+"Saw palmetto extract",
+"Ashwagandha extract",
+"Garlic extract",
+"Green tea extract",
+"Turmeric extract"
+],
+"n_eligible": 10,
+"sha": "d17afd67eadbd01145de40850c2dd35d943daedd1c10d4222e9733b5ae665f1a",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0069__L036__p384:ginkgoextract:gastrodin": {
+"unit": "s3d-rl600-all11:chat-lmsys-0069__L036__p384:ginkgoextract:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [
+"Gastrodia elata extract",
+"Gastrodia elata tuber extract",
+"Milk thistle extract",
+"Echinacea extract"
+],
+"random": [
+"Ashwagandha extract",
+"Garlic extract",
+"Saw palmetto extract",
+"Turmeric extract"
+],
+"distractors": [
+"Gastrodia elata extract",
+"Gastrodia elata tuber extract",
+"Milk thistle extract",
+"Echinacea extract",
+"Ashwagandha extract",
+"Garlic extract",
+"Saw palmetto extract",
+"Turmeric extract"
+],
+"n_eligible": 12,
+"sha": "4139fb6e109a44f71941e45aa0f26687a9ab75891ad2625cdd9b644824c42ee2",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0069__L036__p384:ginsengextracts:gastrodin": {
+"unit": "s3d-rl600-all11:chat-lmsys-0069__L036__p384:ginsengextracts:gastrodin",
+"anchor": "Gastrodia elata extract",
+"nearest": [
+"Milk thistle extract",
+"Echinacea extract",
+"St. John's wort extract",
+"Saw palmetto extract"
+],
+"random": [
+"Ashwagandha extract",
+"Garlic extract",
+"Green tea extract",
+"Turmeric extract"
+],
+"distractors": [
+"Milk thistle extract",
+"Echinacea extract",
+"St. John's wort extract",
+"Saw palmetto extract",
+"Ashwagandha extract",
+"Garlic extract",
+"Green tea extract",
+"Turmeric extract"
+],
+"n_eligible": 10,
+"sha": "01c342b02af4bde16dafc8fb5734843da3d32c10a745c31662303a996fbe4eed",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0069__L044__p384:ginsengextracts:gastrodin": {
+"unit": "s3d-rl600-all11:chat-lmsys-0069__L044__p384:ginsengextracts:gastrodin",
+"anchor": "Gastrodia elata extract",
+"nearest": [
+"Milk thistle extract",
+"Echinacea extract",
+"St. John's wort extract",
+"Saw palmetto extract"
+],
+"random": [
+"Garlic extract",
+"Green tea extract",
+"Turmeric extract",
+"Valerian root extract"
+],
+"distractors": [
+"Milk thistle extract",
+"Echinacea extract",
+"St. John's wort extract",
+"Saw palmetto extract",
+"Garlic extract",
+"Green tea extract",
+"Turmeric extract",
+"Valerian root extract"
+],
+"n_eligible": 10,
+"sha": "86485ebd13e304833d4bd667a6cb752f70b9c729b45870305cce9719f8798c2d",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0069__L052__p311:ginkgoextract:gastrodin": {
+"unit": "s3d-rl600-all11:chat-lmsys-0069__L052__p311:ginkgoextract:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [
+"Gastrodia elata extract",
+"Gastrodia elata tuber extract",
+"Milk thistle extract",
+"Echinacea extract"
+],
+"random": [
+"Garlic extract",
+"Green tea extract",
+"St. John's wort extract",
+"Turmeric extract"
+],
+"distractors": [
+"Gastrodia elata extract",
+"Gastrodia elata tuber extract",
+"Milk thistle extract",
+"Echinacea extract",
+"Garlic extract",
+"Green tea extract",
+"St. John's wort extract",
+"Turmeric extract"
+],
+"n_eligible": 12,
+"sha": "3265f6c143717be6a49784fab520646286d6d95e8737d86d28ce0a0d1461eec4",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0069__L052__p384:ginkgobilobaextract:gastrodin": {
+"unit": "s3d-rl600-all11:chat-lmsys-0069__L052__p384:ginkgobilobaextract:gastrodin",
+"anchor": "Gastrodia elata extract",
+"nearest": [
+"Milk thistle extract",
+"Echinacea extract",
+"St. John's wort extract",
+"Saw palmetto extract"
+],
+"random": [
+"Elderberry extract",
+"Garlic extract",
+"Turmeric extract",
+"Valerian root extract"
+],
+"distractors": [
+"Milk thistle extract",
+"Echinacea extract",
+"St. John's wort extract",
+"Saw palmetto extract",
+"Elderberry extract",
+"Garlic extract",
+"Turmeric extract",
+"Valerian root extract"
+],
+"n_eligible": 10,
+"sha": "ece16992e915a530eaca583fb61142fcd5a64ad077b5286411bbc923d3583d09",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0069__L036__p384:ginkgobilobaextract:gastrodiaelataextract": {
+"unit": "s3d-rl600:chat-lmsys-0069__L036__p384:ginkgobilobaextract:gastrodiaelataextract",
+"anchor": "Gastrodia elata extract",
+"nearest": [
+"Milk thistle extract",
+"Echinacea extract",
+"St. John's wort extract",
+"Saw palmetto extract"
+],
+"random": [
+"Ashwagandha extract",
+"Garlic extract",
+"Turmeric extract",
+"Valerian root extract"
+],
+"distractors": [
+"Milk thistle extract",
+"Echinacea extract",
+"St. John's wort extract",
+"Saw palmetto extract",
+"Ashwagandha extract",
+"Garlic extract",
+"Turmeric extract",
+"Valerian root extract"
+],
+"n_eligible": 10,
+"sha": "01aa75cfbfc15da573898a7f7f31703288ec25ef6868b21a3e612773207bff6b",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0069__L048__p384:ginsengextracts:gastrodin": {
+"unit": "s3d-rl600:chat-lmsys-0069__L048__p384:ginsengextracts:gastrodin",
+"anchor": "Gastrodia elata extract",
+"nearest": [
+"Milk thistle extract",
+"Echinacea extract",
+"St. John's wort extract",
+"Saw palmetto extract"
+],
+"random": [
+"Ashwagandha extract",
+"Garlic extract",
+"Green tea extract",
+"Turmeric extract"
+],
+"distractors": [
+"Milk thistle extract",
+"Echinacea extract",
+"St. John's wort extract",
+"Saw palmetto extract",
+"Ashwagandha extract",
+"Garlic extract",
+"Green tea extract",
+"Turmeric extract"
+],
+"n_eligible": 10,
+"sha": "f7970e2483b06cf007de95bd6cd006612fd07aacb311a6b51963f22e9ba235f2",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0069__L032__p384:ginkgobilobaextract:gastrodin": {
+"unit": "s3d-sft251:chat-lmsys-0069__L032__p384:ginkgobilobaextract:gastrodin",
+"anchor": "Gastrodia elata extract",
+"nearest": [
+"Milk thistle extract",
+"Echinacea extract",
+"St. John's wort extract",
+"Saw palmetto extract"
+],
+"random": [
+"Elderberry extract",
+"Garlic extract",
+"Green tea extract",
+"Turmeric extract"
+],
+"distractors": [
+"Milk thistle extract",
+"Echinacea extract",
+"St. John's wort extract",
+"Saw palmetto extract",
+"Elderberry extract",
+"Garlic extract",
+"Green tea extract",
+"Turmeric extract"
+],
+"n_eligible": 10,
+"sha": "052ceaca3715b0e5617a6cb3be744b0e51834ee7cbb00d2c802230b27ce62c3e",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0069__L032__p384:ginsengextracts:gastrodin": {
+"unit": "s3d-sft251:chat-lmsys-0069__L032__p384:ginsengextracts:gastrodin",
+"anchor": "Gastrodia elata extract",
+"nearest": [
+"Milk thistle extract",
+"Echinacea extract",
+"St. John's wort extract",
+"Saw palmetto extract"
+],
+"random": [
+"Ashwagandha extract",
+"Garlic extract",
+"Green tea extract",
+"Valerian root extract"
+],
+"distractors": [
+"Milk thistle extract",
+"Echinacea extract",
+"St. John's wort extract",
+"Saw palmetto extract",
+"Ashwagandha extract",
+"Garlic extract",
+"Green tea extract",
+"Valerian root extract"
+],
+"n_eligible": 10,
+"sha": "a8336cffc32a9b1d98866eec7fa434dceb8e5643f883344d1f540d0c914f6afc",
+"generation": 0
+}
+}

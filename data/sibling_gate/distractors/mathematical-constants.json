@@ -1,0 +1,1278 @@
+{
+"mlnla-rl2-800-all11:chat-lmsys-0067__L024__p192:√2:pi": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0067__L024__p192:√2:pi",
+"anchor": "pi",
+"nearest": [
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Apéry's constant"
+],
+"random": [
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant",
+"Khinchin's constant"
+],
+"distractors": [
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Apéry's constant",
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant",
+"Khinchin's constant"
+],
+"n_eligible": 8,
+"sha": "1438af8c83810de5c92291e82feb15dc3a6ce2528ed08aa3faa13ffed3f32940",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0067__L024__p238:2718281828:31415926535": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0067__L024__p238:2718281828:31415926535",
+"anchor": "pi",
+"nearest": [
+"square root of 3",
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant"
+],
+"random": [
+"Apéry's constant",
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant"
+],
+"distractors": [
+"square root of 3",
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Apéry's constant",
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant"
+],
+"n_eligible": 9,
+"sha": "96deaa6fe4742e02635edafeeead7eeb032185121abfb61579cae50364ab2dfd",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0067__L024__p273:e:pi": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0067__L024__p273:e:pi",
+"anchor": "pi",
+"nearest": [
+"square root of 3",
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant"
+],
+"random": [
+"Apéry's constant",
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant"
+],
+"distractors": [
+"square root of 3",
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Apéry's constant",
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant"
+],
+"n_eligible": 9,
+"sha": "68b0cf9b35217ad0563dbdbf277b0e4d522ecfb165600a93aea1ac04ec19c5f1",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0067__L028__p192:thenumbere:pi": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0067__L028__p192:thenumbere:pi",
+"anchor": "pi",
+"nearest": [
+"square root of 3",
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant"
+],
+"random": [
+"Apéry's constant",
+"Catalan's constant",
+"Glaisher–Kinkelin constant",
+"Khinchin's constant"
+],
+"distractors": [
+"square root of 3",
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Apéry's constant",
+"Catalan's constant",
+"Glaisher–Kinkelin constant",
+"Khinchin's constant"
+],
+"n_eligible": 8,
+"sha": "8ad6c274020fdaf45ad00bb4172ba8968bb3da807682eaca814814fc3ba3efb8",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0067__L032__p202:14142135623730950488:314159265358979": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0067__L032__p202:14142135623730950488:314159265358979",
+"anchor": "pi",
+"nearest": [
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Apéry's constant"
+],
+"random": [
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant",
+"Khinchin's constant"
+],
+"distractors": [
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Apéry's constant",
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant",
+"Khinchin's constant"
+],
+"n_eligible": 8,
+"sha": "0857bfcb6df6acda757f747b28927e03945859068b94125b7513bb4e0fab55f9",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0067__L032__p202:√2:pi": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0067__L032__p202:√2:pi",
+"anchor": "pi",
+"nearest": [
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Apéry's constant"
+],
+"random": [
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant",
+"Khinchin's constant"
+],
+"distractors": [
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Apéry's constant",
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant",
+"Khinchin's constant"
+],
+"n_eligible": 8,
+"sha": "f91cd663e51ee56b61a93ba3406d5d36ea7f8f7b8f9394421f9cc20267ed9d80",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0067__L032__p83:141421356:31415926535": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0067__L032__p83:141421356:31415926535",
+"anchor": "pi",
+"nearest": [
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Apéry's constant"
+],
+"random": [
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant",
+"Khinchin's constant"
+],
+"distractors": [
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Apéry's constant",
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant",
+"Khinchin's constant"
+],
+"n_eligible": 8,
+"sha": "8ea1f151b4752109aa91cf25a39858dfbecfe4f5217f61641f422b2b33ce49c1",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0067__L032__p83:√2:pi": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0067__L032__p83:√2:pi",
+"anchor": "pi",
+"nearest": [
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Apéry's constant"
+],
+"random": [
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant",
+"Khinchin's constant"
+],
+"distractors": [
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Apéry's constant",
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant",
+"Khinchin's constant"
+],
+"n_eligible": 8,
+"sha": "8bc0ac2edaaf38131e4a9c328efe1fb74ce8007311de2fafdf6b86c6332e29e2",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0067__L040__p83:e:pi": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0067__L040__p83:e:pi",
+"anchor": "pi",
+"nearest": [
+"square root of 3",
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant"
+],
+"random": [
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant",
+"Khinchin's constant"
+],
+"distractors": [
+"square root of 3",
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant",
+"Khinchin's constant"
+],
+"n_eligible": 9,
+"sha": "45ad226667ca3cfc7338f7fb2760cd9cb1228d43b1f47c492a657bcfa4a2517c",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0067__L048__p202:√2:pi": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0067__L048__p202:√2:pi",
+"anchor": "pi",
+"nearest": [
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Apéry's constant"
+],
+"random": [
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant",
+"Khinchin's constant"
+],
+"distractors": [
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Apéry's constant",
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant",
+"Khinchin's constant"
+],
+"n_eligible": 8,
+"sha": "8eae17a84472d140f4e19fb645f1afe91b6d6b19d2077f24771b9c00ce84a864",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0067__L052__p327:√2:pi": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0067__L052__p327:√2:pi",
+"anchor": "pi",
+"nearest": [
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Apéry's constant"
+],
+"random": [
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant",
+"Khinchin's constant"
+],
+"distractors": [
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Apéry's constant",
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant",
+"Khinchin's constant"
+],
+"n_eligible": 8,
+"sha": "e2324b692a57076968c8dd07d33b50b590f7f4309b3719802cdeb3e24c09cb4c",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0067__L056__p202:sqrt2digits41421356:pidigits14159265": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0067__L056__p202:sqrt2digits41421356:pidigits14159265",
+"anchor": "pi",
+"nearest": [
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Apéry's constant"
+],
+"random": [
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant",
+"Khinchin's constant"
+],
+"distractors": [
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Apéry's constant",
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant",
+"Khinchin's constant"
+],
+"n_eligible": 8,
+"sha": "f10b2f2bb864d7db7469aba061cf11a3efbe45d1b3803eda1ad90ae57c511949",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0067__L056__p202:squarerootof2:pi": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0067__L056__p202:squarerootof2:pi",
+"anchor": "pi",
+"nearest": [
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Apéry's constant"
+],
+"random": [
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant",
+"Khinchin's constant"
+],
+"distractors": [
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Apéry's constant",
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant",
+"Khinchin's constant"
+],
+"n_eligible": 8,
+"sha": "7d87dd0a63df85976e4d126f53adb1472809d35db280ee9a8a6ecef07cd75cfa",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0067__L060__p202:squarerootof2:pi": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0067__L060__p202:squarerootof2:pi",
+"anchor": "pi",
+"nearest": [
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Apéry's constant"
+],
+"random": [
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant",
+"Khinchin's constant"
+],
+"distractors": [
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Apéry's constant",
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant",
+"Khinchin's constant"
+],
+"n_eligible": 8,
+"sha": "e81e424d8f083e8ebac9f90546ef6d4c6e2a0fc866eb3ce4c885d03b266b3ab2",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0067__L024__p192:√2:pi": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0067__L024__p192:√2:pi",
+"anchor": "pi",
+"nearest": [
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Apéry's constant"
+],
+"random": [
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant",
+"Khinchin's constant"
+],
+"distractors": [
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Apéry's constant",
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant",
+"Khinchin's constant"
+],
+"n_eligible": 8,
+"sha": "eb9a0e22c7f99b2c59e832b4db4220b82f3b1242498bf6ad60fe54e46479b53e",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0067__L028__p202:e:pi": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0067__L028__p202:e:pi",
+"anchor": "pi",
+"nearest": [
+"square root of 3",
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant"
+],
+"random": [
+"Apéry's constant",
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Khinchin's constant"
+],
+"distractors": [
+"square root of 3",
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Apéry's constant",
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Khinchin's constant"
+],
+"n_eligible": 9,
+"sha": "caf2562ccb44a5c89f971f3632913abc4a9e19388faff48ba952d1c23ade046c",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0067__L040__p202:√2:π": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0067__L040__p202:√2:π",
+"anchor": "pi",
+"nearest": [
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Apéry's constant"
+],
+"random": [
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant",
+"Khinchin's constant"
+],
+"distractors": [
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Apéry's constant",
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant",
+"Khinchin's constant"
+],
+"n_eligible": 8,
+"sha": "b6d2bed770f57e5c192fddeae9839c19a48d4ea98ec809ae11e673171b7317e8",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0067__L044__p327:πe:π": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0067__L044__p327:πe:π",
+"anchor": "π",
+"nearest": [
+"pi",
+"square root of 3",
+"imaginary unit",
+"Gelfond's constant"
+],
+"random": [
+"Apéry's constant",
+"Euler–Mascheroni constant",
+"Feigenbaum constant",
+"Glaisher–Kinkelin constant"
+],
+"distractors": [
+"pi",
+"square root of 3",
+"imaginary unit",
+"Gelfond's constant",
+"Apéry's constant",
+"Euler–Mascheroni constant",
+"Feigenbaum constant",
+"Glaisher–Kinkelin constant"
+],
+"n_eligible": 10,
+"sha": "adb7c1a41a778b802b23f1812bec5bfbb72b813934c783e5fc5ba6795d3b7fc7",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0067__L052__p192:√2:pi": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0067__L052__p192:√2:pi",
+"anchor": "pi",
+"nearest": [
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Apéry's constant"
+],
+"random": [
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant",
+"Khinchin's constant"
+],
+"distractors": [
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Apéry's constant",
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant",
+"Khinchin's constant"
+],
+"n_eligible": 8,
+"sha": "aa9e72efb1921cb454ed86088aac4e8c1575f3f749ce3ca1ecee8cbfa6756116",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0067__L056__p202:squarerootof2:pi": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0067__L056__p202:squarerootof2:pi",
+"anchor": "pi",
+"nearest": [
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Apéry's constant"
+],
+"random": [
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant",
+"Khinchin's constant"
+],
+"distractors": [
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Apéry's constant",
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant",
+"Khinchin's constant"
+],
+"n_eligible": 8,
+"sha": "cf0d5027aee96566c11bec7ba3ff52e33171df509714a7d6f642c529dbf1fedf",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0067__L056__p202:√2:pi": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0067__L056__p202:√2:pi",
+"anchor": "pi",
+"nearest": [
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Apéry's constant"
+],
+"random": [
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant",
+"Khinchin's constant"
+],
+"distractors": [
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Apéry's constant",
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant",
+"Khinchin's constant"
+],
+"n_eligible": 8,
+"sha": "c658948d9c226d82f2191e41a36827c092a979563f9cb1350759c5f66309bff3",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0067__L056__p327:√2:pi": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0067__L056__p327:√2:pi",
+"anchor": "pi",
+"nearest": [
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Apéry's constant"
+],
+"random": [
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant",
+"Khinchin's constant"
+],
+"distractors": [
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Apéry's constant",
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant",
+"Khinchin's constant"
+],
+"n_eligible": 8,
+"sha": "eaee1e0a175218d4ced9167f5f80979ab3296a63bf2f5bef5aa8cfcc59096a82",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0067__L060__p202:squarerootof2:pi": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0067__L060__p202:squarerootof2:pi",
+"anchor": "pi",
+"nearest": [
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Apéry's constant"
+],
+"random": [
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant",
+"Khinchin's constant"
+],
+"distractors": [
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Apéry's constant",
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant",
+"Khinchin's constant"
+],
+"n_eligible": 8,
+"sha": "756be56101e711e5165fb50ab260fa9b581a9d8b9a7dcf9fce380d0b2b7f7719",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0067__L060__p202:√2:pi": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0067__L060__p202:√2:pi",
+"anchor": "pi",
+"nearest": [
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Apéry's constant"
+],
+"random": [
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant",
+"Khinchin's constant"
+],
+"distractors": [
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Apéry's constant",
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant",
+"Khinchin's constant"
+],
+"n_eligible": 8,
+"sha": "69e4f131a702f60d34e8584fc7602ee8f19990dd654637ecfb10afb14158f7ae",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0067__L042__p202:squarerootof2:pi": {
+"unit": "nla-rl-L42:chat-lmsys-0067__L042__p202:squarerootof2:pi",
+"anchor": "pi",
+"nearest": [
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Apéry's constant"
+],
+"random": [
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant",
+"Khinchin's constant"
+],
+"distractors": [
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Apéry's constant",
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant",
+"Khinchin's constant"
+],
+"n_eligible": 8,
+"sha": "137650469b8c9f419da03b07b1b803037b545c26331d42dc6562d6827221d3ab",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0067__L042__p238:414√2digits:14159pidigits": {
+"unit": "nla-rl-L42:chat-lmsys-0067__L042__p238:414√2digits:14159pidigits",
+"anchor": "pi",
+"nearest": [
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Apéry's constant"
+],
+"random": [
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant",
+"Khinchin's constant"
+],
+"distractors": [
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Apéry's constant",
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant",
+"Khinchin's constant"
+],
+"n_eligible": 8,
+"sha": "095afd3bec85081e58a7e11fb03bfff7d732fb4b5b3e64d7e75b69765dda9e2d",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0067__L042__p238:√2:pi": {
+"unit": "nla-rl-L42:chat-lmsys-0067__L042__p238:√2:pi",
+"anchor": "pi",
+"nearest": [
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Apéry's constant"
+],
+"random": [
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant",
+"Khinchin's constant"
+],
+"distractors": [
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Apéry's constant",
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant",
+"Khinchin's constant"
+],
+"n_eligible": 8,
+"sha": "fcd6044c34a6f264c5290533e74d59a5f59bc5ef86234c7dc93061dbd76cc90b",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0067__L042__p273:e:pi": {
+"unit": "nla-rl-L42:chat-lmsys-0067__L042__p273:e:pi",
+"anchor": "pi",
+"nearest": [
+"square root of 3",
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant"
+],
+"random": [
+"Apéry's constant",
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Khinchin's constant"
+],
+"distractors": [
+"square root of 3",
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Apéry's constant",
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Khinchin's constant"
+],
+"n_eligible": 9,
+"sha": "d4128fea18ba9d4681f5f5b47be220d20b9b7c4c0bd006b44c66f8389d2678f1",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0067__L036__p83:14142135:31415926": {
+"unit": "s3d-rl600-all11:chat-lmsys-0067__L036__p83:14142135:31415926",
+"anchor": "pi",
+"nearest": [
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Apéry's constant"
+],
+"random": [
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant",
+"Khinchin's constant"
+],
+"distractors": [
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Apéry's constant",
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant",
+"Khinchin's constant"
+],
+"n_eligible": 8,
+"sha": "3ef71e90f55241c6be5fb514356e816b3353c4b6397cc98820623d4d8fb5d994",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0067__L036__p83:squarerootof2:pi": {
+"unit": "s3d-rl600-all11:chat-lmsys-0067__L036__p83:squarerootof2:pi",
+"anchor": "pi",
+"nearest": [
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Apéry's constant"
+],
+"random": [
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant",
+"Khinchin's constant"
+],
+"distractors": [
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Apéry's constant",
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant",
+"Khinchin's constant"
+],
+"n_eligible": 8,
+"sha": "87062eaf369cbcfab61fce4d64d43a7faf1de9196332289a2fbbe0cc53ef9bea",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0067__L052__p202:sqrt2digits1414213562373095:pidigits14159265358979323846": {
+"unit": "s3d-rl600-all11:chat-lmsys-0067__L052__p202:sqrt2digits1414213562373095:pidigits14159265358979323846",
+"anchor": "pi",
+"nearest": [
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Apéry's constant"
+],
+"random": [
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant",
+"Khinchin's constant"
+],
+"distractors": [
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Apéry's constant",
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant",
+"Khinchin's constant"
+],
+"n_eligible": 8,
+"sha": "acc92a5ea7f784f2180c9080064d02cc4e5fc55544cf2fddc981fc2b851dfc4a",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0067__L060__p39:e:pi": {
+"unit": "s3d-rl600-all11:chat-lmsys-0067__L060__p39:e:pi",
+"anchor": "pi",
+"nearest": [
+"square root of 3",
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant"
+],
+"random": [
+"Apéry's constant",
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Khinchin's constant"
+],
+"distractors": [
+"square root of 3",
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Apéry's constant",
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Khinchin's constant"
+],
+"n_eligible": 9,
+"sha": "d444b8e8c7be0990223ffe1cbf55f0056f13a34abe115e4fbe8883b88b02a40c",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0067__L036__p83:sqrt2:pi": {
+"unit": "s3d-rl600:chat-lmsys-0067__L036__p83:sqrt2:pi",
+"anchor": "pi",
+"nearest": [
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Apéry's constant"
+],
+"random": [
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant",
+"Khinchin's constant"
+],
+"distractors": [
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Apéry's constant",
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant",
+"Khinchin's constant"
+],
+"n_eligible": 8,
+"sha": "7e29ed2f7032b19d8b207dfa35997d0d70beaabb9804c3ee10045e7abf639478",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0067__L036__p83:sqrt2digits1414213562373095:pidigits314159": {
+"unit": "s3d-rl600:chat-lmsys-0067__L036__p83:sqrt2digits1414213562373095:pidigits314159",
+"anchor": "pi",
+"nearest": [
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Apéry's constant"
+],
+"random": [
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant",
+"Khinchin's constant"
+],
+"distractors": [
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Apéry's constant",
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant",
+"Khinchin's constant"
+],
+"n_eligible": 8,
+"sha": "57a4a6763628a84f42de38831fcb1169cbaaa450326c8451f4a0d5ca05e47c2a",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0067__L044__p39:sqrt2141421356237309:pi314159": {
+"unit": "s3d-rl600:chat-lmsys-0067__L044__p39:sqrt2141421356237309:pi314159",
+"anchor": "pi",
+"nearest": [
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Apéry's constant"
+],
+"random": [
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant",
+"Khinchin's constant"
+],
+"distractors": [
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Apéry's constant",
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant",
+"Khinchin's constant"
+],
+"n_eligible": 8,
+"sha": "e5533ed7114f951e10755a30a44e3bafe4b9c8c3790f5ba6ac607eb8ec080bb9",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0067__L048__p83:sqrt2:pi": {
+"unit": "s3d-rl600:chat-lmsys-0067__L048__p83:sqrt2:pi",
+"anchor": "pi",
+"nearest": [
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Apéry's constant"
+],
+"random": [
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant",
+"Khinchin's constant"
+],
+"distractors": [
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Apéry's constant",
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant",
+"Khinchin's constant"
+],
+"n_eligible": 8,
+"sha": "3ee67515b64a87521ccf48ee3388364ae2234baf0ed906dbaa3b115e9e65e7cd",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0067__L020__p39:e:pi": {
+"unit": "s3d-sft251:chat-lmsys-0067__L020__p39:e:pi",
+"anchor": "pi",
+"nearest": [
+"square root of 3",
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant"
+],
+"random": [
+"Apéry's constant",
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant"
+],
+"distractors": [
+"square root of 3",
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Apéry's constant",
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant"
+],
+"n_eligible": 9,
+"sha": "3aa35b94c6ba5ae4b35383a86b3e1a42794d7774920f6b8a996cc7462649f877",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0067__L024__p83:e2718281828459:pi314159": {
+"unit": "s3d-sft251:chat-lmsys-0067__L024__p83:e2718281828459:pi314159",
+"anchor": "pi",
+"nearest": [
+"square root of 3",
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant"
+],
+"random": [
+"Apéry's constant",
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant"
+],
+"distractors": [
+"square root of 3",
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Apéry's constant",
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant"
+],
+"n_eligible": 9,
+"sha": "32b0bcc91443baeb672173f95b29f5d0c87eedfce6c7471e4649d5bbe4e5945a",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0067__L024__p83:e:pi": {
+"unit": "s3d-sft251:chat-lmsys-0067__L024__p83:e:pi",
+"anchor": "pi",
+"nearest": [
+"square root of 3",
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant"
+],
+"random": [
+"Apéry's constant",
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant"
+],
+"distractors": [
+"square root of 3",
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Apéry's constant",
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant"
+],
+"n_eligible": 9,
+"sha": "015d1d909889497cb540ecc1d82256337beb1ec3a7040f22f06683d37bb9ad72",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0067__L028__p39:e:π": {
+"unit": "s3d-sft251:chat-lmsys-0067__L028__p39:e:π",
+"anchor": "pi",
+"nearest": [
+"square root of 3",
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant"
+],
+"random": [
+"Apéry's constant",
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Khinchin's constant"
+],
+"distractors": [
+"square root of 3",
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Apéry's constant",
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Khinchin's constant"
+],
+"n_eligible": 9,
+"sha": "7e1e1f616d0a5e0e4ffca109b9813738bd3ead48a16bdf06e59bba56b89cf825",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0067__L036__p192:sqrt2digits1414213562:pidigits14159265358979323846": {
+"unit": "s3d-sft251:chat-lmsys-0067__L036__p192:sqrt2digits1414213562:pidigits14159265358979323846",
+"anchor": "pi",
+"nearest": [
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Apéry's constant"
+],
+"random": [
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant",
+"Khinchin's constant"
+],
+"distractors": [
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Apéry's constant",
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant",
+"Khinchin's constant"
+],
+"n_eligible": 8,
+"sha": "dc1bd4385ffbe6eafe181811d8f926af941bdc424019b2f01e767edccbfaae48",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0067__L040__p83:√2digits141421356:πdigits314159": {
+"unit": "s3d-sft251:chat-lmsys-0067__L040__p83:√2digits141421356:πdigits314159",
+"anchor": "pi",
+"nearest": [
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Apéry's constant"
+],
+"random": [
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant",
+"Khinchin's constant"
+],
+"distractors": [
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Apéry's constant",
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant",
+"Khinchin's constant"
+],
+"n_eligible": 8,
+"sha": "8fa12c4078cedaaa5142e80a7a0df73f4625d26caf8cdda6c7eb952b48aa0b62",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0067__L048__p39:e:pi": {
+"unit": "s3d-sft251:chat-lmsys-0067__L048__p39:e:pi",
+"anchor": "pi",
+"nearest": [
+"square root of 3",
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant"
+],
+"random": [
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant",
+"Khinchin's constant"
+],
+"distractors": [
+"square root of 3",
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant",
+"Khinchin's constant"
+],
+"n_eligible": 9,
+"sha": "cc56646ab4308fc6b341210fdbf0eec158153e97de5368648f8d18dbfc969b94",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0067__L056__p83:sqrt2:pi": {
+"unit": "s3d-sft251:chat-lmsys-0067__L056__p83:sqrt2:pi",
+"anchor": "pi",
+"nearest": [
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Apéry's constant"
+],
+"random": [
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant",
+"Khinchin's constant"
+],
+"distractors": [
+"imaginary unit",
+"Gelfond's constant",
+"Feigenbaum constant",
+"Apéry's constant",
+"Catalan's constant",
+"Euler–Mascheroni constant",
+"Glaisher–Kinkelin constant",
+"Khinchin's constant"
+],
+"n_eligible": 8,
+"sha": "289080ce0f8c8d456afa10fac87054b4ab9b68d66ce8679305fec71d2354a0d4",
+"generation": 0
+}
+}

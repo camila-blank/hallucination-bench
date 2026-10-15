@@ -1,0 +1,176 @@
+{
+"mlnla-rl2-800-all11:chat-lmsys-0054__L040__p298:contentengine:webintelligence": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0054__L040__p298:contentengine:webintelligence",
+"anchor": "SAP BusinessObjects Web Intelligence",
+"nearest": [
+"SAP BusinessObjects Information Design Tool",
+"SAP BusinessObjects Central Management Console",
+"SAP BusinessObjects Dashboard Design",
+"SAP BusinessObjects Universe Designer"
+],
+"random": [
+"SAP BusinessObjects BI Launch Pad",
+"SAP BusinessObjects Explorer",
+"SAP BusinessObjects InfoView",
+"SAP Lumira"
+],
+"distractors": [
+"SAP BusinessObjects Information Design Tool",
+"SAP BusinessObjects Central Management Console",
+"SAP BusinessObjects Dashboard Design",
+"SAP BusinessObjects Universe Designer",
+"SAP BusinessObjects BI Launch Pad",
+"SAP BusinessObjects Explorer",
+"SAP BusinessObjects InfoView",
+"SAP Lumira"
+],
+"n_eligible": 8,
+"sha": "447f242fa309fd5d8054ade843c67585faf7ed4671751657605930f0bf428759",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0054__L056__p298:webcentercontentucm:sapbusinessobjectswebintelligencewebi": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0054__L056__p298:webcentercontentucm:sapbusinessobjectswebintelligencewebi",
+"anchor": "SAP BusinessObjects Web Intelligence",
+"nearest": [
+"SAP BusinessObjects Information Design Tool",
+"SAP BusinessObjects Central Management Console",
+"SAP BusinessObjects Dashboard Design",
+"SAP BusinessObjects Universe Designer"
+],
+"random": [
+"SAP BusinessObjects BI Launch Pad",
+"SAP BusinessObjects Explorer",
+"SAP BusinessObjects InfoView",
+"SAP Lumira"
+],
+"distractors": [
+"SAP BusinessObjects Information Design Tool",
+"SAP BusinessObjects Central Management Console",
+"SAP BusinessObjects Dashboard Design",
+"SAP BusinessObjects Universe Designer",
+"SAP BusinessObjects BI Launch Pad",
+"SAP BusinessObjects Explorer",
+"SAP BusinessObjects InfoView",
+"SAP Lumira"
+],
+"n_eligible": 8,
+"sha": "6d81914bb248afba27741e3ed55d7277c7fe3ca22bea0ccc7529af8bea82683b",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0054__L052__p298:infocenter:infoview": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0054__L052__p298:infocenter:infoview",
+"anchor": "SAP BusinessObjects InfoView",
+"nearest": [
+"SAP BusinessObjects BI Launch Pad",
+"SAP BusinessObjects Central Management Console",
+"SAP Lumira",
+"SAP BusinessObjects Business Intelligence Platform"
+],
+"random": [
+"SAP BusinessObjects Dashboard Design",
+"SAP BusinessObjects Explorer",
+"SAP BusinessObjects Universe Designer",
+"SAP BusinessObjects Web Intelligence"
+],
+"distractors": [
+"SAP BusinessObjects BI Launch Pad",
+"SAP BusinessObjects Central Management Console",
+"SAP Lumira",
+"SAP BusinessObjects Business Intelligence Platform",
+"SAP BusinessObjects Dashboard Design",
+"SAP BusinessObjects Explorer",
+"SAP BusinessObjects Universe Designer",
+"SAP BusinessObjects Web Intelligence"
+],
+"n_eligible": 9,
+"sha": "f08af41e85fab7ad2a71ec382a75b09a6b6d5141a447157aca3e3d6262833988",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0054__L042__p358:analysisedition:infoview": {
+"unit": "nla-rl-L42:chat-lmsys-0054__L042__p358:analysisedition:infoview",
+"anchor": "SAP BusinessObjects Web Intelligence",
+"nearest": [
+"SAP BusinessObjects Information Design Tool",
+"SAP BusinessObjects Central Management Console",
+"SAP BusinessObjects Dashboard Design",
+"SAP BusinessObjects Universe Designer"
+],
+"random": [
+"SAP BusinessObjects BI Launch Pad",
+"SAP BusinessObjects Explorer",
+"SAP BusinessObjects InfoView",
+"SAP Lumira"
+],
+"distractors": [
+"SAP BusinessObjects Information Design Tool",
+"SAP BusinessObjects Central Management Console",
+"SAP BusinessObjects Dashboard Design",
+"SAP BusinessObjects Universe Designer",
+"SAP BusinessObjects BI Launch Pad",
+"SAP BusinessObjects Explorer",
+"SAP BusinessObjects InfoView",
+"SAP Lumira"
+],
+"n_eligible": 8,
+"sha": "3d9dac4596f6e122d2a90a1c85a4ef63abbeaa3d095ad3ec2b2626e7811324d7",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0054__L036__p298:reportbuilder:dashboarddesign": {
+"unit": "s3d-rl600:chat-lmsys-0054__L036__p298:reportbuilder:dashboarddesign",
+"anchor": "SAP BusinessObjects Dashboard Design",
+"nearest": [
+"SAP Lumira",
+"SAP BusinessObjects Explorer",
+"SAP BusinessObjects Web Intelligence",
+"SAP BusinessObjects Business Intelligence Platform"
+],
+"random": [
+"SAP BusinessObjects BI Launch Pad",
+"SAP BusinessObjects Central Management Console",
+"SAP BusinessObjects InfoView",
+"SAP BusinessObjects Universe Designer"
+],
+"distractors": [
+"SAP Lumira",
+"SAP BusinessObjects Explorer",
+"SAP BusinessObjects Web Intelligence",
+"SAP BusinessObjects Business Intelligence Platform",
+"SAP BusinessObjects BI Launch Pad",
+"SAP BusinessObjects Central Management Console",
+"SAP BusinessObjects InfoView",
+"SAP BusinessObjects Universe Designer"
+],
+"n_eligible": 8,
+"sha": "08d79da9ad81613e8116af2dac89926edca0f60211a68268f66b28d17ac60af7",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0054__L060__p155:crystalreportsforsap:sapbusinessobjectswebintelligencewebi": {
+"unit": "s3d-rl600:chat-lmsys-0054__L060__p155:crystalreportsforsap:sapbusinessobjectswebintelligencewebi",
+"anchor": "SAP BusinessObjects Web Intelligence",
+"nearest": [
+"SAP BusinessObjects Information Design Tool",
+"SAP BusinessObjects Central Management Console",
+"SAP BusinessObjects Dashboard Design",
+"SAP BusinessObjects Universe Designer"
+],
+"random": [
+"SAP BusinessObjects BI Launch Pad",
+"SAP BusinessObjects Explorer",
+"SAP BusinessObjects InfoView",
+"SAP Lumira"
+],
+"distractors": [
+"SAP BusinessObjects Information Design Tool",
+"SAP BusinessObjects Central Management Console",
+"SAP BusinessObjects Dashboard Design",
+"SAP BusinessObjects Universe Designer",
+"SAP BusinessObjects BI Launch Pad",
+"SAP BusinessObjects Explorer",
+"SAP BusinessObjects InfoView",
+"SAP Lumira"
+],
+"n_eligible": 8,
+"sha": "42405add61f283af991f65d1b9db2d7e0956ce555e070404aa93636585ee8c59",
+"generation": 0
+}
+}

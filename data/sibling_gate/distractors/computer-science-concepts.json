@@ -1,0 +1,118 @@
+{
+"mlnla-rl2-800-all11:chat-lmsys-0024__L060__p451:hashing:singularity": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0024__L060__p451:hashing:singularity",
+"anchor": "technological singularity",
+"nearest": [
+"Turing machine",
+"algorithm",
+"Big O notation",
+"abstraction"
+],
+"random": [
+"binary search",
+"inheritance",
+"polymorphism",
+"recursion"
+],
+"distractors": [
+"Turing machine",
+"algorithm",
+"Big O notation",
+"abstraction",
+"binary search",
+"inheritance",
+"polymorphism",
+"recursion"
+],
+"n_eligible": 11,
+"sha": "a5b719fe35fbadaaa7d8ca15c04377edb3b2fc9bab0323653259583c9acd5d3f",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0024__L032__p26:timetravel:singularity": {
+"unit": "s3d-rl600-all11:chat-lmsys-0024__L032__p26:timetravel:singularity",
+"anchor": "Technological Singularity",
+"nearest": [
+"Turing machine",
+"algorithm",
+"Big O notation",
+"abstraction"
+],
+"random": [
+"binary search",
+"linked list",
+"polymorphism",
+"recursion"
+],
+"distractors": [
+"Turing machine",
+"algorithm",
+"Big O notation",
+"abstraction",
+"binary search",
+"linked list",
+"polymorphism",
+"recursion"
+],
+"n_eligible": 11,
+"sha": "51fd3f64babf9ae40aa9b59cec0d0a02e56cef4dc339744f2a3dcfebeb47f370",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0024__L060__p26:computationalcomplexity:singularity": {
+"unit": "s3d-rl600-all11:chat-lmsys-0024__L060__p26:computationalcomplexity:singularity",
+"anchor": "technological singularity",
+"nearest": [
+"Turing machine",
+"algorithm",
+"Big O notation",
+"abstraction"
+],
+"random": [
+"binary search",
+"inheritance",
+"linked list",
+"polymorphism"
+],
+"distractors": [
+"Turing machine",
+"algorithm",
+"Big O notation",
+"abstraction",
+"binary search",
+"inheritance",
+"linked list",
+"polymorphism"
+],
+"n_eligible": 11,
+"sha": "3c930104f6f603be9005acd4b31ba2ee4681646c25d1ab8ce5e7f43b4bf695dd",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0024__L060__p26:infiniterecursion:singularity": {
+"unit": "s3d-rl600:chat-lmsys-0024__L060__p26:infiniterecursion:singularity",
+"anchor": "technological singularity",
+"nearest": [
+"Turing machine",
+"algorithm",
+"Big O notation",
+"abstraction"
+],
+"random": [
+"binary search",
+"inheritance",
+"linked list",
+"polymorphism"
+],
+"distractors": [
+"Turing machine",
+"algorithm",
+"Big O notation",
+"abstraction",
+"binary search",
+"inheritance",
+"linked list",
+"polymorphism"
+],
+"n_eligible": 10,
+"sha": "3b2f3ebaa31b70f9a906087fd293b1054ad684afc5566a38dd907e2389b30c3e",
+"generation": 0
+}
+}

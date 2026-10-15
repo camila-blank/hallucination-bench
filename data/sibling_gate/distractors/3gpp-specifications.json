@@ -1,0 +1,334 @@
+{
+"mlnla-rl2-800-all11:chat-lmsys-0014__L020__p353:ts25321umtsmac:ts36322lterlc": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0014__L020__p353:ts25321umtsmac:ts36322lterlc",
+"anchor": "3GPP TS 36.322",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "1550bfe8686920d8d647685507f521f69bd0847d6bdbf6260c09d46be910acd2",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0014__L020__p353:ts25331rrcumts:ts36322rlclte": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0014__L020__p353:ts25331rrcumts:ts36322rlclte",
+"anchor": "3GPP TS 36.322",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "dfb8d8df41467ba65b5c95799728d90b94a146552f7f0153281f39e9032f1e92",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0014__L024__p353:3gppts25331:3gppts36322": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0014__L024__p353:3gppts25331:3gppts36322",
+"anchor": "3GPP TS 36.322",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "a9a049c9432599ebde642f7099642ca0f3a84abbbf4ef7aa89574b63085d86cd",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0014__L024__p353:rrcprotocolforumts:rlcsublayeroflte": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0014__L024__p353:rrcprotocolforumts:rlcsublayeroflte",
+"anchor": "3GPP TS 36.322",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "94d8e2ef8a0c56236cefa58882a0198f05bd4d88da592934b96c159b80fe8c37",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0014__L032__p353:3gppts25331:3gppts36322": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0014__L032__p353:3gppts25331:3gppts36322",
+"anchor": "3GPP TS 36.322",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "abf5f531861552aa138ceb886cf06e5e70ab9ca295d9ad173c61f66a9b2f9ad8",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0014__L032__p353:umtsrrc:lterlc": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0014__L032__p353:umtsrrc:lterlc",
+"anchor": "E-UTRA RLC",
+"nearest": [
+"3GPP TS 36.321"
+],
+"random": [],
+"distractors": [
+"3GPP TS 36.321"
+],
+"n_eligible": 1,
+"sha": "11c16b6745964eca49ca64c5c9e53aac16c4732c4162a469621429a0bd863ee3",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0014__L032__p36:ts38321:ts36322": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0014__L032__p36:ts38321:ts36322",
+"anchor": "3GPP TS 36.322",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "177769380005deacfa4a7a0bfb71c201902ae24c9b3e1cbf7c42a8ecba7329cd",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0014__L036__p353:3gppts25321:3gppts36322": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0014__L036__p353:3gppts25321:3gppts36322",
+"anchor": "3GPP TS 36.322",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "57f3025aead205621bbce5ad8bc8bb05ce6bf3b5010e40ec3c857e1d8dadc0bc",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0014__L036__p353:ts25321:ts36322": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0014__L036__p353:ts25321:ts36322",
+"anchor": "3GPP TS 36.322",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "8a5af801725487ac7a3a553a4792c07823901b34d03536e328432044ca715ee4",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0014__L040__p353:ts25321mac:ts36322rlc": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0014__L040__p353:ts25321mac:ts36322rlc",
+"anchor": "3GPP TS 36.322",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "a7e040f1db1ec516e0e752342ef530527a6113e27cc08d31e629956d602e4d42",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0014__L040__p353:umtsmacrel99:lterlcrelease8": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0014__L040__p353:umtsmacrel99:lterlcrelease8",
+"anchor": "3GPP TS 36.321",
+"nearest": [
+"E-UTRA RLC"
+],
+"random": [],
+"distractors": [
+"E-UTRA RLC"
+],
+"n_eligible": 1,
+"sha": "430f4d6802e0745fdd21b3145b20932fa1d32ddad376c5715743abac1b7c852a",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0014__L048__p353:ts25322:ts36322": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0014__L048__p353:ts25322:ts36322",
+"anchor": "3GPP TS 36.322",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "f5b4c206697a24e22ac8fb1614b51eea35f350bd878e94ba246e8ad00c119f2b",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0014__L048__p353:umtsmacts25321:lterlcts36322": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0014__L048__p353:umtsmacts25321:lterlcts36322",
+"anchor": "3GPP TS 36.321",
+"nearest": [
+"E-UTRA RLC"
+],
+"random": [],
+"distractors": [
+"E-UTRA RLC"
+],
+"n_eligible": 1,
+"sha": "eb353026392fcac6a0a2fcad27396c02d3abcfb42354df01b8ea83d4a488d4a5",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0014__L052__p278:ts25322:ts36322": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0014__L052__p278:ts25322:ts36322",
+"anchor": "3GPP TS 36.322",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "1afc5d491ac66b76430ae9055f3590f31e14dfff730fd53a97f6b5c82c3d796c",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0014__L060__p150:ts23501:ts36322": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0014__L060__p150:ts23501:ts36322",
+"anchor": "3GPP TS 36.322",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "4604afd03bf68c9762cc74b24f8135fc324b587d49ddeb399b7709e5f782dafd",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0014__L020__p353:macsublayerforumtsutran:rlcsublayeroflteeutra": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0014__L020__p353:macsublayerforumtsutran:rlcsublayeroflteeutra",
+"anchor": "3GPP TS 36.322",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "b34015a35cb1a0d27fcdb2aaa6c0a4dede1f039dddc7399174ec364cf946012c",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0014__L020__p353:physicallayerproceduresforumts:rlcsublayeroflte": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0014__L020__p353:physicallayerproceduresforumts:rlcsublayeroflte",
+"anchor": "3GPP TS 36.322",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "0930ca74454449e8ef3fc0bae5eab46a6570276ec03ff920614a7ad3c1d5765b",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0014__L020__p419:ts25322:ts36322": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0014__L020__p419:ts25322:ts36322",
+"anchor": "3GPP TS 36.322",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "f37451e15f8a5da95972b7535edbc11a6fa1103b2d8f2bd71071d6331dc870e1",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0014__L024__p353:ts25331rrc:ts36322rlc": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0014__L024__p353:ts25331rrc:ts36322rlc",
+"anchor": "3GPP TS 36.322",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "15181a4021a127cf6a35f11e3897822e25dc0d4aa6b0720f9cf000e32219fdb6",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0014__L028__p36:ts25321:ts36322": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0014__L028__p36:ts25321:ts36322",
+"anchor": "3GPP TS 36.322",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "7e53b8f5f46cc3c1b457b1ae5a52befa4991556d717183d2af236fa3e73fea42",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0014__L032__p353:ts25331:ts36322": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0014__L032__p353:ts25331:ts36322",
+"anchor": "3GPP TS 36.322",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "4bfdda6e04ce01f26181034326c3244fe3a35feb7d6214d561a236185e22a919",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0014__L044__p353:ts25321:ts36322": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0014__L044__p353:ts25321:ts36322",
+"anchor": "3GPP TS 36.322",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "d150c2297afbf766acadb8684eff2585d2a1d8ac6eacff89eb118cf5b0b1e2e0",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0014__L042__p353:3gppts25321:3gppts36322": {
+"unit": "nla-rl-L42:chat-lmsys-0014__L042__p353:3gppts25321:3gppts36322",
+"anchor": "3GPP TS 36.322",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "1775e8d6f21753d61827fcd8b872ee017e6e4b7c2573b4b668c1164f9b975c50",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0014__L042__p353:ts25321:ts36322": {
+"unit": "nla-rl-L42:chat-lmsys-0014__L042__p353:ts25321:ts36322",
+"anchor": "3GPP TS 36.322",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "d8c91e24afe4b3b2586ffe7a1d00a6437af73a26436eba722c97fabb64694162",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0014__L052__p353:ts38321:ts36322": {
+"unit": "s3d-rl600-all11:chat-lmsys-0014__L052__p353:ts38321:ts36322",
+"anchor": "3GPP TS 36.322",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "c59ed5d3dbd7398c2fd451a3672022b1ac7f3e3f6a9c5f314971684055ae4f23",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0014__L056__p150:3gppts3821x:3gppts36322": {
+"unit": "s3d-rl600-all11:chat-lmsys-0014__L056__p150:3gppts3821x:3gppts36322",
+"anchor": "3GPP TS 36.322",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "41a3ec81128136eaaf83642c2e5aa041851ae580184aafd5037f208c1b729575",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0014__L060__p150:ts38305:ts36322": {
+"unit": "s3d-rl600-all11:chat-lmsys-0014__L060__p150:ts38305:ts36322",
+"anchor": "3GPP TS 36.322",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "72b101eae56fa61acb8f9bfa7c1c80453166c98f13d24293eff9643dbc70d371",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0014__L060__p150:ts38331:ts36322": {
+"unit": "s3d-rl600-all11:chat-lmsys-0014__L060__p150:ts38331:ts36322",
+"anchor": "3GPP TS 36.322",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "8540847bac72195b99df3369f6e9990d31304d44610e2b98a3cb9d0200259ff1",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0014__L060__p150:ts38305:ts36322": {
+"unit": "s3d-rl600:chat-lmsys-0014__L060__p150:ts38305:ts36322",
+"anchor": "3GPP TS 36.322",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "73ee430c8795fc10a81d904eb36a8b6ef77536b5fc2c91042d673c0b967739ca",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0014__L060__p150:ts38331:ts36322": {
+"unit": "s3d-rl600:chat-lmsys-0014__L060__p150:ts38331:ts36322",
+"anchor": "3GPP TS 36.322",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "76b20b884d981a0e0eeb22fcde08e53af7da83665eba30401a8310f30b350619",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0014__L060__p278:3gppts25331:3gppts36322": {
+"unit": "s3d-rl600:chat-lmsys-0014__L060__p278:3gppts25331:3gppts36322",
+"anchor": "3GPP TS 36.322",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "18a8206a8cbade458bc4022e2dd0697f79150c6ff177b641f97ab876a458d749",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0014__L060__p278:rrcts25331:rlcts36322": {
+"unit": "s3d-rl600:chat-lmsys-0014__L060__p278:rrcts25331:rlcts36322",
+"anchor": "3GPP TS 36.322",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "47a1d300767563c30e9eca989898acbe18fbdcb4f9fb6917bc89d0cf25550ba1",
+"generation": 0
+}
+}

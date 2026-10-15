@@ -1,0 +1,165 @@
+{
+"mlnla-rl2-800-all11:chat-lmsys-0030__L052__p219:pythonversion:kerasversion": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0030__L052__p219:pythonversion:kerasversion",
+"anchor": "Keras",
+"nearest": [
+"D3.js",
+"Boost",
+"react-icons",
+"Lodash"
+],
+"random": [],
+"distractors": [
+"D3.js",
+"Boost",
+"react-icons",
+"Lodash"
+],
+"n_eligible": 4,
+"sha": "ac0fd8d7d51617b6bd6aabea8f80532699ded372481cfac9ae458d2ffcc5645d",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0030__L028__p95:react:keras": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0030__L028__p95:react:keras",
+"anchor": "Keras",
+"nearest": [
+"D3.js",
+"Boost",
+"Lodash"
+],
+"random": [],
+"distractors": [
+"D3.js",
+"Boost",
+"Lodash"
+],
+"n_eligible": 3,
+"sha": "de8d1e59dc8edd151f18cc6b66cff7f548481ce78cc7476e9444c92701a5bcb5",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0012__L024__p745:reacticons:graphic": {
+"unit": "s3d-rl600-all11:chat-lmsys-0012__L024__p745:reacticons:graphic",
+"anchor": "react-icons",
+"nearest": [
+"Lodash",
+"jQuery",
+"Boost",
+"Requests"
+],
+"random": [
+"Keras",
+"Matplotlib",
+"OpenCV",
+"PyTorch"
+],
+"distractors": [
+"Lodash",
+"jQuery",
+"Boost",
+"Requests",
+"Keras",
+"Matplotlib",
+"OpenCV",
+"PyTorch"
+],
+"n_eligible": 12,
+"sha": "0129dceead24451899e7e12f28b3988c2d5340242263d29d6ea3df1eb91b5400",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0030__L024__p219:pythonversion:kerasversion": {
+"unit": "s3d-rl600-all11:chat-lmsys-0030__L024__p219:pythonversion:kerasversion",
+"anchor": "Keras",
+"nearest": [
+"D3.js",
+"Boost",
+"react-icons",
+"Lodash"
+],
+"random": [],
+"distractors": [
+"D3.js",
+"Boost",
+"react-icons",
+"Lodash"
+],
+"n_eligible": 4,
+"sha": "d9c77ff869dc7ae04d5bf16309338ab0b2669720846411a7933805a874f63115",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0030__L028__p95:jquery:keras": {
+"unit": "s3d-rl600-all11:chat-lmsys-0030__L028__p95:jquery:keras",
+"anchor": "Keras",
+"nearest": [
+"D3.js",
+"Boost",
+"react-icons",
+"Lodash"
+],
+"random": [],
+"distractors": [
+"D3.js",
+"Boost",
+"react-icons",
+"Lodash"
+],
+"n_eligible": 4,
+"sha": "27191c4915893747e5e8f3837969dd8e836ffecbb4a6bb2a779d1f0687c15533",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0030__L044__p95:react:keras": {
+"unit": "s3d-rl600-all11:chat-lmsys-0030__L044__p95:react:keras",
+"anchor": "Keras",
+"nearest": [
+"D3.js",
+"Boost",
+"Lodash"
+],
+"random": [],
+"distractors": [
+"D3.js",
+"Boost",
+"Lodash"
+],
+"n_eligible": 3,
+"sha": "7f0edd8c18dd242bd33461005add4a5c5c49c4ac1eabdab5105053c75de18018",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0030__L052__p203:pythonversion:kerasversion": {
+"unit": "s3d-rl600-all11:chat-lmsys-0030__L052__p203:pythonversion:kerasversion",
+"anchor": "Keras",
+"nearest": [
+"D3.js",
+"Boost",
+"react-icons",
+"Lodash"
+],
+"random": [],
+"distractors": [
+"D3.js",
+"Boost",
+"react-icons",
+"Lodash"
+],
+"n_eligible": 4,
+"sha": "e144a9d4a2f497c0ce06a354eff8efb78e78607f97e3b25bc7869e3e5c8ff397",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0030__L044__p95:react:tensorflow": {
+"unit": "s3d-rl600:chat-lmsys-0030__L044__p95:react:tensorflow",
+"anchor": "Keras",
+"nearest": [
+"D3.js",
+"Boost",
+"Lodash"
+],
+"random": [],
+"distractors": [
+"D3.js",
+"Boost",
+"Lodash"
+],
+"n_eligible": 3,
+"sha": "146364d17331614807c9888661c967a6bcf3a300c1a1d631ae8eaf178a5c1ca0",
+"generation": 0
+}
+}

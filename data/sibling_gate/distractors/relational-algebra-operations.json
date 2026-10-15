@@ -1,0 +1,292 @@
+{
+"mlnla-rl2-800-all11:chat-lmsys-0074__L052__p372:project:tablescan": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0074__L052__p372:project:tablescan",
+"anchor": "SelectionFilter",
+"nearest": [
+"Rename",
+"Theta join",
+"Intersection",
+"Equijoin"
+],
+"random": [
+"Left outer join",
+"Right outer join",
+"Set difference",
+"Union"
+],
+"distractors": [
+"Rename",
+"Theta join",
+"Intersection",
+"Equijoin",
+"Left outer join",
+"Right outer join",
+"Set difference",
+"Union"
+],
+"n_eligible": 11,
+"sha": "01f6a2034d8ef061f629877ca8d884772b3cefc713c278420c9ba9ae9b01b370",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0074__L048__p372:negationnot:selectionsigma": {
+"unit": "s3d-rl600-all11:chat-lmsys-0074__L048__p372:negationnot:selectionsigma",
+"anchor": "Projection",
+"nearest": [
+"SelectionFilter",
+"Rename",
+"Selection",
+"Natural join"
+],
+"random": [
+"Division",
+"Intersection",
+"Set difference",
+"Union"
+],
+"distractors": [
+"SelectionFilter",
+"Rename",
+"Selection",
+"Natural join",
+"Division",
+"Intersection",
+"Set difference",
+"Union"
+],
+"n_eligible": 13,
+"sha": "f692ab1466661401e97cf334d6eff0c4abe4714150f4ad8fbec0067bf6609cc3",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0074__L052__p372:projection:selection": {
+"unit": "s3d-rl600-all11:chat-lmsys-0074__L052__p372:projection:selection",
+"anchor": "Projection",
+"nearest": [
+"SelectionFilter",
+"Rename",
+"Selection",
+"Natural join"
+],
+"random": [
+"Equijoin",
+"Left outer join",
+"Right outer join",
+"Theta join"
+],
+"distractors": [
+"SelectionFilter",
+"Rename",
+"Selection",
+"Natural join",
+"Equijoin",
+"Left outer join",
+"Right outer join",
+"Theta join"
+],
+"n_eligible": 13,
+"sha": "fe71b158478f7ca332d9a7bd583fd00f334ab6e1955102234364d90a83298d2a",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0074__L060__p372:project:selection": {
+"unit": "s3d-rl600-all11:chat-lmsys-0074__L060__p372:project:selection",
+"anchor": "SelectionFilter",
+"nearest": [
+"Rename",
+"Theta join",
+"Intersection",
+"Equijoin"
+],
+"random": [
+"Left outer join",
+"Natural join",
+"Set difference",
+"Union"
+],
+"distractors": [
+"Rename",
+"Theta join",
+"Intersection",
+"Equijoin",
+"Left outer join",
+"Natural join",
+"Set difference",
+"Union"
+],
+"n_eligible": 11,
+"sha": "8db25482fd98973ae79ac29ccc78984e0c5471d40b2b65d30dd40be1b9ebd518",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0074__L060__p372:projection:selection": {
+"unit": "s3d-rl600-all11:chat-lmsys-0074__L060__p372:projection:selection",
+"anchor": "Projection",
+"nearest": [
+"SelectionFilter",
+"Rename",
+"Selection",
+"Natural join"
+],
+"random": [
+"Equijoin",
+"Left outer join",
+"Right outer join",
+"Set difference"
+],
+"distractors": [
+"SelectionFilter",
+"Rename",
+"Selection",
+"Natural join",
+"Equijoin",
+"Left outer join",
+"Right outer join",
+"Set difference"
+],
+"n_eligible": 13,
+"sha": "84ae8e0bdc4a932ff03ecdd045418b102a9dc5e2667bf8556f7099521b8dcc22",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0074__L036__p372:projection:selection": {
+"unit": "s3d-rl600:chat-lmsys-0074__L036__p372:projection:selection",
+"anchor": "Projection",
+"nearest": [
+"SelectionFilter",
+"Rename",
+"Selection",
+"Natural join"
+],
+"random": [
+"Division",
+"Left outer join",
+"Theta join",
+"Union"
+],
+"distractors": [
+"SelectionFilter",
+"Rename",
+"Selection",
+"Natural join",
+"Division",
+"Left outer join",
+"Theta join",
+"Union"
+],
+"n_eligible": 13,
+"sha": "51a3cf49c9870fda4a34def23f4455c5e9a190206a63976daf589d19454f2431",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0074__L040__p372:projectionoperator:selectionoperator": {
+"unit": "s3d-sft251:chat-lmsys-0074__L040__p372:projectionoperator:selectionoperator",
+"anchor": "Projection",
+"nearest": [
+"SelectionFilter",
+"Rename",
+"Selection",
+"Natural join"
+],
+"random": [
+"Equijoin",
+"Intersection",
+"Set difference",
+"Union"
+],
+"distractors": [
+"SelectionFilter",
+"Rename",
+"Selection",
+"Natural join",
+"Equijoin",
+"Intersection",
+"Set difference",
+"Union"
+],
+"n_eligible": 13,
+"sha": "ccab704a69adaa7894ca708e372cad8f9be37a45934977cd9c359597849bdc8c",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0074__L040__p372:πoperator:σoperator": {
+"unit": "s3d-sft251:chat-lmsys-0074__L040__p372:πoperator:σoperator",
+"anchor": "projection",
+"nearest": [
+"Rename",
+"Union",
+"SelectionFilter",
+"Selection"
+],
+"random": [
+"Cartesian product",
+"Equijoin",
+"Right outer join",
+"Theta join"
+],
+"distractors": [
+"Rename",
+"Union",
+"SelectionFilter",
+"Selection",
+"Cartesian product",
+"Equijoin",
+"Right outer join",
+"Theta join"
+],
+"n_eligible": 13,
+"sha": "41108b76160e8ef58251eea05f5e382726c04cce6bfefcb7ab4e2319d9ac5103",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0074__L056__p372:pi:sigma": {
+"unit": "s3d-sft251:chat-lmsys-0074__L056__p372:pi:sigma",
+"anchor": "Projection (π)",
+"nearest": [
+"Rename",
+"SelectionFilter",
+"Selection",
+"Union"
+],
+"random": [
+"Cartesian product",
+"Division",
+"Natural join",
+"Theta join"
+],
+"distractors": [
+"Rename",
+"SelectionFilter",
+"Selection",
+"Union",
+"Cartesian product",
+"Division",
+"Natural join",
+"Theta join"
+],
+"n_eligible": 13,
+"sha": "287ef2e4be7957fb1fb4cca2dfdb623d381c207cad1341432dad37623572eb5f",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0074__L056__p372:piprojection:sigmaselection": {
+"unit": "s3d-sft251:chat-lmsys-0074__L056__p372:piprojection:sigmaselection",
+"anchor": "projection (π)",
+"nearest": [
+"SelectionFilter",
+"Rename",
+"Natural join",
+"Selection"
+],
+"random": [
+"Division",
+"Left outer join",
+"Theta join",
+"Union"
+],
+"distractors": [
+"SelectionFilter",
+"Rename",
+"Natural join",
+"Selection",
+"Division",
+"Left outer join",
+"Theta join",
+"Union"
+],
+"n_eligible": 13,
+"sha": "24f025d38afe1fc3e6853520ec4302527e5e7edca2efc403d698128bdcaa847e",
+"generation": 0
+}
+}

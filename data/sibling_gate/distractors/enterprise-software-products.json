@@ -1,0 +1,1128 @@
+{
+"mlnla-rl2-800-all11:chat-lmsys-0054__L024__p70:saperp:sapbusinessobjects": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0054__L024__p70:saperp:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"random": [],
+"distractors": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"n_eligible": 2,
+"sha": "d4e78144a0af063e05840976a71c8e743393d41f4fe0bfd84fcb3c2c33339806",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0054__L028__p155:ibmdomino:sapbusinessobjects": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0054__L028__p155:ibmdomino:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"random": [],
+"distractors": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"n_eligible": 2,
+"sha": "9bdbc776f0186a5f95f26e100816c5973e2116724415e5d9df2fca6fc65fd0ea",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0054__L028__p155:ibmnotesanddomino:sapbusinessobjects": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0054__L028__p155:ibmnotesanddomino:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"random": [],
+"distractors": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"n_eligible": 2,
+"sha": "4ff614af037c5294dc6ecb1b3ba3d49c80d7e9c2b9f40a7e16874eaf26747df8",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0054__L028__p155:ibmnotesdomino:sapbusinessobjects": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0054__L028__p155:ibmnotesdomino:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"random": [],
+"distractors": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"n_eligible": 2,
+"sha": "c569fe97b40a09d27b9e1918b68d8d1f31ae5a0f3fdf2b18c0522fdc8a51b358",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0054__L028__p155:microsoftdynamicsax:sapbusinessobjects": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0054__L028__p155:microsoftdynamicsax:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"random": [],
+"distractors": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"n_eligible": 2,
+"sha": "c8b9ce9c25a8039c68058b6eb8203323038e6ae5edb88ed2cf983fd552473665",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0054__L028__p17:apachecassandra:businessobjects": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0054__L028__p17:apachecassandra:businessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"random": [],
+"distractors": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"n_eligible": 2,
+"sha": "706b9bcfc327e3a6e97fe77d3e50503eebcf97aebcce2b075b1e31a5e7d35f6e",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0054__L028__p17:apachecassandra:sapbusinessobjects": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0054__L028__p17:apachecassandra:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"random": [],
+"distractors": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"n_eligible": 2,
+"sha": "12b3d8eed724f93b4614cae389d9bc8fc4365e38256f035a21e3762ed8798fdf",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0054__L032__p17:saperp:sapbusinessobjects": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0054__L032__p17:saperp:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"random": [],
+"distractors": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"n_eligible": 2,
+"sha": "0c9aafdd959b7b892cd1f709f0f7238eefc3fc84658a78f7ab6730c310203df4",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0054__L040__p298:ibmfilenetp8:sapbusinessobjects": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0054__L040__p298:ibmfilenetp8:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"random": [],
+"distractors": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"n_eligible": 2,
+"sha": "546ed58019e18d694bebee4e3696cff8c01a25accbfa109f53259b8ace97f55e",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0054__L040__p298:workplacext:dashboarddesign": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0054__L040__p298:workplacext:dashboarddesign",
+"anchor": "IBM FileNet Workplace XT",
+"nearest": [
+"SAP BusinessObjects Web Intelligence",
+"SAP BusinessObjects",
+"BusinessObjects",
+"TCS PreMAP"
+],
+"random": [
+"SAP Digital Supply Chain",
+"TCS Enterprise Digital Twin"
+],
+"distractors": [
+"SAP BusinessObjects Web Intelligence",
+"SAP BusinessObjects",
+"BusinessObjects",
+"TCS PreMAP",
+"SAP Digital Supply Chain",
+"TCS Enterprise Digital Twin"
+],
+"n_eligible": 6,
+"sha": "e9db9edffb373c47b2ff398fbb41b7a2af3fd7884514440a54ff28482e0e5b84",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0054__L044__p298:ibmfilenetp8:sapbusinessobjects": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0054__L044__p298:ibmfilenetp8:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"random": [],
+"distractors": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"n_eligible": 2,
+"sha": "9f1cd7b74d442db546ce5f082dbe6e8056c9f6e8153bae989038ac11cc60d667",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0054__L044__p472:sapbwandhana:sapbusinessobjects": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0054__L044__p472:sapbwandhana:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"random": [],
+"distractors": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"n_eligible": 2,
+"sha": "da48ba1dac29c96315aee0b899bdff6d959ae017110742db613e1529abd1c946",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0054__L044__p472:sapbwvssaphana:sapbusinessobjects": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0054__L044__p472:sapbwvssaphana:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"random": [],
+"distractors": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"n_eligible": 2,
+"sha": "f181ab326ea0037a16b97f75f9ecf9c18558ec766e640cc01ea15c3c94d30a74",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0054__L048__p298:oracleebs:sapbusinessobjects": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0054__L048__p298:oracleebs:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"random": [],
+"distractors": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"n_eligible": 2,
+"sha": "0eb3ba709c88f92f09be573eaa02a566ad4d1643759a39e85d18a39002474004",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0054__L048__p298:oracleecmcontentserver:sapbusinessobjects": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0054__L048__p298:oracleecmcontentserver:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"random": [],
+"distractors": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"n_eligible": 2,
+"sha": "45cfa87c81fa42af16c4b6c7b3fa38fac47954f22767856f432aaaadcaddb5a8",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0054__L048__p358:microsoftdynamics:sapbusinessobjects": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0054__L048__p358:microsoftdynamics:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"random": [],
+"distractors": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"n_eligible": 2,
+"sha": "a4fa265dadec73cdfeef8339c6650d2c64deb5e29dffb22ffa981d48a43091b0",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0054__L052__p358:microsoftdynamics:sapbusinessobjects": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0054__L052__p358:microsoftdynamics:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"random": [],
+"distractors": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"n_eligible": 2,
+"sha": "35bbc3cd7e5d1f4f27816c04becb294022f0240c2a9b830ba0f9aab1de26feda",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0054__L056__p358:microsoftdynamicscrm:sapbusinessobjects": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0054__L056__p358:microsoftdynamicscrm:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"random": [],
+"distractors": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"n_eligible": 2,
+"sha": "d78471b23f7a67e4d00b9fe08f6848c1230c60fd46a0094a4dda0bc68d2697d7",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0055__L024__p160:saps4hana:tcspremap": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0055__L024__p160:saps4hana:tcspremap",
+"anchor": "TCS PreMAP",
+"nearest": [
+"Workfront",
+"Microsoft Dynamics",
+"IBM FileNet",
+"Salesforce"
+],
+"random": [
+"IBM FileNet P8",
+"IBM Lotus Notes",
+"IBM Notes",
+"IBM WebSphere"
+],
+"distractors": [
+"Workfront",
+"Microsoft Dynamics",
+"IBM FileNet",
+"Salesforce",
+"IBM FileNet P8",
+"IBM Lotus Notes",
+"IBM Notes",
+"IBM WebSphere"
+],
+"n_eligible": 25,
+"sha": "06ddcbb144e17c0646c1b6ea9fdd7619c63410e220aec5255310cfa0fe8fb4f2",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0055__L032__p43:sapbtpandsaps4hana:tcspremapandenterprisedigitaltwin": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0055__L032__p43:sapbtpandsaps4hana:tcspremapandenterprisedigitaltwin",
+"anchor": "TCS PreMAP and TCS Enterprise Digital Twin",
+"nearest": [
+"Microsoft Dynamics",
+"Workfront",
+"Salesforce",
+"Apache Cassandra"
+],
+"random": [
+"BusinessObjects",
+"IBM Lotus Notes",
+"IBM QRadar",
+"Microsoft BizTalk Server"
+],
+"distractors": [
+"Microsoft Dynamics",
+"Workfront",
+"Salesforce",
+"Apache Cassandra",
+"BusinessObjects",
+"IBM Lotus Notes",
+"IBM QRadar",
+"Microsoft BizTalk Server"
+],
+"n_eligible": 25,
+"sha": "aca9129b80f4d73458a3dd051e04fb4239b4055eeaaf5499c8b9327d45f5103d",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0055__L032__p43:sapbtpandsaps4hana:tcspremapandtcsenterprisedigitaltwin": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0055__L032__p43:sapbtpandsaps4hana:tcspremapandtcsenterprisedigitaltwin",
+"anchor": "TCS PreMAP and TCS Enterprise Digital Twin",
+"nearest": [
+"Microsoft Dynamics",
+"Workfront",
+"Salesforce",
+"Apache Cassandra"
+],
+"random": [
+"IBM FileNet Workplace XT",
+"IBM Notes",
+"IBM QRadar",
+"Oracle WebCenter Content"
+],
+"distractors": [
+"Microsoft Dynamics",
+"Workfront",
+"Salesforce",
+"Apache Cassandra",
+"IBM FileNet Workplace XT",
+"IBM Notes",
+"IBM QRadar",
+"Oracle WebCenter Content"
+],
+"n_eligible": 25,
+"sha": "063ac79e3ac575e7e0a12753b48ea3cf21b5f9c90db94913277f2d47c1eb2908",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0055__L040__p104:sapdigitalsupplychain:tcsenterprisedigitaltwin": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0055__L040__p104:sapdigitalsupplychain:tcsenterprisedigitaltwin",
+"anchor": "TCS PreMAP",
+"nearest": [
+"Workfront",
+"Microsoft Dynamics",
+"IBM FileNet",
+"Salesforce"
+],
+"random": [
+"IBM Domino",
+"Jira",
+"Oracle Forms",
+"Oracle WebCenter Content"
+],
+"distractors": [
+"Workfront",
+"Microsoft Dynamics",
+"IBM FileNet",
+"Salesforce",
+"IBM Domino",
+"Jira",
+"Oracle Forms",
+"Oracle WebCenter Content"
+],
+"n_eligible": 25,
+"sha": "270d0155d899f9e35828df5a763810758baca28f5032d2ef11c8d9e36471ff83",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0055__L040__p104:saps4hanadigitalsupplychain:tcsenterprisedigitaltwin": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0055__L040__p104:saps4hanadigitalsupplychain:tcsenterprisedigitaltwin",
+"anchor": "TCS Enterprise Digital Twin",
+"nearest": [
+"Workfront",
+"Microsoft Dynamics",
+"Salesforce",
+"Apache Cassandra"
+],
+"random": [
+"IBM Domino",
+"IBM Lotus Notes",
+"Microsoft BizTalk Server",
+"Oracle E-Business Suite"
+],
+"distractors": [
+"Workfront",
+"Microsoft Dynamics",
+"Salesforce",
+"Apache Cassandra",
+"IBM Domino",
+"IBM Lotus Notes",
+"Microsoft BizTalk Server",
+"Oracle E-Business Suite"
+],
+"n_eligible": 25,
+"sha": "b61b473e0fd0488d5acbb0e3b20b7ee34dab885e47ef2736303165f1f711e3b5",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0055__L044__p104:saps4hanacloudrapandcop:tcspremapandenterprisedigitaltwin": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0055__L044__p104:saps4hanacloudrapandcop:tcspremapandenterprisedigitaltwin",
+"anchor": "TCS PreMAP",
+"nearest": [
+"Workfront",
+"Microsoft Dynamics",
+"IBM FileNet",
+"Salesforce"
+],
+"random": [
+"Documentum",
+"Jira",
+"Microsoft Dynamics CRM",
+"Oracle Forms"
+],
+"distractors": [
+"Workfront",
+"Microsoft Dynamics",
+"IBM FileNet",
+"Salesforce",
+"Documentum",
+"Jira",
+"Microsoft Dynamics CRM",
+"Oracle Forms"
+],
+"n_eligible": 25,
+"sha": "03e4176279a9e118be21a05b5a847530de9cad0b8129c707cefc7ac20f3bffbc",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0054__L024__p17:salesforcecrm:sapbusinessobjects": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0054__L024__p17:salesforcecrm:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"random": [],
+"distractors": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"n_eligible": 2,
+"sha": "36749da10de5d9f6fc43f3f1e923a284d00d77ce8038ccd411e620473f1f7125",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0054__L024__p472:powercenter:businessobjects": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0054__L024__p472:powercenter:businessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"random": [],
+"distractors": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"n_eligible": 2,
+"sha": "2183c4f2305150dd5187d97d53495aaa0154b72330e78bcfeb2e486522b59fbc",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0054__L032__p17:microsoftdynamicscrm:sapbusinessobjects": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0054__L032__p17:microsoftdynamicscrm:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"random": [],
+"distractors": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"n_eligible": 2,
+"sha": "79b454bd304ce8baa0f47bb483a20d1b3192db6ce937920fc9a9eb82050ef27e",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0054__L036__p17:ibmwebsphere:businessobjects": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0054__L036__p17:ibmwebsphere:businessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"random": [],
+"distractors": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"n_eligible": 2,
+"sha": "bc1268992309a0494422bfab8ae2aee6c6b08ffb5763a5e0f4af66424367b828",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0054__L036__p17:ibmwebsphere:sapbusinessobjects": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0054__L036__p17:ibmwebsphere:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"random": [],
+"distractors": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"n_eligible": 2,
+"sha": "215ab12876bdc6fb8d6556cc2e6857b21b0894d64ec440623a77c48d1919ea9d",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0054__L036__p17:websphere:businessobjects": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0054__L036__p17:websphere:businessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"random": [],
+"distractors": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"n_eligible": 2,
+"sha": "732a6510a4b9117e9a5dc9992702e8b2c8f55ac073973d9d92c20d9ff380164d",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0054__L036__p17:websphere:sapbusinessobjects": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0054__L036__p17:websphere:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"random": [],
+"distractors": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"n_eligible": 2,
+"sha": "68ff65cf7f58b28fe8ba6e589a4e4edfd38e67f7a2b12d9e1697972e14879b1d",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0054__L040__p17:biztalk:businessobjects": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0054__L040__p17:biztalk:businessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"random": [],
+"distractors": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"n_eligible": 2,
+"sha": "e716a1924bc7bc43711d8b10b6824df457e674fddfda9d3d8a645ca2fa65143d",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0054__L040__p17:microsoftbiztalkserver:sapbusinessobjects": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0054__L040__p17:microsoftbiztalkserver:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"random": [],
+"distractors": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"n_eligible": 2,
+"sha": "4aa47934890f088eb6b2a989f4f230acf96fb7ccab8d05027aa88fd9f8647c06",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0054__L048__p155:microsoftdynamics:sapbusinessobjects": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0054__L048__p155:microsoftdynamics:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"random": [],
+"distractors": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"n_eligible": 2,
+"sha": "5f04761439e06f9792afa340f9d27bb39166dc10536b7b8a3d2c85c31341aa6f",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0054__L048__p298:oracleebs:sapbusinessobjects": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0054__L048__p298:oracleebs:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"random": [],
+"distractors": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"n_eligible": 2,
+"sha": "477b5733627c64cabba39a9362dec6180dc8ee5aa9b9a0c3809e70b8c7b21322",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0054__L048__p358:microsoftdynamics365ce:sapbusinessobjects": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0054__L048__p358:microsoftdynamics365ce:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"random": [],
+"distractors": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"n_eligible": 2,
+"sha": "9384a315d7581ced3c62b58f069feb0bbdcc274e52bca75d87e0f962d7689ebe",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0054__L048__p358:microsoftdynamics:sapbusinessobjects": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0054__L048__p358:microsoftdynamics:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"random": [],
+"distractors": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"n_eligible": 2,
+"sha": "2892ca38cc302e84426bb64969991e10cb57ea74d29c64c5beaf75c94d49eff0",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0054__L052__p472:sapbwvssaphana:sapbusinessobjects": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0054__L052__p472:sapbwvssaphana:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"random": [],
+"distractors": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"n_eligible": 2,
+"sha": "8c5dc7f66098ac5f64f4d0117acfcd467e8f923048510edbf74c1b3ecd704a64",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0055__L032__p43:microsoftdynamics365:tcspremapandenterprisedigitaltwin": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0055__L032__p43:microsoftdynamics365:tcspremapandenterprisedigitaltwin",
+"anchor": "TCS Enterprise Digital Twin",
+"nearest": [
+"SAP BW vs SAP HANA",
+"Workfront",
+"Salesforce",
+"Apache Cassandra"
+],
+"random": [
+"IBM FileNet",
+"IBM Notes",
+"IBM WebSphere",
+"Informatica PowerCenter"
+],
+"distractors": [
+"SAP BW vs SAP HANA",
+"Workfront",
+"Salesforce",
+"Apache Cassandra",
+"IBM FileNet",
+"IBM Notes",
+"IBM WebSphere",
+"Informatica PowerCenter"
+],
+"n_eligible": 25,
+"sha": "300f6fdb2aa4a0cad95215909abb00f7c429889c956a8df88a60f050e57756e9",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0055__L044__p104:saps4hana:tcspremapenterprisedigitaltwin": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0055__L044__p104:saps4hana:tcspremapenterprisedigitaltwin",
+"anchor": "TCS PreMAP",
+"nearest": [
+"Workfront",
+"Microsoft Dynamics",
+"IBM FileNet",
+"Salesforce"
+],
+"random": [
+"Apache Cassandra",
+"Jira",
+"Microsoft Dynamics AX",
+"SharePoint 2010"
+],
+"distractors": [
+"Workfront",
+"Microsoft Dynamics",
+"IBM FileNet",
+"Salesforce",
+"Apache Cassandra",
+"Jira",
+"Microsoft Dynamics AX",
+"SharePoint 2010"
+],
+"n_eligible": 25,
+"sha": "b27bb490392c73fa484383eb1d944445136e85c38dc05f3b57f86a6efa3496af",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0055__L052__p104:saps4hana:tcspremapandenterprisedigitaltwin": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0055__L052__p104:saps4hana:tcspremapandenterprisedigitaltwin",
+"anchor": "TCS PreMAP",
+"nearest": [
+"Workfront",
+"Microsoft Dynamics",
+"IBM FileNet",
+"Salesforce"
+],
+"random": [
+"Apache Cassandra",
+"IBM QRadar",
+"Informatica PowerCenter",
+"Oracle WebCenter Content"
+],
+"distractors": [
+"Workfront",
+"Microsoft Dynamics",
+"IBM FileNet",
+"Salesforce",
+"Apache Cassandra",
+"IBM QRadar",
+"Informatica PowerCenter",
+"Oracle WebCenter Content"
+],
+"n_eligible": 25,
+"sha": "9256f93f8ec8a16e3ec7ba2b4b0944e7e88b2573f17939dad7d50b25cd343c55",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0054__L042__p298:documentum:sapbusinessobjects": {
+"unit": "nla-rl-L42:chat-lmsys-0054__L042__p298:documentum:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"random": [],
+"distractors": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"n_eligible": 2,
+"sha": "0dd7f0d0b5df5f735d44fd6ffc10a9804d2992cd256477c239498597be2b3f6d",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0054__L042__p298:filenet:sapbusinessobjects": {
+"unit": "nla-rl-L42:chat-lmsys-0054__L042__p298:filenet:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"random": [],
+"distractors": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"n_eligible": 2,
+"sha": "bc0e394842877e2cd6c009e072b771140ff910d580e09a50fc92b0958b2ee728",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0054__L042__p298:ibmfilenetp8:sapbusinessobjects": {
+"unit": "nla-rl-L42:chat-lmsys-0054__L042__p298:ibmfilenetp8:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"random": [],
+"distractors": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"n_eligible": 2,
+"sha": "1e6b5e789633a5d29c59ea839ad7aea54c5b08850a501c4bc799d19f996d2f1b",
+"generation": 0
+},
+"nla-sft-L42:chat-lmsys-0054__L042__p155:qradar:sapbusinessobjects": {
+"unit": "nla-sft-L42:chat-lmsys-0054__L042__p155:qradar:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"random": [],
+"distractors": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"n_eligible": 2,
+"sha": "09b1c8126c2746d8ef39a142f3340fb575ec027fd2f2a23ab6dc735e85d56aa6",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0054__L028__p155:ibmlotusnotes:sapbusinessobjects": {
+"unit": "s3d-rl600-all11:chat-lmsys-0054__L028__p155:ibmlotusnotes:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"random": [],
+"distractors": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"n_eligible": 2,
+"sha": "faabdd3f0ee8693080fe8daa340f65a67192436942d2aaa53cdfe38e214d7122",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0054__L028__p155:ibmnotes:sapbusinessobjects": {
+"unit": "s3d-rl600-all11:chat-lmsys-0054__L028__p155:ibmnotes:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"random": [],
+"distractors": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"n_eligible": 2,
+"sha": "3259972a384f2c9e8266a7dc7713ffb035e81d3b53b2c3ce351104b8c27d9416",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0054__L028__p155:lotusnotes:sapbusinessobjects": {
+"unit": "s3d-rl600-all11:chat-lmsys-0054__L028__p155:lotusnotes:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"random": [],
+"distractors": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"n_eligible": 2,
+"sha": "f24b4e95cc31fc63b7f7f174736bbb595b419cf4deba30edd7b536f913b4e17e",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0054__L028__p155:lotusnotesclient:sapbusinessobjects": {
+"unit": "s3d-rl600-all11:chat-lmsys-0054__L028__p155:lotusnotesclient:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"random": [],
+"distractors": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"n_eligible": 2,
+"sha": "413a8623941458d4d2a324939d32d03348a36859aa465b6a528389fba9a009bd",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0054__L028__p155:lotusnotesenterprise:sapbusinessobjects": {
+"unit": "s3d-rl600-all11:chat-lmsys-0054__L028__p155:lotusnotesenterprise:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"random": [],
+"distractors": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"n_eligible": 2,
+"sha": "3b8ceb63abbe971dcf94c45e83a2c85a95c2972c94a7de9a7aaf0c6e6291a8df",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0054__L028__p17:jira:sapbusinessobjects": {
+"unit": "s3d-rl600-all11:chat-lmsys-0054__L028__p17:jira:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"random": [],
+"distractors": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"n_eligible": 2,
+"sha": "7ad5c85c87083a9e423d2c7b023e964b7c9e86eec708693e1b803c82913a314d",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0054__L032__p155:oracleforms:sapbusinessobjects": {
+"unit": "s3d-rl600-all11:chat-lmsys-0054__L032__p155:oracleforms:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"random": [],
+"distractors": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"n_eligible": 2,
+"sha": "4cdd534a32e4dd79ac33206c2646dd2a5b6c95d9a4e3d74a7f5260bc4b0cec9d",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0054__L040__p17:ibmwebsphere:sapbusinessobjects": {
+"unit": "s3d-rl600-all11:chat-lmsys-0054__L040__p17:ibmwebsphere:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"random": [],
+"distractors": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"n_eligible": 2,
+"sha": "482bc7e10d68e91cdafe5635d22d72088ac8d10e71e4c96cf4e17b835fdf1bd1",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0054__L040__p298:alfresco:sapbusinessobjects": {
+"unit": "s3d-rl600-all11:chat-lmsys-0054__L040__p298:alfresco:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"random": [],
+"distractors": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"n_eligible": 2,
+"sha": "764640e0d88cca19adb740294904433b9415d9d6b86c940578f35db2fe964157",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0054__L040__p298:documentum:sapbusinessobjects": {
+"unit": "s3d-rl600-all11:chat-lmsys-0054__L040__p298:documentum:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"random": [],
+"distractors": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"n_eligible": 2,
+"sha": "185f4a76d679be16ce2150a365dee6dd08569b97bb69f103ae91a696055f393f",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0054__L044__p17:ibmwebsphere:sapbusinessobjects": {
+"unit": "s3d-rl600-all11:chat-lmsys-0054__L044__p17:ibmwebsphere:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"random": [],
+"distractors": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"n_eligible": 2,
+"sha": "2acd71d2175797c69744806ad3275b67cfb14f78a62eb11953dec5a26f6f6fba",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0054__L048__p155:ibmlotusnotesclient:webintelligence": {
+"unit": "s3d-rl600-all11:chat-lmsys-0054__L048__p155:ibmlotusnotesclient:webintelligence",
+"anchor": "SAP BusinessObjects Web Intelligence",
+"nearest": [
+"TCS Enterprise Digital Twin",
+"TCS PreMAP"
+],
+"random": [],
+"distractors": [
+"TCS Enterprise Digital Twin",
+"TCS PreMAP"
+],
+"n_eligible": 2,
+"sha": "9ede875f700cc863bdca3b71ac15df15fcdc82bf72a6671e394925f5c6e0b1e5",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0054__L060__p298:sharepoint2010:sapbusinessobjects": {
+"unit": "s3d-rl600-all11:chat-lmsys-0054__L060__p298:sharepoint2010:sapbusinessobjects",
+"anchor": "SharePoint 2010",
+"nearest": [
+"SAP BusinessObjects",
+"BusinessObjects",
+"TCS PreMAP",
+"SAP BusinessObjects Web Intelligence"
+],
+"random": [
+"SAP Digital Supply Chain",
+"TCS Enterprise Digital Twin"
+],
+"distractors": [
+"SAP BusinessObjects",
+"BusinessObjects",
+"TCS PreMAP",
+"SAP BusinessObjects Web Intelligence",
+"SAP Digital Supply Chain",
+"TCS Enterprise Digital Twin"
+],
+"n_eligible": 6,
+"sha": "b69ff576d4d144ac995d6dc509721da96b68d773e1c094ca88c05a9229204ff2",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0055__L056__p316:saps4hana:tcs": {
+"unit": "s3d-rl600-all11:chat-lmsys-0055__L056__p316:saps4hana:tcs",
+"anchor": "TCS PreMAP",
+"nearest": [
+"Workfront",
+"Microsoft Dynamics",
+"IBM FileNet",
+"Salesforce"
+],
+"random": [
+"Apache Cassandra",
+"IBM Notes",
+"Oracle Forms",
+"Oracle WebCenter Content"
+],
+"distractors": [
+"Workfront",
+"Microsoft Dynamics",
+"IBM FileNet",
+"Salesforce",
+"Apache Cassandra",
+"IBM Notes",
+"Oracle Forms",
+"Oracle WebCenter Content"
+],
+"n_eligible": 25,
+"sha": "6cf9fc281934a5cf1e3671e0d29639561b72b24c12ac965a4b93e1be90ffb07b",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0054__L020__p17:workfront:sapbusinessobjects": {
+"unit": "s3d-rl600:chat-lmsys-0054__L020__p17:workfront:sapbusinessobjects",
+"anchor": "BusinessObjects",
+"nearest": [
+"TCS Enterprise Digital Twin",
+"TCS PreMAP",
+"SAP Digital Supply Chain"
+],
+"random": [],
+"distractors": [
+"TCS Enterprise Digital Twin",
+"TCS PreMAP",
+"SAP Digital Supply Chain"
+],
+"n_eligible": 3,
+"sha": "6de31dc9ca705c6b9cdd958368e0255bcdec4b7187e9993b6d28cff2e3cc22f3",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0054__L052__p298:documentum:businessobjects": {
+"unit": "s3d-sft251:chat-lmsys-0054__L052__p298:documentum:businessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"random": [],
+"distractors": [
+"TCS PreMAP",
+"TCS Enterprise Digital Twin"
+],
+"n_eligible": 2,
+"sha": "72707078468d20fd0a476fc3e9d0de5c3f883ff8a7f71f5f3d6a9e1661d37f1b",
+"generation": 0
+}
+}

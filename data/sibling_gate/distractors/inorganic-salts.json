@@ -1,0 +1,404 @@
+{
+"mlnla-rl2-800-all11:chat-lmsys-0052__L024__p209:potassiumchloride:sodiumnitrite": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0052__L024__p209:potassiumchloride:sodiumnitrite",
+"anchor": "sodium nitrite",
+"nearest": [
+"calcium carbonate"
+],
+"random": [],
+"distractors": [
+"calcium carbonate"
+],
+"n_eligible": 1,
+"sha": "b09588fc0402c0653fd5029a1a3bd8eeec5a74d524f24de3c9fbe78454796bdd",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0052__L028__p209:potassiumchloride:sodiumnitrite": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0052__L028__p209:potassiumchloride:sodiumnitrite",
+"anchor": "sodium nitrite",
+"nearest": [
+"calcium carbonate"
+],
+"random": [],
+"distractors": [
+"calcium carbonate"
+],
+"n_eligible": 1,
+"sha": "5e07a441f198f21cc491e375555cc9d94a3d897fa15b1c3d6ab89bb69fcf2087",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0052__L036__p112:potassiumchloride:sodiumnitrite": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0052__L036__p112:potassiumchloride:sodiumnitrite",
+"anchor": "sodium nitrite",
+"nearest": [
+"calcium carbonate"
+],
+"random": [],
+"distractors": [
+"calcium carbonate"
+],
+"n_eligible": 1,
+"sha": "9c81ee2101ea2e8ba68063843d0834f29c54331ba12dd948a335bffa856d0854",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0052__L040__p112:potassiumchloride:sodiumnitrite": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0052__L040__p112:potassiumchloride:sodiumnitrite",
+"anchor": "sodium nitrite",
+"nearest": [
+"calcium carbonate"
+],
+"random": [],
+"distractors": [
+"calcium carbonate"
+],
+"n_eligible": 1,
+"sha": "c2c395ef3d5fda4ff8cf14dc18aa2736084826bba3ddb15c7edf42ef8b19bed9",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0052__L056__p112:nano3:nano2": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0052__L056__p112:nano3:nano2",
+"anchor": "sodium nitrite",
+"nearest": [
+"calcium carbonate"
+],
+"random": [],
+"distractors": [
+"calcium carbonate"
+],
+"n_eligible": 1,
+"sha": "061b67e003f7048ef6f2487e23412caff0ce5b819da80609a735b73db6e7560b",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0052__L048__p112:cacl2:sodiumnitrite": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0052__L048__p112:cacl2:sodiumnitrite",
+"anchor": "sodium nitrite",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "0076ea99668058a03e5e5464099452cc107ce120d326db105547002917a40855",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0052__L060__p164:ammoniumnitrate:sodiumnitrite": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0052__L060__p164:ammoniumnitrate:sodiumnitrite",
+"anchor": "sodium nitrite",
+"nearest": [
+"calcium carbonate"
+],
+"random": [],
+"distractors": [
+"calcium carbonate"
+],
+"n_eligible": 1,
+"sha": "01176d0ae15f040eb2c54c6900294f5d5df5281fcebf18699204c7ffb923b90b",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0052__L036__p112:potassiumchloride:sodiumnitrite": {
+"unit": "s3d-rl600-all11:chat-lmsys-0052__L036__p112:potassiumchloride:sodiumnitrite",
+"anchor": "sodium nitrite",
+"nearest": [
+"calcium carbonate"
+],
+"random": [],
+"distractors": [
+"calcium carbonate"
+],
+"n_eligible": 1,
+"sha": "32c55bbc5479156879bc20d16b325d28227dbb358a7d216035952d8408230400",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0052__L040__p112:potassiumchloride:sodiumnitrite": {
+"unit": "s3d-rl600-all11:chat-lmsys-0052__L040__p112:potassiumchloride:sodiumnitrite",
+"anchor": "sodium nitrite",
+"nearest": [
+"calcium carbonate"
+],
+"random": [],
+"distractors": [
+"calcium carbonate"
+],
+"n_eligible": 1,
+"sha": "77a0b81e369ccaac51105ada651171f69b8a0085e9bc98618750ffc1a546f047",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0052__L044__p112:potassiumchloride:sodiumnitrite": {
+"unit": "s3d-rl600-all11:chat-lmsys-0052__L044__p112:potassiumchloride:sodiumnitrite",
+"anchor": "sodium nitrite",
+"nearest": [
+"calcium carbonate"
+],
+"random": [],
+"distractors": [
+"calcium carbonate"
+],
+"n_eligible": 1,
+"sha": "325ad65773bf8b63dd0ff4e5fbadb3f29a0de9e40854e56ec93d94e536b27c2d",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0052__L048__p112:potassiumbromide:sodiumnitrite": {
+"unit": "s3d-rl600-all11:chat-lmsys-0052__L048__p112:potassiumbromide:sodiumnitrite",
+"anchor": "sodium nitrite",
+"nearest": [
+"calcium carbonate"
+],
+"random": [],
+"distractors": [
+"calcium carbonate"
+],
+"n_eligible": 1,
+"sha": "9f3aaea6dd050dcec973a00b8b1e7702f9af092baaa731df1c6956c51e47e1f6",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0052__L048__p112:potassiumchloride:sodiumnitrite": {
+"unit": "s3d-rl600-all11:chat-lmsys-0052__L048__p112:potassiumchloride:sodiumnitrite",
+"anchor": "sodium nitrite",
+"nearest": [
+"calcium carbonate"
+],
+"random": [],
+"distractors": [
+"calcium carbonate"
+],
+"n_eligible": 1,
+"sha": "d1797e1ecf1cb2a5bf474791fa7747847c68ae01d77d039b54b91c4748f1a785",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0052__L052__p112:potassiumchloride:sodiumnitrite": {
+"unit": "s3d-rl600-all11:chat-lmsys-0052__L052__p112:potassiumchloride:sodiumnitrite",
+"anchor": "sodium nitrite",
+"nearest": [
+"calcium carbonate"
+],
+"random": [],
+"distractors": [
+"calcium carbonate"
+],
+"n_eligible": 1,
+"sha": "6ec11896ce8b4eccc41c6e92ee818dab1fc507a6bcd1ad3da862ed02e559699b",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0052__L052__p26:potassiumchloride:sodiumnitrite": {
+"unit": "s3d-rl600-all11:chat-lmsys-0052__L052__p26:potassiumchloride:sodiumnitrite",
+"anchor": "sodium nitrite",
+"nearest": [
+"calcium carbonate"
+],
+"random": [],
+"distractors": [
+"calcium carbonate"
+],
+"n_eligible": 1,
+"sha": "da5237ab35ab235378b785b129f6cf3872372996cdd7b6614df566141cbd7dcc",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0052__L056__p112:nano3:nano2": {
+"unit": "s3d-rl600-all11:chat-lmsys-0052__L056__p112:nano3:nano2",
+"anchor": "sodium nitrite",
+"nearest": [
+"calcium carbonate"
+],
+"random": [],
+"distractors": [
+"calcium carbonate"
+],
+"n_eligible": 1,
+"sha": "db8e191241f50339f17ac39f09fe33d38c6e41a99461fb5a44247d859fbac415",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0052__L056__p26:potassiumbromide:sodiumnitrite": {
+"unit": "s3d-rl600-all11:chat-lmsys-0052__L056__p26:potassiumbromide:sodiumnitrite",
+"anchor": "sodium nitrite",
+"nearest": [
+"calcium carbonate"
+],
+"random": [],
+"distractors": [
+"calcium carbonate"
+],
+"n_eligible": 1,
+"sha": "81eea0d1458ec82a9f9dbe00e54e0ea39a1090d3ac21b1f4ff28d85adc327c23",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0052__L056__p26:potassiumchloride:sodiumnitrite": {
+"unit": "s3d-rl600-all11:chat-lmsys-0052__L056__p26:potassiumchloride:sodiumnitrite",
+"anchor": "sodium nitrite",
+"nearest": [
+"calcium carbonate"
+],
+"random": [],
+"distractors": [
+"calcium carbonate"
+],
+"n_eligible": 1,
+"sha": "67f357912ad5f5832ce9d42ec9fa54db4bdf1b204e6eef0cb28b12356b72a5a3",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0052__L060__p26:potassiumchloride:sodiumnitrite": {
+"unit": "s3d-rl600-all11:chat-lmsys-0052__L060__p26:potassiumchloride:sodiumnitrite",
+"anchor": "sodium nitrite",
+"nearest": [
+"calcium carbonate"
+],
+"random": [],
+"distractors": [
+"calcium carbonate"
+],
+"n_eligible": 1,
+"sha": "f59b1005a29bf9127d2012640a8c21d98a4dd802e238d7561e9a717c30a8b585",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0052__L036__p112:potassiumbromide:sodiumnitrite": {
+"unit": "s3d-rl600:chat-lmsys-0052__L036__p112:potassiumbromide:sodiumnitrite",
+"anchor": "sodium nitrite",
+"nearest": [
+"calcium carbonate"
+],
+"random": [],
+"distractors": [
+"calcium carbonate"
+],
+"n_eligible": 1,
+"sha": "e2903326adddf75ebb33b737e07f3ed2e697a787679546dc0e7b1e5175e1feab",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0052__L036__p112:potassiumchloride:sodiumnitrite": {
+"unit": "s3d-rl600:chat-lmsys-0052__L036__p112:potassiumchloride:sodiumnitrite",
+"anchor": "sodium nitrite",
+"nearest": [
+"calcium carbonate"
+],
+"random": [],
+"distractors": [
+"calcium carbonate"
+],
+"n_eligible": 1,
+"sha": "89c8783d36b51e09be18e735f4fb8e42cfa4a3f41054d7c3656faac3ab01e14c",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0052__L044__p112:potassiumbromide:sodiumnitrite": {
+"unit": "s3d-rl600:chat-lmsys-0052__L044__p112:potassiumbromide:sodiumnitrite",
+"anchor": "sodium nitrite",
+"nearest": [
+"calcium carbonate"
+],
+"random": [],
+"distractors": [
+"calcium carbonate"
+],
+"n_eligible": 1,
+"sha": "a737b7bf284cf7ad81f2dfddeb28706df90f33409cf5c102fbcf7582084c4cd9",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0052__L044__p112:potassiumchloride:sodiumnitrite": {
+"unit": "s3d-rl600:chat-lmsys-0052__L044__p112:potassiumchloride:sodiumnitrite",
+"anchor": "sodium nitrite",
+"nearest": [
+"calcium carbonate"
+],
+"random": [],
+"distractors": [
+"calcium carbonate"
+],
+"n_eligible": 1,
+"sha": "64dbf55fb45a14439f6064b77d51e7339782aa137e34e7c907144664a55c97c5",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0052__L048__p112:potassiumchloride:sodiumnitrite": {
+"unit": "s3d-rl600:chat-lmsys-0052__L048__p112:potassiumchloride:sodiumnitrite",
+"anchor": "sodium nitrite",
+"nearest": [
+"calcium carbonate"
+],
+"random": [],
+"distractors": [
+"calcium carbonate"
+],
+"n_eligible": 1,
+"sha": "192046fdbf4ed7f22253ffb546652c848abd8b7281d8ce2382bb11b438f15f4b",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0052__L048__p428:potassiumchloride:sodiumnitrite": {
+"unit": "s3d-rl600:chat-lmsys-0052__L048__p428:potassiumchloride:sodiumnitrite",
+"anchor": "sodium nitrite",
+"nearest": [
+"calcium carbonate"
+],
+"random": [],
+"distractors": [
+"calcium carbonate"
+],
+"n_eligible": 1,
+"sha": "ac9d76c1aee8f75f59a6848c334cc028c844f743d6280af19bc2cedac313a1cb",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0052__L060__p112:potassiumchloride:sodiumnitrite": {
+"unit": "s3d-rl600:chat-lmsys-0052__L060__p112:potassiumchloride:sodiumnitrite",
+"anchor": "sodium nitrite",
+"nearest": [
+"calcium carbonate"
+],
+"random": [],
+"distractors": [
+"calcium carbonate"
+],
+"n_eligible": 1,
+"sha": "d47941d5ecd7d328c76a96c78ea8b7f0208079cac78a26d0655755a12ad9a8c7",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0052__L060__p26:potassiumchloride:sodiumnitrite": {
+"unit": "s3d-rl600:chat-lmsys-0052__L060__p26:potassiumchloride:sodiumnitrite",
+"anchor": "sodium nitrite",
+"nearest": [
+"calcium carbonate"
+],
+"random": [],
+"distractors": [
+"calcium carbonate"
+],
+"n_eligible": 1,
+"sha": "74995f5502134318e5b2048727ad9712eec4b36a7b72bc4454f270047fc8e4ff",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0052__L040__p164:potassiumchloride:sodiumnitrite": {
+"unit": "s3d-sft251:chat-lmsys-0052__L040__p164:potassiumchloride:sodiumnitrite",
+"anchor": "sodium nitrite",
+"nearest": [
+"calcium carbonate"
+],
+"random": [],
+"distractors": [
+"calcium carbonate"
+],
+"n_eligible": 1,
+"sha": "5ebdab82d77936d148c14b0372aa7b6e702eb0fd1228274c63f01e994742c66c",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0052__L044__p112:potassiumchloride:sodiumnitrite": {
+"unit": "s3d-sft251:chat-lmsys-0052__L044__p112:potassiumchloride:sodiumnitrite",
+"anchor": "sodium nitrite",
+"nearest": [
+"calcium carbonate"
+],
+"random": [],
+"distractors": [
+"calcium carbonate"
+],
+"n_eligible": 1,
+"sha": "4be7915f6ccef34eb9947b22f27d6947ecd0ec4e96daa849dfd8919c7306bdc2",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0052__L048__p112:potassiumchloride:sodiumnitrite": {
+"unit": "s3d-sft251:chat-lmsys-0052__L048__p112:potassiumchloride:sodiumnitrite",
+"anchor": "sodium nitrite",
+"nearest": [
+"calcium carbonate"
+],
+"random": [],
+"distractors": [
+"calcium carbonate"
+],
+"n_eligible": 1,
+"sha": "23e6a7cec54440ac9b8e69859cad7bed3e866c8e7d45cc6a2fb1cf999add9b4b",
+"generation": 0
+}
+}

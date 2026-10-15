@@ -1,0 +1,377 @@
+{
+"mlnla-rl2-800-all11:chat-lmsys-0040__L024__p58:oakormango:chineseelm": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0040__L024__p58:oakormango:chineseelm",
+"anchor": "Chinese elm",
+"nearest": [
+"Spruce",
+"Maple",
+"Willow",
+"Cedar"
+],
+"random": [
+"Birch",
+"Redwood"
+],
+"distractors": [
+"Spruce",
+"Maple",
+"Willow",
+"Cedar",
+"Birch",
+"Redwood"
+],
+"n_eligible": 6,
+"sha": "d5227b3ee8edc2a307986390a98914d31590a47bb431624f2304ffa3e459a899",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0040__L028__p58:walnutcarya:chineseelm": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0040__L028__p58:walnutcarya:chineseelm",
+"anchor": "Chinese elm",
+"nearest": [
+"Spruce",
+"Maple",
+"Willow",
+"Cedar"
+],
+"random": [
+"Birch",
+"Redwood"
+],
+"distractors": [
+"Spruce",
+"Maple",
+"Willow",
+"Cedar",
+"Birch",
+"Redwood"
+],
+"n_eligible": 6,
+"sha": "93f41b5d76a7a10fe33394280a3746324867e2d5ec019bc0bfd37ceb3dfffbeb",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0040__L028__p58:walnut:chineseelm": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0040__L028__p58:walnut:chineseelm",
+"anchor": "Chinese elm",
+"nearest": [
+"Spruce",
+"Maple",
+"Willow",
+"Cedar"
+],
+"random": [
+"Birch",
+"Redwood"
+],
+"distractors": [
+"Spruce",
+"Maple",
+"Willow",
+"Cedar",
+"Birch",
+"Redwood"
+],
+"n_eligible": 6,
+"sha": "bb56541f96e67b5c719dc10b5df7531d0b771fb3bf6e4454cd144787ee908f11",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0040__L032__p58:almond:chineseelm": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0040__L032__p58:almond:chineseelm",
+"anchor": "Chinese elm",
+"nearest": [
+"Spruce",
+"Maple",
+"Willow",
+"Cedar"
+],
+"random": [
+"Birch",
+"Redwood"
+],
+"distractors": [
+"Spruce",
+"Maple",
+"Willow",
+"Cedar",
+"Birch",
+"Redwood"
+],
+"n_eligible": 6,
+"sha": "f8481e36fdab88f9ed8754089f6407900ddd2d9c479d42dd5439f9229b126314",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0040__L020__p58:acacia:chineseelm": {
+"unit": "s3d-rl600-all11:chat-lmsys-0040__L020__p58:acacia:chineseelm",
+"anchor": "Chinese elm",
+"nearest": [
+"Spruce",
+"Maple",
+"Willow",
+"Cedar"
+],
+"random": [
+"Birch",
+"Redwood"
+],
+"distractors": [
+"Spruce",
+"Maple",
+"Willow",
+"Cedar",
+"Birch",
+"Redwood"
+],
+"n_eligible": 6,
+"sha": "d031ea77e0a8cc18620769a158fc64b9ce8a4976dbe6d9b7498d530895e86cbd",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0040__L020__p58:datepalm:chineseelm": {
+"unit": "s3d-rl600-all11:chat-lmsys-0040__L020__p58:datepalm:chineseelm",
+"anchor": "Chinese Elm",
+"nearest": [
+"Maple",
+"Cedar",
+"Spruce",
+"Willow"
+],
+"random": [
+"Birch",
+"Redwood"
+],
+"distractors": [
+"Maple",
+"Cedar",
+"Spruce",
+"Willow",
+"Birch",
+"Redwood"
+],
+"n_eligible": 6,
+"sha": "8b9320235d6eaf8da50960836e0e82b010a0d7c877e9e171d0439d1eee686896",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0040__L020__p65:kapokplant:chineseelm": {
+"unit": "s3d-rl600-all11:chat-lmsys-0040__L020__p65:kapokplant:chineseelm",
+"anchor": "Chinese elm",
+"nearest": [
+"Spruce",
+"Maple",
+"Willow",
+"Cedar"
+],
+"random": [
+"Birch",
+"Redwood"
+],
+"distractors": [
+"Spruce",
+"Maple",
+"Willow",
+"Cedar",
+"Birch",
+"Redwood"
+],
+"n_eligible": 6,
+"sha": "492fe4a12fce3409bb06ba47f60a7e6c93fbb3ea33fd2a69d00df5180ff3993c",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0040__L024__p58:cactusoakpine:chineseelm": {
+"unit": "s3d-rl600-all11:chat-lmsys-0040__L024__p58:cactusoakpine:chineseelm",
+"anchor": "Chinese elm",
+"nearest": [
+"Spruce",
+"Maple",
+"Willow",
+"Cedar"
+],
+"random": [
+"Birch",
+"Redwood"
+],
+"distractors": [
+"Spruce",
+"Maple",
+"Willow",
+"Cedar",
+"Birch",
+"Redwood"
+],
+"n_eligible": 6,
+"sha": "6cbf2997e9af1b2999ed4b56a4988614671575ebcd4849082ef19c1604753ea9",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0040__L024__p58:oakpineandjatropha:chineseelm": {
+"unit": "s3d-rl600-all11:chat-lmsys-0040__L024__p58:oakpineandjatropha:chineseelm",
+"anchor": "Chinese elm",
+"nearest": [
+"Spruce",
+"Maple",
+"Willow",
+"Cedar"
+],
+"random": [
+"Birch",
+"Redwood"
+],
+"distractors": [
+"Spruce",
+"Maple",
+"Willow",
+"Cedar",
+"Birch",
+"Redwood"
+],
+"n_eligible": 6,
+"sha": "a64d80c6e62148bdf95d50b8cc93154333d112f35a4328052f62f611c86a3832",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0040__L024__p58:oaktree:chineseelm": {
+"unit": "s3d-rl600-all11:chat-lmsys-0040__L024__p58:oaktree:chineseelm",
+"anchor": "Chinese elm",
+"nearest": [
+"Spruce",
+"Maple",
+"Willow",
+"Cedar"
+],
+"random": [
+"Birch",
+"Redwood"
+],
+"distractors": [
+"Spruce",
+"Maple",
+"Willow",
+"Cedar",
+"Birch",
+"Redwood"
+],
+"n_eligible": 6,
+"sha": "5e2c83de74d4af388b1e12e8121e42c2a8b0af1f1bf59f39673ee683a72542a8",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0040__L024__p58:oaktrees:chineseelm": {
+"unit": "s3d-rl600-all11:chat-lmsys-0040__L024__p58:oaktrees:chineseelm",
+"anchor": "Chinese elm",
+"nearest": [
+"Spruce",
+"Maple",
+"Willow",
+"Cedar"
+],
+"random": [
+"Birch",
+"Redwood"
+],
+"distractors": [
+"Spruce",
+"Maple",
+"Willow",
+"Cedar",
+"Birch",
+"Redwood"
+],
+"n_eligible": 6,
+"sha": "71a7edd33e3c0c480436aa86c08ca137bb6c9805eba590f4b2ecf7e433794746",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0040__L048__p58:almond:chineseelm": {
+"unit": "s3d-rl600-all11:chat-lmsys-0040__L048__p58:almond:chineseelm",
+"anchor": "Chinese elm",
+"nearest": [
+"Spruce",
+"Maple",
+"Willow",
+"Cedar"
+],
+"random": [
+"Birch",
+"Redwood"
+],
+"distractors": [
+"Spruce",
+"Maple",
+"Willow",
+"Cedar",
+"Birch",
+"Redwood"
+],
+"n_eligible": 6,
+"sha": "6f1f06cd0721e7e74baa26704e47277c4572df47ec2384f9071e0553bc51f8d5",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0040__L020__p58:acacia:chineseelm": {
+"unit": "s3d-rl600:chat-lmsys-0040__L020__p58:acacia:chineseelm",
+"anchor": "Chinese elm",
+"nearest": [
+"Spruce",
+"Maple",
+"Willow",
+"Cedar"
+],
+"random": [
+"Birch",
+"Redwood"
+],
+"distractors": [
+"Spruce",
+"Maple",
+"Willow",
+"Cedar",
+"Birch",
+"Redwood"
+],
+"n_eligible": 6,
+"sha": "6cc504c40c5193906c94388ffc39bacdc5c95da6ec079a4938f8ab39fb1d8621",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0040__L060__p68:pine:chineseelm": {
+"unit": "s3d-rl600:chat-lmsys-0040__L060__p68:pine:chineseelm",
+"anchor": "Chinese elm",
+"nearest": [
+"Spruce",
+"Maple",
+"Willow",
+"Cedar"
+],
+"random": [
+"Birch",
+"Redwood"
+],
+"distractors": [
+"Spruce",
+"Maple",
+"Willow",
+"Cedar",
+"Birch",
+"Redwood"
+],
+"n_eligible": 6,
+"sha": "d2895dedcb31c3a4970aab16de6972293fcf4711d6a54d2c60e9c9640d2d80e9",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0040__L024__p58:oak:chineseelm": {
+"unit": "s3d-sft251:chat-lmsys-0040__L024__p58:oak:chineseelm",
+"anchor": "Chinese elm",
+"nearest": [
+"Spruce",
+"Maple",
+"Willow",
+"Cedar"
+],
+"random": [
+"Birch",
+"Redwood"
+],
+"distractors": [
+"Spruce",
+"Maple",
+"Willow",
+"Cedar",
+"Birch",
+"Redwood"
+],
+"n_eligible": 6,
+"sha": "af9fcdcb914d42232351569e29298abf4c99757a33bdbd4d9d224d6c791972df",
+"generation": 0
+}
+}

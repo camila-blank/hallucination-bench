@@ -1,0 +1,363 @@
+{
+"mlnla-rl2-800-all11:chat-lmsys-0054__L048__p298:oraclewebcentercontent:sapbusinessobjects": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0054__L048__p298:oraclewebcentercontent:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"Epicor ERP",
+"Google Workspace",
+"Workday",
+"Salesforce Customer 360"
+],
+"random": [
+"Infor CloudSuite"
+],
+"distractors": [
+"Epicor ERP",
+"Google Workspace",
+"Workday",
+"Salesforce Customer 360",
+"Infor CloudSuite"
+],
+"n_eligible": 5,
+"sha": "640839a3d97c66849c233e9caff638fa2b950df873084d04e7b3badac06c234c",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0054__L056__p298:oraclefusionmiddleware:sapbusinessobjects": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0054__L056__p298:oraclefusionmiddleware:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"Epicor ERP",
+"Google Workspace",
+"Workday",
+"Salesforce Customer 360"
+],
+"random": [
+"Infor CloudSuite"
+],
+"distractors": [
+"Epicor ERP",
+"Google Workspace",
+"Workday",
+"Salesforce Customer 360",
+"Infor CloudSuite"
+],
+"n_eligible": 5,
+"sha": "63f2cd2060cf0a429999173bfd2b4040a8fff2188d93e2987465c79728ce0586",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0054__L060__p298:oraclefusionmiddleware:businessobjects": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0054__L060__p298:oraclefusionmiddleware:businessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"Epicor ERP",
+"Google Workspace",
+"Workday",
+"Salesforce Customer 360"
+],
+"random": [
+"Infor CloudSuite"
+],
+"distractors": [
+"Epicor ERP",
+"Google Workspace",
+"Workday",
+"Salesforce Customer 360",
+"Infor CloudSuite"
+],
+"n_eligible": 5,
+"sha": "35a1148383224ed1c9097784989958eaf71c3bb7de8ebfcb9d2362a1aa0d7f17",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0054__L060__p298:oraclefusionmiddleware:sapbusinessobjects": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0054__L060__p298:oraclefusionmiddleware:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"Epicor ERP",
+"Google Workspace",
+"Workday",
+"Salesforce Customer 360"
+],
+"random": [
+"Infor CloudSuite"
+],
+"distractors": [
+"Epicor ERP",
+"Google Workspace",
+"Workday",
+"Salesforce Customer 360",
+"Infor CloudSuite"
+],
+"n_eligible": 5,
+"sha": "f877f322b6168d38bfd9c42b6c53b3467ce57081c030a1ea6f39768989ad6f11",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0054__L048__p155:componentsofmicrosoftdynamics:corecomponents": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0054__L048__p155:componentsofmicrosoftdynamics:corecomponents",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"Epicor ERP",
+"Google Workspace",
+"Oracle NetSuite",
+"Workday"
+],
+"random": [
+"Infor CloudSuite",
+"Salesforce Customer 360"
+],
+"distractors": [
+"Epicor ERP",
+"Google Workspace",
+"Oracle NetSuite",
+"Workday",
+"Infor CloudSuite",
+"Salesforce Customer 360"
+],
+"n_eligible": 6,
+"sha": "61a69ee2ade7e7ab97762c8faf2f62f72af28b271d8aee3536f14fe62ad629b5",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0054__L048__p155:dynamicsmodules:businessobjectscomponents": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0054__L048__p155:dynamicsmodules:businessobjectscomponents",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"Epicor ERP",
+"Google Workspace",
+"Oracle NetSuite",
+"Workday"
+],
+"random": [
+"Infor CloudSuite",
+"Salesforce Customer 360"
+],
+"distractors": [
+"Epicor ERP",
+"Google Workspace",
+"Oracle NetSuite",
+"Workday",
+"Infor CloudSuite",
+"Salesforce Customer 360"
+],
+"n_eligible": 6,
+"sha": "85d26ec87a77d8735b45f63d7b40e9b801d414a14347f3fce87c31ea9f250430",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0054__L052__p298:oraclefusionmiddleware:sapbusinessobjects": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0054__L052__p298:oraclefusionmiddleware:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"Epicor ERP",
+"Google Workspace",
+"Workday",
+"Salesforce Customer 360"
+],
+"random": [
+"Infor CloudSuite"
+],
+"distractors": [
+"Epicor ERP",
+"Google Workspace",
+"Workday",
+"Salesforce Customer 360",
+"Infor CloudSuite"
+],
+"n_eligible": 5,
+"sha": "53de141a8fa4056e52a08836b46b11a5a80371f46ab5415ba5ea6a62d846171b",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0054__L056__p298:oraclefusionmiddleware:sapbusinessobjects": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0054__L056__p298:oraclefusionmiddleware:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"Epicor ERP",
+"Google Workspace",
+"Workday",
+"Salesforce Customer 360"
+],
+"random": [
+"Infor CloudSuite"
+],
+"distractors": [
+"Epicor ERP",
+"Google Workspace",
+"Workday",
+"Salesforce Customer 360",
+"Infor CloudSuite"
+],
+"n_eligible": 5,
+"sha": "8138e6f9f172f1cb2974d57f67d6e0f9c787d0530e7f24e15e274cd30119b1b2",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0054__L060__p298:oraclefusionmiddleware:sapbusinessobjects": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0054__L060__p298:oraclefusionmiddleware:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"Epicor ERP",
+"Google Workspace",
+"Workday",
+"Salesforce Customer 360"
+],
+"random": [
+"Infor CloudSuite"
+],
+"distractors": [
+"Epicor ERP",
+"Google Workspace",
+"Workday",
+"Salesforce Customer 360",
+"Infor CloudSuite"
+],
+"n_eligible": 5,
+"sha": "2abeb67cba51f3c9a2de68995c2e2cb26b924e81d4161d20b322ad6d70f1c40a",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0054__L042__p298:filenetp8:sapbusinessobjects": {
+"unit": "nla-rl-L42:chat-lmsys-0054__L042__p298:filenetp8:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"Epicor ERP",
+"Google Workspace",
+"Oracle NetSuite",
+"Workday"
+],
+"random": [
+"Infor CloudSuite",
+"Salesforce Customer 360"
+],
+"distractors": [
+"Epicor ERP",
+"Google Workspace",
+"Oracle NetSuite",
+"Workday",
+"Infor CloudSuite",
+"Salesforce Customer 360"
+],
+"n_eligible": 6,
+"sha": "4769a8e3176b8fcf77f278f50f63dd0830d959a62e013db4cae9f413eaadaacd",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0054__L048__p155:sharepoint:sapbusinessobjects": {
+"unit": "s3d-rl600-all11:chat-lmsys-0054__L048__p155:sharepoint:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"Epicor ERP",
+"Google Workspace",
+"Oracle NetSuite",
+"Workday"
+],
+"random": [
+"Infor CloudSuite",
+"Salesforce Customer 360"
+],
+"distractors": [
+"Epicor ERP",
+"Google Workspace",
+"Oracle NetSuite",
+"Workday",
+"Infor CloudSuite",
+"Salesforce Customer 360"
+],
+"n_eligible": 6,
+"sha": "1ddeb9b605545040f38e1713750b784dc212d53baead58071c3d00c8a5beb03b",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0054__L060__p298:sharepoint:sapbusinessobjects": {
+"unit": "s3d-rl600-all11:chat-lmsys-0054__L060__p298:sharepoint:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"Epicor ERP",
+"Google Workspace",
+"Oracle NetSuite",
+"Workday"
+],
+"random": [
+"Infor CloudSuite",
+"Salesforce Customer 360"
+],
+"distractors": [
+"Epicor ERP",
+"Google Workspace",
+"Oracle NetSuite",
+"Workday",
+"Infor CloudSuite",
+"Salesforce Customer 360"
+],
+"n_eligible": 6,
+"sha": "6af131172bb5f1333b6f539676fd105ef40a48b7fe16dbcc3c96e5aa8ba3bbfe",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0054__L044__p298:sharepoint:sapbusinessobjects": {
+"unit": "s3d-rl600:chat-lmsys-0054__L044__p298:sharepoint:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"Epicor ERP",
+"Google Workspace",
+"Oracle NetSuite",
+"Workday"
+],
+"random": [
+"Infor CloudSuite",
+"Salesforce Customer 360"
+],
+"distractors": [
+"Epicor ERP",
+"Google Workspace",
+"Oracle NetSuite",
+"Workday",
+"Infor CloudSuite",
+"Salesforce Customer 360"
+],
+"n_eligible": 6,
+"sha": "701c8ba036d93ca9aa3fcf153b8c83223ba2e742d4e57f011a1e3b7ae79ab896",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0054__L048__p155:sharepoint:sapbusinessobjects": {
+"unit": "s3d-rl600:chat-lmsys-0054__L048__p155:sharepoint:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"Epicor ERP",
+"Google Workspace",
+"Oracle NetSuite",
+"Workday"
+],
+"random": [
+"Infor CloudSuite",
+"Salesforce Customer 360"
+],
+"distractors": [
+"Epicor ERP",
+"Google Workspace",
+"Oracle NetSuite",
+"Workday",
+"Infor CloudSuite",
+"Salesforce Customer 360"
+],
+"n_eligible": 6,
+"sha": "a7ef56750e1a7a43e6e864f17be744a331c77541159d2e6b641f5f1d66733add",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0054__L060__p298:sharepoint:sapbusinessobjectsinfoview": {
+"unit": "s3d-rl600:chat-lmsys-0054__L060__p298:sharepoint:sapbusinessobjectsinfoview",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"Epicor ERP",
+"Google Workspace",
+"Oracle NetSuite",
+"Workday"
+],
+"random": [
+"Infor CloudSuite",
+"Salesforce Customer 360"
+],
+"distractors": [
+"Epicor ERP",
+"Google Workspace",
+"Oracle NetSuite",
+"Workday",
+"Infor CloudSuite",
+"Salesforce Customer 360"
+],
+"n_eligible": 6,
+"sha": "034600ef38adee03630ab8a51ba68b211d15bd5cf28207c25399f7adc66872bc",
+"generation": 0
+}
+}

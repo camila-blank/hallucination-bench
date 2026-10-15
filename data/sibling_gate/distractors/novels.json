@@ -1,0 +1,176 @@
+{
+"mlnla-rl2-800-all11:chat-dailydialog-0030__L024__p110:thewizardofoz:thehitchhikersguidetothegalaxy": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0030__L024__p110:thewizardofoz:thehitchhikersguidetothegalaxy",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"1984",
+"Moby-Dick",
+"The Catcher in the Rye",
+"Jane Eyre"
+],
+"random": [],
+"distractors": [
+"1984",
+"Moby-Dick",
+"The Catcher in the Rye",
+"Jane Eyre"
+],
+"n_eligible": 4,
+"sha": "e11f29b5618ff3e188949e76116cfc58301af9157b63cb50c6e5e827408caf4a",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0030__L024__p137:thewizardofoz:thehitchhikersguidetothegalaxy": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0030__L024__p137:thewizardofoz:thehitchhikersguidetothegalaxy",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"1984",
+"Moby-Dick",
+"The Catcher in the Rye",
+"Jane Eyre"
+],
+"random": [],
+"distractors": [
+"1984",
+"Moby-Dick",
+"The Catcher in the Rye",
+"Jane Eyre"
+],
+"n_eligible": 4,
+"sha": "6f1d4f9ecaf4dfa4d74efa70b1910a480a1604523333f7a95b9f90c40cd168d9",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0030__L028__p110:aliceinwonderland:thehitchhikersguidetothegalaxy": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0030__L028__p110:aliceinwonderland:thehitchhikersguidetothegalaxy",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"1984",
+"Moby-Dick",
+"Jane Eyre"
+],
+"random": [],
+"distractors": [
+"1984",
+"Moby-Dick",
+"Jane Eyre"
+],
+"n_eligible": 3,
+"sha": "edfb2e0304245824e0317d47cc7c30a9f819cd6cd9881b8e5f76cc359c3fbead",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0030__L028__p110:thewizardofoz:thehitchhikersguidetothegalaxy": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0030__L028__p110:thewizardofoz:thehitchhikersguidetothegalaxy",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"1984",
+"Moby-Dick",
+"The Catcher in the Rye",
+"Jane Eyre"
+],
+"random": [],
+"distractors": [
+"1984",
+"Moby-Dick",
+"The Catcher in the Rye",
+"Jane Eyre"
+],
+"n_eligible": 4,
+"sha": "3a9b9d96241fc33d4f28850249aa55807507152febca16606d9ffa84adf8c440",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0030__L044__p110:aliceinwonderland:thehitchhikersguidetothegalaxy": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0030__L044__p110:aliceinwonderland:thehitchhikersguidetothegalaxy",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"1984",
+"Moby-Dick",
+"Jane Eyre"
+],
+"random": [],
+"distractors": [
+"1984",
+"Moby-Dick",
+"Jane Eyre"
+],
+"n_eligible": 3,
+"sha": "11b939b71d5977434c753c7581d18035207c54715a763aa8816e4d05d3e0dfdf",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0030__L048__p203:aliceinwonderland:thehitchhikersguidetothegalaxy": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0030__L048__p203:aliceinwonderland:thehitchhikersguidetothegalaxy",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"1984",
+"Moby-Dick",
+"Jane Eyre"
+],
+"random": [],
+"distractors": [
+"1984",
+"Moby-Dick",
+"Jane Eyre"
+],
+"n_eligible": 3,
+"sha": "c8a7657c16e8ab7779cf61afccacf37323053c474d7a3d0d7e0af9ab11a346b8",
+"generation": 0
+},
+"nla-rl-L42:chat-dailydialog-0030__L042__p110:thelordoftherings:thehitchhikersguidetothegalaxy": {
+"unit": "nla-rl-L42:chat-dailydialog-0030__L042__p110:thelordoftherings:thehitchhikersguidetothegalaxy",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"1984",
+"Moby-Dick",
+"The Catcher in the Rye",
+"Jane Eyre"
+],
+"random": [],
+"distractors": [
+"1984",
+"Moby-Dick",
+"The Catcher in the Rye",
+"Jane Eyre"
+],
+"n_eligible": 4,
+"sha": "2333132a8e767f26d1d8f27266aecfffaf4acd4ab3ce28534d16389c57822fd7",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0030__L060__p87:themartian:thehitchhikersguidetothegalaxy": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0030__L060__p87:themartian:thehitchhikersguidetothegalaxy",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"1984",
+"Moby-Dick",
+"The Catcher in the Rye",
+"Jane Eyre"
+],
+"random": [],
+"distractors": [
+"1984",
+"Moby-Dick",
+"The Catcher in the Rye",
+"Jane Eyre"
+],
+"n_eligible": 4,
+"sha": "8d985987277a0289a799e61f84f991b28caa0fa66a9857e2737fd66a69befd13",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0030__L044__p203:lesmisérables:thehitchhikersguidetothegalaxy": {
+"unit": "s3d-sft251:chat-dailydialog-0030__L044__p203:lesmisérables:thehitchhikersguidetothegalaxy",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"1984",
+"Moby-Dick",
+"The Catcher in the Rye",
+"Jane Eyre"
+],
+"random": [],
+"distractors": [
+"1984",
+"Moby-Dick",
+"The Catcher in the Rye",
+"Jane Eyre"
+],
+"n_eligible": 4,
+"sha": "ecad7596fae1119650b8e0fc68619580c32accf8aca00bc73fe9db1903a238e8",
+"generation": 0
+}
+}

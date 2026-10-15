@@ -1,0 +1,10326 @@
+{
+"jlens:chat-dailydialog-0037__L040__p20:chinese:french": {
+"unit": "jlens:chat-dailydialog-0037__L040__p20:chinese:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "2edb782d2087a20af30bc700d3eacbd447609b97b90dbfd8b95da337fb4c9bab",
+"generation": 0
+},
+"jlens:chat-dailydialog-0037__L044__p20:chinese:french": {
+"unit": "jlens:chat-dailydialog-0037__L044__p20:chinese:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "1c67e09b68fae0864cbcd2039ac6a06a579ade1ea016e125e9f8600d9f3d0b40",
+"generation": 0
+},
+"logit:chat-dailydialog-0003__L040__p21:chinese:english": {
+"unit": "logit:chat-dailydialog-0003__L040__p21:chinese:english",
+"anchor": "English",
+"nearest": [
+"French",
+"Spanish",
+"Catalan",
+"Dutch"
+],
+"random": [
+"Brazilian Portuguese",
+"German",
+"Italian",
+"Mandarin"
+],
+"distractors": [
+"French",
+"Spanish",
+"Catalan",
+"Dutch",
+"Brazilian Portuguese",
+"German",
+"Italian",
+"Mandarin"
+],
+"n_eligible": 10,
+"sha": "0c145c9fbfb5a7bc0bc5f07732255a2ff7763a1a05126a370d888abec135417a",
+"generation": 0
+},
+"logit:chat-dailydialog-0037__L052__p28:chinese:french": {
+"unit": "logit:chat-dailydialog-0037__L052__p28:chinese:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "f24211cb95f133aaf2d5bb3aa939583e716aa4e580cba88bf02f96aed4532908",
+"generation": 0
+},
+"logit:chat-lmsys-0053__L044__p25:english:português": {
+"unit": "logit:chat-lmsys-0053__L044__p25:english:português",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Hebrew",
+"Mandarin",
+"Mandarin Chinese",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Hebrew",
+"Mandarin",
+"Mandarin Chinese",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "d2d3362192a34c4ee5c434d80c48a6e4c8d51076d9d8bf7a99049a795a6fff92",
+"generation": 0
+},
+"logit:chat-lmsys-0053__L048__p25:chinese:portuguese": {
+"unit": "logit:chat-lmsys-0053__L048__p25:chinese:portuguese",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Arabic",
+"Japanese",
+"Mandarin",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Arabic",
+"Japanese",
+"Mandarin",
+"Yiddish"
+],
+"n_eligible": 9,
+"sha": "91051565521d228183fa4348a14b242a04cb9365d429b6de84b9efc81a399740",
+"generation": 0
+},
+"logit:chat-lmsys-0053__L056__p25:english:portuguese": {
+"unit": "logit:chat-lmsys-0053__L056__p25:english:portuguese",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Arabic",
+"Mandarin",
+"Mandarin Chinese",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Arabic",
+"Mandarin",
+"Mandarin Chinese",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "71e9860420a6db2bf6f89f8698ab9b423be29fe2b6b890960d310521b3359c71",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0002__L028__p20:italian:english": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0002__L028__p20:italian:english",
+"anchor": "English",
+"nearest": [
+"French",
+"Spanish",
+"Yiddish",
+"Catalan"
+],
+"random": [
+"Arabic",
+"Chinese",
+"Simplified Chinese",
+"Turkish"
+],
+"distractors": [
+"French",
+"Spanish",
+"Yiddish",
+"Catalan",
+"Arabic",
+"Chinese",
+"Simplified Chinese",
+"Turkish"
+],
+"n_eligible": 16,
+"sha": "d239cf49fc57c244ff1292ebeef332d8736d66ff8adf73dc13cd2749ce58b39c",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0003__L024__p112:turkish:english": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0003__L024__p112:turkish:english",
+"anchor": "English",
+"nearest": [
+"French",
+"Spanish",
+"Catalan",
+"Dutch"
+],
+"random": [
+"Brazilian Portuguese",
+"Italian",
+"Mandarin Chinese",
+"Portuguese"
+],
+"distractors": [
+"French",
+"Spanish",
+"Catalan",
+"Dutch",
+"Brazilian Portuguese",
+"Italian",
+"Mandarin Chinese",
+"Portuguese"
+],
+"n_eligible": 12,
+"sha": "dd25aa35bbd440aa187bc6a35d40d19eacbd7858d0fde40ddd91d971a0d981d5",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0003__L060__p162:hebrew:english": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0003__L060__p162:hebrew:english",
+"anchor": "English",
+"nearest": [
+"French",
+"Spanish",
+"Catalan",
+"Dutch"
+],
+"random": [
+"Brazilian Portuguese",
+"Italian",
+"Mandarin",
+"Mandarin Chinese"
+],
+"distractors": [
+"French",
+"Spanish",
+"Catalan",
+"Dutch",
+"Brazilian Portuguese",
+"Italian",
+"Mandarin",
+"Mandarin Chinese"
+],
+"n_eligible": 12,
+"sha": "b4fc68e7e343baa52493bd5b7915205ceb4d69adbfc1c97ffe6f5d350eba6d4a",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0037__L020__p20:chinese:english": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0037__L020__p20:chinese:english",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "0eea1ec5c6111ff3488ae2c093749d29ca0f355a29b44a9ac8eb48e64d76fc2b",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0037__L020__p20:chinese:french": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0037__L020__p20:chinese:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "d6fe55c0ee8532ce3a73b8c9fed5ac9e2d38072584bcbac0f65403c8e546974e",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0037__L020__p20:chinois:français": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0037__L020__p20:chinois:français",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "237d6c8e3e74b8a37a8ada202cf106f213e67918576befb1cfbb781bb6f0a0cb",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0037__L020__p20:我会说中文:jeparlefrançais": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0037__L020__p20:我会说中文:jeparlefrançais",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "99c16a5b087582572e25efbef1c42bc4d7a89f648313477f27392e3c51ac770a",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0037__L020__p28:chinese:french": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0037__L020__p28:chinese:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "51e8fbb4e49bcb434c36f65313020e97e07f2a8fb2e587737699a2bd9495948b",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0037__L020__p28:portuguese:french": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0037__L020__p28:portuguese:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Italian"
+],
+"random": [
+"Dutch",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Italian",
+"Dutch",
+"Turkish"
+],
+"n_eligible": 6,
+"sha": "4c9c09c26312126ec771465f6c6360af77696c6fd0d3f173a644e63bbb570072",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0037__L020__p28:portuguesechinese:french": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0037__L020__p28:portuguesechinese:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Italian"
+],
+"random": [
+"Dutch",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Italian",
+"Dutch",
+"Turkish"
+],
+"n_eligible": 6,
+"sha": "fae67d20069caa0cef4225025cf6783c98197e23ee4261b91d8830e118f9d14f",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0037__L020__p37:portuguese:french": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0037__L020__p37:portuguese:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Italian"
+],
+"random": [
+"Dutch",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Italian",
+"Dutch",
+"Turkish"
+],
+"n_eligible": 6,
+"sha": "6f6dd690c758223cfe3df09433ba0cd55635bcdc86d915a866a3e26590ef17e6",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0037__L024__p20:chinese:french": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0037__L024__p20:chinese:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "4976de1b84e2a129f3cb154badccab596905392af3b1bdbd55cca03fc48e6503",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0037__L024__p20:jeparlechinois:jeparlefrançais": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0037__L024__p20:jeparlechinois:jeparlefrançais",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "cc450845a0a2032b2d029fdcedba50e397dd0b5d3e224b7802c996f532fcdcee",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0037__L024__p20:我会说中文:jeparlefrançais": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0037__L024__p20:我会说中文:jeparlefrançais",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "b5a24e181a23d483b122515b84f04019b7efdb1c8aa11ed6474dabf863aa0f35",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0037__L024__p20:我懂中文:jeparlefrançais": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0037__L024__p20:我懂中文:jeparlefrançais",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "2c3d28c00db8a7e21b213b4b375eccdb78d16b35e4b79fcfc92287c503d3b382",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0037__L024__p28:chinese:englishfrench": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0037__L024__p28:chinese:englishfrench",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "9508e8e35769a21b76a9c234a56f53abd38dba43f5d0cd00f96f7f3980ba926b",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0037__L024__p28:chinese:french": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0037__L024__p28:chinese:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "38f7d4d1bd76d76682a022e1863fd222ba809fdaa2ec87cffc1e958a4ed211c8",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0037__L024__p37:portuguese:french": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0037__L024__p37:portuguese:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Italian"
+],
+"random": [
+"Dutch",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Italian",
+"Dutch",
+"Turkish"
+],
+"n_eligible": 6,
+"sha": "9ccd89dac74e505819afccb88c24020340746bb9cbd64c261df65542922e95c1",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0037__L024__p37:portuguesetokens:frenchtokens": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0037__L024__p37:portuguesetokens:frenchtokens",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Italian"
+],
+"random": [
+"Dutch",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Italian",
+"Dutch",
+"Turkish"
+],
+"n_eligible": 6,
+"sha": "1e1eaa19e716776e019a19c0d2284e75870e85d32cfda882fd17c9ce4069ae87",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0037__L028__p20:chinese:french": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0037__L028__p20:chinese:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "e8256b22821d4a8518ff91f8e4f9c03bc8a022a04c3aef870f5a11285a338263",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0037__L028__p20:simplifiedchinese:french": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0037__L028__p20:simplifiedchinese:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "506c6c0611611c9fd5c9726e4dc920b0dbea1f766e604968357627d7476b0d98",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0037__L028__p20:我会说中文:jeparlefrançais": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0037__L028__p20:我会说中文:jeparlefrançais",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "29c10a5e7435e02a2f2f10994d1b95d4b2cddab1004a69562e6361f63f5a69af",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0037__L028__p28:chinese:french": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0037__L028__p28:chinese:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "9340379902a8e7eea23669f68e29c5cc03ab20c0689dda2c843f26fa63ad08e6",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0037__L028__p28:simplifiedchinese:french": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0037__L028__p28:simplifiedchinese:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "0ff8e4338c0ef79c188867816855eab2a5d575f56053e62c306aa2d0ff802b77",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0037__L032__p20:chinese:french": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0037__L032__p20:chinese:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "c9e310568c6ba4bbab41c90d2a3ca5ab1712e05535462f8cbf11042be8e5664c",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0037__L032__p28:chinese:english": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0037__L032__p28:chinese:english",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "91258b97ddfe3ca8967affcbc67eed148d55a1c907473495f467863a5792fb3c",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0037__L032__p28:chinese:french": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0037__L032__p28:chinese:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "c92bf208c7845efd4a29f19a70d7485d5f3bce4db227552507dcbc9a483e34c5",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0037__L036__p20:chinese:french": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0037__L036__p20:chinese:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "ecf1bf16810e1172e54d230c6453f8f29830d573257c537101b1824fc38440ef",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0037__L036__p28::": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0037__L036__p28::",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "43c97a261357208c676cd05912f881fd9189efda2254ec5d50c001881b2901f8",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0037__L036__p28:chinese:french": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0037__L036__p28:chinese:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "91ef070570116629e278a85a9c24eb0ffd0e61bc01263a68b69633877db17bff",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0037__L036__p28:mandarin:french": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0037__L036__p28:mandarin:french",
+"anchor": "English",
+"nearest": [
+"French",
+"Yiddish",
+"Hebrew",
+"Dutch"
+],
+"random": [
+"Brazilian Portuguese",
+"German",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"French",
+"Yiddish",
+"Hebrew",
+"Dutch",
+"Brazilian Portuguese",
+"German",
+"Italian",
+"Turkish"
+],
+"n_eligible": 8,
+"sha": "7632d6a16f3a114e20877394bc00788dc45542eb028cea3fec25b3ef04c578e2",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0037__L040__p20:chinese:french": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0037__L040__p20:chinese:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "a20e5ce7018cb34f504628ebb5a23667ce20f1c88c170e8112783e7a5e775224",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0037__L040__p20:mandarin:french": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0037__L040__p20:mandarin:french",
+"anchor": "English",
+"nearest": [
+"French",
+"Yiddish",
+"Hebrew",
+"Dutch"
+],
+"random": [
+"Brazilian Portuguese",
+"German",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"French",
+"Yiddish",
+"Hebrew",
+"Dutch",
+"Brazilian Portuguese",
+"German",
+"Italian",
+"Turkish"
+],
+"n_eligible": 8,
+"sha": "1184f1dd9f8aec8d36d65b986c42486df9c9924cfa53d4b1fa49b93a7af5b7e8",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0037__L044__p20:chinese:french": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0037__L044__p20:chinese:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "213c32ee0f1ae23b9094a90426a2f22da4d4117777f2b9c38b07d053e6e0c729",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0037__L048__p20:chinese:french": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0037__L048__p20:chinese:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "5a157575c780b7b9337be8314c96437c80fdaf8cdc6ebaaa5fa400b205a0860d",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0037__L048__p20:spanish:french": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0037__L048__p20:spanish:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "0f641cfdc91d2489dd8dd9e70b719db3db4bce4873ab14488123a98358db9aab",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0037__L048__p20:séhablarchino:jeparlefrançais": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0037__L048__p20:séhablarchino:jeparlefrançais",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "5c4f0a8dcfb5620c4a9297d3241e0bedc5905b234e5c94a9b0543d5e7dff906a",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0018__L028__p131:spanish:portuguese": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0018__L028__p131:spanish:portuguese",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Italian",
+"Catalan"
+],
+"random": [
+"Chinese",
+"English",
+"Japanese",
+"Mandarin"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Italian",
+"Catalan",
+"Chinese",
+"English",
+"Japanese",
+"Mandarin"
+],
+"n_eligible": 14,
+"sha": "41e87316ec4bf0f9e4c7905e5f2f1c52cdd7f8e9e2d0f33b86a7a1b4c54ea7d6",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0027__L020__p30:portuguese:italian": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0027__L020__p30:portuguese:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan"
+],
+"random": [
+"Arabic",
+"Japanese",
+"Mandarin",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan",
+"Arabic",
+"Japanese",
+"Mandarin",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "898990f6743b5c35b48158f0a51485390d1d0ed1d94ea874e1ba4b449ff274ba",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0027__L020__p30:portuguesecomcertezacomprazer:italiancertamente": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0027__L020__p30:portuguesecomcertezacomprazer:italiancertamente",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan"
+],
+"random": [
+"Hebrew",
+"Japanese",
+"Mandarin",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan",
+"Hebrew",
+"Japanese",
+"Mandarin",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "b1a12eb2babdc5a2524d430ac6d0d549f32938a76495e1e4f7c24625165389f9",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0027__L024__p30::": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0027__L024__p30::",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese"
+],
+"random": [
+"Catalan",
+"Hebrew",
+"Mandarin",
+"Mandarin Chinese"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese",
+"Catalan",
+"Hebrew",
+"Mandarin",
+"Mandarin Chinese"
+],
+"n_eligible": 11,
+"sha": "74c70dcdc6045b7b1d8e403cfca7eead2df7db29fc97a8a881464d5e079b2da6",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0027__L024__p30:portuguese:italian": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0027__L024__p30:portuguese:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan"
+],
+"random": [
+"Arabic",
+"Japanese",
+"Mandarin",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan",
+"Arabic",
+"Japanese",
+"Mandarin",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "ec33075d6dd19458617f6fe1ba5c5e6951aaf9bbe321f267903a2ed0f11ea638",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0027__L024__p42:french:italian": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0027__L024__p42:french:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese"
+],
+"random": [
+"Arabic",
+"Catalan",
+"Hebrew",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese",
+"Arabic",
+"Catalan",
+"Hebrew",
+"Yiddish"
+],
+"n_eligible": 11,
+"sha": "fc9ee7ca198b49f120e873f9b708426f6c8282dc94aebdd7f96abaea486e14a9",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0027__L024__p42:spanish:italian": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0027__L024__p42:spanish:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese"
+],
+"random": [
+"Hebrew",
+"Japanese",
+"Mandarin Chinese",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese",
+"Hebrew",
+"Japanese",
+"Mandarin Chinese",
+"Yiddish"
+],
+"n_eligible": 11,
+"sha": "403a1491395292122d5fd288b1d3d72a6555ff28e4bf8c269903751dff89d7f3",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0027__L024__p42:spanishfrench:italian": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0027__L024__p42:spanishfrench:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese"
+],
+"random": [
+"Japanese",
+"Mandarin",
+"Mandarin Chinese",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese",
+"Japanese",
+"Mandarin",
+"Mandarin Chinese",
+"Yiddish"
+],
+"n_eligible": 11,
+"sha": "35015aa43cfcf4ddbf9a1e8ea9daa87393bdf24bcc880d94ea2301a16c0b904d",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0027__L028__p30:french:italian": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0027__L028__p30:french:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese"
+],
+"random": [
+"Catalan",
+"Hebrew",
+"Japanese",
+"Mandarin Chinese"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese",
+"Catalan",
+"Hebrew",
+"Japanese",
+"Mandarin Chinese"
+],
+"n_eligible": 11,
+"sha": "f4321c6bd3cf5a3ee2c7baf166f87ef009f36087c9a587202f0d8459d05d2b66",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0027__L028__p30:portuguese:italian": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0027__L028__p30:portuguese:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan"
+],
+"random": [
+"Arabic",
+"Mandarin",
+"Mandarin Chinese",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan",
+"Arabic",
+"Mandarin",
+"Mandarin Chinese",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "6df6a4862c4cf76ad5f912dd91f06bcb2bbd2df2fa1de5951974fcd92c739751",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0027__L028__p42:chinese:italian": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0027__L028__p42:chinese:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese"
+],
+"random": [
+"Arabic",
+"Hebrew",
+"Mandarin",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese",
+"Arabic",
+"Hebrew",
+"Mandarin",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "19a1607550b07713e3e2fef408a7022d6fc65fbaacce0ffc1ceb8f699b7d58ec",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0027__L028__p42:english:italian": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0027__L028__p42:english:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese"
+],
+"random": [
+"Arabic",
+"Hebrew",
+"Japanese",
+"Mandarin Chinese"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese",
+"Arabic",
+"Hebrew",
+"Japanese",
+"Mandarin Chinese"
+],
+"n_eligible": 11,
+"sha": "58d769d6f290aae3c48b4025814c85bb3483c19217b678691e20dbe79137b2ab",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0027__L028__p42:simplifiedchinese:italian": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0027__L028__p42:simplifiedchinese:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese"
+],
+"random": [
+"Arabic",
+"Catalan",
+"Hebrew",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese",
+"Arabic",
+"Catalan",
+"Hebrew",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "ada53b7d4b23b462523a634059199f91aa0184cea9066efbbb3739ebf59f1b83",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0027__L032__p30:portuguese:italian": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0027__L032__p30:portuguese:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan"
+],
+"random": [
+"Hebrew",
+"Japanese",
+"Mandarin",
+"Mandarin Chinese"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan",
+"Hebrew",
+"Japanese",
+"Mandarin",
+"Mandarin Chinese"
+],
+"n_eligible": 10,
+"sha": "4362c08a7ccf651e7896fba6a1befc3204f0f5b35c3ee0aa101f7b25dc187690",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0027__L032__p42:english:italian": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0027__L032__p42:english:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese"
+],
+"random": [
+"Arabic",
+"Hebrew",
+"Japanese",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese",
+"Arabic",
+"Hebrew",
+"Japanese",
+"Yiddish"
+],
+"n_eligible": 11,
+"sha": "21e1fab7cd4b23a05f053cb15ca2a1a19d70d2dad932d1e0cd14c7f3bc0ad318",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0027__L032__p42:portuguese:italian": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0027__L032__p42:portuguese:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan"
+],
+"random": [
+"Arabic",
+"Japanese",
+"Mandarin Chinese",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan",
+"Arabic",
+"Japanese",
+"Mandarin Chinese",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "63d7499dd8ded6a66b570329506bcc4f07a827375a3b772c829abb221f81157c",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0027__L036__p30:portuguese:italian": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0027__L036__p30:portuguese:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan"
+],
+"random": [
+"Arabic",
+"Japanese",
+"Mandarin",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan",
+"Arabic",
+"Japanese",
+"Mandarin",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "8a3b2a277a4ba55a4a6c9bba5c74c0c7466a0966ced7f7476b15799538ac5647",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0027__L036__p42::": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0027__L036__p42::",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese"
+],
+"random": [
+"Catalan",
+"Hebrew",
+"Japanese",
+"Mandarin"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese",
+"Catalan",
+"Hebrew",
+"Japanese",
+"Mandarin"
+],
+"n_eligible": 11,
+"sha": "32f527328897f5ca6e14c0b4ab1bdc9f4ef2647b8e6bd107d99e9325fd707e4d",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0027__L036__p42:english:italian": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0027__L036__p42:english:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese"
+],
+"random": [
+"Hebrew",
+"Japanese",
+"Mandarin",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese",
+"Hebrew",
+"Japanese",
+"Mandarin",
+"Yiddish"
+],
+"n_eligible": 11,
+"sha": "d4635a09efc38ea63967488ff24c7425cd0872993247df4e0b6507720a8af132",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0027__L036__p42:portuguese:italian": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0027__L036__p42:portuguese:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan"
+],
+"random": [
+"Arabic",
+"Hebrew",
+"Japanese",
+"Mandarin"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan",
+"Arabic",
+"Hebrew",
+"Japanese",
+"Mandarin"
+],
+"n_eligible": 10,
+"sha": "edd0544e86aedcdbdb822af3aa04ab8d847a0010e6fae0668cde7ee9049e2db2",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0027__L040__p30:english:italian": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0027__L040__p30:english:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese"
+],
+"random": [
+"Arabic",
+"Hebrew",
+"Mandarin Chinese",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese",
+"Arabic",
+"Hebrew",
+"Mandarin Chinese",
+"Yiddish"
+],
+"n_eligible": 11,
+"sha": "00f26b21f864d116a79f2a018ee5acdcb80b683ab36484341e4970d2abe8a667",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0027__L040__p30:portuguese:italian": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0027__L040__p30:portuguese:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan"
+],
+"random": [
+"Hebrew",
+"Japanese",
+"Mandarin",
+"Mandarin Chinese"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan",
+"Hebrew",
+"Japanese",
+"Mandarin",
+"Mandarin Chinese"
+],
+"n_eligible": 10,
+"sha": "12ccc3375031447ed31251f22017d6ce8b7f16afdb783ad1e527c661791f5f17",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0027__L040__p42:portuguese:italian": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0027__L040__p42:portuguese:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan"
+],
+"random": [
+"Arabic",
+"Japanese",
+"Mandarin",
+"Mandarin Chinese"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan",
+"Arabic",
+"Japanese",
+"Mandarin",
+"Mandarin Chinese"
+],
+"n_eligible": 10,
+"sha": "5834253c6b7609b94864b2473b3148ab0b827884ab4f4630b2a4c07d80c3eb7c",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0027__L044__p30:brazilianportuguese:italian": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0027__L044__p30:brazilianportuguese:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan"
+],
+"random": [
+"Arabic",
+"Hebrew",
+"Japanese",
+"Mandarin"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan",
+"Arabic",
+"Hebrew",
+"Japanese",
+"Mandarin"
+],
+"n_eligible": 10,
+"sha": "b2bc5fe58eda57b8ebf3647edfd16350e4dad7af359a3e8ffbf2a7952ea48c1e",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0027__L044__p30:portuguese:italian": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0027__L044__p30:portuguese:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan"
+],
+"random": [
+"Arabic",
+"Hebrew",
+"Japanese",
+"Mandarin"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan",
+"Arabic",
+"Hebrew",
+"Japanese",
+"Mandarin"
+],
+"n_eligible": 10,
+"sha": "2f033f44fc9ef9ab0365be8b82dd82a6354842a4273045a1a0a5e2a1f5dbf19d",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0027__L044__p49:portuguese:italian": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0027__L044__p49:portuguese:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan"
+],
+"random": [
+"Arabic",
+"Japanese",
+"Mandarin",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan",
+"Arabic",
+"Japanese",
+"Mandarin",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "2c1ea4e09bec75e9762c990aa9fd6a72ae5205f963ac6e0fd3e883690b4fa42f",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0053__L020__p29:chinese:portuguese": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0053__L020__p29:chinese:portuguese",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Arabic",
+"Japanese",
+"Mandarin",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Arabic",
+"Japanese",
+"Mandarin",
+"Yiddish"
+],
+"n_eligible": 9,
+"sha": "d1894b3c8611f21f1405dcb9e87c98cbb744a0e981fc4f3e94e18b08b760ba96",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0053__L020__p29:chinesesimplified:portuguese": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0053__L020__p29:chinesesimplified:portuguese",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Arabic",
+"Hebrew",
+"Japanese",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Arabic",
+"Hebrew",
+"Japanese",
+"Yiddish"
+],
+"n_eligible": 9,
+"sha": "7df92282b536f1cb512602995dfa5da8ad4bef1db64ba0550d373250a8e8e437",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0053__L020__p29:italian:portuguese": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0053__L020__p29:italian:portuguese",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Arabic",
+"Hebrew",
+"Mandarin",
+"Mandarin Chinese"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Arabic",
+"Hebrew",
+"Mandarin",
+"Mandarin Chinese"
+],
+"n_eligible": 10,
+"sha": "a727ddc8d337947df51d9bf0cf47323364865a807af996d01607239437ad80e0",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0053__L024__p29:french:portuguese": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0053__L024__p29:french:portuguese",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Arabic",
+"Mandarin",
+"Mandarin Chinese",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Arabic",
+"Mandarin",
+"Mandarin Chinese",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "aa00d6f55a660aeed66d1386f8893fda5bcc3a83f758fb9fcebe296f0b2ab291",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0053__L024__p29:french:português": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0053__L024__p29:french:português",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Arabic",
+"Hebrew",
+"Japanese",
+"Mandarin Chinese"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Arabic",
+"Hebrew",
+"Japanese",
+"Mandarin Chinese"
+],
+"n_eligible": 10,
+"sha": "14e120401d33bafebe670aa4eb11c6d0cd606df717083158265bf34c7f909cff",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0053__L028__p29:french:portuguese": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0053__L028__p29:french:portuguese",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Arabic",
+"Hebrew",
+"Japanese",
+"Mandarin"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Arabic",
+"Hebrew",
+"Japanese",
+"Mandarin"
+],
+"n_eligible": 10,
+"sha": "029db7199cbef4276a56ea5c57c8ac747cf033095b3505d18ad8a8925582bdcb",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0057__L020__p30:portuguese:french": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0057__L020__p30:portuguese:french",
+"anchor": "French",
+"nearest": [
+"Spanish",
+"Simplified Chinese",
+"Hebrew",
+"Yiddish"
+],
+"random": [
+"Catalan",
+"Chinese",
+"Mandarin",
+"Mandarin Chinese"
+],
+"distractors": [
+"Spanish",
+"Simplified Chinese",
+"Hebrew",
+"Yiddish",
+"Catalan",
+"Chinese",
+"Mandarin",
+"Mandarin Chinese"
+],
+"n_eligible": 11,
+"sha": "163adcf68b1f0d83449e15aa55d04e00ef66636f5e138408b3d128aa20f817c3",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0057__L024__p30:portuguese:french": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0057__L024__p30:portuguese:french",
+"anchor": "French",
+"nearest": [
+"Spanish",
+"Simplified Chinese",
+"Hebrew",
+"Yiddish"
+],
+"random": [
+"Arabic",
+"Chinese",
+"Japanese",
+"Mandarin Chinese"
+],
+"distractors": [
+"Spanish",
+"Simplified Chinese",
+"Hebrew",
+"Yiddish",
+"Arabic",
+"Chinese",
+"Japanese",
+"Mandarin Chinese"
+],
+"n_eligible": 11,
+"sha": "99800adf0a9b96b233ad5551607d4923c582d58ac6132fb3133aaa2685374ae5",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0057__L024__p46:brazilianportuguese:french": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0057__L024__p46:brazilianportuguese:french",
+"anchor": "French",
+"nearest": [
+"Spanish",
+"Simplified Chinese",
+"Hebrew",
+"Yiddish"
+],
+"random": [
+"Chinese",
+"Japanese",
+"Mandarin",
+"Turkish"
+],
+"distractors": [
+"Spanish",
+"Simplified Chinese",
+"Hebrew",
+"Yiddish",
+"Chinese",
+"Japanese",
+"Mandarin",
+"Turkish"
+],
+"n_eligible": 11,
+"sha": "cce5955b8cb3c578b866e275d54d22b84e08ec5d8893dd39267d6e1dd8595d64",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0057__L028__p30:englishgerman:french": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0057__L028__p30:englishgerman:french",
+"anchor": "French",
+"nearest": [
+"Spanish",
+"Simplified Chinese",
+"Hebrew",
+"Yiddish"
+],
+"random": [
+"Arabic",
+"Chinese",
+"Mandarin",
+"Mandarin Chinese"
+],
+"distractors": [
+"Spanish",
+"Simplified Chinese",
+"Hebrew",
+"Yiddish",
+"Arabic",
+"Chinese",
+"Mandarin",
+"Mandarin Chinese"
+],
+"n_eligible": 11,
+"sha": "0146cc3b4d0e4f65a43aad62c883f87c613e56490eb497faec6fb347dd01699f",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0057__L028__p30:german:french": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0057__L028__p30:german:french",
+"anchor": "French",
+"nearest": [
+"Spanish",
+"Simplified Chinese",
+"Hebrew",
+"Yiddish"
+],
+"random": [
+"Arabic",
+"Chinese",
+"Mandarin",
+"Mandarin Chinese"
+],
+"distractors": [
+"Spanish",
+"Simplified Chinese",
+"Hebrew",
+"Yiddish",
+"Arabic",
+"Chinese",
+"Mandarin",
+"Mandarin Chinese"
+],
+"n_eligible": 11,
+"sha": "63b10dbb10f32cd2a145bb86c5fc25c8da2c5fd3852d47698e3e2b66c6ec60ef",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0057__L032__p30:portuguese:french": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0057__L032__p30:portuguese:french",
+"anchor": "French",
+"nearest": [
+"Spanish",
+"Simplified Chinese",
+"Hebrew",
+"Yiddish"
+],
+"random": [
+"Catalan",
+"Japanese",
+"Mandarin Chinese",
+"Turkish"
+],
+"distractors": [
+"Spanish",
+"Simplified Chinese",
+"Hebrew",
+"Yiddish",
+"Catalan",
+"Japanese",
+"Mandarin Chinese",
+"Turkish"
+],
+"n_eligible": 11,
+"sha": "a567688927edc0133d9272f4e6396958794c966837965017392ac0cca21b437b",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0057__L032__p37:portugueseenglish:french": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0057__L032__p37:portugueseenglish:french",
+"anchor": "French",
+"nearest": [
+"Spanish",
+"Simplified Chinese",
+"Hebrew",
+"Yiddish"
+],
+"random": [
+"Arabic",
+"Japanese",
+"Mandarin",
+"Turkish"
+],
+"distractors": [
+"Spanish",
+"Simplified Chinese",
+"Hebrew",
+"Yiddish",
+"Arabic",
+"Japanese",
+"Mandarin",
+"Turkish"
+],
+"n_eligible": 11,
+"sha": "6d872399a162d67381d57b9b44a20bc2f6aed5d8d50ba39dccbd157974fea986",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0057__L032__p46:dutch:french": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0057__L032__p46:dutch:french",
+"anchor": "French",
+"nearest": [
+"Spanish",
+"Simplified Chinese",
+"Hebrew",
+"Yiddish"
+],
+"random": [
+"Arabic",
+"Catalan",
+"Chinese",
+"Mandarin Chinese"
+],
+"distractors": [
+"Spanish",
+"Simplified Chinese",
+"Hebrew",
+"Yiddish",
+"Arabic",
+"Catalan",
+"Chinese",
+"Mandarin Chinese"
+],
+"n_eligible": 11,
+"sha": "58a245839f736f136c5f61cc83ff722a8cefbe7d136c2f74abe32042f75beb7d",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0057__L032__p46:englishswedish:french": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0057__L032__p46:englishswedish:french",
+"anchor": "French",
+"nearest": [
+"Spanish",
+"Simplified Chinese",
+"Hebrew",
+"Yiddish"
+],
+"random": [
+"Catalan",
+"Chinese",
+"Mandarin Chinese",
+"Turkish"
+],
+"distractors": [
+"Spanish",
+"Simplified Chinese",
+"Hebrew",
+"Yiddish",
+"Catalan",
+"Chinese",
+"Mandarin Chinese",
+"Turkish"
+],
+"n_eligible": 11,
+"sha": "1dd638dc83ce74e25980e1cd34c19b335f31c9242b5514da3a6c5b2e06d05e38",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0003__L028__p202:japanese:english": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0003__L028__p202:japanese:english",
+"anchor": "English",
+"nearest": [
+"French",
+"Spanish",
+"Catalan",
+"Dutch"
+],
+"random": [
+"Brazilian Portuguese",
+"German",
+"Italian",
+"Portuguese"
+],
+"distractors": [
+"French",
+"Spanish",
+"Catalan",
+"Dutch",
+"Brazilian Portuguese",
+"German",
+"Italian",
+"Portuguese"
+],
+"n_eligible": 12,
+"sha": "8749946a99d4bf58379ae4e3796b4e8564b830127732f2cb8687b09ce6281359",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0003__L032__p74:chinese:english": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0003__L032__p74:chinese:english",
+"anchor": "English",
+"nearest": [
+"French",
+"Spanish",
+"Catalan",
+"Dutch"
+],
+"random": [
+"Brazilian Portuguese",
+"Italian",
+"Mandarin",
+"Portuguese"
+],
+"distractors": [
+"French",
+"Spanish",
+"Catalan",
+"Dutch",
+"Brazilian Portuguese",
+"Italian",
+"Mandarin",
+"Portuguese"
+],
+"n_eligible": 10,
+"sha": "c774bd0d403efe2f6f76768d0e667762a5f6b2d8028b16c4ad5d9d599d45350d",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0003__L060__p162:hebrew:english": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0003__L060__p162:hebrew:english",
+"anchor": "English",
+"nearest": [
+"French",
+"Spanish",
+"Catalan",
+"Dutch"
+],
+"random": [
+"Arabic",
+"Italian",
+"Portuguese",
+"Simplified Chinese"
+],
+"distractors": [
+"French",
+"Spanish",
+"Catalan",
+"Dutch",
+"Arabic",
+"Italian",
+"Portuguese",
+"Simplified Chinese"
+],
+"n_eligible": 12,
+"sha": "ef0152f7c6b8f5dd9bb03ff53becdb1be88f3a01c0b7b3b0bf8d1ca17fb9f3df",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0003__L060__p162:hebrewyiddish:english": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0003__L060__p162:hebrewyiddish:english",
+"anchor": "English",
+"nearest": [
+"French",
+"Spanish",
+"Catalan",
+"Dutch"
+],
+"random": [
+"Arabic",
+"Brazilian Portuguese",
+"Mandarin",
+"Simplified Chinese"
+],
+"distractors": [
+"French",
+"Spanish",
+"Catalan",
+"Dutch",
+"Arabic",
+"Brazilian Portuguese",
+"Mandarin",
+"Simplified Chinese"
+],
+"n_eligible": 12,
+"sha": "6bd14f3e2a27965a664c361afdc0a335861e66d227047e44afa7dc53a1234c95",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0003__L060__p162:yiddish:english": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0003__L060__p162:yiddish:english",
+"anchor": "English",
+"nearest": [
+"French",
+"Spanish",
+"Catalan",
+"Dutch"
+],
+"random": [
+"Mandarin",
+"Mandarin Chinese",
+"Portuguese",
+"Simplified Chinese"
+],
+"distractors": [
+"French",
+"Spanish",
+"Catalan",
+"Dutch",
+"Mandarin",
+"Mandarin Chinese",
+"Portuguese",
+"Simplified Chinese"
+],
+"n_eligible": 12,
+"sha": "7b3b8300d5774214e7d60f7b73b25b79ab505eb36669ee5c08cc7c6c73cb82f0",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0037__L020__p20:chinese:french": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0037__L020__p20:chinese:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "269292a576e98943049ab8a0e3c8073e70705cf31060cd2e77f2d50f05547bfa",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0037__L020__p20:chinois:français": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0037__L020__p20:chinois:français",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "16214b301193e308598b311b8b1baa73a1a613fc8c4abf222a4f8e8e4488d4ba",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0037__L020__p28:chinese:french": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0037__L020__p28:chinese:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "abe928f4cc043b6c8c3c1467be54286c5c13d637c7be0c524cae55b53d240ca2",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0037__L020__p28:portuguese:french": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0037__L020__p28:portuguese:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Italian"
+],
+"random": [
+"Dutch",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Italian",
+"Dutch",
+"Turkish"
+],
+"n_eligible": 6,
+"sha": "56c04cfbaa68dc9463748ce684dbc9a0123aa7e35525249133699dba686b8be8",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0037__L024__p20:chinese:french": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0037__L024__p20:chinese:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "432808e56aa97c020c6a21b97940547fceaabf74b690d356e259721eda4a45d9",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0037__L024__p20:我会说中文:jeparlefrançais": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0037__L024__p20:我会说中文:jeparlefrançais",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "259a91bd5f51510d67e6926abe58306cbec7e9fdb5c011c9859e9cc2ea1891ef",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0037__L024__p28:chinese:english": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0037__L024__p28:chinese:english",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "eac315efe9dc5c5579e2ef958a71ba870d9428a10ab04447adc2cc9d910147da",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0037__L024__p28:chinese:french": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0037__L024__p28:chinese:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "a6eaa30cd7d4502328468199ff2b3235a65dc2cf15451a4297aede45bdb9e15d",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0037__L024__p28:portuguese:english": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0037__L024__p28:portuguese:english",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Italian"
+],
+"random": [
+"Dutch",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Italian",
+"Dutch",
+"Turkish"
+],
+"n_eligible": 6,
+"sha": "ca24be6ef874ddb3faf7c88637b4a30d2ec7c3513c868a5d8ae8fefc85feaf24",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0037__L024__p28:portuguese:french": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0037__L024__p28:portuguese:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Italian"
+],
+"random": [
+"Dutch",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Italian",
+"Dutch",
+"Turkish"
+],
+"n_eligible": 6,
+"sha": "1beb71dc8c7241f2a4fdb7ca4b8c1b6541a4b822767ffb749bc4b0aaa57d3fa2",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0037__L028__p20:chinese:french": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0037__L028__p20:chinese:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "27414ee9549a37d5ec67e51153aca90ab1bf7222085e913885c87a6c49961bac",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0037__L028__p20:我会说中文:jeparlefrançais": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0037__L028__p20:我会说中文:jeparlefrançais",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "f054f46c2ff090d3d97bad888f59f027dca8c159f4c27a8f9d255eb17430ff8e",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0037__L028__p28:chinese:french": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0037__L028__p28:chinese:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "471b3e8c92b416b93dbd3b2f76255ddeb4f551913d0a653625450a1de63f99ca",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0037__L032__p20:chinese:french": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0037__L032__p20:chinese:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "1e163bacdeccc831643996795f45badadf5cc22f259ffdfb450e2c05ebb0b895",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0037__L032__p20:mandarin:english": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0037__L032__p20:mandarin:english",
+"anchor": "English",
+"nearest": [
+"French",
+"Yiddish",
+"Hebrew",
+"Dutch"
+],
+"random": [
+"Brazilian Portuguese",
+"German",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"French",
+"Yiddish",
+"Hebrew",
+"Dutch",
+"Brazilian Portuguese",
+"German",
+"Italian",
+"Turkish"
+],
+"n_eligible": 8,
+"sha": "2cab9a53006e1a36c166902aaf2f9da5d3a49f9885eec6a9ca956f1417917084",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0037__L032__p20:mandarinchinese:french": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0037__L032__p20:mandarinchinese:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "80d17ffdb364ffeabd13ec04759893d3be4c242f0f8c62c82aef5a92a9820fd2",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0037__L032__p20:simplifiedchinese:french": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0037__L032__p20:simplifiedchinese:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "2e3dd73957d532ae577c57f95ec50bf12ce74360c7c78a652de1113585f3fec9",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0037__L032__p20:我会说mandarin:jeparlefrançais": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0037__L032__p20:我会说mandarin:jeparlefrançais",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "56cc80c22fbe82cf96a20a963da4c5df8b0e7a875292066ca955de4c6e214035",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0037__L032__p20:我会说中文:jeparlefrançais": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0037__L032__p20:我会说中文:jeparlefrançais",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "5970ec60901bba63288ab18ca6d7e064e983985eb72e047a41901c2f5535da67",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0037__L032__p20:我会说普通话:jeparlefrançais": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0037__L032__p20:我会说普通话:jeparlefrançais",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "5d8c497d739112ea431d58c797a5f1052f06653ffc950d21e34cfd8786a619e2",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0037__L032__p28:chinese:english": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0037__L032__p28:chinese:english",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "c4d862134ebb1a4cd4e1f242cb898f3f7240268d2febce6299e1351746a60f48",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0037__L032__p28:chinese:french": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0037__L032__p28:chinese:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "29bc712c64ea2d754075b382c7066232d6b7962a5145de312fb5ce3c47c6a6a8",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0037__L032__p37:chinese:french": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0037__L032__p37:chinese:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "4381aa5da1d54b127a64eb99a0ad006c33a93889e2a002ad0f30a61bad1ae180",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0037__L036__p20:chinese:french": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0037__L036__p20:chinese:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "12f61611bb477f3287f4ec5859a02767e451e2baca3c218adc30be9bc453f15c",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0037__L036__p20:mandarin:french": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0037__L036__p20:mandarin:french",
+"anchor": "English",
+"nearest": [
+"French",
+"Yiddish",
+"Hebrew",
+"Dutch"
+],
+"random": [
+"Brazilian Portuguese",
+"German",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"French",
+"Yiddish",
+"Hebrew",
+"Dutch",
+"Brazilian Portuguese",
+"German",
+"Italian",
+"Turkish"
+],
+"n_eligible": 8,
+"sha": "a29c636491dfce91e9b947704b77fc69723f54e7f1574859d9a3e4031dd63815",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0037__L036__p20:mandarinchinese:french": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0037__L036__p20:mandarinchinese:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "a4b38dfe82b3cc6595576f5381ba8cc0b7f23faf611da425de2210e2d2ff3d6e",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0037__L036__p20:simplifiedchinese:french": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0037__L036__p20:simplifiedchinese:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "150073af4e1611a822d7858865ef5cfa7fb058d61556ff331b2f77d193231b6b",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0037__L036__p28:chinese:french": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0037__L036__p28:chinese:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "b071a39d578131b8620320790ac512fa296c6ede974eb84fc3bd67e5cfd94390",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0037__L036__p37:chinese:englishfrench": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0037__L036__p37:chinese:englishfrench",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "ba0352d249450e467eabb30c6555521e974c293edfd9db27d8fe65258b611dee",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0037__L036__p37:chinesegreeting:frenchgreeting": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0037__L036__p37:chinesegreeting:frenchgreeting",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "14f05a7e8b90359c6cf279b8e735697d49f55fb8ac454a70ab73ba813e1df70f",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0037__L040__p20:chinese:french": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0037__L040__p20:chinese:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "643553efc96f439960a801cf7e2797c86fd596d4506b909fdea64a0a348ce4cd",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0037__L040__p20:mandarin:french": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0037__L040__p20:mandarin:french",
+"anchor": "English",
+"nearest": [
+"French",
+"Yiddish",
+"Hebrew",
+"Dutch"
+],
+"random": [
+"Brazilian Portuguese",
+"German",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"French",
+"Yiddish",
+"Hebrew",
+"Dutch",
+"Brazilian Portuguese",
+"German",
+"Italian",
+"Turkish"
+],
+"n_eligible": 8,
+"sha": "4de97426413ef57b97c42d34ff8d951d385d6df89894f4a157fe6615d67b6132",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0037__L044__p28:chinese:french": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0037__L044__p28:chinese:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "4dc251705a65dbac325848287d5c81b3f3776e1d027b207a14d5f85bedab5c2b",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0037__L048__p20:catalan:french": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0037__L048__p20:catalan:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "009b7878eb6e0fae9908e2787831710351762b6be4c0dca611a02c87a02bcba9",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0037__L048__p20:catalaninchinese:french": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0037__L048__p20:catalaninchinese:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "d611855f8f794a366523524ddf3cd5290f7c14d541d6a6c8e8fe6953b7376135",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0037__L048__p20:chinese:french": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0037__L048__p20:chinese:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "78e0e6c8deee8b8a508968b780c98c66ea737b6b81266ecac92c24da52956c08",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0037__L048__p20:spanishcatalanchinese:french": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0037__L048__p20:spanishcatalanchinese:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "df260ebbe5e33f46c39d36f1c49a0836de897ed649a224d8c6b6233a0d01a2e0",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0037__L052__p20:chinese:french": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0037__L052__p20:chinese:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "0a827c5182a7c58d3346cac4d2f5776dda59a0be9465fc6e4d0522f6456c7a28",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0037__L052__p20:mandarin:français": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0037__L052__p20:mandarin:français",
+"anchor": "English",
+"nearest": [
+"French",
+"Yiddish",
+"Hebrew",
+"Dutch"
+],
+"random": [
+"Brazilian Portuguese",
+"German",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"French",
+"Yiddish",
+"Hebrew",
+"Dutch",
+"Brazilian Portuguese",
+"German",
+"Italian",
+"Turkish"
+],
+"n_eligible": 8,
+"sha": "7ccb279a6f50617698b560f358387f79e6fbda1aa44a2f4a5d92fb6181e0b0ff",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0048__L048__p199:french:english": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0048__L048__p199:french:english",
+"anchor": "English",
+"nearest": [
+"Yiddish",
+"Catalan",
+"Hebrew",
+"Dutch"
+],
+"random": [
+"German",
+"Japanese",
+"Simplified Chinese",
+"Turkish"
+],
+"distractors": [
+"Yiddish",
+"Catalan",
+"Hebrew",
+"Dutch",
+"German",
+"Japanese",
+"Simplified Chinese",
+"Turkish"
+],
+"n_eligible": 15,
+"sha": "27d08f3cfe57d6a2f3a54b3c8947bf36b3b6966f6540ab172dda4d1ca543bc74",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0018__L032__p131:spanish:portuguese": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0018__L032__p131:spanish:portuguese",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Italian",
+"Catalan"
+],
+"random": [
+"Arabic",
+"Hebrew",
+"Japanese",
+"Simplified Chinese"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Italian",
+"Catalan",
+"Arabic",
+"Hebrew",
+"Japanese",
+"Simplified Chinese"
+],
+"n_eligible": 14,
+"sha": "b42ebf66d33046718998ab8dbfcd7202121881ced81e50dd4cc14a6a50d755b6",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0027__L020__p30:portuguese:italian": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0027__L020__p30:portuguese:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan"
+],
+"random": [
+"Hebrew",
+"Japanese",
+"Mandarin",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan",
+"Hebrew",
+"Japanese",
+"Mandarin",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "5a61403315411013716fbcb2875fa4d2f5c139e02024e34e0f9e82ef47bcb9f7",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0027__L020__p42:portuguese:italian": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0027__L020__p42:portuguese:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan"
+],
+"random": [
+"Arabic",
+"Hebrew",
+"Mandarin Chinese",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan",
+"Arabic",
+"Hebrew",
+"Mandarin Chinese",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "34a52e2e4f026edae72950190b9245842413a10dba1e0cdd398d950e7fde8667",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0027__L020__p42:portuguesespanish:italian": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0027__L020__p42:portuguesespanish:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan"
+],
+"random": [
+"Arabic",
+"Mandarin",
+"Mandarin Chinese",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan",
+"Arabic",
+"Mandarin",
+"Mandarin Chinese",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "40f0a2350837f08532af7f2cbc3aa2a523639c5afe1074bba543dddd98e820d9",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0027__L020__p42:spanish:italian": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0027__L020__p42:spanish:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese"
+],
+"random": [
+"Arabic",
+"Catalan",
+"Japanese",
+"Mandarin"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese",
+"Arabic",
+"Catalan",
+"Japanese",
+"Mandarin"
+],
+"n_eligible": 11,
+"sha": "c93823d4cb0c4ec592fdec257f4640adc490037823ebf0e32f45ca6f675c69ad",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0027__L024__p30:french:italian": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0027__L024__p30:french:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese"
+],
+"random": [
+"Arabic",
+"Catalan",
+"Mandarin",
+"Mandarin Chinese"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese",
+"Arabic",
+"Catalan",
+"Mandarin",
+"Mandarin Chinese"
+],
+"n_eligible": 11,
+"sha": "0994e7baf6c4de2ab76c997bfcc97d75eafed4a1ef19ded9050e5c7ea400805b",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0027__L024__p30:portuguese:italian": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0027__L024__p30:portuguese:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan"
+],
+"random": [
+"Arabic",
+"Japanese",
+"Mandarin Chinese",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan",
+"Arabic",
+"Japanese",
+"Mandarin Chinese",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "fefe74b685852fea9802851370594b66c1251c0707a4a64e0399c97d093449a1",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0027__L024__p42:portuguese:italian": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0027__L024__p42:portuguese:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan"
+],
+"random": [
+"Hebrew",
+"Mandarin",
+"Mandarin Chinese",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan",
+"Hebrew",
+"Mandarin",
+"Mandarin Chinese",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "9835d792f1b442fbc34cff98e0414990548d0a9f0a5969caa6b5e10c731a79aa",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0027__L028__p42:chinese:italian": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0027__L028__p42:chinese:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese"
+],
+"random": [
+"Arabic",
+"Hebrew",
+"Japanese",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese",
+"Arabic",
+"Hebrew",
+"Japanese",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "c9977fc8d3c867057bb761f8787c08edcd02379d0c4dc330c07ed50ec319c1d2",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0027__L028__p42:simplifiedchinese:italian": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0027__L028__p42:simplifiedchinese:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese"
+],
+"random": [
+"Arabic",
+"Catalan",
+"Hebrew",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese",
+"Arabic",
+"Catalan",
+"Hebrew",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "f989c421028be1f5c0674aa9861fb62da808bffe8d13f5621b28dbd09823cb5c",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0027__L032__p30:chinese:italian": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0027__L032__p30:chinese:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese"
+],
+"random": [
+"Arabic",
+"Catalan",
+"Hebrew",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese",
+"Arabic",
+"Catalan",
+"Hebrew",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "946d0da6c3cd0c2aa8f453a623f744757712a59ec3de29e47f3affa4a18cae50",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0027__L032__p30:portuguese:italian": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0027__L032__p30:portuguese:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan"
+],
+"random": [
+"Arabic",
+"Japanese",
+"Mandarin Chinese",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan",
+"Arabic",
+"Japanese",
+"Mandarin Chinese",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "de27b3980fbd76dd5fee4539fa98370586f690b551b40d7fb3aa1aed2c7337a5",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0027__L032__p42:portuguese:italian": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0027__L032__p42:portuguese:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan"
+],
+"random": [
+"Arabic",
+"Hebrew",
+"Mandarin",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan",
+"Arabic",
+"Hebrew",
+"Mandarin",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "a5a20629b1da12d471fb7ca6ffdb61ffe33cf34406024031c4319aa36018dfde",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0027__L032__p42:portuguesebrazil:italian": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0027__L032__p42:portuguesebrazil:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan"
+],
+"random": [
+"Arabic",
+"Japanese",
+"Mandarin",
+"Mandarin Chinese"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan",
+"Arabic",
+"Japanese",
+"Mandarin",
+"Mandarin Chinese"
+],
+"n_eligible": 10,
+"sha": "fe61f384d5bc9b6f3ca236c52c898ba575b105c7aa805ca479bcfa805eba00e3",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0027__L032__p42:portuguesesentence:dorainpoicomunicheròesclusivamenteinitaliano": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0027__L032__p42:portuguesesentence:dorainpoicomunicheròesclusivamenteinitaliano",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan"
+],
+"random": [
+"Hebrew",
+"Japanese",
+"Mandarin Chinese",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan",
+"Hebrew",
+"Japanese",
+"Mandarin Chinese",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "96ac4dabefd262114c185987eb440c74622dde4262adf5a50edaee515206a40e",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0027__L032__p42:portuguesesentence:italiansentence": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0027__L032__p42:portuguesesentence:italiansentence",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan"
+],
+"random": [
+"Arabic",
+"Hebrew",
+"Japanese",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan",
+"Arabic",
+"Hebrew",
+"Japanese",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "6f1453620b89ef28cabdd99c0e4dbb8b360257a3b5349b0975dba674da33307e",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0027__L036__p30:portuguese:italian": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0027__L036__p30:portuguese:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan"
+],
+"random": [
+"Hebrew",
+"Japanese",
+"Mandarin",
+"Mandarin Chinese"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan",
+"Hebrew",
+"Japanese",
+"Mandarin",
+"Mandarin Chinese"
+],
+"n_eligible": 10,
+"sha": "6c8cfdc99d6ad53b2eda03828c3ee666cff0cf802607d4825abc8977b5edbecd",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0027__L036__p42:portuguese:italian": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0027__L036__p42:portuguese:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan"
+],
+"random": [
+"Arabic",
+"Mandarin",
+"Mandarin Chinese",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan",
+"Arabic",
+"Mandarin",
+"Mandarin Chinese",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "71927d3195f22e4691a0c0a4927c6928e2464dd288f558e33da39963325978ff",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0027__L040__p30:portuguese:italian": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0027__L040__p30:portuguese:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan"
+],
+"random": [
+"Hebrew",
+"Japanese",
+"Mandarin Chinese",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan",
+"Hebrew",
+"Japanese",
+"Mandarin Chinese",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "d4f3843ee8f9d928325e6c33fee11ab581627d94cb2ea1669f0752e10350159c",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0027__L040__p42:portuguese:italian": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0027__L040__p42:portuguese:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan"
+],
+"random": [
+"Arabic",
+"Japanese",
+"Mandarin",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan",
+"Arabic",
+"Japanese",
+"Mandarin",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "cf38148254d30a249a15a59a7935f7afc651390b273f0e33a1eb0d2114c5c780",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0027__L040__p49:portuguese:italian": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0027__L040__p49:portuguese:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan"
+],
+"random": [
+"Arabic",
+"Hebrew",
+"Japanese",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan",
+"Arabic",
+"Hebrew",
+"Japanese",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "119b4b80d4ee5887e243cc69adebf478ae96eb0b3b55d964ac18b622fc52c6d3",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0027__L044__p30:portuguese:italian": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0027__L044__p30:portuguese:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan"
+],
+"random": [
+"Arabic",
+"Hebrew",
+"Mandarin",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan",
+"Arabic",
+"Hebrew",
+"Mandarin",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "989223cd575ba09c83bf876d78dd476a91f2c7831f945e2e7cdc39e9fb52157b",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0027__L044__p30:portugueseperfeito:italiancertamente": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0027__L044__p30:portugueseperfeito:italiancertamente",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan"
+],
+"random": [
+"Arabic",
+"Hebrew",
+"Mandarin",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan",
+"Arabic",
+"Hebrew",
+"Mandarin",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "296bd618dc0dbd00072bd565029dca68ba3d4b6d5c5891b3e1762fee11aff5d7",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0027__L044__p49:portuguese:italian": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0027__L044__p49:portuguese:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan"
+],
+"random": [
+"Arabic",
+"Japanese",
+"Mandarin",
+"Mandarin Chinese"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan",
+"Arabic",
+"Japanese",
+"Mandarin",
+"Mandarin Chinese"
+],
+"n_eligible": 10,
+"sha": "d772ffd29293665aff752d004c28139395721a03dcdbfd7dd97b33f645a546c9",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0042__L036__p99:spanish:portuguese": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0042__L036__p99:spanish:portuguese",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Italian",
+"Catalan"
+],
+"random": [
+"Arabic",
+"Chinese",
+"English",
+"French"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Italian",
+"Catalan",
+"Arabic",
+"Chinese",
+"English",
+"French"
+],
+"n_eligible": 15,
+"sha": "8dfc41a3a5fe14044ae7f4ad61dd2b92cc65176323eefac7b7f4802b1bf37772",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0053__L020__p25:english:portuguese": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0053__L020__p25:english:portuguese",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Hebrew",
+"Japanese",
+"Mandarin",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Hebrew",
+"Japanese",
+"Mandarin",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "588d3d7297b2aa58becc253344f5b203057a4eaebd367d1e86205c59a9df4ebe",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0053__L020__p29:chinese:portuguese": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0053__L020__p29:chinese:portuguese",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Arabic",
+"Japanese",
+"Mandarin",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Arabic",
+"Japanese",
+"Mandarin",
+"Yiddish"
+],
+"n_eligible": 9,
+"sha": "dadf2dcf8cd595ee927397c9140d82c499aa1e79acf5d2b212285b78935915a7",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0053__L020__p29:italian:portuguese": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0053__L020__p29:italian:portuguese",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Hebrew",
+"Japanese",
+"Mandarin",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Hebrew",
+"Japanese",
+"Mandarin",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "f0db224fe0c2234604b174c988c437121fbb0bba6091a1c5521678eb5bff6aa0",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0053__L024__p29:français:português": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0053__L024__p29:français:português",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Arabic",
+"Hebrew",
+"Japanese",
+"Mandarin Chinese"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Arabic",
+"Hebrew",
+"Japanese",
+"Mandarin Chinese"
+],
+"n_eligible": 10,
+"sha": "ffd42666c359eafd2acbb1ec091469eb6fcbc281f08383e6a3e085fd157aaa78",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0053__L024__p29:french:portuguese": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0053__L024__p29:french:portuguese",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Arabic",
+"Hebrew",
+"Mandarin",
+"Mandarin Chinese"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Arabic",
+"Hebrew",
+"Mandarin",
+"Mandarin Chinese"
+],
+"n_eligible": 10,
+"sha": "e1194571c0ce824d0c0e69d6f278454e27437f84d8ada563f1fabfe8652ac498",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0053__L028__p29:french:portuguese": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0053__L028__p29:french:portuguese",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Arabic",
+"Hebrew",
+"Japanese",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Arabic",
+"Hebrew",
+"Japanese",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "494a80057c37f5b4b981d32cbf7a0b576c2c142573de77c559d41d0ad5d5bfdd",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0053__L032__p29:chinese:portuguese": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0053__L032__p29:chinese:portuguese",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Hebrew",
+"Japanese",
+"Mandarin",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Hebrew",
+"Japanese",
+"Mandarin",
+"Yiddish"
+],
+"n_eligible": 9,
+"sha": "6b7c06e93203d70625ce6b8e59ff9b1bea81dbee76e195f24c5ff6b6c52b3ce7",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0057__L020__p30:portuguese:french": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0057__L020__p30:portuguese:french",
+"anchor": "French",
+"nearest": [
+"Spanish",
+"Simplified Chinese",
+"Hebrew",
+"Yiddish"
+],
+"random": [
+"Arabic",
+"Catalan",
+"Mandarin",
+"Mandarin Chinese"
+],
+"distractors": [
+"Spanish",
+"Simplified Chinese",
+"Hebrew",
+"Yiddish",
+"Arabic",
+"Catalan",
+"Mandarin",
+"Mandarin Chinese"
+],
+"n_eligible": 11,
+"sha": "169e6fc891e59ffbf4bbc5825ba682d2a66070ad4a9d09f8dd17a9c102e0caf5",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0057__L020__p46:portuguese:french": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0057__L020__p46:portuguese:french",
+"anchor": "French",
+"nearest": [
+"Spanish",
+"Simplified Chinese",
+"Hebrew",
+"Yiddish"
+],
+"random": [
+"Arabic",
+"Catalan",
+"Japanese",
+"Turkish"
+],
+"distractors": [
+"Spanish",
+"Simplified Chinese",
+"Hebrew",
+"Yiddish",
+"Arabic",
+"Catalan",
+"Japanese",
+"Turkish"
+],
+"n_eligible": 11,
+"sha": "657afb20b1da8a3bd1ccbd5d6079db04c7bda1e11b51f840eba7460bb9625749",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0057__L020__p46:portuguesebrazilian:french": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0057__L020__p46:portuguesebrazilian:french",
+"anchor": "French",
+"nearest": [
+"Spanish",
+"Simplified Chinese",
+"Hebrew",
+"Yiddish"
+],
+"random": [
+"Arabic",
+"Chinese",
+"Mandarin",
+"Mandarin Chinese"
+],
+"distractors": [
+"Spanish",
+"Simplified Chinese",
+"Hebrew",
+"Yiddish",
+"Arabic",
+"Chinese",
+"Mandarin",
+"Mandarin Chinese"
+],
+"n_eligible": 11,
+"sha": "e14e1d3323a3f0caff4f5b1e9360ae8727ad35d3cdc7eff6d46ef81906e106ad",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0057__L024__p46:dutchportuguese:french": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0057__L024__p46:dutchportuguese:french",
+"anchor": "French",
+"nearest": [
+"Spanish",
+"Simplified Chinese",
+"Hebrew",
+"Yiddish"
+],
+"random": [
+"Arabic",
+"Catalan",
+"Mandarin",
+"Turkish"
+],
+"distractors": [
+"Spanish",
+"Simplified Chinese",
+"Hebrew",
+"Yiddish",
+"Arabic",
+"Catalan",
+"Mandarin",
+"Turkish"
+],
+"n_eligible": 11,
+"sha": "a21b3ae9b4380ed042a04459562fd1902941e04c5d39f50ed9b5c01da23c816f",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0057__L024__p46:portuguese:french": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0057__L024__p46:portuguese:french",
+"anchor": "French",
+"nearest": [
+"Spanish",
+"Simplified Chinese",
+"Hebrew",
+"Yiddish"
+],
+"random": [
+"Arabic",
+"Catalan",
+"Chinese",
+"Turkish"
+],
+"distractors": [
+"Spanish",
+"Simplified Chinese",
+"Hebrew",
+"Yiddish",
+"Arabic",
+"Catalan",
+"Chinese",
+"Turkish"
+],
+"n_eligible": 11,
+"sha": "0dd8807bd6dccfbaaaea023f10accc7ad39bd3e685bb3947bb12ee68bb45b7de",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0057__L032__p30:english:french": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0057__L032__p30:english:french",
+"anchor": "French",
+"nearest": [
+"Spanish",
+"Simplified Chinese",
+"Hebrew",
+"Yiddish"
+],
+"random": [
+"Arabic",
+"Chinese",
+"Mandarin Chinese",
+"Turkish"
+],
+"distractors": [
+"Spanish",
+"Simplified Chinese",
+"Hebrew",
+"Yiddish",
+"Arabic",
+"Chinese",
+"Mandarin Chinese",
+"Turkish"
+],
+"n_eligible": 11,
+"sha": "41205681c28fbde10d6f0430f63a81759064971ad65a05f5fce15bda2e962e5b",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0057__L032__p30:portuguese:french": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0057__L032__p30:portuguese:french",
+"anchor": "French",
+"nearest": [
+"Spanish",
+"Simplified Chinese",
+"Hebrew",
+"Yiddish"
+],
+"random": [
+"Arabic",
+"Chinese",
+"Mandarin",
+"Mandarin Chinese"
+],
+"distractors": [
+"Spanish",
+"Simplified Chinese",
+"Hebrew",
+"Yiddish",
+"Arabic",
+"Chinese",
+"Mandarin",
+"Mandarin Chinese"
+],
+"n_eligible": 11,
+"sha": "f2dc0233a276d18fd38cf699d94c71b43fcd4e4cae396cba29cdd93a1a0c1064",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0057__L032__p37:brazilianportuguese:french": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0057__L032__p37:brazilianportuguese:french",
+"anchor": "French",
+"nearest": [
+"Spanish",
+"Simplified Chinese",
+"Hebrew",
+"Yiddish"
+],
+"random": [
+"Arabic",
+"Catalan",
+"Mandarin Chinese",
+"Turkish"
+],
+"distractors": [
+"Spanish",
+"Simplified Chinese",
+"Hebrew",
+"Yiddish",
+"Arabic",
+"Catalan",
+"Mandarin Chinese",
+"Turkish"
+],
+"n_eligible": 11,
+"sha": "07aa98302f35f97f957e1581cc2fc9f13969f189175891b243ccd4cdff8c9b70",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0057__L032__p37:portuguese:french": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0057__L032__p37:portuguese:french",
+"anchor": "French",
+"nearest": [
+"Spanish",
+"Simplified Chinese",
+"Hebrew",
+"Yiddish"
+],
+"random": [
+"Arabic",
+"Catalan",
+"Mandarin",
+"Mandarin Chinese"
+],
+"distractors": [
+"Spanish",
+"Simplified Chinese",
+"Hebrew",
+"Yiddish",
+"Arabic",
+"Catalan",
+"Mandarin",
+"Mandarin Chinese"
+],
+"n_eligible": 11,
+"sha": "637338da3b9a80b05c74b4e02df6397d0bfbf3987d2e8c9e4123ee6dcd1a5de2",
+"generation": 0
+},
+"nla-rl-L42:chat-dailydialog-0037__L042__p20::": {
+"unit": "nla-rl-L42:chat-dailydialog-0037__L042__p20::",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "7f5d21a5e91bec1ef9780a88a241ca1ad4045f57c602ac41cbc8fa152009c6eb",
+"generation": 0
+},
+"nla-rl-L42:chat-dailydialog-0037__L042__p20:chinese:french": {
+"unit": "nla-rl-L42:chat-dailydialog-0037__L042__p20:chinese:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "301ed590c8fe26bb28d368d66d8a583e15b931747aa645b2693d34f720248348",
+"generation": 0
+},
+"nla-rl-L42:chat-dailydialog-0037__L042__p20:chinois:français": {
+"unit": "nla-rl-L42:chat-dailydialog-0037__L042__p20:chinois:français",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "feda37cc7e16cf3839a6a58388f449b5eb880116d5ab72abaac5ca9e4706eb01",
+"generation": 0
+},
+"nla-rl-L42:chat-dailydialog-0037__L042__p28:chinese:french": {
+"unit": "nla-rl-L42:chat-dailydialog-0037__L042__p28:chinese:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "539dfd8eef90d5d49789a35b979b987b92b3ab0e6425fc22e74f5916b8558ed6",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0027__L042__p30:spanish:italian": {
+"unit": "nla-rl-L42:chat-lmsys-0027__L042__p30:spanish:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese"
+],
+"random": [
+"Arabic",
+"Japanese",
+"Mandarin",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese",
+"Arabic",
+"Japanese",
+"Mandarin",
+"Yiddish"
+],
+"n_eligible": 11,
+"sha": "b324be7687460713e13578119a0f87b1379888746ff4fc6ab9d9a216e618eeea",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0027__L042__p42:portuguese:italian": {
+"unit": "nla-rl-L42:chat-lmsys-0027__L042__p42:portuguese:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan"
+],
+"random": [
+"Arabic",
+"Hebrew",
+"Japanese",
+"Mandarin"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan",
+"Arabic",
+"Hebrew",
+"Japanese",
+"Mandarin"
+],
+"n_eligible": 10,
+"sha": "64de3fdfd0c398682425b3f6f45de6aedccf858dbca60b633b9b85d54709d1a4",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0027__L042__p49:portuguese:italian": {
+"unit": "nla-rl-L42:chat-lmsys-0027__L042__p49:portuguese:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan"
+],
+"random": [
+"Arabic",
+"Hebrew",
+"Japanese",
+"Mandarin"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan",
+"Arabic",
+"Hebrew",
+"Japanese",
+"Mandarin"
+],
+"n_eligible": 10,
+"sha": "09373bd95dfd02c56f62d7e41e6c6bda16dac7d47c0b9bb3d0d80be16cf6dc09",
+"generation": 0
+},
+"nla-sft-L42:chat-dailydialog-0037__L042__p20:chinese:français": {
+"unit": "nla-sft-L42:chat-dailydialog-0037__L042__p20:chinese:français",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "d9e720af669d948103a8ab0f5dcbb7317e8f6200b1d2ab2fd6ee6d5069d50a4a",
+"generation": 0
+},
+"nla-sft-L42:chat-dailydialog-0037__L042__p20:chinese:french": {
+"unit": "nla-sft-L42:chat-dailydialog-0037__L042__p20:chinese:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "9e43a4f6e99d1ab28fc8e8fbdfa0679eed8810c43e77e2dcb9859666a8503eed",
+"generation": 0
+},
+"nla-sft-L42:chat-lmsys-0027__L042__p30:french:italian": {
+"unit": "nla-sft-L42:chat-lmsys-0027__L042__p30:french:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese"
+],
+"random": [
+"Catalan",
+"Hebrew",
+"Mandarin",
+"Mandarin Chinese"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese",
+"Catalan",
+"Hebrew",
+"Mandarin",
+"Mandarin Chinese"
+],
+"n_eligible": 11,
+"sha": "2b2085b0d5ad0c7701af20edf599df5ea2fdf2f7a545efa1d5193b3e41d75c36",
+"generation": 0
+},
+"rlens:chat-dailydialog-0037__L028__p31:chineseorenglish:french": {
+"unit": "rlens:chat-dailydialog-0037__L028__p31:chineseorenglish:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "e06deae57832fbf27d70e9f25453706ba6397e2b1cb2318e3ab4150fce277ecf",
+"generation": 0
+},
+"rlens:chat-dailydialog-0037__L036__p28:chinese:french": {
+"unit": "rlens:chat-dailydialog-0037__L036__p28:chinese:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "43e0b10676a23a4418c70f1d70d2e1711da576e6c382bafc9b2f6042851d7670",
+"generation": 0
+},
+"rlens:chat-lmsys-0053__L044__p25:english:portuguese": {
+"unit": "rlens:chat-lmsys-0053__L044__p25:english:portuguese",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Arabic",
+"Hebrew",
+"Japanese",
+"Mandarin Chinese"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Arabic",
+"Hebrew",
+"Japanese",
+"Mandarin Chinese"
+],
+"n_eligible": 10,
+"sha": "cc09c83b8e90285c15f8ee4ce77c42edc0e0c15a74169c24981d5f6a1f16a809",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0037__L020__p20:spanish:french": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0037__L020__p20:spanish:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "e0c6fa5fb7a031cf059f2356b714039effda006f3a1f9b263c12055dda61de41",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0037__L020__p28:arabic:french": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0037__L020__p28:arabic:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "532a5540010f0ceea0881e05aec288be2f36a68b3006bf7406b5439208a269fd",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0037__L020__p31:japanese:french": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0037__L020__p31:japanese:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "74da48372f18c02690b8126db4ce481574a2bc47e49f0a42bf6a062ce778624a",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0037__L024__p20:arabic:french": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0037__L024__p20:arabic:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "03613b7395515b3305decab5faa20e1bcfc0cfbfd3b9bd022c4961d70b6fd8ff",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0037__L024__p20:spanish:french": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0037__L024__p20:spanish:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "0d014d8bc147b3a248306fda01c89d0648c6283f6685910ff2ce37f0d0c528ba",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0037__L024__p28:spanish:french": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0037__L024__p28:spanish:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "9bd0a89d8b6b544b2321910cb7b22e1290b866f55bc8597233a7dcac5f89b334",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0037__L028__p20::": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0037__L028__p20::",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "3bab89e4e1fcec35af8894571c84b428d012594c433c5e45664d1bcd0280dce0",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0037__L028__p20:chinese:french": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0037__L028__p20:chinese:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "e4dfdacebb8ff7f4f51438fa3006054e9971d1dee8d5927435c28e834547b3af",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0037__L028__p20:english:french": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0037__L028__p20:english:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "ec8f898fc22db7977f0f0dcaf5037439e23312762ef8d37a36b71c225b06657a",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0037__L028__p20:spanish:french": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0037__L028__p20:spanish:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "e2a45902f16c6a51d49cb4a2f90ca9360a239bf8f84b04d5b4eda17b83dcd8d9",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0037__L028__p28:chinese:english": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0037__L028__p28:chinese:english",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "4079e305639d21ddac22c364d640e63744a66acc77de438f95dc6258a1047865",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0037__L028__p28:chinese:french": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0037__L028__p28:chinese:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "06e5a277b003accb6098d2a04f706711bc7461bf0c959f2a02385ce37a6adcc8",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0037__L032__p20:chinese:french": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0037__L032__p20:chinese:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "3b03f1cf06edceaa0d1ec08be0c43b0337e0109c5f246ff986104f6023418982",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0037__L032__p20:mandarinchinese:french": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0037__L032__p20:mandarinchinese:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "d77b23e0136682a550168f668a464f8ce3b34adad8e83551a15af7391c3bdcc5",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0037__L032__p20:spanish:french": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0037__L032__p20:spanish:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "cc8715d73f666d8ae000ca31456c9bdf029b836ef5eb772f85bb8b027d232827",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0037__L032__p28:chinese:french": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0037__L032__p28:chinese:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "73b2b68402105ea75a335038234dd33cbe68d3c79f9431047a915a018cbefca7",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0037__L032__p37:spanish:french": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0037__L032__p37:spanish:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "54a3fa9a7c7e44b3113ea829871e9f4ae0ef4f9e04952e9cfa0613bab2890231",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0037__L036__p28:spanish:french": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0037__L036__p28:spanish:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "dd9b03fb01232c9d36b9f1aa15382a3397c30d637c4674968d247713b02f0c64",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0037__L040__p28:español:français": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0037__L040__p28:español:français",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "9a126953b8531e22169659b2bb775ca107845ebf2eac33396042004f7739f897",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0037__L040__p28:spanish:french": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0037__L040__p28:spanish:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "ee6a5d339f98096f5b036be98e995847b28120e7692986eecad5f322681fd29c",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0037__L044__p20:spanish:french": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0037__L044__p20:spanish:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "4a57b2b71331413602874fb7adfc90d8c40d95e013756a6a00ff842140df16c0",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0037__L044__p37:spanish:french": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0037__L044__p37:spanish:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "770633dc6a2a3662e2bf3c2189acc09da6a02478e171e3a1ffbf27a5baf5abd9",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0037__L048__p20:spanish:french": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0037__L048__p20:spanish:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "bc2b2b16e3ce67eb153e579f8931c26529cfa7b3d443a3c6e17baad7db582873",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0037__L048__p28:spanish:french": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0037__L048__p28:spanish:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "9049dad6bf1dc10a7fd4ca976eee90cf9586ffed4f008a460a7540a52cbbfb3d",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0037__L052__p28:spanish:french": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0037__L052__p28:spanish:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "48cea735724b0cfe354cbe4a5553b4ff587b2b9a83e1676cbd55f7c3a7a6d1fa",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0037__L056__p20:spanish:french": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0037__L056__p20:spanish:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "d13dec408f24767252db792e9cf0ba94a14270156b1e15e31295ffd489eb502a",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0048__L056__p199:spanish:english": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0048__L056__p199:spanish:english",
+"anchor": "English",
+"nearest": [
+"Yiddish",
+"Catalan",
+"Hebrew",
+"Dutch"
+],
+"random": [
+"Chinese",
+"Mandarin Chinese",
+"Portuguese",
+"Simplified Chinese"
+],
+"distractors": [
+"Yiddish",
+"Catalan",
+"Hebrew",
+"Dutch",
+"Chinese",
+"Mandarin Chinese",
+"Portuguese",
+"Simplified Chinese"
+],
+"n_eligible": 15,
+"sha": "73850a9053ea247677d7a5408b0ef3f239af7857c06a38fcad04839f6b10d957",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0027__L020__p30:spanish:italian": {
+"unit": "s3d-rl600-all11:chat-lmsys-0027__L020__p30:spanish:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese"
+],
+"random": [
+"Arabic",
+"Catalan",
+"Mandarin",
+"Mandarin Chinese"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese",
+"Arabic",
+"Catalan",
+"Mandarin",
+"Mandarin Chinese"
+],
+"n_eligible": 11,
+"sha": "041fd7ed5e67af8e3c9c220361e1ba6b7ab1978c3329f3fbcb0955cd675927d1",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0027__L020__p42::": {
+"unit": "s3d-rl600-all11:chat-lmsys-0027__L020__p42::",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese"
+],
+"random": [
+"Arabic",
+"Catalan",
+"Mandarin Chinese",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese",
+"Arabic",
+"Catalan",
+"Mandarin Chinese",
+"Yiddish"
+],
+"n_eligible": 11,
+"sha": "7f5b664747976d19260324cd99c87b94d31e8ea42e3505d14acf5fce49a0bbd1",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0027__L020__p42:spanish:italian": {
+"unit": "s3d-rl600-all11:chat-lmsys-0027__L020__p42:spanish:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese"
+],
+"random": [
+"Hebrew",
+"Japanese",
+"Mandarin",
+"Mandarin Chinese"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese",
+"Hebrew",
+"Japanese",
+"Mandarin",
+"Mandarin Chinese"
+],
+"n_eligible": 11,
+"sha": "ca0df80f7406301c7a8840b7b8c05bb2845ace5596cd2abb774b21ddac5aa70f",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0027__L024__p30:spanish:italian": {
+"unit": "s3d-rl600-all11:chat-lmsys-0027__L024__p30:spanish:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese"
+],
+"random": [
+"Catalan",
+"Hebrew",
+"Japanese",
+"Mandarin"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese",
+"Catalan",
+"Hebrew",
+"Japanese",
+"Mandarin"
+],
+"n_eligible": 11,
+"sha": "2d0611b9b3675d379fe88435c3b5d9cc88cf6082eb1b1049be233f83b1222959",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0027__L024__p42:spanish:italian": {
+"unit": "s3d-rl600-all11:chat-lmsys-0027__L024__p42:spanish:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese"
+],
+"random": [
+"Arabic",
+"Hebrew",
+"Japanese",
+"Mandarin Chinese"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese",
+"Arabic",
+"Hebrew",
+"Japanese",
+"Mandarin Chinese"
+],
+"n_eligible": 11,
+"sha": "e5456fc7ea80ca3d714a137e27ba40180137c89f30707e1870f1c0770e8d20ba",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0027__L028__p30:english:italian": {
+"unit": "s3d-rl600-all11:chat-lmsys-0027__L028__p30:english:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese"
+],
+"random": [
+"Arabic",
+"Catalan",
+"Mandarin",
+"Mandarin Chinese"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese",
+"Arabic",
+"Catalan",
+"Mandarin",
+"Mandarin Chinese"
+],
+"n_eligible": 11,
+"sha": "8441551bd818816b0509df6488f5d132128fea5fd7b320f6db358492e380a7f2",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0027__L028__p30:spanish:italian": {
+"unit": "s3d-rl600-all11:chat-lmsys-0027__L028__p30:spanish:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese"
+],
+"random": [
+"Hebrew",
+"Mandarin",
+"Mandarin Chinese",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese",
+"Hebrew",
+"Mandarin",
+"Mandarin Chinese",
+"Yiddish"
+],
+"n_eligible": 11,
+"sha": "fd77fee8db3394c79ceeafe6c220e55915b9dc2974828480f275b18c5715dcc0",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0027__L028__p42:english:italian": {
+"unit": "s3d-rl600-all11:chat-lmsys-0027__L028__p42:english:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese"
+],
+"random": [
+"Arabic",
+"Japanese",
+"Mandarin",
+"Mandarin Chinese"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese",
+"Arabic",
+"Japanese",
+"Mandarin",
+"Mandarin Chinese"
+],
+"n_eligible": 11,
+"sha": "e60bed5272c5b61be0ac50b2dcdd1f7cc96fdf2dcc6559e52f6719d0dabfe603",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0027__L028__p42:español:italiano": {
+"unit": "s3d-rl600-all11:chat-lmsys-0027__L028__p42:español:italiano",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese"
+],
+"random": [
+"Arabic",
+"Hebrew",
+"Mandarin",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese",
+"Arabic",
+"Hebrew",
+"Mandarin",
+"Yiddish"
+],
+"n_eligible": 11,
+"sha": "6653ab4faee63c95d1d350dc0e8ada441ca24355169eb4b06f63256ae860f475",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0027__L028__p42:spanish:italian": {
+"unit": "s3d-rl600-all11:chat-lmsys-0027__L028__p42:spanish:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese"
+],
+"random": [
+"Arabic",
+"Japanese",
+"Mandarin Chinese",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese",
+"Arabic",
+"Japanese",
+"Mandarin Chinese",
+"Yiddish"
+],
+"n_eligible": 11,
+"sha": "7d8866441158371433cb025458eceec2e0dfa8d1c65b7945daccef0e2a09da41",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0027__L032__p30:spanish:italian": {
+"unit": "s3d-rl600-all11:chat-lmsys-0027__L032__p30:spanish:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese"
+],
+"random": [
+"Catalan",
+"Mandarin",
+"Mandarin Chinese",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese",
+"Catalan",
+"Mandarin",
+"Mandarin Chinese",
+"Yiddish"
+],
+"n_eligible": 11,
+"sha": "3516326960756b902c333e188c0c7981110963806b1e1a447583a538e38dbd56",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0027__L032__p42:spanish:italian": {
+"unit": "s3d-rl600-all11:chat-lmsys-0027__L032__p42:spanish:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese"
+],
+"random": [
+"Arabic",
+"Catalan",
+"Japanese",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese",
+"Arabic",
+"Catalan",
+"Japanese",
+"Yiddish"
+],
+"n_eligible": 11,
+"sha": "80a0e7813f274b271a3f2e22a357c0d74a906aa363d1b1f7635c802ecf734381",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0027__L036__p30:portuguese:italian": {
+"unit": "s3d-rl600-all11:chat-lmsys-0027__L036__p30:portuguese:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan"
+],
+"random": [
+"Arabic",
+"Hebrew",
+"Mandarin",
+"Mandarin Chinese"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan",
+"Arabic",
+"Hebrew",
+"Mandarin",
+"Mandarin Chinese"
+],
+"n_eligible": 10,
+"sha": "7f80f24fc83a528d74788f00a72104ac39b4b01f3976a5d32f721360310ef5aa",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0027__L036__p30:spanish:italian": {
+"unit": "s3d-rl600-all11:chat-lmsys-0027__L036__p30:spanish:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese"
+],
+"random": [
+"Arabic",
+"Catalan",
+"Hebrew",
+"Mandarin Chinese"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese",
+"Arabic",
+"Catalan",
+"Hebrew",
+"Mandarin Chinese"
+],
+"n_eligible": 11,
+"sha": "cec3ab6bec7708357f15a37a2bc3a6160bb3c1cafee53433c18294363ad5fea6",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0027__L040__p30::": {
+"unit": "s3d-rl600-all11:chat-lmsys-0027__L040__p30::",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese"
+],
+"random": [
+"Hebrew",
+"Japanese",
+"Mandarin",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese",
+"Hebrew",
+"Japanese",
+"Mandarin",
+"Yiddish"
+],
+"n_eligible": 11,
+"sha": "09dc88aeec0906a8151c54b752d9edb7aeb791ccb1897c8a47a0ce17a300a68d",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0027__L040__p30:spanish:italian": {
+"unit": "s3d-rl600-all11:chat-lmsys-0027__L040__p30:spanish:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese"
+],
+"random": [
+"Arabic",
+"Catalan",
+"Mandarin",
+"Mandarin Chinese"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese",
+"Arabic",
+"Catalan",
+"Mandarin",
+"Mandarin Chinese"
+],
+"n_eligible": 11,
+"sha": "fead5eb74331f81a26a1bdf62aafb944141c3918c749b2f2a7e0b0e4da960f51",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0027__L044__p30:spanish:italian": {
+"unit": "s3d-rl600-all11:chat-lmsys-0027__L044__p30:spanish:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese"
+],
+"random": [
+"Catalan",
+"Hebrew",
+"Mandarin",
+"Mandarin Chinese"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese",
+"Catalan",
+"Hebrew",
+"Mandarin",
+"Mandarin Chinese"
+],
+"n_eligible": 11,
+"sha": "06b23b0336e2676d9e343ba0b25e0b6c40bceec7813493ff67a6bfea2692cc83",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0027__L048__p30:portuguese:italian": {
+"unit": "s3d-rl600-all11:chat-lmsys-0027__L048__p30:portuguese:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan"
+],
+"random": [
+"Arabic",
+"Hebrew",
+"Japanese",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan",
+"Arabic",
+"Hebrew",
+"Japanese",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "a7cf6b4166715d80edaf946b3f48e9a556f820eca18b9d38037138b9fbaf91f8",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0027__L056__p30:english:italian": {
+"unit": "s3d-rl600-all11:chat-lmsys-0027__L056__p30:english:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese"
+],
+"random": [
+"Arabic",
+"Catalan",
+"Hebrew",
+"Mandarin"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese",
+"Arabic",
+"Catalan",
+"Hebrew",
+"Mandarin"
+],
+"n_eligible": 11,
+"sha": "2b4aca917917dc41cd13f033a9212100a9a6a9c8d0c2dce158018d6716909093",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0027__L056__p30:spanish:italian": {
+"unit": "s3d-rl600-all11:chat-lmsys-0027__L056__p30:spanish:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese"
+],
+"random": [
+"Hebrew",
+"Mandarin",
+"Mandarin Chinese",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese",
+"Hebrew",
+"Mandarin",
+"Mandarin Chinese",
+"Yiddish"
+],
+"n_eligible": 11,
+"sha": "24ec08a5e2c2f40961aff492e91049a326727f084bd94776a0b34b6952df2710",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0053__L020__p25:english:portuguese": {
+"unit": "s3d-rl600-all11:chat-lmsys-0053__L020__p25:english:portuguese",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Hebrew",
+"Japanese",
+"Mandarin Chinese",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Hebrew",
+"Japanese",
+"Mandarin Chinese",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "c47641fc204d4c8bb432dabc866c5a67f09aa60ce793b9dc6e9d01720090bfe5",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0053__L020__p29:english:portuguese": {
+"unit": "s3d-rl600-all11:chat-lmsys-0053__L020__p29:english:portuguese",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Hebrew",
+"Mandarin",
+"Mandarin Chinese",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Hebrew",
+"Mandarin",
+"Mandarin Chinese",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "ebeb0d312a9602cf2d95266144632a01a6ce741701cafe26e1508c210a2700da",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0053__L020__p29:spanish:portuguese": {
+"unit": "s3d-rl600-all11:chat-lmsys-0053__L020__p29:spanish:portuguese",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Arabic",
+"Japanese",
+"Mandarin",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Arabic",
+"Japanese",
+"Mandarin",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "aa6bafc782bd2fdba3b93876f0f894f5976aa7c3c0b9c91fbb078969cefa00ea",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0053__L024__p25:english:portuguese": {
+"unit": "s3d-rl600-all11:chat-lmsys-0053__L024__p25:english:portuguese",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Hebrew",
+"Japanese",
+"Mandarin",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Hebrew",
+"Japanese",
+"Mandarin",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "89091d5752b3652a2edaa00187942f1c873306ebb6d580afa75dfd079abdf311",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0053__L024__p25:spanish:portuguese": {
+"unit": "s3d-rl600-all11:chat-lmsys-0053__L024__p25:spanish:portuguese",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Arabic",
+"Hebrew",
+"Japanese",
+"Mandarin Chinese"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Arabic",
+"Hebrew",
+"Japanese",
+"Mandarin Chinese"
+],
+"n_eligible": 10,
+"sha": "ba91aa3675864c66457bcf3d6fed0b4f7c829ec01e2853a515d5c57fa7072e3d",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0053__L024__p29:español:portuguese": {
+"unit": "s3d-rl600-all11:chat-lmsys-0053__L024__p29:español:portuguese",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Arabic",
+"Hebrew",
+"Japanese",
+"Mandarin"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Arabic",
+"Hebrew",
+"Japanese",
+"Mandarin"
+],
+"n_eligible": 10,
+"sha": "7cefd2aca8f370173d043ce62f9bdd958eead95073554cd3411e8a8058f02264",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0053__L024__p29:french:portuguese": {
+"unit": "s3d-rl600-all11:chat-lmsys-0053__L024__p29:french:portuguese",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Hebrew",
+"Japanese",
+"Mandarin",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Hebrew",
+"Japanese",
+"Mandarin",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "70f090780560a887a829d30d71a3f84512dd3a3cbd0c02cc0ade511f72c9ad20",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0053__L024__p29:spanish:portuguese": {
+"unit": "s3d-rl600-all11:chat-lmsys-0053__L024__p29:spanish:portuguese",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Arabic",
+"Hebrew",
+"Japanese",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Arabic",
+"Hebrew",
+"Japanese",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "bf79a037cc0f4eddb0b7830c4e968a4bfbe5eedba7e947098f721806fb7cca77",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0053__L028__p25:english:portuguese": {
+"unit": "s3d-rl600-all11:chat-lmsys-0053__L028__p25:english:portuguese",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Arabic",
+"Japanese",
+"Mandarin",
+"Mandarin Chinese"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Arabic",
+"Japanese",
+"Mandarin",
+"Mandarin Chinese"
+],
+"n_eligible": 10,
+"sha": "21dff48aabad6d3b1493aaff18e0c158a2e1c6313703be66d5cabde3dde3e8eb",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0053__L028__p25:french:portuguese": {
+"unit": "s3d-rl600-all11:chat-lmsys-0053__L028__p25:french:portuguese",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Arabic",
+"Hebrew",
+"Mandarin Chinese",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Arabic",
+"Hebrew",
+"Mandarin Chinese",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "b372f1d66887eed1ef028729d0daef7fca6cec51fc27ece6fbe9f107bb499a4b",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0053__L028__p25:spanish:portuguese": {
+"unit": "s3d-rl600-all11:chat-lmsys-0053__L028__p25:spanish:portuguese",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Arabic",
+"Mandarin",
+"Mandarin Chinese",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Arabic",
+"Mandarin",
+"Mandarin Chinese",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "36a65e343796d73cfab7d3896a9c94b1eb8ba9a45dabdbaea6326de1794684e7",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0053__L028__p29:french:portuguese": {
+"unit": "s3d-rl600-all11:chat-lmsys-0053__L028__p29:french:portuguese",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Arabic",
+"Hebrew",
+"Japanese",
+"Mandarin Chinese"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Arabic",
+"Hebrew",
+"Japanese",
+"Mandarin Chinese"
+],
+"n_eligible": 10,
+"sha": "1cecf41402b899d111ed9e75950589ae5625a8116c1c1d33aca535f5c81ce745",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0053__L028__p29:spanish:portuguese": {
+"unit": "s3d-rl600-all11:chat-lmsys-0053__L028__p29:spanish:portuguese",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Hebrew",
+"Japanese",
+"Mandarin",
+"Mandarin Chinese"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Hebrew",
+"Japanese",
+"Mandarin",
+"Mandarin Chinese"
+],
+"n_eligible": 10,
+"sha": "c6a98cf6333ed416ebb8084c9e0dac46ea75a6ec83e6ff2bcff85b0c32e58c91",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0053__L032__p25:chinese:português": {
+"unit": "s3d-rl600-all11:chat-lmsys-0053__L032__p25:chinese:português",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Arabic",
+"Hebrew",
+"Japanese",
+"Mandarin"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Arabic",
+"Hebrew",
+"Japanese",
+"Mandarin"
+],
+"n_eligible": 9,
+"sha": "7705b017b2d0b9ea1897ab4769f414aed1718cb7a02193df465d3018cd70abd5",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0053__L032__p25:español:português": {
+"unit": "s3d-rl600-all11:chat-lmsys-0053__L032__p25:español:português",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Arabic",
+"Japanese",
+"Mandarin Chinese",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Arabic",
+"Japanese",
+"Mandarin Chinese",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "7ad7e9836ab23e056da4598e7d6c5cc4449a36ed3ab8509f07a86b1c7c0c1047",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0053__L032__p25:spanish:português": {
+"unit": "s3d-rl600-all11:chat-lmsys-0053__L032__p25:spanish:português",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Hebrew",
+"Japanese",
+"Mandarin",
+"Mandarin Chinese"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Hebrew",
+"Japanese",
+"Mandarin",
+"Mandarin Chinese"
+],
+"n_eligible": 10,
+"sha": "62e5ac00ef0a1bf3971cd5fadebac00b7235942e76d53ffd21e2236570cb194f",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0053__L032__p29:english:portuguese": {
+"unit": "s3d-rl600-all11:chat-lmsys-0053__L032__p29:english:portuguese",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Hebrew",
+"Japanese",
+"Mandarin",
+"Mandarin Chinese"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Hebrew",
+"Japanese",
+"Mandarin",
+"Mandarin Chinese"
+],
+"n_eligible": 10,
+"sha": "cd0d181d35b3a228312ffa79f3cc80b96c816fda5882516cf07cace6251fb790",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0053__L032__p29:spanish:portuguese": {
+"unit": "s3d-rl600-all11:chat-lmsys-0053__L032__p29:spanish:portuguese",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Arabic",
+"Hebrew",
+"Mandarin",
+"Mandarin Chinese"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Arabic",
+"Hebrew",
+"Mandarin",
+"Mandarin Chinese"
+],
+"n_eligible": 10,
+"sha": "7c6fec96b464e5cc801eb65316306f8db036414368370b453bd4fda776e41e9f",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0053__L036__p25:english:portuguese": {
+"unit": "s3d-rl600-all11:chat-lmsys-0053__L036__p25:english:portuguese",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Arabic",
+"Hebrew",
+"Japanese",
+"Mandarin Chinese"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Arabic",
+"Hebrew",
+"Japanese",
+"Mandarin Chinese"
+],
+"n_eligible": 10,
+"sha": "9728cc78c54bce701264c6b3349896e41b7a388f45202727f8ee187e30157bbc",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0053__L036__p25:spanish:portuguese": {
+"unit": "s3d-rl600-all11:chat-lmsys-0053__L036__p25:spanish:portuguese",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Arabic",
+"Hebrew",
+"Mandarin",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Arabic",
+"Hebrew",
+"Mandarin",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "7b29fac0623fa50e614cc90c3f80a3635a447c55b525dcd8f8dd7775ce36f786",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0053__L036__p29:spanish:portuguese": {
+"unit": "s3d-rl600-all11:chat-lmsys-0053__L036__p29:spanish:portuguese",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Hebrew",
+"Mandarin",
+"Mandarin Chinese",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Hebrew",
+"Mandarin",
+"Mandarin Chinese",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "d42523a35a582194e761e6232d24669f41d04f57d21719f5ef7c2a26d96e14a4",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0053__L040__p25:inglês:português": {
+"unit": "s3d-rl600-all11:chat-lmsys-0053__L040__p25:inglês:português",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Arabic",
+"Mandarin",
+"Mandarin Chinese",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Arabic",
+"Mandarin",
+"Mandarin Chinese",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "8c7d2f31da9919fcbedc3f45ad0023a447af4c94582628465940d1f40c759109",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0053__L040__p29:spanish:portuguese": {
+"unit": "s3d-rl600-all11:chat-lmsys-0053__L040__p29:spanish:portuguese",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Hebrew",
+"Japanese",
+"Mandarin",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Hebrew",
+"Japanese",
+"Mandarin",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "e84a7fc7a36600ab4694ce432e7c335138986df942799e022e7bc4f0cf0fd5f9",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0053__L048__p29:spanish:portuguese": {
+"unit": "s3d-rl600-all11:chat-lmsys-0053__L048__p29:spanish:portuguese",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Arabic",
+"Hebrew",
+"Mandarin",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Arabic",
+"Hebrew",
+"Mandarin",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "b1c4f2665d116b71e87e8aaf8086124b2b443cf10dd521fe5f6f867b0b705e41",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0053__L052__p29:español:português": {
+"unit": "s3d-rl600-all11:chat-lmsys-0053__L052__p29:español:português",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Arabic",
+"Japanese",
+"Mandarin",
+"Mandarin Chinese"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Arabic",
+"Japanese",
+"Mandarin",
+"Mandarin Chinese"
+],
+"n_eligible": 10,
+"sha": "35c9a59ab69518ab01c866e3cf7239724cf592a0c03d4a3cafc68bd817c0d66f",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0053__L056__p29:spanish:portuguese": {
+"unit": "s3d-rl600-all11:chat-lmsys-0053__L056__p29:spanish:portuguese",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Japanese",
+"Mandarin",
+"Mandarin Chinese",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Japanese",
+"Mandarin",
+"Mandarin Chinese",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "2b418a94a05b4a63fb35f44b267962ef064d1f5ec0c21c1bd58b8f0d1fefccb3",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0053__L060__p25:español:português": {
+"unit": "s3d-rl600-all11:chat-lmsys-0053__L060__p25:español:português",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Arabic",
+"Mandarin",
+"Mandarin Chinese",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Arabic",
+"Mandarin",
+"Mandarin Chinese",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "dac46b7027b0266f9e2f7753387d17bc3a1bdd609ab26bdf838e7bb3ac10be15",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0053__L060__p29:espanhol:português": {
+"unit": "s3d-rl600-all11:chat-lmsys-0053__L060__p29:espanhol:português",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Hebrew",
+"Japanese",
+"Mandarin",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Hebrew",
+"Japanese",
+"Mandarin",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "133e487a97af2f1540c74bf51e4c6acb8fae0722d06c29897c4ea1d9dd643d0e",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0053__L060__p29:spanish:português": {
+"unit": "s3d-rl600-all11:chat-lmsys-0053__L060__p29:spanish:português",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Arabic",
+"Hebrew",
+"Japanese",
+"Mandarin Chinese"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Arabic",
+"Hebrew",
+"Japanese",
+"Mandarin Chinese"
+],
+"n_eligible": 10,
+"sha": "0753e18d0be0c3da508932c76222be39f8d2c3bfa41589a1e1d34c2f70ffc0ca",
+"generation": 0
+},
+"s3d-rl600:chat-dailydialog-0037__L020__p20:spanish:french": {
+"unit": "s3d-rl600:chat-dailydialog-0037__L020__p20:spanish:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "9e4848703d8c787c9bc0db7fcfaa1d458074930a617c9a1acb613d45ed1ead78",
+"generation": 0
+},
+"s3d-rl600:chat-dailydialog-0037__L020__p31:spanish:french": {
+"unit": "s3d-rl600:chat-dailydialog-0037__L020__p31:spanish:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "f9f050bdec6164fedc41db929defc66c28f1766344c9906f5b0c06ecea5be97f",
+"generation": 0
+},
+"s3d-rl600:chat-dailydialog-0037__L036__p20:spanish:french": {
+"unit": "s3d-rl600:chat-dailydialog-0037__L036__p20:spanish:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "b167227e8feec0850fc75f88ed19d182aae8cb61ff9ff5a06de5e8c1223b7877",
+"generation": 0
+},
+"s3d-rl600:chat-dailydialog-0037__L036__p28:chinese:french": {
+"unit": "s3d-rl600:chat-dailydialog-0037__L036__p28:chinese:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "9f3bdb5c86ca127c9a36997af3b4f85b68c9a7ce6e58ca3825174880e16afa97",
+"generation": 0
+},
+"s3d-rl600:chat-dailydialog-0037__L036__p28:spanish:french": {
+"unit": "s3d-rl600:chat-dailydialog-0037__L036__p28:spanish:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "a4e59d065a263fc5d9352f630bdcf225fb6f4a362dba8aa8b736da4a6a653088",
+"generation": 0
+},
+"s3d-rl600:chat-dailydialog-0037__L036__p37:spanish:french": {
+"unit": "s3d-rl600:chat-dailydialog-0037__L036__p37:spanish:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "16162455ee3cc32904f9483f44d1f608cebc7b416b3d4e086b061e236174ad45",
+"generation": 0
+},
+"s3d-rl600:chat-dailydialog-0037__L044__p28:spanish:french": {
+"unit": "s3d-rl600:chat-dailydialog-0037__L044__p28:spanish:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "aa909929801db890450d838cf57d62a12316f6c8bbecc3029cfe6fda6856c943",
+"generation": 0
+},
+"s3d-rl600:chat-dailydialog-0037__L048__p20:spanish:french": {
+"unit": "s3d-rl600:chat-dailydialog-0037__L048__p20:spanish:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "0b3548b690930a0b29f2266f9ed98dc5d4d8eddfe4f0e7a6691a257d5465ad68",
+"generation": 0
+},
+"s3d-rl600:chat-dailydialog-0037__L060__p20:spanish:french": {
+"unit": "s3d-rl600:chat-dailydialog-0037__L060__p20:spanish:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "1b0ac20929897175a5b94280868e0a2e296beed58da3a45e3da7bdcba966883c",
+"generation": 0
+},
+"s3d-rl600:chat-dailydialog-0048__L060__p199:spanish:english": {
+"unit": "s3d-rl600:chat-dailydialog-0048__L060__p199:spanish:english",
+"anchor": "English",
+"nearest": [
+"Yiddish",
+"Catalan",
+"Hebrew",
+"Dutch"
+],
+"random": [
+"Chinese",
+"German",
+"Mandarin",
+"Simplified Chinese"
+],
+"distractors": [
+"Yiddish",
+"Catalan",
+"Hebrew",
+"Dutch",
+"Chinese",
+"German",
+"Mandarin",
+"Simplified Chinese"
+],
+"n_eligible": 15,
+"sha": "8623edf0718dcdef60392bbbdadb662f4313f82aec9d63b2b0a66ac571a01f8e",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0027__L020__p30:spanish:italian": {
+"unit": "s3d-rl600:chat-lmsys-0027__L020__p30:spanish:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese"
+],
+"random": [
+"Arabic",
+"Catalan",
+"Mandarin",
+"Mandarin Chinese"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese",
+"Arabic",
+"Catalan",
+"Mandarin",
+"Mandarin Chinese"
+],
+"n_eligible": 11,
+"sha": "5fbc81c9dcc3add5b0b92cb5c6a3aa19c530b3d0e223f8dce35adb0af1e7702e",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0027__L020__p42:spanish:italian": {
+"unit": "s3d-rl600:chat-lmsys-0027__L020__p42:spanish:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese"
+],
+"random": [
+"Catalan",
+"Hebrew",
+"Japanese",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese",
+"Catalan",
+"Hebrew",
+"Japanese",
+"Yiddish"
+],
+"n_eligible": 11,
+"sha": "4b329e5f04d457eb0bdb1f90dbd56917b57dc4ecb1a7bfd47dac89432553f41c",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0027__L036__p30:portuguese:italian": {
+"unit": "s3d-rl600:chat-lmsys-0027__L036__p30:portuguese:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan"
+],
+"random": [
+"Japanese",
+"Mandarin",
+"Mandarin Chinese",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan",
+"Japanese",
+"Mandarin",
+"Mandarin Chinese",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "b480b40c7efaa8ae21666df2ad120d85a6ef51292f910684677aa661c9b2f920",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0027__L036__p30:spanish:italian": {
+"unit": "s3d-rl600:chat-lmsys-0027__L036__p30:spanish:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese"
+],
+"random": [
+"Hebrew",
+"Japanese",
+"Mandarin Chinese",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese",
+"Hebrew",
+"Japanese",
+"Mandarin Chinese",
+"Yiddish"
+],
+"n_eligible": 11,
+"sha": "300cde5ae1a34aee9371173826a057b563713a78d1cbec2f215effcceb712800",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0027__L044__p30:spanish:italian": {
+"unit": "s3d-rl600:chat-lmsys-0027__L044__p30:spanish:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese"
+],
+"random": [
+"Arabic",
+"Catalan",
+"Japanese",
+"Mandarin"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese",
+"Arabic",
+"Catalan",
+"Japanese",
+"Mandarin"
+],
+"n_eligible": 11,
+"sha": "be8cb1d88f569ffabd7111f170ea848e51250a694433872da597f3c4d418a021",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0027__L048__p30:spanish:italian": {
+"unit": "s3d-rl600:chat-lmsys-0027__L048__p30:spanish:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese"
+],
+"random": [
+"Arabic",
+"Catalan",
+"Mandarin",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese",
+"Arabic",
+"Catalan",
+"Mandarin",
+"Yiddish"
+],
+"n_eligible": 11,
+"sha": "1b81047575d36cb4a2b0914182cf04251e6ca228d84bbd73a32bbc3eabf4c7ad",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0053__L020__p25:english:português": {
+"unit": "s3d-rl600:chat-lmsys-0053__L020__p25:english:português",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Hebrew",
+"Mandarin",
+"Mandarin Chinese",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Hebrew",
+"Mandarin",
+"Mandarin Chinese",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "1cf85125e0967461fa07ff9b2d6d92c03fa1455b78a0f7f7d747ff271cb016c7",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0053__L020__p25:inglês:português": {
+"unit": "s3d-rl600:chat-lmsys-0053__L020__p25:inglês:português",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Arabic",
+"Mandarin",
+"Mandarin Chinese",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Arabic",
+"Mandarin",
+"Mandarin Chinese",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "1f112549c1a526ac3a2f8f20c16d0a50894088e626f020b427381e613a9d5bfd",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0053__L020__p29:english:portuguese": {
+"unit": "s3d-rl600:chat-lmsys-0053__L020__p29:english:portuguese",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Japanese",
+"Mandarin",
+"Mandarin Chinese",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Japanese",
+"Mandarin",
+"Mandarin Chinese",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "3557a5db226da6d3bba332d7ee8018407390df6938211ce13622222166666ef6",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0053__L020__p29:spanish:portuguese": {
+"unit": "s3d-rl600:chat-lmsys-0053__L020__p29:spanish:portuguese",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Hebrew",
+"Japanese",
+"Mandarin Chinese",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Hebrew",
+"Japanese",
+"Mandarin Chinese",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "72e6d51c06c945a1e753a5fb795473d65b37d085a5375ed167752df5c157a71c",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0053__L036__p25:español:português": {
+"unit": "s3d-rl600:chat-lmsys-0053__L036__p25:español:português",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Arabic",
+"Hebrew",
+"Japanese",
+"Mandarin Chinese"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Arabic",
+"Hebrew",
+"Japanese",
+"Mandarin Chinese"
+],
+"n_eligible": 10,
+"sha": "89892c1fad22866d3d37c07e948ddb2a358c9830ed4c92679a4fac0a0f04b235",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0053__L036__p25:inglês:português": {
+"unit": "s3d-rl600:chat-lmsys-0053__L036__p25:inglês:português",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Arabic",
+"Japanese",
+"Mandarin",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Arabic",
+"Japanese",
+"Mandarin",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "4188372898ea1e08e3b0ac1b10372ed566c9a6177001905f7875b0bfba24f57d",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0053__L036__p25:英语inglês:português": {
+"unit": "s3d-rl600:chat-lmsys-0053__L036__p25:英语inglês:português",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Arabic",
+"Japanese",
+"Mandarin",
+"Mandarin Chinese"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Arabic",
+"Japanese",
+"Mandarin",
+"Mandarin Chinese"
+],
+"n_eligible": 10,
+"sha": "6de477da2dc4a6153075b2df55c7bf4b5cc3f4309936329537c39206b2e0479a",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0053__L036__p29:spanish:portuguese": {
+"unit": "s3d-rl600:chat-lmsys-0053__L036__p29:spanish:portuguese",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Arabic",
+"Hebrew",
+"Mandarin",
+"Mandarin Chinese"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Arabic",
+"Hebrew",
+"Mandarin",
+"Mandarin Chinese"
+],
+"n_eligible": 10,
+"sha": "7b1b10add8f4b73046a39bdea0e86f815d196da36f12d8567eaf817aef8bbc9a",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0053__L044__p29:spanish:portuguese": {
+"unit": "s3d-rl600:chat-lmsys-0053__L044__p29:spanish:portuguese",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Arabic",
+"Mandarin",
+"Mandarin Chinese",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Arabic",
+"Mandarin",
+"Mandarin Chinese",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "460c1cf044b4feadfe00fb61dd387f36bca5717eefb7dc43fb37ff5db9deea97",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0053__L048__p29:spanish:portuguese": {
+"unit": "s3d-rl600:chat-lmsys-0053__L048__p29:spanish:portuguese",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Arabic",
+"Hebrew",
+"Japanese",
+"Mandarin Chinese"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Arabic",
+"Hebrew",
+"Japanese",
+"Mandarin Chinese"
+],
+"n_eligible": 10,
+"sha": "b3519caa369fc900f510d78a35f8ab4ef6ea2965048a1b3e1855e49c50754f30",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0053__L060__p25:español:português": {
+"unit": "s3d-rl600:chat-lmsys-0053__L060__p25:español:português",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Arabic",
+"Mandarin",
+"Mandarin Chinese",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Arabic",
+"Mandarin",
+"Mandarin Chinese",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "d2baaa78ba59e5f695f64eff47d020a1893d32c9705acb4e2f6632fe1e9f3231",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0053__L060__p29:español:português": {
+"unit": "s3d-rl600:chat-lmsys-0053__L060__p29:español:português",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Arabic",
+"Hebrew",
+"Mandarin",
+"Mandarin Chinese"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Arabic",
+"Hebrew",
+"Mandarin",
+"Mandarin Chinese"
+],
+"n_eligible": 10,
+"sha": "6af14605764f3e0393ff05443126ac364bd1c3055004f20ed28233f061b3c9e1",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0053__L060__p29:inglês:português": {
+"unit": "s3d-rl600:chat-lmsys-0053__L060__p29:inglês:português",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Arabic",
+"Hebrew",
+"Mandarin",
+"Mandarin Chinese"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Arabic",
+"Hebrew",
+"Mandarin",
+"Mandarin Chinese"
+],
+"n_eligible": 10,
+"sha": "ac56ddc01d9607d72b8fce6effe49f8254fcb08fe64d6dccb8311ac19e6a7b23",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0037__L020__p20:espagnol:français": {
+"unit": "s3d-sft251:chat-dailydialog-0037__L020__p20:espagnol:français",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "14d6dedbc6b96847aa5407e876456256907b43bfa3cde74ee4655c11a5abc1cf",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0037__L020__p20:英语:français": {
+"unit": "s3d-sft251:chat-dailydialog-0037__L020__p20:英语:français",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "9942cec1a19a9726eade099770c6d360a82943beb79b9f086dbc8075bb205176",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0037__L020__p20:西班牙语:français": {
+"unit": "s3d-sft251:chat-dailydialog-0037__L020__p20:西班牙语:français",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "f8622d4ebf8cd4c919e83c83648f862013246781a64370394671a0c19d90091c",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0037__L020__p31:chino:français": {
+"unit": "s3d-sft251:chat-dailydialog-0037__L020__p31:chino:français",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "4d4486ad2aafe0c70d2b110258f14e693fe33f030fb028ef5349e7064dbc210a",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0037__L024__p20:arabic:french": {
+"unit": "s3d-sft251:chat-dailydialog-0037__L024__p20:arabic:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "8d916bbb4598aa0386b6c38f54904edb6c7b01f8fdd256be0677f816e794394b",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0037__L024__p20:english:french": {
+"unit": "s3d-sft251:chat-dailydialog-0037__L024__p20:english:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "6afbc6923a4a0f716e736f26a367e087926184a36218774b058d17c2376d584d",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0037__L024__p20:spanish:french": {
+"unit": "s3d-sft251:chat-dailydialog-0037__L024__p20:spanish:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "d734bf14a656cbbdcec27dccda6c5fc2a4d962ee608dd216032bc7cd34197a89",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0037__L028__p28:chinese:french": {
+"unit": "s3d-sft251:chat-dailydialog-0037__L028__p28:chinese:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "b48ff2717941ad4fa7f5b939df63692f01c4f82725dbaf2ffe6769d0b588ebca",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0037__L028__p28:spanish:french": {
+"unit": "s3d-sft251:chat-dailydialog-0037__L028__p28:spanish:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "56cf1f6faca14255e5091f1ed29c3800c005f132513d1cd49d6c74bba60acdc5",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0037__L032__p20:english:french": {
+"unit": "s3d-sft251:chat-dailydialog-0037__L032__p20:english:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "08fe0496fd0cd2ddfdd548ff30eefa7309b79c02d26ca4dce28579686bbad3cc",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0037__L032__p20:spanish:french": {
+"unit": "s3d-sft251:chat-dailydialog-0037__L032__p20:spanish:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "0ec94d66a442ec4a79dcaa1bb67604b999c6f7ed3e65d8ccadc9b790d09fd54d",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0037__L032__p28:chinese:french": {
+"unit": "s3d-sft251:chat-dailydialog-0037__L032__p28:chinese:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "502365d1afd63a0393e35990f38a2186ef9d003f368128de18bd03e9544aaf77",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0037__L032__p28:spanish:french": {
+"unit": "s3d-sft251:chat-dailydialog-0037__L032__p28:spanish:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "ea18d24dc6a889daa7cedfd570e79531bd61291c12662f21adaa9bd3afcd828b",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0037__L040__p28:spanish:french": {
+"unit": "s3d-sft251:chat-dailydialog-0037__L040__p28:spanish:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "f3f3bc61ff10baccf9f9e53e03aeabcaccfad04f74b4cdd3886ed950a2dfc1b8",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0037__L040__p37:spanish:french": {
+"unit": "s3d-sft251:chat-dailydialog-0037__L040__p37:spanish:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "264a434b1530c2c25bebd1576f275cbbe487a143a34b4ff69a0f5d0fbb0521a4",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0037__L044__p20:spanish:french": {
+"unit": "s3d-sft251:chat-dailydialog-0037__L044__p20:spanish:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "4d5cd6a7a3783b8f03ad8b866e1a38e0e3988a224eca566438a5d502762ba575",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0037__L048__p20:spanish:french": {
+"unit": "s3d-sft251:chat-dailydialog-0037__L048__p20:spanish:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "2539f6c9315f5873a4333ecd22a6bdde61719a3a6904541ecde4f1655f5015b6",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0037__L048__p28:spanish:french": {
+"unit": "s3d-sft251:chat-dailydialog-0037__L048__p28:spanish:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "a22fd4a55991b730b6e9ff8a3cae756876bbef3d64cc5667010e577270686d80",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0037__L052__p20:espagnol:français": {
+"unit": "s3d-sft251:chat-dailydialog-0037__L052__p20:espagnol:français",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "a28c732ad561355188a4bd05695656431398407ebae81200efc711521accaaf7",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0037__L056__p20:chinois:français": {
+"unit": "s3d-sft251:chat-dailydialog-0037__L056__p20:chinois:français",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "a709d6635d0248c80273e918eacf15c81ee2482a2c498f62a0ae046c606076ae",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0037__L056__p20:espagnol:français": {
+"unit": "s3d-sft251:chat-dailydialog-0037__L056__p20:espagnol:français",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "7536a0e4a67a88e54f7cf9c3ac347535c437fb1b138008b35f624969cc38df7c",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0037__L056__p20:spanish:french": {
+"unit": "s3d-sft251:chat-dailydialog-0037__L056__p20:spanish:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "d8ca3f9cb636298aea019284f65edfa5109263314c7861cc64f835ab80702489",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0037__L056__p20:西班牙语:français": {
+"unit": "s3d-sft251:chat-dailydialog-0037__L056__p20:西班牙语:français",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "653b89183375f8365e6e008290a924e7c7cda8b41ee31ddcc8eee5e2ec0be387",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0037__L060__p20:spanish:french": {
+"unit": "s3d-sft251:chat-dailydialog-0037__L060__p20:spanish:french",
+"anchor": "French",
+"nearest": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese"
+],
+"random": [
+"Dutch",
+"Italian",
+"Turkish"
+],
+"distractors": [
+"Hebrew",
+"Yiddish",
+"German",
+"Brazilian Portuguese",
+"Dutch",
+"Italian",
+"Turkish"
+],
+"n_eligible": 7,
+"sha": "d0cbe2d9ee13740c40429fecb56868f6f683a107858ee882c0d100d5e621d7d2",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0027__L020__p30:spanish:italian": {
+"unit": "s3d-sft251:chat-lmsys-0027__L020__p30:spanish:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese"
+],
+"random": [
+"Catalan",
+"Hebrew",
+"Mandarin",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese",
+"Catalan",
+"Hebrew",
+"Mandarin",
+"Yiddish"
+],
+"n_eligible": 11,
+"sha": "20e5518dcae5731000bcdf66d901619399ef93397bb6ae54b9ed359d1f705a53",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0027__L020__p42:english:italian": {
+"unit": "s3d-sft251:chat-lmsys-0027__L020__p42:english:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese"
+],
+"random": [
+"Catalan",
+"Hebrew",
+"Mandarin Chinese",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese",
+"Catalan",
+"Hebrew",
+"Mandarin Chinese",
+"Yiddish"
+],
+"n_eligible": 11,
+"sha": "9b0ba7c7d105b9dd158f91c7137fb29968337e5634db3312ddc119dfc0174f6e",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0027__L020__p42:french:italian": {
+"unit": "s3d-sft251:chat-lmsys-0027__L020__p42:french:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese"
+],
+"random": [
+"Arabic",
+"Catalan",
+"Mandarin",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese",
+"Arabic",
+"Catalan",
+"Mandarin",
+"Yiddish"
+],
+"n_eligible": 11,
+"sha": "4fe6828605e54b453b728c47ec5736d071ff2e516611e40871bae5bed4a38efd",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0027__L020__p42:spanish:italian": {
+"unit": "s3d-sft251:chat-lmsys-0027__L020__p42:spanish:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese"
+],
+"random": [
+"Arabic",
+"Catalan",
+"Japanese",
+"Mandarin Chinese"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese",
+"Arabic",
+"Catalan",
+"Japanese",
+"Mandarin Chinese"
+],
+"n_eligible": 11,
+"sha": "583c8fe0c9ef1bd226932b15e6fa006c9377f607d2aa0d95a4036896a0b10813",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0027__L024__p30:spanish:italian": {
+"unit": "s3d-sft251:chat-lmsys-0027__L024__p30:spanish:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese"
+],
+"random": [
+"Catalan",
+"Hebrew",
+"Mandarin",
+"Mandarin Chinese"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese",
+"Catalan",
+"Hebrew",
+"Mandarin",
+"Mandarin Chinese"
+],
+"n_eligible": 11,
+"sha": "ef5c1467d8d42971370412a614c07f98cb5eb2a8c6efd29f2cdfa11b8d2debb4",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0027__L024__p42:english:italian": {
+"unit": "s3d-sft251:chat-lmsys-0027__L024__p42:english:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese"
+],
+"random": [
+"Arabic",
+"Hebrew",
+"Japanese",
+"Mandarin"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese",
+"Arabic",
+"Hebrew",
+"Japanese",
+"Mandarin"
+],
+"n_eligible": 11,
+"sha": "398502bca6d18bdaafaf0cd302ac53e01852d9603aff4d6c2d20115157ddd7a5",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0027__L024__p42:spanish:italian": {
+"unit": "s3d-sft251:chat-lmsys-0027__L024__p42:spanish:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese"
+],
+"random": [
+"Arabic",
+"Catalan",
+"Mandarin",
+"Mandarin Chinese"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese",
+"Arabic",
+"Catalan",
+"Mandarin",
+"Mandarin Chinese"
+],
+"n_eligible": 11,
+"sha": "1e436624cad7fd3f564e0c9c61259d0221065f8535c6771a6b07a8328cf14ef2",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0027__L028__p42:english:italian": {
+"unit": "s3d-sft251:chat-lmsys-0027__L028__p42:english:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese"
+],
+"random": [
+"Catalan",
+"Hebrew",
+"Japanese",
+"Mandarin Chinese"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese",
+"Catalan",
+"Hebrew",
+"Japanese",
+"Mandarin Chinese"
+],
+"n_eligible": 11,
+"sha": "3e90617b26883a2fc40cc0db85e568ce1c8241c4b1afd0499a9c14e25f6cc37e",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0027__L028__p42:spanish:italian": {
+"unit": "s3d-sft251:chat-lmsys-0027__L028__p42:spanish:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese"
+],
+"random": [
+"Arabic",
+"Catalan",
+"Mandarin",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese",
+"Arabic",
+"Catalan",
+"Mandarin",
+"Yiddish"
+],
+"n_eligible": 11,
+"sha": "49924a78e809f695b9b4abcfb83ee35c0aa44db7fe06123ac3f94ec7a02fd2e6",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0027__L036__p30:portuguese:italian": {
+"unit": "s3d-sft251:chat-lmsys-0027__L036__p30:portuguese:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan"
+],
+"random": [
+"Arabic",
+"Japanese",
+"Mandarin",
+"Mandarin Chinese"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan",
+"Arabic",
+"Japanese",
+"Mandarin",
+"Mandarin Chinese"
+],
+"n_eligible": 10,
+"sha": "07098ffd75779c43016440d840751103b5d477b6b1b55d4685f66992fbc27b24",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0027__L036__p30:spanish:italian": {
+"unit": "s3d-sft251:chat-lmsys-0027__L036__p30:spanish:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese"
+],
+"random": [
+"Arabic",
+"Hebrew",
+"Mandarin Chinese",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese",
+"Arabic",
+"Hebrew",
+"Mandarin Chinese",
+"Yiddish"
+],
+"n_eligible": 11,
+"sha": "4f1a8d6adb615a569e44d26a948d8301c36b87a260d30edf8dd9577c7b272ee6",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0027__L040__p30:portuguese:italian": {
+"unit": "s3d-sft251:chat-lmsys-0027__L040__p30:portuguese:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan"
+],
+"random": [
+"Arabic",
+"Mandarin",
+"Mandarin Chinese",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Catalan",
+"Arabic",
+"Mandarin",
+"Mandarin Chinese",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "3ad33b01f8a26358f9adeac8e519009879cc511b706f27209195c9bc52b01821",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0027__L040__p30:spanish:italian": {
+"unit": "s3d-sft251:chat-lmsys-0027__L040__p30:spanish:italian",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese"
+],
+"random": [
+"Catalan",
+"Hebrew",
+"Mandarin Chinese",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese",
+"Catalan",
+"Hebrew",
+"Mandarin Chinese",
+"Yiddish"
+],
+"n_eligible": 11,
+"sha": "4f1703aff8dc1076c50353b1891ab6b7cf62b27f91a3852afc8b8b59e2e6ea04",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0027__L044__p30:espagnol:italiano": {
+"unit": "s3d-sft251:chat-lmsys-0027__L044__p30:espagnol:italiano",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese"
+],
+"random": [
+"Catalan",
+"Japanese",
+"Mandarin",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese",
+"Catalan",
+"Japanese",
+"Mandarin",
+"Yiddish"
+],
+"n_eligible": 11,
+"sha": "df4e6285426febcca11416b671dc61e7ef2386f29087ef1b2f03f8018bc1b1ab",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0027__L044__p30:español:italiano": {
+"unit": "s3d-sft251:chat-lmsys-0027__L044__p30:español:italiano",
+"anchor": "Italian",
+"nearest": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese"
+],
+"random": [
+"Hebrew",
+"Japanese",
+"Mandarin",
+"Mandarin Chinese"
+],
+"distractors": [
+"Dutch",
+"German",
+"Turkish",
+"Brazilian Portuguese",
+"Hebrew",
+"Japanese",
+"Mandarin",
+"Mandarin Chinese"
+],
+"n_eligible": 11,
+"sha": "f164313e4231347b8910873faf11073bf720dc779bef6cf95fd3a5980956ef2c",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0053__L020__p25:inglês:português": {
+"unit": "s3d-sft251:chat-lmsys-0053__L020__p25:inglês:português",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Arabic",
+"Japanese",
+"Mandarin Chinese",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Arabic",
+"Japanese",
+"Mandarin Chinese",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "ccfbd0d787f971501da543ce124a436e29e288600127bf3534c69e933d198f4c",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0053__L020__p29:english:portuguese": {
+"unit": "s3d-sft251:chat-lmsys-0053__L020__p29:english:portuguese",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Hebrew",
+"Japanese",
+"Mandarin",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Hebrew",
+"Japanese",
+"Mandarin",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "1424751c447cda3926f04bd27ab119b04df7e39921b73844566e92498e2aad7d",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0053__L020__p29:french:portuguese": {
+"unit": "s3d-sft251:chat-lmsys-0053__L020__p29:french:portuguese",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Arabic",
+"Hebrew",
+"Japanese",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Arabic",
+"Hebrew",
+"Japanese",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "5f0f2881e6bf64223a3cd6da7a14a53fa56b1313330d2ae3614f7948f6bdf5ef",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0053__L020__p29:spanish:portuguese": {
+"unit": "s3d-sft251:chat-lmsys-0053__L020__p29:spanish:portuguese",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Japanese",
+"Mandarin",
+"Mandarin Chinese",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Japanese",
+"Mandarin",
+"Mandarin Chinese",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "dcf7a8f494311a14394e5196df567d8d450544b3f8849add79df7103fcd9680a",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0053__L024__p25:en:português": {
+"unit": "s3d-sft251:chat-lmsys-0053__L024__p25:en:português",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Hebrew",
+"Mandarin",
+"Mandarin Chinese",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Hebrew",
+"Mandarin",
+"Mandarin Chinese",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "93f13d5073651d6f799199df9dd1ec08a9be0aceeed87e81033a256fe3e775b3",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0053__L024__p25:english:português": {
+"unit": "s3d-sft251:chat-lmsys-0053__L024__p25:english:português",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Arabic",
+"Japanese",
+"Mandarin",
+"Mandarin Chinese"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Arabic",
+"Japanese",
+"Mandarin",
+"Mandarin Chinese"
+],
+"n_eligible": 10,
+"sha": "962fd2422dc26f86beb8cc522cebccb5fdcf7a81c5ddcd6177c448981f29a196",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0053__L024__p25:español:português": {
+"unit": "s3d-sft251:chat-lmsys-0053__L024__p25:español:português",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Japanese",
+"Mandarin",
+"Mandarin Chinese",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Japanese",
+"Mandarin",
+"Mandarin Chinese",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "064a9d239cabb9a4a3754158754a75c25859a4b64b7ab5dfc6e0ee210e664d98",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0053__L024__p25:inglés:português": {
+"unit": "s3d-sft251:chat-lmsys-0053__L024__p25:inglés:português",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Arabic",
+"Hebrew",
+"Mandarin",
+"Mandarin Chinese"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Arabic",
+"Hebrew",
+"Mandarin",
+"Mandarin Chinese"
+],
+"n_eligible": 10,
+"sha": "7662d8a9acc4abb1a6f25d5f1a6e433e634540cd77336d45c7354b3ad7aeb8cb",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0053__L024__p25:inglês:português": {
+"unit": "s3d-sft251:chat-lmsys-0053__L024__p25:inglês:português",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Arabic",
+"Hebrew",
+"Mandarin",
+"Mandarin Chinese"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Arabic",
+"Hebrew",
+"Mandarin",
+"Mandarin Chinese"
+],
+"n_eligible": 10,
+"sha": "4ee1b9eaeb0f044deaa6ebc4729442ac1037e42f738f085f9965fdb7c8ccbcb8",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0053__L024__p29:english:portuguese": {
+"unit": "s3d-sft251:chat-lmsys-0053__L024__p29:english:portuguese",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Arabic",
+"Mandarin",
+"Mandarin Chinese",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Arabic",
+"Mandarin",
+"Mandarin Chinese",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "351cd0fd5ea1875dad179c36fa2697fbdb934cada749c157f0ceb718cce0e887",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0053__L024__p29:french:portuguese": {
+"unit": "s3d-sft251:chat-lmsys-0053__L024__p29:french:portuguese",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Arabic",
+"Hebrew",
+"Mandarin",
+"Mandarin Chinese"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Arabic",
+"Hebrew",
+"Mandarin",
+"Mandarin Chinese"
+],
+"n_eligible": 10,
+"sha": "ff7ced646bd155998f236ce33999e5415c7e9e246f45f4fa8d60ee8c46b9accd",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0053__L024__p29:spanish:portuguese": {
+"unit": "s3d-sft251:chat-lmsys-0053__L024__p29:spanish:portuguese",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Hebrew",
+"Japanese",
+"Mandarin",
+"Mandarin Chinese"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Hebrew",
+"Japanese",
+"Mandarin",
+"Mandarin Chinese"
+],
+"n_eligible": 10,
+"sha": "adb680b64734f373c19df83d6c6fc8065f6b62364c7c3d95591431b0e8293afd",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0053__L028__p25:español:português": {
+"unit": "s3d-sft251:chat-lmsys-0053__L028__p25:español:português",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Arabic",
+"Mandarin",
+"Mandarin Chinese",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Arabic",
+"Mandarin",
+"Mandarin Chinese",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "2d415b5738718dbe830a87cb5ee84a5323ab8c7dd380b184cc4128118773bc96",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0053__L028__p25:français:português": {
+"unit": "s3d-sft251:chat-lmsys-0053__L028__p25:français:português",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Arabic",
+"Japanese",
+"Mandarin",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Arabic",
+"Japanese",
+"Mandarin",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "1da7d890709e505d2cbf660f0c066284d2dcb619c2d42f3c143f2829812fdaa5",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0053__L028__p25:spanish:português": {
+"unit": "s3d-sft251:chat-lmsys-0053__L028__p25:spanish:português",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Arabic",
+"Hebrew",
+"Mandarin",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Arabic",
+"Hebrew",
+"Mandarin",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "b1b2ba2ed61a7874125db4f7a26bc9e56c74276900430f8f29a4ba68178f8d2f",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0053__L028__p29:french:portuguese": {
+"unit": "s3d-sft251:chat-lmsys-0053__L028__p29:french:portuguese",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Japanese",
+"Mandarin",
+"Mandarin Chinese",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Japanese",
+"Mandarin",
+"Mandarin Chinese",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "60780d71f325ab2ee19345366f51fba712af2de3ebfcdc491abf5e954a36c9cf",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0053__L032__p25:español:português": {
+"unit": "s3d-sft251:chat-lmsys-0053__L032__p25:español:português",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Arabic",
+"Hebrew",
+"Mandarin",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Arabic",
+"Hebrew",
+"Mandarin",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "e9fd5866a7697eb5b277b09834a84eb6c361b8bbb3b410d3b3954d8caeca1c83",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0053__L032__p25:inglês:português": {
+"unit": "s3d-sft251:chat-lmsys-0053__L032__p25:inglês:português",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Hebrew",
+"Japanese",
+"Mandarin",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Hebrew",
+"Japanese",
+"Mandarin",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "49bf3eb9be4ec3d03144edb323177983c3860969156a08eb2272e0e676ac57fa",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0053__L032__p29:english:portuguese": {
+"unit": "s3d-sft251:chat-lmsys-0053__L032__p29:english:portuguese",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Arabic",
+"Hebrew",
+"Mandarin",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Arabic",
+"Hebrew",
+"Mandarin",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "595b58f5b036ac32af63d2ae021e09a1c973314389d96d6b566910127f81710f",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0053__L032__p29:spanish:portuguese": {
+"unit": "s3d-sft251:chat-lmsys-0053__L032__p29:spanish:portuguese",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Arabic",
+"Japanese",
+"Mandarin",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Arabic",
+"Japanese",
+"Mandarin",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "8ea76e23aa0ffdfe434a2ba32f8b8bab07ea55548992f94998c321618ff08784",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0053__L036__p25:espanhol:português": {
+"unit": "s3d-sft251:chat-lmsys-0053__L036__p25:espanhol:português",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Arabic",
+"Japanese",
+"Mandarin Chinese",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Arabic",
+"Japanese",
+"Mandarin Chinese",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "78d088c2384c2b1c6e4606d2cc0ad1e98fa6e0d7ab1a5d9b415e152fe8365904",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0053__L036__p29:italian:portuguese": {
+"unit": "s3d-sft251:chat-lmsys-0053__L036__p29:italian:portuguese",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Hebrew",
+"Japanese",
+"Mandarin Chinese",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Hebrew",
+"Japanese",
+"Mandarin Chinese",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "2940cb571ba03c62c4ecbf021fe11169aa149ce0647312cc7fed636b6a95e0a3",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0053__L036__p29:spanish:portuguese": {
+"unit": "s3d-sft251:chat-lmsys-0053__L036__p29:spanish:portuguese",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Hebrew",
+"Japanese",
+"Mandarin",
+"Mandarin Chinese"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Hebrew",
+"Japanese",
+"Mandarin",
+"Mandarin Chinese"
+],
+"n_eligible": 10,
+"sha": "0ddbd583d8adb0a0e5b72c709a4023734548ab02c50119cc3bf6e336862d2af8",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0053__L040__p25:espanhol:português": {
+"unit": "s3d-sft251:chat-lmsys-0053__L040__p25:espanhol:português",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Hebrew",
+"Japanese",
+"Mandarin",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Hebrew",
+"Japanese",
+"Mandarin",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "6daa34ec8fbb739df235f2b31a2a17ca9f32529cdf3fb165575101afdb6ffbe1",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0053__L040__p25:inglês:português": {
+"unit": "s3d-sft251:chat-lmsys-0053__L040__p25:inglês:português",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Japanese",
+"Mandarin",
+"Mandarin Chinese",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Japanese",
+"Mandarin",
+"Mandarin Chinese",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "38f0df7ad9bb15cd25d57642288fbd9dbbd58c05442ffde06837ddcae319c423",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0053__L044__p25:inglês:português": {
+"unit": "s3d-sft251:chat-lmsys-0053__L044__p25:inglês:português",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Japanese",
+"Mandarin",
+"Mandarin Chinese",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Japanese",
+"Mandarin",
+"Mandarin Chinese",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "327b8750db149aeed785cd6394800664ae0e6e3576b2bd13a27f0939a6e73eec",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0053__L044__p29:spanish:portuguese": {
+"unit": "s3d-sft251:chat-lmsys-0053__L044__p29:spanish:portuguese",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Arabic",
+"Japanese",
+"Mandarin",
+"Mandarin Chinese"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Arabic",
+"Japanese",
+"Mandarin",
+"Mandarin Chinese"
+],
+"n_eligible": 10,
+"sha": "bc8225c56fecf5c829f0c7194e08ee646445723b5fc56200911a05fca1bf4000",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0053__L048__p29:espanhol:português": {
+"unit": "s3d-sft251:chat-lmsys-0053__L048__p29:espanhol:português",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Arabic",
+"Hebrew",
+"Japanese",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Arabic",
+"Hebrew",
+"Japanese",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "77116e11b4950150eb3b8a46bd2afaeeccb697934141330d6da13b716bae3197",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0053__L048__p29:español:português": {
+"unit": "s3d-sft251:chat-lmsys-0053__L048__p29:español:português",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Arabic",
+"Hebrew",
+"Japanese",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Arabic",
+"Hebrew",
+"Japanese",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "5212007a5c5f946851a89d02f0854ed7648363dabb4a226554acc36b7d51eb75",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0053__L052__p29:espanhol:português": {
+"unit": "s3d-sft251:chat-lmsys-0053__L052__p29:espanhol:português",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Arabic",
+"Hebrew",
+"Japanese",
+"Mandarin Chinese"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Arabic",
+"Hebrew",
+"Japanese",
+"Mandarin Chinese"
+],
+"n_eligible": 10,
+"sha": "0f0846d25a07b361f116cc5850a3b9d8236dbe25ab4616314102de7c4801a04e",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0053__L052__p29:lenguaespañola:português": {
+"unit": "s3d-sft251:chat-lmsys-0053__L052__p29:lenguaespañola:português",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Arabic",
+"Hebrew",
+"Mandarin",
+"Mandarin Chinese"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Arabic",
+"Hebrew",
+"Mandarin",
+"Mandarin Chinese"
+],
+"n_eligible": 10,
+"sha": "4fb41ca3c71718e0f83419f7377b4879951b5d07498e4ca864ca12ba307cd5ed",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0053__L056__p25:español:português": {
+"unit": "s3d-sft251:chat-lmsys-0053__L056__p25:español:português",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Hebrew",
+"Japanese",
+"Mandarin Chinese",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Hebrew",
+"Japanese",
+"Mandarin Chinese",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "967e0f8af66571d2aa353977055084e5d19719087914f9cb2c7ed2b6d1a05b6b",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0053__L056__p25:spanish:portuguese": {
+"unit": "s3d-sft251:chat-lmsys-0053__L056__p25:spanish:portuguese",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Arabic",
+"Japanese",
+"Mandarin Chinese",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Arabic",
+"Japanese",
+"Mandarin Chinese",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "f2a1ca3195888839b694fd78b59df9db4dd0a3d0dc65e005990bf8f1b6643554",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0053__L056__p29:español:português": {
+"unit": "s3d-sft251:chat-lmsys-0053__L056__p29:español:português",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Arabic",
+"Hebrew",
+"Japanese",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Arabic",
+"Hebrew",
+"Japanese",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "5504629716121a2778334a59aed2b448d85c4ce95551d1fbc9359717bfa63655",
+"generation": 0
+},
+"template-v3:chat-lmsys-0018__L044__p256:french:portuguese": {
+"unit": "template-v3:chat-lmsys-0018__L044__p256:french:portuguese",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Italian",
+"Catalan"
+],
+"random": [
+"Arabic",
+"English",
+"Hebrew",
+"Japanese"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Italian",
+"Catalan",
+"Arabic",
+"English",
+"Hebrew",
+"Japanese"
+],
+"n_eligible": 14,
+"sha": "2f8f05a00cfe791e83b66887d8aa717e93305206e57c54399897d67792415d48",
+"generation": 0
+},
+"template-v3:chat-lmsys-0018__L044__p395:french:portuguese": {
+"unit": "template-v3:chat-lmsys-0018__L044__p395:french:portuguese",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Italian",
+"Catalan"
+],
+"random": [
+"Arabic",
+"English",
+"Japanese",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Italian",
+"Catalan",
+"Arabic",
+"English",
+"Japanese",
+"Yiddish"
+],
+"n_eligible": 14,
+"sha": "3f8d07d60d044b4f4354ecabb1db566d6131f756051b0e93c6ea199aa70f8f44",
+"generation": 0
+},
+"template-v3:chat-lmsys-0018__L048__p256:french:portuguese": {
+"unit": "template-v3:chat-lmsys-0018__L048__p256:french:portuguese",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Italian",
+"Catalan"
+],
+"random": [
+"Arabic",
+"Japanese",
+"Mandarin Chinese",
+"Simplified Chinese"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Italian",
+"Catalan",
+"Arabic",
+"Japanese",
+"Mandarin Chinese",
+"Simplified Chinese"
+],
+"n_eligible": 14,
+"sha": "521f9e24bcbe50c68b877fbac223d2621939d6ac4975cd530df82996989dd56e",
+"generation": 0
+},
+"template-v3:chat-lmsys-0053__L020__p25:spanish:portuguese": {
+"unit": "template-v3:chat-lmsys-0053__L020__p25:spanish:portuguese",
+"anchor": "Portuguese",
+"nearest": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German"
+],
+"random": [
+"Hebrew",
+"Mandarin",
+"Mandarin Chinese",
+"Yiddish"
+],
+"distractors": [
+"Dutch",
+"Turkish",
+"Catalan",
+"German",
+"Hebrew",
+"Mandarin",
+"Mandarin Chinese",
+"Yiddish"
+],
+"n_eligible": 10,
+"sha": "11422c9d9ff8a1a0308da2624f5708337c0edb2c38eaddb93b9afee983aba0e2",
+"generation": 0
+}
+}

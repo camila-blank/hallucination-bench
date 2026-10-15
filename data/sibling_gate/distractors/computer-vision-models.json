@@ -1,0 +1,742 @@
+{
+"mlnla-rl2-800-all11:chat-lmsys-0023__L020__p395:segmentanythingmodel:detr": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0023__L020__p395:segmentanythingmodel:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "9ef4548ebffd6c69812a75c5e1e63c07f2fea358da8dca6cfc4693b3aaa7f674",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0023__L024__p112:vit:detr": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0023__L024__p112:vit:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "d46c0c46ea751602fec0a9b90cc425823f394a35c0c3dd8d200f77342877c32a",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0023__L032__p112:visiontransformer:detr": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0023__L032__p112:visiontransformer:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "74a44671c76531fbbc37645b02a524a4ee178230a5f46278a7ab8b860f0f12ac",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0023__L032__p112:vit:detr": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0023__L032__p112:vit:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "f5df7fe01e51cbfab51b8c7cae350b3084332df86e6b82697803a56cfc1cc176",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0023__L032__p464:efficientnetunet:detr": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0023__L032__p464:efficientnetunet:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "7628bc11a94526c963d8e23f43342f81de491715affc38e9d35bc90146e9ddf9",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0023__L036__p112:visiontransformers:detr": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0023__L036__p112:visiontransformers:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "ab7ccc3e87ada467f0e0802aa404bdb43372cf916a7232ddd3744e9e5fe7f067",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0023__L036__p112:vit:detr": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0023__L036__p112:vit:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "e87b8dba67dd7b4fa04b873bc8a625e3941a6e476ac638d51015134ae92f0d11",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0023__L036__p170:vitseg:detr": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0023__L036__p170:vitseg:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "8fc37cfb5772c62d39d0cf1de4a9d8302580daab08f09d2cf3cbab4df3ce5215",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0023__L036__p346:mask2former:detr": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0023__L036__p346:mask2former:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "3d69945499361dd4b69a2679a232c4ec0fb425f0b998d11bd4b81aa52855fbf6",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0023__L040__p112:vit:detr": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0023__L040__p112:vit:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "2f9e937b6f4b8ece59c4ee79a19792ec7695613dc0639c139a69c97dd7d9344f",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0023__L040__p170:segformer:detr": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0023__L040__p170:segformer:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "e81fa3cefd9d1ccf430fa8b16af726e4127899a2087ba3b18e65f19a2347604d",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0023__L044__p112:visiontransformer:detr": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0023__L044__p112:visiontransformer:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "d5daee0c8757c1478eac7bd4c64998c1b872c8b313b200c27e6006d666254d65",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0023__L044__p112:vit:detr": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0023__L044__p112:vit:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "f5cf1d4a8fbaeceaae3e5c0b6077fc342ae75d319098fcbd8e3b471ee3de3f1d",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0023__L044__p170:segformer:detr": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0023__L044__p170:segformer:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "4a5b21a9a5470c5a04f7b4f436921a2b8ef99eae818768fb6fd4c57f34e6e235",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0023__L044__p170:visiontransformer:detr": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0023__L044__p170:visiontransformer:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "9e0a55bcd5714bce93ca1a1a6ed0760a61357f3cc3ecfc16c29af41d25a99281",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0023__L044__p170:visiontransformersforsemanticsegmentation:detr": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0023__L044__p170:visiontransformersforsemanticsegmentation:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "40dcaa4273bd7fdc1475c0073cacdb9c9b4c8115f3df9ff876224e4b8a52a5df",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0023__L044__p170:vit:detr": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0023__L044__p170:vit:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "b4aaa6a081bb3229ffac8177e2cca05d78c4580f75d963b063cf4358ea275e94",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0023__L044__p170:vitforsemanticsegmentation:detrforobjectdetection": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0023__L044__p170:vitforsemanticsegmentation:detrforobjectdetection",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "c061d8b939a467bb10c289579ee1ea8ec2ece56a73d6390dad0f6012849f23ed",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0023__L044__p170:vitsegmentanything:detr": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0023__L044__p170:vitsegmentanything:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "e2180ea63e6ef6555135f82d8a00c077533ca7c3d9bb8baeb0c91ea883ac0e78",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0023__L048__p112:vit:detr": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0023__L048__p112:vit:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "984e082dad20d71b913684c2afc89384a0d213e7db04ed6f1d8b1bbc3e788c21",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0023__L048__p170:segformer:detr": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0023__L048__p170:segformer:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "018fc5b5b9e0dde00e88d47adb4cf3eecbba46cafea15740dcf7c526968c2607",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0023__L048__p170:transunet:detr": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0023__L048__p170:transunet:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "611a7c182517d3f0aa812581b8071200b99b1bcf2bd38fd87158501134bd85b3",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0023__L048__p170:visiontransformermonai:detr": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0023__L048__p170:visiontransformermonai:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "1822a0454f89dc07fc5f26c1abc04c58444e63e7dc4a61adbe63e3d4ce5d6c48",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0023__L048__p170:vit:detr": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0023__L048__p170:vit:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "ced28e91041e06d68c750407eadaf505d4a400cfa06fd23b90689c22e37d6d10",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0023__L052__p112:visiontransformers:detr": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0023__L052__p112:visiontransformers:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "46e03a543605a570e40dd4780b1d1453f94e944f841dbb853d56ae036ac4ce0b",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0023__L052__p112:vit:detr": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0023__L052__p112:vit:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "e0d539a0319c3a16b277628777180d35b1a851d5cd2049be27e9ba06ad14d4fd",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0023__L052__p170:mask2former:detr": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0023__L052__p170:mask2former:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "70bc9f3857937d1aee821c79bf67965667d837ccdc06e0bd70e6a2263a34d6f6",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0023__L052__p20:visiontransformer:detr": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0023__L052__p20:visiontransformer:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "950c143aa752cb4833472ff63e5870c66f5509891fbecb7e4d16a8c39853b8d5",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0023__L052__p20:vit:detr": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0023__L052__p20:vit:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "f0e5bb08fa29f288e2aacc8c9033b0a42c19e142b4f2e6f0ce47ba5a7322464c",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0023__L056__p20:vit:detr": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0023__L056__p20:vit:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "57c73284b89b010d0db43dbe7022a1eb0e99b7027d0bdbf9b97cdf062cf6f167",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0023__L056__p20:vitvisiontransformer:detr": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0023__L056__p20:vitvisiontransformer:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "d6acae0df3941d287d87f15c51b0ddbab90f9240e172d4e41589998dd2a3d257",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0023__L060__p20:visiontransformer:detr": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0023__L060__p20:visiontransformer:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "8bc91cd5da79da1497905a67d6fb4d7ad13d85cfa6a598e659fb60bdae353459",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0023__L060__p20:vit:detr": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0023__L060__p20:vit:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "71507eedb9641ca173a348fa25fba51a8abb05f74335cabfe93c1ce8b5a2f6b9",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0023__L020__p20:vit:detr": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0023__L020__p20:vit:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "ae1c81a6ed60b8f600f76da20ef9132c386bf975cda05168278454ed5a7da394",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0023__L024__p20:deit:detr": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0023__L024__p20:deit:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "85a8505cec91521854c009705a4101eaac52eccad101cebe0c85060ab5b9ca9a",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0023__L028__p112:efficientnet:detr": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0023__L028__p112:efficientnet:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "4f70970e8a11c891dd341d0cf0e18e6005bbd54b0913c8ecca6b075fdbf5e5d5",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0023__L028__p170:vit:detr": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0023__L028__p170:vit:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "ac7d9c05274e4cd5ef60328d5ec8a3764969ded91fc8759fe8af5d334ff4485f",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0023__L036__p112:visiontransformer:detr": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0023__L036__p112:visiontransformer:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "e8fcdfe61d69b536fef8c2b359aa1c5ef2a6ede50a2a4bd0626e4ec4a214b54d",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0023__L036__p112:vit:detr": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0023__L036__p112:vit:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "400fc5c54684ba347340f36755b6be1ea03c39aec8fd1d11b3a304b7d804162d",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0023__L040__p112:visiontransformer:detr": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0023__L040__p112:visiontransformer:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "caf61576ac7aaa9d17f523c760e6d70478823b2efe22992b2e9f12ae9709cf5c",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0023__L040__p112:visiontransformers:detr": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0023__L040__p112:visiontransformers:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "69c21e159a0409147c919211399383307e7a469c35f49b32a94b78e551a6ef57",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0023__L040__p112:vit:detr": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0023__L040__p112:vit:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "69846a0b8090d4f7af019bdb0cd4c32a3c13eb979cb040cf2a4eec8238c2eb10",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0023__L040__p170:segformer:detr": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0023__L040__p170:segformer:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "997de29721bc7f99f87820f142bdde8a56080ec0580ff4653e75709adbd86a5b",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0023__L040__p464:visiontransformers:detr": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0023__L040__p464:visiontransformers:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "8d9f4b0db65761fc5db5f5bef17488a3a0cc8ddf2be9d7b026ec0144243fb971",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0023__L044__p112:visiontransformer:detr": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0023__L044__p112:visiontransformer:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "e6450aa37388cb519815a5951ce1b47163adb7320f26451d98789c8b890411d2",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0023__L044__p112:vit:detr": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0023__L044__p112:vit:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "a508a6dbf528f1fc4c0adc0ea6ea49943696778a89a34c2e4302d108d9036827",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0023__L044__p170:transunet:detr": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0023__L044__p170:transunet:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "3445fb8f77f477b42efbc5e6ede5e759dc70423c120b203eb14b5772a77edaf7",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0023__L044__p395:deeplabv3andfcos:detr": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0023__L044__p395:deeplabv3andfcos:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "7ae6d13147c2db8542103013b7284703aaebaaecc8625768d012691733c582ff",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0023__L048__p112:vit:detr": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0023__L048__p112:vit:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "0ff1938381c5243deaa686e0c76b83b54bbd80064bc349ae8238411ca8d75be9",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0023__L048__p170:transunet:detr": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0023__L048__p170:transunet:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "f63cac8c8ee7703cbe5463d220e7b6231a5d7c4c69aacda398e67f0acaca1984",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0023__L048__p170:visiontransformers:detr": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0023__L048__p170:visiontransformers:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "c4052ec558171c915315237bfa1914a380b9494aed5fd426adefc6db3464a6a8",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0023__L052__p112:vit:detr": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0023__L052__p112:vit:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "3abae5b5e9f6600f348c05148fb33a9d977b42d818c2ea3f922a323174e9b439",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0023__L052__p170:maskedautoencoders:detr": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0023__L052__p170:maskedautoencoders:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "2fa739be38c5c8abbfdaa410d28eedac0b9bb484ce584e419dce93248a5321c0",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0023__L052__p170:segmentanything:detr": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0023__L052__p170:segmentanything:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "867277b238524393ee8fe1d1435ff4167e3664f53d6f9415363f3d8b3b9248e3",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0023__L052__p20:vit:detr": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0023__L052__p20:vit:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "ace78e32b0670a72f21d1cd786cde74bd56c2a9e79051d55fca5d47fc8bbb9c2",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0023__L056__p20:vit:detr": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0023__L056__p20:vit:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "cfbe52ca8971bba129b6038e13c2d5f5c800b123c7eb8b33d3fbe7bb1785af50",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0023__L060__p20:vit:detr": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0023__L060__p20:vit:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "062ebb03547ccd4d499a9ff14808a05d01624a28921ae7f4cb4791203887ed03",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0023__L042__p112:vit:detr": {
+"unit": "nla-rl-L42:chat-lmsys-0023__L042__p112:vit:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "c44e0876555957792cf6a04e6a5548347545273a42a9a497079108015fcb4845",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0023__L042__p112:vitimagenet:detr": {
+"unit": "nla-rl-L42:chat-lmsys-0023__L042__p112:vitimagenet:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "ebbad2d1d6f5d99c8bc08f4cb5bfb1fb5c0dfb96ac060da4af69331551fab5a1",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0023__L042__p112:vitvisiontransformer:detr": {
+"unit": "nla-rl-L42:chat-lmsys-0023__L042__p112:vitvisiontransformer:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "0f4b1d82da7dee27675f0da8e3ba2a1aabd017fb92f67e6d570bfed912e17362",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0023__L042__p170:maskformer:detr": {
+"unit": "nla-rl-L42:chat-lmsys-0023__L042__p170:maskformer:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "596d74b7b65404590aa038f3133017a04455744a5ce9f985536b47432ab4cfda",
+"generation": 0
+},
+"nla-sft-L42:chat-lmsys-0023__L042__p170:deeplabv3+:keyinnovationsofdetr": {
+"unit": "nla-sft-L42:chat-lmsys-0023__L042__p170:deeplabv3+:keyinnovationsofdetr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "ae0971d3c27b59536e81ff0ef08b4b1b84bd2399ec96471737695f0475eacc43",
+"generation": 0
+},
+"nla-sft-L42:chat-lmsys-0023__L042__p464:vit:detr": {
+"unit": "nla-sft-L42:chat-lmsys-0023__L042__p464:vit:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "94a0831703194488808895255813168942aca38b4dc79b0b0fb595982ea9c5ab",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0023__L036__p112:visiontransformer:detr": {
+"unit": "s3d-rl600-all11:chat-lmsys-0023__L036__p112:visiontransformer:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "17cf77ef24667cdd98b9c62105882f5d6626cef20aa651ca10faaaf5e3569800",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0023__L036__p112:visiontransformers:detr": {
+"unit": "s3d-rl600-all11:chat-lmsys-0023__L036__p112:visiontransformers:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "bfa3d27b2adb3412f0a441d80402d2df523da7a2abf5e0f8b60d4d4e39d62a69",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0023__L036__p112:vit:detr": {
+"unit": "s3d-rl600-all11:chat-lmsys-0023__L036__p112:vit:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "d42c9b5a4264694c486a260a56191bc4f2ee6986e685134bbb13f21ca38138dc",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0023__L040__p112:visiontransformer:detr": {
+"unit": "s3d-rl600-all11:chat-lmsys-0023__L040__p112:visiontransformer:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "234a950c005e5778f2c9255f74e511afe5d67b9c23596977503a721997fbe127",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0023__L040__p346:dinov2:detr": {
+"unit": "s3d-rl600-all11:chat-lmsys-0023__L040__p346:dinov2:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "a88d93aa0466745858e33a76874a7de01dbf084fbd24893d5504271a090698f1",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0023__L052__p112:visiontransformer:detr": {
+"unit": "s3d-rl600-all11:chat-lmsys-0023__L052__p112:visiontransformer:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "ae4bccf074693ed2f59b411b086f0f0b5475294dae896dfce5fb69a8b7ee6a13",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0023__L056__p112:googlesvit:detr": {
+"unit": "s3d-rl600-all11:chat-lmsys-0023__L056__p112:googlesvit:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "844811e6298cc75452ae23938e1dc5b16d5a8450d3ee75eae7a43fa85ad4bffe",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0023__L056__p112:vit:detr": {
+"unit": "s3d-rl600-all11:chat-lmsys-0023__L056__p112:vit:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "f0b997c4f40351bc87f8ccd72dc46262a4b73ccc17926ec6ebb7d5ef4b8314e8",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0023__L056__p112:vitb16:detr": {
+"unit": "s3d-rl600-all11:chat-lmsys-0023__L056__p112:vitb16:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "94f5807a637dc3b0b12586205f532a498064606d8a5c3ac625dd18109f173d26",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0023__L036__p112:visiontransformers:detr": {
+"unit": "s3d-rl600:chat-lmsys-0023__L036__p112:visiontransformers:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "22798f891e94afb519064c9ee9a891a0a5d23d59529c2649436dee18f12cefaf",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0023__L036__p112:vit:detr": {
+"unit": "s3d-rl600:chat-lmsys-0023__L036__p112:vit:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "0d431aad625a92ab940096a48e90d37fd9966e07c9ae0dc6d8c42c067aa06f27",
+"generation": 0
+}
+}

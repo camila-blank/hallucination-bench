@@ -1,0 +1,173 @@
+{
+"mlnla-rl2-800-all11:chat-lmsys-0054__L032__p298:cognos8component:sapbusinessobjectscomponent": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0054__L032__p298:cognos8component:sapbusinessobjectscomponent",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"Power BI Service",
+"Tableau Server",
+"Power BI Desktop",
+"Tableau Desktop"
+],
+"random": [],
+"distractors": [
+"Power BI Service",
+"Tableau Server",
+"Power BI Desktop",
+"Tableau Desktop"
+],
+"n_eligible": 4,
+"sha": "f33983f7320ff41a528a11e47ae6eaa05390194d762a6dba746512629f0994aa",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0054__L024__p298:essbaseserver:sapbusinessobjectswebintelligence": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0054__L024__p298:essbaseserver:sapbusinessobjectswebintelligence",
+"anchor": "SAP BusinessObjects Web Intelligence",
+"nearest": [
+"Tableau Desktop",
+"SAP BusinessObjects Crystal Reports",
+"Power BI Desktop",
+"Power BI Service"
+],
+"random": [
+"SAP BusinessObjects InfoView",
+"SAP BusinessObjects Report Caster",
+"Tableau Server"
+],
+"distractors": [
+"Tableau Desktop",
+"SAP BusinessObjects Crystal Reports",
+"Power BI Desktop",
+"Power BI Service",
+"SAP BusinessObjects InfoView",
+"SAP BusinessObjects Report Caster",
+"Tableau Server"
+],
+"n_eligible": 7,
+"sha": "69d7e44386daf48bd8e15d908ee83dc6e87f9d73aea6779c5e2e8341afaa08ff",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0054__L032__p298:smartviewessbasemodules:dashboarddesign": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0054__L032__p298:smartviewessbasemodules:dashboarddesign",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"Power BI Service",
+"Tableau Server",
+"Power BI Desktop",
+"Tableau Desktop"
+],
+"random": [],
+"distractors": [
+"Power BI Service",
+"Tableau Server",
+"Power BI Desktop",
+"Tableau Desktop"
+],
+"n_eligible": 4,
+"sha": "8053dd42b76338c56846df0ba3dfe06226773ef3560b35be35c8f269c7346c9e",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0054__L044__p155:reportingservicesanalysisservicesintegrationservices:webintelligenceuniversedesigntoolinfoview": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0054__L044__p155:reportingservicesanalysisservicesintegrationservices:webintelligenceuniversedesigntoolinfoview",
+"anchor": "SAP BusinessObjects Web Intelligence",
+"nearest": [
+"Tableau Desktop",
+"SAP BusinessObjects Crystal Reports",
+"Power BI Desktop",
+"Power BI Service"
+],
+"random": [
+"SAP BusinessObjects InfoView",
+"SAP BusinessObjects Report Caster"
+],
+"distractors": [
+"Tableau Desktop",
+"SAP BusinessObjects Crystal Reports",
+"Power BI Desktop",
+"Power BI Service",
+"SAP BusinessObjects InfoView",
+"SAP BusinessObjects Report Caster"
+],
+"n_eligible": 6,
+"sha": "dcef8f278c2d43fbe895c563dd5cd7ed50ce54e9c076e55b9ab482912b7f5421",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0054__L044__p155:ssisssrsssas:webiuniversedesigntoolinfoview": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0054__L044__p155:ssisssrsssas:webiuniversedesigntoolinfoview",
+"anchor": "SAP BusinessObjects Web Intelligence",
+"nearest": [
+"Tableau Desktop",
+"SAP BusinessObjects Crystal Reports",
+"Power BI Desktop",
+"Power BI Service"
+],
+"random": [
+"SAP BusinessObjects InfoView",
+"SAP BusinessObjects Report Caster"
+],
+"distractors": [
+"Tableau Desktop",
+"SAP BusinessObjects Crystal Reports",
+"Power BI Desktop",
+"Power BI Service",
+"SAP BusinessObjects InfoView",
+"SAP BusinessObjects Report Caster"
+],
+"n_eligible": 6,
+"sha": "79595e01b838f51693017621b1b47a811e96224f93b442bdedd0037250056363",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0054__L056__p298:infocenterinoim:sapbusinessobjectsinfoview": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0054__L056__p298:infocenterinoim:sapbusinessobjectsinfoview",
+"anchor": "SAP BusinessObjects InfoView",
+"nearest": [
+"SAP BusinessObjects Report Caster",
+"Tableau Server",
+"Power BI Service",
+"SAP BusinessObjects Crystal Reports"
+],
+"random": [
+"Power BI Desktop",
+"SAP BusinessObjects Web Intelligence",
+"Tableau Desktop"
+],
+"distractors": [
+"SAP BusinessObjects Report Caster",
+"Tableau Server",
+"Power BI Service",
+"SAP BusinessObjects Crystal Reports",
+"Power BI Desktop",
+"SAP BusinessObjects Web Intelligence",
+"Tableau Desktop"
+],
+"n_eligible": 7,
+"sha": "6d0472953bb57952ba12b822ab430e41931ab34ccb7a6addf38555de285c8d2a",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0054__L042__p358:ibmcognosreportdistributor:sapbusinessobjectsreportcaster": {
+"unit": "nla-rl-L42:chat-lmsys-0054__L042__p358:ibmcognosreportdistributor:sapbusinessobjectsreportcaster",
+"anchor": "SAP BusinessObjects Report Caster",
+"nearest": [
+"Tableau Server",
+"SAP BusinessObjects InfoView",
+"SAP BusinessObjects Web Intelligence",
+"Power BI Service"
+],
+"random": [
+"Power BI Desktop",
+"SAP BusinessObjects Crystal Reports",
+"Tableau Desktop"
+],
+"distractors": [
+"Tableau Server",
+"SAP BusinessObjects InfoView",
+"SAP BusinessObjects Web Intelligence",
+"Power BI Service",
+"Power BI Desktop",
+"SAP BusinessObjects Crystal Reports",
+"Tableau Desktop"
+],
+"n_eligible": 7,
+"sha": "4aaf413f07599a35a7127ffcacbc8754db75471ed463a63100002ddc1e408df5",
+"generation": 0
+}
+}

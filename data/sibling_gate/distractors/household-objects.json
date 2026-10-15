@@ -1,0 +1,292 @@
+{
+"mlnla-rl2-800-all11:chat-lmsys-0019__L032__p286:watch:passport": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0019__L032__p286:watch:passport",
+"anchor": "Passport",
+"nearest": [
+"television",
+"refrigerator",
+"plate",
+"bed"
+],
+"random": [
+"chair",
+"cup",
+"sofa",
+"table"
+],
+"distractors": [
+"television",
+"refrigerator",
+"plate",
+"bed",
+"chair",
+"cup",
+"sofa",
+"table"
+],
+"n_eligible": 12,
+"sha": "65e4b8cc97cddc83bde6ec8e8013ef4a4fee044b3576c8d033d66f0fb62955cf",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0019__L036__p286:keys:passport": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0019__L036__p286:keys:passport",
+"anchor": "Passport",
+"nearest": [
+"television",
+"refrigerator",
+"plate",
+"bed"
+],
+"random": [
+"chair",
+"fork",
+"knife",
+"sofa"
+],
+"distractors": [
+"television",
+"refrigerator",
+"plate",
+"bed",
+"chair",
+"fork",
+"knife",
+"sofa"
+],
+"n_eligible": 12,
+"sha": "023112098f8fbd1b75e197fb2e8f68d6e1a8382325d45adb21367b914b0df92f",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0019__L036__p286:keys:traveldocument": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0019__L036__p286:keys:traveldocument",
+"anchor": "Passport",
+"nearest": [
+"television",
+"refrigerator",
+"plate",
+"bed"
+],
+"random": [
+"chair",
+"fork",
+"lamp",
+"sofa"
+],
+"distractors": [
+"television",
+"refrigerator",
+"plate",
+"bed",
+"chair",
+"fork",
+"lamp",
+"sofa"
+],
+"n_eligible": 12,
+"sha": "fb3899c479b71b065b076bbad8fbb7d579e1074528177d341161d40ebea4cbb4",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0019__L040__p286:keys:passport": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0019__L040__p286:keys:passport",
+"anchor": "Passport",
+"nearest": [
+"television",
+"refrigerator",
+"plate",
+"bed"
+],
+"random": [
+"cup",
+"fork",
+"sofa",
+"spoon"
+],
+"distractors": [
+"television",
+"refrigerator",
+"plate",
+"bed",
+"cup",
+"fork",
+"sofa",
+"spoon"
+],
+"n_eligible": 12,
+"sha": "3967aae256853f0d64ba3069eabc327cc272fd1785734eb475ec304e009ce5a6",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0019__L040__p286:keys:traveldocument": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0019__L040__p286:keys:traveldocument",
+"anchor": "Passport",
+"nearest": [
+"television",
+"refrigerator",
+"plate",
+"bed"
+],
+"random": [
+"chair",
+"knife",
+"spoon",
+"table"
+],
+"distractors": [
+"television",
+"refrigerator",
+"plate",
+"bed",
+"chair",
+"knife",
+"spoon",
+"table"
+],
+"n_eligible": 12,
+"sha": "ad278f41fbb83959f819aa08c1cdfe17e5a942d6a040a1405f77f1247f56c2f6",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0019__L048__p286:keys:traveldocumentpassport": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0019__L048__p286:keys:traveldocumentpassport",
+"anchor": "Passport",
+"nearest": [
+"television",
+"refrigerator",
+"plate",
+"bed"
+],
+"random": [
+"chair",
+"knife",
+"spoon",
+"table"
+],
+"distractors": [
+"television",
+"refrigerator",
+"plate",
+"bed",
+"chair",
+"knife",
+"spoon",
+"table"
+],
+"n_eligible": 12,
+"sha": "e0e122dec943eb70051aa57beef1fb060d4cd786b78e20e2eb3d8bdd767185a7",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0019__L040__p286:glassesclothingitem:passport": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0019__L040__p286:glassesclothingitem:passport",
+"anchor": "Passport",
+"nearest": [
+"television",
+"refrigerator",
+"plate",
+"bed"
+],
+"random": [
+"knife",
+"lamp",
+"spoon",
+"table"
+],
+"distractors": [
+"television",
+"refrigerator",
+"plate",
+"bed",
+"knife",
+"lamp",
+"spoon",
+"table"
+],
+"n_eligible": 12,
+"sha": "6ea3c8f78ba973cc9942313790aff4912497e2f5136dabc622c2af6b41f2e5dc",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0019__L040__p286:glassesspectacles:passport": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0019__L040__p286:glassesspectacles:passport",
+"anchor": "passport",
+"nearest": [
+"television",
+"refrigerator",
+"bed",
+"plate"
+],
+"random": [
+"lamp",
+"sofa",
+"spoon",
+"table"
+],
+"distractors": [
+"television",
+"refrigerator",
+"bed",
+"plate",
+"lamp",
+"sofa",
+"spoon",
+"table"
+],
+"n_eligible": 12,
+"sha": "e8fea51983e3168cb2a381cfd5b554c08b0538b41fd2487891f9304dee801681",
+"generation": 0
+},
+"nla-sft-L42:chat-lmsys-0019__L042__p286:glasses:passport": {
+"unit": "nla-sft-L42:chat-lmsys-0019__L042__p286:glasses:passport",
+"anchor": "Passport",
+"nearest": [
+"television",
+"refrigerator",
+"plate",
+"bed"
+],
+"random": [
+"fork",
+"knife",
+"spoon",
+"table"
+],
+"distractors": [
+"television",
+"refrigerator",
+"plate",
+"bed",
+"fork",
+"knife",
+"spoon",
+"table"
+],
+"n_eligible": 12,
+"sha": "b3b29e9c0c48ddea3d33900947197d637cb9adb8b571b4125477a4f4229ebc10",
+"generation": 0
+},
+"nla-sft-L42:chat-lmsys-0019__L042__p286:glasses:traveldocument": {
+"unit": "nla-sft-L42:chat-lmsys-0019__L042__p286:glasses:traveldocument",
+"anchor": "Passport",
+"nearest": [
+"television",
+"refrigerator",
+"plate",
+"bed"
+],
+"random": [
+"cup",
+"fork",
+"knife",
+"sofa"
+],
+"distractors": [
+"television",
+"refrigerator",
+"plate",
+"bed",
+"cup",
+"fork",
+"knife",
+"sofa"
+],
+"n_eligible": 12,
+"sha": "87a5bf9cc99461e6efc01f9c0f898ae5c013d507b73aee31ae55cd59902cfb99",
+"generation": 0
+}
+}

@@ -1,0 +1,1081 @@
+{
+"mlnla-rl2-800-all11:chat-lmsys-0001__L020__p316:quinoline:isoquinoline": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0001__L020__p316:quinoline:isoquinoline",
+"anchor": "isoquinoline",
+"nearest": [
+"pyrazole",
+"pyrrole",
+"pyrimidine",
+"imidazole"
+],
+"random": [
+"furan",
+"oxazole",
+"thiophene"
+],
+"distractors": [
+"pyrazole",
+"pyrrole",
+"pyrimidine",
+"imidazole",
+"furan",
+"oxazole",
+"thiophene"
+],
+"n_eligible": 7,
+"sha": "17b8e3b7e4400ee217c7882ac52a1357283ec9d8aa6838a7489e4fc6a8054982",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0001__L036__p316:4methylquinoline:7methoxyisoquinoline": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0001__L036__p316:4methylquinoline:7methoxyisoquinoline",
+"anchor": "7-Methoxyisoquinoline",
+"nearest": [
+"oxazole",
+"imidazole",
+"pyrimidine",
+"furan"
+],
+"random": [
+"pyrazole",
+"pyrrole",
+"thiophene"
+],
+"distractors": [
+"oxazole",
+"imidazole",
+"pyrimidine",
+"furan",
+"pyrazole",
+"pyrrole",
+"thiophene"
+],
+"n_eligible": 7,
+"sha": "0045f995edbe39b8dcb888541707115f4aa1d95d0c2ae3223e91fbb6db279bc5",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0001__L036__p316:quinolinescaffoldmethylat4:isoquinolinemethoxyat7": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0001__L036__p316:quinolinescaffoldmethylat4:isoquinolinemethoxyat7",
+"anchor": "7-methoxyisoquinoline",
+"nearest": [
+"oxazole",
+"pyrimidine",
+"imidazole",
+"pyrrole"
+],
+"random": [
+"furan",
+"pyrazole",
+"thiophene"
+],
+"distractors": [
+"oxazole",
+"pyrimidine",
+"imidazole",
+"pyrrole",
+"furan",
+"pyrazole",
+"thiophene"
+],
+"n_eligible": 7,
+"sha": "21f238957a60764549b6da3a1f5acd9fb6251ffdc09ea334bea8fe7b6c7e4ab0",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0001__L040__p316:quinoline:isoquinoline": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0001__L040__p316:quinoline:isoquinoline",
+"anchor": "isoquinoline",
+"nearest": [
+"pyrazole",
+"pyrrole",
+"pyrimidine",
+"imidazole"
+],
+"random": [
+"furan",
+"oxazole",
+"thiophene"
+],
+"distractors": [
+"pyrazole",
+"pyrrole",
+"pyrimidine",
+"imidazole",
+"furan",
+"oxazole",
+"thiophene"
+],
+"n_eligible": 7,
+"sha": "06b922fa961b10b900d4848706623d54720c432f35350d913499f4e743d14a71",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0001__L048__p316:acridizine:isoquinoline": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0001__L048__p316:acridizine:isoquinoline",
+"anchor": "isoquinoline",
+"nearest": [
+"pyrazole",
+"pyrrole",
+"pyrimidine",
+"imidazole"
+],
+"random": [
+"furan",
+"oxazole",
+"thiophene"
+],
+"distractors": [
+"pyrazole",
+"pyrrole",
+"pyrimidine",
+"imidazole",
+"furan",
+"oxazole",
+"thiophene"
+],
+"n_eligible": 7,
+"sha": "0c92aaf7531ae23eb803db0bac4b3a4029be9b0b2e2ddbc84eca7c079ab761cf",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0001__L060__p316:mqnderivedfromquinoline:7methoxyisoquinolinederivedfromisoquinoline": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0001__L060__p316:mqnderivedfromquinoline:7methoxyisoquinolinederivedfromisoquinoline",
+"anchor": "isoquinoline",
+"nearest": [
+"pyrazole",
+"pyrrole",
+"pyrimidine",
+"imidazole"
+],
+"random": [
+"furan",
+"oxazole",
+"thiophene"
+],
+"distractors": [
+"pyrazole",
+"pyrrole",
+"pyrimidine",
+"imidazole",
+"furan",
+"oxazole",
+"thiophene"
+],
+"n_eligible": 7,
+"sha": "40facc67273e2225fb8016fbbc096f00d27f850be299852260fefacc802e6d64",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0001__L060__p316:quinoline:isoquinoline": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0001__L060__p316:quinoline:isoquinoline",
+"anchor": "isoquinoline",
+"nearest": [
+"pyrazole",
+"pyrrole",
+"pyrimidine",
+"imidazole"
+],
+"random": [
+"furan",
+"oxazole",
+"thiophene"
+],
+"distractors": [
+"pyrazole",
+"pyrrole",
+"pyrimidine",
+"imidazole",
+"furan",
+"oxazole",
+"thiophene"
+],
+"n_eligible": 7,
+"sha": "1a0127699513f358cd966b17e797d22e3ed74e5d5dbbefd81c5d3ffc33dfe6b8",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0043__L020__p391:quinoline:pyrimidine": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0043__L020__p391:quinoline:pyrimidine",
+"anchor": "pyrimidine",
+"nearest": [
+"thiophene",
+"furan",
+"oxazole",
+"indolizine"
+],
+"random": [
+"acridizine",
+"acridone"
+],
+"distractors": [
+"thiophene",
+"furan",
+"oxazole",
+"indolizine",
+"acridizine",
+"acridone"
+],
+"n_eligible": 6,
+"sha": "378e02986c69e564e463703643bdb04456bc0872a8c71d587f9c293ed5b54076",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0043__L040__p391:quinoline:pyrimidine": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0043__L040__p391:quinoline:pyrimidine",
+"anchor": "pyrimidine",
+"nearest": [
+"thiophene",
+"furan",
+"oxazole",
+"indolizine"
+],
+"random": [
+"acridizine",
+"acridone"
+],
+"distractors": [
+"thiophene",
+"furan",
+"oxazole",
+"indolizine",
+"acridizine",
+"acridone"
+],
+"n_eligible": 6,
+"sha": "795a89c44d98eacbe395d2863f58e2f2ea715abcf2492a4356283139e9e0aac3",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0043__L044__p391:pyridine:pyrimidine": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0043__L044__p391:pyridine:pyrimidine",
+"anchor": "pyrimidine",
+"nearest": [
+"isoquinoline",
+"thiophene",
+"furan",
+"oxazole"
+],
+"random": [
+"4-Methylquinoline",
+"4-methylquinoline",
+"acridizine",
+"indolizine"
+],
+"distractors": [
+"isoquinoline",
+"thiophene",
+"furan",
+"oxazole",
+"4-Methylquinoline",
+"4-methylquinoline",
+"acridizine",
+"indolizine"
+],
+"n_eligible": 11,
+"sha": "596e0f21c302aa292e3486862e0f70306f7eead473fa88ffd606626e51ddb765",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0043__L052__p391:245trichlorophenolpyridine:2propylpyrimidine5carbaldehydepyrimidine": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0043__L052__p391:245trichlorophenolpyridine:2propylpyrimidine5carbaldehydepyrimidine",
+"anchor": "pyrimidine",
+"nearest": [
+"isoquinoline",
+"thiophene",
+"furan",
+"oxazole"
+],
+"random": [
+"4-Methylquinoline",
+"7-methoxyisoquinoline",
+"acridizine",
+"acridone"
+],
+"distractors": [
+"isoquinoline",
+"thiophene",
+"furan",
+"oxazole",
+"4-Methylquinoline",
+"7-methoxyisoquinoline",
+"acridizine",
+"acridone"
+],
+"n_eligible": 11,
+"sha": "343ad0e69c5a20916caffb1fee64d3c930819b14e5b6af1f9a34f72788ebe73a",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0043__L056__p391:pyridine:pyrimidine": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0043__L056__p391:pyridine:pyrimidine",
+"anchor": "pyrimidine",
+"nearest": [
+"isoquinoline",
+"thiophene",
+"furan",
+"oxazole"
+],
+"random": [
+"7-Methoxyisoquinoline",
+"7-methoxyisoquinoline",
+"acridizine",
+"acridone"
+],
+"distractors": [
+"isoquinoline",
+"thiophene",
+"furan",
+"oxazole",
+"7-Methoxyisoquinoline",
+"7-methoxyisoquinoline",
+"acridizine",
+"acridone"
+],
+"n_eligible": 11,
+"sha": "36818f3c10b61a03bbb0e2e9297cc28ed0bb85e7156770eab6a24409bc09af38",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0001__L032__p316:indolizine:isoquinoline": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0001__L032__p316:indolizine:isoquinoline",
+"anchor": "7-methoxyisoquinoline",
+"nearest": [
+"oxazole",
+"pyrimidine",
+"imidazole",
+"pyrrole"
+],
+"random": [
+"furan",
+"pyrazole",
+"thiophene"
+],
+"distractors": [
+"oxazole",
+"pyrimidine",
+"imidazole",
+"pyrrole",
+"furan",
+"pyrazole",
+"thiophene"
+],
+"n_eligible": 7,
+"sha": "d2731adb146fe4c0f1442c58a17c27d22e0e9287daca3a62830e26280622a920",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0001__L036__p420:indole:isoquinoline": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0001__L036__p420:indole:isoquinoline",
+"anchor": "isoquinoline",
+"nearest": [
+"pyrazole",
+"pyrrole",
+"pyrimidine",
+"imidazole"
+],
+"random": [
+"furan",
+"oxazole",
+"thiophene"
+],
+"distractors": [
+"pyrazole",
+"pyrrole",
+"pyrimidine",
+"imidazole",
+"furan",
+"oxazole",
+"thiophene"
+],
+"n_eligible": 7,
+"sha": "d9f4f98a4e863571848199c8c77e41bcd3821e47a2fc7ba47c392ca3195c3b51",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0001__L040__p420:indole:isoquinoline": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0001__L040__p420:indole:isoquinoline",
+"anchor": "isoquinoline",
+"nearest": [
+"pyrazole",
+"pyrrole",
+"pyrimidine",
+"imidazole"
+],
+"random": [
+"furan",
+"oxazole",
+"thiophene"
+],
+"distractors": [
+"pyrazole",
+"pyrrole",
+"pyrimidine",
+"imidazole",
+"furan",
+"oxazole",
+"thiophene"
+],
+"n_eligible": 7,
+"sha": "fc6447fd2f285dd3f9d6ecf7b5a334285e0920d34285c9af6ed1bc40b8f201e5",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0001__L048__p316:acridone:isoquinoline": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0001__L048__p316:acridone:isoquinoline",
+"anchor": "isoquinoline",
+"nearest": [
+"pyrazole",
+"pyrrole",
+"pyrimidine",
+"imidazole"
+],
+"random": [
+"furan",
+"oxazole",
+"thiophene"
+],
+"distractors": [
+"pyrazole",
+"pyrrole",
+"pyrimidine",
+"imidazole",
+"furan",
+"oxazole",
+"thiophene"
+],
+"n_eligible": 7,
+"sha": "2378be25dd195b20675c1317579678e5d1bda0c1dc3a6789ed091cba8a79dd06",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0001__L060__p316:quinoline:isoquinoline": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0001__L060__p316:quinoline:isoquinoline",
+"anchor": "isoquinoline",
+"nearest": [
+"pyrazole",
+"pyrrole",
+"pyrimidine",
+"imidazole"
+],
+"random": [
+"furan",
+"oxazole",
+"thiophene"
+],
+"distractors": [
+"pyrazole",
+"pyrrole",
+"pyrimidine",
+"imidazole",
+"furan",
+"oxazole",
+"thiophene"
+],
+"n_eligible": 7,
+"sha": "ae546189ec88aa45dae18a64722cd42c7f4282b79924ba639f5edac7cbc65856",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0043__L020__p391:pyridine:pyrimidine": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0043__L020__p391:pyridine:pyrimidine",
+"anchor": "pyrimidine",
+"nearest": [
+"isoquinoline",
+"thiophene",
+"furan",
+"oxazole"
+],
+"random": [
+"4-methylquinoline",
+"7-Methoxyisoquinoline",
+"7-methoxyisoquinoline",
+"acridone"
+],
+"distractors": [
+"isoquinoline",
+"thiophene",
+"furan",
+"oxazole",
+"4-methylquinoline",
+"7-Methoxyisoquinoline",
+"7-methoxyisoquinoline",
+"acridone"
+],
+"n_eligible": 11,
+"sha": "0a631988b3f93a2de5101bc9b9e24ea44a23ee795d37fc087cac5dd038433f22",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0043__L040__p391:pyridine:pyrimidine": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0043__L040__p391:pyridine:pyrimidine",
+"anchor": "pyrimidine",
+"nearest": [
+"isoquinoline",
+"thiophene",
+"furan",
+"oxazole"
+],
+"random": [
+"4-methylquinoline",
+"7-Methoxyisoquinoline",
+"acridone",
+"indolizine"
+],
+"distractors": [
+"isoquinoline",
+"thiophene",
+"furan",
+"oxazole",
+"4-methylquinoline",
+"7-Methoxyisoquinoline",
+"acridone",
+"indolizine"
+],
+"n_eligible": 11,
+"sha": "cd8fbd6fa21962338e3fbecb5d080e6a1ab028d9c4dfcbf78302ae54bd2353b2",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0043__L052__p391:pyridine:pyrimidine": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0043__L052__p391:pyridine:pyrimidine",
+"anchor": "pyrimidine",
+"nearest": [
+"isoquinoline",
+"thiophene",
+"furan",
+"oxazole"
+],
+"random": [
+"4-methylquinoline",
+"7-methoxyisoquinoline",
+"acridone",
+"indolizine"
+],
+"distractors": [
+"isoquinoline",
+"thiophene",
+"furan",
+"oxazole",
+"4-methylquinoline",
+"7-methoxyisoquinoline",
+"acridone",
+"indolizine"
+],
+"n_eligible": 11,
+"sha": "6d2c392d8d6f519e9415a6b8fb003abe6ba8429aae1931b02bff0b9b358ae31b",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0043__L060__p391:pyridine:pyrimidine": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0043__L060__p391:pyridine:pyrimidine",
+"anchor": "pyrimidine",
+"nearest": [
+"isoquinoline",
+"thiophene",
+"furan",
+"oxazole"
+],
+"random": [
+"7-Methoxyisoquinoline",
+"7-methoxyisoquinoline",
+"acridizine",
+"indolizine"
+],
+"distractors": [
+"isoquinoline",
+"thiophene",
+"furan",
+"oxazole",
+"7-Methoxyisoquinoline",
+"7-methoxyisoquinoline",
+"acridizine",
+"indolizine"
+],
+"n_eligible": 11,
+"sha": "4f982b7ad50f4e5fdbe5a8c212706f2a0171ac1bf9ebacbdc27ca92b79c3f624",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0001__L042__p316:quinoline:isoquinoline": {
+"unit": "nla-rl-L42:chat-lmsys-0001__L042__p316:quinoline:isoquinoline",
+"anchor": "isoquinoline",
+"nearest": [
+"pyrazole",
+"pyrrole",
+"pyrimidine",
+"imidazole"
+],
+"random": [
+"furan",
+"oxazole",
+"thiophene"
+],
+"distractors": [
+"pyrazole",
+"pyrrole",
+"pyrimidine",
+"imidazole",
+"furan",
+"oxazole",
+"thiophene"
+],
+"n_eligible": 7,
+"sha": "be2808705e722885556e841dc37e1b56f5892974a16cede7e330de7057ae26fd",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0001__L020__p316:pyridine:isoquinoline": {
+"unit": "s3d-rl600-all11:chat-lmsys-0001__L020__p316:pyridine:isoquinoline",
+"anchor": "isoquinoline",
+"nearest": [
+"pyrazole",
+"pyrrole",
+"pyrimidine",
+"imidazole"
+],
+"random": [
+"furan",
+"oxazole",
+"thiophene"
+],
+"distractors": [
+"pyrazole",
+"pyrrole",
+"pyrimidine",
+"imidazole",
+"furan",
+"oxazole",
+"thiophene"
+],
+"n_eligible": 7,
+"sha": "88d31d1e0f55a9c9c3fdfc28268a85b40e8d2b32c50789396298edc1c40dbf2a",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0001__L020__p316:quinoline:isoquinoline": {
+"unit": "s3d-rl600-all11:chat-lmsys-0001__L020__p316:quinoline:isoquinoline",
+"anchor": "isoquinoline",
+"nearest": [
+"pyrazole",
+"pyrrole",
+"pyrimidine",
+"imidazole"
+],
+"random": [
+"furan",
+"oxazole",
+"thiophene"
+],
+"distractors": [
+"pyrazole",
+"pyrrole",
+"pyrimidine",
+"imidazole",
+"furan",
+"oxazole",
+"thiophene"
+],
+"n_eligible": 7,
+"sha": "06f313ba9ae9bab9449fb7345c60a165ee4630b7ede83099bf33e11e1ce14bad",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0001__L028__p316:indole:7methoxyisoquinoline": {
+"unit": "s3d-rl600-all11:chat-lmsys-0001__L028__p316:indole:7methoxyisoquinoline",
+"anchor": "isoquinoline",
+"nearest": [
+"pyrazole",
+"pyrrole",
+"pyrimidine",
+"imidazole"
+],
+"random": [
+"furan",
+"oxazole",
+"thiophene"
+],
+"distractors": [
+"pyrazole",
+"pyrrole",
+"pyrimidine",
+"imidazole",
+"furan",
+"oxazole",
+"thiophene"
+],
+"n_eligible": 7,
+"sha": "51bff61f7774dfc01513ba464f3adece234219440c9a68d1badc2529efbc7d3b",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0001__L028__p316:indole:isoquinoline": {
+"unit": "s3d-rl600-all11:chat-lmsys-0001__L028__p316:indole:isoquinoline",
+"anchor": "isoquinoline",
+"nearest": [
+"pyrazole",
+"pyrrole",
+"pyrimidine",
+"imidazole"
+],
+"random": [
+"furan",
+"oxazole",
+"thiophene"
+],
+"distractors": [
+"pyrazole",
+"pyrrole",
+"pyrimidine",
+"imidazole",
+"furan",
+"oxazole",
+"thiophene"
+],
+"n_eligible": 7,
+"sha": "4129defb76af71ec0edae81d3c6d6b8a0ace94b2e620e72d723f4c3643d07a14",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0001__L028__p316:pyridine:isoquinoline": {
+"unit": "s3d-rl600-all11:chat-lmsys-0001__L028__p316:pyridine:isoquinoline",
+"anchor": "isoquinoline",
+"nearest": [
+"pyrazole",
+"pyrrole",
+"pyrimidine",
+"imidazole"
+],
+"random": [
+"furan",
+"oxazole",
+"thiophene"
+],
+"distractors": [
+"pyrazole",
+"pyrrole",
+"pyrimidine",
+"imidazole",
+"furan",
+"oxazole",
+"thiophene"
+],
+"n_eligible": 7,
+"sha": "e012e0a4f83fba073e86c8be4b4a28297c148993f7b73a9abc904b2435b25b4b",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0001__L052__p316:quinoline:isoquinoline": {
+"unit": "s3d-rl600-all11:chat-lmsys-0001__L052__p316:quinoline:isoquinoline",
+"anchor": "isoquinoline",
+"nearest": [
+"pyrazole",
+"pyrrole",
+"pyrimidine",
+"imidazole"
+],
+"random": [
+"furan",
+"oxazole",
+"thiophene"
+],
+"distractors": [
+"pyrazole",
+"pyrrole",
+"pyrimidine",
+"imidazole",
+"furan",
+"oxazole",
+"thiophene"
+],
+"n_eligible": 7,
+"sha": "fc045e0d20f825afb3aa4258aa98131599efc9a3f465342cc02c2a42d0ce17ef",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0001__L056__p316:quinoline:isoquinoline": {
+"unit": "s3d-rl600-all11:chat-lmsys-0001__L056__p316:quinoline:isoquinoline",
+"anchor": "isoquinoline",
+"nearest": [
+"pyrazole",
+"pyrrole",
+"pyrimidine",
+"imidazole"
+],
+"random": [
+"furan",
+"oxazole",
+"thiophene"
+],
+"distractors": [
+"pyrazole",
+"pyrrole",
+"pyrimidine",
+"imidazole",
+"furan",
+"oxazole",
+"thiophene"
+],
+"n_eligible": 7,
+"sha": "be4092e0bef6f7806fa6172bc5d80065c23a04ababd75879fd5ccc7f48afda29",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0043__L020__p391:pyridine:pyrimidine": {
+"unit": "s3d-rl600-all11:chat-lmsys-0043__L020__p391:pyridine:pyrimidine",
+"anchor": "pyrimidine",
+"nearest": [
+"isoquinoline",
+"thiophene",
+"furan",
+"oxazole"
+],
+"random": [
+"4-Methylquinoline",
+"7-Methoxyisoquinoline",
+"7-methoxyisoquinoline",
+"acridone"
+],
+"distractors": [
+"isoquinoline",
+"thiophene",
+"furan",
+"oxazole",
+"4-Methylquinoline",
+"7-Methoxyisoquinoline",
+"7-methoxyisoquinoline",
+"acridone"
+],
+"n_eligible": 11,
+"sha": "4b301c958c8e704a3e79dca8dadd906281e14ad3a013e0da61aa2eb10b9514ea",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0043__L024__p391:pyridine:pyrimidine": {
+"unit": "s3d-rl600-all11:chat-lmsys-0043__L024__p391:pyridine:pyrimidine",
+"anchor": "pyrimidine",
+"nearest": [
+"isoquinoline",
+"thiophene",
+"furan",
+"oxazole"
+],
+"random": [
+"4-methylquinoline",
+"7-Methoxyisoquinoline",
+"7-methoxyisoquinoline",
+"indolizine"
+],
+"distractors": [
+"isoquinoline",
+"thiophene",
+"furan",
+"oxazole",
+"4-methylquinoline",
+"7-Methoxyisoquinoline",
+"7-methoxyisoquinoline",
+"indolizine"
+],
+"n_eligible": 11,
+"sha": "7de92543a6aad9bb29265010a835b1a5204ded433f0fc197c5373f031b087bc7",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0043__L028__p391:pyridine:pyrimidine": {
+"unit": "s3d-rl600-all11:chat-lmsys-0043__L028__p391:pyridine:pyrimidine",
+"anchor": "pyrimidine",
+"nearest": [
+"isoquinoline",
+"thiophene",
+"furan",
+"oxazole"
+],
+"random": [
+"4-Methylquinoline",
+"4-methylquinoline",
+"7-Methoxyisoquinoline",
+"acridizine"
+],
+"distractors": [
+"isoquinoline",
+"thiophene",
+"furan",
+"oxazole",
+"4-Methylquinoline",
+"4-methylquinoline",
+"7-Methoxyisoquinoline",
+"acridizine"
+],
+"n_eligible": 11,
+"sha": "3e014f8394a18a9e723db6591a7838e25f6ec5021b96be3280f626ae93a3b47f",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0043__L032__p391:pyridine:pyrimidine": {
+"unit": "s3d-rl600-all11:chat-lmsys-0043__L032__p391:pyridine:pyrimidine",
+"anchor": "pyrimidine",
+"nearest": [
+"isoquinoline",
+"thiophene",
+"furan",
+"oxazole"
+],
+"random": [
+"4-Methylquinoline",
+"7-Methoxyisoquinoline",
+"7-methoxyisoquinoline",
+"indolizine"
+],
+"distractors": [
+"isoquinoline",
+"thiophene",
+"furan",
+"oxazole",
+"4-Methylquinoline",
+"7-Methoxyisoquinoline",
+"7-methoxyisoquinoline",
+"indolizine"
+],
+"n_eligible": 11,
+"sha": "327274fbc01e949591643ca93bcc5d3c0a3b7e58c2b744f4011b57cbaa3ae4ae",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0043__L032__p419:pyridine:pyrimidine": {
+"unit": "s3d-rl600-all11:chat-lmsys-0043__L032__p419:pyridine:pyrimidine",
+"anchor": "pyrimidine",
+"nearest": [
+"isoquinoline",
+"thiophene",
+"furan",
+"oxazole"
+],
+"random": [
+"7-Methoxyisoquinoline",
+"7-methoxyisoquinoline",
+"acridizine",
+"indolizine"
+],
+"distractors": [
+"isoquinoline",
+"thiophene",
+"furan",
+"oxazole",
+"7-Methoxyisoquinoline",
+"7-methoxyisoquinoline",
+"acridizine",
+"indolizine"
+],
+"n_eligible": 11,
+"sha": "bd640c1b4ac649b188458253c0ae483e524fd0c384d9c74d5356e323b2b2c683",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0043__L036__p391:pyridine:pyrimidine": {
+"unit": "s3d-rl600-all11:chat-lmsys-0043__L036__p391:pyridine:pyrimidine",
+"anchor": "pyrimidine",
+"nearest": [
+"isoquinoline",
+"thiophene",
+"furan",
+"oxazole"
+],
+"random": [
+"7-Methoxyisoquinoline",
+"7-methoxyisoquinoline",
+"acridizine",
+"acridone"
+],
+"distractors": [
+"isoquinoline",
+"thiophene",
+"furan",
+"oxazole",
+"7-Methoxyisoquinoline",
+"7-methoxyisoquinoline",
+"acridizine",
+"acridone"
+],
+"n_eligible": 11,
+"sha": "b059d322be7dd206c458e1592082d4eedb1a12346fc46080bc3af73a7ce15b66",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0001__L020__p316:pyridine:isoquinoline": {
+"unit": "s3d-rl600:chat-lmsys-0001__L020__p316:pyridine:isoquinoline",
+"anchor": "isoquinoline",
+"nearest": [
+"pyrazole",
+"pyrrole",
+"pyrimidine",
+"imidazole"
+],
+"random": [
+"furan",
+"oxazole",
+"thiophene"
+],
+"distractors": [
+"pyrazole",
+"pyrrole",
+"pyrimidine",
+"imidazole",
+"furan",
+"oxazole",
+"thiophene"
+],
+"n_eligible": 7,
+"sha": "6360b219c32f3f0192e7e02e9231a8945b644c12995bca70fec44ae4e9a15afa",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0001__L060__p316:quinoline:isoquinoline": {
+"unit": "s3d-rl600:chat-lmsys-0001__L060__p316:quinoline:isoquinoline",
+"anchor": "isoquinoline",
+"nearest": [
+"pyrazole",
+"pyrrole",
+"pyrimidine",
+"imidazole"
+],
+"random": [
+"furan",
+"oxazole",
+"thiophene"
+],
+"distractors": [
+"pyrazole",
+"pyrrole",
+"pyrimidine",
+"imidazole",
+"furan",
+"oxazole",
+"thiophene"
+],
+"n_eligible": 7,
+"sha": "215ecf1a03ce115b00c05dcf1032c8881112893ae8aba7a39884cf432d689069",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0043__L020__p391:pyridine:pyrimidine": {
+"unit": "s3d-rl600:chat-lmsys-0043__L020__p391:pyridine:pyrimidine",
+"anchor": "pyrimidine",
+"nearest": [
+"isoquinoline",
+"thiophene",
+"furan",
+"oxazole"
+],
+"random": [
+"4-methylquinoline",
+"7-methoxyisoquinoline",
+"acridizine",
+"indolizine"
+],
+"distractors": [
+"isoquinoline",
+"thiophene",
+"furan",
+"oxazole",
+"4-methylquinoline",
+"7-methoxyisoquinoline",
+"acridizine",
+"indolizine"
+],
+"n_eligible": 11,
+"sha": "165c4621c15dc094c8f16bccc240db6106bfa03d16387f5c86f04e117543deb3",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0043__L024__p391:pyridine:pyrimidine": {
+"unit": "s3d-sft251:chat-lmsys-0043__L024__p391:pyridine:pyrimidine",
+"anchor": "pyrimidine",
+"nearest": [
+"isoquinoline",
+"thiophene",
+"furan",
+"oxazole"
+],
+"random": [
+"4-Methylquinoline",
+"4-methylquinoline",
+"acridizine",
+"acridone"
+],
+"distractors": [
+"isoquinoline",
+"thiophene",
+"furan",
+"oxazole",
+"4-Methylquinoline",
+"4-methylquinoline",
+"acridizine",
+"acridone"
+],
+"n_eligible": 11,
+"sha": "b2e62c70c339c218d259cd25bf9ed30b1f4ed031b6fa29bda7af897ca924b1da",
+"generation": 0
+}
+}

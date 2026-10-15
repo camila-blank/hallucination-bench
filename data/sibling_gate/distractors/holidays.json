@@ -1,0 +1,638 @@
+{
+"jlens:chat-lmsys-0047__L048__p391:thanksgiving:memorialday": {
+"unit": "jlens:chat-lmsys-0047__L048__p391:thanksgiving:memorialday",
+"anchor": "Memorial Day",
+"nearest": [
+"Earth Day",
+"New Year's Day",
+"Hanukkah",
+"Spring Festival"
+],
+"random": [
+"Christmas",
+"Diwali",
+"Ramadan",
+"Valentine's Day"
+],
+"distractors": [
+"Earth Day",
+"New Year's Day",
+"Hanukkah",
+"Spring Festival",
+"Christmas",
+"Diwali",
+"Ramadan",
+"Valentine's Day"
+],
+"n_eligible": 9,
+"sha": "9675360dc9ab4dfe7ee44177055dc6520fbdc7f4e09573ac55a2e4e149662559",
+"generation": 0
+},
+"jlens:chat-lmsys-0047__L052__p391:thanksgiving:memorialday": {
+"unit": "jlens:chat-lmsys-0047__L052__p391:thanksgiving:memorialday",
+"anchor": "Memorial Day",
+"nearest": [
+"Earth Day",
+"New Year's Day",
+"Hanukkah",
+"Spring Festival"
+],
+"random": [
+"Diwali",
+"Halloween",
+"Ramadan",
+"Valentine's Day"
+],
+"distractors": [
+"Earth Day",
+"New Year's Day",
+"Hanukkah",
+"Spring Festival",
+"Diwali",
+"Halloween",
+"Ramadan",
+"Valentine's Day"
+],
+"n_eligible": 9,
+"sha": "af77ce4a95d0016547f49b69a4b77a35b4b314972af7b6b90984904b1c5741bc",
+"generation": 0
+},
+"jlens:chat-lmsys-0047__L056__p391:thanksgiving:memorialday": {
+"unit": "jlens:chat-lmsys-0047__L056__p391:thanksgiving:memorialday",
+"anchor": "Memorial Day",
+"nearest": [
+"Earth Day",
+"New Year's Day",
+"Hanukkah",
+"Spring Festival"
+],
+"random": [
+"Christmas",
+"Diwali",
+"Ramadan",
+"Valentine's Day"
+],
+"distractors": [
+"Earth Day",
+"New Year's Day",
+"Hanukkah",
+"Spring Festival",
+"Christmas",
+"Diwali",
+"Ramadan",
+"Valentine's Day"
+],
+"n_eligible": 9,
+"sha": "7af82d95430b957e795f6d2798fa8a5f0f6ab0f3d9fb27f4668bbc239c38f184",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0044__L020__p408:christmasintheusa:springfestivalinchina": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0044__L020__p408:christmasintheusa:springfestivalinchina",
+"anchor": "Spring Festival",
+"nearest": [
+"Hanukkah",
+"Ramadan",
+"Easter",
+"New Year's Day"
+],
+"random": [
+"Halloween",
+"Independence Day",
+"Labor Day",
+"New Year's Eve"
+],
+"distractors": [
+"Hanukkah",
+"Ramadan",
+"Easter",
+"New Year's Day",
+"Halloween",
+"Independence Day",
+"Labor Day",
+"New Year's Eve"
+],
+"n_eligible": 10,
+"sha": "6a443d2a9adcb1e923e0ea65b665e4931d7f2b055560f037f4bd9c3b0271ee0c",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0044__L040__p74:christmasnonchristians:springfestival": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0044__L040__p74:christmasnonchristians:springfestival",
+"anchor": "Spring Festival",
+"nearest": [
+"Hanukkah",
+"Ramadan",
+"Easter",
+"New Year's Day"
+],
+"random": [
+"Halloween",
+"Independence Day",
+"Memorial Day",
+"New Year's Eve"
+],
+"distractors": [
+"Hanukkah",
+"Ramadan",
+"Easter",
+"New Year's Day",
+"Halloween",
+"Independence Day",
+"Memorial Day",
+"New Year's Eve"
+],
+"n_eligible": 10,
+"sha": "fa85c595b19dae6dfe5e138c65ef176287db72f6619dcbd70b44f516172e00e9",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0044__L048__p289:earthday:springfestival": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0044__L048__p289:earthday:springfestival",
+"anchor": "Spring Festival",
+"nearest": [
+"Hanukkah",
+"Ramadan",
+"Easter",
+"New Year's Day"
+],
+"random": [
+"Halloween",
+"Memorial Day",
+"New Year's Eve",
+"Thanksgiving"
+],
+"distractors": [
+"Hanukkah",
+"Ramadan",
+"Easter",
+"New Year's Day",
+"Halloween",
+"Memorial Day",
+"New Year's Eve",
+"Thanksgiving"
+],
+"n_eligible": 10,
+"sha": "31adf8310de432fef79dd83905f45130b16508150bc9a725fa4d8c83d48b2c4e",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0047__L060__p513:newyearseve:memorialdayweekend": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0047__L060__p513:newyearseve:memorialdayweekend",
+"anchor": "Memorial Day",
+"nearest": [
+"Earth Day",
+"Hanukkah",
+"Spring Festival",
+"Ramadan"
+],
+"random": [
+"Christmas",
+"Diwali",
+"Halloween"
+],
+"distractors": [
+"Earth Day",
+"Hanukkah",
+"Spring Festival",
+"Ramadan",
+"Christmas",
+"Diwali",
+"Halloween"
+],
+"n_eligible": 7,
+"sha": "01e9211305e9fb25845fc83db1b721c338b6415313bcd6e42ba3a1f1f44cff76",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0047__L036__p391:july4th:memorialday": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0047__L036__p391:july4th:memorialday",
+"anchor": "Memorial Day",
+"nearest": [
+"Earth Day",
+"New Year's Day",
+"Hanukkah",
+"Spring Festival"
+],
+"random": [
+"Christmas",
+"Diwali",
+"Ramadan",
+"Valentine's Day"
+],
+"distractors": [
+"Earth Day",
+"New Year's Day",
+"Hanukkah",
+"Spring Festival",
+"Christmas",
+"Diwali",
+"Ramadan",
+"Valentine's Day"
+],
+"n_eligible": 9,
+"sha": "6b6b0da5203a6c5e01e68729d38d95ae000b3fb8e020b536f9184fe2f3dc6721",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0047__L036__p391:july4th:memorialdayweekend": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0047__L036__p391:july4th:memorialdayweekend",
+"anchor": "Memorial Day",
+"nearest": [
+"Earth Day",
+"New Year's Day",
+"Hanukkah",
+"Spring Festival"
+],
+"random": [
+"Diwali",
+"Halloween",
+"Ramadan",
+"Valentine's Day"
+],
+"distractors": [
+"Earth Day",
+"New Year's Day",
+"Hanukkah",
+"Spring Festival",
+"Diwali",
+"Halloween",
+"Ramadan",
+"Valentine's Day"
+],
+"n_eligible": 9,
+"sha": "0de6771d558578f393ccf5448e773a39f07a788aa0d6ca0cc8465f817bce6878",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0047__L036__p391:thanksgiving:memorialday": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0047__L036__p391:thanksgiving:memorialday",
+"anchor": "Memorial Day",
+"nearest": [
+"Earth Day",
+"New Year's Day",
+"Hanukkah",
+"Spring Festival"
+],
+"random": [
+"Christmas",
+"Halloween",
+"Ramadan",
+"Valentine's Day"
+],
+"distractors": [
+"Earth Day",
+"New Year's Day",
+"Hanukkah",
+"Spring Festival",
+"Christmas",
+"Halloween",
+"Ramadan",
+"Valentine's Day"
+],
+"n_eligible": 9,
+"sha": "7846c30a87c7bb701669279ca189225d398fc1007eccb53294728195dc2c4afd",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0047__L040__p391:4thofjuly:memorialday": {
+"unit": "s3d-rl600-all11:chat-lmsys-0047__L040__p391:4thofjuly:memorialday",
+"anchor": "Memorial Day",
+"nearest": [
+"Earth Day",
+"New Year's Day",
+"Hanukkah",
+"Spring Festival"
+],
+"random": [
+"Christmas",
+"Diwali",
+"Ramadan",
+"Valentine's Day"
+],
+"distractors": [
+"Earth Day",
+"New Year's Day",
+"Hanukkah",
+"Spring Festival",
+"Christmas",
+"Diwali",
+"Ramadan",
+"Valentine's Day"
+],
+"n_eligible": 9,
+"sha": "9365e686a3e9144e3ce81f8a6c4d9de1bffb7bfc33a80cc355e3d650be4508a8",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0047__L040__p391:july4th:memorialday": {
+"unit": "s3d-rl600-all11:chat-lmsys-0047__L040__p391:july4th:memorialday",
+"anchor": "Memorial Day",
+"nearest": [
+"Earth Day",
+"New Year's Day",
+"Hanukkah",
+"Spring Festival"
+],
+"random": [
+"Christmas",
+"Diwali",
+"Halloween",
+"Ramadan"
+],
+"distractors": [
+"Earth Day",
+"New Year's Day",
+"Hanukkah",
+"Spring Festival",
+"Christmas",
+"Diwali",
+"Halloween",
+"Ramadan"
+],
+"n_eligible": 9,
+"sha": "da1be69764a3a8a8e405f321b1cbdaedf3de3696500462cdd34043b13c5141fa",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0047__L048__p391:laborday五一weekend:memorialdayweekend": {
+"unit": "s3d-rl600-all11:chat-lmsys-0047__L048__p391:laborday五一weekend:memorialdayweekend",
+"anchor": "Memorial Day",
+"nearest": [
+"Earth Day",
+"New Year's Day",
+"Hanukkah",
+"Spring Festival"
+],
+"random": [
+"Christmas",
+"Diwali",
+"Halloween",
+"Ramadan"
+],
+"distractors": [
+"Earth Day",
+"New Year's Day",
+"Hanukkah",
+"Spring Festival",
+"Christmas",
+"Diwali",
+"Halloween",
+"Ramadan"
+],
+"n_eligible": 9,
+"sha": "a1df674f80fd38aaab9b91e7e6a8b48485bae2a04b2c90783a2fffd2a1c40fb8",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0047__L036__p391:thanksgivingweekend:memorialdayweekend": {
+"unit": "s3d-rl600:chat-lmsys-0047__L036__p391:thanksgivingweekend:memorialdayweekend",
+"anchor": "Memorial Day",
+"nearest": [
+"Earth Day",
+"New Year's Day",
+"Hanukkah",
+"Spring Festival"
+],
+"random": [
+"Christmas",
+"Halloween",
+"Ramadan",
+"Valentine's Day"
+],
+"distractors": [
+"Earth Day",
+"New Year's Day",
+"Hanukkah",
+"Spring Festival",
+"Christmas",
+"Halloween",
+"Ramadan",
+"Valentine's Day"
+],
+"n_eligible": 9,
+"sha": "c570caabbf5674ee9868b38b71d8ba6926dcff813ed29c603ecb4ae20702f339",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0047__L044__p391:4thofjulyweekend:memorialdayweekend": {
+"unit": "s3d-rl600:chat-lmsys-0047__L044__p391:4thofjulyweekend:memorialdayweekend",
+"anchor": "Memorial Day",
+"nearest": [
+"Earth Day",
+"New Year's Day",
+"Hanukkah",
+"Spring Festival"
+],
+"random": [
+"Christmas",
+"Halloween",
+"Ramadan",
+"Valentine's Day"
+],
+"distractors": [
+"Earth Day",
+"New Year's Day",
+"Hanukkah",
+"Spring Festival",
+"Christmas",
+"Halloween",
+"Ramadan",
+"Valentine's Day"
+],
+"n_eligible": 9,
+"sha": "2ed74af90fe2ba20115ee8af995d8c485c2d967a2cb8dd413246853d24916c4a",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0047__L044__p391:thanksgiving:memorialday": {
+"unit": "s3d-rl600:chat-lmsys-0047__L044__p391:thanksgiving:memorialday",
+"anchor": "Memorial Day",
+"nearest": [
+"Earth Day",
+"New Year's Day",
+"Hanukkah",
+"Spring Festival"
+],
+"random": [
+"Diwali",
+"Halloween",
+"Ramadan",
+"Valentine's Day"
+],
+"distractors": [
+"Earth Day",
+"New Year's Day",
+"Hanukkah",
+"Spring Festival",
+"Diwali",
+"Halloween",
+"Ramadan",
+"Valentine's Day"
+],
+"n_eligible": 9,
+"sha": "938366ddcf1d1be4f508def0082aa126e52ae24333a4d3e85381c827a7a88cf4",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0047__L048__p391:thanksgiving:memorialday": {
+"unit": "s3d-rl600:chat-lmsys-0047__L048__p391:thanksgiving:memorialday",
+"anchor": "Memorial Day",
+"nearest": [
+"Earth Day",
+"New Year's Day",
+"Hanukkah",
+"Spring Festival"
+],
+"random": [
+"Christmas",
+"Diwali",
+"Halloween",
+"Ramadan"
+],
+"distractors": [
+"Earth Day",
+"New Year's Day",
+"Hanukkah",
+"Spring Festival",
+"Christmas",
+"Diwali",
+"Halloween",
+"Ramadan"
+],
+"n_eligible": 9,
+"sha": "5e369f6f9ed1bfe7caa540c37fc252c912b9d0acf18df99ff3ad8da80dd5d73a",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0047__L036__p391:july4:memorialdayweekend": {
+"unit": "s3d-sft251:chat-lmsys-0047__L036__p391:july4:memorialdayweekend",
+"anchor": "Memorial Day",
+"nearest": [
+"Earth Day",
+"New Year's Day",
+"Hanukkah",
+"Spring Festival"
+],
+"random": [
+"Diwali",
+"Halloween",
+"Ramadan",
+"Valentine's Day"
+],
+"distractors": [
+"Earth Day",
+"New Year's Day",
+"Hanukkah",
+"Spring Festival",
+"Diwali",
+"Halloween",
+"Ramadan",
+"Valentine's Day"
+],
+"n_eligible": 9,
+"sha": "3032e9ed7c404adda6c2f371b7da4e56847a6bce485c8f62b4ba8727ef31404c",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0047__L036__p391:labordayweekend:memorialdayweekend": {
+"unit": "s3d-sft251:chat-lmsys-0047__L036__p391:labordayweekend:memorialdayweekend",
+"anchor": "Memorial Day",
+"nearest": [
+"Earth Day",
+"New Year's Day",
+"Hanukkah",
+"Spring Festival"
+],
+"random": [
+"Christmas",
+"Diwali",
+"Halloween",
+"Valentine's Day"
+],
+"distractors": [
+"Earth Day",
+"New Year's Day",
+"Hanukkah",
+"Spring Festival",
+"Christmas",
+"Diwali",
+"Halloween",
+"Valentine's Day"
+],
+"n_eligible": 9,
+"sha": "64ddcd7aceecccc7bfa3090a726edb22706487e3223325ff8be4905e97d06d41",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0047__L044__p391:labordayweekend:memorialdayweekend": {
+"unit": "s3d-sft251:chat-lmsys-0047__L044__p391:labordayweekend:memorialdayweekend",
+"anchor": "Memorial Day",
+"nearest": [
+"Earth Day",
+"New Year's Day",
+"Hanukkah",
+"Spring Festival"
+],
+"random": [
+"Christmas",
+"Halloween",
+"Ramadan",
+"Valentine's Day"
+],
+"distractors": [
+"Earth Day",
+"New Year's Day",
+"Hanukkah",
+"Spring Festival",
+"Christmas",
+"Halloween",
+"Ramadan",
+"Valentine's Day"
+],
+"n_eligible": 9,
+"sha": "841657ef1a10458761969d5ddc993e052f8c95c3af08937979010eb325aaa482",
+"generation": 0
+},
+"template-v3:chat-lmsys-0047__L056__p391:easter:memorialday": {
+"unit": "template-v3:chat-lmsys-0047__L056__p391:easter:memorialday",
+"anchor": "Memorial Day",
+"nearest": [
+"Earth Day",
+"New Year's Day",
+"Hanukkah",
+"Spring Festival"
+],
+"random": [
+"Christmas",
+"Diwali",
+"Halloween",
+"Ramadan"
+],
+"distractors": [
+"Earth Day",
+"New Year's Day",
+"Hanukkah",
+"Spring Festival",
+"Christmas",
+"Diwali",
+"Halloween",
+"Ramadan"
+],
+"n_eligible": 9,
+"sha": "9e87c098b44e62f49cc394f417330c7a3826426e54d4ffb43ee442157e8b9ebc",
+"generation": 0
+},
+"template-v3:chat-lmsys-0047__L056__p391:easterorthanksgiving:memorialday": {
+"unit": "template-v3:chat-lmsys-0047__L056__p391:easterorthanksgiving:memorialday",
+"anchor": "Memorial Day",
+"nearest": [
+"Earth Day",
+"New Year's Day",
+"Hanukkah",
+"Spring Festival"
+],
+"random": [
+"Christmas",
+"Halloween",
+"Ramadan",
+"Valentine's Day"
+],
+"distractors": [
+"Earth Day",
+"New Year's Day",
+"Hanukkah",
+"Spring Festival",
+"Christmas",
+"Halloween",
+"Ramadan",
+"Valentine's Day"
+],
+"n_eligible": 9,
+"sha": "18975e8f741169109437ce590f1f0675591a89dc7c206c88ec4fca2527f447ed",
+"generation": 0
+}
+}

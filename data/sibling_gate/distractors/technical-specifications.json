@@ -1,0 +1,168 @@
+{
+"mlnla-rl2-800-all11:chat-lmsys-0014__L056__p97:usbpciespecs:3gppltespecs": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0014__L056__p97:usbpciespecs:3gppltespecs",
+"anchor": "3GPP TS 36.322",
+"nearest": [
+"TCP (RFC 793)",
+"UEFI specification",
+"IPv6 (RFC 8200)",
+"CSS Specification"
+],
+"random": [
+"HTML Living Standard",
+"Python documentation",
+"Unicode Standard",
+"WebIDL"
+],
+"distractors": [
+"TCP (RFC 793)",
+"UEFI specification",
+"IPv6 (RFC 8200)",
+"CSS Specification",
+"HTML Living Standard",
+"Python documentation",
+"Unicode Standard",
+"WebIDL"
+],
+"n_eligible": 13,
+"sha": "09dcf36f367b65ade9a3efb76661ece8c1a6ba8ee7b5ea4d026c4416db3783e0",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0003__L020__p345:uefispec:webbluetoothapispecification": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0003__L020__p345:uefispec:webbluetoothapispecification",
+"anchor": "Web Bluetooth API specification",
+"nearest": [
+"3GPP TS 36.322",
+"Unicode Standard",
+"IPv6 (RFC 8200)",
+"HTML Living Standard"
+],
+"random": [
+"TCP (RFC 793)"
+],
+"distractors": [
+"3GPP TS 36.322",
+"Unicode Standard",
+"IPv6 (RFC 8200)",
+"HTML Living Standard",
+"TCP (RFC 793)"
+],
+"n_eligible": 5,
+"sha": "861e8b7fe57d9f2bfca3418266ac1bae2ec7642df8e608628c8a22cdf1e54c67",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0003__L020__p466:ecmascriptspec:webidl": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0003__L020__p466:ecmascriptspec:webidl",
+"anchor": "WebIDL",
+"nearest": [
+"Web Bluetooth API specification",
+"CSS Specification",
+"Unicode Standard",
+"3GPP TS 36.322"
+],
+"random": [
+"HTML Living Standard",
+"IPv6 (RFC 8200)",
+"TCP (RFC 793)"
+],
+"distractors": [
+"Web Bluetooth API specification",
+"CSS Specification",
+"Unicode Standard",
+"3GPP TS 36.322",
+"HTML Living Standard",
+"IPv6 (RFC 8200)",
+"TCP (RFC 793)"
+],
+"n_eligible": 7,
+"sha": "eea8d990437d154430a1af2fb818352ca57a158d948070a1dea2dcfda168670e",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0003__L028__p310:javadocumentation:webbluetoothapispecification": {
+"unit": "s3d-rl600-all11:chat-lmsys-0003__L028__p310:javadocumentation:webbluetoothapispecification",
+"anchor": "Web Bluetooth API specification",
+"nearest": [
+"3GPP TS 36.322",
+"Unicode Standard",
+"IPv6 (RFC 8200)",
+"HTML Living Standard"
+],
+"random": [
+"TCP (RFC 793)"
+],
+"distractors": [
+"3GPP TS 36.322",
+"Unicode Standard",
+"IPv6 (RFC 8200)",
+"HTML Living Standard",
+"TCP (RFC 793)"
+],
+"n_eligible": 5,
+"sha": "2a862ce0e734cdf6bf59569ca836c67b30cad56b4bcde38b643b3d00f758ee70",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0003__L028__p310:javalanguagespecification:webbluetoothapispecification": {
+"unit": "s3d-rl600-all11:chat-lmsys-0003__L028__p310:javalanguagespecification:webbluetoothapispecification",
+"anchor": "Web Bluetooth API specification",
+"nearest": [
+"3GPP TS 36.322",
+"Unicode Standard",
+"IPv6 (RFC 8200)",
+"HTML Living Standard"
+],
+"random": [
+"TCP (RFC 793)"
+],
+"distractors": [
+"3GPP TS 36.322",
+"Unicode Standard",
+"IPv6 (RFC 8200)",
+"HTML Living Standard",
+"TCP (RFC 793)"
+],
+"n_eligible": 5,
+"sha": "f5b82d37364bdbf65c04fb06185cd2ed354c08e5360575c4d455319f9c43995a",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0003__L032__p310:pythondocumentation:webbluetoothapispecification": {
+"unit": "s3d-rl600-all11:chat-lmsys-0003__L032__p310:pythondocumentation:webbluetoothapispecification",
+"anchor": "Web Bluetooth API specification",
+"nearest": [
+"3GPP TS 36.322",
+"Unicode Standard",
+"IPv6 (RFC 8200)",
+"HTML Living Standard"
+],
+"random": [
+"TCP (RFC 793)"
+],
+"distractors": [
+"3GPP TS 36.322",
+"Unicode Standard",
+"IPv6 (RFC 8200)",
+"HTML Living Standard",
+"TCP (RFC 793)"
+],
+"n_eligible": 5,
+"sha": "60005500c2e4ee9315c0901d0762181e278127780148abfa6322212b72de9bfc",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0003__L032__p310:pythonstandardlibrarydocumentation:webbluetoothapispecification": {
+"unit": "s3d-rl600-all11:chat-lmsys-0003__L032__p310:pythonstandardlibrarydocumentation:webbluetoothapispecification",
+"anchor": "Web Bluetooth API specification",
+"nearest": [
+"3GPP TS 36.322",
+"IPv6 (RFC 8200)",
+"TCP (RFC 793)"
+],
+"random": [],
+"distractors": [
+"3GPP TS 36.322",
+"IPv6 (RFC 8200)",
+"TCP (RFC 793)"
+],
+"n_eligible": 3,
+"sha": "2ff28778de30b6eda67505acdcebd251b8f165bb980769429b2c93daa27f6180",
+"generation": 0
+}
+}

@@ -1,0 +1,147 @@
+{
+"jlens:chat-lmsys-0024__L060__p89:arthurcclarkeorisaacasimov:ijgood": {
+"unit": "jlens:chat-lmsys-0024__L060__p89:arthurcclarkeorisaacasimov:ijgood",
+"anchor": "Arthur C. Clarke or Isaac Asimov",
+"nearest": [
+"Robert A. Heinlein",
+"William Gibson",
+"Orson Scott Card",
+"Kurt Vonnegut"
+],
+"random": [
+"Douglas Adams",
+"Frank Herbert",
+"Mary Shelley",
+"Ursula K. Le Guin"
+],
+"distractors": [
+"Robert A. Heinlein",
+"William Gibson",
+"Orson Scott Card",
+"Kurt Vonnegut",
+"Douglas Adams",
+"Frank Herbert",
+"Mary Shelley",
+"Ursula K. Le Guin"
+],
+"n_eligible": 12,
+"sha": "f1067b0811eae0ecda40fae6ca55bd528416c52ce428aaff57f0c4450fcfc0f3",
+"generation": 0
+},
+"jlens:chat-lmsys-0024__L060__p89:julesvernearthurcclarke:ijgood": {
+"unit": "jlens:chat-lmsys-0024__L060__p89:julesvernearthurcclarke:ijgood",
+"anchor": "Jules Verne",
+"nearest": [
+"H.G. Wells",
+"Mary Shelley",
+"Ray Bradbury",
+"Frank Herbert"
+],
+"random": [
+"Neal Stephenson",
+"Orson Scott Card",
+"Philip K. Dick",
+"Ursula K. Le Guin"
+],
+"distractors": [
+"H.G. Wells",
+"Mary Shelley",
+"Ray Bradbury",
+"Frank Herbert",
+"Neal Stephenson",
+"Orson Scott Card",
+"Philip K. Dick",
+"Ursula K. Le Guin"
+],
+"n_eligible": 14,
+"sha": "978b398da349006c735336eab4db139a942e9db72f903d3ff1a8f83b75aaea64",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0030__L048__p87:arthurcclarke:douglasadams": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0030__L048__p87:arthurcclarke:douglasadams",
+"anchor": "Douglas Adams",
+"nearest": [
+"Isaac Asimov",
+"Mary Shelley",
+"Jules Verne",
+"Ray Bradbury"
+],
+"random": [
+"Neal Stephenson",
+"Philip K. Dick",
+"Robert A. Heinlein",
+"William Gibson"
+],
+"distractors": [
+"Isaac Asimov",
+"Mary Shelley",
+"Jules Verne",
+"Ray Bradbury",
+"Neal Stephenson",
+"Philip K. Dick",
+"Robert A. Heinlein",
+"William Gibson"
+],
+"n_eligible": 10,
+"sha": "b3a9fd67513032448879dbedbccf6fe34d9fbc438c8a46e301cbb123289835ad",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0030__L052__p65:arthurcclarke:douglasadams": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0030__L052__p65:arthurcclarke:douglasadams",
+"anchor": "Douglas Adams",
+"nearest": [
+"Isaac Asimov",
+"Mary Shelley",
+"Jules Verne",
+"Ray Bradbury"
+],
+"random": [
+"Neal Stephenson",
+"Philip K. Dick",
+"Robert A. Heinlein",
+"William Gibson"
+],
+"distractors": [
+"Isaac Asimov",
+"Mary Shelley",
+"Jules Verne",
+"Ray Bradbury",
+"Neal Stephenson",
+"Philip K. Dick",
+"Robert A. Heinlein",
+"William Gibson"
+],
+"n_eligible": 10,
+"sha": "219b3b52ed222f3eaab776f02363c090101bc5bed2804e0c2e3ee7551044037e",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0030__L052__p137:frankherbert:douglasadams": {
+"unit": "s3d-sft251:chat-dailydialog-0030__L052__p137:frankherbert:douglasadams",
+"anchor": "Douglas Adams",
+"nearest": [
+"Isaac Asimov",
+"Mary Shelley",
+"Jules Verne",
+"Ray Bradbury"
+],
+"random": [
+"Neal Stephenson",
+"Orson Scott Card",
+"Robert A. Heinlein",
+"William Gibson"
+],
+"distractors": [
+"Isaac Asimov",
+"Mary Shelley",
+"Jules Verne",
+"Ray Bradbury",
+"Neal Stephenson",
+"Orson Scott Card",
+"Robert A. Heinlein",
+"William Gibson"
+],
+"n_eligible": 10,
+"sha": "6e7aa7730eb187b1756c62b1e4f05216275332c293c162e034e3799c5bc9af31",
+"generation": 0
+}
+}

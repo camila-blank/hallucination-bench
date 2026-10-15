@@ -1,0 +1,145 @@
+{
+"mlnla-rl2-800-all11:chat-lmsys-0055__L020__p43:sapbusinesstechnologyplatform:tataconsultancyservices": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0055__L020__p43:sapbusinesstechnologyplatform:tataconsultancyservices",
+"anchor": "SAP Business Technology Platform",
+"nearest": [
+"IBM WebSphere",
+"Oracle Fusion Cloud Applications",
+"Epicor ERP",
+"TCS Enterprise Digital Twin"
+],
+"random": [
+"Infor CloudSuite",
+"Oracle NetSuite",
+"Sage Intacct",
+"Workday"
+],
+"distractors": [
+"IBM WebSphere",
+"Oracle Fusion Cloud Applications",
+"Epicor ERP",
+"TCS Enterprise Digital Twin",
+"Infor CloudSuite",
+"Oracle NetSuite",
+"Sage Intacct",
+"Workday"
+],
+"n_eligible": 8,
+"sha": "825300969f21974ed5136d397b051615ca07a9cb01ec63c5c12cfe291977f352",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0055__L048__p104:sapbtp:tcs": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0055__L048__p104:sapbtp:tcs",
+"anchor": "TCS Enterprise Digital Twin",
+"nearest": [
+"Infor CloudSuite",
+"Sage Intacct",
+"Oracle NetSuite",
+"Oracle Fusion Cloud Applications"
+],
+"random": [
+"Epicor ERP",
+"IBM WebSphere",
+"Workday"
+],
+"distractors": [
+"Infor CloudSuite",
+"Sage Intacct",
+"Oracle NetSuite",
+"Oracle Fusion Cloud Applications",
+"Epicor ERP",
+"IBM WebSphere",
+"Workday"
+],
+"n_eligible": 7,
+"sha": "b897191fdc034b42a4a43a0e2b150713de3eb0dabf5db4626c94a5da2ed23c99",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0055__L036__p43:sapsbusinesstechnologyplatform:tataconsultancyservices": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0055__L036__p43:sapsbusinesstechnologyplatform:tataconsultancyservices",
+"anchor": "SAP Business Technology Platform",
+"nearest": [
+"IBM WebSphere",
+"Oracle Fusion Cloud Applications",
+"Epicor ERP",
+"TCS Enterprise Digital Twin"
+],
+"random": [
+"Infor CloudSuite",
+"Oracle NetSuite",
+"Sage Intacct",
+"Workday"
+],
+"distractors": [
+"IBM WebSphere",
+"Oracle Fusion Cloud Applications",
+"Epicor ERP",
+"TCS Enterprise Digital Twin",
+"Infor CloudSuite",
+"Oracle NetSuite",
+"Sage Intacct",
+"Workday"
+],
+"n_eligible": 8,
+"sha": "d2fdca8ace9032dd901722c7b67281ff3b37aee038061cb5c2717a788fcf64a0",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0055__L056__p316:sapdigitalenterprise:tcsenterprisedigitaltwin": {
+"unit": "s3d-rl600-all11:chat-lmsys-0055__L056__p316:sapdigitalenterprise:tcsenterprisedigitaltwin",
+"anchor": "TCS Enterprise Digital Twin",
+"nearest": [
+"Infor CloudSuite",
+"Sage Intacct",
+"Oracle NetSuite",
+"Oracle Fusion Cloud Applications"
+],
+"random": [
+"IBM WebSphere",
+"Oracle E-Business Suite",
+"Salesforce Platform",
+"Workday"
+],
+"distractors": [
+"Infor CloudSuite",
+"Sage Intacct",
+"Oracle NetSuite",
+"Oracle Fusion Cloud Applications",
+"IBM WebSphere",
+"Oracle E-Business Suite",
+"Salesforce Platform",
+"Workday"
+],
+"n_eligible": 9,
+"sha": "1b0a2c0828bc96d1f327159f2e3987cc8a8c21ce13a5da4c64afdafabb02c8b7",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0055__L048__p43:cognosys:tcsenterprisedigitaltwin": {
+"unit": "s3d-sft251:chat-lmsys-0055__L048__p43:cognosys:tcsenterprisedigitaltwin",
+"anchor": "TCS Enterprise Digital Twin",
+"nearest": [
+"Infor CloudSuite",
+"Sage Intacct",
+"Oracle NetSuite",
+"Oracle Fusion Cloud Applications"
+],
+"random": [
+"Epicor ERP",
+"IBM WebSphere",
+"Oracle E-Business Suite",
+"Workday"
+],
+"distractors": [
+"Infor CloudSuite",
+"Sage Intacct",
+"Oracle NetSuite",
+"Oracle Fusion Cloud Applications",
+"Epicor ERP",
+"IBM WebSphere",
+"Oracle E-Business Suite",
+"Workday"
+],
+"n_eligible": 9,
+"sha": "a78e0e58c256aecc6de28963114e4796e4f9544b926a8c9919677d76831e72c6",
+"generation": 0
+}
+}

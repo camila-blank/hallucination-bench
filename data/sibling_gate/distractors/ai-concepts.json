@@ -1,0 +1,205 @@
+{
+"mlnla-rl2-800-all11:chat-lmsys-0024__L032__p89:agentaffordances:technologicalsingularity": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0024__L032__p89:agentaffordances:technologicalsingularity",
+"anchor": "Technological Singularity",
+"nearest": [
+"Turing test",
+"transformer",
+"large language model",
+"deep learning"
+],
+"random": [
+"computer vision",
+"reinforcement learning",
+"supervised learning",
+"unsupervised learning"
+],
+"distractors": [
+"Turing test",
+"transformer",
+"large language model",
+"deep learning",
+"computer vision",
+"reinforcement learning",
+"supervised learning",
+"unsupervised learning"
+],
+"n_eligible": 10,
+"sha": "87fbe4fed299c276eac467dd86660fb3b94f99fee5472fcba0a9214fded0a18f",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0024__L052__p451:agi:technologicalsingularity": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0024__L052__p451:agi:technologicalsingularity",
+"anchor": "Technological Singularity",
+"nearest": [
+"Turing test",
+"transformer",
+"large language model",
+"deep learning"
+],
+"random": [
+"computer vision",
+"natural language processing",
+"reinforcement learning",
+"unsupervised learning"
+],
+"distractors": [
+"Turing test",
+"transformer",
+"large language model",
+"deep learning",
+"computer vision",
+"natural language processing",
+"reinforcement learning",
+"unsupervised learning"
+],
+"n_eligible": 10,
+"sha": "81cfc9f4fe1e149b886eb333d777c970b89a92025334f290d75b6c0a3dadde5b",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0024__L052__p451:artificialgeneralintelligence:technologicalsingularity": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0024__L052__p451:artificialgeneralintelligence:technologicalsingularity",
+"anchor": "Technological Singularity",
+"nearest": [
+"Turing test",
+"transformer",
+"large language model",
+"deep learning"
+],
+"random": [
+"computer vision",
+"reinforcement learning",
+"supervised learning",
+"unsupervised learning"
+],
+"distractors": [
+"Turing test",
+"transformer",
+"large language model",
+"deep learning",
+"computer vision",
+"reinforcement learning",
+"supervised learning",
+"unsupervised learning"
+],
+"n_eligible": 10,
+"sha": "50d5e8fa75be48b590cd7521c7a584f2e6791f081b994aaed27b40a85b32774b",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0024__L020__p203:agi:technologicalsingularity": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0024__L020__p203:agi:technologicalsingularity",
+"anchor": "Technological Singularity",
+"nearest": [
+"Turing test",
+"transformer",
+"large language model",
+"deep learning"
+],
+"random": [
+"machine learning",
+"natural language processing",
+"supervised learning",
+"unsupervised learning"
+],
+"distractors": [
+"Turing test",
+"transformer",
+"large language model",
+"deep learning",
+"machine learning",
+"natural language processing",
+"supervised learning",
+"unsupervised learning"
+],
+"n_eligible": 10,
+"sha": "ef73919b9ea650232d6d438b37f3d5b8ad69859673d5bff5a588ce9aaddd913d",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0024__L036__p451:existentialairisk:technologicalsingularity": {
+"unit": "s3d-rl600-all11:chat-lmsys-0024__L036__p451:existentialairisk:technologicalsingularity",
+"anchor": "Technological Singularity",
+"nearest": [
+"Turing test",
+"transformer",
+"large language model",
+"deep learning"
+],
+"random": [
+"computer vision",
+"natural language processing",
+"reinforcement learning",
+"supervised learning"
+],
+"distractors": [
+"Turing test",
+"transformer",
+"large language model",
+"deep learning",
+"computer vision",
+"natural language processing",
+"reinforcement learning",
+"supervised learning"
+],
+"n_eligible": 10,
+"sha": "215b77532495ef6c19865889bcd9b5f4195c83faf46a91bd43ed298c01010a08",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0024__L036__p451:existentialriskfromagi:technologicalsingularity": {
+"unit": "s3d-rl600-all11:chat-lmsys-0024__L036__p451:existentialriskfromagi:technologicalsingularity",
+"anchor": "Technological Singularity",
+"nearest": [
+"Turing test",
+"transformer",
+"large language model",
+"deep learning"
+],
+"random": [
+"computer vision",
+"machine learning",
+"reinforcement learning",
+"unsupervised learning"
+],
+"distractors": [
+"Turing test",
+"transformer",
+"large language model",
+"deep learning",
+"computer vision",
+"machine learning",
+"reinforcement learning",
+"unsupervised learning"
+],
+"n_eligible": 10,
+"sha": "613eb82de048e8b61ed0c3cb7e35ef3a0bfeb466d6a4562ceb353be0f52f9d1c",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0024__L044__p451:existentialairisk:technologicalsingularity": {
+"unit": "s3d-rl600-all11:chat-lmsys-0024__L044__p451:existentialairisk:technologicalsingularity",
+"anchor": "Technological Singularity",
+"nearest": [
+"Turing test",
+"transformer",
+"large language model",
+"deep learning"
+],
+"random": [
+"computer vision",
+"natural language processing",
+"supervised learning",
+"unsupervised learning"
+],
+"distractors": [
+"Turing test",
+"transformer",
+"large language model",
+"deep learning",
+"computer vision",
+"natural language processing",
+"supervised learning",
+"unsupervised learning"
+],
+"n_eligible": 10,
+"sha": "9a2023d69414d6c2ddd67624204bacf22a07d2bb2bcb92d636dd4f7016187680",
+"generation": 0
+}
+}

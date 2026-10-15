@@ -1,0 +1,210 @@
+{
+"mlnla-rl2-800-all11:chat-lmsys-0042__L024__p331:androidkotlin:laravel": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0042__L024__p331:androidkotlin:laravel",
+"anchor": "Laravel",
+"nearest": [
+"Svelte",
+"Vue.js"
+],
+"random": [],
+"distractors": [
+"Svelte",
+"Vue.js"
+],
+"n_eligible": 2,
+"sha": "47d8bab5afedc3846f22c3d039b809f62c1240cb3f388847966722a2b1c4d9b5",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0042__L024__p331:androidkotlin:laravelphp": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0042__L024__p331:androidkotlin:laravelphp",
+"anchor": "Laravel",
+"nearest": [
+"Svelte",
+"Vue.js"
+],
+"random": [],
+"distractors": [
+"Svelte",
+"Vue.js"
+],
+"n_eligible": 2,
+"sha": "ae7f2084af8d98d487d14e64d0496cbaa95186419d7eb1cefd3196f0305001bf",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0042__L024__p331:androidsharedpreferenceskotlin:laraveleloquent": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0042__L024__p331:androidsharedpreferenceskotlin:laraveleloquent",
+"anchor": "Laravel",
+"nearest": [
+"Svelte",
+"Vue.js"
+],
+"random": [],
+"distractors": [
+"Svelte",
+"Vue.js"
+],
+"n_eligible": 2,
+"sha": "826f7d96b499338c681b0a153364b9094c2408e96c545370828c42926a708c32",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0042__L032__p331:androidroomkotlin:laravelphp": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0042__L032__p331:androidroomkotlin:laravelphp",
+"anchor": "Laravel",
+"nearest": [
+"Svelte",
+"Vue.js"
+],
+"random": [],
+"distractors": [
+"Svelte",
+"Vue.js"
+],
+"n_eligible": 2,
+"sha": "0c9d5fc46637d9614c75611c8557de21d97f892d9e1cf089afa665e5e841ffcd",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0042__L032__p331:kotlinandroidroom:laravel": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0042__L032__p331:kotlinandroidroom:laravel",
+"anchor": "Laravel",
+"nearest": [
+"Svelte",
+"Vue.js"
+],
+"random": [],
+"distractors": [
+"Svelte",
+"Vue.js"
+],
+"n_eligible": 2,
+"sha": "292e9966a196f8191282e5e60c66dad38b86e5b49c1979e2ac31666beb921270",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0042__L032__p462:flutterdart:laravel": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0042__L032__p462:flutterdart:laravel",
+"anchor": "Laravel",
+"nearest": [
+"Svelte",
+"Vue.js"
+],
+"random": [],
+"distractors": [
+"Svelte",
+"Vue.js"
+],
+"n_eligible": 2,
+"sha": "30de3be0ea5f675aa617121db7d4e6812e2b334688f43c34b738b76e0470b5bb",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0042__L040__p462:flutterdart:laravelphp": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0042__L040__p462:flutterdart:laravelphp",
+"anchor": "Laravel",
+"nearest": [
+"Svelte",
+"Vue.js"
+],
+"random": [],
+"distractors": [
+"Svelte",
+"Vue.js"
+],
+"n_eligible": 2,
+"sha": "4e66de6362e696b2d04fe93d4e52c8912dec2105b6651a391ed09cb361d68c9b",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0042__L048__p462:flutterdart:laravel": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0042__L048__p462:flutterdart:laravel",
+"anchor": "Laravel",
+"nearest": [
+"Svelte",
+"Vue.js"
+],
+"random": [],
+"distractors": [
+"Svelte",
+"Vue.js"
+],
+"n_eligible": 2,
+"sha": "a1e813c4c66507125451ac0adfa995c59787c267458fba710923c586be06a428",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0042__L048__p99:flutterdart:laravel": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0042__L048__p99:flutterdart:laravel",
+"anchor": "Laravel",
+"nearest": [
+"Svelte",
+"Vue.js"
+],
+"random": [],
+"distractors": [
+"Svelte",
+"Vue.js"
+],
+"n_eligible": 2,
+"sha": "f3b5d6a8584d046d7168c6734fe9f2292df454a751ca8a70bfec18d31a636267",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0042__L020__p331:flutterdart:laravel": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0042__L020__p331:flutterdart:laravel",
+"anchor": "Laravel",
+"nearest": [
+"Svelte",
+"Vue.js"
+],
+"random": [],
+"distractors": [
+"Svelte",
+"Vue.js"
+],
+"n_eligible": 2,
+"sha": "ca35d0c26bde52502ea574391b138e7b8ebcbb57f370a5e4c3c5dd362b23c6c4",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0042__L032__p99:flutterdart:laravel": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0042__L032__p99:flutterdart:laravel",
+"anchor": "Laravel",
+"nearest": [
+"Svelte",
+"Vue.js"
+],
+"random": [],
+"distractors": [
+"Svelte",
+"Vue.js"
+],
+"n_eligible": 2,
+"sha": "2d8aa3bd36b53eed2203ad9200394c6b5acee1f8cf07eb0ff261e4cd4c215438",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0042__L048__p462:flutterdart:laravel": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0042__L048__p462:flutterdart:laravel",
+"anchor": "Laravel",
+"nearest": [
+"Svelte",
+"Vue.js"
+],
+"random": [],
+"distractors": [
+"Svelte",
+"Vue.js"
+],
+"n_eligible": 2,
+"sha": "9184930f16993b7bf19417ece57bd167fd85225840a835aaf5023b9d55164540",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0042__L048__p99:flutterdart:laravel": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0042__L048__p99:flutterdart:laravel",
+"anchor": "Laravel",
+"nearest": [
+"Svelte",
+"Vue.js"
+],
+"random": [],
+"distractors": [
+"Svelte",
+"Vue.js"
+],
+"n_eligible": 2,
+"sha": "dd2aaefdee9c3a413ab85d0b57e028b417fd5ae271c29cf89d357612bc054561",
+"generation": 0
+}
+}

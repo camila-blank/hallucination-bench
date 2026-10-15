@@ -1,0 +1,218 @@
+{
+"mlnla-rl2-800-all11:chat-dailydialog-0041__L052__p42:llama:googlellm": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0041__L052__p42:llama:googlellm",
+"anchor": "Gemini",
+"nearest": [
+"GPT-3.5",
+"GLM-4",
+"PaLM",
+"GPT-3"
+],
+"random": [
+"BERT",
+"Flan-T5",
+"GPT-2",
+"Mistral 7B"
+],
+"distractors": [
+"GPT-3.5",
+"GLM-4",
+"PaLM",
+"GPT-3",
+"BERT",
+"Flan-T5",
+"GPT-2",
+"Mistral 7B"
+],
+"n_eligible": 9,
+"sha": "c3668b405f5626ae59bc01ce2218b2d1c8aa7942c3fc34cdec83fe2caf1ffd5c",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0000__L024__p113:llama3meta:qwenalibaba": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0000__L024__p113:llama3meta:qwenalibaba",
+"anchor": "Qwen",
+"nearest": [
+"Flan-T5",
+"Mistral 7B",
+"Decision Transformer",
+"BERT"
+],
+"random": [
+"GPT-2",
+"PaLM"
+],
+"distractors": [
+"Flan-T5",
+"Mistral 7B",
+"Decision Transformer",
+"BERT",
+"GPT-2",
+"PaLM"
+],
+"n_eligible": 6,
+"sha": "7ff654b563463cb181bc7178895a5747b5863d1c6bd94179f452cc933a73d022",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0000__L024__p117:glm4:qwen": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0000__L024__p117:glm4:qwen",
+"anchor": "Qwen",
+"nearest": [
+"LLaMA",
+"Flan-T5",
+"Mistral 7B",
+"Decision Transformer"
+],
+"random": [
+"BERT",
+"GPT-2",
+"GPT-3",
+"PaLM"
+],
+"distractors": [
+"LLaMA",
+"Flan-T5",
+"Mistral 7B",
+"Decision Transformer",
+"BERT",
+"GPT-2",
+"GPT-3",
+"PaLM"
+],
+"n_eligible": 8,
+"sha": "13514b540f81696df9b6be53f56996de2705e12b60f01f24e40c25db2af52992",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0011__L024__p87:flant5:decisiontransformer": {
+"unit": "s3d-rl600-all11:chat-lmsys-0011__L024__p87:flant5:decisiontransformer",
+"anchor": "Decision Transformer",
+"nearest": [
+"Llama 3",
+"Mistral 7B",
+"Qwen",
+"Claude"
+],
+"random": [
+"GLM-4",
+"GPT-3.5",
+"Gemini"
+],
+"distractors": [
+"Llama 3",
+"Mistral 7B",
+"Qwen",
+"Claude",
+"GLM-4",
+"GPT-3.5",
+"Gemini"
+],
+"n_eligible": 7,
+"sha": "9ab76839796f5ff842d14f8f5b884a421e71edb2e5150fcea3964551e1b62f85",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0011__L060__p146:llama:transformer": {
+"unit": "s3d-rl600-all11:chat-lmsys-0011__L060__p146:llama:transformer",
+"anchor": "LLaMA",
+"nearest": [
+"Qwen",
+"GLM-4",
+"Mistral 7B",
+"Gemini"
+],
+"random": [
+"Claude",
+"Decision Transformer",
+"GPT-3.5"
+],
+"distractors": [
+"Qwen",
+"GLM-4",
+"Mistral 7B",
+"Gemini",
+"Claude",
+"Decision Transformer",
+"GPT-3.5"
+],
+"n_eligible": 7,
+"sha": "254ce13eaef563b4f4b1fd6eceef6719e653c7b59267618e2bbe8777541e55f9",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0000__L020__p113:gpt35:qwen": {
+"unit": "s3d-rl600:chat-lmsys-0000__L020__p113:gpt35:qwen",
+"anchor": "Qwen",
+"nearest": [
+"LLaMA",
+"Flan-T5",
+"Mistral 7B",
+"Decision Transformer"
+],
+"random": [
+"BERT",
+"GPT-2",
+"PaLM"
+],
+"distractors": [
+"LLaMA",
+"Flan-T5",
+"Mistral 7B",
+"Decision Transformer",
+"BERT",
+"GPT-2",
+"PaLM"
+],
+"n_eligible": 7,
+"sha": "97f93a5d5655936ad45d4bf5f06e7b6d5cf46228ad3af1882cff6f21b470ec8e",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0002__L060__p32:gpt:qwen": {
+"unit": "s3d-sft251:chat-dailydialog-0002__L060__p32:gpt:qwen",
+"anchor": "Qwen",
+"nearest": [
+"GLM-4",
+"Llama 3",
+"Flan-T5",
+"Gemini"
+],
+"random": [
+"BERT",
+"Decision Transformer",
+"Mistral 7B",
+"PaLM"
+],
+"distractors": [
+"GLM-4",
+"Llama 3",
+"Flan-T5",
+"Gemini",
+"BERT",
+"Decision Transformer",
+"Mistral 7B",
+"PaLM"
+],
+"n_eligible": 8,
+"sha": "ff57f545b1cdc3380869eb3a4df0bf6eac6dbe8009d1ef94b2ad541c46aac44f",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0011__L040__p87:gpt3:decisiontransformer": {
+"unit": "s3d-sft251:chat-lmsys-0011__L040__p87:gpt3:decisiontransformer",
+"anchor": "Decision Transformer",
+"nearest": [
+"Mistral 7B",
+"Qwen",
+"Claude",
+"GLM-4"
+],
+"random": [
+"Gemini"
+],
+"distractors": [
+"Mistral 7B",
+"Qwen",
+"Claude",
+"GLM-4",
+"Gemini"
+],
+"n_eligible": 5,
+"sha": "fe09a2030e7767a65addaa5909799ee1ac2149052bd3df98cf5fd5a1107dda38",
+"generation": 0
+}
+}

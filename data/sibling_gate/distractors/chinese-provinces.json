@@ -1,0 +1,518 @@
+{
+"mlnla-rl2-800-all11:chat-lmsys-0070__L032__p123:guangdong:sichuan": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0070__L032__p123:guangdong:sichuan",
+"anchor": "Sichuan",
+"nearest": [
+"Zhejiang",
+"Anhui",
+"Hubei"
+],
+"random": [],
+"distractors": [
+"Zhejiang",
+"Anhui",
+"Hubei"
+],
+"n_eligible": 3,
+"sha": "5720e9d7dccb3cb0d7abb93ec740aa2322aee956eb6b8b7f60debbfb04754526",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0070__L036__p82:fujian:sichuan": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0070__L036__p82:fujian:sichuan",
+"anchor": "Sichuan",
+"nearest": [
+"Zhejiang",
+"Anhui",
+"Hubei"
+],
+"random": [],
+"distractors": [
+"Zhejiang",
+"Anhui",
+"Hubei"
+],
+"n_eligible": 3,
+"sha": "52c1bdcb84a41444344392fc71684a301c09b3a61e834f11575ff69d004e16f2",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0070__L040__p123:henan:sichuan": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0070__L040__p123:henan:sichuan",
+"anchor": "Sichuan",
+"nearest": [
+"Zhejiang",
+"Anhui",
+"Hubei"
+],
+"random": [],
+"distractors": [
+"Zhejiang",
+"Anhui",
+"Hubei"
+],
+"n_eligible": 3,
+"sha": "0645be10d6ab187623f4ca2e2e24c7c0dc4d3330e2f6d590864b6f6a5c7d6698",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0070__L044__p82:jiangsuprovince:sichuan": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0070__L044__p82:jiangsuprovince:sichuan",
+"anchor": "Sichuan",
+"nearest": [
+"Zhejiang",
+"Anhui",
+"Hubei"
+],
+"random": [],
+"distractors": [
+"Zhejiang",
+"Anhui",
+"Hubei"
+],
+"n_eligible": 3,
+"sha": "3ac5198dddcfd1b7bdad8b5550164f728f4c7a864e66dd7a82456279862af054",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0070__L060__p222:henanprovince:sichuanprovince": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0070__L060__p222:henanprovince:sichuanprovince",
+"anchor": "Sichuan",
+"nearest": [
+"Zhejiang",
+"Anhui",
+"Hubei"
+],
+"random": [],
+"distractors": [
+"Zhejiang",
+"Anhui",
+"Hubei"
+],
+"n_eligible": 3,
+"sha": "a0944a56936ce0d3049a031f4a3655d825e7a5c8b3f6b9a78caac6ed4c13e246",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0025__L052__p198:henan:shanghai": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0025__L052__p198:henan:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Hunan",
+"Yunnan",
+"Hubei",
+"Shaanxi"
+],
+"random": [
+"Anhui",
+"Hebei"
+],
+"distractors": [
+"Hunan",
+"Yunnan",
+"Hubei",
+"Shaanxi",
+"Anhui",
+"Hebei"
+],
+"n_eligible": 6,
+"sha": "79ba4e0cb064f43b7cd1d584196fd50045a31789ac71d42cbfbb0030a0558e58",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0070__L056__p154:shaanxi:sichuan": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0070__L056__p154:shaanxi:sichuan",
+"anchor": "Sichuan",
+"nearest": [
+"Zhejiang",
+"Anhui",
+"Hubei"
+],
+"random": [],
+"distractors": [
+"Zhejiang",
+"Anhui",
+"Hubei"
+],
+"n_eligible": 3,
+"sha": "9c8ce3706adb59db87204ce7d645a88e474003e24aaf4705e0861ab4fa629363",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0070__L056__p222:henan:sichuan": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0070__L056__p222:henan:sichuan",
+"anchor": "Sichuan",
+"nearest": [
+"Zhejiang",
+"Anhui",
+"Hubei"
+],
+"random": [],
+"distractors": [
+"Zhejiang",
+"Anhui",
+"Hubei"
+],
+"n_eligible": 3,
+"sha": "1ddaf3d4f266fa4e7544d71527fc85927620f37bd7e1496914d50a913b1282e7",
+"generation": 0
+},
+"nla-sft-L42:chat-lmsys-0070__L042__p82:hunan:sichuan": {
+"unit": "nla-sft-L42:chat-lmsys-0070__L042__p82:hunan:sichuan",
+"anchor": "Sichuan",
+"nearest": [
+"Zhejiang",
+"Anhui",
+"Hubei"
+],
+"random": [],
+"distractors": [
+"Zhejiang",
+"Anhui",
+"Hubei"
+],
+"n_eligible": 3,
+"sha": "f0b904411193176558f124c9470f1a1809c02fe8cb6f3b7616ce560ef74cd2dc",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0009__L028__p203:jiangsu:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0009__L028__p203:jiangsu:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Zhejiang",
+"Hunan",
+"Fujian",
+"Guangdong"
+],
+"random": [
+"Anhui",
+"Hubei",
+"Shaanxi",
+"Sichuan"
+],
+"distractors": [
+"Zhejiang",
+"Hunan",
+"Fujian",
+"Guangdong",
+"Anhui",
+"Hubei",
+"Shaanxi",
+"Sichuan"
+],
+"n_eligible": 8,
+"sha": "dc9a8fa38d2e302e6e5907e0fa6a78f77e62878480137b76e5f69349b3edf76f",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0009__L028__p203:jiangsuandzhejiang:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0009__L028__p203:jiangsuandzhejiang:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Hunan",
+"Fujian",
+"Guangdong",
+"Hubei"
+],
+"random": [
+"Anhui",
+"Shaanxi",
+"Sichuan"
+],
+"distractors": [
+"Hunan",
+"Fujian",
+"Guangdong",
+"Hubei",
+"Anhui",
+"Shaanxi",
+"Sichuan"
+],
+"n_eligible": 7,
+"sha": "b7992f27e38f471435f22e1a6858fd25625fe4040fae396c06b9b4f6a375971c",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0025__L056__p198:shandong:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0025__L056__p198:shandong:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Hunan",
+"Yunnan",
+"Hubei",
+"Shaanxi"
+],
+"random": [
+"Anhui",
+"Hebei"
+],
+"distractors": [
+"Hunan",
+"Yunnan",
+"Hubei",
+"Shaanxi",
+"Anhui",
+"Hebei"
+],
+"n_eligible": 6,
+"sha": "2e2ae97e5f68fc269b7b54d68e3237f62fc407bc829597ba3e8444252e76062a",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0025__L060__p80:jiangsuprovince:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0025__L060__p80:jiangsuprovince:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Hunan",
+"Yunnan",
+"Hubei",
+"Shaanxi"
+],
+"random": [
+"Anhui",
+"Hebei"
+],
+"distractors": [
+"Hunan",
+"Yunnan",
+"Hubei",
+"Shaanxi",
+"Anhui",
+"Hebei"
+],
+"n_eligible": 6,
+"sha": "d0ac330088533d1096b2a27b19025e1042b59d98f14c5850d89ce81a2fc1eac2",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0070__L032__p222:hebeiprovince:sichuanprovince": {
+"unit": "s3d-rl600-all11:chat-lmsys-0070__L032__p222:hebeiprovince:sichuanprovince",
+"anchor": "Sichuan",
+"nearest": [
+"Zhejiang",
+"Anhui",
+"Hubei"
+],
+"random": [],
+"distractors": [
+"Zhejiang",
+"Anhui",
+"Hubei"
+],
+"n_eligible": 3,
+"sha": "70246279ba2ee46cce8de06e45900906afcf82e25fcefd6513ed7f1abd64beb5",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0070__L036__p82:guangdong:sichuan": {
+"unit": "s3d-rl600-all11:chat-lmsys-0070__L036__p82:guangdong:sichuan",
+"anchor": "Sichuan",
+"nearest": [
+"Zhejiang",
+"Anhui",
+"Hubei"
+],
+"random": [],
+"distractors": [
+"Zhejiang",
+"Anhui",
+"Hubei"
+],
+"n_eligible": 3,
+"sha": "25bbc5225ba5c1a0b09d812dbfccf52ff066a49c7310f666311dab6ebf406c9d",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0070__L060__p62:shandong:chengdu": {
+"unit": "s3d-rl600-all11:chat-lmsys-0070__L060__p62:shandong:chengdu",
+"anchor": "Sichuan",
+"nearest": [
+"Zhejiang",
+"Anhui",
+"Hubei"
+],
+"random": [],
+"distractors": [
+"Zhejiang",
+"Anhui",
+"Hubei"
+],
+"n_eligible": 3,
+"sha": "e3756d5cf20601c0e299a061e2061e60032dbb59a71ffd34566709d969c38e46",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0009__L044__p203:shandongjiangsuandhenan:shanghai": {
+"unit": "s3d-rl600:chat-lmsys-0009__L044__p203:shandongjiangsuandhenan:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Zhejiang",
+"Hunan",
+"Fujian",
+"Guangdong"
+],
+"random": [
+"Anhui",
+"Hubei",
+"Shaanxi",
+"Sichuan"
+],
+"distractors": [
+"Zhejiang",
+"Hunan",
+"Fujian",
+"Guangdong",
+"Anhui",
+"Hubei",
+"Shaanxi",
+"Sichuan"
+],
+"n_eligible": 8,
+"sha": "4d7c371aad0a49f3dd76398c1afc599c9676c6d70a4967a10a4899ee8db20a3d",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0070__L036__p82:guangdongprovince:sichuanprovince": {
+"unit": "s3d-rl600:chat-lmsys-0070__L036__p82:guangdongprovince:sichuanprovince",
+"anchor": "Sichuan",
+"nearest": [
+"Zhejiang",
+"Anhui",
+"Hubei"
+],
+"random": [],
+"distractors": [
+"Zhejiang",
+"Anhui",
+"Hubei"
+],
+"n_eligible": 3,
+"sha": "2859893da282340eda21957b31cb0f5f8c9d79aec5952ea5a361708114b82251",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0070__L044__p82:jiangsuprovince:sichuanprovince": {
+"unit": "s3d-rl600:chat-lmsys-0070__L044__p82:jiangsuprovince:sichuanprovince",
+"anchor": "Sichuan",
+"nearest": [
+"Zhejiang",
+"Anhui",
+"Hubei"
+],
+"random": [],
+"distractors": [
+"Zhejiang",
+"Anhui",
+"Hubei"
+],
+"n_eligible": 3,
+"sha": "005f9e4f48195634519e5219ade4f32d1fc03ef1b6a861289c908510899b1e4b",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0025__L020__p80:shandong:shanghai": {
+"unit": "s3d-sft251:chat-lmsys-0025__L020__p80:shandong:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Hunan",
+"Yunnan",
+"Hubei",
+"Shaanxi"
+],
+"random": [
+"Anhui",
+"Hebei"
+],
+"distractors": [
+"Hunan",
+"Yunnan",
+"Hubei",
+"Shaanxi",
+"Anhui",
+"Hebei"
+],
+"n_eligible": 6,
+"sha": "0edbc5f1d133f5cab4033b4d800d1d7842cb2f6a1cb2ac6c8320c55a01476db6",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0025__L056__p198:shandong:shanghai": {
+"unit": "s3d-sft251:chat-lmsys-0025__L056__p198:shandong:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Hunan",
+"Yunnan",
+"Hubei",
+"Shaanxi"
+],
+"random": [
+"Anhui",
+"Hebei"
+],
+"distractors": [
+"Hunan",
+"Yunnan",
+"Hubei",
+"Shaanxi",
+"Anhui",
+"Hebei"
+],
+"n_eligible": 6,
+"sha": "bb98eec1ad2ed3f5ed29e9512bb6301c9ae827ac9720d821131733c732e4a5cc",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0070__L020__p222:shandong:sichuan": {
+"unit": "s3d-sft251:chat-lmsys-0070__L020__p222:shandong:sichuan",
+"anchor": "Sichuan",
+"nearest": [
+"Zhejiang",
+"Anhui",
+"Hubei"
+],
+"random": [],
+"distractors": [
+"Zhejiang",
+"Anhui",
+"Hubei"
+],
+"n_eligible": 3,
+"sha": "c63fb4617af7dc92ab02458c9a7ad28747c585986e470bacf176f8855a785486",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0070__L036__p82:guangdongprovince:sichuanprovince": {
+"unit": "s3d-sft251:chat-lmsys-0070__L036__p82:guangdongprovince:sichuanprovince",
+"anchor": "Sichuan",
+"nearest": [
+"Zhejiang",
+"Anhui",
+"Hubei"
+],
+"random": [],
+"distractors": [
+"Zhejiang",
+"Anhui",
+"Hubei"
+],
+"n_eligible": 3,
+"sha": "e1280e3ea68dc1b1f45aed6bd89cf064f9b43d4376372a6e20442628f1c0b32e",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0070__L052__p82:jiangsu:sichuan": {
+"unit": "s3d-sft251:chat-lmsys-0070__L052__p82:jiangsu:sichuan",
+"anchor": "Sichuan",
+"nearest": [
+"Zhejiang",
+"Anhui",
+"Hubei"
+],
+"random": [],
+"distractors": [
+"Zhejiang",
+"Anhui",
+"Hubei"
+],
+"n_eligible": 3,
+"sha": "69d135841df6e86f50305f683206c647cc296b415ae01ebb40a2010161799e78",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0070__L056__p82:guangdongprovince:sichuanprovince": {
+"unit": "s3d-sft251:chat-lmsys-0070__L056__p82:guangdongprovince:sichuanprovince",
+"anchor": "Sichuan",
+"nearest": [
+"Zhejiang",
+"Anhui",
+"Hubei"
+],
+"random": [],
+"distractors": [
+"Zhejiang",
+"Anhui",
+"Hubei"
+],
+"n_eligible": 3,
+"sha": "943865b09ef949c64c9569f9bbd86c6a212beac06062269d1e61d791dd93412c",
+"generation": 0
+}
+}

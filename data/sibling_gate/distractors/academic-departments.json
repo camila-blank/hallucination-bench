@@ -1,0 +1,342 @@
+{
+"mlnla-rl2-800-all11:chat-lmsys-0050__L024__p87:sales:computerscience": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L024__p87:sales:computerscience",
+"anchor": "Computer Science",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "e01d88772fc6cbe51f2115dd1f6e9a8a1bcacc3390865232bd6a50bb35b05239",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L036__p77:sales:computerscience": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L036__p77:sales:computerscience",
+"anchor": "Computer Science",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "7da9352f280582dcc398909e564cf9942a1a083aaaa1495c0db859f4ec25edab",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L036__p87:it:computerscience": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L036__p87:it:computerscience",
+"anchor": "Computer Science",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "73125c1245d9c19565dfc1746c611155da5494aab180e6792d2252862ab9b68b",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L036__p87:sales:computerscience": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L036__p87:sales:computerscience",
+"anchor": "Computer Science",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "168008221a6ec865ec155e5c592cead540c9aa1056f718f55bc65b140696f73e",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L040__p77:sales:computerscience": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L040__p77:sales:computerscience",
+"anchor": "Computer Science",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "a2a9311df6f703ed46dda09de26034ea9e8010cb2e5eaed7c6d172f4c8752d64",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L052__p87:sales:computerscience": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L052__p87:sales:computerscience",
+"anchor": "Computer Science",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "a388684389a3b5cf0ac960c99122e4913a5a559ba4cf6c724bf1fba3fd7fd11e",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0050__L036__p69:it:computerscience": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0050__L036__p69:it:computerscience",
+"anchor": "Computer Science",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "ca55b85ee75aa742160c4209a7138704a8777245cd80a76014f32e51f894a211",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0050__L036__p69:sales:computerscience": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0050__L036__p69:sales:computerscience",
+"anchor": "Computer Science",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "6c164b42d3b02e894bd02af26639b58f19c72649a14d1410f731bd6841a0b057",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0050__L036__p87:itdepartment:computersciencedepartment": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0050__L036__p87:itdepartment:computersciencedepartment",
+"anchor": "Computer Science Department",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "b2de0f3e0141e2bd0cd9fd8907882b6d7ca1ba251d015dcffb1d5a34a348dddf",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0050__L040__p77:it:computerscience": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0050__L040__p77:it:computerscience",
+"anchor": "Computer Science",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "86272a698f47e08ceee7bc2f0c825e3f7fd7bc4433b0f6205b16cd45bef474fc",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0050__L040__p87:it:computerscience": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0050__L040__p87:it:computerscience",
+"anchor": "Computer Science",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "140810b6e82aace3ca0104faadd0599b98f597b7d1790130df96f0649244f06a",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0050__L048__p87:it:computerscience": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0050__L048__p87:it:computerscience",
+"anchor": "Computer Science",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "0ff47d9f3615b66e37e290230586680c7ab042cb88436249e039d4c867d714de",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0050__L020__p69:english:computerscience": {
+"unit": "s3d-rl600-all11:chat-lmsys-0050__L020__p69:english:computerscience",
+"anchor": "Computer Science",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "7840e2a0535c950f84aa364f647e863182913c74252db0d9dc701e63e54b7a2c",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0050__L020__p69:music:computerscience": {
+"unit": "s3d-rl600-all11:chat-lmsys-0050__L020__p69:music:computerscience",
+"anchor": "Computer Science",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "6e4da35b37bacb4cf8b5b50257757445aa65574c7d8fc7742df1a36aed39388e",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0050__L020__p93:engineering:computerscience": {
+"unit": "s3d-rl600-all11:chat-lmsys-0050__L020__p93:engineering:computerscience",
+"anchor": "Computer Science",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "db20834b321eb8930871f409963b4caa2b64d954f6fed55538f97d7254b81e02",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0050__L020__p93:informationtechnology:computerscience": {
+"unit": "s3d-rl600-all11:chat-lmsys-0050__L020__p93:informationtechnology:computerscience",
+"anchor": "Computer Science",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "8ed1583bae467b9964bc4c813747026494bf656ed777d695b70f1ad46cfde497",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0050__L020__p93:itdepartment:computerscience": {
+"unit": "s3d-rl600-all11:chat-lmsys-0050__L020__p93:itdepartment:computerscience",
+"anchor": "Computer Science Department",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "5821738be68404528dc2a3a000ac5e6b7a271d816c18de4227372f060aa96a38",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0050__L024__p69:it:computerscience": {
+"unit": "s3d-rl600-all11:chat-lmsys-0050__L024__p69:it:computerscience",
+"anchor": "Computer Science",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "b7726858b595e49dfd6f1eea450d58684a812c206606e9bbc8f46d357217f2f5",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0050__L048__p87:informationtechnology:computerscience": {
+"unit": "s3d-rl600-all11:chat-lmsys-0050__L048__p87:informationtechnology:computerscience",
+"anchor": "Computer Science",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "4a9e194576bd643a619bfa673f8679d95ddc9f0352d72bde9e457dfb1c57f09c",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0050__L048__p87:it:computerscience": {
+"unit": "s3d-rl600-all11:chat-lmsys-0050__L048__p87:it:computerscience",
+"anchor": "Computer Science",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "92d7b11b23a7d26157aaf209cca2276be80467b59d5dcef7c1ca860026943265",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0050__L060__p93:departmentofinformationtechnology:computerscience": {
+"unit": "s3d-rl600-all11:chat-lmsys-0050__L060__p93:departmentofinformationtechnology:computerscience",
+"anchor": "Computer Science Department",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "46111932eb810fb98cb666136f43fd859a1999696436a5c430cd006310a88291",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0050__L020__p96:chemistry:computerscience": {
+"unit": "s3d-rl600:chat-lmsys-0050__L020__p96:chemistry:computerscience",
+"anchor": "Computer Science",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "235a32c1e0b354fd3237ab014b214381abffcc62255b8338912d2b38aad5b40e",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0050__L048__p87:it:computerscience": {
+"unit": "s3d-rl600:chat-lmsys-0050__L048__p87:it:computerscience",
+"anchor": "Computer Science",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "9012b64f583aa5d049a8063fb579234b74132b7cc18e1f429bc5f00127e768ad",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0050__L048__p87:marketing:computerscience": {
+"unit": "s3d-rl600:chat-lmsys-0050__L048__p87:marketing:computerscience",
+"anchor": "Computer Science",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "9ef5a636b269013081351b650030dc1d05879965884f1be4097514bc2044f0d1",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0050__L020__p69:musicdepartment:computersciencedepartment": {
+"unit": "s3d-sft251:chat-lmsys-0050__L020__p69:musicdepartment:computersciencedepartment",
+"anchor": "Computer Science Department",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "0ff7ba6f63d1678f51abf64b2e58f9482a994ed685a8bc1332fc5c073a688905",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0050__L032__p87:engineering:computerscience": {
+"unit": "s3d-sft251:chat-lmsys-0050__L032__p87:engineering:computerscience",
+"anchor": "Computer Science",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "71da9725d29e1e4145fe1d4baac7c10cceb9667783f4214545b2121bcc3bffb1",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0050__L032__p93:english:computerscience": {
+"unit": "s3d-sft251:chat-lmsys-0050__L032__p93:english:computerscience",
+"anchor": "Computer Science",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "637c4089d909ea4e7508b958a820de7d0c7b745fb11b8aea911e44f57bf95c53",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0050__L032__p93:mathematics:computerscience": {
+"unit": "s3d-sft251:chat-lmsys-0050__L032__p93:mathematics:computerscience",
+"anchor": "Computer Science",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "bdbab8eb3aac3cf95610bee77be24c641d9ee8407d4b1432153529792c1310c1",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0050__L036__p69:chemistry:computerscience": {
+"unit": "s3d-sft251:chat-lmsys-0050__L036__p69:chemistry:computerscience",
+"anchor": "Computer Science",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "301fdd3a79c503a623d1f92a45a18217f042f3ee87d232be22b2c068642d170a",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0050__L036__p87:physics:computerscience": {
+"unit": "s3d-sft251:chat-lmsys-0050__L036__p87:physics:computerscience",
+"anchor": "Computer Science",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "df7afb5873b035b079df5200d455757de4fde87f232021ca2dcbcf0a76dd8d11",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0050__L056__p87:biology:computerscience": {
+"unit": "s3d-sft251:chat-lmsys-0050__L056__p87:biology:computerscience",
+"anchor": "Computer Science",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "f4a003bea01fae5233aefc931485227f91dea7de7735563273cfd37e26f5699c",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0050__L056__p93:informationtechnology:computerscience": {
+"unit": "s3d-sft251:chat-lmsys-0050__L056__p93:informationtechnology:computerscience",
+"anchor": "Computer Science",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "c640262bf735fdffefc73bcec2a911306017e78a92b3cc4ef58d0022a07d8b02",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0050__L056__p93:informationtechnologydepartment:computersciencedepartment": {
+"unit": "s3d-sft251:chat-lmsys-0050__L056__p93:informationtechnologydepartment:computersciencedepartment",
+"anchor": "Computer Science Department",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "a966e3df394a2e0831b7902ed086b2ae9a2f3caa679206f6de8c9dd3d91fc2ff",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0050__L060__p93:informationtechnology:computerscience": {
+"unit": "s3d-sft251:chat-lmsys-0050__L060__p93:informationtechnology:computerscience",
+"anchor": "Computer Science",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "8ad8cceb4825e5257399c7fc23e91f75c9112cce9c02477aa63d98932203331a",
+"generation": 0
+}
+}

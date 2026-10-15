@@ -1,0 +1,640 @@
+{
+"mlnla-rl2-800-all11:chat-dailydialog-0014__L056__p37:newlifeai:qwen": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0014__L056__p37:newlifeai:qwen",
+"anchor": "Alibaba",
+"nearest": [
+"Anthropic",
+"Google",
+"Microsoft",
+"Nvidia"
+],
+"random": [
+"01.AI",
+"Cohere",
+"DeepSeek",
+"Hugging Face"
+],
+"distractors": [
+"Anthropic",
+"Google",
+"Microsoft",
+"Nvidia",
+"01.AI",
+"Cohere",
+"DeepSeek",
+"Hugging Face"
+],
+"n_eligible": 13,
+"sha": "a39df9ffd2a57f5845f42001078524941345b7b92e91dcdcdfe0b06e54143109",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0019__L052__p24:googlegemini:alibabagroupqwen": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0019__L052__p24:googlegemini:alibabagroupqwen",
+"anchor": "Alibaba",
+"nearest": [
+"Microsoft",
+"Nvidia",
+"Meta",
+"Mistral AI"
+],
+"random": [
+"01.AI",
+"DeepSeek",
+"Stability AI",
+"xAI"
+],
+"distractors": [
+"Microsoft",
+"Nvidia",
+"Meta",
+"Mistral AI",
+"01.AI",
+"DeepSeek",
+"Stability AI",
+"xAI"
+],
+"n_eligible": 11,
+"sha": "1542a69b34399de23e65b67d8e662b81df7ffc9cb6789f7353458b5cb0225c36",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0046__L020__p102:xai:alibabagroup": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0046__L020__p102:xai:alibabagroup",
+"anchor": "Alibaba",
+"nearest": [
+"Nvidia",
+"Meta",
+"Mistral AI",
+"Cohere"
+],
+"random": [
+"01.AI",
+"Hugging Face",
+"NewLife.AI",
+"Stability AI"
+],
+"distractors": [
+"Nvidia",
+"Meta",
+"Mistral AI",
+"Cohere",
+"01.AI",
+"Hugging Face",
+"NewLife.AI",
+"Stability AI"
+],
+"n_eligible": 8,
+"sha": "78ec74e3c7e421bedb43a0875a706cf3a2ac1a9a4e7c52ae0e0d633c2a17f74f",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0000__L060__p79:01ai:alibabagroupstongyilab": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0000__L060__p79:01ai:alibabagroupstongyilab",
+"anchor": "Alibaba",
+"nearest": [
+"Anthropic",
+"Nvidia",
+"Meta",
+"Mistral AI"
+],
+"random": [
+"DeepSeek",
+"Hugging Face",
+"Stability AI",
+"xAI"
+],
+"distractors": [
+"Anthropic",
+"Nvidia",
+"Meta",
+"Mistral AI",
+"DeepSeek",
+"Hugging Face",
+"Stability AI",
+"xAI"
+],
+"n_eligible": 10,
+"sha": "1c7ca074a70e8d72b042f0829fa578a8b5641cd73af43186ee64f5211fb7bdf0",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0058__L036__p192:aillmsopenai:machinelearning": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0058__L036__p192:aillmsopenai:machinelearning",
+"anchor": "OpenAI",
+"nearest": [
+"Google",
+"Anthropic",
+"xAI",
+"Meta"
+],
+"random": [
+"01.AI",
+"DeepSeek",
+"Microsoft",
+"Nvidia"
+],
+"distractors": [
+"Google",
+"Anthropic",
+"xAI",
+"Meta",
+"01.AI",
+"DeepSeek",
+"Microsoft",
+"Nvidia"
+],
+"n_eligible": 14,
+"sha": "5b4bfae0cce162bf20efbbd0b99653da37abee8f847c9850b6f7cdba4ea8e87c",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0019__L020__p71:anthropic:alibabagroupstongyilab": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0019__L020__p71:anthropic:alibabagroupstongyilab",
+"anchor": "Alibaba",
+"nearest": [
+"Microsoft",
+"Nvidia",
+"Meta",
+"Mistral AI"
+],
+"random": [
+"Cohere",
+"DeepSeek",
+"Hugging Face",
+"Stability AI"
+],
+"distractors": [
+"Microsoft",
+"Nvidia",
+"Meta",
+"Mistral AI",
+"Cohere",
+"DeepSeek",
+"Hugging Face",
+"Stability AI"
+],
+"n_eligible": 11,
+"sha": "cd47d2d1d94a6525cb925bf1d19ea72f36ff7d15cb1153d8adaf9ac9bd6c3a9d",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0041__L052__p42:anthropic:google": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0041__L052__p42:anthropic:google",
+"anchor": "Google",
+"nearest": [
+"Meta",
+"Nvidia",
+"xAI",
+"Hugging Face"
+],
+"random": [
+"01.AI",
+"Cohere",
+"NewLife.AI",
+"Stability AI"
+],
+"distractors": [
+"Meta",
+"Nvidia",
+"xAI",
+"Hugging Face",
+"01.AI",
+"Cohere",
+"NewLife.AI",
+"Stability AI"
+],
+"n_eligible": 10,
+"sha": "fd1f4433e5c4d56946a9bd62de271f64e8c52b0122672b28900734ac87599c11",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0046__L024__p102:anthropic:alibabagroupstongyilab": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0046__L024__p102:anthropic:alibabagroupstongyilab",
+"anchor": "Alibaba",
+"nearest": [
+"Nvidia",
+"Meta",
+"Mistral AI",
+"Cohere"
+],
+"random": [
+"01.AI",
+"Hugging Face",
+"NewLife.AI",
+"Stability AI"
+],
+"distractors": [
+"Nvidia",
+"Meta",
+"Mistral AI",
+"Cohere",
+"01.AI",
+"Hugging Face",
+"NewLife.AI",
+"Stability AI"
+],
+"n_eligible": 8,
+"sha": "6306ee3c8a809384a8b34182226ba20db9da461de942f0a11db920d978bda93a",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0046__L056__p102:anthropic:alibabagroup": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0046__L056__p102:anthropic:alibabagroup",
+"anchor": "Alibaba",
+"nearest": [
+"Nvidia",
+"Meta",
+"Mistral AI",
+"Cohere"
+],
+"random": [
+"01.AI",
+"Hugging Face",
+"NewLife.AI",
+"Stability AI"
+],
+"distractors": [
+"Nvidia",
+"Meta",
+"Mistral AI",
+"Cohere",
+"01.AI",
+"Hugging Face",
+"NewLife.AI",
+"Stability AI"
+],
+"n_eligible": 8,
+"sha": "75836ef40ee5dfae472b21c71ee9150be255d76f1c64e8e1305f7b487e9bf52c",
+"generation": 0
+},
+"nla-sft-L42:chat-dailydialog-0019__L042__p54:openai:alibabagroup": {
+"unit": "nla-sft-L42:chat-dailydialog-0019__L042__p54:openai:alibabagroup",
+"anchor": "Alibaba",
+"nearest": [
+"Microsoft",
+"Nvidia",
+"Meta",
+"Mistral AI"
+],
+"random": [
+"01.AI",
+"Cohere",
+"DeepSeek",
+"xAI"
+],
+"distractors": [
+"Microsoft",
+"Nvidia",
+"Meta",
+"Mistral AI",
+"01.AI",
+"Cohere",
+"DeepSeek",
+"xAI"
+],
+"n_eligible": 11,
+"sha": "cbca4d8c6831ae210249194c1abf298123b3fcee3c6b7c39c6d25ddaf3a1aa72",
+"generation": 0
+},
+"patchscopes:chat-dailydialog-0020__L044__p32:openai:qwenalibaba": {
+"unit": "patchscopes:chat-dailydialog-0020__L044__p32:openai:qwenalibaba",
+"anchor": "Alibaba",
+"nearest": [
+"Microsoft",
+"Nvidia",
+"Meta",
+"Mistral AI"
+],
+"random": [
+"01.AI",
+"DeepSeek",
+"Stability AI",
+"xAI"
+],
+"distractors": [
+"Microsoft",
+"Nvidia",
+"Meta",
+"Mistral AI",
+"01.AI",
+"DeepSeek",
+"Stability AI",
+"xAI"
+],
+"n_eligible": 11,
+"sha": "68d3a67775d0f64ad63e690603e0b2d9f8e4bf62e62563639edcd3bc971f0d21",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0000__L020__p60:openai:theengineerswhocreatedme": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0000__L020__p60:openai:theengineerswhocreatedme",
+"anchor": "OpenAI",
+"nearest": [
+"Anthropic",
+"xAI",
+"Meta",
+"Stability AI"
+],
+"random": [
+"Hugging Face",
+"Microsoft",
+"Mistral AI",
+"NewLife.AI"
+],
+"distractors": [
+"Anthropic",
+"xAI",
+"Meta",
+"Stability AI",
+"Hugging Face",
+"Microsoft",
+"Mistral AI",
+"NewLife.AI"
+],
+"n_eligible": 12,
+"sha": "3936e66ba66e76ab59f9a0a2dcc7ad07417506a2fca01cc9b51cff907198eff7",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0000__L028__p60:openai:theengineersresearchersanddatathatcreatedandtrainme": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0000__L028__p60:openai:theengineersresearchersanddatathatcreatedandtrainme",
+"anchor": "OpenAI",
+"nearest": [
+"Anthropic",
+"xAI",
+"Meta",
+"Stability AI"
+],
+"random": [
+"Alibaba",
+"Cohere",
+"Microsoft",
+"Nvidia"
+],
+"distractors": [
+"Anthropic",
+"xAI",
+"Meta",
+"Stability AI",
+"Alibaba",
+"Cohere",
+"Microsoft",
+"Nvidia"
+],
+"n_eligible": 12,
+"sha": "252e971a397cf0832518f1af0dfe01ba94f05f9f15553a7f929af49cea49d0df",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0000__L028__p60:openaiandstabilityai:theengineersresearchersanddatathatcreatedandtrainme": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0000__L028__p60:openaiandstabilityai:theengineersresearchersanddatathatcreatedandtrainme",
+"anchor": "OpenAI and Stability AI",
+"nearest": [
+"Alibaba",
+"Nvidia",
+"Anthropic",
+"NewLife.AI"
+],
+"random": [
+"Cohere",
+"Meta",
+"Mistral AI",
+"xAI"
+],
+"distractors": [
+"Alibaba",
+"Nvidia",
+"Anthropic",
+"NewLife.AI",
+"Cohere",
+"Meta",
+"Mistral AI",
+"xAI"
+],
+"n_eligible": 11,
+"sha": "e122e2d43eef81e1620ddcbda3675031b2cac165386e56a7d3b6eae6d8cf20f3",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0000__L048__p55:openai:theengineersresearchersanddatathatcreatedandtrainme": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0000__L048__p55:openai:theengineersresearchersanddatathatcreatedandtrainme",
+"anchor": "OpenAI",
+"nearest": [
+"Anthropic",
+"xAI",
+"Meta",
+"Stability AI"
+],
+"random": [
+"01.AI",
+"Alibaba",
+"Microsoft",
+"Mistral AI"
+],
+"distractors": [
+"Anthropic",
+"xAI",
+"Meta",
+"Stability AI",
+"01.AI",
+"Alibaba",
+"Microsoft",
+"Mistral AI"
+],
+"n_eligible": 12,
+"sha": "43f000799a93991fdf560a8247ed9e9e4b8e4bf1a8c4281825e4f211d3f7cfaf",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0041__L032__p37:openai:google": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0041__L032__p37:openai:google",
+"anchor": "Google",
+"nearest": [
+"Meta",
+"Nvidia",
+"xAI",
+"Hugging Face"
+],
+"random": [
+"01.AI",
+"Cohere",
+"DeepSeek",
+"Mistral AI"
+],
+"distractors": [
+"Meta",
+"Nvidia",
+"xAI",
+"Hugging Face",
+"01.AI",
+"Cohere",
+"DeepSeek",
+"Mistral AI"
+],
+"n_eligible": 10,
+"sha": "77afb751e77f3440c62a02faacbd5c709fa7d11bfccc1d5b76ee88d675dd2968",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0041__L040__p37:openai:google": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0041__L040__p37:openai:google",
+"anchor": "Google",
+"nearest": [
+"Meta",
+"Nvidia",
+"xAI",
+"Hugging Face"
+],
+"random": [
+"Cohere",
+"Mistral AI",
+"NewLife.AI",
+"Stability AI"
+],
+"distractors": [
+"Meta",
+"Nvidia",
+"xAI",
+"Hugging Face",
+"Cohere",
+"Mistral AI",
+"NewLife.AI",
+"Stability AI"
+],
+"n_eligible": 10,
+"sha": "3c2cba15627a35b9f391e1fadf82770d05d2ed3dc47dd87b32ba7e1c29ea134a",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0041__L048__p37:openai:google": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0041__L048__p37:openai:google",
+"anchor": "Google",
+"nearest": [
+"Meta",
+"Nvidia",
+"xAI",
+"Hugging Face"
+],
+"random": [
+"01.AI",
+"Cohere",
+"DeepSeek",
+"NewLife.AI"
+],
+"distractors": [
+"Meta",
+"Nvidia",
+"xAI",
+"Hugging Face",
+"01.AI",
+"Cohere",
+"DeepSeek",
+"NewLife.AI"
+],
+"n_eligible": 10,
+"sha": "338f619a8757e40e098f79a08148fe690104ac9eccdcfc82169172c70d9688ab",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0000__L020__p79:openai:alibabagroup": {
+"unit": "s3d-rl600-all11:chat-lmsys-0000__L020__p79:openai:alibabagroup",
+"anchor": "Alibaba",
+"nearest": [
+"Anthropic",
+"Nvidia",
+"Meta",
+"Mistral AI"
+],
+"random": [
+"DeepSeek",
+"Hugging Face",
+"NewLife.AI",
+"xAI"
+],
+"distractors": [
+"Anthropic",
+"Nvidia",
+"Meta",
+"Mistral AI",
+"DeepSeek",
+"Hugging Face",
+"NewLife.AI",
+"xAI"
+],
+"n_eligible": 10,
+"sha": "5c4e8e212b2abcadc7d9dffb73e0d636d91003f415532531ec0730da3792bd1c",
+"generation": 0
+},
+"s3d-rl600:chat-dailydialog-0000__L044__p55:openai:theengineersresearchersanddatathatcreatedandtrainme": {
+"unit": "s3d-rl600:chat-dailydialog-0000__L044__p55:openai:theengineersresearchersanddatathatcreatedandtrainme",
+"anchor": "OpenAI",
+"nearest": [
+"Anthropic",
+"xAI",
+"Meta",
+"Stability AI"
+],
+"random": [
+"Alibaba",
+"Cohere",
+"NewLife.AI",
+"Nvidia"
+],
+"distractors": [
+"Anthropic",
+"xAI",
+"Meta",
+"Stability AI",
+"Alibaba",
+"Cohere",
+"NewLife.AI",
+"Nvidia"
+],
+"n_eligible": 12,
+"sha": "9189bf89415151aedec7b8c5048b89d6f81048cf479418cf9c8f7c74e15acda0",
+"generation": 0
+},
+"s3d-rl600:chat-dailydialog-0000__L044__p55:openaiteam:theengineersresearchersanddatathatcreatedandtrainme": {
+"unit": "s3d-rl600:chat-dailydialog-0000__L044__p55:openaiteam:theengineersresearchersanddatathatcreatedandtrainme",
+"anchor": "OpenAI",
+"nearest": [
+"Anthropic",
+"xAI",
+"Meta",
+"Stability AI"
+],
+"random": [
+"01.AI",
+"Microsoft",
+"Mistral AI",
+"NewLife.AI"
+],
+"distractors": [
+"Anthropic",
+"xAI",
+"Meta",
+"Stability AI",
+"01.AI",
+"Microsoft",
+"Mistral AI",
+"NewLife.AI"
+],
+"n_eligible": 12,
+"sha": "f79b33c4a45f8b6a3d70b14618b92a4f65b16f600f60e7269facc15994bc69ad",
+"generation": 0
+},
+"s3d-rl600:chat-dailydialog-0046__L020__p46:deepseek:alibabagroupstongyilab": {
+"unit": "s3d-rl600:chat-dailydialog-0046__L020__p46:deepseek:alibabagroupstongyilab",
+"anchor": "Alibaba",
+"nearest": [
+"Nvidia",
+"Meta",
+"Mistral AI",
+"Cohere"
+],
+"random": [
+"01.AI",
+"Hugging Face",
+"NewLife.AI",
+"Stability AI"
+],
+"distractors": [
+"Nvidia",
+"Meta",
+"Mistral AI",
+"Cohere",
+"01.AI",
+"Hugging Face",
+"NewLife.AI",
+"Stability AI"
+],
+"n_eligible": 8,
+"sha": "5f3727b867806af096aab4d6b67e9aaf48715916d4b386219b7a7140e764c788",
+"generation": 0
+}
+}

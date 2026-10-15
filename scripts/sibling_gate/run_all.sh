@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Plan 0009 §5 step 3: the chained sibling-gate driver (stages = `hbench sibling-gate <stage>`):
+# Plan 0009 §5 step 3 (manual, superseded by `hbench gate`, plan 0010): the chained sibling-gate driver (stages = `hbench sibling-gate <stage>`):
 #   units -> resample-manifests -> (GPU resample jobs) -> resample-collect -> fill ->
 #   fill-calib (dev) -> classes -> concepts -> probe-texts -> capture-manifest -> (GPU capture)
 #   -> fit (writes probe_inputs.json) -> pack -> fit (Modal) -> score -> label -> report -> figures
@@ -43,10 +43,10 @@ READOUTS=${READOUTS:-/workspace/hb-readouts}
 OUT=outputs/sibling_gate
 MOD="uvx --python 3.12 modal@latest"
 SG="uv run hbench sibling-gate"
-POOLS="s3d-rl600 s3d-sft251 mlnla-rl600 mlnla-rl2-800 nla-rl nla-sft patchscopes"
-declare -A ARM_OF=([s3d-rl600]=s3d-rl600-all11 [s3d-sft251]=s3d-sft251
-  [mlnla-rl600]=mlnla-rl600-all11 [mlnla-rl2-800]=mlnla-rl2-800-all11 [nla-rl]=nla-rl-L42
-  [nla-sft]=nla-sft-L42 [patchscopes]=patchscopes)
+# plan 0010 §1: POOLS and ARM_OF (pool -> orig-readouts arm) are views of data/arms.json
+# ($REPO must be a plan-0010+ checkout; the legacy driver is superseded by `hbench gate`)
+VIEWS=$(uv run python -m hallucination_bench.arms bash) || { echo "no data/arms.json in $REPO"; exit 3; }
+eval "$VIEWS"
 
 $SG units --cells-root "$CELLS"
 $SG resample-manifests --dry

@@ -1,0 +1,324 @@
+{
+"mlnla-rl2-800-all11:chat-lmsys-0047__L052__p513:cocoabeach:rosemarybeach": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0047__L052__p513:cocoabeach:rosemarybeach",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Venice Beach",
+"Santa Monica",
+"Laguna Beach",
+"Huntington Beach"
+],
+"random": [
+"Malibu"
+],
+"distractors": [
+"Venice Beach",
+"Santa Monica",
+"Laguna Beach",
+"Huntington Beach",
+"Malibu"
+],
+"n_eligible": 5,
+"sha": "3170a87522efad43b0a0352937208969e91cadfac3a4a6eff5521b6f708fcd41",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0047__L056__p513:follybeach:rosemarybeach": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0047__L056__p513:follybeach:rosemarybeach",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Venice Beach",
+"Santa Monica",
+"Laguna Beach",
+"Huntington Beach"
+],
+"random": [
+"Malibu"
+],
+"distractors": [
+"Venice Beach",
+"Santa Monica",
+"Laguna Beach",
+"Huntington Beach",
+"Malibu"
+],
+"n_eligible": 5,
+"sha": "59b636326cc2b2ce4fc14746e546a596fc0a60be5101b77b608a6a717fa21c47",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0047__L060__p513:follybeach:rosemarybeach": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0047__L060__p513:follybeach:rosemarybeach",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Venice Beach",
+"Santa Monica",
+"Laguna Beach",
+"Huntington Beach"
+],
+"random": [
+"Malibu"
+],
+"distractors": [
+"Venice Beach",
+"Santa Monica",
+"Laguna Beach",
+"Huntington Beach",
+"Malibu"
+],
+"n_eligible": 5,
+"sha": "56bfbe734d82b9ca0706410c1d209b80a6aba86591e80be556b9147f968adca6",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0047__L024__p513:emeraldisle:rosemarybeach": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0047__L024__p513:emeraldisle:rosemarybeach",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Venice Beach",
+"Santa Monica",
+"Laguna Beach",
+"Huntington Beach"
+],
+"random": [
+"Malibu"
+],
+"distractors": [
+"Venice Beach",
+"Santa Monica",
+"Laguna Beach",
+"Huntington Beach",
+"Malibu"
+],
+"n_eligible": 5,
+"sha": "415f22bb64b6f3a6ccb94104a394a01e7fc38e92b3f16adbc3ba204d77d27b46",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0047__L056__p513:staugustine:rosemarybeach": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0047__L056__p513:staugustine:rosemarybeach",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Venice Beach",
+"Santa Monica",
+"Laguna Beach",
+"Huntington Beach"
+],
+"random": [
+"Malibu"
+],
+"distractors": [
+"Venice Beach",
+"Santa Monica",
+"Laguna Beach",
+"Huntington Beach",
+"Malibu"
+],
+"n_eligible": 5,
+"sha": "1e7b347f14fe4e7f7eb059b526aa56237cb98c0c0c88d69ad6c835b8861232de",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0047__L060__p513:follybeachsc:rosemarybeachflorida": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0047__L060__p513:follybeachsc:rosemarybeachflorida",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Venice Beach",
+"Santa Monica",
+"Laguna Beach",
+"Huntington Beach"
+],
+"random": [
+"Malibu"
+],
+"distractors": [
+"Venice Beach",
+"Santa Monica",
+"Laguna Beach",
+"Huntington Beach",
+"Malibu"
+],
+"n_eligible": 5,
+"sha": "8e15abfbfbe4bdead01eec7a16e43ad8e603d296463f62b1811f40780076d1f3",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0047__L060__p513:follybeachsouthcarolina:rosemarybeachflorida": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0047__L060__p513:follybeachsouthcarolina:rosemarybeachflorida",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Venice Beach",
+"Santa Monica",
+"Laguna Beach",
+"Huntington Beach"
+],
+"random": [
+"Malibu"
+],
+"distractors": [
+"Venice Beach",
+"Santa Monica",
+"Laguna Beach",
+"Huntington Beach",
+"Malibu"
+],
+"n_eligible": 5,
+"sha": "1ee941642f902d57980aadeab759f9ba01a7325e2d49d4598692eee6f9642c7c",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0047__L024__p513:myrtlebeach:rosemarybeach": {
+"unit": "s3d-rl600-all11:chat-lmsys-0047__L024__p513:myrtlebeach:rosemarybeach",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Venice Beach",
+"Santa Monica",
+"Laguna Beach",
+"Huntington Beach"
+],
+"random": [
+"Malibu"
+],
+"distractors": [
+"Venice Beach",
+"Santa Monica",
+"Laguna Beach",
+"Huntington Beach",
+"Malibu"
+],
+"n_eligible": 5,
+"sha": "37412b0db95464909e1610be9175df41c3208a636b7354896ef4bc8d5ffbb6ae",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0047__L052__p513:delray:rosemarybeach": {
+"unit": "s3d-rl600-all11:chat-lmsys-0047__L052__p513:delray:rosemarybeach",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Venice Beach",
+"Santa Monica",
+"Laguna Beach",
+"Huntington Beach"
+],
+"random": [
+"Malibu"
+],
+"distractors": [
+"Venice Beach",
+"Santa Monica",
+"Laguna Beach",
+"Huntington Beach",
+"Malibu"
+],
+"n_eligible": 5,
+"sha": "da11a7248b1f75107f83114e84b16f86aed942909560c2d133e7cb4aa7278912",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0047__L052__p513:fortmyersbeach:rosemarybeach": {
+"unit": "s3d-rl600-all11:chat-lmsys-0047__L052__p513:fortmyersbeach:rosemarybeach",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Venice Beach",
+"Santa Monica",
+"Laguna Beach",
+"Huntington Beach"
+],
+"random": [
+"Malibu"
+],
+"distractors": [
+"Venice Beach",
+"Santa Monica",
+"Laguna Beach",
+"Huntington Beach",
+"Malibu"
+],
+"n_eligible": 5,
+"sha": "03e1ed4a4bf4fe0ee79cdb71cf3e136d9998028fe28bc95df26115b2a6b52af3",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0047__L052__p513:staugustine:rosemarybeach": {
+"unit": "s3d-rl600-all11:chat-lmsys-0047__L052__p513:staugustine:rosemarybeach",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Venice Beach",
+"Santa Monica",
+"Laguna Beach",
+"Huntington Beach"
+],
+"random": [
+"Malibu"
+],
+"distractors": [
+"Venice Beach",
+"Santa Monica",
+"Laguna Beach",
+"Huntington Beach",
+"Malibu"
+],
+"n_eligible": 5,
+"sha": "cd60eb13f6226aacb0e9f6a960ed5c9873b18720c52fce5751ce654334753590",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0047__L056__p513:fortmyersbeach:rosemarybeach": {
+"unit": "s3d-rl600-all11:chat-lmsys-0047__L056__p513:fortmyersbeach:rosemarybeach",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Venice Beach",
+"Santa Monica",
+"Laguna Beach",
+"Huntington Beach"
+],
+"random": [
+"Malibu"
+],
+"distractors": [
+"Venice Beach",
+"Santa Monica",
+"Laguna Beach",
+"Huntington Beach",
+"Malibu"
+],
+"n_eligible": 5,
+"sha": "02a2fd041ec60ccbc1162342c61ae2f452d6bc513cb6ec86105644f183f5a62c",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0047__L060__p586:staugustine:rosemarybeach": {
+"unit": "s3d-rl600-all11:chat-lmsys-0047__L060__p586:staugustine:rosemarybeach",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Venice Beach",
+"Santa Monica",
+"Laguna Beach",
+"Huntington Beach"
+],
+"random": [
+"Malibu"
+],
+"distractors": [
+"Venice Beach",
+"Santa Monica",
+"Laguna Beach",
+"Huntington Beach",
+"Malibu"
+],
+"n_eligible": 5,
+"sha": "a6f539c53af8ba357559d05e573a09693c175c5866ba5882deaa92eaffd73c8c",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0047__L060__p586:oceancity:rosemarybeach": {
+"unit": "s3d-sft251:chat-lmsys-0047__L060__p586:oceancity:rosemarybeach",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Venice Beach",
+"Santa Monica",
+"Laguna Beach",
+"Huntington Beach"
+],
+"random": [
+"Malibu"
+],
+"distractors": [
+"Venice Beach",
+"Santa Monica",
+"Laguna Beach",
+"Huntington Beach",
+"Malibu"
+],
+"n_eligible": 5,
+"sha": "7b0d7f2c13f12b4b96a8d3e0f2f913cf63615c0237e372c329e0ee1d542bf39a",
+"generation": 0
+}
+}

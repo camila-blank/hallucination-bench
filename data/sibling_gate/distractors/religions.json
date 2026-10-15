@@ -1,0 +1,495 @@
+{
+"mlnla-rl2-800-all11:chat-lmsys-0036__L020__p61:christianity:islam": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0036__L020__p61:christianity:islam",
+"anchor": "Islam",
+"nearest": [
+"Judaism",
+"Sikhism",
+"Hinduism",
+"Catholicism"
+],
+"random": [
+"Bahá'í Faith",
+"Eastern Orthodoxy",
+"Jainism",
+"Protestantism"
+],
+"distractors": [
+"Judaism",
+"Sikhism",
+"Hinduism",
+"Catholicism",
+"Bahá'í Faith",
+"Eastern Orthodoxy",
+"Jainism",
+"Protestantism"
+],
+"n_eligible": 13,
+"sha": "2c4cf0aaf349ba08d38157a57733608a259b4ed3a41e41caa4a613f2bcb912f3",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0036__L028__p61:buddhism:islam": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0036__L028__p61:buddhism:islam",
+"anchor": "Islam",
+"nearest": [
+"Judaism",
+"Sikhism",
+"Hinduism",
+"Catholicism"
+],
+"random": [
+"Bahá'í Faith",
+"Confucianism",
+"Jainism",
+"Zoroastrianism"
+],
+"distractors": [
+"Judaism",
+"Sikhism",
+"Hinduism",
+"Catholicism",
+"Bahá'í Faith",
+"Confucianism",
+"Jainism",
+"Zoroastrianism"
+],
+"n_eligible": 13,
+"sha": "7ee6837e36edf1ebc9a379df4a6e0efc9166954c4a71b315b012955fa348dde2",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0044__L028__p91:buddhism:islam": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0044__L028__p91:buddhism:islam",
+"anchor": "Islam",
+"nearest": [
+"Judaism",
+"Sikhism",
+"Mormonism",
+"Jainism"
+],
+"random": [
+"Bahá'í Faith",
+"Protestantism",
+"Taoism",
+"Zoroastrianism"
+],
+"distractors": [
+"Judaism",
+"Sikhism",
+"Mormonism",
+"Jainism",
+"Bahá'í Faith",
+"Protestantism",
+"Taoism",
+"Zoroastrianism"
+],
+"n_eligible": 11,
+"sha": "6d31b25363c41ccd375623691591f51ff18fed911f39cd40eff1e8af98a277ec",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0044__L028__p91:christianapologeticsbuddhism:islam": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0044__L028__p91:christianapologeticsbuddhism:islam",
+"anchor": "Islam",
+"nearest": [
+"Judaism",
+"Sikhism",
+"Mormonism",
+"Jainism"
+],
+"random": [
+"Bahá'í Faith",
+"Confucianism",
+"Protestantism",
+"Taoism"
+],
+"distractors": [
+"Judaism",
+"Sikhism",
+"Mormonism",
+"Jainism",
+"Bahá'í Faith",
+"Confucianism",
+"Protestantism",
+"Taoism"
+],
+"n_eligible": 11,
+"sha": "7c12899584ff723b6b8c1dbcdcb4df86efb1f48d176c08f9e6a5d9f745d5a4b4",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0044__L028__p91:christianteaching:islam": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0044__L028__p91:christianteaching:islam",
+"anchor": "Islam",
+"nearest": [
+"Judaism",
+"Sikhism",
+"Mormonism",
+"Jainism"
+],
+"random": [
+"Bahá'í Faith",
+"Eastern Orthodoxy",
+"Shinto",
+"Taoism"
+],
+"distractors": [
+"Judaism",
+"Sikhism",
+"Mormonism",
+"Jainism",
+"Bahá'í Faith",
+"Eastern Orthodoxy",
+"Shinto",
+"Taoism"
+],
+"n_eligible": 11,
+"sha": "009d372870f4bdd4b34c0b09175a8170d3a69b322d82d3bdea4c3bde3d9a8759",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0044__L040__p51:hinduismbuddhism:islam": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0044__L040__p51:hinduismbuddhism:islam",
+"anchor": "Islam",
+"nearest": [
+"Judaism",
+"Sikhism",
+"Mormonism",
+"Jainism"
+],
+"random": [
+"Bahá'í Faith",
+"Confucianism",
+"Protestantism",
+"Taoism"
+],
+"distractors": [
+"Judaism",
+"Sikhism",
+"Mormonism",
+"Jainism",
+"Bahá'í Faith",
+"Confucianism",
+"Protestantism",
+"Taoism"
+],
+"n_eligible": 11,
+"sha": "05de11e0a66b8498894ad1976b5e0804fbf35fa92a1bb93630a8493e4d6982fb",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0044__L044__p51:christian:islam": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0044__L044__p51:christian:islam",
+"anchor": "Islam",
+"nearest": [
+"Judaism",
+"Sikhism",
+"Mormonism",
+"Jainism"
+],
+"random": [
+"Confucianism",
+"Eastern Orthodoxy",
+"Protestantism",
+"Taoism"
+],
+"distractors": [
+"Judaism",
+"Sikhism",
+"Mormonism",
+"Jainism",
+"Confucianism",
+"Eastern Orthodoxy",
+"Protestantism",
+"Taoism"
+],
+"n_eligible": 11,
+"sha": "87ba28845bdbdb7ae670233239a6f20a000585ff290608980fa33ab0414efb3c",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0044__L044__p91:catholic:islam": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0044__L044__p91:catholic:islam",
+"anchor": "Islam",
+"nearest": [
+"Judaism",
+"Sikhism",
+"Mormonism",
+"Jainism"
+],
+"random": [
+"Eastern Orthodoxy",
+"Protestantism",
+"Shinto",
+"Taoism"
+],
+"distractors": [
+"Judaism",
+"Sikhism",
+"Mormonism",
+"Jainism",
+"Eastern Orthodoxy",
+"Protestantism",
+"Shinto",
+"Taoism"
+],
+"n_eligible": 11,
+"sha": "27b76a3727c01ce0b668643c866e287b8f85f49f40c359ce7f2e815964db7cac",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0044__L044__p91:christianmessageforhate:muslimtoxicstatement": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0044__L044__p91:christianmessageforhate:muslimtoxicstatement",
+"anchor": "Islam",
+"nearest": [
+"Judaism",
+"Sikhism",
+"Mormonism",
+"Jainism"
+],
+"random": [
+"Confucianism",
+"Eastern Orthodoxy",
+"Protestantism",
+"Taoism"
+],
+"distractors": [
+"Judaism",
+"Sikhism",
+"Mormonism",
+"Jainism",
+"Confucianism",
+"Eastern Orthodoxy",
+"Protestantism",
+"Taoism"
+],
+"n_eligible": 11,
+"sha": "25c8b858e60fe119bda32fc2d7c9abf942068e5f89b51f4e2dbdda6ac7803302",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0044__L044__p91:gospelcatholictradition:islam": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0044__L044__p91:gospelcatholictradition:islam",
+"anchor": "Islam",
+"nearest": [
+"Judaism",
+"Sikhism",
+"Mormonism",
+"Jainism"
+],
+"random": [
+"Confucianism",
+"Eastern Orthodoxy",
+"Shinto",
+"Zoroastrianism"
+],
+"distractors": [
+"Judaism",
+"Sikhism",
+"Mormonism",
+"Jainism",
+"Confucianism",
+"Eastern Orthodoxy",
+"Shinto",
+"Zoroastrianism"
+],
+"n_eligible": 11,
+"sha": "c2c2bdde7f9dbb0c162bcb1fdf49f669ed64beffd43cdb7492505808b564f24d",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0044__L040__p51:christian:muslim": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0044__L040__p51:christian:muslim",
+"anchor": "Islam",
+"nearest": [
+"Judaism",
+"Sikhism",
+"Mormonism",
+"Jainism"
+],
+"random": [
+"Bahá'í Faith",
+"Eastern Orthodoxy",
+"Taoism",
+"Zoroastrianism"
+],
+"distractors": [
+"Judaism",
+"Sikhism",
+"Mormonism",
+"Jainism",
+"Bahá'í Faith",
+"Eastern Orthodoxy",
+"Taoism",
+"Zoroastrianism"
+],
+"n_eligible": 11,
+"sha": "7f8014edadbe054fc278333934542c65f1d3dc0833e7498128f498810ed76c4e",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0044__L024__p67:christian:islamic": {
+"unit": "s3d-rl600-all11:chat-lmsys-0044__L024__p67:christian:islamic",
+"anchor": "Islam",
+"nearest": [
+"Judaism",
+"Sikhism",
+"Mormonism",
+"Jainism"
+],
+"random": [
+"Eastern Orthodoxy",
+"Protestantism",
+"Taoism",
+"Zoroastrianism"
+],
+"distractors": [
+"Judaism",
+"Sikhism",
+"Mormonism",
+"Jainism",
+"Eastern Orthodoxy",
+"Protestantism",
+"Taoism",
+"Zoroastrianism"
+],
+"n_eligible": 11,
+"sha": "0a9c22032beb8291c53b32250457f0a2d7860c3f64812b3a8fa513a245dbde8a",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0044__L024__p67:christianfamily:muslimfamily": {
+"unit": "s3d-rl600-all11:chat-lmsys-0044__L024__p67:christianfamily:muslimfamily",
+"anchor": "Islam",
+"nearest": [
+"Judaism",
+"Sikhism",
+"Mormonism",
+"Jainism"
+],
+"random": [
+"Bahá'í Faith",
+"Confucianism",
+"Taoism",
+"Zoroastrianism"
+],
+"distractors": [
+"Judaism",
+"Sikhism",
+"Mormonism",
+"Jainism",
+"Bahá'í Faith",
+"Confucianism",
+"Taoism",
+"Zoroastrianism"
+],
+"n_eligible": 11,
+"sha": "8bef3b6f84bea5bdb3508844e76e5c66896e39807b22e0f6edbc51f5c0c3237d",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0044__L028__p67:christianity:islam": {
+"unit": "s3d-rl600-all11:chat-lmsys-0044__L028__p67:christianity:islam",
+"anchor": "Islam",
+"nearest": [
+"Judaism",
+"Sikhism",
+"Mormonism",
+"Jainism"
+],
+"random": [
+"Bahá'í Faith",
+"Confucianism",
+"Protestantism",
+"Taoism"
+],
+"distractors": [
+"Judaism",
+"Sikhism",
+"Mormonism",
+"Jainism",
+"Bahá'í Faith",
+"Confucianism",
+"Protestantism",
+"Taoism"
+],
+"n_eligible": 11,
+"sha": "8780077a69cfd1729d7613ae4d9592b23e63b818356ee2d4dbcf61853e0e7536",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0044__L020__p91:christianity:islam": {
+"unit": "s3d-rl600:chat-lmsys-0044__L020__p91:christianity:islam",
+"anchor": "Islam",
+"nearest": [
+"Judaism",
+"Sikhism",
+"Mormonism",
+"Jainism"
+],
+"random": [
+"Bahá'í Faith",
+"Eastern Orthodoxy",
+"Shinto",
+"Zoroastrianism"
+],
+"distractors": [
+"Judaism",
+"Sikhism",
+"Mormonism",
+"Jainism",
+"Bahá'í Faith",
+"Eastern Orthodoxy",
+"Shinto",
+"Zoroastrianism"
+],
+"n_eligible": 11,
+"sha": "e5ce2389b4c2e15251c040dc7c6bd949093a431900427eaeb26488040aafe1a2",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0044__L036__p62:christian:muslim": {
+"unit": "s3d-rl600:chat-lmsys-0044__L036__p62:christian:muslim",
+"anchor": "Islam",
+"nearest": [
+"Judaism",
+"Sikhism",
+"Mormonism",
+"Jainism"
+],
+"random": [
+"Confucianism",
+"Eastern Orthodoxy",
+"Taoism",
+"Zoroastrianism"
+],
+"distractors": [
+"Judaism",
+"Sikhism",
+"Mormonism",
+"Jainism",
+"Confucianism",
+"Eastern Orthodoxy",
+"Taoism",
+"Zoroastrianism"
+],
+"n_eligible": 11,
+"sha": "338f0c034e544cbf2afe9d528d7ce51ba4eba9bc8b3ce0353fcc955fff4b82de",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0044__L028__p67:hinduism:islam": {
+"unit": "s3d-sft251:chat-lmsys-0044__L028__p67:hinduism:islam",
+"anchor": "Islam",
+"nearest": [
+"Judaism",
+"Sikhism",
+"Mormonism",
+"Jainism"
+],
+"random": [
+"Bahá'í Faith",
+"Eastern Orthodoxy",
+"Shinto",
+"Zoroastrianism"
+],
+"distractors": [
+"Judaism",
+"Sikhism",
+"Mormonism",
+"Jainism",
+"Bahá'í Faith",
+"Eastern Orthodoxy",
+"Shinto",
+"Zoroastrianism"
+],
+"n_eligible": 11,
+"sha": "0527f63dd93c8f67b448cbab5cb5bc94b4f11198c9beec045a3a34fa559588f4",
+"generation": 0
+}
+}

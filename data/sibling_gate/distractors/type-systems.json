@@ -1,0 +1,118 @@
+{
+"mlnla-rl2-800-all11:chat-lmsys-0003__L044__p466:pythontyping:webidl": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0003__L044__p466:pythontyping:webidl",
+"anchor": "WebIDL",
+"nearest": [
+"TypeScript type system",
+"Affine type system",
+"Linear type system",
+"Hindley–Milner type system"
+],
+"random": [
+"Calculus of constructions",
+"Dependent type theory",
+"Homotopy type theory",
+"Simply typed lambda calculus"
+],
+"distractors": [
+"TypeScript type system",
+"Affine type system",
+"Linear type system",
+"Hindley–Milner type system",
+"Calculus of constructions",
+"Dependent type theory",
+"Homotopy type theory",
+"Simply typed lambda calculus"
+],
+"n_eligible": 10,
+"sha": "f00a2077cdf25d948f9d1579a8463448e1bbfe8d3cc26ef82c6734a08d539f31",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0003__L032__p310:netclrtypehierarchy:webidlwebbluetoothapi": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0003__L032__p310:netclrtypehierarchy:webidlwebbluetoothapi",
+"anchor": "WebIDL",
+"nearest": [
+"TypeScript type system",
+"Affine type system",
+"Linear type system",
+"Hindley–Milner type system"
+],
+"random": [
+"Calculus of constructions",
+"Martin-Löf type theory",
+"Simply typed lambda calculus",
+"System F"
+],
+"distractors": [
+"TypeScript type system",
+"Affine type system",
+"Linear type system",
+"Hindley–Milner type system",
+"Calculus of constructions",
+"Martin-Löf type theory",
+"Simply typed lambda calculus",
+"System F"
+],
+"n_eligible": 10,
+"sha": "d721aadf05ade69ab20dfe8868901e0fc13bca58bfddc472169a97933376f9ab",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0003__L044__p310:javatypesystem:webidl": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0003__L044__p310:javatypesystem:webidl",
+"anchor": "TypeScript type system",
+"nearest": [
+"WebIDL types",
+"Affine type system",
+"Hindley–Milner type system",
+"Dependent type theory"
+],
+"random": [
+"Calculus of constructions",
+"Homotopy type theory",
+"Linear type system",
+"Simply typed lambda calculus"
+],
+"distractors": [
+"WebIDL types",
+"Affine type system",
+"Hindley–Milner type system",
+"Dependent type theory",
+"Calculus of constructions",
+"Homotopy type theory",
+"Linear type system",
+"Simply typed lambda calculus"
+],
+"n_eligible": 10,
+"sha": "0db495f83865f2da492e13ddd77aa65c5b3d8f7cf81e71e50e6e8e8526379032",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0003__L048__p121:javascripttypes:webidltypes": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0003__L048__p121:javascripttypes:webidltypes",
+"anchor": "WebIDL types",
+"nearest": [
+"TypeScript type system",
+"Affine type system",
+"Hindley–Milner type system",
+"Linear type system"
+],
+"random": [
+"Homotopy type theory",
+"Martin-Löf type theory",
+"Simply typed lambda calculus",
+"System F"
+],
+"distractors": [
+"TypeScript type system",
+"Affine type system",
+"Hindley–Milner type system",
+"Linear type system",
+"Homotopy type theory",
+"Martin-Löf type theory",
+"Simply typed lambda calculus",
+"System F"
+],
+"n_eligible": 10,
+"sha": "2461308469b3de7697db0d748a62741ad7d7d293f5cf470cd9ff7939294909cb",
+"generation": 0
+}
+}

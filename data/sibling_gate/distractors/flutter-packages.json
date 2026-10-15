@@ -1,0 +1,216 @@
+{
+"mlnla-rl2-800-all11:chat-lmsys-0012__L040__p745:flutterlocalizationsflutterbloc:hiveflutterriverpodtablecalendar": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0012__L040__p745:flutterlocalizationsflutterbloc:hiveflutterriverpodtablecalendar",
+"anchor": "flutter_riverpod",
+"nearest": [
+"provider",
+"hive",
+"shared_preferences",
+"http"
+],
+"random": [
+"fl_chart",
+"graphic",
+"table_calendar"
+],
+"distractors": [
+"provider",
+"hive",
+"shared_preferences",
+"http",
+"fl_chart",
+"graphic",
+"table_calendar"
+],
+"n_eligible": 7,
+"sha": "ce7a7aac9dab9207e7cd14dfed2af2bcef7f7eeee7416dbbb31dc59647062995",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0012__L052__p684:leafletmaplibregljs:tablecalendarcalendarview": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0012__L052__p684:leafletmaplibregljs:tablecalendarcalendarview",
+"anchor": "Leaflet",
+"nearest": [
+"table_calendar",
+"fl_chart",
+"graphic",
+"http"
+],
+"random": [
+"flutter_riverpod",
+"hive",
+"provider",
+"shared_preferences"
+],
+"distractors": [
+"table_calendar",
+"fl_chart",
+"graphic",
+"http",
+"flutter_riverpod",
+"hive",
+"provider",
+"shared_preferences"
+],
+"n_eligible": 8,
+"sha": "581f24d26cd8301fbc13d84b1d4ee9c4e1c50401562307e91ac4a046ed45fbab",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0012__L020__p395:cloudfirestore:hive": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0012__L020__p395:cloudfirestore:hive",
+"anchor": "hive",
+"nearest": [
+"shared_preferences",
+"flutter_riverpod",
+"provider",
+"http"
+],
+"random": [
+"fl_chart",
+"graphic",
+"table_calendar"
+],
+"distractors": [
+"shared_preferences",
+"flutter_riverpod",
+"provider",
+"http",
+"fl_chart",
+"graphic",
+"table_calendar"
+],
+"n_eligible": 7,
+"sha": "da3618fd59641c0b5c8215f947f93763592481a7eb3a641fc45350a2147c0470",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0012__L028__p745:diofluttersvg:tablecalendarflchart": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0012__L028__p745:diofluttersvg:tablecalendarflchart",
+"anchor": "table_calendar",
+"nearest": [
+"flutter_riverpod",
+"http",
+"shared_preferences",
+"provider"
+],
+"random": [
+"hive"
+],
+"distractors": [
+"flutter_riverpod",
+"http",
+"shared_preferences",
+"provider",
+"hive"
+],
+"n_eligible": 5,
+"sha": "95c0fa8d4b7d0405f661edcfa8b1e86fe049eefdd88c915bb860019183401bf3",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0012__L028__p745:syncfusionfluttercharts:flchart": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0012__L028__p745:syncfusionfluttercharts:flchart",
+"anchor": "fl_chart",
+"nearest": [
+"table_calendar",
+"graphic",
+"flutter_riverpod",
+"http"
+],
+"random": [
+"hive",
+"provider",
+"shared_preferences"
+],
+"distractors": [
+"table_calendar",
+"graphic",
+"flutter_riverpod",
+"http",
+"hive",
+"provider",
+"shared_preferences"
+],
+"n_eligible": 7,
+"sha": "80319fd96e0ee356247da72d3746b0277dff80df14766b43ceba0f808d803762",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0012__L036__p745:chartsflutter:flchart": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0012__L036__p745:chartsflutter:flchart",
+"anchor": "fl_chart",
+"nearest": [
+"table_calendar",
+"graphic",
+"flutter_riverpod",
+"http"
+],
+"random": [
+"hive",
+"provider",
+"shared_preferences"
+],
+"distractors": [
+"table_calendar",
+"graphic",
+"flutter_riverpod",
+"http",
+"hive",
+"provider",
+"shared_preferences"
+],
+"n_eligible": 7,
+"sha": "568757b17198d97e9b62dfd47ef0e289de3e38ee175f7b6b5233c58f56d9d8eb",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0012__L042__p745:fluttersvg:tablecalendar": {
+"unit": "nla-rl-L42:chat-lmsys-0012__L042__p745:fluttersvg:tablecalendar",
+"anchor": "graphic",
+"nearest": [
+"fl_chart",
+"table_calendar",
+"flutter_riverpod",
+"provider"
+],
+"random": [
+"hive",
+"http",
+"shared_preferences"
+],
+"distractors": [
+"fl_chart",
+"table_calendar",
+"flutter_riverpod",
+"provider",
+"hive",
+"http",
+"shared_preferences"
+],
+"n_eligible": 7,
+"sha": "d0b3945386bf9d68330006a4b8b61c4e177569c1436cea8e3bbff480f795685d",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0012__L028__p395:firebasecore:hive": {
+"unit": "s3d-sft251:chat-lmsys-0012__L028__p395:firebasecore:hive",
+"anchor": "hive",
+"nearest": [
+"shared_preferences",
+"flutter_riverpod",
+"provider",
+"http"
+],
+"random": [
+"fl_chart",
+"graphic",
+"table_calendar"
+],
+"distractors": [
+"shared_preferences",
+"flutter_riverpod",
+"provider",
+"http",
+"fl_chart",
+"graphic",
+"table_calendar"
+],
+"n_eligible": 7,
+"sha": "f3cb4c550d2abda8c03897a5c55967ac537e83b017a212a3074da0cc4cc90ef8",
+"generation": 0
+}
+}

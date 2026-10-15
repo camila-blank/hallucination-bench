@@ -1,0 +1,116 @@
+{
+"mlnla-rl600-all11:chat-dailydialog-0039__L036__p233:couplesweekendanniversarytrip:birthdaynightclubnight": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0039__L036__p233:couplesweekendanniversarytrip:birthdaynightclubnight",
+"anchor": "birthday nightclub celebration",
+"nearest": [
+"bachelor party",
+"graduation",
+"housewarming party",
+"wedding"
+],
+"random": [
+"baby shower",
+"bridal shower",
+"engagement party",
+"retirement party"
+],
+"distractors": [
+"bachelor party",
+"graduation",
+"housewarming party",
+"wedding",
+"baby shower",
+"bridal shower",
+"engagement party",
+"retirement party"
+],
+"n_eligible": 8,
+"sha": "a17c05138cf36bfa4187b9a0c480d462247445dcb596ffb01a2e4d32dd655868",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0039__L036__p233:retirementanniversarycelebration:birthdaynightclubcelebration": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0039__L036__p233:retirementanniversarycelebration:birthdaynightclubcelebration",
+"anchor": "birthday celebration",
+"nearest": [
+"baby shower",
+"bridal shower",
+"graduation",
+"housewarming party"
+],
+"random": [
+"bachelor party",
+"engagement party",
+"wedding"
+],
+"distractors": [
+"baby shower",
+"bridal shower",
+"graduation",
+"housewarming party",
+"bachelor party",
+"engagement party",
+"wedding"
+],
+"n_eligible": 7,
+"sha": "ed10f658b9921f2bdc4e380388064f4503baab490fb1c5cf5639ec26dbe9962c",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0039__L036__p42:newyearseveouting:birthdaycelebration": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0039__L036__p42:newyearseveouting:birthdaycelebration",
+"anchor": "birthday",
+"nearest": [
+"baby shower",
+"graduation",
+"anniversary party",
+"bridal shower"
+],
+"random": [
+"bachelor party",
+"engagement party",
+"housewarming party",
+"retirement party"
+],
+"distractors": [
+"baby shower",
+"graduation",
+"anniversary party",
+"bridal shower",
+"bachelor party",
+"engagement party",
+"housewarming party",
+"retirement party"
+],
+"n_eligible": 9,
+"sha": "e539fe0da601423ba165c61db6c11f37db8b009633ccddd4a43fca5f07fae869",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0039__L048__p162:firstanniversarydinnerdate:birthdaynightclubcelebration": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0039__L048__p162:firstanniversarydinnerdate:birthdaynightclubcelebration",
+"anchor": "birthday nightclub celebration",
+"nearest": [
+"bachelor party",
+"graduation",
+"housewarming party",
+"wedding"
+],
+"random": [
+"baby shower",
+"bridal shower",
+"engagement party",
+"retirement party"
+],
+"distractors": [
+"bachelor party",
+"graduation",
+"housewarming party",
+"wedding",
+"baby shower",
+"bridal shower",
+"engagement party",
+"retirement party"
+],
+"n_eligible": 8,
+"sha": "aeee3ccd38a2cf2926127c18fcff03e0d03d08809a65c0927126cb3d40bde428",
+"generation": 0
+}
+}

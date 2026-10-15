@@ -1,0 +1,401 @@
+{
+"mlnla-rl2-800-all11:chat-lmsys-0020__L052__p62:algebraictopology:derhamtheory": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0020__L052__p62:algebraictopology:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [
+"Linear algebra",
+"Statistics",
+"Geometry"
+],
+"random": [],
+"distractors": [
+"Linear algebra",
+"Statistics",
+"Geometry"
+],
+"n_eligible": 3,
+"sha": "6b2ec49f53454fe8988eba8556df1d38cc46522c7d704ab07adec3f500bcb739",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0020__L060__p62:algebraictopology:derhamtheory": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0020__L060__p62:algebraictopology:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [
+"Linear algebra",
+"Statistics",
+"Geometry"
+],
+"random": [],
+"distractors": [
+"Linear algebra",
+"Statistics",
+"Geometry"
+],
+"n_eligible": 3,
+"sha": "9ebc0a8ce35d74d96f088e0dcaf4bcbfe49693af78ebe6dac81053c54e97a98d",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0020__L024__p156:algebraictopology:derhamtheory": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0020__L024__p156:algebraictopology:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [
+"Linear algebra",
+"Statistics",
+"Geometry"
+],
+"random": [],
+"distractors": [
+"Linear algebra",
+"Statistics",
+"Geometry"
+],
+"n_eligible": 3,
+"sha": "851cc5ea650659147168d0cbe57cea86c4a230b2944cbf1ff81d99f4097a5e68",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0020__L040__p23:algebraictopology:derhamtheory": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0020__L040__p23:algebraictopology:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [
+"Linear algebra",
+"Statistics",
+"Geometry"
+],
+"random": [],
+"distractors": [
+"Linear algebra",
+"Statistics",
+"Geometry"
+],
+"n_eligible": 3,
+"sha": "c502b6b059eb7d26a8b9c113d6864c49dac92d36313260529c4f83578fe7ca08",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0020__L042__p23:algebraictopology:derhamtheory": {
+"unit": "nla-rl-L42:chat-lmsys-0020__L042__p23:algebraictopology:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [
+"Linear algebra",
+"Statistics",
+"Geometry"
+],
+"random": [],
+"distractors": [
+"Linear algebra",
+"Statistics",
+"Geometry"
+],
+"n_eligible": 3,
+"sha": "cc259624f72a818830001fda0bcae770c76c8eb047cbc3b99b49d9f0d60d717c",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0020__L024__p23:algebra:derhamtheory": {
+"unit": "s3d-rl600-all11:chat-lmsys-0020__L024__p23:algebra:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [
+"Statistics",
+"Geometry"
+],
+"random": [],
+"distractors": [
+"Statistics",
+"Geometry"
+],
+"n_eligible": 2,
+"sha": "b045c9e9549f84fd830be4490ccd55393e86d4a2dfadff10911d39ee558bd136",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0020__L028__p62:algebraandcalculus:differentialgeometryandalgebraictopology": {
+"unit": "s3d-rl600-all11:chat-lmsys-0020__L028__p62:algebraandcalculus:differentialgeometryandalgebraictopology",
+"anchor": "differential geometry and algebraic topology",
+"nearest": [
+"De Rham theory",
+"Number theory",
+"Statistics",
+"Probability theory"
+],
+"random": [],
+"distractors": [
+"De Rham theory",
+"Number theory",
+"Statistics",
+"Probability theory"
+],
+"n_eligible": 4,
+"sha": "fcfce520fd387542ddbc9a25881a9b385edd0a0129b585226eb501298aaafc03",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0020__L036__p23:functionalanalysis:derhamtheory": {
+"unit": "s3d-rl600-all11:chat-lmsys-0020__L036__p23:functionalanalysis:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [
+"Linear algebra",
+"Statistics",
+"Geometry"
+],
+"random": [],
+"distractors": [
+"Linear algebra",
+"Statistics",
+"Geometry"
+],
+"n_eligible": 3,
+"sha": "31d073eee5b795b86f45c6c19c701aa89cb84e5b3ab08a912f001552fa2753b2",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0020__L036__p62:complexanalysis:calculusonmanifolds": {
+"unit": "s3d-rl600-all11:chat-lmsys-0020__L036__p62:complexanalysis:calculusonmanifolds",
+"anchor": "calculus",
+"nearest": [
+"Geometry",
+"Linear algebra",
+"Statistics",
+"Probability theory"
+],
+"random": [
+"De Rham theory",
+"Number theory"
+],
+"distractors": [
+"Geometry",
+"Linear algebra",
+"Statistics",
+"Probability theory",
+"De Rham theory",
+"Number theory"
+],
+"n_eligible": 6,
+"sha": "5364d2ff43c7e07b20747f88b654ada84d306560d216357424ceb31bbf525d55",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0020__L036__p62:complexanalysis:differentialforms": {
+"unit": "s3d-rl600-all11:chat-lmsys-0020__L036__p62:complexanalysis:differentialforms",
+"anchor": "calculus",
+"nearest": [
+"Geometry",
+"Linear algebra",
+"Statistics",
+"Probability theory"
+],
+"random": [
+"De Rham theory",
+"Number theory"
+],
+"distractors": [
+"Geometry",
+"Linear algebra",
+"Statistics",
+"Probability theory",
+"De Rham theory",
+"Number theory"
+],
+"n_eligible": 6,
+"sha": "da8c243c17e3769e5b1ab4b89243a0c7e50240df3d4e9fb6c656e7c2b91f9bbe",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0020__L040__p23:ergodictheory:derhamtheory": {
+"unit": "s3d-rl600-all11:chat-lmsys-0020__L040__p23:ergodictheory:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [
+"Linear algebra",
+"Statistics",
+"Geometry"
+],
+"random": [],
+"distractors": [
+"Linear algebra",
+"Statistics",
+"Geometry"
+],
+"n_eligible": 3,
+"sha": "e3145a7dfe9ffe548c78ac9bb614ccab88bc7bc9ffaffe4a43f39e9f7d91a267",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0020__L040__p23:functionalanalysis:derhamtheory": {
+"unit": "s3d-rl600-all11:chat-lmsys-0020__L040__p23:functionalanalysis:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [
+"Linear algebra",
+"Statistics",
+"Geometry"
+],
+"random": [],
+"distractors": [
+"Linear algebra",
+"Statistics",
+"Geometry"
+],
+"n_eligible": 3,
+"sha": "674f7080e09e46f306c03b05c457e1294701b307ed784aac97073ca6129bfb7d",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0020__L044__p23:functionalanalysis:derhamtheory": {
+"unit": "s3d-rl600-all11:chat-lmsys-0020__L044__p23:functionalanalysis:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [
+"Linear algebra",
+"Statistics",
+"Geometry"
+],
+"random": [],
+"distractors": [
+"Linear algebra",
+"Statistics",
+"Geometry"
+],
+"n_eligible": 3,
+"sha": "d9d5021890acc0258eaca8e5c06a380e193947af8ffdc6cb02a608d56688a944",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0020__L036__p23:functionalanalysis:derhamtheory": {
+"unit": "s3d-rl600:chat-lmsys-0020__L036__p23:functionalanalysis:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [
+"Linear algebra",
+"Statistics",
+"Geometry"
+],
+"random": [],
+"distractors": [
+"Linear algebra",
+"Statistics",
+"Geometry"
+],
+"n_eligible": 3,
+"sha": "67e7f733ba9b06a33f3b9a024c70385a3ce79dad7e3e918e66bd7e55d16ce88b",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0020__L028__p23:calculus:derhamtheory": {
+"unit": "s3d-sft251:chat-lmsys-0020__L028__p23:calculus:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [
+"Linear algebra",
+"Statistics",
+"Geometry"
+],
+"random": [],
+"distractors": [
+"Linear algebra",
+"Statistics",
+"Geometry"
+],
+"n_eligible": 3,
+"sha": "b09163ce0cc45b65689d740557ce8dd93f08d2cc14ced307213a99415e4b1fdc",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0020__L032__p23:calculus:derhamtheory": {
+"unit": "s3d-sft251:chat-lmsys-0020__L032__p23:calculus:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [
+"Linear algebra",
+"Statistics",
+"Geometry"
+],
+"random": [],
+"distractors": [
+"Linear algebra",
+"Statistics",
+"Geometry"
+],
+"n_eligible": 3,
+"sha": "cdfa3d5f58bf4a91e781ffc9494c429e72706f489db1fb27221acb25da4d8420",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0020__L036__p23:functionalanalysis:derhamtheory": {
+"unit": "s3d-sft251:chat-lmsys-0020__L036__p23:functionalanalysis:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [
+"Linear algebra",
+"Statistics",
+"Geometry"
+],
+"random": [],
+"distractors": [
+"Linear algebra",
+"Statistics",
+"Geometry"
+],
+"n_eligible": 3,
+"sha": "0f2d035766f88d0da9f40fc020891d12ddc65cf26c5ab4ea019fb1eded6be3cd",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0020__L036__p62:complexanalysis:calculusonmanifolds": {
+"unit": "s3d-sft251:chat-lmsys-0020__L036__p62:complexanalysis:calculusonmanifolds",
+"anchor": "calculus",
+"nearest": [
+"Geometry",
+"Linear algebra",
+"Statistics",
+"Probability theory"
+],
+"random": [
+"De Rham theory",
+"Number theory"
+],
+"distractors": [
+"Geometry",
+"Linear algebra",
+"Statistics",
+"Probability theory",
+"De Rham theory",
+"Number theory"
+],
+"n_eligible": 6,
+"sha": "a235bfec3e385aeee061d102327369217108037932f7eb1fc611abf03846b9a8",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0020__L040__p23:ergodictheory:derhamtheory": {
+"unit": "s3d-sft251:chat-lmsys-0020__L040__p23:ergodictheory:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [
+"Linear algebra",
+"Statistics",
+"Geometry"
+],
+"random": [],
+"distractors": [
+"Linear algebra",
+"Statistics",
+"Geometry"
+],
+"n_eligible": 3,
+"sha": "74cf25c0b2af44c46fe9a875c90a4cab631c69eda6f556962903d79c04353cd0",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0020__L044__p23:functionalanalysis:derhamtheory": {
+"unit": "s3d-sft251:chat-lmsys-0020__L044__p23:functionalanalysis:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [
+"Linear algebra",
+"Statistics",
+"Geometry"
+],
+"random": [],
+"distractors": [
+"Linear algebra",
+"Statistics",
+"Geometry"
+],
+"n_eligible": 3,
+"sha": "65624635aced5397147e3a1be8cd0c7951dc89b1208283a9c85a31895d862425",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0020__L048__p23:functionalanalysis:derhamtheory": {
+"unit": "s3d-sft251:chat-lmsys-0020__L048__p23:functionalanalysis:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [
+"Linear algebra",
+"Statistics",
+"Geometry"
+],
+"random": [],
+"distractors": [
+"Linear algebra",
+"Statistics",
+"Geometry"
+],
+"n_eligible": 3,
+"sha": "8b82b6cfdd3752c5c33d6ace6cc090f208e8ab4537ba5a360c37dd21718c54e1",
+"generation": 0
+}
+}

@@ -1,0 +1,396 @@
+{
+"mlnla-rl2-800-all11:chat-lmsys-0003__L024__p439:usbdevice:bluetoothdevice": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0003__L024__p439:usbdevice:bluetoothdevice",
+"anchor": "BluetoothDevice",
+"nearest": [
+"Node",
+"Element",
+"EventTarget"
+],
+"random": [],
+"distractors": [
+"Node",
+"Element",
+"EventTarget"
+],
+"n_eligible": 3,
+"sha": "74b3727dab0ca234b22c2e00ffd1b78281fb91bb74656142a25186f253154236",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0003__L056__p439:usbconnectionusbdevice:bluetoothremotegattservice": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0003__L056__p439:usbconnectionusbdevice:bluetoothremotegattservice",
+"anchor": "BluetoothDevice",
+"nearest": [
+"Node",
+"Element",
+"EventTarget"
+],
+"random": [],
+"distractors": [
+"Node",
+"Element",
+"EventTarget"
+],
+"n_eligible": 3,
+"sha": "133097932db90584f37c95df37df794082388d34d9f82364db2b4b0bc56c7827",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0003__L020__p121:navigator:device": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0003__L020__p121:navigator:device",
+"anchor": "BluetoothRemoteGATTService",
+"nearest": [
+"Node",
+"Element",
+"EventTarget"
+],
+"random": [],
+"distractors": [
+"Node",
+"Element",
+"EventTarget"
+],
+"n_eligible": 3,
+"sha": "9541fbc226930c4b67dfc848946be91af90c348d10667d2dc8e263d072e387d0",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0003__L020__p121:windownavigatornavigator:devicebluetoothdevice": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0003__L020__p121:windownavigatornavigator:devicebluetoothdevice",
+"anchor": "BluetoothDevice",
+"nearest": [
+"Node",
+"Element",
+"EventTarget"
+],
+"random": [],
+"distractors": [
+"Node",
+"Element",
+"EventTarget"
+],
+"n_eligible": 3,
+"sha": "1513139a93030614d698624b6347684f70b34755590617b37398597ef51fee24",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0003__L020__p439:usbdevice:bluetoothdevice": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0003__L020__p439:usbdevice:bluetoothdevice",
+"anchor": "BluetoothDevice",
+"nearest": [
+"Node",
+"Element",
+"EventTarget"
+],
+"random": [],
+"distractors": [
+"Node",
+"Element",
+"EventTarget"
+],
+"n_eligible": 3,
+"sha": "a45279c0b0bf5c01e495d31c5cd294e1c8de86f058b273be9a8e6289b5c01ad0",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0003__L052__p345:domwindowobject:webbluetoothapi": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0003__L052__p345:domwindowobject:webbluetoothapi",
+"anchor": "BluetoothRemoteGATTServer",
+"nearest": [
+"EventTarget",
+"Element",
+"Node"
+],
+"random": [],
+"distractors": [
+"EventTarget",
+"Element",
+"Node"
+],
+"n_eligible": 3,
+"sha": "a745b9d6688d0e62e517c1b065402dde369ea7d92f0b3a587ee29d254bdf5925",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0003__L060__p310:usbdevice:bluetoothremotegattserver": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0003__L060__p310:usbdevice:bluetoothremotegattserver",
+"anchor": "BluetoothDevice",
+"nearest": [
+"Node",
+"Element",
+"EventTarget"
+],
+"random": [],
+"distractors": [
+"Node",
+"Element",
+"EventTarget"
+],
+"n_eligible": 3,
+"sha": "9c4a31211e1f41f3da6926de8f6d5938668cb145d9844fc7956201a9923ca0c5",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0003__L052__p310:domtokenlist:bluetoothdevice": {
+"unit": "s3d-rl600-all11:chat-lmsys-0003__L052__p310:domtokenlist:bluetoothdevice",
+"anchor": "BluetoothRemoteGATTService",
+"nearest": [
+"Node",
+"Element",
+"EventTarget"
+],
+"random": [],
+"distractors": [
+"Node",
+"Element",
+"EventTarget"
+],
+"n_eligible": 3,
+"sha": "bc0c380c1c95596789dfaa45a567311db813ff475fb769b750191fdaec9fd23b",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0003__L052__p310:mediastream:bluetoothdevice": {
+"unit": "s3d-rl600-all11:chat-lmsys-0003__L052__p310:mediastream:bluetoothdevice",
+"anchor": "BluetoothDevice",
+"nearest": [
+"Node",
+"Element",
+"EventTarget"
+],
+"random": [],
+"distractors": [
+"Node",
+"Element",
+"EventTarget"
+],
+"n_eligible": 3,
+"sha": "e6125804d939427bdb69f33f6bdf5b8a7b4b5e3669c40a60e343a753f67607d4",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0003__L052__p439:mediastream:bluetoothremotegattservice": {
+"unit": "s3d-rl600-all11:chat-lmsys-0003__L052__p439:mediastream:bluetoothremotegattservice",
+"anchor": "BluetoothDevice",
+"nearest": [
+"Node",
+"Element",
+"EventTarget"
+],
+"random": [],
+"distractors": [
+"Node",
+"Element",
+"EventTarget"
+],
+"n_eligible": 3,
+"sha": "9fbab8eec7f6aff3e7718f401d130a1616b9c3730f47423e2e2ddf09ef3185ee",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0003__L056__p310:navigator:bluetoothdevice": {
+"unit": "s3d-rl600-all11:chat-lmsys-0003__L056__p310:navigator:bluetoothdevice",
+"anchor": "BluetoothRemoteGATTService",
+"nearest": [
+"Node",
+"Element",
+"EventTarget"
+],
+"random": [],
+"distractors": [
+"Node",
+"Element",
+"EventTarget"
+],
+"n_eligible": 3,
+"sha": "81c4b398c434858b94675a9a812ed1b147ff85acd175ff28504de5eb7535537a",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0003__L056__p310:navigator:bluetoothremotegattserver": {
+"unit": "s3d-rl600-all11:chat-lmsys-0003__L056__p310:navigator:bluetoothremotegattserver",
+"anchor": "BluetoothRemoteGATTService",
+"nearest": [
+"Node",
+"Element",
+"EventTarget"
+],
+"random": [],
+"distractors": [
+"Node",
+"Element",
+"EventTarget"
+],
+"n_eligible": 3,
+"sha": "7e90bca6989bf455482b8b8dc0da28caff9275e355324e597aba538beac511b5",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0003__L060__p310:mediastreamtrack:bluetoothdevice": {
+"unit": "s3d-rl600-all11:chat-lmsys-0003__L060__p310:mediastreamtrack:bluetoothdevice",
+"anchor": "BluetoothRemoteGATTService",
+"nearest": [
+"Node",
+"Element",
+"EventTarget"
+],
+"random": [],
+"distractors": [
+"Node",
+"Element",
+"EventTarget"
+],
+"n_eligible": 3,
+"sha": "29c8817192d7bda33e3ab5b50618182c200e02d3b416e80356aa8d7de493dcea",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0003__L060__p310:navigator:bluetoothdevice": {
+"unit": "s3d-rl600-all11:chat-lmsys-0003__L060__p310:navigator:bluetoothdevice",
+"anchor": "BluetoothRemoteGATTService",
+"nearest": [
+"Node",
+"Element",
+"EventTarget"
+],
+"random": [],
+"distractors": [
+"Node",
+"Element",
+"EventTarget"
+],
+"n_eligible": 3,
+"sha": "47d2470077d77001e82c5ef8fd5934f34d63234234cc49afdbe1fc75afc5bfe4",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0003__L060__p310:navigator:bluetoothremotegattserver": {
+"unit": "s3d-rl600-all11:chat-lmsys-0003__L060__p310:navigator:bluetoothremotegattserver",
+"anchor": "BluetoothRemoteGATTService",
+"nearest": [
+"Node",
+"Element",
+"EventTarget"
+],
+"random": [],
+"distractors": [
+"Node",
+"Element",
+"EventTarget"
+],
+"n_eligible": 3,
+"sha": "242711ef5bbf60157d6bbfe9da8f31724c44c17df2951896c71d51600634a469",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0003__L060__p310:navigator:bluetoothdevice": {
+"unit": "s3d-rl600:chat-lmsys-0003__L060__p310:navigator:bluetoothdevice",
+"anchor": "BluetoothRemoteGATTService",
+"nearest": [
+"Node",
+"Element",
+"EventTarget"
+],
+"random": [],
+"distractors": [
+"Node",
+"Element",
+"EventTarget"
+],
+"n_eligible": 3,
+"sha": "f9ce3ffd16e4d476a5d7c4fecc4f3e4ecade251c79488606e2bbf68aa180ab9d",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0003__L024__p439:mediastream:bluetoothremotegattservice": {
+"unit": "s3d-sft251:chat-lmsys-0003__L024__p439:mediastream:bluetoothremotegattservice",
+"anchor": "BluetoothDevice",
+"nearest": [
+"Node",
+"Element",
+"EventTarget"
+],
+"random": [],
+"distractors": [
+"Node",
+"Element",
+"EventTarget"
+],
+"n_eligible": 3,
+"sha": "b2737e8a8c461ad30d29d391c9219befe61723cc7029a9adb16ab033d1905630",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0003__L024__p439:mediastreamtrack:bluetoothremotegattservice": {
+"unit": "s3d-sft251:chat-lmsys-0003__L024__p439:mediastreamtrack:bluetoothremotegattservice",
+"anchor": "BluetoothRemoteGATTService",
+"nearest": [
+"Node",
+"Element",
+"EventTarget"
+],
+"random": [],
+"distractors": [
+"Node",
+"Element",
+"EventTarget"
+],
+"n_eligible": 3,
+"sha": "1be30980707b7b120ce199764b601bab9a43875afd090a313f32923bf21ee317",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0003__L032__p439:htmlvideoelement:bluetoothremotegattservice": {
+"unit": "s3d-sft251:chat-lmsys-0003__L032__p439:htmlvideoelement:bluetoothremotegattservice",
+"anchor": "BluetoothDevice",
+"nearest": [
+"Node",
+"EventTarget"
+],
+"random": [],
+"distractors": [
+"Node",
+"EventTarget"
+],
+"n_eligible": 2,
+"sha": "8ad309ef1ce5143204f254eba88890e25a902cbfd102efe3b63d931cad565cfc",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0003__L036__p439:mediasource:bluetoothremotegattservice": {
+"unit": "s3d-sft251:chat-lmsys-0003__L036__p439:mediasource:bluetoothremotegattservice",
+"anchor": "BluetoothRemoteGATTService",
+"nearest": [
+"Node",
+"Element",
+"EventTarget"
+],
+"random": [],
+"distractors": [
+"Node",
+"Element",
+"EventTarget"
+],
+"n_eligible": 3,
+"sha": "4cca82ba35993ee76af26bc0ecd6ffd6a7fb60979adc34d3d71e8c6041220c91",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0003__L052__p310:navigator:bluetoothdevice": {
+"unit": "s3d-sft251:chat-lmsys-0003__L052__p310:navigator:bluetoothdevice",
+"anchor": "BluetoothRemoteGATTService",
+"nearest": [
+"Node",
+"Element",
+"EventTarget"
+],
+"random": [],
+"distractors": [
+"Node",
+"Element",
+"EventTarget"
+],
+"n_eligible": 3,
+"sha": "a666c61683ced440ac7f198c59fc91471707e6a5928ae4b7c4367327451afe99",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0003__L056__p310:navigator:bluetoothdevice": {
+"unit": "s3d-sft251:chat-lmsys-0003__L056__p310:navigator:bluetoothdevice",
+"anchor": "BluetoothRemoteGATTService",
+"nearest": [
+"Node",
+"Element",
+"EventTarget"
+],
+"random": [],
+"distractors": [
+"Node",
+"Element",
+"EventTarget"
+],
+"n_eligible": 3,
+"sha": "8047bce3e5e17e2a08b5be0bfc8d92b4871230285ab0f47d1507e0d009843000",
+"generation": 0
+}
+}

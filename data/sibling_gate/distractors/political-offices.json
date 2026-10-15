@@ -1,0 +1,234 @@
+{
+"mlnla-rl2-800-all11:chat-lmsys-0031__L044__p55:presidency:swedishmonarchy": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0031__L044__p55:presidency:swedishmonarchy",
+"anchor": "monarchy",
+"nearest": [
+"President",
+"Chancellor of Germany",
+"mayor",
+"President of Germany"
+],
+"random": [
+"Governor",
+"President of the Republic",
+"Präsident",
+"Senator"
+],
+"distractors": [
+"President",
+"Chancellor of Germany",
+"mayor",
+"President of Germany",
+"Governor",
+"President of the Republic",
+"Präsident",
+"Senator"
+],
+"n_eligible": 13,
+"sha": "cb758500bef8d58eb79aa88542ffebce56120238889201b1b1bbd392e9800fb1",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0049__L028__p346:president:mayor": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0049__L028__p346:president:mayor",
+"anchor": "mayor",
+"nearest": [
+"Governor",
+"Prime Minister",
+"Senator",
+"monarchy"
+],
+"random": [
+"Chancellor of Germany",
+"King of Sweden",
+"Speaker of the House",
+"presidency"
+],
+"distractors": [
+"Governor",
+"Prime Minister",
+"Senator",
+"monarchy",
+"Chancellor of Germany",
+"King of Sweden",
+"Speaker of the House",
+"presidency"
+],
+"n_eligible": 9,
+"sha": "ee9d218e3db747a0963414261eed8f5d669a5162c59515cbde1b421a37361844",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0049__L032__p346:president:bürgermeister": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0049__L032__p346:president:bürgermeister",
+"anchor": "mayor",
+"nearest": [
+"Governor",
+"Prime Minister",
+"Senator",
+"monarchy"
+],
+"random": [
+"King of Sweden",
+"Secretary of State",
+"Speaker of the House",
+"presidency"
+],
+"distractors": [
+"Governor",
+"Prime Minister",
+"Senator",
+"monarchy",
+"King of Sweden",
+"Secretary of State",
+"Speaker of the House",
+"presidency"
+],
+"n_eligible": 9,
+"sha": "d30dc0a1898819fc98c954631a878a6ab01fb6a9ce9d5fe41fadf998d614cfd1",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0049__L032__p346:thepresident:bürgermeisterinoderbürgermeister": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0049__L032__p346:thepresident:bürgermeisterinoderbürgermeister",
+"anchor": "Bürgermeister",
+"nearest": [
+"Governor",
+"Prime Minister",
+"Speaker of the House",
+"Senator"
+],
+"random": [
+"Chancellor of Germany",
+"Secretary of State",
+"monarchy",
+"presidency"
+],
+"distractors": [
+"Governor",
+"Prime Minister",
+"Speaker of the House",
+"Senator",
+"Chancellor of Germany",
+"Secretary of State",
+"monarchy",
+"presidency"
+],
+"n_eligible": 9,
+"sha": "b6524a9b9e008936ae43c3911c39e5c3626e38f3fc26266aa456d0e83d112f30",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0049__L028__p346:germanpresident:bürgermeisterinoderbürgermeister": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0049__L028__p346:germanpresident:bürgermeisterinoderbürgermeister",
+"anchor": "President of Germany",
+"nearest": [
+"Bürgermeister",
+"Prime Minister",
+"monarchy",
+"King of Sweden"
+],
+"random": [
+"Governor",
+"Secretary of State",
+"Senator",
+"presidency"
+],
+"distractors": [
+"Bürgermeister",
+"Prime Minister",
+"monarchy",
+"King of Sweden",
+"Governor",
+"Secretary of State",
+"Senator",
+"presidency"
+],
+"n_eligible": 10,
+"sha": "294abbfbb23f233fb7ee22653d4e67a8862a9b37372d35dc87e21b601fe01b75",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0049__L032__p346:presidentoftherepublic:bürgermeister": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0049__L032__p346:presidentoftherepublic:bürgermeister",
+"anchor": "Bürgermeister",
+"nearest": [
+"Governor",
+"Prime Minister",
+"Speaker of the House",
+"Senator"
+],
+"random": [
+"Chancellor of Germany",
+"Secretary of State",
+"monarchy",
+"presidency"
+],
+"distractors": [
+"Governor",
+"Prime Minister",
+"Speaker of the House",
+"Senator",
+"Chancellor of Germany",
+"Secretary of State",
+"monarchy",
+"presidency"
+],
+"n_eligible": 9,
+"sha": "dbff40cb5faf7b19e355d4f0c8469cb2e2b89e5d6634e7c70b896e970a15ad6b",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0031__L044__p81:primeminister:swedishmonarch": {
+"unit": "s3d-rl600-all11:chat-lmsys-0031__L044__p81:primeminister:swedishmonarch",
+"anchor": "King of Sweden",
+"nearest": [
+"President of the Republic",
+"Präsident",
+"Secretary of State",
+"Chancellor of Germany"
+],
+"random": [
+"Governor",
+"Senator",
+"Speaker of the House",
+"monarchy"
+],
+"distractors": [
+"President of the Republic",
+"Präsident",
+"Secretary of State",
+"Chancellor of Germany",
+"Governor",
+"Senator",
+"Speaker of the House",
+"monarchy"
+],
+"n_eligible": 14,
+"sha": "2c46f95a618753f735221cc7fddd709b351d9d0398620376c97f73d6294a905e",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0049__L036__p346:präsident:bürgermeister": {
+"unit": "s3d-rl600:chat-lmsys-0049__L036__p346:präsident:bürgermeister",
+"anchor": "Bürgermeister",
+"nearest": [
+"Governor",
+"Prime Minister",
+"Speaker of the House",
+"Senator"
+],
+"random": [
+"Chancellor of Germany",
+"Secretary of State",
+"Vice President",
+"monarchy"
+],
+"distractors": [
+"Governor",
+"Prime Minister",
+"Speaker of the House",
+"Senator",
+"Chancellor of Germany",
+"Secretary of State",
+"Vice President",
+"monarchy"
+],
+"n_eligible": 10,
+"sha": "189a0bdff00062fb53aea565f25b6f2a04f017003024778ec936234a2330ca64",
+"generation": 0
+}
+}

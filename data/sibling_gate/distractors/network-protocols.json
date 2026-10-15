@@ -1,0 +1,408 @@
+{
+"mlnla-rl2-800-all11:chat-lmsys-0008__L020__p326:ipsec:ribfib": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0008__L020__p326:ipsec:ribfib",
+"anchor": "IPsec",
+"nearest": [
+"Domain Name System",
+"File Transfer Protocol",
+"HTTPS",
+"Hypertext Transfer Protocol"
+],
+"random": [
+"IPv6",
+"PDCP",
+"Simple Mail Transfer Protocol",
+"Transmission Control Protocol"
+],
+"distractors": [
+"Domain Name System",
+"File Transfer Protocol",
+"HTTPS",
+"Hypertext Transfer Protocol",
+"IPv6",
+"PDCP",
+"Simple Mail Transfer Protocol",
+"Transmission Control Protocol"
+],
+"n_eligible": 12,
+"sha": "9e6b721b49e215c398b38e38f207f6258ea5ac7e0c7debdc077f3beede79d3cd",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0008__L024__p288:tcpip:ribfib": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0008__L024__p288:tcpip:ribfib",
+"anchor": "TCP/IP",
+"nearest": [
+"Domain Name System",
+"File Transfer Protocol",
+"HTTPS",
+"Hypertext Transfer Protocol"
+],
+"random": [
+"IPv6",
+"RLC",
+"Simple Mail Transfer Protocol",
+"WireGuard"
+],
+"distractors": [
+"Domain Name System",
+"File Transfer Protocol",
+"HTTPS",
+"Hypertext Transfer Protocol",
+"IPv6",
+"RLC",
+"Simple Mail Transfer Protocol",
+"WireGuard"
+],
+"n_eligible": 12,
+"sha": "b16ca2355805d6ddfb25f2dee03d0b0f31113ea8a73a2d3befc461840609262e",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0008__L024__p288:udpvstcp:ribvsfib": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0008__L024__p288:udpvstcp:ribvsfib",
+"anchor": "UDP vs TCP",
+"nearest": [
+"Domain Name System",
+"File Transfer Protocol",
+"HTTPS",
+"Hypertext Transfer Protocol"
+],
+"random": [
+"Internet Protocol",
+"PDCP",
+"Transmission Control Protocol",
+"WireGuard"
+],
+"distractors": [
+"Domain Name System",
+"File Transfer Protocol",
+"HTTPS",
+"Hypertext Transfer Protocol",
+"Internet Protocol",
+"PDCP",
+"Transmission Control Protocol",
+"WireGuard"
+],
+"n_eligible": 12,
+"sha": "2ad62b9711c0a2b99857f5be09525e568d3a843317e4c632d8f30b0fe19a157e",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0008__L052__p111:arp:fib": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0008__L052__p111:arp:fib",
+"anchor": "Address Resolution Protocol",
+"nearest": [
+"Domain Name System",
+"File Transfer Protocol",
+"HTTPS",
+"Hypertext Transfer Protocol"
+],
+"random": [
+"IPv6",
+"Simple Mail Transfer Protocol",
+"Transmission Control Protocol",
+"User Datagram Protocol"
+],
+"distractors": [
+"Domain Name System",
+"File Transfer Protocol",
+"HTTPS",
+"Hypertext Transfer Protocol",
+"IPv6",
+"Simple Mail Transfer Protocol",
+"Transmission Control Protocol",
+"User Datagram Protocol"
+],
+"n_eligible": 12,
+"sha": "13e8c2cfc939c292a17d583aba9bc74944cc449cadceb07ecfe810f725825960",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0014__L024__p471:ipv6rfc8200:rlcts36322": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0014__L024__p471:ipv6rfc8200:rlcts36322",
+"anchor": "RLC",
+"nearest": [
+"Address Resolution Protocol",
+"Domain Name System",
+"File Transfer Protocol",
+"HTTPS"
+],
+"random": [
+"IPsec",
+"Simple Mail Transfer Protocol",
+"UDP vs TCP",
+"User Datagram Protocol"
+],
+"distractors": [
+"Address Resolution Protocol",
+"Domain Name System",
+"File Transfer Protocol",
+"HTTPS",
+"IPsec",
+"Simple Mail Transfer Protocol",
+"UDP vs TCP",
+"User Datagram Protocol"
+],
+"n_eligible": 11,
+"sha": "6121826f61cb051f0b8a038851c0df3181aa2c2ac1d794bb332a4daad1bee0d7",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0014__L028__p471:ipnetworklayer:rlc": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0014__L028__p471:ipnetworklayer:rlc",
+"anchor": "PDCP",
+"nearest": [
+"Address Resolution Protocol",
+"Domain Name System",
+"File Transfer Protocol",
+"HTTPS"
+],
+"random": [
+"Hypertext Transfer Protocol",
+"IPsec",
+"Simple Mail Transfer Protocol",
+"User Datagram Protocol"
+],
+"distractors": [
+"Address Resolution Protocol",
+"Domain Name System",
+"File Transfer Protocol",
+"HTTPS",
+"Hypertext Transfer Protocol",
+"IPsec",
+"Simple Mail Transfer Protocol",
+"User Datagram Protocol"
+],
+"n_eligible": 12,
+"sha": "53e2aeb8ca9da3904cbd72e3fdf20c800f80b392f23c953e66cdad8fcb7318b7",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0063__L036__p67:wireguardvnc:vpninternetrouting": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0063__L036__p67:wireguardvnc:vpninternetrouting",
+"anchor": "WireGuard",
+"nearest": [
+"Address Resolution Protocol",
+"Domain Name System",
+"File Transfer Protocol",
+"HTTPS"
+],
+"random": [
+"IPsec",
+"IPv6",
+"Internet Protocol",
+"Simple Mail Transfer Protocol"
+],
+"distractors": [
+"Address Resolution Protocol",
+"Domain Name System",
+"File Transfer Protocol",
+"HTTPS",
+"IPsec",
+"IPv6",
+"Internet Protocol",
+"Simple Mail Transfer Protocol"
+],
+"n_eligible": 14,
+"sha": "7f2d55fc5c6d70b7e9bebebd13cafe084524008caef9c55074287dd3d078e7f7",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0008__L052__p111:arp:fib": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0008__L052__p111:arp:fib",
+"anchor": "Address Resolution Protocol",
+"nearest": [
+"Domain Name System",
+"File Transfer Protocol",
+"HTTPS",
+"Hypertext Transfer Protocol"
+],
+"random": [
+"Internet Protocol",
+"PDCP",
+"Simple Mail Transfer Protocol",
+"WireGuard"
+],
+"distractors": [
+"Domain Name System",
+"File Transfer Protocol",
+"HTTPS",
+"Hypertext Transfer Protocol",
+"Internet Protocol",
+"PDCP",
+"Simple Mail Transfer Protocol",
+"WireGuard"
+],
+"n_eligible": 12,
+"sha": "52e1659756ed4108261c8b9fdc95f738c64802e508cb8137971d4a027b7e09af",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0008__L020__p213:arp:fib": {
+"unit": "s3d-rl600-all11:chat-lmsys-0008__L020__p213:arp:fib",
+"anchor": "Address Resolution Protocol",
+"nearest": [
+"Domain Name System",
+"File Transfer Protocol",
+"HTTPS",
+"Hypertext Transfer Protocol"
+],
+"random": [
+"IPv6",
+"RLC",
+"Simple Mail Transfer Protocol",
+"User Datagram Protocol"
+],
+"distractors": [
+"Domain Name System",
+"File Transfer Protocol",
+"HTTPS",
+"Hypertext Transfer Protocol",
+"IPv6",
+"RLC",
+"Simple Mail Transfer Protocol",
+"User Datagram Protocol"
+],
+"n_eligible": 12,
+"sha": "1cf7a8d90d73897c8bac6d9b71939751b34e330de011eb0cbd3960bf420537a1",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0008__L052__p111:arp:fib": {
+"unit": "s3d-rl600-all11:chat-lmsys-0008__L052__p111:arp:fib",
+"anchor": "Address Resolution Protocol",
+"nearest": [
+"Domain Name System",
+"File Transfer Protocol",
+"HTTPS",
+"Hypertext Transfer Protocol"
+],
+"random": [
+"IPv6",
+"RLC",
+"Simple Mail Transfer Protocol",
+"Transmission Control Protocol"
+],
+"distractors": [
+"Domain Name System",
+"File Transfer Protocol",
+"HTTPS",
+"Hypertext Transfer Protocol",
+"IPv6",
+"RLC",
+"Simple Mail Transfer Protocol",
+"Transmission Control Protocol"
+],
+"n_eligible": 12,
+"sha": "034b02ac29b9566138085c8cbf481c258b91da5a84d5a03140b869b6fdddab2d",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0008__L052__p111:arp:rib": {
+"unit": "s3d-rl600-all11:chat-lmsys-0008__L052__p111:arp:rib",
+"anchor": "Address Resolution Protocol",
+"nearest": [
+"Domain Name System",
+"File Transfer Protocol",
+"HTTPS",
+"Hypertext Transfer Protocol"
+],
+"random": [
+"RLC",
+"Simple Mail Transfer Protocol",
+"Transmission Control Protocol",
+"WireGuard"
+],
+"distractors": [
+"Domain Name System",
+"File Transfer Protocol",
+"HTTPS",
+"Hypertext Transfer Protocol",
+"RLC",
+"Simple Mail Transfer Protocol",
+"Transmission Control Protocol",
+"WireGuard"
+],
+"n_eligible": 12,
+"sha": "9ed6999a185823dbb15925380dcbfe9c8d5bf4ef9605ac76b8306703dbe32076",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0008__L052__p213:arp:fib": {
+"unit": "s3d-rl600-all11:chat-lmsys-0008__L052__p213:arp:fib",
+"anchor": "Address Resolution Protocol",
+"nearest": [
+"Domain Name System",
+"File Transfer Protocol",
+"HTTPS",
+"Hypertext Transfer Protocol"
+],
+"random": [
+"PDCP",
+"Simple Mail Transfer Protocol",
+"Transmission Control Protocol",
+"WireGuard"
+],
+"distractors": [
+"Domain Name System",
+"File Transfer Protocol",
+"HTTPS",
+"Hypertext Transfer Protocol",
+"PDCP",
+"Simple Mail Transfer Protocol",
+"Transmission Control Protocol",
+"WireGuard"
+],
+"n_eligible": 12,
+"sha": "ff95ac3843f2b85376c74437309456537578a807b9651f4d51958cc49405ac44",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0008__L060__p111:arp:fib": {
+"unit": "s3d-rl600-all11:chat-lmsys-0008__L060__p111:arp:fib",
+"anchor": "Address Resolution Protocol",
+"nearest": [
+"Domain Name System",
+"File Transfer Protocol",
+"HTTPS",
+"Hypertext Transfer Protocol"
+],
+"random": [
+"RLC",
+"Simple Mail Transfer Protocol",
+"Transmission Control Protocol",
+"User Datagram Protocol"
+],
+"distractors": [
+"Domain Name System",
+"File Transfer Protocol",
+"HTTPS",
+"Hypertext Transfer Protocol",
+"RLC",
+"Simple Mail Transfer Protocol",
+"Transmission Control Protocol",
+"User Datagram Protocol"
+],
+"n_eligible": 12,
+"sha": "a9d06bf7ecebc062cc61bea94f5e4a970d77063a4c6e31f3221b72021dc9a7d2",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0008__L052__p213:arp:fib": {
+"unit": "s3d-sft251:chat-lmsys-0008__L052__p213:arp:fib",
+"anchor": "Address Resolution Protocol",
+"nearest": [
+"Domain Name System",
+"File Transfer Protocol",
+"HTTPS",
+"Hypertext Transfer Protocol"
+],
+"random": [
+"Internet Protocol",
+"PDCP",
+"RLC",
+"Simple Mail Transfer Protocol"
+],
+"distractors": [
+"Domain Name System",
+"File Transfer Protocol",
+"HTTPS",
+"Hypertext Transfer Protocol",
+"Internet Protocol",
+"PDCP",
+"RLC",
+"Simple Mail Transfer Protocol"
+],
+"n_eligible": 12,
+"sha": "fa96a79e907b5dc143d3212812f78b7471ef7474dd89857f5cd11dc05c5269c9",
+"generation": 0
+}
+}

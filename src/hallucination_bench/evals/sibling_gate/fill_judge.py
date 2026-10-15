@@ -16,6 +16,7 @@ quotes the block verbatim; a quote that fails ``readouts.verify_quote`` turns th
 from __future__ import annotations
 
 import asyncio
+import contextvars
 import json
 from collections.abc import Callable, Mapping, Sequence
 from pathlib import Path
@@ -34,6 +35,9 @@ INVALID_RETRIES = 2
 WINDOW = 400
 ANSWERS = ("said", "actual", "other", "none")
 CACHE_PATH = U.OUT / "fill" / "cache.jsonl"
+# Plan 0010 §4: ``hbench gate`` sets this False (``--retry-failed`` keeps it True): a cached
+# failed answer is final instead of being re-asked on every run (zero calls on unchanged inputs).
+RETRY_FAILED: contextvars.ContextVar[bool] = contextvars.ContextVar("retry_failed", default=True)
 
 
 # ---------------------------------------------------------------- a cached structured call
@@ -61,6 +65,10 @@ async def cached_json_call(
     row = cache.get(key, fp)
     if row is not None:
         return "ok", row["result"]
+    if llm is not None and not RETRY_FAILED.get():  # plan 0010: the gate keeps cached failures
+        failed = cache.get(key, fp, include_failed=True)
+        if failed is not None:
+            return "failed", (failed.get("meta") or {}).get("raw")
     if llm is None:
         failed = cache.get(key, fp, include_failed=True)
         if failed is None:
@@ -336,18 +344,21 @@ async def run_fill(
     failed_pools: frozenset[str] = frozenset(),
     model: str = MODEL,
     effort: str | None = EFFORT,
+    deterministic: frozenset[str] | None = None,
+    pool_of: Callable[[str], str | None] | None = None,
 ) -> tuple[list[dict[str, Any]], Usage]:
     """Rung 1 for every unit. ``resampled``: pool -> (id, layer, pos) -> 10 blocks. Token arms
     are ``deterministic``; units of a failed pool, or with no resample row, ``resample_failed``.
-    ``llm=None`` replays the cache only."""
+    ``llm=None`` replays the cache only. ``deterministic`` (plan 0010 ``--rung1 skip``)
+    overrides the deterministic arm set; ``pool_of`` the arm -> pool lookup (a registry)."""
     from . import resample as R
 
     spend = Usage()
 
     async def one(u: Mapping[str, Any]) -> dict[str, Any]:
-        if u["arm"] in U.DETERMINISTIC_ARMS:
+        if u["arm"] in (U.DETERMINISTIC_ARMS if deterministic is None else deterministic):
             return rung1_row(u, "deterministic", None)
-        pool = R.pool_of(u["arm"])
+        pool = (pool_of or R.pool_of)(u["arm"])
         blocks = (resampled.get(pool) or {}).get((u["id"], int(u["layer"]), int(u["pos"])))
         if pool is None or pool in failed_pools or not blocks:
             return rung1_row(u, "resample_failed", None)

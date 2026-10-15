@@ -1,0 +1,218 @@
+{
+"mlnla-rl2-800-all11:chat-lmsys-0011__L060__p146:diffusionpoliciesforrobotcontrol:decisiontransformer": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0011__L060__p146:diffusionpoliciesforrobotcontrol:decisiontransformer",
+"anchor": "Decision Transformer",
+"nearest": [
+"Logistic regression",
+"Gradient boosting",
+"k-nearest neighbors",
+"k-means clustering"
+],
+"random": [
+"Linear regression",
+"Random forest",
+"Support vector machine"
+],
+"distractors": [
+"Logistic regression",
+"Gradient boosting",
+"k-nearest neighbors",
+"k-means clustering",
+"Linear regression",
+"Random forest",
+"Support vector machine"
+],
+"n_eligible": 7,
+"sha": "8a62d7d2ab240092ce0a186c31dcf130b69c04ffe8b8349e3172deea14735b24",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0011__L040__p41:rlhfdiffusionpolicies:decisiontransformer": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0011__L040__p41:rlhfdiffusionpolicies:decisiontransformer",
+"anchor": "Decision Transformer",
+"nearest": [
+"Logistic regression",
+"Gradient boosting",
+"k-nearest neighbors",
+"k-means clustering"
+],
+"random": [
+"Linear regression",
+"Random forest",
+"Support vector machine"
+],
+"distractors": [
+"Logistic regression",
+"Gradient boosting",
+"k-nearest neighbors",
+"k-means clustering",
+"Linear regression",
+"Random forest",
+"Support vector machine"
+],
+"n_eligible": 7,
+"sha": "f23c07e8ab71d3b669d53894f84f12a9d2cda169f0d512aa32cac9a0c4902377",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0011__L044__p41:reinforcementlearningfromhumanfeedbackrlhf:reinforcementlearningrl": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0011__L044__p41:reinforcementlearningfromhumanfeedbackrlhf:reinforcementlearningrl",
+"anchor": "Decision Transformer",
+"nearest": [
+"Logistic regression",
+"Gradient boosting",
+"k-nearest neighbors",
+"k-means clustering"
+],
+"random": [
+"Linear regression",
+"Random forest",
+"Support vector machine"
+],
+"distractors": [
+"Logistic regression",
+"Gradient boosting",
+"k-nearest neighbors",
+"k-means clustering",
+"Linear regression",
+"Random forest",
+"Support vector machine"
+],
+"n_eligible": 7,
+"sha": "c04744a89f97753bd2224c4a636379711bc939a798a0b99f237599b1c391f90c",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0011__L040__p244:maml:decisiontransformer": {
+"unit": "s3d-rl600-all11:chat-lmsys-0011__L040__p244:maml:decisiontransformer",
+"anchor": "Decision Transformer",
+"nearest": [
+"Logistic regression",
+"Gradient boosting",
+"k-nearest neighbors",
+"k-means clustering"
+],
+"random": [
+"Linear regression",
+"Random forest",
+"Support vector machine"
+],
+"distractors": [
+"Logistic regression",
+"Gradient boosting",
+"k-nearest neighbors",
+"k-means clustering",
+"Linear regression",
+"Random forest",
+"Support vector machine"
+],
+"n_eligible": 7,
+"sha": "6f481a6b7f35648e166b83622b0d2ac57f8d8156d7449619d26ab46e256a7bdd",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0011__L044__p41:contrastivelanguageimagepretraining:decisiontransformer": {
+"unit": "s3d-rl600-all11:chat-lmsys-0011__L044__p41:contrastivelanguageimagepretraining:decisiontransformer",
+"anchor": "Decision Transformer",
+"nearest": [
+"Logistic regression",
+"Gradient boosting",
+"k-nearest neighbors",
+"k-means clustering"
+],
+"random": [
+"Linear regression",
+"Random forest",
+"Support vector machine"
+],
+"distractors": [
+"Logistic regression",
+"Gradient boosting",
+"k-nearest neighbors",
+"k-means clustering",
+"Linear regression",
+"Random forest",
+"Support vector machine"
+],
+"n_eligible": 7,
+"sha": "186df4d9552ab09b7ffb06565497c54b672e6e1bce46d39720e11013aef9f799",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0011__L048__p146:clipadapter:decisiontransformer": {
+"unit": "s3d-rl600:chat-lmsys-0011__L048__p146:clipadapter:decisiontransformer",
+"anchor": "Decision Transformer",
+"nearest": [
+"Logistic regression",
+"Gradient boosting",
+"k-nearest neighbors",
+"k-means clustering"
+],
+"random": [
+"Linear regression",
+"Random forest",
+"Support vector machine"
+],
+"distractors": [
+"Logistic regression",
+"Gradient boosting",
+"k-nearest neighbors",
+"k-means clustering",
+"Linear regression",
+"Random forest",
+"Support vector machine"
+],
+"n_eligible": 7,
+"sha": "1a8cb72e7173f955e825773f34904f2c944c6ec9371122247e19252162f3dcd3",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0011__L028__p195:selfsupervisedlearning:decisiontransformer": {
+"unit": "s3d-sft251:chat-lmsys-0011__L028__p195:selfsupervisedlearning:decisiontransformer",
+"anchor": "Decision Transformer",
+"nearest": [
+"Logistic regression",
+"Gradient boosting",
+"k-nearest neighbors",
+"k-means clustering"
+],
+"random": [
+"Linear regression",
+"Random forest",
+"Support vector machine"
+],
+"distractors": [
+"Logistic regression",
+"Gradient boosting",
+"k-nearest neighbors",
+"k-means clustering",
+"Linear regression",
+"Random forest",
+"Support vector machine"
+],
+"n_eligible": 7,
+"sha": "29ac35e17a38d63bf3869d5d8ca2455adfc721a317484af983d94e16bc29e35b",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0011__L048__p41:maml:decisiontransformer": {
+"unit": "s3d-sft251:chat-lmsys-0011__L048__p41:maml:decisiontransformer",
+"anchor": "Decision Transformer",
+"nearest": [
+"Logistic regression",
+"Gradient boosting",
+"k-nearest neighbors",
+"k-means clustering"
+],
+"random": [
+"Linear regression",
+"Random forest",
+"Support vector machine"
+],
+"distractors": [
+"Logistic regression",
+"Gradient boosting",
+"k-nearest neighbors",
+"k-means clustering",
+"Linear regression",
+"Random forest",
+"Support vector machine"
+],
+"n_eligible": 7,
+"sha": "baf97ae0d8fa7abd7281a7cf59199707ebcb9714750631cca39d0b5fdefa48e4",
+"generation": 0
+}
+}

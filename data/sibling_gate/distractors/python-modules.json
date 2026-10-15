@@ -1,0 +1,177 @@
+{
+"mlnla-rl2-800-all11:chat-lmsys-0030__L048__p203:osenviron:keras": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0030__L048__p203:osenviron:keras",
+"anchor": "Keras",
+"nearest": [
+"functools",
+"subprocess",
+"json",
+"re"
+],
+"random": [
+"collections",
+"itertools"
+],
+"distractors": [
+"functools",
+"subprocess",
+"json",
+"re",
+"collections",
+"itertools"
+],
+"n_eligible": 6,
+"sha": "3d4e1a9e3474d01f5f4f6a79b7b33d15278ee724e22966222ee70733d0fc6a76",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0030__L052__p203:sysversion:kerasimport": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0030__L052__p203:sysversion:kerasimport",
+"anchor": "keras",
+"nearest": [
+"functools",
+"subprocess",
+"re",
+"json"
+],
+"random": [
+"collections",
+"itertools"
+],
+"distractors": [
+"functools",
+"subprocess",
+"re",
+"json",
+"collections",
+"itertools"
+],
+"n_eligible": 6,
+"sha": "a3be7467f33b1d85536978fc303cc9776985465705a33f913d8a5089ba771772",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0030__L040__p95:matplotlibpyplot:tfkeras": {
+"unit": "s3d-rl600-all11:chat-lmsys-0030__L040__p95:matplotlibpyplot:tfkeras",
+"anchor": "tf.keras",
+"nearest": [
+"collections",
+"json",
+"re",
+"itertools"
+],
+"random": [
+"functools",
+"subprocess"
+],
+"distractors": [
+"collections",
+"json",
+"re",
+"itertools",
+"functools",
+"subprocess"
+],
+"n_eligible": 6,
+"sha": "7889cd6821ecb79ab2d5390c72655a58dda18dacc8a3e4ef383b66b8bc1722e3",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0030__L052__p203:os:tensorflow": {
+"unit": "s3d-rl600-all11:chat-lmsys-0030__L052__p203:os:tensorflow",
+"anchor": "tf.keras",
+"nearest": [
+"collections",
+"json",
+"re",
+"itertools"
+],
+"random": [
+"functools",
+"subprocess"
+],
+"distractors": [
+"collections",
+"json",
+"re",
+"itertools",
+"functools",
+"subprocess"
+],
+"n_eligible": 6,
+"sha": "f465a0e242e053081c8ed857f1abfa01fd03fe1e9530da0e0156668e4e827964",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0030__L052__p203:os:tfkeras": {
+"unit": "s3d-rl600-all11:chat-lmsys-0030__L052__p203:os:tfkeras",
+"anchor": "tf.keras",
+"nearest": [
+"collections",
+"json",
+"re",
+"itertools"
+],
+"random": [
+"functools",
+"subprocess"
+],
+"distractors": [
+"collections",
+"json",
+"re",
+"itertools",
+"functools",
+"subprocess"
+],
+"n_eligible": 6,
+"sha": "c835ce3ddc5f66dd9daeccd82ea31776e2f8ee40b243908b74125d28b22ad0ac",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0030__L060__p203:sys:tfkeras": {
+"unit": "s3d-rl600:chat-lmsys-0030__L060__p203:sys:tfkeras",
+"anchor": "tf.keras",
+"nearest": [
+"collections",
+"json",
+"re",
+"itertools"
+],
+"random": [
+"functools",
+"subprocess"
+],
+"distractors": [
+"collections",
+"json",
+"re",
+"itertools",
+"functools",
+"subprocess"
+],
+"n_eligible": 6,
+"sha": "50aec2dea11a37db554f032b416769dcc8d0dd195735ad5141b9ade3e8031f65",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0030__L052__p203:os:tfkeras": {
+"unit": "s3d-sft251:chat-lmsys-0030__L052__p203:os:tfkeras",
+"anchor": "tf.keras",
+"nearest": [
+"collections",
+"json",
+"re",
+"itertools"
+],
+"random": [
+"functools",
+"subprocess"
+],
+"distractors": [
+"collections",
+"json",
+"re",
+"itertools",
+"functools",
+"subprocess"
+],
+"n_eligible": 6,
+"sha": "95a55b8a813eb1bf573c9ee0c923ae9c952f41b10c467d06e1216eb1ae5c48b1",
+"generation": 0
+}
+}

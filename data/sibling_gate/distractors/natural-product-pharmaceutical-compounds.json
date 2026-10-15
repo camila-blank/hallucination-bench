@@ -1,0 +1,277 @@
+{
+"mlnla-rl2-800-all11:chat-lmsys-0069__L052__p486:berberine:gastrodin": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0069__L052__p486:berberine:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [
+"Vincristine",
+"Codeine",
+"Atropine",
+"Aspirin"
+],
+"random": [
+"Digoxin",
+"Penicillin"
+],
+"distractors": [
+"Vincristine",
+"Codeine",
+"Atropine",
+"Aspirin",
+"Digoxin",
+"Penicillin"
+],
+"n_eligible": 6,
+"sha": "1838b8f95b6297767b27350f541782e1a93b78761eb0a3a0cd3c2643e2c20a77",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0069__L056__p384:berberine:gastrodin": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0069__L056__p384:berberine:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [
+"Vincristine",
+"Codeine",
+"Atropine",
+"Aspirin"
+],
+"random": [
+"Digoxin",
+"Penicillin"
+],
+"distractors": [
+"Vincristine",
+"Codeine",
+"Atropine",
+"Aspirin",
+"Digoxin",
+"Penicillin"
+],
+"n_eligible": 6,
+"sha": "252ee713459babdda03e8b1c10bcbf1ae718f52a1aaf0597c0a909c4fdab4c8f",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0069__L060__p384:cordycepssinensisandcyclosporina:gastrodin": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0069__L060__p384:cordycepssinensisandcyclosporina:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [
+"Vincristine",
+"Codeine",
+"Atropine",
+"Aspirin"
+],
+"random": [
+"Digoxin",
+"Penicillin"
+],
+"distractors": [
+"Vincristine",
+"Codeine",
+"Atropine",
+"Aspirin",
+"Digoxin",
+"Penicillin"
+],
+"n_eligible": 6,
+"sha": "bf1c5558b355f5248a3b7f1f2e6e273214d9db4c1c47c8cdd4949bfdc156469f",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0069__L060__p486:berberine:gastrodin": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0069__L060__p486:berberine:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [
+"Vincristine",
+"Codeine",
+"Atropine",
+"Aspirin"
+],
+"random": [
+"Digoxin",
+"Penicillin"
+],
+"distractors": [
+"Vincristine",
+"Codeine",
+"Atropine",
+"Aspirin",
+"Digoxin",
+"Penicillin"
+],
+"n_eligible": 6,
+"sha": "c8a4a2abec3a7359084fde423a8f51e53ccb9d86d995126411f20c14fb33c560",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0069__L044__p149:cannabidiol:gastrodin": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0069__L044__p149:cannabidiol:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [
+"Vincristine",
+"Codeine",
+"Atropine",
+"Aspirin"
+],
+"random": [
+"Digoxin",
+"Penicillin"
+],
+"distractors": [
+"Vincristine",
+"Codeine",
+"Atropine",
+"Aspirin",
+"Digoxin",
+"Penicillin"
+],
+"n_eligible": 6,
+"sha": "d287a8750104e25826111df2aafb883764f85c0b2dafe2e8e530e0a7a98eb7b4",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0069__L052__p486:berberine:gastrodin": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0069__L052__p486:berberine:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [
+"Vincristine",
+"Codeine",
+"Atropine",
+"Aspirin"
+],
+"random": [
+"Digoxin",
+"Penicillin"
+],
+"distractors": [
+"Vincristine",
+"Codeine",
+"Atropine",
+"Aspirin",
+"Digoxin",
+"Penicillin"
+],
+"n_eligible": 6,
+"sha": "f55805ef4257792d41c98efb1cd62e61f608e6c9c0dbeea0e565a824b4286a74",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0069__L056__p384:berberine:gastrodin": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0069__L056__p384:berberine:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [
+"Vincristine",
+"Codeine",
+"Atropine",
+"Aspirin"
+],
+"random": [
+"Digoxin",
+"Penicillin"
+],
+"distractors": [
+"Vincristine",
+"Codeine",
+"Atropine",
+"Aspirin",
+"Digoxin",
+"Penicillin"
+],
+"n_eligible": 6,
+"sha": "f830c5322e0ed80130b929b9a9146b372778d5a61cd334753bdd1655586aa546",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0069__L060__p486:berberine:gastrodin": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0069__L060__p486:berberine:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [
+"Vincristine",
+"Codeine",
+"Atropine",
+"Aspirin"
+],
+"random": [
+"Digoxin",
+"Penicillin"
+],
+"distractors": [
+"Vincristine",
+"Codeine",
+"Atropine",
+"Aspirin",
+"Digoxin",
+"Penicillin"
+],
+"n_eligible": 6,
+"sha": "2d528bd26afe16ad3c1b5beb7fa14d787685dba7f40bd981bea657c92de9c414",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0069__L024__p149:glycyrrhizin:gastrodin": {
+"unit": "s3d-rl600-all11:chat-lmsys-0069__L024__p149:glycyrrhizin:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [
+"Vincristine",
+"Codeine",
+"Atropine",
+"Aspirin"
+],
+"random": [
+"Digoxin",
+"Penicillin"
+],
+"distractors": [
+"Vincristine",
+"Codeine",
+"Atropine",
+"Aspirin",
+"Digoxin",
+"Penicillin"
+],
+"n_eligible": 6,
+"sha": "bee2bea5255b9367686afe7cce6116e9ff36a5bd13d5febd72a2ed00c5ea4664",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0069__L020__p149:glycyrrhizin:gastrodin": {
+"unit": "s3d-rl600:chat-lmsys-0069__L020__p149:glycyrrhizin:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [
+"Vincristine",
+"Codeine",
+"Atropine",
+"Aspirin"
+],
+"random": [
+"Digoxin",
+"Penicillin"
+],
+"distractors": [
+"Vincristine",
+"Codeine",
+"Atropine",
+"Aspirin",
+"Digoxin",
+"Penicillin"
+],
+"n_eligible": 6,
+"sha": "7a1bbe86d0947b42e3a0ea830bc9658a2470e76e2bac2ab8b2202a9259d4ad4b",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0069__L024__p149:glycyrrhizin:gastrodin": {
+"unit": "s3d-sft251:chat-lmsys-0069__L024__p149:glycyrrhizin:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [
+"Vincristine",
+"Codeine",
+"Atropine",
+"Aspirin"
+],
+"random": [
+"Digoxin",
+"Penicillin"
+],
+"distractors": [
+"Vincristine",
+"Codeine",
+"Atropine",
+"Aspirin",
+"Digoxin",
+"Penicillin"
+],
+"n_eligible": 6,
+"sha": "6f268197d83d1889f78d83ff2210683ba64ec3f9d82fabb6a3e4ab72afaf4a2f",
+"generation": 0
+}
+}

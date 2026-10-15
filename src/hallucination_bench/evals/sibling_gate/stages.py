@@ -664,35 +664,28 @@ def cmd_score(a: argparse.Namespace) -> int:
 # ---------------------------------------------------------------- label
 
 
-def cmd_label(a: argparse.Namespace) -> int:
-    """Rung 2 (strict precedence) for every rung-2 unit, the sensitivity variants, the matched
-    null and the labels files. Before classes / probe scores exist, rung-2 units get
-    ``final: null`` (scoring keeps their raw leaf)."""
+def label_rows(
+    units: list[dict[str, Any]],
+    rung1: dict[str, dict[str, Any]],
+    classes: dict[str, dict[str, Any]],
+    dis: dict[str, Any],
+    cps: dict[str, Any],
+    site_tok: dict[tuple[str, int], str],
+    *,
+    ready: bool,
+    l42_tokens_ok: bool = True,
+    stale: set[str] | frozenset[str] = frozenset(),
+) -> tuple[list[dict[str, Any]], Counter]:
+    """Rung 2 (strict precedence), the sensitivity variants and the matched null for every
+    unit; ``cmd_label`` and ``hbench gate`` (plan 0010) share it. ``units`` = every gated arm's
+    units (the cross index, the shared prior and the null are computed over them). ``stale``
+    (plan 0010 §10.6): units whose frozen distractor sha differs from their class's score
+    ``meta.json`` -> ``probe_na`` (``stale_score``)."""
     from . import fill_judge as F
     from . import ladder as L
     from . import texts as T
     from .classes import NO_CLASS, canonical_map
 
-    out = Path(a.out)
-    units = _all_units(a)
-    site_tok = {
-        (it, int(s["pos"])): s.get("token") or ""
-        for it, row in _items().items()
-        for s in row["sites"]
-    }
-    rung1 = _rung1(out, _arms(a))
-    have_classes = (DATA_DIR / "classes.json").exists() and (DATA_DIR / "concepts.json").exists()
-    classes = _classes() if have_classes else {}
-    concepts = _concepts() if have_classes else {}
-    dp = DATA_DIR / "distractors.json"
-    dis = json.loads(dp.read_text()) if dp.exists() else {}
-    ss = PROBES_DIR / "score" / "summary.json"
-    if dis and ss.exists():
-        want = json.loads(ss.read_text()).get("distractors_sha256")
-        if want != hashlib.sha256(dp.read_bytes()).hexdigest():
-            raise SystemExit("distractors.json changed after scoring (sha256 mismatch)")
-    cps = L.load_class_probes(PROBES_DIR, concepts) if concepts else {}
-    ready = have_classes and ss.exists() and any(cp.z is not None for cp in cps.values())
     canon = canonical_map(classes)
     idx = L.cross_index(units, canon)
     prior = L.shared_prior_arms(units, classes, canon)
@@ -703,7 +696,7 @@ def cmd_label(a: argparse.Namespace) -> int:
     named: dict[tuple[str, str], set[tuple[int, int]]] = defaultdict(set)
     for (item, c), sites in idx.items():
         named[(item, c)] |= {(la, p) for _arm, la, p in sites}
-    kw = {"l42_tokens_ok": not a.l42_token_mismatch}
+    kw = {"l42_tokens_ok": l42_tokens_ok}
     rows, nulls = [], Counter()
     for u in units:
         r1 = rung1.get(u["unit"])
@@ -713,6 +706,20 @@ def cmd_label(a: argparse.Namespace) -> int:
         raw_key = None if tk is None else T.token_class(tk)
         if ready and r1 is not None and F.needs_rung2(r1):
             cls = v["class"] if v else NO_CLASS
+            if u["unit"] in stale:
+                st = {
+                    "na_reason": "stale_score",
+                    "fire_L": False,
+                    "fire_nearby": [],
+                    "cross_arms": [],
+                    "no_gold": not v or bool(v["no_gold"]),
+                    "status": "probe_na",
+                }
+                key = None if raw_key is None else T.TOKEN_CLASSES[raw_key]
+                var = {k: st for k in ("cross_same_pos", "cross_same_family", "cross_shared_prior")}
+                rows.append(L.label_row(u, r1, st, v, var, key=key))
+                print(f"[gate] {u['unit']}: distractor sha != score meta -> probe_na stale_score")
+                continue
             up = L.UnitProbe(
                 u["unit"],
                 u["arm"],
@@ -738,6 +745,45 @@ def cmd_label(a: argparse.Namespace) -> int:
             nulls["n_fire"] += mn["n_fire"]
         key = None if raw_key is None else T.TOKEN_CLASSES[raw_key]
         rows.append(L.label_row(u, r1, r2, v, variants, key=key))
+    return rows, nulls
+
+
+def cmd_label(a: argparse.Namespace) -> int:
+    """Rung 2 (strict precedence) for every rung-2 unit, the sensitivity variants, the matched
+    null and the labels files. Before classes / probe scores exist, rung-2 units get
+    ``final: null`` (scoring keeps their raw leaf)."""
+    from . import ladder as L
+
+    out = Path(a.out)
+    units = _all_units(a)
+    site_tok = {
+        (it, int(s["pos"])): s.get("token") or ""
+        for it, row in _items().items()
+        for s in row["sites"]
+    }
+    rung1 = _rung1(out, _arms(a))
+    have_classes = (DATA_DIR / "classes.json").exists() and (DATA_DIR / "concepts.json").exists()
+    classes = _classes() if have_classes else {}
+    concepts = _concepts() if have_classes else {}
+    dp = DATA_DIR / "distractors.json"
+    dis = json.loads(dp.read_text()) if dp.exists() else {}
+    ss = PROBES_DIR / "score" / "summary.json"
+    if dis and ss.exists():
+        want = json.loads(ss.read_text()).get("distractors_sha256")
+        if want != hashlib.sha256(dp.read_bytes()).hexdigest():
+            raise SystemExit("distractors.json changed after scoring (sha256 mismatch)")
+    cps = L.load_class_probes(PROBES_DIR, concepts) if concepts else {}
+    ready = have_classes and ss.exists() and any(cp.z is not None for cp in cps.values())
+    rows, nulls = label_rows(
+        units,
+        rung1,
+        classes,
+        dis,
+        cps,
+        site_tok,
+        ready=ready,
+        l42_tokens_ok=not a.l42_token_mismatch,
+    )
     ld = Path(a.labels_dir) if a.labels_dir else out / "labels"
     n = L.write_labels(rows, ld)
     (ld / "matched_null.json").write_text(json.dumps(dict(nulls)) + "\n")
