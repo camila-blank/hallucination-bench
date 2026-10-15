@@ -1,7 +1,7 @@
 # Plan 0010: the sibling gate as a normal pipeline step
 
-Issue #12. Author: Camila Blank (planned with Claude), 2026-10-15. Revision 4 (after critiques 1–3;
-rev 2 was a full rewrite; rev 3 adds §10; revs 3–4 edit in place).
+Issue #12. Author: Camila Blank (planned with Claude), 2026-10-15. Revision 5 (after critiques 1–4;
+rev 2 was a full rewrite; rev 3 adds §10; revs 3–5 edit in place).
 Branch `camila/gate-pipeline`, stacked on `camila/taxonomy-v2` (it includes #11 / plan 0009).
 
 Camila: "can you figure out how to automatically integrate this as a step in our normal
@@ -36,8 +36,9 @@ previously gated arms can change when arms are added. This is intended, and it i
 
 ## 1. Arm registry (`data/arms.json`, `src/hallucination_bench/arms.py`)
 
-- **`gated_arms`**: the persisted default gate set. It starts with the 14 plan-0009 arms (13
-  report arms plus mlnla-rl600-all11). `hbench gate --add-arm X` appends to it. The cross
+- **`gated_arms`**: the persisted default gate set. It starts with the 14 plan-0009 arms: the 11 script `ARMS` plus
+  3 extras, mlnla-rl600-all11, mlnla-rl2-800-all11 and s3d-rl600-all11. Its pools are s3d-rl600,
+  s3d-sft251, mlnla-rl600, mlnla-rl2-800, nla-rl, nla-sft and patchscopes. `hbench gate --add-arm X` appends to it. The cross
   index, class counts, cap, matched null and `item_sibling_names` are always computed over this
   set, never over `--arms`. `--arms` only narrows what is printed, and resampling still covers
   only the arms that need it.
@@ -65,8 +66,9 @@ previously gated arms can change when arms are added. This is intended, and it i
   layers, T 1.0 / top_p 0.95 / top_k 64. Its cells are in
   `/workspace/hb-taxonomy-v2/outputs/wsbench_chat/claude-opus-5-5/mlnla-ck2000-all11`.
 - **Derived views.** `sibling_gate.units.family_of`, `ARMS_IN_SCOPE`, `PROSE_ARMS`,
-  `TOKEN_ARMS` and `DETERMINISTIC_ARMS` (from `kind`), plus `resample.POOLS` and `ARM_OF`,
-  become views of the registry. A test asserts that they equal the plan-0009 values.
+  `TOKEN_ARMS` and `DETERMINISTIC_ARMS` (from `kind`), plus `resample.POOLS` / `POOL_OF` (`Pool` is a dataclass whose
+  `arms` field gives the arms per pool) and the `run_all.sh` `ARM_OF` map from pool to
+  orig-readouts arm, become views of the registry. A test asserts that they equal the plan-0009 values.
 - **`env`**:
   - `MODAL_RESOURCE_ENV=camila-blank`;
   - `WSBENCH_GEN_VOLUME=sibgate-gen`;
@@ -128,7 +130,8 @@ previously gated arms can change when arms are added. This is intended, and it i
 - **Classes** are per (said, item) and keep their cache.
 - **Dedupe becomes incremental.** The existing mapping (raw class name → canonical) is frozen in
   `data/sibling_gate/class_map.json`. Only new raw names go to a new prompt,
-  `dedupe-incr-v1`, which maps new names onto the existing canonical list or creates new
+  `dedupe-incr-v1`. It has its own cache key prefix (`dedupe-incr:`) and version, distinct from
+  `sibclass-dedupe-v2` / `dedupe:all`, so frozen rows are never re-queued. It which maps new names onto the existing canonical list or creates new
   canonical classes. Existing assignments never change. With no new names there is no call.
 - **Fillers are frozen.** A class's filler concepts are fixed at first generation and stored in
   `concepts.json`. New said or gold members are appended to the class without regenerating the
@@ -223,7 +226,8 @@ previously gated arms can change when arms are added. This is intended, and it i
 
 ## 7. Tests
 
-1. The registry reproduces the plan-0009 families, pools, `ARM_OF` and orig readouts. An
+1. The registry reproduces the plan-0009 families, `POOLS` / `POOL_OF`, the `run_all.sh`
+   `ARM_OF` orig-readouts map, and the arm-kind sets. An
    unregistered sampled arm exits with code 3.
 2. Run names carry the attempt, and completeness sums across runs. Two regression tests:
    - the plan-0009 collision: a partial run, then a full request, ends with no missing keys;
@@ -292,9 +296,10 @@ non-null `dedupe:all` row; class rows are keyed `class:<said>:<item>`), resolved
 - **Imported texts** come from `data/sibling_gate/probe_texts.jsonl(.gz)` and carry
   `avoid: "legacy"`, so the v2.1 cache-key change never re-queues them.
 - **Shard lists.** Text ids in `probe_texts.jsonl` look like `<class>|<concept>|<kind>|<idx>`.
-  Capture labels and `probe_inputs.json` ids are `stages.probe_label(class, concept, kind, idx)`,
-  for example `3GPP_specifications__3GPP_TS_23.501__explicit__00`. The import joins on
-  (class, concept, kind, idx) through `probe_label`.
+  Capture labels and `probe_inputs.json` ids are `stages.probe_label(text_id)`, for example
+  `3GPP_specifications__3GPP_TS_23.501__explicit__00`. It sanitises `|`, spaces, `/` and `\`.
+  The import always maps text ids through `probe_label` and joins on its output, never on a
+  re-built string.
   - `probes/capture_prompts.json` is a list of `{label, meta:{class, concept, kind, key}}`.
   - The 32 prompt manifests `probes/shards/cp_NN.json` map to the acts subdirs
     `acts-sibgate-probe-sNN`.
