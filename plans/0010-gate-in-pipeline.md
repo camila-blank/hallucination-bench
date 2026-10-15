@@ -1,7 +1,7 @@
 # Plan 0010: the sibling gate as a normal pipeline step
 
-Issue #12. Author: Camila Blank (planned with Claude), 2026-10-15. Revision 3 (after critiques 1–2;
-rev 2 was a full rewrite; rev 3 adds §10 and edits §1, §6 and §8 in place).
+Issue #12. Author: Camila Blank (planned with Claude), 2026-10-15. Revision 4 (after critiques 1–3;
+rev 2 was a full rewrite; rev 3 adds §10; revs 3–4 edit in place).
 Branch `camila/gate-pipeline`, stacked on `camila/taxonomy-v2` (it includes #11 / plan 0009).
 
 Camila: "can you figure out how to automatically integrate this as a step in our normal
@@ -10,8 +10,8 @@ hallucination bench pipeline?"
 ## 0. Goal, model and retained invariants
 
 **Goal.** One command gates the arms after the claim map:
-`hbench gate [--plan] [--yes] [--arms …]`. `scripts/run_all_arms.sh` calls it after the last
-`map` stage.
+`hbench gate [--plan] [--yes] [--arms …]`. `scripts/run_all_arms.sh` calls it between stage 2
+(the last `map` stage) and a new final `hbench report`, so the report consumes the labels.
 
 **The gate is a "generation", not a patch.** The gate's outputs depend on the whole gated-arm
 set, because these are computed over every gated arm:
@@ -95,6 +95,12 @@ previously gated arms can change when arms are added. This is intended, and it i
   removes the plan-0009 pilot bug, where a generator skipped existing partial files.
 - **Retries.** Requested = keys of the gated units minus complete keys. A key still short after
   2 attempts becomes `resample_failed`.
+- **Pools with `samples_per_run` < 10** (patchscopes). An attempt launches one run per missing
+  sample, k = 10 − current count. Each run's seed is derived from its run name:
+  `int(sha256(run_name)[:8], 16)`. The run name becomes
+  `gen-sibgate-<pool>-<sha8>-a<attempt>-r<j>`, so seeds are distinct across attempts and runs. A
+  test checks the seeds are distinct and that duplicate samples are never double-counted:
+  samples are deduplicated by (run, seed).
 - **Launch and wait.** The gate starts each pool's job with `modal run --detach`, all pools in
   parallel, and polls the volume:
   - it logs a heartbeat every 5 minutes;
@@ -186,8 +192,11 @@ previously gated arms can change when arms are added. This is intended, and it i
   The estimate uses the plan-0009 unit costs. A real run proceeds without `--yes` only if the
   estimate is ≤ `$GATE_AUTO_USD`, default $300. Otherwise it prints the plan and exits with code
   2. The actual spend is logged in `generation.json`.
-- **`run_all_arms.sh`** (rev 3) runs `hbench gate` once, after stage 2 and the last report, and
-  **not** wrapped in `stage()`, because the gate must not be retried three times. Gate exit
+- **`run_all_arms.sh`** (rev 4) runs `hbench gate` once, after stage 2 and before a new final
+  `hbench report --view v2`. It is **not** wrapped in `stage()`, because the gate must not be
+  retried three times.
+  - The script's `ARMS` (11 arms) is narrower than `gated_arms` (14). The extra arms
+    (mlnla-*, s3d-rl600-all11) are gated from their registry `cells`. Gate exit
   codes have their own meanings, distinct from `hbench run`'s:
 
   | gate exit | meaning |
@@ -267,7 +276,8 @@ previously gated arms can change when arms are added. This is intended, and it i
 ### 10.2 Class map
 
 - **Rebuilt from cache.** `class_map.json` is rebuilt from the `sibclass-v1` cache, which gives
-  the raw class per (said, item), plus the cached `dedupe:all` result, resolved through
+  the raw class per (said, item), plus the cached `dedupe:all` result (`outputs/sibling_gate/classes/cache.jsonl`, the latest
+non-null `dedupe:all` row; class rows are keyed `class:<said>:<item>`), resolved through
   `classes.apply_merges`. It is not rebuilt from `classes.json`, which only stores canonical
   names.
 - **The import asserts** that assembling over the imported map reproduces `classes.json` row
@@ -281,9 +291,15 @@ previously gated arms can change when arms are added. This is intended, and it i
   cache is consulted only for missing cells.
 - **Imported texts** come from `data/sibling_gate/probe_texts.jsonl(.gz)` and carry
   `avoid: "legacy"`, so the v2.1 cache-key change never re-queues them.
-- **Shard lists** for each class are derived from `probes/capture_prompts.json`, which maps
-  prompt label → text id → class, and the 32 existing `acts-sibgate-probe-sNN` shard manifests.
-  The import checks that every imported text has exactly one shard.
+- **Shard lists.** Text ids in `probe_texts.jsonl` look like `<class>|<concept>|<kind>|<idx>`.
+  Capture labels and `probe_inputs.json` ids are `stages.probe_label(class, concept, kind, idx)`,
+  for example `3GPP_specifications__3GPP_TS_23.501__explicit__00`. The import joins on
+  (class, concept, kind, idx) through `probe_label`.
+  - `probes/capture_prompts.json` is a list of `{label, meta:{class, concept, kind, key}}`.
+  - The 32 prompt manifests `probes/shards/cp_NN.json` map to the acts subdirs
+    `acts-sibgate-probe-sNN`.
+  - A class's shard list is the set of `sNN` whose `cp_NN` holds one of its labels.
+  - The import checks that every imported label sits in exactly one `cp_NN`.
 - **The merge** is imported from `probes/merge.json` (global, per class) as is.
 
 ### 10.4 Per-class fit hash
@@ -297,8 +313,10 @@ The per-class input hash is the sha256 of:
 - its layers;
 - the `probe_fit.py` / `probes.py` / `um_probe.py` file hashes.
 
-On import it is computed for every fitted class and cross-checked against that class's slice of
-`probe_inputs.json`, re-deriving the inputs from the bank and asserting they match. Only then is
+On import it is computed for every fitted class. The texts, folds, merge and concepts are
+cross-checked against that class's slice of `probe_inputs.json`: the inputs are re-derived from
+the bank and must match. The shard list, the layers and the code hashes are not in that file, so
+they are computed fresh at import. Only then is
 it stored as `probes/fit/<class>/inputs.sha256`. A later change to any of these inputs triggers a
 refit.
 
@@ -307,9 +325,12 @@ refit.
 - **Each pool's existing state becomes run0.** Its `resample.jsonl` (with `request.json`) is
   imported as `run0` and takes ordering precedence. Samples are kept as run0's first 10, then
   later runs in attempt order.
-- **Run-name parsing** uses an anchored regex: `^gen-sibgate-(?P<pool>.+?)-(?P<sha>[0-9a-f]{8})-a(?P<att>\d+)$`.
-  Patchscopes' legacy seed runs match `-s\d$`. Plan-0009 names (`gen-sibgate-<pool>`, plus the
-  redo) are covered by run0 and never re-read.
+- **Run-name parsing** uses an anchored regex:
+  `^gen-sibgate-(?P<pool>.+?)-(?P<sha>[0-9a-f]{8})-a(?P<att>\d+)(?:-r(?P<r>\d+))?$`, and the
+  pool must equal a registry pool exactly.
+- **run0 is the only source for legacy runs.** The volume listing keeps only names that match
+  the regex. Plan-0009 names (`gen-sibgate-<pool>`, `gen-sibgate-patchscopes-sN`, the
+  `-precheck` runs and the s3d redo) never match, so they are never re-read.
 
 ### 10.6 Score and distractor formats
 
