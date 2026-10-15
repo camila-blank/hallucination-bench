@@ -1,6 +1,6 @@
 # Plan 0009: sibling substitutions become hallucinations, gated by a 10-sample resample check and probes
 
-Issue #10. Author: Camila Blank (planned with Claude), 2026-10-14. Revision 8 (after critiques 1–6 and the rung-2 pilot;
+Issue #10. Author: Camila Blank (planned with Claude), 2026-10-14. Revision 8.2 (after critiques 1–6, the rung-2 pilot and the full-run scale check;
 rev 3 was a full rewrite with no override sections, so the body is the spec; revs 4–8 edit it in place).
 "Rev 21" is the scoring revision this plan introduces in the taxonomy (plan 0002 ended at rev 20).
 
@@ -219,8 +219,13 @@ From the 10 fresh blocks:
 ## 3. Rung 2: probes, following the plan 0006/0007 ladder
 
 Rung 2 runs on every `stable`, `sparse` and `deterministic` unit, plus the sensitivity-only units
-of §2c. The full run fits probes for **every** class. The pilot capped classes at ≥ 4 pairs
-(`--min-class-pairs 4`) for cost; the full run uses 0, which means no cap.
+of §2c. **Rev 8.2 (full-run scale):** probes are fitted only for classes with at least 4 (said, item)
+pairs. There are 223 such classes, holding 5,790 of the 7,521 rung-2 units.
+- Fitting every class would mean 958 classes, 15.9k concepts, about 763k texts and about 7 TB
+  of activations. That is infeasible.
+- Units in smaller classes are `probe_na` (`class_too_small`), which is not a hallucination.
+  Their count is reported per arm.
+- Pack, fit and score stream per class, so each container loads one class's activations.
 
 ### 3a. Classes and concepts
 
