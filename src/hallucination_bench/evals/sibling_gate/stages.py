@@ -410,10 +410,26 @@ def cmd_probe_texts(a: argparse.Namespace) -> int:
     return 0
 
 
+def _site_share(path: Path) -> tuple[Counter, int]:
+    """Raw token class -> number of cells in a readouts ``hallucination.jsonl`` (the eval sites
+    over all cells, e.g. the 12,353 of s3d-rl600-all11)."""
+    from . import texts as T
+
+    n: Counter = Counter()
+    tot = 0
+    for r in U.iter_jsonl(path):
+        n[T.token_class(r.get("token") or "")] += 1
+        tot += 1
+    return n, tot
+
+
 def cmd_capture_manifest(a: argparse.Namespace) -> int:
     """Prompts JSON for ``wsbench_capture_modal.py --prompts-json`` (one bank,
     ``acts-sibgate-probe``): the assistant reply is the prefill, and ``eval_positions`` are the
-    reply's punctuation tokens after the first mention (<= 24). Needs a tokenizer
+    reply tokens of a key class after the first mention (<= 32, <= 8 per key, the caps applied
+    after the per-class merge, :func:`texts.class_merge`). Writes ``merge.json`` (class -> key
+    per raw token class, fixed across layers) and prints per key the training positions, the
+    implied null positions and the eval-site share. Needs a tokenizer
     (``uv run --with transformers``)."""
     from . import texts as T
 
@@ -425,8 +441,7 @@ def cmd_capture_manifest(a: argparse.Namespace) -> int:
             "hbench sibling-gate capture-manifest"
         ) from None
     tok = AutoTokenizer.from_pretrained(a.tokenizer)
-    rows = []
-    n_short = 0
+    enc_rows = []
     for t in U.iter_jsonl(DATA_DIR / "probe_texts.jsonl"):
         msgs = [
             {"role": "system", "content": t["system"]},
@@ -441,8 +456,30 @@ def cmd_capture_manifest(a: argparse.Namespace) -> int:
         enc = tok(text, return_offsets_mapping=True, add_special_tokens=False)
         toks = [text[s:e] for s, e in enc["offset_mapping"]]
         starts = [s for s, _e in enc["offset_mapping"]]
-        pos = T.read_positions(toks, starts, reply_at, reply_at + int(t["mention_char"] or 0))
+        lo = reply_at + int(t["mention_char"] or 0)
+        cand = T.candidates(toks, starts, reply_at, lo)
+        enc_rows.append((t, toks, starts, reply_at, lo, [T.token_class(toks[i]) for i in cand]))
+    by_cls: dict[str, list[list[int]]] = defaultdict(list)
+    for t, *_r, raw in enc_rows:
+        if t["concept"] and t["kind"] == "implied":
+            by_cls[t["class"]].append(raw)
+    merges = {
+        c: T.class_merge(by_cls.get(c, [])) for c in sorted({r[0]["class"] for r in enc_rows})
+    }
+    rows = []
+    n_short = 0
+    n_train: Counter = Counter()
+    n_null: Counter = Counter()
+    n_merged: Counter = Counter()
+    for t, toks, starts, reply_at, lo, _raw in enc_rows:
+        merge = merges[t["class"]]
+        pos = T.read_positions(toks, starts, reply_at, lo, merge)
+        _e, key = T.class_key([toks[p] for p in pos], merge)
         n_short += not pos
+        if t["concept"]:
+            n_train.update(key)
+            if t["kind"] == "implied":
+                n_null.update(key)
         rows.append(
             {
                 "label": t["id"].replace("|", "__").replace(" ", "_"),
@@ -457,13 +494,29 @@ def cmd_capture_manifest(a: argparse.Namespace) -> int:
                     "class": t["class"],
                     "concept": t["concept"],
                     "kind": t["kind"],
-                    "key": [T.punct_class(toks[p]) for p in pos],
+                    "key": key,
                 },
             }
         )
+    for m in merges.values():
+        n_merged.update(c for c, k in m.items() if k != c)
     dest = PROBES_DIR / "capture_prompts.json"
     dest.parent.mkdir(parents=True, exist_ok=True)
     dest.write_text(json.dumps(rows, ensure_ascii=False))
+    (PROBES_DIR / "merge.json").write_text(
+        json.dumps({c: [m[k] for k in range(T.N_CLASSES)] for c, m in merges.items()}, indent=0)
+        + "\n"
+    )
+    cells = Path(a.site_cells)
+    share, n_cells = _site_share(cells) if cells.exists() else (Counter(), 0)
+    print(
+        f"per key ({len(merges)} classes; merge < {T.MIN_NULL_POSITIONS} implied null positions "
+        f"per class): training positions / implied null positions / classes merged / eval-site "
+        f"share over {n_cells} cells of {cells}"
+    )
+    for k, name in enumerate(T.TOKEN_CLASSES):
+        sh = f"{100 * share[k] / n_cells:5.1f}%" if n_cells else "  n/a"
+        print(f"  {name:>14}: {n_train[k]:7d} {n_null[k]:7d} {n_merged[k]:4d}  {sh}")
     print(
         f"wrote {len(rows)} capture prompts ({n_short} with no read position) to {dest}\n"
         f"GPU capture (not launched): (cd $SNAP_WB && PYTHONPATH=src {MODAL} run "
@@ -484,10 +537,12 @@ def _launch(cmd: str, launch: bool) -> int:
 def cmd_fit(a: argparse.Namespace) -> int:
     from . import ladder as L
     from . import probes as P
+    from . import texts as T
 
     concepts = _concepts()
     texts = list(U.iter_jsonl(DATA_DIR / "probe_texts.jsonl"))
     cap = {r["label"]: r for r in json.loads((PROBES_DIR / "capture_prompts.json").read_text())}
+    merges = json.loads((PROBES_DIR / "merge.json").read_text())  # capture-manifest
     per_class: dict[str, Any] = {}
     for cls, row in sorted(concepts.items()):
         ci = {c: i for i, c in enumerate(row["concepts"])}
@@ -496,6 +551,8 @@ def cmd_fit(a: argparse.Namespace) -> int:
         per_class[L.slug(cls)] = {
             "class": cls,
             "concepts": row["concepts"],
+            # raw token class -> key (fixed across layers); a class without texts: identity
+            "merge": merges.get(cls, list(range(T.N_CLASSES))),
             "texts": [
                 {
                     "id": t["id"].replace("|", "__").replace(" ", "_"),
@@ -572,7 +629,7 @@ def cmd_score(a: argparse.Namespace) -> int:
     sha = hashlib.sha256(dp.read_bytes()).hexdigest()
     items = _items()
     keys = {
-        it: {str(s["pos"]): T.punct_class(s.get("token") or "") for s in items[it]["sites"]}
+        it: {str(s["pos"]): T.token_class(s.get("token") or "") for s in items[it]["sites"]}
         for it in items
     }
     inp = {
@@ -606,10 +663,16 @@ def cmd_label(a: argparse.Namespace) -> int:
     ``final: null`` (scoring keeps their raw leaf)."""
     from . import fill_judge as F
     from . import ladder as L
+    from . import texts as T
     from .classes import NO_CLASS, canonical_map
 
     out = Path(a.out)
     units = _all_units(a)
+    site_tok = {
+        (it, int(s["pos"])): s.get("token") or ""
+        for it, row in _items().items()
+        for s in row["sites"]
+    }
     rung1 = _rung1(out, _arms(a))
     have_classes = (DATA_DIR / "classes.json").exists() and (DATA_DIR / "concepts.json").exists()
     classes = _classes() if have_classes else {}
@@ -639,6 +702,8 @@ def cmd_label(a: argparse.Namespace) -> int:
         r1 = rung1.get(u["unit"])
         v = classes.get(f"{u['said_norm']}|{u['id']}")
         r2 = variants = None
+        tk = site_tok.get((u["id"], int(u["pos"])))
+        raw_key = None if tk is None else T.token_class(tk)
         if ready and r1 is not None and F.needs_rung2(r1):
             cls = v["class"] if v else NO_CLASS
             up = L.UnitProbe(
@@ -651,6 +716,7 @@ def cmd_label(a: argparse.Namespace) -> int:
                 v["said_canonical"] if v else u["said"],
                 None if (not v or v["no_gold"]) else v["gold"],
                 (dis.get(u["unit"]) or {}).get("distractors", []),
+                raw_key,
             )
             cp = cps.get(cls)
             r2 = L.rung2(up, cp, idx, **kw)
@@ -663,7 +729,8 @@ def cmd_label(a: argparse.Namespace) -> int:
             mn = L.matched_null(up, cp, items_by_gold, named)
             nulls["n_sites"] += mn["n_sites"]
             nulls["n_fire"] += mn["n_fire"]
-        rows.append(L.label_row(u, r1, r2, v, variants))
+        key = None if raw_key is None else T.TOKEN_CLASSES[raw_key]
+        rows.append(L.label_row(u, r1, r2, v, variants, key=key))
     ld = Path(a.labels_dir) if a.labels_dir else out / "labels"
     n = L.write_labels(rows, ld)
     (ld / "matched_null.json").write_text(json.dumps(dict(nulls)) + "\n")
@@ -681,7 +748,17 @@ def cmd_report(a: argparse.Namespace) -> int:
     from hallucination_bench import report_v2
 
     ld = Path(a.labels_dir) if a.labels_dir else Path(a.out) / "labels"
+    from . import ladder as L
+
     md = report_v2.sibling_gate_section(ld, _arms(a))
+    rows = [
+        r
+        for arm in _arms(a)
+        if (ld / f"{arm}.jsonl").exists()
+        for r in U.iter_jsonl(ld / f"{arm}.jsonl")
+    ]
+    if md:
+        md += L.per_key_table(rows)
     sums = {
         arm: U.summarize_label_rows(U.iter_jsonl(ld / f"{arm}.jsonl"))
         for arm in _arms(a)
@@ -689,6 +766,9 @@ def cmd_report(a: argparse.Namespace) -> int:
     }
     (Path(a.out) / "report.md").write_text("\n".join(md) + "\n")
     (Path(a.out) / "report.json").write_text(json.dumps(sums, indent=1) + "\n")
+    (Path(a.out) / "report_per_key.json").write_text(
+        json.dumps(L.per_key_summary(rows), indent=1) + "\n"
+    )
     print("\n".join(md) if md else f"no labels under {ld}")
     return 0
 
@@ -768,6 +848,11 @@ def add_parser(sub: Any) -> None:
         help="concepts: only classes with >= N (said, item) pairs (pilot cost cap; default all)",
     )
     sg.add_argument("--probe-acts", default="acts-sibgate-probe", help="probe-text acts subdir")
+    sg.add_argument(
+        "--site-cells",
+        default="/workspace/hb-readouts/s3d-rl600-all11/hallucination.jsonl",
+        help="capture-manifest: readouts whose cells give the eval-site share per key",
+    )
     sg.add_argument("--launch", action="store_true", help="fit / score: launch the Modal job")
     sg.add_argument(
         "--l42-token-mismatch",

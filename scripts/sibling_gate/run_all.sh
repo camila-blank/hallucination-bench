@@ -2,7 +2,8 @@
 # Plan 0009 §5 step 3: the chained sibling-gate driver (stages = `hbench sibling-gate <stage>`):
 #   units -> resample-manifests -> (GPU resample jobs) -> resample-collect -> fill ->
 #   fill-calib (dev) -> classes -> concepts -> probe-texts -> capture-manifest -> (GPU capture)
-#   -> fit -> score -> label -> report -> figures
+#   -> fit (writes probe_inputs.json) -> pack -> fit (Modal) -> score -> label -> report -> figures
+#   (rev 8: `pack` must run before the Modal fit; capture-manifest also writes probes/merge.json)
 #
 # Run it from a /tmp snapshot (editing a running bash script breaks it), in tmux `sibgate`:
 #   cp scripts/sibling_gate/run_all.sh /tmp/sibgate_run_all.sh

@@ -2,21 +2,24 @@
 
 Type (a) whitened DiffMean only (``probes.cross_fit_whitened``, lambda by inner CV; 4 folds by
 text id from ``probes.assign_folds``), per class of ``data/sibling_gate/concepts.json``. **New
-recipe:** centring and the null are keyed by the read position's punctuation token class
-(``ending = 0``, ``offset = class index``; a class with < 50 training positions merges into
-``other``), not by plan 0006's (ending, offset).
+recipe:** centring and the null are keyed by the read position's token class (``texts.token_class``;
+``ending = 0``, ``offset = key``), not by plan 0006's (ending, offset). Rev 8.1: the raw class ->
+key merge is per class and fixed across layers (``capture-manifest`` writes it; a key class with
+< 400 implied-text null positions merges into ``other``); fit uses the inputs' ``merge`` as is.
 
 * ``--phase pack``: read every probe-text file of ``acts-sibgate-probe`` once at all 12 layers
   and write per-layer fp16 window arrays to ``sibling-probes:/<run>/pack/``.
 * ``--phase fit``: one container per layer; per class: cross-fit, per-fold null stats, OOF
   implied validity per concept, the null check per key (split-half on held-out folds: the null
-  z of non-target concepts' implied positions has |mean| <= 0.1 and 0.8 <= sd <= 1.25; a failing
-  key merges into ``other``; ``other_ok`` false -> the class is n/a at that layer) and, at L44,
+  z of non-target concepts' implied positions has >= 400 values, |mean| <= 0.1 and
+  0.8 <= sd <= 1.25). Rev 8: a failing key does not take down the class; ``ladder`` makes only
+  the units whose eval-site key fails ``probe_na`` (``null_fail``) at that layer. At L44,
   the grand-mean-centred implied centroids. -> ``--out-dir/fit/<class>/fit_L<L>.json``.
   **No eval residual is read.**
 * ``--phase score``: per layer, the frozen fold models score every wsbench_chat eval site
   (``acts-hallucination-chat`` for 20..60, ``acts-hallucination-chat-L42`` for 42) -> per class
-  ``--out-dir/score/<class>/L<L>.npz`` (``item``, ``pos``, ``za`` [P, C]). The run records the
+  ``--out-dir/score/<class>/L<L>.npz`` (``item``, ``pos``, ``za`` [P, C], ``key`` [P] the
+  merged site key). The run records the
   sha256 of the distractor file it was launched after; ``hbench sibling-gate label`` refuses a
   mismatch.
 
@@ -62,9 +65,9 @@ volumes: dict[str | PurePosixPath, modal.Volume] = {
 }
 
 N_PACK_SHARDS = 16
-OTHER = 13  # texts.PUNCT_CLASSES.index("other")
-N_CLASSES = 14
-MIN_CLASS_POSITIONS = 50
+OTHER = 13  # texts.TOKEN_CLASSES.index("other")
+N_CLASSES = 14  # len(texts.TOKEN_CLASSES)
+MIN_NULL_Z = 400  # a key with fewer null-z values fails the null check
 NULL_MEAN_MAX = 0.1
 NULL_SD = (0.8, 1.25)
 DISTRACTOR_LAYER = 44
@@ -136,15 +139,11 @@ def _windows(inputs: dict, layer: int) -> dict:
     return win
 
 
-def _merge(texts: list[dict]) -> dict[int, int]:
-    """Punctuation classes with < 50 training (concept-text) positions merge into ``other``."""
-    from collections import Counter
-
-    n = Counter(k for t in texts if t["c"] >= 0 for k in (t["key"] or []))
-    return {
-        c: (c if n.get(c, 0) >= MIN_CLASS_POSITIONS or c == OTHER else OTHER)
-        for c in range(N_CLASSES)
-    }
+def _merge(cls: dict) -> dict[int, int]:
+    """The class's raw token class -> key map (``capture-manifest``, fixed across layers). The
+    texts' ``key`` arrays are already in this key space; old inputs without ``merge``: identity."""
+    m = cls.get("merge") or list(range(N_CLASSES))
+    return {c: int(m[c]) for c in range(N_CLASSES)}
 
 
 def _textset(texts: list[dict], win: dict, merge: dict[int, int]):
@@ -156,7 +155,7 @@ def _textset(texts: list[dict], win: dict, merge: dict[int, int]):
         [t["id"] for t in texts],
         [t["c"] for t in texts],
         [t["kind"] for t in texts],
-        [0] * len(texts),  # ending 0: the key is the punctuation class alone
+        [0] * len(texts),  # ending 0: the key is the token class alone
         [t["fold"] for t in texts],
         offsets=[[merge[int(k)] for k in t["key"]] for t in texts],
     )
@@ -164,8 +163,9 @@ def _textset(texts: list[dict], win: dict, merge: dict[int, int]):
 
 def null_check(ts, oof, n_concepts: int, n_folds: int = 4) -> dict:
     """Split-half on held-out folds, per key: a null fitted on half of fold k's non-target
-    implied texts standardises the other half (and vice versa); the pooled z must have
-    |mean| <= 0.1 and 0.8 <= sd <= 1.25."""
+    implied texts standardises the other half (and vice versa); the pooled z must have at least
+    400 values, |mean| <= 0.1 and 0.8 <= sd <= 1.25. ``other_ok`` is informational (rev 8: the
+    state that counts is per key)."""
     import numpy as np
     import um_probe as Q  # type: ignore
 
@@ -188,7 +188,9 @@ def null_check(ts, oof, n_concepts: int, n_folds: int = 4) -> dict:
                         zs.append((y - x.mean()) / x.std(ddof=1))
         z = np.concatenate(zs) if zs else np.zeros(0)
         m, sd = (float(z.mean()), float(z.std(ddof=1))) if z.size > 1 else (np.nan, np.nan)
-        ok = bool(z.size > 1 and abs(m) <= NULL_MEAN_MAX and NULL_SD[0] <= sd <= NULL_SD[1])
+        ok = bool(
+            z.size >= MIN_NULL_Z and abs(m) <= NULL_MEAN_MAX and NULL_SD[0] <= sd <= NULL_SD[1]
+        )
         res[str(int(o))] = {"n": int(z.size), "mean": m, "sd": sd, "ok": ok}
     other = res.get(str(OTHER))
     failing = sorted(k for k, v in res.items() if not v["ok"])
@@ -211,7 +213,7 @@ def fit_layer(layer: int, inputs: dict) -> list[dict]:
     for slug, cls in sorted(inputs["classes"].items()):
         t0 = time.time()
         C = len(cls["concepts"])
-        merge = _merge(cls["texts"])
+        merge = _merge(cls)
         texts, ts = _textset(cls["texts"], win, merge)
         res: dict = {"layer": layer, "class": cls["class"], "n_texts": len(texts)}
         try:
@@ -228,17 +230,7 @@ def fit_layer(layer: int, inputs: dict) -> list[dict]:
         za = Q.oof_z(ts, cfa.oof, nsa)
         va = Q.validity_implied(ts, za, C)
         nc = null_check(ts, cfa.oof, C)
-        if nc["failing_keys"] and not nc["other_ok"]:
-            pass  # every unit of the class at this layer is probe_na (ladder.na_reason)
-        elif nc["failing_keys"]:  # failing keys merge into `other`: refit once
-            bad = {int(k) for k in nc["failing_keys"]}
-            merge = {c: (OTHER if m in bad else m) for c, m in merge.items()}
-            texts, ts = _textset(cls["texts"], win, merge)
-            cfa, lams, _tab = P.cross_fit_whitened(ts, C)
-            nsa = Q.null_stats(ts, cfa.oof, C)
-            za = Q.oof_z(ts, cfa.oof, nsa)
-            va = Q.validity_implied(ts, za, C)
-            nc = {**null_check(ts, cfa.oof, C), "merged": sorted(bad)}
+        # rev 8: no refit / merge of failing keys; only units on a failing key are n/a there
         arrs: dict[str, np.ndarray] = {}
         for k, m in enumerate(cfa.models):
             keys = np.array(sorted(m.keys, key=lambda kk: m.keys[kk]), dtype=np.int64)
@@ -337,7 +329,7 @@ def score_layer(layer: int, inputs: dict) -> dict[str, bytes]:
         if loaded is None:
             continue
         ma, ns, merge = loaded
-        rows_item, rows_pos, Z = [], [], []
+        rows_item, rows_pos, rows_key, Z = [], [], [], []
         for it, (x, pos) in sorted(win.items()):
             keys = np.array(
                 [merge.get(int(inputs["site_keys"][it].get(str(p), OTHER)), OTHER) for p in pos],
@@ -350,12 +342,14 @@ def score_layer(layer: int, inputs: dict) -> dict[str, bytes]:
             Z.append(za)
             rows_item += [it] * len(pos)
             rows_pos += pos
+            rows_key += keys.tolist()
         buf = io.BytesIO()
         np.savez(
             buf,
             item=np.array(rows_item),
             pos=np.array(rows_pos, np.int64),
             za=np.concatenate(Z).astype(np.float32),
+            key=np.array(rows_key, np.int64),
         )
         d = _run_dir(inputs) / "score" / slug
         d.mkdir(parents=True, exist_ok=True)

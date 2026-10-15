@@ -35,7 +35,7 @@ src/hallucination_bench/
   evals/sibling_gate/   plan 0009 (rev 21): sibling gate. units (units, norm, item_sibling_names,
                   load_labels), resample (pools, trimmed manifests, job lines, collect, block
                   shape), fill_judge (sibfill-v1 + rung-1 rule), classes (sibclass-v1, dedupe,
-                  sibconcepts-v1), texts (sibgen-chat-v1, checks, punctuation token-class key),
+                  sibconcepts-v1), texts (sibgen-chat-v2, checks, token_class key + per-class merge),
                   probes.py / um_probe.py (VENDORED verbatim from camila/um-ladder-v2; only the
                   um_probe import line differs), ladder (distractors, n/a, fire/nearby,
                   cross-method, matched null, labels), stages (the CLI stages)

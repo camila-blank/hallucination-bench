@@ -1,16 +1,21 @@
-"""Plan 0009 §3b-c: probe texts (``sibgen-chat-v1``), their code checks, the read positions,
-and the punctuation token-class key.
+"""Plan 0009 §3b-c: probe texts (``sibgen-chat-v2``), their code checks, the read positions,
+and the token-class key (rev 8 / 8.1).
 
 Texts are short wsbench_chat-style exchanges (system, user turn, assistant reply). Per concept of
 C: 24 ``explicit`` (the reply names the concept and no other concept of C) and 24 ``implied``
 (the reply makes the concept unambiguous without naming it); per class 24 ``neutral`` (the reply
-names nothing in C; not a probe class). Code checks (``um_ladder.text_check`` adapted to C):
-naming as specified, no word 8-gram shared with any wsbench_chat item text, no duplicates.
+names nothing in C; not a probe class). Rev 8: the replies follow the wsbench_chat house style
+(a short paragraph, then a bold-labelled bullet list or a ``###`` heading; ``!``, ``?`` and
+parentheses where natural; the concept mentioned early), so the probe bank holds the tokens the
+eval sites sit on. Code checks (``um_ladder.text_check`` adapted to C): naming as specified, no
+word 8-gram shared with any wsbench_chat item text, no duplicates.
 
-Read positions: every punctuation token of the reply after the concept's first explicit or
-implied mention, up to 24 per text. **New recipe** (stated as such): centring and the null are
-keyed by the read position's punctuation token class, through ``um_probe._key`` /
-``eval_key`` with ``ending = 0`` and ``offset = class index``.
+**New recipe** (stated as such): centring and the null are keyed by the read position's token
+class (:func:`token_class`, the same function for read positions and eval sites), through
+``um_probe._key`` / ``eval_key`` with ``ending = 0`` and ``offset = key``. Merging into
+``other`` is per concept class and fixed across layers (:func:`class_merge`, < 400 implied-text
+null positions). Read positions: reply tokens of a key class after the concept's first mention,
+up to 32 per text and at most 8 per (merged) key.
 """
 
 from __future__ import annotations
@@ -28,72 +33,171 @@ from hallucination_bench.llm import LLM, Usage, schema_block
 from . import units as U
 from .fill_judge import EFFORT, MODEL, cached_json_call, gather_limited
 
-GEN_VERSION = "sibgen-chat-v1"
+GEN_VERSION = "sibgen-chat-v2"  # rev 8: wsbench_chat house style (v1 = plain prose)
 PER_KIND = 24
 NEUTRAL_N = 24
-MAX_READ = 24
+MAX_READ = 32
+PER_KEY_READ = 8
 NGRAM = 8
 CACHE_PATH = U.OUT / "texts" / "cache.jsonl"
 
-# ---------------------------------------------------------------- punctuation token classes
+# ---------------------------------------------------------------- token classes (rev 8 / 8.1)
 
-PUNCT_CLASSES: tuple[str, ...] = (
-    ".",
-    ",",
-    "!",
-    "?",
-    ":",
-    ";",
-    "\n",
-    ")",
-    "。",
-    "，",
-    "！",
-    "？",
-    "：",
+TOKEN_CLASSES: tuple[str, ...] = (
+    "comma",  # , ，
+    "period",  # . 。
+    "newline",  # any token made only of newlines and spaces (Ċ, ĊĊ, ' ĊĊ', '  Ċ')
+    "bold",  # any token containing ** (' **', ':**', '**:', '**.', '?**', ' **"')
+    "heading",  # # ### ####
+    "exclaim",  # ! ！
+    "question",  # ? ？
+    "colon",  # : ：  (alone; ':**' is bold)
+    "dash",  # bullet / dash: - — –
+    "open_bracket",  # ( （
+    "close_bracket",  # ) ）  ('),', ').', '):')
+    "quote",  # " “ ”
+    "star",  # italic / star: a lone '*' / ' *' (in wsbench_chat mostly the '*   ' bullet)
     "other",
 )
-OTHER = PUNCT_CLASSES.index("other")
-MIN_CLASS_POSITIONS = 50  # a class with fewer training positions merges into `other`
+OTHER = TOKEN_CLASSES.index("other")
+N_CLASSES = len(TOKEN_CLASSES)
+MIN_NULL_POSITIONS = 400  # a key class with fewer implied-text null positions merges into other
+
+# first non-space mark -> class (a token containing ** is bold before this table is consulted)
+_MARK_CLASS = {
+    **dict.fromkeys(",，", "comma"),
+    **dict.fromkeys(".。", "period"),
+    **dict.fromkeys("#", "heading"),
+    **dict.fromkeys("!！", "exclaim"),
+    **dict.fromkeys("?？", "question"),
+    **dict.fromkeys(":：", "colon"),
+    **dict.fromkeys("-—–", "dash"),
+    **dict.fromkeys("(（", "open_bracket"),
+    **dict.fromkeys(")）", "close_bracket"),
+    **dict.fromkeys('"“”', "quote"),
+    **dict.fromkeys("*", "star"),
+}
 
 
-def is_punct_token(tok: str) -> bool:
-    """A token made only of punctuation and whitespace, with at least one punctuation mark or a
-    newline (a pure-space token is not a read position)."""
-    if not tok or not tok.strip(" \t"):
+def _bytes_to_unicode() -> dict[int, str]:
+    """GPT-2 byte-level BPE alphabet (byte -> printable char)."""
+    bs = list(range(ord("!"), ord("~") + 1))
+    bs += list(range(ord("¡"), ord("¬") + 1)) + list(range(ord("®"), ord("ÿ") + 1))
+    cs = bs[:]
+    n = 0
+    for b in range(256):
+        if b not in bs:
+            bs.append(b)
+            cs.append(256 + n)
+            n += 1
+    return {b: chr(c) for b, c in zip(bs, cs, strict=True)}
+
+
+_BYTE_OF = {c: b for b, c in _bytes_to_unicode().items()}
+
+
+def decode_bpe(tok: str) -> str:
+    """Byte-level BPE string -> text ('âĢĶ' -> '—', 'Ċ' -> '\\n', 'Ġ' -> ' '). The readouts mix
+    BPE and decoded characters (' ĊĊ'), so a char outside the BPE alphabet is kept as its UTF-8
+    bytes. A string that is not valid BPE (already-decoded text such as 'é') is returned as is."""
+    if not any(c in _BYTE_OF and not c.isascii() for c in tok):
+        return tok  # pure ASCII / no BPE-only chars: nothing to decode
+    raw = b"".join(bytes([_BYTE_OF[c]]) if c in _BYTE_OF else c.encode() for c in tok)
+    try:
+        return raw.decode("utf-8")
+    except UnicodeDecodeError:
+        return tok
+
+
+def token_class(tok: str) -> int:
+    """Class index of a token (decoded text or byte-level BPE), the one key for both probe read
+    positions and eval sites. Normalise: decode BPE, strip whitespace; a token made only of
+    newlines and spaces is ``newline``; a token containing ``**`` is ``bold``; else the class of
+    its first mark (``.,`` -> period, ``).`` -> close_bracket, ``?)`` -> question, ``*)`` ->
+    star); ``other`` when that mark has no class (``;``, ``/``, ``&``, ``'``, ``__``, words)."""
+    s = decode_bpe(tok)
+    core = s.strip()
+    if not core:
+        return TOKEN_CLASSES.index("newline") if ("\n" in s or "\r" in s) else OTHER
+    if "**" in core:
+        return TOKEN_CLASSES.index("bold")
+    name = _MARK_CLASS.get(core[0])
+    return TOKEN_CLASSES.index(name) if name else OTHER
+
+
+def is_read_token(tok: str) -> bool:
+    """A probe read-position candidate: after decoding, only whitespace, punctuation and
+    non-emoji symbols, with at least one mark or a newline (a pure-space token is not one)."""
+    s = decode_bpe(tok)
+    if not s or not s.strip(" \t"):
         return False
-    return all(ch.isspace() or unicodedata.category(ch).startswith("P") for ch in tok)
+    return all(
+        ch.isspace()
+        or (cat := unicodedata.category(ch)).startswith("P")
+        or cat in ("Sm", "Sc", "Sk")
+        for ch in s
+    )
 
 
-def punct_class(tok: str) -> int:
-    """Class index of a punctuation token: spaces and tabs are ignored; a mark followed by
-    newlines takes the mark's class; a newline-only token is ``\\n``; anything else ``other``."""
-    s = tok.strip(" \t")
-    core = s.rstrip("\n")
-    if core in PUNCT_CLASSES[:-1]:
-        return PUNCT_CLASSES.index(core)
-    if s and not core:
-        return PUNCT_CLASSES.index("\n")
-    return OTHER
+def select_capped(
+    keys: Sequence[int], max_n: int = MAX_READ, per_key: int = PER_KEY_READ
+) -> list[int]:
+    """Indices into ``keys`` (in order): at most ``per_key`` per key, ``max_n`` in all."""
+    out: list[int] = []
+    n: Counter = Counter()
+    for i, k in enumerate(keys):
+        if len(out) >= max_n:
+            break
+        if n[k] < per_key:
+            n[k] += 1
+            out.append(i)
+    return out
 
 
-def merge_small(counts: Mapping[int, int], min_n: int = MIN_CLASS_POSITIONS) -> dict[int, int]:
-    """class index -> effective index: classes with fewer than ``min_n`` training positions
-    merge into ``other``."""
-    return {
-        c: (c if counts.get(c, 0) >= min_n or c == OTHER else OTHER)
-        for c in range(len(PUNCT_CLASSES))
-    }
+def class_merge(
+    implied_keys: Iterable[Sequence[int]],
+    min_n: int = MIN_NULL_POSITIONS,
+    max_n: int = MAX_READ,
+    per_key: int = PER_KEY_READ,
+) -> dict[int, int]:
+    """Raw class -> key for ONE concept class, fixed across layers: a key class with fewer than
+    ``min_n`` implied-text null positions in the class's bank merges into ``other``. The
+    per-text caps apply after merging, so this iterates to a fixed point (keys only ever move
+    into ``other``). ``implied_keys``: per implied text, the raw classes of its candidates."""
+    texts = [list(k) for k in implied_keys]
+    merge = {c: c for c in range(N_CLASSES)}
+    while True:
+        counts: Counter = Counter()
+        for ks in texts:
+            mk = [merge[k] for k in ks]
+            counts.update(mk[i] for i in select_capped(mk, max_n, per_key))
+        bad = {c for c in range(N_CLASSES) if c != OTHER and merge[c] == c and counts[c] < min_n}
+        if not bad:
+            return merge
+        merge = {c: (OTHER if m in bad else m) for c, m in merge.items()}
 
 
 def class_key(
     tokens: Sequence[str], merge: Mapping[int, int] | None = None
 ) -> tuple[list[int], list[int]]:
-    """(ending, offset) arrays for ``um_probe._key`` / ``eval_key``: ending 0, offset = class."""
-    off = [punct_class(t) for t in tokens]
+    """(ending, offset) arrays for ``um_probe._key`` / ``eval_key``: ending 0, offset = key."""
+    off = [token_class(t) for t in tokens]
     if merge is not None:
         off = [merge.get(o, OTHER) for o in off]
     return [0] * len(off), off
+
+
+def candidates(
+    tokens: Sequence[str], starts: Sequence[int], reply_start: int, mention_char: int
+) -> list[int]:
+    """Token indices of read-token candidates of the reply at/after ``mention_char`` (a char
+    offset into the rendered text; ``starts`` = each token's char start)."""
+    lo = max(reply_start, mention_char)
+    return [
+        i
+        for i, (t, s) in enumerate(zip(tokens, starts, strict=True))
+        if s >= lo and is_read_token(t)
+    ]
 
 
 def read_positions(
@@ -101,17 +205,15 @@ def read_positions(
     starts: Sequence[int],
     reply_start: int,
     mention_char: int,
+    merge: Mapping[int, int] | None = None,
     max_n: int = MAX_READ,
+    per_key: int = PER_KEY_READ,
 ) -> list[int]:
-    """Token indices of punctuation tokens of the reply starting at/after ``mention_char`` (a
-    char offset into the rendered text; ``starts`` = each token's char start)."""
-    lo = max(reply_start, mention_char)
-    out = [
-        i
-        for i, (t, s) in enumerate(zip(tokens, starts, strict=True))
-        if s >= lo and is_punct_token(t)
-    ]
-    return out[:max_n]
+    """§3b read positions: reply tokens of a key class after the first mention, at most
+    ``per_key`` per (merged) key and ``max_n`` per text."""
+    cand = candidates(tokens, starts, reply_start, mention_char)
+    _e, keys = class_key([tokens[i] for i in cand], merge)
+    return [cand[j] for j in select_capped(keys, max_n, per_key)]
 
 
 # ---------------------------------------------------------------- naming checks
@@ -187,12 +289,17 @@ def text_check(
     return None
 
 
-# ---------------------------------------------------------------- generator (sibgen-chat-v1)
+# ---------------------------------------------------------------- generator (sibgen-chat-v2)
 
 GEN_SYSTEM = """You write short probe texts for an interpretability study. Each text is a short \
 chat exchange in the style of a casual user chatting with an AI assistant: a one-line system \
-prompt, one user turn, and the assistant's reply (2-4 sentences, with ordinary punctuation). \
-Every text is different in topic, wording and situation. For each text also give "mention": \
+prompt, one user turn, and the assistant's reply. Write the reply in a typical chat-assistant \
+house style, in Markdown: a short opening paragraph (1-3 sentences) that mentions the concept \
+early, then EITHER a bullet list of 2-4 items with bold labels ("- **Label:** text" or \
+"* **Label**: text") OR a "### " heading followed by a sentence or two. Use "!", "?" and \
+parentheses where they come naturally, plus ordinary commas and full stops; separate the \
+paragraph from the list or heading with a blank line. Keep each reply under 120 words. Every \
+text is different in topic, wording, situation and layout. For each text also give "mention": \
 the verbatim span of the assistant reply where the concept is first named (explicit) or first \
 made unambiguous (implied); an empty string for neutral texts. Return JSON only."""
 

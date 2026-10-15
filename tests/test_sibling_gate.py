@@ -475,18 +475,22 @@ def test_collect_keeps_requested_keys_and_block_shape():
 
 
 def test_punctuation_token_class_key():
-    assert T.punct_class(".") == T.PUNCT_CLASSES.index(".")
-    assert T.punct_class(" ,") == T.PUNCT_CLASSES.index(",")
-    assert T.punct_class(".\n\n") == T.PUNCT_CLASSES.index(".")
-    assert T.punct_class("\n\n") == T.PUNCT_CLASSES.index("\n")
-    assert T.punct_class("。") == T.PUNCT_CLASSES.index("。")
-    assert T.punct_class(' "') == T.OTHER and T.punct_class("—") == T.OTHER
-    assert T.is_punct_token(" ,") and T.is_punct_token("\n") and not T.is_punct_token(" the")
-    assert not T.is_punct_token("  ")
-    merge = T.merge_small({0: 60, 1: 10})
-    assert merge[0] == 0 and merge[1] == T.OTHER and merge[T.OTHER] == T.OTHER
-    ending, off = T.class_key([".", ";", "!"], merge)
-    assert ending == [0, 0, 0] and off == [0, T.OTHER, T.OTHER]
+    # rev 8 renamed the key (punct_class -> token_class, PUNCT_CLASSES -> TOKEN_CLASSES) and
+    # merges by implied null positions (class_merge); more in tests/test_sibling_gate_rev8.py
+    K = T.TOKEN_CLASSES.index
+    assert T.token_class(".") == K("period")
+    assert T.token_class(" ,") == K("comma")
+    assert T.token_class(".\n\n") == K("period")
+    assert T.token_class("\n\n") == K("newline")
+    assert T.token_class("。") == K("period")  # rev 8: 。 joins .
+    assert T.token_class(' "') == K("quote") and T.token_class("—") == K("dash")  # rev 8
+    assert T.is_read_token(" ,") and T.is_read_token("\n") and not T.is_read_token(" the")
+    assert not T.is_read_token("  ")
+    merge = T.class_merge([[K("period")] * 8] * 60 + [[K("comma")]] * 10)  # rev 8.1: >= 400
+    assert merge[K("period")] == K("period") and merge[K("comma")] == T.OTHER
+    assert merge[T.OTHER] == T.OTHER
+    ending, off = T.class_key([".", ";", ","], merge)
+    assert ending == [0, 0, 0] and off == [K("period"), T.OTHER, T.OTHER]
     toks = ["Hi", ",", " Alibaba", " made", " me", ".", " Yes", "!"]
     starts = [0, 2, 3, 11, 16, 19, 20, 24]
     assert T.read_positions(toks, starts, reply_start=0, mention_char=3) == [5, 7]
