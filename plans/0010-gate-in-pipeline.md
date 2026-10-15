@@ -1,7 +1,7 @@
 # Plan 0010: the sibling gate as a normal pipeline step
 
-Issue #12. Author: Camila Blank (planned with Claude), 2026-10-15. Revision 2 (after critique 1;
-a full rewrite, so the body is the spec).
+Issue #12. Author: Camila Blank (planned with Claude), 2026-10-15. Revision 3 (after critiques 1–2;
+rev 2 was a full rewrite; rev 3 adds §10 and edits §1, §6 and §8 in place).
 Branch `camila/gate-pipeline`, stacked on `camila/taxonomy-v2` (it includes #11 / plan 0009).
 
 Camila: "can you figure out how to automatically integrate this as a step in our normal
@@ -42,7 +42,8 @@ previously gated arms can change when arms are added. This is intended, and it i
   set, never over `--arms`. `--arms` only narrows what is printed, and resampling still covers
   only the arms that need it.
 - **`arms.<name>`** records, for each arm:
-  - `cells`, the claim-map cells directory;
+  - `cells`, the claim-map cells directory. It always takes precedence over `<out>`, because
+    gated arms outside the script's `ARMS` keep their cells in `hb-taxonomy-v2`;
   - `readouts`;
   - `kind`, either `sampled` or `token`;
   - `family`;
@@ -63,8 +64,9 @@ previously gated arms can change when arms are added. This is intended, and it i
   `mlnla-rl2-2000` (`ckpt_sweep.sh` `lens_of`), acts `acts-hallucination-chat`, all 11
   layers, T 1.0 / top_p 0.95 / top_k 64. Its cells are in
   `/workspace/hb-taxonomy-v2/outputs/wsbench_chat/claude-opus-5-5/mlnla-ck2000-all11`.
-- **Derived views.** `sibling_gate.units.family_of`, `resample.POOLS` and `ARM_OF` become views
-  of the registry. A test asserts that they equal the plan-0009 values.
+- **Derived views.** `sibling_gate.units.family_of`, `ARMS_IN_SCOPE`, `PROSE_ARMS`,
+  `TOKEN_ARMS` and `DETERMINISTIC_ARMS` (from `kind`), plus `resample.POOLS` and `ARM_OF`,
+  become views of the registry. A test asserts that they equal the plan-0009 values.
 - **`env`**:
   - `MODAL_RESOURCE_ENV=camila-blank`;
   - `WSBENCH_GEN_VOLUME=sibgate-gen`;
@@ -183,8 +185,32 @@ previously gated arms can change when arms are added. This is intended, and it i
 
   The estimate uses the plan-0009 unit costs. A real run proceeds without `--yes` only if the
   estimate is ≤ `$GATE_AUTO_USD`, default $300. Otherwise it prints the plan and exits with code
-  2. In `run_all_arms.sh`, `GATE=1` is the default, and an exit 2 is reported as "gate needs
-  --yes", without failing the run. The actual spend is logged in `generation.json`.
+  2. The actual spend is logged in `generation.json`.
+- **`run_all_arms.sh`** (rev 3) runs `hbench gate` once, after stage 2 and the last report, and
+  **not** wrapped in `stage()`, because the gate must not be retried three times. Gate exit
+  codes have their own meanings, distinct from `hbench run`'s:
+
+  | gate exit | meaning |
+  |---|---|
+  | 0 | done |
+  | 2 | needs `--yes` |
+  | 3 | fatal: config / auth / spend limit / unregistered arm |
+  | 4 | partial; re-run resumes |
+
+  The script prints the meaning and continues to the final report.
+
+  An unattended run never passes `--yes`, so an over-cap gate is skipped. The report's
+  coverage table then shows "gate pending (needs --yes)" for that arm, and the old labels
+  generation still applies.
+- **`changes.md` attribution** (rev 3) uses a fixed first-match order, per unit whose final
+  status changed:
+  1. **`class`**: the unit's class fit hash changed, including a cap crossing or a first
+     freeze;
+  2. **`cross_method`**: the cross-index entries for the unit's (item, said_canonical) changed;
+  3. **`resample`**: the unit's rung-1 counts changed;
+  4. **`other`**.
+
+  No counterfactual relabels are run.
 
 ## 7. Tests
 
@@ -210,11 +236,10 @@ previously gated arms can change when arms are added. This is intended, and it i
 1. **Import and idempotence.**
    - Import the plan-0009 state: the bank, class map, frozen distractors, merge, fits and runs.
    - `hbench gate --plan` must report zero work.
-   - `hbench gate` must make zero API calls and launch no Modal jobs, and its key-sorted
-     labels must equal the merged plan-0009 labels unit for unit (final status and rung-1
-     fields).
-   - Byte equality is required for the labels files written in a stable order. Report any
-     difference.
+   - `hbench gate` must make zero API calls and launch no Modal jobs.
+   - Its labels, compared as **parsed rows** keyed by unit, must equal the merged plan-0009
+     labels: the final status, the rung-1 status, the counts and the rung-2 trace.
+   - **The baseline** is fixed in §10.1. Report any difference.
 2. **A new arm.**
    - `hbench gate --add-arm mlnla-ck2000-all11 --plan` prints the estimate. Then run the gate.
    - Report:
@@ -224,6 +249,83 @@ previously gated arms can change when arms are added. This is intended, and it i
      - spend and wall-clock.
 3. **The plan-0009 doc numbers.** Results 0009 stays valid for its generation, and the
    validation doc notes which generation it is.
+
+## 10. Importing the plan-0009 state, and formats (rev 3)
+
+### 10.1 Baseline
+
+- **The labels.** The merged plan-0009 generation is PR #11 at 67a083e, with labels from
+  `/workspace/hb-sibling-resample/outputs/sibling_gate/labels/*.jsonl`. The sha256 of their
+  sorted per-file shas is `f8fd3f49969356ff…`.
+- **The setting it came from:**
+  - the 14-arm set;
+  - the v2.7 `cells.jsonl` under `/workspace/hb-taxonomy-v2/outputs/wsbench_chat/claude-opus-5-5`;
+  - the final rescore (narrow overlap rule).
+- **Freezing the unit hash.** The import computes the §3 unit hash per arm from those cells, and
+  freezes it.
+
+### 10.2 Class map
+
+- **Rebuilt from cache.** `class_map.json` is rebuilt from the `sibclass-v1` cache, which gives
+  the raw class per (said, item), plus the cached `dedupe:all` result, resolved through
+  `classes.apply_merges`. It is not rebuilt from `classes.json`, which only stores canonical
+  names.
+- **The import asserts** that assembling over the imported map reproduces `classes.json` row
+  for row.
+- **Failed dedupes are never frozen.** A dedupe answer that fell back to identity (a failed or
+  truncated call) is not frozen. Those names go to `dedupe-incr-v1` on the next run.
+
+### 10.3 Text bank and capture shards
+
+- **The bank cell is the authority.** Each (class, concept, kind) cell is authoritative. The LLM
+  cache is consulted only for missing cells.
+- **Imported texts** come from `data/sibling_gate/probe_texts.jsonl(.gz)` and carry
+  `avoid: "legacy"`, so the v2.1 cache-key change never re-queues them.
+- **Shard lists** for each class are derived from `probes/capture_prompts.json`, which maps
+  prompt label → text id → class, and the 32 existing `acts-sibgate-probe-sNN` shard manifests.
+  The import checks that every imported text has exactly one shard.
+- **The merge** is imported from `probes/merge.json` (global, per class) as is.
+
+### 10.4 Per-class fit hash
+
+The per-class input hash is the sha256 of:
+- the class's sorted text ids and texts;
+- its fold assignment;
+- its frozen merge;
+- its concept list;
+- its shard list;
+- its layers;
+- the `probe_fit.py` / `probes.py` / `um_probe.py` file hashes.
+
+On import it is computed for every fitted class and cross-checked against that class's slice of
+`probe_inputs.json`, re-deriving the inputs from the bank and asserting they match. Only then is
+it stored as `probes/fit/<class>/inputs.sha256`. A later change to any of these inputs triggers a
+refit.
+
+### 10.5 Resample runs
+
+- **Each pool's existing state becomes run0.** Its `resample.jsonl` (with `request.json`) is
+  imported as `run0` and takes ordering precedence. Samples are kept as run0's first 10, then
+  later runs in attempt order.
+- **Run-name parsing** uses an anchored regex: `^gen-sibgate-(?P<pool>.+?)-(?P<sha>[0-9a-f]{8})-a(?P<att>\d+)$`.
+  Patchscopes' legacy seed runs match `-s\d$`. Plan-0009 names (`gen-sibgate-<pool>`, plus the
+  redo) are covered by run0 and never re-read.
+
+### 10.6 Score and distractor formats
+
+- **Score is per class.** Score output stays per class
+  (`probes/score/<class>/L<L>.npz`), plus a new `probes/score/<class>/meta.json` holding the
+  class input hash, the eval-site set hash and the per-unit distractor shas used.
+- **The summary is rebuilt from the per-class metas.** `probes/score/summary.json` is
+  reassembled from them on every run.
+- **Rescore** happens for a class whose input hash, eval-site set or unit shas differ from its
+  `meta.json`.
+- **`cmd_label`** checks each unit's distractor sha against its class `meta.json`, replacing the
+  whole-file guard. A mismatch makes that unit `probe_na` (`stale_score`) and is logged.
+- **The import** writes `meta.json` for every existing score class from the plan-0009 inputs, and
+  splits `distractors.json` into per-class files with per-unit shas.
+- **Late first freeze.** A unit whose rung 1 changes later, for example a retried
+  `resample_failed` that becomes `stable`, gets its first distractor freeze at that point.
 
 ## 9. Files
 
