@@ -73,7 +73,7 @@ $SG fill-calib --split dev
 $SG classes
 $SG concepts
 $SG probe-texts
-uv run --with transformers $SG capture-manifest
+uv run --with transformers --with jinja2 $SG capture-manifest
 (cd "$SNAP_WB" && PYTHONPATH=src $MOD run scripts/olens_suite/workspace_bench/wsbench_capture_modal.py \
   --prompts-json "$REPO/$OUT/probes/capture_prompts.json" --acts-subdir acts-sibgate-probe \
   --layers 20,24,28,32,36,40,42,44,48,52,56,60)

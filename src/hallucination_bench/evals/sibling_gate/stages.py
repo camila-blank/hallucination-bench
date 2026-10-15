@@ -33,6 +33,15 @@ SCRIPTS = REPO_ROOT / "scripts" / "sibling_gate"
 MODAL = "uvx --python 3.12 modal@latest"
 
 
+def _configure(a: argparse.Namespace) -> None:
+    """A non-default ``--out`` (the pilot) gets its own data / probes dirs and probe-acts subdir
+    instead of ``data/sibling_gate`` and ``<default out>/probes``; the default is unchanged."""
+    global DATA_DIR, PROBES_DIR
+    out = Path(a.out)
+    if out.resolve() != U.OUT.resolve():
+        DATA_DIR, PROBES_DIR = out / "data", out / "probes"
+
+
 def _arms(a: argparse.Namespace) -> list[str]:
     return [x for x in a.arms.split(",") if x] if a.arms else list(U.ARMS_IN_SCOPE)
 
@@ -329,12 +338,14 @@ def cmd_concepts(a: argparse.Namespace) -> int:
 
     out = Path(a.out)
     classes = _classes()
+    npairs = Counter(v["class"] for v in classes.values())
+    kept = {k: v for k, v in classes.items() if npairs[v["class"]] >= a.min_class_pairs}
     llm = _llm(a)
 
     async def go():
         with Cache(out / "classes" / "cache.jsonl", readonly=llm is None) as cache:
             try:
-                return await K.run_concepts(K.class_members(classes), llm, cache)
+                return await K.run_concepts(K.class_members(kept), llm, cache)
             finally:
                 if llm is not None:
                     await llm.aclose()
@@ -410,7 +421,7 @@ def cmd_capture_manifest(a: argparse.Namespace) -> int:
         from transformers import AutoTokenizer  # type: ignore[import-not-found]
     except ImportError:
         raise SystemExit(
-            "capture-manifest needs transformers: uv run --with transformers "
+            "capture-manifest needs transformers: uv run --with transformers --with jinja2 "
             "hbench sibling-gate capture-manifest"
         ) from None
     tok = AutoTokenizer.from_pretrained(a.tokenizer)
@@ -424,6 +435,9 @@ def cmd_capture_manifest(a: argparse.Namespace) -> int:
         ]
         text = tok.apply_chat_template(msgs, tokenize=False, enable_thinking=False)
         reply_at = text.rfind(t["assistant"])
+        # the capture prefills the reply: no trailing `<|im_end|>\n` (its "\n" would be a read
+        # position past the last captured token)
+        text = text[: reply_at + len(t["assistant"])]
         enc = tok(text, return_offsets_mapping=True, add_special_tokens=False)
         toks = [text[s:e] for s, e in enc["offset_mapping"]]
         starts = [s for s, _e in enc["offset_mapping"]]
@@ -454,7 +468,7 @@ def cmd_capture_manifest(a: argparse.Namespace) -> int:
         f"wrote {len(rows)} capture prompts ({n_short} with no read position) to {dest}\n"
         f"GPU capture (not launched): (cd $SNAP_WB && PYTHONPATH=src {MODAL} run "
         "scripts/olens_suite/workspace_bench/wsbench_capture_modal.py --prompts-json "
-        f"{dest} --acts-subdir acts-sibgate-probe --layers 20,24,28,32,36,40,42,44,48,52,56,60)"
+        f"{dest} --acts-subdir {a.probe_acts} --layers 20,24,28,32,36,40,42,44,48,52,56,60)"
     )
     return 0
 
@@ -498,7 +512,7 @@ def cmd_fit(a: argparse.Namespace) -> int:
         }
     inp = {
         "run": a.run,
-        "probe_acts": "acts-sibgate-probe",
+        "probe_acts": a.probe_acts,
         "layers": list(L.PROBE_LAYERS),
         "classes": per_class,
     }
@@ -747,10 +761,17 @@ def add_parser(sub: Any) -> None:
     sg.add_argument("--seed", type=int, default=0)
     sg.add_argument("--tokenizer", default="Qwen/Qwen3.6-27B")
     sg.add_argument("--run", default="sibgate-v1", help="fit / score: the sibling-probes run dir")
+    sg.add_argument(
+        "--min-class-pairs",
+        type=int,
+        default=0,
+        help="concepts: only classes with >= N (said, item) pairs (pilot cost cap; default all)",
+    )
+    sg.add_argument("--probe-acts", default="acts-sibgate-probe", help="probe-text acts subdir")
     sg.add_argument("--launch", action="store_true", help="fit / score: launch the Modal job")
     sg.add_argument(
         "--l42-token-mismatch",
         action="store_true",
         help="label: the step-0 L42-vs-11-layer token check failed (nearby off)",
     )
-    sg.set_defaults(fn=lambda a: STAGES[a.stage](a))
+    sg.set_defaults(fn=lambda a: (_configure(a), STAGES[a.stage](a))[1])

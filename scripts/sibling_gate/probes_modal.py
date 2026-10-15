@@ -222,7 +222,7 @@ def fit_layer(layer: int, inputs: dict) -> list[dict]:
                 "validity": {"a": [None] * C},
                 "null_check": {"other_ok": False},
             }
-            results.append(res)
+            results.append({**res, "slug": slug})
             continue
         nsa = Q.null_stats(ts, cfa.oof, C)
         za = Q.oof_z(ts, cfa.oof, nsa)
@@ -313,7 +313,9 @@ def _eval_windows(sub: str, layer: int, items: list[str]):
         e = ent[label]
         pos = list(e["eval_positions"])
         p0, p1 = min(pos), max(pos) + 1
-        f_rel = e["file"]
+        # the L42 manifest points at acts-jlens-pr-L42 (gone from the volume); same acts live in
+        # acts-hallucination-chat-L42cap (resample.DIR_REMAP)
+        f_rel = e["file"].replace("/acts-jlens-pr-L42/", "/acts-hallucination-chat-L42cap/")
         path = Path(f_rel) if f_rel.startswith("/") else ACTS_MOUNT / sub / f_rel
         with safe_open(str(path), framework="pt", device="cpu") as f:
             x = f.get_slice("acts")[li : li + 1, p0:p1].float().numpy()[0]
