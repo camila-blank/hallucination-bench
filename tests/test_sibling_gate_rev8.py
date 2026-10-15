@@ -350,3 +350,31 @@ def test_nearby_ok_does_not_retest_readability():
     src = inspect.getsource(L.nearby_ok)
     assert "readable_share" not in src and "key_ok" in src
     assert "nearby_ok(cp, u, L)" in inspect.getsource(L.rung2)
+
+
+def test_overlap_rule_is_narrow():
+    from hallucination_bench.evals.sibling_gate import ladder as L
+
+    assert L.overlaps("Romania", ["Oman"]) is False  # no affix match inside a word
+    assert L.overlaps("Somalia", ["Mali"]) is False
+    assert L.overlaps("GPT", ["ChatGPT"]) is True
+    common = L.common_words(["Intel Core i5", "Intel Core i7", "Intel Xeon", "AMD Ryzen"])
+    assert L.overlaps("Intel Core i7", ["Intel Core i5"], common) is False
+    assert L.overlaps("North Korea", ["South Korea"]) is True  # shared non-common word
+    # siblings other than gold / said no longer shrink the pool via word overlap
+    concepts = [
+        "France",
+        "Germany",
+        "Spain",
+        "New Zealand",
+        "New Guinea",
+        "Italy",
+        "Peru",
+        "Chile",
+        "Japan",
+        "Kenya",
+        "Egypt",
+        "Nepal",
+    ]
+    d = L.select_distractors("u", "France", concepts, {}, ["New Zealand"], said="Germany")
+    assert "New Guinea" in d["distractors"] or d["n_eligible"] == 9

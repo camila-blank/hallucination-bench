@@ -95,19 +95,37 @@ def is_compound(c: str) -> bool:
     return bool(COMPOUND_RE.search(c))
 
 
-def overlaps(c: str, names: Iterable[str]) -> bool:
-    """True if ``c`` is compound, shares a content word with any of ``names``, or one's
-    normalised form contains the other's (both at least 3 characters)."""
+def overlaps(c: str, names: Iterable[str], common: frozenset[str] = frozenset()) -> bool:
+    """True if ``c`` is compound, shares a content word with any of ``names`` (ignoring the
+    class's ``common`` descriptor words, e.g. "intel" / "core" in a CPU class), or one's
+    normalised form starts or ends with the other's (shorter at least 3 characters: "GPT" for
+    ChatGPT, but not "Oman" for Romania). PR review: ``names`` = the gold and the said object
+    only, so other siblings' words do not shrink the pool."""
     if is_compound(c):
         return True
-    cw, cn = _words(c), U.norm(c)
+    cw, cn = _words(c) - common, U.norm(c)
     for n in names:
-        if cw & _words(n):
+        if cw & (_words(n) - common):
             return True
         nn = U.norm(n)
-        if len(cn) >= 3 and len(nn) >= 3 and (cn in nn or nn in cn):
+        short, long_ = sorted((cn, nn), key=len)
+        if (
+            len(short) >= 3
+            and short != long_
+            and (long_.startswith(short) or long_.endswith(short))
+        ):
             return True
     return False
+
+
+def common_words(concepts: Sequence[str], share: float = 0.3) -> frozenset[str]:
+    """Words in more than ``share`` of the class's concepts (class descriptors)."""
+    n = len(concepts)
+    cnt: dict[str, int] = defaultdict(int)
+    for c in concepts:
+        for w in _words(c):
+            cnt[w] += 1
+    return frozenset(w for w, k in cnt.items() if n and k / n > share)
 
 
 def select_distractors(
@@ -116,14 +134,16 @@ def select_distractors(
     concepts: Sequence[str],
     centroids: Mapping[str, Sequence[float]],
     exclude: Iterable[str],
+    said: str | None = None,
 ) -> dict[str, Any]:
     """8 distractors from C: the 4 nearest ``anchor`` (the gold; ``said_canonical`` for no_gold
     units) by cosine of the grand-mean-centred implied centroids at L44, plus 4 seeded-random
     (seed = unit key). Never ``exclude`` (gold, said, the gold's compatible stratum,
     ``item_sibling_names[id]``)."""
-    ex_names = [*exclude, anchor]
-    ex = {U.norm(x) for x in ex_names}
-    elig = sorted(c for c in concepts if U.norm(c) not in ex and not overlaps(c, ex_names))
+    ex = {U.norm(x) for x in [*exclude, anchor]}
+    core = [anchor, *(x for x in (said,) if x)]  # word / affix overlap: gold and said only
+    common = common_words(concepts)
+    elig = sorted(c for c in concepts if U.norm(c) not in ex and not overlaps(c, core, common))
     g = centroids.get(anchor)
     if g is not None:
         ranked = sorted(

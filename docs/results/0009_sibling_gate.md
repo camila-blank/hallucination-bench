@@ -61,14 +61,14 @@ Character-weighted share and readout-level rate, both with item-bootstrap 95% CI
 
 | arm | char-weighted rev 20 | char-weighted rev 21 | readout-level rev 20 | readout-level rev 21 |
 |---|---|---|---|---|
-| s3d-rl600-all11 | 10.1 [8.7, 11.5] | **12.1** [10.4, 13.9] | 30.8 | **35.0** |
+| s3d-rl600-all11 | 10.1 [8.7, 11.5] | **12.2** [10.5, 13.9] | 30.8 | **35.0** |
 | s3d-rl600 | 10.1 [8.7, 11.5] | **11.9** [10.2, 13.6] | 30.5 | **34.5** |
 | s3d-sft251 | 7.4 [6.4, 8.5] | **9.0** [7.6, 10.3] | 21.2 | **24.6** |
 | mlnla-rl600-all11 | 35.7 [34.2, 37.3] | **38.1** [36.5, 39.9] | 93.4 | **94.8** |
 | mlnla-rl2-800-all11 | 37.8 [36.5, 39.2] | **40.5** [39.0, 42.1] | 93.2 | **94.8** |
 | nla-rl-L42 | 32.6 [30.8, 34.6] | **36.0** [33.9, 38.4] | 83.7 | **85.8** |
 | nla-sft-L42 | 39.2 [37.8, 40.8] | **41.4** [40.0, 43.0] | 89.6 | **91.1** |
-| patchscopes | 2.5 [2.2, 2.9] | **3.0** [2.6, 3.5] | 3.5 | **4.0** |
+| patchscopes | 2.5 [2.2, 2.9] | **3.0** [2.5, 3.5] | 3.5 | **4.0** |
 | token arms (jlens, logit, tuned, rlens, template-v3, sae-l42) | | unchanged (±0.1) | | |
 
 - **Prose arms gain 1.5–3.4 points.** The arm ranking does not change.
@@ -86,41 +86,42 @@ Character-weighted share and readout-level rate, both with item-bootstrap 95% CI
 | status | units | share | counted as |
 |---|---|---|---|
 | unstable (rung 1) | 18,184 | 70.5% | hallucination |
-| probe_unconfirmed | 174 | 0.7% | hallucination |
-| probe_faithful | 324 | 1.3% | not (probe confirms) |
-| probe_nearby | 133 | 0.5% | not |
-| cross_method | 230 | 0.9% | not (another lens family agrees) |
-| probe_na | 6,669 | 25.9% | not (cannot adjudicate) |
+| probe_unconfirmed | 229 | 0.9% | hallucination |
+| probe_faithful | 435 | 1.7% | not (probe confirms) |
+| probe_nearby | 171 | 0.7% | not |
+| cross_method | 314 | 1.2% | not (another lens family agrees) |
+| probe_na | 6,381 | 24.7% | not (cannot adjudicate) |
 | resample_failed | 75 | 0.3% | not |
 
-**Rung 2 is mostly n/a.** 6,669 of the 7,530 rung-2 units could not be adjudicated:
+**Rung 2 is mostly n/a.** 6,381 of the 7,530 rung-2 units could not be adjudicated:
 
 | n/a reason | units |
 |---|---|
-| fewer than 6 valid distractors | 2,394 |
+| fewer than 6 valid distractors | 1,886 |
 | class too small (< 4 pairs) | 1,231 |
 | invalid sibling probe | 1,180 |
-| item unreadable (gold does not beat distractors) | 1,054 |
+| item unreadable (gold does not beat distractors) | 1,238 |
 | no class | 515 |
 | no scores | 220 |
-| no gold | 74 |
+| no gold | 110 |
 | null check failed | 1 |
 
 The "class too small" row includes 15 labelled `small_class`. The "no scores" units are in 5
 fitted classes that have a concept with no training texts. The single `null_fail` unit shows
 that the rev-8 key fix worked.
 
-**Where it can adjudicate (861 units), the probe carries signal:**
-- the sibling beats all its distractors at the claimed layer in **37.6%** of units;
-- that rises to 53.1% with neighbouring layers;
+**Where it can adjudicate (1,149 units), the probe carries signal:**
+- the sibling beats all its distractors at the claimed layer in **37.9%** of units;
+- that rises to 52.7% with neighbouring layers;
 - on the matched null (the same sibling and the same distractors at sites where no arm names
-  it), the fire rate is **20.5%** (5,860 / 28,624);
-- 20.2% of adjudicable units end `probe_unconfirmed`.
+  it), the fire rate is **19.9%** (6,594 / 33,186);
+- 19.9% of adjudicable units end `probe_unconfirmed`.
 
 Some stable siblings are therefore in the activations. Examples:
-- "William Shakespeare" for Douglas Adams: z 2.2 vs 0.2;
-- "cannabis" for psychedelics: z 1.9 vs 1.1;
-- "Python" for C++: z 1.3 vs 0.5.
+- "OCaml" for Rust: z 1.0 vs 0.0 for the best valid distractor;
+- "Chinese" for français: z 1.0 vs 0.5;
+- "cannabis" for psychedelics: z 1.4 vs 1.0;
+- "coffee" for tea: z 1.22 vs 1.19, a narrow win.
 
 ## Calibration of the slot-fill judge
 
@@ -142,9 +143,9 @@ Some stable siblings are therefore in the activations. Examples:
 
 | arm | main | rev-1 rule | branch A only | n_said ≤ 1 | n_said ≤ 3 | cross same-pos | cross same-family | shared-prior discount |
 |---|---|---|---|---|---|---|---|---|
-| s3d-rl600-all11 | 3,837 | 3,771 | 3,747 | 3,464 | 4,121 | 3,858 | 3,826 | 3,862 |
-| mlnla-rl600-all11 | 4,689 | 4,597 | 4,462 | 4,251 | 5,022 | 4,719 | 4,672 | 4,720 |
-| nla-rl-L42 | 471 | 472 | 449 | 421 | 516 | 472 | 471 | 477 |
+| s3d-rl600-all11 | 3,854 | 3,787 | 3,764 | 3,488 | 4,134 | 3,877 | 3,836 | 3,889 |
+| mlnla-rl600-all11 | 4,701 | 4,609 | 4,475 | 4,271 | 5,031 | 4,739 | 4,676 | 4,737 |
+| nla-rl-L42 | 472 | 473 | 451 | 422 | 517 | 475 | 472 | 477 |
 
 All rows are within −10% / +11% of the main rule. The cut-off on n_said matters most.
 `full_summary.md` §5 has every arm.
@@ -178,7 +179,17 @@ All rows are within −10% / +11% of the main rule. The cut-off on n_said matter
      units from unconfirmed and 17 from cross_method to `probe_nearby`.
    - **"Other" objects that normalise to the said or actual object are dropped** from n_other.
      The judge sometimes files an alias as "other". This moved 9 units out of `unstable`.
-   - **Final numbers** (this doc): unconfirmed 174, faithful 324, nearby 133, cross_method 230.
+   - **The overlap rule is narrower** (second review). It had shrunk about 25% of classes below
+     8 distractors: class-descriptor words like "Intel" / "Core" counted as overlaps, and so did
+     substrings inside words ("Oman" excluded "Romania"). Now:
+     - word overlap is checked only against the gold and the said object;
+     - words that appear in more than 30% of a class's concepts are ignored;
+     - an affix match is needed only for names that start or end with the other ("GPT" in
+       ChatGPT).
+
+     Adjudicable units went from 861 to 1,149. The fire rate at the unit's layer stayed at 38%,
+     and the unconfirmed rate at 20%.
+   - **Final numbers** (this doc): unconfirmed 229, faithful 435, nearby 171, cross_method 314.
 7. **Scope of the gate:** 13 report arms plus mlnla-rl600-all11. The mlnla-ck* sweep arms are
    ungated and score exactly as rev 20.
 

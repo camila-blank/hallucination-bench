@@ -614,7 +614,9 @@ def _distractors(units, rung1, classes, concepts, cps) -> dict[str, Any]:
             *comp.get(U.norm(v["gold"]), ()),
             *names.get(u["id"], {}),
         }
-        out[u["unit"]] = L.select_distractors(u["unit"], anchor, cp.concepts, cp.centroids, excl)
+        out[u["unit"]] = L.select_distractors(
+            u["unit"], anchor, cp.concepts, cp.centroids, excl, said=v["said_canonical"]
+        )
     return out
 
 
