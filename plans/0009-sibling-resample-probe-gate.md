@@ -1,7 +1,7 @@
 # Plan 0009: sibling substitutions become hallucinations, gated by a 10-sample resample check and probes
 
-Issue #10. Author: Camila Blank (planned with Claude), 2026-10-14. Revision 7 (after critiques 1–6;
-rev 3 was a full rewrite with no override sections, so the body is the spec; revs 4–7 edit it in place).
+Issue #10. Author: Camila Blank (planned with Claude), 2026-10-14. Revision 8 (after critiques 1–6 and the rung-2 pilot;
+rev 3 was a full rewrite with no override sections, so the body is the spec; revs 4–8 edit it in place).
 "Rev 21" is the scoring revision this plan introduces in the taxonomy (plan 0002 ended at rev 20).
 
 Branch `camila/sibling-resample`, stacked on `camila/taxonomy-v2` (PR #4, plan 0002 rev 20 at
@@ -219,7 +219,8 @@ From the 10 fresh blocks:
 ## 3. Rung 2: probes, following the plan 0006/0007 ladder
 
 Rung 2 runs on every `stable`, `sparse` and `deterministic` unit, plus the sensitivity-only units
-of §2c.
+of §2c. The full run fits probes for **every** class. The pilot capped classes at ≥ 4 pairs
+(`--min-class-pairs 4`) for cost; the full run uses 0, which means no cap.
 
 ### 3a. Classes and concepts
 
@@ -246,7 +247,12 @@ of §2c.
 - **Texts.** Per concept: 24 explicit and 24 implied texts. Per class: 24 neutral texts (not a
   probe class). This follows plan 0006 §4a. Generator `sibgen-chat-v1`, `claude-opus-5-5`.
 - **Format.** Unlike plans 0006/0007, the texts are short wsbench_chat-style exchanges (system,
-  user turn, assistant reply):
+  user turn, assistant reply). **Rev 8 (pilot finding):** the pilot's plain-prose replies held
+  almost none of the tokens most eval sites sit on: newlines are 14% of the 1,123 sites, and
+  `**`, `-`, `#` and `:` are each common. So generator `sibgen-chat-v2` asks for replies in the
+  wsbench_chat house style: a short paragraph, then a bold-labelled bullet list or a `###`
+  heading, with `!`, `?` and parentheses where natural, and the concept mentioned early. The
+  kinds are:
   - explicit: the reply names the concept and no other concept of C;
   - implied: the reply makes the concept unambiguous without naming it ("the company behind the
     Ascend chips");
@@ -258,8 +264,9 @@ of §2c.
     `/workspace/gw-wrong-bridge/scripts/olens_suite/workspace_bench` at its current HEAD
     (recorded, never edited).
   - Layers: 12 (20…60 step 4, plus 42).
-  - Read positions: every punctuation token in the reply after the concept's first explicit or
-    implied mention, up to 24 per text.
+  - Read positions: every reply token of an eval-site key class (§3c) after the concept's first
+    explicit or implied mention, up to 32 per text, with at most 8 per key class. This keeps
+    `,` and `.` from crowding out the rest.
   - Acts subdir: `acts-sibgate-probe` (one bank, with the class in the text metadata).
 
 ### 3c. Probes: a new key, the same estimator
@@ -273,17 +280,28 @@ of §2c.
   `camila/um-ladder-v2`. The only edit is the import line: the
   primary import points to `hallucination_bench.evals.sibling_gate.probes`, and the `sibprobes`
   Modal fallback stays.
-- **New recipe, stated as such.** Centring and the null are keyed by the **punctuation token
-  class** of the read position, not by plan 0006's (ending, offset).
-  - The classes are `.` `,` `!` `?` `:` `;` newline `)` `。` `，` `！` `？` `：` and other. A
-    class with fewer than 50 training positions merges into `other`.
+- **New recipe, stated as such.** Centring and the null are keyed by the **token class** of the
+  read position, not by plan 0006's (ending, offset).
+  - **Rev 8 classes.** The classes match the eval sites' tokens:
+    - `,` / `，`, then `.` / `。`;
+    - newline (any token that is all `Ċ`), bold (any token containing `**`), heading (`#`…);
+    - `!` / `！`, `?` / `？`, `:` / `：` (alone, not inside `**`);
+    - bullet / dash (`-`, ` -`, `—`), open bracket (`(`, ` (`), close bracket (`)`, `),`),
+      quote (`"`, ` "`);
+    - other.
+
+    A class with fewer than 50 training positions at a layer merges into `other`. Before
+    fitting, the `capture-manifest` stage prints the training-position count per class next to
+    the eval-site share of each class.
   - The key reuses `_key` / `eval_key` with `ending = 0` and `offset = class index`. Eval sites
     get their class from their token.
 - **Validity** per (concept, layer): OOF implied AUROC ≥ 0.90.
 - **Null check** per class and layer, on held-out folds: the null z of non-target concepts has
   |mean| ≤ 0.1 and sd between 0.8 and 1.25 at every key.
-  - A failing key merges into `other`.
-  - If `other` fails too, every unit of that class at that layer is `probe_na`.
+  - **Rev 8:** a failing key no longer takes down the class. Only units whose eval site has that
+    key are `probe_na` (`null_fail`) at that layer; the class's other keys stay in use. The
+    readability rule (§3d) counts only sites on passing keys. (In the pilot, 10 of 17 classes
+    failed only on the merged `other` key, with sd 1.2–2.0, and ',' / '.' passed everywhere.)
 - **Transfer caveat.** Validity is measured on probe texts only. The eval sites are in the chat
   items, so the readability rule (§3d) is the transfer check, and the doc says so.
 - **No type (b).** Logistic regression is not run: it was not evaluable in plan 0006 rev 8.
@@ -307,7 +325,7 @@ unit that does not fire is `probe_na` and skips cross_method too.
 - **n/a** (final `probe_na`), when any of these holds:
   - `no_class`, or the class has fewer than 9 concepts;
   - S has no valid probe at L, or fewer than 6 distractors are valid at L;
-  - the class fails the null check at L;
+  - the unit's eval-site key fails the null check at L for its class (rev 8);
   - the item is **unreadable** at L: over all the item's `eval_positions` at L except the unit's
     own pos, the gold beats all its distractors at fewer than 50% of sites.
 - **`no_gold` units.** Readability cannot be checked. If S fires at the same layer or nearby,
