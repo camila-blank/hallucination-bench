@@ -281,6 +281,19 @@ def na_reason(cp: ClassProbes | None, u: UnitProbe, layer: int) -> str | None:
     return None
 
 
+def nearby_ok(cp: ClassProbes, u: UnitProbe, layer: int) -> bool:
+    """Plan §3d nearby at a neighbour ``layer``: scores exist, S is valid, >= 6 valid distractors
+    and the unit's key passes the null check there. Readability is NOT re-tested at the
+    neighbour (it is the unit's own-layer n/a rule)."""
+    if cp.z is None or not cp.z.positions(u.item, layer):
+        return False
+    if u.said not in cp.concepts or not cp.valid(u.said, layer):
+        return False
+    if len([d for d in u.distractors if cp.valid(d, layer)]) < MIN_DISTRACTORS:
+        return False
+    return cp.key_ok(layer, unit_key(cp, u, layer))
+
+
 def readable_share(cp: ClassProbes, u: UnitProbe, layer: int) -> float:
     """Over the item's eval positions at ``layer`` except the unit's own pos, on keys that pass
     the null check at ``layer`` (rev 8.1; none = unreadable): the share where the gold beats all
@@ -397,7 +410,7 @@ def rung2(
         return {**out, "status": "probe_faithful", "fire_L": True}
     nearby_off = u.layer == 42 and not l42_tokens_ok
     if not nearby_off:
-        nb = [L for L in neighbours(u.layer) if na_reason(cp, u, L) is None and fires(cp, u, L)]
+        nb = [L for L in neighbours(u.layer) if nearby_ok(cp, u, L) and fires(cp, u, L)]
         if nb:
             return {**out, "status": "probe_nearby", "fire_nearby": nb}
     if u.gold is None:  # readability cannot be checked: never cross_method / unconfirmed

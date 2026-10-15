@@ -72,8 +72,8 @@ Character-weighted share and readout-level rate, both with item-bootstrap 95% CI
 | token arms (jlens, logit, tuned, rlens, template-v3, sae-l42) | | unchanged (±0.1) | | |
 
 - **Prose arms gain 1.5–3.4 points.** The arm ranking does not change.
-- **Most sibling claims are unambiguous hallucinations.** 18,193 of 25,789 units (71%) are
-  `unstable`, and almost all of those (17,477) come from branch A, where several different items
+- **Most sibling claims are unambiguous hallucinations.** 18,184 of 25,789 units (71%) are
+  `unstable`, and almost all of those (17,467) come from branch A, where several different items
   come up. Typical cases:
   - metformin → ibuprofen, venlafaxine, modafinil…;
   - Infosys → Accenture, IBM, PwC…;
@@ -85,22 +85,22 @@ Character-weighted share and readout-level rate, both with item-bootstrap 95% CI
 
 | status | units | share | counted as |
 |---|---|---|---|
-| unstable (rung 1) | 18,193 | 70.5% | hallucination |
-| probe_unconfirmed | 177 | 0.7% | hallucination |
+| unstable (rung 1) | 18,184 | 70.5% | hallucination |
+| probe_unconfirmed | 174 | 0.7% | hallucination |
 | probe_faithful | 324 | 1.3% | not (probe confirms) |
-| probe_nearby | 113 | 0.4% | not |
-| cross_method | 247 | 1.0% | not (another lens family agrees) |
-| probe_na | 6,660 | 25.8% | not (cannot adjudicate) |
+| probe_nearby | 133 | 0.5% | not |
+| cross_method | 230 | 0.9% | not (another lens family agrees) |
+| probe_na | 6,669 | 25.9% | not (cannot adjudicate) |
 | resample_failed | 75 | 0.3% | not |
 
-**Rung 2 is mostly n/a.** 6,660 of the 7,521 rung-2 units could not be adjudicated:
+**Rung 2 is mostly n/a.** 6,669 of the 7,530 rung-2 units could not be adjudicated:
 
 | n/a reason | units |
 |---|---|
-| fewer than 6 valid distractors | 2,388 |
+| fewer than 6 valid distractors | 2,394 |
 | class too small (< 4 pairs) | 1,231 |
 | invalid sibling probe | 1,180 |
-| item unreadable (gold does not beat distractors) | 1,051 |
+| item unreadable (gold does not beat distractors) | 1,054 |
 | no class | 515 |
 | no scores | 220 |
 | no gold | 74 |
@@ -112,10 +112,10 @@ that the rev-8 key fix worked.
 
 **Where it can adjudicate (861 units), the probe carries signal:**
 - the sibling beats all its distractors at the claimed layer in **37.6%** of units;
-- that rises to 50.8% with neighbouring layers;
+- that rises to 53.1% with neighbouring layers;
 - on the matched null (the same sibling and the same distractors at sites where no arm names
   it), the fire rate is **20.5%** (5,860 / 28,624);
-- 20.6% of adjudicable units end `probe_unconfirmed`.
+- 20.2% of adjudicable units end `probe_unconfirmed`.
 
 Some stable siblings are therefore in the activations. Examples:
 - "William Shakespeare" for Douglas Adams: z 2.2 vs 0.2;
@@ -142,8 +142,8 @@ Some stable siblings are therefore in the activations. Examples:
 
 | arm | main | rev-1 rule | branch A only | n_said ≤ 1 | n_said ≤ 3 | cross same-pos | cross same-family | shared-prior discount |
 |---|---|---|---|---|---|---|---|---|
-| s3d-rl600-all11 | 3,838 | 3,772 | 3,748 | 3,465 | 4,122 | 3,860 | 3,826 | 3,864 |
-| mlnla-rl600-all11 | 4,695 | 4,598 | 4,469 | 4,254 | 5,032 | 4,726 | 4,678 | 4,726 |
+| s3d-rl600-all11 | 3,837 | 3,771 | 3,747 | 3,464 | 4,121 | 3,858 | 3,826 | 3,862 |
+| mlnla-rl600-all11 | 4,689 | 4,597 | 4,462 | 4,251 | 5,022 | 4,719 | 4,672 | 4,720 |
 | nla-rl-L42 | 471 | 472 | 449 | 421 | 516 | 472 | 471 | 477 |
 
 All rows are within −10% / +11% of the main rule. The cut-off on n_said matters most.
@@ -172,7 +172,14 @@ All rows are within −10% / +11% of the main rule. The cut-off on n_said matter
    - After the fix: unconfirmed 177, faithful 324, adjudicable 861 (more units now have too few
      distractors).
    - Hallucination shares moved by at most 0.1 point.
-6. **Scope of the gate:** 13 report arms plus mlnla-rl600-all11. The mlnla-ck* sweep arms are
+6. **Fixes from the PR review, applied before the final labels:**
+   - **Nearby follows the plan literally.** At a neighbour layer, nearby needs a valid S, at least
+     6 valid distractors and a passing key. Readability is not re-tested there. This moved 3
+     units from unconfirmed and 17 from cross_method to `probe_nearby`.
+   - **"Other" objects that normalise to the said or actual object are dropped** from n_other.
+     The judge sometimes files an alias as "other". This moved 9 units out of `unstable`.
+   - **Final numbers** (this doc): unconfirmed 174, faithful 324, nearby 133, cross_method 230.
+7. **Scope of the gate:** 13 report arms plus mlnla-rl600-all11. The mlnla-ck* sweep arms are
    ungated and score exactly as rev 20.
 
 ## Spend

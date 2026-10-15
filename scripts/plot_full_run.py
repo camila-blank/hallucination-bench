@@ -5,7 +5,7 @@ curves for the 11-layer arms.
 
 Writes:
   methods_rates_hallucination.png  readout rate of hallucination / false claim / detail /
-                                   category substitution per method (rev 20: three components)
+                                   category substitution / gated sibling per method (rev 21)
   methods_rates_all.png            readout rate of every verdict per method (small multiples)
   methods_share_hallucination.png  share of readout text: hallucination and its three components
   methods_share_all.png            share of readout text, all categories (stacked, sums to 100%)
@@ -52,18 +52,21 @@ METRIC_COLORS = {
     "false_claim": "#2a78d6",
     "detail": "#eda100",
     "substitution_category": "#8b3fb5",
+    "substitution_sibling_gated": "#b8336a",
 }
 HALLU = [
     ("hallucination", "Hallucination"),
     ("false_claim", "False claim"),
     ("detail", "Detail"),
     ("substitution_category", "Category substitution"),  # rev 20
+    ("substitution_sibling_gated", "Gated sibling (rev 21)"),
 ]
 VERDICT_RATES = [
     ("hallucination", "Hallucination"),
     ("false_claim", "↳ False claim"),
     ("detail", "↳ Detail"),
     ("substitution_category", "↳ Category subst."),
+    ("substitution_sibling_gated", "↳ Gated sibling"),
     ("verdict_probe_candidate", "Probe candidate"),
     ("verdict_thinky", "Thinky (model state)"),
     ("verdict_correct", "Correct"),
@@ -352,6 +355,7 @@ def headline(out: Path, methods=METHODS, height: float = 7.6, title_suffix: str 
                 rate(o, "false_claim")[0],
                 rate(o, "detail")[0],
                 rate(o, "substitution_category")[0],
+                rate(o, "substitution_sibling_gated")[0],
             )
         )
     rows.sort(key=lambda r: r[2][0])
@@ -367,7 +371,7 @@ def headline(out: Path, methods=METHODS, height: float = 7.6, title_suffix: str 
         color="#e34948",
         edgecolor="white",
         linewidth=1.5,
-        label="Hallucination (≥ 1 false claim, detail or category substitution)",
+        label="Hallucination (any of the four components)",
     )
     ax.errorbar(v, y, xerr=[lo, hi], fmt="none", ecolor=TEXT, elinewidth=1, capsize=2)
     ax.scatter(
@@ -402,6 +406,17 @@ def headline(out: Path, methods=METHODS, height: float = 7.6, title_suffix: str 
         marker="^",
         label="Category substitution",
     )
+    ax.scatter(
+        [r[6] for r in rows],
+        y,
+        s=70,
+        color="#b8336a",
+        edgecolor="white",
+        linewidth=1.5,
+        zorder=3,
+        marker="s",
+        label="Gated sibling substitution (rev 21)",
+    )
     for yi, vi, hii in zip(y, v, hi, strict=True):
         ax.text(vi + hii + 1.2, yi, f"{vi:.1f}", va="center", fontsize=11, color=TEXT)
     labels = [f"{r[0]}{' †' if r[1] == 'tokens' else ''}" for r in rows]
@@ -419,19 +434,20 @@ def headline(out: Path, methods=METHODS, height: float = 7.6, title_suffix: str 
         fontsize=16,
         color=TEXT,
         loc="left",
-        pad=34,
+        pad=12,
     )
-    ax.legend(fontsize=11, frameon=False, loc="lower left", bbox_to_anchor=(0, 1.0), ncol=2)
+    ax.legend(fontsize=10.5, frameon=False, loc="upper left", bbox_to_anchor=(0, -0.09), ncol=3)
     fig.text(
         0.01,
         0.005,
         "Hallucination = segment obviously contradicted by the text (quote required). "
         "† token lens, judged via its summary. Multi-layer methods pooled over layers.\n"
-        "Claim-map judge v2.7 (scoring rev 20), pre-gate · whiskers: item-bootstrap 95% CI",
+        "Claim-map judge v2.7 (scoring rev 21: sibling gate, plan 0009), pre-gate · "
+        "whiskers: item-bootstrap 95% CI",
         fontsize=9,
         color=MUTED,
     )
-    fig.tight_layout(rect=(0, 0.05, 1, 1))
+    fig.tight_layout(rect=(0, 0.08, 1, 1))
     fig.savefig(out)
     plt.close(fig)
 

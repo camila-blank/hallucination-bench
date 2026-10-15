@@ -327,3 +327,26 @@ def test_distractors_exclude_compounds_and_near_duplicates():
     d3 = L.select_distractors("u3", "C", concepts, {}, [])
     assert "Claude" in d3["distractors"] or d3["n_eligible"] >= 8
     assert L.overlaps("Dart", ["Rust"]) is False
+
+
+def test_counts_drops_other_objects_that_are_said_or_actual():
+    from hallucination_bench.evals.sibling_gate import fill_judge as F
+
+    ans = [
+        {"block": 1, "answer": "other", "objects": ["ChatGPT"]},
+        {"block": 2, "answer": "other", "objects": ["Claude"]},
+        {"block": 3, "answer": "other", "objects": ["Qwen "]},
+    ]
+    c = F.counts(ans, "ChatGPT", "Qwen")
+    assert c["n_other"] == 1 and c["n_other_dropped"] == 2
+    assert F.counts(ans)["n_other"] == 3  # without said/actual: unchanged behaviour
+
+
+def test_nearby_ok_does_not_retest_readability():
+    import inspect
+
+    from hallucination_bench.evals.sibling_gate import ladder as L
+
+    src = inspect.getsource(L.nearby_ok)
+    assert "readable_share" not in src and "key_ok" in src
+    assert "nearby_ok(cp, u, L)" in inspect.getsource(L.rung2)

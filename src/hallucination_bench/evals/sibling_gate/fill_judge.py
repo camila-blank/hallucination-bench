@@ -224,14 +224,21 @@ def parse(raw: Mapping[str, Any], blocks: Sequence[str]) -> dict[str, Any]:
 # ---------------------------------------------------------------- rung-1 rule (pre-registered)
 
 
-def counts(answers: Sequence[Mapping[str, Any]]) -> dict[str, int]:
-    others = {U.norm(o) for a in answers if a["answer"] == "other" for o in a["objects"]}
+def counts(
+    answers: Sequence[Mapping[str, Any]], said: str | None = None, actual: str | None = None
+) -> dict[str, int]:
+    """Rung-1 counts. ``other`` objects that normalise to the said / actual object (an alias the
+    judge filed as other) never count as distinct others (``n_other_dropped``)."""
+    same = {U.norm(x) for x in (said, actual) if x}
+    raw = {U.norm(o) for a in answers if a["answer"] == "other" for o in a["objects"]}
+    others = raw - same
     return {
         "n_said": sum(a["answer"] == "said" for a in answers),
         "n_actual": sum(a["answer"] == "actual" for a in answers),
         "n_other": len(others),  # distinct other objects over the blocks
         "n_other_blocks": sum(a["answer"] == "other" for a in answers),
         "n_none": sum(a["answer"] == "none" for a in answers),
+        "n_other_dropped": len(raw & same),
     }
 
 
@@ -294,7 +301,7 @@ def rung1_row(unit: Mapping[str, Any], status: str, parsed: Mapping[str, Any] | 
             "diverse": False,
             "fill_failed": True,
         }
-    c = counts(parsed["answers"])
+    c = counts(parsed["answers"], unit.get("said"), unit.get("actual"))
     r = rung1(c)
     return {
         **base,
@@ -387,7 +394,7 @@ def agreement(judge: Mapping[str, Any], gold: Mapping[str, Any]) -> dict[str, An
             nb += 1
             ab += ja.get(a["block"]) == a["answer"]
         nu += 1
-        au += rung1(counts(g["answers"]))["status"] == j["rung1"]
+        au += rung1(counts(g["answers"], g.get("said"), g.get("actual")))["status"] == j["rung1"]
     return {
         "n_blocks": nb,
         "block_agreement": ab / nb if nb else None,
