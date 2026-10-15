@@ -298,3 +298,32 @@ def test_per_key_report():
         key="comma",
     )
     assert row["key"] == "comma"
+
+
+def test_distractors_exclude_compounds_and_near_duplicates():
+    from hallucination_bench.evals.sibling_gate import ladder as L
+
+    concepts = [
+        "students",
+        "employees",
+        "students and departments",
+        "students table",
+        "GPT",
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Scala, TypeScript",
+        "C",
+        "Dart",
+        "Rust",
+    ]
+    d = L.select_distractors("u1", "students", concepts, {}, ["employees"])
+    assert "students and departments" not in d["distractors"]
+    assert "students table" not in d["distractors"]
+    assert "Scala, TypeScript" not in d["distractors"]
+    d2 = L.select_distractors("u2", "ChatGPT", concepts, {}, ["Claude"])
+    assert "GPT" not in d2["distractors"]
+    # short names do not trigger the substring rule ("C" vs "Claude")
+    d3 = L.select_distractors("u3", "C", concepts, {}, [])
+    assert "Claude" in d3["distractors"] or d3["n_eligible"] >= 8
+    assert L.overlaps("Dart", ["Rust"]) is False

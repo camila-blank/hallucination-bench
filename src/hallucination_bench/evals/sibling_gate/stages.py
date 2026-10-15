@@ -33,6 +33,13 @@ SCRIPTS = REPO_ROOT / "scripts" / "sibling_gate"
 MODAL = "uvx --python 3.12 modal@latest"
 
 
+def probe_label(text_id: str) -> str:
+    """The capture label of a probe text (also its acts file / dir name): ``/`` and ``\\`` in a
+    concept name (``Oracle Smart View/...``) made ``capture_acts`` write into a sub-directory
+    and crash (rev 8.2); labels stay unique (checked on the full bank)."""
+    return text_id.replace("|", "__").replace(" ", "_").replace("/", "_").replace("\\", "_")
+
+
 def _configure(a: argparse.Namespace) -> None:
     """A non-default ``--out`` (the pilot) gets its own data / probes dirs and probe-acts subdir
     instead of ``data/sibling_gate`` and ``<default out>/probes``; the default is unchanged."""
@@ -482,7 +489,7 @@ def cmd_capture_manifest(a: argparse.Namespace) -> int:
                 n_null.update(key)
         rows.append(
             {
-                "label": t["id"].replace("|", "__").replace(" ", "_"),
+                "label": probe_label(t["id"]),
                 "family": "sibgate_probe",
                 "system": t["system"],
                 "user": t["user"],
@@ -555,14 +562,12 @@ def cmd_fit(a: argparse.Namespace) -> int:
             "merge": merges.get(cls, list(range(T.N_CLASSES))),
             "texts": [
                 {
-                    "id": t["id"].replace("|", "__").replace(" ", "_"),
+                    "id": probe_label(t["id"]),
                     "c": ci.get(t["concept"], P.NEUTRAL) if t["concept"] else P.NEUTRAL,
                     "kind": t["kind"],
                     "request_idx": 0,
                     "fold": folds[t["id"]],
-                    "key": cap.get(t["id"].replace("|", "__").replace(" ", "_"), {})
-                    .get("meta", {})
-                    .get("key"),
+                    "key": cap.get(probe_label(t["id"]), {}).get("meta", {}).get("key"),
                 }
                 for t in ts
             ],

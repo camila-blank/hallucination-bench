@@ -72,14 +72,16 @@ done
 $SG fill --failed-pools "${FAILED#,}"
 $SG fill-calib --split dev
 $SG classes
-$SG concepts
-$SG probe-texts
+$SG concepts --min-class-pairs 4     # rev 8.2: classes below 4 pairs -> probe_na class_too_small
+$SG probe-texts --concurrency 600 --rpm 6000
 uv run --with transformers --with jinja2 $SG capture-manifest
-(cd "$SNAP_WB" && PYTHONPATH=src $MOD run scripts/olens_suite/workspace_bench/wsbench_capture_modal.py \
-  --prompts-json "$REPO/$OUT/probes/capture_prompts.json" --acts-subdir acts-sibgate-probe \
-  --layers 20,24,28,32,36,40,42,44,48,52,56,60)
-$SG fit
-$MOD run scripts/sibling_gate/probes_modal.py --phase pack --inputs $OUT/probes/probe_inputs.json
+# rev 8.2: the probe bank is captured in 32 parallel shards (acts-sibgate-probe-sNN); fit reads
+# them as a comma list. scripts/sibling_gate/capture_shards.sh N (splits
+# capture_prompts.json by index mod N, one `wsbench_capture_modal.py` per shard).
+SHARDS=$(seq -f "acts-sibgate-probe-s%02g" 0 31 | paste -sd,)
+bash scripts/sibling_gate/capture_shards.sh 32
+$SG fit --probe-acts "$SHARDS"
+# rev 8.2: pack is a no-op; fit is one Modal CPU container per class (probe_fit.py)
 $MOD run scripts/sibling_gate/probes_modal.py --phase fit --inputs $OUT/probes/probe_inputs.json \
   --out-dir $OUT/probes
 $SG score --launch

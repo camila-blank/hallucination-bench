@@ -175,6 +175,16 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
   is the readout splitter. `hbench sibling-gate units` streams the v2.7 cells
   (`--cells-root /workspace/hb-taxonomy-v2/outputs/wsbench_chat/claude-opus-5-5`); GPU / Modal
   stages only print their commands unless `--launch` (fit/score) or run from `run_all.sh`.
+- **Rev 8.2 (sibling gate, full run)**: probes are fit per CLASS, not per layer
+  (`evals/sibling_gate/probe_fit.py`, copied to the Modal image as `sibfit.py`; `probes_modal.py`
+  `fit_class` = one container per class, `score_chunk` = (layer, 24 classes); `--phase pack` is a
+  no-op). Only classes with >= 4 (said, item) pairs get probes (`concepts --min-class-pairs 4`);
+  units in smaller classes are `probe_na` / `class_too_small`. The probe bank is captured in 32
+  shards (`scripts/sibling_gate/capture_shards.sh`; `acts-sibgate-probe-sNN`, `fit --probe-acts`
+  takes the comma list). `stages.probe_label` strips `/` from capture labels. The dedupe call
+  returns only renamed classes (`classes.apply_merges`); `run_texts` runs classes concurrently.
+  `scripts/sibling_gate/full_summary.py` writes `outputs/sibling_gate/full_summary.md`.
+  The rev-20 rebuild for comparison: `hbench run --rebuild --sibling-labels <empty dir>`.
 - **No git writes from agents** in this worktree (no add/rm/restore --staged/commit).
 - **In-run retries** (rev 14): an invalid `:M` (or calibration) answer is re-asked up to 2 times
   (`run.MAP_INVALID_RETRIES`) before it is cached as failed; meta records `n_invalid_attempts`

@@ -38,3 +38,12 @@ def test_iter_gen_rows_finds_nested_run_dirs(tmp_path):
 def test_l42_acts_dir_is_remapped():
     p = R._vol_path("/acts/acts-jlens-pr-L42/chat-a.safetensors", "x")
     assert str(p) == "/acts-hallucination-chat-L42cap/chat-a.safetensors"
+
+
+def test_dedupe_apply_merges_only_renamed_and_chains() -> None:
+    from hallucination_bench.evals.sibling_gate.classes import apply_merges
+
+    names = ["a", "b", "c", "d"]
+    out = apply_merges(names, [{"name": "a", "canonical": "b"}, {"name": "b", "canonical": "c"}])
+    assert out == {"a": "c", "b": "c", "c": "c", "d": "d"}
+    assert apply_merges(["x"], [{"name": "x", "canonical": "x"}]) == {"x": "x"}

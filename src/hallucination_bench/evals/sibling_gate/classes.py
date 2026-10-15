@@ -28,7 +28,7 @@ from . import units as U
 from .fill_judge import EFFORT, MODEL, cached_json_call, gather_limited, window
 
 CLASS_VERSION = "sibclass-v1"
-DEDUPE_VERSION = "sibclass-dedupe-v1"
+DEDUPE_VERSION = "sibclass-dedupe-v2"
 CONCEPTS_VERSION = "sibconcepts-v1"
 NO_CLASS = "no_class"
 NO_GOLD = "no_gold"
@@ -52,9 +52,10 @@ gold's own product); empty if none.
 Return JSON only."""
 
 DEDUPE_SYSTEM = """You merge near-duplicate class names. You get a list of short class names \
-(e.g. "AI assistants", "AI chatbots", "countries", "nations"). Map EVERY input name to one \
-canonical class name; names that denote the same set of objects share a canonical name; \
-distinct sets stay distinct. Return JSON only."""
+(e.g. "AI assistants", "AI chatbots", "countries", "nations"). Names that denote the same set of \
+objects share one canonical class name (pick the most standard input name); distinct sets stay \
+distinct. Return ONLY the names that must be renamed, as {name, canonical} pairs with canonical \
+different from name; a name that is already canonical is omitted. Return JSON only."""
 
 CONCEPTS_SYSTEM = """You list well-known members of a class. Return well-known, unambiguous \
 members of the class that are NOT in the exclusion list, by canonical name, most familiar first. \
@@ -171,11 +172,25 @@ async def run_dedupe(names: Sequence[str], llm: LLM | None, cache: Cache) -> dic
         system=DEDUPE_SYSTEM,
         user="CLASS NAMES:\n" + "\n".join(f"- {n}" for n in names),
         schema=DEDUPE_SCHEMA,
-        validate=lambda r: {m.get("name") for m in r.get("mapping") or []} >= set(names),
+        validate=lambda r: {m.get("name") for m in r.get("mapping") or []} <= set(names),
     )
     if st != "ok" or res is None:
         return {n: n for n in names}
-    return {m["name"]: m["canonical"].strip() or m["name"] for m in res["mapping"]}
+    return apply_merges(names, res["mapping"])
+
+
+def apply_merges(names: Sequence[str], mapping: Sequence[Mapping[str, str]]) -> dict[str, str]:
+    """Rev-8 full run: the dedupe call returns only the renamed classes (a 1,100-name echo
+    overran max_tokens); every other name maps to itself. A chain a -> b -> c is resolved."""
+    ren = {m["name"]: (m["canonical"].strip() or m["name"]) for m in mapping}
+    out = {}
+    for n in names:
+        c, seen = n, {n}
+        while c in ren and ren[c] not in seen:
+            c = ren[c]
+            seen.add(c)
+        out[n] = c
+    return out
 
 
 def assemble(

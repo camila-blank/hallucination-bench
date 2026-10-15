@@ -375,9 +375,10 @@ async def run_texts(
     """Per class: 24 explicit + 24 implied per concept, 24 neutral; checked; up to ``rounds``
     top-up rounds. ``surface``: class -> concept -> aliases."""
     spend = Usage()
-    kept: list[dict[str, Any]] = []
-    causes: Counter = Counter()
-    for cls, row in sorted(concepts.items()):
+
+    async def one_class(cls: str, row: Mapping[str, Any]):
+        kept: list[dict[str, Any]] = []
+        causes: Counter = Counter()
         C = list(row["concepts"])
         namer = Namer({c: list(surface.get(cls, {}).get(c, [])) for c in C})
         need = {(c, k): PER_KIND for c in C for k in ("explicit", "implied")}
@@ -444,4 +445,13 @@ async def run_texts(
             kept.extend(have[k])
             if len(have[k]) < need[k]:
                 causes[f"short:{cls}"] += need[k] - len(have[k])
-    return kept, causes, spend
+        return kept, causes
+
+    # classes are independent (own ``seen`` set, own cache keys): run them concurrently (the
+    # LLM semaphore bounds the calls in flight); the output order is the sorted class order
+    kept_all: list[dict[str, Any]] = []
+    causes_all: Counter = Counter()
+    for k, c in await gather_limited([one_class(cl, rw) for cl, rw in sorted(concepts.items())]):
+        kept_all.extend(k)
+        causes_all.update(c)
+    return kept_all, causes_all, spend

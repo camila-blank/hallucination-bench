@@ -77,6 +77,39 @@ def _cos(a: Sequence[float], b: Sequence[float]) -> float:
     return sum(x * y for x, y in zip(a, b, strict=True)) / (na * nb + 1e-12)
 
 
+# Full-run finding: list-style claims put compound concepts ("students and departments",
+# "JavaScript and C++") into C, and near-duplicates ("GPT" for ChatGPT, "students table" for
+# students) slipped past the exact-name exclusion, so a distractor could carry the gold itself.
+COMPOUND_RE = re.compile(r"\s(?:and|or|&)\s|[,/;]|、|和|与")
+_WORD_RE = re.compile(r"\w+")
+_STOP = frozenset(
+    {"the", "of", "a", "an", "and", "or", "table", "tables", "system", "inc", "co", "ltd"}
+)
+
+
+def _words(s: str) -> set[str]:
+    return {w for w in _WORD_RE.findall(s.casefold()) if w not in _STOP}
+
+
+def is_compound(c: str) -> bool:
+    return bool(COMPOUND_RE.search(c))
+
+
+def overlaps(c: str, names: Iterable[str]) -> bool:
+    """True if ``c`` is compound, shares a content word with any of ``names``, or one's
+    normalised form contains the other's (both at least 3 characters)."""
+    if is_compound(c):
+        return True
+    cw, cn = _words(c), U.norm(c)
+    for n in names:
+        if cw & _words(n):
+            return True
+        nn = U.norm(n)
+        if len(cn) >= 3 and len(nn) >= 3 and (cn in nn or nn in cn):
+            return True
+    return False
+
+
 def select_distractors(
     unit: str,
     anchor: str,
@@ -88,8 +121,9 @@ def select_distractors(
     units) by cosine of the grand-mean-centred implied centroids at L44, plus 4 seeded-random
     (seed = unit key). Never ``exclude`` (gold, said, the gold's compatible stratum,
     ``item_sibling_names[id]``)."""
-    ex = {U.norm(x) for x in exclude} | {U.norm(anchor)}
-    elig = sorted(c for c in concepts if U.norm(c) not in ex)
+    ex_names = [*exclude, anchor]
+    ex = {U.norm(x) for x in ex_names}
+    elig = sorted(c for c in concepts if U.norm(c) not in ex and not overlaps(c, ex_names))
     g = centroids.get(anchor)
     if g is not None:
         ranked = sorted(
@@ -227,8 +261,10 @@ def unit_key(cp: ClassProbes, u: UnitProbe, layer: int) -> int | None:
 
 def na_reason(cp: ClassProbes | None, u: UnitProbe, layer: int) -> str | None:
     """§3d n/a at ``layer`` (readability only for units with a gold)."""
-    if cp is None or u.cls == NO_CLASS:
+    if u.cls == NO_CLASS:
         return "no_class"
+    if cp is None:  # rev 8.2: a class below the pair cap has no probes (concepts.json omits it)
+        return "class_too_small"
     if len(cp.concepts) < MIN_CLASS_SIZE:
         return "small_class"
     if cp.z is None or not cp.z.positions(u.item, layer):
