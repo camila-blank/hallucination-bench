@@ -12,6 +12,7 @@ hallucination eval is one of many evals here; see `plans/` for the design histor
 |---|---|---|
 | `wsbench_chat` | WorkspaceBench's hallucination (chat) eval, ported verbatim (v5c span + verify stages), plus the taxonomy classifier | [0001](plans/0001-bootstrap-wsbench-chat-taxonomy.md) |
 | `wsbench_chat` claim map | taxonomy v2: every character of every readout in exactly one of 11 scoring leaves (7 groups), rolled up into 6 verdicts | [0002](plans/0002-claim-map-taxonomy-v2.md) |
+| sibling gate (rev 21) | `substitution_sibling` counts as hallucination only when unambiguous: 10-sample lens resample (sibling rarely returns while other items or the right answer do), then whitened-DiffMean probes for stable siblings | [0009](plans/0009-sibling-resample-probe-gate.md) |
 
 Per cell (arm × item × read site × layer) `wsbench_chat` runs up to five calls:
 
@@ -151,4 +152,5 @@ and `outputs/wsbench_chat/<judge model>/{report.md,report.json,audit_samples.md}
 
 [`docs/results/0001_wsbench_chat_taxonomy.md`](docs/results/0001_wsbench_chat_taxonomy.md)
 (filled in after the full run); claim map:
-[`docs/results/0002_claim_map.md`](docs/results/0002_claim_map.md).
+[`docs/results/0002_claim_map.md`](docs/results/0002_claim_map.md). Sibling gate (rev 21): [`docs/results/0009_sibling_gate.md`](docs/results/0009_sibling_gate.md),
+re-scored report [`docs/results/0002_report_full_v2.8.md`](docs/results/0002_report_full_v2.8.md).
