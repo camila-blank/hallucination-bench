@@ -154,11 +154,18 @@ def requests(units: Iterable[Mapping[str, Any]]) -> dict[str, PoolRequest]:
 # ---------------------------------------------------------------- trimmed manifests
 
 
+# The L42 manifest's files point at ``acts-jlens-pr-L42``, which no longer exists on the volume;
+# the same 149 prompts' layer-42 acts (identical tokens and eval_positions) live in -L42cap.
+DIR_REMAP = {"acts-jlens-pr-L42": "acts-hallucination-chat-L42cap"}
+
+
 def _vol_path(file: str, src_subdir: str) -> PurePosixPath:
     """A manifest ``file`` -> its path inside the acts volume (``/acts/x`` mounts the root)."""
     p = PurePosixPath(file)
     if p.is_absolute():
         parts = p.parts[2:] if len(p.parts) > 2 and p.parts[1] == "acts" else p.parts[1:]
+        if parts and parts[0] in DIR_REMAP:
+            parts = (DIR_REMAP[parts[0]], *parts[1:])
         return PurePosixPath("/", *parts)
     return PurePosixPath("/", src_subdir, *p.parts)
 
@@ -261,7 +268,7 @@ def write_manifests(
 
 # ---------------------------------------------------------------- job specs (shell lines)
 
-READ_SCRIPT = "scripts/olens_suite/workspace_bench/wsbench_read_modal.py"
+READ_SCRIPT = "scripts/olens_suite/workspace_bench/wsbench_read_modal.py::main"  # two+ entrypoints
 NLA_SCRIPT = "scripts/olens_suite/workspace_bench/wsbench_nla_modal.py"
 PATCHSCOPES_SCRIPT = "scripts/patchscopes/modal_lensagree.py"
 MODAL = "uvx --python 3.12 modal@latest"
@@ -316,7 +323,15 @@ def iter_gen_rows(src: Path) -> Iterator[dict[str, Any]]:
     """Readout-contract rows from a converted ``hallucination.jsonl`` (``{id, layer, pos,
     token, samples}``) or a raw gen dir (``<label>/L{layer:03d}.jsonl`` rows with ``label``)."""
     src = Path(src)
-    files = [src] if src.is_file() else sorted(src.glob("*/L*.jsonl"))
+    files = (
+        [src]
+        if src.is_file()
+        else sorted(  # ``volume get`` nests each run dir: <src>/<run>/<label>/L*.jsonl
+            f
+            for f in src.rglob("L*.jsonl")
+            if not any(x.startswith("_") for x in f.relative_to(src).parts[:-1])
+        )
+    )  # "_work/" holds the patchscopes shard stores (a different schema)
     for f in files:
         for r in U.iter_jsonl(f):
             yield {

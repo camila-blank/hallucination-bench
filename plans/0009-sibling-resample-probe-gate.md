@@ -113,7 +113,7 @@ layer list is the union of its units' layers.
 - **Script snapshots.** The generators run from a snapshot copy of `/workspace/gw-mlnla` at its
   current HEAD. The commit is recorded in the results doc, and the scripts are never edited in
   place.
-- **Hardware.** Every GPU job runs on B300:8, sharded for speed.
+- **Hardware.** H200, one GPU per container, sharded 16 ways (Camila 2026-10-15, as the original readouts).
 - **Subsets.** Each pool gets a new acts subdir `acts-sibgate-<pool>` on the same volume. It
   holds **copies** of the needed prompts' acts files (scripts are never edited, and Modal
   volumes do not reliably support symlinks) and a trimmed `manifest.json`:
@@ -498,7 +498,7 @@ CLI stages: `units`, `resample-manifests`, `resample-collect`, `fill`, `fill-cal
 
 - **Resampling:** about 9k requested cells (the `units` stage counts them exactly), with more
   generated through over-generation (§2a), which the `resample-manifests` stage counts. Each costs a
-  (prompt, layer) prefill plus 10 generations per position on B300:8.
+  (prompt, layer) prefill plus 10 generations per position on single H200 containers.
 - **Slot judge:** one call per unit, about 6k input and 0.5k output tokens.
 - **Class judge:** one call per (said, item).
 - **Probe texts:** about 72 per concept, for a few hundred concepts.

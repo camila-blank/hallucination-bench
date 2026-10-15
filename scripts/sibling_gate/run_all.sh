@@ -13,8 +13,10 @@
 #   SNAP    = a copy of /workspace/gw-mlnla at its current HEAD (wsbench_read / nla / patchscopes)
 #   SNAP_WB = a copy of /workspace/gw-wrong-bridge at its current HEAD (wsbench_capture_modal.py)
 # MERGED_S3D_RL600 / MERGED_S3D_SFT251 = the original runs' merged dir names (run_config.json).
-# GPU: WSBENCH_READ_GPU=B300:8 reaches wsbench_nla_modal.py; wsbench_read_modal.py and
-# modal_lensagree.py pin their own GPU (scripts are not edited; the results doc says which ran).
+# GPU: every resample generator runs on a single H200 per container (Camila 2026-10-15), fanned
+# out as --shards 16 containers (resample.py job lines). wsbench_nla_modal.py reads
+# WSBENCH_READ_GPU (default H200); wsbench_read_modal.py pins H200; the snapshot's
+# modal_lensagree.py has GPU=H200 (original H100). B300 fails (torch cu128 has no sm_103).
 # Re-running resumes: caches are append-only and the generators skip finished unit files.
 set -euo pipefail
 REPO=${REPO:-/workspace/hb-sibling-resample}
@@ -30,7 +32,7 @@ echo "[sibgate] start $TS (log $LOG)"
 : "${MERGED_S3D_RL600:?original merged dir of the s3d-rl600 readouts}"
 : "${MERGED_S3D_SFT251:?original merged dir of the s3d-sft251 readouts}"
 export MERGED_S3D_RL600 MERGED_S3D_SFT251
-export WSBENCH_GEN_VOLUME=${WSBENCH_GEN_VOLUME:-sibgate-gen} WSBENCH_READ_GPU=${WSBENCH_READ_GPU:-B300:8}
+export WSBENCH_GEN_VOLUME=${WSBENCH_GEN_VOLUME:-sibgate-gen} WSBENCH_READ_GPU=${WSBENCH_READ_GPU:-H200}
 echo "[sibgate] generator snapshot $(git -C "$SNAP" rev-parse HEAD 2>/dev/null || echo '?')"
 echo "[sibgate] capture snapshot $(git -C "$SNAP_WB" rev-parse HEAD 2>/dev/null || echo '?')"
 
