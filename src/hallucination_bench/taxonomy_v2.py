@@ -34,7 +34,11 @@ list or disjunction of options) is scored ``unverifiable`` with ``same_slot_alte
 ``hedged`` set, whatever its leaf (``raw_leaf`` keeps the judge's); ``model_state`` gets its own
 verdict, ``thinky``, so there are 6 verdicts. **Rev 20**: ``substitution_category`` is the third
 hallucination component (with ``false_claim`` and ``detail``); ``substitution_sibling`` stays a
-probe candidate.
+probe candidate. **Rev 21** (plan 0009, scoring only): a ``substitution_sibling`` segment whose
+sibling-gate unit ends ``unstable`` or ``probe_unconfirmed`` is scored as the scoring-only leaf
+``substitution_sibling_gated`` (verdict hallucination, group unchanged; :func:`effective_leaf`).
+``VERDICTS`` and its assert are unchanged, so a consumer that misses the status join falls back
+to rev 20.
 
 Leaves of earlier revisions map mechanically to rev 16 (``LEAF_RENAMES`` + ``MERGE_TAGS``); the
 calibration loader applies them to old gold.
@@ -49,7 +53,8 @@ from dataclasses import dataclass
 from typing import Any
 
 TAXONOMY_VERSION = "v2-r17"  # rendered into the prompt; rev 18 changes scoring only
-SCORING_VERSION = "v2-r20"  # r18 junk merge; r19 hedged/thinky; r20 category -> hallucination
+SCORING_VERSION = "v2-r21"  # r18 junk merge; r19 hedged/thinky; r20 category -> hallucination;
+# r21 (plan 0009): gated sibling substitutions -> the scoring-only leaf SIBLING_GATED
 
 # ---------------------------------------------------------------- groups
 
@@ -310,6 +315,25 @@ PROBE_CANDIDATE_LEAVES: tuple[str, ...] = VERDICTS[V_PROBE]
 assert sorted(lf for leaves in VERDICTS.values() for lf in leaves) == sorted(
     (*LEAF_NAMES, UNKNOWN_INCORRECT)
 )
+
+
+# ---------------------------------------------------------------- rev 21: the sibling gate
+
+# Plan 0009: scoring-only. VERDICTS, VERDICT_ROWS, PROBE_CANDIDATE_LEAVES and the assert above
+# are unchanged (rev 20); the gated leaf enters only the derived scoring maps, so a consumer that
+# misses the status join keeps exact rev-20 behaviour.
+SIBLING_GATED = "substitution_sibling_gated"
+SIBLING_HALLUCINATION = frozenset({"unstable", "probe_unconfirmed"})
+VERDICT_OF[SIBLING_GATED] = V_HALLUCINATION
+GROUP_OF[SIBLING_GATED] = GROUP_OF["substitution_sibling"]  # group shares are unchanged
+
+
+def effective_leaf(leaf: str, sibling_status: str | None) -> str:
+    """``SIBLING_GATED`` iff ``leaf`` is ``substitution_sibling`` and the unit's final status is a
+    hallucination (``SIBLING_HALLUCINATION``); else ``leaf`` (a null / missing status keeps it)."""
+    if leaf == "substitution_sibling" and sibling_status in SIBLING_HALLUCINATION:
+        return SIBLING_GATED
+    return leaf
 
 
 def group_of(leaf: str) -> str:

@@ -5,6 +5,9 @@ This plan builds on plan 0001 (PR #2): the v5c span and verify port, the taxonom
 and the first full run. It reuses plan 0001's cache layout, client, calibration machinery,
 bootstrap and report unless this plan says otherwise.
 
+**Scoring rev 21** (gated `substitution_sibling` -> hallucination via a resample + probe gate) is
+specified in `plans/0009-sibling-resample-probe-gate.md`.
+
 Items marked **[pending Camila]** use a default until she confirms them (§Open decisions).
 
 

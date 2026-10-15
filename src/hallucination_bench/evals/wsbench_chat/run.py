@@ -748,15 +748,31 @@ def _write_arm_json(arm: Arm, models: Models) -> None:
 # ---------------------------------------------------------------- rebuild (no API calls)
 
 
-def rebuild_arm(name: str, readouts: Path, out_root: Path, models: Models) -> dict[str, Any]:
-    return asyncio.run(rebuild_arm_async(name, readouts, out_root, models))
+def rebuild_arm(
+    name: str,
+    readouts: Path,
+    out_root: Path,
+    models: Models,
+    sibling_labels_dir: Path | None = None,
+) -> dict[str, Any]:
+    return asyncio.run(rebuild_arm_async(name, readouts, out_root, models, sibling_labels_dir))
 
 
 async def rebuild_arm_async(
-    name: str, readouts: Path, out_root: Path, models: Models
+    name: str,
+    readouts: Path,
+    out_root: Path,
+    models: Models,
+    sibling_labels_dir: Path | None = None,
 ) -> dict[str, Any]:
     """Regenerate ``cells.jsonl`` and ``summary.json`` from the cache over every judged layer
-    (layers with any cache row). Streams records to disk; keeps slim score records only."""
+    (layers with any cache row). Streams records to disk; keeps slim score records only.
+
+    Plan 0009 (rev 21): ``summary_v2.json`` joins the arm's sibling-gate labels
+    (``<sibling_labels_dir>/<arm>.jsonl``, default ``<out_root>/sibling_gate/labels``) when the
+    file exists; without it scoring is exactly rev 20."""
+    from hallucination_bench.evals.sibling_gate import units as sibling_units
+
     from . import score, score_v2
 
     arm = open_arm(name, readouts, out_root, models, readonly=True)
@@ -766,7 +782,9 @@ async def rebuild_arm_async(
     cells = [c for c in arm.cells if c.layer in layers]
     missing = missing_cells(cells, expected)
     acc = score.Accumulator(k=arm.k)
-    acc2 = score_v2.AccumulatorV2()
+    labels_dir = sibling_units.labels_dir(out_root, sibling_labels_dir)
+    sibling_labels = sibling_units.load_labels(name, labels_dir)
+    acc2 = score_v2.AccumulatorV2(sibling_labels=sibling_labels)
     map_layers = {
         int(m.group(1)) for k in arm.cache.keys() if k.endswith(":M") and (m := _LAYER_RE.search(k))
     }
@@ -811,6 +829,8 @@ async def rebuild_arm_async(
         **config,
         "map_anchor": models.map_anchor,
         "map_layers": sorted(map_layers),
+        # rev 21: the sibling-gate labels file joined into scoring (None = rev-20 scoring)
+        "sibling_labels": str(labels_dir / f"{name}.jsonl") if sibling_labels is not None else None,
         "pre_gate": not gate_passed(out_root, models.mapper, models.map_anchor),
     }
     summary = score.summarize(

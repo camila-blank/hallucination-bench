@@ -3,8 +3,10 @@
     uv run python scripts/plot_claim_hallucination_share.py [--out plots/full_run_v2.7]
 
 A *claim* is any judged segment that is not `junk` (non-claim / off-topic) and not failed or
-unknown. Hallucination share = (false_claim + detail + substitution_category segments; rev 20)
-/ claim segments, counted per
+unknown. Hallucination share = (false_claim + detail + substitution_category + gated
+substitution_sibling segments; rev 21, plan 0009: the sibling-gate labels in
+outputs/sibling_gate/labels are joined through taxonomy_v2.effective_leaf; without a labels file
+an arm scores as rev 20) / claim segments, counted per
 segment and pooled within an item; the 95% CI resamples items (2000 draws, seed 0). Rev 19:
 hedged option lists are scored `unverifiable` in cells.jsonl, so they count as claims that are not
 hallucinations (they are never a hallucination component here). Streams
@@ -19,6 +21,9 @@ from pathlib import Path
 
 import matplotlib.pyplot as plt
 import numpy as np
+
+from hallucination_bench import taxonomy_v2 as tx
+from hallucination_bench.evals.sibling_gate import units as sibling_units
 
 ROOT = Path(__file__).resolve().parents[1]
 CELLS = ROOT / "outputs" / "wsbench_chat" / "claude-opus-5-5"
@@ -42,15 +47,19 @@ METHODS = [
 LAYER_ARMS = [("s3d-rl600-all11", "O-lens RL"), ("mlnla-rl600-all11", "ML-NLA step 600")]
 
 
-def tally(arm: str) -> dict:
-    """{layer|'all': {item: [n_claims, n_false_claim, n_detail, n_substitution_category]}}."""
-    out: dict = defaultdict(lambda: defaultdict(lambda: [0, 0, 0, 0]))
+def tally(arm: str, labels_dir: Path | None = None) -> dict:
+    """{layer|'all': {item: [n_claims, n_false_claim, n_detail, n_substitution_category,
+    n_substitution_sibling_gated]}}."""
+    out: dict = defaultdict(lambda: defaultdict(lambda: [0, 0, 0, 0, 0]))
+    labels = sibling_units.load_labels(arm, labels_dir)
     with (CELLS / arm / "cells.jsonl").open(encoding="utf-8") as fh:
         for line in fh:
             r = json.loads(line)
             segs = (r.get("map") or {}).get("segments") or []
             for s in segs:
                 leaf = s.get("leaf")
+                if leaf is not None:  # rev 21: the scoring join (raw leaf without labels)
+                    leaf = tx.effective_leaf(leaf, sibling_units.seg_status(labels, r, s))
                 if leaf in NOT_CLAIM:
                     continue
                 for key in ("all", r["layer"]):
@@ -59,6 +68,7 @@ def tally(arm: str) -> dict:
                     acc[1] += leaf == "false_claim"
                     acc[2] += leaf == "detail"
                     acc[3] += leaf == "substitution_category"
+                    acc[4] += leaf == tx.SIBLING_GATED
     return out
 
 
@@ -73,7 +83,7 @@ def ratio_ci(per_item: dict, col: int, n_boot: int = 2000) -> tuple[float, float
 
 
 def with_hallu(per_item: dict) -> dict:
-    return {k: [v[0], v[1], v[2], v[3], v[1] + v[2] + v[3]] for k, v in per_item.items()}
+    return {k: [*v, v[1] + v[2] + v[3] + v[4]] for k, v in per_item.items()}
 
 
 def bar_plot(rows, title, out, height) -> None:
@@ -83,6 +93,7 @@ def bar_plot(rows, title, out, height) -> None:
     fc = np.array([r[2] for r in rows])
     de = np.array([r[3] for r in rows])
     sc = np.array([r[4] for r in rows])
+    sg = np.array([r[5] for r in rows])
     tot = np.array([r[1][0] for r in rows])
     lo = tot - np.array([r[1][1] for r in rows])
     hi = np.array([r[1][2] for r in rows]) - tot
@@ -109,8 +120,18 @@ def bar_plot(rows, title, out, height) -> None:
         linewidth=1.5,
         label="Category substitution",
     )
+    ax.barh(
+        y,
+        sg,
+        left=fc + de + sc,
+        height=0.66,
+        color="#eb6834",
+        edgecolor="white",
+        linewidth=1.5,
+        label="Sibling substitution (gated)",
+    )
     ax.errorbar(tot, y, xerr=[lo, hi], fmt="none", ecolor=TEXT, elinewidth=1, capsize=2)
-    for yi, vi, hii, n in zip(y, tot, hi, [r[5] for r in rows], strict=True):
+    for yi, vi, hii, n in zip(y, tot, hi, [r[6] for r in rows], strict=True):
         ax.text(vi + hii + 0.8, yi, f"{vi:.1f}%  (n={n:,})", va="center", fontsize=10, color=TEXT)
     ax.set_yticks(y, [r[0] for r in rows], fontsize=12)
     ax.set_xlim(0, max(10.0, float((tot + hi).max()) * 1.25))
@@ -124,14 +145,15 @@ def bar_plot(rows, title, out, height) -> None:
         ax.spines[s].set_visible(False)
     ax.spines["bottom"].set_color(MUTED)
     ax.set_title(title, fontsize=16, color=TEXT, loc="left", pad=34)
-    ax.legend(fontsize=11, frameon=False, loc="lower left", bbox_to_anchor=(0, 1.0), ncol=3)
+    ax.legend(fontsize=11, frameon=False, loc="lower left", bbox_to_anchor=(0, 1.0), ncol=4)
     fig.text(
         0.01,
         0.005,
         "Claim = any judged segment except junk / non-claim (failed excluded); n = claim "
-        "segments. Bars stack false claim + detail + category substitution; whiskers: "
+        "segments. Bars stack false claim + detail + category + gated sibling substitution; "
+        "whiskers: "
         "item-bootstrap 95% CI of the total.\n"
-        "† token lens, judged via its summary. Claim-map judge v2.7 (scoring rev 20), pre-gate.",
+        "† token lens, judged via its summary. Claim-map judge v2.7 (scoring rev 21), pre-gate.",
         fontsize=9,
         color=MUTED,
     )
@@ -143,19 +165,22 @@ def bar_plot(rows, title, out, height) -> None:
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", default=str(ROOT / "plots" / "full_run_v2.7"))
-    out = Path(ap.parse_args().out)
+    ap.add_argument("--sibling-labels", default=str(ROOT / "outputs" / "sibling_gate" / "labels"))
+    args = ap.parse_args()
+    out = Path(args.out)
     out.mkdir(parents=True, exist_ok=True)
-    tallies = {arm: tally(arm) for arm, _, _ in METHODS}
+    tallies = {arm: tally(arm, Path(args.sibling_labels)) for arm, _, _ in METHODS}
 
     def row(label: str, per_item: dict):
         m = with_hallu(per_item)
         n = int(sum(v[0] for v in m.values()))
         return (
             label,
-            ratio_ci(m, 4),
+            ratio_ci(m, 5),
             ratio_ci(m, 1)[0],
             ratio_ci(m, 2)[0],
             ratio_ci(m, 3)[0],
+            ratio_ci(m, 4)[0],
             n,
         )
 
@@ -181,7 +206,7 @@ def main() -> None:
     for r in sorted(rows, key=lambda r: r[1][0]):
         print(
             f"{r[0]:32s} {r[1][0]:5.1f} [{r[1][1]:.1f}, {r[1][2]:.1f}]  FC {r[2]:.1f}  "
-            f"D {r[3]:.1f}  SC {r[4]:.1f}  n={r[5]}"
+            f"D {r[3]:.1f}  SC {r[4]:.1f}  SG {r[5]:.1f}  n={r[6]}"
         )
 
 

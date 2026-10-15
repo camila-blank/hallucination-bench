@@ -9,6 +9,12 @@ from its cache (no API calls), as in the v1 report. Verdict shares and readout-l
 rates are the headline; groups and leaves are the breakdown. Prose and token arms get separate
 tables. Until the held-out gate passes for the current prompt version, every output is
 labelled **pre-gate**.
+
+Rev 21 (plan 0009): every arm's sibling-gate labels (``<out>/sibling_gate/labels/<arm>.jsonl``,
+when present) are joined into its summary by the rebuild, and into the raw-cell consumers here
+(``probe_candidates``, ``hallucination_examples``, ``audit_samples``) through
+``sibling_gate.units.load_labels`` + ``taxonomy_v2.effective_leaf``. Gated siblings
+(``substitution_sibling_gated``) are the fourth hallucination component; judge noise stays raw.
 """
 
 import json
@@ -18,6 +24,7 @@ from pathlib import Path
 from typing import Any
 
 from hallucination_bench import taxonomy_v2 as tx
+from hallucination_bench.evals.sibling_gate import units as sibling_units
 from hallucination_bench.evals.wsbench_chat import bank, score_v2
 from hallucination_bench.evals.wsbench_chat.run import Models, rebuild_arm
 from hallucination_bench.evals.wsbench_chat.score_v2 import (
@@ -43,6 +50,7 @@ FLAG_TITLES: dict[str, str] = {
     "cruxy_false_claim": "cruxy false_claim",
     "detail": "detail",
     "substitution_category": "substitution_category",
+    tx.SIBLING_GATED: "substitution_sibling (gated)",
     "co_activation": "co-activation",
     "thinky": "thinky",
     "correct": "correct",
@@ -88,7 +96,9 @@ def _blocks(arms: dict[str, dict[str, Any]]) -> tuple[list, list]:
 
 
 # rev 16: false_claim and detail are always reported next to the hallucination verdict
-SPLIT_LEAVES: tuple[str, ...] = ("false_claim", "detail", "substitution_category")  # rev 20
+# rev 20: + substitution_category; rev 21: + the gated sibling (scoring-only)
+SPLIT_LEAVES: tuple[str, ...] = score_v2.HALLUCINATION_COMPONENTS
+SPLIT_TITLES: dict[str, str] = {lf: FLAG_TITLES[lf] for lf in SPLIT_LEAVES}
 
 
 def _vhead() -> list[str]:
@@ -96,7 +106,7 @@ def _vhead() -> list[str]:
     for v in VERDICT_ROWS:
         out.append(v)
         if v == tx.V_HALLUCINATION:
-            out += [f"↳ {lf}" for lf in SPLIT_LEAVES]
+            out += [f"↳ {SPLIT_TITLES[lf]}" for lf in SPLIT_LEAVES]
     return out
 
 
@@ -114,7 +124,7 @@ def _vrate_head() -> list[str]:
     for f in VERDICT_FLAGS:
         out.append(FLAG_TITLES[f])
         if f == f"verdict_{tx.V_HALLUCINATION}":
-            out += [f"↳ {lf}" for lf in SPLIT_LEAVES]
+            out += [f"↳ {SPLIT_TITLES[lf]}" for lf in SPLIT_LEAVES]
     return out
 
 
@@ -138,6 +148,8 @@ NOISE_COLS: tuple[tuple[str, str], ...] = (
     ("unresolved", "u"),
 )
 NOISE_HEAD = "judge noise ± (" + " / ".join(k for _, k in NOISE_COLS) + ")"
+# rev 21: judge noise is measured on raw leaves, so the gated component has none
+NOISE_GATED_HEAD = "judge noise ± (gated sibling)"
 
 
 def _arm_of(row_name: str) -> str:
@@ -232,9 +244,17 @@ def build(
         "",
         "Verdicts: " + "; ".join(f"`{v}` = {', '.join(lv)}" for v, lv in tx.VERDICTS.items()),
         "",
+        f"Scoring mapping ({tx.SCORING_VERSION}): `hallucination` = "
+        + ", ".join(score_v2.HALLUCINATION_COMPONENTS)
+        + f"; `{tx.SIBLING_GATED}` (rev 21, plan 0009) is a `substitution_sibling` segment whose "
+        "sibling-gate unit ended "
+        + " / ".join(f"`{x}`" for x in sorted(tx.SIBLING_HALLUCINATION))
+        + "; every other sibling stays `probe_candidate`. Arms without a labels file score as "
+        "rev 20. Judge noise is measured on raw leaves (— for the gated component).",
+        "",
     ]
     group_head = ["arm", "n readouts", *GROUP_ROWS]
-    verdict_head = ["arm", "n readouts", *_vhead(), NOISE_HEAD]
+    verdict_head = ["arm", "n readouts", *_vhead(), NOISE_HEAD, NOISE_GATED_HEAD]
     for title, arms in (("Prose arms", prose), ("Token arms (judged via the summariser)", tokens)):
         if not arms:
             continue
@@ -244,12 +264,12 @@ def build(
             md += _table(
                 f"Headline: character-weighted verdict shares, {t}",
                 verdict_head,
-                [[*_vshare_row(n, b), _noise_cell(noise, n, "share")] for n, b in rows],
+                [[*_vshare_row(n, b), _noise_cell(noise, n, "share"), "—"] for n, b in rows],
             )
             md += _table(
                 f"Headline: readout-level verdict rates (all readouts), {t}",
-                ["arm", "n readouts", *_vrate_head(), NOISE_HEAD],
-                [[*_vrow(n, b), _noise_cell(noise, n, "rate")] for n, b in rows],
+                ["arm", "n readouts", *_vrate_head(), NOISE_HEAD, NOISE_GATED_HEAD],
+                [[*_vrow(n, b), _noise_cell(noise, n, "rate"), "—"] for n, b in rows],
             )
         md += _table(
             "v2 hallucination rate vs v5c on the same readouts",
@@ -261,6 +281,7 @@ def build(
                 "↳ v2 false_claim",
                 "↳ v2 detail",
                 "↳ v2 substitution_category",
+                "↳ v2 substitution_sibling (gated)",
                 "n spec",
                 "v5c hallucination_rate (spec)",
                 "v2 rate (spec)",
@@ -274,6 +295,7 @@ def build(
                     _p(b["v5c_comparison"].get("v2_false_claim_rate")),
                     _p(b["v5c_comparison"].get("v2_detail_rate")),
                     _p(b["v5c_comparison"].get("v2_substitution_category_rate")),
+                    _p(b["v5c_comparison"].get("v2_substitution_sibling_gated_rate")),
                     str(b["n_rate_readouts"]["specific"]),
                     _p(b["v5c_comparison"]["v5c_rate_specific"]),
                     _p(b["v5c_comparison"]["v2_rate_specific"]),
@@ -310,8 +332,8 @@ def build(
             "Character-weighted leaf shares, per arm (no CI)",
             ["leaf", *(n for n, _ in overall)],
             [
-                [lf, *(_p(b["char_share_leaf"][lf], False) for _, b in overall)]
-                for lf in tx.ALL_LEAVES
+                [lf, *(_p(b["char_share_leaf"].get(lf), False) for _, b in overall)]
+                for lf in score_v2.LEAF_ROWS
             ],
         )
         md += _table(
@@ -468,6 +490,77 @@ def build(
     return "\n".join(md), js
 
 
+def sibling_gate_section(labels_dir: Path | None, arms: list[str]) -> list[str]:
+    """Plan 0009 §4: per arm, sibling units and segments by ``rung1`` and by ``final``, the
+    unstable branch split, ``no_gold`` / ``no_class``, and the sensitivity rows (units / segments
+    that would be gated). Empty when no arm has a labels file."""
+    if labels_dir is None:
+        return []
+    sums: dict[str, dict[str, Any]] = {}
+    for a in arms:
+        p = Path(labels_dir) / f"{a}.jsonl"
+        if p.exists():
+            sums[a] = sibling_units.summarize_label_rows(sibling_units.iter_jsonl(p))
+    if not sums:
+        return []
+
+    def us(x: list[int]) -> str:
+        return f"{x[0]} / {x[1]}"
+
+    det = sorted(a for a in sums if a in sibling_units.DETERMINISTIC_ARMS)
+    md = [
+        "## Sibling gate (rev 21, plan 0009)",
+        "",
+        f"Labels: `{labels_dir}`. Cells are units / segments. Gated (hallucination) = final "
+        + " or ".join(f"`{x}`" for x in sorted(tx.SIBLING_HALLUCINATION))
+        + ". `cross_method` means agreement between lens families, not truth."
+        + (f" Token arms ({', '.join(det)}): probes only (no resample)." if det else ""),
+        "",
+    ]
+    md += _table(
+        "Sibling units by rung-1 status (units / segments)",
+        ["arm", "units / segments", *sibling_units.RUNG1, "unstable A / B / both"],
+        [
+            [
+                a,
+                f"{s['n_units']} / {s['n_segments']}",
+                *(us(s["rung1"].get(k, [0, 0])) for k in sibling_units.RUNG1),
+                f"{s['branch']['A']} / {s['branch']['B']} / {s['branch']['both']}",
+            ]
+            for a, s in sorted(sums.items())
+        ],
+    )
+    finals = (*sibling_units.FINALS, "pending")
+    md += _table(
+        "Sibling units by final status (units / segments)",
+        ["arm", *finals, "gated", "no_gold", "no_class", "diverse"],
+        [
+            [
+                a,
+                *(us(s["final"].get(k, [0, 0])) for k in finals),
+                us(s["gated"]),
+                str(s["no_gold"]),
+                str(s["no_class"]),
+                str(s["diverse"]),
+            ]
+            for a, s in sorted(sums.items())
+        ],
+    )
+    md += _table(
+        "Sensitivity rows: gated units / segments (primary first)",
+        ["arm", "primary", *(t for _, t in sibling_units.SENSITIVITY_ROWS)],
+        [
+            [
+                a,
+                us(s["gated"]),
+                *(us(s["sensitivity"][k]) for k, _ in sibling_units.SENSITIVITY_ROWS),
+            ]
+            for a, s in sorted(sums.items())
+        ],
+    )
+    return md
+
+
 def probe_section(rows: list[dict[str, Any]], top: int = 15) -> list[str]:
     """Probe candidates by leaf, with each leaf's most frequent probe targets."""
     if not rows:
@@ -504,15 +597,26 @@ def _segments(rec: dict[str, Any]) -> list[dict[str, Any]]:
     return m["segments"] if m and rec.get("stages", {}).get("map") in ("ok", "failed") else []
 
 
-def probe_candidates(dirs: list[Path], *, pre_gate: bool = True) -> list[dict[str, Any]]:
+def _labels(d: Path, labels_dir: Path | None) -> dict[Any, str | None] | None:
+    return sibling_units.load_labels(d.name, labels_dir) if labels_dir is not None else None
+
+
+def probe_candidates(
+    dirs: list[Path], *, pre_gate: bool = True, labels_dir: Path | None = None
+) -> list[dict[str, Any]]:
     """One row per probe-candidate segment (``taxonomy_v2.PROBE_CANDIDATE_LEAVES``, scored
     leaf): ``{arm, layer, item, pos, leaf, probe_target, actual|null, segment, readout}`` plus
-    provenance. ``actual`` is the substitution pair's actual object."""
+    provenance. ``actual`` is the substitution pair's actual object. Rev 21: ``leaf`` stays raw
+    and ``sibling_status`` is added (from ``labels_dir``); gated siblings leave the file."""
     out = []
     for d in dirs:
+        labels = _labels(d, labels_dir)
         for rec in iter_cells(d):
             for s in _segments(rec):
                 if s["leaf"] not in tx.PROBE_CANDIDATE_LEAVES:
+                    continue
+                status = sibling_units.seg_status(labels, rec, s)
+                if tx.effective_leaf(s["leaf"], status) == tx.SIBLING_GATED:
                     continue
                 pair = s.get("pair") or None
                 out.append(
@@ -531,28 +635,34 @@ def probe_candidates(dirs: list[Path], *, pre_gate: bool = True) -> list[dict[st
                         "key": rec["key"],
                         "contradicted_by": s.get("contradicted_by"),
                         "why": s["why"],
+                        "sibling_status": status,
                         "pre_gate": pre_gate,
                     }
                 )
     return out
 
 
-def hallucination_examples(dirs: list[Path], *, n: int = 8, seed: int = 0) -> list[str]:
-    """``n`` random hallucination segments per arm, each with its ``contradicted_by`` quote."""
+def hallucination_examples(
+    dirs: list[Path], *, n: int = 8, seed: int = 0, labels_dir: Path | None = None
+) -> list[str]:
+    """``n`` random hallucination segments per arm, each with its ``contradicted_by`` quote
+    (rev 21: gated siblings included, shown under their effective leaf)."""
     out = ["## Hallucination examples (with the quote that contradicts them)", ""]
+    hal = set(score_v2.HALLUCINATION_COMPONENTS)
     for d in dirs:
         res, seen = _reservoir(
             [d],
-            lambda s: "h" if s["leaf"] in tx.VERDICTS[tx.V_HALLUCINATION] else "x",
+            lambda lf: "h" if lf in hal else "x",
             n,
             random.Random(f"{seed}:{d.name}"),
+            labels_dir=labels_dir,
         )
         rows = []
         for _arm, rec, s in res.get("h", []):
             rows.append(
                 [
                     rec["key"],
-                    s["leaf"],
+                    s["_eff_leaf"],
                     json.dumps(s["text"][:160], ensure_ascii=False).replace("|", "\\|"),
                     json.dumps((s.get("contradicted_by") or "")[:200], ensure_ascii=False).replace(
                         "|", "\\|"
@@ -568,14 +678,19 @@ def hallucination_examples(dirs: list[Path], *, n: int = 8, seed: int = 0) -> li
 
 
 def _reservoir(
-    dirs: list[Path], key: Any, n: int, rng: random.Random
+    dirs: list[Path], key: Any, n: int, rng: random.Random, labels_dir: Path | None = None
 ) -> tuple[dict[str, list[tuple[str, dict, dict]]], dict[str, int]]:
+    """``key(effective leaf)`` -> reservoir of ``(arm, rec, seg)``; each kept segment carries
+    ``_eff_leaf`` (rev 21: the leaf after the sibling-gate join)."""
     res: dict[str, list[tuple[str, dict, dict]]] = {}
     seen: dict[str, int] = {}
     for d in dirs:
+        labels = _labels(d, labels_dir)
         for rec in iter_cells(d):
             for s in _segments(rec):
-                k = key(s)
+                eff = tx.effective_leaf(s["leaf"], sibling_units.seg_status(labels, rec, s))
+                s = {**s, "_eff_leaf": eff}
+                k = key(eff)
                 seen[k] = seen.get(k, 0) + 1
                 pool = res.setdefault(k, [])
                 if len(pool) < n:
@@ -595,7 +710,8 @@ def _sample_lines(arm: str, rec: dict[str, Any], s: dict[str, Any]) -> list[str]
         f"### {arm} {rec['key']} {s['unit']} ({s['kind']}, status {s['status']})",
         "",
         f"- segment: {json.dumps(s['text'], ensure_ascii=False)}",
-        f"- leaf {s['leaf']} (verdict {tx.verdict_of(s['leaf'])}); raw leaf {s['raw_leaf']}; "
+        f"- leaf {s['_eff_leaf']} (verdict {tx.verdict_of(s['_eff_leaf'])}); scored leaf before "
+        f"the sibling gate {s['leaf']}; raw leaf {s['raw_leaf']}; "
         f"alt_leaf {s.get('alt_leaf')}; tags {tags}; pair {s.get('pair')}; probe_target "
         f"{json.dumps(s.get('probe_target'), ensure_ascii=False)}",
         f"- contradicted_by: {json.dumps(s.get('contradicted_by'), ensure_ascii=False)}; "
@@ -610,7 +726,13 @@ def _sample_lines(arm: str, rec: dict[str, Any], s: dict[str, Any]) -> list[str]
 
 
 def audit_samples(
-    dirs: list[Path], *, n: int = 10, seed: int = 0, verdict_n: int = 20, pre_gate: bool = True
+    dirs: list[Path],
+    *,
+    n: int = 10,
+    seed: int = 0,
+    verdict_n: int = 20,
+    pre_gate: bool = True,
+    labels_dir: Path | None = None,
 ) -> str:
     """``verdict_n`` random segments per verdict, then ``n`` per leaf (incl. the pseudo-leaves),
     across arms, in context."""
@@ -621,15 +743,17 @@ def audit_samples(
         f"{verdict_n} random segments per verdict, then {n} per leaf; seed {seed}.",
         "",
     ]
-    res, seen = _reservoir(dirs, lambda s: tx.verdict_of(s["leaf"]), verdict_n, random.Random(seed))
+    res, seen = _reservoir(
+        dirs, tx.verdict_of, verdict_n, random.Random(seed), labels_dir=labels_dir
+    )
     out += ["# By verdict", ""]
     for v in VERDICT_ROWS:
         out += [f"## verdict {v} ({seen.get(v, 0)} segments in total)", ""]
         for arm, rec, s in res.get(v, []):
             out += _sample_lines(arm, rec, s)
-    res, seen = _reservoir(dirs, lambda s: s["leaf"], n, random.Random(seed))
+    res, seen = _reservoir(dirs, lambda lf: lf, n, random.Random(seed), labels_dir=labels_dir)
     out += ["# By leaf", ""]
-    for lf in tx.ALL_LEAVES:
+    for lf in score_v2.LEAF_ROWS:
         out += [f"## {lf} (group {tx.group_of(lf)}; {seen.get(lf, 0)} segments in total)", ""]
         for arm, rec, s in res.get(lf, []):
             out += _sample_lines(arm, rec, s)
@@ -644,9 +768,11 @@ def report(
     audit_n: int = 10,
     seed: int = 0,
     verdict_n: int = 20,
+    sibling_labels_dir: Path | None = None,
 ) -> Path:
     root = model_root(out_root, judge_model)
     dirs = arm_dirs(root)
+    labels_dir = sibling_units.labels_dir(out_root, sibling_labels_dir)
     if not dirs:
         raise SystemExit(f"no arms under {root}")
     summaries: dict[str, dict[str, Any]] = {}
@@ -661,7 +787,7 @@ def report(
                 map_model=a.get("map_model"),
                 map_anchor=a.get("map_anchor", "v5c"),
             )
-            rebuild_arm(d.name, Path(a["readouts"]), out_root, models)
+            rebuild_arm(d.name, Path(a["readouts"]), out_root, models, labels_dir)
         p = d / "summary_v2.json"
         if p.exists():
             summaries[d.name] = json.loads(p.read_text())
@@ -671,12 +797,13 @@ def report(
     pre_gate = is_pre_gate(summaries)
     noise = load_noise(out_root, judge_model)
     md, js = build(summaries, judge_model, noise)
-    probes = probe_candidates(v2_dirs, pre_gate=pre_gate)
+    probes = probe_candidates(v2_dirs, pre_gate=pre_gate, labels_dir=labels_dir)
     md = "\n".join(
         [
             md,
+            *sibling_gate_section(labels_dir, [d.name for d in v2_dirs]),
             *probe_section(probes),
-            *hallucination_examples(v2_dirs, seed=seed),
+            *hallucination_examples(v2_dirs, seed=seed, labels_dir=labels_dir),
             *noise_section(noise),
         ]
     )
@@ -691,7 +818,15 @@ def report(
     if stale.exists():
         stale.unlink()
     (root / "audit_samples_v2.md").write_text(
-        audit_samples(v2_dirs, n=audit_n, seed=seed, verdict_n=verdict_n, pre_gate=pre_gate) + "\n"
+        audit_samples(
+            v2_dirs,
+            n=audit_n,
+            seed=seed,
+            verdict_n=verdict_n,
+            pre_gate=pre_gate,
+            labels_dir=labels_dir,
+        )
+        + "\n"
     )
     return root
 
