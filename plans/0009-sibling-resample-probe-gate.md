@@ -288,16 +288,30 @@ of §2c. The full run fits probes for **every** class. The pilot capped classes 
     - `!` / `！`, `?` / `？`, `:` / `：` (alone, not inside `**`);
     - bullet / dash (`-`, ` -`, `—`), open bracket (`(`, ` (`), close bracket (`)`, `),`),
       quote (`"`, ` "`);
+    - italic / star (`*`, ` *` alone);
     - other.
 
-    A class with fewer than 50 training positions at a layer merges into `other`. Before
-    fitting, the `capture-manifest` stage prints the training-position count per class next to
-    the eval-site share of each class.
+    **Normalisation before classifying (rev 8.1):**
+    - decode byte-level BPE to text (`âĢĶ` → `—`, `âĢĵ` → `–`, `âĢĿ` → `”`) and strip spaces.
+      Any token made only of newlines and spaces counts as a newline;
+    - a compound token is classified by its first mark that is not `**`, unless it contains
+      `**`, which makes it bold. So `.,` → `.`, `).` → close bracket, `?)` → `?`, `**"` → bold;
+    - `—` and `–` are dash; `“`, `”` and `"` are quote.
+
+    **Merging is per class, fixed across layers.** A class with fewer than **400 implied-text
+    null positions** in the class's probe bank merges into `other`. That number is what the null
+    check sees, about 25 per concept, so the sd gate is meaningful. The ≤ 8-per-key cap applies
+    after merging. `capture-manifest` prints, per key: the training positions, the implied null
+    positions, and the share of eval sites (over all 12,353 cells).
   - The key reuses `_key` / `eval_key` with `ending = 0` and `offset = class index`. Eval sites
     get their class from their token.
 - **Validity** per (concept, layer): OOF implied AUROC ≥ 0.90.
 - **Null check** per class and layer, on held-out folds: the null z of non-target concepts has
   |mean| ≤ 0.1 and sd between 0.8 and 1.25 at every key.
+  - The null check needs at least 400 null-z values per key; a key with fewer is treated as
+    failing.
+  - Units whose eval site falls in `other` are n/a **by design** when `other` fails. The doc
+    reports the share of `other` sites.
   - **Rev 8:** a failing key no longer takes down the class. Only units whose eval site has that
     key are `probe_na` (`null_fail`) at that layer; the class's other keys stay in use. The
     readability rule (§3d) counts only sites on passing keys. (In the pilot, 10 of 17 classes
@@ -326,14 +340,16 @@ unit that does not fire is `probe_na` and skips cross_method too.
   - `no_class`, or the class has fewer than 9 concepts;
   - S has no valid probe at L, or fewer than 6 distractors are valid at L;
   - the unit's eval-site key fails the null check at L for its class (rev 8);
-  - the item is **unreadable** at L: over all the item's `eval_positions` at L except the unit's
+  - the item is **unreadable** at L (rev 8.1: only sites on keys that pass at L count; with no
+    such site, the item is unreadable): over all the item's `eval_positions` at L except the unit's
     own pos, the gold beats all its distractors at fewer than 50% of sites.
 - **`no_gold` units.** Readability cannot be checked. If S fires at the same layer or nearby,
   the unit takes that fire status (`probe_faithful` or `probe_nearby`). If it does not, the
   unit becomes `probe_na`, flagged `no_gold`, and never `probe_unconfirmed`.
 - **Fire** (final `probe_faithful`): at (id, L, pos), z_S exceeds the z of every valid
   distractor.
-- **Nearby** (final `probe_nearby`): it fires at the same (id, pos) at a neighbouring layer:
+- **Nearby** (final `probe_nearby`): it fires at the same (id, pos) at a neighbouring layer where
+  the unit's key passes the null check (rev 8.1):
   - for all-layer arms, the neighbours at distance exactly 4, plus L42 for L40 and L44;
   - for the L42 arms, L40 and L44. These are read from `acts-hallucination-chat` at the same
     (id, pos), because the L42 bank holds only L42. The same bank is used for readability and the
@@ -344,6 +360,9 @@ unit that does not fire is `probe_na` and skips cross_method too.
   for the L42 arms. They are scored by a Modal CPU job adapted from
   `um_probes_modal.py --phase fit|score`: one container per layer, volume `sibling-probes`,
   directory `/sibgate-v1/`.
+- **Per-key report (rev 8.1).** For each key class: the share of rung-2 units, the `probe_na`
+  rate and the `probe_faithful` rate, plus the rung-1 status mix by key. This shows any
+  selection effect of per-key n/a.
 - **Matched null** (reported, not used for labels): the same S against the same distractors, at
   the item's other sites and at other items with the same gold, where no arm names S.
 
