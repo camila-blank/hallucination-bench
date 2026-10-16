@@ -813,7 +813,7 @@ class Gate:
                 k = (u["id"], int(u["layer"]), int(u["pos"]))
                 if exhausted.get(pool) is None:
                     exhausted[pool] = R.load_state(pool, self.out)
-                if exhausted[pool].n_attempts(k) < R.MAX_ATTEMPTS:
+                if not exhausted[pool].spent(k):
                     n_pending_resample += 1  # resample_failed once its attempts are spent
                 continue
             user = F.render_user(u, F.conversation_for(its[u["id"]], u["pos"]), blocks)

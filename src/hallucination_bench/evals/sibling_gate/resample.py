@@ -473,6 +473,9 @@ RUN_RE = re.compile(
 )
 RUN0 = "run0"
 MAX_ATTEMPTS = 2
+# lifetime cap on launches per key, voided ones included: a pool whose jobs always fail must not
+# relaunch on every unattended re-run forever (PR #13 review)
+MAX_LAUNCHES = 3 * MAX_ATTEMPTS
 
 
 def keys_sha8(keys: Iterable[Key]) -> str:
@@ -537,6 +540,11 @@ class PoolState:
     def n_attempts(self, k: Key) -> int:
         """Consumed attempts: launched minus voided (exhaustion counts only these)."""
         return max(0, self.n_launched(k) - int(self.voided.get(self.kstr(k), 0)))
+
+    def spent(self, k: Key, max_attempts: int = MAX_ATTEMPTS) -> bool:
+        """Exhausted: ``max_attempts`` consumed attempts, or ``MAX_LAUNCHES`` launches in total
+        (voided ones included)."""
+        return self.n_attempts(k) >= max_attempts or self.n_launched(k) >= MAX_LAUNCHES
 
     def record_launch(self, keys: Iterable[Key]) -> None:
         for k in keys:
@@ -687,8 +695,8 @@ def plan_launches(
     """(launches of the next attempt, keys that are exhausted = ``resample_failed``). Requested
     = wanted keys minus complete keys minus keys with ``max_attempts`` attempts."""
     need = sorted(k for k in set(want) if counts.get(k, 0) < n)
-    failed = [k for k in need if st.n_attempts(k) >= max_attempts]
-    req = [k for k in need if st.n_attempts(k) < max_attempts]
+    failed = [k for k in need if st.spent(k, max_attempts)]
+    req = [k for k in need if not st.spent(k, max_attempts)]
     if not req:
         return [], failed
     att = 1 + max(st.n_launched(k) for k in req)  # distinct names even after a voided attempt

@@ -1170,3 +1170,17 @@ def test_gate_section_says_labels_refused(gated):
         )
     )
     assert "labels refused (unit hash mismatch; re-run gate)" in md
+
+
+def test_lifetime_launch_cap_stops_always_failing_pool():
+    from hallucination_bench.evals.sibling_gate import resample as R
+
+    st = R.PoolState("p")
+    k = ("chat-x", 44, 7)
+    for _ in range(R.MAX_LAUNCHES):  # every launch failed and was voided
+        st.record_launch([k])
+        st.voided[st.kstr(k)] = st.voided.get(st.kstr(k), 0) + 1
+    assert st.n_attempts(k) == 0 and st.n_launched(k) == R.MAX_LAUNCHES
+    assert st.spent(k)
+    launches, failed = R.plan_launches("p", [k], {}, st, R.N_RESAMPLE)
+    assert launches == [] and failed == [k]
