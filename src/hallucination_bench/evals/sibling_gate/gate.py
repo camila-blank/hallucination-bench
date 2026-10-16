@@ -222,6 +222,12 @@ class LazyLLM:
         self.n_calls = 0
 
     async def call(self, **kw):
+        # the gate runs several asyncio.run() stages; the client's semaphore / pacer bind to the
+        # loop that built them, so rebuild the client when the running loop changes
+        loop = asyncio.get_running_loop()
+        if self._llm is not None and getattr(self, "_loop", None) is not loop:
+            self._llm = None
+        self._loop = loop
         if self._llm is None:
             if self.factory is not None:
                 self._llm = self.factory()

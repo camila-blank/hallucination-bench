@@ -42,8 +42,12 @@ def test_registry_views_equal_plan_0009():
         "patchscopes",
     )
     tok = ("jlens", "logit", "tuned", "rlens", "template-v3", "sae-l42")
-    assert U.PROSE_ARMS == prose and U.TOKEN_ARMS == tok
-    assert U.ARMS_IN_SCOPE == (*prose, *tok)
+    # the plan-0009 arms come first; `gate --add-arm` appends later arms (e.g. mlnla-ck2000)
+    p9 = set(prose) | set(tok)
+    assert tuple(a for a in U.PROSE_ARMS if a in p9) == prose and U.TOKEN_ARMS == tok
+    assert U.ARMS_IN_SCOPE[: len(prose) + len(tok)] == (*prose, *tok) or tuple(
+        a for a in U.ARMS_IN_SCOPE if a in p9
+    ) == (*prose, *tok)
     assert frozenset(tok) == U.DETERMINISTIC_ARMS
     fam = {a: a.split("-")[0] for a in prose if a.split("-")[0] in ("s3d", "mlnla", "nla")}
     for a in (*prose, *tok):
@@ -57,7 +61,7 @@ def test_registry_views_equal_plan_0009():
         "nla-sft": (("nla-sft-L42",), "nla", R.ACTS_L42, "nla-sft3864", False),
         "patchscopes": (("patchscopes",), "patchscopes", R.ACTS_11, "", True),
     }
-    assert list(R.POOLS) == list(want)
+    assert [p for p in R.POOLS if p in want] == list(want)  # later --add-arm pools may follow
     for p, (arms, gen, acts, lens, cond) in want.items():
         pl = R.POOLS[p]
         assert (pl.arms, pl.generator, pl.acts, pl.lens, pl.conditional) == (
@@ -67,8 +71,9 @@ def test_registry_views_equal_plan_0009():
             lens,
             cond,
         )
-    assert R.POOL_OF == {a: p for p, v in want.items() for a in v[0]}
-    assert A.arm_of_pool() == {
+    p9 = {a: p for p, v in want.items() for a in v[0]}
+    assert {a: p for a, p in R.POOL_OF.items() if a in p9} == p9
+    assert {p: a for p, a in A.arm_of_pool().items() if p in want} == {
         "s3d-rl600": "s3d-rl600-all11",
         "s3d-sft251": "s3d-sft251",
         "mlnla-rl600": "mlnla-rl600-all11",
@@ -78,9 +83,11 @@ def test_registry_views_equal_plan_0009():
         "patchscopes": "patchscopes",
     }
     assert "declare -A ARM_OF=([s3d-rl600]=s3d-rl600-all11" in A.bash_views()
-    # the validation arm is registered but not gated; its pool resolves anyway
+    # the validation arm is registered (plan 0010 §8 step 2 then appends it to gated_arms via
+    # `gate --add-arm`); its pool resolves either way, and the plan-0009 arms stay first
     reg = A.load()
-    assert "mlnla-ck2000-all11" not in reg["gated_arms"]
+    assert "mlnla-ck2000-all11" in reg["arms"]
+    assert reg["gated_arms"][:14] == [a for a in reg["gated_arms"] if a != "mlnla-ck2000-all11"]
     assert R.pool_of("mlnla-ck2000-all11") == "mlnla-ck2000"
     p = reg["pools"]["mlnla-ck2000"]
     assert (p["generator"], p["args"]["lens"], p["args"]["acts"]) == (
@@ -870,3 +877,28 @@ def test_snapshot_drift_is_refused(world, tmp_path):
     msgs = []
     G.check_snapshot(reg, "gw-mlnla", True, msgs.append)
     assert "drift allowed" in msgs[0]
+
+
+def test_lazy_llm_survives_multiple_event_loops():
+    import asyncio
+
+    from hallucination_bench.evals.sibling_gate.gate import LazyLLM
+
+    class Fake:
+        def __init__(self):
+            self.sem = asyncio.Semaphore(2)
+
+        async def call(self, **kw):
+            async with self.sem:
+                return {"ok": True}
+
+    built = []
+
+    def factory():
+        built.append(1)
+        return Fake()
+
+    llm = LazyLLM(rpm=10, concurrency=2, factory=factory)
+    for _ in range(2):  # two asyncio.run stages, as in the gate (fill, then classes)
+        assert asyncio.run(llm.call(model="m")) == {"ok": True}
+    assert len(built) == 2 and llm.n_calls == 2
