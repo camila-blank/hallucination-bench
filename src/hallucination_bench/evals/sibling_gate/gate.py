@@ -27,6 +27,7 @@ import argparse
 import asyncio
 import hashlib
 import json
+import math
 import os
 import subprocess
 import sys
@@ -52,6 +53,7 @@ HEARTBEAT_S = 300
 POLL_S = 30
 
 EXIT_OK, EXIT_NEEDS_YES, EXIT_FATAL, EXIT_PARTIAL = 0, 2, 3, 4
+CAPTURE_PER_SHARD = 1500  # prompts per capture container (one ~= 200 prompts / min)
 EXIT_MEANING = {
     EXIT_OK: "done",
     EXIT_NEEDS_YES: "needs --yes (estimate over $GATE_AUTO_USD)",
@@ -266,7 +268,12 @@ class OfflineModal(R.ModalOps):
 def tree_sha256(root: Path) -> str:
     h = hashlib.sha256()
     root = Path(root)
-    for p in sorted(x for x in root.rglob("*") if x.is_file()):
+    files = (
+        x
+        for x in root.rglob("*")
+        if x.is_file() and "__pycache__" not in x.parts and x.suffix != ".pyc"
+    )  # Python writes bytecode into the snapshot while jobs run: never part of the tree
+    for p in sorted(files):
         h.update(str(p.relative_to(root)).encode() + b"\0")
         h.update(hashlib.sha256(p.read_bytes()).digest())
     return h.hexdigest()
@@ -350,6 +357,7 @@ class Gate:
     retry_failed: bool = False
     remerge: list[str] = field(default_factory=list)
     allow_snapshot_drift: bool = False
+    capture_shards: int = 0  # 0 = ceil(n / CAPTURE_PER_SHARD)
     resample_timeout_s: float = 10 * 3600
     auto_usd: float = GATE_AUTO_USD_DEFAULT
     rpm: float = 1500.0
@@ -1030,22 +1038,45 @@ class Gate:
                 )
                 owners.append((c, i, key))
         sha = sha256_json([p["label"] for p in prompts])[:8]
-        shard = f"acts-sibgate-probe-{sha}"
-        cp = self.probes / "shards" / f"cp_{sha}.json"
-        write_json(cp, prompts, indent=None)
+        # split into parallel sub-shards (plan-0009 used 32 by hand; one container takes ~3.5 h
+        # for 44k prompts). k = 1 keeps the plain name. Every launch passes --resume, so a
+        # re-run (or a preempted container's restart) keeps the per-prompt files already written.
+        k = self.capture_shards or max(1, math.ceil(len(prompts) / CAPTURE_PER_SHARD))
+        parts = [prompts[j::k] for j in range(k)]
+        names = [
+            f"acts-sibgate-probe-{sha}" if k == 1 else f"acts-sibgate-probe-{sha}-k{j:02d}"
+            for j in range(k)
+        ]
+        shard_of = {p["label"]: names[j] for j, part in enumerate(parts) for p in part}
         snap = check_snapshot(self.reg, "gw-wrong-bridge", self.allow_snapshot_drift, self.log)
+        from concurrent.futures import ThreadPoolExecutor
+
         from . import ladder as Ld
 
-        cmd = (
-            f"PYTHONPATH=src {self.modal.modal} run "
-            "scripts/olens_suite/workspace_bench/wsbench_capture_modal.py "
-            f"--prompts-json {cp.resolve()} --acts-subdir {shard} "
-            f"--layers {','.join(str(x) for x in Ld.PROBE_LAYERS)}"
-        )
-        self.log(f"capture: {len(prompts)} prompts -> {shard}")
-        rc, txt = self.modal.run(cmd, snap)
-        if rc != 0:
-            raise GateExit(EXIT_PARTIAL, f"capture {shard} failed (rc {rc}): {txt[-600:]}")
+        def one(j: int) -> tuple[str, int, str]:
+            cp = (
+                self.probes / "shards" / (f"cp_{sha}.json" if k == 1 else f"cp_{sha}_k{j:02d}.json")
+            )
+            write_json(cp, parts[j], indent=None)
+            cmd = (
+                f"PYTHONPATH=src {self.modal.modal} run "
+                "scripts/olens_suite/workspace_bench/wsbench_capture_modal.py "
+                f"--prompts-json {cp.resolve()} --acts-subdir {names[j]} --resume "
+                f"--layers {','.join(str(x) for x in Ld.PROBE_LAYERS)}"
+            )
+            rc, txt = self.modal.run(cmd, snap)
+            return names[j], rc, txt
+
+        self.log(f"capture: {len(prompts)} prompts -> {k} shard(s) {names[0]}..")
+        with ThreadPoolExecutor(max_workers=k) as ex:
+            res = list(ex.map(one, range(k)))
+        bad = [(n, rc, txt) for n, rc, txt in res if rc != 0]
+        if bad:
+            n, rc, txt = bad[0]
+            raise GateExit(
+                EXIT_PARTIAL,
+                f"capture: {len(bad)}/{k} shard(s) failed; first {n} (rc {rc}): {txt[-600:]}",
+            )
         write_json(self.probes / "merge.json", merges, indent=0)
         by: dict[str, dict[int, list[int]]] = defaultdict(dict)
         for c, i, key in owners:
@@ -1053,14 +1084,13 @@ class Gate:
         for c, keys in by.items():
             rows = T.load_bank_class(self.data, L.slug(c))
             for i, key in keys.items():
-                rows[i]["capture"] = {
-                    "label": probe_label(rows[i]["id"]),
-                    "shard": shard,
-                    "key": key,
-                }
-            if c in self.remerge:  # recaptured: the class's shard list is the new shard only
+                lab = probe_label(rows[i]["id"])
+                rows[i]["capture"] = {"label": lab, "shard": shard_of[lab], "key": key}
+            if c in self.remerge:  # recaptured: every text of the class sits in the new shards
                 for t in rows:
-                    t["capture"]["shard"] = shard
+                    t["capture"]["shard"] = shard_of.get(
+                        t["capture"]["label"], t["capture"]["shard"]
+                    )
             T.write_bank_class(self.data, L.slug(c), rows)
         return sorted(by)
 
@@ -1891,6 +1921,7 @@ def build_gate(a: argparse.Namespace, *, plan_only: bool) -> Gate:
         retry_failed=a.retry_failed,
         remerge=[x for x in (a.remerge or "").split(",") if x],
         allow_snapshot_drift=a.allow_snapshot_drift,
+        capture_shards=a.capture_shards,
         resample_timeout_s=a.resample_timeout * 3600,
         auto_usd=float(os.environ.get("GATE_AUTO_USD", GATE_AUTO_USD_DEFAULT)),
         rpm=a.rpm,
@@ -1975,6 +2006,9 @@ def add_parser(sub: Any) -> None:
         help="DIR with <arm>/cells.jsonl for arms without a registered cells path",
     )
     g.add_argument("--rpm", type=float, default=1500.0)
+    g.add_argument(
+        "--capture-shards", type=int, default=0, help="capture containers (0 = auto, 1 per 1500)"
+    )
     g.add_argument("--concurrency", type=int, default=64)
     g.add_argument("--from", dest="src", default=None, help="import: the plan-0009 worktree")
     g.add_argument("--baseline", default=None, help="diff: the baseline labels dir")

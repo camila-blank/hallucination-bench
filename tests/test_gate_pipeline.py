@@ -902,3 +902,13 @@ def test_lazy_llm_survives_multiple_event_loops():
     for _ in range(2):  # two asyncio.run stages, as in the gate (fill, then classes)
         assert asyncio.run(llm.call(model="m")) == {"ok": True}
     assert len(built) == 2 and llm.n_calls == 2
+
+
+def test_tree_sha_ignores_pycache(tmp_path):
+    from hallucination_bench.evals.sibling_gate.gate import tree_sha256
+
+    (tmp_path / "a.py").write_text("x = 1\n")
+    h = tree_sha256(tmp_path)
+    (tmp_path / "__pycache__").mkdir()
+    (tmp_path / "__pycache__" / "a.cpython-312.pyc").write_bytes(b"\0\1")
+    assert tree_sha256(tmp_path) == h
