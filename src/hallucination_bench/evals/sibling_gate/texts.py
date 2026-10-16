@@ -502,7 +502,9 @@ def write_bank_class(data_dir: Path, slug: str, rows: Iterable[Mapping[str, Any]
             gz.write((json.dumps(r, ensure_ascii=False, sort_keys=True) + "\n").encode())
     p = bank_file(data_dir, slug)
     p.parent.mkdir(parents=True, exist_ok=True)
-    p.write_bytes(buf.getvalue())
+    tmp = p.with_name(p.name + ".tmp")  # atomic: a crash never leaves a truncated bank file
+    tmp.write_bytes(buf.getvalue())
+    tmp.replace(p)
     return hashlib.sha256(buf.getvalue()).hexdigest()
 
 
@@ -514,7 +516,9 @@ def load_cells_index(data_dir: Path) -> dict[str, list[dict[str, Any]]]:
 def save_cells_index(data_dir: Path, idx: Mapping[str, Any]) -> None:
     p = bank_dir(data_dir) / "cells.json"
     p.parent.mkdir(parents=True, exist_ok=True)
-    p.write_text(json.dumps(idx, indent=0, ensure_ascii=False, sort_keys=True) + "\n")
+    tmp = p.with_name(p.name + ".tmp")
+    tmp.write_text(json.dumps(idx, indent=0, ensure_ascii=False, sort_keys=True) + "\n")
+    tmp.replace(p)
 
 
 def wanted_cells(concepts: Sequence[str]) -> list[tuple[str | None, str]]:

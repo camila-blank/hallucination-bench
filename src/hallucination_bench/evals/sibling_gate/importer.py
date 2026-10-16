@@ -343,7 +343,8 @@ def cmd_import(a: argparse.Namespace) -> int:
 
     # generation 0 = plan 0009: stamps on the imported labels
     gate = G.Gate(reg=reg, out=out, data=data, cells_root=Path(a.cells_root), quiet=True)
-    st = gate.stamp(uh, concepts, fh)
+    imported = [r for f in sorted((out / "labels").glob("*.jsonl")) for r in U.iter_jsonl(f)]
+    st = gate.stamp(uh, concepts, fh, imported)
     for arm in reg["gated_arms"]:
         G.write_json(
             U.stamp_path(arm, out / "labels"),

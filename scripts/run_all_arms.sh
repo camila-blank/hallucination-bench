@@ -60,11 +60,21 @@ uv run hbench gate --out "$OUT/sibling_gate" --cells-root "$OUT/wsbench_chat/cla
 rc=$?
 case $rc in
   0) echo "=== gate exit 0: done" ;;
-  2) echo "=== gate exit 2: needs --yes (estimate over \$GATE_AUTO_USD); report keeps the old labels" ;;
+  2) echo "=== gate exit 2: needs --yes (estimate over \$GATE_AUTO_USD); the previous labels apply only to arms whose unit set is unchanged (the rebuild refuses the rest)" ;;
   3) echo "=== gate exit 3: fatal (config / auth / spend limit / unregistered arm); see above" ;;
   4) echo "=== gate exit 4: partial (resample timeout / job failure); re-run resumes" ;;
   *) echo "=== gate exit $rc: unexpected" ;;
 esac
 echo "=== $(date -Is) final report (v2, sibling labels from $OUT/sibling_gate/labels)"
 uv run hbench report --out "$OUT" --view v2
+# the rebuild refuses a stamped labels file whose unit hash differs from the cells (rev 20)
+refused=$(grep -lE '"sibling_labels_guard": *"mismatch"' "$OUT"/wsbench_chat/*/*/summary_v2.json 2>/dev/null)
+if [[ -n "$refused" ]]; then
+  echo "=== sibling labels REFUSED (unit hash mismatch; re-run hbench gate) for:"
+  for f in $refused; do echo "    $(basename "$(dirname "$f")")"; done
+fi
 echo "=== $(date -Is) done"
+if [[ $rc -eq 3 ]]; then
+  echo "=== exiting 3: the gate failed fatally (see above)"
+  exit 3
+fi

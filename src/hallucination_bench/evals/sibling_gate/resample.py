@@ -521,17 +521,43 @@ class PoolState:
 
     pool: str
     runs: dict[str, dict[str, Any]] = field(default_factory=dict)
-    attempts: dict[str, int] = field(default_factory=dict)  # "id|layer|pos" -> attempts
+    attempts: dict[str, int] = field(default_factory=dict)  # "id|layer|pos" -> attempts launched
+    # attempts that did not count (a run with non-zero rc, a failed volume get, or zero rows):
+    # "id|layer|pos" -> n, and the voided attempt groups "<keys_sha8>-a<n>" (void once)
+    voided: dict[str, int] = field(default_factory=dict)
+    voided_groups: list[str] = field(default_factory=list)
 
     @staticmethod
     def kstr(k: Key) -> str:
         return f"{k[0]}|{int(k[1])}|{int(k[2])}"
 
-    def n_attempts(self, k: Key) -> int:
+    def n_launched(self, k: Key) -> int:
         return int(self.attempts.get(self.kstr(k), 0))
 
+    def n_attempts(self, k: Key) -> int:
+        """Consumed attempts: launched minus voided (exhaustion counts only these)."""
+        return max(0, self.n_launched(k) - int(self.voided.get(self.kstr(k), 0)))
+
+    def record_launch(self, keys: Iterable[Key]) -> None:
+        for k in keys:
+            self.attempts[self.kstr(k)] = self.n_launched(k) + 1
+
+    def void(self, keys: Iterable[Key], attempt: int) -> bool:
+        """Un-count attempt ``attempt`` of these keys (once per attempt group)."""
+        keys = list(keys)
+        g = f"{keys_sha8(keys)}-a{int(attempt)}"
+        if g in self.voided_groups:
+            return False
+        self.voided_groups.append(g)
+        for k in keys:
+            self.voided[self.kstr(k)] = int(self.voided.get(self.kstr(k), 0)) + 1
+        return True
+
     def to_dict(self) -> dict[str, Any]:
-        return {"pool": self.pool, "runs": self.runs, "attempts": self.attempts}
+        d: dict[str, Any] = {"pool": self.pool, "runs": self.runs, "attempts": self.attempts}
+        if self.voided or self.voided_groups:
+            d["voided"], d["voided_groups"] = self.voided, self.voided_groups
+        return d
 
 
 def state_path(pool: str, out: Path = U.OUT) -> Path:
@@ -547,7 +573,13 @@ def load_state(pool: str, out: Path = U.OUT) -> PoolState:
     if not p.exists():
         return PoolState(pool)
     d = json.loads(p.read_text())
-    return PoolState(pool, d.get("runs") or {}, d.get("attempts") or {})
+    return PoolState(
+        pool,
+        d.get("runs") or {},
+        d.get("attempts") or {},
+        d.get("voided") or {},
+        d.get("voided_groups") or [],
+    )
 
 
 def save_state(st: PoolState, out: Path = U.OUT) -> None:
@@ -659,7 +691,7 @@ def plan_launches(
     req = [k for k in need if st.n_attempts(k) < max_attempts]
     if not req:
         return [], failed
-    att = 1 + max(st.n_attempts(k) for k in req)
+    att = 1 + max(st.n_launched(k) for k in req)  # distinct names even after a voided attempt
     if samples_per_run >= n:
         return [Launch(pool, run_name(pool, req, att), att, req)], failed
     k_runs = max(-(-(n - counts.get(k, 0)) // samples_per_run) for k in req)
@@ -741,6 +773,41 @@ def fatal_reason(text: str) -> str | None:
     return None
 
 
+def _json_list(txt: str) -> list[Any] | None:
+    i = txt.find("[")
+    if i < 0:
+        return None
+    try:
+        x, _end = json.JSONDecoder().raw_decode(txt[i:])
+    except ValueError:
+        return None
+    return x if isinstance(x, list) else None
+
+
+def _epoch(v: Any) -> float | None:
+    if isinstance(v, (int, float)):
+        return float(v)
+    if not isinstance(v, str) or not v.strip():
+        return None
+    from datetime import UTC, datetime
+
+    try:
+        dt = datetime.fromisoformat(v.strip().replace("Z", "+00:00"))
+    except ValueError:
+        return None
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=UTC)
+    return dt.timestamp()
+
+
+APP_STOPPED_STATES = ("stopped", "stopping", "deleted", "terminated")
+
+
+def app_running(state: str) -> bool:
+    low = state.lower()
+    return bool(low) and not any(x in low for x in APP_STOPPED_STATES)
+
+
 class ModalOps:
     """The only path to Modal (tests pass a fake). ``n_launches`` counts generator / capture /
     fit / score jobs; volume ``ls`` / ``get`` / ``put`` / ``cp`` are not launches."""
@@ -752,6 +819,17 @@ class ModalOps:
         self.n_launches = 0
         self.n_volume_ops = 0
         self.log: list[str] = []
+        import threading
+
+        self._lock = threading.Lock()  # capture / fit / score call run() from worker threads
+
+    def count_launch(self) -> None:
+        with self._lock:
+            self.n_launches += 1
+
+    def count_volume_op(self) -> None:
+        with self._lock:
+            self.n_volume_ops += 1
 
     def _env(self) -> dict[str, str]:
         import os
@@ -771,7 +849,7 @@ class ModalOps:
         return p.returncode, txt
 
     def volume(self, args: str) -> tuple[int, str]:
-        self.n_volume_ops += 1
+        self.count_volume_op()
         return self.sh(f"{self.modal} volume {args}")
 
     def ls(self, volume: str, path: str = "/") -> list[str]:
@@ -785,6 +863,43 @@ class ModalOps:
                 names.append(t.split()[0].rstrip("/").split("/")[-1])
         return names
 
+    def apps(self) -> list[dict[str, str]] | None:
+        """``modal app list --json`` as [{id, description, state}] (``None`` if unavailable)."""
+        rc, txt = self.sh(f"{self.modal} app list --json")
+        if rc != 0:
+            return None
+        rows = _json_list(txt)
+        if rows is None:
+            return None
+        out = []
+        for d in rows:
+            if not isinstance(d, dict):
+                continue
+            low = {str(k).lower().replace(" ", "_"): v for k, v in d.items()}
+            out.append(
+                {
+                    "id": str(low.get("app_id") or low.get("id") or ""),
+                    "description": str(low.get("description") or low.get("name") or ""),
+                    "state": str(low.get("state") or ""),
+                }
+            )
+        return out
+
+    def volume_mtimes(self, volume: str, path: str = "/") -> dict[str, float]:
+        """``modal volume ls --json``: entry name -> modified time (epoch s), where parseable."""
+        rc, txt = self.volume(f"ls --json {volume} {path}")
+        rows = _json_list(txt) if rc == 0 else None
+        out: dict[str, float] = {}
+        for d in rows or []:
+            if not isinstance(d, dict):
+                continue
+            low = {str(k).lower(): v for k, v in d.items()}
+            name = low.get("filename") or low.get("path") or low.get("name")
+            t = _epoch(low.get("created/modified") or low.get("modified") or low.get("mtime"))
+            if name and t is not None:
+                out[str(name).rstrip("/").split("/")[-1]] = t
+        return out
+
     def get(self, volume: str, remote: str, local: Path) -> bool:
         Path(local).mkdir(parents=True, exist_ok=True)
         rc, _ = self.volume(f"get --force {volume} {remote} {local}/")
@@ -794,7 +909,7 @@ class ModalOps:
         """Start a detached job (``modal run --detach``); returns the Popen handle."""
         import subprocess
 
-        self.n_launches += 1
+        self.count_launch()
         self.log.append(cmd)
         log.parent.mkdir(parents=True, exist_ok=True)
         fh = log.open("a")
@@ -804,5 +919,5 @@ class ModalOps:
 
     def run(self, cmd: str, cwd: Path | None = None) -> tuple[int, str]:
         """A blocking job (fit / score / capture)."""
-        self.n_launches += 1
+        self.count_launch()
         return self.sh(cmd, cwd)

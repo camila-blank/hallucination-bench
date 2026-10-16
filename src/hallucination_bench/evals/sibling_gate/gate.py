@@ -51,6 +51,7 @@ MIN_CLASS_PAIRS = 4  # rev 8.2: only classes with >= 4 (said, item) pairs get pr
 CODE_FILES = ("probe_fit.py", "probes.py", "um_probe.py")
 HEARTBEAT_S = 300
 POLL_S = 30
+INFLIGHT_FRESH_S = 30 * 60  # a run dir changed this recently (no app tied): still running
 
 EXIT_OK, EXIT_NEEDS_YES, EXIT_FATAL, EXIT_PARTIAL = 0, 2, 3, 4
 CAPTURE_PER_SHARD = 1500  # prompts per capture container (one ~= 200 prompts / min)
@@ -469,7 +470,7 @@ class Gate:
             pr = R.PoolRequest(pool, set(req), 0)
             # every listed position at every listed layer, samples_per_run per run
             n_gen_samples = pr.n_generated * len(launches) * spr
-            pending = [r for r, v in st.runs.items() if v.get("status") == "launched"]
+            pending = [r for r, v in st.runs.items() if v.get("status") in ("launched", "partial")]
             precheck = (R.pool_dir(pool, self.out) / "precheck.json").exists()
             res[pool] = {
                 "n_keys": len(want),
@@ -496,15 +497,22 @@ class Gate:
         want_all = self.pool_keys(units)
         deadline = time.time() + self.resample_timeout_s
         for pool in todo:
+            # runs of an earlier (timed-out) gate whose Modal app is still running: poll them to
+            # the end instead of launching a second attempt for their keys
+            self.wait_in_flight(pool, deadline)
             self.resume_runs(pool, want_all[pool])
-            if (R.pool_dir(pool, self.out) / "precheck.json").exists():
+            pc = read_json(R.pool_dir(pool, self.out) / "precheck.json")
+            if pc is not None:
+                if not pc.get("ok", True):
+                    self.failed_pools.add(pool)  # never launch full runs for this pool
                 continue
             if not self.precheck(pool, sorted(want_all[pool])[:5], snap, deadline):
                 self.failed_pools.add(pool)
         for _attempt in range(R.MAX_ATTEMPTS):
+            failed = self.precheck_failed_pools()
             jobs = []
             for pool in todo:
-                if pool in self.failed_pools:
+                if pool in failed:
                     continue
                 st = R.load_state(pool, self.out)
                 _c, counts = R.merge_runs(R.load_runs(pool, self.out))
@@ -513,16 +521,90 @@ class Gate:
                 for ln in launches:
                     jobs.append(self.start_launch(ln, snap, st))
                 if launches:
-                    for k in launches[0].keys:
-                        st.attempts[st.kstr(k)] = launches[0].attempt
+                    st.record_launch(launches[0].keys)
                     R.save_state(st, self.out)
             if not jobs:
                 break
-            self.wait(jobs, deadline)
+            rcs = self.wait(jobs, deadline)
             for ln, _proc, _log in jobs:
-                self.collect_launch(ln)
+                self.collect_launch(ln, rcs.get(ln.run))
         for pool in todo:
             R.rebuild_resample(pool, self.out)
+        # a key still short with attempts left (its runs failed / returned nothing, so they did
+        # not count): partial, never fill it as resample_failed
+        failed = self.precheck_failed_pools()
+        short = {}
+        for pool in todo:
+            if pool in failed:
+                continue
+            st = R.load_state(pool, self.out)
+            _c, counts = R.merge_runs(R.load_runs(pool, self.out))
+            spr = int(self.reg["pools"][pool].get("samples_per_run") or R.N_RESAMPLE)
+            launches, _failed = R.plan_launches(pool, want_all[pool], counts, st, spr)
+            if launches:
+                short[pool] = len(launches[0].keys)
+        if short:
+            raise GateExit(
+                EXIT_PARTIAL,
+                f"resample incomplete with attempts left ({short}): failed / empty runs do not "
+                "count as attempts; re-run resumes",
+            )
+
+    def run_app_ids(self, run: str) -> set[str]:
+        import re
+
+        lg = self.out.parent.parent / "logs" / f"gate_{run}.log"
+        if not lg.exists():
+            return set()
+        return set(re.findall(r"\bap-[A-Za-z0-9]+", lg.read_text(errors="replace")))
+
+    def in_flight_runs(self, pool: str) -> list[str]:
+        """Runs in state launched / partial whose Modal app is still running (an app tied to
+        the run by the app id in its launch log or by its description), or, when no app can be
+        tied to it, whose volume dir changed in the last ``INFLIGHT_FRESH_S``."""
+        st = R.load_state(pool, self.out)
+        cand = [r for r, v in st.runs.items() if v.get("status") in ("launched", "partial")]
+        if not cand:
+            return []
+        apps = self.modal.apps() or []
+        mt: dict[str, float] | None = None
+        now = time.time()
+        out = []
+        for r in cand:
+            ids = self.run_app_ids(r)
+            tied = [
+                a
+                for a in apps
+                if (a["id"] and a["id"] in ids)
+                or (a["description"] and (r in a["description"] or r[4:] in a["description"]))
+            ]
+            if tied:
+                if any(R.app_running(a["state"]) for a in tied):
+                    out.append(r)
+                continue
+            if mt is None:
+                mt = self.modal.volume_mtimes(self.reg["env"]["WSBENCH_GEN_VOLUME"], "/")
+            t = mt.get(r)
+            if t is not None and now - t < INFLIGHT_FRESH_S:
+                out.append(r)
+        return out
+
+    def wait_in_flight(self, pool: str, deadline: float) -> None:
+        last = 0.0
+        while True:
+            fl = self.in_flight_runs(pool)
+            if not fl:
+                return
+            if time.time() > deadline:
+                raise GateExit(
+                    EXIT_PARTIAL,
+                    f"resample timeout: {len(fl)} earlier runs of {pool} still running "
+                    f"({', '.join(fl)}); re-run resumes",
+                )
+            if time.time() - last >= HEARTBEAT_S:
+                self.log(f"{pool}: waiting for {len(fl)} in-flight runs ({', '.join(fl[:3])})")
+                last = time.time()
+            time.sleep(POLL_S)
 
     def launch_dir(self, ln: R.Launch) -> Path:
         return R.pool_dir(ln.pool, self.out) / "launch" / ln.run
@@ -572,7 +654,8 @@ class Gate:
         write_json(self.launch_dir(ln) / "keys.json", [list(k) for k in ln.keys], indent=None)
         return ln, proc, log
 
-    def wait(self, jobs, deadline: float) -> None:
+    def wait(self, jobs, deadline: float) -> dict[str, int | None]:
+        """Poll the jobs to the end; returns run -> exit code."""
         last = time.time()
         while True:
             alive = [(ln, p, lg) for ln, p, lg in jobs if p.poll() is None]
@@ -584,7 +667,7 @@ class Gate:
                     if why:
                         raise GateExit(EXIT_FATAL, f"{ln.run}: Modal {why}: {tail[-600:]}")
             if not alive:
-                return
+                return {ln.run: p.poll() for ln, p, _lg in jobs}
             if time.time() > deadline:
                 raise GateExit(
                     EXIT_PARTIAL,
@@ -596,18 +679,33 @@ class Gate:
                 last = time.time()
             time.sleep(POLL_S)
 
-    def collect_launch(self, ln: R.Launch) -> int:
+    def collect_launch(self, ln: R.Launch, rc: int | None = None) -> int:
+        """Fetch + collect one run. A run with a non-zero exit code, a failed volume get or zero
+        collected rows does not count as an attempt for its keys (``PoolState.void``)."""
         vol = self.reg["env"]["WSBENCH_GEN_VOLUME"]
         g = R.pool_dir(ln.pool, self.out) / "gen"
-        self.modal.get(vol, f"/{ln.run}", g)
-        rows = R.collect_run_rows(g / ln.run, ln.keys, ln.seed)
-        U.write_jsonl(R.runs_dir(ln.pool, self.out) / f"{ln.run}.jsonl", rows)
+        got = bool(self.modal.get(vol, f"/{ln.run}", g))
+        rows = R.collect_run_rows(g / ln.run, ln.keys, ln.seed) if got else []
         st = R.load_state(ln.pool, self.out)
+        if got:
+            U.write_jsonl(R.runs_dir(ln.pool, self.out) / f"{ln.run}.jsonl", rows)
         # a run fetched before it finished (exit 4, then a re-run) stays "partial" and is
         # re-fetched next time; runs/<run>.jsonl is rewritten, never appended (no double count)
         done = {(r["id"], int(r["layer"]), int(r["pos"])) for r in rows} >= set(ln.keys)
-        st.runs.setdefault(ln.run, {})["status"] = "collected" if done else "partial"
-        st.runs[ln.run]["n_rows"] = len(rows)
+        bad = rc not in (None, 0) or not got or not rows
+        run = st.runs.setdefault(ln.run, {})
+        run["status"] = "failed" if bad else ("collected" if done else "partial")
+        run["n_rows"] = len(rows)
+        if bad:
+            why = (
+                f"rc {rc}"
+                if rc not in (None, 0)
+                else ("volume get failed" if not got else "0 rows")
+            )
+            run["why"] = why
+            if ln.attempt > 0 and run.get("attempt") is not None:
+                st.void(ln.keys, ln.attempt)
+                self.log(f"{ln.run}: {why}: attempt {ln.attempt} not counted")
         R.save_state(st, self.out)
         self.log(f"collected {ln.run}: {len(rows)} rows")
         return len(rows)
@@ -840,7 +938,9 @@ class Gate:
         if p.exists() and p.read_text() == txt:
             return False
         p.parent.mkdir(parents=True, exist_ok=True)
-        p.write_text(txt)
+        tmp = p.with_name(p.name + ".tmp")
+        tmp.write_text(txt)
+        tmp.replace(p)
         return True
 
     # ------------------------------------------------------------ §4 concepts (frozen fillers)
@@ -938,9 +1038,11 @@ class Gate:
         rows, cells, causes = asyncio.run(go())
         idx = T.load_cells_index(self.data)
         for c in todo:
+            # per class: the bank file, then the index right after it (a crash between classes
+            # leaves every written class consistent with its attempted cells)
             T.write_bank_class(self.data, L.slug(c), [*existing[c], *rows.get(c, [])])
             idx.setdefault(c, []).extend(cells.get(c, []))
-        T.save_cells_index(self.data, idx)
+            T.save_cells_index(self.data, idx)
         self.log(f"texts: {sum(len(v) for v in rows.values())} kept; drops {dict(causes)}")
         return sorted(todo)
 
@@ -1342,11 +1444,14 @@ class Gate:
         return rows, nulls, ready
 
     # ------------------------------------------------------------ the generation stamp (§6)
-    def stamp(self, unit_hashes, concepts, fit_hashes) -> dict[str, Any]:
+    def stamp(self, unit_hashes, concepts, fit_hashes, rows=None) -> dict[str, Any]:
+        """The generation stamp; ``rows`` (the label rows) enter as a hash of every
+        (unit, rung1, final), so a changed outcome always bumps the generation."""
         from . import ladder as L
         from . import texts as T
 
         bank_files = sorted((T.bank_dir(self.data)).glob("*.jsonl.gz"))
+        outcomes = [[r["unit"], r.get("rung1") or "", r.get("final") or ""] for r in (rows or [])]
         return {
             "gated_arms": list(self.gated),
             "class_map": sha256_file(self.data / "class_map.json"),
@@ -1365,6 +1470,7 @@ class Gate:
                 ]
             ),
             "unit_hash": dict(unit_hashes),
+            "outcomes": sha256_json(sorted(outcomes or [])),
             "rung1_skipped": list(self.skipped_rung1),
             "probe_layers": list(L.PROBE_LAYERS),
         }
@@ -1652,7 +1758,7 @@ class Gate:
                 cps = L.load_class_probes(self.probes, concepts)
             rows, nulls, ready = self.run_label(units, rung1, classes, concepts, cps)
             fit_hashes = {c: s["hash"] for c, s in self.fit_state(concepts).items()}
-            st = self.stamp(uh, concepts, fit_hashes)
+            st = self.stamp(uh, concepts, fit_hashes, rows)
             same = prev.get("stamp_sha") == sha256_json(st)
             gen = int(prev["generation"]) if same and "generation" in prev else gen_next
             ld = self.out / "labels"
@@ -1901,6 +2007,19 @@ def diff_labels(new_dir: Path, base_dir: Path, arms: Iterable[str]) -> dict[str,
 # ---------------------------------------------------------------- CLI
 
 
+def auto_usd_from_env() -> float:
+    raw = os.environ.get("GATE_AUTO_USD")
+    if raw is None or raw.strip() == "":
+        return GATE_AUTO_USD_DEFAULT
+    try:
+        v = float(raw)
+    except ValueError:
+        v = math.nan
+    if not math.isfinite(v):
+        raise GateExit(EXIT_FATAL, f"GATE_AUTO_USD={raw!r} is not a number (dollars, e.g. 300)")
+    return v
+
+
 def build_gate(a: argparse.Namespace, *, plan_only: bool) -> Gate:
     reg = A.load()
     added = [x for x in (a.add_arm or "").split(",") if x]
@@ -1923,7 +2042,7 @@ def build_gate(a: argparse.Namespace, *, plan_only: bool) -> Gate:
         allow_snapshot_drift=a.allow_snapshot_drift,
         capture_shards=a.capture_shards,
         resample_timeout_s=a.resample_timeout * 3600,
-        auto_usd=float(os.environ.get("GATE_AUTO_USD", GATE_AUTO_USD_DEFAULT)),
+        auto_usd=auto_usd_from_env(),
         rpm=a.rpm,
         concurrency=a.concurrency,
         offline=a.offline,

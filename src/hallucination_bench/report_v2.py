@@ -597,7 +597,7 @@ def gate_section(
         stamp = sibling_units.load_stamp(a, Path(labels_dir)) or {}
         st = "gated"
         if cfg.get("sibling_labels_guard") == "mismatch":
-            st = "labels refused (unit set changed; re-run hbench gate)"
+            st = "labels refused (unit hash mismatch; re-run gate)"
         elif a in pending:
             st = f"gate pending ({pending[a]}); old labels apply"
         elif a in ((gen or {}).get("stamp") or {}).get("rung1_skipped", []):

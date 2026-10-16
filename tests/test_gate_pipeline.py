@@ -327,6 +327,9 @@ class FakeModal(R.ModalOps):
     def ls(self, volume, path="/"):
         return list(self.vol)
 
+    def apps(self):  # `modal app list --json` (none running unless a test says so)
+        return list(getattr(self, "app_list", []))
+
     def start(self, cmd, cwd, log):
         self.n_launches += 1
         self.cmds.append(cmd)
@@ -912,3 +915,258 @@ def test_tree_sha_ignores_pycache(tmp_path):
     (tmp_path / "__pycache__").mkdir()
     (tmp_path / "__pycache__" / "a.cpython-312.pyc").write_bytes(b"\0\1")
     assert tree_sha256(tmp_path) == h
+
+
+# ---------------------------------------------------------------- review fixes (plan 0010)
+
+
+def gen_cmds(modal, pool="pa"):
+    return [c for c in modal.cmds if f"--run sibgate-{pool}-" in c and "precheck" not in c]
+
+
+def test_precheck_failed_on_disk_never_launches_full_runs(world):
+    w = world
+    d = w["out"] / "resample" / "pa"
+    d.mkdir(parents=True)
+    (d / "precheck.json").write_text(json.dumps({"ok": False, "keys": []}))
+    modal = FakeModal(w["out"])
+    g = make_gate(w, FakeLLM(), modal)
+    assert g.run() == G.EXIT_OK
+    assert "pa" in g.failed_pools and gen_cmds(modal) == []
+    assert not any("precheck" in c for c in modal.cmds)  # not re-prechecked either
+
+
+class FlakyModal(FakeModal):
+    """Main generator runs fail in one way: ``mode`` = rc (exit 1, 3 samples), get (the volume
+    get fails), empty (the run dir has no rows)."""
+
+    def __init__(self, out, mode):
+        super().__init__(out)
+        self.mode = mode
+
+    def start(self, cmd, cwd, log):
+        p = super().start(cmd, cwd, log)
+        run = "gen-" + re.search(r"--run (\S+)", cmd).group(1)
+        if "precheck" in run:
+            return p
+        if self.mode == "rc":
+            self.vol[run] = 3
+            return Proc(1)
+        return p
+
+    def get(self, volume, remote, local):
+        if "precheck" in remote:
+            return super().get(volume, remote, local)
+        if self.mode == "get":
+            return False
+        if self.mode == "empty":
+            (Path(local) / remote.strip("/")).mkdir(parents=True, exist_ok=True)
+            return True
+        return super().get(volume, remote, local)
+
+
+@pytest.mark.parametrize("mode", ["rc", "get", "empty"])
+def test_failed_or_empty_runs_do_not_consume_attempts(world, mode):
+    w = world
+    modal = FlakyModal(w["out"], mode)
+    g = make_gate(w, FakeLLM(), modal)
+    with pytest.raises(G.GateExit) as e:
+        g.run()
+    assert e.value.code == G.EXIT_PARTIAL  # never filled as resample_failed
+    assert not (w["out"] / "labels").exists()
+    st = R.load_state("pa", w["out"])
+    keys = [
+        tuple(k)
+        for k in json.loads(next(w["out"].glob("resample/pa/launch/*/keys.json")).read_text())
+    ]
+    assert len(gen_cmds(modal)) == R.MAX_ATTEMPTS
+    assert all(st.n_attempts(k) == 0 and st.n_launched(k) == 2 for k in keys)
+    assert {v["status"] for r, v in st.runs.items()} == {"failed"}
+    # distinct run names per launch (a1, a2), and a healthy re-run completes
+    assert len({re.search(r"--run (\S+)", c).group(1) for c in gen_cmds(modal)}) == 2
+    modal2 = FakeModal(w["out"])
+    assert make_gate(w, FakeLLM(), modal2).run() == G.EXIT_OK
+    assert len(gen_cmds(modal2)) == 1
+
+
+def test_short_rows_consume_attempts_then_resample_failed(world):
+    """Runs that return rows (short) DO count: after 2 attempts the key is exhausted."""
+    w = world
+
+    class Short(FakeModal):
+        def start(self, cmd, cwd, log):
+            p = super().start(cmd, cwd, log)
+            run = "gen-" + re.search(r"--run (\S+)", cmd).group(1)
+            if "precheck" not in run:
+                self.vol[run] = 3
+            return p
+
+    modal = Short(w["out"])
+    assert make_gate(w, FakeLLM(), modal).run() == G.EXIT_OK
+    st = R.load_state("pa", w["out"])
+    assert len(gen_cmds(modal)) == 2 and set(st.attempts.values()) == {2}
+    assert {r["rung1"] for r in labels(w).values() if r["arm"] == "lens-a"} == {"resample_failed"}
+
+
+def test_timeout_then_rerun_waits_for_in_flight_runs(world, monkeypatch):
+    w = world
+    monkeypatch.setattr(G, "POLL_S", 0)
+    modal = FakeModal(w["out"], hang_main=True)
+    with pytest.raises(G.GateExit) as e:
+        make_gate(w, FakeLLM(), modal, resample_timeout_s=0).run()
+    assert e.value.code == G.EXIT_PARTIAL
+    (run,) = [r for r, v in R.load_state("pa", w["out"]).runs.items() if v["status"] == "launched"]
+    finished = dict(modal.vol)
+
+    class Running(FakeModal):
+        n_polls = 0
+
+        def apps(self):
+            self.n_polls += 1
+            if self.n_polls < 3:  # still running: nothing on the volume yet
+                return [{"id": "ap-x", "description": run, "state": "ephemeral (detached)"}]
+            self.vol.update(finished)  # the app finished writing
+            return [{"id": "ap-x", "description": run, "state": "stopped"}]
+
+    modal2 = Running(w["out"])
+    assert make_gate(w, FakeLLM(), modal2).run() == G.EXIT_OK
+    assert modal2.n_polls >= 3 and gen_cmds(modal2) == []  # waited, never relaunched
+    assert R.load_state("pa", w["out"]).runs[run]["status"] == "collected"
+
+
+def test_in_flight_by_volume_mtime_when_no_app_is_tied(world):
+    w = world
+    modal = FakeModal(w["out"], hang_main=True)
+    with pytest.raises(G.GateExit):
+        make_gate(w, FakeLLM(), modal, resample_timeout_s=0).run()
+    (run,) = [r for r, v in R.load_state("pa", w["out"]).runs.items() if v["status"] == "launched"]
+
+    class Fresh(FakeModal):
+        def volume_mtimes(self, volume, path="/"):
+            return {run: __import__("time").time() - 60}
+
+    modal2 = Fresh(w["out"])
+    with pytest.raises(G.GateExit) as e:
+        make_gate(w, FakeLLM(), modal2, resample_timeout_s=0).run()
+    assert e.value.code == G.EXIT_PARTIAL and "still running" in str(e.value)
+    assert modal2.cmds == []  # no second attempt while the first may still be running
+
+
+def test_modal_app_list_and_volume_ls_parsing():
+    class M(R.ModalOps):
+        def sh(self, cmd, cwd=None):
+            if "app list" in cmd:
+                return 0, json.dumps(
+                    [{"App ID": "ap-1", "Description": "gen-x", "State": "ephemeral (detached)"}]
+                )
+            return 0, json.dumps(
+                [{"Filename": "gen-x", "Created/Modified": "2026-10-16 10:00:00+00:00"}]
+            )
+
+    m = M("modal", {})
+    assert m.apps() == [{"id": "ap-1", "description": "gen-x", "state": "ephemeral (detached)"}]
+    assert R.app_running("ephemeral (detached)") and not R.app_running("stopped")
+    assert m.volume_mtimes("gen")["gen-x"] > 0
+
+
+def test_atomic_writes_keep_the_old_file_on_a_crash(tmp_path, monkeypatch):
+    T.write_bank_class(tmp_path, "c", [{"id": "a"}])
+    T.save_cells_index(tmp_path, {"c": [1]})
+    p = tmp_path / "x.json"
+    g = G.Gate.__new__(G.Gate)
+    g.write_if_changed(p, {"v": 1})
+    old = {
+        f: f.read_bytes()
+        for f in [T.bank_file(tmp_path, "c"), T.bank_dir(tmp_path) / "cells.json", p]
+    }
+
+    def boom(self, target):
+        raise OSError("crash")
+
+    monkeypatch.setattr(Path, "replace", boom)
+    for fn in (
+        lambda: T.write_bank_class(tmp_path, "c", [{"id": "b"}]),
+        lambda: T.save_cells_index(tmp_path, {"c": [2]}),
+        lambda: g.write_if_changed(p, {"v": 2}),
+    ):
+        with pytest.raises(OSError):
+            fn()
+    assert {f: f.read_bytes() for f in old} == old
+
+
+def test_cells_index_saved_per_class_with_its_bank(gated, monkeypatch):
+    """A crash at the 2nd class's bank write leaves the 1st class's bank AND index on disk."""
+    w = gated
+    g = make_gate(w)
+    concepts = json.loads((w["data"] / "concepts.json").read_text())["classes"]
+    c0 = sorted(concepts)[0]
+    concepts = {c0: concepts[c0], "zz copy": dict(concepts[c0])}
+    idx = T.load_cells_index(w["data"])
+    idx.pop(c0)  # pretend c0's cells were never generated
+    T.save_cells_index(w["data"], idx)
+    real, n = T.write_bank_class, []
+
+    def write(d, slug, rows):
+        n.append(slug)
+        if len(n) == 2:
+            raise OSError("crash")
+        return real(d, slug, rows)
+
+    monkeypatch.setattr(T, "write_bank_class", write)
+    units, _ = g.load_units()
+    classes = json.loads((w["data"] / "classes.json").read_text())["classes"]
+    with pytest.raises(OSError):
+        g.run_texts(units, classes, concepts)
+    first = c0 if n[0] == L.slug(c0) else "zz copy"
+    assert first in T.load_cells_index(w["data"])
+
+
+def test_stamp_changes_with_label_outcomes(gated):
+    g = make_gate(gated)
+    rows = list(labels(gated).values())
+    a = g.stamp({}, {}, {}, rows)
+    rows2 = [dict(r) for r in rows]
+    rows2[0]["final"] = "probe_na" if rows2[0].get("final") != "probe_na" else "cross_method"
+    assert G.sha256_json(a) != G.sha256_json(g.stamp({}, {}, {}, rows2))
+    assert G.sha256_json(a) == G.sha256_json(g.stamp({}, {}, {}, list(reversed(rows))))
+
+
+def test_modal_counters_are_thread_safe():
+    import threading
+
+    class M(R.ModalOps):
+        def sh(self, cmd, cwd=None):
+            return 0, ""
+
+    m = M("modal", {})
+    ts = [
+        threading.Thread(target=lambda: [(m.run("x"), m.volume("y")) for _ in range(500)])
+        for _ in range(8)
+    ]
+    for t in ts:
+        t.start()
+    for t in ts:
+        t.join()
+    assert m.n_launches == 4000 and m.n_volume_ops == 4000
+
+
+@pytest.mark.parametrize("val", ["abc", "nan", "inf"])
+def test_non_numeric_gate_auto_usd_is_fatal(monkeypatch, val):
+    monkeypatch.setenv("GATE_AUTO_USD", val)
+    with pytest.raises(G.GateExit) as e:
+        G.auto_usd_from_env()
+    assert e.value.code == G.EXIT_FATAL and "GATE_AUTO_USD" in str(e.value)
+    monkeypatch.setenv("GATE_AUTO_USD", "12.5")
+    assert G.auto_usd_from_env() == 12.5
+    monkeypatch.delenv("GATE_AUTO_USD")
+    assert G.auto_usd_from_env() == G.GATE_AUTO_USD_DEFAULT
+
+
+def test_gate_section_says_labels_refused(gated):
+    ld = gated["out"] / "labels"
+    md = "\n".join(
+        report_v2.gate_section(
+            ld, ["lens-a"], {"lens-a": {"config": {"sibling_labels_guard": "mismatch"}}}
+        )
+    )
+    assert "labels refused (unit hash mismatch; re-run gate)" in md
