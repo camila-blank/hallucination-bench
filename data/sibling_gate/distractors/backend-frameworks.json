@@ -1,0 +1,170 @@
+{
+"mlnla-rl2-800-all11:chat-lmsys-0042__L052__p271:firebase:laravel": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0042__L052__p271:firebase:laravel",
+"anchor": "Laravel",
+"nearest": [
+"Symfony",
+"Express.js",
+"Hive",
+"Spring Framework"
+],
+"random": [
+"Koa"
+],
+"distractors": [
+"Symfony",
+"Express.js",
+"Hive",
+"Spring Framework",
+"Koa"
+],
+"n_eligible": 5,
+"sha": "5972ecd9ad70c21956c2465c0cc2c1b065b4e4af75255036267cdd3c403b16d3",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0012__L028__p650:javaspringboot:flutter": {
+"unit": "s3d-rl600-all11:chat-lmsys-0012__L028__p650:javaspringboot:flutter",
+"anchor": "Spring Boot",
+"nearest": [
+"Symfony",
+"FastAPI",
+"ASP.NET Core",
+"Express.js"
+],
+"random": [
+"Koa",
+"NestJS",
+"Phoenix",
+"Ruby on Rails"
+],
+"distractors": [
+"Symfony",
+"FastAPI",
+"ASP.NET Core",
+"Express.js",
+"Koa",
+"NestJS",
+"Phoenix",
+"Ruby on Rails"
+],
+"n_eligible": 10,
+"sha": "95e46b273df990a22e422107bc29870f9970650f6c27015044b0cee89794acde",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0012__L036__p650:javaspringboot:flutter": {
+"unit": "s3d-rl600-all11:chat-lmsys-0012__L036__p650:javaspringboot:flutter",
+"anchor": "Spring Boot",
+"nearest": [
+"Symfony",
+"FastAPI",
+"ASP.NET Core",
+"Express.js"
+],
+"random": [
+"Flask",
+"Hive",
+"Koa",
+"Ruby on Rails"
+],
+"distractors": [
+"Symfony",
+"FastAPI",
+"ASP.NET Core",
+"Express.js",
+"Flask",
+"Hive",
+"Koa",
+"Ruby on Rails"
+],
+"n_eligible": 10,
+"sha": "e63d338df47716f57dc81e5ab4b42559f108533fcf198d81993ffcc8845bbc32",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0012__L036__p650:djangobackend:localhivestoragenobackend": {
+"unit": "s3d-rl600:chat-lmsys-0012__L036__p650:djangobackend:localhivestoragenobackend",
+"anchor": "Django",
+"nearest": [
+"Express.js",
+"Symfony",
+"Ruby on Rails",
+"FastAPI"
+],
+"random": [
+"ASP.NET Core",
+"Flask",
+"Koa",
+"NestJS"
+],
+"distractors": [
+"Express.js",
+"Symfony",
+"Ruby on Rails",
+"FastAPI",
+"ASP.NET Core",
+"Flask",
+"Koa",
+"NestJS"
+],
+"n_eligible": 10,
+"sha": "2d8b5a0b0cac2d26fd618b3e69801c850d6e73bd511547c06c425115fc767cbc",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0012__L036__p650:javaspringboot:hivelocalstorage": {
+"unit": "s3d-rl600:chat-lmsys-0012__L036__p650:javaspringboot:hivelocalstorage",
+"anchor": "Spring Boot",
+"nearest": [
+"Symfony",
+"FastAPI",
+"ASP.NET Core",
+"Express.js"
+],
+"random": [
+"Flask",
+"Hive",
+"Koa",
+"Ruby on Rails"
+],
+"distractors": [
+"Symfony",
+"FastAPI",
+"ASP.NET Core",
+"Express.js",
+"Flask",
+"Hive",
+"Koa",
+"Ruby on Rails"
+],
+"n_eligible": 10,
+"sha": "46bed54d4a6dca93262388616819cec65b314b617efc97e27c4c89e0d9dea3c7",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0012__L036__p650:nodejsjavaspringboot:hivelocalstorage": {
+"unit": "s3d-rl600:chat-lmsys-0012__L036__p650:nodejsjavaspringboot:hivelocalstorage",
+"anchor": "Hive",
+"nearest": [
+"Phoenix",
+"Ruby on Rails",
+"Symfony",
+"Koa"
+],
+"random": [
+"ASP.NET Core",
+"FastAPI",
+"Flask",
+"NestJS"
+],
+"distractors": [
+"Phoenix",
+"Ruby on Rails",
+"Symfony",
+"Koa",
+"ASP.NET Core",
+"FastAPI",
+"Flask",
+"NestJS"
+],
+"n_eligible": 8,
+"sha": "c6a435b2043dd0fa4117d6effdcd71139aea72804d46329031ecbbb31cc28bc0",
+"generation": 0
+}
+}

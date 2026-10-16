@@ -19,6 +19,7 @@ from __future__ import annotations
 import json
 from collections import defaultdict
 from collections.abc import Iterable, Mapping, Sequence
+from pathlib import Path
 from typing import Any
 
 from hallucination_bench.cache import Cache
@@ -294,3 +295,114 @@ def compatible_of(classes: Mapping[str, Mapping[str, Any]]) -> dict[str, set[str
         if not v["no_gold"]:
             out[U.norm(v["gold"])] |= {U.norm(c) for c in v["compatible"]}
     return dict(out)
+
+
+# ================================================================ plan 0010 §4: frozen class map
+
+DEDUPE_INCR_VERSION = "dedupe-incr-v1"
+CLASS_MAP_VERSION = 1
+
+DEDUPE_INCR_SYSTEM = """You map new class names onto an existing list of canonical class names. \
+You get the EXISTING canonical class names and a list of NEW class names. A new name that denotes \
+the same set of objects as an existing canonical class maps to that canonical name, spelled \
+exactly as in the existing list. New names that denote the same set as each other (but no \
+existing class) share one new canonical name (pick the most standard of them). Return ONLY the \
+new names that must be renamed, as {name, canonical} pairs with canonical different from name; a \
+new name that is its own canonical class is omitted. Return JSON only."""
+
+
+def new_raw_names(
+    raw: Mapping[tuple[str, str], Mapping[str, Any] | None], names: Mapping[str, str]
+):
+    """Raw class names of ``raw`` results that the frozen map does not know (sorted)."""
+    out = set()
+    for r in raw.values():
+        if r is None:
+            continue
+        c = r["class"].strip()
+        if c and c != NO_CLASS and c not in names:
+            out.add(c)
+    return sorted(out)
+
+
+async def run_dedupe_incr(
+    new: Sequence[str],
+    canonical: Sequence[str],
+    llm: LLM | None,
+    cache: Cache,
+    spend: Usage | None = None,
+) -> tuple[dict[str, str], bool]:
+    """(new raw name -> canonical, frozen). One ``dedupe-incr-v1`` call keyed
+    ``dedupe-incr:<sha of the new names>`` (never ``dedupe:all``). A failed / pending call maps
+    every new name to itself and is NOT frozen (the names go to the next run's call). No new
+    names: no call."""
+    import hashlib
+
+    new = sorted({n for n in new if n and n != NO_CLASS})
+    if not new:
+        return {}, True
+    canon = sorted(set(canonical))
+    key = "dedupe-incr:" + hashlib.sha256("\n".join(new).encode()).hexdigest()[:16]
+    allowed = set(new)
+    st, res = await cached_json_call(
+        cache,
+        llm,
+        key=key,
+        version=DEDUPE_INCR_VERSION,
+        model=MODEL,
+        effort=EFFORT,
+        system=DEDUPE_INCR_SYSTEM,
+        user="EXISTING CANONICAL CLASS NAMES:\n"
+        + "\n".join(f"- {n}" for n in canon)
+        + "\n\nNEW CLASS NAMES:\n"
+        + "\n".join(f"- {n}" for n in new),
+        schema=DEDUPE_SCHEMA,
+        validate=lambda r: {m.get("name") for m in r.get("mapping") or []} <= allowed,
+        spend=spend,
+    )
+    if st != "ok" or res is None:
+        return {n: n for n in new}, False
+    return apply_merges(new, res["mapping"]), True
+
+
+def class_map_path(data_dir: Path) -> Path:
+    return Path(data_dir) / "class_map.json"
+
+
+def load_class_map(data_dir: Path) -> dict[str, Any] | None:
+    p = class_map_path(data_dir)
+    return json.loads(p.read_text()) if p.exists() else None
+
+
+def save_class_map(cm: Mapping[str, Any], data_dir: Path) -> None:
+    p = class_map_path(data_dir)
+    p.parent.mkdir(parents=True, exist_ok=True)
+    p.write_text(json.dumps(cm, indent=0, ensure_ascii=False, sort_keys=True) + "\n")
+
+
+def raw_of_map(cm: Mapping[str, Any]) -> dict[tuple[str, str], dict[str, Any] | None]:
+    """``pairs`` ("<said_norm>|<item>" -> the frozen sibclass-v1 result or null) as ``raw``."""
+    out = {}
+    for k, v in cm["pairs"].items():
+        sn, item = k.rsplit("|", 1)  # a normalised said may contain "|" (a symbol, not P*)
+        out[(sn, item)] = v
+    return out
+
+
+def cache_class_rows(cache: Cache) -> dict[str, list[dict[str, Any]]]:
+    """``class:<said>:<item>`` -> its cache rows (oldest first)."""
+    out: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    for r in cache.rows():
+        if r["key"].startswith("class:"):
+            out[r["key"]].append(r)
+    return dict(out)
+
+
+def latest_dedupe_all(cache: Cache) -> dict[str, Any] | None:
+    """The latest non-null ``dedupe:all`` row."""
+    best = None
+    for r in cache.rows():
+        if r["key"] == "dedupe:all" and r.get("result") is not None:
+            if best is None or float(r.get("ts") or 0) >= float(best.get("ts") or 0):
+                best = r
+    return best

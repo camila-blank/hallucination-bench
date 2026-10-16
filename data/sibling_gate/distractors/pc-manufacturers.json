@@ -1,0 +1,143 @@
+{
+"mlnla-ck2000-all11:chat-lmsys-0064__L036__p529:apple:concórdia": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0064__L036__p529:apple:concórdia",
+"anchor": "Apple",
+"nearest": [
+"Microsoft",
+"Compaq",
+"Gateway",
+"Razer"
+],
+"random": [
+"Concórdia",
+"Fujitsu",
+"Sony",
+"Toshiba"
+],
+"distractors": [
+"Microsoft",
+"Compaq",
+"Gateway",
+"Razer",
+"Concórdia",
+"Fujitsu",
+"Sony",
+"Toshiba"
+],
+"n_eligible": 8,
+"sha": "17f8ba3b5b9bb2a5b1afe6b7f723e2bd64f00a1ae66db395faa24f079a944e27",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0064__L060__p638:dellhpcorsair:pcgamerconcórdia": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0064__L060__p638:dellhpcorsair:pcgamerconcórdia",
+"anchor": "Dell",
+"nearest": [
+"Microsoft",
+"Concórdia",
+"Fujitsu",
+"Toshiba"
+],
+"random": [
+"Compaq",
+"Gateway",
+"Razer",
+"Sony"
+],
+"distractors": [
+"Microsoft",
+"Concórdia",
+"Fujitsu",
+"Toshiba",
+"Compaq",
+"Gateway",
+"Razer",
+"Sony"
+],
+"n_eligible": 8,
+"sha": "be8bd86ae2c9155dd3fb613febccb143daccee3fc348249584abc5de1628e020",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0064__L024__p778:asustekcomputerinc:concórdia": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0064__L024__p778:asustekcomputerinc:concórdia",
+"anchor": "ASUS",
+"nearest": [
+"Concórdia",
+"Fujitsu",
+"Microsoft",
+"Toshiba"
+],
+"random": [
+"Compaq",
+"Gateway",
+"Razer",
+"Sony"
+],
+"distractors": [
+"Concórdia",
+"Fujitsu",
+"Microsoft",
+"Toshiba",
+"Compaq",
+"Gateway",
+"Razer",
+"Sony"
+],
+"n_eligible": 8,
+"sha": "7cd24dae32293517108bcc71fb13701e6c585530774baf65191edf3a4c0bba7a",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0064__L052__p638:hpinc:pcgamerconcórdia": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0064__L052__p638:hpinc:pcgamerconcórdia",
+"anchor": "Concórdia",
+"nearest": [
+"Toshiba",
+"Razer",
+"Fujitsu",
+"Microsoft"
+],
+"random": [
+"Compaq",
+"Gateway",
+"Sony"
+],
+"distractors": [
+"Toshiba",
+"Razer",
+"Fujitsu",
+"Microsoft",
+"Compaq",
+"Gateway",
+"Sony"
+],
+"n_eligible": 7,
+"sha": "4428f0f55d09f79ed14ddbcd3798a7adfa496b1f3a4de6131f135a60abd1cf96",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0064__L060__p638:delllenovohp:concórdia": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0064__L060__p638:delllenovohp:concórdia",
+"anchor": "Concórdia",
+"nearest": [
+"Toshiba",
+"Razer",
+"Fujitsu",
+"Microsoft"
+],
+"random": [
+"Compaq",
+"Gateway",
+"Sony"
+],
+"distractors": [
+"Toshiba",
+"Razer",
+"Fujitsu",
+"Microsoft",
+"Compaq",
+"Gateway",
+"Sony"
+],
+"n_eligible": 7,
+"sha": "403f5a56b6b662106be150a1eb8761b21f2f816a887c5a94040a76f2b7bcf8f3",
+"generation": 1
+}
+}

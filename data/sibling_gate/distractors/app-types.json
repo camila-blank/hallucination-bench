@@ -1,0 +1,176 @@
+{
+"mlnla-ck2000-all11:chat-lmsys-0012__L032__p395:habittracker:gemüseanbauplaner": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0012__L032__p395:habittracker:gemüseanbauplaner",
+"anchor": "vegetable garden planner",
+"nearest": [
+"fitness app",
+"calendar app",
+"video streaming app",
+"ride-sharing app"
+],
+"random": [
+"banking app",
+"email app",
+"messaging app",
+"social media app"
+],
+"distractors": [
+"fitness app",
+"calendar app",
+"video streaming app",
+"ride-sharing app",
+"banking app",
+"email app",
+"messaging app",
+"social media app"
+],
+"n_eligible": 9,
+"sha": "3999f7e134e43e964647591cf5963d06e6062cacd1636ec4eba0533de590ea0e",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0012__L052__p456:notesapp:vegetableplantingplannerapp": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0012__L052__p456:notesapp:vegetableplantingplannerapp",
+"anchor": "vegetable garden planner app",
+"nearest": [
+"fitness app",
+"ride-sharing app",
+"video streaming app",
+"social media app"
+],
+"random": [
+"banking app",
+"email app",
+"messaging app",
+"music streaming app"
+],
+"distractors": [
+"fitness app",
+"ride-sharing app",
+"video streaming app",
+"social media app",
+"banking app",
+"email app",
+"messaging app",
+"music streaming app"
+],
+"n_eligible": 8,
+"sha": "e0502eabeea02e84cf9b796d9a5ac5607e04db9d3cbd94f95a2b79161c877f5d",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0012__L052__p456:notetakingapp:vegetableplantingplannerapp": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0012__L052__p456:notetakingapp:vegetableplantingplannerapp",
+"anchor": "gardening planner app",
+"nearest": [
+"fitness app",
+"calendar app",
+"banking app",
+"ride-sharing app"
+],
+"random": [
+"messaging app",
+"music streaming app",
+"social media app",
+"video streaming app"
+],
+"distractors": [
+"fitness app",
+"calendar app",
+"banking app",
+"ride-sharing app",
+"messaging app",
+"music streaming app",
+"social media app",
+"video streaming app"
+],
+"n_eligible": 9,
+"sha": "9c28824f5dc312d3329f13b04c38e9a26e61f853404971291db8a176f4cc5d79",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0012__L032__p684:habittracker:gemüseanbauplaner": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0012__L032__p684:habittracker:gemüseanbauplaner",
+"anchor": "vegetable garden planner",
+"nearest": [
+"fitness app",
+"calendar app",
+"video streaming app",
+"ride-sharing app"
+],
+"random": [
+"banking app",
+"email app",
+"messaging app",
+"social media app"
+],
+"distractors": [
+"fitness app",
+"calendar app",
+"video streaming app",
+"ride-sharing app",
+"banking app",
+"email app",
+"messaging app",
+"social media app"
+],
+"n_eligible": 9,
+"sha": "a2f4999fb4cb4a05a64a7069b8f9b58558a19baa04da2c582dbc681dda5864a2",
+"generation": 1
+},
+"mlnla-rl600-all11:chat-lmsys-0012__L044__p504:weatherapp:vegetableplannerapp": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0012__L044__p504:weatherapp:vegetableplannerapp",
+"anchor": "vegetable garden planner app",
+"nearest": [
+"fitness app",
+"ride-sharing app",
+"video streaming app",
+"social media app"
+],
+"random": [
+"banking app",
+"email app",
+"messaging app",
+"music streaming app"
+],
+"distractors": [
+"fitness app",
+"ride-sharing app",
+"video streaming app",
+"social media app",
+"banking app",
+"email app",
+"messaging app",
+"music streaming app"
+],
+"n_eligible": 8,
+"sha": "95bec19e1dc80700991e0e22e11cacfaa3f9ad13f738a9491bfb95304958da7e",
+"generation": 1
+},
+"nla-rl-L42:chat-lmsys-0012__L042__p456:habittracker:gemüseanbauplaner": {
+"unit": "nla-rl-L42:chat-lmsys-0012__L042__p456:habittracker:gemüseanbauplaner",
+"anchor": "vegetable garden planner",
+"nearest": [
+"fitness app",
+"calendar app",
+"video streaming app",
+"ride-sharing app"
+],
+"random": [
+"email app",
+"messaging app",
+"music streaming app",
+"social media app"
+],
+"distractors": [
+"fitness app",
+"calendar app",
+"video streaming app",
+"ride-sharing app",
+"email app",
+"messaging app",
+"music streaming app",
+"social media app"
+],
+"n_eligible": 9,
+"sha": "01059b0fe9bd769d75d980d2646eefb4585916a1e5c2be1dd8e37e40be9c6a91",
+"generation": 1
+}
+}

@@ -1,0 +1,5857 @@
+{
+"jlens:chat-lmsys-0050__L032__p69:employeestable:studentstable": {
+"unit": "jlens:chat-lmsys-0050__L032__p69:employeestable:studentstable",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "224f340c24fe94fc6e12e1834d04196bbfb2cc1931249f49203c31202277fbac",
+"generation": 0
+},
+"mlnla-ck2000-all11:chat-lmsys-0007__L020__p74:studentstable:legacytable": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0007__L020__p74:studentstable:legacytable",
+"anchor": "legacy",
+"nearest": [
+"salary table",
+"departments",
+"Enrollments",
+"projects"
+],
+"random": [
+"User",
+"city",
+"scores",
+"student_courses"
+],
+"distractors": [
+"salary table",
+"departments",
+"Enrollments",
+"projects",
+"User",
+"city",
+"scores",
+"student_courses"
+],
+"n_eligible": 18,
+"sha": "74d5f3b6133cd6c24b37e52b4dabdff66aa1441fc17f6d591acad4a98bbaa768",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L020__p69:employee:students": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L020__p69:employee:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "2625b43a89b5845bbf905012eced1492889a01b8c41664ba5c9fe9ca63e7c9f1",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L020__p69:employees:students": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L020__p69:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "8f636331f5e2895bed01fdfcd9f1fc4049f0639b72a3e3952ab56764095695a7",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L020__p72:enrollments:departments": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L020__p72:enrollments:departments",
+"anchor": "departments",
+"nearest": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"n_eligible": 4,
+"sha": "0be2f671c00a5b963468d4ee36398e2b02834285157dc9c5e01bea6115793dc4",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L020__p77:employees:students": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L020__p77:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "3a947fea6d638b20c4d39822ba611b038e18ed8d4ef250f69ae3b960d1f1797f",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L020__p87:employees:students": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L020__p87:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "2490309996050948c99a7f19ddc0ac02a8db87ba95db705ec1b0e2ff68214b72",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L020__p93:employees:students": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L020__p93:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "0de2f3505c5494e6271869c1992d0e6c7958cdd002fda1f99a25c9b254d5881f",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L024__p72:enrollments:departments": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L024__p72:enrollments:departments",
+"anchor": "departments",
+"nearest": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"n_eligible": 4,
+"sha": "71cd49ac32aee9e583d5d66b0da6894227d309d6c9a0c2aed7de7febbfc2c9aa",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L024__p77:customers:departments": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L024__p77:customers:departments",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "737d97f270e3a8228f1189e338231dbb09b4b8e6ab0ba9afebdf9606c13da8da",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L024__p77:orders:students": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L024__p77:orders:students",
+"anchor": "departments",
+"nearest": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"n_eligible": 4,
+"sha": "416c9fcd2d35ffdbef5007e84f79954dd8f8b1b90a092c68aa2c0d7cd1589a04",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L024__p77:ordersandcustomers:studentsanddepartments": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L024__p77:ordersandcustomers:studentsanddepartments",
+"anchor": "students and departments",
+"nearest": [
+"legacy table",
+"legacy",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy table",
+"legacy",
+"users table"
+],
+"n_eligible": 3,
+"sha": "4632a545c51ccbce8c503cba5f933dd526ee0abc7213be9d9784c179ece656eb",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L024__p87:employeesandorderstables:studentsanddepartmentstables": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L024__p87:employeesandorderstables:studentsanddepartmentstables",
+"anchor": "students and departments tables",
+"nearest": [
+"legacy",
+"legacy table",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy",
+"legacy table",
+"users table"
+],
+"n_eligible": 3,
+"sha": "995f07ee7409fc8b0d780b5685d80f3d086117bf49d6f28b4b147e56378fc97b",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L024__p87:employeestable:studentstable": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L024__p87:employeestable:studentstable",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "400abb9e5e7fd4cc038b7dd488a43a9522d3e6989b08d3389107dfe10a03c7c2",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L024__p96:enrollments:departments": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L024__p96:enrollments:departments",
+"anchor": "departments",
+"nearest": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"n_eligible": 4,
+"sha": "22df5c227edcd5d7461fa7d89713b4fe54a1bb6918bbd403099c81ce7f746de2",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L028__p69:orders:students": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L028__p69:orders:students",
+"anchor": "departments",
+"nearest": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"n_eligible": 4,
+"sha": "94e68b323c2dc144f7f3c52963363bae5ad8b40fe51b0955d6c70829d8d9d8ac",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L028__p69:orderscustomers:departmentsstudents": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L028__p69:orderscustomers:departmentsstudents",
+"anchor": "students, departments",
+"nearest": [
+"legacy",
+"legacy table",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy",
+"legacy table",
+"users table"
+],
+"n_eligible": 3,
+"sha": "b930c6002914dc47713225bf83b0e87445d22bbcd43ef821e7b7bd76c36b91b9",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L028__p69:orderscustomers:studentsdepartments": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L028__p69:orderscustomers:studentsdepartments",
+"anchor": "students, departments",
+"nearest": [
+"legacy",
+"legacy table",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy",
+"legacy table",
+"users table"
+],
+"n_eligible": 3,
+"sha": "a80bc7d5fa4e5b51e145a49b9b4683e156489fac8d344d382f7d4eb985247fb9",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L028__p69:ordersproducts:studentsdepartments": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L028__p69:ordersproducts:studentsdepartments",
+"anchor": "students/departments",
+"nearest": [
+"legacy",
+"legacy table",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy",
+"legacy table",
+"users table"
+],
+"n_eligible": 3,
+"sha": "0f35c64eb23f05d361852cd01f2afc7c216293c6b64a38f02c65d2987420c1e2",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L028__p72:enrollments:departments": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L028__p72:enrollments:departments",
+"anchor": "departments",
+"nearest": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"n_eligible": 4,
+"sha": "bffb7debc488c53a8eb1013d92c1ce9da61254f61533ea624a8164d67faaa957",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L028__p77:customers:departments": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L028__p77:customers:departments",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "714be29f4804aaba9db552f050dbd375d63ff961a541b4da57a865a093f8e54f",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L028__p77:employees:students": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L028__p77:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "67485f8f46dacb9d4249ba16a2260009cbf7df764d68ed698b94a256164bfdea",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L028__p77:ordersandcustomers:studentsanddepartments": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L028__p77:ordersandcustomers:studentsanddepartments",
+"anchor": "students and departments",
+"nearest": [
+"legacy table",
+"legacy",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy table",
+"legacy",
+"users table"
+],
+"n_eligible": 3,
+"sha": "e114e0d25a0ac1a4b64c60c734bc84bb624b20d20428f819b8089e6c73261f89",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L028__p97:employees:students": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L028__p97:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "d04463c621030e87f7d337165264acbfa63063ceae0057513af153b4e459062c",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L032__p69:employee:students": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L032__p69:employee:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "3d0153d22bd3b42756b3d9a70a63e45be44c1abc0e555ba46e165d2090794ba2",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L032__p69:employees:students": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L032__p69:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "9d3ddb9f23e7ecd0403ba7c930baefdf7ba729c0ac06ae265a8a5fcfe0e34c4c",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L032__p72:customertable:studentstable": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L032__p72:customertable:studentstable",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "fd93daf76c8dadb8ca5d41999f0aeab8ef29b4810ac4b5a21a9a6a15db895726",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L032__p73:customerscorders:studentssdepartments": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L032__p73:customerscorders:studentssdepartments",
+"anchor": "students / departments",
+"nearest": [],
+"random": [
+"legacy",
+"legacy table",
+"users table"
+],
+"distractors": [
+"legacy",
+"legacy table",
+"users table"
+],
+"n_eligible": 3,
+"sha": "6525fd6ccb05f0940598d5b189238437619b67d577c24633fcb47621b10d5b9c",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L032__p73:customersorders:studentsdepartments": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L032__p73:customersorders:studentsdepartments",
+"anchor": "students, departments",
+"nearest": [
+"legacy",
+"legacy table",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy",
+"legacy table",
+"users table"
+],
+"n_eligible": 3,
+"sha": "609163a7f9cca13af2afc4a3b790bb537cc4af9952f2897e275ea24a2cf7e1b6",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L032__p77:customerorders:studentsdepartments": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L032__p77:customerorders:studentsdepartments",
+"anchor": "students/departments",
+"nearest": [
+"legacy",
+"legacy table",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy",
+"legacy table",
+"users table"
+],
+"n_eligible": 3,
+"sha": "7a3f645c896b67c8006494a614584e862e1d4bfae8cf2d699b43004bb880a0f9",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L032__p77:customers:students": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L032__p77:customers:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "da2b4e29b64c1906fca162fa83a1ca0b6ada0f6fb07ab14bc0b666afa0d97e85",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L032__p77:customersc:studentss": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L032__p77:customersc:studentss",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "3cd0c848c35b7d24579a5da67ee72cc3f6eceb31f4f423ff0ed40d2d4f8d27e3",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L032__p77:customersorders:studentsdepartments": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L032__p77:customersorders:studentsdepartments",
+"anchor": "students, departments",
+"nearest": [
+"legacy",
+"legacy table",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy",
+"legacy table",
+"users table"
+],
+"n_eligible": 3,
+"sha": "de4019380fd4af3cdbdda2fe560390372d96d2ebafffa7cacb4dcca740ee0b45",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L032__p77:employee:students": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L032__p77:employee:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "d380a2496c77c49dab6319857dc1be72fcb20d79aacabcee0b03d51743568238",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L032__p77:employeee:studentss": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L032__p77:employeee:studentss",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "7d8ed4c192a4769dc719cadbe184ee1d939b28c804da6fa8fe14bbb5276b1ff0",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L032__p77:orders:departments": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L032__p77:orders:departments",
+"anchor": "departments",
+"nearest": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"n_eligible": 4,
+"sha": "97dbf6cb5f3fae98bb98d8d4809140d74549fb0409df66d25b21f632106e0244",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L032__p97:employee:students": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L032__p97:employee:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "07a9b650da0622c67c02f0a49c0caa1010e87a287bc507622045a66db15907e5",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L036__p69:employee:students": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L036__p69:employee:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "16f0bb9e79ae3b1f67b6989969e3436ab30e0f3c5cf23f691010ed7cd6f5c939",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L036__p69:employees:students": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L036__p69:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "862fd0a50b0b26590567194763fb967453064fcd886f6c6e82351024d1537d51",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L036__p72:enrollments:departments": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L036__p72:enrollments:departments",
+"anchor": "departments",
+"nearest": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"n_eligible": 4,
+"sha": "40b25dabfa2da30a8af2aaefdd8ef46ec95e908865f3d395c4c6e3f079dc5133",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L036__p77:employees:students": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L036__p77:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "9bb13709f6552239b410b110976038c9931949aa1831805f589fd66b01411ed5",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L036__p87:employees:students": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L036__p87:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "3dbcee9a0858cac9f75799d2647c46140de9ac7c279badb9fae39efaf0fef8da",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L040__p69:employee:students": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L040__p69:employee:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "ba5c64f5a2d947fb4b5e99d2f32c43876528a9f0c0cd04920809de76f8345f9e",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L040__p69:employees:students": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L040__p69:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "a49424dbd0c1ab14ba2c99a959733ae45839b4a571cb5d5e3ccb594091bfe5b4",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L040__p72:customersandorders:studentsanddepartments": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L040__p72:customersandorders:studentsanddepartments",
+"anchor": "students and departments",
+"nearest": [
+"legacy table",
+"legacy",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy table",
+"legacy",
+"users table"
+],
+"n_eligible": 3,
+"sha": "0abe4ce7ed118288027176a0deba23035b8eb3939bcecde189b1f5a7a226b26c",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L040__p72:customersorders:studentsdepartments": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L040__p72:customersorders:studentsdepartments",
+"anchor": "students, departments",
+"nearest": [
+"legacy",
+"legacy table",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy",
+"legacy table",
+"users table"
+],
+"n_eligible": 3,
+"sha": "f3fe5cf4b4c3b42071e983a6b7107dd8ac92887f62cc295fac6c2d52e0abb1c9",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L040__p73:customersandorders:studentsanddepartments": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L040__p73:customersandorders:studentsanddepartments",
+"anchor": "students and departments",
+"nearest": [
+"legacy table",
+"legacy",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy table",
+"legacy",
+"users table"
+],
+"n_eligible": 3,
+"sha": "21cbccf0ddf5efc27f33bb2ca2c7dfdf710cbda381a0a68a03625dbcf524175a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L040__p73:customersorders:studentsdepartments": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L040__p73:customersorders:studentsdepartments",
+"anchor": "students, departments",
+"nearest": [
+"legacy",
+"legacy table",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy",
+"legacy table",
+"users table"
+],
+"n_eligible": 3,
+"sha": "3c97878a039281b1ee72c0043e902a3a0110c2ec7de8d4eb614e2a3b3f6f4c9a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L040__p77:employees:students": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L040__p77:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "8d524872dcd397d38f0d88cb30eadee217832c2fefc4ef01562cd49469a65dd1",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L044__p69:employee:students": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L044__p69:employee:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "3bfda0e7128eb0c50c7969ab40890c832222900309bf07b9ae76504fbce9c9e4",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L044__p69:employeee:studentss": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L044__p69:employeee:studentss",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "70b37ab7fbafc7d19b1f38b4e1d91ab33aea86f1a15eb0045eb6d6506359f492",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L044__p69:employees:students": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L044__p69:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "caa4da3e8a61945088f0facc90c07940af21869bacfd1e9ddc5f142ff3837876",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L044__p69:employeese:studentss": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L044__p69:employeese:studentss",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "ff90238e8de266f827b66b10626aec5a08733d6a77c13a035021f4fcf1797fba",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L044__p72:customers:students": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L044__p72:customers:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "d10f667a77ae3169ca03957eebb260f735709237ab9a8078c52021c99cc823b2",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L044__p73:employees:students": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L044__p73:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "39eba783b0a60e2db76962661ff9440c64608a017f7fa6ac72508c700314899c",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L044__p87:department:departments": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L044__p87:department:departments",
+"anchor": "departments",
+"nearest": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"n_eligible": 4,
+"sha": "ece66610a02df5bedbbec3bcdd5d15fa1300209efa4720b9fed09d7b1833ac61",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L044__p87:employee:students": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L044__p87:employee:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "16a0e5391019558e26f1b353c2a0861675621ff86b37bf31829ace12a006d524",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L044__p87:employeedepartment:studentsdepartments": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L044__p87:employeedepartment:studentsdepartments",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "0e2bc2def8bba76431c3415faeb929d6e7b94f121ac0fa5a5763789cdf7bf6a5",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L044__p87:employees:students": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L044__p87:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "2481c64a746e1e815fc7bd967ad8107fa7b0e74cdf883522f5e7cc3f1fed6e69",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L048__p69:employee:students": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L048__p69:employee:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "673f7fd66da020720e26f6db7f458563ad09ee04561e31aea670ef0a5278f3ab",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L048__p69:employeee:studentss": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L048__p69:employeee:studentss",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "40e7e9034b6f539dfb24b2b6a37e2390d7cd106aab7cb3dac86df27a7f58047e",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L048__p73:employees:students": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L048__p73:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "85a2de410ef1a8cd0db1b080475a087e06e9e61db23e1b728a49dcb83c545840",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L048__p77:employees:students": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L048__p77:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "236acbd2aec1ff29ed32c11845869628ab7f83427a17da1ef865d168f3c78649",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L048__p87:employees:students": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L048__p87:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "7af983c0e10589f70822b9640de92bddc6239b11f73920feb4054850472ad015",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L052__p69:scorestable:departmentstable": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L052__p69:scorestable:departmentstable",
+"anchor": "departments",
+"nearest": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"n_eligible": 4,
+"sha": "d63947430b7f8eb8b47465e44f9640573f6880536ffb88441f92f83c77be5dd2",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L052__p69:scoretable:departmentstable": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L052__p69:scoretable:departmentstable",
+"anchor": "departments",
+"nearest": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"n_eligible": 4,
+"sha": "7c0896a8c67758016a1feca561086af93103dfef36358c0060f11f728ad25cbe",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L052__p72:ordersandcustomers:studentsanddepartments": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L052__p72:ordersandcustomers:studentsanddepartments",
+"anchor": "students and departments",
+"nearest": [
+"legacy table",
+"legacy",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy table",
+"legacy",
+"users table"
+],
+"n_eligible": 3,
+"sha": "ee1e9bf23aed501afddb66d5493d698a18fc5c934d505b70ccf84784582dca0b",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L052__p73:employees:students": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L052__p73:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "85195fd78095fa44f806922f7be210819b99ad6cd2c2e2276b6b2c8b2fcb1675",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L052__p73:employeestable:studentstable": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L052__p73:employeestable:studentstable",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "eeff16d1d9f493fe0334577939e65ed70277b09366c47b6031f80c48aa473505",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L052__p77:employees:students": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L052__p77:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "a81a7e1e403f5d6d6c0ee1ba8dc6453f8fe8ec4067f32656716a7f18692f604b",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L052__p77:employeestable:studentstable": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L052__p77:employeestable:studentstable",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "ae23f3e5d3337af08de0f45527d91483ab7b1df35b5729c83c44a01a1793c43c",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L052__p87:employees:students": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L052__p87:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "6df2bac4ddb771d2730911dcd86c1432c7a087a67e4a7f5823eac16fef26742b",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L056__p69:score:departments": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L056__p69:score:departments",
+"anchor": "departments",
+"nearest": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"n_eligible": 4,
+"sha": "aeef5d59d400a4f24830bbf01bc423b75c4296432d4de78583152dc5af37cc17",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L056__p69:scoretable:departmentstable": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L056__p69:scoretable:departmentstable",
+"anchor": "departments",
+"nearest": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"n_eligible": 4,
+"sha": "4bc56860aaf2e330ba2ca382a64d3b25e685e847fab12df9fb7b3fb66062193c",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L056__p73:enrollments:departments": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L056__p73:enrollments:departments",
+"anchor": "departments",
+"nearest": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"n_eligible": 4,
+"sha": "830d4e06d01bf508e18a552801070f77abc42abc548daae1104ffbd2fe6c7a03",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L056__p87:employees:students": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L056__p87:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "8ba5768100279966f4deb60750da0c906b66b4a3d73c0bdf2b57b5cfb82b4275",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L056__p97:employees:students": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L056__p97:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "05e99390b1a95da5372e41174e28088a297d8798ebdfc6d0ada3e8d5fb0e4d94",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L060__p72:enrollments:departments": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L060__p72:enrollments:departments",
+"anchor": "departments",
+"nearest": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"n_eligible": 4,
+"sha": "911dc407e0c094259b9e5f1b5c941f77e3c7f164c80fd82d6d084350a5ff6ac5",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L060__p77:employee:students": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L060__p77:employee:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "f0b0ec207aaa524e252d04e0445535a1917f03dd150f5560b2c61d1d11da87f4",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0007__L052__p74:userstableidusernameemailpassword:legacytablenamepdate": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0007__L052__p74:userstableidusernameemailpassword:legacytablenamepdate",
+"anchor": "legacy table",
+"nearest": [
+"salary table",
+"Enrollments",
+"Customer",
+"city"
+],
+"random": [
+"actors",
+"departments",
+"orders",
+"projects"
+],
+"distractors": [
+"salary table",
+"Enrollments",
+"Customer",
+"city",
+"actors",
+"departments",
+"orders",
+"projects"
+],
+"n_eligible": 16,
+"sha": "7ae9c75451aa1fa11941cbfd1559c571eaffdf14e9b847c98616533090d30650",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L020__p69:employees:students": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L020__p69:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "d3a1590e5c8974c3da3a57bfb382937f3a8b434c0570603a8baabd1687ac9143",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L020__p72:attendance:departments": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L020__p72:attendance:departments",
+"anchor": "departments",
+"nearest": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"n_eligible": 4,
+"sha": "940ac3527428f0eb8e7f5c89e0e3e47fda9e1dd77b5b8deff14d45952312efdf",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L020__p97:employees:students": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L020__p97:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "358e4391fd03169cd9c41be425918931c08d984efa23b33706f601d3c2a53166",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L020__p97:orders:students": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L020__p97:orders:students",
+"anchor": "departments",
+"nearest": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"n_eligible": 4,
+"sha": "11ca3c921064b2220611e5888ddf7b58bc569c595996fd680b7b8290a1f85519",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L024__p72:customerandorders:studentsanddepartments": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L024__p72:customerandorders:studentsanddepartments",
+"anchor": "departments and students",
+"nearest": [
+"users table",
+"legacy",
+"legacy table"
+],
+"random": [],
+"distractors": [
+"users table",
+"legacy",
+"legacy table"
+],
+"n_eligible": 3,
+"sha": "169f3c039076f55f3b7147173fcfb02cf0d42eac9e56a5f98967e313257a0b9e",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L024__p72:customersorders:studentsdepartments": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L024__p72:customersorders:studentsdepartments",
+"anchor": "students, departments",
+"nearest": [
+"legacy",
+"legacy table",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy",
+"legacy table",
+"users table"
+],
+"n_eligible": 3,
+"sha": "745c1e35dbeb9974422daf1ed1a68dfecc0a4c6e9518617a44e93aa965a3be7f",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L024__p73:customers:students": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L024__p73:customers:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "fd264b16eeb48ceff119b57f368e0af234f258eeec549e9f0efd1eb0e8e10e1f",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L024__p77:customers:students": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L024__p77:customers:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "b5fbc2fba6b62f39983275b0fba8b6774ccb5129dff1fff63baea06057a46637",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L024__p77:customersandorders:studentsanddepartments": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L024__p77:customersandorders:studentsanddepartments",
+"anchor": "students and departments",
+"nearest": [
+"legacy table",
+"legacy",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy table",
+"legacy",
+"users table"
+],
+"n_eligible": 3,
+"sha": "d018a73a8364390df85ae085c84232adbf9cd5c5b8c6cd9d09b06af4dd89fec6",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L024__p77:orders:departments": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L024__p77:orders:departments",
+"anchor": "departments",
+"nearest": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"n_eligible": 4,
+"sha": "448112d96f5df36ad8fd42925e31f8678feb4c6b2e018969613c0414b00e92d2",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L024__p87:employee:students": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L024__p87:employee:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "f08b033d8e3fcff6fdc28119518270eb1e586fa0e8754e65fa27994c0ba95c9a",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L024__p87:employees:students": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L024__p87:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "c683b969aa9af0fe5f2d40e281ae780d8ff8cbae2ad79ce0c63fc9b90dad2cd7",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L024__p93:employees:students": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L024__p93:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "6349459b8a662ebb40b73cd4d76e4e79a9ae228da281e0523de25761d5359101",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L024__p93:employeetables:students": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L024__p93:employeetables:students",
+"anchor": "students table",
+"nearest": [
+"users table",
+"legacy",
+"legacy table"
+],
+"random": [],
+"distractors": [
+"users table",
+"legacy",
+"legacy table"
+],
+"n_eligible": 3,
+"sha": "621d3909509f4ad5091b6692cd790d1f2931fc34326d97730e0ca0c95659874b",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L024__p96:employees:students": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L024__p96:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "eb175d36d2e7adf75ad3ad6ba9ddb586d66ae202a7736eb93b58ab3d40f74418",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L024__p97:employees:students": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L024__p97:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "b8ad2c03b2d097253f14e344a303c86b3b1cf900e017c5263e089ee45c74ff25",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L028__p69:customersandorders:studentsanddepartments": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L028__p69:customersandorders:studentsanddepartments",
+"anchor": "students and departments",
+"nearest": [
+"legacy table",
+"legacy",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy table",
+"legacy",
+"users table"
+],
+"n_eligible": 3,
+"sha": "3fc58e8da9edc26d417d702c1c96d481652e7cbe81d047df54fb275ad1271907",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L028__p69:orderscustomers:studentsdepartments": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L028__p69:orderscustomers:studentsdepartments",
+"anchor": "students, departments",
+"nearest": [
+"legacy",
+"legacy table",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy",
+"legacy table",
+"users table"
+],
+"n_eligible": 3,
+"sha": "9f7672e854ffea6b5aa5cd12f7a5d32be939b01b6d2396bccee83d557d72a071",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L028__p72:customersandorders:studentsanddepartments": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L028__p72:customersandorders:studentsanddepartments",
+"anchor": "students and departments",
+"nearest": [
+"legacy table",
+"legacy",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy table",
+"legacy",
+"users table"
+],
+"n_eligible": 3,
+"sha": "54e3594fc1bc93f22419aab0eb2141643bcb8c41e003d0d19a0e4b5a73820d36",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L028__p72:orders:departments": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L028__p72:orders:departments",
+"anchor": "departments",
+"nearest": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"n_eligible": 4,
+"sha": "e3d810052b098f2c60de51e97891ef67fbe6dc18abd03383ad54fe2a0ff82125",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L028__p72:orderscustomers:departmentsstudents": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L028__p72:orderscustomers:departmentsstudents",
+"anchor": "students, departments",
+"nearest": [
+"legacy",
+"legacy table",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy",
+"legacy table",
+"users table"
+],
+"n_eligible": 3,
+"sha": "c31a73e196df93426f8d75d3d8c054fd7592cda92e33c8678b3e49cf3a54c908",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L028__p96:employees:students": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L028__p96:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "d588584f8629160f8ae684720bc5d908494ef1d9aaf5dd8ff8283372028e6ef7",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L028__p97:customersandorders:studentsanddepartments": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L028__p97:customersandorders:studentsanddepartments",
+"anchor": "students and departments",
+"nearest": [
+"legacy table",
+"legacy",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy table",
+"legacy",
+"users table"
+],
+"n_eligible": 3,
+"sha": "808c7c40222bf186435af87e9840d06d1f68ca2ce6035a4e8df265dfd68f19cf",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L028__p97:employees:students": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L028__p97:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "69916a36c72c9e1f90db317942133f02b3e9f3efe538b6ec6fe622e876e2968e",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L032__p72:customersandorders:studentsanddepartments": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L032__p72:customersandorders:studentsanddepartments",
+"anchor": "students and departments",
+"nearest": [
+"legacy table",
+"legacy",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy table",
+"legacy",
+"users table"
+],
+"n_eligible": 3,
+"sha": "3b29d0bcf7514a1827510fbfe5fb1505b66c429387b047df629183cf093c2551",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L032__p72:customersorders:studentsdepartments": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L032__p72:customersorders:studentsdepartments",
+"anchor": "students, departments",
+"nearest": [
+"legacy",
+"legacy table",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy",
+"legacy table",
+"users table"
+],
+"n_eligible": 3,
+"sha": "9a97e98db8df684e4425414155089572d6911a3bb977fec00269720304143827",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L032__p87:employee:students": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L032__p87:employee:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "09a618e8d6e19609708e2b9583b27a2a244e09f0bb47d3789d21de0e500ae5ba",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L032__p87:employees:students": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L032__p87:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "10288af9d5c758b12d2f74b1b268d7a1a3261c7dcecaf28ef4786f388f6db30a",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L032__p97:employee:students": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L032__p97:employee:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "e326083cd26c00568356f253be54d9bbdb46b72bd736656198b691894b491a3b",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L036__p69:employees:students": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L036__p69:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "2c956079e356a46c81ba2c38140c051b12613628149fadaaef85cb3876cecd10",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L036__p73:customers:students": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L036__p73:customers:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "a26d0442de6848e888724132ff9cf927eb844bd75378e15bf82250c022c1f936",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L036__p77:employees:students": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L036__p77:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "155400a0bf516c8c2429fc5cef6ac8ec0b8cda33a535594c63d94d2acac004a8",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L036__p77:employeestable:studentstable": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L036__p77:employeestable:studentstable",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "7bb1032ee4c235fa83e18f6cf1057cec4bd119c9a58003484e160957573491ea",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L036__p96:customersorderstables:studentsdepartmentstables": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L036__p96:customersorderstables:studentsdepartmentstables",
+"anchor": "students/departments tables",
+"nearest": [
+"legacy",
+"legacy table",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy",
+"legacy table",
+"users table"
+],
+"n_eligible": 3,
+"sha": "981dc8a8b34768f300695dd8af293b1e23cf03593a5cbde99b5af4729902d7b5",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L040__p69:employee:students": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L040__p69:employee:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "39bf383ad00238b172694bbdc68584f493b03995ce97e58065aad3b9206dec72",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L040__p69:employees:students": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L040__p69:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "61a4f87b8c1a8e99361a4cd12fa2d25f110b6ada20380cea308ff49e66f6bc73",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L040__p72:customers:students": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L040__p72:customers:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "8c548c12e363491308c4c26991d3702e24b64f19e8b0955854796c82d5492661",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L040__p72:customersandorders:studentsanddepartments": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L040__p72:customersandorders:studentsanddepartments",
+"anchor": "students and departments",
+"nearest": [
+"legacy table",
+"legacy",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy table",
+"legacy",
+"users table"
+],
+"n_eligible": 3,
+"sha": "7dfbb25f1f59135ec86cbfaa51c8ae430c0873826b4cfe3874bf210f78a53db8",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L040__p73:employees:students": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L040__p73:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "8dafa92b55c2d3a65f51ac7549c3f9d399c44db7a0c5b5a474221cddb22ba4ff",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L040__p77:employee:students": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L040__p77:employee:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "391497f948834e5e9b3eda0226ba94b4a5c9d505035d46b9a23c8626bcf84901",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L040__p77:employees:students": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L040__p77:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "3dabfe5f40b377442b058e460cf92360a1e372e85deef8ab7b1c7968a51e2abf",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L040__p77:employeestable:studentstable": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L040__p77:employeestable:studentstable",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "015d00527a27c451a29169636e8e6f49a04e720180b58941af93f52365cc0391",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L044__p72:customersandorders:studentsanddepartments": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L044__p72:customersandorders:studentsanddepartments",
+"anchor": "students and departments",
+"nearest": [
+"legacy table",
+"legacy",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy table",
+"legacy",
+"users table"
+],
+"n_eligible": 3,
+"sha": "299c414f0590154615f3beb95b8405545c81f0528e1a6138a0859d691755b591",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L044__p72:customersorders:studentsdepartments": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L044__p72:customersorders:studentsdepartments",
+"anchor": "students, departments",
+"nearest": [
+"legacy",
+"legacy table",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy",
+"legacy table",
+"users table"
+],
+"n_eligible": 3,
+"sha": "a1aba09f7d7ee423ecdc6a0dba9dc04a164e2fd97c5e50be48460a275e3b2e86",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L044__p72:customerstable:studentstable": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L044__p72:customerstable:studentstable",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "ca7635c4b71c9e8ca6bc502819c73d2c40dbd09915ca201d7b64afbb0b42509e",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L044__p73:customersandorders:studentsanddepartments": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L044__p73:customersandorders:studentsanddepartments",
+"anchor": "students and departments",
+"nearest": [
+"legacy table",
+"legacy",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy table",
+"legacy",
+"users table"
+],
+"n_eligible": 3,
+"sha": "36da20fdb668dc6db8e3e9c048894966637149eab26cd91151f47058359ceb51",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L044__p73:customersandorderscitydelhi:studentsanddepartmentscomputerscience": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L044__p73:customersandorderscitydelhi:studentsanddepartmentscomputerscience",
+"anchor": "students and departments",
+"nearest": [
+"legacy table",
+"legacy",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy table",
+"legacy",
+"users table"
+],
+"n_eligible": 3,
+"sha": "0294c5b4e85c0e501b562058aa47330d64032078d86203bf4c38a76a95b371e5",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L044__p73:customersorders:studentsdepartments": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L044__p73:customersorders:studentsdepartments",
+"anchor": "students, departments",
+"nearest": [
+"legacy",
+"legacy table",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy",
+"legacy table",
+"users table"
+],
+"n_eligible": 3,
+"sha": "14cdc321d36b94de0f25d86fb97cf56faea593daa8804a1eec55baef36df2945",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L044__p77:employee:students": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L044__p77:employee:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "4cb933a58a43155f3f5b3ee06e98e0b5344018af9d4f15f3e715e2b9474478a2",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L044__p77:employees:students": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L044__p77:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "e54300dfc1d5b48a614408b3470bac4f2a3d384d5da34903fffbdd80667f5f76",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L044__p96:customers:students": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L044__p96:customers:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "24aab663069022549cc2e018916fcd29162b71ab5216dc7da15cca8bb38f3184",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L048__p69:employee:students": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L048__p69:employee:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "8411d86621adcce12bbff1be41b91fe9e152110ef1972590990a71553b1823d4",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L048__p69:employeeanddept:studentsanddepartments": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L048__p69:employeeanddept:studentsanddepartments",
+"anchor": "students and departments",
+"nearest": [
+"legacy table",
+"legacy",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy table",
+"legacy",
+"users table"
+],
+"n_eligible": 3,
+"sha": "99a75ef160137293450e27c0cdbd1059e9069d21445fcea1916cd1e59159fe7f",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L048__p72:customersorders:studentsdepartments": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L048__p72:customersorders:studentsdepartments",
+"anchor": "students, departments",
+"nearest": [
+"legacy",
+"legacy table",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy",
+"legacy table",
+"users table"
+],
+"n_eligible": 3,
+"sha": "6d8e5ed0fdaec0d03a1cbd7c65ac0c48f798e1f8114b0faa4c558fde51b18627",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L048__p73:customersorders:studentsdepartments": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L048__p73:customersorders:studentsdepartments",
+"anchor": "students, departments",
+"nearest": [
+"legacy",
+"legacy table",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy",
+"legacy table",
+"users table"
+],
+"n_eligible": 3,
+"sha": "6267ae1cc7d1280919bbb119ef3f5054fa1eb1ffe576571badc544b1288d889b",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L048__p73:employees:students": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L048__p73:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "41db099355acd141718221b236c59a48b89d50e203766a533680e3d50de94c7a",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L052__p69:scoretable:departmentstable": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L052__p69:scoretable:departmentstable",
+"anchor": "departments",
+"nearest": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"n_eligible": 4,
+"sha": "e62f06616de2a1623427d9ed45afbaf9ee8fc607d1436b3b851b2b5da345d491",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L052__p72:orders:departments": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L052__p72:orders:departments",
+"anchor": "departments",
+"nearest": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"n_eligible": 4,
+"sha": "887d268c0ced5eb39c980f7f5fdb6bf3d4f3dbe9b0d6b0dc9ccf2a17e1ccb5e9",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L052__p72:ordersandcustomers:studentsanddepartments": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L052__p72:ordersandcustomers:studentsanddepartments",
+"anchor": "students and departments",
+"nearest": [
+"legacy table",
+"legacy",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy table",
+"legacy",
+"users table"
+],
+"n_eligible": 3,
+"sha": "abc65af9c0a5a286f5b240edfc6757fea2ac381fd3f37454211513eb41885154",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L052__p73:employees:students": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L052__p73:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "81c2b828bb7fc059b814d99346e9e6d93e3853cc4354d19c022e5a116d2a5726",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L052__p73:employeesandsalariestables:studentsanddepartmentstables": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L052__p73:employeesandsalariestables:studentsanddepartmentstables",
+"anchor": "students and departments tables",
+"nearest": [
+"legacy",
+"legacy table",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy",
+"legacy table",
+"users table"
+],
+"n_eligible": 3,
+"sha": "09651f4198cb2345756c0b9f3552e0278c154bd3c6d15b3ca86b9b4a1bfd1754",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L052__p73:salarytable:departmentstable": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L052__p73:salarytable:departmentstable",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "be40de53084d3ddf8ffead305a2eb6fbe930e95c283a07d5044002f4da3edad1",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L052__p77:employees:students": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L052__p77:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "2b8b14e81c9b4d1d4f55aec35b5fdd3e9d822e5e03d8a93226d31e5e107a5d39",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L052__p87:employees:students": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L052__p87:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "a4fd9a358de20a3582150a1184ecb1eb1e6bf936557344be3eaf88892bca57a5",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L056__p72:enrollments:departments": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L056__p72:enrollments:departments",
+"anchor": "departments",
+"nearest": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"n_eligible": 4,
+"sha": "f4480bd8911df58a72b83d6f8e527947eb89ece41ca3342f702d6d74c5bc4ef7",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L056__p73:course:departments": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L056__p73:course:departments",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "80c37a06dacd19f993680b08f2199d5e0c831372cb5a8fa0aaf820d12cd8b6f1",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L060__p72:enrollments:departments": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L060__p72:enrollments:departments",
+"anchor": "departments",
+"nearest": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"n_eligible": 4,
+"sha": "cb21a97ead26ece11010733ea192fb660d265ac7e10f9e2caee72d567e9a9310",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L060__p72:enrollments:departmentsandstudentsonly": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L060__p72:enrollments:departmentsandstudentsonly",
+"anchor": "departments",
+"nearest": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"n_eligible": 4,
+"sha": "27d53b331270165480dd0172192c6f1f301ca12ebdc1956e485cd34b61699645",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L060__p73:courseandenrollmenttables:departments": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L060__p73:courseandenrollmenttables:departments",
+"anchor": "departments table",
+"nearest": [
+"users table",
+"legacy",
+"legacy table"
+],
+"random": [],
+"distractors": [
+"users table",
+"legacy",
+"legacy table"
+],
+"n_eligible": 3,
+"sha": "204eeb274c6eac07fa6fc8752c33079ea6ee5cc08d4293bc9ca209d827a7adf5",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L060__p73:coursesgrades:departments": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L060__p73:coursesgrades:departments",
+"anchor": "departments",
+"nearest": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"n_eligible": 4,
+"sha": "aa6458c7c35f2c28d0a7211fd641ca2d06f6e2170da1646118a28f808b721e6f",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L060__p87:employees:students": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L060__p87:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "fb4181e628558f48477b7fa0dea68bd127411d3b23c14306be04fc6b5b666cad",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0050__L060__p96:employees:students": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L060__p96:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "eccb93151da231a3c73d8250f818fd8605b35ca29ae4809e66fcc203794f24a4",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0007__L052__p53:employeesanddepartmentstables:legacytable": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0007__L052__p53:employeesanddepartmentstables:legacytable",
+"anchor": "legacy",
+"nearest": [
+"salary table",
+"Enrollments",
+"projects",
+"city"
+],
+"random": [
+"Class",
+"attendance",
+"course",
+"student_courses"
+],
+"distractors": [
+"salary table",
+"Enrollments",
+"projects",
+"city",
+"Class",
+"attendance",
+"course",
+"student_courses"
+],
+"n_eligible": 15,
+"sha": "8f1c2224e9793d579e806ab316515acaa6a89b82f93fe6270913abd54d31bc21",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0050__L020__p73:customers:students": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0050__L020__p73:customers:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "0592cb4220e1e95dd863072786bd82cf92c1c16f8bc805dfc6f6d5a5ed99513a",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0050__L020__p73:users:students": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0050__L020__p73:users:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 3,
+"sha": "e805ccef1262c819055979d2acd421efc96f5548b81ef98b7bebf880819c4eac",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0050__L020__p87:employees:students": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0050__L020__p87:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "82602799e7e9aa3d3964f8dc4005d803ee97b35b29031239017e7f6d803586e6",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0050__L020__p97:customersandorders:studentsanddepartments": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0050__L020__p97:customersandorders:studentsanddepartments",
+"anchor": "students and departments",
+"nearest": [
+"legacy table",
+"legacy",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy table",
+"legacy",
+"users table"
+],
+"n_eligible": 3,
+"sha": "7d36ba302d22b6c6c93bbff61ab1d2de842fca52227b8679d945564c17989b02",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0050__L020__p97:orders:students": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0050__L020__p97:orders:students",
+"anchor": "departments",
+"nearest": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"n_eligible": 4,
+"sha": "d7d1794d7ba30706c8565a4c7041325fd4df09122d4f6e79ff26a4d689f297f5",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0050__L024__p69:employees:students": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0050__L024__p69:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "901156eb7b39a55071d55137d29006b1fad7952b415b24e1f43c41490c9aab5b",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0050__L024__p72:orderandcustomer:studentsanddepartments": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0050__L024__p72:orderandcustomer:studentsanddepartments",
+"anchor": "students and departments",
+"nearest": [
+"legacy table",
+"legacy",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy table",
+"legacy",
+"users table"
+],
+"n_eligible": 3,
+"sha": "6597226a4640506baf95bab4a87cf3c4786c3dd21740245adf4fdc2032a75c62",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0050__L024__p73:customersorderstables:studentsdepartmentstables": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0050__L024__p73:customersorderstables:studentsdepartmentstables",
+"anchor": "students/departments tables",
+"nearest": [
+"legacy",
+"legacy table",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy",
+"legacy table",
+"users table"
+],
+"n_eligible": 3,
+"sha": "7de4e6060b8c7d8a617fc0c72ea4a914b750ba4e039989cbd72c6fa283a97cd5",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0050__L024__p73:customerstable:studentstable": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0050__L024__p73:customerstable:studentstable",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "94c853fc824aa690b95ae3694baa8b21bf1b75423421f3ef05ffe0359e4188b6",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0050__L024__p77:ordersandcustomers:studentsanddepartments": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0050__L024__p77:ordersandcustomers:studentsanddepartments",
+"anchor": "students and departments",
+"nearest": [
+"legacy table",
+"legacy",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy table",
+"legacy",
+"users table"
+],
+"n_eligible": 3,
+"sha": "a7e12605071edf9c29000f55388730aadbe34fad21da3db6aa8d990565d55e1f",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0050__L024__p77:orderscustomers:studentsdepartments": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0050__L024__p77:orderscustomers:studentsdepartments",
+"anchor": "students, departments",
+"nearest": [
+"legacy",
+"legacy table",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy",
+"legacy table",
+"users table"
+],
+"n_eligible": 3,
+"sha": "6962ad18d3df210761c0a2c8eb2b9d6246b3be8beddbff8cd5a3f0bdcd54ba29",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0050__L028__p72:orders:departments": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0050__L028__p72:orders:departments",
+"anchor": "departments",
+"nearest": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"n_eligible": 4,
+"sha": "383ac079e540c5976220e4f0de17d91fedb0f9f6af7bff0b7769f5d211e2d128",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0050__L028__p77:customer:students": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0050__L028__p77:customer:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "87a6d047f65b095685fde3d965359fd374b91244a4dab91d60ea69fa420d6f28",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0050__L028__p77:customers:departments": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0050__L028__p77:customers:departments",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "732b33b9c77620570731fe2ce08f0a40290e129069cc14b9fa265e3892d902c9",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0050__L028__p77:orders:students": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0050__L028__p77:orders:students",
+"anchor": "departments",
+"nearest": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"n_eligible": 4,
+"sha": "0b560f83cb72a50665d8d03e5a2ab90ca1d1fe8c6ac709bc0af4c93dec5b88cf",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0050__L028__p77:ordersandcustomers:studentsanddepartments": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0050__L028__p77:ordersandcustomers:studentsanddepartments",
+"anchor": "students and departments",
+"nearest": [
+"legacy table",
+"legacy",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy table",
+"legacy",
+"users table"
+],
+"n_eligible": 3,
+"sha": "de953038faea57bed8d7887f2be38ea79bf946f707f050b6388ddad0f8d79312",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0050__L028__p97:employees:students": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0050__L028__p97:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "ecb43ac584759629175cc7a41547b577c6f8bb2d6820f497d288f2a73eae2bec",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0050__L032__p69:employees:students": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0050__L032__p69:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "3078e39be3e23c7a9b94c18e93dfa952dd8d2a847769849009de3a750f204b7b",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0050__L032__p69:employeestable:studentstable": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0050__L032__p69:employeestable:studentstable",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "4cf84e4a6c9c9141d8daae1461afd3a0498888936f64b5abf6ca92810fc0c3c7",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0050__L032__p72:customerordersquery:studentsdepartmentsquery": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0050__L032__p72:customerordersquery:studentsdepartmentsquery",
+"anchor": "students/departments query",
+"nearest": [
+"legacy",
+"legacy table",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy",
+"legacy table",
+"users table"
+],
+"n_eligible": 3,
+"sha": "d2a4f34dd94f639120bdff3805c76cac5aea21b68a9900a656ade2490b033bd1",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0050__L032__p72:ordersandcustomers:studentsanddepartments": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0050__L032__p72:ordersandcustomers:studentsanddepartments",
+"anchor": "students and departments",
+"nearest": [
+"legacy table",
+"legacy",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy table",
+"legacy",
+"users table"
+],
+"n_eligible": 3,
+"sha": "0187f2fef8490f5b9996605c277020f012e93dc76f9259ca4525fe6e21e1e8f8",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0050__L032__p73:customersandorders:studentsanddepartments": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0050__L032__p73:customersandorders:studentsanddepartments",
+"anchor": "students and departments",
+"nearest": [
+"legacy table",
+"legacy",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy table",
+"legacy",
+"users table"
+],
+"n_eligible": 3,
+"sha": "7481df9cbaf986a7f80718e373ab4362bb3e54923dec175a8f942497b5854399",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0050__L032__p96:employees:students": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0050__L032__p96:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "5a5fb4ff5bb48bc6ce90b5a77fd520ba8cf32238683cb3d5985eaefe046faa2f",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0050__L036__p69:employees:students": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0050__L036__p69:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "25f566f6325623194b52dfefc8a1281b22874d2fe0a41f63c2cb7c69226f5a11",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0050__L036__p72:customers:students": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0050__L036__p72:customers:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "72f1d957fd68904188e005b1325547a834ff82e5b4e2a14807e8a57116289795",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0050__L036__p72:customerstable:studentstable": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0050__L036__p72:customerstable:studentstable",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "4f96bfaa20c535dd44a7f975b2db9cd0fb41f09e6d9898c4d7c34b6f7586350b",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0050__L036__p73:employees:students": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0050__L036__p73:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "c6620231f1ef593fbead29e0caed81ec1a1819ef0cd0e17443df89eeab1880be",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0050__L036__p77:employee:students": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0050__L036__p77:employee:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "c4f12857e283e5e454cd38db892b79009a839d076e52331b10f6c70ef0cc6fbe",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0050__L036__p77:employees:students": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0050__L036__p77:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "a38d01537ca521ea397aee9754995d1e7af3da85266ebbaf16cb8c5544abb69a",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0050__L040__p69:employees:students": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0050__L040__p69:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "ef8deaac0b7c360db9f373e60826f7e9d14d79fa9e5ccb1eb58f30fb63698dc3",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0050__L040__p72:customerandorders:studentsanddepartments": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0050__L040__p72:customerandorders:studentsanddepartments",
+"anchor": "departments and students",
+"nearest": [
+"users table",
+"legacy",
+"legacy table"
+],
+"random": [],
+"distractors": [
+"users table",
+"legacy",
+"legacy table"
+],
+"n_eligible": 3,
+"sha": "152948bb381857664a44c1a68e19788a732e305d1845a17654007f93bc1a723e",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0050__L040__p72:customerorders:studentsdepartments": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0050__L040__p72:customerorders:studentsdepartments",
+"anchor": "students/departments",
+"nearest": [
+"legacy",
+"legacy table",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy",
+"legacy table",
+"users table"
+],
+"n_eligible": 3,
+"sha": "a5c8735b890747c64283e9501120ae34d9e03dde02ec5bc0c13c1c24fff288c6",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0050__L040__p72:orderstable:departmentstable": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0050__L040__p72:orderstable:departmentstable",
+"anchor": "departments",
+"nearest": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"n_eligible": 4,
+"sha": "9a96fbbd04a23aa829a8cd9930deecefa93ec089b6a8ed4a6025f441cd16b306",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0050__L040__p77:employees:students": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0050__L040__p77:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "58a09647a68eb871f82326c5237aa2c5bb951d124a124f355527dd33c9120165",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0050__L040__p87:employees:students": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0050__L040__p87:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "84a2480ecb70f2785b50dc9a3cb7a5da8d06a811865f39b008bf94ff88f284e4",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0050__L040__p87:employeestable:studentstable": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0050__L040__p87:employeestable:studentstable",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "10b0ac7742900cdfb64881c92eded7e2f987832836cba001166f9d58d36d7f55",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0050__L044__p72:customerandorder:studentsanddepartments": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0050__L044__p72:customerandorder:studentsanddepartments",
+"anchor": "students and departments",
+"nearest": [
+"legacy table",
+"legacy",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy table",
+"legacy",
+"users table"
+],
+"n_eligible": 3,
+"sha": "9f8b319d4e60042606bc5bcd8f646ec3c105ae8f23eddf5d80e3274fe118d85e",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0050__L044__p72:customersandorders:studentsanddepartments": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0050__L044__p72:customersandorders:studentsanddepartments",
+"anchor": "students and departments",
+"nearest": [
+"legacy table",
+"legacy",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy table",
+"legacy",
+"users table"
+],
+"n_eligible": 3,
+"sha": "a1d5f2c116635fb348cecf22107c7994843d0c43f85a1a1a520d221b53ecf214",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0050__L044__p73:employeestable:studentstable": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0050__L044__p73:employeestable:studentstable",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "e24ceaae125bc1e39adf941ac6a88283466709dabe18ec2cd02e848e95c9eca1",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0050__L048__p72:customersandorders:studentsanddepartments": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0050__L048__p72:customersandorders:studentsanddepartments",
+"anchor": "students and departments",
+"nearest": [
+"legacy table",
+"legacy",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy table",
+"legacy",
+"users table"
+],
+"n_eligible": 3,
+"sha": "319a8363d2eb2aea5dc05387ee16a23fc5876a55077fa93ecb292143fdc1cf3a",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0050__L048__p72:orders:departments": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0050__L048__p72:orders:departments",
+"anchor": "departments",
+"nearest": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"n_eligible": 4,
+"sha": "21cbccf67a0762cfa79408bee1bdee2198bec1d59715e9ef1ff35c5152056b96",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0050__L048__p73:employees:students": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0050__L048__p73:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "5fa6891db4223ed4697d6e0805bf43b210c7b18edaf65eef8ab0be225b052091",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0050__L048__p77:employees:students": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0050__L048__p77:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "46036166f6fd0a54d8553cfc852847040a98ae5772131f4c2ddf77ab55bcab0a",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0050__L048__p87:employee:students": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0050__L048__p87:employee:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "b0eb60bf77f74ed832c8aaa1baf26983f5b46ea70611bee2b5978d8798b79909",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0050__L048__p87:employees:students": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0050__L048__p87:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "0a453c9c0dd69a50d167074f178cd3c9204df587df7ab0c7e07d29d1544d000a",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0050__L048__p97:orderscustomerstables:studentsdepartmentstables": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0050__L048__p97:orderscustomerstables:studentsdepartmentstables",
+"anchor": "students/departments tables",
+"nearest": [
+"legacy",
+"legacy table",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy",
+"legacy table",
+"users table"
+],
+"n_eligible": 3,
+"sha": "0dd8287a7b1c2f4b04ee6fce66216ef0d45a1ae6d51858bbaec79390df53cf15",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0050__L052__p72:customers:students": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0050__L052__p72:customers:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "e239c12aed4c66d6172e11b4445e3b5fc5ce1b967f80c443d3e368f4b00bf85a",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0050__L052__p72:customersorders:studentsdepartments": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0050__L052__p72:customersorders:studentsdepartments",
+"anchor": "students, departments",
+"nearest": [
+"legacy",
+"legacy table",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy",
+"legacy table",
+"users table"
+],
+"n_eligible": 3,
+"sha": "ee47334047a06294764ec23c9a7282dc7d75d8b15e3687b17a781247a28f8e12",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0050__L052__p72:ordersandcustomers:studentsanddepartments": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0050__L052__p72:ordersandcustomers:studentsanddepartments",
+"anchor": "students and departments",
+"nearest": [
+"legacy table",
+"legacy",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy table",
+"legacy",
+"users table"
+],
+"n_eligible": 3,
+"sha": "d8cf8a90703a59d89a576838f12013de3a026987b9d4125be522bbdfdfc4bb3c",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0050__L052__p73:employee:departments": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0050__L052__p73:employee:departments",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "941b8f0c1c09f1afc643fb2934d24225adf6efb78e4b32b5532bcfe411aae174",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0050__L052__p73:employeese:studentss": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0050__L052__p73:employeese:studentss",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "0f886e23b4e17670fdd0768137962a80d5d49010a2de048fe97bd01c1be24837",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0050__L056__p72:enrollments:departments": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0050__L056__p72:enrollments:departments",
+"anchor": "departments",
+"nearest": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"n_eligible": 4,
+"sha": "7fd81299fe91db09bfb5b40a82c7297809622a6395241d6593099e3065a4493f",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0050__L060__p77:employee:students": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0050__L060__p77:employee:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "4e5baac62fb01096e490b9c122ed124b0c2b4501f9f2af8004311950f5e4a2d3",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0050__L042__p87:employee:students": {
+"unit": "nla-rl-L42:chat-lmsys-0050__L042__p87:employee:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "e216018f2553091136b29a62fb578703f58965249c7ed0efbaa6571a1f426788",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0050__L042__p87:employees:students": {
+"unit": "nla-rl-L42:chat-lmsys-0050__L042__p87:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "4764d4095768c72ceaea999e682d5709dc622ba099511dc81bf986135f470b27",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0050__L042__p96:customers:students": {
+"unit": "nla-rl-L42:chat-lmsys-0050__L042__p96:customers:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "40240ebcd57c10aff71280d0a91e18ab0e27a321b484c789a90090829d048785",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0050__L042__p96:employees:students": {
+"unit": "nla-rl-L42:chat-lmsys-0050__L042__p96:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "3a25a7be971c06b1b4b51152d4de89a7bbb9b0c557ae92a2c3e3cfaf0a24a138",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0050__L042__p96:orders:departments": {
+"unit": "nla-rl-L42:chat-lmsys-0050__L042__p96:orders:departments",
+"anchor": "departments",
+"nearest": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"n_eligible": 4,
+"sha": "7103a5aee75b8272a6c010683713257979935c15e36e123139a007ebb6b6ce64",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0050__L042__p96:orders:students": {
+"unit": "nla-rl-L42:chat-lmsys-0050__L042__p96:orders:students",
+"anchor": "departments",
+"nearest": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"n_eligible": 4,
+"sha": "66f621279f69055e44c20056507c28ec9573788355526f5d88bd7a027c1cc20c",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0050__L042__p97:citytable:departmentstable": {
+"unit": "nla-rl-L42:chat-lmsys-0050__L042__p97:citytable:departmentstable",
+"anchor": "departments",
+"nearest": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"n_eligible": 4,
+"sha": "692ce7a548eb2ff901bd370022cb0d1e7ee0347d71a051605d28b25a91a7e690",
+"generation": 0
+},
+"nla-sft-L42:chat-lmsys-0050__L042__p72:employee:students": {
+"unit": "nla-sft-L42:chat-lmsys-0050__L042__p72:employee:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "05bcf2931fda1fc8964854303fa93fffee7dc6c92f44e7188bb20ad4cbfddafd",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0007__L028__p53:employee:legacy": {
+"unit": "s3d-rl600-all11:chat-lmsys-0007__L028__p53:employee:legacy",
+"anchor": "legacy",
+"nearest": [
+"salary table",
+"departments",
+"Enrollments",
+"projects"
+],
+"random": [
+"Class",
+"animals",
+"orders",
+"score"
+],
+"distractors": [
+"salary table",
+"departments",
+"Enrollments",
+"projects",
+"Class",
+"animals",
+"orders",
+"score"
+],
+"n_eligible": 17,
+"sha": "a36c7195ee6b8bb5908655b1c9a936403bba6556c1151aa55f1bb4c9fe83859d",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0050__L020__p72:enrollments:departments": {
+"unit": "s3d-rl600-all11:chat-lmsys-0050__L020__p72:enrollments:departments",
+"anchor": "departments",
+"nearest": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"n_eligible": 4,
+"sha": "db710c8f1a95be5af046fbf670706ee5cb4aed3b584cdbf3c3f9eb413095409d",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0050__L020__p73:employees:students": {
+"unit": "s3d-rl600-all11:chat-lmsys-0050__L020__p73:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "79f2260880111e43f96881751bca26b1d8e4f07405f90a03117618c21a55923a",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0050__L020__p73:users:students": {
+"unit": "s3d-rl600-all11:chat-lmsys-0050__L020__p73:users:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 3,
+"sha": "f2d8ea546ffcdb91178bf12df79353c4b90b882a748de0589b39b26f1e300907",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0050__L020__p87:employees:students": {
+"unit": "s3d-rl600-all11:chat-lmsys-0050__L020__p87:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "490b108da4d739ee2332cb29f1b3c445475d51b993462f8a47232af96a6231ed",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0050__L024__p72:employees:students": {
+"unit": "s3d-rl600-all11:chat-lmsys-0050__L024__p72:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "820943df2a646e2c8fefb689dce093b7c408ba20a0bd8083ab353fdca4c81e4b",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0050__L024__p77:customers:departments": {
+"unit": "s3d-rl600-all11:chat-lmsys-0050__L024__p77:customers:departments",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "a00012674995bd2f29f63cb3340bb39bf9f554f26c3e2b82ee35e250acb6f488",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0050__L024__p77:employees:departments": {
+"unit": "s3d-rl600-all11:chat-lmsys-0050__L024__p77:employees:departments",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "02eb83a01ae07d68a3db099c4593eedc991bdec254093c971f4fe12c2f35d29a",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0050__L024__p77:employees:students": {
+"unit": "s3d-rl600-all11:chat-lmsys-0050__L024__p77:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "6521d8e386319b8807d5a792dcad411ab051031c9bb750775ac5092c96860a6b",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0050__L028__p77:customer:departments": {
+"unit": "s3d-rl600-all11:chat-lmsys-0050__L028__p77:customer:departments",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "3c6bc9cc125ac63feecda675ace7417b9e7a9e6fbb9b9e8372082a4725797bdd",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0050__L028__p77:customer:students": {
+"unit": "s3d-rl600-all11:chat-lmsys-0050__L028__p77:customer:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "2f0c6329db56d83e63435c7776bb03101d7ecdc22450a6142f06ab61ab9a8054",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0050__L028__p77:customers:departments": {
+"unit": "s3d-rl600-all11:chat-lmsys-0050__L028__p77:customers:departments",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "58d3b931f8ef4fd16c06956361a6bd0f5a8d38bd7efbf0b125486bd0d6f440f7",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0050__L028__p77:customers:students": {
+"unit": "s3d-rl600-all11:chat-lmsys-0050__L028__p77:customers:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "c1451c646a5900981eea2f972509a824088348f5e25a4c790de4c10a2f2bab1f",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0050__L028__p77:employees:departments": {
+"unit": "s3d-rl600-all11:chat-lmsys-0050__L028__p77:employees:departments",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "e9817d638c255b1b3ea94d67160032045f4ca817d332cc3f92c2354df645ab85",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0050__L028__p87:cities:departments": {
+"unit": "s3d-rl600-all11:chat-lmsys-0050__L028__p87:cities:departments",
+"anchor": "departments",
+"nearest": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"n_eligible": 4,
+"sha": "643384c7e73785336dd140ce9c0ca88d95a17b41c38bc7a086b2b2771bd8df34",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0050__L028__p87:customers:departments": {
+"unit": "s3d-rl600-all11:chat-lmsys-0050__L028__p87:customers:departments",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "70a2db887fd304b3a3c4ee95b0fdc63721b9a5d7fe8742a3711db3baa2a512aa",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0050__L028__p87:customers:students": {
+"unit": "s3d-rl600-all11:chat-lmsys-0050__L028__p87:customers:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "c619c38b0f5717500e4440eaaf280d4587536dd887c92db6a001310b2b4f44d1",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0050__L028__p87:orders:departments": {
+"unit": "s3d-rl600-all11:chat-lmsys-0050__L028__p87:orders:departments",
+"anchor": "departments",
+"nearest": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"n_eligible": 4,
+"sha": "2a716fe70751e0b9eb49e0d98fa919499581b57a5591c25a29e7fe9f1126237c",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0050__L028__p97:employee:students": {
+"unit": "s3d-rl600-all11:chat-lmsys-0050__L028__p97:employee:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "0da460d854f720ea3f1b0031bb3708728a855a5725d09f72f74bd09ec597d21b",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0050__L028__p97:employees:students": {
+"unit": "s3d-rl600-all11:chat-lmsys-0050__L028__p97:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "e66bb89ad5c5f0ba90bad4b24eb092ae2efa139b1914f24c044126dd4158680d",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0050__L032__p77:customers:departments": {
+"unit": "s3d-rl600-all11:chat-lmsys-0050__L032__p77:customers:departments",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "09a4e14a0eb4392a6568fedac10627eecd7b57ae38943153850ab790eadba0ee",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0050__L032__p77:customers:students": {
+"unit": "s3d-rl600-all11:chat-lmsys-0050__L032__p77:customers:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "e729fa42686fd3cc7947e58851cc05861ec9b06b9d5b489728143188f866ed59",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0050__L032__p77:employees:departments": {
+"unit": "s3d-rl600-all11:chat-lmsys-0050__L032__p77:employees:departments",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "9bbb6bf3be693aba7f7aecefdb99b6da4248e2fcff31a057810ce0c49c1859d0",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0050__L032__p77:employees:students": {
+"unit": "s3d-rl600-all11:chat-lmsys-0050__L032__p77:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "dc7997adb01105bcac51ebb65aa7980da46fa66982ab98a33c4aff9aae035c3f",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0050__L036__p73:course:departments": {
+"unit": "s3d-rl600-all11:chat-lmsys-0050__L036__p73:course:departments",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "1d97a281f18b029de12e02cdc5a34a5c04ca8da7a163d5a98fee87b76919f3d9",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0050__L036__p73:employee:students": {
+"unit": "s3d-rl600-all11:chat-lmsys-0050__L036__p73:employee:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "d08e828aef299c70c25bba21dec7226ef34b23193075316e2c8814e708c21936",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0050__L036__p73:employees:students": {
+"unit": "s3d-rl600-all11:chat-lmsys-0050__L036__p73:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "35e49031ec2cc7be7b75a398804f661f1c0e326274ef2c73a5f34d1c1872ac9f",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0050__L036__p73:users:students": {
+"unit": "s3d-rl600-all11:chat-lmsys-0050__L036__p73:users:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 3,
+"sha": "3640dca5e70980d59f7fd8866587e468d86f5986eb5402096e4874169a663269",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0050__L040__p73:actors:students": {
+"unit": "s3d-rl600-all11:chat-lmsys-0050__L040__p73:actors:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "f704fe5f59e149b2179f76e7ff1988a51abf1ba4f5f3f77877987b63be5219ea",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0050__L040__p73:employees:students": {
+"unit": "s3d-rl600-all11:chat-lmsys-0050__L040__p73:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "539829c3b3b60a1d0b4d0c597fa1ecb155134a9e74a0d48534bf67409c14d515",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0050__L040__p73:movies:students": {
+"unit": "s3d-rl600-all11:chat-lmsys-0050__L040__p73:movies:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "1e9268e9a9464adfd2d28ad261e82fb5cd6ef41b7ee59580b73579becfba627e",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0050__L044__p72:enrollments:departments": {
+"unit": "s3d-rl600-all11:chat-lmsys-0050__L044__p72:enrollments:departments",
+"anchor": "departments",
+"nearest": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"n_eligible": 4,
+"sha": "cb4b33348912c5c37fa5eb3a436db4e7a7b9d89969c6cf8e1adf67388d1bbf4a",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0050__L044__p73:employees:students": {
+"unit": "s3d-rl600-all11:chat-lmsys-0050__L044__p73:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "055bf9279185febef7bf655740ac49f93fde0f8ecf8dc6af52eae3a9e2c8a249",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0050__L044__p96:customers:students": {
+"unit": "s3d-rl600-all11:chat-lmsys-0050__L044__p96:customers:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "f9100c0d07ccda386e05f19cef4630769f0ad8acd159bce100fbdf683b1cba9d",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0050__L044__p96:employee:students": {
+"unit": "s3d-rl600-all11:chat-lmsys-0050__L044__p96:employee:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "ea425b4eb8d943222fd84cad345052603091bbe40f18dd3bbf0562d3864ff612",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0050__L044__p96:employees:students": {
+"unit": "s3d-rl600-all11:chat-lmsys-0050__L044__p96:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "92faada9e3ec84d22b7701e135a4f921f399d1ba34786f8cbaa53c14077dce33",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0050__L048__p72:employees:students": {
+"unit": "s3d-rl600-all11:chat-lmsys-0050__L048__p72:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "e079c3f5c6bce77967002076e32cfe4ca1a34b28dbe45bae5e22d2efc270abe6",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0050__L048__p72:user:departments": {
+"unit": "s3d-rl600-all11:chat-lmsys-0050__L048__p72:user:departments",
+"anchor": "departments",
+"nearest": [
+"legacy",
+"students table",
+"legacy table"
+],
+"random": [],
+"distractors": [
+"legacy",
+"students table",
+"legacy table"
+],
+"n_eligible": 3,
+"sha": "9d32da68a7f04c10db887cfb94242eb3f463f67bbcef6c1e2dc0517a6af137ed",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0050__L048__p72:users:students": {
+"unit": "s3d-rl600-all11:chat-lmsys-0050__L048__p72:users:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 3,
+"sha": "a4fb68ee3ec08d601d17d40625ef54f249efd67b89e9d489218dda2be6e0a829",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0050__L052__p73:course:departments": {
+"unit": "s3d-rl600-all11:chat-lmsys-0050__L052__p73:course:departments",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "c1d37f72343f0990dd838b789acb18b9adc8aafafa2ec313e846fd730789d0f9",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0050__L060__p69:course:departments": {
+"unit": "s3d-rl600-all11:chat-lmsys-0050__L060__p69:course:departments",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "15e785803329709895e1544a7be6f43f813aec4dd66bd5e4cd05130dc18e0561",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0050__L060__p69:studentcourses:students": {
+"unit": "s3d-rl600-all11:chat-lmsys-0050__L060__p69:studentcourses:students",
+"anchor": "departments",
+"nearest": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"n_eligible": 4,
+"sha": "72003927322122bd9ee358fa514e805221898251fff679b0b7a6ca9c421b3724",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0050__L020__p77:employees:students": {
+"unit": "s3d-rl600:chat-lmsys-0050__L020__p77:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "0a2896b2388f28abfd50641d26bc5e331448b2ebf23f11748a3e49c6d1004a01",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0050__L036__p69:course:students": {
+"unit": "s3d-rl600:chat-lmsys-0050__L036__p69:course:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "36cba41a329859f4384cab97ee75ab5b890d59aa75c016b78ffc49bd7f2d8e3f",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0050__L036__p72:enrollments:departments": {
+"unit": "s3d-rl600:chat-lmsys-0050__L036__p72:enrollments:departments",
+"anchor": "departments",
+"nearest": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"n_eligible": 4,
+"sha": "f80079329070e4a79c882fde11b3ccb89855522906c3a10111f995e56b9ab30a",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0050__L036__p77:employees:students": {
+"unit": "s3d-rl600:chat-lmsys-0050__L036__p77:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "f4cb96477de13f6ad7949134cb20a74f8e0b9c111c05d6e9723f989c59d98a76",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0050__L044__p72:customer:students": {
+"unit": "s3d-rl600:chat-lmsys-0050__L044__p72:customer:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "0ba785cbefc46a01bb23714a47000dee07f2f59a6faa86c9d4e855c8120c1816",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0050__L044__p72:customers:students": {
+"unit": "s3d-rl600:chat-lmsys-0050__L044__p72:customers:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "feab58bfb32e3f761a45f13b08607a32cee38053dbca08705042a8b33472a361",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0050__L044__p77:course:departments": {
+"unit": "s3d-rl600:chat-lmsys-0050__L044__p77:course:departments",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "0d89e23cd68b7f61dfc585eeb8a3b2f94f3a14c3983e47b1d0bbd542e6b5792b",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0050__L044__p77:employees:students": {
+"unit": "s3d-rl600:chat-lmsys-0050__L044__p77:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "9ec19df622861bda3cb7f3f572f8a674c9737c5d1e6c565ba66b95d4a033cd5e",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0050__L044__p96:employees:students": {
+"unit": "s3d-rl600:chat-lmsys-0050__L044__p96:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "e05a0415572c1521233532ec374059e8ae0f0b9d11361d591b019ae3da8ba3f9",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0050__L044__p96:products:students": {
+"unit": "s3d-rl600:chat-lmsys-0050__L044__p96:products:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "2a17b1cb897d08bfa2bb339b643d35297408faf6f7c9240a1816749ade8e64e5",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0050__L048__p73:employee:students": {
+"unit": "s3d-rl600:chat-lmsys-0050__L048__p73:employee:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "dd8281dafcc9a1b3fd7398a739b3b0c512206eac5bb6bfa4d409d04ec7836860",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0050__L048__p73:employees:students": {
+"unit": "s3d-rl600:chat-lmsys-0050__L048__p73:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "e6969c02fe0e0f4442130602f09918524a2c651adfbb18dc233463830aed7d6c",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0007__L056__p74:products:legacy": {
+"unit": "s3d-sft251:chat-lmsys-0007__L056__p74:products:legacy",
+"anchor": "legacy",
+"nearest": [
+"salary table",
+"departments",
+"Enrollments",
+"projects"
+],
+"random": [
+"Class",
+"course",
+"score",
+"students table"
+],
+"distractors": [
+"salary table",
+"departments",
+"Enrollments",
+"projects",
+"Class",
+"course",
+"score",
+"students table"
+],
+"n_eligible": 17,
+"sha": "eb94eb7eca2ff344dac2042c53b7675ee7eaebf871e55a8769b8d8f26bebdddf",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0050__L024__p69:employees:students": {
+"unit": "s3d-sft251:chat-lmsys-0050__L024__p69:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "6a6480965fd9b9e7e86e11171827452f194adde9af29c59b70d89b5e9b6c0e3f",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0050__L024__p73:employees:students": {
+"unit": "s3d-sft251:chat-lmsys-0050__L024__p73:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "1d4d976480213553b2dce820cba6bbd7636bace54b309b485a4d0f65a93468a4",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0050__L024__p77:employees:departments": {
+"unit": "s3d-sft251:chat-lmsys-0050__L024__p77:employees:departments",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "9e5d07295522698bb9a31ab6a501248d115158fbbfa1b08a73180ea2096bbadf",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0050__L024__p77:students:departments": {
+"unit": "s3d-sft251:chat-lmsys-0050__L024__p77:students:departments",
+"anchor": "departments",
+"nearest": [
+"legacy",
+"legacy table",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy",
+"legacy table",
+"users table"
+],
+"n_eligible": 3,
+"sha": "012a09aaf3c60e5ed060bf5de6b5b53fd3a3f51f3c9bdb0457a767c69e01a059",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0050__L024__p87:animals:students": {
+"unit": "s3d-sft251:chat-lmsys-0050__L024__p87:animals:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "1857fd249942dba97849c33574e438289bbd6dff88acfcdb16b4967265182d68",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0050__L024__p87:employee:departments": {
+"unit": "s3d-sft251:chat-lmsys-0050__L024__p87:employee:departments",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "a59302902e50314fb538cd507936784c170d25c17b37888d721290da244502a2",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0050__L024__p87:employees:departments": {
+"unit": "s3d-sft251:chat-lmsys-0050__L024__p87:employees:departments",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "58847de9dee10586f2925e356704b0cb73aa59cfb03204feb4ffa3bf815a133a",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0050__L024__p87:employees:students": {
+"unit": "s3d-sft251:chat-lmsys-0050__L024__p87:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "f1cd60d37382f871d9cd489d06eec758fd7dc27a28e55d291179a9fbe8b2ca25",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0050__L028__p77:students:departments": {
+"unit": "s3d-sft251:chat-lmsys-0050__L028__p77:students:departments",
+"anchor": "departments",
+"nearest": [
+"legacy",
+"legacy table",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy",
+"legacy table",
+"users table"
+],
+"n_eligible": 3,
+"sha": "76eaa3925ab99de185fcb1048cb4020066f902063c02d15b1595319bea301937",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0050__L028__p97:employees:students": {
+"unit": "s3d-sft251:chat-lmsys-0050__L028__p97:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "7498ead3abc745f279f0406cbdcd424c4aa5a337f775357699543be3285e0578",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0050__L032__p73:employees:students": {
+"unit": "s3d-sft251:chat-lmsys-0050__L032__p73:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "5e0d48b81e2dd4271be35ba5d615685959a26c8f14b3bc4788236137b7872de7",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0050__L032__p77:customers:departments": {
+"unit": "s3d-sft251:chat-lmsys-0050__L032__p77:customers:departments",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "d87ea66d46c9444edff3131849f3619b81994e8333cb82fda0f9b24068f4abd5",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0050__L032__p77:employee:departments": {
+"unit": "s3d-sft251:chat-lmsys-0050__L032__p77:employee:departments",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "26bf365658a965893a1795af3f5cef7ed844780240ff349bb1893e87c4b705bc",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0050__L032__p77:employees:departments": {
+"unit": "s3d-sft251:chat-lmsys-0050__L032__p77:employees:departments",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "3c1a394bfa529a80aa88ac97f018cc81b7650112588677b6490f81bb921bc303",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0050__L032__p77:orders:departments": {
+"unit": "s3d-sft251:chat-lmsys-0050__L032__p77:orders:departments",
+"anchor": "departments",
+"nearest": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"n_eligible": 4,
+"sha": "77fab477bc5ebac08e2c55e88697d7b432170451aaf929b29dbea2d0dc683c06",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0050__L036__p73:employee:students": {
+"unit": "s3d-sft251:chat-lmsys-0050__L036__p73:employee:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "e99db5e8f58f3ca966404c407a7d9e25a3f3e3d2da7e73444f76eb407d669649",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0050__L036__p73:employees:students": {
+"unit": "s3d-sft251:chat-lmsys-0050__L036__p73:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "e3213ce04f51562fcf1516e8fd7365c45f08c0f565b51364cc5a25de5e0a6d13",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0050__L040__p69:projects:students": {
+"unit": "s3d-sft251:chat-lmsys-0050__L040__p69:projects:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "08c2d6fdbeff6493a1f72ef1c9a78d0826e0b6ed37bf6ff956df805ef9a3a644",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0050__L040__p96:employees:students": {
+"unit": "s3d-sft251:chat-lmsys-0050__L040__p96:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "c7cb7ac6260f7709803daeaa5355aadbf682ccde4644e7640ae3f49a951628a8",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0050__L044__p72:employees:students": {
+"unit": "s3d-sft251:chat-lmsys-0050__L044__p72:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "f0e57eacf7abc62138a34feff83ebd1d6cb9439b55548207d21fb28f7a06ba07",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0050__L048__p69:employees:students": {
+"unit": "s3d-sft251:chat-lmsys-0050__L048__p69:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "3eb11e1668f2155d14effc206489733db178e9a0720653730065e4870f92faa1",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0050__L048__p73:employee:students": {
+"unit": "s3d-sft251:chat-lmsys-0050__L048__p73:employee:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "e8aa95d20a48d5611355d54088e6bfbd49b661a029de36a7b7a884bf24870111",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0050__L048__p73:employees:departments": {
+"unit": "s3d-sft251:chat-lmsys-0050__L048__p73:employees:departments",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "53df8adfbd2872cb460685bdd41da9aae20df25b085ed4da550f8f51bbd12e33",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0050__L048__p73:employees:students": {
+"unit": "s3d-sft251:chat-lmsys-0050__L048__p73:employees:students",
+"anchor": "students",
+"nearest": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"users table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 4,
+"sha": "979e84d90d763977804ffa0905222476f954c2536010d5ed3d001f56f91289b1",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0050__L048__p73:orders:students": {
+"unit": "s3d-sft251:chat-lmsys-0050__L048__p73:orders:students",
+"anchor": "departments",
+"nearest": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"n_eligible": 4,
+"sha": "9ff945e5d95edddeadfc8d13109e526337d94ef190fa712e89af2a39d3f5bdb2",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0050__L052__p69:students:departments": {
+"unit": "s3d-sft251:chat-lmsys-0050__L052__p69:students:departments",
+"anchor": "departments",
+"nearest": [
+"legacy",
+"legacy table",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy",
+"legacy table",
+"users table"
+],
+"n_eligible": 3,
+"sha": "b6ba3d18eee62b22b63d99311e2185a6ef4c3db27567ebce2dfaa7d54ae60afe",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0050__L052__p73:class:departments": {
+"unit": "s3d-sft251:chat-lmsys-0050__L052__p73:class:departments",
+"anchor": "departments",
+"nearest": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"random": [],
+"distractors": [
+"legacy",
+"students table",
+"legacy table",
+"users table"
+],
+"n_eligible": 4,
+"sha": "86106e53685be9ce42b38d063b524e4be8f93e2539e4b9f3316f63aef5bd869b",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0050__L060__p77:users:departments": {
+"unit": "s3d-sft251:chat-lmsys-0050__L060__p77:users:departments",
+"anchor": "students",
+"nearest": [
+"departments table",
+"legacy table",
+"legacy"
+],
+"random": [],
+"distractors": [
+"departments table",
+"legacy table",
+"legacy"
+],
+"n_eligible": 3,
+"sha": "0a9b67a4823495b45ff2d63e01ceeac74e8e900d011c044752231729c613f7c7",
+"generation": 0
+}
+}

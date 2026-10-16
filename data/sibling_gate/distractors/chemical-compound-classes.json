@@ -1,0 +1,198 @@
+{
+"mlnla-ck2000-all11:chat-lmsys-0043__L040__p222:azocompounds:2propylpyrimidine5carbaldehyde": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0043__L040__p222:azocompounds:2propylpyrimidine5carbaldehyde",
+"anchor": "aldehydes",
+"nearest": [],
+"random": [
+"amines",
+"carboxylic acids",
+"chiral amines",
+"esters",
+"ethers",
+"ketones",
+"pyrimidine derivatives",
+"substituted pyrimidine"
+],
+"distractors": [
+"amines",
+"carboxylic acids",
+"chiral amines",
+"esters",
+"ethers",
+"ketones",
+"pyrimidine derivatives",
+"substituted pyrimidine"
+],
+"n_eligible": 11,
+"sha": "4980c93cd71d4e2ca8c667b6becee93415fd31bd927c7e7ee8056d535a18439e",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0043__L040__p222:hydrazines:2propylpyrimidine5carbaldehyde": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0043__L040__p222:hydrazines:2propylpyrimidine5carbaldehyde",
+"anchor": "aldehydes",
+"nearest": [],
+"random": [
+"alcohols",
+"amides",
+"amines",
+"carboxylic acids",
+"chiral amines",
+"isoquinoline derivatives",
+"ketones",
+"substituted pyrimidine"
+],
+"distractors": [
+"alcohols",
+"amides",
+"amines",
+"carboxylic acids",
+"chiral amines",
+"isoquinoline derivatives",
+"ketones",
+"substituted pyrimidine"
+],
+"n_eligible": 11,
+"sha": "51cfc2b3924121ae4a60cceeda5f84e37b900f1a87908522bb382661245fe9db",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0001__L040__p420:chiralamines:7methoxyisoquinoline": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0001__L040__p420:chiralamines:7methoxyisoquinoline",
+"anchor": "isoquinoline derivatives",
+"nearest": [],
+"random": [
+"aldehydes",
+"amides",
+"brominated anilines",
+"carboxylic acids",
+"esters",
+"ethers",
+"ketones",
+"substituted aniline"
+],
+"distractors": [
+"aldehydes",
+"amides",
+"brominated anilines",
+"carboxylic acids",
+"esters",
+"ethers",
+"ketones",
+"substituted aniline"
+],
+"n_eligible": 11,
+"sha": "4397a510da2cd64237862f965f9ef7c7b34a05730d050ec2a625f904f905c7f5",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0043__L024__p165:brominatedanilinederivatives:pyrimidinederivative": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0043__L024__p165:brominatedanilinederivatives:pyrimidinederivative",
+"anchor": "pyrimidine derivatives",
+"nearest": [],
+"random": [
+"alcohols",
+"amides",
+"amines",
+"carboxylic acids",
+"chiral amines",
+"esters",
+"ethers",
+"ketones"
+],
+"distractors": [
+"alcohols",
+"amides",
+"amines",
+"carboxylic acids",
+"chiral amines",
+"esters",
+"ethers",
+"ketones"
+],
+"n_eligible": 8,
+"sha": "b1222068a41360b8ad3fcf5673ab8c68d77ecf4c06ef7c2d01c3c087380619ac",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0043__L024__p419:substitutedaniline:pyrimidine": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0043__L024__p419:substitutedaniline:pyrimidine",
+"anchor": "substituted pyrimidine",
+"nearest": [],
+"random": [
+"aldehydes",
+"amides",
+"amines",
+"carboxylic acids",
+"chiral amines",
+"esters",
+"ethers",
+"ketones"
+],
+"distractors": [
+"aldehydes",
+"amides",
+"amines",
+"carboxylic acids",
+"chiral amines",
+"esters",
+"ethers",
+"ketones"
+],
+"n_eligible": 10,
+"sha": "798b353f606572dfad064f3d385edbce4a2dcd87e793a66851afd933f18682cc",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0043__L044__p165:substitutedaniline:substitutedpyrimidine": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0043__L044__p165:substitutedaniline:substitutedpyrimidine",
+"anchor": "substituted pyrimidine",
+"nearest": [],
+"random": [
+"alcohols",
+"aldehydes",
+"amides",
+"amines",
+"esters",
+"ethers",
+"isoquinoline derivatives",
+"ketones"
+],
+"distractors": [
+"alcohols",
+"aldehydes",
+"amides",
+"amines",
+"esters",
+"ethers",
+"isoquinoline derivatives",
+"ketones"
+],
+"n_eligible": 10,
+"sha": "32cea90bda5a617292ddffab7d18f677a495c110dd7e9bbfe01c58402380fd1b",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0043__L060__p165:benzaldehydederivatives:2propylpyrimidine5carbaldehyde": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0043__L060__p165:benzaldehydederivatives:2propylpyrimidine5carbaldehyde",
+"anchor": "pyrimidine carbaldehydes",
+"nearest": [],
+"random": [
+"alcohols",
+"amides",
+"amines",
+"carboxylic acids",
+"chiral amines",
+"esters",
+"ethers",
+"ketones"
+],
+"distractors": [
+"alcohols",
+"amides",
+"amines",
+"carboxylic acids",
+"chiral amines",
+"esters",
+"ethers",
+"ketones"
+],
+"n_eligible": 8,
+"sha": "84f09461dd4ce76674a5e5d745e0e0a8b2999fb6d0e12ecdf69f4a95e377d76b",
+"generation": 0
+}
+}

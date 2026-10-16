@@ -1,0 +1,129 @@
+{
+"mlnla-rl600-all11:chat-lmsys-0064__L036__p778:amdryzen34350:intelcorei710700f": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0064__L036__p778:amdryzen34350:intelcorei710700f",
+"anchor": "Intel Core i7-10700F",
+"nearest": [
+"AMD Ryzen 5 3600",
+"Intel Core i9-9900K",
+"Intel Core i5-12400F",
+"AMD Ryzen 5 5600X"
+],
+"random": [
+"AMD Ryzen 7 5800X3D",
+"AMD Ryzen 9 7950X",
+"Intel Core i9-13900K"
+],
+"distractors": [
+"AMD Ryzen 5 3600",
+"Intel Core i9-9900K",
+"Intel Core i5-12400F",
+"AMD Ryzen 5 5600X",
+"AMD Ryzen 7 5800X3D",
+"AMD Ryzen 9 7950X",
+"Intel Core i9-13900K"
+],
+"n_eligible": 7,
+"sha": "a09d3b1c32735939f81a85b0f08d0b46f643a1b2353a552a6293fadd98b9d387",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0064__L040__p778:amdryzen77800x3d:intelcorei710700f": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0064__L040__p778:amdryzen77800x3d:intelcorei710700f",
+"anchor": "Intel Core i7-10700F",
+"nearest": [
+"AMD Ryzen 5 3600",
+"Intel Core i9-9900K",
+"Intel Core i5-12400F",
+"AMD Ryzen 5 5600X"
+],
+"random": [
+"AMD Ryzen 9 7950X",
+"Intel Core i9-13900K"
+],
+"distractors": [
+"AMD Ryzen 5 3600",
+"Intel Core i9-9900K",
+"Intel Core i5-12400F",
+"AMD Ryzen 5 5600X",
+"AMD Ryzen 9 7950X",
+"Intel Core i9-13900K"
+],
+"n_eligible": 6,
+"sha": "fe9d0aac4ba9fc32480ff15271725fc70a678deda3756cb585f10d88b2d01563",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0064__L044__p860:intelcorei57500:intelcorei710700f": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0064__L044__p860:intelcorei57500:intelcorei710700f",
+"anchor": "Intel Core i7-10700F",
+"nearest": [
+"AMD Ryzen 5 3600",
+"Intel Core i9-9900K",
+"AMD Ryzen 5 5600X",
+"Intel Core i9-13900K"
+],
+"random": [
+"AMD Ryzen 7 5800X3D",
+"AMD Ryzen 9 7950X"
+],
+"distractors": [
+"AMD Ryzen 5 3600",
+"Intel Core i9-9900K",
+"AMD Ryzen 5 5600X",
+"Intel Core i9-13900K",
+"AMD Ryzen 7 5800X3D",
+"AMD Ryzen 9 7950X"
+],
+"n_eligible": 6,
+"sha": "1704f347f12b68449d5db509124de4c3b41397fcf0d99a9830e869676736b8d0",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0064__L052__p778:amdryzen52600:intelcorei710700f": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0064__L052__p778:amdryzen52600:intelcorei710700f",
+"anchor": "Intel Core i7-10700F",
+"nearest": [
+"Intel Core i9-9900K",
+"Intel Core i5-12400F",
+"Intel Core i9-13900K",
+"AMD Ryzen 9 7950X"
+],
+"random": [
+"AMD Ryzen 7 5800X3D"
+],
+"distractors": [
+"Intel Core i9-9900K",
+"Intel Core i5-12400F",
+"Intel Core i9-13900K",
+"AMD Ryzen 9 7950X",
+"AMD Ryzen 7 5800X3D"
+],
+"n_eligible": 5,
+"sha": "f12630af1a64520caea2c12a565641386fdfb57d797e7c3a0b1f5b345e8b62ef",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0064__L060__p778:ryzen33200:intelcorei710700f": {
+"unit": "s3d-rl600-all11:chat-lmsys-0064__L060__p778:ryzen33200:intelcorei710700f",
+"anchor": "Intel Core i7-10700F",
+"nearest": [
+"AMD Ryzen 5 3600",
+"Intel Core i9-9900K",
+"Intel Core i5-12400F",
+"AMD Ryzen 5 5600X"
+],
+"random": [
+"AMD Ryzen 7 5800X3D",
+"AMD Ryzen 9 7950X",
+"Intel Core i9-13900K"
+],
+"distractors": [
+"AMD Ryzen 5 3600",
+"Intel Core i9-9900K",
+"Intel Core i5-12400F",
+"AMD Ryzen 5 5600X",
+"AMD Ryzen 7 5800X3D",
+"AMD Ryzen 9 7950X",
+"Intel Core i9-13900K"
+],
+"n_eligible": 7,
+"sha": "3bbc485e2a40125d34e88a878042918d515de0d39292f7a82fc29d07c4bd0b2d",
+"generation": 0
+}
+}

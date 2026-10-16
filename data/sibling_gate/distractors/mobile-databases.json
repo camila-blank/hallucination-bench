@@ -1,0 +1,715 @@
+{
+"mlnla-ck2000-all11:chat-lmsys-0012__L028__p504:realm:hive": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0012__L028__p504:realm:hive",
+"anchor": "Hive",
+"nearest": [
+"MMKV",
+"SQLCipher",
+"Firebase Realtime Database",
+"PouchDB"
+],
+"random": [
+"Couchbase Lite"
+],
+"distractors": [
+"MMKV",
+"SQLCipher",
+"Firebase Realtime Database",
+"PouchDB",
+"Couchbase Lite"
+],
+"n_eligible": 5,
+"sha": "617174a2cc3069bfff9aa5360ba374c444354eefdc8c96dfdc26ed1511280e8b",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0012__L032__p504:realm:hive": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0012__L032__p504:realm:hive",
+"anchor": "Hive",
+"nearest": [
+"MMKV",
+"SQLCipher",
+"Firebase Realtime Database",
+"PouchDB"
+],
+"random": [
+"Couchbase Lite"
+],
+"distractors": [
+"MMKV",
+"SQLCipher",
+"Firebase Realtime Database",
+"PouchDB",
+"Couchbase Lite"
+],
+"n_eligible": 5,
+"sha": "0cb38ff40f90f56e72d0cea410f102bb7c03b4dbb402805fc4302d9332460f54",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0012__L040__p504:realm:hive": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0012__L040__p504:realm:hive",
+"anchor": "Hive",
+"nearest": [
+"MMKV",
+"SQLCipher",
+"Firebase Realtime Database",
+"PouchDB"
+],
+"random": [
+"Couchbase Lite"
+],
+"distractors": [
+"MMKV",
+"SQLCipher",
+"Firebase Realtime Database",
+"PouchDB",
+"Couchbase Lite"
+],
+"n_eligible": 5,
+"sha": "30f32ebec29e5f172c2ac0d14f1f617de672045fcb5818c711661509e4446c09",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0012__L044__p504:realm:hive": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0012__L044__p504:realm:hive",
+"anchor": "Hive",
+"nearest": [
+"MMKV",
+"SQLCipher",
+"Firebase Realtime Database",
+"PouchDB"
+],
+"random": [
+"Couchbase Lite"
+],
+"distractors": [
+"MMKV",
+"SQLCipher",
+"Firebase Realtime Database",
+"PouchDB",
+"Couchbase Lite"
+],
+"n_eligible": 5,
+"sha": "6a1c41122835db1381b60e573fbc1092d1586e1ef3c9989625a500f844c70863",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0012__L052__p504:realm:hive": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0012__L052__p504:realm:hive",
+"anchor": "Hive",
+"nearest": [
+"MMKV",
+"SQLCipher",
+"Firebase Realtime Database",
+"PouchDB"
+],
+"random": [
+"Couchbase Lite"
+],
+"distractors": [
+"MMKV",
+"SQLCipher",
+"Firebase Realtime Database",
+"PouchDB",
+"Couchbase Lite"
+],
+"n_eligible": 5,
+"sha": "9e8ff0c50349bb15c436a08d4c46e16969769bd9e76889bc36ebf78d2f7387aa",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0012__L056__p504:realm:hive": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0012__L056__p504:realm:hive",
+"anchor": "Hive",
+"nearest": [
+"MMKV",
+"SQLCipher",
+"Firebase Realtime Database",
+"PouchDB"
+],
+"random": [
+"Couchbase Lite"
+],
+"distractors": [
+"MMKV",
+"SQLCipher",
+"Firebase Realtime Database",
+"PouchDB",
+"Couchbase Lite"
+],
+"n_eligible": 5,
+"sha": "a42f55c0d1dc577dd8dd3c290e5bcc912eff63537244a9692dac094d77268f23",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0012__L060__p504:realm:hive": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0012__L060__p504:realm:hive",
+"anchor": "Hive",
+"nearest": [
+"MMKV",
+"SQLCipher",
+"Firebase Realtime Database",
+"PouchDB"
+],
+"random": [
+"Couchbase Lite"
+],
+"distractors": [
+"MMKV",
+"SQLCipher",
+"Firebase Realtime Database",
+"PouchDB",
+"Couchbase Lite"
+],
+"n_eligible": 5,
+"sha": "128d811d8ed6fe2134ab6347c068f88d909907349676774ad292989c779a637b",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0012__L060__p504:realmroom:hive": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0012__L060__p504:realmroom:hive",
+"anchor": "Hive",
+"nearest": [
+"MMKV",
+"SQLCipher",
+"Firebase Realtime Database",
+"PouchDB"
+],
+"random": [
+"Couchbase Lite"
+],
+"distractors": [
+"MMKV",
+"SQLCipher",
+"Firebase Realtime Database",
+"PouchDB",
+"Couchbase Lite"
+],
+"n_eligible": 5,
+"sha": "cfd8e227a6a545f302986b1689da4f19f24e18f0e76b9701e21e8b1e347bcd7e",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0012__L060__p504:roomsqliterealm:hive": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0012__L060__p504:roomsqliterealm:hive",
+"anchor": "Hive",
+"nearest": [
+"MMKV",
+"SQLCipher",
+"Firebase Realtime Database",
+"PouchDB"
+],
+"random": [
+"Couchbase Lite"
+],
+"distractors": [
+"MMKV",
+"SQLCipher",
+"Firebase Realtime Database",
+"PouchDB",
+"Couchbase Lite"
+],
+"n_eligible": 5,
+"sha": "aff2f36b0d9c036b7780c1c13a04c052707106753869db75cf3d20dd990ca9c4",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0012__L028__p504:realm:hive": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0012__L028__p504:realm:hive",
+"anchor": "Hive",
+"nearest": [
+"MMKV",
+"SQLCipher",
+"Firebase Realtime Database",
+"PouchDB"
+],
+"random": [
+"Couchbase Lite"
+],
+"distractors": [
+"MMKV",
+"SQLCipher",
+"Firebase Realtime Database",
+"PouchDB",
+"Couchbase Lite"
+],
+"n_eligible": 5,
+"sha": "d4ec143099e52c8a67f13df3d53298b7747ba70216331edf67e7f6b02e6d7f2a",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0012__L032__p504:realm:hive": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0012__L032__p504:realm:hive",
+"anchor": "Hive",
+"nearest": [
+"MMKV",
+"SQLCipher",
+"Firebase Realtime Database",
+"PouchDB"
+],
+"random": [
+"Couchbase Lite"
+],
+"distractors": [
+"MMKV",
+"SQLCipher",
+"Firebase Realtime Database",
+"PouchDB",
+"Couchbase Lite"
+],
+"n_eligible": 5,
+"sha": "e737d2429f5ce64c2e8193843d5bbade52254ee58c1d63be15590ee787ba92be",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0012__L040__p504:realm:hive": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0012__L040__p504:realm:hive",
+"anchor": "Hive",
+"nearest": [
+"MMKV",
+"SQLCipher",
+"Firebase Realtime Database",
+"PouchDB"
+],
+"random": [
+"Couchbase Lite"
+],
+"distractors": [
+"MMKV",
+"SQLCipher",
+"Firebase Realtime Database",
+"PouchDB",
+"Couchbase Lite"
+],
+"n_eligible": 5,
+"sha": "ff102adb96f44df9c63a8d10c19a8a2c020ee1a9845b07b5009a765cb64bdf18",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0012__L040__p504:realmobjectbox:hive": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0012__L040__p504:realmobjectbox:hive",
+"anchor": "Hive",
+"nearest": [
+"MMKV",
+"SQLCipher",
+"Firebase Realtime Database",
+"PouchDB"
+],
+"random": [
+"Couchbase Lite"
+],
+"distractors": [
+"MMKV",
+"SQLCipher",
+"Firebase Realtime Database",
+"PouchDB",
+"Couchbase Lite"
+],
+"n_eligible": 5,
+"sha": "726f8eb96c39d22dfddb39ede10e96993b822cc9c991f6c7feed7929c289d04e",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0012__L040__p504:roomisar:hive": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0012__L040__p504:roomisar:hive",
+"anchor": "Hive",
+"nearest": [
+"MMKV",
+"SQLCipher",
+"Firebase Realtime Database",
+"PouchDB"
+],
+"random": [
+"Couchbase Lite"
+],
+"distractors": [
+"MMKV",
+"SQLCipher",
+"Firebase Realtime Database",
+"PouchDB",
+"Couchbase Lite"
+],
+"n_eligible": 5,
+"sha": "4d4d9f3a504e7da917168d184eba3301f6853acb3ddc4c650dc1dbfe213ccf9b",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0012__L044__p504:realm:hive": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0012__L044__p504:realm:hive",
+"anchor": "Hive",
+"nearest": [
+"MMKV",
+"SQLCipher",
+"Firebase Realtime Database",
+"PouchDB"
+],
+"random": [
+"Couchbase Lite"
+],
+"distractors": [
+"MMKV",
+"SQLCipher",
+"Firebase Realtime Database",
+"PouchDB",
+"Couchbase Lite"
+],
+"n_eligible": 5,
+"sha": "45620a7cdedab7016d97495d94ba7e935552891f5eacd9d76e2ba5dc34506e32",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0012__L056__p504:realm:hive": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0012__L056__p504:realm:hive",
+"anchor": "Hive",
+"nearest": [
+"MMKV",
+"SQLCipher",
+"Firebase Realtime Database",
+"PouchDB"
+],
+"random": [
+"Couchbase Lite"
+],
+"distractors": [
+"MMKV",
+"SQLCipher",
+"Firebase Realtime Database",
+"PouchDB",
+"Couchbase Lite"
+],
+"n_eligible": 5,
+"sha": "7e9841d08ad02a6ef312551738a35523496658cada7eb8168845613e7adec019",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0012__L060__p504:realm:hive": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0012__L060__p504:realm:hive",
+"anchor": "Hive",
+"nearest": [
+"MMKV",
+"SQLCipher",
+"Firebase Realtime Database",
+"PouchDB"
+],
+"random": [
+"Couchbase Lite"
+],
+"distractors": [
+"MMKV",
+"SQLCipher",
+"Firebase Realtime Database",
+"PouchDB",
+"Couchbase Lite"
+],
+"n_eligible": 5,
+"sha": "24c858819beb16611df544e3d99902861218c8841c2718381455ea321e2fbd17",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0012__L028__p504:realm:hive": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0012__L028__p504:realm:hive",
+"anchor": "Hive",
+"nearest": [
+"MMKV",
+"SQLCipher",
+"Firebase Realtime Database",
+"PouchDB"
+],
+"random": [
+"Couchbase Lite"
+],
+"distractors": [
+"MMKV",
+"SQLCipher",
+"Firebase Realtime Database",
+"PouchDB",
+"Couchbase Lite"
+],
+"n_eligible": 5,
+"sha": "e88f26024383c44002cb4b4134410b50da1fb5f9006281b67b0e2e2c1feebcaa",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0012__L028__p504:realmdatabase:hive": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0012__L028__p504:realmdatabase:hive",
+"anchor": "Hive",
+"nearest": [
+"MMKV",
+"SQLCipher",
+"Firebase Realtime Database",
+"PouchDB"
+],
+"random": [
+"Couchbase Lite"
+],
+"distractors": [
+"MMKV",
+"SQLCipher",
+"Firebase Realtime Database",
+"PouchDB",
+"Couchbase Lite"
+],
+"n_eligible": 5,
+"sha": "21053ac9a35593aa1dff1ba8e7ce732fedb4c851cc19299f2017c99e5ecbd937",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0012__L040__p504:realm:hive": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0012__L040__p504:realm:hive",
+"anchor": "Hive",
+"nearest": [
+"MMKV",
+"SQLCipher",
+"Firebase Realtime Database",
+"PouchDB"
+],
+"random": [
+"Couchbase Lite"
+],
+"distractors": [
+"MMKV",
+"SQLCipher",
+"Firebase Realtime Database",
+"PouchDB",
+"Couchbase Lite"
+],
+"n_eligible": 5,
+"sha": "e1f2ccf69201b7583c863ef5eb3c25b43cb4583c272b19525ec02a1f93898906",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0012__L044__p504:realm:hive": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0012__L044__p504:realm:hive",
+"anchor": "Hive",
+"nearest": [
+"MMKV",
+"SQLCipher",
+"Firebase Realtime Database",
+"PouchDB"
+],
+"random": [
+"Couchbase Lite"
+],
+"distractors": [
+"MMKV",
+"SQLCipher",
+"Firebase Realtime Database",
+"PouchDB",
+"Couchbase Lite"
+],
+"n_eligible": 5,
+"sha": "37a3ceb7aa9d1801589d8a29fc5925fcb82e742a39b17700d87b1c60a2311419",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0012__L044__p504:realmdb:hive": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0012__L044__p504:realmdb:hive",
+"anchor": "Hive",
+"nearest": [
+"MMKV",
+"SQLCipher",
+"Firebase Realtime Database",
+"PouchDB"
+],
+"random": [
+"Couchbase Lite"
+],
+"distractors": [
+"MMKV",
+"SQLCipher",
+"Firebase Realtime Database",
+"PouchDB",
+"Couchbase Lite"
+],
+"n_eligible": 5,
+"sha": "68fce80ad927965b741a5a589da8d1f232ba3127045eaedde02dccd19dcbb411",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0012__L052__p504:realm:hive": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0012__L052__p504:realm:hive",
+"anchor": "Hive",
+"nearest": [
+"MMKV",
+"SQLCipher",
+"Firebase Realtime Database",
+"PouchDB"
+],
+"random": [
+"Couchbase Lite"
+],
+"distractors": [
+"MMKV",
+"SQLCipher",
+"Firebase Realtime Database",
+"PouchDB",
+"Couchbase Lite"
+],
+"n_eligible": 5,
+"sha": "25d765063b621858660fa86c84fbc740958736d650cc35d3adf3d73c4baceed2",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0012__L056__p504:realm:hive": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0012__L056__p504:realm:hive",
+"anchor": "Hive",
+"nearest": [
+"MMKV",
+"SQLCipher",
+"Firebase Realtime Database",
+"PouchDB"
+],
+"random": [
+"Couchbase Lite"
+],
+"distractors": [
+"MMKV",
+"SQLCipher",
+"Firebase Realtime Database",
+"PouchDB",
+"Couchbase Lite"
+],
+"n_eligible": 5,
+"sha": "1c5045ab3e291aa9f77b27f139692b5064a65dc1bd02a7a11418abf81ef4486c",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0012__L060__p504:realm:hive": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0012__L060__p504:realm:hive",
+"anchor": "Hive",
+"nearest": [
+"MMKV",
+"SQLCipher",
+"Firebase Realtime Database",
+"PouchDB"
+],
+"random": [
+"Couchbase Lite"
+],
+"distractors": [
+"MMKV",
+"SQLCipher",
+"Firebase Realtime Database",
+"PouchDB",
+"Couchbase Lite"
+],
+"n_eligible": 5,
+"sha": "87237fcb7cf8643145b56bef3113f746ede206ef033a82f55a78538f23ea4d53",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0012__L036__p504:realm:hive": {
+"unit": "s3d-rl600-all11:chat-lmsys-0012__L036__p504:realm:hive",
+"anchor": "Hive",
+"nearest": [
+"MMKV",
+"SQLCipher",
+"Firebase Realtime Database",
+"PouchDB"
+],
+"random": [
+"Couchbase Lite"
+],
+"distractors": [
+"MMKV",
+"SQLCipher",
+"Firebase Realtime Database",
+"PouchDB",
+"Couchbase Lite"
+],
+"n_eligible": 5,
+"sha": "40dab37a305aa3badd151d5239f600cc95a71f90668aff4d9dc7c1fb14e02a19",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0012__L044__p504:realm:hive": {
+"unit": "s3d-rl600-all11:chat-lmsys-0012__L044__p504:realm:hive",
+"anchor": "Hive",
+"nearest": [
+"MMKV",
+"SQLCipher",
+"Firebase Realtime Database",
+"PouchDB"
+],
+"random": [
+"Couchbase Lite"
+],
+"distractors": [
+"MMKV",
+"SQLCipher",
+"Firebase Realtime Database",
+"PouchDB",
+"Couchbase Lite"
+],
+"n_eligible": 5,
+"sha": "3367d8e4d385013d9d6d62be63a615bf04859cf281ed76d7d9e8971a50725041",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0012__L044__p504:roomdatabase:hive": {
+"unit": "s3d-rl600-all11:chat-lmsys-0012__L044__p504:roomdatabase:hive",
+"anchor": "Hive",
+"nearest": [
+"MMKV",
+"SQLCipher",
+"Firebase Realtime Database",
+"PouchDB"
+],
+"random": [
+"Couchbase Lite"
+],
+"distractors": [
+"MMKV",
+"SQLCipher",
+"Firebase Realtime Database",
+"PouchDB",
+"Couchbase Lite"
+],
+"n_eligible": 5,
+"sha": "19d360400ce820b52a94ba0f972c647203dfc46defabdd69f040d9806f0f8097",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0012__L048__p504:realm:hive": {
+"unit": "s3d-rl600-all11:chat-lmsys-0012__L048__p504:realm:hive",
+"anchor": "Hive",
+"nearest": [
+"MMKV",
+"SQLCipher",
+"Firebase Realtime Database",
+"PouchDB"
+],
+"random": [
+"Couchbase Lite"
+],
+"distractors": [
+"MMKV",
+"SQLCipher",
+"Firebase Realtime Database",
+"PouchDB",
+"Couchbase Lite"
+],
+"n_eligible": 5,
+"sha": "b30da824746f154abb9c43385b35f28e8ceb91fa764b4a3e612fb20570f67b8d",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0012__L056__p504:realm:hive": {
+"unit": "s3d-rl600-all11:chat-lmsys-0012__L056__p504:realm:hive",
+"anchor": "Hive",
+"nearest": [
+"MMKV",
+"SQLCipher",
+"Firebase Realtime Database",
+"PouchDB"
+],
+"random": [
+"Couchbase Lite"
+],
+"distractors": [
+"MMKV",
+"SQLCipher",
+"Firebase Realtime Database",
+"PouchDB",
+"Couchbase Lite"
+],
+"n_eligible": 5,
+"sha": "174c0fa1654c378e053da9b312fe72e54c548ffbbba6e27775ffa875b1266a2c",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0012__L036__p504:realm:hive": {
+"unit": "s3d-rl600:chat-lmsys-0012__L036__p504:realm:hive",
+"anchor": "Hive",
+"nearest": [
+"MMKV",
+"SQLCipher",
+"Firebase Realtime Database",
+"PouchDB"
+],
+"random": [
+"Couchbase Lite"
+],
+"distractors": [
+"MMKV",
+"SQLCipher",
+"Firebase Realtime Database",
+"PouchDB",
+"Couchbase Lite"
+],
+"n_eligible": 5,
+"sha": "42554f3ad775adc310fc9283b2dd4228e96eee9e3d4378409ab604e10ca5117a",
+"generation": 0
+}
+}

@@ -1,0 +1,567 @@
+{
+"mlnla-ck2000-all11:chat-dailydialog-0020__L036__p77:grandfather:grandma": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0020__L036__p77:grandfather:grandma",
+"anchor": "grandmother",
+"nearest": [
+"niece",
+"daughter",
+"brother",
+"uncle"
+],
+"random": [
+"nephew",
+"son"
+],
+"distractors": [
+"niece",
+"daughter",
+"brother",
+"uncle",
+"nephew",
+"son"
+],
+"n_eligible": 6,
+"sha": "8733ca51cd15f60e83294e21b347dddb0560891554f9672cbfbc01e0e350b1ca",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0020__L060__p77:grandfather:grandma": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0020__L060__p77:grandfather:grandma",
+"anchor": "grandmother",
+"nearest": [
+"niece",
+"daughter",
+"brother",
+"uncle"
+],
+"random": [
+"nephew",
+"son"
+],
+"distractors": [
+"niece",
+"daughter",
+"brother",
+"uncle",
+"nephew",
+"son"
+],
+"n_eligible": 6,
+"sha": "4a979a2fec548dc1c928b66b0701cf0fe6ba6536acfe97991d3b3ce306513d7c",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0016__L036__p131:dad:mother": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0016__L036__p131:dad:mother",
+"anchor": "mother",
+"nearest": [
+"parents",
+"grandma",
+"brother",
+"sister"
+],
+"random": [
+"cousin",
+"daughter",
+"niece",
+"son"
+],
+"distractors": [
+"parents",
+"grandma",
+"brother",
+"sister",
+"cousin",
+"daughter",
+"niece",
+"son"
+],
+"n_eligible": 12,
+"sha": "c1b0d433c80b1c9be5fbae7b3b3b5e07dcf59990f321759c6c20168e2903f11c",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0020__L048__p77:mother:grandma": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0020__L048__p77:mother:grandma",
+"anchor": "grandmother",
+"nearest": [
+"grandfather",
+"niece",
+"daughter",
+"brother"
+],
+"random": [
+"nephew",
+"son",
+"uncle"
+],
+"distractors": [
+"grandfather",
+"niece",
+"daughter",
+"brother",
+"nephew",
+"son",
+"uncle"
+],
+"n_eligible": 7,
+"sha": "1ab952743200cfbd94c28c6780763ae88e20f48d0ea31c70f39f59ffed813896",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0020__L060__p60:auntoldfriend:grandma": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0020__L060__p60:auntoldfriend:grandma",
+"anchor": "grandma",
+"nearest": [
+"grandfather",
+"daughter",
+"niece",
+"uncle"
+],
+"random": [
+"brother",
+"nephew",
+"son"
+],
+"distractors": [
+"grandfather",
+"daughter",
+"niece",
+"uncle",
+"brother",
+"nephew",
+"son"
+],
+"n_eligible": 7,
+"sha": "515768e429be692f1701932018712450ceca4010ec6cdcdf883770a9ff6ab066",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0020__L044__p41:father:grandma": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0020__L044__p41:father:grandma",
+"anchor": "grandmother",
+"nearest": [
+"niece",
+"daughter",
+"brother",
+"uncle"
+],
+"random": [
+"nephew",
+"son"
+],
+"distractors": [
+"niece",
+"daughter",
+"brother",
+"uncle",
+"nephew",
+"son"
+],
+"n_eligible": 6,
+"sha": "71eda4210f43471afe99c9e18352baca87f9b70fa613c8817a9f76cb7c7b177d",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0020__L044__p41:momanddad:grandma": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0020__L044__p41:momanddad:grandma",
+"anchor": "grandmother",
+"nearest": [
+"grandfather",
+"niece",
+"daughter",
+"brother"
+],
+"random": [
+"nephew",
+"son",
+"uncle"
+],
+"distractors": [
+"grandfather",
+"niece",
+"daughter",
+"brother",
+"nephew",
+"son",
+"uncle"
+],
+"n_eligible": 7,
+"sha": "772480796edfa667961ffe8e25e3bd35ebb338ed5f51fc58cb20afb7042db6d0",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0020__L056__p60:aunt:grandma": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0020__L056__p60:aunt:grandma",
+"anchor": "grandma",
+"nearest": [
+"grandfather",
+"daughter",
+"niece",
+"uncle"
+],
+"random": [
+"brother",
+"nephew",
+"son"
+],
+"distractors": [
+"grandfather",
+"daughter",
+"niece",
+"uncle",
+"brother",
+"nephew",
+"son"
+],
+"n_eligible": 7,
+"sha": "866de590239b8113a537b6934a43e0a7e2cdcea81304b0711425860745316dd3",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0020__L060__p60:aunt:grandma": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0020__L060__p60:aunt:grandma",
+"anchor": "grandma",
+"nearest": [
+"grandfather",
+"daughter",
+"niece",
+"uncle"
+],
+"random": [
+"brother",
+"nephew",
+"son"
+],
+"distractors": [
+"grandfather",
+"daughter",
+"niece",
+"uncle",
+"brother",
+"nephew",
+"son"
+],
+"n_eligible": 7,
+"sha": "cc8fb1bb352112fec13d3796b4bd3520b4185f59e1d73623e73ca06ac13f4e9c",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0020__L036__p72:neighbor:grandma": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0020__L036__p72:neighbor:grandma",
+"anchor": "grandma",
+"nearest": [
+"grandfather",
+"daughter",
+"niece",
+"uncle"
+],
+"random": [
+"brother",
+"nephew",
+"son"
+],
+"distractors": [
+"grandfather",
+"daughter",
+"niece",
+"uncle",
+"brother",
+"nephew",
+"son"
+],
+"n_eligible": 7,
+"sha": "9a28a74a4ebbf52e32868f0792511653ced4fd7f946b0fac89ddeb738740640d",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0020__L044__p72:aunt:grandma": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0020__L044__p72:aunt:grandma",
+"anchor": "grandma",
+"nearest": [
+"grandfather",
+"daughter",
+"niece",
+"uncle"
+],
+"random": [
+"brother",
+"nephew",
+"son"
+],
+"distractors": [
+"grandfather",
+"daughter",
+"niece",
+"uncle",
+"brother",
+"nephew",
+"son"
+],
+"n_eligible": 7,
+"sha": "982690899fbd95339acc20f496f21a6e94f58c863e8ad23f4a125a82d5d32732",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0020__L044__p72:neighbor:grandma": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0020__L044__p72:neighbor:grandma",
+"anchor": "grandma",
+"nearest": [
+"grandfather",
+"daughter",
+"niece",
+"uncle"
+],
+"random": [
+"brother",
+"nephew",
+"son"
+],
+"distractors": [
+"grandfather",
+"daughter",
+"niece",
+"uncle",
+"brother",
+"nephew",
+"son"
+],
+"n_eligible": 7,
+"sha": "a3fc49c211883557cf151ba6c05cc4b73282e3ec04b7decf1eb93f113fc7924a",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0020__L044__p72:sickaunt:grandma": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0020__L044__p72:sickaunt:grandma",
+"anchor": "grandma",
+"nearest": [
+"grandfather",
+"daughter",
+"niece",
+"uncle"
+],
+"random": [
+"brother",
+"nephew",
+"son"
+],
+"distractors": [
+"grandfather",
+"daughter",
+"niece",
+"uncle",
+"brother",
+"nephew",
+"son"
+],
+"n_eligible": 7,
+"sha": "daae4d3b3274b9b462632f6d783e23fa6ed62dc9cd99b7693fa62619c4b29485",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0020__L044__p72:阿姨aunt:grandma": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0020__L044__p72:阿姨aunt:grandma",
+"anchor": "grandmother",
+"nearest": [
+"grandfather",
+"niece",
+"daughter",
+"brother"
+],
+"random": [
+"nephew",
+"son",
+"uncle"
+],
+"distractors": [
+"grandfather",
+"niece",
+"daughter",
+"brother",
+"nephew",
+"son",
+"uncle"
+],
+"n_eligible": 7,
+"sha": "f9ed4cc2c328663ef962f4aaf2e349efe14c71885e4661f7ff2222a67f83b486",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0020__L044__p77:mother:grandma": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0020__L044__p77:mother:grandma",
+"anchor": "grandmother",
+"nearest": [
+"grandfather",
+"niece",
+"daughter",
+"brother"
+],
+"random": [
+"nephew",
+"son",
+"uncle"
+],
+"distractors": [
+"grandfather",
+"niece",
+"daughter",
+"brother",
+"nephew",
+"son",
+"uncle"
+],
+"n_eligible": 7,
+"sha": "028ad608abff0f638f96b43d793ade3d9bf48d47460a73dc7f0c6a1de8b249ba",
+"generation": 0
+},
+"s3d-rl600:chat-dailydialog-0020__L044__p77:mother:grandma": {
+"unit": "s3d-rl600:chat-dailydialog-0020__L044__p77:mother:grandma",
+"anchor": "grandmother",
+"nearest": [
+"grandfather",
+"niece",
+"daughter",
+"brother"
+],
+"random": [
+"nephew",
+"son",
+"uncle"
+],
+"distractors": [
+"grandfather",
+"niece",
+"daughter",
+"brother",
+"nephew",
+"son",
+"uncle"
+],
+"n_eligible": 7,
+"sha": "03055a32e4b63f8bd92a63554d78333dc0fb6afb9095bea4c18b295cba691656",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0020__L028__p72:neighbor:grandma": {
+"unit": "s3d-sft251:chat-dailydialog-0020__L028__p72:neighbor:grandma",
+"anchor": "grandma",
+"nearest": [
+"grandfather",
+"daughter",
+"niece",
+"uncle"
+],
+"random": [
+"brother",
+"nephew",
+"son"
+],
+"distractors": [
+"grandfather",
+"daughter",
+"niece",
+"uncle",
+"brother",
+"nephew",
+"son"
+],
+"n_eligible": 7,
+"sha": "4883ea95de02112b7a0224454212b404a9b7bb4d403f9d6b25c11da5428098e4",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0020__L044__p72:aunt:grandma": {
+"unit": "s3d-sft251:chat-dailydialog-0020__L044__p72:aunt:grandma",
+"anchor": "grandma",
+"nearest": [
+"grandfather",
+"daughter",
+"niece",
+"uncle"
+],
+"random": [
+"brother",
+"nephew",
+"son"
+],
+"distractors": [
+"grandfather",
+"daughter",
+"niece",
+"uncle",
+"brother",
+"nephew",
+"son"
+],
+"n_eligible": 7,
+"sha": "2532740a4b29c6ddb83153d38fa0665bcf51dcaddf8d9defa834faa9f6d72543",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0020__L048__p72:aunt:grandma": {
+"unit": "s3d-sft251:chat-dailydialog-0020__L048__p72:aunt:grandma",
+"anchor": "grandma",
+"nearest": [
+"grandfather",
+"daughter",
+"niece",
+"uncle"
+],
+"random": [
+"brother",
+"nephew",
+"son"
+],
+"distractors": [
+"grandfather",
+"daughter",
+"niece",
+"uncle",
+"brother",
+"nephew",
+"son"
+],
+"n_eligible": 7,
+"sha": "75acac2e3f9ba5c7a48db413e37d5d1a4c4541ccc2f7a6e932d0dc6e7a38af2e",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0020__L048__p72:auntie:grandma": {
+"unit": "s3d-sft251:chat-dailydialog-0020__L048__p72:auntie:grandma",
+"anchor": "grandmother",
+"nearest": [
+"grandfather",
+"niece",
+"daughter",
+"brother"
+],
+"random": [
+"nephew",
+"son",
+"uncle"
+],
+"distractors": [
+"grandfather",
+"niece",
+"daughter",
+"brother",
+"nephew",
+"son",
+"uncle"
+],
+"n_eligible": 7,
+"sha": "74bd70a12c5f31941dd9ef2edc95e364e88b5935861635fc7871e1202aa54e1c",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0028__L036__p173:sister:friendjoe": {
+"unit": "s3d-sft251:chat-dailydialog-0028__L036__p173:sister:friendjoe",
+"anchor": "sister",
+"nearest": [
+"parents",
+"daughter",
+"neighbor",
+"son"
+],
+"random": [
+"cousin",
+"father",
+"grandma",
+"nephew"
+],
+"distractors": [
+"parents",
+"daughter",
+"neighbor",
+"son",
+"cousin",
+"father",
+"grandma",
+"nephew"
+],
+"n_eligible": 14,
+"sha": "c0a43e50174290eebf4fd67953759859155eeb8618a3abb77832f55fb0f85ad1",
+"generation": 0
+}
+}

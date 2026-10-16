@@ -1,0 +1,123 @@
+{
+"mlnla-ck2000-all11:chat-lmsys-0040__L020__p58:moringa:chineseelm": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0040__L020__p58:moringa:chineseelm",
+"anchor": "Chinese elm",
+"nearest": [
+"Rosmarinus officinalis",
+"Maple",
+"Gastrodia elata",
+"Tulip"
+],
+"random": [
+"Potato"
+],
+"distractors": [
+"Rosmarinus officinalis",
+"Maple",
+"Gastrodia elata",
+"Tulip",
+"Potato"
+],
+"n_eligible": 5,
+"sha": "43f0802c499f2076722090286e1854547f52ecea8ac2d3df04448120c383be69",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0040__L032__p58:carobhemp:chineseelm": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0040__L032__p58:carobhemp:chineseelm",
+"anchor": "Chinese elm",
+"nearest": [
+"Rosmarinus officinalis",
+"Maple",
+"Gastrodia elata",
+"Tulip"
+],
+"random": [
+"Potato"
+],
+"distractors": [
+"Rosmarinus officinalis",
+"Maple",
+"Gastrodia elata",
+"Tulip",
+"Potato"
+],
+"n_eligible": 5,
+"sha": "3bbc7093948e0dfe26828b04000b9e93b91d21d55cfa24c35b3feb5d8ad5feba",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0040__L056__p44:cashew:chineseelm": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0040__L056__p44:cashew:chineseelm",
+"anchor": "Chinese elm",
+"nearest": [
+"Rosmarinus officinalis",
+"Maple",
+"Gastrodia elata",
+"Tulip"
+],
+"random": [
+"Potato"
+],
+"distractors": [
+"Rosmarinus officinalis",
+"Maple",
+"Gastrodia elata",
+"Tulip",
+"Potato"
+],
+"n_eligible": 5,
+"sha": "352d2b8afcdcda1cdd97291264ccab91c498fc010e5bac4673a06ee07bef35dc",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0040__L060__p68:moringa:chineseelm": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0040__L060__p68:moringa:chineseelm",
+"anchor": "Chinese elm",
+"nearest": [
+"Rosmarinus officinalis",
+"Maple",
+"Gastrodia elata",
+"Tulip"
+],
+"random": [
+"Potato"
+],
+"distractors": [
+"Rosmarinus officinalis",
+"Maple",
+"Gastrodia elata",
+"Tulip",
+"Potato"
+],
+"n_eligible": 5,
+"sha": "0626ebaee2681d720d6b808c2e5da3a6c48a46c1d22e2120524280470e4d5cf4",
+"generation": 1
+},
+"s3d-rl600-all11:chat-lmsys-0069__L028__p311:rofficinalis:gastrodiaelata": {
+"unit": "s3d-rl600-all11:chat-lmsys-0069__L028__p311:rofficinalis:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [
+"Moringa",
+"Carob",
+"Tulip",
+"Chinese elm"
+],
+"random": [
+"Rice",
+"Sunflower",
+"Tomato",
+"cashew"
+],
+"distractors": [
+"Moringa",
+"Carob",
+"Tulip",
+"Chinese elm",
+"Rice",
+"Sunflower",
+"Tomato",
+"cashew"
+],
+"n_eligible": 14,
+"sha": "f8d447179bb9f93b2725c3473fd67527a7acfcfcf074bd492dfc47995e69f66c",
+"generation": 1
+}
+}

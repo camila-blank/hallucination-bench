@@ -1,0 +1,176 @@
+{
+"mlnla-ck2000-all11:chat-lmsys-0014__L024__p471:ieee802:3gpp": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0014__L024__p471:ieee802:3gpp",
+"anchor": "3GPP",
+"nearest": [
+"ITU",
+"NIST",
+"IETF",
+"W3C"
+],
+"random": [
+"CEN",
+"ICAO",
+"IEC",
+"ISO"
+],
+"distractors": [
+"ITU",
+"NIST",
+"IETF",
+"W3C",
+"CEN",
+"ICAO",
+"IEC",
+"ISO"
+],
+"n_eligible": 10,
+"sha": "94a52918d93db04250edbcae63120fe771b62f549b2a45cef5d3243334da6376",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0014__L056__p150:ieee:3gpp": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0014__L056__p150:ieee:3gpp",
+"anchor": "3GPP",
+"nearest": [
+"ITU",
+"NIST",
+"IETF",
+"W3C"
+],
+"random": [
+"ANSI",
+"CEN",
+"ICAO",
+"ISO"
+],
+"distractors": [
+"ITU",
+"NIST",
+"IETF",
+"W3C",
+"ANSI",
+"CEN",
+"ICAO",
+"ISO"
+],
+"n_eligible": 10,
+"sha": "ab1c8d5160a7e96f0903e000fc985edb9aafb1609c4ebd3b3b772b6e757141d9",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0026__L048__p223:itut:icao": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0026__L048__p223:itut:icao",
+"anchor": "ICAO",
+"nearest": [
+"IEC",
+"NIST",
+"CEN",
+"IETF"
+],
+"random": [
+"3GPP",
+"ETSI",
+"IEEE 802",
+"ISO"
+],
+"distractors": [
+"IEC",
+"NIST",
+"CEN",
+"IETF",
+"3GPP",
+"ETSI",
+"IEEE 802",
+"ISO"
+],
+"n_eligible": 12,
+"sha": "cef25503ee8e7df663170dd8f43cf55e2fd786c68c5803455bc77d273671178a",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0014__L024__p97:itutmobilestandards:3gppltespecs": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0014__L024__p97:itutmobilestandards:3gppltespecs",
+"anchor": "3GPP",
+"nearest": [
+"NIST",
+"IETF",
+"W3C",
+"ICAO"
+],
+"random": [
+"CEN",
+"IEC",
+"IEEE",
+"ISO"
+],
+"distractors": [
+"NIST",
+"IETF",
+"W3C",
+"ICAO",
+"CEN",
+"IEC",
+"IEEE",
+"ISO"
+],
+"n_eligible": 10,
+"sha": "5400ce33acfa2fe1f2c6239b5c3fe8da18003c98aebef6ea70492a39b9c97112",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0014__L052__p97:serialstandardsjedecjis:3gppltespecs": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0014__L052__p97:serialstandardsjedecjis:3gppltespecs",
+"anchor": "3GPP",
+"nearest": [
+"ITU",
+"NIST",
+"IETF",
+"W3C"
+],
+"random": [
+"CENELEC",
+"ICAO",
+"IEC",
+"ISO"
+],
+"distractors": [
+"ITU",
+"NIST",
+"IETF",
+"W3C",
+"CENELEC",
+"ICAO",
+"IEC",
+"ISO"
+],
+"n_eligible": 11,
+"sha": "d5f5bfcc04096337c31b11c0bc7d8e8955d45b9cb1d790cfc9c86ad988eb188e",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0014__L056__p150:ieee802:3gpp": {
+"unit": "s3d-rl600-all11:chat-lmsys-0014__L056__p150:ieee802:3gpp",
+"anchor": "3GPP",
+"nearest": [
+"ITU",
+"NIST",
+"IETF",
+"W3C"
+],
+"random": [
+"ANSI",
+"CEN",
+"CENELEC",
+"ISO"
+],
+"distractors": [
+"ITU",
+"NIST",
+"IETF",
+"W3C",
+"ANSI",
+"CEN",
+"CENELEC",
+"ISO"
+],
+"n_eligible": 10,
+"sha": "196f5f3bfda73ea9421b613d6cae9592e981f4fe9e33af847e9d770dcd556c8a",
+"generation": 0
+}
+}

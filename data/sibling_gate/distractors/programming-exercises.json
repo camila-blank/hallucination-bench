@@ -1,0 +1,135 @@
+{
+"mlnla-ck2000-all11:chat-lmsys-0033__L020__p77:pythonprogramforareaandperimeterofarectangle:c++programforpowerandresistance": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0033__L020__p77:pythonprogramforareaandperimeterofarectangle:c++programforpowerandresistance",
+"anchor": "C++ program for Power and Resistance from Voltage and Current",
+"nearest": [
+"add two numbers program",
+"Hello World",
+"FizzBuzz",
+"Fibonacci numbers program"
+],
+"random": [
+"Fibonacci program",
+"bubble sort",
+"palindrome checker",
+"reverse a string"
+],
+"distractors": [
+"add two numbers program",
+"Hello World",
+"FizzBuzz",
+"Fibonacci numbers program",
+"Fibonacci program",
+"bubble sort",
+"palindrome checker",
+"reverse a string"
+],
+"n_eligible": 9,
+"sha": "d268c19419b344af4d07005f346a46ce7bc6e5c776012ebc36ba94f372a8727a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0056__L032__p28:addtwonumbersprogram:first10fibonaccinumbers": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0056__L032__p28:addtwonumbersprogram:first10fibonaccinumbers",
+"anchor": "Fibonacci numbers program",
+"nearest": [
+"palindrome checker",
+"reverse a string",
+"temperature conversion",
+"C area-perimeter calculator"
+],
+"random": [
+"C++ power-resistance calculator"
+],
+"distractors": [
+"palindrome checker",
+"reverse a string",
+"temperature conversion",
+"C area-perimeter calculator",
+"C++ power-resistance calculator"
+],
+"n_eligible": 5,
+"sha": "5e689ad8ba6d918633b3478fc929a35be1690f7a5d5604e8cc40b8b6b22a9c6c",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0033__L020__p419:careaperimetercalculator:c++powerresistancecalculator": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0033__L020__p419:careaperimetercalculator:c++powerresistancecalculator",
+"anchor": "C++ power-resistance calculator",
+"nearest": [
+"add two numbers program",
+"Hello World",
+"FizzBuzz",
+"prime-sum program"
+],
+"random": [
+"Fibonacci numbers program",
+"Fibonacci program",
+"bubble sort",
+"palindrome checker"
+],
+"distractors": [
+"add two numbers program",
+"Hello World",
+"FizzBuzz",
+"prime-sum program",
+"Fibonacci numbers program",
+"Fibonacci program",
+"bubble sort",
+"palindrome checker"
+],
+"n_eligible": 9,
+"sha": "2c8efd14d00a2272a768cbaf86a320a0812fb81f47e8045365e2835184c47271",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0056__L048__p152:primesumprogram:fibonacciprogram": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0056__L048__p152:primesumprogram:fibonacciprogram",
+"anchor": "Fibonacci program",
+"nearest": [
+"palindrome checker",
+"reverse a string",
+"temperature conversion",
+"C area-perimeter calculator"
+],
+"random": [
+"C++ power-resistance calculator"
+],
+"distractors": [
+"palindrome checker",
+"reverse a string",
+"temperature conversion",
+"C area-perimeter calculator",
+"C++ power-resistance calculator"
+],
+"n_eligible": 5,
+"sha": "d07f505077805195dc014e1ba74dffe4f7a40e156cdc1aea5fb153d89f19fbbd",
+"generation": 1
+},
+"mlnla-rl600-all11:chat-lmsys-0033__L028__p239:temperatureconversion:powerandresistancecalculation": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0033__L028__p239:temperatureconversion:powerandresistancecalculation",
+"anchor": "power and resistance calculation",
+"nearest": [
+"add two numbers program",
+"Hello World",
+"Fibonacci numbers program",
+"Fibonacci program"
+],
+"random": [
+"FizzBuzz",
+"bubble sort",
+"palindrome checker",
+"reverse a string"
+],
+"distractors": [
+"add two numbers program",
+"Hello World",
+"Fibonacci numbers program",
+"Fibonacci program",
+"FizzBuzz",
+"bubble sort",
+"palindrome checker",
+"reverse a string"
+],
+"n_eligible": 9,
+"sha": "acba4d936af37c2f9f101bc580f4221499ed2e7403e17e12f2bde6d56bdb6f9f",
+"generation": 1
+}
+}

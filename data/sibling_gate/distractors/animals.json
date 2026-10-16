@@ -1,0 +1,4821 @@
+{
+"jlens:chat-lmsys-0048__L020__p309:dog:cat": {
+"unit": "jlens:chat-lmsys-0048__L020__p309:dog:cat",
+"anchor": "cat",
+"nearest": [
+"spiders",
+"spider",
+"fish",
+"squirrel"
+],
+"random": [
+"Crocodile",
+"bear",
+"snakes",
+"tiger"
+],
+"distractors": [
+"spiders",
+"spider",
+"fish",
+"squirrel",
+"Crocodile",
+"bear",
+"snakes",
+"tiger"
+],
+"n_eligible": 24,
+"sha": "09f57d7aeebbae26160929fc0e2ab0836631ccd38b0ce70587334359a0b598e2",
+"generation": 0
+},
+"mlnla-ck2000-all11:chat-lmsys-0041__L020__p105:snake:shark": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0041__L020__p105:snake:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "01cb17b13597dd614781fda27d301c8d3df18fb921798228ee7fde2ad094848b",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0041__L020__p105:snakes:shark": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0041__L020__p105:snakes:shark",
+"anchor": "sharks",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "5628673d15d7c00bf1ea8aed1a721631c331ca1240f82658e931fcfc393a01dc",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0041__L020__p127:dog:shark": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0041__L020__p127:dog:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats"
+],
+"n_eligible": 2,
+"sha": "53a04f7a00e48415844cc95e5348054c3a2f62d3b35a35161708a267f9a9d40f",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0041__L020__p127:doghazard:basementpool": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0041__L020__p127:doghazard:basementpool",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats"
+],
+"n_eligible": 2,
+"sha": "9b59feb6ec06a6f296e072596c7d40ce04397412892928ea58125456624e71a8",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0041__L020__p145:cat:shark": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0041__L020__p145:cat:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"dogs"
+],
+"n_eligible": 2,
+"sha": "a30e9c33a6a387f403d7ac9647df5f7325b1208d10d50fe345a973243d549e87",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0041__L024__p105:spider:shark": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0041__L024__p105:spider:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "9f0abd9fee31706a662854b38377c97f39c7142299ce7cf1bfe13b2a76d6d9df",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0041__L024__p105:spiders:shark": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0041__L024__p105:spiders:shark",
+"anchor": "sharks",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "5a0e5f18eb0a89296aba694a9f6b3a5564ee78650d856cf55acfc7f2fc57b6dc",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0041__L024__p145:cat:shark": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0041__L024__p145:cat:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"dogs"
+],
+"n_eligible": 2,
+"sha": "737ab85733a835342680c1942b43721ea727f222da0354f9ea7dbce819128a68",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0041__L024__p145:pet:shark": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0041__L024__p145:pet:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "d2f9ebcc7d14e0f49bd4a11afac1b74a3e1edc6615d2c7a4ea1bf0a1f36129d8",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0041__L024__p184:birds:shark": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0041__L024__p184:birds:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "c8935b982833001ff99b56e185206fb371ca637b7e8dea0bfd541ad43d9ca1c1",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0041__L028__p105:crocodile:shark": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0041__L028__p105:crocodile:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "702e619064f591f698b271f03ec0811ae6e4b1274c3f49c2f13b9a151ab0b186",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0041__L028__p105:snake:shark": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0041__L028__p105:snake:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "8f4e58050dadf98abae3a2b936108ce7e8dccd44d1b899126bcebdc201001062",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0041__L028__p184:snake:shark": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0041__L028__p184:snake:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "9127aa6615352e2af95794291e63d12ae9522045038571cc903089b59742c30d",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0041__L028__p237:snake:shark": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0041__L028__p237:snake:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "3910c5a1f6cd4be5495a058b1eefbf7169f9929c5448a845de831bddb3daf5aa",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0041__L028__p32:alligator:shark": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0041__L028__p32:alligator:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "a50b9d20c3c77c8139d71971ae305b5c32bc829626ca1b1f2ed8ece46b696e84",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0041__L028__p32:crocodile:shark": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0041__L028__p32:crocodile:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "9dc08986f2a96313e0e0278797a6906bd1dad2a3a16146c1e7390b9988a9cd11",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0041__L028__p55:alligator:shark": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0041__L028__p55:alligator:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "214584a86a3c764ebda715c1a9445df8d406c3fef681f08312cc4bb82044c004",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0041__L028__p55:alligators:sharks": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0041__L028__p55:alligators:sharks",
+"anchor": "Shark",
+"nearest": [
+"chicken",
+"dogs",
+"cats"
+],
+"random": [],
+"distractors": [
+"chicken",
+"dogs",
+"cats"
+],
+"n_eligible": 3,
+"sha": "e1c11de807f880bcc28c796bbb7525b10f8e8d4ff0240da7c9c0d4905732fbc2",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0041__L032__p105:alligator:shark": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0041__L032__p105:alligator:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "a37bc582b787d352ccb11452b1e26657a775122e0a3eae4a24ddb229376058bc",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0041__L032__p145:bear:shark": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0041__L032__p145:bear:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "f93f94a317ac241ac6748fd2c8f253c2bf13b27515656252eb7d3f0ee1d1c0fb",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0041__L032__p184:raccoon:shark": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0041__L032__p184:raccoon:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "61cc07fa0e6295b2282de53e7610d371ead234effb96f35f68b09001187888f9",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0041__L032__p237:snake:shark": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0041__L032__p237:snake:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "ae7a568fa5d4a516441df5670c4bb6153d8d709e1ca478ed7f412529099a4922",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0041__L032__p55:alligator:shark": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0041__L032__p55:alligator:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "4f9e09319e9cd47d0b6a6bc84811aaa66a7a671764365761752f33d22d915630",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0041__L036__p105:crocodile:shark": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0041__L036__p105:crocodile:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "db510339853f3897d47099469bb0bb699fd3b42af5df60074c2ad2d2c0d28ef7",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0041__L036__p127:bear:shark": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0041__L036__p127:bear:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "fa314283fab150495b0f6ab87a72e1553afa4757b7add24025fc9f35104ce454",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0041__L036__p55:alligator:shark": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0041__L036__p55:alligator:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "318e3998ae9a17686745b213e5190539e7979840caacde3ba89700c400c7c13b",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0041__L040__p127:alligator:shark": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0041__L040__p127:alligator:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "dd7d4661be72f6a5187076d396050e683da74f880072cbf3eeb5a3a505c64d2f",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0041__L040__p127:bear:shark": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0041__L040__p127:bear:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "f49205c0b89dcfa6fa6852bb4656e94ef6789f04e16f45fea16675bf0f3b6ced",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0041__L044__p145:alligator:shark": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0041__L044__p145:alligator:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "af065b752cc40616699b2ea2da1209e4059130efe2f40a927639af993e2d0209",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0041__L044__p237:alligator:shark": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0041__L044__p237:alligator:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "0026927f911a3e809bd6e33bb20a3a86843239773504a4baf8ae08f8100b2d93",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0041__L044__p55:alligator:shark": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0041__L044__p55:alligator:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "b9e1f9124e842a7b1bbda947a6259cb4f3412a1f836c37188d5bcb0f1bbdba30",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0041__L048__p105:bear:shark": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0041__L048__p105:bear:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "fc8faa0d6507d7102cc4e6c6a87eeb40b8a5e0d773cb5ba0a28f4e04a9b66df6",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0041__L048__p105:tiger:shark": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0041__L048__p105:tiger:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "ae895f5d8a09180a4431716ce05e94e44b25f5c071363bb4b896b837d38df8e8",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0041__L048__p127:snake:shark": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0041__L048__p127:snake:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "182ab12de26e5a4327c77673110d0c5970b6a46557c2d85a731b4db90eecdec6",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0041__L048__p237:alligator:shark": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0041__L048__p237:alligator:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "3c321ef3229002eae615d964f49f3eb3e04f5523d3ff12ee43fac7b0299c62ed",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0041__L048__p237:crocodile:shark": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0041__L048__p237:crocodile:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "b1c015a70e2a372af81195285265cc1b0c0c2f14cc386976f5c672f60850b31c",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0041__L048__p55:crocodile:shark": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0041__L048__p55:crocodile:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "255158823a6b641214540153aa62df0023feb3752f7340b08be114960432f3a8",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0041__L048__p55:crocodiles:sharks": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0041__L048__p55:crocodiles:sharks",
+"anchor": "Shark",
+"nearest": [
+"chicken",
+"dogs",
+"cats"
+],
+"random": [],
+"distractors": [
+"chicken",
+"dogs",
+"cats"
+],
+"n_eligible": 3,
+"sha": "19d640f051fd78626e0e197dda09deaf35f97b3fda1547c8055d5ce944324664",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0041__L052__p105:bear:shark": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0041__L052__p105:bear:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "68ce6f514a3d905c6c27af3ace61e364af275366c455292350f74bd55a190651",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0041__L052__p127:cat:shark": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0041__L052__p127:cat:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"dogs"
+],
+"n_eligible": 2,
+"sha": "a297750746837c932612384f3f130201ebf9dda357641d36b57e379c270916c1",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0041__L052__p127:dog:shark": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0041__L052__p127:dog:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats"
+],
+"n_eligible": 2,
+"sha": "7c2f5780164f04ce7a56687b62eec989800e2bbcef750eeb2531c8b4c9716ee5",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0041__L052__p145:alligator:shark": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0041__L052__p145:alligator:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "4ea628047880853180c407d35ae126d4097c72767d4498ea62798ceef1144813",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0041__L052__p145:gator:shark": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0041__L052__p145:gator:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "3f9ef5c0942cc584ca5e68847cbc8cca619fb01d86c9c40b60395f21011b7dc1",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0041__L052__p237:alligator:shark": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0041__L052__p237:alligator:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "7fa405e99519771248bb48aa4f79c042aeba4f632772f02654134367c4665036",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0041__L052__p237:alligators:sharks": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0041__L052__p237:alligators:sharks",
+"anchor": "Shark",
+"nearest": [
+"chicken",
+"dogs",
+"cats"
+],
+"random": [],
+"distractors": [
+"chicken",
+"dogs",
+"cats"
+],
+"n_eligible": 3,
+"sha": "21734226ff95830fc031fbac0440434e5fae6d0b3538f7e5fde1d525a15df6b8",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0041__L052__p259:cat:shark": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0041__L052__p259:cat:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"dogs"
+],
+"n_eligible": 2,
+"sha": "56594fd1c76f9ea5df34845c332d84ac9152bea5176c67a7f5bf515cf0c8637d",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0041__L052__p259:cats:shark": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0041__L052__p259:cats:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"dogs"
+],
+"n_eligible": 2,
+"sha": "de99028b6e29d156d2cc106a1f81c470b333462811adf2f1a36d8f7b444474e0",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0041__L056__p105:tiger:shark": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0041__L056__p105:tiger:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "89c67d3307919a9f8a3023c04b5f8e2b93712ecf8c29f39063fe0ea59f007b9e",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0041__L060__p237:alligator:shark": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0041__L060__p237:alligator:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "143b4195984ad953e2979bc231aa3271af5c14934eed371212a5a0c5f7dec7ba",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0048__L028__p155:dog:cat": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0048__L028__p155:dog:cat",
+"anchor": "cat",
+"nearest": [
+"pet",
+"spiders",
+"spider",
+"fish"
+],
+"random": [
+"Alligator",
+"chicken",
+"dragon",
+"tiger"
+],
+"distractors": [
+"pet",
+"spiders",
+"spider",
+"fish",
+"Alligator",
+"chicken",
+"dragon",
+"tiger"
+],
+"n_eligible": 25,
+"sha": "779357239bd3953e6ea2eefb36d774facc13457891c1c719f27a2fb78b98aa73",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0048__L036__p114:dogs:cat": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0048__L036__p114:dogs:cat",
+"anchor": "cats",
+"nearest": [
+"pet",
+"spider",
+"spiders",
+"chicken"
+],
+"random": [
+"Alligator",
+"Shark",
+"fish",
+"rodent"
+],
+"distractors": [
+"pet",
+"spider",
+"spiders",
+"chicken",
+"Alligator",
+"Shark",
+"fish",
+"rodent"
+],
+"n_eligible": 25,
+"sha": "8fe410a542d9e081d82fa851ee4307a2043469336d5c38c154f3d21ce017f494",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0041__L020__p105:snake:shark": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0041__L020__p105:snake:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "95a1e87ca45263e424e5a1b47e1cb960b856c916633941484817123d6ce88db9",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0041__L020__p145:cat:shark": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0041__L020__p145:cat:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"dogs"
+],
+"n_eligible": 2,
+"sha": "ae9d3d256e65a947c78ac53a9ef69ba3cda625ff244a37cf9675265a63b3aa09",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0041__L020__p145:dog:shark": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0041__L020__p145:dog:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats"
+],
+"n_eligible": 2,
+"sha": "b6647c42739df63460121538a85b88b64b43518d530c960d0f240aa16e8e4e44",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0041__L020__p55:alligator:shark": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0041__L020__p55:alligator:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "aa9fa5f401a709cf0b7bec68345f8c0965354d576d700ffe8369dac350fa8cd7",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0041__L020__p55:crocodile:shark": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0041__L020__p55:crocodile:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "b0f6b752aa12d08e22488b2459753ad7986a4d773b47c805bac0896653b05912",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0041__L024__p105:bear:shark": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0041__L024__p105:bear:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "778022296ad19cebb42bbbf08bd921e7916d02f533bea313863409dabbdab104",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0041__L024__p105:spider:shark": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0041__L024__p105:spider:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "41626bd980ccd454aac94892a7e296fc57859a0e951f73055eeda0156bf57829",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0041__L024__p32:crocodile:shark": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0041__L024__p32:crocodile:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "fa2d147e3590758a180a375c85b070913ed8c72578ea61e671c8a9424f368e38",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0041__L028__p105:spider:shark": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0041__L028__p105:spider:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "3676fdc53bbb761353cea4debfb2bf615fa5d5bae8d45cda18c01dcce00a7b65",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0041__L028__p237:bird:shark": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0041__L028__p237:bird:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "a326a7d98d8598036060bbfb0c595d7ec331f2ae1a5c96bc379c64a64bafd580",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0041__L028__p237:birdinyourhouse:sharkinbasementpool": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0041__L028__p237:birdinyourhouse:sharkinbasementpool",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "139d58a14725b27acd219784497089603cb555bdc6f27a513fbd5054a113fb07",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0041__L028__p237:birds:shark": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0041__L028__p237:birds:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "c7514a9a6061a74e865ccca9eee1518cebc750ddd2f6b87f1013e52877af8ecd",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0041__L028__p259:frogs:shark": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0041__L028__p259:frogs:shark",
+"anchor": "sharks",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "00ec6e1c5976dd33067ee2b379c964078e88d18e5146087dc2a65aea427cdd2e",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0041__L028__p32:crocodile:shark": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0041__L028__p32:crocodile:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "79b572fc67f39fde9fc7263fee0e377c9ed6480a64dad6319ed26c1fc1eadf05",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0041__L036__p127:bear:shark": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0041__L036__p127:bear:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "ea9eb7c821c6163240384ea68f6e7f82244ec80b85b91696933b4d7b8edf0f5c",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0041__L040__p127:bear:shark": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0041__L040__p127:bear:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "824fe89428a51494897a5a0ecd11662a39370ab00f12b10185e9d82dd75c0aee",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0041__L040__p127:bears:sharks": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0041__L040__p127:bears:sharks",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "343c85c0c4a1936c9df60bdae27504ab753b833e1ef03417a9ecdf2126793386",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0041__L040__p145:bear:shark": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0041__L040__p145:bear:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "73818dce78b81cf625dacee154bd24de00b4f87490cd20db1de485386080d12c",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0041__L040__p55:alligator:shark": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0041__L040__p55:alligator:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "2ce74c145bb27be044d2a431b17d2ccbde049e89bb39c2bfb6fc307a98b2cf55",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0041__L044__p55:bear:shark": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0041__L044__p55:bear:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "a6e01d993d71fe8b39f08f6edeabdca7abe086afb82d8b87ac67023f7e2011b8",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0041__L048__p105:bear:shark": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0041__L048__p105:bear:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "4d4410558158ce82d8fb60121756f30ed43b83d2cb45a21c601f67547fb94367",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0041__L048__p105:lion:shark": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0041__L048__p105:lion:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "3a70d139db66f2e87538a58620ceb99d2157dcc4754f556abf3c25fe14bac400",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0041__L048__p127:dog:shark": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0041__L048__p127:dog:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats"
+],
+"n_eligible": 2,
+"sha": "1d30fa65e2555b13acf58f0173211fcb4f309f546145640e8704aa8a69916d9f",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0041__L048__p237:alligator:shark": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0041__L048__p237:alligator:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "d8331c0939399f92af518194a84ee408ccfd017917d1abe009c8eda2a64fedb4",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0041__L048__p237:crocodile:shark": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0041__L048__p237:crocodile:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "07ea2e42c35594f4680abc0dee6e8157b25b8acdcbbd53a764a1c6bde0846f54",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0041__L052__p105:bear:shark": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0041__L052__p105:bear:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "a059ee31f56b870d066f7d82b6c7af833c089776693d8a68cd1f56973069865f",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0041__L052__p105:cat:shark": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0041__L052__p105:cat:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"dogs"
+],
+"n_eligible": 2,
+"sha": "31fde06d8ddc53c4f93efc0e9b02e03b5e61e38f8690c45e122f17df9139e265",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0041__L052__p127:dog:shark": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0041__L052__p127:dog:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats"
+],
+"n_eligible": 2,
+"sha": "b15bb480cf9c9759b2e3db45caac9e1830e390037ffebfa75ca49b6de1be19fd",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0041__L056__p105:bear:shark": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0041__L056__p105:bear:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "1d29c661efbd97fd0f0751619bc6ce0fd6f748d476452d3109cc4c6032981c7b",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0041__L056__p105:tiger:shark": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0041__L056__p105:tiger:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "77064d92d6027ab37742a63895a8e852f27e8f398b74680ccb6d09e1c053bbae",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0041__L056__p127:cat:shark": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0041__L056__p127:cat:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"dogs"
+],
+"n_eligible": 2,
+"sha": "d304d93c1f8600d96be4fd629f502601d6b35c617e3d9beb2cb92097c13abda7",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0041__L056__p127:dog:shark": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0041__L056__p127:dog:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats"
+],
+"n_eligible": 2,
+"sha": "75bd09389debb6e0125f07b3c83c382420d5e034d4b30a2049dd7f55ece31d67",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0041__L056__p259:cat:shark": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0041__L056__p259:cat:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"dogs"
+],
+"n_eligible": 2,
+"sha": "f71c67dba5263138aa2560eebcdf5bd5799abd660d2f86a9034910eb33f3f097",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0041__L060__p105:cat:shark": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0041__L060__p105:cat:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"dogs"
+],
+"n_eligible": 2,
+"sha": "afebf3adcc8acc1d6261661de884196ad010f5241b492bc6736bce6283291740",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0048__L020__p356:dog:cat": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0048__L020__p356:dog:cat",
+"anchor": "cat",
+"nearest": [
+"spiders",
+"spider",
+"fish",
+"squirrel"
+],
+"random": [
+"Alligator",
+"snakes",
+"tiger",
+"turtle"
+],
+"distractors": [
+"spiders",
+"spider",
+"fish",
+"squirrel",
+"Alligator",
+"snakes",
+"tiger",
+"turtle"
+],
+"n_eligible": 24,
+"sha": "26a6ab47da99b89fdda5d170e10d7fbd832106ffe45891cc88fd34122750eeda",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0048__L024__p114:dog:cat": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0048__L024__p114:dog:cat",
+"anchor": "cat",
+"nearest": [
+"spiders",
+"spider",
+"fish",
+"squirrel"
+],
+"random": [
+"raccoon",
+"rat",
+"rodent",
+"snakes"
+],
+"distractors": [
+"spiders",
+"spider",
+"fish",
+"squirrel",
+"raccoon",
+"rat",
+"rodent",
+"snakes"
+],
+"n_eligible": 24,
+"sha": "90eab3540dde3467b7a9ef9213dd0870ff984ba913952abd42ba1c333e0fb9ff",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0072__L036__p84:chicken:potato": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0072__L036__p84:chicken:potato",
+"anchor": "chicken",
+"nearest": [
+"dogs",
+"birds",
+"fish",
+"cats"
+],
+"random": [
+"cat",
+"crocodile",
+"snake",
+"spiders"
+],
+"distractors": [
+"dogs",
+"birds",
+"fish",
+"cats",
+"cat",
+"crocodile",
+"snake",
+"spiders"
+],
+"n_eligible": 29,
+"sha": "7417a324b3f6f664244f3bbd1acec93a70eb86d0416582829b08f9360c8aec6b",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0072__L040__p84:chicken:potato": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0072__L040__p84:chicken:potato",
+"anchor": "chicken",
+"nearest": [
+"dogs",
+"birds",
+"fish",
+"cats"
+],
+"random": [
+"bear",
+"cat",
+"sharks",
+"snakes"
+],
+"distractors": [
+"dogs",
+"birds",
+"fish",
+"cats",
+"bear",
+"cat",
+"sharks",
+"snakes"
+],
+"n_eligible": 29,
+"sha": "1a3c1d8bfc5cd449852e5c9e9391bba0e58a0b2a8703670ba2c2baaaefc20b70",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0041__L020__p105:snake:shark": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0041__L020__p105:snake:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "ca77a49f73e68120da198511a44c64018ebca57ae0bbc4cbf0ccec49ce401e48",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0041__L020__p105:snakes:shark": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0041__L020__p105:snakes:shark",
+"anchor": "sharks",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "1587d3fcdbe30dd730a7c74e01184a7d5250eb78ae8c579b8d72fb3cdcc7f572",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0041__L020__p237:raccoon:shark": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0041__L020__p237:raccoon:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "c387e31a5378e3da79b6a367e3a040c7473489b8ab7691090010744b034ff153",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0041__L020__p237:squirrel:shark": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0041__L020__p237:squirrel:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "667091b9bd3ee7fe5d13336737a384a1d48fece3f131017bf599e1bc68e20aad",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0041__L020__p32:crocodile:shark": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0041__L020__p32:crocodile:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "142ebfa3191d9f5e668cc0da8572bf5313bc9e6cec4b56d3e819feff49bfcb76",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0041__L020__p32:crocodiles:shark": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0041__L020__p32:crocodiles:shark",
+"anchor": "Shark",
+"nearest": [
+"chicken",
+"dogs",
+"cats"
+],
+"random": [],
+"distractors": [
+"chicken",
+"dogs",
+"cats"
+],
+"n_eligible": 3,
+"sha": "4bb18e199220bfcee46beafa45e51982e9cf318c275dc4c6a9a8778910ca1a9f",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0041__L024__p32:alligator:shark": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0041__L024__p32:alligator:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "4e462c78055cb980cb9fd346f11a9bad4951a59744dab6402fd6a1d1d0925a00",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0041__L024__p32:crocodile:shark": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0041__L024__p32:crocodile:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "e6ac5ae72dd9e5762b47d2b4d5889247858e66a26d2049b7d71510732d0ecd28",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0041__L024__p32:crocodiles:shark": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0041__L024__p32:crocodiles:shark",
+"anchor": "Shark",
+"nearest": [
+"chicken",
+"dogs",
+"cats"
+],
+"random": [],
+"distractors": [
+"chicken",
+"dogs",
+"cats"
+],
+"n_eligible": 3,
+"sha": "75763933bb1e69d69c51b07f10bc04c66fedd1e02f80a633b780622f9309c7ef",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0041__L028__p105:spider:shark": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0041__L028__p105:spider:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "1887df98d26946308c114e6542bc04345593e8100492d7b83c1ebbe0848da833",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0041__L028__p105:spiders:sharks": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0041__L028__p105:spiders:sharks",
+"anchor": "sharks",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "a38c740963309a875daf8a9ac92fd41a382d66c9ee1cfa06c7379ec9c1d1fb90",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0041__L028__p145:crocodiles:shark": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0041__L028__p145:crocodiles:shark",
+"anchor": "Shark",
+"nearest": [
+"chicken",
+"dogs",
+"cats"
+],
+"random": [],
+"distractors": [
+"chicken",
+"dogs",
+"cats"
+],
+"n_eligible": 3,
+"sha": "f0945a776ca83e7f87c1fd238962046d28e1d069825e71ec7a52d2dc680a41f4",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0041__L028__p237:cat:shark": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0041__L028__p237:cat:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"dogs"
+],
+"n_eligible": 2,
+"sha": "a251f59585ab7d0ea34600421f3f65ab14b3292a97dbb9c492901f706f88b66c",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0041__L028__p32:alligator:shark": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0041__L028__p32:alligator:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "35b3d833779496f408a251638a2ddc1d1b9232762df32754f4852316c1527520",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0041__L028__p32:crocodile:shark": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0041__L028__p32:crocodile:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "d5fa08aa83a320d40be32a7dc908c462ea4f218256a85561f3fd90fcdcbe6467",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0041__L032__p105:alligator:shark": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0041__L032__p105:alligator:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "23a8bfc6f37e4d6f4aa5bcfa75f560d5409e7f2d7c02a5177311093c23c407dc",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0041__L032__p105:alligators:shark": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0041__L032__p105:alligators:shark",
+"anchor": "Shark",
+"nearest": [
+"chicken",
+"dogs",
+"cats"
+],
+"random": [],
+"distractors": [
+"chicken",
+"dogs",
+"cats"
+],
+"n_eligible": 3,
+"sha": "c591e0e5645c1b59f0ec45a82112115e21b8be61b8fe93043d66657c22a49cd4",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0041__L032__p127:bear:shark": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0041__L032__p127:bear:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "3e167da6153a0e160cbbcdb858d98ae3c3f740cc898f15b0d8d07c33c7ea51a1",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0041__L032__p145:bear:shark": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0041__L032__p145:bear:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "da55c5444f0f30a3c04fe257a97133c7b87b44480e0990499f22a35ca9d4f040",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0041__L032__p32:alligator:shark": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0041__L032__p32:alligator:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "8a9368e1e0a32ecd807079263b9b185b3fda30743765ff9872a0ff29e61f4580",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0041__L032__p32:alligators:shark": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0041__L032__p32:alligators:shark",
+"anchor": "Shark",
+"nearest": [
+"chicken",
+"dogs",
+"cats"
+],
+"random": [],
+"distractors": [
+"chicken",
+"dogs",
+"cats"
+],
+"n_eligible": 3,
+"sha": "2206970f81b8611ea3abe74ffe64c630ec4a9e37ce451be97e22fb3e044e93c7",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0041__L036__p105:alligator:shark": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0041__L036__p105:alligator:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "502780141439379d2ae87199b10bee4d08c62e305f6fd71cc0c7cf2dab5653f5",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0041__L036__p127:bear:shark": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0041__L036__p127:bear:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "67c2f9be51f966b0ad93ccb53eebe27fff17a9ecf41ccbe11a19e0db5a1306fb",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0041__L036__p184:alligator:shark": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0041__L036__p184:alligator:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "9fc92e6dfc92ca5d6fba413a65a9b581d7a0fc350e72832ebf4860d4c956557c",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0041__L036__p259:alligator:shark": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0041__L036__p259:alligator:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "016a30dc3c3eecbb889a049ede09d58dbbdc56dc31b0b8e52f29ae17b8122fb2",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0041__L040__p105:alligator:shark": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0041__L040__p105:alligator:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "157e44d28f617f2a0cba1c4e5fc663a35d5cd40f40e698e3ace3351fa12ba5e2",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0041__L040__p105:bear:shark": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0041__L040__p105:bear:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "63a9c4a37f1e8fc18cac94460cd6920803104c87cb9d9153a42ddb0c8dd537fa",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0041__L040__p127:bear:shark": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0041__L040__p127:bear:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "95743e4c7f7a980860a6dc31659b877bbea710dd267fe5400907c01c57bc3633",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0041__L040__p145:alligator:shark": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0041__L040__p145:alligator:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "76c9d0665d7b771f29ccdc7fba0b5aca15e461e7f6c984ba7f009b7c8d251a26",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0041__L040__p145:bear:shark": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0041__L040__p145:bear:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "a81f6964d57a4680fa7c805711fd0625da147d8489bd05a87177925fbd20dada",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0041__L040__p145:bears:shark": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0041__L040__p145:bears:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "cde7e61ddf3fafb4304f11f6d5f49fc6e931615ef5006cf46810e95987dc6930",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0041__L040__p237:alligator:shark": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0041__L040__p237:alligator:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "6a331bfc9e3e87d47fbf30b274ea9c4f0c9d70821daea515f299cd44d2f31dd7",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0041__L040__p237:crocodile:shark": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0041__L040__p237:crocodile:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "282ffa7398af907d381a4947507fb049f1a4bc931868582c43b8036cbd0c574e",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0041__L040__p259:fish:shark": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0041__L040__p259:fish:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "fb708b2325a8ae64a5920c5cec3399c5839e88e9b8f61830b450e1db0641115a",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0041__L040__p259:snake:shark": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0041__L040__p259:snake:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "7961716169d1d377285d9a266324b90cec9f28e03203cf87ca2dd0ff763fdff7",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0041__L044__p127:bear:shark": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0041__L044__p127:bear:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "4e6a0f4b535520982a4a719c970bb983043d372decd5344036e4caa67a356ff2",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0041__L044__p127:dog:shark": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0041__L044__p127:dog:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats"
+],
+"n_eligible": 2,
+"sha": "de05bbcead4cf3f9021bce65698886fb6956b3a00f3720889cad348a3a96f823",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0041__L044__p237:alligator:shark": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0041__L044__p237:alligator:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "63c7a632a0f640d498d29f79571b8bacfba5c5ae9b4f067a1026eddcbde31f12",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0041__L048__p105:bear:shark": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0041__L048__p105:bear:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "3d90b3742d0d855a77191a744b38a3c147a81aaeb8cbc0e3d29ea57f5b13793d",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0041__L048__p127:bear:shark": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0041__L048__p127:bear:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "b797bb0d8d6d868d563e23be44c5329fcf2789d5040f9e53aa81ffb0c560cf7a",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0041__L048__p127:bears:sharks": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0041__L048__p127:bears:sharks",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "a04ea17751c7900e9bd181eb412a92ff675933a30e8c49fa6978c39b2550670f",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0041__L048__p237:tiger:shark": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0041__L048__p237:tiger:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "52e4029c8f03de2de4d64521702e9bc008d09c992c13e3deaa6ef777dede9db5",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0041__L052__p127:bear:shark": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0041__L052__p127:bear:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "59b0baf517031a7dc7f7a8708e01e67b732bcc0890e621c944e9a47d1025810b",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0041__L052__p127:cat:shark": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0041__L052__p127:cat:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"dogs"
+],
+"n_eligible": 2,
+"sha": "2abe1802eedd5d7bead240c1d706cdd0752a8e6fa094b6fde1b414db347ad865",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0041__L052__p127:dog:shark": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0041__L052__p127:dog:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats"
+],
+"n_eligible": 2,
+"sha": "28dd30f67ad572a31c9518483d600e7b16d60db9cc7a7cc52d5658f7d36b780a",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0041__L056__p105:bear:shark": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0041__L056__p105:bear:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "d6e42754ef120ebfe92cf7af832611d10f40cb7c32a731d2a785b924d9709f40",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0041__L056__p237:alligator:shark": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0041__L056__p237:alligator:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "d1cf9aebf401879b64461aae11221c87a527c2a4c7501c11a4f2410d8b6bc0a0",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0041__L056__p237:crocodile:shark": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0041__L056__p237:crocodile:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "5c1f1cfedbee5de1059b06be30f93a701d858da64fdee96d48d1bf33eb88d3a6",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0041__L056__p237:gator:shark": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0041__L056__p237:gator:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "0b9324d203db9773e067bb6f4324fb7f628304d41ec361669ce970b575d4d690",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0041__L056__p259:cat:shark": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0041__L056__p259:cat:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"dogs"
+],
+"n_eligible": 2,
+"sha": "5ec4db6b936545699dd050f5187c16e553e602fb62b21e96be5d3b67303f7c01",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0041__L060__p127:cats:shark": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0041__L060__p127:cats:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"dogs"
+],
+"n_eligible": 2,
+"sha": "1ca72618dc2329f91cf8aacc117b8aeefa9acfd7eafb880a703f06e215e14424",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0041__L060__p127:cats:sharks": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0041__L060__p127:cats:sharks",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"dogs"
+],
+"n_eligible": 2,
+"sha": "e71e888baf7695aa231575a4b038bbc40fe8e50d1a0bb1c01d717ce030d055c5",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0041__L060__p237:alligator:shark": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0041__L060__p237:alligator:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "114b20766b574ab3995b198b0d434c179880d4afa23213eddb86ed0636dcefa1",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0048__L036__p114:dog:cat": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0048__L036__p114:dog:cat",
+"anchor": "cat",
+"nearest": [
+"spiders",
+"spider",
+"fish",
+"squirrel"
+],
+"random": [
+"Shark",
+"alligator",
+"bear",
+"frogs"
+],
+"distractors": [
+"spiders",
+"spider",
+"fish",
+"squirrel",
+"Shark",
+"alligator",
+"bear",
+"frogs"
+],
+"n_eligible": 24,
+"sha": "6dd00e21bc92d41a26c2d75520098df9a719d578e9c57ca023ee83c177ba13aa",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0041__L042__p105:alligator:shark": {
+"unit": "nla-rl-L42:chat-lmsys-0041__L042__p105:alligator:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "2abe06f7e397acb40e6ff706dc93791460e964ed48b596b5cc6889d290b13ee0",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0041__L042__p55:alligator:shark": {
+"unit": "nla-rl-L42:chat-lmsys-0041__L042__p55:alligator:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "ec6ba076b8740bf3ffb601e8d38f8cba033f2065720c349e4808ee6a1087739f",
+"generation": 0
+},
+"nla-sft-L42:chat-lmsys-0041__L042__p105:snake:shark": {
+"unit": "nla-sft-L42:chat-lmsys-0041__L042__p105:snake:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "d9861a9c5a9acb130137a929b6d349c27115ac91472f1981b8fdde89a21dade3",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0041__L020__p105:snake:shark": {
+"unit": "s3d-rl600-all11:chat-lmsys-0041__L020__p105:snake:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "3c75c563c19d2b662f84d2d3c73ed830e50c3598416603a2d6365f8c2502761a",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0041__L024__p105:snake:shark": {
+"unit": "s3d-rl600-all11:chat-lmsys-0041__L024__p105:snake:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "d094ccfeb9d671e5b2b50ad818fc55474c98c17cbdd07a0d9d0b99d189ae0276",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0041__L024__p105:snakes:shark": {
+"unit": "s3d-rl600-all11:chat-lmsys-0041__L024__p105:snakes:shark",
+"anchor": "sharks",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "c125fc7d1115cbc45b5b775bbfd09f014a092a4de0c6d66b9777b1e1978723d8",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0041__L024__p105:snakes:sharks": {
+"unit": "s3d-rl600-all11:chat-lmsys-0041__L024__p105:snakes:sharks",
+"anchor": "sharks",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "1c7fbbd74d3bd19ddfb2bc8b2c3ed3e5a825b8cf43977329118801891f3cb49f",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0041__L028__p105:alligator:shark": {
+"unit": "s3d-rl600-all11:chat-lmsys-0041__L028__p105:alligator:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "f3339ef0bcbf2f839b626496b732e2cc405c69dbfdebad86857f0e2d5382c731",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0041__L028__p105:crocodile:shark": {
+"unit": "s3d-rl600-all11:chat-lmsys-0041__L028__p105:crocodile:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "5da5374883a41c451895c1cd4acc25598a786c9d78da2b778506696b5dc10055",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0041__L028__p105:crocodiles:shark": {
+"unit": "s3d-rl600-all11:chat-lmsys-0041__L028__p105:crocodiles:shark",
+"anchor": "Shark",
+"nearest": [
+"chicken",
+"dogs",
+"cats"
+],
+"random": [],
+"distractors": [
+"chicken",
+"dogs",
+"cats"
+],
+"n_eligible": 3,
+"sha": "c39aed276d3543cf99c9b44947d1e08b6e0dbdcec6e0ce66681cacec220f0b85",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0041__L028__p32:snake:shark": {
+"unit": "s3d-rl600-all11:chat-lmsys-0041__L028__p32:snake:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "8a9f92940040521c6d00bc7420f888ca6b7dcb817315234d23c6e34de91b2439",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0041__L032__p32:dog:shark": {
+"unit": "s3d-rl600-all11:chat-lmsys-0041__L032__p32:dog:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats"
+],
+"n_eligible": 2,
+"sha": "6b1cdaf665064b9f031ad50b1630e9284e931a83cfcc76c89af84a86a24722c4",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0041__L032__p32:spider:shark": {
+"unit": "s3d-rl600-all11:chat-lmsys-0041__L032__p32:spider:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "8a2f7f4b7f44cb99a795cf0f1bd559c556a73bb87e8456b990c1853da3aa96a5",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0041__L036__p105:alligator:shark": {
+"unit": "s3d-rl600-all11:chat-lmsys-0041__L036__p105:alligator:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "e492d030d5165c48d99b2668798bab28e07555575778a68e3b51f604d1b58fb1",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0041__L036__p105:crocodile:shark": {
+"unit": "s3d-rl600-all11:chat-lmsys-0041__L036__p105:crocodile:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "a2a157358016a9582d8f8fda183e0c31c58a2b825bbc6c6ad5162093d52389b8",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0041__L036__p127:snake:shark": {
+"unit": "s3d-rl600-all11:chat-lmsys-0041__L036__p127:snake:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "27093b2b52f3f472ddfc101353f1f8b703db0a7623c5fe646ac2b0d1358618b4",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0041__L036__p32:spider:shark": {
+"unit": "s3d-rl600-all11:chat-lmsys-0041__L036__p32:spider:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "00ea014916ec9715586f01131ca16194edd29531504c4a9d79061f40d14fcfcc",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0041__L036__p55:alligator:shark": {
+"unit": "s3d-rl600-all11:chat-lmsys-0041__L036__p55:alligator:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "7c9e3cc615c49aa76bd7dbb8d76e7ae68d0688ae4bf0cf3b8d44933542fed4cf",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0041__L036__p55:crocodile:shark": {
+"unit": "s3d-rl600-all11:chat-lmsys-0041__L036__p55:crocodile:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "8967ba885f52805bd5547e2cef495c1482eed3515e93cf1da6696f64d16efa6c",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0041__L040__p127:snake:shark": {
+"unit": "s3d-rl600-all11:chat-lmsys-0041__L040__p127:snake:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "097b9de16fd3aba8d595dbc5e2fd4b4aa67b89524f8d6ed7fe8921aa390a4054",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0041__L040__p259:bear:shark": {
+"unit": "s3d-rl600-all11:chat-lmsys-0041__L040__p259:bear:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "86fb1fe5ecc09c4a26abde312c72268b20bc2f5c17aa5c10a421f04ce36af69c",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0041__L040__p259:raccoon:shark": {
+"unit": "s3d-rl600-all11:chat-lmsys-0041__L040__p259:raccoon:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "8832bd2f6080ddc2ab86c04d8e18e0b29703fc24d3478037d0e6cc81ebe2bf65",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0041__L040__p55:alligators:shark": {
+"unit": "s3d-rl600-all11:chat-lmsys-0041__L040__p55:alligators:shark",
+"anchor": "Shark",
+"nearest": [
+"chicken",
+"dogs",
+"cats"
+],
+"random": [],
+"distractors": [
+"chicken",
+"dogs",
+"cats"
+],
+"n_eligible": 3,
+"sha": "c2709f63ac1eab74d0dc5bee674176442f458fbfa35622f32da7d3e05e95162c",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0041__L040__p55:crocodile:shark": {
+"unit": "s3d-rl600-all11:chat-lmsys-0041__L040__p55:crocodile:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "8e070380eaa5df94c8d0a0d6ac723495717fe8181a1caef47b0685ead8c45fe8",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0041__L044__p105:bear:shark": {
+"unit": "s3d-rl600-all11:chat-lmsys-0041__L044__p105:bear:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "07850b9230110be4cfe746a30204e5656fd03ab8b3b779a520ac0be9ff877b8e",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0041__L044__p105:crocodile:shark": {
+"unit": "s3d-rl600-all11:chat-lmsys-0041__L044__p105:crocodile:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "4eb35c902a36faf3ca352204a89276f0234c1c658488bb6e912b0c0926c46107",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0041__L044__p127:bear:shark": {
+"unit": "s3d-rl600-all11:chat-lmsys-0041__L044__p127:bear:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "21833753d28e3eb52d7a24c42abb42ef50117887968ea4d42eb0eb27b7885cb1",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0041__L044__p127:snake:shark": {
+"unit": "s3d-rl600-all11:chat-lmsys-0041__L044__p127:snake:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "7ad5ecd726d2ab485d9911a457ca7b14502c9557bcc9e47332044f6aab179729",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0041__L044__p237:alligator:shark": {
+"unit": "s3d-rl600-all11:chat-lmsys-0041__L044__p237:alligator:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "f8e6198a746a6d08fd8434cbb2013b7c4004d2a220989df5a6c2eac0640f36e8",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0041__L044__p55:alligator:shark": {
+"unit": "s3d-rl600-all11:chat-lmsys-0041__L044__p55:alligator:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "a752bc06968435fbe01c06b33033da155d93d8601067dc942d744cdac2fdbe87",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0041__L044__p55:crocodile:shark": {
+"unit": "s3d-rl600-all11:chat-lmsys-0041__L044__p55:crocodile:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "9081a218daacd4591f0754f0e3c2d6494a5f165d40ce1897eb2d6b8360fae4ca",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0041__L048__p105:dragon:shark": {
+"unit": "s3d-rl600-all11:chat-lmsys-0041__L048__p105:dragon:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "c8e09a63709e923fb70f0a645a15cf0365da9cd7bb37c2dd6e805ccd77e92ea6",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0041__L048__p127:snake:shark": {
+"unit": "s3d-rl600-all11:chat-lmsys-0041__L048__p127:snake:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "5ca8a67ca1b0f708c493086d58f70252f5e84d675122d17d6c285a4aac55022e",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0041__L048__p237:crocodiles:shark": {
+"unit": "s3d-rl600-all11:chat-lmsys-0041__L048__p237:crocodiles:shark",
+"anchor": "Shark",
+"nearest": [
+"chicken",
+"dogs",
+"cats"
+],
+"random": [],
+"distractors": [
+"chicken",
+"dogs",
+"cats"
+],
+"n_eligible": 3,
+"sha": "d575ec2896b53a57dc605532b23ba9d9f11c05f132489d18b8095331ce168bf9",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0041__L048__p32:spider:shark": {
+"unit": "s3d-rl600-all11:chat-lmsys-0041__L048__p32:spider:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "2ab4677e744e9071472f5dbb8a748c6895d97b357b03dcc347f348b55f05e24a",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0041__L048__p55:alligator:shark": {
+"unit": "s3d-rl600-all11:chat-lmsys-0041__L048__p55:alligator:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "f4f559d534002809e53491b18a1e37abb608ce5e0a4905728516789bd00f9f48",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0041__L052__p105:bear:shark": {
+"unit": "s3d-rl600-all11:chat-lmsys-0041__L052__p105:bear:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "264d6f185d1415b91c95b4b25a094dad75700fe8b59deaadefeaba71e5a1195d",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0041__L052__p105:lion:shark": {
+"unit": "s3d-rl600-all11:chat-lmsys-0041__L052__p105:lion:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "c689fb536e86ca7ba58b283562bbeeb82ff2012d97e7680447ae19a492699577",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0041__L052__p127:snake:shark": {
+"unit": "s3d-rl600-all11:chat-lmsys-0041__L052__p127:snake:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "31391dbe08bc6f571046fb5629d4ff20be505815e8b687279c2c93fa9764d1e6",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0041__L052__p259:rodent:shark": {
+"unit": "s3d-rl600-all11:chat-lmsys-0041__L052__p259:rodent:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "6ae5ee21db982bb2ce15789df6aae0e7aaaf8a91c913007afd8c38c0121ccb7a",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0041__L056__p105:bear:shark": {
+"unit": "s3d-rl600-all11:chat-lmsys-0041__L056__p105:bear:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "b0e0abef000e9abef827b56193efca67acf4ae21127d6d08076baad28b6154ab",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0041__L056__p105:crocodile:shark": {
+"unit": "s3d-rl600-all11:chat-lmsys-0041__L056__p105:crocodile:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "c9ba7faf960ae9c1350bad97e872e54004d0064293be0ee05de8ee2668e33bf3",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0041__L056__p237:alligator:shark": {
+"unit": "s3d-rl600-all11:chat-lmsys-0041__L056__p237:alligator:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "72c517c2863d97ac2b957098783201911a5877d8400dd3c3dc1d10e3fe0ceb17",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0041__L056__p237:alligators:shark": {
+"unit": "s3d-rl600-all11:chat-lmsys-0041__L056__p237:alligators:shark",
+"anchor": "Shark",
+"nearest": [
+"chicken",
+"dogs",
+"cats"
+],
+"random": [],
+"distractors": [
+"chicken",
+"dogs",
+"cats"
+],
+"n_eligible": 3,
+"sha": "f34767cb0877c4d13a3130f3bdcd31789e33981ff1315acfece9921b4fbca539",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0041__L056__p237:dolphin:shark": {
+"unit": "s3d-rl600-all11:chat-lmsys-0041__L056__p237:dolphin:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "0833f63aa6e2010762291944de1b62423acac551db968e4eae199a50cec106e3",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0041__L056__p237:gator:shark": {
+"unit": "s3d-rl600-all11:chat-lmsys-0041__L056__p237:gator:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "c23f722637bf2179f629369239c564d3b0865d68d3053b1b960991c13a2e9700",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0041__L060__p127:alligator:shark": {
+"unit": "s3d-rl600-all11:chat-lmsys-0041__L060__p127:alligator:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "921513a764a75ab541f05c22a8a7c1dc5df21d55faa3c66b0bc980776f0571d6",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0041__L060__p127:snake:shark": {
+"unit": "s3d-rl600-all11:chat-lmsys-0041__L060__p127:snake:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "9ec3794cdb33e26fecd096d0cbc58aec7903b9188b45fc70fa1f188480832481",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0041__L060__p237:fish:shark": {
+"unit": "s3d-rl600-all11:chat-lmsys-0041__L060__p237:fish:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "db09ff3e3a31e33feb9dabae8c76633444f4cbe19f86c9dc8837303eef4b7eed",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0048__L020__p356:dog:cat": {
+"unit": "s3d-rl600-all11:chat-lmsys-0048__L020__p356:dog:cat",
+"anchor": "cat",
+"nearest": [
+"spiders",
+"spider",
+"fish",
+"squirrel"
+],
+"random": [
+"Shark",
+"dolphin",
+"shark",
+"snakes"
+],
+"distractors": [
+"spiders",
+"spider",
+"fish",
+"squirrel",
+"Shark",
+"dolphin",
+"shark",
+"snakes"
+],
+"n_eligible": 24,
+"sha": "277406423f8ba88901ef8a9997f78e97e1e7e16e0b13a9f8f26dbf1aa04958a2",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0048__L028__p203:dog:cat": {
+"unit": "s3d-rl600-all11:chat-lmsys-0048__L028__p203:dog:cat",
+"anchor": "cat",
+"nearest": [
+"spiders",
+"spider",
+"fish",
+"squirrel"
+],
+"random": [
+"crocodile",
+"dolphin",
+"rodent",
+"turtle"
+],
+"distractors": [
+"spiders",
+"spider",
+"fish",
+"squirrel",
+"crocodile",
+"dolphin",
+"rodent",
+"turtle"
+],
+"n_eligible": 24,
+"sha": "89832fe590d1d90a10ef20560891bf6bc1cf2da2cd0cebdf51ad8b75306f24ce",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0048__L032__p203:dog:cat": {
+"unit": "s3d-rl600-all11:chat-lmsys-0048__L032__p203:dog:cat",
+"anchor": "cat",
+"nearest": [
+"spiders",
+"spider",
+"fish",
+"squirrel"
+],
+"random": [
+"alligator",
+"bear",
+"chicken",
+"dolphin"
+],
+"distractors": [
+"spiders",
+"spider",
+"fish",
+"squirrel",
+"alligator",
+"bear",
+"chicken",
+"dolphin"
+],
+"n_eligible": 24,
+"sha": "a6218d9cc40753742a9ecb69895772bdb45961934567d5cef39d41471d624327",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0048__L036__p114:dog:reddot": {
+"unit": "s3d-rl600-all11:chat-lmsys-0048__L036__p114:dog:reddot",
+"anchor": "cat",
+"nearest": [
+"spiders",
+"spider",
+"fish",
+"squirrel"
+],
+"random": [
+"Crocodile",
+"rat",
+"rodent",
+"sharks"
+],
+"distractors": [
+"spiders",
+"spider",
+"fish",
+"squirrel",
+"Crocodile",
+"rat",
+"rodent",
+"sharks"
+],
+"n_eligible": 24,
+"sha": "3591d80c2563cd573df5710ba83323d0b3e7ca6d4db57bf63aadc77f258f1837",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0048__L052__p203:birds:cats": {
+"unit": "s3d-rl600-all11:chat-lmsys-0048__L052__p203:birds:cats",
+"anchor": "cats",
+"nearest": [
+"spider",
+"spiders",
+"chicken",
+"turtle"
+],
+"random": [
+"alligator",
+"fish",
+"lion",
+"rodent"
+],
+"distractors": [
+"spider",
+"spiders",
+"chicken",
+"turtle",
+"alligator",
+"fish",
+"lion",
+"rodent"
+],
+"n_eligible": 24,
+"sha": "6f591d1f6a94da7be387ccb289c3f18c64c1cfc84582a4abb8a43dc8f1102942",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0041__L020__p105:snake:shark": {
+"unit": "s3d-rl600:chat-lmsys-0041__L020__p105:snake:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "a01b3b7586b407116ea3df156b6267c57c19a63f07cb35768999d566ddc8ef36",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0041__L020__p32:alligator:shark": {
+"unit": "s3d-rl600:chat-lmsys-0041__L020__p32:alligator:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "8bb4020616a1ae3227c715d7c819f9b0db2f660e4f6d608051a6c3923b4616f1",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0041__L036__p127:snake:shark": {
+"unit": "s3d-rl600:chat-lmsys-0041__L036__p127:snake:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "eb034bbbf2ae88a43c5ecac31645c1dcaae35f22a3d68fe5fc0b5cbdb9c02227",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0041__L036__p259:cat:shark": {
+"unit": "s3d-rl600:chat-lmsys-0041__L036__p259:cat:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"dogs"
+],
+"n_eligible": 2,
+"sha": "a5547cfe6b2eb31cc5baa7e8c09e2f1e60c3a92f7885164674e1657daf5ef482",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0041__L036__p32:spiders:shark": {
+"unit": "s3d-rl600:chat-lmsys-0041__L036__p32:spiders:shark",
+"anchor": "sharks",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "7122ac70aab295c7ebeffbf1ba7278e3581727c3b88bdf00e51e053a9ce31927",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0041__L036__p55:alligators:shark": {
+"unit": "s3d-rl600:chat-lmsys-0041__L036__p55:alligators:shark",
+"anchor": "Shark",
+"nearest": [
+"chicken",
+"dogs",
+"cats"
+],
+"random": [],
+"distractors": [
+"chicken",
+"dogs",
+"cats"
+],
+"n_eligible": 3,
+"sha": "bf46a8c655bbec00b43c807fab5fda9c0b0150a95fa19c358ea1bf6b9cd1f943",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0041__L036__p55:crocodiles:shark": {
+"unit": "s3d-rl600:chat-lmsys-0041__L036__p55:crocodiles:shark",
+"anchor": "Shark",
+"nearest": [
+"chicken",
+"dogs",
+"cats"
+],
+"random": [],
+"distractors": [
+"chicken",
+"dogs",
+"cats"
+],
+"n_eligible": 3,
+"sha": "f11a1bc175fce9f40321c923f880e385e2b5f276b8220cef2602c44c73e4698f",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0041__L036__p55:鳄鱼crocodile:shark": {
+"unit": "s3d-rl600:chat-lmsys-0041__L036__p55:鳄鱼crocodile:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "f4e3ebcdcb16fb18d7bd570c0656cb77daf4ac5e6d15f300ec21df80deb8e15d",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0041__L044__p127:bear:shark": {
+"unit": "s3d-rl600:chat-lmsys-0041__L044__p127:bear:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "ceb972b8678fc8b3daa711006621e3c86eac4081776d3d7c7a0e7a10afa1d676",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0041__L044__p127:snake:shark": {
+"unit": "s3d-rl600:chat-lmsys-0041__L044__p127:snake:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "e98ef0dc0f6c79b3dad736d00b7f67bda56c92080bc0a370f05fedaded72cfb7",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0041__L044__p237:alligator:shark": {
+"unit": "s3d-rl600:chat-lmsys-0041__L044__p237:alligator:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "4cd95e5d46cf9f28e7baeea1763d997c044eda4466e5b4e280df3b642d70698f",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0041__L044__p237:crocodile:shark": {
+"unit": "s3d-rl600:chat-lmsys-0041__L044__p237:crocodile:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "f5b330bfa2696a2c9a614a838933f5cd9e5364edcf315ac8817411ca19fa447f",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0041__L044__p259:raccoon:shark": {
+"unit": "s3d-rl600:chat-lmsys-0041__L044__p259:raccoon:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "742e6e49638d717f4f547db6361c22bbe761db723dcf73b02951bcc7dcf635e4",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0041__L044__p55:alligators:sharks": {
+"unit": "s3d-rl600:chat-lmsys-0041__L044__p55:alligators:sharks",
+"anchor": "Shark",
+"nearest": [
+"chicken",
+"dogs",
+"cats"
+],
+"random": [],
+"distractors": [
+"chicken",
+"dogs",
+"cats"
+],
+"n_eligible": 3,
+"sha": "a28b6817ef6e1877639a431b22b42d9d8997924d3cae1eb69696802aef468442",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0041__L044__p55:crocodiles:sharks": {
+"unit": "s3d-rl600:chat-lmsys-0041__L044__p55:crocodiles:sharks",
+"anchor": "Shark",
+"nearest": [
+"chicken",
+"dogs",
+"cats"
+],
+"random": [],
+"distractors": [
+"chicken",
+"dogs",
+"cats"
+],
+"n_eligible": 3,
+"sha": "132c6755c6795c43de32f97948c534fd08f5ae25a8dc8c75577dbdb4cdc43505",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0041__L048__p127:snake:shark": {
+"unit": "s3d-rl600:chat-lmsys-0041__L048__p127:snake:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "9fb3bb77959dcb29f64f69ac3759ad3d47b3d2f38dcfd1f980a8f613ea5898af",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0041__L048__p237:鳄鱼crocodile:shark": {
+"unit": "s3d-rl600:chat-lmsys-0041__L048__p237:鳄鱼crocodile:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "ffdd0aab0eb84dc68a9396344bf7a2112d38a4a36cbab7ea2f3feeca76e3f693",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0041__L048__p259:rat:shark": {
+"unit": "s3d-rl600:chat-lmsys-0041__L048__p259:rat:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "626e2419a553cad76b6352fa65a52d2e83705b072a4e7292ce184c763657d4f5",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0041__L048__p32:spider:shark": {
+"unit": "s3d-rl600:chat-lmsys-0041__L048__p32:spider:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "4594335607e08e25b3bcb42e7fef8291736a2ab47793f345ecdbdc0f86060c27",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0041__L048__p55:alligator:shark": {
+"unit": "s3d-rl600:chat-lmsys-0041__L048__p55:alligator:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "0ce73c5a8e81869d82d35cfb5901ec29ffbfe3b336dab428d4a781ed76e1be5f",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0041__L060__p237:bear:shark": {
+"unit": "s3d-rl600:chat-lmsys-0041__L060__p237:bear:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "77be804b72fc58e41d4827e9f0d40ac4d20ba83f8db6ff7540d1ea1435540864",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0041__L060__p237:turtle:shark": {
+"unit": "s3d-rl600:chat-lmsys-0041__L060__p237:turtle:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "5d5dac4a25445de4daa291c80a2d4bfda86de33299727a7e001d07abbe3ebdce",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0041__L060__p259:rat:shark": {
+"unit": "s3d-rl600:chat-lmsys-0041__L060__p259:rat:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "4adf2b9e369db23fd0333b10775f925c88ab3f41e70039483a29348a75364aeb",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0048__L020__p203:dog:cat": {
+"unit": "s3d-rl600:chat-lmsys-0048__L020__p203:dog:cat",
+"anchor": "cat",
+"nearest": [
+"spiders",
+"spider",
+"fish",
+"squirrel"
+],
+"random": [
+"alligator",
+"chicken",
+"raccoon",
+"rat"
+],
+"distractors": [
+"spiders",
+"spider",
+"fish",
+"squirrel",
+"alligator",
+"chicken",
+"raccoon",
+"rat"
+],
+"n_eligible": 24,
+"sha": "35c2dd90f5bda4a3386f44ba52b198d0f990f4c7ee7ae0177eb23de56b19c519",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0048__L020__p203:dogs:cat": {
+"unit": "s3d-rl600:chat-lmsys-0048__L020__p203:dogs:cat",
+"anchor": "cats",
+"nearest": [
+"spider",
+"spiders",
+"chicken",
+"turtle"
+],
+"random": [
+"Shark",
+"crocodile",
+"sharks",
+"squirrel"
+],
+"distractors": [
+"spider",
+"spiders",
+"chicken",
+"turtle",
+"Shark",
+"crocodile",
+"sharks",
+"squirrel"
+],
+"n_eligible": 24,
+"sha": "34c35e6da1b7ca6d82fb74de4634c723fd231429d714c4a68f421d4816adb292",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0041__L020__p105:snake:shark": {
+"unit": "s3d-sft251:chat-lmsys-0041__L020__p105:snake:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "8fb90b0bc9680571f46fc4c9c0bd99db693cfcf3908cab72b331b05c3bd7b3aa",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0041__L020__p105:snakes:shark": {
+"unit": "s3d-sft251:chat-lmsys-0041__L020__p105:snakes:shark",
+"anchor": "sharks",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "4601b06f36cf3170e832a0b06b7b2c609f153a835ce3540f73253612f7ddaca2",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0041__L020__p32:alligators:shark": {
+"unit": "s3d-sft251:chat-lmsys-0041__L020__p32:alligators:shark",
+"anchor": "Shark",
+"nearest": [
+"chicken",
+"dogs",
+"cats"
+],
+"random": [],
+"distractors": [
+"chicken",
+"dogs",
+"cats"
+],
+"n_eligible": 3,
+"sha": "7643ed5b438a0c0732e40a99508ea897ef44b5d98a75425d063e211f75d80464",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0041__L020__p32:crocodiles:shark": {
+"unit": "s3d-sft251:chat-lmsys-0041__L020__p32:crocodiles:shark",
+"anchor": "Shark",
+"nearest": [
+"chicken",
+"dogs",
+"cats"
+],
+"random": [],
+"distractors": [
+"chicken",
+"dogs",
+"cats"
+],
+"n_eligible": 3,
+"sha": "bac1144098ac603a10501d9f0280b2e3bf0d57f92e0817479c75f91e53019747",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0041__L024__p105:snakes:shark": {
+"unit": "s3d-sft251:chat-lmsys-0041__L024__p105:snakes:shark",
+"anchor": "sharks",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "78295dc8e2b7fac826e86df38d121c2e64262df43f2bb4afe062772cd6502db5",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0041__L024__p32:tiger:shark": {
+"unit": "s3d-sft251:chat-lmsys-0041__L024__p32:tiger:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "6a6409ca19e4792904ede04b007a86532bd2892af62ce857dc916abdb4a27a69",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0041__L028__p105:alligators:shark": {
+"unit": "s3d-sft251:chat-lmsys-0041__L028__p105:alligators:shark",
+"anchor": "Shark",
+"nearest": [
+"chicken",
+"dogs",
+"cats"
+],
+"random": [],
+"distractors": [
+"chicken",
+"dogs",
+"cats"
+],
+"n_eligible": 3,
+"sha": "81d6a06283fff2a5afee146976d697426425ea6d079ac85b42abe5d544fd2ae9",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0041__L028__p105:crocodile:shark": {
+"unit": "s3d-sft251:chat-lmsys-0041__L028__p105:crocodile:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "7d5a05b2f940bc80d7fa9ce837b26d24f4c005cc6c2a9b3111cd999161b3618f",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0041__L028__p105:crocodiles:shark": {
+"unit": "s3d-sft251:chat-lmsys-0041__L028__p105:crocodiles:shark",
+"anchor": "Shark",
+"nearest": [
+"chicken",
+"dogs",
+"cats"
+],
+"random": [],
+"distractors": [
+"chicken",
+"dogs",
+"cats"
+],
+"n_eligible": 3,
+"sha": "c93b8d3148b3c7a3eff327b69eb1fb9ca93800b4839602cc427ab71d1f310b23",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0041__L028__p105:snakes:shark": {
+"unit": "s3d-sft251:chat-lmsys-0041__L028__p105:snakes:shark",
+"anchor": "sharks",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "cc8192b2aab9c47012b5982a6030df3ee59467c0375a129c45d1bb57c8f0fc29",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0041__L028__p32:snake:shark": {
+"unit": "s3d-sft251:chat-lmsys-0041__L028__p32:snake:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "3670136ca910be7a1afa416c325a675ebbfabe88fbc72fd9c3c7517b35b974fa",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0041__L032__p55:fish:shark": {
+"unit": "s3d-sft251:chat-lmsys-0041__L032__p55:fish:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "c6f8ea12c466eef8e2b3fe36c34aeef08049c3bc8510af9e8b7445057bf747b4",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0041__L036__p127:snake:shark": {
+"unit": "s3d-sft251:chat-lmsys-0041__L036__p127:snake:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "8f8061b6fa4746f9bcf0a09607fda3f8a5f428c6c380b0fa0c1da71a239e0919",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0041__L036__p127:snakes:shark": {
+"unit": "s3d-sft251:chat-lmsys-0041__L036__p127:snakes:shark",
+"anchor": "sharks",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "f8361eb6de841a86dd320d8cee2a5784c28529d053dde844b2818712b60f1b9c",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0041__L036__p237:fish:shark": {
+"unit": "s3d-sft251:chat-lmsys-0041__L036__p237:fish:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "2b9c9aa7731b300d99de18d3feccdd5058d5729904185206744b13522e368d8d",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0041__L036__p55:crocodile:shark": {
+"unit": "s3d-sft251:chat-lmsys-0041__L036__p55:crocodile:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "5c9209c24cf15504081a4dd93fabf9464855c91439838912b7e4b65519696a09",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0041__L040__p105:crocodile:shark": {
+"unit": "s3d-sft251:chat-lmsys-0041__L040__p105:crocodile:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "042790f0ffb2cbe951e0e0bdf6da8e3ac431646cc216df9bfbd06bcd1e56373f",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0041__L040__p105:crocodiles:shark": {
+"unit": "s3d-sft251:chat-lmsys-0041__L040__p105:crocodiles:shark",
+"anchor": "Shark",
+"nearest": [
+"chicken",
+"dogs",
+"cats"
+],
+"random": [],
+"distractors": [
+"chicken",
+"dogs",
+"cats"
+],
+"n_eligible": 3,
+"sha": "6a6b7e81699b4081668938712c2918a741dc067e9004395fd2e22241f7458132",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0041__L040__p105:snake:shark": {
+"unit": "s3d-sft251:chat-lmsys-0041__L040__p105:snake:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "b1eb08bd99450e1f162b83c2c5d8476c79c7592680e0a8cc264fa9d3a3906d3e",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0041__L044__p127:snake:shark": {
+"unit": "s3d-sft251:chat-lmsys-0041__L044__p127:snake:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "55850b0a788b7049e930c6231823e6851c405d23677ebff1e1f56b75ab2fb4b7",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0041__L044__p237:alligator:shark": {
+"unit": "s3d-sft251:chat-lmsys-0041__L044__p237:alligator:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "819917e3ec33aa06d96af2abfa38de49d010fbde486831ca603e9a6220466e59",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0041__L044__p237:alligators:shark": {
+"unit": "s3d-sft251:chat-lmsys-0041__L044__p237:alligators:shark",
+"anchor": "Shark",
+"nearest": [
+"chicken",
+"dogs",
+"cats"
+],
+"random": [],
+"distractors": [
+"chicken",
+"dogs",
+"cats"
+],
+"n_eligible": 3,
+"sha": "90dbf949b79bf6b2e7d75c4aa60ed68bc7ccf779987dc23b409bbfd20d7b3fbd",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0041__L044__p259:rat:shark": {
+"unit": "s3d-sft251:chat-lmsys-0041__L044__p259:rat:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "5c31e68b0fdd172fe0640c612954c192313a728e4d4bc9e636c7622eaa315244",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0041__L044__p55:alligator:shark": {
+"unit": "s3d-sft251:chat-lmsys-0041__L044__p55:alligator:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "c31db1111975a6087bfe3f0d4d74d38688899c69f4a5164bdb70dfdba3d1f4b6",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0041__L044__p55:alligators:sharks": {
+"unit": "s3d-sft251:chat-lmsys-0041__L044__p55:alligators:sharks",
+"anchor": "Shark",
+"nearest": [
+"chicken",
+"dogs",
+"cats"
+],
+"random": [],
+"distractors": [
+"chicken",
+"dogs",
+"cats"
+],
+"n_eligible": 3,
+"sha": "0d41e4f203e324cfab9df446c45465673e317f3e44d7f0cc6ba14b01fb5789a7",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0041__L044__p55:crocodile:shark": {
+"unit": "s3d-sft251:chat-lmsys-0041__L044__p55:crocodile:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "ee84c88c0a03ff47c4869c1d3a6bb6fbc4fbf18168078afd3969bd12a51cdcd1",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0041__L044__p55:crocodileintheaquarium:sharkinthepool": {
+"unit": "s3d-sft251:chat-lmsys-0041__L044__p55:crocodileintheaquarium:sharkinthepool",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "1a5821d09f4a394030c6c021b394fbe598f74aa6f22d24f9f86e9afbc2a36e99",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0041__L044__p55:crocodiles:sharks": {
+"unit": "s3d-sft251:chat-lmsys-0041__L044__p55:crocodiles:sharks",
+"anchor": "Shark",
+"nearest": [
+"chicken",
+"dogs",
+"cats"
+],
+"random": [],
+"distractors": [
+"chicken",
+"dogs",
+"cats"
+],
+"n_eligible": 3,
+"sha": "c381230173051c8f4bbf378fce1c4867a734b77888dfeb09bf55fec60061868a",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0041__L048__p259:rat:shark": {
+"unit": "s3d-sft251:chat-lmsys-0041__L048__p259:rat:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "7990be5eccaa85fcc61eee6290555948a0d6915772b660cbf273df032452884d",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0041__L048__p55:alligators:sharks": {
+"unit": "s3d-sft251:chat-lmsys-0041__L048__p55:alligators:sharks",
+"anchor": "Shark",
+"nearest": [
+"chicken",
+"dogs",
+"cats"
+],
+"random": [],
+"distractors": [
+"chicken",
+"dogs",
+"cats"
+],
+"n_eligible": 3,
+"sha": "ab8f42afdb87ab26291f74c5ca2fcd167829f6184e652bb6b79c9de0cc2b61c3",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0041__L052__p127:snake:shark": {
+"unit": "s3d-sft251:chat-lmsys-0041__L052__p127:snake:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "41ad8b79c0c434d0442f3a2ef1317c43f0c19f0bad5e461b012303eb549e19d0",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0041__L052__p259:rat:shark": {
+"unit": "s3d-sft251:chat-lmsys-0041__L052__p259:rat:shark",
+"anchor": "shark",
+"nearest": [
+"chicken",
+"cats",
+"dogs"
+],
+"random": [],
+"distractors": [
+"chicken",
+"cats",
+"dogs"
+],
+"n_eligible": 3,
+"sha": "af57e914e37c7f5cd7c83fa6f6336c00dc68edcada35b47ae0d4abcffe2f7aa7",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0048__L036__p203:dog:cat": {
+"unit": "s3d-sft251:chat-lmsys-0048__L036__p203:dog:cat",
+"anchor": "cat",
+"nearest": [
+"spiders",
+"spider",
+"fish",
+"squirrel"
+],
+"random": [
+"alligator",
+"lion",
+"rodent",
+"tiger"
+],
+"distractors": [
+"spiders",
+"spider",
+"fish",
+"squirrel",
+"alligator",
+"lion",
+"rodent",
+"tiger"
+],
+"n_eligible": 24,
+"sha": "32053045022af871530218c6e640555aa9247661c188a327590f7698539d609b",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0048__L044__p203:bird:cat": {
+"unit": "s3d-sft251:chat-lmsys-0048__L044__p203:bird:cat",
+"anchor": "cat",
+"nearest": [
+"spiders",
+"spider",
+"fish",
+"squirrel"
+],
+"random": [
+"crocodile",
+"rat",
+"snakes",
+"tiger"
+],
+"distractors": [
+"spiders",
+"spider",
+"fish",
+"squirrel",
+"crocodile",
+"rat",
+"snakes",
+"tiger"
+],
+"n_eligible": 24,
+"sha": "8e52421e1d3bebf01c8e83e99ebe270fc7cf8aa82f2a522af3c735549b7d2319",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0048__L048__p203:birds:cat": {
+"unit": "s3d-sft251:chat-lmsys-0048__L048__p203:birds:cat",
+"anchor": "cats",
+"nearest": [
+"spider",
+"spiders",
+"chicken",
+"turtle"
+],
+"random": [
+"alligator",
+"dolphin",
+"lion",
+"shark"
+],
+"distractors": [
+"spider",
+"spiders",
+"chicken",
+"turtle",
+"alligator",
+"dolphin",
+"lion",
+"shark"
+],
+"n_eligible": 24,
+"sha": "1ecb1d3bd69451de8081157a501ef00dabcf9735e13819fde585836f36ee2c7b",
+"generation": 0
+},
+"sae-l42:chat-lmsys-0048__L042__p203:dog:cat": {
+"unit": "sae-l42:chat-lmsys-0048__L042__p203:dog:cat",
+"anchor": "cat",
+"nearest": [
+"spiders",
+"spider",
+"fish",
+"squirrel"
+],
+"random": [
+"frogs",
+"lion",
+"raccoon",
+"rodent"
+],
+"distractors": [
+"spiders",
+"spider",
+"fish",
+"squirrel",
+"frogs",
+"lion",
+"raccoon",
+"rodent"
+],
+"n_eligible": 24,
+"sha": "071aaa673a5e602cfb19bf65385f4ce4413c700217e30129fb8c0a1c5b0331e8",
+"generation": 0
+}
+}

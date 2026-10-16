@@ -1,0 +1,292 @@
+{
+"mlnla-ck2000-all11:chat-lmsys-0010__L048__p45:windows:linux": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0010__L048__p45:windows:linux",
+"anchor": "Linux",
+"nearest": [
+"Unix",
+"FreeBSD",
+"Debian",
+"Windows 7"
+],
+"random": [
+"Android",
+"Chrome OS",
+"Windows 10 Pro",
+"iOS"
+],
+"distractors": [
+"Unix",
+"FreeBSD",
+"Debian",
+"Windows 7",
+"Android",
+"Chrome OS",
+"Windows 10 Pro",
+"iOS"
+],
+"n_eligible": 11,
+"sha": "ad2fd59e94d291199effa010dd0f568ca370842f57b6f74e3073c8f28f01b2a9",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0014__L020__p150:androidmacwindows:ts36321mac": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0014__L020__p150:androidmacwindows:ts36321mac",
+"anchor": "Android, macOS, Windows",
+"nearest": [
+"Windows 11 Pro",
+"Microsoft Windows",
+"iOS",
+"Chrome OS"
+],
+"random": [
+"Fedora",
+"Unix",
+"Windows 10 Pro",
+"Windows 7"
+],
+"distractors": [
+"Windows 11 Pro",
+"Microsoft Windows",
+"iOS",
+"Chrome OS",
+"Fedora",
+"Unix",
+"Windows 10 Pro",
+"Windows 7"
+],
+"n_eligible": 13,
+"sha": "20510b10eb390f666edc22b4357a1d8c1c254b08c340e68327e9d6ad32f830ab",
+"generation": 1
+},
+"s3d-rl600-all11:chat-lmsys-0045__L040__p95:windows10:googlechrome": {
+"unit": "s3d-rl600-all11:chat-lmsys-0045__L040__p95:windows10:googlechrome",
+"anchor": "Windows 10",
+"nearest": [
+"Windows 11 Pro",
+"iOS",
+"Chrome OS",
+"Android"
+],
+"random": [
+"Debian",
+"Fedora",
+"Unix",
+"macOS"
+],
+"distractors": [
+"Windows 11 Pro",
+"iOS",
+"Chrome OS",
+"Android",
+"Debian",
+"Fedora",
+"Unix",
+"macOS"
+],
+"n_eligible": 11,
+"sha": "9c235c97fe45f72f52b1a31ce3f49436c3c70c083fb022fb6638a38b7541d723",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0045__L040__p95:windows7:googlechrome": {
+"unit": "s3d-rl600-all11:chat-lmsys-0045__L040__p95:windows7:googlechrome",
+"anchor": "Windows 7",
+"nearest": [
+"Windows 10 Pro",
+"Unix",
+"Windows 11 Pro",
+"Linux"
+],
+"random": [
+"Android",
+"Debian",
+"Ubuntu",
+"iOS"
+],
+"distractors": [
+"Windows 10 Pro",
+"Unix",
+"Windows 11 Pro",
+"Linux",
+"Android",
+"Debian",
+"Ubuntu",
+"iOS"
+],
+"n_eligible": 12,
+"sha": "a49a36fe252d470c85620320d2c7077bee6e6deec01eb36bbaf0d386b1ba4b2a",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0045__L044__p95:windows:googlechrome": {
+"unit": "s3d-rl600-all11:chat-lmsys-0045__L044__p95:windows:googlechrome",
+"anchor": "Microsoft Windows",
+"nearest": [
+"macOS",
+"iOS",
+"Android",
+"Chrome OS"
+],
+"random": [
+"Debian",
+"FreeBSD",
+"Linux",
+"Windows 11 Pro"
+],
+"distractors": [
+"macOS",
+"iOS",
+"Android",
+"Chrome OS",
+"Debian",
+"FreeBSD",
+"Linux",
+"Windows 11 Pro"
+],
+"n_eligible": 12,
+"sha": "2bb5cfadc316cd32b933dd08db68b5d2c3bc2e166a7480b6483f050e1813ce49",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0045__L044__p95:windowsmac:googlechrome": {
+"unit": "s3d-rl600-all11:chat-lmsys-0045__L044__p95:windowsmac:googlechrome",
+"anchor": "Windows, Mac",
+"nearest": [
+"macOS",
+"Chrome OS",
+"iOS",
+"Windows 11 Pro"
+],
+"random": [
+"Debian",
+"Ubuntu",
+"Unix",
+"Windows 10 Pro"
+],
+"distractors": [
+"macOS",
+"Chrome OS",
+"iOS",
+"Windows 11 Pro",
+"Debian",
+"Ubuntu",
+"Unix",
+"Windows 10 Pro"
+],
+"n_eligible": 12,
+"sha": "6a4c1ddb0d3e60a0e37711b9ec45bd2e69a1a7fb984fd8577bcf7aba051d0e0f",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0064__L052__p638:windows11pro:windows10pro": {
+"unit": "s3d-rl600-all11:chat-lmsys-0064__L052__p638:windows11pro:windows10pro",
+"anchor": "Windows 10 Pro",
+"nearest": [
+"Chrome OS",
+"Microsoft Windows",
+"iOS",
+"macOS"
+],
+"random": [
+"Debian",
+"Fedora",
+"FreeBSD",
+"Unix"
+],
+"distractors": [
+"Chrome OS",
+"Microsoft Windows",
+"iOS",
+"macOS",
+"Debian",
+"Fedora",
+"FreeBSD",
+"Unix"
+],
+"n_eligible": 10,
+"sha": "1c8b6000fe41ac8152a7eed42e2af0a1f4bf116390dafd9779ed8e8a46a70b45",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0045__L036__p95:windows7:googlechrome": {
+"unit": "s3d-rl600:chat-lmsys-0045__L036__p95:windows7:googlechrome",
+"anchor": "Windows 7",
+"nearest": [
+"Windows 10 Pro",
+"Unix",
+"Windows 11 Pro",
+"Linux"
+],
+"random": [
+"Android",
+"Chrome OS",
+"Debian",
+"iOS"
+],
+"distractors": [
+"Windows 10 Pro",
+"Unix",
+"Windows 11 Pro",
+"Linux",
+"Android",
+"Chrome OS",
+"Debian",
+"iOS"
+],
+"n_eligible": 12,
+"sha": "b8b285d05da352523837419456198fcc59b565076c1b1f21232081d4a01061fc",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0064__L048__p440:linuxubuntu:windows10pro": {
+"unit": "s3d-rl600:chat-lmsys-0064__L048__p440:linuxubuntu:windows10pro",
+"anchor": "Windows 10 Pro",
+"nearest": [
+"Chrome OS",
+"Microsoft Windows",
+"iOS",
+"macOS"
+],
+"random": [
+"Android",
+"Debian",
+"Fedora",
+"FreeBSD"
+],
+"distractors": [
+"Chrome OS",
+"Microsoft Windows",
+"iOS",
+"macOS",
+"Android",
+"Debian",
+"Fedora",
+"FreeBSD"
+],
+"n_eligible": 10,
+"sha": "025b19b1473ce07093e86bb44c350cb4d5e1b6cf44c8fc44225c3089246a14c4",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0064__L060__p440:windows7:windows10pro": {
+"unit": "s3d-rl600:chat-lmsys-0064__L060__p440:windows7:windows10pro",
+"anchor": "Windows 10",
+"nearest": [
+"iOS",
+"Chrome OS",
+"Microsoft Windows",
+"Android"
+],
+"random": [
+"Debian",
+"FreeBSD",
+"Unix",
+"macOS"
+],
+"distractors": [
+"iOS",
+"Chrome OS",
+"Microsoft Windows",
+"Android",
+"Debian",
+"FreeBSD",
+"Unix",
+"macOS"
+],
+"n_eligible": 10,
+"sha": "0379dc426c41973ceaf5238c77cfc314d738fc0b7a71e7137850dd07fd9245ea",
+"generation": 0
+}
+}

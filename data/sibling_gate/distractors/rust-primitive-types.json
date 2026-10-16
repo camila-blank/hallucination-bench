@@ -1,0 +1,118 @@
+{
+"s3d-rl600-all11:chat-lmsys-0022__L060__p297:str:()": {
+"unit": "s3d-rl600-all11:chat-lmsys-0022__L060__p297:str:()",
+"anchor": "&str",
+"nearest": [
+"char",
+"bool",
+"u8",
+"f64"
+],
+"random": [
+"f32",
+"i16",
+"i32",
+"u64"
+],
+"distractors": [
+"char",
+"bool",
+"u8",
+"f64",
+"f32",
+"i16",
+"i32",
+"u64"
+],
+"n_eligible": 9,
+"sha": "b0269e46277040cb5368ff9462cb7edba2a7d9ea801a7517b9d67b95f3655d0d",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0022__L048__p221:i64:u64": {
+"unit": "s3d-sft251:chat-lmsys-0022__L048__p221:i64:u64",
+"anchor": "i64",
+"nearest": [
+"i16",
+"i128",
+"u64",
+"i32"
+],
+"random": [
+"bool",
+"f32",
+"f64",
+"u8"
+],
+"distractors": [
+"i16",
+"i128",
+"u64",
+"i32",
+"bool",
+"f32",
+"f64",
+"u8"
+],
+"n_eligible": 9,
+"sha": "3586bc40576f07551e4cb6e6f0835ebf486a124d30d0c53c85d639d353eaab90",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0022__L048__p221:u16:u64": {
+"unit": "s3d-sft251:chat-lmsys-0022__L048__p221:u16:u64",
+"anchor": "u16",
+"nearest": [
+"u8",
+"i16",
+"i128",
+"f32"
+],
+"random": [
+"bool",
+"char",
+"i32",
+"u64"
+],
+"distractors": [
+"u8",
+"i16",
+"i128",
+"f32",
+"bool",
+"char",
+"i32",
+"u64"
+],
+"n_eligible": 9,
+"sha": "45fd93b6f2d766b6e8cafd4bdce73a9818fec17833d470049711f5c3008c56b1",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0022__L048__p221:u32:u64": {
+"unit": "s3d-sft251:chat-lmsys-0022__L048__p221:u32:u64",
+"anchor": "u64",
+"nearest": [
+"i128",
+"i32",
+"i16",
+"f32"
+],
+"random": [
+"bool",
+"char",
+"f64",
+"u8"
+],
+"distractors": [
+"i128",
+"i32",
+"i16",
+"f32",
+"bool",
+"char",
+"f64",
+"u8"
+],
+"n_eligible": 8,
+"sha": "3e5c89679126146d0d32dff3ed1fd5879ec4d0eb05e5da17d0d5e358372b0dc3",
+"generation": 0
+}
+}

@@ -1,0 +1,346 @@
+{
+"mlnla-ck2000-all11:chat-lmsys-0042__L048__p99:firebasefirestoreinflutter:laravel": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0042__L048__p99:firebasefirestoreinflutter:laravel",
+"anchor": "Laravel",
+"nearest": [
+"Java ecosystem tools",
+"Hive",
+"Spring Framework"
+],
+"random": [],
+"distractors": [
+"Java ecosystem tools",
+"Hive",
+"Spring Framework"
+],
+"n_eligible": 3,
+"sha": "825d1e4e89e6ebcc542696cb023e2e07401f5308fd7ef049976688162ad4a724",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0042__L052__p462:flutterprovider:laravel": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0042__L052__p462:flutterprovider:laravel",
+"anchor": "Laravel",
+"nearest": [
+"Java ecosystem tools",
+"Hive",
+"Spring Framework"
+],
+"random": [],
+"distractors": [
+"Java ecosystem tools",
+"Hive",
+"Spring Framework"
+],
+"n_eligible": 3,
+"sha": "6e7c4f0d0d2007120ef8e11a0279bfc37e8d7f2a1f94b213cf76b26ade375db3",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0042__L056__p271:reactnative:laravel": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0042__L056__p271:reactnative:laravel",
+"anchor": "Laravel",
+"nearest": [
+"Java ecosystem tools",
+"Hive",
+"Spring Framework"
+],
+"random": [],
+"distractors": [
+"Java ecosystem tools",
+"Hive",
+"Spring Framework"
+],
+"n_eligible": 3,
+"sha": "316fe90f75db8260d2165742f491ccf600f9704f32f3509dbab8f30dc9bde296",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0012__L028__p316:unityblenderthreejsreact:flutterpackages": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0012__L028__p316:unityblenderthreejsreact:flutterpackages",
+"anchor": "Flutter",
+"nearest": [
+"Firebase SDK"
+],
+"random": [],
+"distractors": [
+"Firebase SDK"
+],
+"n_eligible": 1,
+"sha": "4915d1693d919e0b647809c20bd706bf061f2f492178a8bab95dd8b38aeb30d5",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0042__L032__p99:androidkotlinroom:laravel": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0042__L032__p99:androidkotlinroom:laravel",
+"anchor": "Laravel",
+"nearest": [
+"Java ecosystem tools",
+"Unity",
+"Hive",
+"Spring Framework"
+],
+"random": [],
+"distractors": [
+"Java ecosystem tools",
+"Unity",
+"Hive",
+"Spring Framework"
+],
+"n_eligible": 4,
+"sha": "9f3a81f87faef91483d002cc1fa5aa38b172fefc7228c9ebafbd504fd22a166c",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0042__L044__p99:firebasefirestoreinflutter:laravel": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0042__L044__p99:firebasefirestoreinflutter:laravel",
+"anchor": "Laravel",
+"nearest": [
+"Java ecosystem tools",
+"Unity",
+"Hive",
+"Spring Framework"
+],
+"random": [],
+"distractors": [
+"Java ecosystem tools",
+"Unity",
+"Hive",
+"Spring Framework"
+],
+"n_eligible": 4,
+"sha": "4cc5869dde67ce4ffb80e9a21c397f73d495aaa0052aeff951e21a98874fbfdf",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0012__L032__p650:prismanodejsnextjs:flutterhiveriverpod": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0012__L032__p650:prismanodejsnextjs:flutterhiveriverpod",
+"anchor": "Flutter",
+"nearest": [
+"Firebase SDK"
+],
+"random": [],
+"distractors": [
+"Firebase SDK"
+],
+"n_eligible": 1,
+"sha": "996629674de0a0c4391f752a5ccc9f1a64f8f333ed09cf7ee48969b0424e415f",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0012__L044__p684:javaspring:flutter": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0012__L044__p684:javaspring:flutter",
+"anchor": "Flutter",
+"nearest": [
+"Firebase SDK"
+],
+"random": [],
+"distractors": [
+"Firebase SDK"
+],
+"n_eligible": 1,
+"sha": "493621fe72b745f99cd2f396e553013683b95cbfdeffa533cf0d0e4548f23bf0",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0042__L032__p99:providertextfieldstreambuilder:eloquent": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0042__L032__p99:providertextfieldstreambuilder:eloquent",
+"anchor": "Laravel",
+"nearest": [
+"Java ecosystem tools",
+"Unity",
+"Hive",
+"Spring Framework"
+],
+"random": [],
+"distractors": [
+"Java ecosystem tools",
+"Unity",
+"Hive",
+"Spring Framework"
+],
+"n_eligible": 4,
+"sha": "fda73a3389e26ad0fcfb6dc5654b07d356a24b2473d026eed90cfc663b4dc1b7",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0042__L048__p99:firebasesdk:eloquent": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0042__L048__p99:firebasesdk:eloquent",
+"anchor": "Laravel",
+"nearest": [
+"Java ecosystem tools",
+"Unity",
+"Hive",
+"Spring Framework"
+],
+"random": [],
+"distractors": [
+"Java ecosystem tools",
+"Unity",
+"Hive",
+"Spring Framework"
+],
+"n_eligible": 4,
+"sha": "ae0f58abe677e149994e32716779b52874f03d05db4ae87ce3bea4e692a0572f",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0012__L028__p316:django:flutter": {
+"unit": "s3d-rl600-all11:chat-lmsys-0012__L028__p316:django:flutter",
+"anchor": "Flutter",
+"nearest": [
+"Firebase SDK"
+],
+"random": [],
+"distractors": [
+"Firebase SDK"
+],
+"n_eligible": 1,
+"sha": "43265b9a151d5f03e0ebecd9e1d9f5c83045a425c3324d30f6f460e09b3e293f",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0012__L028__p650:django:flutter": {
+"unit": "s3d-rl600-all11:chat-lmsys-0012__L028__p650:django:flutter",
+"anchor": "Flutter",
+"nearest": [
+"Firebase SDK"
+],
+"random": [],
+"distractors": [
+"Firebase SDK"
+],
+"n_eligible": 1,
+"sha": "6e59092d02b590f8124f9fad0eea4c1a26fa8c1c4deb6f67fd0a378aaf9012f2",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0012__L028__p650:springboot:flutter": {
+"unit": "s3d-rl600-all11:chat-lmsys-0012__L028__p650:springboot:flutter",
+"anchor": "Hive",
+"nearest": [
+"Firebase SDK"
+],
+"random": [],
+"distractors": [
+"Firebase SDK"
+],
+"n_eligible": 1,
+"sha": "9fe69bfb5df341b960de6c976cf912b2519977e2576e66a418ebbdc844a5ef51",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0012__L028__p650:springboot:hive": {
+"unit": "s3d-rl600-all11:chat-lmsys-0012__L028__p650:springboot:hive",
+"anchor": "Hive",
+"nearest": [
+"Firebase SDK"
+],
+"random": [],
+"distractors": [
+"Firebase SDK"
+],
+"n_eligible": 1,
+"sha": "baa71aea7b75fa7760cbd3ba035d311f36f7b3ccf2500aa25e2e8c6bfab62ec7",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0012__L028__p650:springbootreact:flutter": {
+"unit": "s3d-rl600-all11:chat-lmsys-0012__L028__p650:springbootreact:flutter",
+"anchor": "Flutter",
+"nearest": [
+"Firebase SDK"
+],
+"random": [],
+"distractors": [
+"Firebase SDK"
+],
+"n_eligible": 1,
+"sha": "84c300aabb2f1f9217a58672461a12ed8fecbebde69069b8432e8d46068f6a99",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0012__L028__p650:springbootvuejshibernate:flutter": {
+"unit": "s3d-rl600-all11:chat-lmsys-0012__L028__p650:springbootvuejshibernate:flutter",
+"anchor": "Flutter",
+"nearest": [
+"Firebase SDK"
+],
+"random": [],
+"distractors": [
+"Firebase SDK"
+],
+"n_eligible": 1,
+"sha": "715759ca75e71d33be55ff02e0ea91419c38c4a83bfda95eeca6386a0fdf49b1",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0012__L036__p650:django:flutter": {
+"unit": "s3d-rl600-all11:chat-lmsys-0012__L036__p650:django:flutter",
+"anchor": "Flutter",
+"nearest": [
+"Firebase SDK"
+],
+"random": [],
+"distractors": [
+"Firebase SDK"
+],
+"n_eligible": 1,
+"sha": "8ffaeb0fb84637925bb6845d1bb2fd21218bd49b52a444e2f9c04ed78843a9f7",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0012__L036__p650:springboot:flutter": {
+"unit": "s3d-rl600-all11:chat-lmsys-0012__L036__p650:springboot:flutter",
+"anchor": "Hive",
+"nearest": [
+"Firebase SDK"
+],
+"random": [],
+"distractors": [
+"Firebase SDK"
+],
+"n_eligible": 1,
+"sha": "61ee48ad240777e8b2a8c8daf745ad4db4f7a2effedd56df9f32e4ec13149009",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0012__L028__p650:springboot:flutter": {
+"unit": "s3d-sft251:chat-lmsys-0012__L028__p650:springboot:flutter",
+"anchor": "Hive",
+"nearest": [
+"Firebase SDK"
+],
+"random": [],
+"distractors": [
+"Firebase SDK"
+],
+"n_eligible": 1,
+"sha": "1256a7d1072540441007bac0b6f1dc04d2c502c88901134f323bb969a471f35c",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0012__L028__p650:springframework:flutter": {
+"unit": "s3d-sft251:chat-lmsys-0012__L028__p650:springframework:flutter",
+"anchor": "Flutter",
+"nearest": [
+"Firebase SDK"
+],
+"random": [],
+"distractors": [
+"Firebase SDK"
+],
+"n_eligible": 1,
+"sha": "b8a9328d739e5969574c91eab78dd106637765668d405b8580f73f5b49c3aeb9",
+"generation": 0
+},
+"template-v3:chat-lmsys-0012__L020__p650:androidsupportlibrariesangular:flutterpackages": {
+"unit": "template-v3:chat-lmsys-0012__L020__p650:androidsupportlibrariesangular:flutterpackages",
+"anchor": "Flutter",
+"nearest": [
+"Firebase SDK"
+],
+"random": [],
+"distractors": [
+"Firebase SDK"
+],
+"n_eligible": 1,
+"sha": "2fa0a329f57115100e397a90177782b453059e63951b15e4056880e3303430ec",
+"generation": 0
+},
+"template-v3:chat-lmsys-0012__L028__p745:javaecosystemtoolsandroidsupportlibrariesjpajenkinsangular:flutterpackages": {
+"unit": "template-v3:chat-lmsys-0012__L028__p745:javaecosystemtoolsandroidsupportlibrariesjpajenkinsangular:flutterpackages",
+"anchor": "Flutter",
+"nearest": [
+"Firebase SDK"
+],
+"random": [],
+"distractors": [
+"Firebase SDK"
+],
+"n_eligible": 1,
+"sha": "165e0cc21b54f39d47347f320a896f0a1b7f3f35f27317a71d13f04da7c29a80",
+"generation": 0
+}
+}

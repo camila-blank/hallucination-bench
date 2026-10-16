@@ -1,0 +1,1175 @@
+{
+"mlnla-ck2000-all11:chat-lmsys-0014__L020__p36:mac:rlc": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0014__L020__p36:mac:rlc",
+"anchor": "Radio Link Control",
+"nearest": [
+"LTE RLC",
+"LTE RLC layer"
+],
+"random": [],
+"distractors": [
+"LTE RLC",
+"LTE RLC layer"
+],
+"n_eligible": 2,
+"sha": "7f12aa936b4284dea71e7210dca93dc518f0e3fa8724c300927c77c2c770e4d4",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0014__L028__p353::": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0014__L028__p353::",
+"anchor": "RLC",
+"nearest": [
+"Access Stratum",
+"Non-Access Stratum"
+],
+"random": [],
+"distractors": [
+"Access Stratum",
+"Non-Access Stratum"
+],
+"n_eligible": 2,
+"sha": "8bfa916929f261461e2d4cc46e53953545778cf0dfd3de7a995d6be135ef5510",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0014__L028__p353:mac:rlc": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0014__L028__p353:mac:rlc",
+"anchor": "Radio Link Control",
+"nearest": [
+"LTE RLC",
+"LTE RLC layer"
+],
+"random": [],
+"distractors": [
+"LTE RLC",
+"LTE RLC layer"
+],
+"n_eligible": 2,
+"sha": "e33059ddb30c1374f43c6bbc907995d774b072d57762430768ad54ec7e7aafeb",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0014__L028__p353:macsublayer:rlcsublayer": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0014__L028__p353:macsublayer:rlcsublayer",
+"anchor": "RLC sublayer",
+"nearest": [
+"Access Stratum",
+"Non-Access Stratum"
+],
+"random": [],
+"distractors": [
+"Access Stratum",
+"Non-Access Stratum"
+],
+"n_eligible": 2,
+"sha": "9fcd9a7fe09312d89e9e24d861ba7b5076dc3ca24d6e36acbca0a57b409250e4",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0014__L028__p36:mac:rlc": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0014__L028__p36:mac:rlc",
+"anchor": "Radio Link Control",
+"nearest": [
+"LTE RLC",
+"LTE RLC layer"
+],
+"random": [],
+"distractors": [
+"LTE RLC",
+"LTE RLC layer"
+],
+"n_eligible": 2,
+"sha": "0aa90a61f0555124a702fbe83e767b56d0f6a31f1b9780bf8a0731e3e706782f",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0014__L032__p36:ltemac:lterlc": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0014__L032__p36:ltemac:lterlc",
+"anchor": "LTE RLC",
+"nearest": [
+"Access Stratum",
+"Non-Access Stratum"
+],
+"random": [],
+"distractors": [
+"Access Stratum",
+"Non-Access Stratum"
+],
+"n_eligible": 2,
+"sha": "9805467fb1aad80ef5ed32ce748bee312475289bdd58171deaf272b6f488c33a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0014__L032__p36:ltemaclayer:lterlc": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0014__L032__p36:ltemaclayer:lterlc",
+"anchor": "LTE RLC layer",
+"nearest": [
+"Access Stratum",
+"Non-Access Stratum"
+],
+"random": [],
+"distractors": [
+"Access Stratum",
+"Non-Access Stratum"
+],
+"n_eligible": 2,
+"sha": "c3c0b93b4ff62fa1e5b3e9335fc3657dd1e518dd1107e2b91fbef84389abae03",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0014__L032__p36:mediumaccesscontrol:radiolinkcontrol": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0014__L032__p36:mediumaccesscontrol:radiolinkcontrol",
+"anchor": "Radio Link Control",
+"nearest": [
+"LTE RLC",
+"LTE RLC layer"
+],
+"random": [],
+"distractors": [
+"LTE RLC",
+"LTE RLC layer"
+],
+"n_eligible": 2,
+"sha": "6f4e08570922d8f9d847aa469483c557bcb20a378983255750080f08f7d7a783",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0014__L036__p353::": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0014__L036__p353::",
+"anchor": "RLC",
+"nearest": [
+"Access Stratum",
+"Non-Access Stratum"
+],
+"random": [],
+"distractors": [
+"Access Stratum",
+"Non-Access Stratum"
+],
+"n_eligible": 2,
+"sha": "dd62b033a36c91c819d60811447cf248ce94a935a5688397bc9597005b6d34be",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0014__L040__p36:ltemaclayer:lterlc": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0014__L040__p36:ltemaclayer:lterlc",
+"anchor": "LTE RLC layer",
+"nearest": [
+"Access Stratum",
+"Non-Access Stratum"
+],
+"random": [],
+"distractors": [
+"Access Stratum",
+"Non-Access Stratum"
+],
+"n_eligible": 2,
+"sha": "bf6e8ae0e012ea40b97a84bcaaa0b46d09b053e5075a1f67a38fc999e0084410",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0014__L040__p36:mac:rlc": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0014__L040__p36:mac:rlc",
+"anchor": "Radio Link Control",
+"nearest": [
+"LTE RLC",
+"LTE RLC layer"
+],
+"random": [],
+"distractors": [
+"LTE RLC",
+"LTE RLC layer"
+],
+"n_eligible": 2,
+"sha": "2aa28c5ec2dfa97b392d42fc9a5dcca6b97e5f0af13337fef58ce92b442911a6",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0014__L040__p36:macmediumaccesscontrol:rlcradiolinkcontrol": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0014__L040__p36:macmediumaccesscontrol:rlcradiolinkcontrol",
+"anchor": "Radio Link Control",
+"nearest": [
+"LTE RLC",
+"LTE RLC layer"
+],
+"random": [],
+"distractors": [
+"LTE RLC",
+"LTE RLC layer"
+],
+"n_eligible": 2,
+"sha": "54aff05139ede17cfdfef14c97a9bca4a2e65597e86af3ac27d8af44b2120acd",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0014__L044__p278:pdcp:mac": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0014__L044__p278:pdcp:mac",
+"anchor": "RLC",
+"nearest": [
+"Access Stratum",
+"Non-Access Stratum"
+],
+"random": [],
+"distractors": [
+"Access Stratum",
+"Non-Access Stratum"
+],
+"n_eligible": 2,
+"sha": "6e51efe7e0d27aa8cdfb1b1e36abc030e732d0a3e609ba4b457329b4405a08a5",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0014__L048__p471:mac:rlc": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0014__L048__p471:mac:rlc",
+"anchor": "Radio Link Control",
+"nearest": [
+"LTE RLC",
+"LTE RLC layer"
+],
+"random": [],
+"distractors": [
+"LTE RLC",
+"LTE RLC layer"
+],
+"n_eligible": 2,
+"sha": "faba77be355f85ba57a2177b7262ea81608747477a6e7fdbcb9509700c86101b",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0014__L052__p471:mac:rlc": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0014__L052__p471:mac:rlc",
+"anchor": "Radio Link Control",
+"nearest": [
+"LTE RLC",
+"LTE RLC layer"
+],
+"random": [],
+"distractors": [
+"LTE RLC",
+"LTE RLC layer"
+],
+"n_eligible": 2,
+"sha": "74953a95c7b2235f2387ca7765bdc98e990bb76df2a94c2a0c71428e5b54a22f",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0014__L056__p353:pdcp:rlc": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0014__L056__p353:pdcp:rlc",
+"anchor": "RLC",
+"nearest": [
+"Access Stratum",
+"Non-Access Stratum"
+],
+"random": [],
+"distractors": [
+"Access Stratum",
+"Non-Access Stratum"
+],
+"n_eligible": 2,
+"sha": "156ce3890618e8da36320b231a5a5c6c12ca0060f897368625e7bc0741a6404f",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0014__L032__p419:mac:rlc": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0014__L032__p419:mac:rlc",
+"anchor": "Radio Link Control",
+"nearest": [
+"LTE RLC"
+],
+"random": [],
+"distractors": [
+"LTE RLC"
+],
+"n_eligible": 1,
+"sha": "ad8128d20be0e319c6f60dfb253fc981fcc9b2fe49363828d02ab35c20b08002",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0014__L036__p353:mac:rlc": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0014__L036__p353:mac:rlc",
+"anchor": "Radio Link Control",
+"nearest": [
+"LTE RLC"
+],
+"random": [],
+"distractors": [
+"LTE RLC"
+],
+"n_eligible": 1,
+"sha": "957a22138ae515be6974d7cc7570233344d5f0e8cafa412509ad70ff2417846a",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0014__L040__p353::": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0014__L040__p353::",
+"anchor": "RLC",
+"nearest": [
+"Access Stratum",
+"Non-Access Stratum"
+],
+"random": [],
+"distractors": [
+"Access Stratum",
+"Non-Access Stratum"
+],
+"n_eligible": 2,
+"sha": "1440ac22875848c15e0c1d5b105cba57854312dadeaecdfa31100086bccd8eb1",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0014__L048__p353:mac:rlc": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0014__L048__p353:mac:rlc",
+"anchor": "Radio Link Control",
+"nearest": [
+"LTE RLC"
+],
+"random": [],
+"distractors": [
+"LTE RLC"
+],
+"n_eligible": 1,
+"sha": "64b34ae8c4ccf5330b7f95641377ae1517abf27265259e907e65ae67770912a4",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0014__L048__p353:macfunctionalities:rlcfunctions": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0014__L048__p353:macfunctionalities:rlcfunctions",
+"anchor": "RLC",
+"nearest": [
+"Access Stratum",
+"Non-Access Stratum"
+],
+"random": [],
+"distractors": [
+"Access Stratum",
+"Non-Access Stratum"
+],
+"n_eligible": 2,
+"sha": "17a45ddd312e5fe5bf2d9aca1a00b9dfa855bc1c7ff17233c810f9828941dc44",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0014__L048__p419:pdcp:rlc": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0014__L048__p419:pdcp:rlc",
+"anchor": "RLC",
+"nearest": [
+"Access Stratum",
+"Non-Access Stratum"
+],
+"random": [],
+"distractors": [
+"Access Stratum",
+"Non-Access Stratum"
+],
+"n_eligible": 2,
+"sha": "2a14ecd5ebbe3533a7fe16e826293f8e31e551a4a2cf977db24b611d36486f18",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0014__L024__p36:mac:rlc": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0014__L024__p36:mac:rlc",
+"anchor": "Radio Link Control",
+"nearest": [
+"LTE RLC"
+],
+"random": [],
+"distractors": [
+"LTE RLC"
+],
+"n_eligible": 1,
+"sha": "c2902f016e365927e3d7ae6d4ec87d6149b7fce8c6f1a4584146ab311ee5af66",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0014__L028__p278:mme:mac": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0014__L028__p278:mme:mac",
+"anchor": "MAC",
+"nearest": [
+"LTE RLC",
+"RLC",
+"Radio Link Control",
+"Non-Access Stratum"
+],
+"random": [
+"Access Stratum",
+"RLC sublayer"
+],
+"distractors": [
+"LTE RLC",
+"RLC",
+"Radio Link Control",
+"Non-Access Stratum",
+"Access Stratum",
+"RLC sublayer"
+],
+"n_eligible": 6,
+"sha": "b5ac0fac8898a30d9b2d46aa635535a7213a54dc768d8948c606be78e1c4db14",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0014__L028__p353:macprotocol:rlcsublayer": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0014__L028__p353:macprotocol:rlcsublayer",
+"anchor": "Radio Link Control",
+"nearest": [
+"LTE RLC"
+],
+"random": [],
+"distractors": [
+"LTE RLC"
+],
+"n_eligible": 1,
+"sha": "e96c6ef220eb5dd2ca355821f3244c47fc4f9c2aca60dab2ab720eb61b294748",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0014__L028__p353:macsublayer:rlcsublayer": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0014__L028__p353:macsublayer:rlcsublayer",
+"anchor": "RLC sublayer",
+"nearest": [
+"Access Stratum",
+"Non-Access Stratum"
+],
+"random": [],
+"distractors": [
+"Access Stratum",
+"Non-Access Stratum"
+],
+"n_eligible": 2,
+"sha": "c91e94e146e47793b9015b795f4a3b7dfa5a0802f1db290e40ca472fedcd9752",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0014__L028__p36:mediumaccesscontrol:radiolinkcontrol": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0014__L028__p36:mediumaccesscontrol:radiolinkcontrol",
+"anchor": "Radio Link Control",
+"nearest": [
+"LTE RLC"
+],
+"random": [],
+"distractors": [
+"LTE RLC"
+],
+"n_eligible": 1,
+"sha": "09c56f6b4b1a7c7e9f659e3c2dccd42c96c5742f894f99e56a148c7461967841",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0014__L032__p36:ltemac:lterlc": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0014__L032__p36:ltemac:lterlc",
+"anchor": "LTE RLC",
+"nearest": [
+"Access Stratum",
+"Non-Access Stratum"
+],
+"random": [],
+"distractors": [
+"Access Stratum",
+"Non-Access Stratum"
+],
+"n_eligible": 2,
+"sha": "333ee52c78e1b726b767623b9faff5d4dcf357aced2b06761894d97463561829",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0014__L032__p36:mac:rlc": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0014__L032__p36:mac:rlc",
+"anchor": "Radio Link Control",
+"nearest": [
+"LTE RLC"
+],
+"random": [],
+"distractors": [
+"LTE RLC"
+],
+"n_eligible": 1,
+"sha": "25d6b9325852397d0b97d098ae20dff67ee2a8e13c28d08f86c9005d3534a2ac",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0014__L032__p36:mediumaccesscontrol:radiolinkcontrol": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0014__L032__p36:mediumaccesscontrol:radiolinkcontrol",
+"anchor": "Radio Link Control",
+"nearest": [
+"LTE RLC"
+],
+"random": [],
+"distractors": [
+"LTE RLC"
+],
+"n_eligible": 1,
+"sha": "c4c8e98a3c268a399ed2b05bc1c3ab91057e8d960498c3ea788d93ca948f6e35",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0014__L036__p222::": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0014__L036__p222::",
+"anchor": "RLC",
+"nearest": [
+"Access Stratum",
+"Non-Access Stratum"
+],
+"random": [],
+"distractors": [
+"Access Stratum",
+"Non-Access Stratum"
+],
+"n_eligible": 2,
+"sha": "c176a0e592ac2ce63f0d22a7bd0577f1ff943fd988f62aeaeec17d243e635fda",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0014__L048__p36:macsublayer:rlcsublayer": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0014__L048__p36:macsublayer:rlcsublayer",
+"anchor": "RLC sublayer",
+"nearest": [
+"Access Stratum",
+"Non-Access Stratum"
+],
+"random": [],
+"distractors": [
+"Access Stratum",
+"Non-Access Stratum"
+],
+"n_eligible": 2,
+"sha": "eea169b45e759e24c86d0ba19ed3e576931a1297f09025bbda4c6fe35259ac55",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0014__L048__p36:mediumaccesscontrol:radiolinkcontrol": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0014__L048__p36:mediumaccesscontrol:radiolinkcontrol",
+"anchor": "Radio Link Control",
+"nearest": [
+"LTE RLC"
+],
+"random": [],
+"distractors": [
+"LTE RLC"
+],
+"n_eligible": 1,
+"sha": "8fefd9f9a5459e636596ed09b2d49404630e9436ab55bbf713985c6817276dcc",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0014__L048__p419:pdcp:rlc": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0014__L048__p419:pdcp:rlc",
+"anchor": "RLC",
+"nearest": [
+"Access Stratum",
+"Non-Access Stratum"
+],
+"random": [],
+"distractors": [
+"Access Stratum",
+"Non-Access Stratum"
+],
+"n_eligible": 2,
+"sha": "ba2dcf33823d00f24267d3f68873e35e95b2e519443f6c05464da00d0c8b0f14",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0014__L052__p419:pdcp:rlc": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0014__L052__p419:pdcp:rlc",
+"anchor": "RLC",
+"nearest": [
+"Access Stratum",
+"Non-Access Stratum"
+],
+"random": [],
+"distractors": [
+"Access Stratum",
+"Non-Access Stratum"
+],
+"n_eligible": 2,
+"sha": "5e95e0b4613fbfd523bda3107393709776efe4af17b14c2b53c758246846321d",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0014__L060__p353:macsublayer:rlcsublayer": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0014__L060__p353:macsublayer:rlcsublayer",
+"anchor": "RLC sublayer",
+"nearest": [
+"Access Stratum",
+"Non-Access Stratum"
+],
+"random": [],
+"distractors": [
+"Access Stratum",
+"Non-Access Stratum"
+],
+"n_eligible": 2,
+"sha": "2d92e04ea4f54c646018291cec3f1309a2d30ea831c8ef5c1e43d6dfd2957a88",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0014__L060__p353:mediumaccesscontrolmacsublayer:rlcsublayer": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0014__L060__p353:mediumaccesscontrolmacsublayer:rlcsublayer",
+"anchor": "Radio Link Control",
+"nearest": [
+"LTE RLC"
+],
+"random": [],
+"distractors": [
+"LTE RLC"
+],
+"n_eligible": 1,
+"sha": "36b9c9c7913c240dd6eece1b9fbf58d51e2cc0298652812b25784469e0467b0f",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0014__L032__p278:radioresourcecontrol:radiolinkcontrol": {
+"unit": "s3d-rl600-all11:chat-lmsys-0014__L032__p278:radioresourcecontrol:radiolinkcontrol",
+"anchor": "Radio Link Control",
+"nearest": [
+"LTE RLC",
+"Access Stratum",
+"Non-Access Stratum"
+],
+"random": [],
+"distractors": [
+"LTE RLC",
+"Access Stratum",
+"Non-Access Stratum"
+],
+"n_eligible": 3,
+"sha": "80befdc5771f87fd97f0309f19ae7c341214a6c15c3e9bb52acfdea9b0588e1a",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0014__L032__p278:rrc:rlc": {
+"unit": "s3d-rl600-all11:chat-lmsys-0014__L032__p278:rrc:rlc",
+"anchor": "Radio Link Control",
+"nearest": [
+"LTE RLC",
+"Access Stratum",
+"Non-Access Stratum"
+],
+"random": [],
+"distractors": [
+"LTE RLC",
+"Access Stratum",
+"Non-Access Stratum"
+],
+"n_eligible": 3,
+"sha": "e20cae42aaa4b813de81dd1ac27c15e6c817f5fdf45f8733c26b7ee4471d6c54",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0014__L036__p278:mediumaccesscontrol:radiolinkcontrol": {
+"unit": "s3d-rl600-all11:chat-lmsys-0014__L036__p278:mediumaccesscontrol:radiolinkcontrol",
+"anchor": "Radio Link Control",
+"nearest": [
+"LTE RLC"
+],
+"random": [],
+"distractors": [
+"LTE RLC"
+],
+"n_eligible": 1,
+"sha": "2ac3901bfb6e24dd51addfd0882b7bb424194ed4d45d90097d5c2bd511a1c58c",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0014__L036__p353:radioresourcecontrol:radiolinkcontrol": {
+"unit": "s3d-rl600-all11:chat-lmsys-0014__L036__p353:radioresourcecontrol:radiolinkcontrol",
+"anchor": "Radio Link Control",
+"nearest": [
+"LTE RLC",
+"Access Stratum",
+"Non-Access Stratum"
+],
+"random": [],
+"distractors": [
+"LTE RLC",
+"Access Stratum",
+"Non-Access Stratum"
+],
+"n_eligible": 3,
+"sha": "721f6f44aeaff8c225f3cd3d5f41d0acd4f7b160ad3b8fb59cf58bd11979e2d1",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0014__L036__p36:radioresourcecontrol:radiolinkcontrol": {
+"unit": "s3d-rl600-all11:chat-lmsys-0014__L036__p36:radioresourcecontrol:radiolinkcontrol",
+"anchor": "Radio Link Control",
+"nearest": [
+"LTE RLC",
+"Access Stratum",
+"Non-Access Stratum"
+],
+"random": [],
+"distractors": [
+"LTE RLC",
+"Access Stratum",
+"Non-Access Stratum"
+],
+"n_eligible": 3,
+"sha": "0622fb85004c017534efbc229126ccb765a044dc5284f68b3a429d056a4064de",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0014__L036__p36:rrc:rlc": {
+"unit": "s3d-rl600-all11:chat-lmsys-0014__L036__p36:rrc:rlc",
+"anchor": "Radio Link Control",
+"nearest": [
+"LTE RLC",
+"Access Stratum",
+"Non-Access Stratum"
+],
+"random": [],
+"distractors": [
+"LTE RLC",
+"Access Stratum",
+"Non-Access Stratum"
+],
+"n_eligible": 3,
+"sha": "bade8e461cfb279d05843ea9056489e50e7f73b613e0a2ee33895787ed426c35",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0014__L040__p36:radioresourcecontrol:radiolinkcontrol": {
+"unit": "s3d-rl600-all11:chat-lmsys-0014__L040__p36:radioresourcecontrol:radiolinkcontrol",
+"anchor": "Radio Link Control",
+"nearest": [
+"LTE RLC",
+"Access Stratum",
+"Non-Access Stratum"
+],
+"random": [],
+"distractors": [
+"LTE RLC",
+"Access Stratum",
+"Non-Access Stratum"
+],
+"n_eligible": 3,
+"sha": "d51e40692e2923f1b39ed6cf84fabe33319b92c8f18ba250b2e9d33903b75234",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0014__L040__p36:rrc:radiolinkcontrol": {
+"unit": "s3d-rl600-all11:chat-lmsys-0014__L040__p36:rrc:radiolinkcontrol",
+"anchor": "Radio Link Control",
+"nearest": [
+"LTE RLC",
+"Access Stratum",
+"Non-Access Stratum"
+],
+"random": [],
+"distractors": [
+"LTE RLC",
+"Access Stratum",
+"Non-Access Stratum"
+],
+"n_eligible": 3,
+"sha": "6eaa0ed642f3305f9c2caf4cf7bef7a5a6396418e3374ff253999716aeae1c98",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0014__L044__p278::": {
+"unit": "s3d-rl600-all11:chat-lmsys-0014__L044__p278::",
+"anchor": "RLC",
+"nearest": [
+"Access Stratum",
+"Non-Access Stratum"
+],
+"random": [],
+"distractors": [
+"Access Stratum",
+"Non-Access Stratum"
+],
+"n_eligible": 2,
+"sha": "6bbbcbaf7ef0820069d27ccd369ec616731c4f6d6b3bf138c743f40280150938",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0014__L044__p278:radioresourcecontrol:radiolinkcontrol": {
+"unit": "s3d-rl600-all11:chat-lmsys-0014__L044__p278:radioresourcecontrol:radiolinkcontrol",
+"anchor": "Radio Link Control",
+"nearest": [
+"LTE RLC",
+"Access Stratum",
+"Non-Access Stratum"
+],
+"random": [],
+"distractors": [
+"LTE RLC",
+"Access Stratum",
+"Non-Access Stratum"
+],
+"n_eligible": 3,
+"sha": "1dd9e54d4a222d8346a07e9700a40546847331de4e79f550bc1589f8e5da8751",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0014__L048__p278:radioresourcecontrol:radiolinkcontrol": {
+"unit": "s3d-rl600-all11:chat-lmsys-0014__L048__p278:radioresourcecontrol:radiolinkcontrol",
+"anchor": "Radio Link Control",
+"nearest": [
+"LTE RLC",
+"Access Stratum",
+"Non-Access Stratum"
+],
+"random": [],
+"distractors": [
+"LTE RLC",
+"Access Stratum",
+"Non-Access Stratum"
+],
+"n_eligible": 3,
+"sha": "331d4d75ab1d2349f88b8385b7138cfb6717d3e8763eee0321fb5bb9f0d0f141",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0014__L060__p36:pdcp:rlc": {
+"unit": "s3d-rl600-all11:chat-lmsys-0014__L060__p36:pdcp:rlc",
+"anchor": "RLC",
+"nearest": [
+"Access Stratum",
+"Non-Access Stratum"
+],
+"random": [],
+"distractors": [
+"Access Stratum",
+"Non-Access Stratum"
+],
+"n_eligible": 2,
+"sha": "e4976e992ec20f4f808d3c0cdab4e98287fc4aa9955a0cb309489e6f79787467",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0014__L060__p36:radioresourcecontrol:radiolinkcontrol": {
+"unit": "s3d-rl600-all11:chat-lmsys-0014__L060__p36:radioresourcecontrol:radiolinkcontrol",
+"anchor": "Radio Link Control",
+"nearest": [
+"LTE RLC",
+"Access Stratum",
+"Non-Access Stratum"
+],
+"random": [],
+"distractors": [
+"LTE RLC",
+"Access Stratum",
+"Non-Access Stratum"
+],
+"n_eligible": 3,
+"sha": "7cdc681179610ced2bb343710c93b72aa5ff339724c35649598228b6f965f2d4",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0014__L060__p36:rrc:rlc": {
+"unit": "s3d-rl600-all11:chat-lmsys-0014__L060__p36:rrc:rlc",
+"anchor": "Radio Link Control",
+"nearest": [
+"LTE RLC",
+"Access Stratum",
+"Non-Access Stratum"
+],
+"random": [],
+"distractors": [
+"LTE RLC",
+"Access Stratum",
+"Non-Access Stratum"
+],
+"n_eligible": 3,
+"sha": "dfca1c6171dd7871564719565c6027507617e748f256f9335f1043d584ee4db6",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0014__L020__p36:mac:rlc": {
+"unit": "s3d-rl600:chat-lmsys-0014__L020__p36:mac:rlc",
+"anchor": "Radio Link Control",
+"nearest": [
+"LTE RLC"
+],
+"random": [],
+"distractors": [
+"LTE RLC"
+],
+"n_eligible": 1,
+"sha": "602ae53ba5a5e1e8d41c917ec523106682b50cf4cfdfcdc4cc0d6dbfab1b9d1b",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0014__L020__p36:rrc:rlc": {
+"unit": "s3d-rl600:chat-lmsys-0014__L020__p36:rrc:rlc",
+"anchor": "Radio Link Control",
+"nearest": [
+"LTE RLC",
+"Access Stratum",
+"Non-Access Stratum"
+],
+"random": [],
+"distractors": [
+"LTE RLC",
+"Access Stratum",
+"Non-Access Stratum"
+],
+"n_eligible": 3,
+"sha": "6260395fe55e07e8b95c8f819df77000ae439c4bd89ab29f3f841b0fcfb51428",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0014__L036__p353:mac:rlc": {
+"unit": "s3d-rl600:chat-lmsys-0014__L036__p353:mac:rlc",
+"anchor": "Radio Link Control",
+"nearest": [
+"LTE RLC"
+],
+"random": [],
+"distractors": [
+"LTE RLC"
+],
+"n_eligible": 1,
+"sha": "419c0321507458846cf6173898678c4507b64ea8acf378b5df73609e87945fcd",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0014__L036__p353:rrc:rlc": {
+"unit": "s3d-rl600:chat-lmsys-0014__L036__p353:rrc:rlc",
+"anchor": "Radio Link Control",
+"nearest": [
+"LTE RLC",
+"Access Stratum",
+"Non-Access Stratum"
+],
+"random": [],
+"distractors": [
+"LTE RLC",
+"Access Stratum",
+"Non-Access Stratum"
+],
+"n_eligible": 3,
+"sha": "f20262b83c7d2ded96a101acf7f8872593c394c8d4209e08c8e4080dbf800f91",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0014__L036__p36:longtermevolutionrrc:radiolinkcontrol": {
+"unit": "s3d-rl600:chat-lmsys-0014__L036__p36:longtermevolutionrrc:radiolinkcontrol",
+"anchor": "RLC",
+"nearest": [
+"Access Stratum",
+"Non-Access Stratum"
+],
+"random": [],
+"distractors": [
+"Access Stratum",
+"Non-Access Stratum"
+],
+"n_eligible": 2,
+"sha": "08db0a48bff9b64ffd6c06fe2a2138389ce4537bf92a9ab60e132a19b7f089e4",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0014__L044__p36:radioresourcecontrol:radiolinkcontrol": {
+"unit": "s3d-rl600:chat-lmsys-0014__L044__p36:radioresourcecontrol:radiolinkcontrol",
+"anchor": "Radio Link Control",
+"nearest": [
+"LTE RLC",
+"Access Stratum",
+"Non-Access Stratum"
+],
+"random": [],
+"distractors": [
+"LTE RLC",
+"Access Stratum",
+"Non-Access Stratum"
+],
+"n_eligible": 3,
+"sha": "f407d887c1421dbe2149031496e6a66a68e2f7c5f33b526d85c9fb0cefccefbf",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0014__L048__p36:pdcp:rlc": {
+"unit": "s3d-rl600:chat-lmsys-0014__L048__p36:pdcp:rlc",
+"anchor": "RLC",
+"nearest": [
+"Access Stratum",
+"Non-Access Stratum"
+],
+"random": [],
+"distractors": [
+"Access Stratum",
+"Non-Access Stratum"
+],
+"n_eligible": 2,
+"sha": "39134d7e8b92a0d9583d8ae8da0234417acc9b868280aca152a1bd73cef8ab68",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0014__L060__p278:rrc:rlc": {
+"unit": "s3d-rl600:chat-lmsys-0014__L060__p278:rrc:rlc",
+"anchor": "Radio Link Control",
+"nearest": [
+"LTE RLC",
+"Access Stratum",
+"Non-Access Stratum"
+],
+"random": [],
+"distractors": [
+"LTE RLC",
+"Access Stratum",
+"Non-Access Stratum"
+],
+"n_eligible": 3,
+"sha": "83c02f8f3c39c670e4aada86af97eef97a80562a8d85b5b6ba7676698e19c20b",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0014__L020__p36:rrc:radiolinkcontrol": {
+"unit": "s3d-sft251:chat-lmsys-0014__L020__p36:rrc:radiolinkcontrol",
+"anchor": "Radio Link Control",
+"nearest": [
+"LTE RLC",
+"Access Stratum",
+"Non-Access Stratum"
+],
+"random": [],
+"distractors": [
+"LTE RLC",
+"Access Stratum",
+"Non-Access Stratum"
+],
+"n_eligible": 3,
+"sha": "a26bce4d416637e8155242ea37089d843cf9b0226231397303a299515c3cf011",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0014__L024__p36:rrcradioresourcecontrol:rlcradiolinkcontrol": {
+"unit": "s3d-sft251:chat-lmsys-0014__L024__p36:rrcradioresourcecontrol:rlcradiolinkcontrol",
+"anchor": "Radio Link Control",
+"nearest": [
+"LTE RLC",
+"Access Stratum",
+"Non-Access Stratum"
+],
+"random": [],
+"distractors": [
+"LTE RLC",
+"Access Stratum",
+"Non-Access Stratum"
+],
+"n_eligible": 3,
+"sha": "0fdf9a73ec00c9c14a92e91a9d196eebcacd5fa7f43d0005a0bcd64f16464347",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0014__L036__p278:radioresourcecontrol:radiolinkcontrol": {
+"unit": "s3d-sft251:chat-lmsys-0014__L036__p278:radioresourcecontrol:radiolinkcontrol",
+"anchor": "Radio Link Control",
+"nearest": [
+"LTE RLC",
+"Access Stratum",
+"Non-Access Stratum"
+],
+"random": [],
+"distractors": [
+"LTE RLC",
+"Access Stratum",
+"Non-Access Stratum"
+],
+"n_eligible": 3,
+"sha": "2e850fa8e46b425eabd4fc03ad8e2059da078ee42fc26cbcad39ba6345b1c561",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0014__L036__p36:radioresourcecontrol:radiolinkcontrol": {
+"unit": "s3d-sft251:chat-lmsys-0014__L036__p36:radioresourcecontrol:radiolinkcontrol",
+"anchor": "Radio Link Control",
+"nearest": [
+"LTE RLC",
+"Access Stratum",
+"Non-Access Stratum"
+],
+"random": [],
+"distractors": [
+"LTE RLC",
+"Access Stratum",
+"Non-Access Stratum"
+],
+"n_eligible": 3,
+"sha": "d5b13ebac034d92bcd983f782034fca9828ac851d438cfa32c7de25521aac7f8",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0014__L040__p278:radioresourcecontrol:radiolinkcontrol": {
+"unit": "s3d-sft251:chat-lmsys-0014__L040__p278:radioresourcecontrol:radiolinkcontrol",
+"anchor": "Radio Link Control",
+"nearest": [
+"LTE RLC",
+"Access Stratum",
+"Non-Access Stratum"
+],
+"random": [],
+"distractors": [
+"LTE RLC",
+"Access Stratum",
+"Non-Access Stratum"
+],
+"n_eligible": 3,
+"sha": "0831c9e1d9c4d9c3a4573dcc39e551e8ad5e0145d377abf0b68d2d9ef23147e2",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0014__L040__p278:rrc:rlc": {
+"unit": "s3d-sft251:chat-lmsys-0014__L040__p278:rrc:rlc",
+"anchor": "Radio Link Control",
+"nearest": [
+"LTE RLC",
+"Access Stratum",
+"Non-Access Stratum"
+],
+"random": [],
+"distractors": [
+"LTE RLC",
+"Access Stratum",
+"Non-Access Stratum"
+],
+"n_eligible": 3,
+"sha": "917f5b1413d31ea5111bab1941c234db1f9db79eec70286fb55a79c6e5044eb4",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0014__L040__p36:radioresourcecontrol:radiolinkcontrol": {
+"unit": "s3d-sft251:chat-lmsys-0014__L040__p36:radioresourcecontrol:radiolinkcontrol",
+"anchor": "Radio Link Control",
+"nearest": [
+"LTE RLC",
+"Access Stratum",
+"Non-Access Stratum"
+],
+"random": [],
+"distractors": [
+"LTE RLC",
+"Access Stratum",
+"Non-Access Stratum"
+],
+"n_eligible": 3,
+"sha": "6fcf8afc1859d1eaf78c07136f9f85229608f4873e4abf86dd613ad95c8d681c",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0014__L044__p278:radioresourcecontrol:radiolinkcontrol": {
+"unit": "s3d-sft251:chat-lmsys-0014__L044__p278:radioresourcecontrol:radiolinkcontrol",
+"anchor": "Radio Link Control",
+"nearest": [
+"LTE RLC",
+"Access Stratum",
+"Non-Access Stratum"
+],
+"random": [],
+"distractors": [
+"LTE RLC",
+"Access Stratum",
+"Non-Access Stratum"
+],
+"n_eligible": 3,
+"sha": "4bcb7f5e05560b0ec76ad35358f099d0c40dc2d4a8dd6179ada1a18088bbc7ac",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0014__L044__p278:rrc:radiolinkcontrol": {
+"unit": "s3d-sft251:chat-lmsys-0014__L044__p278:rrc:radiolinkcontrol",
+"anchor": "Radio Link Control",
+"nearest": [
+"LTE RLC",
+"Access Stratum",
+"Non-Access Stratum"
+],
+"random": [],
+"distractors": [
+"LTE RLC",
+"Access Stratum",
+"Non-Access Stratum"
+],
+"n_eligible": 3,
+"sha": "42d28b6948a559dad443beaa7f3254fd3213a44f4323606da909b9ca2ce02849",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0014__L044__p278:rrcradioresourcecontrol:radiolinkcontrol": {
+"unit": "s3d-sft251:chat-lmsys-0014__L044__p278:rrcradioresourcecontrol:radiolinkcontrol",
+"anchor": "Radio Link Control",
+"nearest": [
+"LTE RLC",
+"Access Stratum",
+"Non-Access Stratum"
+],
+"random": [],
+"distractors": [
+"LTE RLC",
+"Access Stratum",
+"Non-Access Stratum"
+],
+"n_eligible": 3,
+"sha": "fe6aad2cfa9c92fba2b959f8c0690896e25ff2fe1b88e0a4e461a4494aff46ab",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0014__L044__p36:radioresourcecontrol:radiolinkcontrol": {
+"unit": "s3d-sft251:chat-lmsys-0014__L044__p36:radioresourcecontrol:radiolinkcontrol",
+"anchor": "Radio Link Control",
+"nearest": [
+"LTE RLC",
+"Access Stratum",
+"Non-Access Stratum"
+],
+"random": [],
+"distractors": [
+"LTE RLC",
+"Access Stratum",
+"Non-Access Stratum"
+],
+"n_eligible": 3,
+"sha": "3af1ba4b1dad6d2cb620feecf04ac0ea3e63e59bea55a54b537ff5ab207ba586",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0014__L052__p278:radioresourcecontrol:radiolinkcontrol": {
+"unit": "s3d-sft251:chat-lmsys-0014__L052__p278:radioresourcecontrol:radiolinkcontrol",
+"anchor": "Radio Link Control",
+"nearest": [
+"LTE RLC",
+"Access Stratum",
+"Non-Access Stratum"
+],
+"random": [],
+"distractors": [
+"LTE RLC",
+"Access Stratum",
+"Non-Access Stratum"
+],
+"n_eligible": 3,
+"sha": "8c2935f266eada6ca6a4f5c7bed10dcc1030842d8d234c5ec02f2b5baa7f86db",
+"generation": 0
+}
+}

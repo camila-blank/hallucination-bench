@@ -1,0 +1,1506 @@
+{
+"jlens:chat-lmsys-0009__L060__p326:bmw:shanghaibmgchemicalcoltd": {
+"unit": "jlens:chat-lmsys-0009__L060__p326:bmw:shanghaibmgchemicalcoltd",
+"anchor": "Shanghai BMG Chemical Co., Ltd.",
+"nearest": [
+"Huacheng Technology",
+"Chengdu Push Bio-technology",
+"SiATEX Korea",
+"SAP"
+],
+"random": [
+"Arab Group Bank",
+"GE Healthcare",
+"Samsung Electronics",
+"Tata Consultancy Services"
+],
+"distractors": [
+"Huacheng Technology",
+"Chengdu Push Bio-technology",
+"SiATEX Korea",
+"SAP",
+"Arab Group Bank",
+"GE Healthcare",
+"Samsung Electronics",
+"Tata Consultancy Services"
+],
+"n_eligible": 10,
+"sha": "eb0745f2aa3b37768c64d44bd4f06aa16f6de7d88062489d1447b4913e2170cc",
+"generation": 0
+},
+"mlnla-ck2000-all11:chat-lmsys-0055__L036__p160:ge:tcs": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0055__L036__p160:ge:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [
+"Arab Group Bank",
+"The Hershey Company",
+"Samsung Electronics",
+"BMW"
+],
+"random": [
+"Huacheng Technology",
+"Shanghai Huihe Chemical",
+"SiATEX",
+"SiATEX Korea"
+],
+"distractors": [
+"Arab Group Bank",
+"The Hershey Company",
+"Samsung Electronics",
+"BMW",
+"Huacheng Technology",
+"Shanghai Huihe Chemical",
+"SiATEX",
+"SiATEX Korea"
+],
+"n_eligible": 11,
+"sha": "b9de529a26e6b7d3a3bc7155901adab572bbc847f26cc7c0cf2e94467cf913c2",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0055__L036__p160:siemens:tcs": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0055__L036__p160:siemens:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [
+"Arab Group Bank",
+"The Hershey Company",
+"Samsung Electronics",
+"BMW"
+],
+"random": [
+"Shanghai Huihe Chemical",
+"SiATEX",
+"SiATEX Korea",
+"SiATEX Vietnam"
+],
+"distractors": [
+"Arab Group Bank",
+"The Hershey Company",
+"Samsung Electronics",
+"BMW",
+"Shanghai Huihe Chemical",
+"SiATEX",
+"SiATEX Korea",
+"SiATEX Vietnam"
+],
+"n_eligible": 11,
+"sha": "2e5724dee91541497d24fea04e2ce003f094634be894533a35b9ccf3e1afa358",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0055__L040__p160:siemens:tcs": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0055__L040__p160:siemens:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [
+"Arab Group Bank",
+"The Hershey Company",
+"Samsung Electronics",
+"BMW"
+],
+"random": [
+"Huacheng Technology",
+"SiATEX",
+"SiATEX Group",
+"SiATEX Korea"
+],
+"distractors": [
+"Arab Group Bank",
+"The Hershey Company",
+"Samsung Electronics",
+"BMW",
+"Huacheng Technology",
+"SiATEX",
+"SiATEX Group",
+"SiATEX Korea"
+],
+"n_eligible": 11,
+"sha": "10afa62ac9671d5963286aff269f38026260996a25b61a5272d3f5316937d01e",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0055__L052__p160:siemens:tcs": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0055__L052__p160:siemens:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [
+"Arab Group Bank",
+"The Hershey Company",
+"Samsung Electronics",
+"BMW"
+],
+"random": [
+"Huacheng Technology",
+"Shanghai Huihe Chemical",
+"SiATEX",
+"SiATEX Korea"
+],
+"distractors": [
+"Arab Group Bank",
+"The Hershey Company",
+"Samsung Electronics",
+"BMW",
+"Huacheng Technology",
+"Shanghai Huihe Chemical",
+"SiATEX",
+"SiATEX Korea"
+],
+"n_eligible": 11,
+"sha": "212d9fc9ffc8a0f295c6a94fc1f2b296ad118f920b8c77c59fa4d4676c4d064b",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0055__L056__p211:siemens:tcs": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0055__L056__p211:siemens:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [
+"Arab Group Bank",
+"The Hershey Company",
+"Samsung Electronics",
+"BMW"
+],
+"random": [
+"Chengdu Push Bio-technology",
+"Huacheng Technology",
+"Shanghai Huihe Chemical",
+"SiATEX"
+],
+"distractors": [
+"Arab Group Bank",
+"The Hershey Company",
+"Samsung Electronics",
+"BMW",
+"Chengdu Push Bio-technology",
+"Huacheng Technology",
+"Shanghai Huihe Chemical",
+"SiATEX"
+],
+"n_eligible": 11,
+"sha": "f291f744c3d11047e8b18e2c711782bebce9c9a4bb50257e663fcd14211981a9",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0055__L028__p447:siemens:tcs": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0055__L028__p447:siemens:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [
+"Arab Group Bank",
+"The Hershey Company",
+"Samsung Electronics",
+"BMW"
+],
+"random": [
+"Chengdu Push Bio-technology",
+"Huacheng Technology",
+"SiATEX",
+"SiATEX Vietnam"
+],
+"distractors": [
+"Arab Group Bank",
+"The Hershey Company",
+"Samsung Electronics",
+"BMW",
+"Chengdu Push Bio-technology",
+"Huacheng Technology",
+"SiATEX",
+"SiATEX Vietnam"
+],
+"n_eligible": 11,
+"sha": "e0bfc466e53d692346685634e4b35d6119a1d600e926af74a1286f4d83c84546",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0055__L036__p211:siemens:tataconsultancyservices": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0055__L036__p211:siemens:tataconsultancyservices",
+"anchor": "Tata Consultancy Services",
+"nearest": [
+"Arab Group Bank",
+"The Hershey Company",
+"Samsung Electronics",
+"BMW"
+],
+"random": [
+"Huacheng Technology",
+"Shanghai Huihe Chemical",
+"SiATEX",
+"SiATEX Korea"
+],
+"distractors": [
+"Arab Group Bank",
+"The Hershey Company",
+"Samsung Electronics",
+"BMW",
+"Huacheng Technology",
+"Shanghai Huihe Chemical",
+"SiATEX",
+"SiATEX Korea"
+],
+"n_eligible": 11,
+"sha": "bd96f9a9f96a64223e67f348393391feea7d4fb12b841a0af394ae5c95650f37",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0055__L040__p211:siemens:tcs": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0055__L040__p211:siemens:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [
+"Arab Group Bank",
+"The Hershey Company",
+"Samsung Electronics",
+"BMW"
+],
+"random": [
+"Chengdu Push Bio-technology",
+"SiATEX",
+"SiATEX Group",
+"SiATEX Korea"
+],
+"distractors": [
+"Arab Group Bank",
+"The Hershey Company",
+"Samsung Electronics",
+"BMW",
+"Chengdu Push Bio-technology",
+"SiATEX",
+"SiATEX Group",
+"SiATEX Korea"
+],
+"n_eligible": 11,
+"sha": "f6d5a231a773e18f167da9ee6e2fe4653c1fd5e81c4c8054b10bd81882516bda",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0055__L052__p211:siemens:tataconsultancyservices": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0055__L052__p211:siemens:tataconsultancyservices",
+"anchor": "Tata Consultancy Services",
+"nearest": [
+"Arab Group Bank",
+"The Hershey Company",
+"Samsung Electronics",
+"BMW"
+],
+"random": [
+"Huacheng Technology",
+"Shanghai Huihe Chemical",
+"SiATEX Korea",
+"SiATEX Vietnam"
+],
+"distractors": [
+"Arab Group Bank",
+"The Hershey Company",
+"Samsung Electronics",
+"BMW",
+"Huacheng Technology",
+"Shanghai Huihe Chemical",
+"SiATEX Korea",
+"SiATEX Vietnam"
+],
+"n_eligible": 11,
+"sha": "b383025d0f59dc0e44a9c008622dd9e504ba2700f96e6bb7e2646b08d8e62840",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0055__L056__p211:siemens:tcs": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0055__L056__p211:siemens:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [
+"Arab Group Bank",
+"The Hershey Company",
+"Samsung Electronics",
+"BMW"
+],
+"random": [
+"Chengdu Push Bio-technology",
+"SiATEX",
+"SiATEX Group",
+"SiATEX Vietnam"
+],
+"distractors": [
+"Arab Group Bank",
+"The Hershey Company",
+"Samsung Electronics",
+"BMW",
+"Chengdu Push Bio-technology",
+"SiATEX",
+"SiATEX Group",
+"SiATEX Vietnam"
+],
+"n_eligible": 11,
+"sha": "7130d8b868774bd99a4fa5381de3a17ee52b52d391f03943e8afdf6ef0364a4e",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0055__L032__p160:siemens:tcs": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0055__L032__p160:siemens:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [
+"Arab Group Bank",
+"The Hershey Company",
+"Samsung Electronics",
+"BMW"
+],
+"random": [
+"Huacheng Technology",
+"Shanghai Huihe Chemical",
+"SiATEX Group",
+"SiATEX Korea"
+],
+"distractors": [
+"Arab Group Bank",
+"The Hershey Company",
+"Samsung Electronics",
+"BMW",
+"Huacheng Technology",
+"Shanghai Huihe Chemical",
+"SiATEX Group",
+"SiATEX Korea"
+],
+"n_eligible": 11,
+"sha": "caf18cab8df0a3d873a1d066ab73b835c6c2a4f748bdd2e2da27be2bcf8619c2",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0055__L052__p160:siemens:tataconsultancyservices": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0055__L052__p160:siemens:tataconsultancyservices",
+"anchor": "Tata Consultancy Services",
+"nearest": [
+"Arab Group Bank",
+"The Hershey Company",
+"Samsung Electronics",
+"BMW"
+],
+"random": [
+"SiATEX",
+"SiATEX Group",
+"SiATEX Korea",
+"SiATEX Vietnam"
+],
+"distractors": [
+"Arab Group Bank",
+"The Hershey Company",
+"Samsung Electronics",
+"BMW",
+"SiATEX",
+"SiATEX Group",
+"SiATEX Korea",
+"SiATEX Vietnam"
+],
+"n_eligible": 11,
+"sha": "0fe4682765cae3e893724b5dd1e08e4b6bda1efa4720759d8d81e439ce189564",
+"generation": 0
+},
+"patchscopes:chat-lmsys-0009__L048__p326:samsunggroup:shanghaibmgchemicalcoltd": {
+"unit": "patchscopes:chat-lmsys-0009__L048__p326:samsunggroup:shanghaibmgchemicalcoltd",
+"anchor": "Shanghai BMG Chemical Co., Ltd.",
+"nearest": [
+"Huacheng Technology",
+"Chengdu Push Bio-technology",
+"SiATEX Korea",
+"SAP"
+],
+"random": [
+"GE Healthcare",
+"Siemens",
+"Tata Consultancy Services"
+],
+"distractors": [
+"Huacheng Technology",
+"Chengdu Push Bio-technology",
+"SiATEX Korea",
+"SAP",
+"GE Healthcare",
+"Siemens",
+"Tata Consultancy Services"
+],
+"n_eligible": 7,
+"sha": "16c06e1b558e4cc8b2bb679b10f6ab56e5547b07b59ac1830d6c4e2f5e98af03",
+"generation": 0
+},
+"patchscopes:chat-lmsys-0054__L040__p70:samsungelectronicsco:businessobjects": {
+"unit": "patchscopes:chat-lmsys-0054__L040__p70:samsungelectronicsco:businessobjects",
+"anchor": "SAP",
+"nearest": [
+"BMW",
+"Tata Consultancy Services",
+"Siemens",
+"GE Healthcare"
+],
+"random": [
+"Chengdu Push Bio-technology",
+"SiATEX",
+"SiATEX Group",
+"SiATEX Vietnam"
+],
+"distractors": [
+"BMW",
+"Tata Consultancy Services",
+"Siemens",
+"GE Healthcare",
+"Chengdu Push Bio-technology",
+"SiATEX",
+"SiATEX Group",
+"SiATEX Vietnam"
+],
+"n_eligible": 13,
+"sha": "87bbebc9e5ec1a6f68754b3859e308a28fa646103b6e5cfb636df69e2be20927",
+"generation": 0
+},
+"patchscopes:chat-lmsys-0055__L048__p43:samsung:tcs": {
+"unit": "patchscopes:chat-lmsys-0055__L048__p43:samsung:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [
+"Arab Group Bank",
+"The Hershey Company",
+"BMW",
+"SiATEX Group"
+],
+"random": [
+"Chengdu Push Bio-technology",
+"Huacheng Technology",
+"SiATEX Korea",
+"SiATEX Vietnam"
+],
+"distractors": [
+"Arab Group Bank",
+"The Hershey Company",
+"BMW",
+"SiATEX Group",
+"Chengdu Push Bio-technology",
+"Huacheng Technology",
+"SiATEX Korea",
+"SiATEX Vietnam"
+],
+"n_eligible": 10,
+"sha": "a93b636516db9dd5f21d129b9529d2c40c47a14a549e798f9db428574e9622f8",
+"generation": 0
+},
+"patchscopes:chat-lmsys-0070__L048__p183:samsungelectronics:chengdupushbiotechnology": {
+"unit": "patchscopes:chat-lmsys-0070__L048__p183:samsungelectronics:chengdupushbiotechnology",
+"anchor": "Chengdu Push Bio-technology",
+"nearest": [
+"Shanghai Huihe Chemical",
+"GE Healthcare",
+"Siemens",
+"Arab Group Bank"
+],
+"random": [
+"BMW",
+"SAP",
+"Tata Consultancy Services",
+"The Hershey Company"
+],
+"distractors": [
+"Shanghai Huihe Chemical",
+"GE Healthcare",
+"Siemens",
+"Arab Group Bank",
+"BMW",
+"SAP",
+"Tata Consultancy Services",
+"The Hershey Company"
+],
+"n_eligible": 8,
+"sha": "bcc95d9ee16d884107da70cff493f3d1b85003a622508004c08a96422fbd1388",
+"generation": 0
+},
+"patchscopes:chat-lmsys-0070__L052__p123:samsung:chengdupushbiotechnologycoltd": {
+"unit": "patchscopes:chat-lmsys-0070__L052__p123:samsung:chengdupushbiotechnologycoltd",
+"anchor": "Chengdu Push Bio-technology Co., Ltd.",
+"nearest": [
+"Shanghai Huihe Chemical",
+"GE Healthcare",
+"Arab Group Bank",
+"Tata Consultancy Services"
+],
+"random": [
+"BMW",
+"SAP",
+"Siemens",
+"The Hershey Company"
+],
+"distractors": [
+"Shanghai Huihe Chemical",
+"GE Healthcare",
+"Arab Group Bank",
+"Tata Consultancy Services",
+"BMW",
+"SAP",
+"Siemens",
+"The Hershey Company"
+],
+"n_eligible": 8,
+"sha": "4c18c1661cec8393fcfac9f3cbc0c85e066472822fe1d166ad23205f61d16bd7",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0009__L036__p354:siatex:shanghaibmgchemicalcoltd": {
+"unit": "s3d-rl600-all11:chat-lmsys-0009__L036__p354:siatex:shanghaibmgchemicalcoltd",
+"anchor": "Shanghai BMG Chemical Co., Ltd.",
+"nearest": [
+"Huacheng Technology",
+"Chengdu Push Bio-technology",
+"SAP",
+"Samsung"
+],
+"random": [
+"Arab Group Bank",
+"GE Healthcare",
+"Samsung Electronics",
+"Siemens"
+],
+"distractors": [
+"Huacheng Technology",
+"Chengdu Push Bio-technology",
+"SAP",
+"Samsung",
+"Arab Group Bank",
+"GE Healthcare",
+"Samsung Electronics",
+"Siemens"
+],
+"n_eligible": 9,
+"sha": "2de653a3155ad1e4e1bc54c4767412e4a535ab2845ae0f86c7b6ffbb7fb42c1c",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0009__L036__p354:siatexgroup:shanghaibmgchemicalcoltd": {
+"unit": "s3d-rl600-all11:chat-lmsys-0009__L036__p354:siatexgroup:shanghaibmgchemicalcoltd",
+"anchor": "Shanghai BMG Chemical Co., Ltd.",
+"nearest": [
+"Huacheng Technology",
+"Chengdu Push Bio-technology",
+"SAP",
+"Samsung"
+],
+"random": [
+"GE Healthcare",
+"Samsung Electronics",
+"Siemens",
+"Tata Consultancy Services"
+],
+"distractors": [
+"Huacheng Technology",
+"Chengdu Push Bio-technology",
+"SAP",
+"Samsung",
+"GE Healthcare",
+"Samsung Electronics",
+"Siemens",
+"Tata Consultancy Services"
+],
+"n_eligible": 8,
+"sha": "37dfc8c1dffc64cead56cc155428ee127ecf93f089ca81a3c7fad39b75f9452a",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0009__L040__p354:siatex:shanghaibmgchemicalcoltd": {
+"unit": "s3d-rl600-all11:chat-lmsys-0009__L040__p354:siatex:shanghaibmgchemicalcoltd",
+"anchor": "Shanghai BMG Chemical Co., Ltd.",
+"nearest": [
+"Huacheng Technology",
+"Chengdu Push Bio-technology",
+"SAP",
+"Samsung"
+],
+"random": [
+"Arab Group Bank",
+"GE Healthcare",
+"Samsung Electronics",
+"Tata Consultancy Services"
+],
+"distractors": [
+"Huacheng Technology",
+"Chengdu Push Bio-technology",
+"SAP",
+"Samsung",
+"Arab Group Bank",
+"GE Healthcare",
+"Samsung Electronics",
+"Tata Consultancy Services"
+],
+"n_eligible": 9,
+"sha": "2ef6c2c58df6d924a41694be5b9b0197532d998762e7631093437ff407fb7930",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0009__L052__p354:siatexgroup:shanghaibmgchemicalcoltd": {
+"unit": "s3d-rl600-all11:chat-lmsys-0009__L052__p354:siatexgroup:shanghaibmgchemicalcoltd",
+"anchor": "Shanghai BMG Chemical Co., Ltd.",
+"nearest": [
+"Huacheng Technology",
+"Chengdu Push Bio-technology",
+"SAP",
+"Samsung"
+],
+"random": [
+"GE Healthcare",
+"Samsung Electronics",
+"Siemens",
+"Tata Consultancy Services"
+],
+"distractors": [
+"Huacheng Technology",
+"Chengdu Push Bio-technology",
+"SAP",
+"Samsung",
+"GE Healthcare",
+"Samsung Electronics",
+"Siemens",
+"Tata Consultancy Services"
+],
+"n_eligible": 8,
+"sha": "ac70c8ee106b3fbf9a3f3997c19ba4ba0202df98f96e6a2bd1fe4f5f41156981",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0009__L060__p286:siatex:shanghaibmgchemical": {
+"unit": "s3d-rl600-all11:chat-lmsys-0009__L060__p286:siatex:shanghaibmgchemical",
+"anchor": "Shanghai BMG Chemical Co., Ltd.",
+"nearest": [
+"Huacheng Technology",
+"Chengdu Push Bio-technology",
+"SAP",
+"Samsung"
+],
+"random": [
+"Arab Group Bank",
+"GE Healthcare",
+"Siemens",
+"Tata Consultancy Services"
+],
+"distractors": [
+"Huacheng Technology",
+"Chengdu Push Bio-technology",
+"SAP",
+"Samsung",
+"Arab Group Bank",
+"GE Healthcare",
+"Siemens",
+"Tata Consultancy Services"
+],
+"n_eligible": 9,
+"sha": "40a397f2cec21487e828d61c7d6571d9a40c6ef68d61f758df8c076cd1cfea54",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0025__L024__p155:arabgroupbank:shanghaihuihechemicalcoltd": {
+"unit": "s3d-rl600-all11:chat-lmsys-0025__L024__p155:arabgroupbank:shanghaihuihechemicalcoltd",
+"anchor": "Shanghai Huihe Chemical Co., Ltd.",
+"nearest": [
+"SiATEX Korea",
+"Chengdu Push Bio-technology",
+"SiATEX Vietnam",
+"SAP"
+],
+"random": [
+"BMW",
+"GE Healthcare",
+"Samsung",
+"Tata Consultancy Services"
+],
+"distractors": [
+"SiATEX Korea",
+"Chengdu Push Bio-technology",
+"SiATEX Vietnam",
+"SAP",
+"BMW",
+"GE Healthcare",
+"Samsung",
+"Tata Consultancy Services"
+],
+"n_eligible": 11,
+"sha": "c978590ee51e0b479c056a28ac4bd18719954c2cde7bb800afdb5cc759c6c086",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0055__L032__p104:samsung:tcs": {
+"unit": "s3d-rl600-all11:chat-lmsys-0055__L032__p104:samsung:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [
+"Arab Group Bank",
+"The Hershey Company",
+"BMW",
+"SiATEX Group"
+],
+"random": [
+"Chengdu Push Bio-technology",
+"Shanghai Huihe Chemical",
+"SiATEX Korea",
+"SiATEX Vietnam"
+],
+"distractors": [
+"Arab Group Bank",
+"The Hershey Company",
+"BMW",
+"SiATEX Group",
+"Chengdu Push Bio-technology",
+"Shanghai Huihe Chemical",
+"SiATEX Korea",
+"SiATEX Vietnam"
+],
+"n_eligible": 10,
+"sha": "d1c26501506f7ad99f6beb32e30f97dae5db77beecabb3ac4f87d985d994fd6b",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0055__L036__p211:siemens:tcs": {
+"unit": "s3d-rl600-all11:chat-lmsys-0055__L036__p211:siemens:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [
+"Arab Group Bank",
+"The Hershey Company",
+"Samsung Electronics",
+"BMW"
+],
+"random": [
+"Chengdu Push Bio-technology",
+"Huacheng Technology",
+"SiATEX Group",
+"SiATEX Korea"
+],
+"distractors": [
+"Arab Group Bank",
+"The Hershey Company",
+"Samsung Electronics",
+"BMW",
+"Chengdu Push Bio-technology",
+"Huacheng Technology",
+"SiATEX Group",
+"SiATEX Korea"
+],
+"n_eligible": 11,
+"sha": "144ac0660b2d6db23b05ef83ab97165f99188abd85c40ab241261c5b025178d5",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0055__L036__p447:siemens:tcs": {
+"unit": "s3d-rl600-all11:chat-lmsys-0055__L036__p447:siemens:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [
+"Arab Group Bank",
+"The Hershey Company",
+"Samsung Electronics",
+"BMW"
+],
+"random": [
+"Chengdu Push Bio-technology",
+"Shanghai Huihe Chemical",
+"SiATEX",
+"SiATEX Group"
+],
+"distractors": [
+"Arab Group Bank",
+"The Hershey Company",
+"Samsung Electronics",
+"BMW",
+"Chengdu Push Bio-technology",
+"Shanghai Huihe Chemical",
+"SiATEX",
+"SiATEX Group"
+],
+"n_eligible": 11,
+"sha": "8fbaae186327a168b145fae68bc9a3eab9a3d374d6985e20011958fa4a32b118",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0055__L052__p211:siemens:tcs": {
+"unit": "s3d-rl600-all11:chat-lmsys-0055__L052__p211:siemens:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [
+"Arab Group Bank",
+"The Hershey Company",
+"Samsung Electronics",
+"BMW"
+],
+"random": [
+"Huacheng Technology",
+"Shanghai Huihe Chemical",
+"SiATEX Group",
+"SiATEX Korea"
+],
+"distractors": [
+"Arab Group Bank",
+"The Hershey Company",
+"Samsung Electronics",
+"BMW",
+"Huacheng Technology",
+"Shanghai Huihe Chemical",
+"SiATEX Group",
+"SiATEX Korea"
+],
+"n_eligible": 11,
+"sha": "9a8e2ca03ffd3a9f04897da691483a251d3473fe2ab901c4a281b4ca9ba56cc3",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0055__L052__p447:siemens:tcs": {
+"unit": "s3d-rl600-all11:chat-lmsys-0055__L052__p447:siemens:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [
+"Arab Group Bank",
+"The Hershey Company",
+"Samsung Electronics",
+"BMW"
+],
+"random": [
+"Shanghai Huihe Chemical",
+"SiATEX",
+"SiATEX Group",
+"SiATEX Vietnam"
+],
+"distractors": [
+"Arab Group Bank",
+"The Hershey Company",
+"Samsung Electronics",
+"BMW",
+"Shanghai Huihe Chemical",
+"SiATEX",
+"SiATEX Group",
+"SiATEX Vietnam"
+],
+"n_eligible": 11,
+"sha": "88d0f3721a4844a3d1b9fa5e79b9ec3ab102dd9697e3019bee55ab42b888cdee",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0055__L056__p160:siemens:tcs": {
+"unit": "s3d-rl600-all11:chat-lmsys-0055__L056__p160:siemens:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [
+"Arab Group Bank",
+"The Hershey Company",
+"Samsung Electronics",
+"BMW"
+],
+"random": [
+"Chengdu Push Bio-technology",
+"Huacheng Technology",
+"Shanghai Huihe Chemical",
+"SiATEX Korea"
+],
+"distractors": [
+"Arab Group Bank",
+"The Hershey Company",
+"Samsung Electronics",
+"BMW",
+"Chengdu Push Bio-technology",
+"Huacheng Technology",
+"Shanghai Huihe Chemical",
+"SiATEX Korea"
+],
+"n_eligible": 11,
+"sha": "0fe667aca02aea77446017706fdcd1511cf02e880ad9a24bc10ba68ade21fdcb",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0055__L056__p447:siemens:tcs": {
+"unit": "s3d-rl600-all11:chat-lmsys-0055__L056__p447:siemens:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [
+"Arab Group Bank",
+"The Hershey Company",
+"Samsung Electronics",
+"BMW"
+],
+"random": [
+"Huacheng Technology",
+"Shanghai Huihe Chemical",
+"SiATEX Korea",
+"SiATEX Vietnam"
+],
+"distractors": [
+"Arab Group Bank",
+"The Hershey Company",
+"Samsung Electronics",
+"BMW",
+"Huacheng Technology",
+"Shanghai Huihe Chemical",
+"SiATEX Korea",
+"SiATEX Vietnam"
+],
+"n_eligible": 11,
+"sha": "24aea2fe9448e6546d031a2ee3997f32e5e810ae6f55d4d5792c8b402a63a1ac",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0055__L060__p447:siemens:tcs": {
+"unit": "s3d-rl600-all11:chat-lmsys-0055__L060__p447:siemens:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [
+"Arab Group Bank",
+"The Hershey Company",
+"Samsung Electronics",
+"BMW"
+],
+"random": [
+"Chengdu Push Bio-technology",
+"Shanghai Huihe Chemical",
+"SiATEX Korea",
+"SiATEX Vietnam"
+],
+"distractors": [
+"Arab Group Bank",
+"The Hershey Company",
+"Samsung Electronics",
+"BMW",
+"Chengdu Push Bio-technology",
+"Shanghai Huihe Chemical",
+"SiATEX Korea",
+"SiATEX Vietnam"
+],
+"n_eligible": 11,
+"sha": "617cab1dda728a64e59a46f90b5bf74928567a72bb3c5041312cb3446454488e",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0070__L040__p253:siatex:chengdupushbiotechnology": {
+"unit": "s3d-rl600-all11:chat-lmsys-0070__L040__p253:siatex:chengdupushbiotechnology",
+"anchor": "Chengdu Push Bio-technology",
+"nearest": [
+"Shanghai Huihe Chemical",
+"GE Healthcare",
+"Siemens",
+"Arab Group Bank"
+],
+"random": [
+"BMW",
+"SAP",
+"Samsung Group",
+"The Hershey Company"
+],
+"distractors": [
+"Shanghai Huihe Chemical",
+"GE Healthcare",
+"Siemens",
+"Arab Group Bank",
+"BMW",
+"SAP",
+"Samsung Group",
+"The Hershey Company"
+],
+"n_eligible": 9,
+"sha": "366b633383f4f403be14d1e21457809b7666d4d64fa09f57f73d959e55f58d48",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0009__L048__p61:jixingtradingcoltd:shanghaibmgchemicalcoltd": {
+"unit": "s3d-rl600:chat-lmsys-0009__L048__p61:jixingtradingcoltd:shanghaibmgchemicalcoltd",
+"anchor": "Shanghai BMG Chemical Co., Ltd.",
+"nearest": [
+"Huacheng Technology",
+"Chengdu Push Bio-technology",
+"SiATEX Korea",
+"SAP"
+],
+"random": [
+"GE Healthcare",
+"Samsung",
+"Samsung Electronics",
+"Tata Consultancy Services"
+],
+"distractors": [
+"Huacheng Technology",
+"Chengdu Push Bio-technology",
+"SiATEX Korea",
+"SAP",
+"GE Healthcare",
+"Samsung",
+"Samsung Electronics",
+"Tata Consultancy Services"
+],
+"n_eligible": 10,
+"sha": "56715bcd0976561d6f5d516e67fe331d102b2e6f8e5105419d8a99cc513e8695",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0009__L048__p61:shenzhentongzhiinternationaltradecoltd:shanghaibmgchemicalcoltd": {
+"unit": "s3d-rl600:chat-lmsys-0009__L048__p61:shenzhentongzhiinternationaltradecoltd:shanghaibmgchemicalcoltd",
+"anchor": "Shanghai BMG Chemical Co., Ltd.",
+"nearest": [
+"Huacheng Technology",
+"Chengdu Push Bio-technology",
+"SiATEX Korea",
+"SAP"
+],
+"random": [
+"Arab Group Bank",
+"Samsung",
+"Siemens",
+"Tata Consultancy Services"
+],
+"distractors": [
+"Huacheng Technology",
+"Chengdu Push Bio-technology",
+"SiATEX Korea",
+"SAP",
+"Arab Group Bank",
+"Samsung",
+"Siemens",
+"Tata Consultancy Services"
+],
+"n_eligible": 10,
+"sha": "0976c05a2715360bc371fe6bb3e3235d1daeca1a424b2fcef8dc824859edb0d7",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0025__L048__p292:siatexgroup:shanghaihuihechemical": {
+"unit": "s3d-rl600:chat-lmsys-0025__L048__p292:siatexgroup:shanghaihuihechemical",
+"anchor": "Shanghai Huihe Chemical",
+"nearest": [
+"Chengdu Push Bio-technology",
+"SAP",
+"Samsung",
+"Samsung Electronics"
+],
+"random": [
+"BMW",
+"GE Healthcare",
+"Tata Consultancy Services",
+"The Hershey Company"
+],
+"distractors": [
+"Chengdu Push Bio-technology",
+"SAP",
+"Samsung",
+"Samsung Electronics",
+"BMW",
+"GE Healthcare",
+"Tata Consultancy Services",
+"The Hershey Company"
+],
+"n_eligible": 9,
+"sha": "90e2f8b00edd20067408591aeda1d388a5a166961c5c6b5d81cc96e9c7c549c2",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0055__L036__p211:siemens:tcs": {
+"unit": "s3d-rl600:chat-lmsys-0055__L036__p211:siemens:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [
+"Arab Group Bank",
+"The Hershey Company",
+"Samsung Electronics",
+"BMW"
+],
+"random": [
+"Shanghai Huihe Chemical",
+"SiATEX",
+"SiATEX Group",
+"SiATEX Vietnam"
+],
+"distractors": [
+"Arab Group Bank",
+"The Hershey Company",
+"Samsung Electronics",
+"BMW",
+"Shanghai Huihe Chemical",
+"SiATEX",
+"SiATEX Group",
+"SiATEX Vietnam"
+],
+"n_eligible": 11,
+"sha": "620069047940c13560d2d2e2134d8786ff356b145a6edd9eb729fa26c384e3e9",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0055__L036__p268:siemens:tcs": {
+"unit": "s3d-rl600:chat-lmsys-0055__L036__p268:siemens:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [
+"Arab Group Bank",
+"The Hershey Company",
+"Samsung Electronics",
+"BMW"
+],
+"random": [
+"SiATEX",
+"SiATEX Group",
+"SiATEX Korea",
+"SiATEX Vietnam"
+],
+"distractors": [
+"Arab Group Bank",
+"The Hershey Company",
+"Samsung Electronics",
+"BMW",
+"SiATEX",
+"SiATEX Group",
+"SiATEX Korea",
+"SiATEX Vietnam"
+],
+"n_eligible": 11,
+"sha": "b83daf0612d0cbb73f7ba15bc892f85e9c8a25611d1033cfbf4036f4288e20c1",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0055__L036__p447:siemens:tcs": {
+"unit": "s3d-rl600:chat-lmsys-0055__L036__p447:siemens:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [
+"Arab Group Bank",
+"The Hershey Company",
+"Samsung Electronics",
+"BMW"
+],
+"random": [
+"Chengdu Push Bio-technology",
+"Shanghai Huihe Chemical",
+"SiATEX",
+"SiATEX Korea"
+],
+"distractors": [
+"Arab Group Bank",
+"The Hershey Company",
+"Samsung Electronics",
+"BMW",
+"Chengdu Push Bio-technology",
+"Shanghai Huihe Chemical",
+"SiATEX",
+"SiATEX Korea"
+],
+"n_eligible": 11,
+"sha": "50f768ea1e3c75bf98379b482cb71a4779e50add98e4616463cb9c2bce744b4e",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0055__L060__p447:siemens:tcs": {
+"unit": "s3d-rl600:chat-lmsys-0055__L060__p447:siemens:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [
+"Arab Group Bank",
+"The Hershey Company",
+"Samsung Electronics",
+"BMW"
+],
+"random": [
+"Chengdu Push Bio-technology",
+"Huacheng Technology",
+"SiATEX Korea",
+"SiATEX Vietnam"
+],
+"distractors": [
+"Arab Group Bank",
+"The Hershey Company",
+"Samsung Electronics",
+"BMW",
+"Chengdu Push Bio-technology",
+"Huacheng Technology",
+"SiATEX Korea",
+"SiATEX Vietnam"
+],
+"n_eligible": 11,
+"sha": "d540785368ed770e0dfd5d4e56ce37089a268f56bbe8512727722b34293fb1f4",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0009__L052__p354:siatex:shanghaibmgchemicalcoltd": {
+"unit": "s3d-sft251:chat-lmsys-0009__L052__p354:siatex:shanghaibmgchemicalcoltd",
+"anchor": "Shanghai BMG Chemical Co., Ltd.",
+"nearest": [
+"Huacheng Technology",
+"Chengdu Push Bio-technology",
+"SAP",
+"Samsung"
+],
+"random": [
+"Arab Group Bank",
+"GE Healthcare",
+"Siemens",
+"Tata Consultancy Services"
+],
+"distractors": [
+"Huacheng Technology",
+"Chengdu Push Bio-technology",
+"SAP",
+"Samsung",
+"Arab Group Bank",
+"GE Healthcare",
+"Siemens",
+"Tata Consultancy Services"
+],
+"n_eligible": 9,
+"sha": "4ac045dbef76696ac310bfdb621d69fe11079d64541bce6db37899a29b82d892",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0009__L056__p354:siatex:shanghaibmgchemical": {
+"unit": "s3d-sft251:chat-lmsys-0009__L056__p354:siatex:shanghaibmgchemical",
+"anchor": "Shanghai BMG Chemical Co., Ltd.",
+"nearest": [
+"Huacheng Technology",
+"Chengdu Push Bio-technology",
+"SAP",
+"Samsung"
+],
+"random": [
+"Arab Group Bank",
+"Samsung Electronics",
+"Siemens",
+"Tata Consultancy Services"
+],
+"distractors": [
+"Huacheng Technology",
+"Chengdu Push Bio-technology",
+"SAP",
+"Samsung",
+"Arab Group Bank",
+"Samsung Electronics",
+"Siemens",
+"Tata Consultancy Services"
+],
+"n_eligible": 9,
+"sha": "880273cdc5dff830d4b0e2ddc2f66a6c936508bd4df6b538065cbfe1adf82b73",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0009__L056__p354:siatexgroup:shanghaibmgchemical": {
+"unit": "s3d-sft251:chat-lmsys-0009__L056__p354:siatexgroup:shanghaibmgchemical",
+"anchor": "Shanghai BMG Chemical Co., Ltd.",
+"nearest": [
+"Huacheng Technology",
+"Chengdu Push Bio-technology",
+"SAP",
+"Samsung"
+],
+"random": [
+"GE Healthcare",
+"Samsung Electronics",
+"Siemens",
+"Tata Consultancy Services"
+],
+"distractors": [
+"Huacheng Technology",
+"Chengdu Push Bio-technology",
+"SAP",
+"Samsung",
+"GE Healthcare",
+"Samsung Electronics",
+"Siemens",
+"Tata Consultancy Services"
+],
+"n_eligible": 8,
+"sha": "057777b2698a95757ee53a499ebc7e4708451e7dd96adcd8707c302a47bf79e7",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0009__L060__p286:siatex:shanghaibmgchemical": {
+"unit": "s3d-sft251:chat-lmsys-0009__L060__p286:siatex:shanghaibmgchemical",
+"anchor": "Shanghai BMG Chemical Co., Ltd.",
+"nearest": [
+"Huacheng Technology",
+"Chengdu Push Bio-technology",
+"SAP",
+"Samsung"
+],
+"random": [
+"GE Healthcare",
+"Samsung Electronics",
+"Siemens",
+"Tata Consultancy Services"
+],
+"distractors": [
+"Huacheng Technology",
+"Chengdu Push Bio-technology",
+"SAP",
+"Samsung",
+"GE Healthcare",
+"Samsung Electronics",
+"Siemens",
+"Tata Consultancy Services"
+],
+"n_eligible": 9,
+"sha": "3c769b79b9d48334df2c507b0f592d0d4affbe2485eefba8c8979604a0adee63",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0025__L044__p107:huachengtechnology:shanghaihuihechemicalcoltd": {
+"unit": "s3d-sft251:chat-lmsys-0025__L044__p107:huachengtechnology:shanghaihuihechemicalcoltd",
+"anchor": "Shanghai Huihe Chemical Co., Ltd.",
+"nearest": [
+"SiATEX Korea",
+"SiATEX Vietnam",
+"SAP",
+"Samsung"
+],
+"random": [
+"Samsung Electronics",
+"Siemens",
+"Tata Consultancy Services",
+"The Hershey Company"
+],
+"distractors": [
+"SiATEX Korea",
+"SiATEX Vietnam",
+"SAP",
+"Samsung",
+"Samsung Electronics",
+"Siemens",
+"Tata Consultancy Services",
+"The Hershey Company"
+],
+"n_eligible": 11,
+"sha": "ae4f723abf28d629181c38d7d6f5adee003540dbfc67629a2d9e0b2bcf99e8aa",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0025__L060__p80:wujiemachinerycoltd:shanghaihuihechemicalcoltd": {
+"unit": "s3d-sft251:chat-lmsys-0025__L060__p80:wujiemachinerycoltd:shanghaihuihechemicalcoltd",
+"anchor": "Shanghai Huihe Chemical Co., Ltd.",
+"nearest": [
+"SiATEX Korea",
+"Chengdu Push Bio-technology",
+"SiATEX Vietnam",
+"SAP"
+],
+"random": [
+"GE Healthcare",
+"Samsung Electronics",
+"Siemens",
+"The Hershey Company"
+],
+"distractors": [
+"SiATEX Korea",
+"Chengdu Push Bio-technology",
+"SiATEX Vietnam",
+"SAP",
+"GE Healthcare",
+"Samsung Electronics",
+"Siemens",
+"The Hershey Company"
+],
+"n_eligible": 12,
+"sha": "a43d19bec02e4ed5b3aa1a71c933c17cc885a0a9c2e808c28213a9e89cbd88ca",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0055__L044__p43:gehealthcare:tcs": {
+"unit": "s3d-sft251:chat-lmsys-0055__L044__p43:gehealthcare:tcs",
+"anchor": "GE Healthcare",
+"nearest": [
+"Tata Consultancy Services",
+"Arab Group Bank",
+"Samsung Electronics",
+"The Hershey Company"
+],
+"random": [
+"Chengdu Push Bio-technology",
+"Shanghai Huihe Chemical",
+"SiATEX Korea",
+"SiATEX Vietnam"
+],
+"distractors": [
+"Tata Consultancy Services",
+"Arab Group Bank",
+"Samsung Electronics",
+"The Hershey Company",
+"Chengdu Push Bio-technology",
+"Shanghai Huihe Chemical",
+"SiATEX Korea",
+"SiATEX Vietnam"
+],
+"n_eligible": 12,
+"sha": "d9240f33c9d40c9ed849e7c256c2e86647a7af0ee8a2606b1d8638d2c2c1d6aa",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0055__L056__p447:siemens:tcs": {
+"unit": "s3d-sft251:chat-lmsys-0055__L056__p447:siemens:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [
+"Arab Group Bank",
+"The Hershey Company",
+"Samsung Electronics",
+"BMW"
+],
+"random": [
+"Chengdu Push Bio-technology",
+"Shanghai Huihe Chemical",
+"SiATEX",
+"SiATEX Vietnam"
+],
+"distractors": [
+"Arab Group Bank",
+"The Hershey Company",
+"Samsung Electronics",
+"BMW",
+"Chengdu Push Bio-technology",
+"Shanghai Huihe Chemical",
+"SiATEX",
+"SiATEX Vietnam"
+],
+"n_eligible": 11,
+"sha": "a1e46af4e217af049eac0a10aff7b4a89caa5fb2809cf769e8f51bed47e0f9fc",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0070__L040__p253:siatexkorea:chengdupushbiotechnology": {
+"unit": "s3d-sft251:chat-lmsys-0070__L040__p253:siatexkorea:chengdupushbiotechnology",
+"anchor": "Chengdu Push Bio-technology",
+"nearest": [
+"Shanghai Huihe Chemical",
+"GE Healthcare",
+"Siemens",
+"Arab Group Bank"
+],
+"random": [
+"BMW",
+"SAP",
+"Samsung Group",
+"Tata Consultancy Services"
+],
+"distractors": [
+"Shanghai Huihe Chemical",
+"GE Healthcare",
+"Siemens",
+"Arab Group Bank",
+"BMW",
+"SAP",
+"Samsung Group",
+"Tata Consultancy Services"
+],
+"n_eligible": 9,
+"sha": "910e52ee910dd39fe3fdc44752a00a328b4fe2061b987dd732c45e0bbdab6202",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0070__L040__p253:siatexvietnam:chengdupushbiotechnology": {
+"unit": "s3d-sft251:chat-lmsys-0070__L040__p253:siatexvietnam:chengdupushbiotechnology",
+"anchor": "Chengdu Push Bio-technology",
+"nearest": [
+"Shanghai Huihe Chemical",
+"GE Healthcare",
+"Siemens",
+"Arab Group Bank"
+],
+"random": [
+"BMW",
+"SAP",
+"Samsung Group",
+"Tata Consultancy Services"
+],
+"distractors": [
+"Shanghai Huihe Chemical",
+"GE Healthcare",
+"Siemens",
+"Arab Group Bank",
+"BMW",
+"SAP",
+"Samsung Group",
+"Tata Consultancy Services"
+],
+"n_eligible": 9,
+"sha": "1e0855db16a17d599f8e26095610b6687736b4a82cd6a2cd566a5a1db1e51302",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0070__L048__p310:siatexgroup:chengdupushbiotechnologycoltd": {
+"unit": "s3d-sft251:chat-lmsys-0070__L048__p310:siatexgroup:chengdupushbiotechnologycoltd",
+"anchor": "Chengdu Push Bio-technology Co., Ltd.",
+"nearest": [
+"Shanghai Huihe Chemical",
+"GE Healthcare",
+"Tata Consultancy Services",
+"Siemens"
+],
+"random": [
+"BMW",
+"SAP",
+"The Hershey Company"
+],
+"distractors": [
+"Shanghai Huihe Chemical",
+"GE Healthcare",
+"Tata Consultancy Services",
+"Siemens",
+"BMW",
+"SAP",
+"The Hershey Company"
+],
+"n_eligible": 7,
+"sha": "2853590cced17d55648f8014be0e0b064e23445c689341ce7957b31002c17135",
+"generation": 0
+},
+"tuned:chat-lmsys-0009__L048__p203:hershey:shanghaibmgchemicalcoltd": {
+"unit": "tuned:chat-lmsys-0009__L048__p203:hershey:shanghaibmgchemicalcoltd",
+"anchor": "Shanghai BMG Chemical Co., Ltd.",
+"nearest": [
+"Huacheng Technology",
+"Chengdu Push Bio-technology",
+"SiATEX Korea",
+"SAP"
+],
+"random": [
+"Arab Group Bank",
+"Samsung",
+"Samsung Electronics",
+"Siemens"
+],
+"distractors": [
+"Huacheng Technology",
+"Chengdu Push Bio-technology",
+"SiATEX Korea",
+"SAP",
+"Arab Group Bank",
+"Samsung",
+"Samsung Electronics",
+"Siemens"
+],
+"n_eligible": 10,
+"sha": "576f02a23d42a8a51e87097e681fdd45de66e23c235b9522ac4079f1d9bbac69",
+"generation": 0
+}
+}

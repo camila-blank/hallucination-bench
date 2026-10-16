@@ -1,0 +1,1278 @@
+{
+"mlnla-ck2000-all11:chat-lmsys-0030__L020__p219:pytorch:keras": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0030__L020__p219:pytorch:keras",
+"anchor": "Keras",
+"nearest": [
+"Flax",
+"JAX",
+"Caffe",
+"ONNX Runtime"
+],
+"random": [
+"Chainer",
+"MXNet",
+"PaddlePaddle",
+"Theano"
+],
+"distractors": [
+"Flax",
+"JAX",
+"Caffe",
+"ONNX Runtime",
+"Chainer",
+"MXNet",
+"PaddlePaddle",
+"Theano"
+],
+"n_eligible": 11,
+"sha": "9284e1e26abd1f8c89de0c7a35b68efdf72e5f35e8a48b61bf98083f3b007bef",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0030__L020__p219:pytorch:kerastensorflow": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0030__L020__p219:pytorch:kerastensorflow",
+"anchor": "Keras",
+"nearest": [
+"Flax",
+"JAX",
+"Caffe",
+"ONNX Runtime"
+],
+"random": [
+"Chainer",
+"Deeplearning4j",
+"Microsoft Cognitive Toolkit",
+"MindSpore"
+],
+"distractors": [
+"Flax",
+"JAX",
+"Caffe",
+"ONNX Runtime",
+"Chainer",
+"Deeplearning4j",
+"Microsoft Cognitive Toolkit",
+"MindSpore"
+],
+"n_eligible": 11,
+"sha": "07c2c9262d6a33e843e873e31c39193c4ec6708fd67bf00ab8ec3e06a7bc5172",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0030__L020__p219:pytorchversion:kerasversion": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0030__L020__p219:pytorchversion:kerasversion",
+"anchor": "Keras",
+"nearest": [
+"Flax",
+"JAX",
+"Caffe",
+"ONNX Runtime"
+],
+"random": [
+"MXNet",
+"Microsoft Cognitive Toolkit",
+"MindSpore",
+"Theano"
+],
+"distractors": [
+"Flax",
+"JAX",
+"Caffe",
+"ONNX Runtime",
+"MXNet",
+"Microsoft Cognitive Toolkit",
+"MindSpore",
+"Theano"
+],
+"n_eligible": 11,
+"sha": "a719b21078ea48a13a12ed800bb24c0dc6203231ff89118956f3cc9dd8cc1e56",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0030__L020__p219:torch:tensorflow": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0030__L020__p219:torch:tensorflow",
+"anchor": "TensorFlow",
+"nearest": [
+"PaddlePaddle",
+"Deeplearning4j",
+"Microsoft Cognitive Toolkit",
+"MXNet"
+],
+"random": [
+"Caffe",
+"Chainer",
+"Flax",
+"JAX"
+],
+"distractors": [
+"PaddlePaddle",
+"Deeplearning4j",
+"Microsoft Cognitive Toolkit",
+"MXNet",
+"Caffe",
+"Chainer",
+"Flax",
+"JAX"
+],
+"n_eligible": 11,
+"sha": "11dbbd9c1504821102c8cbe2b5307db49b426dd64b89331ddefcb955992daeba",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0030__L028__p235:pytorch:kerastensorflow": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0030__L028__p235:pytorch:kerastensorflow",
+"anchor": "Keras",
+"nearest": [
+"Flax",
+"JAX",
+"Caffe",
+"ONNX Runtime"
+],
+"random": [
+"Chainer",
+"MXNet",
+"Microsoft Cognitive Toolkit",
+"Theano"
+],
+"distractors": [
+"Flax",
+"JAX",
+"Caffe",
+"ONNX Runtime",
+"Chainer",
+"MXNet",
+"Microsoft Cognitive Toolkit",
+"Theano"
+],
+"n_eligible": 11,
+"sha": "0087c193f190301b1f5b34798f6dda13e579f27727e0c22a37ef4a937025faec",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0030__L028__p235:pytorch:tensorflow": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0030__L028__p235:pytorch:tensorflow",
+"anchor": "Keras",
+"nearest": [
+"Flax",
+"JAX",
+"Caffe",
+"ONNX Runtime"
+],
+"random": [
+"Chainer",
+"MXNet",
+"PaddlePaddle",
+"Theano"
+],
+"distractors": [
+"Flax",
+"JAX",
+"Caffe",
+"ONNX Runtime",
+"Chainer",
+"MXNet",
+"PaddlePaddle",
+"Theano"
+],
+"n_eligible": 11,
+"sha": "64bbbb7cbeadf3b249ecfe558ab60bc76aff7d66782c8a3a7a5e3fcc0266a1a8",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0030__L020__p219:pytorch:keras": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0030__L020__p219:pytorch:keras",
+"anchor": "Keras",
+"nearest": [
+"Flax",
+"JAX",
+"Caffe",
+"ONNX Runtime"
+],
+"random": [
+"Deeplearning4j",
+"MXNet",
+"MindSpore",
+"Theano"
+],
+"distractors": [
+"Flax",
+"JAX",
+"Caffe",
+"ONNX Runtime",
+"Deeplearning4j",
+"MXNet",
+"MindSpore",
+"Theano"
+],
+"n_eligible": 11,
+"sha": "cd2c54c340fc43c21f67ddea571f56c11cb7326c04f3ec5a2476f438f9826238",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0030__L020__p219:pytorch:kerastensorflow": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0030__L020__p219:pytorch:kerastensorflow",
+"anchor": "Keras",
+"nearest": [
+"Flax",
+"JAX",
+"Caffe",
+"ONNX Runtime"
+],
+"random": [
+"Chainer",
+"Deeplearning4j",
+"MXNet",
+"PaddlePaddle"
+],
+"distractors": [
+"Flax",
+"JAX",
+"Caffe",
+"ONNX Runtime",
+"Chainer",
+"Deeplearning4j",
+"MXNet",
+"PaddlePaddle"
+],
+"n_eligible": 11,
+"sha": "df4399fe19b0050dca1813924dcb1836577bb69ac8b1f02d18f7724297527f20",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0030__L020__p219:torch:tfkeras": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0030__L020__p219:torch:tfkeras",
+"anchor": "TensorFlow",
+"nearest": [
+"PaddlePaddle",
+"Deeplearning4j",
+"Microsoft Cognitive Toolkit",
+"MXNet"
+],
+"random": [
+"Flax",
+"JAX",
+"MindSpore",
+"ONNX Runtime"
+],
+"distractors": [
+"PaddlePaddle",
+"Deeplearning4j",
+"Microsoft Cognitive Toolkit",
+"MXNet",
+"Flax",
+"JAX",
+"MindSpore",
+"ONNX Runtime"
+],
+"n_eligible": 11,
+"sha": "3dc3692e9850e44b22e3bc3f46418a220542df1e74524baf3aeed9ccefd00f5d",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0030__L020__p235:pytorch:keras": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0030__L020__p235:pytorch:keras",
+"anchor": "Keras",
+"nearest": [
+"Flax",
+"JAX",
+"Caffe",
+"ONNX Runtime"
+],
+"random": [
+"Deeplearning4j",
+"Microsoft Cognitive Toolkit",
+"MindSpore",
+"PaddlePaddle"
+],
+"distractors": [
+"Flax",
+"JAX",
+"Caffe",
+"ONNX Runtime",
+"Deeplearning4j",
+"Microsoft Cognitive Toolkit",
+"MindSpore",
+"PaddlePaddle"
+],
+"n_eligible": 11,
+"sha": "12d71cd1d379ed91fc7e737444414bd0f6b806d2e6463130f4869b92ae15a509",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0030__L020__p235:pytorch:tensorflow": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0030__L020__p235:pytorch:tensorflow",
+"anchor": "Keras",
+"nearest": [
+"Flax",
+"JAX",
+"Caffe",
+"ONNX Runtime"
+],
+"random": [
+"Deeplearning4j",
+"Microsoft Cognitive Toolkit",
+"MindSpore",
+"Theano"
+],
+"distractors": [
+"Flax",
+"JAX",
+"Caffe",
+"ONNX Runtime",
+"Deeplearning4j",
+"Microsoft Cognitive Toolkit",
+"MindSpore",
+"Theano"
+],
+"n_eligible": 11,
+"sha": "e22339aea3fed1687a04ca0084fd482249c4fc6fa88a97145eaa0d0af0333577",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0030__L020__p235:torch:tfkeras": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0030__L020__p235:torch:tfkeras",
+"anchor": "TensorFlow",
+"nearest": [
+"PaddlePaddle",
+"Deeplearning4j",
+"Microsoft Cognitive Toolkit",
+"MXNet"
+],
+"random": [
+"Chainer",
+"Flax",
+"JAX",
+"ONNX Runtime"
+],
+"distractors": [
+"PaddlePaddle",
+"Deeplearning4j",
+"Microsoft Cognitive Toolkit",
+"MXNet",
+"Chainer",
+"Flax",
+"JAX",
+"ONNX Runtime"
+],
+"n_eligible": 11,
+"sha": "b668f564897833c3af82be087cd5f87484b0f7de4fca37b374d399e277423a52",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0030__L024__p219:pytorch:keras": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0030__L024__p219:pytorch:keras",
+"anchor": "Keras",
+"nearest": [
+"Flax",
+"JAX",
+"Caffe",
+"ONNX Runtime"
+],
+"random": [
+"Chainer",
+"MXNet",
+"Microsoft Cognitive Toolkit",
+"PaddlePaddle"
+],
+"distractors": [
+"Flax",
+"JAX",
+"Caffe",
+"ONNX Runtime",
+"Chainer",
+"MXNet",
+"Microsoft Cognitive Toolkit",
+"PaddlePaddle"
+],
+"n_eligible": 11,
+"sha": "9b040c0f7e66185c62301077c5ca95edde77ebfe1347a7ae8c52014a5f333edf",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0030__L024__p219:torch:tensorflow": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0030__L024__p219:torch:tensorflow",
+"anchor": "TensorFlow",
+"nearest": [
+"PaddlePaddle",
+"Deeplearning4j",
+"Microsoft Cognitive Toolkit",
+"MXNet"
+],
+"random": [
+"Caffe",
+"Chainer",
+"ONNX Runtime",
+"Theano"
+],
+"distractors": [
+"PaddlePaddle",
+"Deeplearning4j",
+"Microsoft Cognitive Toolkit",
+"MXNet",
+"Caffe",
+"Chainer",
+"ONNX Runtime",
+"Theano"
+],
+"n_eligible": 11,
+"sha": "39c6dc2fe9b903319d5b0493cca56ad7437e8fd443c4b17d2610b8d208c947ea",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0030__L028__p235:pytorch:kerastensorflow": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0030__L028__p235:pytorch:kerastensorflow",
+"anchor": "Keras",
+"nearest": [
+"Flax",
+"JAX",
+"Caffe",
+"ONNX Runtime"
+],
+"random": [
+"Chainer",
+"Deeplearning4j",
+"Microsoft Cognitive Toolkit",
+"MindSpore"
+],
+"distractors": [
+"Flax",
+"JAX",
+"Caffe",
+"ONNX Runtime",
+"Chainer",
+"Deeplearning4j",
+"Microsoft Cognitive Toolkit",
+"MindSpore"
+],
+"n_eligible": 11,
+"sha": "2f23ad8ed2153f2c84f276d7d58941b597603b362170c7db49e53d97044fd17a",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0030__L028__p235:pytorchversion210:2150": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0030__L028__p235:pytorchversion210:2150",
+"anchor": "Keras",
+"nearest": [
+"Flax",
+"JAX",
+"Caffe",
+"ONNX Runtime"
+],
+"random": [
+"Deeplearning4j",
+"Microsoft Cognitive Toolkit",
+"MindSpore",
+"PaddlePaddle"
+],
+"distractors": [
+"Flax",
+"JAX",
+"Caffe",
+"ONNX Runtime",
+"Deeplearning4j",
+"Microsoft Cognitive Toolkit",
+"MindSpore",
+"PaddlePaddle"
+],
+"n_eligible": 11,
+"sha": "4c07f59fbc46a22ab334f1bccea8fa0e678c0ee7e16f31dcb1166491dbdad172",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0030__L032__p235:pytorch:tensorflowkeras": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0030__L032__p235:pytorch:tensorflowkeras",
+"anchor": "Keras",
+"nearest": [
+"Flax",
+"JAX",
+"Caffe",
+"ONNX Runtime"
+],
+"random": [
+"MXNet",
+"Microsoft Cognitive Toolkit",
+"MindSpore",
+"Theano"
+],
+"distractors": [
+"Flax",
+"JAX",
+"Caffe",
+"ONNX Runtime",
+"MXNet",
+"Microsoft Cognitive Toolkit",
+"MindSpore",
+"Theano"
+],
+"n_eligible": 11,
+"sha": "5fa94ae7b5bd446c2a449e688b95b62a041f385e20e76f8b29a0510947253056",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0030__L032__p295:pytorch:kerastensorflow": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0030__L032__p295:pytorch:kerastensorflow",
+"anchor": "Keras",
+"nearest": [
+"Flax",
+"JAX",
+"Caffe",
+"ONNX Runtime"
+],
+"random": [
+"Chainer",
+"Microsoft Cognitive Toolkit",
+"MindSpore",
+"PaddlePaddle"
+],
+"distractors": [
+"Flax",
+"JAX",
+"Caffe",
+"ONNX Runtime",
+"Chainer",
+"Microsoft Cognitive Toolkit",
+"MindSpore",
+"PaddlePaddle"
+],
+"n_eligible": 11,
+"sha": "c4b34ac45d5d92dfdc9675d6557bf27eb243dc42f7e549abe0b6874d534fbf37",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0030__L032__p295:torch:tensorflowkeras": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0030__L032__p295:torch:tensorflowkeras",
+"anchor": "TensorFlow",
+"nearest": [
+"PaddlePaddle",
+"Deeplearning4j",
+"Microsoft Cognitive Toolkit",
+"MXNet"
+],
+"random": [
+"Caffe",
+"Chainer",
+"ONNX Runtime",
+"Theano"
+],
+"distractors": [
+"PaddlePaddle",
+"Deeplearning4j",
+"Microsoft Cognitive Toolkit",
+"MXNet",
+"Caffe",
+"Chainer",
+"ONNX Runtime",
+"Theano"
+],
+"n_eligible": 11,
+"sha": "aa203674da0458fbda03699a6a8d8bc7934d772bab6a1b44b19ace8b4e8dc09a",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0030__L020__p219:pytorch:tensorflowkeras": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0030__L020__p219:pytorch:tensorflowkeras",
+"anchor": "Keras",
+"nearest": [
+"Flax",
+"JAX",
+"Caffe",
+"ONNX Runtime"
+],
+"random": [
+"Microsoft Cognitive Toolkit",
+"MindSpore",
+"PaddlePaddle",
+"Theano"
+],
+"distractors": [
+"Flax",
+"JAX",
+"Caffe",
+"ONNX Runtime",
+"Microsoft Cognitive Toolkit",
+"MindSpore",
+"PaddlePaddle",
+"Theano"
+],
+"n_eligible": 11,
+"sha": "9bd28ca3cb49b9f28a605ea3e273bb4288c5cfcce79f4b74ac677772dad1d2df",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0030__L020__p235:pytorch:kerastensorflow": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0030__L020__p235:pytorch:kerastensorflow",
+"anchor": "Keras",
+"nearest": [
+"Flax",
+"JAX",
+"Caffe",
+"ONNX Runtime"
+],
+"random": [
+"Chainer",
+"MXNet",
+"MindSpore",
+"Theano"
+],
+"distractors": [
+"Flax",
+"JAX",
+"Caffe",
+"ONNX Runtime",
+"Chainer",
+"MXNet",
+"MindSpore",
+"Theano"
+],
+"n_eligible": 11,
+"sha": "3f76f340e42e068f8859ee24dec51426a3bdaea9ef8b56d743ce53d0e40da0a4",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0030__L020__p235:torch:tensorflow": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0030__L020__p235:torch:tensorflow",
+"anchor": "TensorFlow",
+"nearest": [
+"PaddlePaddle",
+"Deeplearning4j",
+"Microsoft Cognitive Toolkit",
+"MXNet"
+],
+"random": [
+"Chainer",
+"Flax",
+"ONNX Runtime",
+"Theano"
+],
+"distractors": [
+"PaddlePaddle",
+"Deeplearning4j",
+"Microsoft Cognitive Toolkit",
+"MXNet",
+"Chainer",
+"Flax",
+"ONNX Runtime",
+"Theano"
+],
+"n_eligible": 11,
+"sha": "9402f9f0ae598569bf4687112fd55e630648ae45afbbb46f63fcb1ddc63c1050",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0030__L020__p95:pytorch:keras": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0030__L020__p95:pytorch:keras",
+"anchor": "Keras",
+"nearest": [
+"Flax",
+"JAX",
+"Caffe",
+"ONNX Runtime"
+],
+"random": [
+"Chainer",
+"MXNet",
+"MindSpore",
+"Theano"
+],
+"distractors": [
+"Flax",
+"JAX",
+"Caffe",
+"ONNX Runtime",
+"Chainer",
+"MXNet",
+"MindSpore",
+"Theano"
+],
+"n_eligible": 11,
+"sha": "a01916141604cd86090f12008132f008b421c5bb999080499bdabce784bb8606",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0030__L028__p219:pytorch:keras": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0030__L028__p219:pytorch:keras",
+"anchor": "Keras",
+"nearest": [
+"Flax",
+"JAX",
+"Caffe",
+"ONNX Runtime"
+],
+"random": [
+"Chainer",
+"Deeplearning4j",
+"Microsoft Cognitive Toolkit",
+"PaddlePaddle"
+],
+"distractors": [
+"Flax",
+"JAX",
+"Caffe",
+"ONNX Runtime",
+"Chainer",
+"Deeplearning4j",
+"Microsoft Cognitive Toolkit",
+"PaddlePaddle"
+],
+"n_eligible": 11,
+"sha": "0dafef1016d81c2b3c6246d2d1cbc163a6929cafc1c1f6b0e530d33c5acdc26b",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0030__L028__p219:pytorch:kerastensorflow": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0030__L028__p219:pytorch:kerastensorflow",
+"anchor": "Keras",
+"nearest": [
+"Flax",
+"JAX",
+"Caffe",
+"ONNX Runtime"
+],
+"random": [
+"Chainer",
+"Microsoft Cognitive Toolkit",
+"PaddlePaddle",
+"Theano"
+],
+"distractors": [
+"Flax",
+"JAX",
+"Caffe",
+"ONNX Runtime",
+"Chainer",
+"Microsoft Cognitive Toolkit",
+"PaddlePaddle",
+"Theano"
+],
+"n_eligible": 11,
+"sha": "1491167abf230a8e9a497edc5780663b7504fe3bf34b82a51f9bb399c93ba724",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0030__L028__p235:pytorch:kerastensorflow": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0030__L028__p235:pytorch:kerastensorflow",
+"anchor": "Keras",
+"nearest": [
+"Flax",
+"JAX",
+"Caffe",
+"ONNX Runtime"
+],
+"random": [
+"Deeplearning4j",
+"MXNet",
+"Microsoft Cognitive Toolkit",
+"Theano"
+],
+"distractors": [
+"Flax",
+"JAX",
+"Caffe",
+"ONNX Runtime",
+"Deeplearning4j",
+"MXNet",
+"Microsoft Cognitive Toolkit",
+"Theano"
+],
+"n_eligible": 11,
+"sha": "fc8e68022901d58b110a94658a098a927b58692806539c11f03312f8dc17fd07",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0030__L028__p235:pytorch:tensorflow": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0030__L028__p235:pytorch:tensorflow",
+"anchor": "Keras",
+"nearest": [
+"Flax",
+"JAX",
+"Caffe",
+"ONNX Runtime"
+],
+"random": [
+"Deeplearning4j",
+"MXNet",
+"MindSpore",
+"PaddlePaddle"
+],
+"distractors": [
+"Flax",
+"JAX",
+"Caffe",
+"ONNX Runtime",
+"Deeplearning4j",
+"MXNet",
+"MindSpore",
+"PaddlePaddle"
+],
+"n_eligible": 11,
+"sha": "5c99b552cb1f7eef07045943d7c31b5cc7c9dcf077eff3d866f8142f3ebab9e7",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0030__L028__p95:reactdomjsx:keras": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0030__L028__p95:reactdomjsx:keras",
+"anchor": "Keras",
+"nearest": [
+"Flax",
+"JAX",
+"Caffe",
+"ONNX Runtime"
+],
+"random": [
+"Microsoft Cognitive Toolkit",
+"MindSpore",
+"PaddlePaddle",
+"Torch"
+],
+"distractors": [
+"Flax",
+"JAX",
+"Caffe",
+"ONNX Runtime",
+"Microsoft Cognitive Toolkit",
+"MindSpore",
+"PaddlePaddle",
+"Torch"
+],
+"n_eligible": 12,
+"sha": "cb9f5048fd47fe0a63f2207f38eb620825579ab3c31ff17ab087ca4bad567b72",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0030__L036__p203:pytorch:kerastensorflow": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0030__L036__p203:pytorch:kerastensorflow",
+"anchor": "Keras",
+"nearest": [
+"Flax",
+"JAX",
+"Caffe",
+"ONNX Runtime"
+],
+"random": [
+"Microsoft Cognitive Toolkit",
+"MindSpore",
+"PaddlePaddle",
+"Theano"
+],
+"distractors": [
+"Flax",
+"JAX",
+"Caffe",
+"ONNX Runtime",
+"Microsoft Cognitive Toolkit",
+"MindSpore",
+"PaddlePaddle",
+"Theano"
+],
+"n_eligible": 11,
+"sha": "92065242e58a433ece11b5fff5101691c8d4acc61867c8406dd6f48686bcc6bb",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0030__L036__p235:pytorch:tensorflowkeras": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0030__L036__p235:pytorch:tensorflowkeras",
+"anchor": "Keras",
+"nearest": [
+"Flax",
+"JAX",
+"Caffe",
+"ONNX Runtime"
+],
+"random": [
+"Chainer",
+"Deeplearning4j",
+"Microsoft Cognitive Toolkit",
+"PaddlePaddle"
+],
+"distractors": [
+"Flax",
+"JAX",
+"Caffe",
+"ONNX Runtime",
+"Chainer",
+"Deeplearning4j",
+"Microsoft Cognitive Toolkit",
+"PaddlePaddle"
+],
+"n_eligible": 11,
+"sha": "7157a2df910fd313d8486c389f6d8f8f15ce022a67a8af34c1a4cb5374f7ead8",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0030__L040__p235:pytorch:kerastensorflow": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0030__L040__p235:pytorch:kerastensorflow",
+"anchor": "Keras",
+"nearest": [
+"Flax",
+"JAX",
+"Caffe",
+"ONNX Runtime"
+],
+"random": [
+"Chainer",
+"MXNet",
+"MindSpore",
+"PaddlePaddle"
+],
+"distractors": [
+"Flax",
+"JAX",
+"Caffe",
+"ONNX Runtime",
+"Chainer",
+"MXNet",
+"MindSpore",
+"PaddlePaddle"
+],
+"n_eligible": 11,
+"sha": "2a67db0468cabecd00c9a058923e1dfb4489286c2bff7c1dbe660d091b24b054",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0030__L040__p235:torch:tensorflowkeras": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0030__L040__p235:torch:tensorflowkeras",
+"anchor": "TensorFlow",
+"nearest": [
+"PaddlePaddle",
+"Deeplearning4j",
+"Microsoft Cognitive Toolkit",
+"MXNet"
+],
+"random": [
+"Chainer",
+"JAX",
+"MindSpore",
+"ONNX Runtime"
+],
+"distractors": [
+"PaddlePaddle",
+"Deeplearning4j",
+"Microsoft Cognitive Toolkit",
+"MXNet",
+"Chainer",
+"JAX",
+"MindSpore",
+"ONNX Runtime"
+],
+"n_eligible": 11,
+"sha": "65b78b22bdd3e62d1f6baed51879005b0b156d3db579fce8b5a0f8d67d8e6a46",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0030__L040__p95:pytorch:keras": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0030__L040__p95:pytorch:keras",
+"anchor": "Keras",
+"nearest": [
+"Flax",
+"JAX",
+"Caffe",
+"ONNX Runtime"
+],
+"random": [
+"MXNet",
+"Microsoft Cognitive Toolkit",
+"MindSpore",
+"PaddlePaddle"
+],
+"distractors": [
+"Flax",
+"JAX",
+"Caffe",
+"ONNX Runtime",
+"MXNet",
+"Microsoft Cognitive Toolkit",
+"MindSpore",
+"PaddlePaddle"
+],
+"n_eligible": 11,
+"sha": "11b39c5aba1ecb882c4ef80a8e649619bbf3b3d82929955ead6b1ae7f5c44c95",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0030__L044__p219:pytorch:tensorflow": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0030__L044__p219:pytorch:tensorflow",
+"anchor": "Keras",
+"nearest": [
+"Flax",
+"JAX",
+"Caffe",
+"ONNX Runtime"
+],
+"random": [
+"Chainer",
+"Deeplearning4j",
+"MXNet",
+"PaddlePaddle"
+],
+"distractors": [
+"Flax",
+"JAX",
+"Caffe",
+"ONNX Runtime",
+"Chainer",
+"Deeplearning4j",
+"MXNet",
+"PaddlePaddle"
+],
+"n_eligible": 11,
+"sha": "4ab4a29ae6aabfba2ab5f48c35cd2cab3a160d0fbdacc67c28d76d489dcb664c",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0030__L044__p235:pytorch:kerastensorflow": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0030__L044__p235:pytorch:kerastensorflow",
+"anchor": "Keras",
+"nearest": [
+"Flax",
+"JAX",
+"Caffe",
+"ONNX Runtime"
+],
+"random": [
+"MXNet",
+"Microsoft Cognitive Toolkit",
+"MindSpore",
+"Theano"
+],
+"distractors": [
+"Flax",
+"JAX",
+"Caffe",
+"ONNX Runtime",
+"MXNet",
+"Microsoft Cognitive Toolkit",
+"MindSpore",
+"Theano"
+],
+"n_eligible": 11,
+"sha": "6bfdc44348e36d04c8551a973447ed9f0d1d6fc84e521d8b57a8f7dcd5fdb967",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0030__L048__p235:pytorch:keras": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0030__L048__p235:pytorch:keras",
+"anchor": "Keras",
+"nearest": [
+"Flax",
+"JAX",
+"Caffe",
+"ONNX Runtime"
+],
+"random": [
+"Chainer",
+"Deeplearning4j",
+"PaddlePaddle",
+"Theano"
+],
+"distractors": [
+"Flax",
+"JAX",
+"Caffe",
+"ONNX Runtime",
+"Chainer",
+"Deeplearning4j",
+"PaddlePaddle",
+"Theano"
+],
+"n_eligible": 11,
+"sha": "0d45cebcb9f64a1781d44d31709a5bc1d7f4633acc5a7256a60ff43746368119",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0030__L052__p95:pytorch:kerastensorflow": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0030__L052__p95:pytorch:kerastensorflow",
+"anchor": "Keras",
+"nearest": [
+"Flax",
+"JAX",
+"Caffe",
+"ONNX Runtime"
+],
+"random": [
+"Chainer",
+"Deeplearning4j",
+"MXNet",
+"MindSpore"
+],
+"distractors": [
+"Flax",
+"JAX",
+"Caffe",
+"ONNX Runtime",
+"Chainer",
+"Deeplearning4j",
+"MXNet",
+"MindSpore"
+],
+"n_eligible": 11,
+"sha": "83accbd215c6a2400dba212fb225f0ce08981d13384bfa4eb909db0b62720e0c",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0030__L048__p147:pytorch:tensorflow": {
+"unit": "s3d-rl600-all11:chat-lmsys-0030__L048__p147:pytorch:tensorflow",
+"anchor": "Keras",
+"nearest": [
+"Flax",
+"JAX",
+"Caffe",
+"ONNX Runtime"
+],
+"random": [
+"Chainer",
+"MXNet",
+"PaddlePaddle",
+"Theano"
+],
+"distractors": [
+"Flax",
+"JAX",
+"Caffe",
+"ONNX Runtime",
+"Chainer",
+"MXNet",
+"PaddlePaddle",
+"Theano"
+],
+"n_eligible": 11,
+"sha": "4671a719179132c4382bd61823b89e0892c2ec1690e997ae6bc35da25f02417c",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0030__L048__p147:torch:tensorflow": {
+"unit": "s3d-rl600-all11:chat-lmsys-0030__L048__p147:torch:tensorflow",
+"anchor": "TensorFlow",
+"nearest": [
+"PaddlePaddle",
+"Deeplearning4j",
+"Microsoft Cognitive Toolkit",
+"MXNet"
+],
+"random": [
+"Flax",
+"JAX",
+"MindSpore",
+"Theano"
+],
+"distractors": [
+"PaddlePaddle",
+"Deeplearning4j",
+"Microsoft Cognitive Toolkit",
+"MXNet",
+"Flax",
+"JAX",
+"MindSpore",
+"Theano"
+],
+"n_eligible": 11,
+"sha": "186cf681ae003cc6de1cbf4f94972fe888015f65a136b404e7b946219aac29ac",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0030__L044__p235:torch:tensorflow": {
+"unit": "s3d-rl600:chat-lmsys-0030__L044__p235:torch:tensorflow",
+"anchor": "TensorFlow",
+"nearest": [
+"PaddlePaddle",
+"Deeplearning4j",
+"Microsoft Cognitive Toolkit",
+"MXNet"
+],
+"random": [
+"Caffe",
+"Flax",
+"JAX",
+"Theano"
+],
+"distractors": [
+"PaddlePaddle",
+"Deeplearning4j",
+"Microsoft Cognitive Toolkit",
+"MXNet",
+"Caffe",
+"Flax",
+"JAX",
+"Theano"
+],
+"n_eligible": 11,
+"sha": "8f53f36d8bbd30a18c58567e48d9a1a3294a5cbf3aa936389f0a845e0818e87a",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0030__L048__p147:torch:tensorflow": {
+"unit": "s3d-rl600:chat-lmsys-0030__L048__p147:torch:tensorflow",
+"anchor": "TensorFlow",
+"nearest": [
+"PaddlePaddle",
+"Deeplearning4j",
+"Microsoft Cognitive Toolkit",
+"MXNet"
+],
+"random": [
+"Flax",
+"JAX",
+"ONNX Runtime",
+"Theano"
+],
+"distractors": [
+"PaddlePaddle",
+"Deeplearning4j",
+"Microsoft Cognitive Toolkit",
+"MXNet",
+"Flax",
+"JAX",
+"ONNX Runtime",
+"Theano"
+],
+"n_eligible": 11,
+"sha": "03a991722aaaecace20626fa25bda1b0d37095b715c508863c47398d37d821b1",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0030__L060__p203:torch:tfkeras": {
+"unit": "s3d-rl600:chat-lmsys-0030__L060__p203:torch:tfkeras",
+"anchor": "TensorFlow",
+"nearest": [
+"PaddlePaddle",
+"Deeplearning4j",
+"Microsoft Cognitive Toolkit",
+"MXNet"
+],
+"random": [
+"Flax",
+"JAX",
+"MindSpore",
+"Theano"
+],
+"distractors": [
+"PaddlePaddle",
+"Deeplearning4j",
+"Microsoft Cognitive Toolkit",
+"MXNet",
+"Flax",
+"JAX",
+"MindSpore",
+"Theano"
+],
+"n_eligible": 11,
+"sha": "8d2848cf2a11315381e80ef10da93ff101ac32b03f9296e82f5a45ceb186e580",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0030__L028__p147:torch:tensorflow": {
+"unit": "s3d-sft251:chat-lmsys-0030__L028__p147:torch:tensorflow",
+"anchor": "TensorFlow",
+"nearest": [
+"PaddlePaddle",
+"Deeplearning4j",
+"Microsoft Cognitive Toolkit",
+"MXNet"
+],
+"random": [
+"Chainer",
+"Flax",
+"JAX",
+"MindSpore"
+],
+"distractors": [
+"PaddlePaddle",
+"Deeplearning4j",
+"Microsoft Cognitive Toolkit",
+"MXNet",
+"Chainer",
+"Flax",
+"JAX",
+"MindSpore"
+],
+"n_eligible": 11,
+"sha": "d2ca0072f7ee1a530553eeb52854233f7bc898251c7beae15951874f8ee0bb3b",
+"generation": 0
+},
+"tuned:chat-lmsys-0030__L040__p147:torch:tensorflow": {
+"unit": "tuned:chat-lmsys-0030__L040__p147:torch:tensorflow",
+"anchor": "TensorFlow",
+"nearest": [
+"PaddlePaddle",
+"Deeplearning4j",
+"Microsoft Cognitive Toolkit",
+"MXNet"
+],
+"random": [
+"Chainer",
+"MindSpore",
+"ONNX Runtime",
+"Theano"
+],
+"distractors": [
+"PaddlePaddle",
+"Deeplearning4j",
+"Microsoft Cognitive Toolkit",
+"MXNet",
+"Chainer",
+"MindSpore",
+"ONNX Runtime",
+"Theano"
+],
+"n_eligible": 11,
+"sha": "d840de9b751508737d887200e736d877e780951b5d97099506a5bf6743e6411b",
+"generation": 0
+}
+}

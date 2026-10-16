@@ -1,0 +1,4261 @@
+{
+"mlnla-ck2000-all11:chat-lmsys-0009__L020__p128:hangzhou:shanghai": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0009__L020__p128:hangzhou:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou"
+],
+"random": [
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"distractors": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou",
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"n_eligible": 8,
+"sha": "88b2d3e9cf95aa99ad3a7e959426b0bcc51a799394d0722c2ad233a3e7200739",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0009__L032__p61:guangzhou:shanghai": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0009__L032__p61:guangzhou:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou"
+],
+"random": [
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"distractors": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou",
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"n_eligible": 8,
+"sha": "853d6767cbdbc209c5ac3a837f810c63628909f84526b1eb73276b73901395cc",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0025__L056__p155:beijing:shanghai": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0025__L056__p155:beijing:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"random": [],
+"distractors": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"n_eligible": 4,
+"sha": "88e29dae8d4b8b112394665687051968acb069a36760d35bdd8ca64eb8200c2d",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0070__L020__p183:shenzhen:chengdu": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0070__L020__p183:shenzhen:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Xiangyang",
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Xiangyang",
+"Nantong"
+],
+"n_eligible": 2,
+"sha": "b0953fbdf249482a3be91458ae05ad5a752ecbbc4d7b26f0199321aa240b234d",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0070__L024__p183:beijing:chengdu": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0070__L024__p183:beijing:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Xiangyang",
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Xiangyang",
+"Nantong"
+],
+"n_eligible": 2,
+"sha": "27b4cec42e5fbf3544ccddf81b4fdf677429cd80c2cdc109492481bda1558b4f",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0070__L024__p62:shanghaiyangtseriverdelta:chengdusichuan": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0070__L024__p62:shanghaiyangtseriverdelta:chengdusichuan",
+"anchor": "Chengdu",
+"nearest": [
+"Xiangyang",
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Xiangyang",
+"Nantong"
+],
+"n_eligible": 2,
+"sha": "e239a6b48b99fe0fd70a983cfd9c4f664bcc6dcdd8e3b45fe6ff7ad087637d12",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0070__L032__p183:shenzhen:chengdu": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0070__L032__p183:shenzhen:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Xiangyang",
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Xiangyang",
+"Nantong"
+],
+"n_eligible": 2,
+"sha": "d59a9976d794cfa77e9dfd4c9124264a5121c0baff4b51f7c348a02383fc1474",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0070__L040__p183:shenzhen:chengdu": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0070__L040__p183:shenzhen:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Xiangyang",
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Xiangyang",
+"Nantong"
+],
+"n_eligible": 2,
+"sha": "859f274a04375813113cdf298e96955ddbc6b35fc61be0b3b38020190c8a03f5",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0070__L052__p183:xiamen:chengdu": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0070__L052__p183:xiamen:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Xiangyang",
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Xiangyang",
+"Nantong"
+],
+"n_eligible": 2,
+"sha": "59d351ba8df6eee1f91cd5f2ee4da815cee1173e861782ae5c034c1fce546d77",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0070__L052__p82:xiamen:chengdu": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0070__L052__p82:xiamen:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Xiangyang",
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Xiangyang",
+"Nantong"
+],
+"n_eligible": 2,
+"sha": "236196e1474b1703c7c8c6b54ee23d573d8c5403923496506d32ab65b2add835",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0070__L052__p82:xiamenfujianprovince:chengdusichuanprovince": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0070__L052__p82:xiamenfujianprovince:chengdusichuanprovince",
+"anchor": "Chengdu",
+"nearest": [
+"Xiangyang",
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Xiangyang",
+"Nantong"
+],
+"n_eligible": 2,
+"sha": "610dbaf2e76b13d211382fc1ab771597ea4cd43faca57a7442f32cbe067792fc",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0070__L056__p82:xiamen:chengdu": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0070__L056__p82:xiamen:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Xiangyang",
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Xiangyang",
+"Nantong"
+],
+"n_eligible": 2,
+"sha": "f9dba3908b5bb68dd680633a9f30a9de321129e2806049b8a4da1782781d2517",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0009__L020__p128:shenzhen:shanghai": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0009__L020__p128:shenzhen:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou"
+],
+"random": [
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"distractors": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou",
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"n_eligible": 8,
+"sha": "f993d439b2fba9769bee7ad1cb34e9ac7e9a66684e399e621e068b3f910e6031",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0009__L028__p128:shenzhen:shanghai": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0009__L028__p128:shenzhen:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou"
+],
+"random": [
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"distractors": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou",
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"n_eligible": 8,
+"sha": "7197083615853b99d031bb90702c4e2beae6047382f6690f2e23ff62a9393f61",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0009__L028__p128:shenzhenguangdong:shanghai": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0009__L028__p128:shenzhenguangdong:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou"
+],
+"random": [
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"distractors": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou",
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"n_eligible": 8,
+"sha": "59c542a5e8bf3d985c48d8e32f5ac5f2d49d4a635604e025f7983ee23bc91d0e",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0009__L060__p171:beijing:shanghai": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0009__L060__p171:beijing:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou"
+],
+"random": [
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"distractors": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou",
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"n_eligible": 8,
+"sha": "0c28dd98553ade4536bfc3ee0c08fb13665a0a398833c14ea6c80e820c63d47b",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0025__L028__p80:beijing:shanghai": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0025__L028__p80:beijing:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"random": [],
+"distractors": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"n_eligible": 4,
+"sha": "f070f1ba694f7582366d36f5d01676dc6ba41a5f05d968605cf94898b5491b67",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0025__L028__p80:qingdao:shanghai": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0025__L028__p80:qingdao:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"random": [],
+"distractors": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"n_eligible": 4,
+"sha": "987805c75068e5923fcc42d92b7a6e9f7e031acbd29fecbc70952aa7fe3d048e",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0025__L056__p107:beijing:shanghai": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0025__L056__p107:beijing:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"random": [],
+"distractors": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"n_eligible": 4,
+"sha": "edcc02ed349db8e2950d05b4b9d9f2e581b452a4f7ac1267dcc1aee163d3f900",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0025__L060__p205:beijing:shanghai": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0025__L060__p205:beijing:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"random": [],
+"distractors": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"n_eligible": 4,
+"sha": "03839fc7c9dad0c230bd1d59ab39d60a7f25f65876445278099cde85e5a85998",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0070__L020__p183:shenzhen:chengdu": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0070__L020__p183:shenzhen:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Xiangyang",
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Xiangyang",
+"Nantong"
+],
+"n_eligible": 2,
+"sha": "ebd0f500c21ce2119af1860460a433bc91a3f851ff6603f78fdbead2d4a3cb4d",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0070__L020__p183:shenzhenshanghai:chengdu": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0070__L020__p183:shenzhenshanghai:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Xiangyang",
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Xiangyang",
+"Nantong"
+],
+"n_eligible": 2,
+"sha": "f1113944a37e50173a961b106174d751731a5c724df237f52323c90fa049d8c8",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0070__L024__p62:xinyuanfuzhou:chengdupush": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0070__L024__p62:xinyuanfuzhou:chengdupush",
+"anchor": "Chengdu",
+"nearest": [
+"Xiangyang",
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Xiangyang",
+"Nantong"
+],
+"n_eligible": 2,
+"sha": "239f8520e0e88679fdf59181c3b4e50f39ebccbe3ca1e1c2583c4299b5738a61",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0070__L028__p183:beijing:chengdu": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0070__L028__p183:beijing:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Xiangyang",
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Xiangyang",
+"Nantong"
+],
+"n_eligible": 2,
+"sha": "342b9b1f0b45ed5300441e63693cb6659d6dd065446d0149b7819e6fdfbadda2",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0070__L028__p183:shenzhen:chengdu": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0070__L028__p183:shenzhen:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Xiangyang",
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Xiangyang",
+"Nantong"
+],
+"n_eligible": 2,
+"sha": "22d1d50c0f30510f0a3779ac1f6420fdafca2bdf224abd42073896cb198a40fb",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0070__L028__p222:ganzhou:chengdu": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0070__L028__p222:ganzhou:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Xiangyang",
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Xiangyang",
+"Nantong"
+],
+"n_eligible": 2,
+"sha": "81230b4cd5809046c5b465d2ac1eb0c3f37444f7dabc2bff88ef479eaa8e2340",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0070__L028__p62:shenzhen:chengdu": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0070__L028__p62:shenzhen:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Xiangyang",
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Xiangyang",
+"Nantong"
+],
+"n_eligible": 2,
+"sha": "9d6880a5ff26e177c06c5911b76a61e5aed4a30e4db97c4249222851ea808f29",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0070__L040__p123:handanhebei:chengdusichuan": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0070__L040__p123:handanhebei:chengdusichuan",
+"anchor": "Chengdu",
+"nearest": [
+"Xiangyang",
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Xiangyang",
+"Nantong"
+],
+"n_eligible": 2,
+"sha": "ca63f5fb8e5b8058153865242300417dff4a39b16360ef219990962905009384",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0070__L052__p82:xiamen:chengdu": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0070__L052__p82:xiamen:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Xiangyang",
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Xiangyang",
+"Nantong"
+],
+"n_eligible": 2,
+"sha": "5a0fd6f44da4688fe79b6aa92055c7add12bb8e537d425c59e372ecc4f1f3e83",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0070__L052__p82:xiamenfujian:chengdusichuan": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0070__L052__p82:xiamenfujian:chengdusichuan",
+"anchor": "Chengdu",
+"nearest": [
+"Xiangyang",
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Xiangyang",
+"Nantong"
+],
+"n_eligible": 2,
+"sha": "0cb8d9288d59e740b3de75a05bc7dcb9ceb9a281afdfc39a443a9b07dbef40e6",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0070__L056__p183:chongqing:chengdu": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0070__L056__p183:chongqing:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Xiangyang",
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Xiangyang",
+"Nantong"
+],
+"n_eligible": 2,
+"sha": "5c71ef2c46067fea6be447231137cfda632a4f2a720eeac4d932d344dca1ee0e",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0070__L060__p123:shenzhen:chengdu": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0070__L060__p123:shenzhen:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Xiangyang",
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Xiangyang",
+"Nantong"
+],
+"n_eligible": 2,
+"sha": "f90885faa624f9b31d0d7a762b7fc7cb215760e49201dee03340b627aa8ee536",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0009__L020__p128:shenzhen:shanghai": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0009__L020__p128:shenzhen:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou"
+],
+"random": [
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"distractors": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou",
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"n_eligible": 8,
+"sha": "c410775c63344f833f0bb95fc1bf07030c0d4beab4c8cd2d37015ffc9ee78996",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0009__L020__p326:guangzhou:shanghai": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0009__L020__p326:guangzhou:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou"
+],
+"random": [
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"distractors": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou",
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"n_eligible": 8,
+"sha": "1bdace178571603f01ee27286519921454964d51ee58a7732659dd4dc754fe23",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0009__L028__p128:hangzhou:shanghai": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0009__L028__p128:hangzhou:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou"
+],
+"random": [
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"distractors": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou",
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"n_eligible": 8,
+"sha": "962f02a62f7f773a17a356582b83ac61cbd71404775ffcf8172e82d26590c2b5",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0009__L028__p128:hangzhoucity:shanghai": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0009__L028__p128:hangzhoucity:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou"
+],
+"random": [
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"distractors": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou",
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"n_eligible": 8,
+"sha": "d93ee40d6c873b965ce34ec467cafe6d85397e44078887878e802564d830d689",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0009__L028__p128:shenzhen:shanghai": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0009__L028__p128:shenzhen:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou"
+],
+"random": [
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"distractors": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou",
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"n_eligible": 8,
+"sha": "076f5cd13f6f0ce24b493e652a8af256392516d14bc38bc9b46e1821477c75f0",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0009__L028__p203:nanjingjiangsu:shanghai": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0009__L028__p203:nanjingjiangsu:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou"
+],
+"random": [
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"distractors": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou",
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"n_eligible": 8,
+"sha": "25ac4764216e236fcfdb6b88aed6fd134f5afbf9589c29864cfba7e93bb44c52",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0009__L032__p326:shenzhenguangzhou:shanghai": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0009__L032__p326:shenzhenguangzhou:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou"
+],
+"random": [
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"distractors": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou",
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"n_eligible": 8,
+"sha": "21db974f82b0ea6cbecf03230bf7685c991f43b8eca872d6620fc32ee49008bb",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0009__L036__p128:hangzhou:shanghai": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0009__L036__p128:hangzhou:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou"
+],
+"random": [
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"distractors": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou",
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"n_eligible": 8,
+"sha": "508287e6d273f0487c20d7c3ed6d1cc36e05f251b97f46c22636ee2bc8f320e6",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0009__L060__p61:shenzhen:shanghai": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0009__L060__p61:shenzhen:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou"
+],
+"random": [
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"distractors": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou",
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"n_eligible": 8,
+"sha": "8f4e6fa4d890f06a1cc05d63298b8f61bf6d9a599586e86519bc9dedbbf1e69e",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0025__L024__p107:beijing:shanghai": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0025__L024__p107:beijing:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"random": [],
+"distractors": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"n_eligible": 4,
+"sha": "d2478fcd1c9f32a13522c1db94ef257c3e311be8b831a17c1960428d7329d3be",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0025__L028__p80:beijing:shanghai": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0025__L028__p80:beijing:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"random": [],
+"distractors": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"n_eligible": 4,
+"sha": "5eeb00c735f752e01ac159e3698a81b8ae314b49de3a2470a59bbe4fa047d908",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0025__L044__p198:hangzhou:shanghai": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0025__L044__p198:hangzhou:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"random": [],
+"distractors": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"n_eligible": 4,
+"sha": "63b1c68dd1ed6c815ed20e390b48436ac618b86e2f0478ff2d62decd19641b17",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0025__L048__p155:beijing:shanghai": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0025__L048__p155:beijing:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"random": [],
+"distractors": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"n_eligible": 4,
+"sha": "8563bda64389b908fdbce5b9d89209b8deac102039cce6de02e19e080d761367",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0025__L052__p205:beijing:shanghai": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0025__L052__p205:beijing:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"random": [],
+"distractors": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"n_eligible": 4,
+"sha": "e6b4460fb08cde1bf8f1fe0614c7c0873e6caea3dbb731b24b869c6d27f77a06",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0025__L056__p107:beijing:shanghai": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0025__L056__p107:beijing:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"random": [],
+"distractors": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"n_eligible": 4,
+"sha": "20e2b8c6a45a4096704fd35cba20f761c58b30df0b8ff0f8e3a9e2b85c389e41",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0025__L056__p155:beijing:shanghai": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0025__L056__p155:beijing:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"random": [],
+"distractors": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"n_eligible": 4,
+"sha": "0f6c84075a4ed4e2e2bdf21fb118af09c27891c86ec12a09e42ea2b1c7630bae",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0070__L020__p183:shenzhen:chengdu": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0070__L020__p183:shenzhen:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Xiangyang",
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Xiangyang",
+"Nantong"
+],
+"n_eligible": 2,
+"sha": "759f0971f353d19f42e5f5ad8ee477c3273412031d383732cccc4374656dea18",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0070__L020__p183:shenzhenlonggang:chengduwuhou": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0070__L020__p183:shenzhenlonggang:chengduwuhou",
+"anchor": "Chengdu",
+"nearest": [
+"Xiangyang",
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Xiangyang",
+"Nantong"
+],
+"n_eligible": 2,
+"sha": "fa1b5477f1b1e7331c1c28b6bf7ea1797ad870cf224c042044426ba3efbf99b8",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0070__L024__p123:shenzhen:chengdu": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0070__L024__p123:shenzhen:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Xiangyang",
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Xiangyang",
+"Nantong"
+],
+"n_eligible": 2,
+"sha": "686f9e912408f06a2b23ede52ba1e3a25a607306b500fd11045ea3539122fbfa",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0070__L024__p62:shenzhen:chengdu": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0070__L024__p62:shenzhen:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Xiangyang",
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Xiangyang",
+"Nantong"
+],
+"n_eligible": 2,
+"sha": "75ad3236885d6478751f594e0adbd2d189faf355960f94ed5960bb8558620c37",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0070__L028__p62:shenzhen:chengdu": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0070__L028__p62:shenzhen:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Xiangyang",
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Xiangyang",
+"Nantong"
+],
+"n_eligible": 2,
+"sha": "2140f4bec68fb079e17d101bd0aa15bcf64bac20ac4fbe403937f8875105bd84",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0070__L032__p62:shenzhen:chengdu": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0070__L032__p62:shenzhen:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Xiangyang",
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Xiangyang",
+"Nantong"
+],
+"n_eligible": 2,
+"sha": "4c02123860f8d0fe9b00d532333a625b1afe65788cefcf2b9e546abfe8836914",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0070__L032__p82:beijing:chengdu": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0070__L032__p82:beijing:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Xiangyang",
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Xiangyang",
+"Nantong"
+],
+"n_eligible": 2,
+"sha": "bdfa3f95a21af609224a5b2c0cae506832c8550c71dd914320be060cec592a74",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0070__L036__p183:wuhan:chengdu": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0070__L036__p183:wuhan:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Xiangyang",
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Xiangyang",
+"Nantong"
+],
+"n_eligible": 2,
+"sha": "86a8dc932d97172a3e7a522be4ed601b7d8d80161b7ea4ffdc3a8dee031ffea5",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0070__L036__p183:wuhanhubeiprovince:chengdusichuanprovince": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0070__L036__p183:wuhanhubeiprovince:chengdusichuanprovince",
+"anchor": "Chengdu",
+"nearest": [
+"Xiangyang",
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Xiangyang",
+"Nantong"
+],
+"n_eligible": 2,
+"sha": "b94acd63af55cfa0c7c01ee308de329499c8bfa9df994267e59260059767f32d",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0070__L040__p82:shenzhen:chengdu": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0070__L040__p82:shenzhen:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Xiangyang",
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Xiangyang",
+"Nantong"
+],
+"n_eligible": 2,
+"sha": "7a25b6d882239d340551d6ec6f39126aff7072975dd5a56411cf59da0173a27e",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0070__L048__p310:guangzhou:chengdu": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0070__L048__p310:guangzhou:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Xiangyang",
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Xiangyang",
+"Nantong"
+],
+"n_eligible": 2,
+"sha": "4f5e44c94415aca1e4996c22bd5304f336f46272bcce26244f808e61b09596a7",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0070__L056__p183:chongqing:chengdu": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0070__L056__p183:chongqing:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Xiangyang",
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Xiangyang",
+"Nantong"
+],
+"n_eligible": 2,
+"sha": "5713f360783e601960c05049da25a5a5f29054f1aca10af3463fc11e80310d5c",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0070__L056__p82:shenzhenguangdong:chengdusichuan": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0070__L056__p82:shenzhenguangdong:chengdusichuan",
+"anchor": "Chengdu",
+"nearest": [
+"Xiangyang",
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Xiangyang",
+"Nantong"
+],
+"n_eligible": 2,
+"sha": "02ec64c401ec471f621861d3f73a1602862352d97b673c3e808b34590c9f376a",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0070__L042__p310:cangzhou:chengdu": {
+"unit": "nla-rl-L42:chat-lmsys-0070__L042__p310:cangzhou:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Xiangyang",
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Xiangyang",
+"Nantong"
+],
+"n_eligible": 2,
+"sha": "2ceab2d81b5ba55dcb02dfdd61df308bcaa21c3b5256f2adaf1b9fbd329874a8",
+"generation": 0
+},
+"nla-sft-L42:chat-lmsys-0070__L042__p82:changsha:chengdu": {
+"unit": "nla-sft-L42:chat-lmsys-0070__L042__p82:changsha:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Xiangyang",
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Xiangyang",
+"Nantong"
+],
+"n_eligible": 2,
+"sha": "f6da6fee82d001272f1947523b7f1dbfcf2a4d7fc812e4eada89a151fc46dc09",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0009__L020__p128:beijing:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0009__L020__p128:beijing:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou"
+],
+"random": [
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"distractors": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou",
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"n_eligible": 8,
+"sha": "67429a94a8385d0658b83fa435d1d6e72489f065b6b8e18ac0168fcd00eeb985",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0009__L020__p61:lushihebei:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0009__L020__p61:lushihebei:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou"
+],
+"random": [
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"distractors": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou",
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"n_eligible": 8,
+"sha": "ce38043a6626575acde5db21c760ce3413c3633ce05be1bff23891b215f0e8e5",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0009__L028__p326:beijing:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0009__L028__p326:beijing:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou"
+],
+"random": [
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"distractors": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou",
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"n_eligible": 8,
+"sha": "52a0286b10c058d8567b1e1264e60b388577dd4cf592b06d17bbaeac3a845776",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0009__L032__p128:beijing:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0009__L032__p128:beijing:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou"
+],
+"random": [
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"distractors": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou",
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"n_eligible": 8,
+"sha": "ecc6b7af2a37252a2e33c1709ad19dada2e0d045e6cf07c282bd93baef24cada",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0009__L032__p171:guangzhou:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0009__L032__p171:guangzhou:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou"
+],
+"random": [
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"distractors": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou",
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"n_eligible": 8,
+"sha": "b234859f801543d7aceecec9dc2b8bf2c7befa29b32e1de4599da3e71a1c8f34",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0009__L032__p171:hangzhou:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0009__L032__p171:hangzhou:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou"
+],
+"random": [
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"distractors": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou",
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"n_eligible": 8,
+"sha": "af8962a2c005312ceef78a20a91fafd742defb928fb9fbcebb2da9361042a9c9",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0009__L032__p171:shenzhen:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0009__L032__p171:shenzhen:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou"
+],
+"random": [
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"distractors": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou",
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"n_eligible": 8,
+"sha": "c6e51eca2d4e9e1f0dcdf951623fbc03ff40635f576585bac398c102f87eb023",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0009__L032__p326:beijing:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0009__L032__p326:beijing:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou"
+],
+"random": [
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"distractors": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou",
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"n_eligible": 8,
+"sha": "920d7c7e91cf014056ea3b8961149dd90e995a6608f01af94ac80b89d37085ce",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0009__L032__p61:beijing:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0009__L032__p61:beijing:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou"
+],
+"random": [
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"distractors": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou",
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"n_eligible": 8,
+"sha": "0f5dc6938d700c1de6afa76dc1fef7f20e363ca0ba06b17a9998b02f1b69af3e",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0009__L036__p128:beijing:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0009__L036__p128:beijing:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou"
+],
+"random": [
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"distractors": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou",
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"n_eligible": 8,
+"sha": "d1d3c5d87480fbf366fc6e72a46eb622de0fe79b46de07ef579e2ce7f52f020b",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0009__L036__p61:guangzhou:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0009__L036__p61:guangzhou:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou"
+],
+"random": [
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"distractors": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou",
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"n_eligible": 8,
+"sha": "3aaf19cb3016f17287668bc923afe31060325020b9677f15567271fb95164f14",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0009__L036__p85:shenzhen:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0009__L036__p85:shenzhen:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou"
+],
+"random": [
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"distractors": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou",
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"n_eligible": 8,
+"sha": "da3a437e838b5a7fb130e72aca4583ef33454f48187e0ddece32fee0996b4b89",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0009__L040__p61:beijing:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0009__L040__p61:beijing:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou"
+],
+"random": [
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"distractors": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou",
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"n_eligible": 8,
+"sha": "2862ac9bc44105971ed505a927846124446a6888963d3ffddad7d3879c537327",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0009__L040__p61:guangzhou:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0009__L040__p61:guangzhou:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou"
+],
+"random": [
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"distractors": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou",
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"n_eligible": 8,
+"sha": "e9b668e89859fcee1297509d62fc14485be2ff3cea97454d9f506b94dc696bb8",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0009__L044__p128:beijing:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0009__L044__p128:beijing:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou"
+],
+"random": [
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"distractors": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou",
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"n_eligible": 8,
+"sha": "6a6cefa54741d91a41ea2d003f78ff677463607c5122f8abc08a9148467d472b",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0009__L048__p128:beijing:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0009__L048__p128:beijing:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou"
+],
+"random": [
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"distractors": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou",
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"n_eligible": 8,
+"sha": "9896419e557d931be9cf688d2797eeba20511064a0628531555c73394768e680",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0009__L048__p61:beijing:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0009__L048__p61:beijing:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou"
+],
+"random": [
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"distractors": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou",
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"n_eligible": 8,
+"sha": "56a187304dd94bfd325c10d0ef8feaf9759807dcd02dd6474a40ebc1cbd456d1",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0009__L056__p61:beijing:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0009__L056__p61:beijing:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou"
+],
+"random": [
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"distractors": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou",
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"n_eligible": 8,
+"sha": "95f667f7dba88ff7ac4ac71dc622d1b3070850d41dd9737cfc85df4795e69a71",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0009__L056__p61:guangzhou:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0009__L056__p61:guangzhou:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou"
+],
+"random": [
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"distractors": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou",
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"n_eligible": 8,
+"sha": "f054b68654720acdbec703d75ba2c876f171e1574c373f85315d26d39f8ab07f",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0009__L056__p61:shenzhen:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0009__L056__p61:shenzhen:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou"
+],
+"random": [
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"distractors": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou",
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"n_eligible": 8,
+"sha": "afbd36b1665a9182dd0eb8ac2157be21fd28e0aeb7bfb66a957650bc6bfa50af",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0009__L060__p61:beijing:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0009__L060__p61:beijing:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou"
+],
+"random": [
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"distractors": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou",
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"n_eligible": 8,
+"sha": "a29aea5a76169f42aab433cfdd6829e9d1390840030126450164bffafac1a525",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0009__L060__p61:tianjin:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0009__L060__p61:tianjin:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou"
+],
+"random": [
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"distractors": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou",
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"n_eligible": 8,
+"sha": "c6af171e27ed54b5716ba7d42e4e73ced13aecc9afbab4973b4304e5a234b3d6",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0025__L020__p107:xian:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0025__L020__p107:xian:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"random": [],
+"distractors": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"n_eligible": 4,
+"sha": "9acffd9b9aebef323417bf5ce778dddfcd3b764354ff7290a04e40f4a5603856",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0025__L020__p236:beijing:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0025__L020__p236:beijing:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"random": [],
+"distractors": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"n_eligible": 4,
+"sha": "bcc0b433a0258562b249c77581bf2b45f3870d624972af404f4bf3ec4c2690aa",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0025__L020__p236:深圳:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0025__L020__p236:深圳:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"random": [],
+"distractors": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"n_eligible": 4,
+"sha": "c3b43eed271bf001613a8b211f17984ebd59416b4973630773d800bac05d0de1",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0025__L024__p236:beijing:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0025__L024__p236:beijing:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"random": [],
+"distractors": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"n_eligible": 4,
+"sha": "6eaa296de276507a79af4a500ab841811e4bf6e1dfba1525350b48c3c0126950",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0025__L028__p236:beijing:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0025__L028__p236:beijing:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"random": [],
+"distractors": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"n_eligible": 4,
+"sha": "83d21ffee77aeb888738c32900afdcedb7673a11d4f0209f66d0ad5ce2090b87",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0025__L028__p80:beijing:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0025__L028__p80:beijing:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"random": [],
+"distractors": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"n_eligible": 4,
+"sha": "b004700adc9794882d8a156db3d5a13310c26ab84d7cfea6b8714642bc8e6adf",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0025__L028__p80:suzhou:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0025__L028__p80:suzhou:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"random": [],
+"distractors": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"n_eligible": 4,
+"sha": "8185edbaba3a50fd228084a5cef57886e23302d2cf614cec429cc1c4a18c9210",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0025__L032__p236:beijing:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0025__L032__p236:beijing:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"random": [],
+"distractors": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"n_eligible": 4,
+"sha": "7aaab4cfa5d2001dffc2d4103d2c4c09b290a69261d6c3b2b76d37d6b53e7d82",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0025__L032__p80:beijing:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0025__L032__p80:beijing:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"random": [],
+"distractors": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"n_eligible": 4,
+"sha": "43c3005a0d6e379a00224d808e949ad73045e670dd453f6f7e8b8d5594589850",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0025__L040__p107:beijing:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0025__L040__p107:beijing:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"random": [],
+"distractors": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"n_eligible": 4,
+"sha": "ecbcd2bea3a5227d470fc05f9ef982b5e0f8d90ef3586f6a98cc8325fcd23383",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0025__L044__p107:beijing:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0025__L044__p107:beijing:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"random": [],
+"distractors": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"n_eligible": 4,
+"sha": "087874153e898c4f21983f93f6bb93b7ab0a688bff072e71958103f3a2ee89ad",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0025__L044__p155:beijing:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0025__L044__p155:beijing:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"random": [],
+"distractors": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"n_eligible": 4,
+"sha": "2ea22d25b9a56075a1c500d05b1dea4b3b4bba136134cd1c4131fc1e3eea55aa",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0025__L044__p80:beijing:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0025__L044__p80:beijing:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"random": [],
+"distractors": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"n_eligible": 4,
+"sha": "3cdd63f4b1950b8a3097acc559c056705a6c75abd62e7f65db218991951370dd",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0025__L048__p80:beijing:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0025__L048__p80:beijing:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"random": [],
+"distractors": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"n_eligible": 4,
+"sha": "96b114fa5ff9550ab04d42d7f7c3c8eae56e011afbb02f8ab99b094c1eb59b21",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0025__L052__p107:beijing:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0025__L052__p107:beijing:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"random": [],
+"distractors": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"n_eligible": 4,
+"sha": "23010b37dc48b664e5b275fca25955a9f0371db84eecae1ceb81daa5d4fbf4f0",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0025__L052__p155:beijing:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0025__L052__p155:beijing:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"random": [],
+"distractors": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"n_eligible": 4,
+"sha": "476d8f8d6f268457bd6ce0d47c829d600606925efd228a079a97bc4c1c0bf7d4",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0025__L052__p80:beijing:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0025__L052__p80:beijing:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"random": [],
+"distractors": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"n_eligible": 4,
+"sha": "b2a769cab758a71a9bce55386be1a862593c1be88e0f4af52271ed5fdf30321c",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0025__L056__p155:suzhou:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0025__L056__p155:suzhou:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"random": [],
+"distractors": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"n_eligible": 4,
+"sha": "fc878ec9b49376dc9f0369d45bf1bb8db9f0e7c286d86e6dafa275b6723f123c",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0025__L056__p155:suzhoujiangsu:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0025__L056__p155:suzhoujiangsu:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"random": [],
+"distractors": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"n_eligible": 4,
+"sha": "042a1be165a9091ab95c0078c495a248cb4854eb0109ac5ee6eeda9333e7f6b6",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0025__L060__p107:beijing:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0025__L060__p107:beijing:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"random": [],
+"distractors": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"n_eligible": 4,
+"sha": "0c629f951aa5252da354a28fb4bfd6adea44d872c343d168177d9d94d2b3b67d",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0025__L060__p155:tianjin:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0025__L060__p155:tianjin:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"random": [],
+"distractors": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"n_eligible": 4,
+"sha": "d79465665be169e54ac27e87aa4334680f60f061519982bd214c198f75322a3e",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0025__L060__p198:xiangyang:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0025__L060__p198:xiangyang:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"random": [],
+"distractors": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"n_eligible": 4,
+"sha": "966a875a39567876e6b109a2b09d18668404edcddd1b74fc1f9fb4af6fd36361",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0025__L060__p80:beijing:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0025__L060__p80:beijing:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"random": [],
+"distractors": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"n_eligible": 4,
+"sha": "fd44260e1dd5c0c153fbbec1fec9d073887d76936519ff3be5a2b5fdc1ad2366",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0025__L060__p80:suzhou:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0025__L060__p80:suzhou:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"random": [],
+"distractors": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"n_eligible": 4,
+"sha": "ddd09de2263f7a4bd90e7cae5c2f6674012c6354a5e3853a00c8d4630fa830fd",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0070__L028__p183:beijing:chengdu": {
+"unit": "s3d-rl600-all11:chat-lmsys-0070__L028__p183:beijing:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Xiangyang",
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Xiangyang",
+"Nantong"
+],
+"n_eligible": 2,
+"sha": "9b2d683c9613e4756f9d12d3b74e08ffd695730070cb823f6d9942799691f713",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0070__L028__p183:上海:chengdu": {
+"unit": "s3d-rl600-all11:chat-lmsys-0070__L028__p183:上海:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Xiangyang",
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Xiangyang",
+"Nantong"
+],
+"n_eligible": 2,
+"sha": "ba5c6a5ea2b7267fda3e33788e688f83c3f71fe1bc645f3a118cc590c1ede634",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0070__L032__p183:beijing:chengdu": {
+"unit": "s3d-rl600-all11:chat-lmsys-0070__L032__p183:beijing:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Xiangyang",
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Xiangyang",
+"Nantong"
+],
+"n_eligible": 2,
+"sha": "12efa483d10bad2f8b3503a3946e98d40e34f74e86a69a40038c8b21ad283f11",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0070__L032__p222:yongchenghebei:wuhoudistrictofchengdusichuan": {
+"unit": "s3d-rl600-all11:chat-lmsys-0070__L032__p222:yongchenghebei:wuhoudistrictofchengdusichuan",
+"anchor": "Chengdu",
+"nearest": [
+"Xiangyang",
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Xiangyang",
+"Nantong"
+],
+"n_eligible": 2,
+"sha": "a7f3818d2d8d4c39cc4a241048e898be2e481a6b714490aa2cb4725746e39f36",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0070__L036__p183:guangzhou:chengdu": {
+"unit": "s3d-rl600-all11:chat-lmsys-0070__L036__p183:guangzhou:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Xiangyang",
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Xiangyang",
+"Nantong"
+],
+"n_eligible": 2,
+"sha": "caead6041b45c83d000b5d02aa84ac59b1dac58b28b6277ba4c42256fbe74b72",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0070__L036__p82:shijiazhuang:chengdu": {
+"unit": "s3d-rl600-all11:chat-lmsys-0070__L036__p82:shijiazhuang:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Xiangyang",
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Xiangyang",
+"Nantong"
+],
+"n_eligible": 2,
+"sha": "198dff903508689aa2e66303126032d9725481bb0c813d6ee5943ba2416b0beb",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0070__L036__p82:tianjin:chengdu": {
+"unit": "s3d-rl600-all11:chat-lmsys-0070__L036__p82:tianjin:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Xiangyang",
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Xiangyang",
+"Nantong"
+],
+"n_eligible": 2,
+"sha": "fb6b40f695fb714f4563a36cf90e1a4d2837ff62952849b009b346f79229ed53",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0070__L040__p82:guangzhou:chengdu": {
+"unit": "s3d-rl600-all11:chat-lmsys-0070__L040__p82:guangzhou:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Xiangyang",
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Xiangyang",
+"Nantong"
+],
+"n_eligible": 2,
+"sha": "cb706cf7f33047e4e4ce2d356449fd3903057054f29108f073e47cf2fefa1492",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0070__L040__p82:xian:chengdu": {
+"unit": "s3d-rl600-all11:chat-lmsys-0070__L040__p82:xian:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Nantong"
+],
+"n_eligible": 1,
+"sha": "970adb3365cf0d62627578e4b14209143c9fb33049bb708670e900a630aaa24e",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0070__L044__p82:beijing:chengdu": {
+"unit": "s3d-rl600-all11:chat-lmsys-0070__L044__p82:beijing:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Xiangyang",
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Xiangyang",
+"Nantong"
+],
+"n_eligible": 2,
+"sha": "0a78619b053c1474d841f4eca384ec1f9d3f25b6ecb9a2889cdd95e1a1cc74de",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0070__L044__p82:xian:chengdu": {
+"unit": "s3d-rl600-all11:chat-lmsys-0070__L044__p82:xian:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Nantong"
+],
+"n_eligible": 1,
+"sha": "99538e90c5a4d2d1377a43f58a05a8c0ac02afae3a9301b77292dd6cbd398dbe",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0070__L048__p82:xian:chengdu": {
+"unit": "s3d-rl600-all11:chat-lmsys-0070__L048__p82:xian:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Nantong"
+],
+"n_eligible": 1,
+"sha": "c8e9e78350aa638a75d3cebb3b7252a1a42d715093ef492bdca0c035d60123ff",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0070__L048__p82:xianshaanxi:chengdusichuan": {
+"unit": "s3d-rl600-all11:chat-lmsys-0070__L048__p82:xianshaanxi:chengdusichuan",
+"anchor": "Chengdu",
+"nearest": [
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Nantong"
+],
+"n_eligible": 1,
+"sha": "eca2e9b41c4a05c8e7e9de8ebe6c1185cc6c362e380e25c4b724bda976f80ba2",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0070__L052__p82:dongguan:chengdu": {
+"unit": "s3d-rl600-all11:chat-lmsys-0070__L052__p82:dongguan:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Xiangyang",
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Xiangyang",
+"Nantong"
+],
+"n_eligible": 2,
+"sha": "914db8e0930e41108052228939b8b31cc21078a6568335b49377f521d5bb07ed",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0070__L052__p82:guangzhou:chengdu": {
+"unit": "s3d-rl600-all11:chat-lmsys-0070__L052__p82:guangzhou:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Xiangyang",
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Xiangyang",
+"Nantong"
+],
+"n_eligible": 2,
+"sha": "a52e417e0fac76495d6415f125f2d753f4c103d13e923d2db9da1efe2d4b4a95",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0070__L052__p82:suzhoujiangsu:chengdusichuan": {
+"unit": "s3d-rl600-all11:chat-lmsys-0070__L052__p82:suzhoujiangsu:chengdusichuan",
+"anchor": "Chengdu",
+"nearest": [
+"Xiangyang",
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Xiangyang",
+"Nantong"
+],
+"n_eligible": 2,
+"sha": "165a9b6a052c7ee38fd8756eae24cf6f88095fb1de89e55bfae335417232a449",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0070__L056__p82:xian:chengdu": {
+"unit": "s3d-rl600-all11:chat-lmsys-0070__L056__p82:xian:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Nantong"
+],
+"n_eligible": 1,
+"sha": "7c38f936bb76c7e43804d3f78c2b3d5563ee7693a9dc3057b75cad40a0c6260b",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0070__L060__p154:changzhou:chengdu": {
+"unit": "s3d-rl600-all11:chat-lmsys-0070__L060__p154:changzhou:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Xiangyang",
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Xiangyang",
+"Nantong"
+],
+"n_eligible": 2,
+"sha": "2e59233958bc26f12604fccb6ac6b3387a9dedabd9d9f92c2b543f777e4fb066",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0070__L060__p82:shijiazhuang:chengdu": {
+"unit": "s3d-rl600-all11:chat-lmsys-0070__L060__p82:shijiazhuang:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Xiangyang",
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Xiangyang",
+"Nantong"
+],
+"n_eligible": 2,
+"sha": "7a8236cfe759d383589d045383a0f0cc87706a52831e89753e0c666fd02303af",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0070__L060__p82:shijiazhuanghebei:chengdusichuan": {
+"unit": "s3d-rl600-all11:chat-lmsys-0070__L060__p82:shijiazhuanghebei:chengdusichuan",
+"anchor": "Chengdu",
+"nearest": [
+"Xiangyang",
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Xiangyang",
+"Nantong"
+],
+"n_eligible": 2,
+"sha": "898beb5c7b0ae1e92f4ea8042cc92f32daac6339db29dc92979355a6bd090d43",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0070__L060__p82:tianjin:chengdu": {
+"unit": "s3d-rl600-all11:chat-lmsys-0070__L060__p82:tianjin:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Xiangyang",
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Xiangyang",
+"Nantong"
+],
+"n_eligible": 2,
+"sha": "e491d7b278e316c3dac70e322b171a5587aca5e741f290582460f5e1855df7b4",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0070__L060__p82:zhengzhouhenan:chengdusichuan": {
+"unit": "s3d-rl600-all11:chat-lmsys-0070__L060__p82:zhengzhouhenan:chengdusichuan",
+"anchor": "Chengdu",
+"nearest": [
+"Xiangyang",
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Xiangyang",
+"Nantong"
+],
+"n_eligible": 2,
+"sha": "3c33ee83d44b756ae79cd5d3f606bc452643d7f5917168e9d5613ce0eb1b42d4",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0009__L020__p128:zhengzhou:shanghai": {
+"unit": "s3d-rl600:chat-lmsys-0009__L020__p128:zhengzhou:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou"
+],
+"random": [
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"distractors": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou",
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"n_eligible": 8,
+"sha": "a362d042ba1dc24a05ce48e28d783172bf4b83f6380431a69c6cd10a5f6d24a7",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0009__L036__p128:beijing:shanghai": {
+"unit": "s3d-rl600:chat-lmsys-0009__L036__p128:beijing:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou"
+],
+"random": [
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"distractors": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou",
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"n_eligible": 8,
+"sha": "7d4f731a14cdb492903e246fe38f3dcfb22c3f4bd3d0486d32a0aead96a1b8db",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0009__L036__p128:guangzhou:shanghai": {
+"unit": "s3d-rl600:chat-lmsys-0009__L036__p128:guangzhou:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou"
+],
+"random": [
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"distractors": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou",
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"n_eligible": 8,
+"sha": "ceea359d8893a8bcf13d41c072b8debbbc881f5c0ada31e74e9a5a36cac2c477",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0009__L036__p171:guangzhou:shanghai": {
+"unit": "s3d-rl600:chat-lmsys-0009__L036__p171:guangzhou:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou"
+],
+"random": [
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"distractors": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou",
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"n_eligible": 8,
+"sha": "0281b7baf3dd87cd999846d2e757457aa624ad848d7e520e5f51a85df24f7ca6",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0009__L036__p61:guangzhou:shanghai": {
+"unit": "s3d-rl600:chat-lmsys-0009__L036__p61:guangzhou:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou"
+],
+"random": [
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"distractors": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou",
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"n_eligible": 8,
+"sha": "f9eb4ff309041b25b48b0e9b4bc86acadbdde1ac4459d241274068e9100845de",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0009__L044__p128:beijing:shanghai": {
+"unit": "s3d-rl600:chat-lmsys-0009__L044__p128:beijing:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou"
+],
+"random": [
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"distractors": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou",
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"n_eligible": 8,
+"sha": "f8e897e8b58ca35f1834d4da9632f29831dc7715e36955848625a92b6b1f7bfa",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0009__L044__p61:beijing:shanghai": {
+"unit": "s3d-rl600:chat-lmsys-0009__L044__p61:beijing:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou"
+],
+"random": [
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"distractors": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou",
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"n_eligible": 8,
+"sha": "df463000328c4e4cbdf6bf28063c96264e9424ed93528564ae59ef08b96b4463",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0009__L048__p128:beijing:shanghai": {
+"unit": "s3d-rl600:chat-lmsys-0009__L048__p128:beijing:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou"
+],
+"random": [
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"distractors": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou",
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"n_eligible": 8,
+"sha": "ba461b6a99c857a57602d91f00e75091a33db456b13ad452f30608eae15c8e76",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0009__L048__p85:guangzhou:shanghai": {
+"unit": "s3d-rl600:chat-lmsys-0009__L048__p85:guangzhou:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou"
+],
+"random": [
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"distractors": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou",
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"n_eligible": 8,
+"sha": "56ef3337a3bc66580a4de07cac910a5ed9b139edcfc12048891adbfb0df5e24b",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0009__L060__p61:beijing:shanghai": {
+"unit": "s3d-rl600:chat-lmsys-0009__L060__p61:beijing:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou"
+],
+"random": [
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"distractors": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou",
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"n_eligible": 8,
+"sha": "dec60421b85e2f6a992fa7a6fd9990f74ec27e54bb38a401232051c3fa46df88",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0009__L060__p61:shenzhen:shanghai": {
+"unit": "s3d-rl600:chat-lmsys-0009__L060__p61:shenzhen:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou"
+],
+"random": [
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"distractors": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou",
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"n_eligible": 8,
+"sha": "87430135948b77edcfeda027d093e3fd10d528a705ca818918778f6193f3619c",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0025__L020__p107:beijing:shanghai": {
+"unit": "s3d-rl600:chat-lmsys-0025__L020__p107:beijing:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"random": [],
+"distractors": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"n_eligible": 4,
+"sha": "620115b3e9442b88a93f9ca5509a2b2dbdc1db866af3f39df2454be3dafb7f54",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0025__L020__p107:chengdu:shanghai": {
+"unit": "s3d-rl600:chat-lmsys-0025__L020__p107:chengdu:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"random": [],
+"distractors": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"n_eligible": 4,
+"sha": "e6d84aeca2d4ccb0d1d9df8ae4b0b88ef6e9ca53c9c9a5d899819e4165562c24",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0025__L044__p80:beijing:shanghai": {
+"unit": "s3d-rl600:chat-lmsys-0025__L044__p80:beijing:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"random": [],
+"distractors": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"n_eligible": 4,
+"sha": "26d193af573deba236e83f9f43963ab795fcb2cd0ce28d89e21781c8dcc15875",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0025__L044__p80:beijing:shanghaipudong": {
+"unit": "s3d-rl600:chat-lmsys-0025__L044__p80:beijing:shanghaipudong",
+"anchor": "Shanghai",
+"nearest": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"random": [],
+"distractors": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"n_eligible": 4,
+"sha": "9c8ab7b5e5daf8d4d5a75d5c00e8fb2469e761e9e673801cd9f06d37d6948ad8",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0025__L048__p176:xian:shanghai": {
+"unit": "s3d-rl600:chat-lmsys-0025__L048__p176:xian:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"random": [],
+"distractors": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"n_eligible": 4,
+"sha": "3247fdf158b44352b63e652b8616d2605ebb12c59c7f07da8a2378387074aaf5",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0025__L048__p80:beijing:shanghai": {
+"unit": "s3d-rl600:chat-lmsys-0025__L048__p80:beijing:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"random": [],
+"distractors": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"n_eligible": 4,
+"sha": "97ea1cf35b9941598b9c970c3f6f35d93dd647c7410a16760ca2ed166c5ce453",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0025__L060__p107:beijing:shanghai": {
+"unit": "s3d-rl600:chat-lmsys-0025__L060__p107:beijing:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"random": [],
+"distractors": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"n_eligible": 4,
+"sha": "2311c7fa89548e90661cd322f2ce1ac72b18bb694c9e2a0a9a70e3e6372b1ae3",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0025__L060__p155:suzhou:shanghai": {
+"unit": "s3d-rl600:chat-lmsys-0025__L060__p155:suzhou:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"random": [],
+"distractors": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"n_eligible": 4,
+"sha": "03e6fe06f163101c7cecc5cda6fc0670c55a71625c8adcb16203cfdcb968c9b2",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0025__L060__p155:tianjin:shanghai": {
+"unit": "s3d-rl600:chat-lmsys-0025__L060__p155:tianjin:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"random": [],
+"distractors": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"n_eligible": 4,
+"sha": "05e288414496a756d3de0e653d542fe3bddb8727d2d1f2109d2a49d55d3f4a1b",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0025__L060__p205:tianjin:shanghai": {
+"unit": "s3d-rl600:chat-lmsys-0025__L060__p205:tianjin:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"random": [],
+"distractors": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"n_eligible": 4,
+"sha": "08e1a4ab9f66e36750dae5474a102c1451b31718128d05e49c5cc54c4edc0e80",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0070__L036__p82:zhengzhou:chengdu": {
+"unit": "s3d-rl600:chat-lmsys-0070__L036__p82:zhengzhou:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Xiangyang",
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Xiangyang",
+"Nantong"
+],
+"n_eligible": 2,
+"sha": "48291f2b7cc1704258abacb74fff2a021432608c6b2d79c5d5745918641d39ff",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0070__L044__p82:beijing:chengdu": {
+"unit": "s3d-rl600:chat-lmsys-0070__L044__p82:beijing:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Xiangyang",
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Xiangyang",
+"Nantong"
+],
+"n_eligible": 2,
+"sha": "94646ef12e1ce6dc525c4ef9790dbf7d920c72b9982cfb0c18d80bc2ca7e015e",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0070__L044__p82:jinanshandong:chengdusichuan": {
+"unit": "s3d-rl600:chat-lmsys-0070__L044__p82:jinanshandong:chengdusichuan",
+"anchor": "Chengdu",
+"nearest": [
+"Xiangyang",
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Xiangyang",
+"Nantong"
+],
+"n_eligible": 2,
+"sha": "be59f85a399ab3f41e27c5df12f2ac6361f120f4a3d877dbf9372946dc031910",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0070__L044__p82:zhengzhou:chengdu": {
+"unit": "s3d-rl600:chat-lmsys-0070__L044__p82:zhengzhou:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Xiangyang",
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Xiangyang",
+"Nantong"
+],
+"n_eligible": 2,
+"sha": "775abc115884b8ac54395ed76214bd5e32295e1aee4ce405f1f6f16295f78a8d",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0070__L044__p82:zhengzhouhenan:chengdusichuan": {
+"unit": "s3d-rl600:chat-lmsys-0070__L044__p82:zhengzhouhenan:chengdusichuan",
+"anchor": "Chengdu",
+"nearest": [
+"Xiangyang",
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Xiangyang",
+"Nantong"
+],
+"n_eligible": 2,
+"sha": "cd7fffe1e7aeb0f2947c4fd76758d44b7dc1a6d072f0420ebfdd97a8ecbba92b",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0070__L048__p82:changzhou:chengdu": {
+"unit": "s3d-rl600:chat-lmsys-0070__L048__p82:changzhou:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Xiangyang",
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Xiangyang",
+"Nantong"
+],
+"n_eligible": 2,
+"sha": "dc298bd7e8cfb84493a9e84a775d237efabcaa7d684c69088287e60f15444b50",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0070__L048__p82:zhengzhou:chengdu": {
+"unit": "s3d-rl600:chat-lmsys-0070__L048__p82:zhengzhou:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Xiangyang",
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Xiangyang",
+"Nantong"
+],
+"n_eligible": 2,
+"sha": "2092c24289bb31242822f896be0e54b557993d92fca3bffc4a580cbe5d6115d3",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0070__L048__p82:zhengzhouhenan:chengdusichuan": {
+"unit": "s3d-rl600:chat-lmsys-0070__L048__p82:zhengzhouhenan:chengdusichuan",
+"anchor": "Chengdu",
+"nearest": [
+"Xiangyang",
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Xiangyang",
+"Nantong"
+],
+"n_eligible": 2,
+"sha": "7c9609cd17983fddaad70600d941f4d7f6cd2584eb261a329fbd34b23980e45d",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0070__L060__p82:beijing:chengdu": {
+"unit": "s3d-rl600:chat-lmsys-0070__L060__p82:beijing:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Xiangyang",
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Xiangyang",
+"Nantong"
+],
+"n_eligible": 2,
+"sha": "9b234f692ccdad473d55503631a7387c078709fadb51712edf464ec47806d975",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0070__L060__p82:shijiazhuanghebei:chengdusichuan": {
+"unit": "s3d-rl600:chat-lmsys-0070__L060__p82:shijiazhuanghebei:chengdusichuan",
+"anchor": "Chengdu",
+"nearest": [
+"Xiangyang",
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Xiangyang",
+"Nantong"
+],
+"n_eligible": 2,
+"sha": "15346ee73a74165144b821141bd765ad135f901260b955f522a4bb3f947acdb7",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0070__L060__p82:tianjin:chengdu": {
+"unit": "s3d-rl600:chat-lmsys-0070__L060__p82:tianjin:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Xiangyang",
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Xiangyang",
+"Nantong"
+],
+"n_eligible": 2,
+"sha": "149014f74048576ea53943272d064037cac578131071320962aa541431b36a6a",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0009__L028__p128:beijing:shanghai": {
+"unit": "s3d-sft251:chat-lmsys-0009__L028__p128:beijing:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou"
+],
+"random": [
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"distractors": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou",
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"n_eligible": 8,
+"sha": "38e6869a3983e2f97df9577eafed43850121b1113d3a4c184dbdc84a6601b085",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0009__L028__p326:beijing:shanghai": {
+"unit": "s3d-sft251:chat-lmsys-0009__L028__p326:beijing:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou"
+],
+"random": [
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"distractors": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou",
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"n_eligible": 8,
+"sha": "2211e08ed6ac19bdec3ec365178c692c4185d824f19d3a18027ee6849ad4a7ca",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0009__L028__p61:beijing:shanghai": {
+"unit": "s3d-sft251:chat-lmsys-0009__L028__p61:beijing:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou"
+],
+"random": [
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"distractors": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou",
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"n_eligible": 8,
+"sha": "89fdfcc26cd9824df02623d801b73ba8984ba169badf76f911d1a261dca103ee",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0009__L032__p128:beijing:shanghai": {
+"unit": "s3d-sft251:chat-lmsys-0009__L032__p128:beijing:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou"
+],
+"random": [
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"distractors": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou",
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"n_eligible": 8,
+"sha": "9a89796b5edf6be8efb10e6f6eea37eb101ab5e3ccee87c5b7a2d428d310e787",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0009__L032__p326:beijing:shanghai": {
+"unit": "s3d-sft251:chat-lmsys-0009__L032__p326:beijing:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou"
+],
+"random": [
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"distractors": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou",
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"n_eligible": 8,
+"sha": "159252d55acda52052ae60ce867fd4c0b90654e5c05584458d8d17501e320cee",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0009__L032__p354:guangzhou:shanghai": {
+"unit": "s3d-sft251:chat-lmsys-0009__L032__p354:guangzhou:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou"
+],
+"random": [
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"distractors": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou",
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"n_eligible": 8,
+"sha": "8191471df29a5ee9546aedfcfa201faa79f37e89bd5a8a87f22d8c326281fbfd",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0009__L036__p61:beijing:shanghai": {
+"unit": "s3d-sft251:chat-lmsys-0009__L036__p61:beijing:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou"
+],
+"random": [
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"distractors": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou",
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"n_eligible": 8,
+"sha": "208a5909b296476454bbc74e055514985741a9052bb96d6d0bfa22fb18f81f68",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0009__L040__p128:beijing:shanghai": {
+"unit": "s3d-sft251:chat-lmsys-0009__L040__p128:beijing:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou"
+],
+"random": [
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"distractors": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou",
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"n_eligible": 8,
+"sha": "422b3c92effd6a5522ac41b12d48ce75a48d249118417aebfc05c566897af7e9",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0009__L040__p61:beijing:shanghai": {
+"unit": "s3d-sft251:chat-lmsys-0009__L040__p61:beijing:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou"
+],
+"random": [
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"distractors": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou",
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"n_eligible": 8,
+"sha": "4387257978f8dc686b11a3fa2d585c4b98109d67207ea2cd567ed851cf7bf10f",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0009__L044__p128:beijing:shanghai": {
+"unit": "s3d-sft251:chat-lmsys-0009__L044__p128:beijing:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou"
+],
+"random": [
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"distractors": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou",
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"n_eligible": 8,
+"sha": "8c826348cae302b0753bd5290d2f3d3ffadbf95861773fbbbd252cb8b9c84c09",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0009__L044__p61:beijing:shanghai": {
+"unit": "s3d-sft251:chat-lmsys-0009__L044__p61:beijing:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou"
+],
+"random": [
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"distractors": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou",
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"n_eligible": 8,
+"sha": "cbd43942b07cf3d4c61f53407b7a6cc5c87da54d725dccebfb76da53577a5118",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0009__L048__p128:beijing:shanghai": {
+"unit": "s3d-sft251:chat-lmsys-0009__L048__p128:beijing:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou"
+],
+"random": [
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"distractors": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou",
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"n_eligible": 8,
+"sha": "cad41ea2a6c7517925babf310be2ac0263a18d3b35df1e1c298835e255f0496c",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0009__L048__p128:guangzhou:shanghai": {
+"unit": "s3d-sft251:chat-lmsys-0009__L048__p128:guangzhou:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou"
+],
+"random": [
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"distractors": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou",
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"n_eligible": 8,
+"sha": "ef27bd5f953d029e9993da1ded93a7887735fac0cad1db7427152518add57183",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0009__L048__p61:beijing:shanghai": {
+"unit": "s3d-sft251:chat-lmsys-0009__L048__p61:beijing:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou"
+],
+"random": [
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"distractors": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou",
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"n_eligible": 8,
+"sha": "1e22a84335465251f9467f765c511a640307afa4b06b983fc48eafd72d238db4",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0009__L052__p61:guangzhou:shanghai": {
+"unit": "s3d-sft251:chat-lmsys-0009__L052__p61:guangzhou:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou"
+],
+"random": [
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"distractors": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou",
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"n_eligible": 8,
+"sha": "1eb0b4d3bf7d34996cca8d012626debe68e6af2a23bba34989c155cb80002c2c",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0009__L056__p61:beijing:shanghai": {
+"unit": "s3d-sft251:chat-lmsys-0009__L056__p61:beijing:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou"
+],
+"random": [
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"distractors": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou",
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"n_eligible": 8,
+"sha": "81ed4a9ef5751ca8a46f36e90ca19caba63921eba453e6a6a4901ae746925277",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0009__L060__p128:guangzhou:shanghai": {
+"unit": "s3d-sft251:chat-lmsys-0009__L060__p128:guangzhou:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou"
+],
+"random": [
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"distractors": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou",
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"n_eligible": 8,
+"sha": "33382e55f5323d375a1ae51a63da14afa96621ec9613ea3d895ad657e9b50e94",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0009__L060__p128:nantong:shanghai": {
+"unit": "s3d-sft251:chat-lmsys-0009__L060__p128:nantong:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou"
+],
+"random": [
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"distractors": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou",
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"n_eligible": 8,
+"sha": "4c06f795e8f54087a0c83371a704b8db21c8fbe763ed3ca5ddae3c812d2d24cb",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0009__L060__p61:beijing:shanghai": {
+"unit": "s3d-sft251:chat-lmsys-0009__L060__p61:beijing:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou"
+],
+"random": [
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"distractors": [
+"Qingdao",
+"Fuzhou",
+"Jinan",
+"Cangzhou",
+"Ganzhou",
+"Handan",
+"Xiangyang",
+"Yongcheng"
+],
+"n_eligible": 8,
+"sha": "61ecb0f7d929fb609579e45f68418d3e72602a8ebd2497d7bc5e695f8ad75d48",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0025__L020__p107:qingdaoshandongprovince:shanghai": {
+"unit": "s3d-sft251:chat-lmsys-0025__L020__p107:qingdaoshandongprovince:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"random": [],
+"distractors": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"n_eligible": 4,
+"sha": "e9b9d582529cabedd66c1b597441c69f4fbf6ba5359fe6d7b9a7d926d18537e3",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0025__L024__p236:beijing:shanghai": {
+"unit": "s3d-sft251:chat-lmsys-0025__L024__p236:beijing:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"random": [],
+"distractors": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"n_eligible": 4,
+"sha": "5b3028bb77d09f9c92393a10b69732959ddd528aa3f2e7613184ff5c8ad07c80",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0025__L028__p80:beijing:shanghai": {
+"unit": "s3d-sft251:chat-lmsys-0025__L028__p80:beijing:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"random": [],
+"distractors": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"n_eligible": 4,
+"sha": "76a9616956c6cc7ba7b2d5b1f928ff909e662dc647c0be2c6b9996d1c3e5d86e",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0025__L044__p107:beijing:shanghai": {
+"unit": "s3d-sft251:chat-lmsys-0025__L044__p107:beijing:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"random": [],
+"distractors": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"n_eligible": 4,
+"sha": "b8a7191ce9ff4375463c4da16bedaef6af9338ee7ad01b0ac40ca42de0e5a696",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0025__L044__p80:beijing:shanghai": {
+"unit": "s3d-sft251:chat-lmsys-0025__L044__p80:beijing:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"random": [],
+"distractors": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"n_eligible": 4,
+"sha": "c35b304ff08e737ae5ca994bb6b4a86645cecf38707acdb5c70fdf2661a60f01",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0025__L044__p80:tianjin:shanghai": {
+"unit": "s3d-sft251:chat-lmsys-0025__L044__p80:tianjin:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"random": [],
+"distractors": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"n_eligible": 4,
+"sha": "724571a67c86eff27023a83bf801dfbaeda2684066d33acb6b9655f889b62ae3",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0025__L048__p107:beijing:shanghai": {
+"unit": "s3d-sft251:chat-lmsys-0025__L048__p107:beijing:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"random": [],
+"distractors": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"n_eligible": 4,
+"sha": "ac1c32b5a82a5d974074198167f46b74224f8ff442bb03eaa98800802b96520e",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0025__L056__p80:beijing:shanghai": {
+"unit": "s3d-sft251:chat-lmsys-0025__L056__p80:beijing:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"random": [],
+"distractors": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"n_eligible": 4,
+"sha": "87cceb50d984d2929bf7f467c60f31becc13138a8a287fd97b4a9d0067ff43b0",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0025__L060__p80:beijing:shanghai": {
+"unit": "s3d-sft251:chat-lmsys-0025__L060__p80:beijing:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"random": [],
+"distractors": [
+"Cangzhou",
+"Yongcheng",
+"Handan",
+"Ganzhou"
+],
+"n_eligible": 4,
+"sha": "93312c00986717e0f4440cf6f8d79ad3860a67432edf4aea88c5d9039e24cf3d",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0070__L020__p222:jiaxing:chengdu": {
+"unit": "s3d-sft251:chat-lmsys-0070__L020__p222:jiaxing:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Xiangyang",
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Xiangyang",
+"Nantong"
+],
+"n_eligible": 2,
+"sha": "689ea3432e4d3687c6d2910f6d6d678d6831badce3e6c1ae61147d7e9e5b67e5",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0070__L032__p183:guangzhou:chengdu": {
+"unit": "s3d-sft251:chat-lmsys-0070__L032__p183:guangzhou:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Xiangyang",
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Xiangyang",
+"Nantong"
+],
+"n_eligible": 2,
+"sha": "14702a5df973c20255c266edc0b770408c7a5e0809c83d51819d0f4874986b0f",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0070__L036__p123:shijiazhuang:chengdu": {
+"unit": "s3d-sft251:chat-lmsys-0070__L036__p123:shijiazhuang:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Xiangyang",
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Xiangyang",
+"Nantong"
+],
+"n_eligible": 2,
+"sha": "37713ed4b4402f7200046cb0c14f5a20b3eebf8e7077fc7b1ac859c963c17407",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0070__L044__p183:xian:chengdu": {
+"unit": "s3d-sft251:chat-lmsys-0070__L044__p183:xian:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Nantong"
+],
+"n_eligible": 1,
+"sha": "1f51cfb8320e28b1417d12d320117f5f3f366101697498a1c689bd730e680cfb",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0070__L044__p82:xian:chengdu": {
+"unit": "s3d-sft251:chat-lmsys-0070__L044__p82:xian:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Nantong"
+],
+"n_eligible": 1,
+"sha": "e025b24f035a7e37a49946f34178ba59ca8f43ebc718e2a83d74f48c689219ce",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0070__L044__p82:zhengzhou:chengdu": {
+"unit": "s3d-sft251:chat-lmsys-0070__L044__p82:zhengzhou:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Xiangyang",
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Xiangyang",
+"Nantong"
+],
+"n_eligible": 2,
+"sha": "621c154cf3b1d39fc1536647840a16695f393bf3df93182d0880fec603dd5d51",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0070__L060__p183:xian:chengdu": {
+"unit": "s3d-sft251:chat-lmsys-0070__L060__p183:xian:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Nantong"
+],
+"n_eligible": 1,
+"sha": "590d9c311dc166b4af675889f1ec41de3d7129aa614c831ca26d50129cae3510",
+"generation": 0
+},
+"template-v3:chat-lmsys-0070__L056__p154:chongqing:chengdu": {
+"unit": "template-v3:chat-lmsys-0070__L056__p154:chongqing:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Xiangyang",
+"Nantong"
+],
+"random": [],
+"distractors": [
+"Xiangyang",
+"Nantong"
+],
+"n_eligible": 2,
+"sha": "3f98ba0165857dcfc8208c7a92548c9f087fc06ed007f4037f6121b58db7a3b2",
+"generation": 0
+}
+}

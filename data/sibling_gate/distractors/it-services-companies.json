@@ -1,0 +1,792 @@
+{
+"mlnla-ck2000-all11:chat-lmsys-0055__L024__p104:capgemini:tataconsultancyservicestcs": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0055__L024__p104:capgemini:tataconsultancyservicestcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "28db6762f07e846798452ec4c9121cb533c963e076873e1e5494e3ebda80880c",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0055__L024__p104:dell:tataconsultancyservicestcs": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0055__L024__p104:dell:tataconsultancyservicestcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "73211a4996b9fda8178556f7c38742fecc6db28ecfbda9960ce400f53100b4ad",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0055__L036__p104:capgemini:tataconsultancyservices": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0055__L036__p104:capgemini:tataconsultancyservices",
+"anchor": "Tata Consultancy Services",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "91aa2e99f3b4cadaa6d6fc02ad5687df70b6990f457820725fb80d33b9245efe",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0055__L040__p104:capgemini:tataconsultancyservices": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0055__L040__p104:capgemini:tataconsultancyservices",
+"anchor": "Tata Consultancy Services",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "29415eb96a511eecadbffb6b7b95e00613c2bac2f35b7e5688ea29072dcfb7fd",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0055__L040__p104:capgemini:tcs": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0055__L040__p104:capgemini:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "17e9ec6da609cd91cfd92d025b8046b6abebda37df5d1d724b35efc2f2980d12",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0055__L040__p160:gedigital:tcs": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0055__L040__p160:gedigital:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "e165a5eb9809fede2c8048fd8a086bd7fc77d86fde257250e0b05f5aed754ebf",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0055__L044__p104:capgemini:tcs": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0055__L044__p104:capgemini:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "859e5d239aac63b875fa7371d13bb590a4bd523032ce34038ca5db0dc70bab91",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0055__L048__p43:capgemini:tcs": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0055__L048__p43:capgemini:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "2e2c0ee893128963bada5e5cefbbe6870c57a24f765a9ea834931818f6957ba4",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0055__L052__p211:infosys:tcs": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0055__L052__p211:infosys:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "8d9d9c296f66c0c6e26501d3e7430efbbcc03851c28e1aab92e052dcb8369b93",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0055__L056__p104:accenture:tcs": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0055__L056__p104:accenture:tcs",
+"anchor": "TCS",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "02f958d10418f93eb70f41e96e0cf127c658b06ee32c4a0a8e92272ba1ef57ce",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0055__L056__p316:accenture:tcs": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0055__L056__p316:accenture:tcs",
+"anchor": "TCS",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "495b059cdfb9fcc8f5d45de8760720ce3ae41d3799b554443d0a639d7f914b54",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0055__L020__p104:accenture:tcs": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0055__L020__p104:accenture:tcs",
+"anchor": "TCS",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "1ac3edec1bac06c08266f3c0b62cc924cc8524b101223a736ff788e3989964e2",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0055__L020__p104:wiproaccenture:tcs": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0055__L020__p104:wiproaccenture:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "26cd95eb1730b2efb9c752c14b5b579ed492f419723c700762f9734e726f3c8e",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0055__L020__p43:sapindia:tataconsultancyservices": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0055__L020__p43:sapindia:tataconsultancyservices",
+"anchor": "Tata Consultancy Services",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "b38b6fc8cdc91f712697510939aca079166c24a2da8cca24e00101b353af8592",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0055__L024__p104:accenture:tataconsultancyservicestcs": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0055__L024__p104:accenture:tataconsultancyservicestcs",
+"anchor": "TCS",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "4a2893aa4a3726874a684063e8b7cbcb72ba7533c85cb9ed6da7f3084b553162",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0055__L028__p160:sapandcapgemini:tataconsultancyservices": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0055__L028__p160:sapandcapgemini:tataconsultancyservices",
+"anchor": "Tata Consultancy Services",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "9e71ed373f0b33162aa9bb4a1bebd6eb290d165cd27c1a3c261e7708e9bee3bb",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0055__L028__p43:sapse:tataconsultancyservices": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0055__L028__p43:sapse:tataconsultancyservices",
+"anchor": "Tata Consultancy Services",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "e1d8ddd8cb2ee376b0d3161a7ef044318cf9bb8b660c802bb008e7be0ec0fa2e",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0055__L036__p316:accenture:tataconsultancyservices": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0055__L036__p316:accenture:tataconsultancyservices",
+"anchor": "TCS",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "12a6ca80f18b12c974d639d997af0339e93c7e13e5242207305bde679e5ba345",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0055__L048__p43:sapse:tataconsultancyservices": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0055__L048__p43:sapse:tataconsultancyservices",
+"anchor": "Tata Consultancy Services",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "857a91d7358d3ac4ad5f3285becce639bb7c3abe1bce42a81c41af675f68f2d0",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0055__L052__p316:accenturedassault:tcs": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0055__L052__p316:accenturedassault:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "51b060d6bab70e85298ba40683142ac5c008f83570d75bf6ac0420dee21f9da0",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0055__L056__p104:capgemini:tcs": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0055__L056__p104:capgemini:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "9ca069861177fe8bf1f029c850c8ab0ed99290cc2886470d7c16bfd81262a8e6",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0055__L060__p104:accenture:tataconsultancyservices": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0055__L060__p104:accenture:tataconsultancyservices",
+"anchor": "TCS",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "91541fce84c1d9898d1bf258192f97201ea9acb1f4070e2d5cbdd23698aabfc6",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0055__L020__p268:accenture:tataconsultancyservicestcs": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0055__L020__p268:accenture:tataconsultancyservicestcs",
+"anchor": "TCS",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "9185adb45ff4ab3a2086d799cef45a6750182f891c83403b8ac284b2cfae38a4",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0055__L024__p43:infosys:tataconsultancyservices": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0055__L024__p43:infosys:tataconsultancyservices",
+"anchor": "Tata Consultancy Services",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "04e0b1beefa3a4abf1b4c7c29875fa90a2c2d90468e9bff17c0bd3ea4a071c6d",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0055__L028__p104:accenture:tcs": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0055__L028__p104:accenture:tcs",
+"anchor": "TCS",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "b0c3aba9fc40b5ff315bc1a96f7963d449710a79c09e4318e939b4e165f634af",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0055__L032__p268:stt:tcs": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0055__L032__p268:stt:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "7bfa098c54a1cbcb8bb9c5a54c9f579767ba98c7e27498f70afb8a187d46506a",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0055__L044__p43:sapse:tataconsultancyservices": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0055__L044__p43:sapse:tataconsultancyservices",
+"anchor": "Tata Consultancy Services",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "4d4f4cef8f9a4c3b879d0bce5f454ad448682461e7b478fd76fb056a18ccc30e",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0055__L052__p43:infosys:tataconsultancyservices": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0055__L052__p43:infosys:tataconsultancyservices",
+"anchor": "Tata Consultancy Services",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "f4a35138c632fef7906ef36872ec6ce71dd5b7cb94490c0021913acf747c483a",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0055__L056__p104:accenture:tataconsultancyservicestcs": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0055__L056__p104:accenture:tataconsultancyservicestcs",
+"anchor": "TCS",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "fefe4fbb676074cdb23a9bf2cc5036818cbe0e3f1b82db49bde597309c214573",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0055__L060__p211:accenture:tataconsultancyservicestcs": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0055__L060__p211:accenture:tataconsultancyservicestcs",
+"anchor": "TCS",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "4b1e108af43892fa0a3a65fea36dffed9c77b4a2a2fc19293f5f7eb1f0e8cd1c",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0055__L060__p43:techmahindra:tataconsultancyservices": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0055__L060__p43:techmahindra:tataconsultancyservices",
+"anchor": "Tata Consultancy Services",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "8b900472a5a6cc4ba65646fb1ae9953c3426d1df1cac13b1b11e7f57b4c0b26e",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0055__L024__p104:ibm:tcs": {
+"unit": "s3d-rl600-all11:chat-lmsys-0055__L024__p104:ibm:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "3f1905e3e585a5820a9e1a39a56c8b50d2f5494919dc9a3966a977077d7cc37e",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0055__L024__p43:infosys:tcs": {
+"unit": "s3d-rl600-all11:chat-lmsys-0055__L024__p43:infosys:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "257562f152c26cbf721d440bd5b6795776a4cccb2266b2bde8084ab529d93c4c",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0055__L028__p43:ibm:tcs": {
+"unit": "s3d-rl600-all11:chat-lmsys-0055__L028__p43:ibm:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "5f129a12a94b42856cf4190e2216363dd1dc0b26287f72e037fb8ebb237060ad",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0055__L028__p43:infosys:tcs": {
+"unit": "s3d-rl600-all11:chat-lmsys-0055__L028__p43:infosys:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "a40c24cdab3b25f536a6735d68151160eb8780428fcb330044676f830f72e726",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0055__L032__p104:ibm:tcs": {
+"unit": "s3d-rl600-all11:chat-lmsys-0055__L032__p104:ibm:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "3872423aa9f4855838f4a089be9fc2683d0bc187356c9eab48192efe629de2ea",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0055__L032__p104:ibmindia:tcs": {
+"unit": "s3d-rl600-all11:chat-lmsys-0055__L032__p104:ibmindia:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "dbf4ee430d243bd4965dd19f4e1503605955e602b2932e31b9bf4f62500ee356",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0055__L036__p447:gedigital:tcs": {
+"unit": "s3d-rl600-all11:chat-lmsys-0055__L036__p447:gedigital:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "690fc0113e3aab008d1519bedf1cb7e1c7366481d9c0b98680789c42bc162a2d",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0055__L040__p104:accenture:tcs": {
+"unit": "s3d-rl600-all11:chat-lmsys-0055__L040__p104:accenture:tcs",
+"anchor": "TCS",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "59be81151886d7e616cfcdd93e05d8e71901aa6b7d1fcfa57e083c1857bfa2cf",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0055__L044__p43:accenture:tcs": {
+"unit": "s3d-rl600-all11:chat-lmsys-0055__L044__p43:accenture:tcs",
+"anchor": "TCS",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "a6adfea3bb1d87d23dbb1073816ed96c94085e988597d149719ab300d5197f33",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0055__L044__p43:infosys:tcs": {
+"unit": "s3d-rl600-all11:chat-lmsys-0055__L044__p43:infosys:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "335a77a62570bb841c0cfe100588ac8d7d031f8b93448c570a6020dd0df2014e",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0055__L048__p211:accenture:tataconsultancyservices": {
+"unit": "s3d-rl600-all11:chat-lmsys-0055__L048__p211:accenture:tataconsultancyservices",
+"anchor": "TCS",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "ebeeab3a957397a3a2f888b0af6069194f3d93fc586a429b3b93432285a37c8f",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0055__L048__p211:accenture:tcs": {
+"unit": "s3d-rl600-all11:chat-lmsys-0055__L048__p211:accenture:tcs",
+"anchor": "TCS",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "660d2ab3f74b4834e9b824b149a16869911810f377d02a61b722a11daec1cc4a",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0055__L048__p43:ibm:tcs": {
+"unit": "s3d-rl600-all11:chat-lmsys-0055__L048__p43:ibm:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "de9ad21ffd2b39714538227fe53259200612231a613adda2ef4cf5927d8233ed",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0055__L048__p43:infosys:tcs": {
+"unit": "s3d-rl600-all11:chat-lmsys-0055__L048__p43:infosys:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "5f958584497cdb09249eb2b052d21c990d431ff1005755c3eba2ca606d843f3e",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0055__L052__p43:infosys:tcs": {
+"unit": "s3d-rl600-all11:chat-lmsys-0055__L052__p43:infosys:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "4d899e29d717753130651a3c81e1b223959e2cd501ab124e0c6dfc0d5f920196",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0055__L052__p43:wipro:tcs": {
+"unit": "s3d-rl600-all11:chat-lmsys-0055__L052__p43:wipro:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "9882fcd77b65e5b4095a1cbd3401d27de20f6e774a15dfc8c013224cc1211172",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0055__L056__p43:infosys:tcs": {
+"unit": "s3d-rl600-all11:chat-lmsys-0055__L056__p43:infosys:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "62162b4750ee59ec1efd67f53c40e0e444aa242c543384046c1807d512dfaa97",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0055__L056__p43:wipro:tcs": {
+"unit": "s3d-rl600-all11:chat-lmsys-0055__L056__p43:wipro:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "b3647ffbfe29fabd0fe40516a2005d54141d1303565204fef339cd43f4028c47",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0055__L056__p43:wns:tcs": {
+"unit": "s3d-rl600-all11:chat-lmsys-0055__L056__p43:wns:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "4fe93ef11bb1555f34a0c3d0643a50abf2b78bb592538958696506e542c5c37f",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0055__L060__p104:accenture:tcs": {
+"unit": "s3d-rl600-all11:chat-lmsys-0055__L060__p104:accenture:tcs",
+"anchor": "TCS",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "bbf24df79c363024d334b137f0385fcbdc3cee0d66c5fb71cdfcae0a97beaf4b",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0055__L060__p104:ibm:tcs": {
+"unit": "s3d-rl600-all11:chat-lmsys-0055__L060__p104:ibm:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "4a4d9b73bd7e841e868890207ee2dccad83a66b13f9bb2ba0af3caa39497b8ae",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0055__L060__p104:infosys:tcs": {
+"unit": "s3d-rl600-all11:chat-lmsys-0055__L060__p104:infosys:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "20a15cb91ecb757d12c74f14edc667871e0b70d2d8aedd95e76cccf060589606",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0055__L060__p211:accenture:tcs": {
+"unit": "s3d-rl600-all11:chat-lmsys-0055__L060__p211:accenture:tcs",
+"anchor": "TCS",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "cd65af795de12fa9a5a5fede3ecfe3d63850812198db15ec86c043509aba88f5",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0055__L060__p43:infosys:tcs": {
+"unit": "s3d-rl600-all11:chat-lmsys-0055__L060__p43:infosys:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "34c5b60ea96dbea98f3eedf58d8e92c1d54dc2a86f5cc35c88a1de415932998f",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0055__L060__p43:techmahindra:tcs": {
+"unit": "s3d-rl600-all11:chat-lmsys-0055__L060__p43:techmahindra:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "de02a632d8c5a724acfcb7d6a79625070aecbd3bfdd42977602a5901caed823c",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0055__L060__p447:gedigital:tcs": {
+"unit": "s3d-rl600-all11:chat-lmsys-0055__L060__p447:gedigital:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "94b786db87340f579a8279e3e1dbb24f859577bc0a0e86999e5cf27cb620dcba",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0055__L036__p104:infosys:tcs": {
+"unit": "s3d-rl600:chat-lmsys-0055__L036__p104:infosys:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "82776b4c98ab870f8fd31835722961703c114ba90db661321449ef4b0794abb5",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0055__L036__p268:gedigital:tcs": {
+"unit": "s3d-rl600:chat-lmsys-0055__L036__p268:gedigital:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "31a0a0898e810795c642d2dab9d3c1c5e4c80dd06efe160bfd20587d94c9fb54",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0055__L036__p316:gedigital:tcs": {
+"unit": "s3d-rl600:chat-lmsys-0055__L036__p316:gedigital:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "081b2a0e1042f2868df4bebb0be1ce1af8367136d103973a995a7e16acca47d8",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0055__L044__p43:ibm:tcs": {
+"unit": "s3d-rl600:chat-lmsys-0055__L044__p43:ibm:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "f7a178c5ab4efd533a115b53aa9d0151dcfb86986987149ed3b6402eed70b15d",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0055__L044__p43:infosys:tcs": {
+"unit": "s3d-rl600:chat-lmsys-0055__L044__p43:infosys:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "823c953be71e557c026d974c505741bb50cedb794bc172f7ff966c635a14bb5c",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0055__L048__p211:accenture:tcs": {
+"unit": "s3d-rl600:chat-lmsys-0055__L048__p211:accenture:tcs",
+"anchor": "TCS",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "d775cf15e339c599552e91962338b9bb45c40a180bbf2230fd825cd2c396e057",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0055__L048__p43:ibm:tcs": {
+"unit": "s3d-rl600:chat-lmsys-0055__L048__p43:ibm:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "8ce5f78b1c086dd6cfbb2a30f4657a1555cdd8bf9659d2284147409c9b618789",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0055__L048__p43:infosys:tcs": {
+"unit": "s3d-rl600:chat-lmsys-0055__L048__p43:infosys:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "d09f016219efdcb8cc8a1e2ca276c8a0c3cfbc1d5d8eebcd61d6bc3070586435",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0055__L060__p104:accenture:tataconsultancyservices": {
+"unit": "s3d-rl600:chat-lmsys-0055__L060__p104:accenture:tataconsultancyservices",
+"anchor": "TCS",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "d37a948147189b1f6128a23c0ad9a6e50a52e9c728c04a6ed1571fa526208cec",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0055__L060__p43:infosys:tcs": {
+"unit": "s3d-rl600:chat-lmsys-0055__L060__p43:infosys:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "b3c97cbe082296bfd3c75349bcc763e4f82483b7c5c084689eedc7d74cdf67be",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0055__L020__p43:infosys:tcs": {
+"unit": "s3d-sft251:chat-lmsys-0055__L020__p43:infosys:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "e12ea4336a4bca58c1d260f46eb5323345e37bae998d4d0b9014c77eb088058b",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0055__L024__p43:wipro:tcs": {
+"unit": "s3d-sft251:chat-lmsys-0055__L024__p43:wipro:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "230aa39ae98c29e20f8ba1b8639c18e4ba6ae845a6f521c2bbc86a16d9f1f1cf",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0055__L040__p43:hp:tcs": {
+"unit": "s3d-sft251:chat-lmsys-0055__L040__p43:hp:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "eccfaedc3c23fea27ff223a1033c66c409a4ff3d279dbbbbfc6da05973fbf246",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0055__L044__p43:ibm:tcs": {
+"unit": "s3d-sft251:chat-lmsys-0055__L044__p43:ibm:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "67cbbc400c1d3c87ab80ff27b7fa909abc7fd2308eb92a395c6702b7ecb3b103",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0055__L048__p43:ibm:tcs": {
+"unit": "s3d-sft251:chat-lmsys-0055__L048__p43:ibm:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "18a9f5e85a39694994686e704d2058f6d9d4f03ec355ffd502ea20b51e01db44",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0055__L048__p43:infosys:tcs": {
+"unit": "s3d-sft251:chat-lmsys-0055__L048__p43:infosys:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "2bbd9c996715d4c48f12caf829822077019c7aaa3e76cfdbdb9d34643e6051e1",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0055__L052__p43:infosys:tcs": {
+"unit": "s3d-sft251:chat-lmsys-0055__L052__p43:infosys:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "0cfef98b19edf7f56dd9c55b601b7afbf781e7a1620a62e2993e5acc4e748ae0",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0055__L052__p43:wipro:tcs": {
+"unit": "s3d-sft251:chat-lmsys-0055__L052__p43:wipro:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "a42129a3d47c5093918e64ab41d3ce537ee612ff5a2ea03266d471d85d628277",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0055__L056__p360:accenture:tcs": {
+"unit": "s3d-sft251:chat-lmsys-0055__L056__p360:accenture:tcs",
+"anchor": "TCS",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "33ec1ad812c863ed1ffd85fc5085ae8e898e01616427333784ed1094f63e911a",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0055__L056__p43:infosys:tcs": {
+"unit": "s3d-sft251:chat-lmsys-0055__L056__p43:infosys:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "a72f830fa316265fdbba500dc39ecc38f26c1f9d73ab8b90405429401031a2ee",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0055__L060__p211:accenture:tcs": {
+"unit": "s3d-sft251:chat-lmsys-0055__L060__p211:accenture:tcs",
+"anchor": "TCS",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "6db338db09adbf0d4c5c921e8ec90de6e5d1ce7f55256eb586f4e7555f816334",
+"generation": 0
+},
+"template-v3:chat-lmsys-0055__L036__p160:ibm:tataconsultancyservicestcs": {
+"unit": "template-v3:chat-lmsys-0055__L036__p160:ibm:tataconsultancyservicestcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "b059a3777c762817f67fcd462d91c9b3e5af7a94f8da19446eaff8d504aacd9a",
+"generation": 0
+}
+}

@@ -1,0 +1,398 @@
+{
+"mlnla-ck2000-all11:chat-lmsys-0011__L024__p120:seqgan:decisiontransformer": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0011__L024__p120:seqgan:decisiontransformer",
+"anchor": "Decision Transformer",
+"nearest": [
+"VGG",
+"LeNet",
+"AlexNet"
+],
+"random": [],
+"distractors": [
+"VGG",
+"LeNet",
+"AlexNet"
+],
+"n_eligible": 3,
+"sha": "a9c4fe2033f72e4c5571610d7cbdf3c78f63ef2902c6d810ae649ba8f7810d4e",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0011__L028__p244:pointe:decisiontransformer": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0011__L028__p244:pointe:decisiontransformer",
+"anchor": "Decision Transformer",
+"nearest": [
+"VGG",
+"LeNet",
+"AlexNet"
+],
+"random": [],
+"distractors": [
+"VGG",
+"LeNet",
+"AlexNet"
+],
+"n_eligible": 3,
+"sha": "f52b618b48a599adc45b8063dc111c699317dc7f90c94e5b5a29b155ac4d8f3a",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0011__L028__p87:perceiveriopalm:decisiontransformer": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0011__L028__p87:perceiveriopalm:decisiontransformer",
+"anchor": "Decision Transformer",
+"nearest": [
+"VGG",
+"LeNet",
+"AlexNet"
+],
+"random": [],
+"distractors": [
+"VGG",
+"LeNet",
+"AlexNet"
+],
+"n_eligible": 3,
+"sha": "aab5a4a912bf3283b9e2baddd0aa8aecc7aa6c397d49f8f7c49240a2c22cf589",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0011__L032__p244:dit:decisiontransformer": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0011__L032__p244:dit:decisiontransformer",
+"anchor": "Decision Transformer",
+"nearest": [
+"VGG",
+"LeNet",
+"AlexNet"
+],
+"random": [],
+"distractors": [
+"VGG",
+"LeNet",
+"AlexNet"
+],
+"n_eligible": 3,
+"sha": "c8d70b3443dc5a42d0eae2aa621a434f958aabcb64594873ae07d165fff488f5",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0011__L036__p120:palm:decisiontransformer": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0011__L036__p120:palm:decisiontransformer",
+"anchor": "Decision Transformer",
+"nearest": [
+"VGG",
+"LeNet",
+"AlexNet"
+],
+"random": [],
+"distractors": [
+"VGG",
+"LeNet",
+"AlexNet"
+],
+"n_eligible": 3,
+"sha": "c2c872828350da863e63efe848ff3242838e450e9f8c20fc081969ad3ffc41a4",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0011__L052__p120:diffusionlm:decisiontransformer": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0011__L052__p120:diffusionlm:decisiontransformer",
+"anchor": "Decision Transformer",
+"nearest": [
+"VGG",
+"LeNet",
+"AlexNet"
+],
+"random": [],
+"distractors": [
+"VGG",
+"LeNet",
+"AlexNet"
+],
+"n_eligible": 3,
+"sha": "12e08dc71302a2ea20663c500e400857af86ce2a276e7b5638aedc3343fbc67c",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0011__L028__p244:pointe:decisiontransformer": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0011__L028__p244:pointe:decisiontransformer",
+"anchor": "Decision Transformer",
+"nearest": [
+"VGG",
+"LeNet",
+"AlexNet"
+],
+"random": [],
+"distractors": [
+"VGG",
+"LeNet",
+"AlexNet"
+],
+"n_eligible": 3,
+"sha": "a3abc26acb847731eb412a870c033c526a40f61da4fd58690e3c3b0592b95259",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0011__L032__p120:bert:decisiontransformer": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0011__L032__p120:bert:decisiontransformer",
+"anchor": "Decision Transformer",
+"nearest": [
+"VGG",
+"LeNet",
+"AlexNet"
+],
+"random": [],
+"distractors": [
+"VGG",
+"LeNet",
+"AlexNet"
+],
+"n_eligible": 3,
+"sha": "aae62a96790b01a122b0a5284942c683f03f6f68ca5b235fd769efe0598cdc44",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0011__L032__p244:dit:decisiontransformer": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0011__L032__p244:dit:decisiontransformer",
+"anchor": "Decision Transformer",
+"nearest": [
+"VGG",
+"LeNet",
+"AlexNet"
+],
+"random": [],
+"distractors": [
+"VGG",
+"LeNet",
+"AlexNet"
+],
+"n_eligible": 3,
+"sha": "b520157e447a7405ae5d5b71567ebf643444f45114fc91fc71604b48891695da",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0011__L042__p146:gpt:decisiontransformer": {
+"unit": "nla-rl-L42:chat-lmsys-0011__L042__p146:gpt:decisiontransformer",
+"anchor": "Decision Transformer",
+"nearest": [
+"VGG",
+"LeNet",
+"AlexNet"
+],
+"random": [],
+"distractors": [
+"VGG",
+"LeNet",
+"AlexNet"
+],
+"n_eligible": 3,
+"sha": "779aea8e154bf78a5a3860b7e2fdbe4a69b5492f91762ed667b8988d756e112b",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0011__L032__p195:gpt:decisiontransformer": {
+"unit": "s3d-rl600-all11:chat-lmsys-0011__L032__p195:gpt:decisiontransformer",
+"anchor": "Decision Transformer",
+"nearest": [
+"VGG",
+"LeNet",
+"AlexNet"
+],
+"random": [],
+"distractors": [
+"VGG",
+"LeNet",
+"AlexNet"
+],
+"n_eligible": 3,
+"sha": "cac3d931c058cf289d4d289d43fe95428cb9726ac0da95b3ff19eacc24bd405b",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0011__L032__p41:variationalautoencoders:decisiontransformer": {
+"unit": "s3d-rl600-all11:chat-lmsys-0011__L032__p41:variationalautoencoders:decisiontransformer",
+"anchor": "Decision Transformer",
+"nearest": [
+"VGG",
+"LeNet",
+"AlexNet"
+],
+"random": [],
+"distractors": [
+"VGG",
+"LeNet",
+"AlexNet"
+],
+"n_eligible": 3,
+"sha": "d91c2148193a4d342280b2aec21dce198e6ed2317e9ef5be3945c8b8425d2ba5",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0011__L032__p87:gpt:decisiontransformer": {
+"unit": "s3d-rl600-all11:chat-lmsys-0011__L032__p87:gpt:decisiontransformer",
+"anchor": "Decision Transformer",
+"nearest": [
+"VGG",
+"LeNet",
+"AlexNet"
+],
+"random": [],
+"distractors": [
+"VGG",
+"LeNet",
+"AlexNet"
+],
+"n_eligible": 3,
+"sha": "7971a99adfb5d9607083ee373b91f2379ba5beb307c48a35272a9bfd7136a9b8",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0011__L036__p120:clip:decisiontransformer": {
+"unit": "s3d-rl600-all11:chat-lmsys-0011__L036__p120:clip:decisiontransformer",
+"anchor": "Decision Transformer",
+"nearest": [
+"VGG",
+"LeNet",
+"AlexNet"
+],
+"random": [],
+"distractors": [
+"VGG",
+"LeNet",
+"AlexNet"
+],
+"n_eligible": 3,
+"sha": "5e2780b32691b0f28a637987588f6cd079a40e2c670a755f5cac4789a9db2d8a",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0011__L036__p41:clip:decisiontransformer": {
+"unit": "s3d-rl600-all11:chat-lmsys-0011__L036__p41:clip:decisiontransformer",
+"anchor": "Decision Transformer",
+"nearest": [
+"VGG",
+"LeNet",
+"AlexNet"
+],
+"random": [],
+"distractors": [
+"VGG",
+"LeNet",
+"AlexNet"
+],
+"n_eligible": 3,
+"sha": "d91f48e5e2f6bfc21324cebe7d1f1bdb4293dc0e79cad8385b96cc1cb7fec32e",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0011__L040__p41:clip:decisiontransformer": {
+"unit": "s3d-rl600-all11:chat-lmsys-0011__L040__p41:clip:decisiontransformer",
+"anchor": "Decision Transformer",
+"nearest": [
+"VGG",
+"LeNet",
+"AlexNet"
+],
+"random": [],
+"distractors": [
+"VGG",
+"LeNet",
+"AlexNet"
+],
+"n_eligible": 3,
+"sha": "4211e6b1972a78d66d91df7391cc9b818b05023274b3b6d1dcf3a1ab52653ef0",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0011__L044__p244:clip:decisiontransformer": {
+"unit": "s3d-rl600-all11:chat-lmsys-0011__L044__p244:clip:decisiontransformer",
+"anchor": "Decision Transformer",
+"nearest": [
+"VGG",
+"LeNet",
+"AlexNet"
+],
+"random": [],
+"distractors": [
+"VGG",
+"LeNet",
+"AlexNet"
+],
+"n_eligible": 3,
+"sha": "acbf42bb1cbb9789d833418c1a62059d3fd103be4f291542dd60a0af4e482e8f",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0011__L048__p146:clip:transformer": {
+"unit": "s3d-rl600-all11:chat-lmsys-0011__L048__p146:clip:transformer",
+"anchor": "Decision Transformer",
+"nearest": [
+"VGG",
+"LeNet",
+"AlexNet"
+],
+"random": [],
+"distractors": [
+"VGG",
+"LeNet",
+"AlexNet"
+],
+"n_eligible": 3,
+"sha": "be75c0b5d90db9fede40c9573a15e76fef0d9cddce1dd1f4bee8a2a46a6c5760",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0011__L044__p41:clip:decisiontransformer": {
+"unit": "s3d-rl600:chat-lmsys-0011__L044__p41:clip:decisiontransformer",
+"anchor": "Decision Transformer",
+"nearest": [
+"VGG",
+"LeNet",
+"AlexNet"
+],
+"random": [],
+"distractors": [
+"VGG",
+"LeNet",
+"AlexNet"
+],
+"n_eligible": 3,
+"sha": "07308f9a9f8a3011ce20e8d182ce8be9beb23fdf7fbc1d307c3407aa511c34f4",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0011__L044__p87:gpt:decisiontransformer": {
+"unit": "s3d-rl600:chat-lmsys-0011__L044__p87:gpt:decisiontransformer",
+"anchor": "Decision Transformer",
+"nearest": [
+"VGG",
+"LeNet",
+"AlexNet"
+],
+"random": [],
+"distractors": [
+"VGG",
+"LeNet",
+"AlexNet"
+],
+"n_eligible": 3,
+"sha": "7dc5a3d1ddc5e9aa164a17b2509c516f15584297f607f1ac92805e02937dbc30",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0011__L048__p146:clip:decisiontransformer": {
+"unit": "s3d-rl600:chat-lmsys-0011__L048__p146:clip:decisiontransformer",
+"anchor": "Decision Transformer",
+"nearest": [
+"VGG",
+"LeNet",
+"AlexNet"
+],
+"random": [],
+"distractors": [
+"VGG",
+"LeNet",
+"AlexNet"
+],
+"n_eligible": 3,
+"sha": "b572c947dc67219a3d7c0a74fccc2f45fc33ab8e40f96f01e4d081c2f4a74bd7",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0011__L040__p87:gpt:decisiontransformer": {
+"unit": "s3d-sft251:chat-lmsys-0011__L040__p87:gpt:decisiontransformer",
+"anchor": "Decision Transformer",
+"nearest": [
+"VGG",
+"LeNet",
+"AlexNet"
+],
+"random": [],
+"distractors": [
+"VGG",
+"LeNet",
+"AlexNet"
+],
+"n_eligible": 3,
+"sha": "3c99ac6557ec815c36b42011280b49a8f846ea2007b8759cbfcdaf3713516ddb",
+"generation": 0
+}
+}

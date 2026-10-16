@@ -1,0 +1,337 @@
+{
+"jlens:chat-lmsys-0056__L056__p95:consolelog:consolewriteline": {
+"unit": "jlens:chat-lmsys-0056__L056__p95:consolelog:consolewriteline",
+"anchor": "Console.WriteLine",
+"nearest": [
+"System.out.printf",
+"console.info",
+"println!",
+"puts"
+],
+"random": [
+"console.error",
+"console.warn",
+"fmt.Println"
+],
+"distractors": [
+"System.out.printf",
+"console.info",
+"println!",
+"puts",
+"console.error",
+"console.warn",
+"fmt.Println"
+],
+"n_eligible": 7,
+"sha": "dd353396d16ed3e8b03fed4e3c6eac5bc49640e4e17aa68b1a31edc54e446a95",
+"generation": 0
+},
+"mlnla-ck2000-all11:chat-lmsys-0056__L040__p58:javasystemoutprintln:cconsolewriteline": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0056__L040__p58:javasystemoutprintln:cconsolewriteline",
+"anchor": "Console.WriteLine",
+"nearest": [
+"console.info",
+"puts",
+"console.warn",
+"console.error"
+],
+"random": [],
+"distractors": [
+"console.info",
+"puts",
+"console.warn",
+"console.error"
+],
+"n_eligible": 4,
+"sha": "7b1c44544858c3baf3b116d514f83f569fe09c0cf207a57b5eb190bb677fdb3e",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0056__L028__p123:cout:consolewrite": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0056__L028__p123:cout:consolewrite",
+"anchor": "Console.Write",
+"nearest": [
+"puts",
+"fmt.Println",
+"console.warn",
+"println!"
+],
+"random": [
+"System.out.printf",
+"console.error",
+"console.info"
+],
+"distractors": [
+"puts",
+"fmt.Println",
+"console.warn",
+"println!",
+"System.out.printf",
+"console.error",
+"console.info"
+],
+"n_eligible": 7,
+"sha": "bf82da8d3c2a28e9c53a38b9f4ac5c1a049f7de84d64be2a1e6133d3d96a8ea1",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0056__L032__p123:cout:consolewrite": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0056__L032__p123:cout:consolewrite",
+"anchor": "Console.Write",
+"nearest": [
+"puts",
+"fmt.Println",
+"console.warn",
+"println!"
+],
+"random": [
+"System.out.printf",
+"console.error",
+"console.info"
+],
+"distractors": [
+"puts",
+"fmt.Println",
+"console.warn",
+"println!",
+"System.out.printf",
+"console.error",
+"console.info"
+],
+"n_eligible": 7,
+"sha": "f4aecc27108ac9e374754d65500e9b6efa1af522ae037e9c46db0aaf1d04ac9b",
+"generation": 0
+},
+"rlens:chat-lmsys-0056__L056__p95:consolelog:consolewriteline": {
+"unit": "rlens:chat-lmsys-0056__L056__p95:consolelog:consolewriteline",
+"anchor": "Console.WriteLine",
+"nearest": [
+"System.out.printf",
+"console.info",
+"println!",
+"puts"
+],
+"random": [
+"console.error",
+"console.warn",
+"fmt.Println"
+],
+"distractors": [
+"System.out.printf",
+"console.info",
+"println!",
+"puts",
+"console.error",
+"console.warn",
+"fmt.Println"
+],
+"n_eligible": 7,
+"sha": "4dea5594170bc73135f2fdbeca3eded7e1b62d0484c9ea6d05b307d8af201ee7",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0056__L036__p58:javasystemoutprintln:cconsolewriteline": {
+"unit": "s3d-rl600-all11:chat-lmsys-0056__L036__p58:javasystemoutprintln:cconsolewriteline",
+"anchor": "Console.WriteLine",
+"nearest": [
+"console.info",
+"puts",
+"console.warn",
+"console.error"
+],
+"random": [],
+"distractors": [
+"console.info",
+"puts",
+"console.warn",
+"console.error"
+],
+"n_eligible": 4,
+"sha": "3e5b7ab6088f8efaa1a5b8487354b00c63c1080878b845c60ec4f8c5e0ac38b5",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0056__L036__p95:javasystemoutprintln:cconsolewriteline": {
+"unit": "s3d-rl600-all11:chat-lmsys-0056__L036__p95:javasystemoutprintln:cconsolewriteline",
+"anchor": "Console.WriteLine",
+"nearest": [
+"console.info",
+"puts",
+"console.warn",
+"console.error"
+],
+"random": [],
+"distractors": [
+"console.info",
+"puts",
+"console.warn",
+"console.error"
+],
+"n_eligible": 4,
+"sha": "ce961af1550205fc8cbf9306ba4fa94f7ac875382befff55cf5666e1f74caba7",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0056__L040__p95:javasystemoutprintln:cconsolewrite": {
+"unit": "s3d-rl600-all11:chat-lmsys-0056__L040__p95:javasystemoutprintln:cconsolewrite",
+"anchor": "Console.WriteLine",
+"nearest": [
+"console.info",
+"puts",
+"console.warn",
+"console.error"
+],
+"random": [],
+"distractors": [
+"console.info",
+"puts",
+"console.warn",
+"console.error"
+],
+"n_eligible": 4,
+"sha": "6648cbe082ee5d12d8111048018aae6bbc87c4fa763196d0759f588f54208a0a",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0056__L040__p95:javasystemoutprintln:cconsolewriteline": {
+"unit": "s3d-rl600-all11:chat-lmsys-0056__L040__p95:javasystemoutprintln:cconsolewriteline",
+"anchor": "Console.WriteLine",
+"nearest": [
+"console.info",
+"puts",
+"console.warn",
+"console.error"
+],
+"random": [],
+"distractors": [
+"console.info",
+"puts",
+"console.warn",
+"console.error"
+],
+"n_eligible": 4,
+"sha": "e8ed307f0cba350b6b7afdb2b6e5b3631a74cf42db89e488c0aa5589dcad0a99",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0056__L048__p58:javasystemoutprintln:cconsolewriteline": {
+"unit": "s3d-rl600-all11:chat-lmsys-0056__L048__p58:javasystemoutprintln:cconsolewriteline",
+"anchor": "Console.WriteLine",
+"nearest": [
+"console.info",
+"puts",
+"console.warn",
+"console.error"
+],
+"random": [],
+"distractors": [
+"console.info",
+"puts",
+"console.warn",
+"console.error"
+],
+"n_eligible": 4,
+"sha": "f5e6ef6bf18741a36cd45687d287a8508a694dd78f830b4ecd47c6cdf30aad17",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0056__L036__p58:javasystemoutprintln:cconsolewriteline": {
+"unit": "s3d-rl600:chat-lmsys-0056__L036__p58:javasystemoutprintln:cconsolewriteline",
+"anchor": "Console.WriteLine",
+"nearest": [
+"console.info",
+"puts",
+"console.warn",
+"console.error"
+],
+"random": [],
+"distractors": [
+"console.info",
+"puts",
+"console.warn",
+"console.error"
+],
+"n_eligible": 4,
+"sha": "aaf1617b5e5ef43dab416bdc37578ed50ef4d5833dcfe3cadc605611fd1e8f2b",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0056__L048__p58:javasystemoutprintln:cconsolewriteline": {
+"unit": "s3d-rl600:chat-lmsys-0056__L048__p58:javasystemoutprintln:cconsolewriteline",
+"anchor": "Console.WriteLine",
+"nearest": [
+"console.info",
+"puts",
+"console.warn",
+"console.error"
+],
+"random": [],
+"distractors": [
+"console.info",
+"puts",
+"console.warn",
+"console.error"
+],
+"n_eligible": 4,
+"sha": "4f8d2a5a22ed21a717546e0ddf63bb65c42d3699636e736a96835f56ab6a22da",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0056__L048__p95:javasystemoutprintln:cconsolewriteline": {
+"unit": "s3d-rl600:chat-lmsys-0056__L048__p95:javasystemoutprintln:cconsolewriteline",
+"anchor": "Console.WriteLine",
+"nearest": [
+"console.info",
+"puts",
+"console.warn",
+"console.error"
+],
+"random": [],
+"distractors": [
+"console.info",
+"puts",
+"console.warn",
+"console.error"
+],
+"n_eligible": 4,
+"sha": "ff6dc50adf4208ab5bc9f535da1041e10585b9c817e9950a52566c8495ef2aa1",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0056__L032__p152:coutc++:consolewritelinec": {
+"unit": "s3d-sft251:chat-lmsys-0056__L032__p152:coutc++:consolewritelinec",
+"anchor": "Console.WriteLine",
+"nearest": [
+"System.out.printf",
+"console.info",
+"println!",
+"puts"
+],
+"random": [
+"console.error",
+"console.warn",
+"fmt.Println"
+],
+"distractors": [
+"System.out.printf",
+"console.info",
+"println!",
+"puts",
+"console.error",
+"console.warn",
+"fmt.Println"
+],
+"n_eligible": 7,
+"sha": "4e42f30b1422bdc88d371a5fe69a21d761652a2030c9ecc3842d9b6ac9342a59",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0056__L048__p58:javasystemoutprintln:cconsolewriteline": {
+"unit": "s3d-sft251:chat-lmsys-0056__L048__p58:javasystemoutprintln:cconsolewriteline",
+"anchor": "Console.WriteLine",
+"nearest": [
+"console.info",
+"puts",
+"console.warn",
+"console.error"
+],
+"random": [],
+"distractors": [
+"console.info",
+"puts",
+"console.warn",
+"console.error"
+],
+"n_eligible": 4,
+"sha": "0ac6f10e804a25ef6358ada0fb25e8269c24505284009b3c3d635caca1a8e2cb",
+"generation": 0
+}
+}

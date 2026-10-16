@@ -9,6 +9,10 @@ key merge is per class and fixed across layers (``capture-manifest`` writes it; 
 
 * ``--phase pack``: no-op since rev 8.2 (kept so older drivers still run). Every class
   container now reads its own texts' windows straight from ``acts-sibgate-probe``.
+* Plan 0010 (``hbench gate``): a class's inputs may carry its own ``probe_acts`` shard list
+  (append-only capture); ``fit/summary.json`` accumulates ``fitted`` per class over partial
+  refits; the gate keeps the per-class input hash (``fit/<class>/inputs.sha256``) and the
+  per-class score ``meta.json``.
 * ``--phase fit``: one container per CLASS (rev 8.2: streams per class, ~220 classes do not fit a
   per-layer container; core in ``probe_fit.py``), looping over the 12 layers; per class:
   cross-fit, per-fold null stats, OOF
@@ -87,14 +91,12 @@ def fit_class(inputs: dict) -> list[dict]:
 
     out_vol.reload()
     ((slug, cls),) = inputs["classes"].items()
-    man = json.loads(
-        (ACTS_MOUNT / inputs["probe_acts"].split(",")[0] / "manifest.json").read_text()
-    )
+    # plan 0010 §5: capture is append-only, so each class names its own shard list
+    acts = cls.get("probe_acts") or inputs["probe_acts"]
+    man = json.loads((ACTS_MOUNT / acts.split(",")[0] / "manifest.json").read_text())
     layers = [int(x) for x in inputs["layers"]]
     t0 = time.time()
-    win16 = F.read_class_windows(
-        ACTS_MOUNT, inputs["probe_acts"], cls["texts"], man["layers"], layers
-    )
+    win16 = F.read_class_windows(ACTS_MOUNT, acts, cls["texts"], man["layers"], layers)
     read_s = round(time.time() - t0, 1)
     d = _run_dir(inputs) / "fit" / slug
     d.mkdir(parents=True, exist_ok=True)
@@ -180,14 +182,20 @@ def main(
             if n % 10 == 0:
                 print(f"[sibgate-probes] fit {n}/{len(per)} classes", flush=True)
         (out / "fit").mkdir(parents=True, exist_ok=True)
-        (out / "fit" / "summary.json").write_text(
+        sp = out / "fit" / "summary.json"
+        prev = json.loads(sp.read_text()) if sp.exists() else {}
+        sha = hashlib.sha256(Path(inputs).read_bytes()).hexdigest()
+        # plan 0010: a partial refit adds to the per-class record instead of replacing it
+        fitted = {**(prev.get("fitted") or {}), **{s: sha for s in inp["classes"]}}
+        sp.write_text(
             json.dumps(
                 {
                     "run": inp["run"],
-                    "inputs_sha256": hashlib.sha256(Path(inputs).read_bytes()).hexdigest(),
+                    "inputs_sha256": sha,
                     "layers": Ls,
                     "n_classes": len(per),
                     "wall_s": round(time.time() - t0, 1),
+                    "fitted": fitted,
                 },
                 indent=1,
             )

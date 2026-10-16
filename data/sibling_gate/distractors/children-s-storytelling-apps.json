@@ -1,0 +1,118 @@
+{
+"mlnla-rl2-800-all11:chat-lmsys-0005__L032__p430:stopmotionstudio3d:toontastic3d": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0005__L032__p430:stopmotionstudio3d:toontastic3d",
+"anchor": "Stop Motion Studio",
+"nearest": [
+"Puppet Pals",
+"Toontastic 3D",
+"Book Creator",
+"StoryJumper"
+],
+"random": [
+"Audible Stories",
+"Epic!",
+"Little Stories",
+"Tales2Go"
+],
+"distractors": [
+"Puppet Pals",
+"Toontastic 3D",
+"Book Creator",
+"StoryJumper",
+"Audible Stories",
+"Epic!",
+"Little Stories",
+"Tales2Go"
+],
+"n_eligible": 14,
+"sha": "aa1dedb7a4a2c3cfd9d43c1ea14d5d930c0ae72b31010f4e398e424b86f3c965",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0005__L036__p430:stopmotionstudio2:toontastic3d": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0005__L036__p430:stopmotionstudio2:toontastic3d",
+"anchor": "Toontastic 3D",
+"nearest": [
+"Puppet Pals",
+"StoryJumper",
+"Scribblenauts",
+"Storybird"
+],
+"random": [
+"Audible Stories",
+"Calm Kids",
+"Little Stories",
+"Tales2Go"
+],
+"distractors": [
+"Puppet Pals",
+"StoryJumper",
+"Scribblenauts",
+"Storybird",
+"Audible Stories",
+"Calm Kids",
+"Little Stories",
+"Tales2Go"
+],
+"n_eligible": 12,
+"sha": "209ca9917b28841b9d984aa5a584904d49524345edec18e61c83376e22d306bc",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0005__L040__p430:drawstory:toontastic3d": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0005__L040__p430:drawstory:toontastic3d",
+"anchor": "Toontastic 3D",
+"nearest": [
+"Puppet Pals",
+"StoryJumper",
+"Scribblenauts",
+"Storybird"
+],
+"random": [
+"Little Stories",
+"Moshi",
+"Night Zookeeper",
+"Tales2Go"
+],
+"distractors": [
+"Puppet Pals",
+"StoryJumper",
+"Scribblenauts",
+"Storybird",
+"Little Stories",
+"Moshi",
+"Night Zookeeper",
+"Tales2Go"
+],
+"n_eligible": 12,
+"sha": "f1e02482ad765bcc77f95f546b48b941b6b6fb511f812a847d19ea494e860744",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0005__L032__p430:stopmotionstudio:toontastic3d": {
+"unit": "s3d-rl600-all11:chat-lmsys-0005__L032__p430:stopmotionstudio:toontastic3d",
+"anchor": "Toontastic 3D",
+"nearest": [
+"Puppet Pals",
+"StoryJumper",
+"Scribblenauts",
+"Storybird"
+],
+"random": [
+"Audible Stories",
+"Calm Kids",
+"Little Stories",
+"Moshi"
+],
+"distractors": [
+"Puppet Pals",
+"StoryJumper",
+"Scribblenauts",
+"Storybird",
+"Audible Stories",
+"Calm Kids",
+"Little Stories",
+"Moshi"
+],
+"n_eligible": 12,
+"sha": "c1883637068c87b6fb559dbd279a3818422b15a2d04d9a319061fa00a8f1533f",
+"generation": 0
+}
+}

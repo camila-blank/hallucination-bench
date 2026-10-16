@@ -1,0 +1,172 @@
+{
+"mlnla-ck2000-all11:chat-lmsys-0064__L056__p778:gtx970:rtx2060": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0064__L056__p778:gtx970:rtx2060",
+"anchor": "GeForce RTX 2060",
+"nearest": [
+"NVIDIA GeForce RTX 4080",
+"NVIDIA GeForce RTX 2080 Ti",
+"NVIDIA GeForce RTX 4090",
+"NVIDIA GeForce RTX 3060"
+],
+"random": [
+"NVIDIA GeForce RTX 3080",
+"NVIDIA GeForce RTX 3090"
+],
+"distractors": [
+"NVIDIA GeForce RTX 4080",
+"NVIDIA GeForce RTX 2080 Ti",
+"NVIDIA GeForce RTX 4090",
+"NVIDIA GeForce RTX 3060",
+"NVIDIA GeForce RTX 3080",
+"NVIDIA GeForce RTX 3090"
+],
+"n_eligible": 6,
+"sha": "c5231aea11e28b225fdb23a296464b5e7aa63e2b3eaf3ec6d562e3b9059b69e4",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0064__L056__p778:radeonrx550:rtx2060": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0064__L056__p778:radeonrx550:rtx2060",
+"anchor": "GeForce RTX 2060",
+"nearest": [
+"NVIDIA GeForce RTX 4080",
+"NVIDIA GeForce RTX 2080 Ti",
+"NVIDIA GeForce RTX 4090",
+"NVIDIA GeForce RTX 3060"
+],
+"random": [
+"NVIDIA GeForce GTX 1060",
+"NVIDIA GeForce GTX 1080 Ti",
+"NVIDIA GeForce GTX 970",
+"NVIDIA GeForce RTX 3090"
+],
+"distractors": [
+"NVIDIA GeForce RTX 4080",
+"NVIDIA GeForce RTX 2080 Ti",
+"NVIDIA GeForce RTX 4090",
+"NVIDIA GeForce RTX 3060",
+"NVIDIA GeForce GTX 1060",
+"NVIDIA GeForce GTX 1080 Ti",
+"NVIDIA GeForce GTX 970",
+"NVIDIA GeForce RTX 3090"
+],
+"n_eligible": 9,
+"sha": "51a0e095c1ba04ee69e5786ae42984f8079eca4b25e2b4cb007b1f015a8d2a43",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0064__L056__p529:zotacrtx4090card:pcgamerconcórdiawithrtx2060": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0064__L056__p529:zotacrtx4090card:pcgamerconcórdiawithrtx2060",
+"anchor": "GeForce RTX 2060",
+"nearest": [
+"NVIDIA GeForce RTX 2080 Ti",
+"NVIDIA GeForce RTX 4080",
+"NVIDIA GeForce RTX 3060",
+"NVIDIA GeForce GTX 970"
+],
+"random": [
+"NVIDIA GeForce GTX 1060",
+"NVIDIA GeForce GTX 1080 Ti",
+"NVIDIA GeForce RTX 3080",
+"NVIDIA GeForce RTX 3090"
+],
+"distractors": [
+"NVIDIA GeForce RTX 2080 Ti",
+"NVIDIA GeForce RTX 4080",
+"NVIDIA GeForce RTX 3060",
+"NVIDIA GeForce GTX 970",
+"NVIDIA GeForce GTX 1060",
+"NVIDIA GeForce GTX 1080 Ti",
+"NVIDIA GeForce RTX 3080",
+"NVIDIA GeForce RTX 3090"
+],
+"n_eligible": 8,
+"sha": "6ab9598a83208ba5e15daf3eb4d902e26d574f4eb7cfdec3377024259a094eb1",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0064__L056__p701:amdradeonrx5700xt:rtx2060": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0064__L056__p701:amdradeonrx5700xt:rtx2060",
+"anchor": "NVIDIA GeForce RTX 2060",
+"nearest": [
+"NVIDIA GeForce RTX 4080",
+"NVIDIA GeForce RTX 4090",
+"NVIDIA GeForce RTX 2080 Ti",
+"NVIDIA GeForce GTX 1060"
+],
+"random": [
+"NVIDIA GeForce GTX 1080 Ti",
+"NVIDIA GeForce GTX 970",
+"NVIDIA GeForce RTX 3060",
+"NVIDIA GeForce RTX 3090"
+],
+"distractors": [
+"NVIDIA GeForce RTX 4080",
+"NVIDIA GeForce RTX 4090",
+"NVIDIA GeForce RTX 2080 Ti",
+"NVIDIA GeForce GTX 1060",
+"NVIDIA GeForce GTX 1080 Ti",
+"NVIDIA GeForce GTX 970",
+"NVIDIA GeForce RTX 3060",
+"NVIDIA GeForce RTX 3090"
+],
+"n_eligible": 9,
+"sha": "12e34f235778f4df8f28e4651162419d21c9485fec532a7938cbc830db729f0f",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0064__L060__p440:geforcegts450:rtx2060": {
+"unit": "s3d-rl600-all11:chat-lmsys-0064__L060__p440:geforcegts450:rtx2060",
+"anchor": "GeForce RTX 2060",
+"nearest": [
+"NVIDIA GeForce RTX 2080 Ti",
+"NVIDIA GeForce RTX 4080",
+"NVIDIA GeForce RTX 4090",
+"NVIDIA GeForce RTX 3060"
+],
+"random": [
+"NVIDIA GeForce GTX 1060",
+"NVIDIA GeForce GTX 970",
+"NVIDIA GeForce RTX 3080",
+"NVIDIA GeForce RTX 3090"
+],
+"distractors": [
+"NVIDIA GeForce RTX 2080 Ti",
+"NVIDIA GeForce RTX 4080",
+"NVIDIA GeForce RTX 4090",
+"NVIDIA GeForce RTX 3060",
+"NVIDIA GeForce GTX 1060",
+"NVIDIA GeForce GTX 970",
+"NVIDIA GeForce RTX 3080",
+"NVIDIA GeForce RTX 3090"
+],
+"n_eligible": 9,
+"sha": "5d84d0d8284d7c656221f03d10a0a23a92d877f370a286ca59be07de64f5a06c",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0064__L060__p638:msigeforcegts:rtx2060": {
+"unit": "s3d-rl600:chat-lmsys-0064__L060__p638:msigeforcegts:rtx2060",
+"anchor": "GeForce RTX 2060",
+"nearest": [
+"NVIDIA GeForce RTX 2080 Ti",
+"NVIDIA GeForce RTX 4080",
+"NVIDIA GeForce RTX 4090",
+"NVIDIA GeForce RTX 3060"
+],
+"random": [
+"NVIDIA GeForce GTX 1060",
+"NVIDIA GeForce GTX 1080 Ti",
+"NVIDIA GeForce RTX 3080",
+"NVIDIA GeForce RTX 3090"
+],
+"distractors": [
+"NVIDIA GeForce RTX 2080 Ti",
+"NVIDIA GeForce RTX 4080",
+"NVIDIA GeForce RTX 4090",
+"NVIDIA GeForce RTX 3060",
+"NVIDIA GeForce GTX 1060",
+"NVIDIA GeForce GTX 1080 Ti",
+"NVIDIA GeForce RTX 3080",
+"NVIDIA GeForce RTX 3090"
+],
+"n_eligible": 9,
+"sha": "1d8399ec8cc799aca8ca8e22125aad682ce928b376ea1aab17a71cfb3ac2622d",
+"generation": 0
+}
+}

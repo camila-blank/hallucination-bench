@@ -1,0 +1,377 @@
+{
+"jlens:chat-dailydialog-0019__L052__p134:oecd:worldbank": {
+"unit": "jlens:chat-dailydialog-0019__L052__p134:oecd:worldbank",
+"anchor": "World Bank",
+"nearest": [
+"International Monetary Fund",
+"African Union",
+"International Labour Organization",
+"NATO"
+],
+"random": [
+"Association of Southeast Asian Nations",
+"European Union",
+"International Civil Aviation Organization",
+"International Maritime Organization"
+],
+"distractors": [
+"International Monetary Fund",
+"African Union",
+"International Labour Organization",
+"NATO",
+"Association of Southeast Asian Nations",
+"European Union",
+"International Civil Aviation Organization",
+"International Maritime Organization"
+],
+"n_eligible": 9,
+"sha": "c95e3cfa554f1b19c005de477bafc9a9ab5e7ae8d29413c535d5114e276d0925",
+"generation": 0
+},
+"mlnla-ck2000-all11:chat-dailydialog-0019__L036__p161:unitednations:worldbank": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0019__L036__p161:unitednations:worldbank",
+"anchor": "World Bank",
+"nearest": [
+"International Monetary Fund",
+"African Union",
+"International Labour Organization",
+"NATO"
+],
+"random": [
+"European Union",
+"International Civil Aviation Organization",
+"International Maritime Organization",
+"UNESCO"
+],
+"distractors": [
+"International Monetary Fund",
+"African Union",
+"International Labour Organization",
+"NATO",
+"European Union",
+"International Civil Aviation Organization",
+"International Maritime Organization",
+"UNESCO"
+],
+"n_eligible": 8,
+"sha": "5e722a275e378024f018133006783927ea7bf25d7f55edec072aedefca41be29",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0019__L044__p161:un:worldbank": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0019__L044__p161:un:worldbank",
+"anchor": "World Bank",
+"nearest": [
+"International Monetary Fund",
+"African Union",
+"International Labour Organization",
+"NATO"
+],
+"random": [
+"European Union",
+"International Civil Aviation Organization",
+"International Maritime Organization",
+"UNESCO"
+],
+"distractors": [
+"International Monetary Fund",
+"African Union",
+"International Labour Organization",
+"NATO",
+"European Union",
+"International Civil Aviation Organization",
+"International Maritime Organization",
+"UNESCO"
+],
+"n_eligible": 8,
+"sha": "f43655ce558aaa64af7c3d00a53f396cb450ad3b4db3b025f668f0311360d622",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0019__L052__p145:whoun:worldbank": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0019__L052__p145:whoun:worldbank",
+"anchor": "World Bank",
+"nearest": [
+"International Monetary Fund",
+"African Union",
+"International Labour Organization",
+"NATO"
+],
+"random": [
+"Association of Southeast Asian Nations",
+"European Union",
+"International Civil Aviation Organization",
+"UNESCO"
+],
+"distractors": [
+"International Monetary Fund",
+"African Union",
+"International Labour Organization",
+"NATO",
+"Association of Southeast Asian Nations",
+"European Union",
+"International Civil Aviation Organization",
+"UNESCO"
+],
+"n_eligible": 9,
+"sha": "b0be98539c642601f2de94dbcd2a52449c74fd39377c7b33c8c5483a3e667614",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0026__L028__p36:imo:icao": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0026__L028__p36:imo:icao",
+"anchor": "International Civil Aviation Organization",
+"nearest": [
+"World Health Organization",
+"World Trade Organization",
+"NATO",
+"Association of Southeast Asian Nations"
+],
+"random": [
+"African Union",
+"UNESCO",
+"UNICEF",
+"World Bank"
+],
+"distractors": [
+"World Health Organization",
+"World Trade Organization",
+"NATO",
+"Association of Southeast Asian Nations",
+"African Union",
+"UNESCO",
+"UNICEF",
+"World Bank"
+],
+"n_eligible": 8,
+"sha": "4f7b0fca8f81bc3d9e4b19dbc5da2df95c883b3f7bfb2d66e7984e3eec6c16aa",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0019__L028__p145:unwho:nationalbureauofstatisticsofchina": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0019__L028__p145:unwho:nationalbureauofstatisticsofchina",
+"anchor": "World Bank",
+"nearest": [
+"International Monetary Fund",
+"African Union",
+"International Labour Organization",
+"NATO"
+],
+"random": [
+"European Union",
+"International Civil Aviation Organization",
+"International Maritime Organization",
+"UNESCO"
+],
+"distractors": [
+"International Monetary Fund",
+"African Union",
+"International Labour Organization",
+"NATO",
+"European Union",
+"International Civil Aviation Organization",
+"International Maritime Organization",
+"UNESCO"
+],
+"n_eligible": 8,
+"sha": "ffb951ffff03a5f79248358bf64277b9f51091073b30c43838847250aebd7d98",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0019__L036__p161:unitednations:worldbank": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0019__L036__p161:unitednations:worldbank",
+"anchor": "World Bank",
+"nearest": [
+"International Monetary Fund",
+"African Union",
+"International Labour Organization",
+"NATO"
+],
+"random": [
+"European Union",
+"International Civil Aviation Organization",
+"International Maritime Organization",
+"UNESCO"
+],
+"distractors": [
+"International Monetary Fund",
+"African Union",
+"International Labour Organization",
+"NATO",
+"European Union",
+"International Civil Aviation Organization",
+"International Maritime Organization",
+"UNESCO"
+],
+"n_eligible": 8,
+"sha": "3bbf709e5b2ed4a4d0c59b71f23d96734dd6cb6a09544fa20465c1e6d6ed9532",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0019__L020__p161:un:worldbank": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0019__L020__p161:un:worldbank",
+"anchor": "World Bank",
+"nearest": [
+"International Monetary Fund",
+"African Union",
+"International Labour Organization",
+"NATO"
+],
+"random": [
+"European Union",
+"International Civil Aviation Organization",
+"International Maritime Organization",
+"UNESCO"
+],
+"distractors": [
+"International Monetary Fund",
+"African Union",
+"International Labour Organization",
+"NATO",
+"European Union",
+"International Civil Aviation Organization",
+"International Maritime Organization",
+"UNESCO"
+],
+"n_eligible": 8,
+"sha": "0753ce448e455378ec3164b25fabe34b013c2fa094a2959beea2a8b56fe4d847",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0019__L036__p188:unwho:worldbanknationalbureauofstatistics": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0019__L036__p188:unwho:worldbanknationalbureauofstatistics",
+"anchor": "World Bank",
+"nearest": [
+"International Monetary Fund",
+"African Union",
+"International Labour Organization",
+"NATO"
+],
+"random": [
+"European Union",
+"International Civil Aviation Organization",
+"International Maritime Organization",
+"UNESCO"
+],
+"distractors": [
+"International Monetary Fund",
+"African Union",
+"International Labour Organization",
+"NATO",
+"European Union",
+"International Civil Aviation Organization",
+"International Maritime Organization",
+"UNESCO"
+],
+"n_eligible": 8,
+"sha": "7cfdc52ac03e66a1fdd408076f453df6472a62f2785ba926317fc660d6f9eb60",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0026__L020__p36:eu:icao": {
+"unit": "s3d-rl600-all11:chat-lmsys-0026__L020__p36:eu:icao",
+"anchor": "International Civil Aviation Organization",
+"nearest": [
+"World Health Organization",
+"World Trade Organization",
+"NATO",
+"Association of Southeast Asian Nations"
+],
+"random": [
+"UNESCO",
+"UNICEF",
+"World Bank"
+],
+"distractors": [
+"World Health Organization",
+"World Trade Organization",
+"NATO",
+"Association of Southeast Asian Nations",
+"UNESCO",
+"UNICEF",
+"World Bank"
+],
+"n_eligible": 7,
+"sha": "b25416f3cb8b6f964d16019ea0f2758ea67338306481e81cf9ae502df531da2f",
+"generation": 0
+},
+"s3d-rl600:chat-dailydialog-0019__L044__p145:un:worldbank": {
+"unit": "s3d-rl600:chat-dailydialog-0019__L044__p145:un:worldbank",
+"anchor": "World Bank",
+"nearest": [
+"International Monetary Fund",
+"African Union",
+"International Labour Organization",
+"NATO"
+],
+"random": [
+"European Union",
+"International Civil Aviation Organization",
+"International Maritime Organization",
+"UNESCO"
+],
+"distractors": [
+"International Monetary Fund",
+"African Union",
+"International Labour Organization",
+"NATO",
+"European Union",
+"International Civil Aviation Organization",
+"International Maritime Organization",
+"UNESCO"
+],
+"n_eligible": 8,
+"sha": "abda3cd39cb4c271cde17731ce9b22837dbe94c0d3ab0f0cdebaf0d47213c69c",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0066__L020__p174:un:worldbank": {
+"unit": "s3d-sft251:chat-dailydialog-0066__L020__p174:un:worldbank",
+"anchor": "World Bank",
+"nearest": [
+"International Monetary Fund",
+"UNICEF",
+"African Union",
+"International Labour Organization"
+],
+"random": [
+"European Union",
+"International Civil Aviation Organization",
+"International Maritime Organization",
+"UNESCO"
+],
+"distractors": [
+"International Monetary Fund",
+"UNICEF",
+"African Union",
+"International Labour Organization",
+"European Union",
+"International Civil Aviation Organization",
+"International Maritime Organization",
+"UNESCO"
+],
+"n_eligible": 9,
+"sha": "76d10d13881d3a9ee7e83978a18f80058fe7cb32b5520d45690b35ab3031c60a",
+"generation": 0
+},
+"tuned:chat-lmsys-0026__L060__p36:imomarpol:icaoannex4": {
+"unit": "tuned:chat-lmsys-0026__L060__p36:imomarpol:icaoannex4",
+"anchor": "International Civil Aviation Organization",
+"nearest": [
+"World Health Organization",
+"World Trade Organization",
+"NATO",
+"Association of Southeast Asian Nations"
+],
+"random": [
+"African Union",
+"UNESCO",
+"UNICEF",
+"World Bank"
+],
+"distractors": [
+"World Health Organization",
+"World Trade Organization",
+"NATO",
+"Association of Southeast Asian Nations",
+"African Union",
+"UNESCO",
+"UNICEF",
+"World Bank"
+],
+"n_eligible": 8,
+"sha": "ea1ddb41ec2dd75d6b629de1c7c9a5118c50cd154c87448da3b77220d7049f39",
+"generation": 0
+}
+}

@@ -1,0 +1,144 @@
+{
+"mlnla-ck2000-all11:chat-lmsys-0008__L032__p213:ram:rib": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0008__L032__p213:ram:rib",
+"anchor": "RIB",
+"nearest": [
+"Forwarding Information Base (FIB)",
+"Adjacency table",
+"Access control list",
+"Trie"
+],
+"random": [
+"Patricia trie"
+],
+"distractors": [
+"Forwarding Information Base (FIB)",
+"Adjacency table",
+"Access control list",
+"Trie",
+"Patricia trie"
+],
+"n_eligible": 5,
+"sha": "85dd5ea8660256c56cae7dfbcde58ef777c8992d89757a8a14ec2dfb887973c6",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0008__L060__p213:contentaddressablememorycam:routinginformationbaserib": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0008__L060__p213:contentaddressablememorycam:routinginformationbaserib",
+"anchor": "Routing Information Base",
+"nearest": [
+"Adjacency table",
+"Access control list",
+"MAC address table",
+"Trie"
+],
+"random": [
+"Patricia trie"
+],
+"distractors": [
+"Adjacency table",
+"Access control list",
+"MAC address table",
+"Trie",
+"Patricia trie"
+],
+"n_eligible": 5,
+"sha": "0c0fc0253239c5379fe3ac78b2a11977995ac3ad439a3c9b2a36385de7f2a021",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0008__L032__p213:ram:rib": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0008__L032__p213:ram:rib",
+"anchor": "RIB",
+"nearest": [
+"Forwarding Information Base (FIB)",
+"Adjacency table",
+"MAC address table",
+"Access control list"
+],
+"random": [
+"Patricia trie",
+"Trie"
+],
+"distractors": [
+"Forwarding Information Base (FIB)",
+"Adjacency table",
+"MAC address table",
+"Access control list",
+"Patricia trie",
+"Trie"
+],
+"n_eligible": 6,
+"sha": "9baff5968e46a9d743398bf53b8a200d0794ca50c109cc2a380547c5acd4f2ca",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0008__L044__p213:cpucachecc:rib": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0008__L044__p213:cpucachecc:rib",
+"anchor": "Forwarding Information Base",
+"nearest": [
+"Adjacency table",
+"Trie",
+"Patricia trie",
+"Access control list"
+],
+"random": [
+"MAC address table"
+],
+"distractors": [
+"Adjacency table",
+"Trie",
+"Patricia trie",
+"Access control list",
+"MAC address table"
+],
+"n_eligible": 5,
+"sha": "a7b1467dd9b0caf6a3d723f96bd02a48941c593e62ffb57cad4ceedfdf9640c1",
+"generation": 0
+},
+"nla-sft-L42:chat-lmsys-0008__L042__p213:ram:rib": {
+"unit": "nla-sft-L42:chat-lmsys-0008__L042__p213:ram:rib",
+"anchor": "RIB",
+"nearest": [
+"Forwarding Information Base (FIB)",
+"Adjacency table",
+"MAC address table",
+"Access control list"
+],
+"random": [
+"Patricia trie",
+"Trie"
+],
+"distractors": [
+"Forwarding Information Base (FIB)",
+"Adjacency table",
+"MAC address table",
+"Access control list",
+"Patricia trie",
+"Trie"
+],
+"n_eligible": 6,
+"sha": "203cf7d4c0a0fdba5a1de67bb932d1902fff9aeef62816ee0a950feef725b714",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0008__L036__p470:routingtablerib:fib": {
+"unit": "s3d-rl600:chat-lmsys-0008__L036__p470:routingtablerib:fib",
+"anchor": "Forwarding Information Base (FIB)",
+"nearest": [
+"Adjacency table",
+"MAC address table",
+"Patricia trie",
+"Trie"
+],
+"random": [
+"Access control list"
+],
+"distractors": [
+"Adjacency table",
+"MAC address table",
+"Patricia trie",
+"Trie",
+"Access control list"
+],
+"n_eligible": 5,
+"sha": "873a2a4b75d4baa7888b6103497572ab59922d04d340b580dbdd813171302804",
+"generation": 0
+}
+}

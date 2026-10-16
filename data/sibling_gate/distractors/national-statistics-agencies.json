@@ -1,0 +1,118 @@
+{
+"mlnla-ck2000-all11:chat-dailydialog-0019__L028__p161:koreanationalstatisticaloffice:nationalbureauofstatisticsofchina": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0019__L028__p161:koreanationalstatisticaloffice:nationalbureauofstatisticsofchina",
+"anchor": "National Bureau of Statistics of China",
+"nearest": [
+"INSEE",
+"Istat",
+"Destatis",
+"Australian Bureau of Statistics"
+],
+"random": [
+"Eurostat",
+"Statistics Canada",
+"Statistics Sweden",
+"United States Census Bureau"
+],
+"distractors": [
+"INSEE",
+"Istat",
+"Destatis",
+"Australian Bureau of Statistics",
+"Eurostat",
+"Statistics Canada",
+"Statistics Sweden",
+"United States Census Bureau"
+],
+"n_eligible": 11,
+"sha": "a5ba9d0d18722fcb1e5d31e7d858582003563d2b0856f45d50360a8b4797e188",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0019__L028__p161:koreannationalstatisticaloffice:nationalbureauofstatisticsofchina": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0019__L028__p161:koreannationalstatisticaloffice:nationalbureauofstatisticsofchina",
+"anchor": "National Bureau of Statistics of China",
+"nearest": [
+"INSEE",
+"Istat",
+"Destatis",
+"Australian Bureau of Statistics"
+],
+"random": [
+"Statistics Netherlands",
+"Statistics Norway",
+"Statistics Sweden",
+"United States Census Bureau"
+],
+"distractors": [
+"INSEE",
+"Istat",
+"Destatis",
+"Australian Bureau of Statistics",
+"Statistics Netherlands",
+"Statistics Norway",
+"Statistics Sweden",
+"United States Census Bureau"
+],
+"n_eligible": 11,
+"sha": "212ea3af40544c7b13d004d751ef815d9b341eee8b096a611a7fe16eeb38b633",
+"generation": 1
+},
+"nla-rl-L42:chat-dailydialog-0019__L042__p161:nationalbureauofhealthstatistics:nationalbureauofstatisticsofchina": {
+"unit": "nla-rl-L42:chat-dailydialog-0019__L042__p161:nationalbureauofhealthstatistics:nationalbureauofstatisticsofchina",
+"anchor": "National Bureau of Statistics of China",
+"nearest": [
+"INSEE",
+"Istat",
+"Destatis",
+"Australian Bureau of Statistics"
+],
+"random": [
+"Eurostat",
+"Statistics Canada",
+"Statistics Netherlands",
+"Statistics Norway"
+],
+"distractors": [
+"INSEE",
+"Istat",
+"Destatis",
+"Australian Bureau of Statistics",
+"Eurostat",
+"Statistics Canada",
+"Statistics Netherlands",
+"Statistics Norway"
+],
+"n_eligible": 11,
+"sha": "dffb3a8de60f72db3ac0774e9b8770cf544ae3ec3664e3846797a08cc8afb42c",
+"generation": 1
+},
+"s3d-rl600:chat-dailydialog-0019__L048__p188:japanstatisticsbureau:nationalbureauofstatisticsofchina": {
+"unit": "s3d-rl600:chat-dailydialog-0019__L048__p188:japanstatisticsbureau:nationalbureauofstatisticsofchina",
+"anchor": "National Bureau of Statistics of China",
+"nearest": [
+"INSEE",
+"Istat",
+"Destatis",
+"Australian Bureau of Statistics"
+],
+"random": [
+"Statistics Denmark",
+"Statistics Netherlands",
+"Statistics Norway",
+"United States Census Bureau"
+],
+"distractors": [
+"INSEE",
+"Istat",
+"Destatis",
+"Australian Bureau of Statistics",
+"Statistics Denmark",
+"Statistics Netherlands",
+"Statistics Norway",
+"United States Census Bureau"
+],
+"n_eligible": 11,
+"sha": "64d0459b0ecd2e286dfbc1c5718047ee48f825f23951e5287735b36c2a1ebb9e",
+"generation": 1
+}
+}

@@ -1,0 +1,822 @@
+{
+"mlnla-ck2000-all11:chat-lmsys-0020__L020__p197:singularhomology:derhamtheory": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0020__L020__p197:singularhomology:derhamtheory",
+"anchor": "de Rham cohomology",
+"nearest": [
+"group cohomology",
+"étale cohomology",
+"crystalline cohomology"
+],
+"random": [],
+"distractors": [
+"group cohomology",
+"étale cohomology",
+"crystalline cohomology"
+],
+"n_eligible": 3,
+"sha": "25e0e124d88d9e6e75410f157d2a3637054f02d2b8a7bbf13af980047e7d8270",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0020__L024__p197:simplicialhomology:derhamcohomology": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0020__L024__p197:simplicialhomology:derhamcohomology",
+"anchor": "singular cohomology",
+"nearest": [
+"group cohomology",
+"crystalline cohomology",
+"étale cohomology"
+],
+"random": [],
+"distractors": [
+"group cohomology",
+"crystalline cohomology",
+"étale cohomology"
+],
+"n_eligible": 3,
+"sha": "7e61953945d3bce9252d3dd32f41784239c28ce07fba949fb77aafd66388df79",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0020__L024__p197:singularhomology:derhamtheory": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0020__L024__p197:singularhomology:derhamtheory",
+"anchor": "de Rham cohomology",
+"nearest": [
+"group cohomology",
+"étale cohomology",
+"crystalline cohomology"
+],
+"random": [],
+"distractors": [
+"group cohomology",
+"étale cohomology",
+"crystalline cohomology"
+],
+"n_eligible": 3,
+"sha": "80a6a6a338e821ef678e781e12b1de8892fd4e884ed231135c51703490ae8aa0",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0020__L028__p197:simplicialčechhomology:singularcohomology": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0020__L028__p197:simplicialčechhomology:singularcohomology",
+"anchor": "singular cohomology",
+"nearest": [
+"group cohomology",
+"crystalline cohomology",
+"étale cohomology"
+],
+"random": [],
+"distractors": [
+"group cohomology",
+"crystalline cohomology",
+"étale cohomology"
+],
+"n_eligible": 3,
+"sha": "6417b58b51e52488797c2b9076f56c13f482dfbf38f58ba9e142e261ca2a18dc",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0020__L028__p197:singularcohomology:derhamtheory": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0020__L028__p197:singularcohomology:derhamtheory",
+"anchor": "de Rham cohomology",
+"nearest": [
+"group cohomology",
+"étale cohomology",
+"crystalline cohomology"
+],
+"random": [],
+"distractors": [
+"group cohomology",
+"étale cohomology",
+"crystalline cohomology"
+],
+"n_eligible": 3,
+"sha": "5ac1564bffed11a3d1e317778fae358197e8f7f86c8ccb1821f95c4920e63f28",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0020__L028__p197:singularhomology:derhamtheory": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0020__L028__p197:singularhomology:derhamtheory",
+"anchor": "de Rham cohomology",
+"nearest": [
+"group cohomology",
+"étale cohomology",
+"crystalline cohomology"
+],
+"random": [],
+"distractors": [
+"group cohomology",
+"étale cohomology",
+"crystalline cohomology"
+],
+"n_eligible": 3,
+"sha": "d8047ebb4d118c0ff81f4a4f45a2f858ecac63d24dd507a9bb5ae2eda57e789a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0020__L028__p197:čechcohomology:derhamcohomology": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0020__L028__p197:čechcohomology:derhamcohomology",
+"anchor": "De Rham cohomology",
+"nearest": [
+"group cohomology",
+"étale cohomology",
+"crystalline cohomology"
+],
+"random": [],
+"distractors": [
+"group cohomology",
+"étale cohomology",
+"crystalline cohomology"
+],
+"n_eligible": 3,
+"sha": "898d1bd8923cda599b51f633973d6cd07860907469c24fd3c5b91074ae5092ae",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0020__L028__p197:čechhomology:derhamcohomology": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0020__L028__p197:čechhomology:derhamcohomology",
+"anchor": "De Rham cohomology",
+"nearest": [
+"group cohomology",
+"étale cohomology",
+"crystalline cohomology"
+],
+"random": [],
+"distractors": [
+"group cohomology",
+"étale cohomology",
+"crystalline cohomology"
+],
+"n_eligible": 3,
+"sha": "e4daede8952292fe1c47dc02533fb94496d4c2c234418b16428147f6b492de88",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0020__L032__p156:homologygroupsfromsimplices:derhamcohomologygroupsfromforms": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0020__L032__p156:homologygroupsfromsimplices:derhamcohomologygroupsfromforms",
+"anchor": "De Rham cohomology",
+"nearest": [
+"group cohomology",
+"étale cohomology",
+"crystalline cohomology"
+],
+"random": [],
+"distractors": [
+"group cohomology",
+"étale cohomology",
+"crystalline cohomology"
+],
+"n_eligible": 3,
+"sha": "a0d9350f3258fd5c29549bfc44a221d0f3bb34f66770516f1587c38f58809a5a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0020__L032__p197:singularhomology:derhamtheory": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0020__L032__p197:singularhomology:derhamtheory",
+"anchor": "de Rham cohomology",
+"nearest": [
+"group cohomology",
+"étale cohomology",
+"crystalline cohomology"
+],
+"random": [],
+"distractors": [
+"group cohomology",
+"étale cohomology",
+"crystalline cohomology"
+],
+"n_eligible": 3,
+"sha": "e08e31956412042681d8ffc865d916092cd807bf732d06ae42a8a761d4d847f0",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0020__L036__p156:morsecohomology:derhamcohomology": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0020__L036__p156:morsecohomology:derhamcohomology",
+"anchor": "De Rham cohomology",
+"nearest": [
+"group cohomology",
+"étale cohomology",
+"crystalline cohomology"
+],
+"random": [],
+"distractors": [
+"group cohomology",
+"étale cohomology",
+"crystalline cohomology"
+],
+"n_eligible": 3,
+"sha": "7a2e936216a9f2fd543792bae2198f088e0f1510fc2ffa425fbe1c8022d69998",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0020__L036__p156:morsefunctionsmorsecohomologycomplex:differentialformsderhamcohomology": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0020__L036__p156:morsefunctionsmorsecohomologycomplex:differentialformsderhamcohomology",
+"anchor": "de Rham cohomology",
+"nearest": [
+"group cohomology",
+"étale cohomology",
+"crystalline cohomology"
+],
+"random": [],
+"distractors": [
+"group cohomology",
+"étale cohomology",
+"crystalline cohomology"
+],
+"n_eligible": 3,
+"sha": "1d0b95e3e346113639ec6a274f1ef535066452daf2ea43169586102363aada7a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0020__L048__p156:singularhomology:derhamtheory": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0020__L048__p156:singularhomology:derhamtheory",
+"anchor": "de Rham cohomology",
+"nearest": [
+"group cohomology",
+"étale cohomology",
+"crystalline cohomology"
+],
+"random": [],
+"distractors": [
+"group cohomology",
+"étale cohomology",
+"crystalline cohomology"
+],
+"n_eligible": 3,
+"sha": "b2c1ca449a142cbb18fbeb38f6106677c7dcd6339bacb4381d4d87b6edf1b2de",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0020__L048__p156:singularhomologygroups:derhamcohomologygroups": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0020__L048__p156:singularhomologygroups:derhamcohomologygroups",
+"anchor": "de Rham cohomology",
+"nearest": [
+"group cohomology",
+"étale cohomology",
+"crystalline cohomology"
+],
+"random": [],
+"distractors": [
+"group cohomology",
+"étale cohomology",
+"crystalline cohomology"
+],
+"n_eligible": 3,
+"sha": "04b9fd3a5407cb45c8c1755e4cf7b50363b5880f7015fa2ebb0a7ad56bb9181a",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0020__L020__p197:sheafcohomology:singularcohomology": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0020__L020__p197:sheafcohomology:singularcohomology",
+"anchor": "De Rham cohomology",
+"nearest": [
+"Čech cohomology",
+"group cohomology",
+"étale cohomology",
+"crystalline cohomology"
+],
+"random": [],
+"distractors": [
+"Čech cohomology",
+"group cohomology",
+"étale cohomology",
+"crystalline cohomology"
+],
+"n_eligible": 4,
+"sha": "960ac68ce1a73f87239eea95dd05e21737ec8204793df9497a423125239ffd3c",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0020__L020__p197:singularcohomology:derhamtheory": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0020__L020__p197:singularcohomology:derhamtheory",
+"anchor": "de Rham cohomology",
+"nearest": [
+"Čech cohomology",
+"group cohomology",
+"étale cohomology",
+"crystalline cohomology"
+],
+"random": [],
+"distractors": [
+"Čech cohomology",
+"group cohomology",
+"étale cohomology",
+"crystalline cohomology"
+],
+"n_eligible": 4,
+"sha": "15ae06e18847ae64cff2513eba13a3f2b04ebfd781df382d07dd79739a50f512",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0020__L020__p197:singularhomology:derhamcohomology": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0020__L020__p197:singularhomology:derhamcohomology",
+"anchor": "de Rham cohomology",
+"nearest": [
+"Čech cohomology",
+"group cohomology",
+"étale cohomology",
+"crystalline cohomology"
+],
+"random": [],
+"distractors": [
+"Čech cohomology",
+"group cohomology",
+"étale cohomology",
+"crystalline cohomology"
+],
+"n_eligible": 4,
+"sha": "401675b131a0be5ede085717e8aeaff8cb1e3a53e8960e732b5b5232b1d51007",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0020__L020__p197:singularhomology:derhamtheory": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0020__L020__p197:singularhomology:derhamtheory",
+"anchor": "de Rham cohomology",
+"nearest": [
+"Čech cohomology",
+"group cohomology",
+"étale cohomology",
+"crystalline cohomology"
+],
+"random": [],
+"distractors": [
+"Čech cohomology",
+"group cohomology",
+"étale cohomology",
+"crystalline cohomology"
+],
+"n_eligible": 4,
+"sha": "6cdc004f1971d32a167c87371fb8498fc55bce57d522e381036ddad8e021a20c",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0020__L024__p197:singularhomology:derhamtheory": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0020__L024__p197:singularhomology:derhamtheory",
+"anchor": "de Rham cohomology",
+"nearest": [
+"Čech cohomology",
+"group cohomology",
+"étale cohomology",
+"crystalline cohomology"
+],
+"random": [],
+"distractors": [
+"Čech cohomology",
+"group cohomology",
+"étale cohomology",
+"crystalline cohomology"
+],
+"n_eligible": 4,
+"sha": "33d13c6951b9ffec0f830e959744daef853787595e0e2e3d26770605e5b7a01e",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0020__L024__p197:singularhomologyfunctor:derhamtheorem": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0020__L024__p197:singularhomologyfunctor:derhamtheorem",
+"anchor": "De Rham cohomology",
+"nearest": [
+"Čech cohomology",
+"group cohomology",
+"étale cohomology",
+"crystalline cohomology"
+],
+"random": [],
+"distractors": [
+"Čech cohomology",
+"group cohomology",
+"étale cohomology",
+"crystalline cohomology"
+],
+"n_eligible": 4,
+"sha": "9d65357fedac2cc23293ef8409712f56728fcc137538c39c9bbf437bbce3760a",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0020__L028__p156:homologytheoryviachains:derhamcohomologyviadifferentialforms": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0020__L028__p156:homologytheoryviachains:derhamcohomologyviadifferentialforms",
+"anchor": "De Rham cohomology",
+"nearest": [
+"Čech cohomology",
+"group cohomology",
+"étale cohomology",
+"crystalline cohomology"
+],
+"random": [],
+"distractors": [
+"Čech cohomology",
+"group cohomology",
+"étale cohomology",
+"crystalline cohomology"
+],
+"n_eligible": 4,
+"sha": "315e16f5e30cf52e0a928d6f8e842543f8673c2d699a2e4dd9d139e64daa429f",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0020__L028__p197:singularhomology:derhamtheory": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0020__L028__p197:singularhomology:derhamtheory",
+"anchor": "de Rham cohomology",
+"nearest": [
+"Čech cohomology",
+"group cohomology",
+"étale cohomology",
+"crystalline cohomology"
+],
+"random": [],
+"distractors": [
+"Čech cohomology",
+"group cohomology",
+"étale cohomology",
+"crystalline cohomology"
+],
+"n_eligible": 4,
+"sha": "be54679ddaecc52a74ad3a2267ca28f4f67df3f6b5470663c793949a9ca1b179",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0020__L036__p197:hodgecohomology:singularcohomology": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0020__L036__p197:hodgecohomology:singularcohomology",
+"anchor": "singular cohomology",
+"nearest": [
+"group cohomology",
+"Čech cohomology",
+"crystalline cohomology",
+"étale cohomology"
+],
+"random": [],
+"distractors": [
+"group cohomology",
+"Čech cohomology",
+"crystalline cohomology",
+"étale cohomology"
+],
+"n_eligible": 4,
+"sha": "ee0dd6525eee87567853f1ffe122597bf3ef4aef1f9974174af7ac825e47fadf",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0020__L040__p197:harmoniccohomologyclasses:singularcohomology": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0020__L040__p197:harmoniccohomologyclasses:singularcohomology",
+"anchor": "singular cohomology",
+"nearest": [
+"group cohomology",
+"Čech cohomology",
+"crystalline cohomology",
+"étale cohomology"
+],
+"random": [],
+"distractors": [
+"group cohomology",
+"Čech cohomology",
+"crystalline cohomology",
+"étale cohomology"
+],
+"n_eligible": 4,
+"sha": "f3812f81845bfc52fcc4bb76d3ab952923f396ef879880bb8eb541cc7ea3741f",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0020__L040__p197:hodgecohomology:singularcohomology": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0020__L040__p197:hodgecohomology:singularcohomology",
+"anchor": "singular cohomology",
+"nearest": [
+"group cohomology",
+"Čech cohomology",
+"crystalline cohomology",
+"étale cohomology"
+],
+"random": [],
+"distractors": [
+"group cohomology",
+"Čech cohomology",
+"crystalline cohomology",
+"étale cohomology"
+],
+"n_eligible": 4,
+"sha": "a588753ba6c325c53ac0e6199f384444756ca8508e87a3f0351856e6af80d6d7",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0020__L020__p156:homologychainsboundaryoperator:derhamcohomologyclosedexactforms": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0020__L020__p156:homologychainsboundaryoperator:derhamcohomologyclosedexactforms",
+"anchor": "De Rham cohomology",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "6df54c51f5da4f4979b25fbdd8c4630c2dc62a9bf83031a497fae5326c987b52",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0020__L020__p197:singularhomology:derhamtheory": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0020__L020__p197:singularhomology:derhamtheory",
+"anchor": "de Rham cohomology",
+"nearest": [
+"Čech cohomology",
+"group cohomology",
+"étale cohomology",
+"crystalline cohomology"
+],
+"random": [],
+"distractors": [
+"Čech cohomology",
+"group cohomology",
+"étale cohomology",
+"crystalline cohomology"
+],
+"n_eligible": 4,
+"sha": "1371cb4abc4ca718498ac8f3b86802a358930aa40e8c6cd8f913f5578e787190",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0020__L024__p156:homologyviachaincomplexes:derhamcohomologyviadifferentialforms": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0020__L024__p156:homologyviachaincomplexes:derhamcohomologyviadifferentialforms",
+"anchor": "De Rham cohomology",
+"nearest": [
+"Čech cohomology",
+"group cohomology",
+"étale cohomology",
+"crystalline cohomology"
+],
+"random": [],
+"distractors": [
+"Čech cohomology",
+"group cohomology",
+"étale cohomology",
+"crystalline cohomology"
+],
+"n_eligible": 4,
+"sha": "cf6c91846487a647e3305958ee15e4bcab9294d69c9bea568812b3ea63765d64",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0020__L024__p156:homologyviachainsboundaries:derhamcohomologyviaclosedexactforms": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0020__L024__p156:homologyviachainsboundaries:derhamcohomologyviaclosedexactforms",
+"anchor": "De Rham cohomology",
+"nearest": [
+"Čech cohomology",
+"group cohomology",
+"étale cohomology",
+"crystalline cohomology"
+],
+"random": [],
+"distractors": [
+"Čech cohomology",
+"group cohomology",
+"étale cohomology",
+"crystalline cohomology"
+],
+"n_eligible": 4,
+"sha": "9f8a46979ffd3054f36a32207c2190272cf75f235fc983a7b34d68293f9859c5",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0020__L024__p197:simplicialhomology:singularcohomologywithrealcoefficients": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0020__L024__p197:simplicialhomology:singularcohomologywithrealcoefficients",
+"anchor": "singular cohomology",
+"nearest": [
+"group cohomology",
+"Čech cohomology",
+"crystalline cohomology",
+"étale cohomology"
+],
+"random": [],
+"distractors": [
+"group cohomology",
+"Čech cohomology",
+"crystalline cohomology",
+"étale cohomology"
+],
+"n_eligible": 4,
+"sha": "f7764ab859c26a6d0c70ba488fae5722c2a236b0e6b2b53e194f1548ef789df8",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0020__L024__p197:singularhomology:derhamcohomology": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0020__L024__p197:singularhomology:derhamcohomology",
+"anchor": "de Rham cohomology",
+"nearest": [
+"Čech cohomology",
+"group cohomology",
+"étale cohomology",
+"crystalline cohomology"
+],
+"random": [],
+"distractors": [
+"Čech cohomology",
+"group cohomology",
+"étale cohomology",
+"crystalline cohomology"
+],
+"n_eligible": 4,
+"sha": "87a63cde3d8655833bd0fd896dad33b96d44b7c5efb786ffaa7905730a00cb80",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0020__L024__p197:singularhomology:derhamtheorem": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0020__L024__p197:singularhomology:derhamtheorem",
+"anchor": "de Rham cohomology",
+"nearest": [
+"Čech cohomology",
+"group cohomology",
+"étale cohomology",
+"crystalline cohomology"
+],
+"random": [],
+"distractors": [
+"Čech cohomology",
+"group cohomology",
+"étale cohomology",
+"crystalline cohomology"
+],
+"n_eligible": 4,
+"sha": "88508360e8f4fc18cbe273afb85c6f45a71dae3d742a164115f2bfce388bc04c",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0020__L024__p197:singularhomology:derhamtheory": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0020__L024__p197:singularhomology:derhamtheory",
+"anchor": "de Rham cohomology",
+"nearest": [
+"Čech cohomology",
+"group cohomology",
+"étale cohomology",
+"crystalline cohomology"
+],
+"random": [],
+"distractors": [
+"Čech cohomology",
+"group cohomology",
+"étale cohomology",
+"crystalline cohomology"
+],
+"n_eligible": 4,
+"sha": "c5cbc78bcde307fb982919c1366c49756fef6fd93b125d8cba98b19a693da341",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0020__L024__p197:singularhomologygroups:derhamcohomologygroups": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0020__L024__p197:singularhomologygroups:derhamcohomologygroups",
+"anchor": "de Rham cohomology",
+"nearest": [
+"Čech cohomology",
+"group cohomology",
+"étale cohomology",
+"crystalline cohomology"
+],
+"random": [],
+"distractors": [
+"Čech cohomology",
+"group cohomology",
+"étale cohomology",
+"crystalline cohomology"
+],
+"n_eligible": 4,
+"sha": "e156c1f435e3c55479ae29e4e355974273dc4fd502aefa7ab8c231b1f36d4ea6",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0020__L028__p197:simplicialhomologyofapolyhedron:derhamcohomologyofamanifold": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0020__L028__p197:simplicialhomologyofapolyhedron:derhamcohomologyofamanifold",
+"anchor": "De Rham cohomology",
+"nearest": [
+"Čech cohomology",
+"group cohomology",
+"étale cohomology",
+"crystalline cohomology"
+],
+"random": [],
+"distractors": [
+"Čech cohomology",
+"group cohomology",
+"étale cohomology",
+"crystalline cohomology"
+],
+"n_eligible": 4,
+"sha": "00b0149c6f416d186461a978e741df25db05c9912ff49a0fe013ca8c14278884",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0020__L028__p197:singularhomology:derhamcohomology": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0020__L028__p197:singularhomology:derhamcohomology",
+"anchor": "de Rham cohomology",
+"nearest": [
+"Čech cohomology",
+"group cohomology",
+"étale cohomology",
+"crystalline cohomology"
+],
+"random": [],
+"distractors": [
+"Čech cohomology",
+"group cohomology",
+"étale cohomology",
+"crystalline cohomology"
+],
+"n_eligible": 4,
+"sha": "add11216e1ec835def9bd5543a20ee07d1e42eb181f855cebe3706b3ce87ee69",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0020__L028__p197:singularhomology:derhamtheory": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0020__L028__p197:singularhomology:derhamtheory",
+"anchor": "de Rham cohomology",
+"nearest": [
+"Čech cohomology",
+"group cohomology",
+"étale cohomology",
+"crystalline cohomology"
+],
+"random": [],
+"distractors": [
+"Čech cohomology",
+"group cohomology",
+"étale cohomology",
+"crystalline cohomology"
+],
+"n_eligible": 4,
+"sha": "e09c2027375254c622eabbc91dc2f76f816c9ae7595551ee90be9d99ba60a7e3",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0020__L028__p197:čechhomology:singularcohomologywithrealcoefficients": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0020__L028__p197:čechhomology:singularcohomologywithrealcoefficients",
+"anchor": "De Rham cohomology",
+"nearest": [
+"group cohomology",
+"étale cohomology",
+"crystalline cohomology"
+],
+"random": [],
+"distractors": [
+"group cohomology",
+"étale cohomology",
+"crystalline cohomology"
+],
+"n_eligible": 3,
+"sha": "d871be3eba2d72624295c437afa91c2f107689aa07449442f9aab7acd1ab67fb",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0020__L032__p197:simplicialhomology:derhamcohomology": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0020__L032__p197:simplicialhomology:derhamcohomology",
+"anchor": "singular cohomology",
+"nearest": [
+"group cohomology",
+"Čech cohomology",
+"crystalline cohomology",
+"étale cohomology"
+],
+"random": [],
+"distractors": [
+"group cohomology",
+"Čech cohomology",
+"crystalline cohomology",
+"étale cohomology"
+],
+"n_eligible": 4,
+"sha": "0d1fd2be46ba59a97328b5d4ea5e7adfbd4e2c95f7e9657da5a4899d19fc863b",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0020__L032__p197:singularhomology:derhamtheory": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0020__L032__p197:singularhomology:derhamtheory",
+"anchor": "de Rham cohomology",
+"nearest": [
+"Čech cohomology",
+"group cohomology",
+"étale cohomology",
+"crystalline cohomology"
+],
+"random": [],
+"distractors": [
+"Čech cohomology",
+"group cohomology",
+"étale cohomology",
+"crystalline cohomology"
+],
+"n_eligible": 4,
+"sha": "c439c8e537124759fcdfe311306002f07f4bfb1b5a22bd32df58c2922cbdbc5a",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0020__L048__p23:sheafcohomology:derhamtheory": {
+"unit": "s3d-rl600-all11:chat-lmsys-0020__L048__p23:sheafcohomology:derhamtheory",
+"anchor": "De Rham cohomology",
+"nearest": [
+"Čech cohomology",
+"group cohomology",
+"étale cohomology",
+"crystalline cohomology"
+],
+"random": [],
+"distractors": [
+"Čech cohomology",
+"group cohomology",
+"étale cohomology",
+"crystalline cohomology"
+],
+"n_eligible": 4,
+"sha": "fc01b5d85c5fdf353229452e86c50fc5b06ca43f5694c8531212b18056cc97e7",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0020__L024__p132:holomorphiccohomology:derhamcohomology": {
+"unit": "s3d-sft251:chat-lmsys-0020__L024__p132:holomorphiccohomology:derhamcohomology",
+"anchor": "de Rham cohomology",
+"nearest": [
+"Čech cohomology",
+"group cohomology",
+"étale cohomology",
+"crystalline cohomology"
+],
+"random": [],
+"distractors": [
+"Čech cohomology",
+"group cohomology",
+"étale cohomology",
+"crystalline cohomology"
+],
+"n_eligible": 4,
+"sha": "eee1b215b69ef1863b3dab2a03fe96071694d94df4747b6af00ed6b54d4fdad0",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0020__L024__p132:holomorphiccohomology:singularcohomology": {
+"unit": "s3d-sft251:chat-lmsys-0020__L024__p132:holomorphiccohomology:singularcohomology",
+"anchor": "de Rham cohomology",
+"nearest": [
+"Čech cohomology",
+"group cohomology",
+"étale cohomology",
+"crystalline cohomology"
+],
+"random": [],
+"distractors": [
+"Čech cohomology",
+"group cohomology",
+"étale cohomology",
+"crystalline cohomology"
+],
+"n_eligible": 4,
+"sha": "4a03fd036d38ef1f4b4969ad26d7f5b69345049d5fe2d0964a0bfa87abcbff3e",
+"generation": 0
+}
+}

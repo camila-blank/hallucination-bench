@@ -1,0 +1,582 @@
+{
+"mlnla-ck2000-all11:chat-lmsys-0004__L020__p456:gaddis:williamapplemanwilliams": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0004__L020__p456:gaddis:williamapplemanwilliams",
+"anchor": "William Appleman Williams",
+"nearest": [
+"Leopold von Ranke",
+"Fernand Braudel",
+"Thomas Babington Macaulay",
+"Edward Gibbon"
+],
+"random": [
+"Livy",
+"Sima Qian",
+"Tacitus",
+"Thucydides"
+],
+"distractors": [
+"Leopold von Ranke",
+"Fernand Braudel",
+"Thomas Babington Macaulay",
+"Edward Gibbon",
+"Livy",
+"Sima Qian",
+"Tacitus",
+"Thucydides"
+],
+"n_eligible": 11,
+"sha": "20b7a41b3ae7ea6307d0d12b61c2d7bf045ed69b63960bcbf3722e6971f91a36",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0004__L024__p456:gaddis:williamapplemanwilliamsgabrielkolko": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0004__L024__p456:gaddis:williamapplemanwilliamsgabrielkolko",
+"anchor": "William Appleman Williams",
+"nearest": [
+"Leopold von Ranke",
+"Fernand Braudel",
+"Thomas Babington Macaulay",
+"Edward Gibbon"
+],
+"random": [
+"Herodotus",
+"Livy",
+"Sima Qian",
+"Tacitus"
+],
+"distractors": [
+"Leopold von Ranke",
+"Fernand Braudel",
+"Thomas Babington Macaulay",
+"Edward Gibbon",
+"Herodotus",
+"Livy",
+"Sima Qian",
+"Tacitus"
+],
+"n_eligible": 11,
+"sha": "d8c267fa3de56bc61dddfa184cd141ffd89d9c5b0049208ddaf0f6c6f12c788c",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0004__L036__p532:beard:williamapplemanwilliams": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0004__L036__p532:beard:williamapplemanwilliams",
+"anchor": "William Appleman Williams",
+"nearest": [
+"Leopold von Ranke",
+"Fernand Braudel",
+"Thomas Babington Macaulay",
+"Edward Gibbon"
+],
+"random": [
+"Herodotus",
+"Polybius",
+"Sima Qian",
+"Tacitus"
+],
+"distractors": [
+"Leopold von Ranke",
+"Fernand Braudel",
+"Thomas Babington Macaulay",
+"Edward Gibbon",
+"Herodotus",
+"Polybius",
+"Sima Qian",
+"Tacitus"
+],
+"n_eligible": 11,
+"sha": "9c7aded66e7a84890d4733cf3395cd1ca357b55f10ab20e0ff9e44a546eba595",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0004__L048__p456:beisnergaddis:williamskolkofeigel": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0004__L048__p456:beisnergaddis:williamskolkofeigel",
+"anchor": "William Appleman Williams",
+"nearest": [
+"Leopold von Ranke",
+"Fernand Braudel",
+"Thomas Babington Macaulay",
+"Edward Gibbon"
+],
+"random": [
+"Ibn Khaldun",
+"Sima Qian",
+"Tacitus",
+"Thucydides"
+],
+"distractors": [
+"Leopold von Ranke",
+"Fernand Braudel",
+"Thomas Babington Macaulay",
+"Edward Gibbon",
+"Ibn Khaldun",
+"Sima Qian",
+"Tacitus",
+"Thucydides"
+],
+"n_eligible": 11,
+"sha": "05b346b706864bfba5a43cc8a4d1311b319741fc89d24b69056dded9956a3d5a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0004__L048__p456:gaddis:williamapplemanwilliams": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0004__L048__p456:gaddis:williamapplemanwilliams",
+"anchor": "William Appleman Williams",
+"nearest": [
+"Leopold von Ranke",
+"Fernand Braudel",
+"Thomas Babington Macaulay",
+"Edward Gibbon"
+],
+"random": [
+"Ibn Khaldun",
+"Polybius",
+"Sima Qian",
+"Thucydides"
+],
+"distractors": [
+"Leopold von Ranke",
+"Fernand Braudel",
+"Thomas Babington Macaulay",
+"Edward Gibbon",
+"Ibn Khaldun",
+"Polybius",
+"Sima Qian",
+"Thucydides"
+],
+"n_eligible": 11,
+"sha": "7160bf6f2e809b0da65584665e109aeab3df81d526ef847eb63b193d6a448f49",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0004__L048__p456:wightmangaddis:williamskolkofeigel": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0004__L048__p456:wightmangaddis:williamskolkofeigel",
+"anchor": "William Appleman Williams",
+"nearest": [
+"Leopold von Ranke",
+"Fernand Braudel",
+"Thomas Babington Macaulay",
+"Edward Gibbon"
+],
+"random": [
+"Herodotus",
+"Livy",
+"Sima Qian",
+"Tacitus"
+],
+"distractors": [
+"Leopold von Ranke",
+"Fernand Braudel",
+"Thomas Babington Macaulay",
+"Edward Gibbon",
+"Herodotus",
+"Livy",
+"Sima Qian",
+"Tacitus"
+],
+"n_eligible": 11,
+"sha": "4535327aa843d2cd3cbf52e8847c37adec4db93b6285cb7e93bf1a416f05373a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0004__L056__p456:gaddisdean:williamapplemanwilliamsgabrielkolko": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0004__L056__p456:gaddisdean:williamapplemanwilliamsgabrielkolko",
+"anchor": "William Appleman Williams",
+"nearest": [
+"Leopold von Ranke",
+"Fernand Braudel",
+"Thomas Babington Macaulay",
+"Edward Gibbon"
+],
+"random": [
+"Ibn Khaldun",
+"Livy",
+"Polybius",
+"Tacitus"
+],
+"distractors": [
+"Leopold von Ranke",
+"Fernand Braudel",
+"Thomas Babington Macaulay",
+"Edward Gibbon",
+"Ibn Khaldun",
+"Livy",
+"Polybius",
+"Tacitus"
+],
+"n_eligible": 11,
+"sha": "6e4785f9a4923e7f45eeec62fcd926900e5ae875a31f91ccc3566ee27d34969d",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0004__L028__p456:gaddis:williamapplemanwilliams": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0004__L028__p456:gaddis:williamapplemanwilliams",
+"anchor": "William Appleman Williams",
+"nearest": [
+"Leopold von Ranke",
+"Fernand Braudel",
+"Thomas Babington Macaulay",
+"Edward Gibbon"
+],
+"random": [
+"Herodotus",
+"Ibn Khaldun",
+"Sima Qian",
+"Tacitus"
+],
+"distractors": [
+"Leopold von Ranke",
+"Fernand Braudel",
+"Thomas Babington Macaulay",
+"Edward Gibbon",
+"Herodotus",
+"Ibn Khaldun",
+"Sima Qian",
+"Tacitus"
+],
+"n_eligible": 11,
+"sha": "85e216209bd45c1d5419513cb6f1ed167f838cb53d3a78eeaf6b7a3de00ff039",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0004__L028__p532:wallerstein:revisionisthistorians": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0004__L028__p532:wallerstein:revisionisthistorians",
+"anchor": "Immanuel Wallerstein",
+"nearest": [
+"Fernand Braudel",
+"William Appleman Williams",
+"Leopold von Ranke",
+"Ibn Khaldun"
+],
+"random": [
+"Herodotus",
+"Polybius",
+"Tacitus",
+"Thucydides"
+],
+"distractors": [
+"Fernand Braudel",
+"William Appleman Williams",
+"Leopold von Ranke",
+"Ibn Khaldun",
+"Herodotus",
+"Polybius",
+"Tacitus",
+"Thucydides"
+],
+"n_eligible": 12,
+"sha": "87f9db75bf681b249503590391a04472d48062de3fe27ecb30d351f446ceb871",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0004__L028__p532:wallerstein:revisionists": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0004__L028__p532:wallerstein:revisionists",
+"anchor": "Immanuel Wallerstein",
+"nearest": [
+"Fernand Braudel",
+"William Appleman Williams",
+"Leopold von Ranke",
+"Ibn Khaldun"
+],
+"random": [
+"Livy",
+"Polybius",
+"Sima Qian",
+"Tacitus"
+],
+"distractors": [
+"Fernand Braudel",
+"William Appleman Williams",
+"Leopold von Ranke",
+"Ibn Khaldun",
+"Livy",
+"Polybius",
+"Sima Qian",
+"Tacitus"
+],
+"n_eligible": 12,
+"sha": "de3d0b0c6099b07133927ddf360a353f9adfde3c685dbd2077f198fbe364886b",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0004__L044__p456:gaddis:williamapplemanwilliams": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0004__L044__p456:gaddis:williamapplemanwilliams",
+"anchor": "William Appleman Williams",
+"nearest": [
+"Leopold von Ranke",
+"Fernand Braudel",
+"Thomas Babington Macaulay",
+"Edward Gibbon"
+],
+"random": [
+"Herodotus",
+"Polybius",
+"Sima Qian",
+"Thucydides"
+],
+"distractors": [
+"Leopold von Ranke",
+"Fernand Braudel",
+"Thomas Babington Macaulay",
+"Edward Gibbon",
+"Herodotus",
+"Polybius",
+"Sima Qian",
+"Thucydides"
+],
+"n_eligible": 11,
+"sha": "bf17baac79eaeed5ff1237c1bcab0146757080c04603b3d75b37c6733aa54643",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0004__L044__p532:gaddiswaltzpost:williamapplemanwilliamsgabrielkolko": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0004__L044__p532:gaddiswaltzpost:williamapplemanwilliamsgabrielkolko",
+"anchor": "William Appleman Williams",
+"nearest": [
+"Leopold von Ranke",
+"Fernand Braudel",
+"Thomas Babington Macaulay",
+"Edward Gibbon"
+],
+"random": [
+"Herodotus",
+"Ibn Khaldun",
+"Polybius",
+"Sima Qian"
+],
+"distractors": [
+"Leopold von Ranke",
+"Fernand Braudel",
+"Thomas Babington Macaulay",
+"Edward Gibbon",
+"Herodotus",
+"Ibn Khaldun",
+"Polybius",
+"Sima Qian"
+],
+"n_eligible": 11,
+"sha": "47eef191422cefe52f4dbf5ad3b8a5c79d39a7286a03c433a7fe10dd1bcad18c",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0004__L048__p208:gaddis:revisionists": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0004__L048__p208:gaddis:revisionists",
+"anchor": "William Appleman Williams",
+"nearest": [
+"Leopold von Ranke",
+"Fernand Braudel",
+"Thomas Babington Macaulay",
+"Edward Gibbon"
+],
+"random": [
+"Ibn Khaldun",
+"Livy",
+"Sima Qian",
+"Thucydides"
+],
+"distractors": [
+"Leopold von Ranke",
+"Fernand Braudel",
+"Thomas Babington Macaulay",
+"Edward Gibbon",
+"Ibn Khaldun",
+"Livy",
+"Sima Qian",
+"Thucydides"
+],
+"n_eligible": 11,
+"sha": "b31b606649abc5436e34d45117436929738da3f49ce8b76678035d54ea83f616",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0004__L048__p208:gaddis:williamapplemanwilliams": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0004__L048__p208:gaddis:williamapplemanwilliams",
+"anchor": "William Appleman Williams",
+"nearest": [
+"Leopold von Ranke",
+"Fernand Braudel",
+"Thomas Babington Macaulay",
+"Edward Gibbon"
+],
+"random": [
+"Herodotus",
+"Ibn Khaldun",
+"Polybius",
+"Sima Qian"
+],
+"distractors": [
+"Leopold von Ranke",
+"Fernand Braudel",
+"Thomas Babington Macaulay",
+"Edward Gibbon",
+"Herodotus",
+"Ibn Khaldun",
+"Polybius",
+"Sima Qian"
+],
+"n_eligible": 11,
+"sha": "b3c3e5d64f557e5a7e8f294282e34069c3dfaaa958ac39fba63477d7d4f9ee6f",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0004__L048__p456:gaddiskennantruman:williamapplemanwilliamsgabrielkolko": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0004__L048__p456:gaddiskennantruman:williamapplemanwilliamsgabrielkolko",
+"anchor": "William Appleman Williams",
+"nearest": [
+"Leopold von Ranke",
+"Fernand Braudel",
+"Thomas Babington Macaulay",
+"Edward Gibbon"
+],
+"random": [
+"Herodotus",
+"Ibn Khaldun",
+"Livy",
+"Polybius"
+],
+"distractors": [
+"Leopold von Ranke",
+"Fernand Braudel",
+"Thomas Babington Macaulay",
+"Edward Gibbon",
+"Herodotus",
+"Ibn Khaldun",
+"Livy",
+"Polybius"
+],
+"n_eligible": 11,
+"sha": "a75248fa67441e78d1275fc52d3d8c4839893f6c0273561142bf39965ed98ccc",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0004__L048__p456:gaddisnye:williamapplemanwilliamsgabrielkolko": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0004__L048__p456:gaddisnye:williamapplemanwilliamsgabrielkolko",
+"anchor": "William Appleman Williams",
+"nearest": [
+"Leopold von Ranke",
+"Fernand Braudel",
+"Thomas Babington Macaulay",
+"Edward Gibbon"
+],
+"random": [
+"Polybius",
+"Sima Qian",
+"Tacitus",
+"Thucydides"
+],
+"distractors": [
+"Leopold von Ranke",
+"Fernand Braudel",
+"Thomas Babington Macaulay",
+"Edward Gibbon",
+"Polybius",
+"Sima Qian",
+"Tacitus",
+"Thucydides"
+],
+"n_eligible": 11,
+"sha": "63eec05c90995fb7d8b5dc8f49b3bab352d6e0588e795ca1e0819f5e5a21ffb5",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0004__L056__p456:gaddis:williamapplemanwilliams": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0004__L056__p456:gaddis:williamapplemanwilliams",
+"anchor": "William Appleman Williams",
+"nearest": [
+"Leopold von Ranke",
+"Fernand Braudel",
+"Thomas Babington Macaulay",
+"Edward Gibbon"
+],
+"random": [
+"Herodotus",
+"Ibn Khaldun",
+"Polybius",
+"Sima Qian"
+],
+"distractors": [
+"Leopold von Ranke",
+"Fernand Braudel",
+"Thomas Babington Macaulay",
+"Edward Gibbon",
+"Herodotus",
+"Ibn Khaldun",
+"Polybius",
+"Sima Qian"
+],
+"n_eligible": 11,
+"sha": "321ca021d0c3d4621c46ebe8b133ebace4299e51d213f40ce558afe96aa4c44f",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0004__L060__p456:gaddis:williamapplemanwilliams": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0004__L060__p456:gaddis:williamapplemanwilliams",
+"anchor": "William Appleman Williams",
+"nearest": [
+"Leopold von Ranke",
+"Fernand Braudel",
+"Thomas Babington Macaulay",
+"Edward Gibbon"
+],
+"random": [
+"Herodotus",
+"Polybius",
+"Sima Qian",
+"Thucydides"
+],
+"distractors": [
+"Leopold von Ranke",
+"Fernand Braudel",
+"Thomas Babington Macaulay",
+"Edward Gibbon",
+"Herodotus",
+"Polybius",
+"Sima Qian",
+"Thucydides"
+],
+"n_eligible": 11,
+"sha": "baf5fa1436abdb122d90141a0e7e0cde1e1e13be3a47f0771ce953ae65cbdd73",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0004__L052__p456:gaddis:williamapplemanwilliamsgabrielkolko": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0004__L052__p456:gaddis:williamapplemanwilliamsgabrielkolko",
+"anchor": "William Appleman Williams",
+"nearest": [
+"Leopold von Ranke",
+"Fernand Braudel",
+"Thomas Babington Macaulay",
+"Edward Gibbon"
+],
+"random": [
+"Herodotus",
+"Livy",
+"Sima Qian",
+"Tacitus"
+],
+"distractors": [
+"Leopold von Ranke",
+"Fernand Braudel",
+"Thomas Babington Macaulay",
+"Edward Gibbon",
+"Herodotus",
+"Livy",
+"Sima Qian",
+"Tacitus"
+],
+"n_eligible": 11,
+"sha": "a51d133bbb61791baa257ecd2d68d0d8cae54a607eed80881637425aa9bc5d9a",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0004__L042__p391:walterlafeber:williamapplemanwilliams": {
+"unit": "nla-rl-L42:chat-lmsys-0004__L042__p391:walterlafeber:williamapplemanwilliams",
+"anchor": "Walter LaFeber",
+"nearest": [
+"William Appleman Williams",
+"Thomas Babington Macaulay",
+"Fernand Braudel",
+"Leopold von Ranke"
+],
+"random": [
+"Livy",
+"Sima Qian",
+"Tacitus",
+"Thucydides"
+],
+"distractors": [
+"William Appleman Williams",
+"Thomas Babington Macaulay",
+"Fernand Braudel",
+"Leopold von Ranke",
+"Livy",
+"Sima Qian",
+"Tacitus",
+"Thucydides"
+],
+"n_eligible": 12,
+"sha": "fb20c4cb14ad2b5cd92a3d9fa01bc5beb8b63c7e613aaa4c0d8ee9a1e5b2f966",
+"generation": 0
+}
+}

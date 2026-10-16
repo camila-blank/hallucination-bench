@@ -1,0 +1,1152 @@
+{
+"mlnla-ck2000-all11:chat-lmsys-0033__L048__p307:impedance:resistance": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0033__L048__p307:impedance:resistance",
+"anchor": "Resistance",
+"nearest": [
+"Electric charge",
+"Conductance",
+"Reactance",
+"Capacitance"
+],
+"random": [
+"Admittance",
+"Inductance"
+],
+"distractors": [
+"Electric charge",
+"Conductance",
+"Reactance",
+"Capacitance",
+"Admittance",
+"Inductance"
+],
+"n_eligible": 6,
+"sha": "f8087bd187409fdd4c043bc5167068027cb10373f58bc69170fb389a2eaa0ca7",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0033__L040__p37:current:resistance": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0033__L040__p37:current:resistance",
+"anchor": "Resistance",
+"nearest": [
+"Electric charge",
+"Conductance",
+"Reactance",
+"Capacitance"
+],
+"random": [
+"Admittance",
+"Inductance"
+],
+"distractors": [
+"Electric charge",
+"Conductance",
+"Reactance",
+"Capacitance",
+"Admittance",
+"Inductance"
+],
+"n_eligible": 6,
+"sha": "bd4436d8ce058206da5441597d00484b4db05059be6cb27685365827264a9684",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0033__L040__p37:voltage:resistance": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0033__L040__p37:voltage:resistance",
+"anchor": "resistance",
+"nearest": [
+"Electric charge",
+"Conductance",
+"Capacitance",
+"Reactance"
+],
+"random": [
+"Admittance",
+"Inductance"
+],
+"distractors": [
+"Electric charge",
+"Conductance",
+"Capacitance",
+"Reactance",
+"Admittance",
+"Inductance"
+],
+"n_eligible": 6,
+"sha": "8797736bf9f2e331475417ef481c4798f41e5c25729cd9edbbf6a9f2ca82d5bf",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0033__L044__p307:resistance:current": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0033__L044__p307:resistance:current",
+"anchor": "voltage",
+"nearest": [
+"Electric charge",
+"Capacitance",
+"Conductance",
+"Inductance"
+],
+"random": [
+"Admittance",
+"Reactance"
+],
+"distractors": [
+"Electric charge",
+"Capacitance",
+"Conductance",
+"Inductance",
+"Admittance",
+"Reactance"
+],
+"n_eligible": 6,
+"sha": "f5272ad1d8f32f8948ac564f7195ae3cd13addfa4516d50b3c68ff8dbc33b490",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0033__L044__p37:current:resistance": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0033__L044__p37:current:resistance",
+"anchor": "Resistance",
+"nearest": [
+"Electric charge",
+"Conductance",
+"Reactance",
+"Capacitance"
+],
+"random": [
+"Admittance",
+"Inductance"
+],
+"distractors": [
+"Electric charge",
+"Conductance",
+"Reactance",
+"Capacitance",
+"Admittance",
+"Inductance"
+],
+"n_eligible": 6,
+"sha": "cef256024c3ddf6d0063e3f0e54f79e1970577f48354e393b275b123f0452584",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0033__L044__p37:voltage:resistance": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0033__L044__p37:voltage:resistance",
+"anchor": "resistance",
+"nearest": [
+"Electric charge",
+"Conductance",
+"Capacitance",
+"Reactance"
+],
+"random": [
+"Admittance",
+"Inductance"
+],
+"distractors": [
+"Electric charge",
+"Conductance",
+"Capacitance",
+"Reactance",
+"Admittance",
+"Inductance"
+],
+"n_eligible": 6,
+"sha": "6ac96869d2c1e9c90621657a8fe768d5f6193474df951a105fd9cd8b6d170431",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0033__L048__p77:currenti=vr:powerp=v×i": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0033__L048__p77:currenti=vr:powerp=v×i",
+"anchor": "Power",
+"nearest": [
+"Capacitance",
+"Conductance",
+"Admittance",
+"Inductance"
+],
+"random": [
+"Electric charge",
+"Reactance"
+],
+"distractors": [
+"Capacitance",
+"Conductance",
+"Admittance",
+"Inductance",
+"Electric charge",
+"Reactance"
+],
+"n_eligible": 6,
+"sha": "ed47f6af0b4a5e46d07e72a12dc860cefc82b1beb011f699053d56c86f5f4518",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0033__L020__p307:current:resistance": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0033__L020__p307:current:resistance",
+"anchor": "Resistance",
+"nearest": [
+"Electric charge",
+"Conductance",
+"Reactance",
+"Capacitance"
+],
+"random": [
+"Admittance",
+"Inductance"
+],
+"distractors": [
+"Electric charge",
+"Conductance",
+"Reactance",
+"Capacitance",
+"Admittance",
+"Inductance"
+],
+"n_eligible": 6,
+"sha": "54a80106944e76e5ab7a687ea79d368d529fb180d693bc373d44db89b9f79d24",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0033__L020__p77:current:resistance": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0033__L020__p77:current:resistance",
+"anchor": "Resistance",
+"nearest": [
+"Electric charge",
+"Conductance",
+"Reactance",
+"Capacitance"
+],
+"random": [
+"Admittance",
+"Inductance"
+],
+"distractors": [
+"Electric charge",
+"Conductance",
+"Reactance",
+"Capacitance",
+"Admittance",
+"Inductance"
+],
+"n_eligible": 6,
+"sha": "accdfd048b8897fc8a907175e38e9817bea437325c4b4048d33395c1b06e1688",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0033__L020__p77:power:resistance": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0033__L020__p77:power:resistance",
+"anchor": "current",
+"nearest": [
+"Electric charge",
+"Conductance",
+"Capacitance",
+"Inductance"
+],
+"random": [
+"Admittance",
+"Reactance"
+],
+"distractors": [
+"Electric charge",
+"Conductance",
+"Capacitance",
+"Inductance",
+"Admittance",
+"Reactance"
+],
+"n_eligible": 6,
+"sha": "02b7468806d19bb342a9cd1c31001096b1bfaa2bcc2394741b0c92e8c0f1fd3c",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0033__L036__p37:current:resistance": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0033__L036__p37:current:resistance",
+"anchor": "Resistance",
+"nearest": [
+"Electric charge",
+"Conductance",
+"Reactance",
+"Capacitance"
+],
+"random": [
+"Admittance",
+"Inductance"
+],
+"distractors": [
+"Electric charge",
+"Conductance",
+"Reactance",
+"Capacitance",
+"Admittance",
+"Inductance"
+],
+"n_eligible": 6,
+"sha": "5e3ebd4e795afcc81e0998d6e16642ed8ca77b673476389d40f59fc9d0e0a492",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0033__L040__p37:current:resistance": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0033__L040__p37:current:resistance",
+"anchor": "Resistance",
+"nearest": [
+"Electric charge",
+"Conductance",
+"Reactance",
+"Capacitance"
+],
+"random": [
+"Admittance",
+"Inductance"
+],
+"distractors": [
+"Electric charge",
+"Conductance",
+"Reactance",
+"Capacitance",
+"Admittance",
+"Inductance"
+],
+"n_eligible": 6,
+"sha": "94290f44db8b7e40c3c9560e6ed5d76389228a3e7cbf71371d649fd3dabd5514",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0033__L040__p37:voltage:resistance": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0033__L040__p37:voltage:resistance",
+"anchor": "resistance",
+"nearest": [
+"Electric charge",
+"Conductance",
+"Capacitance",
+"Reactance"
+],
+"random": [
+"Admittance",
+"Inductance"
+],
+"distractors": [
+"Electric charge",
+"Conductance",
+"Capacitance",
+"Reactance",
+"Admittance",
+"Inductance"
+],
+"n_eligible": 6,
+"sha": "73ceedcd624cf154e0802fd3c78d4f54a2eda2399f35fc80f3f07d0ef46b1b50",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0033__L052__p77:current:power": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0033__L052__p77:current:power",
+"anchor": "Resistance",
+"nearest": [
+"Electric charge",
+"Conductance",
+"Reactance",
+"Capacitance"
+],
+"random": [
+"Admittance",
+"Inductance"
+],
+"distractors": [
+"Electric charge",
+"Conductance",
+"Reactance",
+"Capacitance",
+"Admittance",
+"Inductance"
+],
+"n_eligible": 6,
+"sha": "6b0609f8bffa73b7f4686886670bda8e02a081954b8498e39d69ed1dfb09dbe0",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0033__L042__p37:voltage:resistance": {
+"unit": "nla-rl-L42:chat-lmsys-0033__L042__p37:voltage:resistance",
+"anchor": "resistance",
+"nearest": [
+"Electric charge",
+"Conductance",
+"Capacitance",
+"Reactance"
+],
+"random": [
+"Admittance",
+"Inductance"
+],
+"distractors": [
+"Electric charge",
+"Conductance",
+"Capacitance",
+"Reactance",
+"Admittance",
+"Inductance"
+],
+"n_eligible": 6,
+"sha": "e62e0f62a3f567c951406b5a6e60bd49ea9aa42b5917af54f58bd18032433858",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0033__L032__p128:resistance:voltage": {
+"unit": "s3d-rl600-all11:chat-lmsys-0033__L032__p128:resistance:voltage",
+"anchor": "voltage",
+"nearest": [
+"Electric charge",
+"Capacitance",
+"Conductance",
+"Inductance"
+],
+"random": [
+"Admittance",
+"Reactance"
+],
+"distractors": [
+"Electric charge",
+"Capacitance",
+"Conductance",
+"Inductance",
+"Admittance",
+"Reactance"
+],
+"n_eligible": 6,
+"sha": "d3d1c2ea2f784ea3e885d3f2f6f7f1f9f615c7536e69265521339dbd93cb59a3",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0033__L036__p37:current:power": {
+"unit": "s3d-rl600-all11:chat-lmsys-0033__L036__p37:current:power",
+"anchor": "Resistance",
+"nearest": [
+"Electric charge",
+"Conductance",
+"Reactance",
+"Capacitance"
+],
+"random": [
+"Admittance",
+"Inductance"
+],
+"distractors": [
+"Electric charge",
+"Conductance",
+"Reactance",
+"Capacitance",
+"Admittance",
+"Inductance"
+],
+"n_eligible": 6,
+"sha": "5e8e3d107833041f710413e3ca1f73ed3fb74d3e0b50a9ecda151bc8e8384b7d",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0033__L036__p37:current:resistance": {
+"unit": "s3d-rl600-all11:chat-lmsys-0033__L036__p37:current:resistance",
+"anchor": "Resistance",
+"nearest": [
+"Electric charge",
+"Conductance",
+"Reactance",
+"Capacitance"
+],
+"random": [
+"Admittance",
+"Inductance"
+],
+"distractors": [
+"Electric charge",
+"Conductance",
+"Reactance",
+"Capacitance",
+"Admittance",
+"Inductance"
+],
+"n_eligible": 6,
+"sha": "8000760043c46b250039358410a3a0ea3b74fe33606b94d42e397fb5181bd1ce",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0033__L036__p37:heat:resistance": {
+"unit": "s3d-rl600-all11:chat-lmsys-0033__L036__p37:heat:resistance",
+"anchor": "resistance",
+"nearest": [
+"Electric charge",
+"Conductance",
+"Capacitance",
+"Reactance"
+],
+"random": [
+"Admittance",
+"Inductance"
+],
+"distractors": [
+"Electric charge",
+"Conductance",
+"Capacitance",
+"Reactance",
+"Admittance",
+"Inductance"
+],
+"n_eligible": 6,
+"sha": "179fcba80fb462b86ae7b2cf00593763104a7c3f04b5c5304529197928721c8a",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0033__L036__p37:powerfactor:resistance": {
+"unit": "s3d-rl600-all11:chat-lmsys-0033__L036__p37:powerfactor:resistance",
+"anchor": "resistance",
+"nearest": [
+"Electric charge",
+"Conductance",
+"Capacitance",
+"Reactance"
+],
+"random": [
+"Admittance",
+"Inductance"
+],
+"distractors": [
+"Electric charge",
+"Conductance",
+"Capacitance",
+"Reactance",
+"Admittance",
+"Inductance"
+],
+"n_eligible": 6,
+"sha": "07bf6ca4f8225d1583201bcfb432d47b8b2f8f94bbbbad0767dd8af32c012aaa",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0033__L044__p128:resistance:current": {
+"unit": "s3d-rl600-all11:chat-lmsys-0033__L044__p128:resistance:current",
+"anchor": "voltage",
+"nearest": [
+"Electric charge",
+"Capacitance",
+"Conductance",
+"Inductance"
+],
+"random": [
+"Admittance",
+"Reactance"
+],
+"distractors": [
+"Electric charge",
+"Capacitance",
+"Conductance",
+"Inductance",
+"Admittance",
+"Reactance"
+],
+"n_eligible": 6,
+"sha": "fd94258c206704a2c096f24b7bee2a3d8c7300e1242e935c4c2dd517b737cd89",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0033__L044__p128:resistance:voltage": {
+"unit": "s3d-rl600-all11:chat-lmsys-0033__L044__p128:resistance:voltage",
+"anchor": "voltage",
+"nearest": [
+"Electric charge",
+"Capacitance",
+"Conductance",
+"Inductance"
+],
+"random": [
+"Admittance",
+"Reactance"
+],
+"distractors": [
+"Electric charge",
+"Capacitance",
+"Conductance",
+"Inductance",
+"Admittance",
+"Reactance"
+],
+"n_eligible": 6,
+"sha": "7dcd31db1922bd329ce4377531a73b468f914eedf5c8c062e806e9a691da7e6e",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0033__L052__p419:power:current": {
+"unit": "s3d-rl600-all11:chat-lmsys-0033__L052__p419:power:current",
+"anchor": "current",
+"nearest": [
+"Electric charge",
+"Conductance",
+"Capacitance",
+"Inductance"
+],
+"random": [
+"Admittance",
+"Reactance"
+],
+"distractors": [
+"Electric charge",
+"Conductance",
+"Capacitance",
+"Inductance",
+"Admittance",
+"Reactance"
+],
+"n_eligible": 6,
+"sha": "36bb837cf2d8d3de59fd8a1462f5b6e927d2964049719044c77fd654023a6dfc",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0033__L052__p419:resistance:current": {
+"unit": "s3d-rl600-all11:chat-lmsys-0033__L052__p419:resistance:current",
+"anchor": "voltage",
+"nearest": [
+"Electric charge",
+"Capacitance",
+"Conductance",
+"Inductance"
+],
+"random": [
+"Admittance",
+"Reactance"
+],
+"distractors": [
+"Electric charge",
+"Capacitance",
+"Conductance",
+"Inductance",
+"Admittance",
+"Reactance"
+],
+"n_eligible": 6,
+"sha": "77bdbcc0cf1a0e2a1a1facdbf662e97720e544e56f7f171e5c600971938ae62d",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0033__L060__p419:resistance:current": {
+"unit": "s3d-rl600-all11:chat-lmsys-0033__L060__p419:resistance:current",
+"anchor": "voltage",
+"nearest": [
+"Electric charge",
+"Capacitance",
+"Conductance",
+"Inductance"
+],
+"random": [
+"Admittance",
+"Reactance"
+],
+"distractors": [
+"Electric charge",
+"Capacitance",
+"Conductance",
+"Inductance",
+"Admittance",
+"Reactance"
+],
+"n_eligible": 6,
+"sha": "836531c0941d37b1742c54034da169344ce17eaa8809809e3db9bc8800a23771",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0033__L036__p239:efficiency:resistance": {
+"unit": "s3d-rl600:chat-lmsys-0033__L036__p239:efficiency:resistance",
+"anchor": "resistance",
+"nearest": [
+"Electric charge",
+"Conductance",
+"Capacitance",
+"Reactance"
+],
+"random": [
+"Admittance",
+"Inductance"
+],
+"distractors": [
+"Electric charge",
+"Conductance",
+"Capacitance",
+"Reactance",
+"Admittance",
+"Inductance"
+],
+"n_eligible": 6,
+"sha": "0791ef45bbd3e5f1611513a4a097f2d777d855842942358a7db48d4b59391814",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0033__L036__p419:resistance:current": {
+"unit": "s3d-rl600:chat-lmsys-0033__L036__p419:resistance:current",
+"anchor": "voltage",
+"nearest": [
+"Electric charge",
+"Capacitance",
+"Conductance",
+"Inductance"
+],
+"random": [
+"Admittance",
+"Reactance"
+],
+"distractors": [
+"Electric charge",
+"Capacitance",
+"Conductance",
+"Inductance",
+"Admittance",
+"Reactance"
+],
+"n_eligible": 6,
+"sha": "804ece8cc281ce02471f58f8cc9f5e1d95151a5c6e44b41a836ca0fe329a7468",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0033__L036__p419:resistance:voltage": {
+"unit": "s3d-rl600:chat-lmsys-0033__L036__p419:resistance:voltage",
+"anchor": "voltage",
+"nearest": [
+"Electric charge",
+"Capacitance",
+"Conductance",
+"Inductance"
+],
+"random": [
+"Admittance",
+"Reactance"
+],
+"distractors": [
+"Electric charge",
+"Capacitance",
+"Conductance",
+"Inductance",
+"Admittance",
+"Reactance"
+],
+"n_eligible": 6,
+"sha": "723afd3f2b03ce1e7aefe4e9fa5da09fddfcda5c960b01bc46b5772e6148121b",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0033__L044__p37:current:resistance": {
+"unit": "s3d-rl600:chat-lmsys-0033__L044__p37:current:resistance",
+"anchor": "Resistance",
+"nearest": [
+"Electric charge",
+"Conductance",
+"Reactance",
+"Capacitance"
+],
+"random": [
+"Admittance",
+"Inductance"
+],
+"distractors": [
+"Electric charge",
+"Conductance",
+"Reactance",
+"Capacitance",
+"Admittance",
+"Inductance"
+],
+"n_eligible": 6,
+"sha": "e2974e2cc699085839c3a359a83d14cee40ebcfb175f55ef762fe928c6b5c6b7",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0033__L044__p37:efficiency:resistance": {
+"unit": "s3d-rl600:chat-lmsys-0033__L044__p37:efficiency:resistance",
+"anchor": "resistance",
+"nearest": [
+"Electric charge",
+"Conductance",
+"Capacitance",
+"Reactance"
+],
+"random": [
+"Admittance",
+"Inductance"
+],
+"distractors": [
+"Electric charge",
+"Conductance",
+"Capacitance",
+"Reactance",
+"Admittance",
+"Inductance"
+],
+"n_eligible": 6,
+"sha": "99824979277f34f9a5761524aa7e72b4f43758a2ae54da06ed4b3597aeefad70",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0033__L060__p307:resistivity:resistance": {
+"unit": "s3d-rl600:chat-lmsys-0033__L060__p307:resistivity:resistance",
+"anchor": "Resistance",
+"nearest": [
+"Electric charge",
+"Conductance",
+"Reactance",
+"Capacitance"
+],
+"random": [
+"Admittance",
+"Inductance"
+],
+"distractors": [
+"Electric charge",
+"Conductance",
+"Reactance",
+"Capacitance",
+"Admittance",
+"Inductance"
+],
+"n_eligible": 6,
+"sha": "a5dc849bf67c69e1127e9a09b8cc7e6dadfaa64dba769561c9bc0a91cd426a24",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0033__L032__p37:heat:power": {
+"unit": "s3d-sft251:chat-lmsys-0033__L032__p37:heat:power",
+"anchor": "resistance",
+"nearest": [
+"Electric charge",
+"Conductance",
+"Capacitance",
+"Reactance"
+],
+"random": [
+"Admittance",
+"Inductance"
+],
+"distractors": [
+"Electric charge",
+"Conductance",
+"Capacitance",
+"Reactance",
+"Admittance",
+"Inductance"
+],
+"n_eligible": 6,
+"sha": "6398565a860e0d091c12799db44c40be70ffaf01177fba20952c2310caa37135",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0033__L036__p37:heat:power": {
+"unit": "s3d-sft251:chat-lmsys-0033__L036__p37:heat:power",
+"anchor": "resistance",
+"nearest": [
+"Electric charge",
+"Conductance",
+"Capacitance",
+"Reactance"
+],
+"random": [
+"Admittance",
+"Inductance"
+],
+"distractors": [
+"Electric charge",
+"Conductance",
+"Capacitance",
+"Reactance",
+"Admittance",
+"Inductance"
+],
+"n_eligible": 6,
+"sha": "44a7447ef9344b813c58da3235b58392c9b438c73021e86a4ba225cf6e346287",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0033__L036__p37:heat:resistance": {
+"unit": "s3d-sft251:chat-lmsys-0033__L036__p37:heat:resistance",
+"anchor": "resistance",
+"nearest": [
+"Electric charge",
+"Conductance",
+"Capacitance",
+"Reactance"
+],
+"random": [
+"Admittance",
+"Inductance"
+],
+"distractors": [
+"Electric charge",
+"Conductance",
+"Capacitance",
+"Reactance",
+"Admittance",
+"Inductance"
+],
+"n_eligible": 6,
+"sha": "060adb40e034195844eda0986ecef355fa0df327ed8c553908e3d47373376755",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0033__L040__p37:current:resistance": {
+"unit": "s3d-sft251:chat-lmsys-0033__L040__p37:current:resistance",
+"anchor": "Resistance",
+"nearest": [
+"Electric charge",
+"Conductance",
+"Reactance",
+"Capacitance"
+],
+"random": [
+"Admittance",
+"Inductance"
+],
+"distractors": [
+"Electric charge",
+"Conductance",
+"Reactance",
+"Capacitance",
+"Admittance",
+"Inductance"
+],
+"n_eligible": 6,
+"sha": "da2386894531fc38aa7628cce2564df75bec5b28557d383cb15211a44f147689",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0033__L040__p37:voltage:resistance": {
+"unit": "s3d-sft251:chat-lmsys-0033__L040__p37:voltage:resistance",
+"anchor": "resistance",
+"nearest": [
+"Electric charge",
+"Conductance",
+"Capacitance",
+"Reactance"
+],
+"random": [
+"Admittance",
+"Inductance"
+],
+"distractors": [
+"Electric charge",
+"Conductance",
+"Capacitance",
+"Reactance",
+"Admittance",
+"Inductance"
+],
+"n_eligible": 6,
+"sha": "210110deb04a3eea856e1a1c3f4e9ed9d214ee773a45ec89eb4b7b5381032119",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0033__L044__p37:current:resistance": {
+"unit": "s3d-sft251:chat-lmsys-0033__L044__p37:current:resistance",
+"anchor": "Resistance",
+"nearest": [
+"Electric charge",
+"Conductance",
+"Reactance",
+"Capacitance"
+],
+"random": [
+"Admittance",
+"Inductance"
+],
+"distractors": [
+"Electric charge",
+"Conductance",
+"Reactance",
+"Capacitance",
+"Admittance",
+"Inductance"
+],
+"n_eligible": 6,
+"sha": "1fbb52ba08d3c05fc5b8c632334e3325ce0ef8ca975a113a507f75d390ef8e14",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0033__L044__p37:efficiency:resistance": {
+"unit": "s3d-sft251:chat-lmsys-0033__L044__p37:efficiency:resistance",
+"anchor": "resistance",
+"nearest": [
+"Electric charge",
+"Conductance",
+"Capacitance",
+"Reactance"
+],
+"random": [
+"Admittance",
+"Inductance"
+],
+"distractors": [
+"Electric charge",
+"Conductance",
+"Capacitance",
+"Reactance",
+"Admittance",
+"Inductance"
+],
+"n_eligible": 6,
+"sha": "ac69ccfd98144cdbacf385ef4ae62d9890a925cd68e31198f2b674d7c3ec2e19",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0033__L044__p37:electricalenergy:power": {
+"unit": "s3d-sft251:chat-lmsys-0033__L044__p37:electricalenergy:power",
+"anchor": "Resistance",
+"nearest": [
+"Electric charge",
+"Conductance",
+"Reactance",
+"Capacitance"
+],
+"random": [
+"Admittance",
+"Inductance"
+],
+"distractors": [
+"Electric charge",
+"Conductance",
+"Reactance",
+"Capacitance",
+"Admittance",
+"Inductance"
+],
+"n_eligible": 6,
+"sha": "61f4a2467375103dd5af67ac98b33049b28b90513decac3bf8e23f3548373448",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0033__L044__p37:heat:resistance": {
+"unit": "s3d-sft251:chat-lmsys-0033__L044__p37:heat:resistance",
+"anchor": "resistance",
+"nearest": [
+"Electric charge",
+"Conductance",
+"Capacitance",
+"Reactance"
+],
+"random": [
+"Admittance",
+"Inductance"
+],
+"distractors": [
+"Electric charge",
+"Conductance",
+"Capacitance",
+"Reactance",
+"Admittance",
+"Inductance"
+],
+"n_eligible": 6,
+"sha": "99e8547221df3a523784f4f0d1427bde438938aa156678829ac62b68448fe372",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0033__L048__p37:current:resistance": {
+"unit": "s3d-sft251:chat-lmsys-0033__L048__p37:current:resistance",
+"anchor": "Resistance",
+"nearest": [
+"Electric charge",
+"Conductance",
+"Reactance",
+"Capacitance"
+],
+"random": [
+"Admittance",
+"Inductance"
+],
+"distractors": [
+"Electric charge",
+"Conductance",
+"Reactance",
+"Capacitance",
+"Admittance",
+"Inductance"
+],
+"n_eligible": 6,
+"sha": "0a789af0d357070aadc78ce24aa89cf8596793a864a185e3bf2a62579711ead2",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0033__L052__p37:current:resistance": {
+"unit": "s3d-sft251:chat-lmsys-0033__L052__p37:current:resistance",
+"anchor": "Resistance",
+"nearest": [
+"Electric charge",
+"Conductance",
+"Reactance",
+"Capacitance"
+],
+"random": [
+"Admittance",
+"Inductance"
+],
+"distractors": [
+"Electric charge",
+"Conductance",
+"Reactance",
+"Capacitance",
+"Admittance",
+"Inductance"
+],
+"n_eligible": 6,
+"sha": "47b0cc2524cf2210985463ccabe5978ad05e854e7ee738e40be7adeaf4564870",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0033__L052__p37:impedance:resistance": {
+"unit": "s3d-sft251:chat-lmsys-0033__L052__p37:impedance:resistance",
+"anchor": "Resistance",
+"nearest": [
+"Electric charge",
+"Conductance",
+"Reactance",
+"Capacitance"
+],
+"random": [
+"Admittance",
+"Inductance"
+],
+"distractors": [
+"Electric charge",
+"Conductance",
+"Reactance",
+"Capacitance",
+"Admittance",
+"Inductance"
+],
+"n_eligible": 6,
+"sha": "badffe08946ea91b047ce2f0975d2dcdcc87270dc95a3b65c8ed122d805eb156",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0033__L056__p419:resistance:current": {
+"unit": "s3d-sft251:chat-lmsys-0033__L056__p419:resistance:current",
+"anchor": "voltage",
+"nearest": [
+"Electric charge",
+"Capacitance",
+"Conductance",
+"Inductance"
+],
+"random": [
+"Admittance",
+"Reactance"
+],
+"distractors": [
+"Electric charge",
+"Capacitance",
+"Conductance",
+"Inductance",
+"Admittance",
+"Reactance"
+],
+"n_eligible": 6,
+"sha": "976cfd14f00dca8c12d767c6469179f5a29706dc08016dd84af088fb554f4660",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0033__L056__p419:voltage:current": {
+"unit": "s3d-sft251:chat-lmsys-0033__L056__p419:voltage:current",
+"anchor": "resistance",
+"nearest": [
+"Electric charge",
+"Conductance",
+"Capacitance",
+"Reactance"
+],
+"random": [
+"Admittance",
+"Inductance"
+],
+"distractors": [
+"Electric charge",
+"Conductance",
+"Capacitance",
+"Reactance",
+"Admittance",
+"Inductance"
+],
+"n_eligible": 6,
+"sha": "fb21f753c00ed790c13696e9527c572fe5a062396bbb1269f9b745c035d36544",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0033__L060__p419:voltage:resistance": {
+"unit": "s3d-sft251:chat-lmsys-0033__L060__p419:voltage:resistance",
+"anchor": "resistance",
+"nearest": [
+"Electric charge",
+"Conductance",
+"Capacitance",
+"Reactance"
+],
+"random": [
+"Admittance",
+"Inductance"
+],
+"distractors": [
+"Electric charge",
+"Conductance",
+"Capacitance",
+"Reactance",
+"Admittance",
+"Inductance"
+],
+"n_eligible": 6,
+"sha": "f840815ec0327ad044fad171811df51c58e6d6d92606ca3a5cb7377caae35b70",
+"generation": 0
+}
+}

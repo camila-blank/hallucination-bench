@@ -1,0 +1,582 @@
+{
+"logit:chat-lmsys-0008__L032__p378:d:c": {
+"unit": "logit:chat-lmsys-0008__L032__p378:d:c",
+"anchor": "A",
+"nearest": [
+"True",
+"Option A",
+"F",
+"option B"
+],
+"random": [
+"G",
+"H",
+"None of the above",
+"Option C"
+],
+"distractors": [
+"True",
+"Option A",
+"F",
+"option B",
+"G",
+"H",
+"None of the above",
+"Option C"
+],
+"n_eligible": 11,
+"sha": "e84e6e565bd31c26ea543ee446e0bdd1ca020ddd334e8e9a27fc5bd59b7fb668",
+"generation": 0
+},
+"logit:chat-lmsys-0008__L060__p378:c:a": {
+"unit": "logit:chat-lmsys-0008__L060__p378:c:a",
+"anchor": "A",
+"nearest": [
+"True",
+"Option A",
+"F",
+"option B"
+],
+"random": [
+"All of the above",
+"G",
+"H",
+"Option D"
+],
+"distractors": [
+"True",
+"Option A",
+"F",
+"option B",
+"All of the above",
+"G",
+"H",
+"Option D"
+],
+"n_eligible": 12,
+"sha": "b8f52d2be71f68f9dc0bde9f22aa97f51058e6067ee4c722a012ea5ceae7389a",
+"generation": 0
+},
+"mlnla-ck2000-all11:chat-lmsys-0004__L048__p306:c:b": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0004__L048__p306:c:b",
+"anchor": "B",
+"nearest": [
+"Option A",
+"Option D",
+"option D",
+"G"
+],
+"random": [
+"D",
+"E",
+"F",
+"None of the above"
+],
+"distractors": [
+"Option A",
+"Option D",
+"option D",
+"G",
+"D",
+"E",
+"F",
+"None of the above"
+],
+"n_eligible": 13,
+"sha": "8464cbfe1d7cf7b947a60a9be54d360f86aa3e38395d366bd5d4cea2fd698d63",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0004__L048__p306:optionc:optionb": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0004__L048__p306:optionc:optionb",
+"anchor": "option B",
+"nearest": [
+"Option A",
+"A",
+"Option D",
+"True"
+],
+"random": [
+"D",
+"E",
+"F",
+"None of the above"
+],
+"distractors": [
+"Option A",
+"A",
+"Option D",
+"True",
+"D",
+"E",
+"F",
+"None of the above"
+],
+"n_eligible": 13,
+"sha": "6e4de21fa8bd7dda4cb9c3c51a533d20a8c8ab37a7c9f44bf8783555e9efff86",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0008__L028__p378:b:a": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0008__L028__p378:b:a",
+"anchor": "A",
+"nearest": [
+"True",
+"Option A",
+"F",
+"Option D"
+],
+"random": [
+"All of the above",
+"E",
+"G",
+"H"
+],
+"distractors": [
+"True",
+"Option A",
+"F",
+"Option D",
+"All of the above",
+"E",
+"G",
+"H"
+],
+"n_eligible": 12,
+"sha": "3d522c8421aeda31f0a5e413a423007cd85c46f3b3b4acdcf52f49f712121cf5",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0008__L028__p378:optionb:optiona": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0008__L028__p378:optionb:optiona",
+"anchor": "Option A",
+"nearest": [
+"A",
+"Option C",
+"Option D",
+"option D"
+],
+"random": [
+"All of the above",
+"None of the above",
+"Option E",
+"True"
+],
+"distractors": [
+"A",
+"Option C",
+"Option D",
+"option D",
+"All of the above",
+"None of the above",
+"Option E",
+"True"
+],
+"n_eligible": 12,
+"sha": "f2ceba924187156e912fb29cf037802a2f17bc714fc43be770aad6c9cb4795ca",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0008__L024__p378:b:a": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0008__L024__p378:b:a",
+"anchor": "A",
+"nearest": [
+"True",
+"Option A",
+"F",
+"Option D"
+],
+"random": [
+"All of the above",
+"G",
+"Option C",
+"Option E"
+],
+"distractors": [
+"True",
+"Option A",
+"F",
+"Option D",
+"All of the above",
+"G",
+"Option C",
+"Option E"
+],
+"n_eligible": 12,
+"sha": "547852dd90adcba9b25a68a33ffd03ba76babf26181219fb623ded75b37708cb",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0008__L056__p326:b:a": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0008__L056__p326:b:a",
+"anchor": "A",
+"nearest": [
+"True",
+"Option A",
+"F",
+"Option D"
+],
+"random": [
+"All of the above",
+"H",
+"Option E",
+"option D"
+],
+"distractors": [
+"True",
+"Option A",
+"F",
+"Option D",
+"All of the above",
+"H",
+"Option E",
+"option D"
+],
+"n_eligible": 12,
+"sha": "095ba3bdcdff2c124e8a5062f36316ed122343e9730f8f78efa44e8049a35ac8",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0073__L040__p308:optionb:optiond": {
+"unit": "s3d-rl600-all11:chat-lmsys-0073__L040__p308:optionb:optiond",
+"anchor": "option D",
+"nearest": [
+"Option E",
+"G",
+"None of the above",
+"F"
+],
+"random": [
+"All of the above",
+"E",
+"H",
+"True"
+],
+"distractors": [
+"Option E",
+"G",
+"None of the above",
+"F",
+"All of the above",
+"E",
+"H",
+"True"
+],
+"n_eligible": 8,
+"sha": "d674f5b9c6eb1634f948848c14e89f7059d8c62b07ec0f8839826992c284af2b",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0073__L052__p491:optionc:optiond": {
+"unit": "s3d-rl600-all11:chat-lmsys-0073__L052__p491:optionc:optiond",
+"anchor": "Option D",
+"nearest": [
+"B",
+"E",
+"H",
+"F"
+],
+"random": [
+"G",
+"None of the above",
+"Option E",
+"True"
+],
+"distractors": [
+"B",
+"E",
+"H",
+"F",
+"G",
+"None of the above",
+"Option E",
+"True"
+],
+"n_eligible": 9,
+"sha": "a7b6c80bce0d2e6cdb47d22ea19a4f2cdd3300066493e641b92e4424e23f137f",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0073__L056__p232:optiona:optiond": {
+"unit": "s3d-rl600-all11:chat-lmsys-0073__L056__p232:optiona:optiond",
+"anchor": "Option D",
+"nearest": [
+"B",
+"E",
+"H",
+"F"
+],
+"random": [
+"All of the above",
+"G",
+"Option E",
+"True"
+],
+"distractors": [
+"B",
+"E",
+"H",
+"F",
+"All of the above",
+"G",
+"Option E",
+"True"
+],
+"n_eligible": 9,
+"sha": "edccf8e252e8332f783112248a2678c09d78bb84151b6efc54e3ec834c308d2a",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0008__L044__p431:b:a": {
+"unit": "s3d-rl600:chat-lmsys-0008__L044__p431:b:a",
+"anchor": "A",
+"nearest": [
+"True",
+"Option A",
+"F",
+"Option D"
+],
+"random": [
+"All of the above",
+"E",
+"H",
+"None of the above"
+],
+"distractors": [
+"True",
+"Option A",
+"F",
+"Option D",
+"All of the above",
+"E",
+"H",
+"None of the above"
+],
+"n_eligible": 12,
+"sha": "21f870a353467873c267c033b793e1fdde1405ed9a99738aade88e83e0cc3860",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0008__L044__p431:c:a": {
+"unit": "s3d-rl600:chat-lmsys-0008__L044__p431:c:a",
+"anchor": "A",
+"nearest": [
+"True",
+"Option A",
+"F",
+"option B"
+],
+"random": [
+"G",
+"H",
+"Option D",
+"option D"
+],
+"distractors": [
+"True",
+"Option A",
+"F",
+"option B",
+"G",
+"H",
+"Option D",
+"option D"
+],
+"n_eligible": 12,
+"sha": "6d60979a10516ce8b093b74c73a90017474798c09bc0871a1f7ffc8963ec11af",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0008__L024__p288:c:a": {
+"unit": "s3d-sft251:chat-lmsys-0008__L024__p288:c:a",
+"anchor": "A",
+"nearest": [
+"True",
+"Option A",
+"F",
+"option B"
+],
+"random": [
+"G",
+"H",
+"None of the above",
+"option D"
+],
+"distractors": [
+"True",
+"Option A",
+"F",
+"option B",
+"G",
+"H",
+"None of the above",
+"option D"
+],
+"n_eligible": 12,
+"sha": "1531b6718a18a424bea3a3340f173fd67c355589ef6e272c2437b2150cba7d82",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0008__L028__p111:c:a": {
+"unit": "s3d-sft251:chat-lmsys-0008__L028__p111:c:a",
+"anchor": "A",
+"nearest": [
+"True",
+"Option A",
+"F",
+"option B"
+],
+"random": [
+"All of the above",
+"H",
+"None of the above",
+"Option E"
+],
+"distractors": [
+"True",
+"Option A",
+"F",
+"option B",
+"All of the above",
+"H",
+"None of the above",
+"Option E"
+],
+"n_eligible": 12,
+"sha": "21af4ef1604f0fa24f6642dc6f8751817c6dd1926ec19c6d5c0aa11b27a41738",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0008__L052__p470:b:a": {
+"unit": "s3d-sft251:chat-lmsys-0008__L052__p470:b:a",
+"anchor": "A",
+"nearest": [
+"True",
+"Option A",
+"F",
+"Option D"
+],
+"random": [
+"E",
+"G",
+"Option C",
+"option D"
+],
+"distractors": [
+"True",
+"Option A",
+"F",
+"Option D",
+"E",
+"G",
+"Option C",
+"option D"
+],
+"n_eligible": 12,
+"sha": "b3d90646d148f9ff8415017e7044deb5e8031f41561c38fdb8a7d8d1aae45803",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0008__L056__p431:c:a": {
+"unit": "s3d-sft251:chat-lmsys-0008__L056__p431:c:a",
+"anchor": "A",
+"nearest": [
+"True",
+"Option A",
+"F",
+"option B"
+],
+"random": [
+"E",
+"G",
+"None of the above",
+"Option E"
+],
+"distractors": [
+"True",
+"Option A",
+"F",
+"option B",
+"E",
+"G",
+"None of the above",
+"Option E"
+],
+"n_eligible": 12,
+"sha": "a7385dbaf0719def5e9cbb1fb64f7226dc20d04be764ce18e40cb2f2558f948a",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0008__L056__p431:d:a": {
+"unit": "s3d-sft251:chat-lmsys-0008__L056__p431:d:a",
+"anchor": "A",
+"nearest": [
+"True",
+"Option A",
+"F",
+"option B"
+],
+"random": [
+"All of the above",
+"G",
+"None of the above",
+"Option E"
+],
+"distractors": [
+"True",
+"Option A",
+"F",
+"option B",
+"All of the above",
+"G",
+"None of the above",
+"Option E"
+],
+"n_eligible": 11,
+"sha": "0970bf9e87f6f981befbd34157a5cc247a635d8dcf7b5b5bfd1f875e5f0bddf7",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0046__L056__p461:a:d": {
+"unit": "s3d-sft251:chat-lmsys-0046__L056__p461:a:d",
+"anchor": "D",
+"nearest": [
+"Option E",
+"H",
+"Option C",
+"None of the above"
+],
+"random": [
+"B",
+"F",
+"Option A",
+"option B"
+],
+"distractors": [
+"Option E",
+"H",
+"Option C",
+"None of the above",
+"B",
+"F",
+"Option A",
+"option B"
+],
+"n_eligible": 13,
+"sha": "2f10832655a7f9152659a9b68027f672fe959de22aeef40f929e18f4328b14f1",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0073__L044__p194:optionb:optiona": {
+"unit": "s3d-sft251:chat-lmsys-0073__L044__p194:optionb:optiona",
+"anchor": "option D",
+"nearest": [
+"Option E",
+"G",
+"None of the above",
+"F"
+],
+"random": [
+"All of the above",
+"E",
+"H",
+"True"
+],
+"distractors": [
+"Option E",
+"G",
+"None of the above",
+"F",
+"All of the above",
+"E",
+"H",
+"True"
+],
+"n_eligible": 8,
+"sha": "05483e3400c06ab8350cc64a7778e81939c7f1085cc4440aaa2b4e2567ec5e3a",
+"generation": 0
+}
+}

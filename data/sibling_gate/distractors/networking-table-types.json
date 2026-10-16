@@ -1,0 +1,98 @@
+{
+"mlnla-ck2000-all11:chat-lmsys-0008__L032__p213:ramcam:rib": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0008__L032__p213:ramcam:rib",
+"anchor": "RIB/FIB",
+"nearest": [
+"Topology table",
+"Label Forwarding Information Base",
+"Adjacency table",
+"Flow table"
+],
+"random": [
+"Connection tracking table",
+"Neighbor table"
+],
+"distractors": [
+"Topology table",
+"Label Forwarding Information Base",
+"Adjacency table",
+"Flow table",
+"Connection tracking table",
+"Neighbor table"
+],
+"n_eligible": 6,
+"sha": "3084e16c896c5883e8bdcef169c43a8a024bb9962019219ab426ba1656f70eca",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0008__L048__p213:macaddresstable:rib": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0008__L048__p213:macaddresstable:rib",
+"anchor": "Routing Information Base",
+"nearest": [
+"Topology table",
+"Neighbor table",
+"Flow table",
+"Adjacency table"
+],
+"random": [
+"Connection tracking table"
+],
+"distractors": [
+"Topology table",
+"Neighbor table",
+"Flow table",
+"Adjacency table",
+"Connection tracking table"
+],
+"n_eligible": 5,
+"sha": "4e140b1c3d216bf4789f715f576d372d2743ec782e2fdb63e3390ab938c76fd9",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0008__L048__p213:mactable:rib": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0008__L048__p213:mactable:rib",
+"anchor": "Forwarding Information Base",
+"nearest": [
+"Adjacency table",
+"Connection tracking table",
+"Topology table",
+"Neighbor table"
+],
+"random": [
+"Flow table"
+],
+"distractors": [
+"Adjacency table",
+"Connection tracking table",
+"Topology table",
+"Neighbor table",
+"Flow table"
+],
+"n_eligible": 5,
+"sha": "c926c64cbaac6609102998d6e55f3055fce2372044790130bced50c465870300",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0008__L028__p213:camandtcam:ribandfib": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0008__L028__p213:camandtcam:ribandfib",
+"anchor": "RIB and FIB",
+"nearest": [
+"Topology table",
+"Neighbor table",
+"Adjacency table",
+"Label Forwarding Information Base"
+],
+"random": [
+"Connection tracking table",
+"Flow table"
+],
+"distractors": [
+"Topology table",
+"Neighbor table",
+"Adjacency table",
+"Label Forwarding Information Base",
+"Connection tracking table",
+"Flow table"
+],
+"n_eligible": 6,
+"sha": "0ee50e235d397ac5da36faf618f315600a65b0019310cfd8cbfac04d4982fd34",
+"generation": 1
+}
+}

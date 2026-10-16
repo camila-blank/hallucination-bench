@@ -1,0 +1,110 @@
+{
+"mlnla-ck2000-all11:chat-lmsys-0032__L032__p68:woolhouseadler:viviangreen": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0032__L032__p68:woolhouseadler:viviangreen",
+"anchor": "Vivian Green",
+"nearest": [
+"Mahatma Gandhi",
+"William Shakespeare",
+"Martin Luther King Jr.",
+"Confucius"
+],
+"random": [
+"Abraham Lincoln",
+"Albert Einstein",
+"Oscar Wilde"
+],
+"distractors": [
+"Mahatma Gandhi",
+"William Shakespeare",
+"Martin Luther King Jr.",
+"Confucius",
+"Abraham Lincoln",
+"Albert Einstein",
+"Oscar Wilde"
+],
+"n_eligible": 7,
+"sha": "cbed2a3571034aea914a7599bd68bcb8bb39c543cf700c5f38bc5dfa8d605798",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0032__L048__p112:wcfields:viviangreen": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0032__L048__p112:wcfields:viviangreen",
+"anchor": "Vivian Greene",
+"nearest": [
+"Mahatma Gandhi",
+"Confucius",
+"William Shakespeare",
+"Martin Luther King Jr."
+],
+"random": [
+"Abraham Lincoln",
+"Albert Einstein",
+"Oscar Wilde"
+],
+"distractors": [
+"Mahatma Gandhi",
+"Confucius",
+"William Shakespeare",
+"Martin Luther King Jr.",
+"Abraham Lincoln",
+"Albert Einstein",
+"Oscar Wilde"
+],
+"n_eligible": 7,
+"sha": "ec861167b29a0be47608405e73d962b4067d94aae99697a4f87ee43090864c36",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0032__L036__p38:franklin:viviangreen": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0032__L036__p38:franklin:viviangreen",
+"anchor": "Vivian Green",
+"nearest": [
+"Mahatma Gandhi",
+"William Shakespeare",
+"Martin Luther King Jr.",
+"Confucius"
+],
+"random": [
+"Abraham Lincoln",
+"Albert Einstein",
+"Oscar Wilde"
+],
+"distractors": [
+"Mahatma Gandhi",
+"William Shakespeare",
+"Martin Luther King Jr.",
+"Confucius",
+"Abraham Lincoln",
+"Albert Einstein",
+"Oscar Wilde"
+],
+"n_eligible": 7,
+"sha": "3ae7b4e64ac0378f4f21de401054bc0f1dc92edfcbceafb0f2d552d1084f4b94",
+"generation": 1
+},
+"mlnla-rl600-all11:chat-lmsys-0032__L048__p38:eleanorrooseveltjohnadams:viviangreen": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0032__L048__p38:eleanorrooseveltjohnadams:viviangreen",
+"anchor": "Vivian Green",
+"nearest": [
+"Mahatma Gandhi",
+"William Shakespeare",
+"Martin Luther King Jr.",
+"Confucius"
+],
+"random": [
+"Abraham Lincoln",
+"Albert Einstein",
+"Oscar Wilde"
+],
+"distractors": [
+"Mahatma Gandhi",
+"William Shakespeare",
+"Martin Luther King Jr.",
+"Confucius",
+"Abraham Lincoln",
+"Albert Einstein",
+"Oscar Wilde"
+],
+"n_eligible": 7,
+"sha": "a6e099c937917424dc330194f35a1935df05478c07253e3503963fe848f7c656",
+"generation": 1
+}
+}

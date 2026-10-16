@@ -1,0 +1,8992 @@
+{
+"logit:chat-dailydialog-0019__L036__p54:uk:china": {
+"unit": "logit:chat-dailydialog-0019__L036__p54:uk:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway"
+],
+"random": [
+"Ireland",
+"Philippines",
+"Switzerland",
+"Vatican City"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway",
+"Ireland",
+"Philippines",
+"Switzerland",
+"Vatican City"
+],
+"n_eligible": 19,
+"sha": "b99b32104f0ceaf48bfc0ce0440167d2364c8d344cb65be6ba71c72d56507281",
+"generation": 0
+},
+"mlnla-ck2000-all11:chat-dailydialog-0019__L020__p134:unitedstates:china": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0019__L020__p134:unitedstates:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Norway",
+"Taiwan"
+],
+"random": [
+"Iran",
+"Kingdom of Finland",
+"New Zealand",
+"Switzerland"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Norway",
+"Taiwan",
+"Iran",
+"Kingdom of Finland",
+"New Zealand",
+"Switzerland"
+],
+"n_eligible": 19,
+"sha": "205f5b17ef9906bf67795f44147b0859bd5a8a93832700116e59f9c28a0a7351",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0019__L020__p134:us:china": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0019__L020__p134:us:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Norway",
+"Taiwan"
+],
+"random": [
+"Ireland",
+"Italy",
+"Kingdom of Finland",
+"Philippines"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Norway",
+"Taiwan",
+"Ireland",
+"Italy",
+"Kingdom of Finland",
+"Philippines"
+],
+"n_eligible": 19,
+"sha": "b701764f7f2f7cb228dd843fbab4a5481cd704863d2485223ad4dbda8b7214aa",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0019__L024__p134:us:china": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0019__L024__p134:us:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Norway",
+"Taiwan"
+],
+"random": [
+"Finland",
+"Iran",
+"Italy",
+"Switzerland"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Norway",
+"Taiwan",
+"Finland",
+"Iran",
+"Italy",
+"Switzerland"
+],
+"n_eligible": 19,
+"sha": "15b079c5f7fd0f5190049c6e193a4ce8f1ba2b470e2eabedcb261cdefdf04018",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0019__L024__p134:usafactsus:china": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0019__L024__p134:usafactsus:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Norway",
+"Taiwan"
+],
+"random": [
+"Australia",
+"Costa Rica",
+"Denmark",
+"Iceland"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Norway",
+"Taiwan",
+"Australia",
+"Costa Rica",
+"Denmark",
+"Iceland"
+],
+"n_eligible": 19,
+"sha": "7b6722c90821e921125fad7cd68487677bc8a9b8da0bf77488c5e298742a3040",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0019__L024__p145:southkorea:china": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0019__L024__p145:southkorea:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Norway",
+"Taiwan"
+],
+"random": [
+"Costa Rica",
+"Philippines",
+"Scotland",
+"Switzerland"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Norway",
+"Taiwan",
+"Costa Rica",
+"Philippines",
+"Scotland",
+"Switzerland"
+],
+"n_eligible": 19,
+"sha": "104a6f99cb54b093e0384f59962446c4e071425b41a22befc5e7f9766e44a530",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0019__L028__p134:us:china": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0019__L028__p134:us:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Norway",
+"Taiwan"
+],
+"random": [
+"Costa Rica",
+"Finland",
+"Scotland",
+"Spain"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Norway",
+"Taiwan",
+"Costa Rica",
+"Finland",
+"Scotland",
+"Spain"
+],
+"n_eligible": 19,
+"sha": "1baa5646652c909c3b5ae51827a6358b6a1c271112260ad42fd5f9d22141788e",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0019__L028__p134:usa:china": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0019__L028__p134:usa:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Norway",
+"Taiwan"
+],
+"random": [
+"Denmark",
+"Finland",
+"Iran",
+"Ireland"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Norway",
+"Taiwan",
+"Denmark",
+"Finland",
+"Iran",
+"Ireland"
+],
+"n_eligible": 19,
+"sha": "cd5a783a0024cdb869ab7b151f886b87dd301184d84764c1ee64d5417841e79f",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0019__L028__p161:southkorea:china": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0019__L028__p161:southkorea:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Norway",
+"Taiwan"
+],
+"random": [
+"Costa Rica",
+"Denmark",
+"Iran",
+"Philippines"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Norway",
+"Taiwan",
+"Costa Rica",
+"Denmark",
+"Iran",
+"Philippines"
+],
+"n_eligible": 19,
+"sha": "9a8bba7bd7e360f9e90bb3e7e6188a654746831487ff206ddfc01a792d6ca78e",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0019__L036__p145:nigeria:china": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0019__L036__p145:nigeria:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Norway",
+"Taiwan"
+],
+"random": [
+"Costa Rica",
+"Finland",
+"Iran",
+"Philippines"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Norway",
+"Taiwan",
+"Costa Rica",
+"Finland",
+"Iran",
+"Philippines"
+],
+"n_eligible": 19,
+"sha": "45aa83ba78f4c37913f8a0bc0b5d1c37fa284a3e3c3601afe3b351e625827e8d",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0019__L040__p145:southkorea:china": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0019__L040__p145:southkorea:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Norway",
+"Taiwan"
+],
+"random": [
+"Australia",
+"Iceland",
+"New Zealand",
+"Philippines"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Norway",
+"Taiwan",
+"Australia",
+"Iceland",
+"New Zealand",
+"Philippines"
+],
+"n_eligible": 19,
+"sha": "aacd178f0e842d15f34282ac12c59c0a81cf38a5e1107e1ccc35175a6db01132",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0046__L020__p145:china:australia": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0046__L020__p145:china:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Ghana",
+"Iceland",
+"Scotland",
+"Vietnam"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Ghana",
+"Iceland",
+"Scotland",
+"Vietnam"
+],
+"n_eligible": 22,
+"sha": "4f347a42e6bd8de1d8e213ac71296de2c4095f4e4721d1d5d761e1b7b5a61e8f",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0046__L020__p145:korea:australia": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0046__L020__p145:korea:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Ghana",
+"Myanmar",
+"Nigeria",
+"Qatar"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Ghana",
+"Myanmar",
+"Nigeria",
+"Qatar"
+],
+"n_eligible": 22,
+"sha": "73cad702a03384a904ddce2699873698d22f3fcc5432706e52b4dd985ca92c8b",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0046__L020__p157:germany:australia": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0046__L020__p157:germany:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Myanmar",
+"Nigeria",
+"Scotland",
+"Taiwan"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Myanmar",
+"Nigeria",
+"Scotland",
+"Taiwan"
+],
+"n_eligible": 22,
+"sha": "f8062e68a515bd77ffd759644fba2163c5c5171591d3fd4437e9956ede9b2e41",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0046__L020__p157:sweden:australia": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0046__L020__p157:sweden:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Ghana",
+"Iceland",
+"Mexico",
+"Myanmar"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Ghana",
+"Iceland",
+"Mexico",
+"Myanmar"
+],
+"n_eligible": 22,
+"sha": "9f9e7e941f6cf7e32b9573207908947c8dde10e46167b0b408f883e979fb7d6b",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0046__L024__p145:canada:australia": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0046__L024__p145:canada:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Costa Rica",
+"Kingdom of Finland",
+"Myanmar",
+"Qatar"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Costa Rica",
+"Kingdom of Finland",
+"Myanmar",
+"Qatar"
+],
+"n_eligible": 22,
+"sha": "5f54730ebb2c719031b60990c95664a1368f24ed1e74f3744807e9e3499a1255",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0046__L024__p145:canadiansystem:australiansystem": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0046__L024__p145:canadiansystem:australiansystem",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Costa Rica",
+"Eritrea",
+"Iceland",
+"Soviet Union"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Costa Rica",
+"Eritrea",
+"Iceland",
+"Soviet Union"
+],
+"n_eligible": 22,
+"sha": "57d1a852761fce218b35339793bb77b441b78710f0faef6229d412aae34154eb",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0046__L028__p145:china:australia": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0046__L028__p145:china:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Egypt",
+"Pakistan",
+"Qatar",
+"Vietnam"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Egypt",
+"Pakistan",
+"Qatar",
+"Vietnam"
+],
+"n_eligible": 22,
+"sha": "ef1a89298a2bc2cea530c52a7d940975c07b44b83f517a7ddbc9dc20a1e5d9d0",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0046__L028__p145:singapore:australia": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0046__L028__p145:singapore:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Kingdom of Finland",
+"Myanmar",
+"Nigeria",
+"Pakistan"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Kingdom of Finland",
+"Myanmar",
+"Nigeria",
+"Pakistan"
+],
+"n_eligible": 22,
+"sha": "7d8d74cf92be2d539d1227289ba4f0f256769ef89bb7f1dd44af8796b211d09f",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0046__L028__p157:china:australia": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0046__L028__p157:china:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Costa Rica",
+"Kingdom of Finland",
+"Pakistan",
+"Soviet Union"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Costa Rica",
+"Kingdom of Finland",
+"Pakistan",
+"Soviet Union"
+],
+"n_eligible": 22,
+"sha": "5c62f2554f31e22fd26cfa73ee1556f73a54a58b5f8c81d487f86d7e7496319c",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0046__L028__p157:southkorea:australia": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0046__L028__p157:southkorea:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Kingdom of Finland",
+"Mongolia",
+"Myanmar",
+"Qatar"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Kingdom of Finland",
+"Mongolia",
+"Myanmar",
+"Qatar"
+],
+"n_eligible": 22,
+"sha": "0ee2035f74a27c52e90351372abb1253c7bdfeada5666e7108595ffdd8a8ffb3",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0046__L032__p157:japan:australia": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0046__L032__p157:japan:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Eritrea",
+"Mongolia",
+"Pakistan",
+"Qatar"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Eritrea",
+"Mongolia",
+"Pakistan",
+"Qatar"
+],
+"n_eligible": 22,
+"sha": "39e54d707a89d73511d44144e6d54362f6e702f1fbb53a8938c63d9574a7271a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0046__L032__p157:japaneseeducationtopics:vocationaleducationandtrainingvetthroughtafes": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0046__L032__p157:japaneseeducationtopics:vocationaleducationandtrainingvetthroughtafes",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Iceland",
+"Netherlands",
+"Scotland",
+"Soviet Union"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Iceland",
+"Netherlands",
+"Scotland",
+"Soviet Union"
+],
+"n_eligible": 22,
+"sha": "dee9e43d51c97205fb1b4c3e2068c60b992556f90949753d07ab75af7c164687",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0046__L032__p22:canada:australia": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0046__L032__p22:canada:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Egypt",
+"Ghana",
+"Netherlands",
+"Pakistan"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Egypt",
+"Ghana",
+"Netherlands",
+"Pakistan"
+],
+"n_eligible": 22,
+"sha": "223402170dd024e31b16ba324d8ede311b7629eaa9635de377d74cf6cb2e4d23",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0046__L044__p22:china:australia": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0046__L044__p22:china:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Egypt",
+"Netherlands",
+"Pakistan",
+"Taiwan"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Egypt",
+"Netherlands",
+"Pakistan",
+"Taiwan"
+],
+"n_eligible": 22,
+"sha": "804c03e2cbffea2728921d342dbeb112d97cca08acaab06f8bf5f687abd87241",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0046__L044__p22:unitedstates:alibabagroupstongyilab": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0046__L044__p22:unitedstates:alibabagroupstongyilab",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Brazil",
+"Costa Rica",
+"Eritrea",
+"Vietnam"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Brazil",
+"Costa Rica",
+"Eritrea",
+"Vietnam"
+],
+"n_eligible": 22,
+"sha": "86af90190dce155e967eb2d46580555cb4bc267fe524a741655b5f444d42d8d6",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0046__L048__p22:china:australia": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0046__L048__p22:china:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Costa Rica",
+"Eritrea",
+"Ghana",
+"Mexico"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Costa Rica",
+"Eritrea",
+"Ghana",
+"Mexico"
+],
+"n_eligible": 22,
+"sha": "0352d9e84e469ad5023d53fc739613fe213b4d3974a9c2ba9ed43d00520432b5",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0046__L056__p102:ireland:australia": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0046__L056__p102:ireland:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Ghana",
+"Myanmar",
+"Scotland",
+"Vietnam"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Ghana",
+"Myanmar",
+"Scotland",
+"Vietnam"
+],
+"n_eligible": 22,
+"sha": "c8c799561957040733e0bb2c14d53d43fe572b99f8c4b9b7a62bf9b4228f3e33",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0046__L060__p102:china:australia": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0046__L060__p102:china:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Egypt",
+"Mongolia",
+"Myanmar",
+"Netherlands"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Egypt",
+"Mongolia",
+"Myanmar",
+"Netherlands"
+],
+"n_eligible": 22,
+"sha": "b5c2fe23fd82d6c934ab1379b0d87061b52f2b370f0da107377a6187708e98b6",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0048__L024__p199:germany:london": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0048__L024__p199:germany:london",
+"anchor": "United Kingdom",
+"nearest": [
+"Austria",
+"Australia",
+"Turkey",
+"Canada"
+],
+"random": [
+"Iceland",
+"Ireland",
+"Netherlands",
+"New Zealand"
+],
+"distractors": [
+"Austria",
+"Australia",
+"Turkey",
+"Canada",
+"Iceland",
+"Ireland",
+"Netherlands",
+"New Zealand"
+],
+"n_eligible": 39,
+"sha": "b5a144cc97bc8d37c3b32cc09546804003d746cacb3266c49e591b3e50ad3492",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0048__L040__p199:france:london": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0048__L040__p199:france:london",
+"anchor": "United Kingdom",
+"nearest": [
+"Austria",
+"Australia",
+"Turkey",
+"Canada"
+],
+"random": [
+"Mexico",
+"Netherlands",
+"Singapore",
+"Syria"
+],
+"distractors": [
+"Austria",
+"Australia",
+"Turkey",
+"Canada",
+"Mexico",
+"Netherlands",
+"Singapore",
+"Syria"
+],
+"n_eligible": 39,
+"sha": "9d8174384fac4f5de1340a204ba83627eea96570e9c233755da55d1799a2d85a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0048__L044__p199:france:london": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0048__L044__p199:france:london",
+"anchor": "United Kingdom",
+"nearest": [
+"Austria",
+"Australia",
+"Turkey",
+"Canada"
+],
+"random": [
+"Denmark",
+"Nigeria",
+"Norway",
+"Soviet Union"
+],
+"distractors": [
+"Austria",
+"Australia",
+"Turkey",
+"Canada",
+"Denmark",
+"Nigeria",
+"Norway",
+"Soviet Union"
+],
+"n_eligible": 39,
+"sha": "494cd7002cbc2ffa0c89789d24b486665bad248d01f0c0516e5d86ee42768906",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0048__L044__p199:germany:london": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0048__L044__p199:germany:london",
+"anchor": "United Kingdom",
+"nearest": [
+"Austria",
+"Australia",
+"Turkey",
+"Canada"
+],
+"random": [
+"Finland",
+"India",
+"Malaysia",
+"Pakistan"
+],
+"distractors": [
+"Austria",
+"Australia",
+"Turkey",
+"Canada",
+"Finland",
+"India",
+"Malaysia",
+"Pakistan"
+],
+"n_eligible": 39,
+"sha": "0b0aa77ae69bb39488301bd65392559df189f3348b7f100245583f3bcd33f653",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0048__L044__p199:spain:london": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0048__L044__p199:spain:london",
+"anchor": "United Kingdom",
+"nearest": [
+"Austria",
+"Australia",
+"Turkey",
+"Canada"
+],
+"random": [
+"Finland",
+"Malaysia",
+"Qatar",
+"Taiwan"
+],
+"distractors": [
+"Austria",
+"Australia",
+"Turkey",
+"Canada",
+"Finland",
+"Malaysia",
+"Qatar",
+"Taiwan"
+],
+"n_eligible": 39,
+"sha": "f1e1a4531455c7508eb375faae42d2dc409476783cad601bed5d5dfbf7e1e74c",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0048__L052__p199:spain:uk": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0048__L052__p199:spain:uk",
+"anchor": "United Kingdom",
+"nearest": [
+"Austria",
+"Australia",
+"Turkey",
+"Canada"
+],
+"random": [
+"Malaysia",
+"Nigeria",
+"Scotland",
+"Vietnam"
+],
+"distractors": [
+"Austria",
+"Australia",
+"Turkey",
+"Canada",
+"Malaysia",
+"Nigeria",
+"Scotland",
+"Vietnam"
+],
+"n_eligible": 39,
+"sha": "6004bd38acb1bff64b610724a656d17b97de02347a8d7a0bbd80f57814e77e14",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0052__L020__p92:china:hongkong": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0052__L020__p92:china:hongkong",
+"anchor": "China",
+"nearest": [
+"United States",
+"Soviet Union",
+"Netherlands",
+"Pakistan"
+],
+"random": [
+"Ireland",
+"Nigeria",
+"Philippines",
+"Sweden"
+],
+"distractors": [
+"United States",
+"Soviet Union",
+"Netherlands",
+"Pakistan",
+"Ireland",
+"Nigeria",
+"Philippines",
+"Sweden"
+],
+"n_eligible": 32,
+"sha": "49cca664f468f8d520e6b69b31097dff826f400dcbe17d66c944831ed40ec631",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0052__L028__p92:china:hongkong": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0052__L028__p92:china:hongkong",
+"anchor": "China",
+"nearest": [
+"United States",
+"Soviet Union",
+"Netherlands",
+"Pakistan"
+],
+"random": [
+"Brazil",
+"Myanmar",
+"Philippines",
+"Vatican City"
+],
+"distractors": [
+"United States",
+"Soviet Union",
+"Netherlands",
+"Pakistan",
+"Brazil",
+"Myanmar",
+"Philippines",
+"Vatican City"
+],
+"n_eligible": 32,
+"sha": "03ddb5c53adde90a468c2adc8530cc89af53f6309ff1b4481cbbfc89042c42b7",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0052__L032__p92:china:hongkong": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0052__L032__p92:china:hongkong",
+"anchor": "China",
+"nearest": [
+"United States",
+"Soviet Union",
+"Netherlands",
+"Pakistan"
+],
+"random": [
+"Brazil",
+"Mexico",
+"Sweden",
+"United Kingdom"
+],
+"distractors": [
+"United States",
+"Soviet Union",
+"Netherlands",
+"Pakistan",
+"Brazil",
+"Mexico",
+"Sweden",
+"United Kingdom"
+],
+"n_eligible": 32,
+"sha": "e99a9e6704e3dae9c989478be189b534d067642ae4570e0ba6c9e2f80eda7643",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0052__L036__p92:japan:hongkong": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0052__L036__p92:japan:hongkong",
+"anchor": "Hong Kong",
+"nearest": [
+"Myanmar",
+"Scotland",
+"Taiwan",
+"Netherlands"
+],
+"random": [
+"Austria",
+"Brazil",
+"Mongolia",
+"Philippines"
+],
+"distractors": [
+"Myanmar",
+"Scotland",
+"Taiwan",
+"Netherlands",
+"Austria",
+"Brazil",
+"Mongolia",
+"Philippines"
+],
+"n_eligible": 31,
+"sha": "f8c8dcee9d22f607cd56201db726863fff76567fa05aa5bdd6be57b2bf6a214e",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0052__L040__p92:china:hongkong": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0052__L040__p92:china:hongkong",
+"anchor": "China",
+"nearest": [
+"United States",
+"Soviet Union",
+"Netherlands",
+"Pakistan"
+],
+"random": [
+"Kingdom of Finland",
+"Mongolia",
+"Norway",
+"Taiwan"
+],
+"distractors": [
+"United States",
+"Soviet Union",
+"Netherlands",
+"Pakistan",
+"Kingdom of Finland",
+"Mongolia",
+"Norway",
+"Taiwan"
+],
+"n_eligible": 32,
+"sha": "7cee68523a8b7fb8fcefaeedcf6c7143712cfcd2f52267abb1f885682224b7a5",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0052__L040__p92:japan:hongkong": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0052__L040__p92:japan:hongkong",
+"anchor": "Hong Kong",
+"nearest": [
+"Myanmar",
+"Scotland",
+"Taiwan",
+"Netherlands"
+],
+"random": [
+"Austria",
+"Mongolia",
+"Pakistan",
+"Vatican City"
+],
+"distractors": [
+"Myanmar",
+"Scotland",
+"Taiwan",
+"Netherlands",
+"Austria",
+"Mongolia",
+"Pakistan",
+"Vatican City"
+],
+"n_eligible": 31,
+"sha": "5fa79afde49b44d71ff556ac86a3a08a8c72c28ca0b0d04d25c95731bb6d59e2",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0052__L044__p45:japan:hongkong": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0052__L044__p45:japan:hongkong",
+"anchor": "Hong Kong",
+"nearest": [
+"Myanmar",
+"Scotland",
+"Taiwan",
+"Netherlands"
+],
+"random": [
+"Australia",
+"Nigeria",
+"Pakistan",
+"Sweden"
+],
+"distractors": [
+"Myanmar",
+"Scotland",
+"Taiwan",
+"Netherlands",
+"Australia",
+"Nigeria",
+"Pakistan",
+"Sweden"
+],
+"n_eligible": 31,
+"sha": "ae555fabef3ef1f4badb474df125422a7e76e04ec3e1b75d92a2498e0b01f105",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0052__L044__p92:japan:hongkong": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0052__L044__p92:japan:hongkong",
+"anchor": "Hong Kong",
+"nearest": [
+"Myanmar",
+"Scotland",
+"Taiwan",
+"Netherlands"
+],
+"random": [
+"Eritrea",
+"Italy",
+"Spain",
+"United States"
+],
+"distractors": [
+"Myanmar",
+"Scotland",
+"Taiwan",
+"Netherlands",
+"Eritrea",
+"Italy",
+"Spain",
+"United States"
+],
+"n_eligible": 31,
+"sha": "106ad55b271ee5fdc5965e85abe705dca8da37b2723d8d0c55cbc2c2a0b7b8cd",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0052__L048__p92:china:hongkong": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0052__L048__p92:china:hongkong",
+"anchor": "China",
+"nearest": [
+"United States",
+"Soviet Union",
+"Netherlands",
+"Pakistan"
+],
+"random": [
+"Austria",
+"Costa Rica",
+"Norway",
+"Taiwan"
+],
+"distractors": [
+"United States",
+"Soviet Union",
+"Netherlands",
+"Pakistan",
+"Austria",
+"Costa Rica",
+"Norway",
+"Taiwan"
+],
+"n_eligible": 32,
+"sha": "5027f2d93c3c08e5b704640ba59261b6ccb5049f77fffc0d33b80660697b94c5",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0052__L048__p92:japan:hongkong": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0052__L048__p92:japan:hongkong",
+"anchor": "Hong Kong",
+"nearest": [
+"Myanmar",
+"Scotland",
+"Taiwan",
+"Netherlands"
+],
+"random": [
+"Australia",
+"Ghana",
+"Spain",
+"Vatican City"
+],
+"distractors": [
+"Myanmar",
+"Scotland",
+"Taiwan",
+"Netherlands",
+"Australia",
+"Ghana",
+"Spain",
+"Vatican City"
+],
+"n_eligible": 31,
+"sha": "5b2aed633a09dfda655bbdfc14d6ea5d5e1e60f249b5389601f91a4849a744dd",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0052__L052__p103:china:hongkong": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0052__L052__p103:china:hongkong",
+"anchor": "China",
+"nearest": [
+"United States",
+"Soviet Union",
+"Netherlands",
+"Pakistan"
+],
+"random": [
+"Iceland",
+"Italy",
+"Scotland",
+"Taiwan"
+],
+"distractors": [
+"United States",
+"Soviet Union",
+"Netherlands",
+"Pakistan",
+"Iceland",
+"Italy",
+"Scotland",
+"Taiwan"
+],
+"n_eligible": 32,
+"sha": "21f46dc11597009d4365d5d71758870514a9bdfd2306cd1e583c7c85cf4fa859",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0009__L032__p286:malaysia:shanghaichina": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0009__L032__p286:malaysia:shanghaichina",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Canada",
+"Syria",
+"Japan"
+],
+"random": [
+"Finland",
+"Mexico",
+"Myanmar",
+"South Korea"
+],
+"distractors": [
+"Soviet Union",
+"Canada",
+"Syria",
+"Japan",
+"Finland",
+"Mexico",
+"Myanmar",
+"South Korea"
+],
+"n_eligible": 32,
+"sha": "63cbb5d6763c4447517c9fd95627a9fc825ccbaa66c35b1c718f8c008d811f6d",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0025__L048__p236:korea:shanghai": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0025__L048__p236:korea:shanghai",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Canada",
+"Netherlands",
+"Syria"
+],
+"random": [
+"Denmark",
+"Eritrea",
+"Finland",
+"Malaysia"
+],
+"distractors": [
+"Soviet Union",
+"Canada",
+"Netherlands",
+"Syria",
+"Denmark",
+"Eritrea",
+"Finland",
+"Malaysia"
+],
+"n_eligible": 36,
+"sha": "32da952fb97351c805758f234dc9a2bd89dd54f5a35d04f979ed04f915f26f4a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0025__L048__p236:southkorea:shanghai": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0025__L048__p236:southkorea:shanghai",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Canada",
+"Netherlands",
+"Syria"
+],
+"random": [
+"Denmark",
+"Iceland",
+"Qatar",
+"Taiwan"
+],
+"distractors": [
+"Soviet Union",
+"Canada",
+"Netherlands",
+"Syria",
+"Denmark",
+"Iceland",
+"Qatar",
+"Taiwan"
+],
+"n_eligible": 36,
+"sha": "a63dee1feffd3e973eed1e5d4f472b6eb9d59633a2e5723b66b42e1238b66191",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0031__L036__p81:vatican:swedishmonarch": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0031__L036__p81:vatican:swedishmonarch",
+"anchor": "Sweden",
+"nearest": [
+"Italy",
+"Philippines",
+"New Zealand",
+"Netherlands"
+],
+"random": [
+"Austria",
+"Iran",
+"Malaysia",
+"Qatar"
+],
+"distractors": [
+"Italy",
+"Philippines",
+"New Zealand",
+"Netherlands",
+"Austria",
+"Iran",
+"Malaysia",
+"Qatar"
+],
+"n_eligible": 20,
+"sha": "354cf1cc808dfa6d12445d3f1aa9cf2bf0028f5fd1c770c91bc796c88d96ee3e",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0047__L052__p135:vietnam:rosemarybeachflorida": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0047__L052__p135:vietnam:rosemarybeachflorida",
+"anchor": "United States",
+"nearest": [
+"China",
+"Australia",
+"Soviet Union",
+"Syria"
+],
+"random": [
+"Austria",
+"Myanmar",
+"Scotland",
+"Singapore"
+],
+"distractors": [
+"China",
+"Australia",
+"Soviet Union",
+"Syria",
+"Austria",
+"Myanmar",
+"Scotland",
+"Singapore"
+],
+"n_eligible": 38,
+"sha": "8de7dd537f9edb64db0af2ebf19fcf686bfb531f8c22ac2d388099e669c55c5f",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0065__L040__p22:america:thewest": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0065__L040__p22:america:thewest",
+"anchor": "United States",
+"nearest": [
+"China",
+"Australia",
+"Soviet Union",
+"France"
+],
+"random": [
+"Costa Rica",
+"Finland",
+"Hong Kong",
+"Mexico"
+],
+"distractors": [
+"China",
+"Australia",
+"Soviet Union",
+"France",
+"Costa Rica",
+"Finland",
+"Hong Kong",
+"Mexico"
+],
+"n_eligible": 43,
+"sha": "cea7b662053fbc6e605beba2b7e53654dee3eb4e1c27272d447e428629094691",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0065__L040__p22:theunitedstates:westernculture": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0065__L040__p22:theunitedstates:westernculture",
+"anchor": "United States",
+"nearest": [
+"China",
+"Australia",
+"Soviet Union",
+"France"
+],
+"random": [
+"New Zealand",
+"Nigeria",
+"Scotland",
+"Sweden"
+],
+"distractors": [
+"China",
+"Australia",
+"Soviet Union",
+"France",
+"New Zealand",
+"Nigeria",
+"Scotland",
+"Sweden"
+],
+"n_eligible": 43,
+"sha": "445579a20535de08f0ce48b5c34bc1d7dbfec044ec80c7adc2289b0212114112",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0070__L048__p183:southkorea:chengdusouthwestchina": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0070__L048__p183:southkorea:chengdusouthwestchina",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Canada",
+"Netherlands",
+"Syria"
+],
+"random": [
+"Australia",
+"Ireland",
+"Kingdom of Finland",
+"Spain"
+],
+"distractors": [
+"Soviet Union",
+"Canada",
+"Netherlands",
+"Syria",
+"Australia",
+"Ireland",
+"Kingdom of Finland",
+"Spain"
+],
+"n_eligible": 35,
+"sha": "883feae7c8969098deff15661046e838cb185d73737e07f6bccee247f9e3c1f8",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0019__L020__p134:unitedstates:china": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0019__L020__p134:unitedstates:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway"
+],
+"random": [
+"Denmark",
+"Iran",
+"Spain",
+"Switzerland"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway",
+"Denmark",
+"Iran",
+"Spain",
+"Switzerland"
+],
+"n_eligible": 20,
+"sha": "cb93d949c1458afc8d5899f7e29edc8f332f904bbfcd0d25df4d08f6d0501fad",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0019__L024__p134:unitedstates:china": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0019__L024__p134:unitedstates:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway"
+],
+"random": [
+"Australia",
+"Denmark",
+"Taiwan",
+"Vatican City"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway",
+"Australia",
+"Denmark",
+"Taiwan",
+"Vatican City"
+],
+"n_eligible": 20,
+"sha": "a71c0c8483ced6e17b7ed69a7019409e4fec9f75c99cd64e9a5876aea720db42",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0019__L024__p145:brazil:china": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0019__L024__p145:brazil:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway"
+],
+"random": [
+"Iceland",
+"Iran",
+"Kingdom of Finland",
+"Philippines"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway",
+"Iceland",
+"Iran",
+"Kingdom of Finland",
+"Philippines"
+],
+"n_eligible": 20,
+"sha": "84ae87f3ea717d4deb342af7ed647134bdd083b944a39fc5332ec4b095de0a13",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0019__L028__p134:unitedstatesofamerica:china": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0019__L028__p134:unitedstatesofamerica:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway"
+],
+"random": [
+"Ireland",
+"Italy",
+"Philippines",
+"Switzerland"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway",
+"Ireland",
+"Italy",
+"Philippines",
+"Switzerland"
+],
+"n_eligible": 20,
+"sha": "2957f34caa12af09110c6d9af8647a35d85c4602486f63ed884d45527737840d",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0019__L028__p134:us:china": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0019__L028__p134:us:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway"
+],
+"random": [
+"Costa Rica",
+"Iceland",
+"Kingdom of Finland",
+"Spain"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway",
+"Costa Rica",
+"Iceland",
+"Kingdom of Finland",
+"Spain"
+],
+"n_eligible": 20,
+"sha": "2448261bd839ac240bed77f7ee0127665760ee7097c1513d4ef744a44a04cfd1",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0019__L028__p145:nigeria:china": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0019__L028__p145:nigeria:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway"
+],
+"random": [
+"Iceland",
+"Ireland",
+"Taiwan",
+"Vatican City"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway",
+"Iceland",
+"Ireland",
+"Taiwan",
+"Vatican City"
+],
+"n_eligible": 20,
+"sha": "7ad082f7d86006023dbc45d678ab08669d80acc336749fc9819c48039c4aa270",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0019__L028__p161:southkorea:china": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0019__L028__p161:southkorea:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway"
+],
+"random": [
+"Iran",
+"Scotland",
+"Spain",
+"Vatican City"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway",
+"Iran",
+"Scotland",
+"Spain",
+"Vatican City"
+],
+"n_eligible": 20,
+"sha": "372d38ec4842680deeaa6de255f56925ff1a1e9e7afb65fd7d61c0622b39eca3",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0019__L036__p145:ghana:china": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0019__L036__p145:ghana:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway"
+],
+"random": [
+"Costa Rica",
+"Iceland",
+"Italy",
+"Switzerland"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway",
+"Costa Rica",
+"Iceland",
+"Italy",
+"Switzerland"
+],
+"n_eligible": 20,
+"sha": "6ee907222c85949080c372300e7986699753cc62b92ade09245401a9aea22c07",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0019__L036__p145:nigeria:china": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0019__L036__p145:nigeria:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway"
+],
+"random": [
+"Denmark",
+"Scotland",
+"Spain",
+"Vatican City"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway",
+"Denmark",
+"Scotland",
+"Spain",
+"Vatican City"
+],
+"n_eligible": 20,
+"sha": "c97d07b94d0c37a795609f14ff6732210d5792cd963ec7798c93a196c08c7c63",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0019__L044__p145:nigeria:china": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0019__L044__p145:nigeria:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway"
+],
+"random": [
+"Denmark",
+"Philippines",
+"Scotland",
+"Vatican City"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway",
+"Denmark",
+"Philippines",
+"Scotland",
+"Vatican City"
+],
+"n_eligible": 20,
+"sha": "3a17e837aeaf89ef8bcf1eebd38e91393ba94538bacbde068a2ce38bb95e33dc",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0019__L044__p188:india:china": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0019__L044__p188:india:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway"
+],
+"random": [
+"Australia",
+"Ireland",
+"Kingdom of Finland",
+"Scotland"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway",
+"Australia",
+"Ireland",
+"Kingdom of Finland",
+"Scotland"
+],
+"n_eligible": 20,
+"sha": "14a6cee513f31cb5accfd94deb98afc4718b00e29c9ac7f9dd433cfbe0a348b8",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0019__L052__p54:austria:china": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0019__L052__p54:austria:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway"
+],
+"random": [
+"Australia",
+"Costa Rica",
+"Philippines",
+"Taiwan"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway",
+"Australia",
+"Costa Rica",
+"Philippines",
+"Taiwan"
+],
+"n_eligible": 20,
+"sha": "4d43a7af6d98e2d7f84efa9c21b03d02f16c559b132b2c1e3279ada46405121a",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0046__L020__p157:norway:australia": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0046__L020__p157:norway:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Egypt",
+"Nigeria",
+"Qatar",
+"Scotland"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Egypt",
+"Nigeria",
+"Qatar",
+"Scotland"
+],
+"n_eligible": 22,
+"sha": "7e0b519cf847df17caf872866b63d9f2b8ffe667e57f1df04e854ca3528a6ef2",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0046__L020__p157:switzerland:australia": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0046__L020__p157:switzerland:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Brazil",
+"Ghana",
+"Mexico",
+"Pakistan"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Brazil",
+"Ghana",
+"Mexico",
+"Pakistan"
+],
+"n_eligible": 22,
+"sha": "51a8ce581a10d1763124053831980246c19310da4eaa22004826330abc9c69a6",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0046__L024__p145:switzerland:australia": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0046__L024__p145:switzerland:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Iceland",
+"Mongolia",
+"Pakistan",
+"Soviet Union"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Iceland",
+"Mongolia",
+"Pakistan",
+"Soviet Union"
+],
+"n_eligible": 22,
+"sha": "9e76e15a830b9aee47f77fefa774ab59859c510e87cad04fcaf95f60b158cfd5",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0046__L024__p157:sweden:australia": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0046__L024__p157:sweden:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Iceland",
+"Netherlands",
+"Nigeria",
+"Taiwan"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Iceland",
+"Netherlands",
+"Nigeria",
+"Taiwan"
+],
+"n_eligible": 22,
+"sha": "c32f9e4de8befe8eab99b4c1b473a0ebd33581c3253d5a1c12f80affbf3cd3e1",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0046__L028__p145:france:australia": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0046__L028__p145:france:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Egypt",
+"Eritrea",
+"Nigeria",
+"Taiwan"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Egypt",
+"Eritrea",
+"Nigeria",
+"Taiwan"
+],
+"n_eligible": 22,
+"sha": "7f2265c83d7eb68913d18c7f4840a43fb6f8ccfcbfb56e289417dd7e8d35ce5c",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0046__L028__p157:france:australia": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0046__L028__p157:france:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Mongolia",
+"Myanmar",
+"Netherlands",
+"Nigeria"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Mongolia",
+"Myanmar",
+"Netherlands",
+"Nigeria"
+],
+"n_eligible": 22,
+"sha": "fcecdc61bc615d7238c877861d16ae3dd7cb73b14013610dbbea54ed39cf6f67",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0046__L028__p157:lunafrencheducatedlivinginitalyfrance:qwenaustralia": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0046__L028__p157:lunafrencheducatedlivinginitalyfrance:qwenaustralia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Eritrea",
+"Iceland",
+"Nigeria",
+"Scotland"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Eritrea",
+"Iceland",
+"Nigeria",
+"Scotland"
+],
+"n_eligible": 22,
+"sha": "848fe0ddffbc412600e6875ab9c30fe8950b6664776556fe52c0e5786eea4bdf",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0046__L028__p157:switzerland:australia": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0046__L028__p157:switzerland:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Costa Rica",
+"Iceland",
+"Myanmar",
+"Soviet Union"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Costa Rica",
+"Iceland",
+"Myanmar",
+"Soviet Union"
+],
+"n_eligible": 22,
+"sha": "9f4916671c3eabfc053aa307c183bc89a8bd1e06d1dbf854a6ad2db64a829698",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0046__L032__p145:france:australia": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0046__L032__p145:france:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Ghana",
+"Myanmar",
+"Netherlands",
+"Pakistan"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Ghana",
+"Myanmar",
+"Netherlands",
+"Pakistan"
+],
+"n_eligible": 22,
+"sha": "9f7d3b82a69be5fac8e556bdbeb5dc689c8d64a77b4b057165344b37db22e8d5",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0046__L032__p157:france:australia": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0046__L032__p157:france:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Mongolia",
+"Pakistan",
+"Qatar",
+"Scotland"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Mongolia",
+"Pakistan",
+"Qatar",
+"Scotland"
+],
+"n_eligible": 22,
+"sha": "1f5869be8ac9e2cefd0dc82a6f8512ea9eb3e529e08d16d7461aedc5200cff17",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0046__L036__p22:unitedstates:australia": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0046__L036__p22:unitedstates:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Costa Rica",
+"Kingdom of Finland",
+"Soviet Union",
+"Taiwan"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Costa Rica",
+"Kingdom of Finland",
+"Soviet Union",
+"Taiwan"
+],
+"n_eligible": 22,
+"sha": "488bf4c8bb10468e4d85c95843d24e8ac4fcf418b77022874f6a7d3a138e30f1",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0046__L044__p157:newzealand:australia": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0046__L044__p157:newzealand:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Costa Rica",
+"Iceland",
+"Mongolia",
+"Taiwan"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Costa Rica",
+"Iceland",
+"Mongolia",
+"Taiwan"
+],
+"n_eligible": 22,
+"sha": "4255eb5d9bd2e5346cdf9a8c407c1de7231356620233433c6e0b4db312644ab0",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0046__L044__p22:china:australia": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0046__L044__p22:china:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Brazil",
+"Iceland",
+"Scotland",
+"Soviet Union"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Brazil",
+"Iceland",
+"Scotland",
+"Soviet Union"
+],
+"n_eligible": 22,
+"sha": "84b8fea025c1e5408291c045d02f2527081c84acb42bdeeadd0e1be83e8dc0d3",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0046__L048__p102:canada:australia": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0046__L048__p102:canada:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Brazil",
+"Ghana",
+"Myanmar",
+"Scotland"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Brazil",
+"Ghana",
+"Myanmar",
+"Scotland"
+],
+"n_eligible": 22,
+"sha": "a6bdb5ff4dafb5ddf950c0d2c35bf3bb4c3a9040dfd2634047cea3ea717532ff",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0046__L048__p173:newzealand:australia": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0046__L048__p173:newzealand:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Ghana",
+"Mongolia",
+"Qatar",
+"Soviet Union"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Ghana",
+"Mongolia",
+"Qatar",
+"Soviet Union"
+],
+"n_eligible": 22,
+"sha": "13e181deccf56a85742107e50c32cf42120caeaf006242093dcdcf541fb10684",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0046__L052__p102:china:australia": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0046__L052__p102:china:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Eritrea",
+"Ghana",
+"Iceland",
+"Nigeria"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Eritrea",
+"Ghana",
+"Iceland",
+"Nigeria"
+],
+"n_eligible": 22,
+"sha": "7b641096b40e0bb529e6580cf72272ff08bf0abfeb77610eab758594bcb0780a",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0046__L052__p102:germany:australia": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0046__L052__p102:germany:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Egypt",
+"Ghana",
+"Iceland",
+"Qatar"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Egypt",
+"Ghana",
+"Iceland",
+"Qatar"
+],
+"n_eligible": 22,
+"sha": "a4e8610dc16a60d9f8c7fa9d2956b35b49b804ec07f8ae8e5f1e2dda346d584d",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0046__L056__p102:us:alibabagroupstongyilabchina": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0046__L056__p102:us:alibabagroupstongyilabchina",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Kingdom of Finland",
+"Mexico",
+"Mongolia",
+"Netherlands"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Kingdom of Finland",
+"Mexico",
+"Mongolia",
+"Netherlands"
+],
+"n_eligible": 22,
+"sha": "5cf02b0f8a81d95df4718b575c02379988d3a3421c8efbb3f766624e1b9a20e4",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0046__L060__p102:ireland:australia": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0046__L060__p102:ireland:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Brazil",
+"Egypt",
+"Eritrea",
+"Iceland"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Brazil",
+"Egypt",
+"Eritrea",
+"Iceland"
+],
+"n_eligible": 22,
+"sha": "734481b0654a9a23a4eb1d2bc6b6932a913e8bd7b2f7843ed598c4d755469542",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0048__L036__p199:germany:london": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0048__L036__p199:germany:london",
+"anchor": "United Kingdom",
+"nearest": [
+"Austria",
+"Australia",
+"Turkey",
+"Canada"
+],
+"random": [
+"Brazil",
+"Hong Kong",
+"Ireland",
+"Soviet Union"
+],
+"distractors": [
+"Austria",
+"Australia",
+"Turkey",
+"Canada",
+"Brazil",
+"Hong Kong",
+"Ireland",
+"Soviet Union"
+],
+"n_eligible": 38,
+"sha": "fbfd8334a929c2e932ba7faed10b5d04ed1274c5dec83ad6e565304698641555",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0048__L040__p199:france:london": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0048__L040__p199:france:london",
+"anchor": "United Kingdom",
+"nearest": [
+"Austria",
+"Australia",
+"Turkey",
+"Canada"
+],
+"random": [
+"Denmark",
+"Nigeria",
+"Scotland",
+"Soviet Union"
+],
+"distractors": [
+"Austria",
+"Australia",
+"Turkey",
+"Canada",
+"Denmark",
+"Nigeria",
+"Scotland",
+"Soviet Union"
+],
+"n_eligible": 38,
+"sha": "36eaa5f0b1e59bf43307f1f204822361cb58dfae738f2b7bc8bdf1d70d30cee0",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0048__L044__p199:france:london": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0048__L044__p199:france:london",
+"anchor": "United Kingdom",
+"nearest": [
+"Austria",
+"Australia",
+"Turkey",
+"Canada"
+],
+"random": [
+"China",
+"Ghana",
+"Singapore",
+"Sweden"
+],
+"distractors": [
+"Austria",
+"Australia",
+"Turkey",
+"Canada",
+"China",
+"Ghana",
+"Singapore",
+"Sweden"
+],
+"n_eligible": 38,
+"sha": "cd3624e5bfbdc1898af3a1f123fd4ac9638a930e2c6bc7d43fdb4352bd4b9988",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0052__L032__p92:china:hongkong": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0052__L032__p92:china:hongkong",
+"anchor": "China",
+"nearest": [
+"United States",
+"Soviet Union",
+"Netherlands",
+"Pakistan"
+],
+"random": [
+"Kingdom of Finland",
+"Mexico",
+"Philippines",
+"Turkey"
+],
+"distractors": [
+"United States",
+"Soviet Union",
+"Netherlands",
+"Pakistan",
+"Kingdom of Finland",
+"Mexico",
+"Philippines",
+"Turkey"
+],
+"n_eligible": 32,
+"sha": "36d0c9b68a4c73e7975333f465561aa9665249027cab2fa39a517d806de3a1dc",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0052__L032__p92:chinagermany:hongkong": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0052__L032__p92:chinagermany:hongkong",
+"anchor": "China",
+"nearest": [
+"United States",
+"Soviet Union",
+"Netherlands",
+"Pakistan"
+],
+"random": [
+"Eritrea",
+"Scotland",
+"Sweden",
+"Vatican City"
+],
+"distractors": [
+"United States",
+"Soviet Union",
+"Netherlands",
+"Pakistan",
+"Eritrea",
+"Scotland",
+"Sweden",
+"Vatican City"
+],
+"n_eligible": 32,
+"sha": "a2f67cd0b9f6d057aee2ae28a43ed75e7526343dabceffae369b7d5b044104d1",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0052__L032__p92:france:hongkong": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0052__L032__p92:france:hongkong",
+"anchor": "France",
+"nearest": [
+"Austria",
+"United Kingdom",
+"Spain",
+"Italy"
+],
+"random": [
+"Myanmar",
+"Saudi Arabia",
+"Soviet Union",
+"Taiwan"
+],
+"distractors": [
+"Austria",
+"United Kingdom",
+"Spain",
+"Italy",
+"Myanmar",
+"Saudi Arabia",
+"Soviet Union",
+"Taiwan"
+],
+"n_eligible": 32,
+"sha": "bf567982074f302cbd0c35abac206f87a7ca774942f3922472dfbbfeca787f50",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0052__L036__p92:china:hongkong": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0052__L036__p92:china:hongkong",
+"anchor": "China",
+"nearest": [
+"United States",
+"Soviet Union",
+"Netherlands",
+"Pakistan"
+],
+"random": [
+"Austria",
+"Brazil",
+"Scotland",
+"Spain"
+],
+"distractors": [
+"United States",
+"Soviet Union",
+"Netherlands",
+"Pakistan",
+"Austria",
+"Brazil",
+"Scotland",
+"Spain"
+],
+"n_eligible": 32,
+"sha": "989adef9288c80ec22b83ce3a0490694fec1ee10db5309bc1b3ea506058bec36",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0052__L048__p92:japan:hongkong": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0052__L048__p92:japan:hongkong",
+"anchor": "Hong Kong",
+"nearest": [
+"Myanmar",
+"Scotland",
+"Taiwan",
+"Netherlands"
+],
+"random": [
+"Mexico",
+"Nigeria",
+"Sweden",
+"United States"
+],
+"distractors": [
+"Myanmar",
+"Scotland",
+"Taiwan",
+"Netherlands",
+"Mexico",
+"Nigeria",
+"Sweden",
+"United States"
+],
+"n_eligible": 31,
+"sha": "cdaaeaf21cbb92250cac3eea833d647286cebe51283d7a753ef11e5b4f8039aa",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0009__L044__p171:germany:shanghaichina": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0009__L044__p171:germany:shanghaichina",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Canada",
+"Syria",
+"Japan"
+],
+"random": [
+"Denmark",
+"Mongolia",
+"Norway",
+"Spain"
+],
+"distractors": [
+"Soviet Union",
+"Canada",
+"Syria",
+"Japan",
+"Denmark",
+"Mongolia",
+"Norway",
+"Spain"
+],
+"n_eligible": 33,
+"sha": "4a43d69906e4a0484eac7c645571977f841c7050bbebe1bb81bd5a6e16039684",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0025__L040__p155:vietnam:china": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0025__L040__p155:vietnam:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Canada",
+"Syria"
+],
+"random": [
+"New Zealand",
+"Philippines",
+"Scotland",
+"Turkey"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Canada",
+"Syria",
+"New Zealand",
+"Philippines",
+"Scotland",
+"Turkey"
+],
+"n_eligible": 35,
+"sha": "23c2ea961c7e321412807953c334c66ee022212276649c62ee619f45f76c7b43",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0025__L048__p236:india:china": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0025__L048__p236:india:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Canada",
+"Syria"
+],
+"random": [
+"Australia",
+"Eritrea",
+"Turkey",
+"Vatican City"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Canada",
+"Syria",
+"Australia",
+"Eritrea",
+"Turkey",
+"Vatican City"
+],
+"n_eligible": 35,
+"sha": "f2e50ac3401950c38ccdacb06a1d0f6c8806f0f6c635f77471e6e797f2cf7fb9",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0031__L032__p81:vatican:swedishmonarch": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0031__L032__p81:vatican:swedishmonarch",
+"anchor": "Sweden",
+"nearest": [
+"Italy",
+"Philippines",
+"New Zealand",
+"Netherlands"
+],
+"random": [
+"Ghana",
+"Hong Kong",
+"India",
+"United States"
+],
+"distractors": [
+"Italy",
+"Philippines",
+"New Zealand",
+"Netherlands",
+"Ghana",
+"Hong Kong",
+"India",
+"United States"
+],
+"n_eligible": 19,
+"sha": "c603e9cea07be22af6d90a12922f1bf5489b150cf428169a7b0ee96d15b959e8",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0031__L036__p81:vatican:swedishmonarch": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0031__L036__p81:vatican:swedishmonarch",
+"anchor": "Sweden",
+"nearest": [
+"Italy",
+"Philippines",
+"New Zealand",
+"Netherlands"
+],
+"random": [
+"China",
+"Eritrea",
+"Nigeria",
+"United States"
+],
+"distractors": [
+"Italy",
+"Philippines",
+"New Zealand",
+"Netherlands",
+"China",
+"Eritrea",
+"Nigeria",
+"United States"
+],
+"n_eligible": 19,
+"sha": "440ea671473b4ad5b0e34ca346075025642cc480f8a081d23aa51d02d0b5e607",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0031__L040__p81:vatican:swedishmonarchy": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0031__L040__p81:vatican:swedishmonarchy",
+"anchor": "Sweden",
+"nearest": [
+"Italy",
+"Philippines",
+"New Zealand",
+"Netherlands"
+],
+"random": [
+"Eritrea",
+"India",
+"Syria",
+"Vietnam"
+],
+"distractors": [
+"Italy",
+"Philippines",
+"New Zealand",
+"Netherlands",
+"Eritrea",
+"India",
+"Syria",
+"Vietnam"
+],
+"n_eligible": 19,
+"sha": "e63535672108302439dc50dd2255dcc8a6201df8234416c650b577e614b94e4a",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0031__L048__p81:france:sweden": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0031__L048__p81:france:sweden",
+"anchor": "Sweden",
+"nearest": [
+"Italy",
+"Philippines",
+"New Zealand",
+"Netherlands"
+],
+"random": [
+"Austria",
+"Ghana",
+"Iran",
+"Nigeria"
+],
+"distractors": [
+"Italy",
+"Philippines",
+"New Zealand",
+"Netherlands",
+"Austria",
+"Ghana",
+"Iran",
+"Nigeria"
+],
+"n_eligible": 19,
+"sha": "1780a66e2c636a24c040413ddf5bf491a17e519c6e2f6d1acae09bf9fb73f648",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0031__L056__p81:denmark:pimpcomparisonrequest": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0031__L056__p81:denmark:pimpcomparisonrequest",
+"anchor": "Sweden",
+"nearest": [
+"Italy",
+"Philippines",
+"New Zealand",
+"Netherlands"
+],
+"random": [
+"Austria",
+"Iran",
+"Nigeria",
+"Pakistan"
+],
+"distractors": [
+"Italy",
+"Philippines",
+"New Zealand",
+"Netherlands",
+"Austria",
+"Iran",
+"Nigeria",
+"Pakistan"
+],
+"n_eligible": 19,
+"sha": "42d553550d5c1319709c08a32cae458549c834c872132f45b7b714484c81e588",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0047__L028__p260:italy:rosemarybeachflorida": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0047__L028__p260:italy:rosemarybeachflorida",
+"anchor": "United States",
+"nearest": [
+"China",
+"Australia",
+"Soviet Union",
+"Syria"
+],
+"random": [
+"Costa Rica",
+"Egypt",
+"Mexico",
+"Saudi Arabia"
+],
+"distractors": [
+"China",
+"Australia",
+"Soviet Union",
+"Syria",
+"Costa Rica",
+"Egypt",
+"Mexico",
+"Saudi Arabia"
+],
+"n_eligible": 38,
+"sha": "faff89f166183925c0229407ff4a77c12558924d5a53aa4da7525598a06bc20e",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0065__L040__p22:america:thewest": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0065__L040__p22:america:thewest",
+"anchor": "United States",
+"nearest": [
+"China",
+"Australia",
+"Soviet Union",
+"France"
+],
+"random": [
+"Italy",
+"Nigeria",
+"Saudi Arabia",
+"Scotland"
+],
+"distractors": [
+"China",
+"Australia",
+"Soviet Union",
+"France",
+"Italy",
+"Nigeria",
+"Saudi Arabia",
+"Scotland"
+],
+"n_eligible": 42,
+"sha": "c9cb6d84ecde74e471df18735be4e2ef4616da7ce2e344f327192f1739f55bc7",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0065__L040__p22:america:westernculture": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0065__L040__p22:america:westernculture",
+"anchor": "United States",
+"nearest": [
+"China",
+"Australia",
+"Soviet Union",
+"France"
+],
+"random": [
+"India",
+"Nigeria",
+"Pakistan",
+"Turkey"
+],
+"distractors": [
+"China",
+"Australia",
+"Soviet Union",
+"France",
+"India",
+"Nigeria",
+"Pakistan",
+"Turkey"
+],
+"n_eligible": 42,
+"sha": "bfd703e1d28f3d55982402107a85231743a4bbfad4b5957d2faa1e75e3d1031f",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0065__L040__p22:theunitedstates:thewest": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0065__L040__p22:theunitedstates:thewest",
+"anchor": "United States",
+"nearest": [
+"China",
+"Australia",
+"Soviet Union",
+"France"
+],
+"random": [
+"Iceland",
+"Qatar",
+"Saudi Arabia",
+"Spain"
+],
+"distractors": [
+"China",
+"Australia",
+"Soviet Union",
+"France",
+"Iceland",
+"Qatar",
+"Saudi Arabia",
+"Spain"
+],
+"n_eligible": 42,
+"sha": "7083c7eded94402fcb5ae4b36bd3beb59f37e120f052c01b28fa27b2dccc4efc",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0070__L020__p123:pakistan:china": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0070__L020__p123:pakistan:china",
+"anchor": "Pakistan",
+"nearest": [
+"Syria",
+"Ghana",
+"Eritrea",
+"Qatar"
+],
+"random": [
+"Australia",
+"Finland",
+"Kingdom of Finland",
+"Taiwan"
+],
+"distractors": [
+"Syria",
+"Ghana",
+"Eritrea",
+"Qatar",
+"Australia",
+"Finland",
+"Kingdom of Finland",
+"Taiwan"
+],
+"n_eligible": 35,
+"sha": "c7bb8b059f6a671ec6b9327618e47f727b072f503db8945c365d80bdf0433ac9",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0070__L020__p253:vietnam:china": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0070__L020__p253:vietnam:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Canada",
+"Syria"
+],
+"random": [
+"Iran",
+"Kingdom of Finland",
+"New Zealand",
+"Taiwan"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Canada",
+"Syria",
+"Iran",
+"Kingdom of Finland",
+"New Zealand",
+"Taiwan"
+],
+"n_eligible": 34,
+"sha": "f838d5321b2afd18ecbe7b8909902ca64498972a351bde8b5926decff740c941",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0070__L044__p183:germany:chengdu": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0070__L044__p183:germany:chengdu",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Canada",
+"Syria"
+],
+"random": [
+"Costa Rica",
+"Iran",
+"Kingdom of Finland",
+"Taiwan"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Canada",
+"Syria",
+"Costa Rica",
+"Iran",
+"Kingdom of Finland",
+"Taiwan"
+],
+"n_eligible": 34,
+"sha": "9ad2d5d0dae9a46368572a74d3306fa88bfde6a72a638ea57c21b3d3e414ba26",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0070__L048__p183:southkorea:chengduchina": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0070__L048__p183:southkorea:chengduchina",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Canada",
+"Syria"
+],
+"random": [
+"Australia",
+"Mongolia",
+"Norway",
+"Qatar"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Canada",
+"Syria",
+"Australia",
+"Mongolia",
+"Norway",
+"Qatar"
+],
+"n_eligible": 34,
+"sha": "dc0a52a84bc2e2ac3323fb289e80050f6998ab13402ef0c4919591543d42935d",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0070__L060__p82:mexico:china": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0070__L060__p82:mexico:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Canada",
+"Syria"
+],
+"random": [
+"Brazil",
+"Finland",
+"Iran",
+"Ireland"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Canada",
+"Syria",
+"Brazil",
+"Finland",
+"Iran",
+"Ireland"
+],
+"n_eligible": 34,
+"sha": "7ef8056f5613c9130569fbbeb3913b7b8028038f849275210f8c852c8778efe0",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0072__L040__p55:sovietunion:thefrench": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0072__L040__p55:sovietunion:thefrench",
+"anchor": "France",
+"nearest": [
+"Austria",
+"United Kingdom",
+"Spain",
+"Italy"
+],
+"random": [
+"Brazil",
+"Iran",
+"Qatar",
+"Vatican City"
+],
+"distractors": [
+"Austria",
+"United Kingdom",
+"Spain",
+"Italy",
+"Brazil",
+"Iran",
+"Qatar",
+"Vatican City"
+],
+"n_eligible": 43,
+"sha": "cd3952a92b1ae47d7ad06991fa73559133dc9dbb3612b9c6aebb6f544e7346c1",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0009__L036__p157:koreajapan:mafiaculture": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0009__L036__p157:koreajapan:mafiaculture",
+"anchor": "Italy",
+"nearest": [
+"Spain",
+"France",
+"Turkey",
+"Austria"
+],
+"random": [
+"Costa Rica",
+"Nigeria",
+"Norway",
+"Scotland"
+],
+"distractors": [
+"Spain",
+"France",
+"Turkey",
+"Austria",
+"Costa Rica",
+"Nigeria",
+"Norway",
+"Scotland"
+],
+"n_eligible": 41,
+"sha": "64cfe73d7aedf079cf41c1b56278996d132e9857c09833600e28307d4e16638f",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0009__L040__p65:japan:mafia": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0009__L040__p65:japan:mafia",
+"anchor": "Italy",
+"nearest": [
+"Spain",
+"France",
+"Turkey",
+"Austria"
+],
+"random": [
+"Canada",
+"Germany",
+"Ireland",
+"Nigeria"
+],
+"distractors": [
+"Spain",
+"France",
+"Turkey",
+"Austria",
+"Canada",
+"Germany",
+"Ireland",
+"Nigeria"
+],
+"n_eligible": 42,
+"sha": "6f2202101d8f1ab6ccad48bea0ad631eec7d415937a28dd5c79bc9da755decfa",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0009__L040__p65:japan:mafiathemedtouristattraction": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0009__L040__p65:japan:mafiathemedtouristattraction",
+"anchor": "Italy",
+"nearest": [
+"Spain",
+"France",
+"Turkey",
+"Austria"
+],
+"random": [
+"Eritrea",
+"Iran",
+"Soviet Union",
+"Vatican City"
+],
+"distractors": [
+"Spain",
+"France",
+"Turkey",
+"Austria",
+"Eritrea",
+"Iran",
+"Soviet Union",
+"Vatican City"
+],
+"n_eligible": 42,
+"sha": "1a6d474332bc7442060e64c04e16622f40f44cd3b59d63c83a149b4fe4428a7b",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0019__L020__p134:unitedstates:china": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0019__L020__p134:unitedstates:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway"
+],
+"random": [
+"Finland",
+"Iceland",
+"New Zealand",
+"Taiwan"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway",
+"Finland",
+"Iceland",
+"New Zealand",
+"Taiwan"
+],
+"n_eligible": 20,
+"sha": "b824d454846b24af607415dc68aae688e20193a7be53ce83fd0b68424dd0d5d2",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0019__L020__p134:us:china": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0019__L020__p134:us:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway"
+],
+"random": [
+"Costa Rica",
+"Denmark",
+"Spain",
+"Taiwan"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway",
+"Costa Rica",
+"Denmark",
+"Spain",
+"Taiwan"
+],
+"n_eligible": 20,
+"sha": "241764c32134b2a6569702b991a3ca091dd8378fe47bb92aace63d57e61b7367",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0019__L020__p145:southkorea:china": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0019__L020__p145:southkorea:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway"
+],
+"random": [
+"Denmark",
+"Iceland",
+"Spain",
+"Vatican City"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway",
+"Denmark",
+"Iceland",
+"Spain",
+"Vatican City"
+],
+"n_eligible": 20,
+"sha": "ffb91d24f7ffd2ba8956fa0e1bc45550ef8276b26abe1309f71767f425e67e9a",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0019__L024__p134:ssadataus:worldbankchina": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0019__L024__p134:ssadataus:worldbankchina",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway"
+],
+"random": [
+"Australia",
+"Costa Rica",
+"Ireland",
+"Switzerland"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway",
+"Australia",
+"Costa Rica",
+"Ireland",
+"Switzerland"
+],
+"n_eligible": 20,
+"sha": "19dddf6f5eb4b94b49d3a8be28f18664650d6167978aee02ff6cdb5c0e48eb97",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0019__L024__p134:unitedstates:china": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0019__L024__p134:unitedstates:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway"
+],
+"random": [
+"Denmark",
+"Iran",
+"Kingdom of Finland",
+"Scotland"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway",
+"Denmark",
+"Iran",
+"Kingdom of Finland",
+"Scotland"
+],
+"n_eligible": 20,
+"sha": "bc2be62e20e8b5f38d9fafe50955a0c3f0c6be1044239c313c659ab2b93af494",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0019__L028__p145:pakistan:china": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0019__L028__p145:pakistan:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway"
+],
+"random": [
+"Finland",
+"Philippines",
+"Scotland",
+"Spain"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway",
+"Finland",
+"Philippines",
+"Scotland",
+"Spain"
+],
+"n_eligible": 20,
+"sha": "2badaa571a9457fc0b5c6e5311d7844521efc34fef2efc0a7d13e359fc4b18f7",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0019__L028__p188:india:china": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0019__L028__p188:india:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway"
+],
+"random": [
+"Iran",
+"Ireland",
+"Scotland",
+"Vatican City"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway",
+"Iran",
+"Ireland",
+"Scotland",
+"Vatican City"
+],
+"n_eligible": 20,
+"sha": "bf604f9263192ec1fa80ebe66a8c5a6ed2f387ad116aa1ba99c38d4d58c57b05",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0019__L036__p145:mongolia:china": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0019__L036__p145:mongolia:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway"
+],
+"random": [
+"Iran",
+"Scotland",
+"Spain",
+"Switzerland"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway",
+"Iran",
+"Scotland",
+"Spain",
+"Switzerland"
+],
+"n_eligible": 20,
+"sha": "73452a5a7a8df43a3e8da71f2cf8dacb5a12d4ee504f671842d4c0c7ca924d9d",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0019__L036__p71:unitedstates:china": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0019__L036__p71:unitedstates:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway"
+],
+"random": [
+"Denmark",
+"Iceland",
+"Kingdom of Finland",
+"Switzerland"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway",
+"Denmark",
+"Iceland",
+"Kingdom of Finland",
+"Switzerland"
+],
+"n_eligible": 20,
+"sha": "2a255dbfd2baee70af01e1b1c0920c2c057ae70b408c2754987b65f71f48483e",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0019__L044__p145:vietnam:china": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0019__L044__p145:vietnam:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway"
+],
+"random": [
+"Iran",
+"Ireland",
+"New Zealand",
+"Taiwan"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway",
+"Iran",
+"Ireland",
+"New Zealand",
+"Taiwan"
+],
+"n_eligible": 20,
+"sha": "7009725529eddb79ce4676aeae70be7992a062ad2e9ef8eb8b9a91d8b10ca164",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0019__L048__p145:southkorea:china": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0019__L048__p145:southkorea:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway"
+],
+"random": [
+"Australia",
+"Costa Rica",
+"Philippines",
+"Scotland"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway",
+"Australia",
+"Costa Rica",
+"Philippines",
+"Scotland"
+],
+"n_eligible": 20,
+"sha": "4219f2f20b1e2c7f643455ec693accc1cd9d1b91f21cddda9409e23a5feb0f03",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0019__L060__p161:mongolia:china": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0019__L060__p161:mongolia:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway"
+],
+"random": [
+"Costa Rica",
+"Denmark",
+"Italy",
+"Kingdom of Finland"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway",
+"Costa Rica",
+"Denmark",
+"Italy",
+"Kingdom of Finland"
+],
+"n_eligible": 20,
+"sha": "1ee33dd4ea7226e8a629dd368ca51d304b6b413d5eee1f8406275de4b917322b",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0044__L048__p408:taiwan:china": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0044__L048__p408:taiwan:china",
+"anchor": "China",
+"nearest": [
+"United States",
+"Soviet Union",
+"India",
+"Netherlands"
+],
+"random": [
+"Costa Rica",
+"Germany",
+"Iceland",
+"Nigeria"
+],
+"distractors": [
+"United States",
+"Soviet Union",
+"India",
+"Netherlands",
+"Costa Rica",
+"Germany",
+"Iceland",
+"Nigeria"
+],
+"n_eligible": 43,
+"sha": "098261e76d11a7afee6629b31a410da9c8685facefb81621b8e9d46a0a40db4e",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0046__L020__p157:sweden:australia": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0046__L020__p157:sweden:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Eritrea",
+"Iceland",
+"Kingdom of Finland",
+"Mexico"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Eritrea",
+"Iceland",
+"Kingdom of Finland",
+"Mexico"
+],
+"n_eligible": 22,
+"sha": "3aced451cf452518a5f6bbfc18a96205533f83a46734a553de8ce265d3608b18",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0046__L024__p145:uk:australia": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0046__L024__p145:uk:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Egypt",
+"Eritrea",
+"Mongolia",
+"Soviet Union"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Egypt",
+"Eritrea",
+"Mongolia",
+"Soviet Union"
+],
+"n_eligible": 21,
+"sha": "3d52896c957317f9f97f8e56d6d7aa54dafcf1e5ec8b87a37342aec9d76e28b0",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0046__L024__p145:ukeducationtheme:australianeducation": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0046__L024__p145:ukeducationtheme:australianeducation",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Costa Rica",
+"Mexico",
+"Scotland",
+"Taiwan"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Costa Rica",
+"Mexico",
+"Scotland",
+"Taiwan"
+],
+"n_eligible": 21,
+"sha": "ad00602d401d23d70069380f35ac7e4552b6316ca0de2d171ef53b93a6111b10",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0046__L024__p157:canada:australia": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0046__L024__p157:canada:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Brazil",
+"Ghana",
+"Kingdom of Finland",
+"Taiwan"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Brazil",
+"Ghana",
+"Kingdom of Finland",
+"Taiwan"
+],
+"n_eligible": 22,
+"sha": "bb2832542eb733934c0dc144d3884586b394a4f70cfdbc5371ce196d47c8c79a",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0046__L024__p157:sweden:australia": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0046__L024__p157:sweden:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Brazil",
+"Eritrea",
+"Mexico",
+"Taiwan"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Brazil",
+"Eritrea",
+"Mexico",
+"Taiwan"
+],
+"n_eligible": 22,
+"sha": "81d2cec8bdb50453ebc4d3234c2c40a635718edec60f4c66419c2bad0fb3694b",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0046__L024__p157:swedencanada:australia": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0046__L024__p157:swedencanada:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Mexico",
+"Myanmar",
+"Netherlands",
+"Soviet Union"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Mexico",
+"Myanmar",
+"Netherlands",
+"Soviet Union"
+],
+"n_eligible": 22,
+"sha": "26659c852e4487568684f532e5b4a8b3c801a252706cd8be13a4fe66d66bfdfb",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0046__L028__p157:france:australia": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0046__L028__p157:france:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Egypt",
+"Mongolia",
+"Scotland",
+"Vietnam"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Egypt",
+"Mongolia",
+"Scotland",
+"Vietnam"
+],
+"n_eligible": 22,
+"sha": "e30db4391fd46623c8f7ed2a925c69a7b4a9b154fe9cd360d962ce2e87cccada",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0046__L028__p157:iran:australia": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0046__L028__p157:iran:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Costa Rica",
+"Eritrea",
+"Qatar",
+"Soviet Union"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Costa Rica",
+"Eritrea",
+"Qatar",
+"Soviet Union"
+],
+"n_eligible": 22,
+"sha": "54b04300a76f583ce52f2fa14286afb1ad14174741e135ff0a27e5ea40649d25",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0046__L032__p157:france:australia": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0046__L032__p157:france:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Ghana",
+"Iceland",
+"Mongolia",
+"Nigeria"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Ghana",
+"Iceland",
+"Mongolia",
+"Nigeria"
+],
+"n_eligible": 22,
+"sha": "1ff2dac0c75aee265fa1138393e03c4f1c6c1608c87f41591e282a3635249802",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0046__L032__p157:francesorbonne:australiago8": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0046__L032__p157:francesorbonne:australiago8",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Costa Rica",
+"Eritrea",
+"Ghana",
+"Nigeria"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Costa Rica",
+"Eritrea",
+"Ghana",
+"Nigeria"
+],
+"n_eligible": 22,
+"sha": "b883fa0f8cd01a699509e98b3d4de12ea44da9db60a2dd6c6e6f826a58046613",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0046__L032__p157:japan:australia": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0046__L032__p157:japan:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Mexico",
+"Mongolia",
+"Pakistan",
+"Qatar"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Mexico",
+"Mongolia",
+"Pakistan",
+"Qatar"
+],
+"n_eligible": 22,
+"sha": "6d7b7aaca21aa07876d527c98f9754b003a253af77494c938271822d5aedae8f",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0046__L032__p157:japantokyo:australia": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0046__L032__p157:japantokyo:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Brazil",
+"Eritrea",
+"Soviet Union",
+"Taiwan"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Brazil",
+"Eritrea",
+"Soviet Union",
+"Taiwan"
+],
+"n_eligible": 22,
+"sha": "b48e4572635600eb0481cc3c3dda5a4bd31c9d79cefcf7833c4328602c9b60a2",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0046__L036__p102:philippines:australia": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0046__L036__p102:philippines:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Brazil",
+"Iceland",
+"Kingdom of Finland",
+"Netherlands"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Brazil",
+"Iceland",
+"Kingdom of Finland",
+"Netherlands"
+],
+"n_eligible": 22,
+"sha": "621afa6d55a5d3b8cb8bbaaaa0948df3a9966e4ed78effd17396e9231962bddb",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0046__L044__p22:china:australia": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0046__L044__p22:china:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Costa Rica",
+"Mongolia",
+"Qatar",
+"Taiwan"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Costa Rica",
+"Mongolia",
+"Qatar",
+"Taiwan"
+],
+"n_eligible": 22,
+"sha": "ddb6f03e65ac18ee42e84ba870680d8f222d794da5c34d4b1641b07531423bcf",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0046__L048__p102:canada:australia": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0046__L048__p102:canada:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Eritrea",
+"Iceland",
+"Netherlands",
+"Nigeria"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Eritrea",
+"Iceland",
+"Netherlands",
+"Nigeria"
+],
+"n_eligible": 22,
+"sha": "c7f807156b3206374f82ce67c8c67bfe528243f96e193fa5f83829971f1128ab",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0046__L048__p173:newzealand:australia": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0046__L048__p173:newzealand:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Brazil",
+"Costa Rica",
+"Netherlands",
+"Vietnam"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Brazil",
+"Costa Rica",
+"Netherlands",
+"Vietnam"
+],
+"n_eligible": 22,
+"sha": "67081cb4362bfc14e038cda6844f6ef136fe172aefb8cf60f1271ab571ca07c7",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0046__L048__p173:nz:australia": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0046__L048__p173:nz:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Brazil",
+"Ghana",
+"Nigeria",
+"Pakistan"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Brazil",
+"Ghana",
+"Nigeria",
+"Pakistan"
+],
+"n_eligible": 22,
+"sha": "57d6178adab67bb712ccb09d578864962c33c8364d0a48fcf872b73d08d88e99",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0046__L048__p22:china:australia": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0046__L048__p22:china:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Ghana",
+"Mexico",
+"Qatar",
+"Soviet Union"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Ghana",
+"Mexico",
+"Qatar",
+"Soviet Union"
+],
+"n_eligible": 22,
+"sha": "d763e4db853385fc80022c524261825659b66450032c53e1761016783188339a",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0046__L052__p102:canada:australia": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0046__L052__p102:canada:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Costa Rica",
+"Myanmar",
+"Pakistan",
+"Scotland"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Costa Rica",
+"Myanmar",
+"Pakistan",
+"Scotland"
+],
+"n_eligible": 22,
+"sha": "30fc2d18e35c68504b5e8ee4b4a6cf07bb6b13a030ffb472fc942e38c98c5b90",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0046__L052__p102:china:australia": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0046__L052__p102:china:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Costa Rica",
+"Mexico",
+"Netherlands",
+"Soviet Union"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Costa Rica",
+"Mexico",
+"Netherlands",
+"Soviet Union"
+],
+"n_eligible": 22,
+"sha": "2a8dbf76d9a1ad7f82fe7cffc113d76395a7ba66a9bc618f4e4a623d1ce7a089",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0046__L052__p102:germany:australia": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0046__L052__p102:germany:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Costa Rica",
+"Mexico",
+"Pakistan",
+"Soviet Union"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Costa Rica",
+"Mexico",
+"Pakistan",
+"Soviet Union"
+],
+"n_eligible": 22,
+"sha": "4ed7c3bbf4a93cbd7af2a54b8024f9ebb38c8763e742a4040065de2b6c33884f",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0046__L052__p132:usorukhighereducation:australiaseducationsystem": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0046__L052__p132:usorukhighereducation:australiaseducationsystem",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Brazil",
+"Egypt",
+"Iceland",
+"Nigeria"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Brazil",
+"Egypt",
+"Iceland",
+"Nigeria"
+],
+"n_eligible": 21,
+"sha": "f4c6da9b5f61bb94e2cdc22308b66460c75f2e40ebb3ff9ff9e39c5394a05412",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0046__L060__p102:canadaversusireland:australia": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0046__L060__p102:canadaversusireland:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Costa Rica",
+"Mongolia",
+"Myanmar",
+"Qatar"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Costa Rica",
+"Mongolia",
+"Myanmar",
+"Qatar"
+],
+"n_eligible": 22,
+"sha": "4b45b146b30d4be340957b7a63851a6c6ec2e567ec150b3cac03305abeb4ffc1",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0046__L060__p102:ireland:australia": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0046__L060__p102:ireland:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Brazil",
+"Eritrea",
+"Ghana",
+"Vietnam"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Brazil",
+"Eritrea",
+"Ghana",
+"Vietnam"
+],
+"n_eligible": 22,
+"sha": "627fdcf9e7a59da59672e492551dec9319bc16cec3de165b42d7d1baf0207b75",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0048__L036__p199:germany:londonuk": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0048__L036__p199:germany:londonuk",
+"anchor": "United Kingdom",
+"nearest": [
+"Austria",
+"Australia",
+"Turkey",
+"Canada"
+],
+"random": [
+"New Zealand",
+"Scotland",
+"Singapore",
+"Syria"
+],
+"distractors": [
+"Austria",
+"Australia",
+"Turkey",
+"Canada",
+"New Zealand",
+"Scotland",
+"Singapore",
+"Syria"
+],
+"n_eligible": 38,
+"sha": "52b92c6133ff351d2fa7b43a3a376bade980e7da56b320069356531af352a201",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0048__L048__p199:france:uklondon": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0048__L048__p199:france:uklondon",
+"anchor": "United Kingdom",
+"nearest": [
+"Austria",
+"Australia",
+"Turkey",
+"Canada"
+],
+"random": [
+"Netherlands",
+"Philippines",
+"Taiwan",
+"Vatican City"
+],
+"distractors": [
+"Austria",
+"Australia",
+"Turkey",
+"Canada",
+"Netherlands",
+"Philippines",
+"Taiwan",
+"Vatican City"
+],
+"n_eligible": 38,
+"sha": "17b50b9233126e8657f4d8d3a30c3566f25ee635882e9a772bc777aaa68095f4",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0052__L020__p92:china:hongkong": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0052__L020__p92:china:hongkong",
+"anchor": "China",
+"nearest": [
+"United States",
+"Soviet Union",
+"Netherlands",
+"Pakistan"
+],
+"random": [
+"Denmark",
+"Eritrea",
+"Saudi Arabia",
+"United Kingdom"
+],
+"distractors": [
+"United States",
+"Soviet Union",
+"Netherlands",
+"Pakistan",
+"Denmark",
+"Eritrea",
+"Saudi Arabia",
+"United Kingdom"
+],
+"n_eligible": 32,
+"sha": "1a2bb9af94670352ca065c19060703dc145a2b85131c303896c5972cfab516e5",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0052__L024__p92:qatar:hongkong": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0052__L024__p92:qatar:hongkong",
+"anchor": "Hong Kong",
+"nearest": [
+"Myanmar",
+"Scotland",
+"Taiwan",
+"Netherlands"
+],
+"random": [
+"Brazil",
+"Costa Rica",
+"Italy",
+"Philippines"
+],
+"distractors": [
+"Myanmar",
+"Scotland",
+"Taiwan",
+"Netherlands",
+"Brazil",
+"Costa Rica",
+"Italy",
+"Philippines"
+],
+"n_eligible": 31,
+"sha": "fb3de421fc662538ba70a2480886a4fe73b8fd74bc0237d896964f92ef7c1c2a",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0052__L028__p92:china:hongkong": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0052__L028__p92:china:hongkong",
+"anchor": "China",
+"nearest": [
+"United States",
+"Soviet Union",
+"Netherlands",
+"Pakistan"
+],
+"random": [
+"Italy",
+"Mongolia",
+"Myanmar",
+"Sweden"
+],
+"distractors": [
+"United States",
+"Soviet Union",
+"Netherlands",
+"Pakistan",
+"Italy",
+"Mongolia",
+"Myanmar",
+"Sweden"
+],
+"n_eligible": 32,
+"sha": "eed2d2ce72a8d67a90b6b2d627cc6b689711d79113a92b7d49f855382ba5c6fc",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0052__L032__p92:china:hongkong": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0052__L032__p92:china:hongkong",
+"anchor": "China",
+"nearest": [
+"United States",
+"Soviet Union",
+"Netherlands",
+"Pakistan"
+],
+"random": [
+"Brazil",
+"Denmark",
+"New Zealand",
+"United Kingdom"
+],
+"distractors": [
+"United States",
+"Soviet Union",
+"Netherlands",
+"Pakistan",
+"Brazil",
+"Denmark",
+"New Zealand",
+"United Kingdom"
+],
+"n_eligible": 32,
+"sha": "b6c8446abc1e99f87d521d679e55a8fb5ba9d40da9c62f7fa2d4680c3f110941",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0052__L040__p92:china:hongkong": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0052__L040__p92:china:hongkong",
+"anchor": "China",
+"nearest": [
+"United States",
+"Soviet Union",
+"Netherlands",
+"Pakistan"
+],
+"random": [
+"Brazil",
+"Ireland",
+"Italy",
+"Mongolia"
+],
+"distractors": [
+"United States",
+"Soviet Union",
+"Netherlands",
+"Pakistan",
+"Brazil",
+"Ireland",
+"Italy",
+"Mongolia"
+],
+"n_eligible": 32,
+"sha": "84546c6ca0fc99ef502385072d8cad2cbd55cc2c58b22cc8d2d62e2ea9cbd3b3",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0052__L048__p92:china:hongkong": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0052__L048__p92:china:hongkong",
+"anchor": "China",
+"nearest": [
+"United States",
+"Soviet Union",
+"Netherlands",
+"Pakistan"
+],
+"random": [
+"Italy",
+"Myanmar",
+"Philippines",
+"Saudi Arabia"
+],
+"distractors": [
+"United States",
+"Soviet Union",
+"Netherlands",
+"Pakistan",
+"Italy",
+"Myanmar",
+"Philippines",
+"Saudi Arabia"
+],
+"n_eligible": 32,
+"sha": "9c46c6ae2e446cc8da89d3f50d106be116679213ee2a2bd0012f3632d9a125d8",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0052__L052__p77:china:hongkong": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0052__L052__p77:china:hongkong",
+"anchor": "China",
+"nearest": [
+"United States",
+"Soviet Union",
+"Netherlands",
+"Pakistan"
+],
+"random": [
+"Hong Kong",
+"Iceland",
+"Ireland",
+"Sweden"
+],
+"distractors": [
+"United States",
+"Soviet Union",
+"Netherlands",
+"Pakistan",
+"Hong Kong",
+"Iceland",
+"Ireland",
+"Sweden"
+],
+"n_eligible": 32,
+"sha": "3ad5b3546c23d00cd1a93b66b39dd1fa17e94e9613a06b3748b115fde6f72fbb",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0052__L060__p92:china:hongkong": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0052__L060__p92:china:hongkong",
+"anchor": "China",
+"nearest": [
+"United States",
+"Soviet Union",
+"Netherlands",
+"Pakistan"
+],
+"random": [
+"Costa Rica",
+"Ghana",
+"Iceland",
+"Ireland"
+],
+"distractors": [
+"United States",
+"Soviet Union",
+"Netherlands",
+"Pakistan",
+"Costa Rica",
+"Ghana",
+"Iceland",
+"Ireland"
+],
+"n_eligible": 32,
+"sha": "ed170c3ac178457565513c371d80b93eef50c6c737ca3892a03a030731195a6f",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0009__L020__p171:germany:china": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0009__L020__p171:germany:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Canada",
+"Syria",
+"Japan"
+],
+"random": [
+"Costa Rica",
+"Iran",
+"Taiwan",
+"United Kingdom"
+],
+"distractors": [
+"Soviet Union",
+"Canada",
+"Syria",
+"Japan",
+"Costa Rica",
+"Iran",
+"Taiwan",
+"United Kingdom"
+],
+"n_eligible": 33,
+"sha": "fc4b8d2fa8c7a0a27633017d162f53cc4317db00edf2e04c7ae1ba21fb3521f6",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0009__L036__p171::": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0009__L036__p171::",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Canada",
+"Syria",
+"Japan"
+],
+"random": [
+"Denmark",
+"Eritrea",
+"Ireland",
+"Norway"
+],
+"distractors": [
+"Soviet Union",
+"Canada",
+"Syria",
+"Japan",
+"Denmark",
+"Eritrea",
+"Ireland",
+"Norway"
+],
+"n_eligible": 33,
+"sha": "7008970246722fa5c9623c01779625c8cc714e258914d1ad077de46340ddd48b",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0025__L044__p107:germany:china": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0025__L044__p107:germany:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Canada",
+"Syria"
+],
+"random": [
+"Austria",
+"Ireland",
+"Mongolia",
+"Vatican City"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Canada",
+"Syria",
+"Austria",
+"Ireland",
+"Mongolia",
+"Vatican City"
+],
+"n_eligible": 35,
+"sha": "c7b4c6b082a65160e37312340f1ce41901dd7570d28ba9247b60ad0c5ad252c4",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0025__L048__p236:southkorea:shanghai": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0025__L048__p236:southkorea:shanghai",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Canada",
+"Syria"
+],
+"random": [
+"Austria",
+"Iran",
+"Mongolia",
+"Norway"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Canada",
+"Syria",
+"Austria",
+"Iran",
+"Mongolia",
+"Norway"
+],
+"n_eligible": 35,
+"sha": "d38155b7452e412b5d1f2796f45c86e7bc96f02454de2ddb41e545d0479e87a6",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0031__L032__p81:vatican:swedishmonarch": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0031__L032__p81:vatican:swedishmonarch",
+"anchor": "Sweden",
+"nearest": [
+"Italy",
+"Philippines",
+"New Zealand",
+"Netherlands"
+],
+"random": [
+"Austria",
+"China",
+"Iran",
+"Nigeria"
+],
+"distractors": [
+"Italy",
+"Philippines",
+"New Zealand",
+"Netherlands",
+"Austria",
+"China",
+"Iran",
+"Nigeria"
+],
+"n_eligible": 19,
+"sha": "62652aefb41470fff763a3c0c05929bc9ee00ec06fef49ef01f8776615b5482c",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0031__L032__p81:vatican:swedishmonarchy": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0031__L032__p81:vatican:swedishmonarchy",
+"anchor": "Sweden",
+"nearest": [
+"Italy",
+"Philippines",
+"New Zealand",
+"Netherlands"
+],
+"random": [
+"China",
+"India",
+"Soviet Union",
+"Vietnam"
+],
+"distractors": [
+"Italy",
+"Philippines",
+"New Zealand",
+"Netherlands",
+"China",
+"India",
+"Soviet Union",
+"Vietnam"
+],
+"n_eligible": 19,
+"sha": "b01272afb0e262830b9c20976cadff5a3273b214845e2f07193cfc17b92f666a",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0031__L044__p81:canada:sweden": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0031__L044__p81:canada:sweden",
+"anchor": "Sweden",
+"nearest": [
+"Italy",
+"Philippines",
+"New Zealand",
+"Netherlands"
+],
+"random": [
+"India",
+"Iran",
+"South Korea",
+"Soviet Union"
+],
+"distractors": [
+"Italy",
+"Philippines",
+"New Zealand",
+"Netherlands",
+"India",
+"Iran",
+"South Korea",
+"Soviet Union"
+],
+"n_eligible": 19,
+"sha": "5b3f9cd850327053d2b14b9f2731253c44bbc6506d3ca8d92eb634453e16a8b9",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0031__L048__p81:canada:sweden": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0031__L048__p81:canada:sweden",
+"anchor": "Sweden",
+"nearest": [
+"Italy",
+"Philippines",
+"New Zealand",
+"Netherlands"
+],
+"random": [
+"Austria",
+"Iran",
+"Pakistan",
+"Soviet Union"
+],
+"distractors": [
+"Italy",
+"Philippines",
+"New Zealand",
+"Netherlands",
+"Austria",
+"Iran",
+"Pakistan",
+"Soviet Union"
+],
+"n_eligible": 19,
+"sha": "0849def58ef906a6487c96d7ed5b6e46aff25e383aa02f28c6d9f641132224e6",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0031__L048__p81:switzerland:sweden": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0031__L048__p81:switzerland:sweden",
+"anchor": "Sweden",
+"nearest": [
+"Italy",
+"Philippines",
+"New Zealand",
+"Netherlands"
+],
+"random": [
+"South Korea",
+"Soviet Union",
+"Syria",
+"Vietnam"
+],
+"distractors": [
+"Italy",
+"Philippines",
+"New Zealand",
+"Netherlands",
+"South Korea",
+"Soviet Union",
+"Syria",
+"Vietnam"
+],
+"n_eligible": 19,
+"sha": "039dafffa7ab15a21cbad2b00d49a47f65a3a93e30d9eea80b3b3e6f89f9609d",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0031__L052__p55:francehungary:sweden": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0031__L052__p55:francehungary:sweden",
+"anchor": "Sweden",
+"nearest": [
+"Italy",
+"Philippines",
+"New Zealand",
+"Netherlands"
+],
+"random": [
+"Eritrea",
+"South Korea",
+"Soviet Union",
+"United States"
+],
+"distractors": [
+"Italy",
+"Philippines",
+"New Zealand",
+"Netherlands",
+"Eritrea",
+"South Korea",
+"Soviet Union",
+"United States"
+],
+"n_eligible": 19,
+"sha": "d71a8822fff9be6a52f805b29a89ad8ba292f692cb7cc6405871cc4c91f223a6",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0070__L036__p253:india:china": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0070__L036__p253:india:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Canada",
+"Syria"
+],
+"random": [
+"Egypt",
+"Iceland",
+"Kingdom of Finland",
+"New Zealand"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Canada",
+"Syria",
+"Egypt",
+"Iceland",
+"Kingdom of Finland",
+"New Zealand"
+],
+"n_eligible": 34,
+"sha": "9945f38dc3b4f73e639b5793ebfe8348ec68091332d5cce34d8333312b7a1128",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0070__L040__p253:turkey:china": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0070__L040__p253:turkey:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Canada",
+"Syria"
+],
+"random": [
+"Austria",
+"Denmark",
+"Iceland",
+"Sweden"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Canada",
+"Syria",
+"Austria",
+"Denmark",
+"Iceland",
+"Sweden"
+],
+"n_eligible": 34,
+"sha": "f7b9e1250f89add35bda6e23e383c4eecc4466b38d80453eff036dfad9cbdc89",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0070__L060__p222:turkey:china": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0070__L060__p222:turkey:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Canada",
+"Syria"
+],
+"random": [
+"Brazil",
+"Egypt",
+"New Zealand",
+"Scotland"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Canada",
+"Syria",
+"Brazil",
+"Egypt",
+"New Zealand",
+"Scotland"
+],
+"n_eligible": 34,
+"sha": "352e07d731eb2442143a4292e9e761a676432ee312939a9bc0f73c360f5fd0d9",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0070__L060__p310:japan:china": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0070__L060__p310:japan:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Canada",
+"Syria"
+],
+"random": [
+"Eritrea",
+"Ireland",
+"Italy",
+"Saudi Arabia"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Canada",
+"Syria",
+"Eritrea",
+"Ireland",
+"Italy",
+"Saudi Arabia"
+],
+"n_eligible": 34,
+"sha": "109ad384653cceb80a85f41894d484975cd70cd8b2909f6975c0e2dc253cffb9",
+"generation": 0
+},
+"nla-sft-L42:chat-dailydialog-0019__L042__p188:india:china": {
+"unit": "nla-sft-L42:chat-dailydialog-0019__L042__p188:india:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway"
+],
+"random": [
+"Australia",
+"Iceland",
+"Kingdom of Finland",
+"Scotland"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway",
+"Australia",
+"Iceland",
+"Kingdom of Finland",
+"Scotland"
+],
+"n_eligible": 20,
+"sha": "053ec443023ed6cff7bd85fa4d8737000a1e6db1022864bd6e7350d32750a8d2",
+"generation": 0
+},
+"patchscopes:chat-dailydialog-0019__L024__p161:southkorea:china": {
+"unit": "patchscopes:chat-dailydialog-0019__L024__p161:southkorea:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway"
+],
+"random": [
+"Finland",
+"Iceland",
+"New Zealand",
+"Philippines"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway",
+"Finland",
+"Iceland",
+"New Zealand",
+"Philippines"
+],
+"n_eligible": 20,
+"sha": "bffe4e3111a8ba02c52643abbbd1b6c5319b0f1e472c91172b56ca70cd349ec3",
+"generation": 0
+},
+"patchscopes:chat-dailydialog-0019__L028__p120:unitedstates:china": {
+"unit": "patchscopes:chat-dailydialog-0019__L028__p120:unitedstates:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway"
+],
+"random": [
+"Denmark",
+"Philippines",
+"Scotland",
+"Spain"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway",
+"Denmark",
+"Philippines",
+"Scotland",
+"Spain"
+],
+"n_eligible": 20,
+"sha": "623c4bd294b45e888d0a1735114367c72705ce74fc3c6a77daecded1fc939e02",
+"generation": 0
+},
+"patchscopes:chat-dailydialog-0019__L036__p71:syria:china": {
+"unit": "patchscopes:chat-dailydialog-0019__L036__p71:syria:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway"
+],
+"random": [
+"Denmark",
+"Kingdom of Finland",
+"Philippines",
+"Spain"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway",
+"Denmark",
+"Kingdom of Finland",
+"Philippines",
+"Spain"
+],
+"n_eligible": 20,
+"sha": "78d198b10a4629a1edc74c7f1673f56b734231df3b50ec246c99fbb75fb045f3",
+"generation": 0
+},
+"patchscopes:chat-dailydialog-0019__L040__p71:syria:china": {
+"unit": "patchscopes:chat-dailydialog-0019__L040__p71:syria:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway"
+],
+"random": [
+"Australia",
+"Philippines",
+"Spain",
+"Switzerland"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway",
+"Australia",
+"Philippines",
+"Spain",
+"Switzerland"
+],
+"n_eligible": 20,
+"sha": "d2f5d3cf86c16b2ccf25daa58638634106760cf231a463b37d9ff59adc2043cd",
+"generation": 0
+},
+"patchscopes:chat-dailydialog-0019__L044__p134:unitedstates:china": {
+"unit": "patchscopes:chat-dailydialog-0019__L044__p134:unitedstates:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway"
+],
+"random": [
+"Ireland",
+"Kingdom of Finland",
+"Taiwan",
+"Vatican City"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway",
+"Ireland",
+"Kingdom of Finland",
+"Taiwan",
+"Vatican City"
+],
+"n_eligible": 20,
+"sha": "1dadb61abe8111611abd47614e9ff757ed65fe7147c668d3267c468f89899789",
+"generation": 0
+},
+"patchscopes:chat-dailydialog-0019__L044__p161:saudiarabia:china": {
+"unit": "patchscopes:chat-dailydialog-0019__L044__p161:saudiarabia:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway"
+],
+"random": [
+"Costa Rica",
+"Denmark",
+"Ireland",
+"Taiwan"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway",
+"Costa Rica",
+"Denmark",
+"Ireland",
+"Taiwan"
+],
+"n_eligible": 20,
+"sha": "19da26bb2c97a2167f2a59c016da048be98f05c5d12ddd4de1bc5d8a7ca594a4",
+"generation": 0
+},
+"patchscopes:chat-dailydialog-0019__L048__p120:egypt:china": {
+"unit": "patchscopes:chat-dailydialog-0019__L048__p120:egypt:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway"
+],
+"random": [
+"Spain",
+"Switzerland",
+"Taiwan",
+"Vatican City"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway",
+"Spain",
+"Switzerland",
+"Taiwan",
+"Vatican City"
+],
+"n_eligible": 20,
+"sha": "9f7ab0d2691c02e6aa31ee6a83693df69c78cda54e41ebede332627fb864a4bb",
+"generation": 0
+},
+"patchscopes:chat-lmsys-0070__L040__p123:southkorea:china": {
+"unit": "patchscopes:chat-lmsys-0070__L040__p123:southkorea:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Canada",
+"Syria"
+],
+"random": [
+"Australia",
+"Hong Kong",
+"Iceland",
+"Qatar"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Canada",
+"Syria",
+"Australia",
+"Hong Kong",
+"Iceland",
+"Qatar"
+],
+"n_eligible": 34,
+"sha": "e3186323765aefcd376fbde2ca8dc0b52244945293fb2d768bc43c1da6e5698d",
+"generation": 0
+},
+"patchscopes:chat-lmsys-0073__L028__p431:china:unitedstates": {
+"unit": "patchscopes:chat-lmsys-0073__L028__p431:china:unitedstates",
+"anchor": "United States",
+"nearest": [
+"Australia",
+"Soviet Union",
+"France",
+"Syria"
+],
+"random": [
+"Italy",
+"Norway",
+"Spain",
+"Taiwan"
+],
+"distractors": [
+"Australia",
+"Soviet Union",
+"France",
+"Syria",
+"Italy",
+"Norway",
+"Spain",
+"Taiwan"
+],
+"n_eligible": 43,
+"sha": "dd757a049fdec4c1bef72dc43ffc7d66cda381f0ad142968c545a1327b9837d8",
+"generation": 0
+},
+"rlens:chat-lmsys-0004__L044__p456:sovietunion:unitedstates": {
+"unit": "rlens:chat-lmsys-0004__L044__p456:sovietunion:unitedstates",
+"anchor": "United States",
+"nearest": [
+"China",
+"Australia",
+"France",
+"Syria"
+],
+"random": [
+"Denmark",
+"Ireland",
+"Singapore",
+"Switzerland"
+],
+"distractors": [
+"China",
+"Australia",
+"France",
+"Syria",
+"Denmark",
+"Ireland",
+"Singapore",
+"Switzerland"
+],
+"n_eligible": 43,
+"sha": "fc3f48fe9b810f43ab3e752519c7f13dedea98470ec2b5f5b096ae3b742518e1",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0009__L048__p198:japanyakuza:sicilianitalianamericanmafia": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0009__L048__p198:japanyakuza:sicilianitalianamericanmafia",
+"anchor": "Italy",
+"nearest": [
+"Spain",
+"France",
+"Turkey",
+"Austria"
+],
+"random": [
+"Germany",
+"Iceland",
+"Pakistan",
+"Scotland"
+],
+"distractors": [
+"Spain",
+"France",
+"Turkey",
+"Austria",
+"Germany",
+"Iceland",
+"Pakistan",
+"Scotland"
+],
+"n_eligible": 42,
+"sha": "946eac7ca543eb4404c2cf23fa890f533d7b185e1c31cb1beda2961e7c571cce",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0019__L020__p120:japan:china": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0019__L020__p120:japan:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway"
+],
+"random": [
+"Denmark",
+"Finland",
+"Iran",
+"Kingdom of Finland"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway",
+"Denmark",
+"Finland",
+"Iran",
+"Kingdom of Finland"
+],
+"n_eligible": 20,
+"sha": "dbd355b9e0bde38a9f261a59458e3c3f1ef9cbd5c8764287d9f3c1c2bf1d37ac",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0019__L024__p145:japan:china": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0019__L024__p145:japan:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway"
+],
+"random": [
+"Iceland",
+"Iran",
+"New Zealand",
+"Spain"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway",
+"Iceland",
+"Iran",
+"New Zealand",
+"Spain"
+],
+"n_eligible": 20,
+"sha": "23780474e75ca7fd272cfcaa193d00fa3562745cdea11d11f0219a77bb96f5b8",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0019__L028__p134:southkorea:china": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0019__L028__p134:southkorea:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway"
+],
+"random": [
+"Denmark",
+"Iceland",
+"Philippines",
+"Switzerland"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway",
+"Denmark",
+"Iceland",
+"Philippines",
+"Switzerland"
+],
+"n_eligible": 20,
+"sha": "38767d1e3584634ed9ee328ca74fc3c64d6a5b3cd135342c5fc527abcb6b4bdf",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0019__L028__p134:turkey:china": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0019__L028__p134:turkey:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway"
+],
+"random": [
+"Australia",
+"Iceland",
+"Scotland",
+"Spain"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway",
+"Australia",
+"Iceland",
+"Scotland",
+"Spain"
+],
+"n_eligible": 20,
+"sha": "fedebf04e1890c8596f9773f6a8325c70501470c011a387f95414fcdffddf260",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0019__L028__p188:egypt:china": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0019__L028__p188:egypt:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway"
+],
+"random": [
+"Finland",
+"Ireland",
+"Philippines",
+"Switzerland"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway",
+"Finland",
+"Ireland",
+"Philippines",
+"Switzerland"
+],
+"n_eligible": 20,
+"sha": "836a0a5dd628ba4deb3dafee294ec8ec9db38c130d014875012a90963ff15307",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0019__L028__p188:eritrea:china": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0019__L028__p188:eritrea:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway"
+],
+"random": [
+"Australia",
+"Ireland",
+"Kingdom of Finland",
+"Spain"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway",
+"Australia",
+"Ireland",
+"Kingdom of Finland",
+"Spain"
+],
+"n_eligible": 20,
+"sha": "5cc0bf39f64c4967bbf038d07c251157ad334449af66ab87490860c28a86e61c",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0019__L028__p24:us:china": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0019__L028__p24:us:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway"
+],
+"random": [
+"Iceland",
+"Italy",
+"Scotland",
+"Switzerland"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway",
+"Iceland",
+"Italy",
+"Scotland",
+"Switzerland"
+],
+"n_eligible": 20,
+"sha": "62dfc2a2ae59ec68750de0cb70994cf846183ceaa84e564edbf33680793120f7",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0019__L032__p54:singapore:china": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0019__L032__p54:singapore:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway"
+],
+"random": [
+"Denmark",
+"Iran",
+"Ireland",
+"Taiwan"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway",
+"Denmark",
+"Iran",
+"Ireland",
+"Taiwan"
+],
+"n_eligible": 20,
+"sha": "dfb4708d14d9bf030a5c234ed80c7b7be07102aa6fc6d0bdce5f3c59e119266e",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0019__L036__p24:unitedstates:china": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0019__L036__p24:unitedstates:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway"
+],
+"random": [
+"Denmark",
+"Italy",
+"Kingdom of Finland",
+"Philippines"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway",
+"Denmark",
+"Italy",
+"Kingdom of Finland",
+"Philippines"
+],
+"n_eligible": 20,
+"sha": "7eeb8ecdd822c390fb15732593e79d896b34a422cbe8a491601c6d13a7ea2a77",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0019__L036__p54:japan:china": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0019__L036__p54:japan:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway"
+],
+"random": [
+"Australia",
+"Costa Rica",
+"Iceland",
+"Switzerland"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway",
+"Australia",
+"Costa Rica",
+"Iceland",
+"Switzerland"
+],
+"n_eligible": 20,
+"sha": "ab90fd9b1f016315a34cf9ba8fe3555c01a384c1bf495c019edc54fc879f3c28",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0019__L040__p145:vietnam:china": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0019__L040__p145:vietnam:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway"
+],
+"random": [
+"Iceland",
+"Iran",
+"Kingdom of Finland",
+"Scotland"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway",
+"Iceland",
+"Iran",
+"Kingdom of Finland",
+"Scotland"
+],
+"n_eligible": 20,
+"sha": "df92547ce250e6107c78ec8c357c5261a5ae5a65234957616272da3a4016153a",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0019__L044__p24:unitedstates:china": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0019__L044__p24:unitedstates:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway"
+],
+"random": [
+"Denmark",
+"Iceland",
+"Italy",
+"Taiwan"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway",
+"Denmark",
+"Iceland",
+"Italy",
+"Taiwan"
+],
+"n_eligible": 20,
+"sha": "cd29808b4814fa915163a14ed4057013030098d53907c7fe46b38da2c9677821",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0019__L044__p71:vietnam:china": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0019__L044__p71:vietnam:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway"
+],
+"random": [
+"Denmark",
+"New Zealand",
+"Philippines",
+"Taiwan"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway",
+"Denmark",
+"New Zealand",
+"Philippines",
+"Taiwan"
+],
+"n_eligible": 20,
+"sha": "2e3e772e836de47474d85d09db0391d84ad569526de497cdbec2775e1061fd8d",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0019__L048__p188:japan:china": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0019__L048__p188:japan:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway"
+],
+"random": [
+"Finland",
+"Spain",
+"Switzerland",
+"Vatican City"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway",
+"Finland",
+"Spain",
+"Switzerland",
+"Vatican City"
+],
+"n_eligible": 20,
+"sha": "6a1349da3544001c6770eeb6440eff0a5cb9de604b4a9abed10b5e70b78b069c",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0019__L052__p145:vietnam:china": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0019__L052__p145:vietnam:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway"
+],
+"random": [
+"Australia",
+"Iceland",
+"Ireland",
+"Switzerland"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway",
+"Australia",
+"Iceland",
+"Ireland",
+"Switzerland"
+],
+"n_eligible": 20,
+"sha": "a35c6309e04ae645fb21c114ed66c46845e8916e22e14802a10b5fbef3b8b569",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0019__L052__p54:japan:china": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0019__L052__p54:japan:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway"
+],
+"random": [
+"Denmark",
+"Iran",
+"Spain",
+"Taiwan"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway",
+"Denmark",
+"Iran",
+"Spain",
+"Taiwan"
+],
+"n_eligible": 20,
+"sha": "ef04cb0ccf0b7cd131951fabaffcfce2c1350da4e3f27857ae1a8d279fbe7e93",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0019__L056__p54:japan:china": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0019__L056__p54:japan:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway"
+],
+"random": [
+"Ireland",
+"Kingdom of Finland",
+"Switzerland",
+"Taiwan"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway",
+"Ireland",
+"Kingdom of Finland",
+"Switzerland",
+"Taiwan"
+],
+"n_eligible": 20,
+"sha": "07f94b03d88da349072790f5ead3ad154061b5d605bf88f0d191826686dad8e3",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0037__L032__p28:china:french": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0037__L032__p28:china:french",
+"anchor": "France",
+"nearest": [
+"Austria",
+"United Kingdom",
+"Spain",
+"Italy"
+],
+"random": [
+"Ireland",
+"New Zealand",
+"Qatar",
+"Singapore"
+],
+"distractors": [
+"Austria",
+"United Kingdom",
+"Spain",
+"Italy",
+"Ireland",
+"New Zealand",
+"Qatar",
+"Singapore"
+],
+"n_eligible": 43,
+"sha": "81e8cc734680d8074dfb34ea12f4264cd623db21bccf13f214c86046a54cd6be",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0046__L020__p145:canada:australia": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0046__L020__p145:canada:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Brazil",
+"Ghana",
+"Myanmar",
+"Netherlands"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Brazil",
+"Ghana",
+"Myanmar",
+"Netherlands"
+],
+"n_eligible": 22,
+"sha": "563ee6872323b2b21f040832b5409888258a8f3624631259e51ad2df30667617",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0046__L020__p145:france:australia": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0046__L020__p145:france:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Mongolia",
+"Netherlands",
+"Nigeria",
+"Pakistan"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Mongolia",
+"Netherlands",
+"Nigeria",
+"Pakistan"
+],
+"n_eligible": 22,
+"sha": "e45ed0b4dde8176d11bbc3955bf51c3f39d4fd13e33d09bf7ba59561c4b200e7",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0046__L020__p145:japan:australia": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0046__L020__p145:japan:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Brazil",
+"Ghana",
+"Kingdom of Finland",
+"Netherlands"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Brazil",
+"Ghana",
+"Kingdom of Finland",
+"Netherlands"
+],
+"n_eligible": 22,
+"sha": "92e7b331e918389d024e17d8b8d933891628e12c5f5bcda63316f288e286d992",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0046__L020__p157:britain:australia": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0046__L020__p157:britain:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Iceland",
+"Myanmar",
+"Nigeria",
+"Vietnam"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Iceland",
+"Myanmar",
+"Nigeria",
+"Vietnam"
+],
+"n_eligible": 21,
+"sha": "2a14f69bd6b7052be5b861eea6601d00dbd3a1159c01dd4147ba5fa8db221f64",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0046__L020__p157:uk:australia": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0046__L020__p157:uk:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Eritrea",
+"Iceland",
+"Mexico",
+"Vietnam"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Eritrea",
+"Iceland",
+"Mexico",
+"Vietnam"
+],
+"n_eligible": 21,
+"sha": "1129c8a864758446a4736e1240f3ea9411ad073d203cd5fbc5c165bd31b13a2c",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0046__L024__p145:france:australia": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0046__L024__p145:france:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Netherlands",
+"Scotland",
+"Soviet Union",
+"Vietnam"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Netherlands",
+"Scotland",
+"Soviet Union",
+"Vietnam"
+],
+"n_eligible": 22,
+"sha": "a581c9890a3035892f8aa4caa84e0085658fa72ace50f1d55d1c710e5678ba55",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0046__L024__p145:uk:australia": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0046__L024__p145:uk:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Iceland",
+"Myanmar",
+"Scotland",
+"Soviet Union"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Iceland",
+"Myanmar",
+"Scotland",
+"Soviet Union"
+],
+"n_eligible": 21,
+"sha": "6e66cda418be334ab999038e932cccd41dd2960b9633239679cf5a2365d3023f",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0046__L024__p145:unitedstates:australia": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0046__L024__p145:unitedstates:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Iceland",
+"Mongolia",
+"Myanmar",
+"Pakistan"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Iceland",
+"Mongolia",
+"Myanmar",
+"Pakistan"
+],
+"n_eligible": 22,
+"sha": "fcfd595773622e867f01c6525fd45b05065a02a97ff601e84d37e33211f7f0f2",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0046__L024__p157:uk:australia": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0046__L024__p157:uk:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Egypt",
+"Mexico",
+"Myanmar",
+"Qatar"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Egypt",
+"Mexico",
+"Myanmar",
+"Qatar"
+],
+"n_eligible": 21,
+"sha": "4e87ba19eee375e1fa607e35b930ff836789274d34ddc2e2f3b7b3e5eed74224",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0046__L028__p145:france:australia": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0046__L028__p145:france:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Ghana",
+"Mongolia",
+"Qatar",
+"Taiwan"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Ghana",
+"Mongolia",
+"Qatar",
+"Taiwan"
+],
+"n_eligible": 22,
+"sha": "197d5f5bcf00d3df7a20a4284abc2ed615710b0a8ee1299bb5b6442e129cac21",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0046__L028__p157:france:australia": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0046__L028__p157:france:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Kingdom of Finland",
+"Qatar",
+"Scotland",
+"Soviet Union"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Kingdom of Finland",
+"Qatar",
+"Scotland",
+"Soviet Union"
+],
+"n_eligible": 22,
+"sha": "ef7d46bb8e68accff70e0d4c184a2c9748c4e188ecff6a603ac0e1ba3b3785f8",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0046__L028__p157:oxfordandcambridgefinland:australia": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0046__L028__p157:oxfordandcambridgefinland:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Ghana",
+"Mexico",
+"Soviet Union",
+"Taiwan"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Ghana",
+"Mexico",
+"Soviet Union",
+"Taiwan"
+],
+"n_eligible": 21,
+"sha": "2efaa2a1728b2d4c4af28751b0e77689513175003928684dc170d1c373a78301",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0046__L028__p157:spain:australia": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0046__L028__p157:spain:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Mongolia",
+"Myanmar",
+"Qatar",
+"Taiwan"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Mongolia",
+"Myanmar",
+"Qatar",
+"Taiwan"
+],
+"n_eligible": 22,
+"sha": "9e91f4d8c9e6c50a931ba9e83d350beace3b248a2a73b7083c0faa5bbe7a2116",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0046__L028__p157:ukfinland:australia": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0046__L028__p157:ukfinland:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Brazil",
+"Iceland",
+"Scotland",
+"Taiwan"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Brazil",
+"Iceland",
+"Scotland",
+"Taiwan"
+],
+"n_eligible": 21,
+"sha": "4329a459688568295e427d33bed03aec14f81c99a281eef033c3798a2dd633d8",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0046__L028__p22:canada:australia": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0046__L028__p22:canada:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Eritrea",
+"Ghana",
+"Netherlands",
+"Vietnam"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Eritrea",
+"Ghana",
+"Netherlands",
+"Vietnam"
+],
+"n_eligible": 22,
+"sha": "2ebfa8d17b5f89a8f487c3f27972bd8d7ea6e38e3b151afd607f0f3b87ccaf40",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0046__L032__p145:france:australia": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0046__L032__p145:france:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Ghana",
+"Mexico",
+"Netherlands",
+"Taiwan"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Ghana",
+"Mexico",
+"Netherlands",
+"Taiwan"
+],
+"n_eligible": 22,
+"sha": "1d19012b18bcc6fe5620f44a649bd7b4feb3e5cce95a837d863ec687dc56cc1b",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0046__L032__p145:japan:australia": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0046__L032__p145:japan:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Brazil",
+"Eritrea",
+"Mexico",
+"Scotland"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Brazil",
+"Eritrea",
+"Mexico",
+"Scotland"
+],
+"n_eligible": 22,
+"sha": "eeb0517c77808f8cf12bd33d505815d81dfe7a6364e4acb73f2dfbe9074c395b",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0046__L032__p157:france:australia": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0046__L032__p157:france:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Brazil",
+"Mongolia",
+"Nigeria",
+"Qatar"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Brazil",
+"Mongolia",
+"Nigeria",
+"Qatar"
+],
+"n_eligible": 22,
+"sha": "db52842e7d9991444d6b295f1ef64beb4cd67addfd54f65d961b20af7180265f",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0046__L032__p157:japan:australia": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0046__L032__p157:japan:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Brazil",
+"Egypt",
+"Nigeria",
+"Scotland"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Brazil",
+"Egypt",
+"Nigeria",
+"Scotland"
+],
+"n_eligible": 22,
+"sha": "9b7f2d4ade029b801e7e068f23ef2a754d4e002480f6235a1a7567c418258620",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0046__L040__p102:finland:australia": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0046__L040__p102:finland:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Costa Rica",
+"Eritrea",
+"Taiwan",
+"Vietnam"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Costa Rica",
+"Eritrea",
+"Taiwan",
+"Vietnam"
+],
+"n_eligible": 21,
+"sha": "7c9952b53776910f06509b2db2e0c641ac33ac12fd03f59d1a81262a6c7148ec",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0046__L044__p102:finland:australia": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0046__L044__p102:finland:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Eritrea",
+"Ghana",
+"Pakistan",
+"Qatar"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Eritrea",
+"Ghana",
+"Pakistan",
+"Qatar"
+],
+"n_eligible": 21,
+"sha": "b4eaa229ad7e730f66f29ad6b7e84d97fae3434a0302debeb71c27be8fdb9cb1",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0046__L048__p102:canada:australia": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0046__L048__p102:canada:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Egypt",
+"Kingdom of Finland",
+"Mongolia",
+"Nigeria"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Egypt",
+"Kingdom of Finland",
+"Mongolia",
+"Nigeria"
+],
+"n_eligible": 22,
+"sha": "93f94d40d3c2522ed61d1f2a82ae39ba141b205a35ca41c2b472a9de88b83e91",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0046__L048__p102:china:australia": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0046__L048__p102:china:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Brazil",
+"Eritrea",
+"Mexico",
+"Mongolia"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Brazil",
+"Eritrea",
+"Mexico",
+"Mongolia"
+],
+"n_eligible": 22,
+"sha": "08201ffe9c92d675e42e787054a67250f637f815d55770d31f1266b5e21d7cf8",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0046__L048__p132:china:australia": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0046__L048__p132:china:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Costa Rica",
+"Ghana",
+"Nigeria",
+"Qatar"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Costa Rica",
+"Ghana",
+"Nigeria",
+"Qatar"
+],
+"n_eligible": 22,
+"sha": "3fff3a681497434dab0747cee4581a5579c8b47e2dafa39d966873a4511b9108",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0046__L048__p145:britishuniversities:australianeducation": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0046__L048__p145:britishuniversities:australianeducation",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Brazil",
+"Mexico",
+"Myanmar",
+"Netherlands"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Brazil",
+"Mexico",
+"Myanmar",
+"Netherlands"
+],
+"n_eligible": 21,
+"sha": "11c6a32c92b054c6fb2e72c9e18d0d6aee20d17d48d9d52adf3df6080469bd65",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0046__L052__p102:finland:australia": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0046__L052__p102:finland:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Eritrea",
+"Mongolia",
+"Nigeria",
+"Scotland"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Eritrea",
+"Mongolia",
+"Nigeria",
+"Scotland"
+],
+"n_eligible": 21,
+"sha": "6e27b60be84117dc7e9f546b3774ec6a13f0e161a22ac690dbc5ee88166288a3",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0046__L052__p102:uk:australia": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0046__L052__p102:uk:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Eritrea",
+"Ghana",
+"Iceland",
+"Netherlands"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Eritrea",
+"Ghana",
+"Iceland",
+"Netherlands"
+],
+"n_eligible": 21,
+"sha": "b840ad49bc596075b0b908833c97376741306311fe4506f10e9825e728a3e0a9",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0046__L056__p102:canadaorfinland:australia": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0046__L056__p102:canadaorfinland:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Ghana",
+"Iceland",
+"Qatar",
+"Taiwan"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Ghana",
+"Iceland",
+"Qatar",
+"Taiwan"
+],
+"n_eligible": 22,
+"sha": "f1eef953fc3d8a70bb8c5eea0d32c7f03a3954878755bcd3ddbf897e539df63a",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0046__L056__p102:india:australia": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0046__L056__p102:india:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Costa Rica",
+"Eritrea",
+"Myanmar",
+"Vietnam"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Costa Rica",
+"Eritrea",
+"Myanmar",
+"Vietnam"
+],
+"n_eligible": 22,
+"sha": "6435442f290a933b9df154c26a00b92f6183ebb8f203db843f97fd77ee77a62c",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0048__L056__p199:spain:londonuk": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0048__L056__p199:spain:londonuk",
+"anchor": "United Kingdom",
+"nearest": [
+"Austria",
+"Australia",
+"Turkey",
+"Canada"
+],
+"random": [
+"Eritrea",
+"Iran",
+"Pakistan",
+"Scotland"
+],
+"distractors": [
+"Austria",
+"Australia",
+"Turkey",
+"Canada",
+"Eritrea",
+"Iran",
+"Pakistan",
+"Scotland"
+],
+"n_eligible": 38,
+"sha": "10fcaa98d0ec50154dead29f894eb58dffa1af1597438b1916ee64494c5dbb68",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0048__L060__p199:spain:uk": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0048__L060__p199:spain:uk",
+"anchor": "United Kingdom",
+"nearest": [
+"Austria",
+"Australia",
+"Turkey",
+"Canada"
+],
+"random": [
+"China",
+"Iceland",
+"Nigeria",
+"Qatar"
+],
+"distractors": [
+"Austria",
+"Australia",
+"Turkey",
+"Canada",
+"China",
+"Iceland",
+"Nigeria",
+"Qatar"
+],
+"n_eligible": 38,
+"sha": "f4b2a8270f1c2c6e38855c97c54c65b54d67bd76a55d1af321bdb0dd76b400f2",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0052__L032__p92:china:hongkong": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0052__L032__p92:china:hongkong",
+"anchor": "China",
+"nearest": [
+"United States",
+"Soviet Union",
+"Netherlands",
+"Pakistan"
+],
+"random": [
+"Brazil",
+"Denmark",
+"Ghana",
+"Ireland"
+],
+"distractors": [
+"United States",
+"Soviet Union",
+"Netherlands",
+"Pakistan",
+"Brazil",
+"Denmark",
+"Ghana",
+"Ireland"
+],
+"n_eligible": 32,
+"sha": "5e4ba3ada5494e29d2f46bbab5dee6bfee2d27127cd49c06815c037537fe3984",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0052__L052__p77:china:hongkong": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0052__L052__p77:china:hongkong",
+"anchor": "China",
+"nearest": [
+"United States",
+"Soviet Union",
+"Netherlands",
+"Pakistan"
+],
+"random": [
+"Austria",
+"Iceland",
+"Mexico",
+"Nigeria"
+],
+"distractors": [
+"United States",
+"Soviet Union",
+"Netherlands",
+"Pakistan",
+"Austria",
+"Iceland",
+"Mexico",
+"Nigeria"
+],
+"n_eligible": 32,
+"sha": "ef8d3dd83b9897fabc1b04b0e9250ad75ad10aba3a60196bc545849423fd463c",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0009__L048__p85:egypt:china": {
+"unit": "s3d-rl600-all11:chat-lmsys-0009__L048__p85:egypt:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Canada",
+"Syria",
+"Japan"
+],
+"random": [
+"Mongolia",
+"Qatar",
+"Saudi Arabia",
+"Vatican City"
+],
+"distractors": [
+"Soviet Union",
+"Canada",
+"Syria",
+"Japan",
+"Mongolia",
+"Qatar",
+"Saudi Arabia",
+"Vatican City"
+],
+"n_eligible": 33,
+"sha": "edb0dd572ea291b6ac190189e1db90798050ecfd45c1b0c7a91224bec26f7204",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0025__L028__p107:spain:china": {
+"unit": "s3d-rl600-all11:chat-lmsys-0025__L028__p107:spain:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Canada",
+"Syria"
+],
+"random": [
+"Eritrea",
+"Myanmar",
+"Pakistan",
+"Sweden"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Canada",
+"Syria",
+"Eritrea",
+"Myanmar",
+"Pakistan",
+"Sweden"
+],
+"n_eligible": 35,
+"sha": "3ff6863492e29dc7cd4cf45727b8d6a827ca846c3fb7898330b1dfffb39f8f53",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0031__L020__p81:uk:sweden": {
+"unit": "s3d-rl600-all11:chat-lmsys-0031__L020__p81:uk:sweden",
+"anchor": "Sweden",
+"nearest": [
+"Italy",
+"Philippines",
+"New Zealand",
+"Netherlands"
+],
+"random": [
+"China",
+"Eritrea",
+"India",
+"Vietnam"
+],
+"distractors": [
+"Italy",
+"Philippines",
+"New Zealand",
+"Netherlands",
+"China",
+"Eritrea",
+"India",
+"Vietnam"
+],
+"n_eligible": 18,
+"sha": "f3ace7839fd90f16de0dcc8436c1a91b8023e6f69a72fd1272fb2f1fcf5b7bbb",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0031__L020__p81:unitedkingdom:sweden": {
+"unit": "s3d-rl600-all11:chat-lmsys-0031__L020__p81:unitedkingdom:sweden",
+"anchor": "Sweden",
+"nearest": [
+"Italy",
+"Philippines",
+"New Zealand",
+"Netherlands"
+],
+"random": [
+"Austria",
+"Iran",
+"Nigeria",
+"Syria"
+],
+"distractors": [
+"Italy",
+"Philippines",
+"New Zealand",
+"Netherlands",
+"Austria",
+"Iran",
+"Nigeria",
+"Syria"
+],
+"n_eligible": 18,
+"sha": "a738c4d071c8311a744329aa0f6ca4612ebb6a68ddd0724bc49726886ce35b60",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0031__L032__p81:france:sweden": {
+"unit": "s3d-rl600-all11:chat-lmsys-0031__L032__p81:france:sweden",
+"anchor": "Sweden",
+"nearest": [
+"Italy",
+"Philippines",
+"New Zealand",
+"Netherlands"
+],
+"random": [
+"Ghana",
+"India",
+"Pakistan",
+"Vietnam"
+],
+"distractors": [
+"Italy",
+"Philippines",
+"New Zealand",
+"Netherlands",
+"Ghana",
+"India",
+"Pakistan",
+"Vietnam"
+],
+"n_eligible": 19,
+"sha": "4d5093841d0696f67e6f57c1977a8148b986c1a895a5aed4b5ab9e5cf373c2c7",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0031__L036__p81:scotland:sweden": {
+"unit": "s3d-rl600-all11:chat-lmsys-0031__L036__p81:scotland:sweden",
+"anchor": "Sweden",
+"nearest": [
+"Italy",
+"Philippines",
+"New Zealand",
+"Netherlands"
+],
+"random": [
+"Austria",
+"Nigeria",
+"Qatar",
+"Vietnam"
+],
+"distractors": [
+"Italy",
+"Philippines",
+"New Zealand",
+"Netherlands",
+"Austria",
+"Nigeria",
+"Qatar",
+"Vietnam"
+],
+"n_eligible": 19,
+"sha": "ca15b164cd437156fa4efc4e03b598978ab709e1dc41cd0d4fb8ab6757119fce",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0031__L040__p54:france:sweden": {
+"unit": "s3d-rl600-all11:chat-lmsys-0031__L040__p54:france:sweden",
+"anchor": "Sweden",
+"nearest": [
+"Italy",
+"Philippines",
+"New Zealand",
+"Netherlands"
+],
+"random": [
+"Ghana",
+"Hong Kong",
+"India",
+"Syria"
+],
+"distractors": [
+"Italy",
+"Philippines",
+"New Zealand",
+"Netherlands",
+"Ghana",
+"Hong Kong",
+"India",
+"Syria"
+],
+"n_eligible": 19,
+"sha": "35cb788ab1328cc0503f3c1bd6e11bf79eb9700736c21f3d3e09f75134e140e6",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0031__L040__p55:iceland:sweden": {
+"unit": "s3d-rl600-all11:chat-lmsys-0031__L040__p55:iceland:sweden",
+"anchor": "Sweden",
+"nearest": [
+"Italy",
+"Philippines",
+"New Zealand",
+"Netherlands"
+],
+"random": [
+"Austria",
+"Hong Kong",
+"Nigeria",
+"Soviet Union"
+],
+"distractors": [
+"Italy",
+"Philippines",
+"New Zealand",
+"Netherlands",
+"Austria",
+"Hong Kong",
+"Nigeria",
+"Soviet Union"
+],
+"n_eligible": 19,
+"sha": "e56b2fa6a347e7cb5774be91ed274a7d28e00be82d4feb5173c7cd557c2f8453",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0031__L040__p57:finland:sweden": {
+"unit": "s3d-rl600-all11:chat-lmsys-0031__L040__p57:finland:sweden",
+"anchor": "Sweden",
+"nearest": [
+"Italy",
+"Philippines",
+"New Zealand",
+"Netherlands"
+],
+"random": [
+"Austria",
+"Hong Kong",
+"Pakistan",
+"Soviet Union"
+],
+"distractors": [
+"Italy",
+"Philippines",
+"New Zealand",
+"Netherlands",
+"Austria",
+"Hong Kong",
+"Pakistan",
+"Soviet Union"
+],
+"n_eligible": 19,
+"sha": "f3e147afa737e488b7dff694b4c912b2c1be82a388f7674a6b80af9fd442cd86",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0031__L040__p57:norway:sweden": {
+"unit": "s3d-rl600-all11:chat-lmsys-0031__L040__p57:norway:sweden",
+"anchor": "Sweden",
+"nearest": [
+"Italy",
+"Philippines",
+"New Zealand",
+"Netherlands"
+],
+"random": [
+"China",
+"Iran",
+"Pakistan",
+"Qatar"
+],
+"distractors": [
+"Italy",
+"Philippines",
+"New Zealand",
+"Netherlands",
+"China",
+"Iran",
+"Pakistan",
+"Qatar"
+],
+"n_eligible": 19,
+"sha": "93a4128d1f8eae7cd8c83d4af1a906da8c8016c5b7fd0a5543356962b73d03b1",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0031__L044__p55:kingdomoffinland:sweden": {
+"unit": "s3d-rl600-all11:chat-lmsys-0031__L044__p55:kingdomoffinland:sweden",
+"anchor": "Sweden",
+"nearest": [
+"Italy",
+"Philippines",
+"New Zealand",
+"Netherlands"
+],
+"random": [
+"Eritrea",
+"India",
+"Pakistan",
+"United States"
+],
+"distractors": [
+"Italy",
+"Philippines",
+"New Zealand",
+"Netherlands",
+"Eritrea",
+"India",
+"Pakistan",
+"United States"
+],
+"n_eligible": 19,
+"sha": "232a9ea886606a2483b8188be7d039095bb2fea0cf04a7eb1dca2821ae3c941b",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0031__L044__p55:spain:sweden": {
+"unit": "s3d-rl600-all11:chat-lmsys-0031__L044__p55:spain:sweden",
+"anchor": "Sweden",
+"nearest": [
+"Italy",
+"Philippines",
+"New Zealand",
+"Netherlands"
+],
+"random": [
+"China",
+"Eritrea",
+"Iran",
+"Pakistan"
+],
+"distractors": [
+"Italy",
+"Philippines",
+"New Zealand",
+"Netherlands",
+"China",
+"Eritrea",
+"Iran",
+"Pakistan"
+],
+"n_eligible": 19,
+"sha": "7efb87d4096fe1fefa83a8da1dc10f18d2a840778281302ea2d5c16db4b8105a",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0031__L048__p81:finland:sweden": {
+"unit": "s3d-rl600-all11:chat-lmsys-0031__L048__p81:finland:sweden",
+"anchor": "Sweden",
+"nearest": [
+"Italy",
+"Philippines",
+"New Zealand",
+"Netherlands"
+],
+"random": [
+"China",
+"Ghana",
+"Qatar",
+"Syria"
+],
+"distractors": [
+"Italy",
+"Philippines",
+"New Zealand",
+"Netherlands",
+"China",
+"Ghana",
+"Qatar",
+"Syria"
+],
+"n_eligible": 19,
+"sha": "83a495a163b1748be914e0e9521f980de8bf20a45757f317a60dd73f83aedba5",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0031__L052__p55:finland:sweden": {
+"unit": "s3d-rl600-all11:chat-lmsys-0031__L052__p55:finland:sweden",
+"anchor": "Sweden",
+"nearest": [
+"Italy",
+"Philippines",
+"New Zealand",
+"Netherlands"
+],
+"random": [
+"Austria",
+"Hong Kong",
+"Nigeria",
+"Syria"
+],
+"distractors": [
+"Italy",
+"Philippines",
+"New Zealand",
+"Netherlands",
+"Austria",
+"Hong Kong",
+"Nigeria",
+"Syria"
+],
+"n_eligible": 19,
+"sha": "9595d2c824998f3397c7d5a01fa6b1298275861f94bba411aeb2d116a6d1fc46",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0031__L052__p55:iceland:sweden": {
+"unit": "s3d-rl600-all11:chat-lmsys-0031__L052__p55:iceland:sweden",
+"anchor": "Sweden",
+"nearest": [
+"Italy",
+"Philippines",
+"New Zealand",
+"Netherlands"
+],
+"random": [
+"Pakistan",
+"Syria",
+"United States",
+"Vietnam"
+],
+"distractors": [
+"Italy",
+"Philippines",
+"New Zealand",
+"Netherlands",
+"Pakistan",
+"Syria",
+"United States",
+"Vietnam"
+],
+"n_eligible": 19,
+"sha": "6378b58879abe0fa8dcf875bd6847bd688e35c99b3049bbaa076b62e9f1022d6",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0031__L052__p57:denmark:sweden": {
+"unit": "s3d-rl600-all11:chat-lmsys-0031__L052__p57:denmark:sweden",
+"anchor": "Sweden",
+"nearest": [
+"Italy",
+"Philippines",
+"New Zealand",
+"Netherlands"
+],
+"random": [
+"Ghana",
+"South Korea",
+"Soviet Union",
+"United States"
+],
+"distractors": [
+"Italy",
+"Philippines",
+"New Zealand",
+"Netherlands",
+"Ghana",
+"South Korea",
+"Soviet Union",
+"United States"
+],
+"n_eligible": 19,
+"sha": "6de7c3c89db1f16c93052b4c57f76af02ef77777f15cb7f61c0dbc6509cbd4f4",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0031__L052__p57:finland:sweden": {
+"unit": "s3d-rl600-all11:chat-lmsys-0031__L052__p57:finland:sweden",
+"anchor": "Sweden",
+"nearest": [
+"Italy",
+"Philippines",
+"New Zealand",
+"Netherlands"
+],
+"random": [
+"Ghana",
+"Pakistan",
+"Qatar",
+"Vietnam"
+],
+"distractors": [
+"Italy",
+"Philippines",
+"New Zealand",
+"Netherlands",
+"Ghana",
+"Pakistan",
+"Qatar",
+"Vietnam"
+],
+"n_eligible": 19,
+"sha": "f98d8c083020d7e2ba8d671341c9cdf4436a16c8e6af67800f28da15e64ea9aa",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0031__L052__p57:iceland:sweden": {
+"unit": "s3d-rl600-all11:chat-lmsys-0031__L052__p57:iceland:sweden",
+"anchor": "Sweden",
+"nearest": [
+"Italy",
+"Philippines",
+"New Zealand",
+"Netherlands"
+],
+"random": [
+"China",
+"Ghana",
+"Pakistan",
+"United States"
+],
+"distractors": [
+"Italy",
+"Philippines",
+"New Zealand",
+"Netherlands",
+"China",
+"Ghana",
+"Pakistan",
+"United States"
+],
+"n_eligible": 19,
+"sha": "b858cef74cca52008763e6f3e2d7e824a455e7651520f9651b394465b2a32fd1",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0031__L056__p57:iceland:sweden": {
+"unit": "s3d-rl600-all11:chat-lmsys-0031__L056__p57:iceland:sweden",
+"anchor": "Sweden",
+"nearest": [
+"Italy",
+"Philippines",
+"New Zealand",
+"Netherlands"
+],
+"random": [
+"Austria",
+"Hong Kong",
+"South Korea",
+"Vietnam"
+],
+"distractors": [
+"Italy",
+"Philippines",
+"New Zealand",
+"Netherlands",
+"Austria",
+"Hong Kong",
+"South Korea",
+"Vietnam"
+],
+"n_eligible": 19,
+"sha": "f16d1beec41f530eb58f9ef17936bb67fb1dacc33f05a9ea573a7654480195cd",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0049__L036__p160:deutschland:eigenegemeinde": {
+"unit": "s3d-rl600-all11:chat-lmsys-0049__L036__p160:deutschland:eigenegemeinde",
+"anchor": "Germany",
+"nearest": [
+"Scotland",
+"Ireland",
+"Sweden",
+"Japan"
+],
+"random": [
+"Iran",
+"Myanmar",
+"Philippines",
+"South Korea"
+],
+"distractors": [
+"Scotland",
+"Ireland",
+"Sweden",
+"Japan",
+"Iran",
+"Myanmar",
+"Philippines",
+"South Korea"
+],
+"n_eligible": 45,
+"sha": "78da9bb68e3fb76bed3f3ada5d063eff66862937269171034b15ca106ca0ad7d",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0054__L048__p70:norway:france": {
+"unit": "s3d-rl600-all11:chat-lmsys-0054__L048__p70:norway:france",
+"anchor": "France",
+"nearest": [
+"Austria",
+"United Kingdom",
+"Spain",
+"Italy"
+],
+"random": [
+"Iceland",
+"New Zealand",
+"Saudi Arabia",
+"Sweden"
+],
+"distractors": [
+"Austria",
+"United Kingdom",
+"Spain",
+"Italy",
+"Iceland",
+"New Zealand",
+"Saudi Arabia",
+"Sweden"
+],
+"n_eligible": 40,
+"sha": "95b6c0ee23c970db2b44bc7b45aed6f71cd9773a7aae5d080f9dd1c8a0137fc2",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0070__L024__p82:usa:china": {
+"unit": "s3d-rl600-all11:chat-lmsys-0070__L024__p82:usa:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Canada",
+"Syria"
+],
+"random": [
+"Austria",
+"New Zealand",
+"Sweden",
+"Vatican City"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Canada",
+"Syria",
+"Austria",
+"New Zealand",
+"Sweden",
+"Vatican City"
+],
+"n_eligible": 34,
+"sha": "518243c04affae3743e880f518751d178fa74035dd2035100d496f33ad88c01e",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0070__L028__p82:ukstechnologysector:chinaschemicalindustry": {
+"unit": "s3d-rl600-all11:chat-lmsys-0070__L028__p82:ukstechnologysector:chinaschemicalindustry",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Canada",
+"Syria"
+],
+"random": [
+"Eritrea",
+"Italy",
+"Saudi Arabia",
+"Spain"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Canada",
+"Syria",
+"Eritrea",
+"Italy",
+"Saudi Arabia",
+"Spain"
+],
+"n_eligible": 33,
+"sha": "40478f108d139ceab3c0b6e3681479a8dcaf8215e4101471ba12925202cd626c",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0070__L028__p82:unitedkingdom:china": {
+"unit": "s3d-rl600-all11:chat-lmsys-0070__L028__p82:unitedkingdom:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Canada",
+"Syria"
+],
+"random": [
+"Austria",
+"Egypt",
+"Ghana",
+"Scotland"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Canada",
+"Syria",
+"Austria",
+"Egypt",
+"Ghana",
+"Scotland"
+],
+"n_eligible": 33,
+"sha": "86d3aa8f76219ec615952e92b0067de2ee223f4085113919146eeefccdfdd531",
+"generation": 0
+},
+"s3d-rl600:chat-dailydialog-0019__L044__p145:vietnam:china": {
+"unit": "s3d-rl600:chat-dailydialog-0019__L044__p145:vietnam:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway"
+],
+"random": [
+"Australia",
+"Iran",
+"Kingdom of Finland",
+"Spain"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway",
+"Australia",
+"Iran",
+"Kingdom of Finland",
+"Spain"
+],
+"n_eligible": 20,
+"sha": "af310902ca0030741f918da6d452fb6286e1174ce227ef722dc2176bd7c5bb09",
+"generation": 0
+},
+"s3d-rl600:chat-dailydialog-0019__L044__p24:canada:china": {
+"unit": "s3d-rl600:chat-dailydialog-0019__L044__p24:canada:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway"
+],
+"random": [
+"Australia",
+"Denmark",
+"Spain",
+"Vatican City"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway",
+"Australia",
+"Denmark",
+"Spain",
+"Vatican City"
+],
+"n_eligible": 20,
+"sha": "17051e042cf5b4d286a959b4f1b6fbd23f3731747adcc76bfc70c8e55d0bd1de",
+"generation": 0
+},
+"s3d-rl600:chat-dailydialog-0019__L048__p134:japan:china": {
+"unit": "s3d-rl600:chat-dailydialog-0019__L048__p134:japan:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway"
+],
+"random": [
+"Italy",
+"Kingdom of Finland",
+"New Zealand",
+"Vatican City"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway",
+"Italy",
+"Kingdom of Finland",
+"New Zealand",
+"Vatican City"
+],
+"n_eligible": 20,
+"sha": "985228f9ba7c0829d5adf6e87974c4cc60a3a004337024f72cd0f603b6cb4289",
+"generation": 0
+},
+"s3d-rl600:chat-dailydialog-0019__L048__p188:japan:china": {
+"unit": "s3d-rl600:chat-dailydialog-0019__L048__p188:japan:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway"
+],
+"random": [
+"Ireland",
+"Kingdom of Finland",
+"Scotland",
+"Taiwan"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway",
+"Ireland",
+"Kingdom of Finland",
+"Scotland",
+"Taiwan"
+],
+"n_eligible": 20,
+"sha": "6fd9d45ceede79c440d610fd54f2c8e1e0fbaf50a05b19ac92b0a4743743430b",
+"generation": 0
+},
+"s3d-rl600:chat-dailydialog-0046__L020__p145:canada:australia": {
+"unit": "s3d-rl600:chat-dailydialog-0046__L020__p145:canada:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Costa Rica",
+"Qatar",
+"Soviet Union",
+"Taiwan"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Costa Rica",
+"Qatar",
+"Soviet Union",
+"Taiwan"
+],
+"n_eligible": 22,
+"sha": "22bebee686900809c226fb857fa10ca2b5b856b3258669b2c3621c74adfcfec4",
+"generation": 0
+},
+"s3d-rl600:chat-dailydialog-0046__L020__p145:france:australia": {
+"unit": "s3d-rl600:chat-dailydialog-0046__L020__p145:france:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Brazil",
+"Eritrea",
+"Netherlands",
+"Taiwan"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Brazil",
+"Eritrea",
+"Netherlands",
+"Taiwan"
+],
+"n_eligible": 22,
+"sha": "41105f58eff62b19dbf746cbc3268ec77741110ad4392d2b42b00683a8ed9865",
+"generation": 0
+},
+"s3d-rl600:chat-dailydialog-0046__L020__p145:japan:australia": {
+"unit": "s3d-rl600:chat-dailydialog-0046__L020__p145:japan:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Brazil",
+"Iceland",
+"Scotland",
+"Taiwan"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Brazil",
+"Iceland",
+"Scotland",
+"Taiwan"
+],
+"n_eligible": 22,
+"sha": "a1b1e67add6f2a22694efe98f1afa0995a23af468731c36b3932aa6232e8521b",
+"generation": 0
+},
+"s3d-rl600:chat-dailydialog-0046__L020__p145:us:australia": {
+"unit": "s3d-rl600:chat-dailydialog-0046__L020__p145:us:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Ghana",
+"Kingdom of Finland",
+"Pakistan",
+"Qatar"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Ghana",
+"Kingdom of Finland",
+"Pakistan",
+"Qatar"
+],
+"n_eligible": 22,
+"sha": "4d5b2d232e5d757f5efc4fb3544fca333ce1adf78d4caf7fafafeac884f787c8",
+"generation": 0
+},
+"s3d-rl600:chat-dailydialog-0046__L036__p132:china:australia": {
+"unit": "s3d-rl600:chat-dailydialog-0046__L036__p132:china:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Mongolia",
+"Myanmar",
+"Scotland",
+"Taiwan"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Mongolia",
+"Myanmar",
+"Scotland",
+"Taiwan"
+],
+"n_eligible": 22,
+"sha": "3133944327f6f82ba1d0857195c6355fc24fc155ae00899030b309643e7cd1fc",
+"generation": 0
+},
+"s3d-rl600:chat-dailydialog-0046__L044__p102:finland:australia": {
+"unit": "s3d-rl600:chat-dailydialog-0046__L044__p102:finland:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Ghana",
+"Netherlands",
+"Pakistan",
+"Taiwan"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Ghana",
+"Netherlands",
+"Pakistan",
+"Taiwan"
+],
+"n_eligible": 21,
+"sha": "96e64b2b84e19c80618c98a3c9df304a0c06367ea6e72a9c432b723736f462e5",
+"generation": 0
+},
+"s3d-rl600:chat-dailydialog-0046__L048__p102:canada:australia": {
+"unit": "s3d-rl600:chat-dailydialog-0046__L048__p102:canada:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Mongolia",
+"Myanmar",
+"Netherlands",
+"Taiwan"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Mongolia",
+"Myanmar",
+"Netherlands",
+"Taiwan"
+],
+"n_eligible": 22,
+"sha": "fba39986fbc9454a87f025709e09874850f330477ebeb86f560801488d1c9295",
+"generation": 0
+},
+"s3d-rl600:chat-dailydialog-0046__L048__p102:yunnanchina:australia": {
+"unit": "s3d-rl600:chat-dailydialog-0046__L048__p102:yunnanchina:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Kingdom of Finland",
+"Nigeria",
+"Qatar",
+"Taiwan"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Kingdom of Finland",
+"Nigeria",
+"Qatar",
+"Taiwan"
+],
+"n_eligible": 22,
+"sha": "d0fdf373672af38513a949b15023cdc312c5cbf0c8e5155e335e69de2f71df2b",
+"generation": 0
+},
+"s3d-rl600:chat-dailydialog-0046__L048__p132:china:australia": {
+"unit": "s3d-rl600:chat-dailydialog-0046__L048__p132:china:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Brazil",
+"Iceland",
+"Mongolia",
+"Myanmar"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Brazil",
+"Iceland",
+"Mongolia",
+"Myanmar"
+],
+"n_eligible": 22,
+"sha": "642f5cb6a76356c1b6206fe11a0d7565904ab7e3da65eeac9b7f6959a352c346",
+"generation": 0
+},
+"s3d-rl600:chat-dailydialog-0048__L060__p199:spain:uk": {
+"unit": "s3d-rl600:chat-dailydialog-0048__L060__p199:spain:uk",
+"anchor": "United Kingdom",
+"nearest": [
+"Austria",
+"Australia",
+"Turkey",
+"Canada"
+],
+"random": [
+"India",
+"Iran",
+"Soviet Union",
+"Vatican City"
+],
+"distractors": [
+"Austria",
+"Australia",
+"Turkey",
+"Canada",
+"India",
+"Iran",
+"Soviet Union",
+"Vatican City"
+],
+"n_eligible": 38,
+"sha": "f315452ac90dae0f21efeb49b9c1a3b805c3ef80956e4863299d2b5c3b4e1cb5",
+"generation": 0
+},
+"s3d-rl600:chat-dailydialog-0065__L048__p24:canada:waltdisneyworld": {
+"unit": "s3d-rl600:chat-dailydialog-0065__L048__p24:canada:waltdisneyworld",
+"anchor": "United States",
+"nearest": [
+"China",
+"Australia",
+"Soviet Union",
+"France"
+],
+"random": [
+"Germany",
+"Iceland",
+"Kingdom of Finland",
+"Myanmar"
+],
+"distractors": [
+"China",
+"Australia",
+"Soviet Union",
+"France",
+"Germany",
+"Iceland",
+"Kingdom of Finland",
+"Myanmar"
+],
+"n_eligible": 41,
+"sha": "f9ce724e0c4d4af8eabe5ab2fac1810033e71b4b3eee7943886ca82a084163b6",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0031__L044__p57:finland:sweden": {
+"unit": "s3d-rl600:chat-lmsys-0031__L044__p57:finland:sweden",
+"anchor": "Sweden",
+"nearest": [
+"Italy",
+"Philippines",
+"New Zealand",
+"Netherlands"
+],
+"random": [
+"Austria",
+"Eritrea",
+"Pakistan",
+"South Korea"
+],
+"distractors": [
+"Italy",
+"Philippines",
+"New Zealand",
+"Netherlands",
+"Austria",
+"Eritrea",
+"Pakistan",
+"South Korea"
+],
+"n_eligible": 19,
+"sha": "aa83c56ca8f91bc02ed2dec0ad3f028ab7d1a930579b42cf8164b5b33537cfb8",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0031__L048__p54:france:sweden": {
+"unit": "s3d-rl600:chat-lmsys-0031__L048__p54:france:sweden",
+"anchor": "Sweden",
+"nearest": [
+"Italy",
+"Philippines",
+"New Zealand",
+"Netherlands"
+],
+"random": [
+"Pakistan",
+"Qatar",
+"South Korea",
+"United States"
+],
+"distractors": [
+"Italy",
+"Philippines",
+"New Zealand",
+"Netherlands",
+"Pakistan",
+"Qatar",
+"South Korea",
+"United States"
+],
+"n_eligible": 19,
+"sha": "3ab098de0d20646a9c5745fa2d6fdc0923f868fa314c99d26dceead15c7f1456",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0031__L048__p54:spain:sweden": {
+"unit": "s3d-rl600:chat-lmsys-0031__L048__p54:spain:sweden",
+"anchor": "Sweden",
+"nearest": [
+"Italy",
+"Philippines",
+"New Zealand",
+"Netherlands"
+],
+"random": [
+"China",
+"Hong Kong",
+"Pakistan",
+"Soviet Union"
+],
+"distractors": [
+"Italy",
+"Philippines",
+"New Zealand",
+"Netherlands",
+"China",
+"Hong Kong",
+"Pakistan",
+"Soviet Union"
+],
+"n_eligible": 19,
+"sha": "8697c799cef532e651501f89499b6087c2d5a8af0dc609f9f7dcfb3fd3afe218",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0031__L048__p57:finland:sweden": {
+"unit": "s3d-rl600:chat-lmsys-0031__L048__p57:finland:sweden",
+"anchor": "Sweden",
+"nearest": [
+"Italy",
+"Philippines",
+"New Zealand",
+"Netherlands"
+],
+"random": [
+"China",
+"Eritrea",
+"India",
+"Iran"
+],
+"distractors": [
+"Italy",
+"Philippines",
+"New Zealand",
+"Netherlands",
+"China",
+"Eritrea",
+"India",
+"Iran"
+],
+"n_eligible": 19,
+"sha": "4f558d457278f736ba0b8e54c4a482324cfbcd5a94833ebe426c81a0c686fcb6",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0031__L048__p81:spain:sweden": {
+"unit": "s3d-rl600:chat-lmsys-0031__L048__p81:spain:sweden",
+"anchor": "Sweden",
+"nearest": [
+"Italy",
+"Philippines",
+"New Zealand",
+"Netherlands"
+],
+"random": [
+"China",
+"Iran",
+"Nigeria",
+"United States"
+],
+"distractors": [
+"Italy",
+"Philippines",
+"New Zealand",
+"Netherlands",
+"China",
+"Iran",
+"Nigeria",
+"United States"
+],
+"n_eligible": 19,
+"sha": "ba988e3e3539b52434cf067863c0863bbec0b8b0e0d79f28f81139bffe557ba1",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0047__L060__p314:southkorea:rosemarybeachflorida": {
+"unit": "s3d-rl600:chat-lmsys-0047__L060__p314:southkorea:rosemarybeachflorida",
+"anchor": "United States",
+"nearest": [
+"China",
+"Australia",
+"Soviet Union",
+"Syria"
+],
+"random": [
+"Brazil",
+"Canada",
+"Egypt",
+"Netherlands"
+],
+"distractors": [
+"China",
+"Australia",
+"Soviet Union",
+"Syria",
+"Brazil",
+"Canada",
+"Egypt",
+"Netherlands"
+],
+"n_eligible": 38,
+"sha": "f44db069485b3d3a7b6be2e4cb46c16b454485ff56fb8decea569e11a647d682",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0054__L020__p70:germany:france": {
+"unit": "s3d-rl600:chat-lmsys-0054__L020__p70:germany:france",
+"anchor": "France",
+"nearest": [
+"Austria",
+"United Kingdom",
+"Spain",
+"Italy"
+],
+"random": [
+"Finland",
+"Kingdom of Finland",
+"Soviet Union",
+"Taiwan"
+],
+"distractors": [
+"Austria",
+"United Kingdom",
+"Spain",
+"Italy",
+"Finland",
+"Kingdom of Finland",
+"Soviet Union",
+"Taiwan"
+],
+"n_eligible": 40,
+"sha": "0df70e91127e51c918eb5a62fa6cf3916d58c35d91ee39b86cd1a8978d7cad42",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0065__L044__p22:america:thewest": {
+"unit": "s3d-rl600:chat-lmsys-0065__L044__p22:america:thewest",
+"anchor": "United States",
+"nearest": [
+"China",
+"Australia",
+"Soviet Union",
+"France"
+],
+"random": [
+"Mongolia",
+"Qatar",
+"Sweden",
+"Turkey"
+],
+"distractors": [
+"China",
+"Australia",
+"Soviet Union",
+"France",
+"Mongolia",
+"Qatar",
+"Sweden",
+"Turkey"
+],
+"n_eligible": 42,
+"sha": "15083af6ae63096e18c3d3a3a87bf751efd910c8c356b6449c53d4397dfa01b9",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0065__L044__p22:usa:thewest": {
+"unit": "s3d-rl600:chat-lmsys-0065__L044__p22:usa:thewest",
+"anchor": "United States",
+"nearest": [
+"China",
+"Australia",
+"Soviet Union",
+"France"
+],
+"random": [
+"Brazil",
+"Iran",
+"Netherlands",
+"Norway"
+],
+"distractors": [
+"China",
+"Australia",
+"Soviet Union",
+"France",
+"Brazil",
+"Iran",
+"Netherlands",
+"Norway"
+],
+"n_eligible": 42,
+"sha": "84ad578741344099fcd90636d06ff4cf9d7ee37f23e8874177f30adbf478232a",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0065__L048__p22::": {
+"unit": "s3d-rl600:chat-lmsys-0065__L048__p22::",
+"anchor": "United States",
+"nearest": [
+"China",
+"Australia",
+"Soviet Union",
+"France"
+],
+"random": [
+"Iran",
+"Italy",
+"Pakistan",
+"South Korea"
+],
+"distractors": [
+"China",
+"Australia",
+"Soviet Union",
+"France",
+"Iran",
+"Italy",
+"Pakistan",
+"South Korea"
+],
+"n_eligible": 42,
+"sha": "b76582849f85c390a47072a75819ae5f2f2b2ea171c82a0e16b21e331dc918ce",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0065__L048__p22:unitedstates:westernculture": {
+"unit": "s3d-rl600:chat-lmsys-0065__L048__p22:unitedstates:westernculture",
+"anchor": "United States",
+"nearest": [
+"China",
+"Australia",
+"Soviet Union",
+"France"
+],
+"random": [
+"Canada",
+"Iran",
+"New Zealand",
+"Vatican City"
+],
+"distractors": [
+"China",
+"Australia",
+"Soviet Union",
+"France",
+"Canada",
+"Iran",
+"New Zealand",
+"Vatican City"
+],
+"n_eligible": 42,
+"sha": "daf9541f66b058659b7b8efc50830e413243633026fa8394d23f6e0cf5c242fe",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0019__L052__p54:us:china": {
+"unit": "s3d-sft251:chat-dailydialog-0019__L052__p54:us:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway"
+],
+"random": [
+"Australia",
+"Iceland",
+"Kingdom of Finland",
+"Switzerland"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway",
+"Australia",
+"Iceland",
+"Kingdom of Finland",
+"Switzerland"
+],
+"n_eligible": 20,
+"sha": "d5527c0c2ec4ea06cacc9bd6a7429889dbf2e7ee1e8a064702d3853eb63671a3",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0019__L056__p145:india:china": {
+"unit": "s3d-sft251:chat-dailydialog-0019__L056__p145:india:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway"
+],
+"random": [
+"Australia",
+"Finland",
+"Italy",
+"Philippines"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway",
+"Australia",
+"Finland",
+"Italy",
+"Philippines"
+],
+"n_eligible": 20,
+"sha": "161b219b96da79532b486711db33439b87c518ecc95bfb6ec7cc95076382d31a",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0019__L056__p145:vietnam:china": {
+"unit": "s3d-sft251:chat-dailydialog-0019__L056__p145:vietnam:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway"
+],
+"random": [
+"Kingdom of Finland",
+"New Zealand",
+"Scotland",
+"Switzerland"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway",
+"Kingdom of Finland",
+"New Zealand",
+"Scotland",
+"Switzerland"
+],
+"n_eligible": 20,
+"sha": "d0130d927d0bd0487e4a59ecc20c6aaec2ab84de167c132969b21a9c09388ef3",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0046__L020__p145:china:australia": {
+"unit": "s3d-sft251:chat-dailydialog-0046__L020__p145:china:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Iceland",
+"Kingdom of Finland",
+"Scotland",
+"Taiwan"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Iceland",
+"Kingdom of Finland",
+"Scotland",
+"Taiwan"
+],
+"n_eligible": 22,
+"sha": "2804e6b6cb6312bb22e3030a40c6662ee0ea320ff8548f2df55fcecbda55ce6f",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0046__L020__p145:france:australia": {
+"unit": "s3d-sft251:chat-dailydialog-0046__L020__p145:france:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Costa Rica",
+"Iceland",
+"Netherlands",
+"Qatar"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Costa Rica",
+"Iceland",
+"Netherlands",
+"Qatar"
+],
+"n_eligible": 22,
+"sha": "98cb2b0870c85f6f7efb9478e715c632844dedc12a89554b3a0a02617945f9c8",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0046__L024__p145:finland:australia": {
+"unit": "s3d-sft251:chat-dailydialog-0046__L024__p145:finland:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Costa Rica",
+"Ghana",
+"Qatar",
+"Vietnam"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Costa Rica",
+"Ghana",
+"Qatar",
+"Vietnam"
+],
+"n_eligible": 21,
+"sha": "c33e078d29eb05b0a279654d621b42da58af7a4bb41f105ac2a592cd34cafe93",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0046__L024__p145:france:australia": {
+"unit": "s3d-sft251:chat-dailydialog-0046__L024__p145:france:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Mexico",
+"Qatar",
+"Soviet Union",
+"Vietnam"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Mexico",
+"Qatar",
+"Soviet Union",
+"Vietnam"
+],
+"n_eligible": 22,
+"sha": "15a05ef4a2d2369a6da9166c709dc9704d09a66e804790f23e02dbc410030ec8",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0046__L024__p157:britain:australia": {
+"unit": "s3d-sft251:chat-dailydialog-0046__L024__p157:britain:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Mexico",
+"Qatar",
+"Scotland",
+"Vietnam"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Mexico",
+"Qatar",
+"Scotland",
+"Vietnam"
+],
+"n_eligible": 21,
+"sha": "6e05c64bbf5ad0738b60ee53bf5f08e2956f2f229eabd6a9edb52e67c76ff3bc",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0046__L028__p145:france:australia": {
+"unit": "s3d-sft251:chat-dailydialog-0046__L028__p145:france:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Brazil",
+"Netherlands",
+"Qatar",
+"Scotland"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Brazil",
+"Netherlands",
+"Qatar",
+"Scotland"
+],
+"n_eligible": 22,
+"sha": "43cebcb80f3d4610fcc6ef2f50d0ed435c9730cda24e34782f9b7d52d723b9d2",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0046__L028__p157:france:australia": {
+"unit": "s3d-sft251:chat-dailydialog-0046__L028__p157:france:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Ghana",
+"Mexico",
+"Netherlands",
+"Scotland"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Ghana",
+"Mexico",
+"Netherlands",
+"Scotland"
+],
+"n_eligible": 22,
+"sha": "b0136be996ff9d64cb1edda8ee584bd3ddec03fa72fe669b53816fc53c8b8590",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0046__L032__p145:france:australia": {
+"unit": "s3d-sft251:chat-dailydialog-0046__L032__p145:france:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Eritrea",
+"Ghana",
+"Netherlands",
+"Pakistan"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Eritrea",
+"Ghana",
+"Netherlands",
+"Pakistan"
+],
+"n_eligible": 22,
+"sha": "5c821519900cc19cc1dff088c3d49d022b98c0afcb87f3c9699fededfcf2e31b",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0046__L044__p132:china:australia": {
+"unit": "s3d-sft251:chat-dailydialog-0046__L044__p132:china:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Costa Rica",
+"Mexico",
+"Mongolia",
+"Scotland"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Costa Rica",
+"Mexico",
+"Mongolia",
+"Scotland"
+],
+"n_eligible": 22,
+"sha": "dc638a456df1eaebcb85af3a290b3e9244959eff9899498684f3605d06efca2d",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0046__L048__p102:chinesegeographyhistoryculture:australiaseducationsystem": {
+"unit": "s3d-sft251:chat-dailydialog-0046__L048__p102:chinesegeographyhistoryculture:australiaseducationsystem",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Costa Rica",
+"Ghana",
+"Mexico",
+"Netherlands"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Costa Rica",
+"Ghana",
+"Mexico",
+"Netherlands"
+],
+"n_eligible": 22,
+"sha": "f12f24b9da1b257efd68d6293bc6a2ed931c38ba4404fe5ffd8d2f38f31b2aa8",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0046__L048__p132:uk:australia": {
+"unit": "s3d-sft251:chat-dailydialog-0046__L048__p132:uk:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Brazil",
+"Eritrea",
+"Scotland",
+"Vietnam"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Brazil",
+"Eritrea",
+"Scotland",
+"Vietnam"
+],
+"n_eligible": 21,
+"sha": "55487126d399ca9e6d270468c7a1f572a63883f411eb8d4430b4be146306cda1",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0046__L060__p102:canada:australia": {
+"unit": "s3d-sft251:chat-dailydialog-0046__L060__p102:canada:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Mexico",
+"Netherlands",
+"Scotland",
+"Taiwan"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Mexico",
+"Netherlands",
+"Scotland",
+"Taiwan"
+],
+"n_eligible": 22,
+"sha": "7c57a3534bc60ab584ca0d65ccc263ea0b58a1924492d47704a37af57b584741",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0065__L060__p24:canada:waltdisneyworldinorlandoflorida": {
+"unit": "s3d-sft251:chat-dailydialog-0065__L060__p24:canada:waltdisneyworldinorlandoflorida",
+"anchor": "United States",
+"nearest": [
+"China",
+"Australia",
+"Soviet Union",
+"France"
+],
+"random": [
+"Hong Kong",
+"Philippines",
+"South Korea",
+"Taiwan"
+],
+"distractors": [
+"China",
+"Australia",
+"Soviet Union",
+"France",
+"Hong Kong",
+"Philippines",
+"South Korea",
+"Taiwan"
+],
+"n_eligible": 41,
+"sha": "2e1fe397decfbb2c3c46b933d5524d3e48bcd6b1c7df026dcd052d430f7e572c",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0031__L052__p54:costarica:sweden": {
+"unit": "s3d-sft251:chat-lmsys-0031__L052__p54:costarica:sweden",
+"anchor": "Sweden",
+"nearest": [
+"Italy",
+"Philippines",
+"New Zealand",
+"Netherlands"
+],
+"random": [
+"Austria",
+"China",
+"Iran",
+"Soviet Union"
+],
+"distractors": [
+"Italy",
+"Philippines",
+"New Zealand",
+"Netherlands",
+"Austria",
+"China",
+"Iran",
+"Soviet Union"
+],
+"n_eligible": 19,
+"sha": "ea6b0fad7a55be88efc712e6a78df8f76b0e9b2cafd1cb8c800addaa2c57068f",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0054__L036__p70:germany:france": {
+"unit": "s3d-sft251:chat-lmsys-0054__L036__p70:germany:france",
+"anchor": "France",
+"nearest": [
+"Austria",
+"United Kingdom",
+"Spain",
+"Italy"
+],
+"random": [
+"Canada",
+"Myanmar",
+"Syria",
+"Vatican City"
+],
+"distractors": [
+"Austria",
+"United Kingdom",
+"Spain",
+"Italy",
+"Canada",
+"Myanmar",
+"Syria",
+"Vatican City"
+],
+"n_eligible": 40,
+"sha": "427be33a0c84ce506b7e030897796c02c268f5160edb55300f9b4a840bcacf9c",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0054__L036__p70:thenetherlands:france": {
+"unit": "s3d-sft251:chat-lmsys-0054__L036__p70:thenetherlands:france",
+"anchor": "France",
+"nearest": [
+"Austria",
+"United Kingdom",
+"Spain",
+"Italy"
+],
+"random": [
+"Costa Rica",
+"Finland",
+"South Korea",
+"Sweden"
+],
+"distractors": [
+"Austria",
+"United Kingdom",
+"Spain",
+"Italy",
+"Costa Rica",
+"Finland",
+"South Korea",
+"Sweden"
+],
+"n_eligible": 40,
+"sha": "3a5471b71a561e2d586f2a7f7a5253836fbc6e8b9282ae7dde56375f9ef20c2b",
+"generation": 0
+},
+"template-v3:chat-dailydialog-0019__L044__p145:myanmar:china": {
+"unit": "template-v3:chat-dailydialog-0019__L044__p145:myanmar:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway"
+],
+"random": [
+"Iran",
+"Kingdom of Finland",
+"Scotland",
+"Vatican City"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway",
+"Iran",
+"Kingdom of Finland",
+"Scotland",
+"Vatican City"
+],
+"n_eligible": 20,
+"sha": "5dc3cf4506b7ed0ac5bf9f2b6881260d3ed15e20ed8d84ab0ebbe324b5e02c1f",
+"generation": 0
+},
+"template-v3:chat-dailydialog-0046__L048__p157:swedenuruguaybahrainnewzealand:australia": {
+"unit": "template-v3:chat-dailydialog-0046__L048__p157:swedenuruguaybahrainnewzealand:australia",
+"anchor": "Australia",
+"nearest": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey"
+],
+"random": [
+"Costa Rica",
+"Mexico",
+"Netherlands",
+"Nigeria"
+],
+"distractors": [
+"Vatican City",
+"Austria",
+"Syria",
+"Turkey",
+"Costa Rica",
+"Mexico",
+"Netherlands",
+"Nigeria"
+],
+"n_eligible": 22,
+"sha": "60fd5237f7b4309414d112b62a9a627960caccd2d1773c0858587f1ec3699011",
+"generation": 0
+},
+"tuned:chat-dailydialog-0019__L036__p145:unitedstates:china": {
+"unit": "tuned:chat-dailydialog-0019__L036__p145:unitedstates:china",
+"anchor": "China",
+"nearest": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway"
+],
+"random": [
+"Costa Rica",
+"Denmark",
+"Ireland",
+"Kingdom of Finland"
+],
+"distractors": [
+"Soviet Union",
+"Netherlands",
+"Qatar",
+"Norway",
+"Costa Rica",
+"Denmark",
+"Ireland",
+"Kingdom of Finland"
+],
+"n_eligible": 20,
+"sha": "5361f1dcbf814e40d4b9a7234e58c9ee5100081772aee39943521ba4dc772601",
+"generation": 0
+}
+}

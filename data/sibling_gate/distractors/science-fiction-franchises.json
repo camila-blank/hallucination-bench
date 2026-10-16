@@ -1,0 +1,640 @@
+{
+"mlnla-ck2000-all11:chat-dailydialog-0030__L020__p65:doctorwho:thehitchhikersguidetothegalaxy": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0030__L020__p65:doctorwho:thehitchhikersguidetothegalaxy",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"The Matrix",
+"Stargate",
+"Alien",
+"Jurassic Park"
+],
+"random": [
+"Halo",
+"Mass Effect",
+"Planet of the Apes",
+"The Terminator"
+],
+"distractors": [
+"The Matrix",
+"Stargate",
+"Alien",
+"Jurassic Park",
+"Halo",
+"Mass Effect",
+"Planet of the Apes",
+"The Terminator"
+],
+"n_eligible": 9,
+"sha": "7c794cacfc3a72ee72b468a14195a6f62cca12696ffcefeec9cf51eeb39b69f6",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0030__L024__p137:starwars:thehitchhikersguidetothegalaxy": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0030__L024__p137:starwars:thehitchhikersguidetothegalaxy",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"The Matrix",
+"Stargate",
+"Alien",
+"Jurassic Park"
+],
+"random": [
+"Halo",
+"Mass Effect",
+"Planet of the Apes",
+"The Terminator"
+],
+"distractors": [
+"The Matrix",
+"Stargate",
+"Alien",
+"Jurassic Park",
+"Halo",
+"Mass Effect",
+"Planet of the Apes",
+"The Terminator"
+],
+"n_eligible": 9,
+"sha": "fc39bff0091c8a51b7bfb7d7256f5c960a13730dbd3312ba456d50e999bad1ad",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0030__L024__p65:doctorwho:thehitchhikersguidetothegalaxy": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0030__L024__p65:doctorwho:thehitchhikersguidetothegalaxy",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"The Matrix",
+"Stargate",
+"Alien",
+"Jurassic Park"
+],
+"random": [
+"Battlestar Galactica",
+"Halo",
+"Planet of the Apes",
+"The Terminator"
+],
+"distractors": [
+"The Matrix",
+"Stargate",
+"Alien",
+"Jurassic Park",
+"Battlestar Galactica",
+"Halo",
+"Planet of the Apes",
+"The Terminator"
+],
+"n_eligible": 9,
+"sha": "dde51d068b81a468c789aa100e73a9b5f371e0ab563e96126f16b9840f9ec747",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0030__L036__p137:startrektos:thehitchhikersguidetothegalaxy": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0030__L036__p137:startrektos:thehitchhikersguidetothegalaxy",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"The Matrix",
+"Stargate",
+"Alien",
+"Jurassic Park"
+],
+"random": [
+"Battlestar Galactica",
+"Mass Effect",
+"Planet of the Apes",
+"The Terminator"
+],
+"distractors": [
+"The Matrix",
+"Stargate",
+"Alien",
+"Jurassic Park",
+"Battlestar Galactica",
+"Mass Effect",
+"Planet of the Apes",
+"The Terminator"
+],
+"n_eligible": 9,
+"sha": "1d27f8d930393b0f181c90cafe0ce2b9fb9372736c1bbc3629672c6d5bb532f0",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0030__L056__p173:startrek:thehitchhikersguidetothegalaxy": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0030__L056__p173:startrek:thehitchhikersguidetothegalaxy",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"The Matrix",
+"Stargate",
+"Alien",
+"Jurassic Park"
+],
+"random": [
+"Battlestar Galactica",
+"Halo",
+"Mass Effect",
+"The Terminator"
+],
+"distractors": [
+"The Matrix",
+"Stargate",
+"Alien",
+"Jurassic Park",
+"Battlestar Galactica",
+"Halo",
+"Mass Effect",
+"The Terminator"
+],
+"n_eligible": 9,
+"sha": "c4e36b01f3e0f4c81e288473ae1dc05de0ea334b95813b8a7269552e2ccca6ad",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0030__L020__p53:doctorwho:thehitchhikersguidetothegalaxy": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0030__L020__p53:doctorwho:thehitchhikersguidetothegalaxy",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"The Matrix",
+"Stargate",
+"Alien",
+"Jurassic Park"
+],
+"random": [
+"Battlestar Galactica",
+"Halo",
+"Mass Effect",
+"Planet of the Apes"
+],
+"distractors": [
+"The Matrix",
+"Stargate",
+"Alien",
+"Jurassic Park",
+"Battlestar Galactica",
+"Halo",
+"Mass Effect",
+"Planet of the Apes"
+],
+"n_eligible": 9,
+"sha": "b3af36394a328056172fae98909553efd6edb1bc8e5134f1230038069fa60831",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0030__L020__p53:startrek:thehitchhikersguidetothegalaxy": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0030__L020__p53:startrek:thehitchhikersguidetothegalaxy",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"The Matrix",
+"Stargate",
+"Alien",
+"Jurassic Park"
+],
+"random": [
+"Battlestar Galactica",
+"Halo",
+"Planet of the Apes",
+"The Terminator"
+],
+"distractors": [
+"The Matrix",
+"Stargate",
+"Alien",
+"Jurassic Park",
+"Battlestar Galactica",
+"Halo",
+"Planet of the Apes",
+"The Terminator"
+],
+"n_eligible": 9,
+"sha": "b8b5c13329ddaf4d2cfe6992120791d58ce18a78c744e41e045ebff448e82301",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0030__L044__p137:startrek:thehitchhikersguidetothegalaxy": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0030__L044__p137:startrek:thehitchhikersguidetothegalaxy",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"The Matrix",
+"Stargate",
+"Alien",
+"Jurassic Park"
+],
+"random": [
+"Halo",
+"Mass Effect",
+"Planet of the Apes",
+"The Terminator"
+],
+"distractors": [
+"The Matrix",
+"Stargate",
+"Alien",
+"Jurassic Park",
+"Halo",
+"Mass Effect",
+"Planet of the Apes",
+"The Terminator"
+],
+"n_eligible": 9,
+"sha": "b5dd007dda3216ea0e9ca56d647cd2056c9c865ffb46997f58d08dc110158e18",
+"generation": 1
+},
+"mlnla-rl600-all11:chat-dailydialog-0030__L024__p53:doctorwho:thehitchhikersguidetothegalaxy": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0030__L024__p53:doctorwho:thehitchhikersguidetothegalaxy",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"The Matrix",
+"Stargate",
+"Alien",
+"Jurassic Park"
+],
+"random": [
+"Battlestar Galactica",
+"Mass Effect",
+"Planet of the Apes",
+"The Terminator"
+],
+"distractors": [
+"The Matrix",
+"Stargate",
+"Alien",
+"Jurassic Park",
+"Battlestar Galactica",
+"Mass Effect",
+"Planet of the Apes",
+"The Terminator"
+],
+"n_eligible": 9,
+"sha": "0540c39795ee63f1c80c7fd9bb8b275dc7425087e21f19d6582192e5430a206b",
+"generation": 1
+},
+"mlnla-rl600-all11:chat-dailydialog-0030__L028__p87:doctorwho:thehitchhikersguidetothegalaxy": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0030__L028__p87:doctorwho:thehitchhikersguidetothegalaxy",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"The Matrix",
+"Stargate",
+"Alien",
+"Jurassic Park"
+],
+"random": [
+"Battlestar Galactica",
+"Halo",
+"Mass Effect",
+"The Terminator"
+],
+"distractors": [
+"The Matrix",
+"Stargate",
+"Alien",
+"Jurassic Park",
+"Battlestar Galactica",
+"Halo",
+"Mass Effect",
+"The Terminator"
+],
+"n_eligible": 9,
+"sha": "79a6e5b0e0f5e77bd3edf36e41d3ffee0bef764efba43f384ae2ee5c5b526840",
+"generation": 1
+},
+"mlnla-rl600-all11:chat-dailydialog-0030__L032__p137:doctorwho:thehitchhikersguidetothegalaxy": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0030__L032__p137:doctorwho:thehitchhikersguidetothegalaxy",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"The Matrix",
+"Stargate",
+"Alien",
+"Jurassic Park"
+],
+"random": [
+"Battlestar Galactica",
+"Halo",
+"Mass Effect",
+"Planet of the Apes"
+],
+"distractors": [
+"The Matrix",
+"Stargate",
+"Alien",
+"Jurassic Park",
+"Battlestar Galactica",
+"Halo",
+"Mass Effect",
+"Planet of the Apes"
+],
+"n_eligible": 9,
+"sha": "ae63b1db8d9ca77a548a96c56951607c0c2159a6336fca3bbb665a68cbca6dfa",
+"generation": 1
+},
+"mlnla-rl600-all11:chat-dailydialog-0030__L036__p137:doctorwho:thehitchhikersguidetothegalaxy": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0030__L036__p137:doctorwho:thehitchhikersguidetothegalaxy",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"The Matrix",
+"Stargate",
+"Alien",
+"Jurassic Park"
+],
+"random": [
+"Halo",
+"Mass Effect",
+"Planet of the Apes",
+"The Terminator"
+],
+"distractors": [
+"The Matrix",
+"Stargate",
+"Alien",
+"Jurassic Park",
+"Halo",
+"Mass Effect",
+"Planet of the Apes",
+"The Terminator"
+],
+"n_eligible": 9,
+"sha": "2df6bca7995c01b0e28c36cfae199fb066a20c82b69ef593645b8daff1de36fc",
+"generation": 1
+},
+"mlnla-rl600-all11:chat-dailydialog-0030__L036__p53:startrek:thehitchhikersguidetothegalaxy": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0030__L036__p53:startrek:thehitchhikersguidetothegalaxy",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"The Matrix",
+"Stargate",
+"Alien",
+"Jurassic Park"
+],
+"random": [
+"Halo",
+"Mass Effect",
+"Planet of the Apes",
+"The Terminator"
+],
+"distractors": [
+"The Matrix",
+"Stargate",
+"Alien",
+"Jurassic Park",
+"Halo",
+"Mass Effect",
+"Planet of the Apes",
+"The Terminator"
+],
+"n_eligible": 9,
+"sha": "c525f15682f49fb1bbaf81b064d310e268557e2d29da5604cda60d99320da73f",
+"generation": 1
+},
+"mlnla-rl600-all11:chat-dailydialog-0030__L044__p137:doctorwho:thehitchhikersguidetothegalaxy": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0030__L044__p137:doctorwho:thehitchhikersguidetothegalaxy",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"The Matrix",
+"Stargate",
+"Alien",
+"Jurassic Park"
+],
+"random": [
+"Battlestar Galactica",
+"Halo",
+"Mass Effect",
+"Planet of the Apes"
+],
+"distractors": [
+"The Matrix",
+"Stargate",
+"Alien",
+"Jurassic Park",
+"Battlestar Galactica",
+"Halo",
+"Mass Effect",
+"Planet of the Apes"
+],
+"n_eligible": 9,
+"sha": "36852d4f329564e210db79811ae316c70c7ea97245cef82370c17e0141627061",
+"generation": 1
+},
+"mlnla-rl600-all11:chat-dailydialog-0030__L044__p173:startrek:thehitchhikersguidetothegalaxy": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0030__L044__p173:startrek:thehitchhikersguidetothegalaxy",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"The Matrix",
+"Stargate",
+"Alien",
+"Jurassic Park"
+],
+"random": [
+"Halo",
+"Mass Effect",
+"Planet of the Apes",
+"The Terminator"
+],
+"distractors": [
+"The Matrix",
+"Stargate",
+"Alien",
+"Jurassic Park",
+"Halo",
+"Mass Effect",
+"Planet of the Apes",
+"The Terminator"
+],
+"n_eligible": 9,
+"sha": "d0ed9ccfe24bc94b8f957c514d708c5f3f06f4bac5d1f350e32d95160217f6be",
+"generation": 1
+},
+"mlnla-rl600-all11:chat-dailydialog-0030__L048__p110:doctorwho:thehitchhikersguidetothegalaxy": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0030__L048__p110:doctorwho:thehitchhikersguidetothegalaxy",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"The Matrix",
+"Stargate",
+"Alien",
+"Jurassic Park"
+],
+"random": [
+"Battlestar Galactica",
+"Mass Effect",
+"Planet of the Apes",
+"The Terminator"
+],
+"distractors": [
+"The Matrix",
+"Stargate",
+"Alien",
+"Jurassic Park",
+"Battlestar Galactica",
+"Mass Effect",
+"Planet of the Apes",
+"The Terminator"
+],
+"n_eligible": 9,
+"sha": "a79f098feccbfb1ab095b45110c4fc7c1906cf503e88de4ddca34ca5e04b3d19",
+"generation": 1
+},
+"mlnla-rl600-all11:chat-dailydialog-0030__L048__p53:startrek:thehitchhikersguidetothegalaxy": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0030__L048__p53:startrek:thehitchhikersguidetothegalaxy",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"The Matrix",
+"Stargate",
+"Alien",
+"Jurassic Park"
+],
+"random": [
+"Halo",
+"Mass Effect",
+"Planet of the Apes",
+"The Terminator"
+],
+"distractors": [
+"The Matrix",
+"Stargate",
+"Alien",
+"Jurassic Park",
+"Halo",
+"Mass Effect",
+"Planet of the Apes",
+"The Terminator"
+],
+"n_eligible": 9,
+"sha": "27cd7955267fd59ec6a66999d49ae03598799f396f7e1e4a1e8a05dd4f3122a4",
+"generation": 1
+},
+"mlnla-rl600-all11:chat-dailydialog-0030__L048__p87:doctorwho:thehitchhikersguidetothegalaxy": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0030__L048__p87:doctorwho:thehitchhikersguidetothegalaxy",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"The Matrix",
+"Stargate",
+"Alien",
+"Jurassic Park"
+],
+"random": [
+"Battlestar Galactica",
+"Halo",
+"Mass Effect",
+"Planet of the Apes"
+],
+"distractors": [
+"The Matrix",
+"Stargate",
+"Alien",
+"Jurassic Park",
+"Battlestar Galactica",
+"Halo",
+"Mass Effect",
+"Planet of the Apes"
+],
+"n_eligible": 9,
+"sha": "db4e37fbe92ab55f8f5b7fd3f272329c44aa608c8ccccf0093490ea20d1e7149",
+"generation": 1
+},
+"mlnla-rl600-all11:chat-dailydialog-0030__L056__p173:startrek:thehitchhikersguidetothegalaxy": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0030__L056__p173:startrek:thehitchhikersguidetothegalaxy",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"The Matrix",
+"Stargate",
+"Alien",
+"Jurassic Park"
+],
+"random": [
+"Battlestar Galactica",
+"Mass Effect",
+"Planet of the Apes",
+"The Terminator"
+],
+"distractors": [
+"The Matrix",
+"Stargate",
+"Alien",
+"Jurassic Park",
+"Battlestar Galactica",
+"Mass Effect",
+"Planet of the Apes",
+"The Terminator"
+],
+"n_eligible": 9,
+"sha": "5b37a142aac0411ef8d77f18fbe2b13d9fa0a217dc0ebd235decfbcf976f2530",
+"generation": 1
+},
+"nla-rl-L42:chat-dailydialog-0030__L042__p87:doctorwho:thehitchhikersguidetothegalaxy": {
+"unit": "nla-rl-L42:chat-dailydialog-0030__L042__p87:doctorwho:thehitchhikersguidetothegalaxy",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"The Matrix",
+"Stargate",
+"Alien",
+"Jurassic Park"
+],
+"random": [
+"Battlestar Galactica",
+"Halo",
+"Planet of the Apes",
+"The Terminator"
+],
+"distractors": [
+"The Matrix",
+"Stargate",
+"Alien",
+"Jurassic Park",
+"Battlestar Galactica",
+"Halo",
+"Planet of the Apes",
+"The Terminator"
+],
+"n_eligible": 9,
+"sha": "d98274daea8812ad33667e88fce0986542a1f721636d7cea6ff3f304567a585d",
+"generation": 1
+},
+"s3d-sft251:chat-dailydialog-0030__L048__p137:starwarstrek:thehitchhikersguidetothegalaxy": {
+"unit": "s3d-sft251:chat-dailydialog-0030__L048__p137:starwarstrek:thehitchhikersguidetothegalaxy",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"The Matrix",
+"Stargate",
+"Alien",
+"Jurassic Park"
+],
+"random": [
+"Halo",
+"Mass Effect",
+"Planet of the Apes",
+"The Terminator"
+],
+"distractors": [
+"The Matrix",
+"Stargate",
+"Alien",
+"Jurassic Park",
+"Halo",
+"Mass Effect",
+"Planet of the Apes",
+"The Terminator"
+],
+"n_eligible": 9,
+"sha": "120fc128042fc4b842a6099b9579298c39f8db45e7787ed9687e9e09006eca8d",
+"generation": 1
+},
+"s3d-sft251:chat-dailydialog-0030__L048__p65:doctorwho:thehitchhikersguidetothegalaxy": {
+"unit": "s3d-sft251:chat-dailydialog-0030__L048__p65:doctorwho:thehitchhikersguidetothegalaxy",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"The Matrix",
+"Stargate",
+"Alien",
+"Jurassic Park"
+],
+"random": [
+"Battlestar Galactica",
+"Halo",
+"Mass Effect",
+"The Terminator"
+],
+"distractors": [
+"The Matrix",
+"Stargate",
+"Alien",
+"Jurassic Park",
+"Battlestar Galactica",
+"Halo",
+"Mass Effect",
+"The Terminator"
+],
+"n_eligible": 9,
+"sha": "c631695893179cf42220428149c1ca245e56426976d21b3520620dcdc70b2837",
+"generation": 1
+}
+}

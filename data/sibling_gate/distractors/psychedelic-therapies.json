@@ -1,0 +1,263 @@
+{
+"mlnla-ck2000-all11:chat-lmsys-0051__L028__p35:ketamineassistedtherapy5myths:psychedelictherapies10misconceptions": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0051__L028__p35:ketamineassistedtherapy5myths:psychedelictherapies10misconceptions",
+"anchor": "psychedelic-assisted therapy",
+"nearest": [
+"Psilocybin-assisted therapy",
+"MDMA-assisted therapy",
+"DMT-assisted therapy",
+"Psycholytic therapy"
+],
+"random": [
+"Holotropic breathwork",
+"Ibogaine therapy",
+"Mescaline-assisted therapy",
+"Peyote ceremony"
+],
+"distractors": [
+"Psilocybin-assisted therapy",
+"MDMA-assisted therapy",
+"DMT-assisted therapy",
+"Psycholytic therapy",
+"Holotropic breathwork",
+"Ibogaine therapy",
+"Mescaline-assisted therapy",
+"Peyote ceremony"
+],
+"n_eligible": 12,
+"sha": "9e471a28f18890378b3a6797f607c9cdb4fe6d4b9a8cc036482d8f1f84cebba8",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0051__L028__p35:ketamineassistedtherapy:psychedelicassistedtherapy": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0051__L028__p35:ketamineassistedtherapy:psychedelicassistedtherapy",
+"anchor": "Ketamine-assisted therapy",
+"nearest": [
+"Esketamine therapy",
+"Psilocybin-assisted therapy",
+"psychedelic-assisted therapy",
+"DMT-assisted therapy"
+],
+"random": [
+"LSD-assisted therapy",
+"Mescaline-assisted therapy",
+"Peyote ceremony",
+"Psycholytic therapy"
+],
+"distractors": [
+"Esketamine therapy",
+"Psilocybin-assisted therapy",
+"psychedelic-assisted therapy",
+"DMT-assisted therapy",
+"LSD-assisted therapy",
+"Mescaline-assisted therapy",
+"Peyote ceremony",
+"Psycholytic therapy"
+],
+"n_eligible": 13,
+"sha": "e69552a91ee881f10ef17ad6b1c72025179e1976cf9bd15986d539ce3721e3a5",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0051__L028__p35:ketaminetherapy:psychedelicassistedtherapy": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0051__L028__p35:ketaminetherapy:psychedelicassistedtherapy",
+"anchor": "Ketamine therapy",
+"nearest": [
+"Psilocybin-assisted therapy",
+"DMT-assisted therapy",
+"5-MeO-DMT therapy",
+"Ibogaine therapy"
+],
+"random": [
+"Holotropic breathwork",
+"LSD-assisted therapy",
+"Psycholytic therapy",
+"psychedelic-assisted therapy"
+],
+"distractors": [
+"Psilocybin-assisted therapy",
+"DMT-assisted therapy",
+"5-MeO-DMT therapy",
+"Ibogaine therapy",
+"Holotropic breathwork",
+"LSD-assisted therapy",
+"Psycholytic therapy",
+"psychedelic-assisted therapy"
+],
+"n_eligible": 12,
+"sha": "59dd2eed4c32a9742971a1eb94484d8397e2b247beda7d824f5e6beef88d6a48",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0051__L056__p105:ketaminetherapy:psychedelictherapies": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0051__L056__p105:ketaminetherapy:psychedelictherapies",
+"anchor": "Ketamine therapy",
+"nearest": [
+"Psilocybin-assisted therapy",
+"DMT-assisted therapy",
+"5-MeO-DMT therapy",
+"Holotropic breathwork"
+],
+"random": [
+"Ayahuasca therapy",
+"Ibogaine therapy",
+"Mescaline-assisted therapy",
+"Peyote ceremony"
+],
+"distractors": [
+"Psilocybin-assisted therapy",
+"DMT-assisted therapy",
+"5-MeO-DMT therapy",
+"Holotropic breathwork",
+"Ayahuasca therapy",
+"Ibogaine therapy",
+"Mescaline-assisted therapy",
+"Peyote ceremony"
+],
+"n_eligible": 11,
+"sha": "9b3d9fd9fe6b5efd9352f399e520362c67333e34300a77bc1880fe55a04ef44b",
+"generation": 0
+},
+"nla-sft-L42:chat-lmsys-0051__L042__p313:kapketamineassistedpsychotherapy:psychedelictherapies": {
+"unit": "nla-sft-L42:chat-lmsys-0051__L042__p313:kapketamineassistedpsychotherapy:psychedelictherapies",
+"anchor": "ketamine-assisted psychotherapy",
+"nearest": [
+"Esketamine therapy",
+"Psilocybin-assisted therapy",
+"Holotropic breathwork",
+"Ayahuasca therapy"
+],
+"random": [
+"5-MeO-DMT therapy",
+"DMT-assisted therapy",
+"Ibogaine therapy",
+"Peyote ceremony"
+],
+"distractors": [
+"Esketamine therapy",
+"Psilocybin-assisted therapy",
+"Holotropic breathwork",
+"Ayahuasca therapy",
+"5-MeO-DMT therapy",
+"DMT-assisted therapy",
+"Ibogaine therapy",
+"Peyote ceremony"
+],
+"n_eligible": 12,
+"sha": "4cda2e67904a6737ba75f45b2ff670a7c6627a0b0860e8aca6c05a2c85abfe2f",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0051__L056__p105:ketamineassistedpsychotherapy:psychedelictherapy": {
+"unit": "s3d-rl600-all11:chat-lmsys-0051__L056__p105:ketamineassistedpsychotherapy:psychedelictherapy",
+"anchor": "Ketamine-Assisted Psychotherapy",
+"nearest": [
+"Esketamine therapy",
+"Psilocybin-assisted therapy",
+"Holotropic breathwork",
+"Ayahuasca therapy"
+],
+"random": [
+"LSD-assisted therapy",
+"Mescaline-assisted therapy",
+"Peyote ceremony",
+"Psycholytic therapy"
+],
+"distractors": [
+"Esketamine therapy",
+"Psilocybin-assisted therapy",
+"Holotropic breathwork",
+"Ayahuasca therapy",
+"LSD-assisted therapy",
+"Mescaline-assisted therapy",
+"Peyote ceremony",
+"Psycholytic therapy"
+],
+"n_eligible": 12,
+"sha": "22d1c75ffd6e258f28854cf7c3f11f8e62f85492d62f11a0728630555c1f0c2f",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0051__L056__p105:ketamineassistedtherapy:psychedelictherapy": {
+"unit": "s3d-rl600-all11:chat-lmsys-0051__L056__p105:ketamineassistedtherapy:psychedelictherapy",
+"anchor": "Ketamine-assisted therapy",
+"nearest": [
+"Esketamine therapy",
+"Psilocybin-assisted therapy",
+"DMT-assisted therapy",
+"Holotropic breathwork"
+],
+"random": [
+"Ayahuasca therapy",
+"Ibogaine therapy",
+"MDMA-assisted therapy",
+"Mescaline-assisted therapy"
+],
+"distractors": [
+"Esketamine therapy",
+"Psilocybin-assisted therapy",
+"DMT-assisted therapy",
+"Holotropic breathwork",
+"Ayahuasca therapy",
+"Ibogaine therapy",
+"MDMA-assisted therapy",
+"Mescaline-assisted therapy"
+],
+"n_eligible": 12,
+"sha": "a8abefde556f4193c5bd77554853760206092e96f228de5546c5fdcb533969ba",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0051__L056__p105:ketaminetherapy:psychedelictherapy": {
+"unit": "s3d-rl600-all11:chat-lmsys-0051__L056__p105:ketaminetherapy:psychedelictherapy",
+"anchor": "Ketamine therapy",
+"nearest": [
+"Psilocybin-assisted therapy",
+"DMT-assisted therapy",
+"5-MeO-DMT therapy",
+"Holotropic breathwork"
+],
+"random": [
+"LSD-assisted therapy",
+"MDMA-assisted therapy",
+"Mescaline-assisted therapy",
+"Peyote ceremony"
+],
+"distractors": [
+"Psilocybin-assisted therapy",
+"DMT-assisted therapy",
+"5-MeO-DMT therapy",
+"Holotropic breathwork",
+"LSD-assisted therapy",
+"MDMA-assisted therapy",
+"Mescaline-assisted therapy",
+"Peyote ceremony"
+],
+"n_eligible": 11,
+"sha": "0cc446b23a49d6f7b1563af821fbfeb269450b17309d785261bb4ffee71e4ab1",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0051__L060__p105:ketaminetherapy:psychedelictherapy": {
+"unit": "s3d-sft251:chat-lmsys-0051__L060__p105:ketaminetherapy:psychedelictherapy",
+"anchor": "Ketamine therapy",
+"nearest": [
+"Psilocybin-assisted therapy",
+"DMT-assisted therapy",
+"5-MeO-DMT therapy",
+"Holotropic breathwork"
+],
+"random": [
+"LSD-assisted therapy",
+"MDMA-assisted therapy",
+"Mescaline-assisted therapy",
+"Psycholytic therapy"
+],
+"distractors": [
+"Psilocybin-assisted therapy",
+"DMT-assisted therapy",
+"5-MeO-DMT therapy",
+"Holotropic breathwork",
+"LSD-assisted therapy",
+"MDMA-assisted therapy",
+"Mescaline-assisted therapy",
+"Psycholytic therapy"
+],
+"n_eligible": 11,
+"sha": "8611802a983155c5352f601dcc0c982991dd6934882a09272c56624e6639e529",
+"generation": 0
+}
+}

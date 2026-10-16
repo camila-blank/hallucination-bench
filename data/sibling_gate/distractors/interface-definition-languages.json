@@ -1,0 +1,234 @@
+{
+"mlnla-rl600-all11:chat-lmsys-0003__L044__p310:javatypedefinitions:webidlinterfaces": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0003__L044__p310:javatypedefinitions:webidlinterfaces",
+"anchor": "WebIDL",
+"nearest": [
+"Microsoft Interface Definition Language",
+"OMG IDL",
+"Smithy",
+"ASN.1"
+],
+"random": [
+"Apache Avro",
+"Apache Thrift",
+"FlatBuffers",
+"gRPC"
+],
+"distractors": [
+"Microsoft Interface Definition Language",
+"OMG IDL",
+"Smithy",
+"ASN.1",
+"Apache Avro",
+"Apache Thrift",
+"FlatBuffers",
+"gRPC"
+],
+"n_eligible": 12,
+"sha": "b548b6f01dd8cccd09db4ee1a5a9ff8d066b9c70b878987e5b6f918887b6c42a",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0003__L044__p310:sql:webidl": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0003__L044__p310:sql:webidl",
+"anchor": "WebIDL",
+"nearest": [
+"Microsoft Interface Definition Language",
+"OMG IDL",
+"Smithy",
+"ASN.1"
+],
+"random": [
+"Apache Avro",
+"Apache Thrift",
+"OpenAPI",
+"Protocol Buffers"
+],
+"distractors": [
+"Microsoft Interface Definition Language",
+"OMG IDL",
+"Smithy",
+"ASN.1",
+"Apache Avro",
+"Apache Thrift",
+"OpenAPI",
+"Protocol Buffers"
+],
+"n_eligible": 12,
+"sha": "ce8b4f93b025552d4c471529bcf835e7867d5858e2ec85930927477c56e35c78",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0003__L044__p310:sqltypedeclarations:webidlinterfaces": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0003__L044__p310:sqltypedeclarations:webidlinterfaces",
+"anchor": "WebIDL",
+"nearest": [
+"Microsoft Interface Definition Language",
+"OMG IDL",
+"Smithy",
+"ASN.1"
+],
+"random": [
+"Apache Thrift",
+"FlatBuffers",
+"Protocol Buffers",
+"gRPC"
+],
+"distractors": [
+"Microsoft Interface Definition Language",
+"OMG IDL",
+"Smithy",
+"ASN.1",
+"Apache Thrift",
+"FlatBuffers",
+"Protocol Buffers",
+"gRPC"
+],
+"n_eligible": 12,
+"sha": "ad69f4f07500070221766658b5d9e79fded5ab89ac2165bfff840435934ec62a",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0003__L044__p310:sqltypedefinitions:webidldefinitions": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0003__L044__p310:sqltypedefinitions:webidldefinitions",
+"anchor": "WebIDL",
+"nearest": [
+"Microsoft Interface Definition Language",
+"OMG IDL",
+"Smithy",
+"ASN.1"
+],
+"random": [
+"Apache Thrift",
+"FlatBuffers",
+"Protocol Buffers",
+"WSDL"
+],
+"distractors": [
+"Microsoft Interface Definition Language",
+"OMG IDL",
+"Smithy",
+"ASN.1",
+"Apache Thrift",
+"FlatBuffers",
+"Protocol Buffers",
+"WSDL"
+],
+"n_eligible": 12,
+"sha": "29f7ef9dfe035b5a131653c39a778c2a6369bf52bcde8f6d39332cee4ad6ed5e",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0003__L048__p310:sql:webidl": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0003__L048__p310:sql:webidl",
+"anchor": "WebIDL",
+"nearest": [
+"Microsoft Interface Definition Language",
+"OMG IDL",
+"Smithy",
+"ASN.1"
+],
+"random": [
+"Apache Avro",
+"Apache Thrift",
+"Cap'n Proto",
+"gRPC"
+],
+"distractors": [
+"Microsoft Interface Definition Language",
+"OMG IDL",
+"Smithy",
+"ASN.1",
+"Apache Avro",
+"Apache Thrift",
+"Cap'n Proto",
+"gRPC"
+],
+"n_eligible": 12,
+"sha": "6b101700d6436c8b392f000eb68a0bb3d81a30c28fb72b3f8b248c6da0976465",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0003__L048__p310:sqltypedefinitions:webidldefinitions": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0003__L048__p310:sqltypedefinitions:webidldefinitions",
+"anchor": "WebIDL",
+"nearest": [
+"Microsoft Interface Definition Language",
+"OMG IDL",
+"Smithy",
+"ASN.1"
+],
+"random": [
+"Apache Thrift",
+"OpenAPI",
+"WSDL",
+"gRPC"
+],
+"distractors": [
+"Microsoft Interface Definition Language",
+"OMG IDL",
+"Smithy",
+"ASN.1",
+"Apache Thrift",
+"OpenAPI",
+"WSDL",
+"gRPC"
+],
+"n_eligible": 12,
+"sha": "3d508723281a676058634733b3a48550fbb9bc34594b11fa86a916cf4bc0d327",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0003__L048__p310:sqltypesddl:webidlinterfaces": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0003__L048__p310:sqltypesddl:webidlinterfaces",
+"anchor": "WebIDL",
+"nearest": [
+"Microsoft Interface Definition Language",
+"OMG IDL",
+"Smithy",
+"ASN.1"
+],
+"random": [
+"Apache Avro",
+"Apache Thrift",
+"WSDL",
+"gRPC"
+],
+"distractors": [
+"Microsoft Interface Definition Language",
+"OMG IDL",
+"Smithy",
+"ASN.1",
+"Apache Avro",
+"Apache Thrift",
+"WSDL",
+"gRPC"
+],
+"n_eligible": 12,
+"sha": "ca1db3e412bdb3d3ed74c3717b2ef86ad6d4909d56c2d33a4afbd1ffcd644ed9",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0003__L040__p310:sql:webidl": {
+"unit": "s3d-sft251:chat-lmsys-0003__L040__p310:sql:webidl",
+"anchor": "WebIDL",
+"nearest": [
+"Microsoft Interface Definition Language",
+"OMG IDL",
+"Smithy",
+"ASN.1"
+],
+"random": [
+"Apache Avro",
+"Cap'n Proto",
+"FlatBuffers",
+"Protocol Buffers"
+],
+"distractors": [
+"Microsoft Interface Definition Language",
+"OMG IDL",
+"Smithy",
+"ASN.1",
+"Apache Avro",
+"Cap'n Proto",
+"FlatBuffers",
+"Protocol Buffers"
+],
+"n_eligible": 12,
+"sha": "a9c17e6293f4093152bae7ba959d3118c75c169d10c3362962390e0911cdf6eb",
+"generation": 0
+}
+}

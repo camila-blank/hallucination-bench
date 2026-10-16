@@ -1,0 +1,118 @@
+{
+"jlens:chat-dailydialog-0062__L040__p201:beijingtimeutc+8:newyorkedt": {
+"unit": "jlens:chat-dailydialog-0062__L040__p201:beijingtimeutc+8:newyorkedt",
+"anchor": "China Standard Time (UTC+8)",
+"nearest": [
+"Japan Standard Time",
+"Indian Standard Time",
+"Hawaii-Aleutian Standard Time",
+"Coordinated Universal Time"
+],
+"random": [
+"Atlantic Standard Time",
+"Central European Time",
+"Pacific Standard Time",
+"Western European Time"
+],
+"distractors": [
+"Japan Standard Time",
+"Indian Standard Time",
+"Hawaii-Aleutian Standard Time",
+"Coordinated Universal Time",
+"Atlantic Standard Time",
+"Central European Time",
+"Pacific Standard Time",
+"Western European Time"
+],
+"n_eligible": 12,
+"sha": "60c84585c9a48cd85f6fc7e14ec562e5cb61bb5e2f668f86733da2e549bbbd13",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0062__L036__p164:cst:utc": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0062__L036__p164:cst:utc",
+"anchor": "Coordinated Universal Time",
+"nearest": [
+"Greenwich Mean Time",
+"Indian Standard Time",
+"Japan Standard Time",
+"Hawaii-Aleutian Standard Time"
+],
+"random": [
+"Alaska Standard Time",
+"Eastern European Time",
+"Pacific Standard Time",
+"Western European Time"
+],
+"distractors": [
+"Greenwich Mean Time",
+"Indian Standard Time",
+"Japan Standard Time",
+"Hawaii-Aleutian Standard Time",
+"Alaska Standard Time",
+"Eastern European Time",
+"Pacific Standard Time",
+"Western European Time"
+],
+"n_eligible": 10,
+"sha": "601cfb3f412ef7edf312cd125ea72dc3c256573402559c85b4edf3a5cd3e9f58",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0062__L032__p121:est:utc": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0062__L032__p121:est:utc",
+"anchor": "Coordinated Universal Time",
+"nearest": [
+"Greenwich Mean Time",
+"Indian Standard Time",
+"Japan Standard Time",
+"Hawaii-Aleutian Standard Time"
+],
+"random": [
+"Alaska Standard Time",
+"Atlantic Standard Time",
+"Mountain Standard Time",
+"Pacific Standard Time"
+],
+"distractors": [
+"Greenwich Mean Time",
+"Indian Standard Time",
+"Japan Standard Time",
+"Hawaii-Aleutian Standard Time",
+"Alaska Standard Time",
+"Atlantic Standard Time",
+"Mountain Standard Time",
+"Pacific Standard Time"
+],
+"n_eligible": 10,
+"sha": "e3076c50cdb421f9bea87807499bee8978759dd754d4afb720a54768b60aa7e3",
+"generation": 1
+},
+"s3d-rl600-all11:chat-dailydialog-0062__L044__p121:beijingtime:utc": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0062__L044__p121:beijingtime:utc",
+"anchor": "Coordinated Universal Time",
+"nearest": [
+"Greenwich Mean Time",
+"Indian Standard Time",
+"Japan Standard Time",
+"Hawaii-Aleutian Standard Time"
+],
+"random": [
+"Atlantic Standard Time",
+"Central European Time",
+"Eastern European Time",
+"Mountain Standard Time"
+],
+"distractors": [
+"Greenwich Mean Time",
+"Indian Standard Time",
+"Japan Standard Time",
+"Hawaii-Aleutian Standard Time",
+"Atlantic Standard Time",
+"Central European Time",
+"Eastern European Time",
+"Mountain Standard Time"
+],
+"n_eligible": 11,
+"sha": "bb9ec71c28145736b3b7d03952c9dbf2ae55e97236b1167b6605c7f7320520a5",
+"generation": 1
+}
+}

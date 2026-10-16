@@ -1,0 +1,230 @@
+{
+"mlnla-rl2-800-all11:chat-lmsys-0070__L036__p154:zhongshuinewmaterial:chengdupushbiotechnologycoltd": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0070__L036__p154:zhongshuinewmaterial:chengdupushbiotechnologycoltd",
+"anchor": "Chengdu Push Bio-technology Co., Ltd.",
+"nearest": [
+"Shanghai Huihe Chemical",
+"Shanghai Chemical Corporation",
+"Shanghai Chemicals",
+"Sinochem International (India) Pvt. Ltd."
+],
+"random": [
+"BASF",
+"Bayer",
+"Dow",
+"LyondellBasell"
+],
+"distractors": [
+"Shanghai Huihe Chemical",
+"Shanghai Chemical Corporation",
+"Shanghai Chemicals",
+"Sinochem International (India) Pvt. Ltd.",
+"BASF",
+"Bayer",
+"Dow",
+"LyondellBasell"
+],
+"n_eligible": 10,
+"sha": "014d91d47d2addd65b160c5ef44fa9aaf93abf5c5eef72628fd87052da07dcfa",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0009__L060__p85:sinocheminternationalindiapvt:shanghaibmgchemicalcoltd": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0009__L060__p85:sinocheminternationalindiapvt:shanghaibmgchemicalcoltd",
+"anchor": "Shanghai BMG Chemical Co., Ltd.",
+"nearest": [
+"Zhongshui New Material",
+"Sayaji Hi-tech",
+"DuPont",
+"Bayer"
+],
+"random": [
+"BASF",
+"Dow",
+"LyondellBasell"
+],
+"distractors": [
+"Zhongshui New Material",
+"Sayaji Hi-tech",
+"DuPont",
+"Bayer",
+"BASF",
+"Dow",
+"LyondellBasell"
+],
+"n_eligible": 7,
+"sha": "95ee8d954f5eccc67c993251c45acf25732c2d3ba80aab67bd1b5f7993c430be",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0070__L040__p154:chemstationschemicalcoltd:chengdupushbiotechnologycoltd": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0070__L040__p154:chemstationschemicalcoltd:chengdupushbiotechnologycoltd",
+"anchor": "Chengdu Push Bio-technology Co., Ltd.",
+"nearest": [
+"Shanghai Chemicals",
+"Sinochem International (India) Pvt. Ltd.",
+"LyondellBasell",
+"Sayaji Hi-tech"
+],
+"random": [
+"BASF",
+"Bayer",
+"Dow",
+"DuPont"
+],
+"distractors": [
+"Shanghai Chemicals",
+"Sinochem International (India) Pvt. Ltd.",
+"LyondellBasell",
+"Sayaji Hi-tech",
+"BASF",
+"Bayer",
+"Dow",
+"DuPont"
+],
+"n_eligible": 8,
+"sha": "471f3ce493eead34f3bb4618507962d7bfedfc46b0545dcbd5e6524ffc13fd4a",
+"generation": 0
+},
+"nla-sft-L42:chat-lmsys-0025__L042__p198:sayajihitech:shanghaihuihechemical": {
+"unit": "nla-sft-L42:chat-lmsys-0025__L042__p198:sayajihitech:shanghaihuihechemical",
+"anchor": "Shanghai Huihe Chemical",
+"nearest": [
+"SiATEX Rubber",
+"Zhongshui New Material",
+"Sinochem International (India) Pvt. Ltd.",
+"SIATEX Rubber"
+],
+"random": [
+"BASF",
+"Bayer",
+"Dow",
+"LyondellBasell"
+],
+"distractors": [
+"SiATEX Rubber",
+"Zhongshui New Material",
+"Sinochem International (India) Pvt. Ltd.",
+"SIATEX Rubber",
+"BASF",
+"Bayer",
+"Dow",
+"LyondellBasell"
+],
+"n_eligible": 9,
+"sha": "ef6afaac2d957f0d09aa2efccce80fc3a4c369a87930ee7572008a24a6f123a6",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0025__L020__p176:shanghaichemicalcorporation:shanghaihuihechemicalcoltd": {
+"unit": "s3d-rl600-all11:chat-lmsys-0025__L020__p176:shanghaichemicalcorporation:shanghaihuihechemicalcoltd",
+"anchor": "Shanghai Huihe Chemical Co., Ltd.",
+"nearest": [
+"SiATEX Rubber",
+"Zhongshui New Material",
+"SIATEX Rubber",
+"Sinochem International (India) Pvt. Ltd."
+],
+"random": [
+"BASF",
+"Bayer",
+"DuPont",
+"LyondellBasell"
+],
+"distractors": [
+"SiATEX Rubber",
+"Zhongshui New Material",
+"SIATEX Rubber",
+"Sinochem International (India) Pvt. Ltd.",
+"BASF",
+"Bayer",
+"DuPont",
+"LyondellBasell"
+],
+"n_eligible": 9,
+"sha": "09a3440e5065d77604006aeab39ae6c95f52a02f3ac4ef2dca2b64bc6e9b0455",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0025__L020__p198:shanghaichemicals:shanghaihuihechemicalcoltd": {
+"unit": "s3d-rl600:chat-lmsys-0025__L020__p198:shanghaichemicals:shanghaihuihechemicalcoltd",
+"anchor": "Shanghai Huihe Chemical Co., Ltd.",
+"nearest": [
+"SiATEX Rubber",
+"Zhongshui New Material",
+"SIATEX Rubber",
+"Sinochem International (India) Pvt. Ltd."
+],
+"random": [
+"Bayer",
+"Dow",
+"DuPont",
+"LyondellBasell"
+],
+"distractors": [
+"SiATEX Rubber",
+"Zhongshui New Material",
+"SIATEX Rubber",
+"Sinochem International (India) Pvt. Ltd.",
+"Bayer",
+"Dow",
+"DuPont",
+"LyondellBasell"
+],
+"n_eligible": 9,
+"sha": "03d24fd2771d9c1eb349796307e380419e05266c912552f23b3287a3a05e6100",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0009__L040__p354:siatexrubber:shanghaibmgchemical": {
+"unit": "s3d-sft251:chat-lmsys-0009__L040__p354:siatexrubber:shanghaibmgchemical",
+"anchor": "Shanghai BMG Chemical Co., Ltd.",
+"nearest": [
+"Zhongshui New Material",
+"Sayaji Hi-tech",
+"DuPont",
+"Bayer"
+],
+"random": [
+"BASF",
+"Dow",
+"LyondellBasell"
+],
+"distractors": [
+"Zhongshui New Material",
+"Sayaji Hi-tech",
+"DuPont",
+"Bayer",
+"BASF",
+"Dow",
+"LyondellBasell"
+],
+"n_eligible": 7,
+"sha": "9f1337d61f46d13d58ec5fa7e774668ead68d95d838a44d8411382b31aff0cf2",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0070__L048__p310:siatexrubber:chengdupushbiotechnologycoltd": {
+"unit": "s3d-sft251:chat-lmsys-0070__L048__p310:siatexrubber:chengdupushbiotechnologycoltd",
+"anchor": "Chengdu Push Bio-technology Co., Ltd.",
+"nearest": [
+"Shanghai Huihe Chemical",
+"Shanghai Chemical Corporation",
+"Shanghai Chemicals",
+"Sinochem International (India) Pvt. Ltd."
+],
+"random": [
+"Bayer",
+"Dow",
+"LyondellBasell",
+"Sayaji Hi-tech"
+],
+"distractors": [
+"Shanghai Huihe Chemical",
+"Shanghai Chemical Corporation",
+"Shanghai Chemicals",
+"Sinochem International (India) Pvt. Ltd.",
+"Bayer",
+"Dow",
+"LyondellBasell",
+"Sayaji Hi-tech"
+],
+"n_eligible": 10,
+"sha": "accfd8e855e99c6718529d16bc325889d9295903a0fb6418910a93a0fd5d25cf",
+"generation": 0
+}
+}

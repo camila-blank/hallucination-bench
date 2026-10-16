@@ -1,0 +1,116 @@
+{
+"mlnla-rl600-all11:chat-lmsys-0064__L060__p494:lenovothinkpad:pcgamerconcórdia": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0064__L060__p494:lenovothinkpad:pcgamerconcórdia",
+"anchor": "PC Gamer Concórdia",
+"nearest": [
+"Apple MacBook Pro",
+"Apple Mac mini",
+"Apple MacBook Air",
+"Microsoft Surface Pro"
+],
+"random": [
+"Apple iMac",
+"Dell XPS",
+"HP Spectre"
+],
+"distractors": [
+"Apple MacBook Pro",
+"Apple Mac mini",
+"Apple MacBook Air",
+"Microsoft Surface Pro",
+"Apple iMac",
+"Dell XPS",
+"HP Spectre"
+],
+"n_eligible": 7,
+"sha": "facb99893697a5a6509ef2bc0062960bb7721b5873342c5b9ccdd0c28c9f811e",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0064__L056__p440:acernotebook:pcgamerconcórdiai710700f": {
+"unit": "s3d-rl600-all11:chat-lmsys-0064__L056__p440:acernotebook:pcgamerconcórdiai710700f",
+"anchor": "PC Gamer Concórdia",
+"nearest": [
+"Apple MacBook Pro",
+"Apple Mac mini",
+"Apple MacBook Air",
+"Microsoft Surface Pro"
+],
+"random": [
+"Apple iMac",
+"Dell XPS",
+"HP Spectre",
+"Lenovo Yoga"
+],
+"distractors": [
+"Apple MacBook Pro",
+"Apple Mac mini",
+"Apple MacBook Air",
+"Microsoft Surface Pro",
+"Apple iMac",
+"Dell XPS",
+"HP Spectre",
+"Lenovo Yoga"
+],
+"n_eligible": 9,
+"sha": "b0c47da2f3f3f5cb547289429beccfeda707e0a594aaed81b68e592f264b7a9a",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0064__L052__p440:asusvivobook:pcgamerconcórdia": {
+"unit": "s3d-sft251:chat-lmsys-0064__L052__p440:asusvivobook:pcgamerconcórdia",
+"anchor": "PC Gamer Concórdia",
+"nearest": [
+"Apple MacBook Pro",
+"Apple Mac mini",
+"Apple MacBook Air",
+"Microsoft Surface Pro"
+],
+"random": [
+"Dell XPS",
+"HP Spectre",
+"Lenovo IdeaPad",
+"Lenovo Yoga"
+],
+"distractors": [
+"Apple MacBook Pro",
+"Apple Mac mini",
+"Apple MacBook Air",
+"Microsoft Surface Pro",
+"Dell XPS",
+"HP Spectre",
+"Lenovo IdeaPad",
+"Lenovo Yoga"
+],
+"n_eligible": 9,
+"sha": "0bd7cbd07c2c3f719f8b36634f95ed8bc39e4b5cd9e78ffc3acd98ba3021f647",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0064__L052__p440:dellnotebook:pcgamerconcórdia": {
+"unit": "s3d-sft251:chat-lmsys-0064__L052__p440:dellnotebook:pcgamerconcórdia",
+"anchor": "PC Gamer Concórdia",
+"nearest": [
+"Apple MacBook Pro",
+"Apple Mac mini",
+"Apple MacBook Air",
+"Microsoft Surface Pro"
+],
+"random": [
+"Apple iMac",
+"HP Spectre",
+"Lenovo IdeaPad",
+"Lenovo Yoga"
+],
+"distractors": [
+"Apple MacBook Pro",
+"Apple Mac mini",
+"Apple MacBook Air",
+"Microsoft Surface Pro",
+"Apple iMac",
+"HP Spectre",
+"Lenovo IdeaPad",
+"Lenovo Yoga"
+],
+"n_eligible": 8,
+"sha": "c23edd32646db77ac121fe705d44fc3ab61e8bdbb1e0b3119fabb7e66554f245",
+"generation": 0
+}
+}

@@ -1,0 +1,114 @@
+{
+"mlnla-ck2000-all11:chat-lmsys-0056__L032__p28:sumoftwonumbersprogram:first10fibonaccinumbers": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0056__L032__p28:sumoftwonumbersprogram:first10fibonaccinumbers",
+"anchor": "Fibonacci sequence program",
+"nearest": [
+"Factorial calculator",
+"Prime number checker",
+"Reverse a string",
+"Guess the number game"
+],
+"random": [
+"Palindrome checker",
+"Temperature converter (Celsius to Fahrenheit)"
+],
+"distractors": [
+"Factorial calculator",
+"Prime number checker",
+"Reverse a string",
+"Guess the number game",
+"Palindrome checker",
+"Temperature converter (Celsius to Fahrenheit)"
+],
+"n_eligible": 6,
+"sha": "cfd4911b6d66106be6bfc7d3146eb445a1e2b0b11b0298284de2e791b74cc04d",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0033__L020__p77:areaandperimeterofarectangle:powerandresistance": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0033__L020__p77:areaandperimeterofarectangle:powerandresistance",
+"anchor": "Power and Resistance from Voltage and Current",
+"nearest": [
+"Temperature converter (Celsius to Fahrenheit)",
+"sum of two numbers program",
+"Palindrome checker",
+"Factorial calculator"
+],
+"random": [
+"Fibonacci sequence program",
+"Guess the number game",
+"Hello World",
+"Prime number checker"
+],
+"distractors": [
+"Temperature converter (Celsius to Fahrenheit)",
+"sum of two numbers program",
+"Palindrome checker",
+"Factorial calculator",
+"Fibonacci sequence program",
+"Guess the number game",
+"Hello World",
+"Prime number checker"
+],
+"n_eligible": 10,
+"sha": "06072921e8d93345c4ab7d272a392e31ffe59ea1dcc70f2737baa1c9d27c00bd",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0033__L024__p77:cprogramforareaandperimeterofrectangle:c++programforpowerandresistance": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0033__L024__p77:cprogramforareaandperimeterofrectangle:c++programforpowerandresistance",
+"anchor": "C++ program for power and resistance from voltage and current",
+"nearest": [
+"Temperature converter (Celsius to Fahrenheit)",
+"Guess the number game",
+"Prime number checker",
+"FizzBuzz"
+],
+"random": [
+"Factorial calculator",
+"Hello World",
+"Palindrome checker",
+"Reverse a string"
+],
+"distractors": [
+"Temperature converter (Celsius to Fahrenheit)",
+"Guess the number game",
+"Prime number checker",
+"FizzBuzz",
+"Factorial calculator",
+"Hello World",
+"Palindrome checker",
+"Reverse a string"
+],
+"n_eligible": 8,
+"sha": "52a3e33a7fadde677e22dbfda8bf340a454616ba823f81a5275125e12ef1b60f",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0033__L040__p181:crectangleareaperimetercalculator:c++powerresistancecalculator": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0033__L040__p181:crectangleareaperimetercalculator:c++powerresistancecalculator",
+"anchor": "C++ power and resistance calculator",
+"nearest": [
+"Temperature converter (Celsius to Fahrenheit)",
+"Guess the number game",
+"sum of two numbers program",
+"Prime number checker"
+],
+"random": [
+"Fibonacci sequence program",
+"FizzBuzz",
+"Hello World",
+"Reverse a string"
+],
+"distractors": [
+"Temperature converter (Celsius to Fahrenheit)",
+"Guess the number game",
+"sum of two numbers program",
+"Prime number checker",
+"Fibonacci sequence program",
+"FizzBuzz",
+"Hello World",
+"Reverse a string"
+],
+"n_eligible": 9,
+"sha": "ea3cd6dc16a67fac7463b6644bd72c3422ef66dd7b4b097a0105fd153a2a672d",
+"generation": 1
+}
+}

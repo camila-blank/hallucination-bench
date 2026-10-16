@@ -1,0 +1,164 @@
+{
+"mlnla-rl2-800-all11:chat-lmsys-0055__L056__p211:siemensdigitaltwin:tcsenterprisedigitaltwin": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0055__L056__p211:siemensdigitaltwin:tcsenterprisedigitaltwin",
+"anchor": "TCS Enterprise Digital Twin",
+"nearest": [
+"Dassault Systèmes 3DEXPERIENCE",
+"NVIDIA Omniverse",
+"Ansys Twin Builder",
+"Bentley iTwin"
+],
+"random": [
+"PTC ThingWorx",
+"Unity Industrial Collection",
+"Unreal Engine"
+],
+"distractors": [
+"Dassault Systèmes 3DEXPERIENCE",
+"NVIDIA Omniverse",
+"Ansys Twin Builder",
+"Bentley iTwin",
+"PTC ThingWorx",
+"Unity Industrial Collection",
+"Unreal Engine"
+],
+"n_eligible": 7,
+"sha": "0cb2449a7f8fd5e8932053a572f78a6c6d1aecf4d718bc44723ee727e1fb0df2",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0055__L040__p211:sapdigitaltwin:tcsenterprisedigitaltwin": {
+"unit": "s3d-rl600-all11:chat-lmsys-0055__L040__p211:sapdigitaltwin:tcsenterprisedigitaltwin",
+"anchor": "TCS Enterprise Digital Twin",
+"nearest": [
+"Dassault Systèmes 3DEXPERIENCE",
+"NVIDIA Omniverse",
+"Ansys Twin Builder",
+"Bentley iTwin"
+],
+"random": [
+"PTC ThingWorx",
+"Unity Industrial Collection",
+"Unreal Engine"
+],
+"distractors": [
+"Dassault Systèmes 3DEXPERIENCE",
+"NVIDIA Omniverse",
+"Ansys Twin Builder",
+"Bentley iTwin",
+"PTC ThingWorx",
+"Unity Industrial Collection",
+"Unreal Engine"
+],
+"n_eligible": 7,
+"sha": "a66c5e0ff2ebe85ea580cef68a24adbb54663537af9d7bfb53ec3ec422cf9b14",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0055__L056__p211:sapleonardodigitaltwin:tcsenterprisedigitaltwin": {
+"unit": "s3d-rl600-all11:chat-lmsys-0055__L056__p211:sapleonardodigitaltwin:tcsenterprisedigitaltwin",
+"anchor": "TCS Enterprise Digital Twin",
+"nearest": [
+"Dassault Systèmes 3DEXPERIENCE",
+"NVIDIA Omniverse",
+"Ansys Twin Builder",
+"Bentley iTwin"
+],
+"random": [
+"PTC ThingWorx",
+"Unity Industrial Collection",
+"Unreal Engine"
+],
+"distractors": [
+"Dassault Systèmes 3DEXPERIENCE",
+"NVIDIA Omniverse",
+"Ansys Twin Builder",
+"Bentley iTwin",
+"PTC ThingWorx",
+"Unity Industrial Collection",
+"Unreal Engine"
+],
+"n_eligible": 7,
+"sha": "3f52a20c491eced56ecdc4b0c5c100ed8ee2c7c9ea03f442974b0001dc712a80",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0055__L056__p316:sapdigitaltwin:tcsenterprisedigitaltwin": {
+"unit": "s3d-rl600-all11:chat-lmsys-0055__L056__p316:sapdigitaltwin:tcsenterprisedigitaltwin",
+"anchor": "TCS Enterprise Digital Twin",
+"nearest": [
+"Dassault Systèmes 3DEXPERIENCE",
+"NVIDIA Omniverse",
+"Ansys Twin Builder",
+"Bentley iTwin"
+],
+"random": [
+"PTC ThingWorx",
+"Unity Industrial Collection",
+"Unreal Engine"
+],
+"distractors": [
+"Dassault Systèmes 3DEXPERIENCE",
+"NVIDIA Omniverse",
+"Ansys Twin Builder",
+"Bentley iTwin",
+"PTC ThingWorx",
+"Unity Industrial Collection",
+"Unreal Engine"
+],
+"n_eligible": 7,
+"sha": "8bffd7eae6c855684ff20c8524e00ae8a2fd655dcb918a0d4c85d26b8c535efb",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0055__L036__p268:gedigitaltwin:tcsenterprisedigitaltwin": {
+"unit": "s3d-rl600:chat-lmsys-0055__L036__p268:gedigitaltwin:tcsenterprisedigitaltwin",
+"anchor": "TCS Enterprise Digital Twin",
+"nearest": [
+"Dassault Systèmes 3DEXPERIENCE",
+"NVIDIA Omniverse",
+"Ansys Twin Builder",
+"Bentley iTwin"
+],
+"random": [
+"PTC ThingWorx",
+"Unity Industrial Collection",
+"Unreal Engine"
+],
+"distractors": [
+"Dassault Systèmes 3DEXPERIENCE",
+"NVIDIA Omniverse",
+"Ansys Twin Builder",
+"Bentley iTwin",
+"PTC ThingWorx",
+"Unity Industrial Collection",
+"Unreal Engine"
+],
+"n_eligible": 7,
+"sha": "67cd70525f519ff6a4085f91f1b6389cd83f80a4a2bd8a59a707ca7feccbc84b",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0055__L036__p268:siemensdigitaltwin:tcsenterprisedigitaltwin": {
+"unit": "s3d-rl600:chat-lmsys-0055__L036__p268:siemensdigitaltwin:tcsenterprisedigitaltwin",
+"anchor": "TCS Enterprise Digital Twin",
+"nearest": [
+"Dassault Systèmes 3DEXPERIENCE",
+"NVIDIA Omniverse",
+"Ansys Twin Builder",
+"Bentley iTwin"
+],
+"random": [
+"PTC ThingWorx",
+"Unity Industrial Collection",
+"Unreal Engine"
+],
+"distractors": [
+"Dassault Systèmes 3DEXPERIENCE",
+"NVIDIA Omniverse",
+"Ansys Twin Builder",
+"Bentley iTwin",
+"PTC ThingWorx",
+"Unity Industrial Collection",
+"Unreal Engine"
+],
+"n_eligible": 7,
+"sha": "d223649092846a04917ee478097c6ddb620402a13089e4b8e012264a2dcda45b",
+"generation": 0
+}
+}

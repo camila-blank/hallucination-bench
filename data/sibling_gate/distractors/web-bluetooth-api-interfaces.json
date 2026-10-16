@@ -1,0 +1,524 @@
+{
+"mlnla-ck2000-all11:chat-lmsys-0003__L028__p439:bluetoothcharacteristic:bluetoothremotegattservice": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0003__L028__p439:bluetoothcharacteristic:bluetoothremotegattservice",
+"anchor": "BluetoothRemoteGATTCharacteristic",
+"nearest": [
+"BluetoothRemoteGATTDescriptor",
+"BluetoothCharacteristicProperties",
+"BluetoothRemoteGATTService",
+"BluetoothAdvertisingEvent"
+],
+"random": [
+"BluetoothLEScan",
+"BluetoothLEScanPermissionResult",
+"BluetoothManufacturerDataMap",
+"BluetoothServiceDataMap"
+],
+"distractors": [
+"BluetoothRemoteGATTDescriptor",
+"BluetoothCharacteristicProperties",
+"BluetoothRemoteGATTService",
+"BluetoothAdvertisingEvent",
+"BluetoothLEScan",
+"BluetoothLEScanPermissionResult",
+"BluetoothManufacturerDataMap",
+"BluetoothServiceDataMap"
+],
+"n_eligible": 10,
+"sha": "0745ec76f71023170479a421417ecc913458d7cfe5239000f437169bd56eba99",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0003__L032__p439:bluetoothcharacteristic:bluetoothremotegattservice": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0003__L032__p439:bluetoothcharacteristic:bluetoothremotegattservice",
+"anchor": "BluetoothRemoteGATTCharacteristic",
+"nearest": [
+"BluetoothRemoteGATTDescriptor",
+"BluetoothCharacteristicProperties",
+"BluetoothRemoteGATTService",
+"BluetoothAdvertisingEvent"
+],
+"random": [
+"BluetoothLEScan",
+"BluetoothPermissionResult",
+"BluetoothServiceDataMap",
+"BluetoothUUID"
+],
+"distractors": [
+"BluetoothRemoteGATTDescriptor",
+"BluetoothCharacteristicProperties",
+"BluetoothRemoteGATTService",
+"BluetoothAdvertisingEvent",
+"BluetoothLEScan",
+"BluetoothPermissionResult",
+"BluetoothServiceDataMap",
+"BluetoothUUID"
+],
+"n_eligible": 10,
+"sha": "acb17017275318395b691e649734910cbf7c9ef717a65550a96db17495beda09",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0003__L036__p439:bluetoothcharacteristic:bluetoothremotegattservice": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0003__L036__p439:bluetoothcharacteristic:bluetoothremotegattservice",
+"anchor": "BluetoothRemoteGATTCharacteristic",
+"nearest": [
+"BluetoothRemoteGATTDescriptor",
+"BluetoothCharacteristicProperties",
+"BluetoothRemoteGATTService",
+"BluetoothAdvertisingEvent"
+],
+"random": [
+"BluetoothLEScan",
+"BluetoothPermissionResult",
+"BluetoothServiceDataMap",
+"BluetoothUUID"
+],
+"distractors": [
+"BluetoothRemoteGATTDescriptor",
+"BluetoothCharacteristicProperties",
+"BluetoothRemoteGATTService",
+"BluetoothAdvertisingEvent",
+"BluetoothLEScan",
+"BluetoothPermissionResult",
+"BluetoothServiceDataMap",
+"BluetoothUUID"
+],
+"n_eligible": 10,
+"sha": "b47cbb8b1cdad080e4b3fcbec83ae6436d1575f8f60148ae7bbb833b0b7e9115",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0003__L020__p439:bluetoothcharacteristic:bluetoothremotegattservice": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0003__L020__p439:bluetoothcharacteristic:bluetoothremotegattservice",
+"anchor": "BluetoothRemoteGATTCharacteristic",
+"nearest": [
+"BluetoothRemoteGATTDescriptor",
+"BluetoothCharacteristicProperties",
+"BluetoothRemoteGATTServer",
+"BluetoothRemoteGATTService"
+],
+"random": [
+"BluetoothAdvertisingEvent",
+"BluetoothLEScan",
+"BluetoothManufacturerDataMap",
+"BluetoothUUID"
+],
+"distractors": [
+"BluetoothRemoteGATTDescriptor",
+"BluetoothCharacteristicProperties",
+"BluetoothRemoteGATTServer",
+"BluetoothRemoteGATTService",
+"BluetoothAdvertisingEvent",
+"BluetoothLEScan",
+"BluetoothManufacturerDataMap",
+"BluetoothUUID"
+],
+"n_eligible": 11,
+"sha": "9cdd4408696120ab04dfb12b7d2fe5c61a5d0d45e740a384746ca6b696760be7",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0003__L024__p439:bluetoothcharacteristic:bluetoothremotegattservice": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0003__L024__p439:bluetoothcharacteristic:bluetoothremotegattservice",
+"anchor": "BluetoothRemoteGATTCharacteristic",
+"nearest": [
+"BluetoothRemoteGATTDescriptor",
+"BluetoothCharacteristicProperties",
+"BluetoothRemoteGATTServer",
+"BluetoothRemoteGATTService"
+],
+"random": [
+"BluetoothAdvertisingEvent",
+"BluetoothLEScan",
+"BluetoothPermissionResult",
+"BluetoothServiceDataMap"
+],
+"distractors": [
+"BluetoothRemoteGATTDescriptor",
+"BluetoothCharacteristicProperties",
+"BluetoothRemoteGATTServer",
+"BluetoothRemoteGATTService",
+"BluetoothAdvertisingEvent",
+"BluetoothLEScan",
+"BluetoothPermissionResult",
+"BluetoothServiceDataMap"
+],
+"n_eligible": 11,
+"sha": "9d6ca26caf7c0e15c5926cd5f57f3ee88575dfe502a093edc6eb166661ec1c4e",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0003__L028__p439:bluetoothcharacteristic:bluetoothremotegattservice": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0003__L028__p439:bluetoothcharacteristic:bluetoothremotegattservice",
+"anchor": "BluetoothRemoteGATTCharacteristic",
+"nearest": [
+"BluetoothRemoteGATTDescriptor",
+"BluetoothCharacteristicProperties",
+"BluetoothRemoteGATTServer",
+"BluetoothRemoteGATTService"
+],
+"random": [
+"BluetoothLEScanPermissionResult",
+"BluetoothManufacturerDataMap",
+"BluetoothPermissionResult",
+"BluetoothServiceDataMap"
+],
+"distractors": [
+"BluetoothRemoteGATTDescriptor",
+"BluetoothCharacteristicProperties",
+"BluetoothRemoteGATTServer",
+"BluetoothRemoteGATTService",
+"BluetoothLEScanPermissionResult",
+"BluetoothManufacturerDataMap",
+"BluetoothPermissionResult",
+"BluetoothServiceDataMap"
+],
+"n_eligible": 11,
+"sha": "ef5a8354496b9b76c3cdeb3a179dfc825e29a5a156fb974c0fe9722738d5f5d2",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0003__L032__p439:bluetoothcharacteristic:bluetoothremotegattservice": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0003__L032__p439:bluetoothcharacteristic:bluetoothremotegattservice",
+"anchor": "BluetoothRemoteGATTCharacteristic",
+"nearest": [
+"BluetoothRemoteGATTDescriptor",
+"BluetoothCharacteristicProperties",
+"BluetoothRemoteGATTServer",
+"BluetoothRemoteGATTService"
+],
+"random": [
+"BluetoothLEScan",
+"BluetoothLEScanPermissionResult",
+"BluetoothServiceDataMap",
+"BluetoothUUID"
+],
+"distractors": [
+"BluetoothRemoteGATTDescriptor",
+"BluetoothCharacteristicProperties",
+"BluetoothRemoteGATTServer",
+"BluetoothRemoteGATTService",
+"BluetoothLEScan",
+"BluetoothLEScanPermissionResult",
+"BluetoothServiceDataMap",
+"BluetoothUUID"
+],
+"n_eligible": 11,
+"sha": "57c928d979142e0253b081c5fd3ae31fda21437c919a5539846f3a8ba417fe4f",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0003__L032__p439:bluetoothledevicebluetoothcharacteristic:bluetoothremotegattservice": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0003__L032__p439:bluetoothledevicebluetoothcharacteristic:bluetoothremotegattservice",
+"anchor": "BluetoothRemoteGATTServer",
+"nearest": [
+"BluetoothLEScan",
+"BluetoothPermissionResult",
+"BluetoothRemoteGATTDescriptor",
+"BluetoothUUID"
+],
+"random": [
+"BluetoothCharacteristicProperties",
+"BluetoothLEScanPermissionResult",
+"BluetoothManufacturerDataMap",
+"BluetoothServiceDataMap"
+],
+"distractors": [
+"BluetoothLEScan",
+"BluetoothPermissionResult",
+"BluetoothRemoteGATTDescriptor",
+"BluetoothUUID",
+"BluetoothCharacteristicProperties",
+"BluetoothLEScanPermissionResult",
+"BluetoothManufacturerDataMap",
+"BluetoothServiceDataMap"
+],
+"n_eligible": 9,
+"sha": "dc16a6ef323a3b28aeae3a8b95d6e7ae8f3a04d09e80d053aa36610f217a6c46",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0003__L036__p439:bluetoothcharacteristic:bluetoothremotegattservice": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0003__L036__p439:bluetoothcharacteristic:bluetoothremotegattservice",
+"anchor": "BluetoothRemoteGATTCharacteristic",
+"nearest": [
+"BluetoothRemoteGATTDescriptor",
+"BluetoothCharacteristicProperties",
+"BluetoothRemoteGATTServer",
+"BluetoothRemoteGATTService"
+],
+"random": [
+"BluetoothLEScan",
+"BluetoothManufacturerDataMap",
+"BluetoothPermissionResult",
+"BluetoothUUID"
+],
+"distractors": [
+"BluetoothRemoteGATTDescriptor",
+"BluetoothCharacteristicProperties",
+"BluetoothRemoteGATTServer",
+"BluetoothRemoteGATTService",
+"BluetoothLEScan",
+"BluetoothManufacturerDataMap",
+"BluetoothPermissionResult",
+"BluetoothUUID"
+],
+"n_eligible": 11,
+"sha": "dbe93601798a8ce6b75867031f54369f21c237405b4db903d9d4a272e2c17a24",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0003__L044__p439:bluetoothcharacteristic:bluetoothremotegattservice": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0003__L044__p439:bluetoothcharacteristic:bluetoothremotegattservice",
+"anchor": "BluetoothRemoteGATTCharacteristic",
+"nearest": [
+"BluetoothRemoteGATTDescriptor",
+"BluetoothCharacteristicProperties",
+"BluetoothRemoteGATTServer",
+"BluetoothRemoteGATTService"
+],
+"random": [
+"BluetoothManufacturerDataMap",
+"BluetoothPermissionResult",
+"BluetoothServiceDataMap",
+"BluetoothUUID"
+],
+"distractors": [
+"BluetoothRemoteGATTDescriptor",
+"BluetoothCharacteristicProperties",
+"BluetoothRemoteGATTServer",
+"BluetoothRemoteGATTService",
+"BluetoothManufacturerDataMap",
+"BluetoothPermissionResult",
+"BluetoothServiceDataMap",
+"BluetoothUUID"
+],
+"n_eligible": 11,
+"sha": "b5bfc728f9dc19f617d0088baa3cf39dfdf49cb439e2a552015b06235cc46b3c",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0003__L028__p439:bluetoothcharacteristic:bluetoothremotegattservice": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0003__L028__p439:bluetoothcharacteristic:bluetoothremotegattservice",
+"anchor": "BluetoothRemoteGATTCharacteristic",
+"nearest": [
+"BluetoothRemoteGATTDescriptor",
+"BluetoothCharacteristicProperties",
+"BluetoothRemoteGATTServer",
+"BluetoothRemoteGATTService"
+],
+"random": [
+"BluetoothLEScanPermissionResult",
+"BluetoothManufacturerDataMap",
+"BluetoothServiceDataMap",
+"BluetoothUUID"
+],
+"distractors": [
+"BluetoothRemoteGATTDescriptor",
+"BluetoothCharacteristicProperties",
+"BluetoothRemoteGATTServer",
+"BluetoothRemoteGATTService",
+"BluetoothLEScanPermissionResult",
+"BluetoothManufacturerDataMap",
+"BluetoothServiceDataMap",
+"BluetoothUUID"
+],
+"n_eligible": 11,
+"sha": "2aae08b7aaed150d48a236b9958feb67f2fcfa35d1d7dac09f04028d1984f195",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0003__L028__p439:bluetoothgattcharacteristic:bluetoothremotegattservice": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0003__L028__p439:bluetoothgattcharacteristic:bluetoothremotegattservice",
+"anchor": "BluetoothRemoteGATTService",
+"nearest": [
+"BluetoothManufacturerDataMap",
+"BluetoothCharacteristicProperties",
+"BluetoothLEScan",
+"BluetoothRemoteGATTDescriptor"
+],
+"random": [
+"BluetoothLEScanPermissionResult",
+"BluetoothPermissionResult",
+"BluetoothServiceDataMap",
+"BluetoothUUID"
+],
+"distractors": [
+"BluetoothManufacturerDataMap",
+"BluetoothCharacteristicProperties",
+"BluetoothLEScan",
+"BluetoothRemoteGATTDescriptor",
+"BluetoothLEScanPermissionResult",
+"BluetoothPermissionResult",
+"BluetoothServiceDataMap",
+"BluetoothUUID"
+],
+"n_eligible": 9,
+"sha": "5d2c46785dfaa6403eed7a7fdfc465fc9aa67cc153800624cfffa74b0767888c",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0003__L032__p439:bluetoothcharacteristic:bluetoothremotegattservice": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0003__L032__p439:bluetoothcharacteristic:bluetoothremotegattservice",
+"anchor": "BluetoothRemoteGATTCharacteristic",
+"nearest": [
+"BluetoothRemoteGATTDescriptor",
+"BluetoothCharacteristicProperties",
+"BluetoothRemoteGATTServer",
+"BluetoothRemoteGATTService"
+],
+"random": [
+"BluetoothLEScan",
+"BluetoothManufacturerDataMap",
+"BluetoothPermissionResult",
+"BluetoothServiceDataMap"
+],
+"distractors": [
+"BluetoothRemoteGATTDescriptor",
+"BluetoothCharacteristicProperties",
+"BluetoothRemoteGATTServer",
+"BluetoothRemoteGATTService",
+"BluetoothLEScan",
+"BluetoothManufacturerDataMap",
+"BluetoothPermissionResult",
+"BluetoothServiceDataMap"
+],
+"n_eligible": 11,
+"sha": "d3e72d8a1ea533ac33556864bfca80561e4195ff95d14f2dc1c81cae7069645f",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0003__L036__p439:bluetoothcharacteristic:bluetoothremotegattservice": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0003__L036__p439:bluetoothcharacteristic:bluetoothremotegattservice",
+"anchor": "BluetoothRemoteGATTCharacteristic",
+"nearest": [
+"BluetoothRemoteGATTDescriptor",
+"BluetoothCharacteristicProperties",
+"BluetoothRemoteGATTServer",
+"BluetoothRemoteGATTService"
+],
+"random": [
+"BluetoothAdvertisingEvent",
+"BluetoothLEScanPermissionResult",
+"BluetoothManufacturerDataMap",
+"BluetoothUUID"
+],
+"distractors": [
+"BluetoothRemoteGATTDescriptor",
+"BluetoothCharacteristicProperties",
+"BluetoothRemoteGATTServer",
+"BluetoothRemoteGATTService",
+"BluetoothAdvertisingEvent",
+"BluetoothLEScanPermissionResult",
+"BluetoothManufacturerDataMap",
+"BluetoothUUID"
+],
+"n_eligible": 11,
+"sha": "f556515d274f0e0e91096a9e1ca8ea2f6e9dc51446272e111b296146a329a05e",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0003__L036__p439:bluetoothdevice:bluetoothremotegattservice": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0003__L036__p439:bluetoothdevice:bluetoothremotegattservice",
+"anchor": "BluetoothDevice",
+"nearest": [
+"BluetoothRemoteGATTServer",
+"BluetoothLEScan",
+"BluetoothPermissionResult",
+"BluetoothAdvertisingEvent"
+],
+"random": [
+"BluetoothLEScanPermissionResult",
+"BluetoothRemoteGATTDescriptor",
+"BluetoothServiceDataMap",
+"BluetoothUUID"
+],
+"distractors": [
+"BluetoothRemoteGATTServer",
+"BluetoothLEScan",
+"BluetoothPermissionResult",
+"BluetoothAdvertisingEvent",
+"BluetoothLEScanPermissionResult",
+"BluetoothRemoteGATTDescriptor",
+"BluetoothServiceDataMap",
+"BluetoothUUID"
+],
+"n_eligible": 11,
+"sha": "7a4f52cd7d67748d1567992a40e9ba416b5e00250809f7a3b3597856f780be4f",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0003__L052__p439:bluetoothdevice:bluetoothremotegattservice": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0003__L052__p439:bluetoothdevice:bluetoothremotegattservice",
+"anchor": "BluetoothDevice",
+"nearest": [
+"BluetoothRemoteGATTServer",
+"BluetoothLEScan",
+"BluetoothPermissionResult",
+"BluetoothAdvertisingEvent"
+],
+"random": [
+"BluetoothCharacteristicProperties",
+"BluetoothManufacturerDataMap",
+"BluetoothRemoteGATTService",
+"BluetoothServiceDataMap"
+],
+"distractors": [
+"BluetoothRemoteGATTServer",
+"BluetoothLEScan",
+"BluetoothPermissionResult",
+"BluetoothAdvertisingEvent",
+"BluetoothCharacteristicProperties",
+"BluetoothManufacturerDataMap",
+"BluetoothRemoteGATTService",
+"BluetoothServiceDataMap"
+],
+"n_eligible": 11,
+"sha": "638868b83ba195389fc5a6d5a3764e6753f4c531d19ce57a777c728aed5a108e",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0003__L042__p439:bluetoothcharacteristic:bluetoothremotegattservice": {
+"unit": "nla-rl-L42:chat-lmsys-0003__L042__p439:bluetoothcharacteristic:bluetoothremotegattservice",
+"anchor": "BluetoothRemoteGATTCharacteristic",
+"nearest": [
+"BluetoothRemoteGATTDescriptor",
+"BluetoothCharacteristicProperties",
+"BluetoothRemoteGATTServer",
+"BluetoothRemoteGATTService"
+],
+"random": [
+"BluetoothAdvertisingEvent",
+"BluetoothManufacturerDataMap",
+"BluetoothPermissionResult",
+"BluetoothUUID"
+],
+"distractors": [
+"BluetoothRemoteGATTDescriptor",
+"BluetoothCharacteristicProperties",
+"BluetoothRemoteGATTServer",
+"BluetoothRemoteGATTService",
+"BluetoothAdvertisingEvent",
+"BluetoothManufacturerDataMap",
+"BluetoothPermissionResult",
+"BluetoothUUID"
+],
+"n_eligible": 11,
+"sha": "a37dee5336f5721b532984cd9fbfd4e4a85415a1c2ce28f110b752ca8ac6a6fb",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0003__L042__p439:bluetoothdevice:bluetoothremotegattservice": {
+"unit": "nla-rl-L42:chat-lmsys-0003__L042__p439:bluetoothdevice:bluetoothremotegattservice",
+"anchor": "BluetoothDevice",
+"nearest": [
+"BluetoothRemoteGATTServer",
+"BluetoothLEScan",
+"BluetoothPermissionResult",
+"BluetoothAdvertisingEvent"
+],
+"random": [
+"BluetoothLEScanPermissionResult",
+"BluetoothRemoteGATTService",
+"BluetoothServiceDataMap",
+"BluetoothUUID"
+],
+"distractors": [
+"BluetoothRemoteGATTServer",
+"BluetoothLEScan",
+"BluetoothPermissionResult",
+"BluetoothAdvertisingEvent",
+"BluetoothLEScanPermissionResult",
+"BluetoothRemoteGATTService",
+"BluetoothServiceDataMap",
+"BluetoothUUID"
+],
+"n_eligible": 11,
+"sha": "5b94ff47029ae49c3e20f6a4849f5b1c035c62b8f2286aecfcb22387956f4e3f",
+"generation": 0
+}
+}

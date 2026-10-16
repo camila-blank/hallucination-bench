@@ -1,0 +1,408 @@
+{
+"mlnla-ck2000-all11:chat-dailydialog-0031__L048__p122::": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0031__L048__p122::",
+"anchor": "Hereditary",
+"nearest": [
+"Get Out",
+"It",
+"The Ring",
+"Saw"
+],
+"random": [
+"Friday the 13th",
+"Psycho",
+"Scream",
+"The Texas Chain Saw Massacre"
+],
+"distractors": [
+"Get Out",
+"It",
+"The Ring",
+"Saw",
+"Friday the 13th",
+"Psycho",
+"Scream",
+"The Texas Chain Saw Massacre"
+],
+"n_eligible": 10,
+"sha": "0f7da81367a8474e1b9d5aba3ae682af0df30379c7e8ce537e43fffc5fd1d7cd",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0031__L028__p81::": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0031__L028__p81::",
+"anchor": "Hereditary",
+"nearest": [
+"Get Out",
+"It",
+"The Ring",
+"Saw"
+],
+"random": [
+"Friday the 13th",
+"Halloween",
+"Psycho",
+"Scream"
+],
+"distractors": [
+"Get Out",
+"It",
+"The Ring",
+"Saw",
+"Friday the 13th",
+"Halloween",
+"Psycho",
+"Scream"
+],
+"n_eligible": 10,
+"sha": "4bc239d06ce03641108f8062e90cf6c3932cfe80ca5857598c4f6f45ee81cdb2",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0031__L032__p246:theshining:hereditary": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0031__L032__p246:theshining:hereditary",
+"anchor": "Hereditary",
+"nearest": [
+"Get Out",
+"It",
+"The Ring",
+"Saw"
+],
+"random": [
+"A Nightmare on Elm Street",
+"Friday the 13th",
+"Halloween",
+"Scream"
+],
+"distractors": [
+"Get Out",
+"It",
+"The Ring",
+"Saw",
+"A Nightmare on Elm Street",
+"Friday the 13th",
+"Halloween",
+"Scream"
+],
+"n_eligible": 10,
+"sha": "04ab3f736e3c5f0cf393b16f6ba5920bdfabbed3ec05500e805a85464d89ec43",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0031__L044__p246:theconjuring:getout": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0031__L044__p246:theconjuring:getout",
+"anchor": "Hereditary",
+"nearest": [
+"Get Out",
+"It",
+"The Ring",
+"Saw"
+],
+"random": [
+"A Nightmare on Elm Street",
+"Psycho",
+"Scream",
+"The Texas Chain Saw Massacre"
+],
+"distractors": [
+"Get Out",
+"It",
+"The Ring",
+"Saw",
+"A Nightmare on Elm Street",
+"Psycho",
+"Scream",
+"The Texas Chain Saw Massacre"
+],
+"n_eligible": 10,
+"sha": "e974b12f266214bac69a356fc8ace9297ffa29e70eb158cfcdd95b539fc65a4e",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0031__L044__p246:theconjuring:hereditary": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0031__L044__p246:theconjuring:hereditary",
+"anchor": "Hereditary",
+"nearest": [
+"Get Out",
+"It",
+"The Ring",
+"Saw"
+],
+"random": [
+"A Nightmare on Elm Street",
+"Friday the 13th",
+"Psycho",
+"The Texas Chain Saw Massacre"
+],
+"distractors": [
+"Get Out",
+"It",
+"The Ring",
+"Saw",
+"A Nightmare on Elm Street",
+"Friday the 13th",
+"Psycho",
+"The Texas Chain Saw Massacre"
+],
+"n_eligible": 10,
+"sha": "545eb3394557700e8180555339e668f3d95d3e55756ce87080ffa559e8ee471d",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0031__L044__p246:theshining:hereditary": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0031__L044__p246:theshining:hereditary",
+"anchor": "Hereditary",
+"nearest": [
+"Get Out",
+"It",
+"The Ring",
+"Saw"
+],
+"random": [
+"Friday the 13th",
+"Halloween",
+"Psycho",
+"Scream"
+],
+"distractors": [
+"Get Out",
+"It",
+"The Ring",
+"Saw",
+"Friday the 13th",
+"Halloween",
+"Psycho",
+"Scream"
+],
+"n_eligible": 10,
+"sha": "fbb695bf97a7ee3352ff99dfdf871e02ad3affd7d5fddaaa383262403f78b5fc",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0031__L028__p246:theshining:hereditary": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0031__L028__p246:theshining:hereditary",
+"anchor": "Hereditary",
+"nearest": [
+"Get Out",
+"It",
+"The Ring",
+"Saw"
+],
+"random": [
+"Friday the 13th",
+"Halloween",
+"Psycho",
+"The Texas Chain Saw Massacre"
+],
+"distractors": [
+"Get Out",
+"It",
+"The Ring",
+"Saw",
+"Friday the 13th",
+"Halloween",
+"Psycho",
+"The Texas Chain Saw Massacre"
+],
+"n_eligible": 10,
+"sha": "29cdde3ad21e409699aacfa26d4f57c3897c078c7f356137e2630231a05d6fed",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0031__L036__p246:theexorcist:getout": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0031__L036__p246:theexorcist:getout",
+"anchor": "A Quiet Place",
+"nearest": [
+"Psycho",
+"A Nightmare on Elm Street",
+"Scream",
+"The Ring"
+],
+"random": [
+"Friday the 13th",
+"Halloween",
+"It",
+"Saw"
+],
+"distractors": [
+"Psycho",
+"A Nightmare on Elm Street",
+"Scream",
+"The Ring",
+"Friday the 13th",
+"Halloween",
+"It",
+"Saw"
+],
+"n_eligible": 9,
+"sha": "2ae8ee82ea84319d3964c91b649470477ac93e8c8f3ae313be0645f08ef309e0",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0031__L040__p246::": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0031__L040__p246::",
+"anchor": "Hereditary",
+"nearest": [
+"Get Out",
+"It",
+"The Ring",
+"Saw"
+],
+"random": [
+"Friday the 13th",
+"Halloween",
+"Scream",
+"The Texas Chain Saw Massacre"
+],
+"distractors": [
+"Get Out",
+"It",
+"The Ring",
+"Saw",
+"Friday the 13th",
+"Halloween",
+"Scream",
+"The Texas Chain Saw Massacre"
+],
+"n_eligible": 10,
+"sha": "36355eec421df9b3941f8100edd274e8fa3f70e99c306eb4ce1f1f098b166559",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0031__L044__p246:birdbox:hereditary": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0031__L044__p246:birdbox:hereditary",
+"anchor": "Hereditary",
+"nearest": [
+"Get Out",
+"It",
+"The Ring",
+"Saw"
+],
+"random": [
+"Halloween",
+"Psycho",
+"Scream",
+"The Texas Chain Saw Massacre"
+],
+"distractors": [
+"Get Out",
+"It",
+"The Ring",
+"Saw",
+"Halloween",
+"Psycho",
+"Scream",
+"The Texas Chain Saw Massacre"
+],
+"n_eligible": 10,
+"sha": "966c89269187d36bd7c3b83149e6e67dfbe70ea343413ae9755a57be9883f851",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0031__L044__p246:theexorcist:getout": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0031__L044__p246:theexorcist:getout",
+"anchor": "A Quiet Place",
+"nearest": [
+"Psycho",
+"A Nightmare on Elm Street",
+"Scream",
+"The Ring"
+],
+"random": [
+"Friday the 13th",
+"Halloween",
+"It",
+"The Texas Chain Saw Massacre"
+],
+"distractors": [
+"Psycho",
+"A Nightmare on Elm Street",
+"Scream",
+"The Ring",
+"Friday the 13th",
+"Halloween",
+"It",
+"The Texas Chain Saw Massacre"
+],
+"n_eligible": 9,
+"sha": "351190773c56d43d2a295d78c413d211f5febd8e2297479f2aca775174accebf",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0031__L044__p81::": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0031__L044__p81::",
+"anchor": "Hereditary",
+"nearest": [
+"Get Out",
+"It",
+"The Ring",
+"Saw"
+],
+"random": [
+"A Nightmare on Elm Street",
+"Friday the 13th",
+"Halloween",
+"Scream"
+],
+"distractors": [
+"Get Out",
+"It",
+"The Ring",
+"Saw",
+"A Nightmare on Elm Street",
+"Friday the 13th",
+"Halloween",
+"Scream"
+],
+"n_eligible": 10,
+"sha": "52a7bbbf20f5af1f3e45e84b1a51f28e838985b0458ac66be6f55111a5d2a73d",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0031__L048__p246:theexorcist:getout": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0031__L048__p246:theexorcist:getout",
+"anchor": "A Quiet Place",
+"nearest": [
+"Psycho",
+"A Nightmare on Elm Street",
+"Scream",
+"The Ring"
+],
+"random": [
+"Friday the 13th",
+"It",
+"Saw",
+"The Texas Chain Saw Massacre"
+],
+"distractors": [
+"Psycho",
+"A Nightmare on Elm Street",
+"Scream",
+"The Ring",
+"Friday the 13th",
+"It",
+"Saw",
+"The Texas Chain Saw Massacre"
+],
+"n_eligible": 9,
+"sha": "0a6c07f935627bee09a996480dc2947d2e952ae5a8aee61f50d14bcb8fd833cf",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0031__L056__p122::": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0031__L056__p122::",
+"anchor": "Hereditary",
+"nearest": [
+"Get Out",
+"It",
+"The Ring",
+"Saw"
+],
+"random": [
+"Friday the 13th",
+"Halloween",
+"Scream",
+"The Texas Chain Saw Massacre"
+],
+"distractors": [
+"Get Out",
+"It",
+"The Ring",
+"Saw",
+"Friday the 13th",
+"Halloween",
+"Scream",
+"The Texas Chain Saw Massacre"
+],
+"n_eligible": 10,
+"sha": "6143e8d9ef4294ff2c9bffa601658f4536d0bb0579c53d1bf1ada49864200903",
+"generation": 0
+}
+}

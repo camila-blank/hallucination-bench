@@ -1,0 +1,263 @@
+{
+"mlnla-ck2000-all11:chat-lmsys-0047__L024__p586:hawaii:rosemarybeachflorida": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0047__L024__p586:hawaii:rosemarybeachflorida",
+"anchor": "Florida",
+"nearest": [
+"New York",
+"California",
+"Washington",
+"Pennsylvania"
+],
+"random": [
+"Alaska",
+"Illinois",
+"Kentucky",
+"Ohio"
+],
+"distractors": [
+"New York",
+"California",
+"Washington",
+"Pennsylvania",
+"Alaska",
+"Illinois",
+"Kentucky",
+"Ohio"
+],
+"n_eligible": 9,
+"sha": "daccf6450c93c3475a3cb019527cce6f2c06f1f1b3a53c3ee5ef79e7ebcce7c5",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0062__L020__p164:hawaii:londonnewyork": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0062__L020__p164:hawaii:londonnewyork",
+"anchor": "New York",
+"nearest": [
+"Florida",
+"Washington",
+"Maine",
+"California"
+],
+"random": [
+"Alaska",
+"Ohio",
+"South Carolina",
+"Texas"
+],
+"distractors": [
+"Florida",
+"Washington",
+"Maine",
+"California",
+"Alaska",
+"Ohio",
+"South Carolina",
+"Texas"
+],
+"n_eligible": 14,
+"sha": "e57691676693d2a81a2448eb954f9b6754f3c6113b58ee7c0fd53ff517c9d5b3",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0047__L048__p513:southcarolinacharlestonmyrtlebeach:rosemarybeachflorida": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0047__L048__p513:southcarolinacharlestonmyrtlebeach:rosemarybeachflorida",
+"anchor": "Florida",
+"nearest": [
+"New York",
+"California",
+"Washington",
+"Pennsylvania"
+],
+"random": [
+"Alaska",
+"Illinois",
+"Kentucky",
+"Sichuan"
+],
+"distractors": [
+"New York",
+"California",
+"Washington",
+"Pennsylvania",
+"Alaska",
+"Illinois",
+"Kentucky",
+"Sichuan"
+],
+"n_eligible": 9,
+"sha": "d8d41d315e4e5a17f5748aec8637d3d849a00382ee35a7a978ac36086ea6be0b",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0047__L048__p586:maine:florida": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0047__L048__p586:maine:florida",
+"anchor": "Florida",
+"nearest": [
+"New York",
+"California",
+"Washington",
+"Pennsylvania"
+],
+"random": [
+"Alaska",
+"Illinois",
+"Ohio",
+"Sichuan"
+],
+"distractors": [
+"New York",
+"California",
+"Washington",
+"Pennsylvania",
+"Alaska",
+"Illinois",
+"Ohio",
+"Sichuan"
+],
+"n_eligible": 9,
+"sha": "44621da6f45528132cb3ec75281b3b6a00bbdaaa875215b9f581067437531377",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0047__L060__p513:southcarolina:florida": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0047__L060__p513:southcarolina:florida",
+"anchor": "Florida",
+"nearest": [
+"New York",
+"California",
+"Washington",
+"Pennsylvania"
+],
+"random": [
+"Alaska",
+"Illinois",
+"Kentucky",
+"Ohio"
+],
+"distractors": [
+"New York",
+"California",
+"Washington",
+"Pennsylvania",
+"Alaska",
+"Illinois",
+"Kentucky",
+"Ohio"
+],
+"n_eligible": 9,
+"sha": "bcb10c09f0f8a34f3268690eee33da90e5342245e0154f1c272d7f242a30654e",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0047__L048__p391:colorado:rosemarybeachflorida": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0047__L048__p391:colorado:rosemarybeachflorida",
+"anchor": "Florida",
+"nearest": [
+"New York",
+"California",
+"Washington",
+"Pennsylvania"
+],
+"random": [
+"Alaska",
+"Kentucky",
+"Ohio",
+"Sichuan"
+],
+"distractors": [
+"New York",
+"California",
+"Washington",
+"Pennsylvania",
+"Alaska",
+"Kentucky",
+"Ohio",
+"Sichuan"
+],
+"n_eligible": 9,
+"sha": "4f67b1d2e2b4339b54519d912dd3505eae6dc4b9e4714fe38835e9789cbcc12e",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0047__L040__p513:nc:florida": {
+"unit": "s3d-rl600-all11:chat-lmsys-0047__L040__p513:nc:florida",
+"anchor": "Florida",
+"nearest": [
+"New York",
+"California",
+"Washington",
+"Pennsylvania"
+],
+"random": [
+"Alaska",
+"Illinois",
+"Kentucky",
+"Ohio"
+],
+"distractors": [
+"New York",
+"California",
+"Washington",
+"Pennsylvania",
+"Alaska",
+"Illinois",
+"Kentucky",
+"Ohio"
+],
+"n_eligible": 9,
+"sha": "5fa7f47136f2daddb804233107f8fd1ccf669d3a8b6685ad684605ac2bb35dd5",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0070__L020__p183:california:sichuan": {
+"unit": "s3d-rl600:chat-lmsys-0070__L020__p183:california:sichuan",
+"anchor": "Sichuan",
+"nearest": [
+"South Carolina",
+"Hawaii",
+"Alaska",
+"Colorado"
+],
+"random": [
+"Illinois",
+"Kentucky",
+"New York",
+"Pennsylvania"
+],
+"distractors": [
+"South Carolina",
+"Hawaii",
+"Alaska",
+"Colorado",
+"Illinois",
+"Kentucky",
+"New York",
+"Pennsylvania"
+],
+"n_eligible": 12,
+"sha": "7a4a242e36b5b4d61b655f358bf25cdbaf35b2f2f55bd5e4a2e5fc4c0240554d",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0065__L040__p24:kentucky:waltdisneyworldinorlandoflorida": {
+"unit": "s3d-sft251:chat-dailydialog-0065__L040__p24:kentucky:waltdisneyworldinorlandoflorida",
+"anchor": "Florida",
+"nearest": [
+"California",
+"Washington",
+"Pennsylvania",
+"Ohio"
+],
+"random": [
+"Colorado",
+"Illinois",
+"Maine",
+"Sichuan"
+],
+"distractors": [
+"California",
+"Washington",
+"Pennsylvania",
+"Ohio",
+"Colorado",
+"Illinois",
+"Maine",
+"Sichuan"
+],
+"n_eligible": 11,
+"sha": "88eaa02095e2a4cdb50e198c4907379d5d2a1a01f558a97cdb7df34e4f0c33cf",
+"generation": 0
+}
+}

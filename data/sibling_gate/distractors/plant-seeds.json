@@ -1,0 +1,205 @@
+{
+"mlnla-ck2000-all11:chat-lmsys-0040__L048__p54:pepperseed:chineseelmseed": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0040__L048__p54:pepperseed:chineseelmseed",
+"anchor": "Chinese elm seed",
+"nearest": [
+"corn seed",
+"mustard seed",
+"watermelon seed",
+"chia seed"
+],
+"random": [
+"flax seed",
+"poppy seed",
+"pumpkin seed",
+"sesame seed"
+],
+"distractors": [
+"corn seed",
+"mustard seed",
+"watermelon seed",
+"chia seed",
+"flax seed",
+"poppy seed",
+"pumpkin seed",
+"sesame seed"
+],
+"n_eligible": 9,
+"sha": "97e44256ea928381e65f76d7c3424d0a695d2f693da3459012a9072f2e883c37",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0040__L044__p44:cannabisseed:chineseelmseed": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0040__L044__p44:cannabisseed:chineseelmseed",
+"anchor": "Chinese elm seed",
+"nearest": [
+"corn seed",
+"watermelon seed",
+"mustard seed",
+"chia seed"
+],
+"random": [
+"flax seed",
+"pumpkin seed",
+"sesame seed",
+"sunflower seed"
+],
+"distractors": [
+"corn seed",
+"watermelon seed",
+"mustard seed",
+"chia seed",
+"flax seed",
+"pumpkin seed",
+"sesame seed",
+"sunflower seed"
+],
+"n_eligible": 9,
+"sha": "08fc18c14ac0d9b5513b39319eacc1d0538b387dc97ddc71c157d8539683b602",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0040__L048__p44:tomatoseeds:chineseelmseed": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0040__L048__p44:tomatoseeds:chineseelmseed",
+"anchor": "Chinese elm seeds",
+"nearest": [
+"corn seed",
+"mustard seed",
+"watermelon seed",
+"sunflower seed"
+],
+"random": [
+"flax seed",
+"poppy seed",
+"pumpkin seed",
+"sesame seed"
+],
+"distractors": [
+"corn seed",
+"mustard seed",
+"watermelon seed",
+"sunflower seed",
+"flax seed",
+"poppy seed",
+"pumpkin seed",
+"sesame seed"
+],
+"n_eligible": 9,
+"sha": "10f2bd7ade9f9632dd72afb3e8b329d091b21be8d8e86477670490f5d0940c3b",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0040__L036__p68:strawberryseeds:chineseelmseed": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0040__L036__p68:strawberryseeds:chineseelmseed",
+"anchor": "Chinese elm seeds",
+"nearest": [
+"corn seed",
+"mustard seed",
+"watermelon seed",
+"sunflower seed"
+],
+"random": [
+"flax seed",
+"poppy seed",
+"pumpkin seed",
+"sesame seed"
+],
+"distractors": [
+"corn seed",
+"mustard seed",
+"watermelon seed",
+"sunflower seed",
+"flax seed",
+"poppy seed",
+"pumpkin seed",
+"sesame seed"
+],
+"n_eligible": 9,
+"sha": "bd385f6c338fb2106c29050eed785623058bd0a900c59e90ece0ae5235a05cc0",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0040__L056__p54:beanseeds:chineseelmseed": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0040__L056__p54:beanseeds:chineseelmseed",
+"anchor": "Chinese elm seed",
+"nearest": [
+"corn seed",
+"watermelon seed",
+"mustard seed",
+"chia seed"
+],
+"random": [
+"flax seed",
+"poppy seed",
+"pumpkin seed",
+"sunflower seed"
+],
+"distractors": [
+"corn seed",
+"watermelon seed",
+"mustard seed",
+"chia seed",
+"flax seed",
+"poppy seed",
+"pumpkin seed",
+"sunflower seed"
+],
+"n_eligible": 9,
+"sha": "368d1ec5920a61547b1cbb688db602cc45849d6c2a4c0eb400a0a4a2d0cf6342",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0040__L060__p44:tomatoseed:chineseelmseed": {
+"unit": "s3d-rl600-all11:chat-lmsys-0040__L060__p44:tomatoseed:chineseelmseed",
+"anchor": "Chinese elm seed",
+"nearest": [
+"corn seed",
+"watermelon seed",
+"mustard seed",
+"chia seed"
+],
+"random": [
+"flax seed",
+"pumpkin seed",
+"sesame seed",
+"sunflower seed"
+],
+"distractors": [
+"corn seed",
+"watermelon seed",
+"mustard seed",
+"chia seed",
+"flax seed",
+"pumpkin seed",
+"sesame seed",
+"sunflower seed"
+],
+"n_eligible": 9,
+"sha": "7a9482d995eda2c93d612f113b14d0999aab0eaa76b5a8de5a484072db40b15f",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0040__L060__p44:tomatoseeds:chineseelmseed": {
+"unit": "s3d-rl600-all11:chat-lmsys-0040__L060__p44:tomatoseeds:chineseelmseed",
+"anchor": "Chinese elm seeds",
+"nearest": [
+"corn seed",
+"mustard seed",
+"watermelon seed",
+"sunflower seed"
+],
+"random": [
+"chia seed",
+"flax seed",
+"poppy seed",
+"pumpkin seed"
+],
+"distractors": [
+"corn seed",
+"mustard seed",
+"watermelon seed",
+"sunflower seed",
+"chia seed",
+"flax seed",
+"poppy seed",
+"pumpkin seed"
+],
+"n_eligible": 9,
+"sha": "1ef382f010b16ee001c8889f4f586f84010af2dfaf6306d7d9fb063d0fa7e677",
+"generation": 0
+}
+}

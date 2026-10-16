@@ -1,0 +1,256 @@
+{
+"mlnla-ck2000-all11:chat-dailydialog-0006__L020__p186:bees:mosquitoes": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0006__L020__p186:bees:mosquitoes",
+"anchor": "mosquitoes",
+"nearest": [
+"wasp",
+"ant",
+"cricket",
+"ladybug"
+],
+"random": [
+"butterfly",
+"dragonfly",
+"grasshopper"
+],
+"distractors": [
+"wasp",
+"ant",
+"cricket",
+"ladybug",
+"butterfly",
+"dragonfly",
+"grasshopper"
+],
+"n_eligible": 7,
+"sha": "b61e1136b2401ef2a0213e20fc0bf523554a6bedd96e4038d98247e1fb5e2f0e",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0006__L028__p24:fly:mosquito": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0006__L028__p24:fly:mosquito",
+"anchor": "mosquito",
+"nearest": [
+"wasp",
+"ant",
+"cricket",
+"ladybug"
+],
+"random": [
+"grasshopper"
+],
+"distractors": [
+"wasp",
+"ant",
+"cricket",
+"ladybug",
+"grasshopper"
+],
+"n_eligible": 5,
+"sha": "deb2442c5b6c121f5ec9eed4b539cb1fd2c0ae95c1804da2ee199a19d77bb524",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0006__L028__p24:fly:mosquitos": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0006__L028__p24:fly:mosquitos",
+"anchor": "mosquito",
+"nearest": [
+"wasp",
+"ant",
+"cricket",
+"ladybug"
+],
+"random": [
+"grasshopper"
+],
+"distractors": [
+"wasp",
+"ant",
+"cricket",
+"ladybug",
+"grasshopper"
+],
+"n_eligible": 5,
+"sha": "e2077b317c36d9e11f722bfc5f0aed6404f07c527985f5e9ea045976d3b16211",
+"generation": 0
+},
+"nla-sft-L42:chat-dailydialog-0006__L042__p85:bee:mosquito": {
+"unit": "nla-sft-L42:chat-dailydialog-0006__L042__p85:bee:mosquito",
+"anchor": "mosquito",
+"nearest": [
+"wasp",
+"ant",
+"cricket",
+"ladybug"
+],
+"random": [
+"butterfly",
+"dragonfly",
+"grasshopper"
+],
+"distractors": [
+"wasp",
+"ant",
+"cricket",
+"ladybug",
+"butterfly",
+"dragonfly",
+"grasshopper"
+],
+"n_eligible": 7,
+"sha": "ffc6f8d5871a3ab120572f3f4297d2e0aeffb6192c548385855200c07f3b0a2c",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0006__L024__p285:flies:mosquitoes": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0006__L024__p285:flies:mosquitoes",
+"anchor": "mosquito",
+"nearest": [
+"wasp",
+"ant",
+"cricket",
+"ladybug"
+],
+"random": [
+"grasshopper"
+],
+"distractors": [
+"wasp",
+"ant",
+"cricket",
+"ladybug",
+"grasshopper"
+],
+"n_eligible": 5,
+"sha": "df287cfe7271ae7bbda88fbeba1f1b8429ea783cbded5197f6724bbb44fbe145",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0006__L024__p285:spider:mosquito": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0006__L024__p285:spider:mosquito",
+"anchor": "mosquito",
+"nearest": [
+"wasp",
+"ant",
+"cricket",
+"ladybug"
+],
+"random": [
+"butterfly",
+"dragonfly",
+"grasshopper"
+],
+"distractors": [
+"wasp",
+"ant",
+"cricket",
+"ladybug",
+"butterfly",
+"dragonfly",
+"grasshopper"
+],
+"n_eligible": 7,
+"sha": "d42ce5a254a7ba0107b29b04f56301da7319ae61bec09d3e948b0238488c5065",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0006__L032__p24:bees:mosquitoes": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0006__L032__p24:bees:mosquitoes",
+"anchor": "mosquitoes",
+"nearest": [
+"wasp",
+"ant",
+"cricket",
+"ladybug"
+],
+"random": [
+"butterfly",
+"dragonfly",
+"grasshopper"
+],
+"distractors": [
+"wasp",
+"ant",
+"cricket",
+"ladybug",
+"butterfly",
+"dragonfly",
+"grasshopper"
+],
+"n_eligible": 7,
+"sha": "c158389dad3edb878f7a08b14f7d7a7a12b73840460918eb1893ca0299bc812f",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0006__L044__p285:moths:mosquitoes": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0006__L044__p285:moths:mosquitoes",
+"anchor": "mosquitoes",
+"nearest": [
+"wasp",
+"ant",
+"cricket",
+"ladybug"
+],
+"random": [
+"butterfly",
+"dragonfly",
+"grasshopper"
+],
+"distractors": [
+"wasp",
+"ant",
+"cricket",
+"ladybug",
+"butterfly",
+"dragonfly",
+"grasshopper"
+],
+"n_eligible": 7,
+"sha": "5650ac7a2f875983fcef627197d0803b9fc9e75eb0f6619711e6bf7cd685453e",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0006__L048__p285:flies:mosquitoes": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0006__L048__p285:flies:mosquitoes",
+"anchor": "mosquito",
+"nearest": [
+"wasp",
+"ant",
+"cricket",
+"ladybug"
+],
+"random": [
+"grasshopper"
+],
+"distractors": [
+"wasp",
+"ant",
+"cricket",
+"ladybug",
+"grasshopper"
+],
+"n_eligible": 5,
+"sha": "d674d185b010b61f58c9165a7e49ea8637a704e0983da6250233efc30f46244a",
+"generation": 0
+},
+"s3d-rl600:chat-dailydialog-0006__L020__p24:hornets:mosquitos": {
+"unit": "s3d-rl600:chat-dailydialog-0006__L020__p24:hornets:mosquitos",
+"anchor": "mosquito",
+"nearest": [
+"wasp",
+"ant",
+"cricket",
+"ladybug"
+],
+"random": [
+"butterfly",
+"dragonfly",
+"grasshopper"
+],
+"distractors": [
+"wasp",
+"ant",
+"cricket",
+"ladybug",
+"butterfly",
+"dragonfly",
+"grasshopper"
+],
+"n_eligible": 7,
+"sha": "fde72d5e775046e0bddbfdca8e518747dd44f9c9c6830bea6568646eee1b04c7",
+"generation": 0
+}
+}

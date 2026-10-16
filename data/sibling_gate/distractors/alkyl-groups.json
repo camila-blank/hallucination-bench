@@ -1,0 +1,825 @@
+{
+"mlnla-ck2000-all11:chat-lmsys-0043__L036__p419:methyl:formylgroup": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0043__L036__p419:methyl:formylgroup",
+"anchor": "propyl",
+"nearest": [
+"isobutyl",
+"sec-butyl",
+"pentyl",
+"hexyl"
+],
+"random": [
+"heptyl",
+"octyl"
+],
+"distractors": [
+"isobutyl",
+"sec-butyl",
+"pentyl",
+"hexyl",
+"heptyl",
+"octyl"
+],
+"n_eligible": 6,
+"sha": "204eeecec051dcf33c92f1edbf673211b06ccd6a2133065d2dcf23ba4834a468",
+"generation": 1
+},
+"mlnla-rl600-all11:chat-lmsys-0043__L020__p419:butylchain:propylgroup": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0043__L020__p419:butylchain:propylgroup",
+"anchor": "propyl group",
+"nearest": [
+"isobutyl",
+"pentyl",
+"heptyl",
+"octyl"
+],
+"random": [
+"hexyl",
+"isopropyl"
+],
+"distractors": [
+"isobutyl",
+"pentyl",
+"heptyl",
+"octyl",
+"hexyl",
+"isopropyl"
+],
+"n_eligible": 6,
+"sha": "5dd089fc64179aa37d1939c02d32a29d9c52b522a41d1e366cbc25e622133076",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0043__L020__p419:butylgroup:propylgroup": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0043__L020__p419:butylgroup:propylgroup",
+"anchor": "propyl group",
+"nearest": [
+"isobutyl",
+"pentyl",
+"heptyl",
+"octyl"
+],
+"random": [
+"hexyl",
+"isopropyl"
+],
+"distractors": [
+"isobutyl",
+"pentyl",
+"heptyl",
+"octyl",
+"hexyl",
+"isopropyl"
+],
+"n_eligible": 6,
+"sha": "59f2ef2ea0fa78202f37bd87cefe3982887629ca9084b98a73eb8d211c34bb1a",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0043__L020__p419:ethylgroup:propylgroup": {
+"unit": "s3d-rl600-all11:chat-lmsys-0043__L020__p419:ethylgroup:propylgroup",
+"anchor": "propyl group",
+"nearest": [
+"sec-butyl",
+"isobutyl",
+"pentyl",
+"heptyl"
+],
+"random": [
+"hexyl",
+"isopropyl",
+"octyl"
+],
+"distractors": [
+"sec-butyl",
+"isobutyl",
+"pentyl",
+"heptyl",
+"hexyl",
+"isopropyl",
+"octyl"
+],
+"n_eligible": 7,
+"sha": "e8a4b928d7b0f20efc6e93fa2fa4511e7816431b0dfc21c4bf3261e7110d9040",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0043__L020__p419:methyl:propyl": {
+"unit": "s3d-rl600-all11:chat-lmsys-0043__L020__p419:methyl:propyl",
+"anchor": "propyl",
+"nearest": [
+"isobutyl",
+"sec-butyl",
+"pentyl",
+"hexyl"
+],
+"random": [
+"heptyl",
+"octyl"
+],
+"distractors": [
+"isobutyl",
+"sec-butyl",
+"pentyl",
+"hexyl",
+"heptyl",
+"octyl"
+],
+"n_eligible": 6,
+"sha": "0fa5f6ffce96f4e4a2ed93fc292dcb9aa7ead8cbff0e52d8c04292daa950c830",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0043__L024__p419:ethylsubstituent:propylgroup": {
+"unit": "s3d-rl600-all11:chat-lmsys-0043__L024__p419:ethylsubstituent:propylgroup",
+"anchor": "propyl group",
+"nearest": [
+"sec-butyl",
+"isobutyl",
+"pentyl",
+"heptyl"
+],
+"random": [
+"hexyl",
+"isopropyl",
+"octyl"
+],
+"distractors": [
+"sec-butyl",
+"isobutyl",
+"pentyl",
+"heptyl",
+"hexyl",
+"isopropyl",
+"octyl"
+],
+"n_eligible": 7,
+"sha": "5d95fcac8bbd3439b17add53a1805130b3d3a2e829fe1f5a1a6bddb28fe75267",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0043__L040__p419:ethylgroup:formylgroup": {
+"unit": "s3d-rl600-all11:chat-lmsys-0043__L040__p419:ethylgroup:formylgroup",
+"anchor": "propyl group",
+"nearest": [
+"sec-butyl",
+"isobutyl",
+"pentyl",
+"heptyl"
+],
+"random": [
+"hexyl",
+"isopropyl",
+"octyl"
+],
+"distractors": [
+"sec-butyl",
+"isobutyl",
+"pentyl",
+"heptyl",
+"hexyl",
+"isopropyl",
+"octyl"
+],
+"n_eligible": 7,
+"sha": "fb50e403a095e1d8138f33ce1d794bba69679c99e3fb7afc990773e010069e93",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0043__L040__p419:isopropylgroup:formylgroup": {
+"unit": "s3d-rl600-all11:chat-lmsys-0043__L040__p419:isopropylgroup:formylgroup",
+"anchor": "propyl group",
+"nearest": [
+"sec-butyl",
+"isobutyl",
+"pentyl",
+"heptyl"
+],
+"random": [
+"hexyl",
+"octyl"
+],
+"distractors": [
+"sec-butyl",
+"isobutyl",
+"pentyl",
+"heptyl",
+"hexyl",
+"octyl"
+],
+"n_eligible": 6,
+"sha": "d5983f77e880c1678a5460920b57554b27b042c90afafe50e867041b719b00d6",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0043__L040__p419:methyl:propyl": {
+"unit": "s3d-rl600-all11:chat-lmsys-0043__L040__p419:methyl:propyl",
+"anchor": "propyl",
+"nearest": [
+"isobutyl",
+"sec-butyl",
+"pentyl",
+"hexyl"
+],
+"random": [
+"heptyl",
+"octyl"
+],
+"distractors": [
+"isobutyl",
+"sec-butyl",
+"pentyl",
+"hexyl",
+"heptyl",
+"octyl"
+],
+"n_eligible": 6,
+"sha": "949a339c3fa6179c341ba4017986d4af8586e76075e3b263c5df9807c612007b",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0043__L056__p419:ethyl:formylgroup": {
+"unit": "s3d-rl600-all11:chat-lmsys-0043__L056__p419:ethyl:formylgroup",
+"anchor": "propyl",
+"nearest": [
+"isobutyl",
+"sec-butyl",
+"pentyl",
+"hexyl"
+],
+"random": [
+"heptyl",
+"octyl"
+],
+"distractors": [
+"isobutyl",
+"sec-butyl",
+"pentyl",
+"hexyl",
+"heptyl",
+"octyl"
+],
+"n_eligible": 6,
+"sha": "7eb717c039cd407cd09736ccc16b47eb3cd83ff4e446c7cc7c2d226ff2ab9a8f",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0043__L060__p391:ethylgroup:propylgroup": {
+"unit": "s3d-rl600-all11:chat-lmsys-0043__L060__p391:ethylgroup:propylgroup",
+"anchor": "propyl group",
+"nearest": [
+"sec-butyl",
+"isobutyl",
+"pentyl",
+"heptyl"
+],
+"random": [
+"hexyl",
+"isopropyl",
+"octyl"
+],
+"distractors": [
+"sec-butyl",
+"isobutyl",
+"pentyl",
+"heptyl",
+"hexyl",
+"isopropyl",
+"octyl"
+],
+"n_eligible": 7,
+"sha": "0c76a456b9f5f4ecbe14b2f6198e8e15b2cefcb8f7e475d5cfb969373db0028d",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0043__L060__p458:ethylgroup:propylgroup": {
+"unit": "s3d-rl600-all11:chat-lmsys-0043__L060__p458:ethylgroup:propylgroup",
+"anchor": "propyl group",
+"nearest": [
+"sec-butyl",
+"isobutyl",
+"pentyl",
+"heptyl"
+],
+"random": [
+"hexyl",
+"isopropyl",
+"octyl"
+],
+"distractors": [
+"sec-butyl",
+"isobutyl",
+"pentyl",
+"heptyl",
+"hexyl",
+"isopropyl",
+"octyl"
+],
+"n_eligible": 7,
+"sha": "f69c0191848148d186d2fe7e11ad2899cab26b860309c8dc387ff01d209fda1b",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0043__L020__p419:ethylgroup:propylgroup": {
+"unit": "s3d-rl600:chat-lmsys-0043__L020__p419:ethylgroup:propylgroup",
+"anchor": "propyl group",
+"nearest": [
+"sec-butyl",
+"isobutyl",
+"pentyl",
+"heptyl"
+],
+"random": [
+"hexyl",
+"isopropyl",
+"octyl"
+],
+"distractors": [
+"sec-butyl",
+"isobutyl",
+"pentyl",
+"heptyl",
+"hexyl",
+"isopropyl",
+"octyl"
+],
+"n_eligible": 7,
+"sha": "6638d53377ed496fa2785d6cf2bd44a9412ba238632d1db12fd82b700510a601",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0043__L044__p391:ethylgroup:propylgroup": {
+"unit": "s3d-rl600:chat-lmsys-0043__L044__p391:ethylgroup:propylgroup",
+"anchor": "propyl group",
+"nearest": [
+"sec-butyl",
+"isobutyl",
+"pentyl",
+"heptyl"
+],
+"random": [
+"hexyl",
+"isopropyl",
+"octyl"
+],
+"distractors": [
+"sec-butyl",
+"isobutyl",
+"pentyl",
+"heptyl",
+"hexyl",
+"isopropyl",
+"octyl"
+],
+"n_eligible": 7,
+"sha": "d7090af45329ce90af7a122c5229ba69ac016440a1a59e87426edca642894cc2",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0043__L044__p419:ethyl:formylgroup": {
+"unit": "s3d-rl600:chat-lmsys-0043__L044__p419:ethyl:formylgroup",
+"anchor": "propyl",
+"nearest": [
+"isobutyl",
+"sec-butyl",
+"pentyl",
+"hexyl"
+],
+"random": [
+"heptyl",
+"octyl"
+],
+"distractors": [
+"isobutyl",
+"sec-butyl",
+"pentyl",
+"hexyl",
+"heptyl",
+"octyl"
+],
+"n_eligible": 6,
+"sha": "b80b6f3ef2b850b80a9d6da53f1b48ceab0ec212cf68704d886a9ef96d294c48",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0043__L044__p419:ethylgroup:formylgroup": {
+"unit": "s3d-rl600:chat-lmsys-0043__L044__p419:ethylgroup:formylgroup",
+"anchor": "propyl group",
+"nearest": [
+"sec-butyl",
+"isobutyl",
+"pentyl",
+"heptyl"
+],
+"random": [
+"hexyl",
+"isopropyl",
+"octyl"
+],
+"distractors": [
+"sec-butyl",
+"isobutyl",
+"pentyl",
+"heptyl",
+"hexyl",
+"isopropyl",
+"octyl"
+],
+"n_eligible": 7,
+"sha": "b9c2f05dfc03eb05ca5da747d7345b4c512bea495c0497c0979838f790bccf0d",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0043__L044__p419:ethylgroup:propylgroup": {
+"unit": "s3d-rl600:chat-lmsys-0043__L044__p419:ethylgroup:propylgroup",
+"anchor": "propyl group",
+"nearest": [
+"sec-butyl",
+"isobutyl",
+"pentyl",
+"heptyl"
+],
+"random": [
+"hexyl",
+"isopropyl",
+"octyl"
+],
+"distractors": [
+"sec-butyl",
+"isobutyl",
+"pentyl",
+"heptyl",
+"hexyl",
+"isopropyl",
+"octyl"
+],
+"n_eligible": 7,
+"sha": "fbec197ed69f732e573cd13edb5fb6efaaa11e1f6179af98f60cd4789ee857c9",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0043__L048__p391:ethyl:propyl": {
+"unit": "s3d-rl600:chat-lmsys-0043__L048__p391:ethyl:propyl",
+"anchor": "propyl",
+"nearest": [
+"isobutyl",
+"sec-butyl",
+"pentyl",
+"hexyl"
+],
+"random": [
+"heptyl",
+"octyl"
+],
+"distractors": [
+"isobutyl",
+"sec-butyl",
+"pentyl",
+"hexyl",
+"heptyl",
+"octyl"
+],
+"n_eligible": 6,
+"sha": "ae239c6ff4c7bd4fed8356dac54f257033f9b53d12216ff913d92762a36c61b9",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0043__L048__p391:methyl:propyl": {
+"unit": "s3d-rl600:chat-lmsys-0043__L048__p391:methyl:propyl",
+"anchor": "propyl",
+"nearest": [
+"isobutyl",
+"sec-butyl",
+"pentyl",
+"hexyl"
+],
+"random": [
+"heptyl",
+"octyl"
+],
+"distractors": [
+"isobutyl",
+"sec-butyl",
+"pentyl",
+"hexyl",
+"heptyl",
+"octyl"
+],
+"n_eligible": 6,
+"sha": "7641383e0da28a302b7fadc762ab4da1026e27d3f72aa86f7b4e4f609024779e",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0043__L060__p419:ethyl:formylgroup": {
+"unit": "s3d-rl600:chat-lmsys-0043__L060__p419:ethyl:formylgroup",
+"anchor": "propyl",
+"nearest": [
+"isobutyl",
+"sec-butyl",
+"pentyl",
+"hexyl"
+],
+"random": [
+"heptyl",
+"octyl"
+],
+"distractors": [
+"isobutyl",
+"sec-butyl",
+"pentyl",
+"hexyl",
+"heptyl",
+"octyl"
+],
+"n_eligible": 6,
+"sha": "dece3a57b22c5a821b06d97b5b2a9ee9316c67b8ee0f78d80a8804f37851de1a",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0043__L060__p458:ethylgroup:propylgroup": {
+"unit": "s3d-rl600:chat-lmsys-0043__L060__p458:ethylgroup:propylgroup",
+"anchor": "propyl group",
+"nearest": [
+"sec-butyl",
+"isobutyl",
+"pentyl",
+"heptyl"
+],
+"random": [
+"hexyl",
+"isopropyl",
+"octyl"
+],
+"distractors": [
+"sec-butyl",
+"isobutyl",
+"pentyl",
+"heptyl",
+"hexyl",
+"isopropyl",
+"octyl"
+],
+"n_eligible": 7,
+"sha": "24086ba3cf4dec313fd3f5fd29eb925743dc3f4a7939d9b84cd95b56b0b13665",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0043__L060__p53:butyl:2propylpyrimidine5carbaldehyde": {
+"unit": "s3d-rl600:chat-lmsys-0043__L060__p53:butyl:2propylpyrimidine5carbaldehyde",
+"anchor": "propyl",
+"nearest": [
+"pentyl",
+"hexyl",
+"heptyl",
+"octyl"
+],
+"random": [],
+"distractors": [
+"pentyl",
+"hexyl",
+"heptyl",
+"octyl"
+],
+"n_eligible": 4,
+"sha": "b0db2fe31ebce250a3373ca1938cb39389e0a721a7c915bdcb950aafd576584e",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0043__L024__p419:ethyl:propyl": {
+"unit": "s3d-sft251:chat-lmsys-0043__L024__p419:ethyl:propyl",
+"anchor": "propyl",
+"nearest": [
+"isobutyl",
+"sec-butyl",
+"pentyl",
+"hexyl"
+],
+"random": [
+"heptyl",
+"octyl"
+],
+"distractors": [
+"isobutyl",
+"sec-butyl",
+"pentyl",
+"hexyl",
+"heptyl",
+"octyl"
+],
+"n_eligible": 6,
+"sha": "1618d437c5d6d93c90bd2456915c2715c957bc50330f13e963771c9266607b9e",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0043__L024__p419:methyl:propyl": {
+"unit": "s3d-sft251:chat-lmsys-0043__L024__p419:methyl:propyl",
+"anchor": "propyl",
+"nearest": [
+"isobutyl",
+"sec-butyl",
+"pentyl",
+"hexyl"
+],
+"random": [
+"heptyl",
+"octyl"
+],
+"distractors": [
+"isobutyl",
+"sec-butyl",
+"pentyl",
+"hexyl",
+"heptyl",
+"octyl"
+],
+"n_eligible": 6,
+"sha": "c3e934dc4d27119f3958137d5b91cd8539f4bc05cefb780f6e60f7f9d834ea04",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0043__L028__p419:ethyl:propyl": {
+"unit": "s3d-sft251:chat-lmsys-0043__L028__p419:ethyl:propyl",
+"anchor": "propyl",
+"nearest": [
+"isobutyl",
+"sec-butyl",
+"pentyl",
+"hexyl"
+],
+"random": [
+"heptyl",
+"octyl"
+],
+"distractors": [
+"isobutyl",
+"sec-butyl",
+"pentyl",
+"hexyl",
+"heptyl",
+"octyl"
+],
+"n_eligible": 6,
+"sha": "8e9d2e76eb1cb883728f595966cb16c7c88455e14a2701d6e2ab1092e8e68952",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0043__L028__p419:methyl:propyl": {
+"unit": "s3d-sft251:chat-lmsys-0043__L028__p419:methyl:propyl",
+"anchor": "propyl",
+"nearest": [
+"isobutyl",
+"sec-butyl",
+"pentyl",
+"hexyl"
+],
+"random": [
+"heptyl",
+"octyl"
+],
+"distractors": [
+"isobutyl",
+"sec-butyl",
+"pentyl",
+"hexyl",
+"heptyl",
+"octyl"
+],
+"n_eligible": 6,
+"sha": "b4f3645688a4fd1af07385b5b6bea196fe849c17e84e1fdc0d430646d1e97655",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0043__L040__p419:ethylgroup:propylgroup": {
+"unit": "s3d-sft251:chat-lmsys-0043__L040__p419:ethylgroup:propylgroup",
+"anchor": "propyl group",
+"nearest": [
+"sec-butyl",
+"isobutyl",
+"pentyl",
+"heptyl"
+],
+"random": [
+"hexyl",
+"isopropyl",
+"octyl"
+],
+"distractors": [
+"sec-butyl",
+"isobutyl",
+"pentyl",
+"heptyl",
+"hexyl",
+"isopropyl",
+"octyl"
+],
+"n_eligible": 7,
+"sha": "08dd6da4375a53dee24bd52f3f69157497d49b9e5bf71217dfee7b5821ad3a31",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0043__L048__p391:ethyl:propyl": {
+"unit": "s3d-sft251:chat-lmsys-0043__L048__p391:ethyl:propyl",
+"anchor": "propyl",
+"nearest": [
+"isobutyl",
+"sec-butyl",
+"pentyl",
+"hexyl"
+],
+"random": [
+"heptyl",
+"octyl"
+],
+"distractors": [
+"isobutyl",
+"sec-butyl",
+"pentyl",
+"hexyl",
+"heptyl",
+"octyl"
+],
+"n_eligible": 6,
+"sha": "461d6d7da46087a77bd68e9b3300fdbf844ebfb092070362f68e559047048a50",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0043__L048__p391:methyl:propyl": {
+"unit": "s3d-sft251:chat-lmsys-0043__L048__p391:methyl:propyl",
+"anchor": "propyl",
+"nearest": [
+"isobutyl",
+"sec-butyl",
+"pentyl",
+"hexyl"
+],
+"random": [
+"heptyl",
+"octyl"
+],
+"distractors": [
+"isobutyl",
+"sec-butyl",
+"pentyl",
+"hexyl",
+"heptyl",
+"octyl"
+],
+"n_eligible": 6,
+"sha": "42a97d2050453d29016d7cd7c803081c10ed47bf6fa2e7efc888a55dc84e80ad",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0043__L048__p419:ethylgroup:propylgroup": {
+"unit": "s3d-sft251:chat-lmsys-0043__L048__p419:ethylgroup:propylgroup",
+"anchor": "propyl group",
+"nearest": [
+"sec-butyl",
+"isobutyl",
+"pentyl",
+"heptyl"
+],
+"random": [
+"hexyl",
+"isopropyl",
+"octyl"
+],
+"distractors": [
+"sec-butyl",
+"isobutyl",
+"pentyl",
+"heptyl",
+"hexyl",
+"isopropyl",
+"octyl"
+],
+"n_eligible": 7,
+"sha": "f886218f471088f2aa92bf19aa89accb1891a07f8214550abbbdf9959f6ccc4e",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0043__L052__p391:ethylgroup:propylgroup": {
+"unit": "s3d-sft251:chat-lmsys-0043__L052__p391:ethylgroup:propylgroup",
+"anchor": "propyl group",
+"nearest": [
+"sec-butyl",
+"isobutyl",
+"pentyl",
+"heptyl"
+],
+"random": [
+"hexyl",
+"isopropyl",
+"octyl"
+],
+"distractors": [
+"sec-butyl",
+"isobutyl",
+"pentyl",
+"heptyl",
+"hexyl",
+"isopropyl",
+"octyl"
+],
+"n_eligible": 7,
+"sha": "5629d62ba2bd016b66265b33358002c6f6a3ce15f1b8fc65ac8ec0185af29c43",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0043__L052__p419:ethylgroup:formylgroup": {
+"unit": "s3d-sft251:chat-lmsys-0043__L052__p419:ethylgroup:formylgroup",
+"anchor": "propyl group",
+"nearest": [
+"sec-butyl",
+"isobutyl",
+"pentyl",
+"heptyl"
+],
+"random": [
+"hexyl",
+"isopropyl",
+"octyl"
+],
+"distractors": [
+"sec-butyl",
+"isobutyl",
+"pentyl",
+"heptyl",
+"hexyl",
+"isopropyl",
+"octyl"
+],
+"n_eligible": 7,
+"sha": "c8e38a5d78f74a74d3952808d002dce2b02af526fc009714a5970f1cbe1e98e8",
+"generation": 0
+}
+}

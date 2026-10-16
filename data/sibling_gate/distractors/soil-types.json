@@ -1,0 +1,148 @@
+{
+"s3d-rl600:chat-lmsys-0040__L048__p84:clay:loamy": {
+"unit": "s3d-rl600:chat-lmsys-0040__L048__p84:clay:loamy",
+"anchor": "Loam",
+"nearest": [
+"Silt",
+"Peat",
+"Podzol",
+"Laterite"
+],
+"random": [
+"Chalk"
+],
+"distractors": [
+"Silt",
+"Peat",
+"Podzol",
+"Laterite",
+"Chalk"
+],
+"n_eligible": 5,
+"sha": "0ce7ca7e6913ff9925f90d91289700df9e5431c2ca5df0d454007fb5be486efe",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0040__L048__p84:clayloam:loamy": {
+"unit": "s3d-rl600:chat-lmsys-0040__L048__p84:clayloam:loamy",
+"anchor": "Loam",
+"nearest": [
+"Silt",
+"Peat",
+"Podzol",
+"Laterite"
+],
+"random": [
+"Chalk"
+],
+"distractors": [
+"Silt",
+"Peat",
+"Podzol",
+"Laterite",
+"Chalk"
+],
+"n_eligible": 5,
+"sha": "71d830686774b42c550424209c872ecfd5c0ff6e92e8153d47c44c60b4be11d6",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0040__L048__p84:sandyloam:loamy": {
+"unit": "s3d-rl600:chat-lmsys-0040__L048__p84:sandyloam:loamy",
+"anchor": "Loam",
+"nearest": [
+"Silt",
+"Silty clay",
+"Peat",
+"Podzol"
+],
+"random": [
+"Chalk",
+"Laterite"
+],
+"distractors": [
+"Silt",
+"Silty clay",
+"Peat",
+"Podzol",
+"Chalk",
+"Laterite"
+],
+"n_eligible": 6,
+"sha": "b2d5a938ba6b8dbbfe8a8ac928abcd8cc5a35597afcde5d925d5562cce9925cf",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0040__L044__p84:clay:loamy": {
+"unit": "s3d-sft251:chat-lmsys-0040__L044__p84:clay:loamy",
+"anchor": "Loam",
+"nearest": [
+"Silt",
+"Peat",
+"Podzol",
+"Laterite"
+],
+"random": [
+"Chalk"
+],
+"distractors": [
+"Silt",
+"Peat",
+"Podzol",
+"Laterite",
+"Chalk"
+],
+"n_eligible": 5,
+"sha": "a4db05ca4b61678cd5662ee8e12c44d1c031da40c66d66b2660d233c9be106e5",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0040__L044__p84:sandyloam:loamy": {
+"unit": "s3d-sft251:chat-lmsys-0040__L044__p84:sandyloam:loamy",
+"anchor": "Loam",
+"nearest": [
+"Silt",
+"Silty clay",
+"Peat",
+"Podzol"
+],
+"random": [
+"Chalk",
+"Laterite"
+],
+"distractors": [
+"Silt",
+"Silty clay",
+"Peat",
+"Podzol",
+"Chalk",
+"Laterite"
+],
+"n_eligible": 6,
+"sha": "7c394adcfb95ecfdda0a125426d07a59d5c1cf5e457be29544ab99e592bd0dcc",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0040__L044__p84:sandysoil:loamy": {
+"unit": "s3d-sft251:chat-lmsys-0040__L044__p84:sandysoil:loamy",
+"anchor": "Loamy soil",
+"nearest": [
+"Silty loam",
+"Peat",
+"Silt",
+"Chalk"
+],
+"random": [
+"Laterite",
+"Podzol",
+"Silty clay"
+],
+"distractors": [
+"Silty loam",
+"Peat",
+"Silt",
+"Chalk",
+"Laterite",
+"Podzol",
+"Silty clay"
+],
+"n_eligible": 7,
+"sha": "19ca9269c768714286a28f37215da14651575a13edb597947747b7a8cd28c199",
+"generation": 0
+}
+}

@@ -1,0 +1,582 @@
+{
+"mlnla-ck2000-all11:chat-lmsys-0004__L024__p306:civilwar:coldwar": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0004__L024__p306:civilwar:coldwar",
+"anchor": "Cold War",
+"nearest": [
+"Napoleonic Wars",
+"Peloponnesian War",
+"Hundred Years' War",
+"War in Afghanistan"
+],
+"random": [
+"Gulf War",
+"Iraq War",
+"Thirty Years' War",
+"War of 1812"
+],
+"distractors": [
+"Napoleonic Wars",
+"Peloponnesian War",
+"Hundred Years' War",
+"War in Afghanistan",
+"Gulf War",
+"Iraq War",
+"Thirty Years' War",
+"War of 1812"
+],
+"n_eligible": 9,
+"sha": "54727ee91d178237f62251e99bf9b75a94456e5948046222410393effa230528",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0004__L028__p147:civilwar:coldwar": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0004__L028__p147:civilwar:coldwar",
+"anchor": "Cold War",
+"nearest": [
+"Napoleonic Wars",
+"Peloponnesian War",
+"Hundred Years' War",
+"War in Afghanistan"
+],
+"random": [
+"Crimean War",
+"Gulf War",
+"Iraq War",
+"Thirty Years' War"
+],
+"distractors": [
+"Napoleonic Wars",
+"Peloponnesian War",
+"Hundred Years' War",
+"War in Afghanistan",
+"Crimean War",
+"Gulf War",
+"Iraq War",
+"Thirty Years' War"
+],
+"n_eligible": 9,
+"sha": "350d995d19d2a26291ebefa09db6275f0ce709171531997794ad74c22727f04c",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0004__L032__p306:civilwar:coldwar": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0004__L032__p306:civilwar:coldwar",
+"anchor": "Cold War",
+"nearest": [
+"Napoleonic Wars",
+"Peloponnesian War",
+"Hundred Years' War",
+"War in Afghanistan"
+],
+"random": [
+"Crimean War",
+"Iraq War",
+"Thirty Years' War",
+"War of 1812"
+],
+"distractors": [
+"Napoleonic Wars",
+"Peloponnesian War",
+"Hundred Years' War",
+"War in Afghanistan",
+"Crimean War",
+"Iraq War",
+"Thirty Years' War",
+"War of 1812"
+],
+"n_eligible": 9,
+"sha": "c33a74be52ae92b592505446672996b66b34897f6f19d7f9571d0b7f23f3e8f7",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0004__L036__p147:civilwar:coldwar": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0004__L036__p147:civilwar:coldwar",
+"anchor": "Cold War",
+"nearest": [
+"Napoleonic Wars",
+"Peloponnesian War",
+"Hundred Years' War",
+"War in Afghanistan"
+],
+"random": [
+"Gulf War",
+"Iraq War",
+"Thirty Years' War",
+"War of 1812"
+],
+"distractors": [
+"Napoleonic Wars",
+"Peloponnesian War",
+"Hundred Years' War",
+"War in Afghanistan",
+"Gulf War",
+"Iraq War",
+"Thirty Years' War",
+"War of 1812"
+],
+"n_eligible": 9,
+"sha": "7687e61b42c92f7688c09f8e987349d2ecc839c12b9e0402c9e52afe2d18aad6",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0004__L044__p532:koreanwar:coldwar": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0004__L044__p532:koreanwar:coldwar",
+"anchor": "Cold War",
+"nearest": [
+"Napoleonic Wars",
+"Peloponnesian War",
+"Hundred Years' War",
+"American Revolutionary War"
+],
+"random": [
+"Crimean War",
+"Iraq War",
+"War in Afghanistan",
+"War of 1812"
+],
+"distractors": [
+"Napoleonic Wars",
+"Peloponnesian War",
+"Hundred Years' War",
+"American Revolutionary War",
+"Crimean War",
+"Iraq War",
+"War in Afghanistan",
+"War of 1812"
+],
+"n_eligible": 10,
+"sha": "b2b524405b1633a2cf2964355a2de1ea97cbcdd1bc28c85ca8554f9791b1a486",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0004__L044__p87:vietnamwar:coldwar": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0004__L044__p87:vietnamwar:coldwar",
+"anchor": "Cold War",
+"nearest": [
+"Napoleonic Wars",
+"Peloponnesian War",
+"Hundred Years' War",
+"American Revolutionary War"
+],
+"random": [
+"Crimean War",
+"Gulf War",
+"Iraq War",
+"War in Afghanistan"
+],
+"distractors": [
+"Napoleonic Wars",
+"Peloponnesian War",
+"Hundred Years' War",
+"American Revolutionary War",
+"Crimean War",
+"Gulf War",
+"Iraq War",
+"War in Afghanistan"
+],
+"n_eligible": 10,
+"sha": "7d0636bcf63c3dbcd5ad85b853d012582913799143d3f34c976328ae30f96282",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0004__L056__p87:civilwar:coldwar": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0004__L056__p87:civilwar:coldwar",
+"anchor": "Cold War",
+"nearest": [
+"Napoleonic Wars",
+"Peloponnesian War",
+"Hundred Years' War",
+"War in Afghanistan"
+],
+"random": [
+"Crimean War",
+"Gulf War",
+"Iraq War",
+"War of 1812"
+],
+"distractors": [
+"Napoleonic Wars",
+"Peloponnesian War",
+"Hundred Years' War",
+"War in Afghanistan",
+"Crimean War",
+"Gulf War",
+"Iraq War",
+"War of 1812"
+],
+"n_eligible": 9,
+"sha": "7b82f38c56be662a2583cbb6b0281d0092b5c2f4cadfcd7eccf8924411c3f469",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0004__L060__p147:wwii:coldwar": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0004__L060__p147:wwii:coldwar",
+"anchor": "Cold War",
+"nearest": [
+"Napoleonic Wars",
+"Peloponnesian War",
+"Hundred Years' War",
+"American Revolutionary War"
+],
+"random": [
+"Crimean War",
+"Gulf War",
+"Iraq War",
+"War in Afghanistan"
+],
+"distractors": [
+"Napoleonic Wars",
+"Peloponnesian War",
+"Hundred Years' War",
+"American Revolutionary War",
+"Crimean War",
+"Gulf War",
+"Iraq War",
+"War in Afghanistan"
+],
+"n_eligible": 10,
+"sha": "a2ee5873ab16047d072e69b99c716cddaa1d4d75dbb08fa5781e548f9c3c37bd",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0004__L060__p532:koreanwar:coldwar": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0004__L060__p532:koreanwar:coldwar",
+"anchor": "Cold War",
+"nearest": [
+"Napoleonic Wars",
+"Peloponnesian War",
+"Hundred Years' War",
+"American Revolutionary War"
+],
+"random": [
+"Crimean War",
+"Gulf War",
+"War in Afghanistan",
+"War of 1812"
+],
+"distractors": [
+"Napoleonic Wars",
+"Peloponnesian War",
+"Hundred Years' War",
+"American Revolutionary War",
+"Crimean War",
+"Gulf War",
+"War in Afghanistan",
+"War of 1812"
+],
+"n_eligible": 10,
+"sha": "4f8c543b4fb455fad25cbddcd5af9cebc943070f6a7d7db9b05139d620f454d5",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0004__L040__p306:wwi:coldwar": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0004__L040__p306:wwi:coldwar",
+"anchor": "Cold War",
+"nearest": [
+"Napoleonic Wars",
+"Peloponnesian War",
+"Hundred Years' War",
+"American Revolutionary War"
+],
+"random": [
+"Crimean War",
+"Gulf War",
+"Thirty Years' War",
+"War of 1812"
+],
+"distractors": [
+"Napoleonic Wars",
+"Peloponnesian War",
+"Hundred Years' War",
+"American Revolutionary War",
+"Crimean War",
+"Gulf War",
+"Thirty Years' War",
+"War of 1812"
+],
+"n_eligible": 10,
+"sha": "d16dc9930caec638328bae3bed3300be34ffc64298952fa590ed31533628942f",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0004__L048__p208:vietnamwar:coldwar": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0004__L048__p208:vietnamwar:coldwar",
+"anchor": "Cold War",
+"nearest": [
+"Napoleonic Wars",
+"Peloponnesian War",
+"Hundred Years' War",
+"American Revolutionary War"
+],
+"random": [
+"Crimean War",
+"Gulf War",
+"Iraq War",
+"Thirty Years' War"
+],
+"distractors": [
+"Napoleonic Wars",
+"Peloponnesian War",
+"Hundred Years' War",
+"American Revolutionary War",
+"Crimean War",
+"Gulf War",
+"Iraq War",
+"Thirty Years' War"
+],
+"n_eligible": 10,
+"sha": "0e029634f8ce0f63d644c4aa9d034b9c6f39bbcffc7700be4093cdd3518f6d0e",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0004__L024__p147:uscivilwar:coldwar": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0004__L024__p147:uscivilwar:coldwar",
+"anchor": "Cold War",
+"nearest": [
+"Napoleonic Wars",
+"Peloponnesian War",
+"Hundred Years' War",
+"War in Afghanistan"
+],
+"random": [
+"Gulf War",
+"Iraq War",
+"Thirty Years' War",
+"War of 1812"
+],
+"distractors": [
+"Napoleonic Wars",
+"Peloponnesian War",
+"Hundred Years' War",
+"War in Afghanistan",
+"Gulf War",
+"Iraq War",
+"Thirty Years' War",
+"War of 1812"
+],
+"n_eligible": 9,
+"sha": "b00588c54c09d0cc1baad9a76da74e322494a4c1ce4ae28cb16d493876d2ad14",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0004__L060__p147:worldwarii:coldwar": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0004__L060__p147:worldwarii:coldwar",
+"anchor": "Cold War",
+"nearest": [
+"Napoleonic Wars",
+"Peloponnesian War",
+"Hundred Years' War",
+"American Revolutionary War"
+],
+"random": [
+"Gulf War",
+"Iraq War",
+"War in Afghanistan",
+"War of 1812"
+],
+"distractors": [
+"Napoleonic Wars",
+"Peloponnesian War",
+"Hundred Years' War",
+"American Revolutionary War",
+"Gulf War",
+"Iraq War",
+"War in Afghanistan",
+"War of 1812"
+],
+"n_eligible": 10,
+"sha": "d684659f315f5ece300f926705fbc0004c17e4ed0e246095055408e85fa0f49e",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0004__L060__p532:koreanwar:coldwar": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0004__L060__p532:koreanwar:coldwar",
+"anchor": "Cold War",
+"nearest": [
+"Napoleonic Wars",
+"Peloponnesian War",
+"Hundred Years' War",
+"American Revolutionary War"
+],
+"random": [
+"Iraq War",
+"Thirty Years' War",
+"War in Afghanistan",
+"War of 1812"
+],
+"distractors": [
+"Napoleonic Wars",
+"Peloponnesian War",
+"Hundred Years' War",
+"American Revolutionary War",
+"Iraq War",
+"Thirty Years' War",
+"War in Afghanistan",
+"War of 1812"
+],
+"n_eligible": 10,
+"sha": "9e60fbb42e5053352060b60fc73c7de22b58387e11dec0dc557ab8c4d6a6c771",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0004__L042__p306:worldwari:coldwar": {
+"unit": "nla-rl-L42:chat-lmsys-0004__L042__p306:worldwari:coldwar",
+"anchor": "Cold War",
+"nearest": [
+"Napoleonic Wars",
+"Peloponnesian War",
+"Hundred Years' War",
+"American Revolutionary War"
+],
+"random": [
+"Crimean War",
+"Iraq War",
+"Thirty Years' War",
+"War in Afghanistan"
+],
+"distractors": [
+"Napoleonic Wars",
+"Peloponnesian War",
+"Hundred Years' War",
+"American Revolutionary War",
+"Crimean War",
+"Iraq War",
+"Thirty Years' War",
+"War in Afghanistan"
+],
+"n_eligible": 10,
+"sha": "7c6f2386cccb888fbe1929532bc24094593fd4acbe7b5943d5dd872f9ad0225f",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0004__L042__p532:vietnamwar:coldwar": {
+"unit": "nla-rl-L42:chat-lmsys-0004__L042__p532:vietnamwar:coldwar",
+"anchor": "Cold War",
+"nearest": [
+"Napoleonic Wars",
+"Peloponnesian War",
+"Hundred Years' War",
+"American Revolutionary War"
+],
+"random": [
+"Crimean War",
+"Gulf War",
+"Thirty Years' War",
+"War of 1812"
+],
+"distractors": [
+"Napoleonic Wars",
+"Peloponnesian War",
+"Hundred Years' War",
+"American Revolutionary War",
+"Crimean War",
+"Gulf War",
+"Thirty Years' War",
+"War of 1812"
+],
+"n_eligible": 10,
+"sha": "d9652ef863d32b4cf53b16916e680c2db9dc13db94b84b011a999e3c1271f336",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0004__L036__p391:vietnamwar:coldwar": {
+"unit": "s3d-rl600-all11:chat-lmsys-0004__L036__p391:vietnamwar:coldwar",
+"anchor": "Cold War",
+"nearest": [
+"Napoleonic Wars",
+"Peloponnesian War",
+"Hundred Years' War",
+"American Revolutionary War"
+],
+"random": [
+"Crimean War",
+"Gulf War",
+"Iraq War",
+"War in Afghanistan"
+],
+"distractors": [
+"Napoleonic Wars",
+"Peloponnesian War",
+"Hundred Years' War",
+"American Revolutionary War",
+"Crimean War",
+"Gulf War",
+"Iraq War",
+"War in Afghanistan"
+],
+"n_eligible": 10,
+"sha": "7cd2c9e1a594b4a5e1c79c2ab3854bf6c27ea739e1188c12ed6a8e4cc3d4f40b",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0004__L052__p147:koreanwar:coldwar": {
+"unit": "s3d-rl600-all11:chat-lmsys-0004__L052__p147:koreanwar:coldwar",
+"anchor": "Cold War",
+"nearest": [
+"Napoleonic Wars",
+"Peloponnesian War",
+"Hundred Years' War",
+"American Revolutionary War"
+],
+"random": [
+"Crimean War",
+"Gulf War",
+"Iraq War",
+"War in Afghanistan"
+],
+"distractors": [
+"Napoleonic Wars",
+"Peloponnesian War",
+"Hundred Years' War",
+"American Revolutionary War",
+"Crimean War",
+"Gulf War",
+"Iraq War",
+"War in Afghanistan"
+],
+"n_eligible": 10,
+"sha": "1df4cdee9859489bba9a2ea2f6835b834023bf7b0392bd3fe3c12e2c19805086",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0004__L060__p147:koreanwar:coldwar": {
+"unit": "s3d-rl600-all11:chat-lmsys-0004__L060__p147:koreanwar:coldwar",
+"anchor": "Cold War",
+"nearest": [
+"Napoleonic Wars",
+"Peloponnesian War",
+"Hundred Years' War",
+"American Revolutionary War"
+],
+"random": [
+"Crimean War",
+"Iraq War",
+"Thirty Years' War",
+"War in Afghanistan"
+],
+"distractors": [
+"Napoleonic Wars",
+"Peloponnesian War",
+"Hundred Years' War",
+"American Revolutionary War",
+"Crimean War",
+"Iraq War",
+"Thirty Years' War",
+"War in Afghanistan"
+],
+"n_eligible": 10,
+"sha": "25c8e028c6041bcdd5fa1a82c808c93441c299e5abf05107a778420b76cc540b",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0004__L060__p147:worldwarii:coldwar": {
+"unit": "s3d-rl600-all11:chat-lmsys-0004__L060__p147:worldwarii:coldwar",
+"anchor": "Cold War",
+"nearest": [
+"Napoleonic Wars",
+"Peloponnesian War",
+"Hundred Years' War",
+"American Revolutionary War"
+],
+"random": [
+"Gulf War",
+"Thirty Years' War",
+"War in Afghanistan",
+"War of 1812"
+],
+"distractors": [
+"Napoleonic Wars",
+"Peloponnesian War",
+"Hundred Years' War",
+"American Revolutionary War",
+"Gulf War",
+"Thirty Years' War",
+"War in Afghanistan",
+"War of 1812"
+],
+"n_eligible": 10,
+"sha": "f329f2c0f1e2b4f421c3a165c3b797f633930023c8a95a284e53e661c960a2cc",
+"generation": 0
+}
+}

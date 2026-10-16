@@ -1,0 +1,137 @@
+{
+"mlnla-rl2-800-all11:chat-lmsys-0043__L024__p419:anilineringnitrogroup:pyrimidineringformylgroup": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0043__L024__p419:anilineringnitrogroup:pyrimidineringformylgroup",
+"anchor": "pyrimidine",
+"nearest": [
+"anthracene",
+"naphthalene",
+"thiophene",
+"furan"
+],
+"random": [
+"benzoic acid",
+"phenol",
+"xylene"
+],
+"distractors": [
+"anthracene",
+"naphthalene",
+"thiophene",
+"furan",
+"benzoic acid",
+"phenol",
+"xylene"
+],
+"n_eligible": 7,
+"sha": "4cb68721ab34f496e01754bb7edb416192d9e1f3413ad9a6fa9d41a655c49c8d",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0043__L040__p419:benzenecore:pyrimidinering": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0043__L040__p419:benzenecore:pyrimidinering",
+"anchor": "pyrimidine",
+"nearest": [
+"anthracene",
+"naphthalene",
+"thiophene",
+"furan"
+],
+"random": [
+"benzoic acid",
+"phenol",
+"xylene"
+],
+"distractors": [
+"anthracene",
+"naphthalene",
+"thiophene",
+"furan",
+"benzoic acid",
+"phenol",
+"xylene"
+],
+"n_eligible": 7,
+"sha": "84425a58e04134a9c1935c79e981a44fba3ee9010595c3fd0c44df588bdcfa9f",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0043__L024__p419:anilinering:pyrimidinering": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0043__L024__p419:anilinering:pyrimidinering",
+"anchor": "pyrimidine",
+"nearest": [
+"anthracene",
+"naphthalene",
+"thiophene",
+"furan"
+],
+"random": [
+"benzoic acid",
+"phenol",
+"xylene"
+],
+"distractors": [
+"anthracene",
+"naphthalene",
+"thiophene",
+"furan",
+"benzoic acid",
+"phenol",
+"xylene"
+],
+"n_eligible": 7,
+"sha": "8aeee47d632310f28d12deaa3153cd4e9dabb41d95aecf02757cbb19cbcf66c7",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0043__L048__p391:benzenering:pyrimidinering": {
+"unit": "s3d-rl600-all11:chat-lmsys-0043__L048__p391:benzenering:pyrimidinering",
+"anchor": "pyrimidine",
+"nearest": [
+"anthracene",
+"naphthalene",
+"thiophene",
+"furan"
+],
+"random": [
+"benzoic acid",
+"phenol",
+"xylene"
+],
+"distractors": [
+"anthracene",
+"naphthalene",
+"thiophene",
+"furan",
+"benzoic acid",
+"phenol",
+"xylene"
+],
+"n_eligible": 7,
+"sha": "f3487798adc2dc9a1523a95f4537e9bbbf0a9604304c42509b197560778eb2fc",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0043__L060__p391:benzenering:pyrimidinering": {
+"unit": "s3d-rl600-all11:chat-lmsys-0043__L060__p391:benzenering:pyrimidinering",
+"anchor": "pyrimidine",
+"nearest": [
+"anthracene",
+"naphthalene",
+"thiophene",
+"furan"
+],
+"random": [
+"benzoic acid",
+"phenol",
+"xylene"
+],
+"distractors": [
+"anthracene",
+"naphthalene",
+"thiophene",
+"furan",
+"benzoic acid",
+"phenol",
+"xylene"
+],
+"n_eligible": 7,
+"sha": "faa24ec9053f0b52aaefd4b1b5dcac4da62594814f80a898f4cf55c688b8b56a",
+"generation": 0
+}
+}

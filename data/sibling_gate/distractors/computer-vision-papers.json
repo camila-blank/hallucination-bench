@@ -1,0 +1,155 @@
+{
+"mlnla-ck2000-all11:chat-lmsys-0023__L028__p112:yolopaper:detrpaper": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0023__L028__p112:yolopaper:detrpaper",
+"anchor": "DETR",
+"nearest": [
+"Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks",
+"Deep Residual Learning for Image Recognition (ResNet)",
+"Fully Convolutional Networks for Semantic Segmentation (FCN)",
+"U-Net: Convolutional Networks for Biomedical Image Segmentation"
+],
+"random": [
+"ImageNet Classification with Deep Convolutional Neural Networks (AlexNet)",
+"Very Deep Convolutional Networks for Large-Scale Image Recognition (VGG)"
+],
+"distractors": [
+"Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks",
+"Deep Residual Learning for Image Recognition (ResNet)",
+"Fully Convolutional Networks for Semantic Segmentation (FCN)",
+"U-Net: Convolutional Networks for Biomedical Image Segmentation",
+"ImageNet Classification with Deep Convolutional Neural Networks (AlexNet)",
+"Very Deep Convolutional Networks for Large-Scale Image Recognition (VGG)"
+],
+"n_eligible": 6,
+"sha": "bb86a53863b50eaefceea789e90efe49d8613222a0fe0991361f47d22a3a4dba",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0023__L048__p346:sam2paper:detr": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0023__L048__p346:sam2paper:detr",
+"anchor": "DETR",
+"nearest": [
+"Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks",
+"Deep Residual Learning for Image Recognition (ResNet)",
+"Fully Convolutional Networks for Semantic Segmentation (FCN)",
+"U-Net: Convolutional Networks for Biomedical Image Segmentation"
+],
+"random": [
+"ImageNet Classification with Deep Convolutional Neural Networks (AlexNet)",
+"Very Deep Convolutional Networks for Large-Scale Image Recognition (VGG)"
+],
+"distractors": [
+"Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks",
+"Deep Residual Learning for Image Recognition (ResNet)",
+"Fully Convolutional Networks for Semantic Segmentation (FCN)",
+"U-Net: Convolutional Networks for Biomedical Image Segmentation",
+"ImageNet Classification with Deep Convolutional Neural Networks (AlexNet)",
+"Very Deep Convolutional Networks for Large-Scale Image Recognition (VGG)"
+],
+"n_eligible": 6,
+"sha": "ef68be4f550c3a2457029ac24513a89bc5c914bbaf2060f4a0f2303a8c6b633d",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0023__L024__p112:animageisworth164wordsvitpaper:detr": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0023__L024__p112:animageisworth164wordsvitpaper:detr",
+"anchor": "End-to-End Object Detection with Transformers (DETR)",
+"nearest": [
+"Fully Convolutional Networks for Semantic Segmentation (FCN)"
+],
+"random": [],
+"distractors": [
+"Fully Convolutional Networks for Semantic Segmentation (FCN)"
+],
+"n_eligible": 1,
+"sha": "1e0111c7a232f49e419222a94d73330cce833b7fe58c834756093548fb2389e7",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0023__L032__p112:vitpaper:detr": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0023__L032__p112:vitpaper:detr",
+"anchor": "DETR paper",
+"nearest": [
+"Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks",
+"Fully Convolutional Networks for Semantic Segmentation (FCN)",
+"U-Net: Convolutional Networks for Biomedical Image Segmentation",
+"Deep Residual Learning for Image Recognition (ResNet)"
+],
+"random": [
+"ImageNet Classification with Deep Convolutional Neural Networks (AlexNet)",
+"Very Deep Convolutional Networks for Large-Scale Image Recognition (VGG)"
+],
+"distractors": [
+"Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks",
+"Fully Convolutional Networks for Semantic Segmentation (FCN)",
+"U-Net: Convolutional Networks for Biomedical Image Segmentation",
+"Deep Residual Learning for Image Recognition (ResNet)",
+"ImageNet Classification with Deep Convolutional Neural Networks (AlexNet)",
+"Very Deep Convolutional Networks for Large-Scale Image Recognition (VGG)"
+],
+"n_eligible": 6,
+"sha": "23925817459400487e4a0ede61a75926815e5c66a2ab5ba56b957834213607c4",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0023__L040__p112:vitpaper:detr": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0023__L040__p112:vitpaper:detr",
+"anchor": "DETR paper",
+"nearest": [
+"Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks",
+"Fully Convolutional Networks for Semantic Segmentation (FCN)",
+"U-Net: Convolutional Networks for Biomedical Image Segmentation",
+"Deep Residual Learning for Image Recognition (ResNet)"
+],
+"random": [
+"ImageNet Classification with Deep Convolutional Neural Networks (AlexNet)",
+"Very Deep Convolutional Networks for Large-Scale Image Recognition (VGG)"
+],
+"distractors": [
+"Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks",
+"Fully Convolutional Networks for Semantic Segmentation (FCN)",
+"U-Net: Convolutional Networks for Biomedical Image Segmentation",
+"Deep Residual Learning for Image Recognition (ResNet)",
+"ImageNet Classification with Deep Convolutional Neural Networks (AlexNet)",
+"Very Deep Convolutional Networks for Large-Scale Image Recognition (VGG)"
+],
+"n_eligible": 6,
+"sha": "8a5133fed7788e447553ca47f9c41f166c852bb6e9d49dabe215ad5898c6ceac",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0023__L044__p112:dosovitskiy2020vit:detrpaper": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0023__L044__p112:dosovitskiy2020vit:detrpaper",
+"anchor": "DETR (Carion et al. 2020)",
+"nearest": [
+"Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks",
+"Fully Convolutional Networks for Semantic Segmentation (FCN)",
+"Deep Residual Learning for Image Recognition (ResNet)",
+"U-Net: Convolutional Networks for Biomedical Image Segmentation"
+],
+"random": [
+"ImageNet Classification with Deep Convolutional Neural Networks (AlexNet)",
+"Very Deep Convolutional Networks for Large-Scale Image Recognition (VGG)"
+],
+"distractors": [
+"Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks",
+"Fully Convolutional Networks for Semantic Segmentation (FCN)",
+"Deep Residual Learning for Image Recognition (ResNet)",
+"U-Net: Convolutional Networks for Biomedical Image Segmentation",
+"ImageNet Classification with Deep Convolutional Neural Networks (AlexNet)",
+"Very Deep Convolutional Networks for Large-Scale Image Recognition (VGG)"
+],
+"n_eligible": 6,
+"sha": "0948ef9cb519c922e160a7843c29057a1de000bc97d9b539706137d4290654e9",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0023__L044__p112:vitpaperdosovitskiyetal:detrpaper": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0023__L044__p112:vitpaperdosovitskiyetal:detrpaper",
+"anchor": "End-to-End Object Detection with Transformers (DETR)",
+"nearest": [
+"Fully Convolutional Networks for Semantic Segmentation (FCN)"
+],
+"random": [],
+"distractors": [
+"Fully Convolutional Networks for Semantic Segmentation (FCN)"
+],
+"n_eligible": 1,
+"sha": "7fef677a9b0ac990c0e7880c0bab609efa7013d2bab039628fd319a7fca96158",
+"generation": 0
+}
+}

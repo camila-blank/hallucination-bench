@@ -1,0 +1,582 @@
+{
+"logit:chat-lmsys-0051__L060__p494:mdma:classicpsychedelicspsilocybinlsdmescaline": {
+"unit": "logit:chat-lmsys-0051__L060__p494:mdma:classicpsychedelicspsilocybinlsdmescaline",
+"anchor": "psilocybin",
+"nearest": [
+"2C-B",
+"5-MeO-DMT",
+"DOM",
+"LSA"
+],
+"random": [
+"ibogaine",
+"peyote",
+"psilocin",
+"salvinorin A"
+],
+"distractors": [
+"2C-B",
+"5-MeO-DMT",
+"DOM",
+"LSA",
+"ibogaine",
+"peyote",
+"psilocin",
+"salvinorin A"
+],
+"n_eligible": 9,
+"sha": "c35411cf05422c2284f1fcdf2330cde3d07e6c7ab42b2cc02314f11f62a2a5db",
+"generation": 0
+},
+"mlnla-ck2000-all11:chat-lmsys-0051__L020__p494:ketamine:classicpsychedelics": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0051__L020__p494:ketamine:classicpsychedelics",
+"anchor": "ketamine",
+"nearest": [
+"2C-B",
+"5-MeO-DMT",
+"DOM",
+"LSA"
+],
+"random": [
+"bufotenin",
+"ibogaine",
+"peyote",
+"salvinorin A"
+],
+"distractors": [
+"2C-B",
+"5-MeO-DMT",
+"DOM",
+"LSA",
+"bufotenin",
+"ibogaine",
+"peyote",
+"salvinorin A"
+],
+"n_eligible": 12,
+"sha": "52f0ef52e53c77ec74aab2acb0968a8bd2bde3d2255480a0d28bbdbafad3b367",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0051__L020__p494:ketamine:psychedelics": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0051__L020__p494:ketamine:psychedelics",
+"anchor": "ketamine",
+"nearest": [
+"2C-B",
+"5-MeO-DMT",
+"DOM",
+"LSA"
+],
+"random": [
+"bufotenin",
+"ibogaine",
+"psilocybin",
+"salvinorin A"
+],
+"distractors": [
+"2C-B",
+"5-MeO-DMT",
+"DOM",
+"LSA",
+"bufotenin",
+"ibogaine",
+"psilocybin",
+"salvinorin A"
+],
+"n_eligible": 12,
+"sha": "a4c11b4e54ccc9b01ab295a218ed712ef9c9707cb944bc13892cf866ca04b9a7",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0051__L032__p494:mdma:classicpsychedelics": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0051__L032__p494:mdma:classicpsychedelics",
+"anchor": "psilocybin",
+"nearest": [
+"2C-B",
+"5-MeO-DMT",
+"DOM",
+"LSA"
+],
+"random": [
+"bufotenin",
+"ibogaine",
+"psilocin",
+"salvinorin A"
+],
+"distractors": [
+"2C-B",
+"5-MeO-DMT",
+"DOM",
+"LSA",
+"bufotenin",
+"ibogaine",
+"psilocin",
+"salvinorin A"
+],
+"n_eligible": 9,
+"sha": "e8eebf70d39022cb8ac026fe76d8f4f08894ab5de1740d0efe5c6444c33ec4eb",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0051__L040__p494:ketamine:psychedelicspsilocybinlsdmescaline": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0051__L040__p494:ketamine:psychedelicspsilocybinlsdmescaline",
+"anchor": "ketamine",
+"nearest": [
+"2C-B",
+"5-MeO-DMT",
+"DOM",
+"LSA"
+],
+"random": [
+"bufotenin",
+"ibogaine",
+"psilocin",
+"salvinorin A"
+],
+"distractors": [
+"2C-B",
+"5-MeO-DMT",
+"DOM",
+"LSA",
+"bufotenin",
+"ibogaine",
+"psilocin",
+"salvinorin A"
+],
+"n_eligible": 12,
+"sha": "8b47dd049bcd83714c72a74612c58501e8882da279469a707a66664ae224775c",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0051__L040__p494:ketamine:psychedelictherapies": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0051__L040__p494:ketamine:psychedelictherapies",
+"anchor": "ketamine",
+"nearest": [
+"2C-B",
+"5-MeO-DMT",
+"DOM",
+"LSA"
+],
+"random": [
+"ibogaine",
+"peyote",
+"psilocybin",
+"salvinorin A"
+],
+"distractors": [
+"2C-B",
+"5-MeO-DMT",
+"DOM",
+"LSA",
+"ibogaine",
+"peyote",
+"psilocybin",
+"salvinorin A"
+],
+"n_eligible": 12,
+"sha": "e5c6bb28e0b3a70be4c1f0a35164d2199c98626576420b584ff5d1efd58a84ec",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0051__L048__p105:ketamine:psilocybinmdmalsd": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0051__L048__p105:ketamine:psilocybinmdmalsd",
+"anchor": "ketamine",
+"nearest": [
+"2C-B",
+"5-MeO-DMT",
+"DOM",
+"LSA"
+],
+"random": [
+"LSD",
+"bufotenin",
+"peyote",
+"psilocin"
+],
+"distractors": [
+"2C-B",
+"5-MeO-DMT",
+"DOM",
+"LSA",
+"LSD",
+"bufotenin",
+"peyote",
+"psilocin"
+],
+"n_eligible": 12,
+"sha": "fe69303d41ca1b63a7466c7d44d4cf9173a05acea29074e9aa93e994df457575",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0051__L024__p424:ketamine:classicpsychedelics": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0051__L024__p424:ketamine:classicpsychedelics",
+"anchor": "ketamine",
+"nearest": [
+"2C-B",
+"5-MeO-DMT",
+"DOM",
+"LSA"
+],
+"random": [
+"LSD",
+"psilocin",
+"psilocybin",
+"salvinorin A"
+],
+"distractors": [
+"2C-B",
+"5-MeO-DMT",
+"DOM",
+"LSA",
+"LSD",
+"psilocin",
+"psilocybin",
+"salvinorin A"
+],
+"n_eligible": 12,
+"sha": "3e52060d962491fce7121bf16db9e3b6fc6d150b72dfd60092e4bf40b2244d4a",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0051__L024__p494:dmt:classicpsychedelics": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0051__L024__p494:dmt:classicpsychedelics",
+"anchor": "DMT",
+"nearest": [
+"2C-B",
+"DOM",
+"LSA",
+"LSD"
+],
+"random": [
+"mescaline",
+"peyote",
+"psilocin",
+"psilocybin"
+],
+"distractors": [
+"2C-B",
+"DOM",
+"LSA",
+"LSD",
+"mescaline",
+"peyote",
+"psilocin",
+"psilocybin"
+],
+"n_eligible": 11,
+"sha": "31380e8390487865308c3f9b111aaee4fb522c9d4189759c85a88f74b0b9ea6f",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0051__L024__p494:dmt:psychedelictherapiesgenerally": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0051__L024__p494:dmt:psychedelictherapiesgenerally",
+"anchor": "DMT",
+"nearest": [
+"2C-B",
+"DOM",
+"LSA",
+"LSD"
+],
+"random": [
+"bufotenin",
+"peyote",
+"psilocin",
+"psilocybin"
+],
+"distractors": [
+"2C-B",
+"DOM",
+"LSA",
+"LSD",
+"bufotenin",
+"peyote",
+"psilocin",
+"psilocybin"
+],
+"n_eligible": 11,
+"sha": "af1e334efa02128243df92b8986cce9da2c7208b526ef01c679511661b3656bc",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0051__L056__p105:ketamine:psychedelics": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0051__L056__p105:ketamine:psychedelics",
+"anchor": "ketamine",
+"nearest": [
+"2C-B",
+"5-MeO-DMT",
+"DOM",
+"LSA"
+],
+"random": [
+"bufotenin",
+"peyote",
+"psilocin",
+"psilocybin"
+],
+"distractors": [
+"2C-B",
+"5-MeO-DMT",
+"DOM",
+"LSA",
+"bufotenin",
+"peyote",
+"psilocin",
+"psilocybin"
+],
+"n_eligible": 12,
+"sha": "6b1747e519f9564c43c9034a0946d7da6b692e0d90e6a16a1445255c84f31dd0",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0051__L056__p355:ayahuasca:psilocybinmdmalsd": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0051__L056__p355:ayahuasca:psilocybinmdmalsd",
+"anchor": "ayahuasca",
+"nearest": [
+"2C-B",
+"5-MeO-DMT",
+"DOM",
+"LSA"
+],
+"random": [
+"LSD",
+"bufotenin",
+"ibogaine",
+"salvinorin A"
+],
+"distractors": [
+"2C-B",
+"5-MeO-DMT",
+"DOM",
+"LSA",
+"LSD",
+"bufotenin",
+"ibogaine",
+"salvinorin A"
+],
+"n_eligible": 12,
+"sha": "82596ef4992d8e50f37e30c8f1cfa177cb228ac5b3e3437c12483be5557f84b8",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0051__L028__p494:mdma:classicpsychedelics": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0051__L028__p494:mdma:classicpsychedelics",
+"anchor": "psilocybin",
+"nearest": [
+"2C-B",
+"5-MeO-DMT",
+"DOM",
+"LSA"
+],
+"random": [
+"bufotenin",
+"ibogaine",
+"peyote",
+"salvinorin A"
+],
+"distractors": [
+"2C-B",
+"5-MeO-DMT",
+"DOM",
+"LSA",
+"bufotenin",
+"ibogaine",
+"peyote",
+"salvinorin A"
+],
+"n_eligible": 9,
+"sha": "781f6762abd987f6a0fa85b1054954ea33ed4089ef6c30f7e553e69a587f2a53",
+"generation": 0
+},
+"nla-sft-L42:chat-lmsys-0051__L042__p105:ketamine:psychedelicspsilocybinmdmalsd": {
+"unit": "nla-sft-L42:chat-lmsys-0051__L042__p105:ketamine:psychedelicspsilocybinmdmalsd",
+"anchor": "ketamine",
+"nearest": [
+"2C-B",
+"5-MeO-DMT",
+"DOM",
+"LSA"
+],
+"random": [
+"bufotenin",
+"mescaline",
+"peyote",
+"salvinorin A"
+],
+"distractors": [
+"2C-B",
+"5-MeO-DMT",
+"DOM",
+"LSA",
+"bufotenin",
+"mescaline",
+"peyote",
+"salvinorin A"
+],
+"n_eligible": 12,
+"sha": "ec45d57fa8b8b81675f5570173f47a2ef77e88a7747b016b419d3634297f2cbf",
+"generation": 0
+},
+"nla-sft-L42:chat-lmsys-0051__L042__p35:ketamine:psychedelictherapies": {
+"unit": "nla-sft-L42:chat-lmsys-0051__L042__p35:ketamine:psychedelictherapies",
+"anchor": "ketamine",
+"nearest": [
+"2C-B",
+"5-MeO-DMT",
+"DOM",
+"LSA"
+],
+"random": [
+"LSD",
+"bufotenin",
+"ibogaine",
+"psilocin"
+],
+"distractors": [
+"2C-B",
+"5-MeO-DMT",
+"DOM",
+"LSA",
+"LSD",
+"bufotenin",
+"ibogaine",
+"psilocin"
+],
+"n_eligible": 12,
+"sha": "8a1265f7ea7276df644f39974bfe137d7187e9ddb821ce25dd1375744c9906fa",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0051__L024__p245:ketamine:psilocybinmdmalsd": {
+"unit": "s3d-rl600-all11:chat-lmsys-0051__L024__p245:ketamine:psilocybinmdmalsd",
+"anchor": "ketamine",
+"nearest": [
+"2C-B",
+"5-MeO-DMT",
+"DOM",
+"LSA"
+],
+"random": [
+"ibogaine",
+"peyote",
+"psilocin",
+"salvinorin A"
+],
+"distractors": [
+"2C-B",
+"5-MeO-DMT",
+"DOM",
+"LSA",
+"ibogaine",
+"peyote",
+"psilocin",
+"salvinorin A"
+],
+"n_eligible": 12,
+"sha": "913fae3ad7f24e5cac89200fc8b30d87e96f946431aa5d38461c8f24a08743ba",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0051__L036__p245:ketamine:psychedelicspsilocybinmdmalsd": {
+"unit": "s3d-rl600-all11:chat-lmsys-0051__L036__p245:ketamine:psychedelicspsilocybinmdmalsd",
+"anchor": "ketamine",
+"nearest": [
+"2C-B",
+"5-MeO-DMT",
+"DOM",
+"LSA"
+],
+"random": [
+"LSD",
+"bufotenin",
+"mescaline",
+"salvinorin A"
+],
+"distractors": [
+"2C-B",
+"5-MeO-DMT",
+"DOM",
+"LSA",
+"LSD",
+"bufotenin",
+"mescaline",
+"salvinorin A"
+],
+"n_eligible": 12,
+"sha": "28676e11d106259c5b44427c955f4ae65c7d69252da567fe40c269bba72c1806",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0051__L036__p424:mdma:classicpsychedelics": {
+"unit": "s3d-rl600-all11:chat-lmsys-0051__L036__p424:mdma:classicpsychedelics",
+"anchor": "psilocybin",
+"nearest": [
+"2C-B",
+"5-MeO-DMT",
+"DOM",
+"LSA"
+],
+"random": [
+"bufotenin",
+"ibogaine",
+"peyote",
+"psilocin"
+],
+"distractors": [
+"2C-B",
+"5-MeO-DMT",
+"DOM",
+"LSA",
+"bufotenin",
+"ibogaine",
+"peyote",
+"psilocin"
+],
+"n_eligible": 9,
+"sha": "b79a51cc25eb3b46bae6d98ff5015fd6c2ea9197fd0108926d7b4f774348f718",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0051__L056__p105:ketamine:psychedelics": {
+"unit": "s3d-rl600-all11:chat-lmsys-0051__L056__p105:ketamine:psychedelics",
+"anchor": "ketamine",
+"nearest": [
+"2C-B",
+"5-MeO-DMT",
+"DOM",
+"LSA"
+],
+"random": [
+"ibogaine",
+"peyote",
+"psilocin",
+"salvinorin A"
+],
+"distractors": [
+"2C-B",
+"5-MeO-DMT",
+"DOM",
+"LSA",
+"ibogaine",
+"peyote",
+"psilocin",
+"salvinorin A"
+],
+"n_eligible": 12,
+"sha": "d869681673ba13b88e2f333c275d7e040230c624858f9b4f0d9c060630ccc284",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0051__L056__p35:mdma:psychedelictherapies": {
+"unit": "s3d-rl600-all11:chat-lmsys-0051__L056__p35:mdma:psychedelictherapies",
+"anchor": "psilocybin",
+"nearest": [
+"2C-B",
+"5-MeO-DMT",
+"DOM",
+"LSA"
+],
+"random": [
+"bufotenin",
+"ibogaine",
+"peyote",
+"salvinorin A"
+],
+"distractors": [
+"2C-B",
+"5-MeO-DMT",
+"DOM",
+"LSA",
+"bufotenin",
+"ibogaine",
+"peyote",
+"salvinorin A"
+],
+"n_eligible": 9,
+"sha": "14c77d6ec11b7d8146cd698f1ea94f4fb62d425c78241be5183a45b9d322b8bb",
+"generation": 0
+}
+}

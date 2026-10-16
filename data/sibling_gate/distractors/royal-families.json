@@ -1,0 +1,118 @@
+{
+"s3d-rl600-all11:chat-lmsys-0031__L056__p54:danishroyalfamily:swedishmonarch": {
+"unit": "s3d-rl600-all11:chat-lmsys-0031__L056__p54:danishroyalfamily:swedishmonarch",
+"anchor": "Swedish royal family",
+"nearest": [
+"Norwegian royal family",
+"Dutch royal family",
+"Belgian royal family",
+"Jordanian royal family"
+],
+"random": [
+"Japanese imperial family",
+"Liechtenstein princely family",
+"Moroccan royal family",
+"Saudi royal family"
+],
+"distractors": [
+"Norwegian royal family",
+"Dutch royal family",
+"Belgian royal family",
+"Jordanian royal family",
+"Japanese imperial family",
+"Liechtenstein princely family",
+"Moroccan royal family",
+"Saudi royal family"
+],
+"n_eligible": 12,
+"sha": "0bc26e6878a9850b8ad18b3be93191e5ed92f528e22f6eb1071655bb9458c52d",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0031__L056__p55:danishroyal:swedishmonarch": {
+"unit": "s3d-rl600-all11:chat-lmsys-0031__L056__p55:danishroyal:swedishmonarch",
+"anchor": "Swedish royal family",
+"nearest": [
+"Norwegian royal family",
+"Dutch royal family",
+"Belgian royal family",
+"Jordanian royal family"
+],
+"random": [
+"Bhutanese royal family",
+"Liechtenstein princely family",
+"Saudi royal family",
+"Thai royal family"
+],
+"distractors": [
+"Norwegian royal family",
+"Dutch royal family",
+"Belgian royal family",
+"Jordanian royal family",
+"Bhutanese royal family",
+"Liechtenstein princely family",
+"Saudi royal family",
+"Thai royal family"
+],
+"n_eligible": 12,
+"sha": "23367c81c14684386828ff880fdc193c63dbf21895f8c3377fdc9cf53b1f268e",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0031__L036__p81:britishroyalfamily:swedishmonarch": {
+"unit": "s3d-rl600:chat-lmsys-0031__L036__p81:britishroyalfamily:swedishmonarch",
+"anchor": "Swedish royal family",
+"nearest": [
+"Norwegian royal family",
+"Dutch royal family",
+"Belgian royal family",
+"Jordanian royal family"
+],
+"random": [
+"Bhutanese royal family",
+"Japanese imperial family",
+"Liechtenstein princely family",
+"Monégasque princely family"
+],
+"distractors": [
+"Norwegian royal family",
+"Dutch royal family",
+"Belgian royal family",
+"Jordanian royal family",
+"Bhutanese royal family",
+"Japanese imperial family",
+"Liechtenstein princely family",
+"Monégasque princely family"
+],
+"n_eligible": 12,
+"sha": "14a97506daa330d9caeb1786d753e83a84e4a47087733e96ae72125b0849c9d5",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0031__L048__p81:britishspanishroyalfamily:swedishmonarch": {
+"unit": "s3d-rl600:chat-lmsys-0031__L048__p81:britishspanishroyalfamily:swedishmonarch",
+"anchor": "Swedish royal family",
+"nearest": [
+"Norwegian royal family",
+"Dutch royal family",
+"Belgian royal family",
+"Jordanian royal family"
+],
+"random": [
+"Bhutanese royal family",
+"Japanese imperial family",
+"Luxembourg grand ducal family",
+"Saudi royal family"
+],
+"distractors": [
+"Norwegian royal family",
+"Dutch royal family",
+"Belgian royal family",
+"Jordanian royal family",
+"Bhutanese royal family",
+"Japanese imperial family",
+"Luxembourg grand ducal family",
+"Saudi royal family"
+],
+"n_eligible": 12,
+"sha": "9c29ad448ec5256cc5a7677d1ccc0ccc15400663a57a39c6f7462b1d1197ec8d",
+"generation": 0
+}
+}

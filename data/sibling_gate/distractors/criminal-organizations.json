@@ -1,0 +1,477 @@
+{
+"mlnla-ck2000-all11:chat-dailydialog-0009__L036__p157:yakuza:italianamericanorganizedcrime": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0009__L036__p157:yakuza:italianamericanorganizedcrime",
+"anchor": "Mafia",
+"nearest": [
+"Cali Cartel",
+"'Ndrangheta",
+"Medellín Cartel",
+"Triads"
+],
+"random": [
+"Los Zetas",
+"Sinaloa Cartel"
+],
+"distractors": [
+"Cali Cartel",
+"'Ndrangheta",
+"Medellín Cartel",
+"Triads",
+"Los Zetas",
+"Sinaloa Cartel"
+],
+"n_eligible": 6,
+"sha": "51bbbf2d135761b99886475d96b9c45b30483697bd66fdde5c90acf2bb833103",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0009__L036__p157:yakuza:mafia": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0009__L036__p157:yakuza:mafia",
+"anchor": "Mafia",
+"nearest": [
+"Cali Cartel",
+"'Ndrangheta",
+"Medellín Cartel",
+"Triads"
+],
+"random": [
+"Los Zetas",
+"Sinaloa Cartel"
+],
+"distractors": [
+"Cali Cartel",
+"'Ndrangheta",
+"Medellín Cartel",
+"Triads",
+"Los Zetas",
+"Sinaloa Cartel"
+],
+"n_eligible": 6,
+"sha": "46800560b8f7c41d97ba2d8295bf3c19bdcc91bc62f9593e523fff3d7d6db6ee",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0009__L040__p65:japaneseyakuza:italianamericanmafia": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0009__L040__p65:japaneseyakuza:italianamericanmafia",
+"anchor": "Sicilian Mafia",
+"nearest": [
+"'Ndrangheta",
+"Triads",
+"Cali Cartel",
+"Los Zetas"
+],
+"random": [
+"Medellín Cartel",
+"Sinaloa Cartel"
+],
+"distractors": [
+"'Ndrangheta",
+"Triads",
+"Cali Cartel",
+"Los Zetas",
+"Medellín Cartel",
+"Sinaloa Cartel"
+],
+"n_eligible": 6,
+"sha": "ec1bc32fa603e58ca2853a944640a029f2f5c4a30953b72c6c81446a158ff509",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0009__L044__p65:yakuza:mafia": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0009__L044__p65:yakuza:mafia",
+"anchor": "Mafia",
+"nearest": [
+"Cali Cartel",
+"'Ndrangheta",
+"Medellín Cartel",
+"Triads"
+],
+"random": [
+"Los Zetas",
+"Sinaloa Cartel"
+],
+"distractors": [
+"Cali Cartel",
+"'Ndrangheta",
+"Medellín Cartel",
+"Triads",
+"Los Zetas",
+"Sinaloa Cartel"
+],
+"n_eligible": 6,
+"sha": "954f8928ee2eff9a4599eb2e7c0bc6e84a458346ba2177b703db5d1bd37bd608",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0009__L048__p65:yakuza:mafia": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0009__L048__p65:yakuza:mafia",
+"anchor": "Mafia",
+"nearest": [
+"Cali Cartel",
+"'Ndrangheta",
+"Medellín Cartel",
+"Triads"
+],
+"random": [
+"Los Zetas",
+"Sinaloa Cartel"
+],
+"distractors": [
+"Cali Cartel",
+"'Ndrangheta",
+"Medellín Cartel",
+"Triads",
+"Los Zetas",
+"Sinaloa Cartel"
+],
+"n_eligible": 6,
+"sha": "b037613eba1d39860f7dee4a84f1855d3f6ee5521df34a6bfd0e9a8218215ed9",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0009__L020__p198:ciaespionage:mafia": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0009__L020__p198:ciaespionage:mafia",
+"anchor": "Mafia",
+"nearest": [
+"Cali Cartel",
+"'Ndrangheta",
+"Medellín Cartel",
+"Triads"
+],
+"random": [
+"Los Zetas",
+"Sinaloa Cartel"
+],
+"distractors": [
+"Cali Cartel",
+"'Ndrangheta",
+"Medellín Cartel",
+"Triads",
+"Los Zetas",
+"Sinaloa Cartel"
+],
+"n_eligible": 6,
+"sha": "6fc68f82d30624d9343fd5832974613f09c2787f8e1853f935f8290443cf9317",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0009__L040__p157:naziideology:italianamericanorganizedcrime": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0009__L040__p157:naziideology:italianamericanorganizedcrime",
+"anchor": "Mafia",
+"nearest": [
+"Cali Cartel",
+"'Ndrangheta",
+"Medellín Cartel",
+"Triads"
+],
+"random": [
+"Los Zetas",
+"Sinaloa Cartel"
+],
+"distractors": [
+"Cali Cartel",
+"'Ndrangheta",
+"Medellín Cartel",
+"Triads",
+"Los Zetas",
+"Sinaloa Cartel"
+],
+"n_eligible": 6,
+"sha": "18af7fa9683cf49be32184d633f6f11b3101ca107eeb1b1a745a5fbebd41c308",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0009__L044__p157:naziideology:italianamericanorganizedcrime": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0009__L044__p157:naziideology:italianamericanorganizedcrime",
+"anchor": "Mafia",
+"nearest": [
+"Cali Cartel",
+"'Ndrangheta",
+"Medellín Cartel",
+"Triads"
+],
+"random": [
+"Los Zetas",
+"Sinaloa Cartel"
+],
+"distractors": [
+"Cali Cartel",
+"'Ndrangheta",
+"Medellín Cartel",
+"Triads",
+"Los Zetas",
+"Sinaloa Cartel"
+],
+"n_eligible": 6,
+"sha": "0bd9a08349e3da60d9973e6f69075347a8bad9150bc63053ce75cb7a2e85af58",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0009__L020__p198:kukluxklan:mafia": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0009__L020__p198:kukluxklan:mafia",
+"anchor": "Sicilian Mafia",
+"nearest": [
+"'Ndrangheta",
+"Triads",
+"Cali Cartel",
+"Los Zetas"
+],
+"random": [
+"Medellín Cartel",
+"Sinaloa Cartel"
+],
+"distractors": [
+"'Ndrangheta",
+"Triads",
+"Cali Cartel",
+"Los Zetas",
+"Medellín Cartel",
+"Sinaloa Cartel"
+],
+"n_eligible": 6,
+"sha": "d739ba70c5f3fc6b9f9a4a04233e547e914dafbff077f56c448fc174941bc073",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0009__L024__p236:cults:mafia": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0009__L024__p236:cults:mafia",
+"anchor": "Mafia",
+"nearest": [
+"Cali Cartel",
+"'Ndrangheta",
+"Medellín Cartel",
+"Triads"
+],
+"random": [
+"Los Zetas",
+"Sinaloa Cartel"
+],
+"distractors": [
+"Cali Cartel",
+"'Ndrangheta",
+"Medellín Cartel",
+"Triads",
+"Los Zetas",
+"Sinaloa Cartel"
+],
+"n_eligible": 6,
+"sha": "c7c32861dded0c04bcb2ba1b317298b9004a5d089bb83ba7e6ecc668b42a91cd",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0009__L036__p157:japanesemilitaryinww2:italianamericanorganizedcrime": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0009__L036__p157:japanesemilitaryinww2:italianamericanorganizedcrime",
+"anchor": "Mafia",
+"nearest": [
+"Cali Cartel",
+"'Ndrangheta",
+"Medellín Cartel",
+"Triads"
+],
+"random": [
+"Los Zetas",
+"Sinaloa Cartel"
+],
+"distractors": [
+"Cali Cartel",
+"'Ndrangheta",
+"Medellín Cartel",
+"Triads",
+"Los Zetas",
+"Sinaloa Cartel"
+],
+"n_eligible": 6,
+"sha": "e47605612fe9f3904e56f952e14cbdf51e43fc8a7527074d161668e52921cca7",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0009__L036__p157:yakuza:italianamericanorganizedcrime": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0009__L036__p157:yakuza:italianamericanorganizedcrime",
+"anchor": "Mafia",
+"nearest": [
+"Cali Cartel",
+"'Ndrangheta",
+"Medellín Cartel",
+"Triads"
+],
+"random": [
+"Los Zetas",
+"Sinaloa Cartel"
+],
+"distractors": [
+"Cali Cartel",
+"'Ndrangheta",
+"Medellín Cartel",
+"Triads",
+"Los Zetas",
+"Sinaloa Cartel"
+],
+"n_eligible": 6,
+"sha": "d3d23a97ca80186795c44b6144a581e1840fb127a997b3ed963521d9ff8157ff",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0009__L036__p157:yakuza:mafia": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0009__L036__p157:yakuza:mafia",
+"anchor": "Mafia",
+"nearest": [
+"Cali Cartel",
+"'Ndrangheta",
+"Medellín Cartel",
+"Triads"
+],
+"random": [
+"Los Zetas",
+"Sinaloa Cartel"
+],
+"distractors": [
+"Cali Cartel",
+"'Ndrangheta",
+"Medellín Cartel",
+"Triads",
+"Los Zetas",
+"Sinaloa Cartel"
+],
+"n_eligible": 6,
+"sha": "43be6bfa167280ec97d1d411c0e38a7ba3bc084692efd8f938c913db609a1a72",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0009__L040__p157:naziideology:italianamericanorganizedcrime": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0009__L040__p157:naziideology:italianamericanorganizedcrime",
+"anchor": "Mafia",
+"nearest": [
+"Cali Cartel",
+"'Ndrangheta",
+"Medellín Cartel",
+"Triads"
+],
+"random": [
+"Los Zetas",
+"Sinaloa Cartel"
+],
+"distractors": [
+"Cali Cartel",
+"'Ndrangheta",
+"Medellín Cartel",
+"Triads",
+"Los Zetas",
+"Sinaloa Cartel"
+],
+"n_eligible": 6,
+"sha": "52cd4945e3ed16ef7cd62eb1a4e6a0a14b9242b7574c81a572ff133498b5ac42",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0009__L048__p65:yakuza:mafia": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0009__L048__p65:yakuza:mafia",
+"anchor": "Mafia",
+"nearest": [
+"Cali Cartel",
+"'Ndrangheta",
+"Medellín Cartel",
+"Triads"
+],
+"random": [
+"Los Zetas",
+"Sinaloa Cartel"
+],
+"distractors": [
+"Cali Cartel",
+"'Ndrangheta",
+"Medellín Cartel",
+"Triads",
+"Los Zetas",
+"Sinaloa Cartel"
+],
+"n_eligible": 6,
+"sha": "6d0c3cc2c6221971355e72f13b4484ef5e29787b1f4e35ea6794de52eb6cc9b3",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0009__L052__p157:kkk:italianamericanorganizedcrime": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0009__L052__p157:kkk:italianamericanorganizedcrime",
+"anchor": "Mafia",
+"nearest": [
+"Cali Cartel",
+"'Ndrangheta",
+"Medellín Cartel",
+"Triads"
+],
+"random": [
+"Los Zetas",
+"Sinaloa Cartel"
+],
+"distractors": [
+"Cali Cartel",
+"'Ndrangheta",
+"Medellín Cartel",
+"Triads",
+"Los Zetas",
+"Sinaloa Cartel"
+],
+"n_eligible": 6,
+"sha": "64e12950d26176bf5a3e69cbbeb134ebacea067beaeae082e831869b0edaec8c",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0009__L052__p157:kkk:mafia": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0009__L052__p157:kkk:mafia",
+"anchor": "Mafia",
+"nearest": [
+"Cali Cartel",
+"'Ndrangheta",
+"Medellín Cartel",
+"Triads"
+],
+"random": [
+"Los Zetas",
+"Sinaloa Cartel"
+],
+"distractors": [
+"Cali Cartel",
+"'Ndrangheta",
+"Medellín Cartel",
+"Triads",
+"Los Zetas",
+"Sinaloa Cartel"
+],
+"n_eligible": 6,
+"sha": "33d9276262e6ed51bfb4f34ad680a1ad059a30b2b66446f87d5bae88ddb01c2c",
+"generation": 0
+},
+"nla-rl-L42:chat-dailydialog-0009__L042__p157:naziideology:italianamericanorganizedcrime": {
+"unit": "nla-rl-L42:chat-dailydialog-0009__L042__p157:naziideology:italianamericanorganizedcrime",
+"anchor": "Mafia",
+"nearest": [
+"Cali Cartel",
+"'Ndrangheta",
+"Medellín Cartel",
+"Triads"
+],
+"random": [
+"Los Zetas",
+"Sinaloa Cartel"
+],
+"distractors": [
+"Cali Cartel",
+"'Ndrangheta",
+"Medellín Cartel",
+"Triads",
+"Los Zetas",
+"Sinaloa Cartel"
+],
+"n_eligible": 6,
+"sha": "72db38dbe3ba754647a65d7c1b908a8030d7b4f28fdf561850549eb24124519f",
+"generation": 0
+},
+"nla-rl-L42:chat-dailydialog-0009__L042__p157:naziregime:italianamericanorganizedcrime": {
+"unit": "nla-rl-L42:chat-dailydialog-0009__L042__p157:naziregime:italianamericanorganizedcrime",
+"anchor": "Mafia",
+"nearest": [
+"Cali Cartel",
+"'Ndrangheta",
+"Medellín Cartel",
+"Triads"
+],
+"random": [
+"Los Zetas",
+"Sinaloa Cartel"
+],
+"distractors": [
+"Cali Cartel",
+"'Ndrangheta",
+"Medellín Cartel",
+"Triads",
+"Los Zetas",
+"Sinaloa Cartel"
+],
+"n_eligible": 6,
+"sha": "e3d0b8c29cddb9a472a1b62ec95903d94eedd3026092fb28cbe388f86577c122",
+"generation": 0
+}
+}

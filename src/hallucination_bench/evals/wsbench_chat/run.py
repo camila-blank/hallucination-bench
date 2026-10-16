@@ -40,6 +40,7 @@ import hashlib
 import json
 import os
 import re
+import sys
 import time
 from collections.abc import Callable, Iterator, Sequence
 from dataclasses import dataclass, field
@@ -785,6 +786,9 @@ async def rebuild_arm_async(
     labels_dir = sibling_units.labels_dir(out_root, sibling_labels_dir)
     sibling_labels = sibling_units.load_labels(name, labels_dir)
     acc2 = score_v2.AccumulatorV2(sibling_labels=sibling_labels)
+    # plan 0010 §3: a stamped labels file is used only if its unit hash matches these cells
+    stamp = sibling_units.load_stamp(name, labels_dir) if sibling_labels is not None else None
+    hasher = sibling_units.UnitHasher(name) if stamp and stamp.get("unit_hash") else None
     map_layers = {
         int(m.group(1)) for k in arm.cache.keys() if k.endswith(":M") and (m := _LAYER_RE.search(k))
     }
@@ -798,7 +802,25 @@ async def rebuild_arm_async(
             acc.add(rec)
             if c.layer in map_layers:
                 acc2.add(rec)
+            if hasher is not None:
+                hasher.add(rec)
     tmp.replace(arm.dir / "cells.jsonl")
+    labels_guard = "no_labels" if sibling_labels is None else "no_stamp"
+    if hasher is not None:
+        labels_guard = sibling_units.labels_guard(name, labels_dir, hasher.hexdigest())
+        if labels_guard == "mismatch":
+            print(
+                f"[{name}] WARNING: sibling labels {labels_dir / (name + '.jsonl')} were gated on "
+                "a different unit set (unit hash mismatch): refused, scoring is exact rev 20; "
+                "re-run `hbench gate`",
+                file=sys.stderr,
+                flush=True,
+            )
+            sibling_labels = None
+            acc2 = score_v2.AccumulatorV2(sibling_labels=None)
+            for rec in sibling_units.iter_jsonl(arm.dir / "cells.jsonl"):
+                if int(rec["layer"]) in map_layers:
+                    acc2.add(rec)
     spend = {s: Usage() for s in STAGES}
     for row in arm.cache.rows():
         meta = row.get("meta") if isinstance(row.get("meta"), dict) else {}
@@ -831,6 +853,10 @@ async def rebuild_arm_async(
         "map_layers": sorted(map_layers),
         # rev 21: the sibling-gate labels file joined into scoring (None = rev-20 scoring)
         "sibling_labels": str(labels_dir / f"{name}.jsonl") if sibling_labels is not None else None,
+        "sibling_labels_guard": labels_guard,  # plan 0010 §3
+        "sibling_generation": (stamp or {}).get("generation")
+        if sibling_labels is not None
+        else None,
         "pre_gate": not gate_passed(out_root, models.mapper, models.map_anchor),
     }
     summary = score.summarize(

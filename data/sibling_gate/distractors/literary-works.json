@@ -1,0 +1,114 @@
+{
+"mlnla-ck2000-all11:chat-dailydialog-0030__L048__p24:sherlockholmeshouseofusher:thehitchhikersguidetothegalaxy": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0030__L048__p24:sherlockholmeshouseofusher:thehitchhikersguidetothegalaxy",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"Moby-Dick",
+"1984",
+"The Odyssey",
+"The Iliad"
+],
+"random": [],
+"distractors": [
+"Moby-Dick",
+"1984",
+"The Odyssey",
+"The Iliad"
+],
+"n_eligible": 4,
+"sha": "a966b323bfa07993bdc3f5b0e7b17b7266c61b4e365586fd2227c544452895a0",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0030__L028__p110:jabberwockywonderland:thehitchhikersguidetothegalaxy": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0030__L028__p110:jabberwockywonderland:thehitchhikersguidetothegalaxy",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"Moby-Dick",
+"1984",
+"The Odyssey",
+"Hamlet"
+],
+"random": [
+"The Iliad"
+],
+"distractors": [
+"Moby-Dick",
+"1984",
+"The Odyssey",
+"Hamlet",
+"The Iliad"
+],
+"n_eligible": 5,
+"sha": "79453fb294759d4968ffb65d574955795106c2ecdc5e5799fd57d6c54df0c999",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0030__L032__p24:sherlockholmessilverblaze:thehitchhikersguidetothegalaxy": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0030__L032__p24:sherlockholmessilverblaze:thehitchhikersguidetothegalaxy",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"Moby-Dick",
+"1984",
+"The Odyssey",
+"Hamlet"
+],
+"random": [
+"The Iliad"
+],
+"distractors": [
+"Moby-Dick",
+"1984",
+"The Odyssey",
+"Hamlet",
+"The Iliad"
+],
+"n_eligible": 5,
+"sha": "230d75396614e356f9c6c20282421a0e2d15d514c1d372fc0924b4eb3b3d902e",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0030__L020__p65:williamshakespearessonnet:douglasadamsthehitchhikersguidetothegalaxy": {
+"unit": "s3d-sft251:chat-dailydialog-0030__L020__p65:williamshakespearessonnet:douglasadamsthehitchhikersguidetothegalaxy",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"Moby-Dick",
+"1984",
+"The Odyssey",
+"Hamlet"
+],
+"random": [
+"The Iliad"
+],
+"distractors": [
+"Moby-Dick",
+"1984",
+"The Odyssey",
+"Hamlet",
+"The Iliad"
+],
+"n_eligible": 5,
+"sha": "672f3d04fb9f8b2391647800ed02a9823aaf3873a1e8c892aaeb9ccf1ae0f0c2",
+"generation": 0
+},
+"template-v3:chat-dailydialog-0030__L040__p203:romeoandjuliet:thehitchhikersguidetothegalaxy": {
+"unit": "template-v3:chat-dailydialog-0030__L040__p203:romeoandjuliet:thehitchhikersguidetothegalaxy",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"Moby-Dick",
+"1984",
+"The Odyssey",
+"Hamlet"
+],
+"random": [
+"The Iliad"
+],
+"distractors": [
+"Moby-Dick",
+"1984",
+"The Odyssey",
+"Hamlet",
+"The Iliad"
+],
+"n_eligible": 5,
+"sha": "2ce3983892de245e3144098e8c4ad2ef2965226e0e72720a26e646f476c8ac66",
+"generation": 0
+}
+}

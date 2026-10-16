@@ -1,0 +1,366 @@
+{
+"mlnla-ck2000-all11:chat-lmsys-0060__L052__p889:lungenentzündung:aom": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0060__L052__p889:lungenentzündung:aom",
+"anchor": "acute otitis media",
+"nearest": [
+"Diabetes mellitus"
+],
+"random": [],
+"distractors": [
+"Diabetes mellitus"
+],
+"n_eligible": 1,
+"sha": "73cd37609bb4e613686d781f4506489ee061f5db14f55532586ab1c4bd82f3e3",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0060__L052__p889:pneumonia:acuteotitismedia": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0060__L052__p889:pneumonia:acuteotitismedia",
+"anchor": "otitis media",
+"nearest": [
+"Diabetes mellitus"
+],
+"random": [],
+"distractors": [
+"Diabetes mellitus"
+],
+"n_eligible": 1,
+"sha": "66193aaf935e90affb7b6a161148297ab4f793217ec73828442d349b12bf1f43",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0060__L052__p889:pneumonia:aom": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0060__L052__p889:pneumonia:aom",
+"anchor": "otitis media",
+"nearest": [
+"Diabetes mellitus"
+],
+"random": [],
+"distractors": [
+"Diabetes mellitus"
+],
+"n_eligible": 1,
+"sha": "fa98812c73b10b86138a4ec18ac6e6e39b91fb322862ebf790b96221693d719d",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0060__L056__p889:diarrhea:acuteotitismedia": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0060__L056__p889:diarrhea:acuteotitismedia",
+"anchor": "otitis media",
+"nearest": [
+"Diabetes mellitus"
+],
+"random": [],
+"distractors": [
+"Diabetes mellitus"
+],
+"n_eligible": 1,
+"sha": "305530d2aab38857fd2e16be2a0ffbdccac837b2ecee2e80fbab9895e45879da",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0060__L056__p889:pneumonia:acuteotitismedia": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0060__L056__p889:pneumonia:acuteotitismedia",
+"anchor": "otitis media",
+"nearest": [
+"Diabetes mellitus"
+],
+"random": [],
+"distractors": [
+"Diabetes mellitus"
+],
+"n_eligible": 1,
+"sha": "32693c2ce7dca9939a09c63502f1899768f9b78d46adb85c62f101a8b00fb625",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0060__L020__p833:anorexianervosa:akuteotitismedia": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0060__L020__p833:anorexianervosa:akuteotitismedia",
+"anchor": "Acute otitis media",
+"nearest": [
+"Diabetes mellitus"
+],
+"random": [],
+"distractors": [
+"Diabetes mellitus"
+],
+"n_eligible": 1,
+"sha": "858a61f3b1efe8efece0c69736cf112c8d7eb2485107852d4abc8794dc1eb740",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0060__L024__p788:chronicobstructivepulmonarydisease:akuteotitismedia": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0060__L024__p788:chronicobstructivepulmonarydisease:akuteotitismedia",
+"anchor": "acute otitis media",
+"nearest": [
+"Diabetes mellitus"
+],
+"random": [],
+"distractors": [
+"Diabetes mellitus"
+],
+"n_eligible": 1,
+"sha": "2f50d9b7fa0bcb4ecaa364cd4bb019fea896b39a9e489999f681b095b78ccbc7",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0060__L024__p788:copd:aom": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0060__L024__p788:copd:aom",
+"anchor": "acute otitis media",
+"nearest": [
+"Diabetes mellitus"
+],
+"random": [],
+"distractors": [
+"Diabetes mellitus"
+],
+"n_eligible": 1,
+"sha": "2efcd88559857f28cca36100651c91d15553da83a78c73f6955cb634a440443b",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0060__L028__p889:cardiovasculardisease:akuteotitismedia": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0060__L028__p889:cardiovasculardisease:akuteotitismedia",
+"anchor": "Acute otitis media",
+"nearest": [
+"Diabetes mellitus"
+],
+"random": [],
+"distractors": [
+"Diabetes mellitus"
+],
+"n_eligible": 1,
+"sha": "c9a63eb725992cb07f1c8de4fb09190ec4139418c0d4dc9ad7480f995d768396",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0060__L028__p889:heartattack:akuteotitismedia": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0060__L028__p889:heartattack:akuteotitismedia",
+"anchor": "acute otitis media",
+"nearest": [
+"Diabetes mellitus"
+],
+"random": [],
+"distractors": [
+"Diabetes mellitus"
+],
+"n_eligible": 1,
+"sha": "706a524382d9a3ba1c59a65bcf68bb687cdec75fc3f09445c3b4ad44fe48dab7",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0060__L044__p833:covid19:akuteotitismedia": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0060__L044__p833:covid19:akuteotitismedia",
+"anchor": "acute otitis media",
+"nearest": [
+"Diabetes mellitus"
+],
+"random": [],
+"distractors": [
+"Diabetes mellitus"
+],
+"n_eligible": 1,
+"sha": "5f3b99d86ed904961d95665798d332c8d6230378ac9b12b7d6d9e46c6d561341",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0060__L052__p833:pneumonia:acuteotitismedia": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0060__L052__p833:pneumonia:acuteotitismedia",
+"anchor": "otitis media",
+"nearest": [
+"Diabetes mellitus"
+],
+"random": [],
+"distractors": [
+"Diabetes mellitus"
+],
+"n_eligible": 1,
+"sha": "f335e5aa37eb078ecb1192fc0b14ba15227f69420f6ebbbc2566f6261b803586",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0060__L056__p663:athletesfoot:otitis": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0060__L056__p663:athletesfoot:otitis",
+"anchor": "acute otitis media",
+"nearest": [
+"Diabetes mellitus"
+],
+"random": [],
+"distractors": [
+"Diabetes mellitus"
+],
+"n_eligible": 1,
+"sha": "2408370b867936862dc46f09ef9206dd47aa745a33eb25144818a72ed7cb23c2",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0060__L056__p663:athletesfoot:schwimmbadotitis": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0060__L056__p663:athletesfoot:schwimmbadotitis",
+"anchor": "acute otitis media",
+"nearest": [
+"Diabetes mellitus"
+],
+"random": [],
+"distractors": [
+"Diabetes mellitus"
+],
+"n_eligible": 1,
+"sha": "733810cdc27f591a3d4256c7919cca7281b88a3df8a382af9c20ec3416d44b1c",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0060__L060__p788:akutenasennebenhöhlenentzündung:akuteotitismedia": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0060__L060__p788:akutenasennebenhöhlenentzündung:akuteotitismedia",
+"anchor": "acute otitis media",
+"nearest": [
+"Diabetes mellitus"
+],
+"random": [],
+"distractors": [
+"Diabetes mellitus"
+],
+"n_eligible": 1,
+"sha": "abde5f68bc4c4f59cbcb61be2e9c78a4d58e8ee5f975e8c9f600b7c9e5e531a2",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0060__L024__p788:chronicobstructivepulmonarydisease:akuteotitismedia": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0060__L024__p788:chronicobstructivepulmonarydisease:akuteotitismedia",
+"anchor": "acute otitis media",
+"nearest": [
+"Diabetes mellitus"
+],
+"random": [],
+"distractors": [
+"Diabetes mellitus"
+],
+"n_eligible": 1,
+"sha": "9f9ed0a98b9967f29d411d86c25970bde09f7ece961c39cc0742f15574bf5a47",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0060__L024__p788:copd:akuteotitismedia": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0060__L024__p788:copd:akuteotitismedia",
+"anchor": "acute otitis media",
+"nearest": [
+"Diabetes mellitus"
+],
+"random": [],
+"distractors": [
+"Diabetes mellitus"
+],
+"n_eligible": 1,
+"sha": "11d9917d78bf52fa52b7ed4613ba2a4d4ebe298e191e1dee600a7c931edaba9c",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0060__L024__p788:copd:aom": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0060__L024__p788:copd:aom",
+"anchor": "acute otitis media",
+"nearest": [
+"Diabetes mellitus"
+],
+"random": [],
+"distractors": [
+"Diabetes mellitus"
+],
+"n_eligible": 1,
+"sha": "01bc0a46c1d1fc4e7a914e4de8d2fb1244a81e9b09c1d30fb9dff8abb9046aa9",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0060__L052__p663:impetigoherpes:otitis": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0060__L052__p663:impetigoherpes:otitis",
+"anchor": "otitis media",
+"nearest": [
+"Diabetes mellitus"
+],
+"random": [],
+"distractors": [
+"Diabetes mellitus"
+],
+"n_eligible": 1,
+"sha": "476d423fd8d2b01bd5b8abe8ff80b28b6936b3a6ef0e9809c122521bb80f441c",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0060__L052__p663:molluscumcontagiosum:otitisearinfections": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0060__L052__p663:molluscumcontagiosum:otitisearinfections",
+"anchor": "acute otitis media",
+"nearest": [
+"Diabetes mellitus"
+],
+"random": [],
+"distractors": [
+"Diabetes mellitus"
+],
+"n_eligible": 1,
+"sha": "71f58e9f505f1f313a24389156b11012bb08a5819e591524a5348c978323acd4",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0060__L052__p889:lungenentzündung:akuteotitismedia": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0060__L052__p889:lungenentzündung:akuteotitismedia",
+"anchor": "acute otitis media",
+"nearest": [
+"Diabetes mellitus"
+],
+"random": [],
+"distractors": [
+"Diabetes mellitus"
+],
+"n_eligible": 1,
+"sha": "8f17e5621f1638f360594623de6935e13d64cdf1d50a934f2db5447e71d19a1a",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0060__L052__p889:pneumonia:acuteotitismedia": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0060__L052__p889:pneumonia:acuteotitismedia",
+"anchor": "otitis media",
+"nearest": [
+"Diabetes mellitus"
+],
+"random": [],
+"distractors": [
+"Diabetes mellitus"
+],
+"n_eligible": 1,
+"sha": "357c979a764e183d97c1b4f28a0163662293c02da40dd3b921de54733ab8d812",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0060__L056__p889:pneumonia:akuteotitismedia": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0060__L056__p889:pneumonia:akuteotitismedia",
+"anchor": "otitis media",
+"nearest": [
+"Diabetes mellitus"
+],
+"random": [],
+"distractors": [
+"Diabetes mellitus"
+],
+"n_eligible": 1,
+"sha": "7e020a43505eb4e6487a5a00e82fa67dd414a13d829558bf27acde4f64cd1b99",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0060__L056__p568:windpocken:schwimmbadotitis": {
+"unit": "s3d-rl600-all11:chat-lmsys-0060__L056__p568:windpocken:schwimmbadotitis",
+"anchor": "Otitis externa",
+"nearest": [
+"Diabetes mellitus"
+],
+"random": [],
+"distractors": [
+"Diabetes mellitus"
+],
+"n_eligible": 1,
+"sha": "c4176ed4ec1f8bfd2a05b230092b7c0252e7e480b365a6a1fb63cd3ded3f8398",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0060__L052__p889:tuberkulose:akuteotitismedia": {
+"unit": "s3d-sft251:chat-lmsys-0060__L052__p889:tuberkulose:akuteotitismedia",
+"anchor": "Acute otitis media",
+"nearest": [
+"Diabetes mellitus"
+],
+"random": [],
+"distractors": [
+"Diabetes mellitus"
+],
+"n_eligible": 1,
+"sha": "d4c6e52cf8d772d1d5a64d41904c706853bdf39992211986975825d449c04577",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0060__L060__p788:akutelungenentzündung:akuteotitismedia": {
+"unit": "s3d-sft251:chat-lmsys-0060__L060__p788:akutelungenentzündung:akuteotitismedia",
+"anchor": "Acute otitis media",
+"nearest": [
+"Diabetes mellitus"
+],
+"random": [],
+"distractors": [
+"Diabetes mellitus"
+],
+"n_eligible": 1,
+"sha": "2628488cf2954390a91f0046c3900c1b9ed9583a94a121bad6a843971348d4a5",
+"generation": 0
+}
+}

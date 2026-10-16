@@ -1,0 +1,189 @@
+{
+"mlnla-ck2000-all11:chat-lmsys-0014__L040__p353:maclayerforumts:rlcsublayerforlte": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0014__L040__p353:maclayerforumts:rlcsublayerforlte",
+"anchor": "Radio Link Control (RLC) layer for LTE",
+"nearest": [
+"Session layer",
+"Presentation layer",
+"Internet layer",
+"Network layer"
+],
+"random": [
+"Application layer"
+],
+"distractors": [
+"Session layer",
+"Presentation layer",
+"Internet layer",
+"Network layer",
+"Application layer"
+],
+"n_eligible": 5,
+"sha": "e05b139c3820da539bbb466d634258355b4dc749f1ca8cc4b78f0c12836994b9",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0014__L028__p471:transport:rlc": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0014__L028__p471:transport:rlc",
+"anchor": "Transport layer",
+"nearest": [
+"Network layer",
+"Internet layer",
+"Link layer",
+"Application layer"
+],
+"random": [
+"Data link layer",
+"Presentation layer",
+"RLC",
+"Radio Link Control (RLC) layer for LTE"
+],
+"distractors": [
+"Network layer",
+"Internet layer",
+"Link layer",
+"Application layer",
+"Data link layer",
+"Presentation layer",
+"RLC",
+"Radio Link Control (RLC) layer for LTE"
+],
+"n_eligible": 11,
+"sha": "29128230e622e008bbd1e44d75ff68f4d39d456531756953efcd59e2a0c42d30",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0014__L036__p353:maclayerforumts:rlcsublayeroflte": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0014__L036__p353:maclayerforumts:rlcsublayeroflte",
+"anchor": "Radio Link Control (RLC) layer for LTE",
+"nearest": [
+"Session layer",
+"Presentation layer",
+"Internet layer",
+"Network layer"
+],
+"random": [
+"Application layer"
+],
+"distractors": [
+"Session layer",
+"Presentation layer",
+"Internet layer",
+"Network layer",
+"Application layer"
+],
+"n_eligible": 5,
+"sha": "616fea77f2499c1b4f053750096324023a7584ae393980d2e27bf08bd53971f6",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0014__L048__p471:phy:rlc": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0014__L048__p471:phy:rlc",
+"anchor": "RLC",
+"nearest": [
+"Radio Link Control layer",
+"Session layer",
+"Presentation layer",
+"Application layer"
+],
+"random": [
+"Data link layer",
+"Internet layer",
+"Link layer",
+"Network layer"
+],
+"distractors": [
+"Radio Link Control layer",
+"Session layer",
+"Presentation layer",
+"Application layer",
+"Data link layer",
+"Internet layer",
+"Link layer",
+"Network layer"
+],
+"n_eligible": 8,
+"sha": "5caa820a7b8d7df5e44911cf92eb6c762e8a1060177a7ebb07779bf924b7edc4",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0014__L056__p353:maclayer:rlcsublayer": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0014__L056__p353:maclayer:rlcsublayer",
+"anchor": "Radio Link Control layer",
+"nearest": [
+"LTE RLC layer",
+"Session layer",
+"Presentation layer",
+"Internet layer"
+],
+"random": [
+"Application layer",
+"Network layer"
+],
+"distractors": [
+"LTE RLC layer",
+"Session layer",
+"Presentation layer",
+"Internet layer",
+"Application layer",
+"Network layer"
+],
+"n_eligible": 6,
+"sha": "1697209d5f550c4da81ab4522f855ff16e822ac56e06961b932f535631f56f47",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0014__L040__p353:umtsmaclayer:lterlclayer": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0014__L040__p353:umtsmaclayer:lterlclayer",
+"anchor": "LTE RLC layer",
+"nearest": [
+"Radio Link Control layer",
+"Session layer",
+"Data link layer",
+"Link layer"
+],
+"random": [
+"Application layer",
+"Internet layer",
+"Network layer",
+"Presentation layer"
+],
+"distractors": [
+"Radio Link Control layer",
+"Session layer",
+"Data link layer",
+"Link layer",
+"Application layer",
+"Internet layer",
+"Network layer",
+"Presentation layer"
+],
+"n_eligible": 8,
+"sha": "09d8a212f802170c3fc0c4f4459f935f0dc63eb9398d0e19b59933ecaf22825d",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0014__L044__p353:umtsmaclayer:lterlclayer": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0014__L044__p353:umtsmaclayer:lterlclayer",
+"anchor": "LTE RLC layer",
+"nearest": [
+"Radio Link Control layer",
+"Session layer",
+"Data link layer",
+"Link layer"
+],
+"random": [
+"Application layer",
+"Internet layer",
+"Network layer",
+"Presentation layer"
+],
+"distractors": [
+"Radio Link Control layer",
+"Session layer",
+"Data link layer",
+"Link layer",
+"Application layer",
+"Internet layer",
+"Network layer",
+"Presentation layer"
+],
+"n_eligible": 8,
+"sha": "347aebd6ccb640bb4cd34a4839cd08b6f855321a1ea32cc14749f3602c5ffaeb",
+"generation": 0
+}
+}

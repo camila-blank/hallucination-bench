@@ -1,0 +1,194 @@
+{
+"mlnla-ck2000-all11:chat-lmsys-0038__L020__p252:iloccolumnfiltering:sortvalues": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0038__L020__p252:iloccolumnfiltering:sortvalues",
+"anchor": "sort_values",
+"nearest": [
+"sorting",
+"concat"
+],
+"random": [],
+"distractors": [
+"sorting",
+"concat"
+],
+"n_eligible": 2,
+"sha": "01555154a650f07c22c7a93a73cc2c131996ca34dd6a74c4742a7a394d9b3543",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0038__L024__p189:renaming:sorting": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0038__L024__p189:renaming:sorting",
+"anchor": "sorting",
+"nearest": [
+"df.sort_values()",
+"concat"
+],
+"random": [],
+"distractors": [
+"df.sort_values()",
+"concat"
+],
+"n_eligible": 2,
+"sha": "0bc3f970a2c865f7618a01418e4d36ae2c6e26683dac711d23455cb0669ca282",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0038__L052__p364:concatenation:sorting": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0038__L052__p364:concatenation:sorting",
+"anchor": "sorting",
+"nearest": [
+"df.sort_values()"
+],
+"random": [],
+"distractors": [
+"df.sort_values()"
+],
+"n_eligible": 1,
+"sha": "6a8ccfeab3e94c709fb02ac496a83f518eb537edf25033468ea9ea3162199c4b",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0038__L020__p99:dfdfcol==value:sortvalues": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0038__L020__p99:dfdfcol==value:sortvalues",
+"anchor": "df.sort_values()",
+"nearest": [
+"sorting a DataFrame by column",
+"sorting by column",
+"concat",
+"pivot_table"
+],
+"random": [],
+"distractors": [
+"sorting a DataFrame by column",
+"sorting by column",
+"concat",
+"pivot_table"
+],
+"n_eligible": 4,
+"sha": "a08814b16fcfed4f0fdb577f7a1784a467a21808c10649654e4ba45cacb42c88",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0038__L028__p364:droppingrowscolumns:sorting": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0038__L028__p364:droppingrowscolumns:sorting",
+"anchor": "sorting by column",
+"nearest": [
+"df.sort_values()",
+"pivot_table",
+"concat"
+],
+"random": [],
+"distractors": [
+"df.sort_values()",
+"pivot_table",
+"concat"
+],
+"n_eligible": 3,
+"sha": "a652160c369eea0fa20909741ca323e52fd3897fb112b18c268f34052e86882c",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0038__L044__p473:filtering:sorting": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0038__L044__p473:filtering:sorting",
+"anchor": "sorting",
+"nearest": [
+"df.sort_values()",
+"concat",
+"pivot_table"
+],
+"random": [],
+"distractors": [
+"df.sort_values()",
+"concat",
+"pivot_table"
+],
+"n_eligible": 3,
+"sha": "065c2f16d32e5da60cd4cc527b9f6ddcbd0ce56e17abcae2b8473f1b971e9939",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0038__L052__p99:datetimeconversion:sorting": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0038__L052__p99:datetimeconversion:sorting",
+"anchor": "sorting a DataFrame by column",
+"nearest": [
+"df.sort_values()",
+"concat",
+"pivot_table"
+],
+"random": [],
+"distractors": [
+"df.sort_values()",
+"concat",
+"pivot_table"
+],
+"n_eligible": 3,
+"sha": "02ef5b9022bcd31f13fb4330fd856f1906fd09c7e28ee06e90d939d3a4178e15",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0038__L052__p99:datetimemanipulation:sorting": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0038__L052__p99:datetimemanipulation:sorting",
+"anchor": "sorting",
+"nearest": [
+"df.sort_values()",
+"concat",
+"pivot_table"
+],
+"random": [],
+"distractors": [
+"df.sort_values()",
+"concat",
+"pivot_table"
+],
+"n_eligible": 3,
+"sha": "08f788f1a2be677a8d33da9d5efa749921ec411b553f87a4fb168bb71fc60fb7",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0038__L020__p212:groupbyaggregation:sortvaluessorting": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0038__L020__p212:groupbyaggregation:sortvaluessorting",
+"anchor": "sort_values",
+"nearest": [
+"sorting",
+"pivot_table",
+"concat"
+],
+"random": [],
+"distractors": [
+"sorting",
+"pivot_table",
+"concat"
+],
+"n_eligible": 3,
+"sha": "eb50a0310cecb410664d47830be600563d19aa8ab9b79df218d00d033e8b62da",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0038__L044__p473:booleanindexingwithloc:sortvalues": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0038__L044__p473:booleanindexingwithloc:sortvalues",
+"anchor": "sort_values()",
+"nearest": [
+"sorting",
+"pivot_table",
+"concat"
+],
+"random": [],
+"distractors": [
+"sorting",
+"pivot_table",
+"concat"
+],
+"n_eligible": 3,
+"sha": "7749b0430a7da6d7bf15d45000bf3f8eff9f94d6e98631c10e2036ab0303a1ba",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0038__L060__p189:datavisualizationwithmatplotlib:sortingwithsortvalues": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0038__L060__p189:datavisualizationwithmatplotlib:sortingwithsortvalues",
+"anchor": "sorting a DataFrame by column",
+"nearest": [
+"df.sort_values()",
+"concat",
+"pivot_table"
+],
+"random": [],
+"distractors": [
+"df.sort_values()",
+"concat",
+"pivot_table"
+],
+"n_eligible": 3,
+"sha": "7a39848c8f18aebdcc44ad49eb041f4102fbd7bd26ebfb80d681cf0c5f50543f",
+"generation": 0
+}
+}

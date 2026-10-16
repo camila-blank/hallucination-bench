@@ -1,0 +1,6498 @@
+{
+"mlnla-ck2000-all11:chat-dailydialog-0048__L052__p199:madrid:london": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0048__L052__p199:madrid:london",
+"anchor": "London",
+"nearest": [
+"New York City",
+"Kuala Lumpur",
+"New York",
+"Seoul"
+],
+"random": [
+"Las Vegas",
+"Manchester",
+"Shenzhen",
+"Singapore"
+],
+"distractors": [
+"New York City",
+"Kuala Lumpur",
+"New York",
+"Seoul",
+"Las Vegas",
+"Manchester",
+"Shenzhen",
+"Singapore"
+],
+"n_eligible": 44,
+"sha": "cad5ccc8aad03d6b23cb6065bedfda43883acab3df9bbad7dc19273665bccf1d",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0052__L020__p92:shanghai:hongkong": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0052__L020__p92:shanghai:hongkong",
+"anchor": "Hong Kong",
+"nearest": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan"
+],
+"random": [
+"Fort Myers",
+"Lund",
+"Mumbai",
+"Rome"
+],
+"distractors": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan",
+"Fort Myers",
+"Lund",
+"Mumbai",
+"Rome"
+],
+"n_eligible": 28,
+"sha": "42970dc16572b2dae52dcbf381435557588d6f215dd54624081600f78b600934",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0052__L024__p25:shanghai:hongkong": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0052__L024__p25:shanghai:hongkong",
+"anchor": "Hong Kong",
+"nearest": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan"
+],
+"random": [
+"Fort Myers",
+"Lagos",
+"Orlando",
+"Rome"
+],
+"distractors": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan",
+"Fort Myers",
+"Lagos",
+"Orlando",
+"Rome"
+],
+"n_eligible": 28,
+"sha": "195ac4f4f8439e17d48e268b4f05138d39b851016c9a3ed87bf9d1c3059d95b9",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0052__L024__p55:la:hongkong": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0052__L024__p55:la:hongkong",
+"anchor": "Hong Kong",
+"nearest": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan"
+],
+"random": [
+"Miami",
+"New York City",
+"Ningbo",
+"Orlando"
+],
+"distractors": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan",
+"Miami",
+"New York City",
+"Ningbo",
+"Orlando"
+],
+"n_eligible": 28,
+"sha": "db699ef9f018aa6b8361d913805a44772373b324a5959f5ef01eda842c013beb",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0052__L024__p92:dubai:hongkong": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0052__L024__p92:dubai:hongkong",
+"anchor": "Hong Kong",
+"nearest": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan"
+],
+"random": [
+"Nanjing",
+"Ningbo",
+"Rosemary Beach",
+"Tampa"
+],
+"distractors": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan",
+"Nanjing",
+"Ningbo",
+"Rosemary Beach",
+"Tampa"
+],
+"n_eligible": 28,
+"sha": "30af748785b7b9117047c7f48d485fc70d586a29ccc88af2be28c38756bd57dd",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0052__L036__p25:shanghai:hongkong": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0052__L036__p25:shanghai:hongkong",
+"anchor": "Hong Kong",
+"nearest": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan"
+],
+"random": [
+"Ho Chi Minh City",
+"Lagos",
+"Ningbo",
+"Tehran"
+],
+"distractors": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan",
+"Ho Chi Minh City",
+"Lagos",
+"Ningbo",
+"Tehran"
+],
+"n_eligible": 28,
+"sha": "755312d12544e272c8e74318dc069bf70c7f558c42c1eed0273150db32d546f2",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0052__L044__p25:singapore:hongkong": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0052__L044__p25:singapore:hongkong",
+"anchor": "Hong Kong",
+"nearest": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan"
+],
+"random": [
+"Anaheim",
+"Hamburg",
+"Ho Chi Minh City",
+"Orlando"
+],
+"distractors": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan",
+"Anaheim",
+"Hamburg",
+"Ho Chi Minh City",
+"Orlando"
+],
+"n_eligible": 28,
+"sha": "261d84aa459aaaea2a0a98f583819466f743eb6c98dd1d87fcbbb8eaa46d7b5b",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0062__L040__p121:rome:london": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0062__L040__p121:rome:london",
+"anchor": "London",
+"nearest": [
+"Kuala Lumpur",
+"New York",
+"Madrid",
+"Seoul"
+],
+"random": [
+"Fort Lauderdale",
+"Hanoi",
+"Ningbo",
+"Portland"
+],
+"distractors": [
+"Kuala Lumpur",
+"New York",
+"Madrid",
+"Seoul",
+"Fort Lauderdale",
+"Hanoi",
+"Ningbo",
+"Portland"
+],
+"n_eligible": 45,
+"sha": "cf7458a448205256eab88c25ed52cb2ca1552a18754d00b0b084d94a12910006",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0065__L024__p24:nyc:disneyworld": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0065__L024__p24:nyc:disneyworld",
+"anchor": "Orlando",
+"nearest": [
+"Miami",
+"Los Angeles",
+"Dubai",
+"Rosemary Beach"
+],
+"random": [
+"Nanjing",
+"Rome",
+"Singapore",
+"Tehran"
+],
+"distractors": [
+"Miami",
+"Los Angeles",
+"Dubai",
+"Rosemary Beach",
+"Nanjing",
+"Rome",
+"Singapore",
+"Tehran"
+],
+"n_eligible": 40,
+"sha": "c3dddfd8fb7c0809b17435b5504e4ed5b6630a0b19ee00a970539e423ef75737",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0065__L052__p90:nyc:waltdisneyworld": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0065__L052__p90:nyc:waltdisneyworld",
+"anchor": "Orlando",
+"nearest": [
+"Miami",
+"Los Angeles",
+"Dubai",
+"Rosemary Beach"
+],
+"random": [
+"Changsha",
+"Madrid",
+"Tampa",
+"Tehran"
+],
+"distractors": [
+"Miami",
+"Los Angeles",
+"Dubai",
+"Rosemary Beach",
+"Changsha",
+"Madrid",
+"Tampa",
+"Tehran"
+],
+"n_eligible": 40,
+"sha": "47536527ff72810f4b1cd960d9b08c9c513c173af81b533df548c8063ce74a6a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0065__L052__p90:thebigapple:waltdisneyworld": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0065__L052__p90:thebigapple:waltdisneyworld",
+"anchor": "Orlando",
+"nearest": [
+"Miami",
+"Los Angeles",
+"Dubai",
+"Rosemary Beach"
+],
+"random": [
+"Fort Lauderdale",
+"Madrid",
+"Manchester",
+"Zurich"
+],
+"distractors": [
+"Miami",
+"Los Angeles",
+"Dubai",
+"Rosemary Beach",
+"Fort Lauderdale",
+"Madrid",
+"Manchester",
+"Zurich"
+],
+"n_eligible": 40,
+"sha": "c2d60983b8534044ef3d641840ca584e15a42c9c4ea0a5b41e22759f4e75f9e2",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0009__L020__p326:hongkong:shanghai": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0009__L020__p326:hongkong:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Paris",
+"Rome",
+"Charleston"
+],
+"random": [
+"Fort Myers",
+"Kuching",
+"New York City",
+"Tehran"
+],
+"distractors": [
+"Qingdao",
+"Paris",
+"Rome",
+"Charleston",
+"Fort Myers",
+"Kuching",
+"New York City",
+"Tehran"
+],
+"n_eligible": 16,
+"sha": "dfc2d1cfe3921e7184fb6d1ce059afda1790a5e89a837e3f6eeafd258b5323d2",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0009__L044__p326:singapore:shanghai": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0009__L044__p326:singapore:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Paris",
+"Rome",
+"Charleston"
+],
+"random": [
+"Anaheim",
+"Liverpool",
+"Tehran",
+"Zurich"
+],
+"distractors": [
+"Qingdao",
+"Paris",
+"Rome",
+"Charleston",
+"Anaheim",
+"Liverpool",
+"Tehran",
+"Zurich"
+],
+"n_eligible": 16,
+"sha": "7266110328c53b4efe75fbede3507ec4451e3a7096dea6f82e14e19a27dff26a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0009__L056__p61:guanzhou:shanghai": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0009__L056__p61:guanzhou:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Paris",
+"Rome",
+"Charleston"
+],
+"random": [
+"Kuching",
+"Lund",
+"New York City",
+"Tampa"
+],
+"distractors": [
+"Qingdao",
+"Paris",
+"Rome",
+"Charleston",
+"Kuching",
+"Lund",
+"New York City",
+"Tampa"
+],
+"n_eligible": 16,
+"sha": "238638eb727cd88e370c4881249532da3948a54a1cb953ab2433dd2e4b9f5f33",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0025__L048__p236:seoul:shanghai": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0025__L048__p236:seoul:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"New York",
+"Rosemary Beach",
+"Tehran",
+"Toronto"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"New York",
+"Rosemary Beach",
+"Tehran",
+"Toronto"
+],
+"n_eligible": 22,
+"sha": "72f368d72dbcaabd9aa96ba656e58a8602acf1d819558940b7679395fee9a692",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0025__L048__p80:dubai:shanghai": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0025__L048__p80:dubai:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"Anaheim",
+"Chicago",
+"Kuching",
+"Rosemary Beach"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"Anaheim",
+"Chicago",
+"Kuching",
+"Rosemary Beach"
+],
+"n_eligible": 22,
+"sha": "d63b849b4558460909d275638ded4137a5235b12f33a89be393084fdd53d2d3a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0025__L048__p80:singapore:shanghai": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0025__L048__p80:singapore:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"Fort Myers",
+"Lagos",
+"Miami",
+"New Delhi"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"Fort Myers",
+"Lagos",
+"Miami",
+"New Delhi"
+],
+"n_eligible": 22,
+"sha": "2d7a687a4749677df0d7a86c8837db1bf1aface8ac652612ebfef11a8112a765",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0047__L048__p513:charleston:rosemarybeach": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0047__L048__p513:charleston:rosemarybeach",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Tampa",
+"Qingdao",
+"Anaheim",
+"Los Angeles"
+],
+"random": [
+"Nanjing",
+"Ningbo",
+"Seoul",
+"Zurich"
+],
+"distractors": [
+"Tampa",
+"Qingdao",
+"Anaheim",
+"Los Angeles",
+"Nanjing",
+"Ningbo",
+"Seoul",
+"Zurich"
+],
+"n_eligible": 32,
+"sha": "d3d5e5ef409bfef97c2de022f180afd2fa360c88fad5c165034ae77ce22451e9",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0047__L052__p449:london:rosemarybeach": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0047__L052__p449:london:rosemarybeach",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Tampa",
+"Qingdao",
+"Anaheim",
+"Los Angeles"
+],
+"random": [
+"Changsha",
+"Madrid",
+"Shenzhen",
+"Wuhan"
+],
+"distractors": [
+"Tampa",
+"Qingdao",
+"Anaheim",
+"Los Angeles",
+"Changsha",
+"Madrid",
+"Shenzhen",
+"Wuhan"
+],
+"n_eligible": 32,
+"sha": "3e3719b4040f387a5b673d594242d81f0f6796e3c1fc173d8e50794b52fa7934",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0047__L052__p586:miami:rosemarybeach": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0047__L052__p586:miami:rosemarybeach",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Tampa",
+"Qingdao",
+"Anaheim",
+"Los Angeles"
+],
+"random": [
+"Kuching",
+"Madrid",
+"Shenzhen",
+"Zurich"
+],
+"distractors": [
+"Tampa",
+"Qingdao",
+"Anaheim",
+"Los Angeles",
+"Kuching",
+"Madrid",
+"Shenzhen",
+"Zurich"
+],
+"n_eligible": 32,
+"sha": "f0d6c473e9dae0fa8d77adc951718203e64818cfd7c036a71c03e30edd4fad22",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0047__L056__p449:tokyo:rosemarybeachflorida": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0047__L056__p449:tokyo:rosemarybeachflorida",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Tampa",
+"Qingdao",
+"Anaheim",
+"Los Angeles"
+],
+"random": [
+"Changsha",
+"Hong Kong",
+"Tehran",
+"Zurich"
+],
+"distractors": [
+"Tampa",
+"Qingdao",
+"Anaheim",
+"Los Angeles",
+"Changsha",
+"Hong Kong",
+"Tehran",
+"Zurich"
+],
+"n_eligible": 32,
+"sha": "cdd0c924bab88b7ea81553dfccffc3c89779879f33e2ae7b7b04be398c6ddc76",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0047__L060__p449:rome:rosemarybeach": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0047__L060__p449:rome:rosemarybeach",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Tampa",
+"Qingdao",
+"Anaheim",
+"Los Angeles"
+],
+"random": [
+"Hong Kong",
+"Manchester",
+"New Delhi",
+"Singapore"
+],
+"distractors": [
+"Tampa",
+"Qingdao",
+"Anaheim",
+"Los Angeles",
+"Hong Kong",
+"Manchester",
+"New Delhi",
+"Singapore"
+],
+"n_eligible": 32,
+"sha": "fb5cb7725fe2bfcae2f16ad6cdd259369851f1814e9cc49bafd67ce00134e9a7",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0047__L060__p586:charleston:rosemarybeach": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0047__L060__p586:charleston:rosemarybeach",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Tampa",
+"Qingdao",
+"Anaheim",
+"Los Angeles"
+],
+"random": [
+"Beijing",
+"Guangzhou",
+"Madrid",
+"Nanjing"
+],
+"distractors": [
+"Tampa",
+"Qingdao",
+"Anaheim",
+"Los Angeles",
+"Beijing",
+"Guangzhou",
+"Madrid",
+"Nanjing"
+],
+"n_eligible": 32,
+"sha": "f1dde7b34a1bcc6349ce1f01e3b7f8dd52384e9c0ca509bdc0e6c7a2fe378475",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0047__L060__p586:miami:rosemarybeach": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0047__L060__p586:miami:rosemarybeach",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Tampa",
+"Qingdao",
+"Anaheim",
+"Los Angeles"
+],
+"random": [
+"Chengdu",
+"Lagos",
+"Ningbo",
+"Shenzhen"
+],
+"distractors": [
+"Tampa",
+"Qingdao",
+"Anaheim",
+"Los Angeles",
+"Chengdu",
+"Lagos",
+"Ningbo",
+"Shenzhen"
+],
+"n_eligible": 32,
+"sha": "2b8de72191cc81b007de7b3da441eb1c3917f66a440457078ebb9ae075d8a37f",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0070__L020__p183:shanghai:chengdu": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0070__L020__p183:shanghai:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Kuching",
+"Dubai",
+"Barcelona",
+"Mumbai"
+],
+"random": [
+"Hamburg",
+"Lagos",
+"Liverpool",
+"Toronto"
+],
+"distractors": [
+"Kuching",
+"Dubai",
+"Barcelona",
+"Mumbai",
+"Hamburg",
+"Lagos",
+"Liverpool",
+"Toronto"
+],
+"n_eligible": 32,
+"sha": "1a1b7091753d846a32c4d7304e34b59da34ec28e1b26a9ff5af8a7cf9e68d7bd",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0070__L032__p310::": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0070__L032__p310::",
+"anchor": "Chengdu",
+"nearest": [
+"Kuching",
+"Dubai",
+"Barcelona",
+"Mumbai"
+],
+"random": [
+"Anaheim",
+"Los Angeles",
+"New Delhi",
+"Tampa"
+],
+"distractors": [
+"Kuching",
+"Dubai",
+"Barcelona",
+"Mumbai",
+"Anaheim",
+"Los Angeles",
+"New Delhi",
+"Tampa"
+],
+"n_eligible": 32,
+"sha": "c1d82e79d7f6657df214255bf480250fef003b484c90f9e98509b5787fde1184",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0070__L048__p183:seoul:chengdu": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0070__L048__p183:seoul:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Kuching",
+"Dubai",
+"Barcelona",
+"Mumbai"
+],
+"random": [
+"Anaheim",
+"Manchester",
+"Orlando",
+"Singapore"
+],
+"distractors": [
+"Kuching",
+"Dubai",
+"Barcelona",
+"Mumbai",
+"Anaheim",
+"Manchester",
+"Orlando",
+"Singapore"
+],
+"n_eligible": 32,
+"sha": "781548c518b06506120a40b2392f5fb4caa40f525cfb5ae0283183df2bbc79bd",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0070__L056__p62:shanghai:chengdu": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0070__L056__p62:shanghai:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Kuching",
+"Dubai",
+"Barcelona",
+"Mumbai"
+],
+"random": [
+"Hong Kong",
+"New York City",
+"Tokyo",
+"Toronto"
+],
+"distractors": [
+"Kuching",
+"Dubai",
+"Barcelona",
+"Mumbai",
+"Hong Kong",
+"New York City",
+"Tokyo",
+"Toronto"
+],
+"n_eligible": 32,
+"sha": "4e02150716b12cd3460a6883ea5a0a3cf85c2e80e318553503e04a0c9d2e8303",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0070__L060__p82:ningbo:chengdu": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0070__L060__p82:ningbo:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Kuching",
+"Dubai",
+"Barcelona",
+"Mumbai"
+],
+"random": [
+"Fort Lauderdale",
+"Las Vegas",
+"New York City",
+"Tokyo"
+],
+"distractors": [
+"Kuching",
+"Dubai",
+"Barcelona",
+"Mumbai",
+"Fort Lauderdale",
+"Las Vegas",
+"New York City",
+"Tokyo"
+],
+"n_eligible": 32,
+"sha": "560bae372ffd456df7155624f1f0af3f08a30a90637102176698a753dbfb5406",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0052__L024__p25:hangzhou:hongkong": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0052__L024__p25:hangzhou:hongkong",
+"anchor": "Hong Kong",
+"nearest": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan"
+],
+"random": [
+"Fort Myers",
+"Ho Chi Minh City",
+"Lund",
+"Miami"
+],
+"distractors": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan",
+"Fort Myers",
+"Ho Chi Minh City",
+"Lund",
+"Miami"
+],
+"n_eligible": 27,
+"sha": "6178264455f682244a3282d98422f7d6c3750f6474a316ee6488d4240ba3fad3",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0052__L024__p92:parisfrance:hongkong": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0052__L024__p92:parisfrance:hongkong",
+"anchor": "Hong Kong",
+"nearest": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan"
+],
+"random": [
+"Kuala Lumpur",
+"Las Vegas",
+"Madrid",
+"Tampa"
+],
+"distractors": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan",
+"Kuala Lumpur",
+"Las Vegas",
+"Madrid",
+"Tampa"
+],
+"n_eligible": 27,
+"sha": "bfa7dafc4b8506d65eb131a3783ff8410605b1e052f697a67c0c2ea05fda2fa8",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0052__L036__p92:beijing:hongkong": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0052__L036__p92:beijing:hongkong",
+"anchor": "Hong Kong",
+"nearest": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan"
+],
+"random": [
+"Liverpool",
+"New Delhi",
+"New York City",
+"Tampa"
+],
+"distractors": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan",
+"Liverpool",
+"New Delhi",
+"New York City",
+"Tampa"
+],
+"n_eligible": 27,
+"sha": "86ffe5c3a7622de964eb36b91e80594483e6bbf219c3473b7fb9d4d3f68c72e4",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0052__L052__p77:beijing:hongkong": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0052__L052__p77:beijing:hongkong",
+"anchor": "Hong Kong",
+"nearest": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan"
+],
+"random": [
+"Mumbai",
+"Orlando",
+"Rosemary Beach",
+"Tehran"
+],
+"distractors": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan",
+"Mumbai",
+"Orlando",
+"Rosemary Beach",
+"Tehran"
+],
+"n_eligible": 27,
+"sha": "8855ee1fbf1bde57645066b5d4ef744ee65beeb0c00f5dd40ec5c10fbe8b92a4",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0052__L056__p73:shenzhen:hongkong": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0052__L056__p73:shenzhen:hongkong",
+"anchor": "Hong Kong",
+"nearest": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan"
+],
+"random": [
+"Fort Lauderdale",
+"Hamburg",
+"Las Vegas",
+"Tehran"
+],
+"distractors": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan",
+"Fort Lauderdale",
+"Hamburg",
+"Las Vegas",
+"Tehran"
+],
+"n_eligible": 27,
+"sha": "1314ee01470ecccf3483670ba3d6c840a547047e93f8d71128a953191a3f1b6d",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0052__L056__p92:shanghai:hongkong": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0052__L056__p92:shanghai:hongkong",
+"anchor": "Hong Kong",
+"nearest": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan"
+],
+"random": [
+"Madrid",
+"Miami",
+"Orlando",
+"Tehran"
+],
+"distractors": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan",
+"Madrid",
+"Miami",
+"Orlando",
+"Tehran"
+],
+"n_eligible": 27,
+"sha": "d80bb2107af7ec747899e5da0bda8a7133778e026252ab6cb031d909a5939eb2",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0062__L020__p164:washingtondc:londonnewyork": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0062__L020__p164:washingtondc:londonnewyork",
+"anchor": "Washington, D.C.",
+"nearest": [
+"London",
+"New York",
+"Las Vegas",
+"Anaheim"
+],
+"random": [
+"Fort Myers",
+"Guangzhou",
+"Rosemary Beach",
+"Shanghai"
+],
+"distractors": [
+"London",
+"New York",
+"Las Vegas",
+"Anaheim",
+"Fort Myers",
+"Guangzhou",
+"Rosemary Beach",
+"Shanghai"
+],
+"n_eligible": 45,
+"sha": "9f3d34e0fb8373a760ba1292d3d71de7ae82958e3c7c451f9c2dbf1bb59198f6",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0062__L028__p201:chicago:newyork": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0062__L028__p201:chicago:newyork",
+"anchor": "New York",
+"nearest": [
+"London",
+"Toronto",
+"Las Vegas",
+"Orlando"
+],
+"random": [
+"Hangzhou",
+"Paris",
+"Qingdao",
+"Shenzhen"
+],
+"distractors": [
+"London",
+"Toronto",
+"Las Vegas",
+"Orlando",
+"Hangzhou",
+"Paris",
+"Qingdao",
+"Shenzhen"
+],
+"n_eligible": 43,
+"sha": "5bd41c7bcd22485520fcfd4a1f2bafbb357f4e427bd49b1090c8829e8d7eb9b9",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0065__L036__p24:newyorkcity:waltdisneyworld": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0065__L036__p24:newyorkcity:waltdisneyworld",
+"anchor": "Orlando",
+"nearest": [
+"Miami",
+"Dubai",
+"Rosemary Beach",
+"Fort Lauderdale"
+],
+"random": [
+"Qingdao",
+"Rome",
+"Tehran",
+"Wuhan"
+],
+"distractors": [
+"Miami",
+"Dubai",
+"Rosemary Beach",
+"Fort Lauderdale",
+"Qingdao",
+"Rome",
+"Tehran",
+"Wuhan"
+],
+"n_eligible": 39,
+"sha": "155a8878fad4a03dc3e8f76505e2f50a5f4e3bc24b20759b53e4872451908d65",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0065__L036__p24:nyc:waltdisneyworld": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0065__L036__p24:nyc:waltdisneyworld",
+"anchor": "Orlando",
+"nearest": [
+"Miami",
+"Dubai",
+"Rosemary Beach",
+"Fort Lauderdale"
+],
+"random": [
+"Barcelona",
+"Nanjing",
+"Portland",
+"Tehran"
+],
+"distractors": [
+"Miami",
+"Dubai",
+"Rosemary Beach",
+"Fort Lauderdale",
+"Barcelona",
+"Nanjing",
+"Portland",
+"Tehran"
+],
+"n_eligible": 39,
+"sha": "05b4b3dd4c21385d98cda4491ae3896e573d2d585bd644d62f0959c88cce989a",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0065__L052__p90:nyc:waltdisneyworldorlando": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0065__L052__p90:nyc:waltdisneyworldorlando",
+"anchor": "Orlando",
+"nearest": [
+"Miami",
+"Dubai",
+"Rosemary Beach",
+"Fort Lauderdale"
+],
+"random": [
+"Changsha",
+"Chengdu",
+"Lund",
+"Singapore"
+],
+"distractors": [
+"Miami",
+"Dubai",
+"Rosemary Beach",
+"Fort Lauderdale",
+"Changsha",
+"Chengdu",
+"Lund",
+"Singapore"
+],
+"n_eligible": 39,
+"sha": "1df78c9f15e162fef843cd6103896312e71c7343a89307d60650b60b2ab4227a",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0009__L040__p326:hamburg:shanghai": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0009__L040__p326:hamburg:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Paris",
+"Rome",
+"Charleston"
+],
+"random": [
+"Fort Myers",
+"Kuala Lumpur",
+"Liverpool",
+"Tehran"
+],
+"distractors": [
+"Qingdao",
+"Paris",
+"Rome",
+"Charleston",
+"Fort Myers",
+"Kuala Lumpur",
+"Liverpool",
+"Tehran"
+],
+"n_eligible": 16,
+"sha": "fca0d6bb2683776e4d7c325ff77328fa59d57c4749257ec37d54090fc4e8c8d1",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0009__L048__p326:hamburg:shanghai": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0009__L048__p326:hamburg:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Paris",
+"Rome",
+"Charleston"
+],
+"random": [
+"Lund",
+"Tampa",
+"Tehran",
+"Zurich"
+],
+"distractors": [
+"Qingdao",
+"Paris",
+"Rome",
+"Charleston",
+"Lund",
+"Tampa",
+"Tehran",
+"Zurich"
+],
+"n_eligible": 16,
+"sha": "0cbea38f50649db5eb68ab66eb241ed124e8ad15cce5a96d44df0156b5876159",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0009__L056__p61:singapore:shanghai": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0009__L056__p61:singapore:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Paris",
+"Rome",
+"Charleston"
+],
+"random": [
+"Liverpool",
+"Lund",
+"New York City",
+"Tampa"
+],
+"distractors": [
+"Qingdao",
+"Paris",
+"Rome",
+"Charleston",
+"Liverpool",
+"Lund",
+"New York City",
+"Tampa"
+],
+"n_eligible": 16,
+"sha": "38b9100cc5ab49ccdfa23bca2f531ec6c9a2fac9a9def2e56f9d628acf04f70b",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0025__L020__p236:shenzhen:shanghai": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0025__L020__p236:shenzhen:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"Anaheim",
+"Lagos",
+"Las Vegas",
+"Rosemary Beach"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"Anaheim",
+"Lagos",
+"Las Vegas",
+"Rosemary Beach"
+],
+"n_eligible": 22,
+"sha": "e66aa7a05dd558f5d69a40eb1fcf65aba26579e6fbc972806324eadd4146b737",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0025__L024__p236:shenzhen:shanghai": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0025__L024__p236:shenzhen:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"Chicago",
+"Fort Lauderdale",
+"Kuching",
+"Rosemary Beach"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"Chicago",
+"Fort Lauderdale",
+"Kuching",
+"Rosemary Beach"
+],
+"n_eligible": 22,
+"sha": "a415c0259f17595fbd096f04b3c0b851629658c64bbb5af1cb7512b3b05e97d8",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0025__L028__p107:zurich:shanghai": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0025__L028__p107:zurich:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"Chicago",
+"Fort Myers",
+"Orlando",
+"Rosemary Beach"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"Chicago",
+"Fort Myers",
+"Orlando",
+"Rosemary Beach"
+],
+"n_eligible": 22,
+"sha": "fe45ce8418986f707aedc0a77b0cfd2c7a1e53a989e1bc7450a6b8c14640cfd6",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0025__L028__p107:zurichswitzerland:shanghaichina": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0025__L028__p107:zurichswitzerland:shanghaichina",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"Chicago",
+"Kuching",
+"Liverpool",
+"Miami"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"Chicago",
+"Kuching",
+"Liverpool",
+"Miami"
+],
+"n_eligible": 22,
+"sha": "b57ead50b281eff560a6def9da05b50a5dcd7d472cd197afa362d7493bd34d0c",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0025__L028__p236:shenzhen:shanghai": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0025__L028__p236:shenzhen:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"Anaheim",
+"Lund",
+"Orlando",
+"Toronto"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"Anaheim",
+"Lund",
+"Orlando",
+"Toronto"
+],
+"n_eligible": 22,
+"sha": "337240ac9a39cb92cb1c3bcb4a883708c6c3868e91f6b2c62e1d2e1db663f5ce",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0025__L032__p80:guangzhouguangdong:shanghai": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0025__L032__p80:guangzhouguangdong:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"Fort Myers",
+"Lund",
+"Miami",
+"New York"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"Fort Myers",
+"Lund",
+"Miami",
+"New York"
+],
+"n_eligible": 22,
+"sha": "3994d9eaa78a667714165ec5bc0c90239048576c3f28d950242dea20b476a9c1",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0025__L036__p107:singapore:shanghai": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0025__L036__p107:singapore:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"Anaheim",
+"Kuching",
+"Las Vegas",
+"New Delhi"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"Anaheim",
+"Kuching",
+"Las Vegas",
+"New Delhi"
+],
+"n_eligible": 22,
+"sha": "a288a85470c285305059b117e7d97e25fb334410cbc091295f77ba58019fee51",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0047__L048__p513:charleston:rosemarybeach": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0047__L048__p513:charleston:rosemarybeach",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Tampa",
+"Qingdao",
+"Anaheim",
+"Dubai"
+],
+"random": [
+"Hanoi",
+"Kuching",
+"New Delhi",
+"Wuhan"
+],
+"distractors": [
+"Tampa",
+"Qingdao",
+"Anaheim",
+"Dubai",
+"Hanoi",
+"Kuching",
+"New Delhi",
+"Wuhan"
+],
+"n_eligible": 30,
+"sha": "008e44e0b8045ec8c7995068e2750c8c780ec2bc5c339d01e4951cd995504cae",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0047__L056__p391:washingtondc:rosemarybeachflorida": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0047__L056__p391:washingtondc:rosemarybeachflorida",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Tampa",
+"Qingdao",
+"Anaheim",
+"Dubai"
+],
+"random": [
+"Hanoi",
+"Madrid",
+"Manchester",
+"New Delhi"
+],
+"distractors": [
+"Tampa",
+"Qingdao",
+"Anaheim",
+"Dubai",
+"Hanoi",
+"Madrid",
+"Manchester",
+"New Delhi"
+],
+"n_eligible": 30,
+"sha": "19d516af28abb3eff46850a2e15797fc99cfe5f63964f8d293fa439c658176ad",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0047__L056__p449:london:rosemarybeachflorida": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0047__L056__p449:london:rosemarybeachflorida",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Tampa",
+"Qingdao",
+"Anaheim",
+"Dubai"
+],
+"random": [
+"Cairo",
+"Mumbai",
+"Singapore",
+"Tehran"
+],
+"distractors": [
+"Tampa",
+"Qingdao",
+"Anaheim",
+"Dubai",
+"Cairo",
+"Mumbai",
+"Singapore",
+"Tehran"
+],
+"n_eligible": 30,
+"sha": "0ac002d2be332c7d6df5419a1273d3f270bc739570fe39661772207eb49cb7df",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0047__L056__p449:newyorkcity:rosemarybeachflorida": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0047__L056__p449:newyorkcity:rosemarybeachflorida",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Tampa",
+"Qingdao",
+"Anaheim",
+"Dubai"
+],
+"random": [
+"Guangzhou",
+"Hamburg",
+"Shanghai",
+"Wuhan"
+],
+"distractors": [
+"Tampa",
+"Qingdao",
+"Anaheim",
+"Dubai",
+"Guangzhou",
+"Hamburg",
+"Shanghai",
+"Wuhan"
+],
+"n_eligible": 27,
+"sha": "12691d26dc6e640984a67fe49dabe30989e4f9a40c327339bd31f8981e51cf5b",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0070__L020__p123:shanghai:chengdu": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0070__L020__p123:shanghai:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Kuching",
+"Kuala Lumpur",
+"Dubai",
+"Mumbai"
+],
+"random": [
+"Liverpool",
+"New Delhi",
+"Toronto",
+"Zurich"
+],
+"distractors": [
+"Kuching",
+"Kuala Lumpur",
+"Dubai",
+"Mumbai",
+"Liverpool",
+"New Delhi",
+"Toronto",
+"Zurich"
+],
+"n_eligible": 31,
+"sha": "86b650bf3275d58169a0a1cc92a828df8f6c2a54a9cdf2c2a1c3446e4687d4b8",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0070__L020__p183:shanghai:chengdu": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0070__L020__p183:shanghai:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Kuching",
+"Kuala Lumpur",
+"Dubai",
+"Mumbai"
+],
+"random": [
+"Anaheim",
+"Charleston",
+"Fort Myers",
+"Madrid"
+],
+"distractors": [
+"Kuching",
+"Kuala Lumpur",
+"Dubai",
+"Mumbai",
+"Anaheim",
+"Charleston",
+"Fort Myers",
+"Madrid"
+],
+"n_eligible": 31,
+"sha": "0601d2c5969afa5008a0187a539e20a74213ae09e0a9638cd7eecf72ef4ab818",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0070__L028__p154:shanghai:chengdu": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0070__L028__p154:shanghai:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Kuching",
+"Kuala Lumpur",
+"Dubai",
+"Mumbai"
+],
+"random": [
+"Fort Lauderdale",
+"Las Vegas",
+"New York",
+"Rome"
+],
+"distractors": [
+"Kuching",
+"Kuala Lumpur",
+"Dubai",
+"Mumbai",
+"Fort Lauderdale",
+"Las Vegas",
+"New York",
+"Rome"
+],
+"n_eligible": 31,
+"sha": "39c167f21f69e6bd6085e702a82bd19d98ddf17d98eeb003458e410c5ee4055b",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0070__L044__p183:shanghai:chengdu": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0070__L044__p183:shanghai:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Kuching",
+"Kuala Lumpur",
+"Dubai",
+"Mumbai"
+],
+"random": [
+"Charleston",
+"Fort Lauderdale",
+"Lund",
+"New Delhi"
+],
+"distractors": [
+"Kuching",
+"Kuala Lumpur",
+"Dubai",
+"Mumbai",
+"Charleston",
+"Fort Lauderdale",
+"Lund",
+"New Delhi"
+],
+"n_eligible": 31,
+"sha": "74044d128acd0eb44c8d6c091ad0c071b41778ef1783f59c52a4bed90a4db9b9",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0070__L052__p123:shanghai:chengdu": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0070__L052__p123:shanghai:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Kuching",
+"Kuala Lumpur",
+"Dubai",
+"Mumbai"
+],
+"random": [
+"Lagos",
+"Miami",
+"Toronto",
+"Zurich"
+],
+"distractors": [
+"Kuching",
+"Kuala Lumpur",
+"Dubai",
+"Mumbai",
+"Lagos",
+"Miami",
+"Toronto",
+"Zurich"
+],
+"n_eligible": 31,
+"sha": "3e3016cdd482ea92d3b9a360c7da5ac6604db3b1618125cc2a01344904a48e11",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0070__L056__p123:shanghai:chengdu": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0070__L056__p123:shanghai:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Kuching",
+"Kuala Lumpur",
+"Dubai",
+"Mumbai"
+],
+"random": [
+"Chicago",
+"Lund",
+"Madrid",
+"Paris"
+],
+"distractors": [
+"Kuching",
+"Kuala Lumpur",
+"Dubai",
+"Mumbai",
+"Chicago",
+"Lund",
+"Madrid",
+"Paris"
+],
+"n_eligible": 31,
+"sha": "d0a93ee0c19e1f13f3c6dedada8e00bafbad7ef8929769eb81cb4d56f9db1ec6",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0052__L024__p25:shanghai:hongkong": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0052__L024__p25:shanghai:hongkong",
+"anchor": "Hong Kong",
+"nearest": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan"
+],
+"random": [
+"Hamburg",
+"Ho Chi Minh City",
+"London",
+"Tehran"
+],
+"distractors": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan",
+"Hamburg",
+"Ho Chi Minh City",
+"London",
+"Tehran"
+],
+"n_eligible": 27,
+"sha": "b0dec419d99447ccf7063aef2f1c5ca35d81d32b3797073d302abf87c4ce7e1b",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0052__L044__p55:kuchingsarawakmalaysia:hongkong": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0052__L044__p55:kuchingsarawakmalaysia:hongkong",
+"anchor": "Hong Kong",
+"nearest": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan"
+],
+"random": [
+"Fort Myers",
+"Ho Chi Minh City",
+"Las Vegas",
+"Lund"
+],
+"distractors": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan",
+"Fort Myers",
+"Ho Chi Minh City",
+"Las Vegas",
+"Lund"
+],
+"n_eligible": 27,
+"sha": "d519f1df33cc3fcc96da75109d07e0b0194496a40b758962db51ad300c562596",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0062__L028__p201:newyork:london": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0062__L028__p201:newyork:london",
+"anchor": "London",
+"nearest": [
+"Kuala Lumpur",
+"Madrid",
+"Seoul",
+"Las Vegas"
+],
+"random": [
+"Cairo",
+"Guangzhou",
+"Shenzhen",
+"Toronto"
+],
+"distractors": [
+"Kuala Lumpur",
+"Madrid",
+"Seoul",
+"Las Vegas",
+"Cairo",
+"Guangzhou",
+"Shenzhen",
+"Toronto"
+],
+"n_eligible": 41,
+"sha": "efc5a9efb2d6d8cf322a0b091dcc0458e3340492664a5628ebc3e259b13ebdfe",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0065__L044__p59:anaheim:orlando": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0065__L044__p59:anaheim:orlando",
+"anchor": "Orlando",
+"nearest": [
+"Miami",
+"Dubai",
+"Rosemary Beach",
+"Fort Lauderdale"
+],
+"random": [
+"Charleston",
+"Chengdu",
+"Lagos",
+"Seoul"
+],
+"distractors": [
+"Miami",
+"Dubai",
+"Rosemary Beach",
+"Fort Lauderdale",
+"Charleston",
+"Chengdu",
+"Lagos",
+"Seoul"
+],
+"n_eligible": 41,
+"sha": "a98a2250212f66d0414630b8840a5567f756edae27ac901e1a9c41038ca7f02c",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0065__L052__p90:newyorkcity:waltdisneyworld": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0065__L052__p90:newyorkcity:waltdisneyworld",
+"anchor": "Orlando",
+"nearest": [
+"Miami",
+"Dubai",
+"Rosemary Beach",
+"Fort Lauderdale"
+],
+"random": [
+"Hangzhou",
+"Madrid",
+"Qingdao",
+"Seoul"
+],
+"distractors": [
+"Miami",
+"Dubai",
+"Rosemary Beach",
+"Fort Lauderdale",
+"Hangzhou",
+"Madrid",
+"Qingdao",
+"Seoul"
+],
+"n_eligible": 39,
+"sha": "56b14629d88759633fec94fd7d75e6b93a62f3fc1985a4cd0ee1572e876efa08",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0065__L052__p90:nyc:waltdisneyworld": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0065__L052__p90:nyc:waltdisneyworld",
+"anchor": "Orlando",
+"nearest": [
+"Miami",
+"Dubai",
+"Rosemary Beach",
+"Fort Lauderdale"
+],
+"random": [
+"Hamburg",
+"Madrid",
+"Seoul",
+"Zurich"
+],
+"distractors": [
+"Miami",
+"Dubai",
+"Rosemary Beach",
+"Fort Lauderdale",
+"Hamburg",
+"Madrid",
+"Seoul",
+"Zurich"
+],
+"n_eligible": 39,
+"sha": "665cd2f66ffb57d0f2509846ffa269d219760049fa418fdaa519c239563f902b",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0009__L020__p128:hongkong:shanghai": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0009__L020__p128:hongkong:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Paris",
+"Rome",
+"Charleston"
+],
+"random": [
+"Fort Myers",
+"Kuching",
+"New York City",
+"Zurich"
+],
+"distractors": [
+"Qingdao",
+"Paris",
+"Rome",
+"Charleston",
+"Fort Myers",
+"Kuching",
+"New York City",
+"Zurich"
+],
+"n_eligible": 16,
+"sha": "c5b1e22448d16c6a01dfe48e3e64885110ef1251a8ab0a9c86479478f0567c33",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0009__L024__p128:mumbai:shanghai": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0009__L024__p128:mumbai:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Paris",
+"Rome",
+"Charleston"
+],
+"random": [
+"Anaheim",
+"Fort Myers",
+"Liverpool",
+"Zurich"
+],
+"distractors": [
+"Qingdao",
+"Paris",
+"Rome",
+"Charleston",
+"Anaheim",
+"Fort Myers",
+"Liverpool",
+"Zurich"
+],
+"n_eligible": 16,
+"sha": "ad9225e7b5f5d2d7a4b19fdfa870e5f2789b14185930c97e19514b7bc8e9ca6e",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0009__L024__p128:mumbaiindia:shanghaichina": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0009__L024__p128:mumbaiindia:shanghaichina",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Paris",
+"Rome",
+"Charleston"
+],
+"random": [
+"Kuala Lumpur",
+"Orlando",
+"Tehran",
+"Zurich"
+],
+"distractors": [
+"Qingdao",
+"Paris",
+"Rome",
+"Charleston",
+"Kuala Lumpur",
+"Orlando",
+"Tehran",
+"Zurich"
+],
+"n_eligible": 16,
+"sha": "93302973e2582a045fc0dac6d47173f0b323def465aa82d0b676a8e3ee584db2",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0009__L024__p326:hongkong:shanghai": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0009__L024__p326:hongkong:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Paris",
+"Rome",
+"Charleston"
+],
+"random": [
+"Anaheim",
+"Liverpool",
+"Tehran",
+"Zurich"
+],
+"distractors": [
+"Qingdao",
+"Paris",
+"Rome",
+"Charleston",
+"Anaheim",
+"Liverpool",
+"Tehran",
+"Zurich"
+],
+"n_eligible": 16,
+"sha": "1116caad9146d51f969bd00f61570b6d4d9ad2f9cd579b5076a072bdd41b2e5b",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0009__L028__p326:hongkong:shanghai": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0009__L028__p326:hongkong:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Paris",
+"Rome",
+"Charleston"
+],
+"random": [
+"Fort Myers",
+"Kuching",
+"Tehran",
+"Zurich"
+],
+"distractors": [
+"Qingdao",
+"Paris",
+"Rome",
+"Charleston",
+"Fort Myers",
+"Kuching",
+"Tehran",
+"Zurich"
+],
+"n_eligible": 16,
+"sha": "757ce926e1fc8b9c0ba4347e01a277a3a5d865249410f35d9371a025b6075ca7",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0009__L036__p171:lagosnigeria:shanghaichina": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0009__L036__p171:lagosnigeria:shanghaichina",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Paris",
+"Rome",
+"Charleston"
+],
+"random": [
+"Fort Myers",
+"New York City",
+"Rosemary Beach",
+"Zurich"
+],
+"distractors": [
+"Qingdao",
+"Paris",
+"Rome",
+"Charleston",
+"Fort Myers",
+"New York City",
+"Rosemary Beach",
+"Zurich"
+],
+"n_eligible": 16,
+"sha": "011d5f2d66eddd39925bf96380bc3509db3c0d4cd103147a96f53f48e6f7d179",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0009__L056__p61:singapore:shanghai": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0009__L056__p61:singapore:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Paris",
+"Rome",
+"Charleston"
+],
+"random": [
+"Kuching",
+"Liverpool",
+"Lund",
+"Rosemary Beach"
+],
+"distractors": [
+"Qingdao",
+"Paris",
+"Rome",
+"Charleston",
+"Kuching",
+"Liverpool",
+"Lund",
+"Rosemary Beach"
+],
+"n_eligible": 16,
+"sha": "4715339728309e5704b42e99007dbf0bfba822a59a1be28f22673d10469a65ff",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0025__L020__p236::": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0025__L020__p236::",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"Chicago",
+"Kuching",
+"Liverpool",
+"Orlando"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"Chicago",
+"Kuching",
+"Liverpool",
+"Orlando"
+],
+"n_eligible": 22,
+"sha": "c5ae34172cecaa9a3d1db0fbe32561f201ec38cf7855b437e1cc9e5539a04190",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0025__L020__p236:shenzhen:shanghai": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0025__L020__p236:shenzhen:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"Anaheim",
+"Hamburg",
+"Liverpool",
+"New York"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"Anaheim",
+"Hamburg",
+"Liverpool",
+"New York"
+],
+"n_eligible": 22,
+"sha": "da46bb352cdc929f8f69504da95fe96a6307923d857b8d594e6e2a795c51e9a4",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0025__L020__p80:shenzhen:shanghai": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0025__L020__p80:shenzhen:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"Lagos",
+"Liverpool",
+"Mumbai",
+"New York"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"Lagos",
+"Liverpool",
+"Mumbai",
+"New York"
+],
+"n_eligible": 22,
+"sha": "c73c98c95e288b0a611915f1989b8e665726b4851b559c9e5056dda4c3c2c53f",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0025__L028__p236:shenzhen:shanghai": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0025__L028__p236:shenzhen:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"Liverpool",
+"Lund",
+"Orlando",
+"Toronto"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"Liverpool",
+"Lund",
+"Orlando",
+"Toronto"
+],
+"n_eligible": 22,
+"sha": "17524ee29bd2dfa988e033c6f26c8e81275ac5a8ed20ee35c93bc5aca45500b8",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0025__L032__p107:singapore:shanghai": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0025__L032__p107:singapore:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"Las Vegas",
+"Mumbai",
+"New York",
+"Orlando"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"Las Vegas",
+"Mumbai",
+"New York",
+"Orlando"
+],
+"n_eligible": 22,
+"sha": "80b8ea3b98348d599331bb60bcf898ec82599d273c3ee752f503a28b4c19ee09",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0025__L032__p155:dubaiuae:shanghaichina": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0025__L032__p155:dubaiuae:shanghaichina",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"Hamburg",
+"Lund",
+"Tehran",
+"Toronto"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"Hamburg",
+"Lund",
+"Tehran",
+"Toronto"
+],
+"n_eligible": 22,
+"sha": "f4d86b430faa02c56de84a00c5116fb380bddbb8e49465d2a7e634f2e53c0ca8",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0025__L032__p236:shenzhen:shanghai": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0025__L032__p236:shenzhen:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"Fort Lauderdale",
+"Hamburg",
+"Orlando",
+"Toronto"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"Fort Lauderdale",
+"Hamburg",
+"Orlando",
+"Toronto"
+],
+"n_eligible": 22,
+"sha": "573a86788b71abdbe8625b2685be63d74ed8ad9b965004f8024d42ad1b06368c",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0025__L032__p80:guangzhou:shanghai": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0025__L032__p80:guangzhou:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"Chicago",
+"Liverpool",
+"Mumbai",
+"Toronto"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"Chicago",
+"Liverpool",
+"Mumbai",
+"Toronto"
+],
+"n_eligible": 22,
+"sha": "bb99af4b40fd62290c91994f420c3e8bc3ff4564d916508d1e6c66f43edc52eb",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0025__L036__p107:hongkong:shanghai": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0025__L036__p107:hongkong:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"Lagos",
+"Lund",
+"New York",
+"Tehran"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"Lagos",
+"Lund",
+"New York",
+"Tehran"
+],
+"n_eligible": 22,
+"sha": "5d0836bdf6f784ab175554dab71e38a0da05b20df74e2295d74c2dca2f2b6c61",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0025__L036__p155:singapore:shanghai": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0025__L036__p155:singapore:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"Mumbai",
+"New York",
+"Rosemary Beach",
+"Toronto"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"Mumbai",
+"New York",
+"Rosemary Beach",
+"Toronto"
+],
+"n_eligible": 22,
+"sha": "dd714436b1b27b2b3b4cc05fc9c46c89037e4edf9d69dd1ac646792452fc9c10",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0025__L036__p80:hongkong:shanghai": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0025__L036__p80:hongkong:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"Fort Lauderdale",
+"Kuching",
+"Las Vegas",
+"Toronto"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"Fort Lauderdale",
+"Kuching",
+"Las Vegas",
+"Toronto"
+],
+"n_eligible": 22,
+"sha": "2669451fec47edcc94353060c04540babafb2eeddd6a43e3fbfa5f0aa844c103",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0025__L036__p80:shenzhen:shanghai": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0025__L036__p80:shenzhen:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"Lagos",
+"Liverpool",
+"Tehran",
+"Toronto"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"Lagos",
+"Liverpool",
+"Tehran",
+"Toronto"
+],
+"n_eligible": 22,
+"sha": "fb842cf68c48ed53e447b3d831d7084320b16eeb0ecdb0353af95a55c7ec6a07",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0025__L040__p236:hcmc:shanghai": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0025__L040__p236:hcmc:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"Anaheim",
+"Lund",
+"New Delhi",
+"New York"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"Anaheim",
+"Lund",
+"New Delhi",
+"New York"
+],
+"n_eligible": 22,
+"sha": "c282207423f7baae1fe1d20916259a3a04e177ef84c55c98ab829e266bfcb3a0",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0025__L052__p107:kualalumpurmalaysia:shanghai": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0025__L052__p107:kualalumpurmalaysia:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"Fort Lauderdale",
+"Liverpool",
+"Miami",
+"Rosemary Beach"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"Fort Lauderdale",
+"Liverpool",
+"Miami",
+"Rosemary Beach"
+],
+"n_eligible": 22,
+"sha": "3c2132fc6330140f289ead8d5e6c6edb54d6ca3323c72dc9bfa23b2382fdc003",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0025__L060__p80:guangzhou:shanghai": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0025__L060__p80:guangzhou:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"Anaheim",
+"Chicago",
+"Hamburg",
+"Tehran"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"Anaheim",
+"Chicago",
+"Hamburg",
+"Tehran"
+],
+"n_eligible": 22,
+"sha": "bd946b8efcfc9beb61a756ffd4f2eab389cf10384400bd4c6414423ede43d0ce",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0047__L028__p449:rome:rosemarybeach": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0047__L028__p449:rome:rosemarybeach",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Tampa",
+"Qingdao",
+"Anaheim",
+"Dubai"
+],
+"random": [
+"Chengdu",
+"Guangzhou",
+"Kuching",
+"Lagos"
+],
+"distractors": [
+"Tampa",
+"Qingdao",
+"Anaheim",
+"Dubai",
+"Chengdu",
+"Guangzhou",
+"Kuching",
+"Lagos"
+],
+"n_eligible": 30,
+"sha": "43d0733665c00b3e99ff00d47d998bd887f5ca2101a0bba7dc2855012ed567d2",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0047__L036__p586:orlando:rosemarybeach": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0047__L036__p586:orlando:rosemarybeach",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Tampa",
+"Qingdao",
+"Anaheim",
+"Dubai"
+],
+"random": [
+"Cairo",
+"Kuala Lumpur",
+"New Delhi",
+"Seoul"
+],
+"distractors": [
+"Tampa",
+"Qingdao",
+"Anaheim",
+"Dubai",
+"Cairo",
+"Kuala Lumpur",
+"New Delhi",
+"Seoul"
+],
+"n_eligible": 30,
+"sha": "356b6d4b1e712a9907baf575180a6df6014bfcd5832f59b41dea8bd1a3f07375",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0070__L020__p183:shanghai:chengdu": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0070__L020__p183:shanghai:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Kuching",
+"Kuala Lumpur",
+"Dubai",
+"Mumbai"
+],
+"random": [
+"Hamburg",
+"Las Vegas",
+"Liverpool",
+"Rosemary Beach"
+],
+"distractors": [
+"Kuching",
+"Kuala Lumpur",
+"Dubai",
+"Mumbai",
+"Hamburg",
+"Las Vegas",
+"Liverpool",
+"Rosemary Beach"
+],
+"n_eligible": 31,
+"sha": "936704c6405e6871ecb2e9090369e0fd1b7014c3ad31bef0ead124e50006d33a",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0070__L028__p123:shenzhenbaoandistrict:chengduwuhoudistrict": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0070__L028__p123:shenzhenbaoandistrict:chengduwuhoudistrict",
+"anchor": "Chengdu",
+"nearest": [
+"Kuching",
+"Kuala Lumpur",
+"Dubai",
+"Mumbai"
+],
+"random": [
+"Charleston",
+"Hong Kong",
+"Singapore",
+"Toronto"
+],
+"distractors": [
+"Kuching",
+"Kuala Lumpur",
+"Dubai",
+"Mumbai",
+"Charleston",
+"Hong Kong",
+"Singapore",
+"Toronto"
+],
+"n_eligible": 31,
+"sha": "812fbdf82951fa99c3756e3472e5b32169c66c07f81c8d0d2ed0f3ae16a8fd2c",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0070__L028__p154:shanghai:chengdu": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0070__L028__p154:shanghai:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Kuching",
+"Kuala Lumpur",
+"Dubai",
+"Mumbai"
+],
+"random": [
+"Fort Myers",
+"Madrid",
+"Miami",
+"Orlando"
+],
+"distractors": [
+"Kuching",
+"Kuala Lumpur",
+"Dubai",
+"Mumbai",
+"Fort Myers",
+"Madrid",
+"Miami",
+"Orlando"
+],
+"n_eligible": 31,
+"sha": "7c6b8505bb8355670cc41621908e2506c5dac2ef8af5e2aa8686bfa2bbd76516",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0070__L036__p82:shanghai:chengdu": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0070__L036__p82:shanghai:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Kuching",
+"Kuala Lumpur",
+"Dubai",
+"Mumbai"
+],
+"random": [
+"Anaheim",
+"Charleston",
+"Hamburg",
+"Las Vegas"
+],
+"distractors": [
+"Kuching",
+"Kuala Lumpur",
+"Dubai",
+"Mumbai",
+"Anaheim",
+"Charleston",
+"Hamburg",
+"Las Vegas"
+],
+"n_eligible": 31,
+"sha": "2b0edcd3103b06635a0cedd8fdab5846c3dbc646ab118a64ac039c54c9aadea8",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0070__L040__p253:tehraniran:chengduchina": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0070__L040__p253:tehraniran:chengduchina",
+"anchor": "Chengdu",
+"nearest": [
+"Kuching",
+"Kuala Lumpur",
+"Dubai",
+"Mumbai"
+],
+"random": [
+"Charleston",
+"Fort Myers",
+"Orlando",
+"Rosemary Beach"
+],
+"distractors": [
+"Kuching",
+"Kuala Lumpur",
+"Dubai",
+"Mumbai",
+"Charleston",
+"Fort Myers",
+"Orlando",
+"Rosemary Beach"
+],
+"n_eligible": 31,
+"sha": "8d168be583bd570525eab5549807b64eddf430b403d3c052a7f10ec740a1a897",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0070__L052__p123:shanghai:chengdu": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0070__L052__p123:shanghai:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Kuching",
+"Kuala Lumpur",
+"Dubai",
+"Mumbai"
+],
+"random": [
+"Liverpool",
+"New York",
+"New York City",
+"Rosemary Beach"
+],
+"distractors": [
+"Kuching",
+"Kuala Lumpur",
+"Dubai",
+"Mumbai",
+"Liverpool",
+"New York",
+"New York City",
+"Rosemary Beach"
+],
+"n_eligible": 31,
+"sha": "cb059d87d8ad4535f698ece263c59ec4bd3eb1d00c185d615ca1ed74156663cc",
+"generation": 0
+},
+"nla-rl-L42:chat-dailydialog-0048__L042__p135:shanghai:london": {
+"unit": "nla-rl-L42:chat-dailydialog-0048__L042__p135:shanghai:london",
+"anchor": "London",
+"nearest": [
+"New York City",
+"Kuala Lumpur",
+"New York",
+"Seoul"
+],
+"random": [
+"Chengdu",
+"Guangzhou",
+"Miami",
+"Shenzhen"
+],
+"distractors": [
+"New York City",
+"Kuala Lumpur",
+"New York",
+"Seoul",
+"Chengdu",
+"Guangzhou",
+"Miami",
+"Shenzhen"
+],
+"n_eligible": 41,
+"sha": "75d5915acf45f418c0d1871f87b0b590b577ecbec8faff728ff50a696aa45d88",
+"generation": 0
+},
+"nla-rl-L42:chat-dailydialog-0052__L042__p92:shenzhen:hongkong": {
+"unit": "nla-rl-L42:chat-dailydialog-0052__L042__p92:shenzhen:hongkong",
+"anchor": "Hong Kong",
+"nearest": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan"
+],
+"random": [
+"Fort Myers",
+"Hanoi",
+"Lagos",
+"London"
+],
+"distractors": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan",
+"Fort Myers",
+"Hanoi",
+"Lagos",
+"London"
+],
+"n_eligible": 27,
+"sha": "9b21bfbf51d9eafe6e110858ed984b0a93ba0f2fcb0fa2742ad07038c7c0aba1",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0025__L042__p155:seoul:shanghai": {
+"unit": "nla-rl-L42:chat-lmsys-0025__L042__p155:seoul:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"Lagos",
+"Miami",
+"Orlando",
+"Toronto"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"Lagos",
+"Miami",
+"Orlando",
+"Toronto"
+],
+"n_eligible": 22,
+"sha": "183cd86d7cf42e6df4e438482bac4032c54a7204a5734e3ba90af86d08892e67",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0025__L042__p236:hanoinovopharm:shanghaihuihechemical": {
+"unit": "nla-rl-L42:chat-lmsys-0025__L042__p236:hanoinovopharm:shanghaihuihechemical",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"Fort Myers",
+"Hamburg",
+"Miami",
+"Mumbai"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"Fort Myers",
+"Hamburg",
+"Miami",
+"Mumbai"
+],
+"n_eligible": 22,
+"sha": "5b4e20a5bf84127e5fb1af71cf5d211b909b9b3faa424534c775d68077a49765",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0047__L042__p449:osakatokyokyoto:rosemarybeach": {
+"unit": "nla-rl-L42:chat-lmsys-0047__L042__p449:osakatokyokyoto:rosemarybeach",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Tampa",
+"Qingdao",
+"Anaheim",
+"Dubai"
+],
+"random": [
+"Guangzhou",
+"Hangzhou",
+"Wuhan",
+"Zurich"
+],
+"distractors": [
+"Tampa",
+"Qingdao",
+"Anaheim",
+"Dubai",
+"Guangzhou",
+"Hangzhou",
+"Wuhan",
+"Zurich"
+],
+"n_eligible": 30,
+"sha": "f5f201a636cbfc775c8bc411170c103d61e59ce2108f2da13233ae869b13d5bb",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0070__L042__p183:hanoi:chengdu": {
+"unit": "nla-rl-L42:chat-lmsys-0070__L042__p183:hanoi:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Kuching",
+"Kuala Lumpur",
+"Dubai",
+"Mumbai"
+],
+"random": [
+"Las Vegas",
+"Liverpool",
+"New Delhi",
+"Rosemary Beach"
+],
+"distractors": [
+"Kuching",
+"Kuala Lumpur",
+"Dubai",
+"Mumbai",
+"Las Vegas",
+"Liverpool",
+"New Delhi",
+"Rosemary Beach"
+],
+"n_eligible": 31,
+"sha": "d0bbb45632993273544e5d67b18892443a190eb287b6684f969d4d897d40b94e",
+"generation": 0
+},
+"patchscopes:chat-lmsys-0009__L020__p61:london:shanghai": {
+"unit": "patchscopes:chat-lmsys-0009__L020__p61:london:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Paris",
+"Rome",
+"Charleston"
+],
+"random": [
+"Kuching",
+"Orlando",
+"Tampa",
+"Tehran"
+],
+"distractors": [
+"Qingdao",
+"Paris",
+"Rome",
+"Charleston",
+"Kuching",
+"Orlando",
+"Tampa",
+"Tehran"
+],
+"n_eligible": 16,
+"sha": "d2786821cd9149032d337229e2552b20bcd484e1ded5036bb96d96ffb7d96fa7",
+"generation": 0
+},
+"patchscopes:chat-lmsys-0009__L032__p128:seoul:shanghai": {
+"unit": "patchscopes:chat-lmsys-0009__L032__p128:seoul:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Paris",
+"Rome",
+"Charleston"
+],
+"random": [
+"Anaheim",
+"Kuching",
+"Orlando",
+"Tehran"
+],
+"distractors": [
+"Qingdao",
+"Paris",
+"Rome",
+"Charleston",
+"Anaheim",
+"Kuching",
+"Orlando",
+"Tehran"
+],
+"n_eligible": 16,
+"sha": "86cee0c496d9cc5ab22b88dcd0b658f99ec980887ccdcd5cf32e06a35b1682c8",
+"generation": 0
+},
+"patchscopes:chat-lmsys-0009__L036__p61:seoulsouthkorea:shanghaichina": {
+"unit": "patchscopes:chat-lmsys-0009__L036__p61:seoulsouthkorea:shanghaichina",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Paris",
+"Rome",
+"Charleston"
+],
+"random": [
+"Kuching",
+"New York City",
+"Orlando",
+"Rosemary Beach"
+],
+"distractors": [
+"Qingdao",
+"Paris",
+"Rome",
+"Charleston",
+"Kuching",
+"New York City",
+"Orlando",
+"Rosemary Beach"
+],
+"n_eligible": 16,
+"sha": "5de07296276ff9b295050073158486e5a8b4fcc45d6dc034f297b6716b9d59bd",
+"generation": 0
+},
+"patchscopes:chat-lmsys-0009__L060__p61:seoul:shanghai": {
+"unit": "patchscopes:chat-lmsys-0009__L060__p61:seoul:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Paris",
+"Rome",
+"Charleston"
+],
+"random": [
+"Kuala Lumpur",
+"Liverpool",
+"Lund",
+"Zurich"
+],
+"distractors": [
+"Qingdao",
+"Paris",
+"Rome",
+"Charleston",
+"Kuala Lumpur",
+"Liverpool",
+"Lund",
+"Zurich"
+],
+"n_eligible": 16,
+"sha": "76e79018deeeb60147a0635d203318c926d33a3fda837e4602a1ea50acfa7b82",
+"generation": 0
+},
+"patchscopes:chat-lmsys-0025__L036__p107:seoul:shanghai": {
+"unit": "patchscopes:chat-lmsys-0025__L036__p107:seoul:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"Hamburg",
+"Liverpool",
+"Lund",
+"Mumbai"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"Hamburg",
+"Liverpool",
+"Lund",
+"Mumbai"
+],
+"n_eligible": 22,
+"sha": "874d470a399756c2211348af99bc12751da7dd8634b62d847c4472e9e9d39111",
+"generation": 0
+},
+"patchscopes:chat-lmsys-0025__L060__p236:hanoi:shanghai": {
+"unit": "patchscopes:chat-lmsys-0025__L060__p236:hanoi:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"Fort Myers",
+"Lagos",
+"Lund",
+"Toronto"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"Fort Myers",
+"Lagos",
+"Lund",
+"Toronto"
+],
+"n_eligible": 22,
+"sha": "44093882ae666ab8f8a1a8e680204f9dacc991c7e5984199544cc6abca1c24a9",
+"generation": 0
+},
+"patchscopes:chat-lmsys-0070__L040__p82:seoul:chengdu": {
+"unit": "patchscopes:chat-lmsys-0070__L040__p82:seoul:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Kuching",
+"Kuala Lumpur",
+"Dubai",
+"Mumbai"
+],
+"random": [
+"Barcelona",
+"Fort Lauderdale",
+"Portland",
+"Rosemary Beach"
+],
+"distractors": [
+"Kuching",
+"Kuala Lumpur",
+"Dubai",
+"Mumbai",
+"Barcelona",
+"Fort Lauderdale",
+"Portland",
+"Rosemary Beach"
+],
+"n_eligible": 31,
+"sha": "9156e281d6712d663512cd6f3f535ea856f77cf76ea7a5372274301674ed56d9",
+"generation": 0
+},
+"patchscopes:chat-lmsys-0070__L048__p222:seoul:chengdu": {
+"unit": "patchscopes:chat-lmsys-0070__L048__p222:seoul:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Kuching",
+"Kuala Lumpur",
+"Dubai",
+"Mumbai"
+],
+"random": [
+"Lagos",
+"Las Vegas",
+"Lund",
+"Tampa"
+],
+"distractors": [
+"Kuching",
+"Kuala Lumpur",
+"Dubai",
+"Mumbai",
+"Lagos",
+"Las Vegas",
+"Lund",
+"Tampa"
+],
+"n_eligible": 31,
+"sha": "27bfa81a45f28475d8c23a2263818b3e0d19dcf49e15bcb3addfe69b1aaa907e",
+"generation": 0
+},
+"patchscopes:chat-lmsys-0070__L048__p222:southkoreaseoul:chinachengdu": {
+"unit": "patchscopes:chat-lmsys-0070__L048__p222:southkoreaseoul:chinachengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Kuching",
+"Kuala Lumpur",
+"Dubai",
+"Mumbai"
+],
+"random": [
+"Anaheim",
+"Barcelona",
+"Lund",
+"New York"
+],
+"distractors": [
+"Kuching",
+"Kuala Lumpur",
+"Dubai",
+"Mumbai",
+"Anaheim",
+"Barcelona",
+"Lund",
+"New York"
+],
+"n_eligible": 31,
+"sha": "bcdd20e4f38bf63fcdb03448d16953722f05d6251c66794bfcedaa10baae47e4",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0046__L032__p132:shanghai:australia": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0046__L032__p132:shanghai:australia",
+"anchor": "Shanghai",
+"nearest": [
+"Nanjing",
+"Hangzhou",
+"Qingdao",
+"Chengdu"
+],
+"random": [
+"Fort Myers",
+"Hamburg",
+"Miami",
+"New Delhi"
+],
+"distractors": [
+"Nanjing",
+"Hangzhou",
+"Qingdao",
+"Chengdu",
+"Fort Myers",
+"Hamburg",
+"Miami",
+"New Delhi"
+],
+"n_eligible": 37,
+"sha": "78ea557f6a4eccdf87530bcc15da7158fa7a604a4486433c3b0bb4639ae86344",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0052__L020__p92:paris:hongkong": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0052__L020__p92:paris:hongkong",
+"anchor": "Hong Kong",
+"nearest": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan"
+],
+"random": [
+"Hanoi",
+"Kuala Lumpur",
+"New York City",
+"Tampa"
+],
+"distractors": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan",
+"Hanoi",
+"Kuala Lumpur",
+"New York City",
+"Tampa"
+],
+"n_eligible": 27,
+"sha": "a27f80d767b7ecda768b781ea7273dd155ca804d2a5071982797ef789c8f86a1",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0052__L024__p45:toronto:hongkong": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0052__L024__p45:toronto:hongkong",
+"anchor": "Hong Kong",
+"nearest": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan"
+],
+"random": [
+"Hanoi",
+"Lagos",
+"Lund",
+"New Delhi"
+],
+"distractors": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan",
+"Hanoi",
+"Lagos",
+"Lund",
+"New Delhi"
+],
+"n_eligible": 27,
+"sha": "deed93329d7e2aea6cea7414506c4d93e746defbcf24ab8e533bca2b1c56cb05",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0052__L024__p92:beijing:hongkong": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0052__L024__p92:beijing:hongkong",
+"anchor": "Hong Kong",
+"nearest": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan"
+],
+"random": [
+"Las Vegas",
+"Lund",
+"Miami",
+"Rosemary Beach"
+],
+"distractors": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan",
+"Las Vegas",
+"Lund",
+"Miami",
+"Rosemary Beach"
+],
+"n_eligible": 27,
+"sha": "0f27dd9da9d4219a66ef41f211490f03f4d591a6455ad7dde5f3f340f2c2820c",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0052__L024__p92:cairo:hongkong": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0052__L024__p92:cairo:hongkong",
+"anchor": "Hong Kong",
+"nearest": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan"
+],
+"random": [
+"Ho Chi Minh City",
+"Liverpool",
+"New York City",
+"Rosemary Beach"
+],
+"distractors": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan",
+"Ho Chi Minh City",
+"Liverpool",
+"New York City",
+"Rosemary Beach"
+],
+"n_eligible": 27,
+"sha": "b7f7e6a34385e895222d795cb880998ebcb05e0c01db2abb7cc52312496b3b32",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0052__L024__p92:dubai:hongkong": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0052__L024__p92:dubai:hongkong",
+"anchor": "Hong Kong",
+"nearest": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan"
+],
+"random": [
+"Hanoi",
+"Lund",
+"Orlando",
+"Tehran"
+],
+"distractors": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan",
+"Hanoi",
+"Lund",
+"Orlando",
+"Tehran"
+],
+"n_eligible": 27,
+"sha": "d28131b43a8f5cfe782449508ac1f05ad07e5401a1171161ea3022bf5d7986a5",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0052__L024__p92:paris:hongkong": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0052__L024__p92:paris:hongkong",
+"anchor": "Hong Kong",
+"nearest": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan"
+],
+"random": [
+"Fort Myers",
+"Las Vegas",
+"Liverpool",
+"New York City"
+],
+"distractors": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan",
+"Fort Myers",
+"Las Vegas",
+"Liverpool",
+"New York City"
+],
+"n_eligible": 27,
+"sha": "183ca2e55a2ae8fd83c4df425e04dfb2de4f01e5ff9c8bce4b3cb9307dc537a2",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0052__L028__p92:cairo:hongkong": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0052__L028__p92:cairo:hongkong",
+"anchor": "Hong Kong",
+"nearest": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan"
+],
+"random": [
+"Ho Chi Minh City",
+"Lagos",
+"Miami",
+"New York City"
+],
+"distractors": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan",
+"Ho Chi Minh City",
+"Lagos",
+"Miami",
+"New York City"
+],
+"n_eligible": 27,
+"sha": "283e655c732064412091bc8ef2aeef9d98c1184d130d704167e33aa39d31f5db",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0052__L028__p92:paris:hongkong": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0052__L028__p92:paris:hongkong",
+"anchor": "Hong Kong",
+"nearest": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan"
+],
+"random": [
+"Lagos",
+"New Delhi",
+"Orlando",
+"Rosemary Beach"
+],
+"distractors": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan",
+"Lagos",
+"New Delhi",
+"Orlando",
+"Rosemary Beach"
+],
+"n_eligible": 27,
+"sha": "f5f5c30994cf906fd23cf3f28e77bfb655104b26d61552c4e171f9e5c0db411c",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0052__L032__p92:beijing:hongkong": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0052__L032__p92:beijing:hongkong",
+"anchor": "Hong Kong",
+"nearest": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan"
+],
+"random": [
+"Ho Chi Minh City",
+"Kuala Lumpur",
+"Miami",
+"Rosemary Beach"
+],
+"distractors": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan",
+"Ho Chi Minh City",
+"Kuala Lumpur",
+"Miami",
+"Rosemary Beach"
+],
+"n_eligible": 27,
+"sha": "62b3e6f0dfa2836d3e66797ae0b2f145e07efda7c0bdf74fdb959beec1946955",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0052__L032__p92:shanghai:hongkong": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0052__L032__p92:shanghai:hongkong",
+"anchor": "Hong Kong",
+"nearest": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan"
+],
+"random": [
+"Fort Lauderdale",
+"Liverpool",
+"Nanjing",
+"Tehran"
+],
+"distractors": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan",
+"Fort Lauderdale",
+"Liverpool",
+"Nanjing",
+"Tehran"
+],
+"n_eligible": 27,
+"sha": "e5a21a93daab39d3a90370e58742ed9c13d07a30308bbb987ad1c3c5a1314a66",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0052__L036__p25:hangzhou:hongkong": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0052__L036__p25:hangzhou:hongkong",
+"anchor": "Hong Kong",
+"nearest": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan"
+],
+"random": [
+"Hanoi",
+"Kuala Lumpur",
+"New Delhi",
+"New York City"
+],
+"distractors": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan",
+"Hanoi",
+"Kuala Lumpur",
+"New Delhi",
+"New York City"
+],
+"n_eligible": 27,
+"sha": "73bdf8dd231476bc5a7393dc25f68a4ff3e5b6833b82ad08295652cff7629d95",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0052__L036__p25:shanghai:hongkong": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0052__L036__p25:shanghai:hongkong",
+"anchor": "Hong Kong",
+"nearest": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan"
+],
+"random": [
+"Lagos",
+"London",
+"Madrid",
+"Rome"
+],
+"distractors": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan",
+"Lagos",
+"London",
+"Madrid",
+"Rome"
+],
+"n_eligible": 27,
+"sha": "6f5a1697eb2cc19dc81ec8b7d503aedecc36519d2ca0a20b2342dde207f31e3e",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0052__L044__p55:singapore:hongkong": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0052__L044__p55:singapore:hongkong",
+"anchor": "Hong Kong",
+"nearest": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan"
+],
+"random": [
+"Hamburg",
+"Lagos",
+"Miami",
+"New York City"
+],
+"distractors": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan",
+"Hamburg",
+"Lagos",
+"Miami",
+"New York City"
+],
+"n_eligible": 27,
+"sha": "f19957c7dad48af617444e7555a9e489a6836df5643e7505170e11c0abefc78a",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0052__L048__p25:shanghai:hongkong": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0052__L048__p25:shanghai:hongkong",
+"anchor": "Hong Kong",
+"nearest": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan"
+],
+"random": [
+"Las Vegas",
+"London",
+"Rome",
+"Rosemary Beach"
+],
+"distractors": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan",
+"Las Vegas",
+"London",
+"Rome",
+"Rosemary Beach"
+],
+"n_eligible": 27,
+"sha": "a88717ed03e58ab89701bae534adbd17f215f9087207ddfdf8e8519ea87c9519",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0052__L048__p32:beijing:hongkong": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0052__L048__p32:beijing:hongkong",
+"anchor": "Hong Kong",
+"nearest": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan"
+],
+"random": [
+"Fort Lauderdale",
+"Hamburg",
+"Rome",
+"Tehran"
+],
+"distractors": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan",
+"Fort Lauderdale",
+"Hamburg",
+"Rome",
+"Tehran"
+],
+"n_eligible": 27,
+"sha": "84df7f0eeac8e2df0188d93d211292955fc6f365e442a650188e265bad4a4244",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0052__L052__p77:beijing:hongkong": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0052__L052__p77:beijing:hongkong",
+"anchor": "Hong Kong",
+"nearest": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan"
+],
+"random": [
+"Anaheim",
+"Liverpool",
+"Lund",
+"Nanjing"
+],
+"distractors": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan",
+"Anaheim",
+"Liverpool",
+"Lund",
+"Nanjing"
+],
+"n_eligible": 27,
+"sha": "5dfa239b90746070c2aa6f93397122c8736e261fde138b53cf1efd23bc2157e3",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0052__L052__p77:shenzhen:hongkong": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0052__L052__p77:shenzhen:hongkong",
+"anchor": "Hong Kong",
+"nearest": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan"
+],
+"random": [
+"Anaheim",
+"London",
+"Mumbai",
+"Tampa"
+],
+"distractors": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan",
+"Anaheim",
+"London",
+"Mumbai",
+"Tampa"
+],
+"n_eligible": 27,
+"sha": "b2cd34a326251b0c2e90c295a65d7983c83c08bc8b9cec39200189b8ddce3173",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0052__L052__p77:shenzhenorguangzhou:hongkong": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0052__L052__p77:shenzhenorguangzhou:hongkong",
+"anchor": "Hong Kong",
+"nearest": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan"
+],
+"random": [
+"Hanoi",
+"Las Vegas",
+"Tampa",
+"Tehran"
+],
+"distractors": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan",
+"Hanoi",
+"Las Vegas",
+"Tampa",
+"Tehran"
+],
+"n_eligible": 27,
+"sha": "0e6db8f4488fa59205b16476b2b4457295f43a720224c9afc0dd1387a76e3e06",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0052__L052__p77:深圳:hongkong": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0052__L052__p77:深圳:hongkong",
+"anchor": "Hong Kong",
+"nearest": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan"
+],
+"random": [
+"Hanoi",
+"Lagos",
+"Orlando",
+"Rosemary Beach"
+],
+"distractors": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan",
+"Hanoi",
+"Lagos",
+"Orlando",
+"Rosemary Beach"
+],
+"n_eligible": 27,
+"sha": "c83dfef169912c30251d26e690e80785645ca631797f8d6668806bbd59fa17f3",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0052__L056__p77:shenzhen:hongkong": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0052__L056__p77:shenzhen:hongkong",
+"anchor": "Hong Kong",
+"nearest": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan"
+],
+"random": [
+"Hamburg",
+"New York City",
+"Tampa",
+"Tehran"
+],
+"distractors": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan",
+"Hamburg",
+"New York City",
+"Tampa",
+"Tehran"
+],
+"n_eligible": 27,
+"sha": "a28e62ada600bc8ef93fea347945f71c22d202f47886c39edda3dda275ef7cb5",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0052__L060__p73:shenzhen:hongkong": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0052__L060__p73:shenzhen:hongkong",
+"anchor": "Hong Kong",
+"nearest": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan"
+],
+"random": [
+"Fort Myers",
+"Hamburg",
+"Lund",
+"Rosemary Beach"
+],
+"distractors": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan",
+"Fort Myers",
+"Hamburg",
+"Lund",
+"Rosemary Beach"
+],
+"n_eligible": 27,
+"sha": "71e559485eda2fcfa9cc324562017b5a0091f1f85ce3adf8f83a7edae5a36f55",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0052__L060__p77:shanghai:hongkong": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0052__L060__p77:shanghai:hongkong",
+"anchor": "Hong Kong",
+"nearest": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan"
+],
+"random": [
+"Las Vegas",
+"Mumbai",
+"Rome",
+"Tampa"
+],
+"distractors": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan",
+"Las Vegas",
+"Mumbai",
+"Rome",
+"Tampa"
+],
+"n_eligible": 27,
+"sha": "f9ea7612096a0acbceda55d68a3c06a170192e39dd552aac274ead55275b4b42",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0009__L020__p286:manchester:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0009__L020__p286:manchester:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Paris",
+"Rome",
+"Charleston"
+],
+"random": [
+"Lund",
+"New York City",
+"Rosemary Beach",
+"Tampa"
+],
+"distractors": [
+"Qingdao",
+"Paris",
+"Rome",
+"Charleston",
+"Lund",
+"New York City",
+"Rosemary Beach",
+"Tampa"
+],
+"n_eligible": 16,
+"sha": "22f711de7b4808bc2fc3613589613ad3af299f392344430e15d4777678bb354e",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0009__L020__p326:london:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0009__L020__p326:london:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Paris",
+"Rome",
+"Charleston"
+],
+"random": [
+"Fort Myers",
+"Lund",
+"New York City",
+"Zurich"
+],
+"distractors": [
+"Qingdao",
+"Paris",
+"Rome",
+"Charleston",
+"Fort Myers",
+"Lund",
+"New York City",
+"Zurich"
+],
+"n_eligible": 16,
+"sha": "76d451f6e29045f20bce54b28161c0e35e72103d4d51a63912c8f63f17c7b18c",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0009__L024__p128:newdelhi:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0009__L024__p128:newdelhi:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Paris",
+"Rome",
+"Charleston"
+],
+"random": [
+"Fort Myers",
+"Kuala Lumpur",
+"Kuching",
+"Tehran"
+],
+"distractors": [
+"Qingdao",
+"Paris",
+"Rome",
+"Charleston",
+"Fort Myers",
+"Kuala Lumpur",
+"Kuching",
+"Tehran"
+],
+"n_eligible": 15,
+"sha": "501f0bd668b4e4b7e523b07e42b158fbfbffda73e739b47973ecd8335cff22bf",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0009__L028__p171:madrid:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0009__L028__p171:madrid:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Paris",
+"Rome",
+"Charleston"
+],
+"random": [
+"New York City",
+"Rosemary Beach",
+"Tampa",
+"Zurich"
+],
+"distractors": [
+"Qingdao",
+"Paris",
+"Rome",
+"Charleston",
+"New York City",
+"Rosemary Beach",
+"Tampa",
+"Zurich"
+],
+"n_eligible": 16,
+"sha": "fe6877c7b659a9c30fa5249c123a32cb884299796c99f84566b4f1c4e450b07d",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0009__L028__p171:madridspain:shanghaichina": {
+"unit": "s3d-rl600-all11:chat-lmsys-0009__L028__p171:madridspain:shanghaichina",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Paris",
+"Rome",
+"Charleston"
+],
+"random": [
+"Liverpool",
+"New York City",
+"Orlando",
+"Zurich"
+],
+"distractors": [
+"Qingdao",
+"Paris",
+"Rome",
+"Charleston",
+"Liverpool",
+"New York City",
+"Orlando",
+"Zurich"
+],
+"n_eligible": 16,
+"sha": "c33b0f0d262ef97bef6685c0cf4980c978f882b703627583cca9c458915c7094",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0009__L028__p171:miami:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0009__L028__p171:miami:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Paris",
+"Rome",
+"Charleston"
+],
+"random": [
+"Anaheim",
+"Fort Myers",
+"Kuching",
+"Tampa"
+],
+"distractors": [
+"Qingdao",
+"Paris",
+"Rome",
+"Charleston",
+"Anaheim",
+"Fort Myers",
+"Kuching",
+"Tampa"
+],
+"n_eligible": 16,
+"sha": "fcc9135acfd1e54f9db0b78e19afaa2d7e0230e9efb5b740214609e20bd3ff80",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0009__L028__p326:hongkong:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0009__L028__p326:hongkong:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Paris",
+"Rome",
+"Charleston"
+],
+"random": [
+"Anaheim",
+"Tampa",
+"Tehran",
+"Zurich"
+],
+"distractors": [
+"Qingdao",
+"Paris",
+"Rome",
+"Charleston",
+"Anaheim",
+"Tampa",
+"Tehran",
+"Zurich"
+],
+"n_eligible": 16,
+"sha": "fae8912c44b6a7b574795f7035f97d4c43111d76ca714c8a459f5c1718fc0ac9",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0009__L032__p326:london:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0009__L032__p326:london:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Paris",
+"Rome",
+"Charleston"
+],
+"random": [
+"Kuching",
+"Liverpool",
+"Lund",
+"Zurich"
+],
+"distractors": [
+"Qingdao",
+"Paris",
+"Rome",
+"Charleston",
+"Kuching",
+"Liverpool",
+"Lund",
+"Zurich"
+],
+"n_eligible": 16,
+"sha": "e3fce099a3ab2b99a4d08d061ea99ca14332f0a3e68432befc7523bd0454335d",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0009__L032__p326:伦敦:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0009__L032__p326:伦敦:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Paris",
+"Rome",
+"Charleston"
+],
+"random": [
+"New York City",
+"Rosemary Beach",
+"Tampa",
+"Zurich"
+],
+"distractors": [
+"Qingdao",
+"Paris",
+"Rome",
+"Charleston",
+"New York City",
+"Rosemary Beach",
+"Tampa",
+"Zurich"
+],
+"n_eligible": 16,
+"sha": "db2ca6a7cb405fe0b14fca9c67185eadad92e29f924f398938da9f934ad3fa8f",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0025__L020__p236:shenzhen:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0025__L020__p236:shenzhen:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"Chicago",
+"Kuching",
+"Lund",
+"Orlando"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"Chicago",
+"Kuching",
+"Lund",
+"Orlando"
+],
+"n_eligible": 22,
+"sha": "9b6e476d1ce3fd36b08caf0026430a910ab4ec1673153e971378df6f3353b48c",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0025__L024__p236:shenzhen:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0025__L024__p236:shenzhen:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"Chicago",
+"Lagos",
+"Miami",
+"Rosemary Beach"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"Chicago",
+"Lagos",
+"Miami",
+"Rosemary Beach"
+],
+"n_eligible": 22,
+"sha": "a58041de5ae5ea9d2df2431ea00cad3020b22ee64723a52917ecc7b02cd8b807",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0025__L028__p107:barcelona:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0025__L028__p107:barcelona:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"Anaheim",
+"Chicago",
+"Liverpool",
+"Miami"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"Anaheim",
+"Chicago",
+"Liverpool",
+"Miami"
+],
+"n_eligible": 22,
+"sha": "56b0ceae4e8ed1d393c188d5f2317a10d06d48a44e0f07c7a7bb661a9d9ef0f8",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0025__L028__p107:london:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0025__L028__p107:london:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"Las Vegas",
+"Mumbai",
+"New Delhi",
+"New York"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"Las Vegas",
+"Mumbai",
+"New Delhi",
+"New York"
+],
+"n_eligible": 22,
+"sha": "64b98bcafbf052023664635c1f41df971d4363a21cda64f10f9bc2ce8e95c8fd",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0025__L028__p107:madrid:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0025__L028__p107:madrid:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"Fort Lauderdale",
+"Orlando",
+"Tehran",
+"Toronto"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"Fort Lauderdale",
+"Orlando",
+"Tehran",
+"Toronto"
+],
+"n_eligible": 22,
+"sha": "601ab39b5c7d267465ad0937a1a148079791a9aa6aa5fb9102f246d8045cbdaf",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0025__L028__p107:madridspainscapital:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0025__L028__p107:madridspainscapital:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"Anaheim",
+"Hamburg",
+"Lagos",
+"Mumbai"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"Anaheim",
+"Hamburg",
+"Lagos",
+"Mumbai"
+],
+"n_eligible": 22,
+"sha": "3a00f7a642da7cb9a8ae808ca66f3a91907ce65ac13ada664c0a91866f8b2c70",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0025__L028__p236:shenzhen:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0025__L028__p236:shenzhen:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"Lagos",
+"Las Vegas",
+"Liverpool",
+"Rosemary Beach"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"Lagos",
+"Las Vegas",
+"Liverpool",
+"Rosemary Beach"
+],
+"n_eligible": 22,
+"sha": "85b999d8afa901efdee9edb1a0c7eb750d05775743ac5515858ff4da5c3b41f5",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0025__L028__p80:guangzhou:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0025__L028__p80:guangzhou:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"Hamburg",
+"Miami",
+"New Delhi",
+"Orlando"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"Hamburg",
+"Miami",
+"New Delhi",
+"Orlando"
+],
+"n_eligible": 22,
+"sha": "eef6078bb744b8ffd2e9fc683ae5a2b3e4f7311c8103ab8932d20436c9f0e750",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0025__L028__p80:shenzhen:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0025__L028__p80:shenzhen:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"Fort Lauderdale",
+"Fort Myers",
+"Liverpool",
+"Mumbai"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"Fort Lauderdale",
+"Fort Myers",
+"Liverpool",
+"Mumbai"
+],
+"n_eligible": 22,
+"sha": "811bddecd5ac33eceb3da20a122bac9317b68b4e27e23d220b4eaff1cb9dd52d",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0025__L032__p107:hongkong:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0025__L032__p107:hongkong:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"Fort Lauderdale",
+"Hamburg",
+"Las Vegas",
+"Rosemary Beach"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"Fort Lauderdale",
+"Hamburg",
+"Las Vegas",
+"Rosemary Beach"
+],
+"n_eligible": 22,
+"sha": "f26e17aa6995319562473cfced9af9acc65641eccc2c6ac616044c33c1cb7b99",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0025__L032__p155:hongkong:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0025__L032__p155:hongkong:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"Fort Lauderdale",
+"Miami",
+"New York",
+"Tehran"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"Fort Lauderdale",
+"Miami",
+"New York",
+"Tehran"
+],
+"n_eligible": 22,
+"sha": "52c5c91a10dee762311eeeca09033f4cd4e65819cc9c413d894cb3b06e7cf03b",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0025__L032__p155:singapore:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0025__L032__p155:singapore:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"Fort Lauderdale",
+"Miami",
+"New York",
+"Toronto"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"Fort Lauderdale",
+"Miami",
+"New York",
+"Toronto"
+],
+"n_eligible": 22,
+"sha": "f54e5968793df0910611daf7412121f4ffa8de28e6f2c9b8cbb13f40c2d09e5f",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0025__L032__p236:guangzhou:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0025__L032__p236:guangzhou:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"Chicago",
+"Fort Lauderdale",
+"Hamburg",
+"Kuching"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"Chicago",
+"Fort Lauderdale",
+"Hamburg",
+"Kuching"
+],
+"n_eligible": 22,
+"sha": "c227797da96bc341365c6e8779e5dbe8279e8b157a37ff13ae9660b57b1a2398",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0025__L032__p236:shenzhen:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0025__L032__p236:shenzhen:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"Hamburg",
+"Liverpool",
+"Orlando",
+"Tehran"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"Hamburg",
+"Liverpool",
+"Orlando",
+"Tehran"
+],
+"n_eligible": 22,
+"sha": "637cb829f1cb79dec899c53a84a51c7bc76fe128b4a6affb0a5fba6ccde1a11b",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0025__L032__p80:guangzhou:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0025__L032__p80:guangzhou:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"Anaheim",
+"Fort Myers",
+"Lund",
+"New Delhi"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"Anaheim",
+"Fort Myers",
+"Lund",
+"New Delhi"
+],
+"n_eligible": 22,
+"sha": "3ee3924ad097cb82996a2bce123bb918edb6d8c1c51561e693a665867ad4b077",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0025__L036__p107:guangzhou:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0025__L036__p107:guangzhou:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"Fort Lauderdale",
+"Las Vegas",
+"Liverpool",
+"New Delhi"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"Fort Lauderdale",
+"Las Vegas",
+"Liverpool",
+"New Delhi"
+],
+"n_eligible": 22,
+"sha": "fdf36ed104db668622dbbb5c9641321e6763e6fd37fdef0a4e6580fed40ad6bb",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0025__L036__p107:shenzhen:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0025__L036__p107:shenzhen:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"Anaheim",
+"Chicago",
+"Miami",
+"Mumbai"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"Anaheim",
+"Chicago",
+"Miami",
+"Mumbai"
+],
+"n_eligible": 22,
+"sha": "6e525b580cf8d0fb05e1897ced093113f8ac353d70b42eff5326eeb3e3dde7c2",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0025__L036__p155:guangzhou:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0025__L036__p155:guangzhou:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"Fort Myers",
+"Las Vegas",
+"Liverpool",
+"New Delhi"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"Fort Myers",
+"Las Vegas",
+"Liverpool",
+"New Delhi"
+],
+"n_eligible": 22,
+"sha": "7f86e5f060ad2879afd8856be58c3a7e3c75bdc14045bdf264059dbf49ea3438",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0025__L036__p155:shenzhen:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0025__L036__p155:shenzhen:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"Anaheim",
+"Fort Lauderdale",
+"Liverpool",
+"Toronto"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"Anaheim",
+"Fort Lauderdale",
+"Liverpool",
+"Toronto"
+],
+"n_eligible": 22,
+"sha": "6dbc3b360a7e20cfef5b3353c77d7b58ca99f50768757b36e0564c2a82690b92",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0025__L036__p80:guangzhou:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0025__L036__p80:guangzhou:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"Las Vegas",
+"Liverpool",
+"Mumbai",
+"Rosemary Beach"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"Las Vegas",
+"Liverpool",
+"Mumbai",
+"Rosemary Beach"
+],
+"n_eligible": 22,
+"sha": "a74aa34b700739f47189b063fd09192c6953f8e3c591bca0c7444ebd6b1116e9",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0025__L036__p80:shenzhen:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0025__L036__p80:shenzhen:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"Las Vegas",
+"Lund",
+"Mumbai",
+"Tehran"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"Las Vegas",
+"Lund",
+"Mumbai",
+"Tehran"
+],
+"n_eligible": 22,
+"sha": "16bbf33d841c0a219f778933b4202a9b5c7073f078cf8ff912706b336e425d1d",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0025__L040__p236:shenzhen:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0025__L040__p236:shenzhen:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"Chicago",
+"Hamburg",
+"Lagos",
+"Las Vegas"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"Chicago",
+"Hamburg",
+"Lagos",
+"Las Vegas"
+],
+"n_eligible": 22,
+"sha": "03d80a85fd30b1b4f0773d8f856d3823e75b56726f19c546187b1b2fa95ab8ec",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0025__L040__p80:guangzhou:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0025__L040__p80:guangzhou:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"Chicago",
+"Lagos",
+"Liverpool",
+"Lund"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"Chicago",
+"Lagos",
+"Liverpool",
+"Lund"
+],
+"n_eligible": 22,
+"sha": "02270f5b26392f3455a307a696f4d584a53afa8b93fc542ab740bfde10ae2811",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0025__L040__p80:shenzhen:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0025__L040__p80:shenzhen:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"Chicago",
+"Lagos",
+"Liverpool",
+"New York"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"Chicago",
+"Lagos",
+"Liverpool",
+"New York"
+],
+"n_eligible": 22,
+"sha": "5d499e0d35c51fed2cd2c2a87bd9b1e815a969a2172ad6b8c01caf136bd655fa",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0025__L056__p80:北京:shanghai": {
+"unit": "s3d-rl600-all11:chat-lmsys-0025__L056__p80:北京:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"Fort Lauderdale",
+"Las Vegas",
+"Rosemary Beach",
+"Tehran"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"Fort Lauderdale",
+"Las Vegas",
+"Rosemary Beach",
+"Tehran"
+],
+"n_eligible": 22,
+"sha": "3241166c497b5455d2ec2009ac5b69690178393e6be00a1e86a5a517d7e43c4a",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0047__L020__p513:fortmyers:rosemarybeach": {
+"unit": "s3d-rl600-all11:chat-lmsys-0047__L020__p513:fortmyers:rosemarybeach",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Tampa",
+"Qingdao",
+"Anaheim",
+"Dubai"
+],
+"random": [
+"Cairo",
+"Guangzhou",
+"New York",
+"Wuhan"
+],
+"distractors": [
+"Tampa",
+"Qingdao",
+"Anaheim",
+"Dubai",
+"Cairo",
+"Guangzhou",
+"New York",
+"Wuhan"
+],
+"n_eligible": 30,
+"sha": "96e89bb7e7ae60a1975dfa4d3166808c22ffd69bf2aa1d8bf34a87e9bfb92e80",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0047__L036__p586:charleston:rosemarybeachflorida": {
+"unit": "s3d-rl600-all11:chat-lmsys-0047__L036__p586:charleston:rosemarybeachflorida",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Tampa",
+"Qingdao",
+"Anaheim",
+"Dubai"
+],
+"random": [
+"Hamburg",
+"Hangzhou",
+"Lagos",
+"Singapore"
+],
+"distractors": [
+"Tampa",
+"Qingdao",
+"Anaheim",
+"Dubai",
+"Hamburg",
+"Hangzhou",
+"Lagos",
+"Singapore"
+],
+"n_eligible": 30,
+"sha": "b979d10fdc93185529a5895a88bc08475528a9e2186e9b3ff50a6e6ee971cd22",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0047__L056__p513:fortlauderdale:rosemarybeach": {
+"unit": "s3d-rl600-all11:chat-lmsys-0047__L056__p513:fortlauderdale:rosemarybeach",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Tampa",
+"Qingdao",
+"Anaheim",
+"Dubai"
+],
+"random": [
+"Cairo",
+"Changsha",
+"Lagos",
+"Mumbai"
+],
+"distractors": [
+"Tampa",
+"Qingdao",
+"Anaheim",
+"Dubai",
+"Cairo",
+"Changsha",
+"Lagos",
+"Mumbai"
+],
+"n_eligible": 30,
+"sha": "4ba319d341673c5022b12ec7d820845ce2f7670158ee73b725a472edfa6ed8d7",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0070__L024__p82:cairo:chengdu": {
+"unit": "s3d-rl600-all11:chat-lmsys-0070__L024__p82:cairo:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Kuching",
+"Kuala Lumpur",
+"Dubai",
+"Mumbai"
+],
+"random": [
+"Anaheim",
+"Madrid",
+"New York City",
+"Portland"
+],
+"distractors": [
+"Kuching",
+"Kuala Lumpur",
+"Dubai",
+"Mumbai",
+"Anaheim",
+"Madrid",
+"New York City",
+"Portland"
+],
+"n_eligible": 31,
+"sha": "35fd9cfe22060a4585c60a26aa693b797ce3cad736cca2320a50e18200c55090",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0070__L032__p183:shanghai:chengdu": {
+"unit": "s3d-rl600-all11:chat-lmsys-0070__L032__p183:shanghai:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Kuching",
+"Kuala Lumpur",
+"Dubai",
+"Mumbai"
+],
+"random": [
+"Hamburg",
+"Lund",
+"New York",
+"Toronto"
+],
+"distractors": [
+"Kuching",
+"Kuala Lumpur",
+"Dubai",
+"Mumbai",
+"Hamburg",
+"Lund",
+"New York",
+"Toronto"
+],
+"n_eligible": 31,
+"sha": "17838b0a6afe3e7e913413603d2dd826d279763e065cd8eb87fab088439dadae",
+"generation": 0
+},
+"s3d-rl600:chat-dailydialog-0052__L020__p25:beijing:hongkong": {
+"unit": "s3d-rl600:chat-dailydialog-0052__L020__p25:beijing:hongkong",
+"anchor": "Hong Kong",
+"nearest": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan"
+],
+"random": [
+"Kuala Lumpur",
+"Lagos",
+"Rome",
+"Tehran"
+],
+"distractors": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan",
+"Kuala Lumpur",
+"Lagos",
+"Rome",
+"Tehran"
+],
+"n_eligible": 27,
+"sha": "bb76072b2142d4867af3bdf9f09bc9b6c62124231926e1cd64a4e864603cc63e",
+"generation": 0
+},
+"s3d-rl600:chat-dailydialog-0052__L020__p92:paris:hongkong": {
+"unit": "s3d-rl600:chat-dailydialog-0052__L020__p92:paris:hongkong",
+"anchor": "Hong Kong",
+"nearest": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan"
+],
+"random": [
+"Fort Myers",
+"Lund",
+"Madrid",
+"Miami"
+],
+"distractors": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan",
+"Fort Myers",
+"Lund",
+"Madrid",
+"Miami"
+],
+"n_eligible": 27,
+"sha": "8831b6ecbdb5cf903488760de4a3a80b98e018b23d4ef8e13a2a978306416020",
+"generation": 0
+},
+"s3d-rl600:chat-dailydialog-0052__L044__p92:beijing:hongkong": {
+"unit": "s3d-rl600:chat-dailydialog-0052__L044__p92:beijing:hongkong",
+"anchor": "Hong Kong",
+"nearest": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan"
+],
+"random": [
+"London",
+"Lund",
+"Rome",
+"Tehran"
+],
+"distractors": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan",
+"London",
+"Lund",
+"Rome",
+"Tehran"
+],
+"n_eligible": 27,
+"sha": "93ea96cfe6c190ac7037f0dbb2b3e2123779263f5b76504e7e73fd5af00cdc84",
+"generation": 0
+},
+"s3d-rl600:chat-dailydialog-0052__L060__p73:shenzhen:hongkong": {
+"unit": "s3d-rl600:chat-dailydialog-0052__L060__p73:shenzhen:hongkong",
+"anchor": "Hong Kong",
+"nearest": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan"
+],
+"random": [
+"Hanoi",
+"Kuala Lumpur",
+"Lagos",
+"Lund"
+],
+"distractors": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan",
+"Hanoi",
+"Kuala Lumpur",
+"Lagos",
+"Lund"
+],
+"n_eligible": 27,
+"sha": "1ea617803abe26a3e535af9bf5a5327cc5f5e312cb2f9a0cf7e510520be12455",
+"generation": 0
+},
+"s3d-rl600:chat-dailydialog-0052__L060__p92:beijing:hongkong": {
+"unit": "s3d-rl600:chat-dailydialog-0052__L060__p92:beijing:hongkong",
+"anchor": "Hong Kong",
+"nearest": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan"
+],
+"random": [
+"Hamburg",
+"Liverpool",
+"Miami",
+"Rome"
+],
+"distractors": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan",
+"Hamburg",
+"Liverpool",
+"Miami",
+"Rome"
+],
+"n_eligible": 27,
+"sha": "2a793c4ee29cc032c5ca438b8fda2106d31a2fe91047a8e90123bce1e4409e82",
+"generation": 0
+},
+"s3d-rl600:chat-dailydialog-0052__L060__p92:shanghai:hongkong": {
+"unit": "s3d-rl600:chat-dailydialog-0052__L060__p92:shanghai:hongkong",
+"anchor": "Hong Kong",
+"nearest": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan"
+],
+"random": [
+"Fort Myers",
+"Kuala Lumpur",
+"Mumbai",
+"Orlando"
+],
+"distractors": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan",
+"Fort Myers",
+"Kuala Lumpur",
+"Mumbai",
+"Orlando"
+],
+"n_eligible": 27,
+"sha": "4263d13aeb4f2041a1f5e0638f5ea6097f68094718d930b8b5ce79086f7f801c",
+"generation": 0
+},
+"s3d-rl600:chat-dailydialog-0052__L060__p92:shenzhen:hongkong": {
+"unit": "s3d-rl600:chat-dailydialog-0052__L060__p92:shenzhen:hongkong",
+"anchor": "Hong Kong",
+"nearest": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan"
+],
+"random": [
+"Fort Lauderdale",
+"Lund",
+"New Delhi",
+"Orlando"
+],
+"distractors": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan",
+"Fort Lauderdale",
+"Lund",
+"New Delhi",
+"Orlando"
+],
+"n_eligible": 27,
+"sha": "3d37b03171b0ff43845c91df1fde3c42d0edb6dfa03884b6f7c0ebebbf7097de",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0009__L020__p286:lasvegas:shanghai": {
+"unit": "s3d-rl600:chat-lmsys-0009__L020__p286:lasvegas:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Paris",
+"Rome",
+"Charleston"
+],
+"random": [
+"Kuala Lumpur",
+"Orlando",
+"Rosemary Beach",
+"Tampa"
+],
+"distractors": [
+"Qingdao",
+"Paris",
+"Rome",
+"Charleston",
+"Kuala Lumpur",
+"Orlando",
+"Rosemary Beach",
+"Tampa"
+],
+"n_eligible": 16,
+"sha": "94127eacc13df59ab420c97c487d80a642498d2c7d1d13eca77f13de3bc40789",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0009__L020__p326:london:shanghai": {
+"unit": "s3d-rl600:chat-lmsys-0009__L020__p326:london:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Paris",
+"Rome",
+"Charleston"
+],
+"random": [
+"Kuching",
+"Liverpool",
+"Orlando",
+"Tehran"
+],
+"distractors": [
+"Qingdao",
+"Paris",
+"Rome",
+"Charleston",
+"Kuching",
+"Liverpool",
+"Orlando",
+"Tehran"
+],
+"n_eligible": 16,
+"sha": "eb5458e4fe62a7794cacbae8e772b459b60e485996a2e7a430db108057655c55",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0025__L036__p107:guangzhou:shanghai": {
+"unit": "s3d-rl600:chat-lmsys-0025__L036__p107:guangzhou:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"Liverpool",
+"Miami",
+"Mumbai",
+"New York"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"Liverpool",
+"Miami",
+"Mumbai",
+"New York"
+],
+"n_eligible": 22,
+"sha": "66761ee0d3fed8f2e4384bac7221fb13c112fef3a90148659bdb4645981fd9ed",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0025__L036__p107:shenzhen:shanghai": {
+"unit": "s3d-rl600:chat-lmsys-0025__L036__p107:shenzhen:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"Fort Myers",
+"Liverpool",
+"New Delhi",
+"Orlando"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"Fort Myers",
+"Liverpool",
+"New Delhi",
+"Orlando"
+],
+"n_eligible": 22,
+"sha": "55c85b3c6a10f3b1e88394084f848105edb86353dcdebbfb3e50eb98056e1e9a",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0025__L036__p236:guangzhou:shanghai": {
+"unit": "s3d-rl600:chat-lmsys-0025__L036__p236:guangzhou:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"Chicago",
+"Kuching",
+"Liverpool",
+"Orlando"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"Chicago",
+"Kuching",
+"Liverpool",
+"Orlando"
+],
+"n_eligible": 22,
+"sha": "adf0bf2289deb06405a21f9221d00a31e84484bee54581d42fdfdb889c07681c",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0025__L036__p236:shenzhen:shanghai": {
+"unit": "s3d-rl600:chat-lmsys-0025__L036__p236:shenzhen:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"Anaheim",
+"Hamburg",
+"Las Vegas",
+"Orlando"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"Anaheim",
+"Hamburg",
+"Las Vegas",
+"Orlando"
+],
+"n_eligible": 22,
+"sha": "ae20b65f658b83a061f4e8728a5eb8a8e57e684ebc7421b385f407d7ee49997c",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0025__L036__p80:guangzhou:shanghai": {
+"unit": "s3d-rl600:chat-lmsys-0025__L036__p80:guangzhou:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"Chicago",
+"Fort Myers",
+"Hamburg",
+"Kuching"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"Chicago",
+"Fort Myers",
+"Hamburg",
+"Kuching"
+],
+"n_eligible": 22,
+"sha": "77c7cb1cb35f7ab3746c61d3ee30dc997e1bf6fc0264f488dd845d8746a219a2",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0025__L036__p80:shenzhen:shanghai": {
+"unit": "s3d-rl600:chat-lmsys-0025__L036__p80:shenzhen:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"Chicago",
+"Fort Lauderdale",
+"Hamburg",
+"New Delhi"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"Chicago",
+"Fort Lauderdale",
+"Hamburg",
+"New Delhi"
+],
+"n_eligible": 22,
+"sha": "f1fe1fb782c64077f7bd403cebbb0ebeb69364f1b6983beea172382e8e7819e2",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0025__L048__p107:shenzhen:shanghai": {
+"unit": "s3d-rl600:chat-lmsys-0025__L048__p107:shenzhen:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"Fort Lauderdale",
+"New Delhi",
+"Rosemary Beach",
+"Toronto"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"Fort Lauderdale",
+"New Delhi",
+"Rosemary Beach",
+"Toronto"
+],
+"n_eligible": 22,
+"sha": "45848dbebafd0524e09e573ac5046d0aee6357c9eb136a558d0ddbcb642c0886",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0025__L048__p80:北京:shanghai": {
+"unit": "s3d-rl600:chat-lmsys-0025__L048__p80:北京:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"Chicago",
+"New York",
+"Tehran",
+"Toronto"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"Chicago",
+"New York",
+"Tehran",
+"Toronto"
+],
+"n_eligible": 22,
+"sha": "36c1cb40eae533ebbeb974200c4e43c2f14dd373fba6f6082dde35406b3cb838",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0025__L060__p205:shenzhen:shanghai": {
+"unit": "s3d-rl600:chat-lmsys-0025__L060__p205:shenzhen:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"Fort Lauderdale",
+"New York",
+"Rosemary Beach",
+"Tehran"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"Fort Lauderdale",
+"New York",
+"Rosemary Beach",
+"Tehran"
+],
+"n_eligible": 22,
+"sha": "b333dc72c620ef341c92d0525bb0f32934d028faf70e33650c336e77edc42b00",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0070__L044__p82:qingdao:chengdu": {
+"unit": "s3d-rl600:chat-lmsys-0070__L044__p82:qingdao:chengdu",
+"anchor": "Chengdu",
+"nearest": [
+"Kuching",
+"Kuala Lumpur",
+"Dubai",
+"Mumbai"
+],
+"random": [
+"Anaheim",
+"Las Vegas",
+"Portland",
+"Rome"
+],
+"distractors": [
+"Kuching",
+"Kuala Lumpur",
+"Dubai",
+"Mumbai",
+"Anaheim",
+"Las Vegas",
+"Portland",
+"Rome"
+],
+"n_eligible": 31,
+"sha": "0970ae89905432bdd7799bac849b71aa147ddcff1179e2febfdf6635af9ba6a7",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0070__L044__p82:qingdaoshandong:chengdusichuan": {
+"unit": "s3d-rl600:chat-lmsys-0070__L044__p82:qingdaoshandong:chengdusichuan",
+"anchor": "Chengdu",
+"nearest": [
+"Kuching",
+"Kuala Lumpur",
+"Dubai",
+"Mumbai"
+],
+"random": [
+"Liverpool",
+"New York City",
+"Tampa",
+"Toronto"
+],
+"distractors": [
+"Kuching",
+"Kuala Lumpur",
+"Dubai",
+"Mumbai",
+"Liverpool",
+"New York City",
+"Tampa",
+"Toronto"
+],
+"n_eligible": 31,
+"sha": "dce75f06f33cbd4b669cb37b318c9dcf9ade780810eed2922c37242c58e3b9b2",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0070__L060__p82:qingdaoshandong:chengdusichuan": {
+"unit": "s3d-rl600:chat-lmsys-0070__L060__p82:qingdaoshandong:chengdusichuan",
+"anchor": "Chengdu",
+"nearest": [
+"Kuching",
+"Kuala Lumpur",
+"Dubai",
+"Mumbai"
+],
+"random": [
+"Charleston",
+"Hong Kong",
+"Miami",
+"Zurich"
+],
+"distractors": [
+"Kuching",
+"Kuala Lumpur",
+"Dubai",
+"Mumbai",
+"Charleston",
+"Hong Kong",
+"Miami",
+"Zurich"
+],
+"n_eligible": 31,
+"sha": "5639fef007b07915387d71a5865c3f716b3a9807c835449eefd57676685bf77a",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0052__L020__p92:cairo:hongkong": {
+"unit": "s3d-sft251:chat-dailydialog-0052__L020__p92:cairo:hongkong",
+"anchor": "Hong Kong",
+"nearest": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan"
+],
+"random": [
+"Hanoi",
+"Nanjing",
+"Orlando",
+"Rome"
+],
+"distractors": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan",
+"Hanoi",
+"Nanjing",
+"Orlando",
+"Rome"
+],
+"n_eligible": 27,
+"sha": "9231d5f1d0fd670e9bc935f0d69ae8e1ae32506152e1b02b18a003deb1002219",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0052__L024__p25:beijing:hongkong": {
+"unit": "s3d-sft251:chat-dailydialog-0052__L024__p25:beijing:hongkong",
+"anchor": "Hong Kong",
+"nearest": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan"
+],
+"random": [
+"Hamburg",
+"Liverpool",
+"London",
+"New Delhi"
+],
+"distractors": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan",
+"Hamburg",
+"Liverpool",
+"London",
+"New Delhi"
+],
+"n_eligible": 27,
+"sha": "a93857583fec7bebc5ef8d6c498910f69f08c1fb735add2a008310fb8253fef3",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0052__L024__p92:beijing:hongkong": {
+"unit": "s3d-sft251:chat-dailydialog-0052__L024__p92:beijing:hongkong",
+"anchor": "Hong Kong",
+"nearest": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan"
+],
+"random": [
+"Hamburg",
+"Liverpool",
+"Miami",
+"Rosemary Beach"
+],
+"distractors": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan",
+"Hamburg",
+"Liverpool",
+"Miami",
+"Rosemary Beach"
+],
+"n_eligible": 27,
+"sha": "2e4f1312086dd51d08b02072d49b8a9b330edec3b2571358b3c5cace26724c5c",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0052__L024__p92:cairo:hongkong": {
+"unit": "s3d-sft251:chat-dailydialog-0052__L024__p92:cairo:hongkong",
+"anchor": "Hong Kong",
+"nearest": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan"
+],
+"random": [
+"Hanoi",
+"Las Vegas",
+"New Delhi",
+"New York City"
+],
+"distractors": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan",
+"Hanoi",
+"Las Vegas",
+"New Delhi",
+"New York City"
+],
+"n_eligible": 27,
+"sha": "dd108aaa582cb918444d9fc20f0b84a30d218a4a0aa080e8acbd99245501c368",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0052__L028__p25:changsha:hongkong": {
+"unit": "s3d-sft251:chat-dailydialog-0052__L028__p25:changsha:hongkong",
+"anchor": "Hong Kong",
+"nearest": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan"
+],
+"random": [
+"Kuala Lumpur",
+"Lagos",
+"Nanjing",
+"Tampa"
+],
+"distractors": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan",
+"Kuala Lumpur",
+"Lagos",
+"Nanjing",
+"Tampa"
+],
+"n_eligible": 27,
+"sha": "82cd2962d04c8a494acf06cbe7da02c1b590a8fb830c74270f59603073ed6c00",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0052__L028__p92:cairo:hongkong": {
+"unit": "s3d-sft251:chat-dailydialog-0052__L028__p92:cairo:hongkong",
+"anchor": "Hong Kong",
+"nearest": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan"
+],
+"random": [
+"Mumbai",
+"Nanjing",
+"Rome",
+"Rosemary Beach"
+],
+"distractors": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan",
+"Mumbai",
+"Nanjing",
+"Rome",
+"Rosemary Beach"
+],
+"n_eligible": 27,
+"sha": "8d8ae1829ad25ecf0a6e021bb0b121c6f26919c5de328384a39e534226f64da4",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0052__L036__p45:portland:hongkong": {
+"unit": "s3d-sft251:chat-dailydialog-0052__L036__p45:portland:hongkong",
+"anchor": "Hong Kong",
+"nearest": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan"
+],
+"random": [
+"Nanjing",
+"New Delhi",
+"Orlando",
+"Tampa"
+],
+"distractors": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan",
+"Nanjing",
+"New Delhi",
+"Orlando",
+"Tampa"
+],
+"n_eligible": 27,
+"sha": "d2b1fe7c75c011929dfc052e86bbc23d6673bfa4f03c1fd56176d90667945b88",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0052__L052__p77:guangzhou:hongkong": {
+"unit": "s3d-sft251:chat-dailydialog-0052__L052__p77:guangzhou:hongkong",
+"anchor": "Hong Kong",
+"nearest": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan"
+],
+"random": [
+"Hamburg",
+"Mumbai",
+"Nanjing",
+"Tehran"
+],
+"distractors": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan",
+"Hamburg",
+"Mumbai",
+"Nanjing",
+"Tehran"
+],
+"n_eligible": 27,
+"sha": "e7cccbb6459cd8b93ba27957a814fe6008a0d746e3aa934ff65a2c42b6a52e40",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0052__L052__p77:shenzhen:hongkong": {
+"unit": "s3d-sft251:chat-dailydialog-0052__L052__p77:shenzhen:hongkong",
+"anchor": "Hong Kong",
+"nearest": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan"
+],
+"random": [
+"Miami",
+"Mumbai",
+"New York City",
+"Rome"
+],
+"distractors": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan",
+"Miami",
+"Mumbai",
+"New York City",
+"Rome"
+],
+"n_eligible": 27,
+"sha": "05e067a50f908feb1b1d20530cad5588a8b67e0ec8db575efd3ece2d24507696",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0052__L052__p92:shanghai:hongkong": {
+"unit": "s3d-sft251:chat-dailydialog-0052__L052__p92:shanghai:hongkong",
+"anchor": "Hong Kong",
+"nearest": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan"
+],
+"random": [
+"Ho Chi Minh City",
+"London",
+"Rosemary Beach",
+"Tampa"
+],
+"distractors": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan",
+"Ho Chi Minh City",
+"London",
+"Rosemary Beach",
+"Tampa"
+],
+"n_eligible": 27,
+"sha": "d0167ece4a43c2ed854ec3e01234d2651571d272fa63d0416f13c2da91837b83",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0052__L052__p92:shenzhen:hongkong": {
+"unit": "s3d-sft251:chat-dailydialog-0052__L052__p92:shenzhen:hongkong",
+"anchor": "Hong Kong",
+"nearest": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan"
+],
+"random": [
+"Fort Lauderdale",
+"Fort Myers",
+"New Delhi",
+"Tehran"
+],
+"distractors": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan",
+"Fort Lauderdale",
+"Fort Myers",
+"New Delhi",
+"Tehran"
+],
+"n_eligible": 27,
+"sha": "5f409d6cffe2c87785af1df9b66208424ffc719eac55041c9c178968d231bc7d",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0052__L056__p77:guangzhou:hongkong": {
+"unit": "s3d-sft251:chat-dailydialog-0052__L056__p77:guangzhou:hongkong",
+"anchor": "Hong Kong",
+"nearest": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan"
+],
+"random": [
+"Las Vegas",
+"Liverpool",
+"Lund",
+"Nanjing"
+],
+"distractors": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan",
+"Las Vegas",
+"Liverpool",
+"Lund",
+"Nanjing"
+],
+"n_eligible": 27,
+"sha": "b21f1f8b203c13bbd93ad315f8e03a1429c12fc8ebc4a3a0e177c6642c012b98",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0052__L056__p77:shenzhen:hongkong": {
+"unit": "s3d-sft251:chat-dailydialog-0052__L056__p77:shenzhen:hongkong",
+"anchor": "Hong Kong",
+"nearest": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan"
+],
+"random": [
+"Anaheim",
+"Lund",
+"Rome",
+"Rosemary Beach"
+],
+"distractors": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan",
+"Anaheim",
+"Lund",
+"Rome",
+"Rosemary Beach"
+],
+"n_eligible": 27,
+"sha": "c700dcde640d131c197bff78738ac9136cd2024ac30346f03e4a464bab9f0fcf",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0052__L060__p77:shenzhen:hongkong": {
+"unit": "s3d-sft251:chat-dailydialog-0052__L060__p77:shenzhen:hongkong",
+"anchor": "Hong Kong",
+"nearest": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan"
+],
+"random": [
+"Fort Myers",
+"Ho Chi Minh City",
+"Miami",
+"Nanjing"
+],
+"distractors": [
+"Manchester",
+"Charleston",
+"Zurich",
+"Wuhan",
+"Fort Myers",
+"Ho Chi Minh City",
+"Miami",
+"Nanjing"
+],
+"n_eligible": 27,
+"sha": "f7b594ad7766d014d6269e97871408789d034fe2184cb80a7360a1043372fbac",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0009__L020__p326:london:shanghai": {
+"unit": "s3d-sft251:chat-lmsys-0009__L020__p326:london:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Paris",
+"Rome",
+"Charleston"
+],
+"random": [
+"Fort Myers",
+"Kuala Lumpur",
+"Lund",
+"Tampa"
+],
+"distractors": [
+"Qingdao",
+"Paris",
+"Rome",
+"Charleston",
+"Fort Myers",
+"Kuala Lumpur",
+"Lund",
+"Tampa"
+],
+"n_eligible": 16,
+"sha": "571f766ca012af135b8e50fa22b4eb6eecbd4cc4c502d730680ecdb5334e12f8",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0009__L044__p128:nanjing:shanghai": {
+"unit": "s3d-sft251:chat-lmsys-0009__L044__p128:nanjing:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Qingdao",
+"Paris",
+"Rome",
+"Charleston"
+],
+"random": [
+"Anaheim",
+"Liverpool",
+"Lund",
+"New York City"
+],
+"distractors": [
+"Qingdao",
+"Paris",
+"Rome",
+"Charleston",
+"Anaheim",
+"Liverpool",
+"Lund",
+"New York City"
+],
+"n_eligible": 16,
+"sha": "27f330e60977b068c6e71d41fd87c6006508fcc46fc923fb38f51c0ba4a938c8",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0025__L020__p236:guangzhou:shanghai": {
+"unit": "s3d-sft251:chat-lmsys-0025__L020__p236:guangzhou:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"Anaheim",
+"Fort Myers",
+"Hamburg",
+"Mumbai"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"Anaheim",
+"Fort Myers",
+"Hamburg",
+"Mumbai"
+],
+"n_eligible": 22,
+"sha": "bd4870cf3e66885d5f5d978e6d65b0c501cd28039891e9e86ca5fe7aca7c5bbf",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0025__L024__p236:shenzhen:shanghai": {
+"unit": "s3d-sft251:chat-lmsys-0025__L024__p236:shenzhen:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"Fort Lauderdale",
+"Fort Myers",
+"Hamburg",
+"Toronto"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"Fort Lauderdale",
+"Fort Myers",
+"Hamburg",
+"Toronto"
+],
+"n_eligible": 22,
+"sha": "1120dbb259e1c45dbd77af1f551fe1867e39fe8254b2dae7fbfe9529cc2dab18",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0025__L032__p155:dubai:shanghai": {
+"unit": "s3d-sft251:chat-lmsys-0025__L032__p155:dubai:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"Fort Lauderdale",
+"Fort Myers",
+"New York",
+"Rosemary Beach"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"Fort Lauderdale",
+"Fort Myers",
+"New York",
+"Rosemary Beach"
+],
+"n_eligible": 22,
+"sha": "ecb670221bea03da0a6f4627e3a104f990873640a4bfba8441bf03b3c0944ec9",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0025__L032__p236:guangzhou:shanghai": {
+"unit": "s3d-sft251:chat-lmsys-0025__L032__p236:guangzhou:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"Chicago",
+"Kuching",
+"Rosemary Beach",
+"Toronto"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"Chicago",
+"Kuching",
+"Rosemary Beach",
+"Toronto"
+],
+"n_eligible": 22,
+"sha": "0170931f0fde6f8b0022b9c9170487bb0e8b86df93df94c3b1b60e8c82ed293a",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0025__L036__p107:guangzhou:shanghai": {
+"unit": "s3d-sft251:chat-lmsys-0025__L036__p107:guangzhou:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"Las Vegas",
+"Orlando",
+"Tehran",
+"Toronto"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"Las Vegas",
+"Orlando",
+"Tehran",
+"Toronto"
+],
+"n_eligible": 22,
+"sha": "981cbb7402f9e0b78fcf52d7d6317f1bb41f125c2925299574811ebe55280f7a",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0025__L036__p155:guangzhou:shanghai": {
+"unit": "s3d-sft251:chat-lmsys-0025__L036__p155:guangzhou:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"Las Vegas",
+"Lund",
+"New Delhi",
+"Orlando"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"Las Vegas",
+"Lund",
+"New Delhi",
+"Orlando"
+],
+"n_eligible": 22,
+"sha": "f7ad936ebf72d984b9399c338a0ef1813ed57776cc66a3a12aa50033a5a4d5b2",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0025__L040__p80:guangzhou:shanghai": {
+"unit": "s3d-sft251:chat-lmsys-0025__L040__p80:guangzhou:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"Anaheim",
+"Lund",
+"Miami",
+"New York"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"Anaheim",
+"Lund",
+"Miami",
+"New York"
+],
+"n_eligible": 22,
+"sha": "2480ca26948c9ab901154e245adfee1e86a9aed46bced5672fd7c4fc62bce7c1",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0025__L056__p80:wuhanhubeiprovince:shanghai": {
+"unit": "s3d-sft251:chat-lmsys-0025__L056__p80:wuhanhubeiprovince:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"Anaheim",
+"Fort Myers",
+"Mumbai",
+"Tehran"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"Anaheim",
+"Fort Myers",
+"Mumbai",
+"Tehran"
+],
+"n_eligible": 22,
+"sha": "eed51f7ff00ede681457d29e12d9ba98344434690b5cdb4ae17f418c7c5afb56",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0025__L060__p80:guangzhou:shanghai": {
+"unit": "s3d-sft251:chat-lmsys-0025__L060__p80:guangzhou:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"Kuching",
+"New Delhi",
+"Orlando",
+"Tehran"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"Kuching",
+"New Delhi",
+"Orlando",
+"Tehran"
+],
+"n_eligible": 22,
+"sha": "307c3401fa0631afac513e2b8fa501ed48fb44fd06d7cc68dd57ac914ccaf741",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0047__L020__p195:lund:rosemarybeach": {
+"unit": "s3d-sft251:chat-lmsys-0047__L020__p195:lund:rosemarybeach",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Tampa",
+"Qingdao",
+"Anaheim",
+"Dubai"
+],
+"random": [
+"Kuching",
+"Shenzhen",
+"Singapore",
+"Tehran"
+],
+"distractors": [
+"Tampa",
+"Qingdao",
+"Anaheim",
+"Dubai",
+"Kuching",
+"Shenzhen",
+"Singapore",
+"Tehran"
+],
+"n_eligible": 30,
+"sha": "f1a01b184a8782392ecb31348832a56e4ea6cfcfdd982a8cccb040050347f42a",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0047__L052__p195:lasvegas:rosemarybeach": {
+"unit": "s3d-sft251:chat-lmsys-0047__L052__p195:lasvegas:rosemarybeach",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Tampa",
+"Qingdao",
+"Anaheim",
+"Dubai"
+],
+"random": [
+"Seoul",
+"Tehran",
+"Wuhan",
+"Zurich"
+],
+"distractors": [
+"Tampa",
+"Qingdao",
+"Anaheim",
+"Dubai",
+"Seoul",
+"Tehran",
+"Wuhan",
+"Zurich"
+],
+"n_eligible": 30,
+"sha": "8b1106550d68ae968b1005ff876194361608ba9107507c7df7012cd669349f58",
+"generation": 0
+},
+"template-v3:chat-lmsys-0025__L044__p80:kampalacanberrabrusselswestminster:shanghai": {
+"unit": "template-v3:chat-lmsys-0025__L044__p80:kampalacanberrabrusselswestminster:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"Kuching",
+"Mumbai",
+"New Delhi",
+"Toronto"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"Kuching",
+"Mumbai",
+"New Delhi",
+"Toronto"
+],
+"n_eligible": 22,
+"sha": "c8b85cd340edc897cac8bab082fca9d572607d2e15391b4706d0c4a918aea731",
+"generation": 0
+},
+"template-v3:chat-lmsys-0025__L060__p205:tampa:shanghai": {
+"unit": "template-v3:chat-lmsys-0025__L060__p205:tampa:shanghai",
+"anchor": "Shanghai",
+"nearest": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo"
+],
+"random": [
+"Anaheim",
+"Fort Myers",
+"Hamburg",
+"Las Vegas"
+],
+"distractors": [
+"Manchester",
+"Rome",
+"Charleston",
+"Cairo",
+"Anaheim",
+"Fort Myers",
+"Hamburg",
+"Las Vegas"
+],
+"n_eligible": 22,
+"sha": "87c436432c53a4e04116cdd630ce836024d7f9d085722d74cccc5df1216d520c",
+"generation": 0
+},
+"tuned:chat-lmsys-0047__L052__p513:liverpool:rosemarybeachflorida": {
+"unit": "tuned:chat-lmsys-0047__L052__p513:liverpool:rosemarybeachflorida",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Tampa",
+"Qingdao",
+"Anaheim",
+"Dubai"
+],
+"random": [
+"Beijing",
+"Hanoi",
+"Manchester",
+"Singapore"
+],
+"distractors": [
+"Tampa",
+"Qingdao",
+"Anaheim",
+"Dubai",
+"Beijing",
+"Hanoi",
+"Manchester",
+"Singapore"
+],
+"n_eligible": 30,
+"sha": "9f8dc660b80e47c0635e89335511964093b1d26e9a4a071693d32187e611d3ae",
+"generation": 0
+}
+}

@@ -1,0 +1,220 @@
+{
+"mlnla-ck2000-all11:chat-dailydialog-0068__L032__p280:joggerskirts:joggerjeans": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0068__L032__p280:joggerskirts:joggerjeans",
+"anchor": "Jogger Jeans",
+"nearest": [
+"Relaxed Fit Jeans",
+"Classic 501 Straight-Leg",
+"Bell-Bottom Jeans",
+"Boyfriend Jeans"
+],
+"random": [
+"Flare Jeans",
+"Mom Jeans",
+"Straight-Leg Jeans",
+"Wide-Leg Jeans"
+],
+"distractors": [
+"Relaxed Fit Jeans",
+"Classic 501 Straight-Leg",
+"Bell-Bottom Jeans",
+"Boyfriend Jeans",
+"Flare Jeans",
+"Mom Jeans",
+"Straight-Leg Jeans",
+"Wide-Leg Jeans"
+],
+"n_eligible": 8,
+"sha": "2652fd4841b9b830ee9709895e3b8cf0606c58cfc9da715769e297cf913a755c",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0068__L048__p103:bomberpeacoatjackets:jeansstyles": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0068__L048__p103:bomberpeacoatjackets:jeansstyles",
+"anchor": "Wide-Leg Jeans",
+"nearest": [
+"Boyfriend Jeans",
+"Flare Jeans",
+"Relaxed Fit Jeans",
+"Bell-Bottom Jeans"
+],
+"random": [
+"Jogger Jeans"
+],
+"distractors": [
+"Boyfriend Jeans",
+"Flare Jeans",
+"Relaxed Fit Jeans",
+"Bell-Bottom Jeans",
+"Jogger Jeans"
+],
+"n_eligible": 5,
+"sha": "98036de735697fdeeb03661cbe3a150d47e5cedf51ec182b200d868c29793594",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0068__L052__p166:skinnyjeans:classic501straightleg": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0068__L052__p166:skinnyjeans:classic501straightleg",
+"anchor": "Straight-Leg Jeans",
+"nearest": [
+"Relaxed Fit Jeans",
+"Bell-Bottom Jeans",
+"Jogger Jeans",
+"Mom Jeans"
+],
+"random": [
+"Boyfriend Jeans",
+"Flare Jeans"
+],
+"distractors": [
+"Relaxed Fit Jeans",
+"Bell-Bottom Jeans",
+"Jogger Jeans",
+"Mom Jeans",
+"Boyfriend Jeans",
+"Flare Jeans"
+],
+"n_eligible": 6,
+"sha": "b869cb17bf55ccd1a6ff485fc5b763afc9f29678b64ddbd94221a7e33e61b38b",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0068__L060__p103:slimjeans:classic501straightleg": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0068__L060__p103:slimjeans:classic501straightleg",
+"anchor": "Classic 501 Straight-Leg",
+"nearest": [
+"Bell-Bottom Jeans",
+"Mom Jeans",
+"Jogger Jeans",
+"Flare Jeans"
+],
+"random": [
+"Boyfriend Jeans",
+"Relaxed Fit Jeans"
+],
+"distractors": [
+"Bell-Bottom Jeans",
+"Mom Jeans",
+"Jogger Jeans",
+"Flare Jeans",
+"Boyfriend Jeans",
+"Relaxed Fit Jeans"
+],
+"n_eligible": 6,
+"sha": "ef00f7edbd1007f4c3fb55e49e2e1cc56736bfe868a1bcde9c0f2bfcb738881e",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0068__L024__p103:bootcutjeans:classic501straightleg": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0068__L024__p103:bootcutjeans:classic501straightleg",
+"anchor": "Bootcut Jeans",
+"nearest": [
+"Straight-Leg Jeans",
+"Wide-Leg Jeans",
+"Relaxed Fit Jeans",
+"Classic 501 Straight-Leg"
+],
+"random": [
+"Bell-Bottom Jeans",
+"Boyfriend Jeans",
+"Flare Jeans",
+"Jogger Jeans"
+],
+"distractors": [
+"Straight-Leg Jeans",
+"Wide-Leg Jeans",
+"Relaxed Fit Jeans",
+"Classic 501 Straight-Leg",
+"Bell-Bottom Jeans",
+"Boyfriend Jeans",
+"Flare Jeans",
+"Jogger Jeans"
+],
+"n_eligible": 9,
+"sha": "5d5d316a8ce99212dfb1ca153ff31a2bb51d77faace62cc293a82a1c89f81d17",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0068__L024__p103:bootcutjeans:classic501straightleglevis": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0068__L024__p103:bootcutjeans:classic501straightleglevis",
+"anchor": "Bootcut Jeans",
+"nearest": [
+"Straight-Leg Jeans",
+"Wide-Leg Jeans",
+"Relaxed Fit Jeans",
+"Classic 501 Straight-Leg"
+],
+"random": [
+"Bell-Bottom Jeans",
+"Flare Jeans",
+"Jogger Jeans",
+"Mom Jeans"
+],
+"distractors": [
+"Straight-Leg Jeans",
+"Wide-Leg Jeans",
+"Relaxed Fit Jeans",
+"Classic 501 Straight-Leg",
+"Bell-Bottom Jeans",
+"Flare Jeans",
+"Jogger Jeans",
+"Mom Jeans"
+],
+"n_eligible": 9,
+"sha": "3b9de87c3f77e37ae821f4c2b97ff29981cca1d5c240eede6dbf5dabc80d27f7",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0068__L052__p220:highwaistedpants:widelegormomjeans": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0068__L052__p220:highwaistedpants:widelegormomjeans",
+"anchor": "Jogger Jeans",
+"nearest": [
+"Relaxed Fit Jeans",
+"Classic 501 Straight-Leg",
+"Bell-Bottom Jeans",
+"Boyfriend Jeans"
+],
+"random": [
+"Flare Jeans",
+"Mom Jeans",
+"Straight-Leg Jeans",
+"Wide-Leg Jeans"
+],
+"distractors": [
+"Relaxed Fit Jeans",
+"Classic 501 Straight-Leg",
+"Bell-Bottom Jeans",
+"Boyfriend Jeans",
+"Flare Jeans",
+"Mom Jeans",
+"Straight-Leg Jeans",
+"Wide-Leg Jeans"
+],
+"n_eligible": 8,
+"sha": "0a9e252f1c87ce4c62932854818933d1de4a3330adf584971591ca98c4c4946e",
+"generation": 1
+},
+"s3d-rl600-all11:chat-dailydialog-0068__L036__p280:jeggings:joggerjeans": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0068__L036__p280:jeggings:joggerjeans",
+"anchor": "Jogger Jeans",
+"nearest": [
+"Relaxed Fit Jeans",
+"Classic 501 Straight-Leg",
+"Bell-Bottom Jeans",
+"Boyfriend Jeans"
+],
+"random": [
+"Flare Jeans",
+"Mom Jeans",
+"Straight-Leg Jeans",
+"Wide-Leg Jeans"
+],
+"distractors": [
+"Relaxed Fit Jeans",
+"Classic 501 Straight-Leg",
+"Bell-Bottom Jeans",
+"Boyfriend Jeans",
+"Flare Jeans",
+"Mom Jeans",
+"Straight-Leg Jeans",
+"Wide-Leg Jeans"
+],
+"n_eligible": 8,
+"sha": "e76f1723ff10017516c626abbc1ed699b9d27861c8f91f9e3eb8a3e74bbf89d0",
+"generation": 1
+}
+}

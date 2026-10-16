@@ -1,0 +1,147 @@
+{
+"mlnla-ck2000-all11:chat-dailydialog-0032__L040__p105:films:music": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0032__L040__p105:films:music",
+"anchor": "music",
+"nearest": [
+"dance",
+"photography",
+"drawing",
+"printmaking"
+],
+"random": [
+"architecture",
+"literature",
+"poetry",
+"sculpture"
+],
+"distractors": [
+"dance",
+"photography",
+"drawing",
+"printmaking",
+"architecture",
+"literature",
+"poetry",
+"sculpture"
+],
+"n_eligible": 10,
+"sha": "7e2f6316427eb7d52249e934f00b7eecaab38a42b45c37bf7a0a2fe67e3f2473",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0032__L020__p91:narrativecraft:music": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0032__L020__p91:narrativecraft:music",
+"anchor": "music",
+"nearest": [
+"dance",
+"photography",
+"drawing",
+"printmaking"
+],
+"random": [
+"architecture",
+"painting",
+"poetry",
+"theatre"
+],
+"distractors": [
+"dance",
+"photography",
+"drawing",
+"printmaking",
+"architecture",
+"painting",
+"poetry",
+"theatre"
+],
+"n_eligible": 11,
+"sha": "46b38b51fd6fe80a747f27ec619bc6738efc9604dd428404c2104ad67c83f8a4",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0032__L020__p91:narratives:music": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0032__L020__p91:narratives:music",
+"anchor": "music",
+"nearest": [
+"dance",
+"photography",
+"drawing",
+"printmaking"
+],
+"random": [
+"architecture",
+"painting",
+"poetry",
+"sculpture"
+],
+"distractors": [
+"dance",
+"photography",
+"drawing",
+"printmaking",
+"architecture",
+"painting",
+"poetry",
+"sculpture"
+],
+"n_eligible": 11,
+"sha": "d3d99430ce97f1cb1333923e8c94a8ead1bece29df0d1238f65c49bb3c6d2320",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0032__L020__p91:stories:music": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0032__L020__p91:stories:music",
+"anchor": "music",
+"nearest": [
+"dance",
+"photography",
+"drawing",
+"printmaking"
+],
+"random": [
+"painting",
+"poetry",
+"sculpture",
+"theatre"
+],
+"distractors": [
+"dance",
+"photography",
+"drawing",
+"printmaking",
+"painting",
+"poetry",
+"sculpture",
+"theatre"
+],
+"n_eligible": 11,
+"sha": "8de8bb32c60b122683290b3851d73ae4fbc01582e60c3e7044bbfbd4d9949109",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0032__L020__p91:storytelling:music": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0032__L020__p91:storytelling:music",
+"anchor": "music",
+"nearest": [
+"dance",
+"photography",
+"drawing",
+"printmaking"
+],
+"random": [
+"film",
+"literature",
+"painting",
+"sculpture"
+],
+"distractors": [
+"dance",
+"photography",
+"drawing",
+"printmaking",
+"film",
+"literature",
+"painting",
+"sculpture"
+],
+"n_eligible": 11,
+"sha": "9d5560018dc7c927b4499b6c996f41b37115ced2b4373ada706d1419c0a676fd",
+"generation": 0
+}
+}

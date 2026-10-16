@@ -1,0 +1,3839 @@
+{
+"mlnla-ck2000-all11:chat-lmsys-0028__L020__p327:aspirin:fluoxetine": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0028__L020__p327:aspirin:fluoxetine",
+"anchor": "fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "9636ff1560471deadc18661303df30e3917c29c07129024b67a7b4e6440a6ba0",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0028__L020__p381:aspirin:fluoxetine": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0028__L020__p381:aspirin:fluoxetine",
+"anchor": "fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "3f531cd95ea19f8b901b7c95090f6a4f73bdf57e43b76f59603b5d45482d5a7d",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0028__L020__p488:paracetamol:fluoxetine": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0028__L020__p488:paracetamol:fluoxetine",
+"anchor": "Fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "b9762524fc2611ab5517cd589cfc0e43ba8a41a39674755ac6e956edf84b4b8a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0028__L020__p87:metformin:fluoxetine": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0028__L020__p87:metformin:fluoxetine",
+"anchor": "Fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "abd8a2e366490e365b5e2941e9c16cbbee45917b5a182bc3ecb101cbffa8e310",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0028__L024__p157:insulin:fluoxetine": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0028__L024__p157:insulin:fluoxetine",
+"anchor": "Fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "f4782d361e8ecb1ee27dcce8bbcec95b32774d76afae0469b0a7972082170da9",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0028__L024__p87:metformin:fluoxetine": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0028__L024__p87:metformin:fluoxetine",
+"anchor": "Fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "9e1e95e9b375b50cc39e5e40c2f154e2806d4a1364a734c581ef0023dc54d0f1",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0028__L024__p87:penicillin:fluoxetine": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0028__L024__p87:penicillin:fluoxetine",
+"anchor": "fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "47a906b4c65da689c6cf12a3cc2f5de0ee19c66710d76e9bf1b4bea32c0d1691",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0028__L028__p157:insulin:fluoxetine": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0028__L028__p157:insulin:fluoxetine",
+"anchor": "Fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "b977d83aecbe0f7b13c12eb97c0e37016d586dd85b9585ad55b649eb9a4ac8b4",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0028__L032__p157:insulin:fluoxetine": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0028__L032__p157:insulin:fluoxetine",
+"anchor": "Fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "b8cc5144a93c19faae63397c4a25b25e6fe17b1f9d199bf3e59f76a4f416c648",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0028__L032__p213:methotrexate:fluoxetine": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0028__L032__p213:methotrexate:fluoxetine",
+"anchor": "fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "f97d3ef5a9f7aa18dd2fa76499269f88ea60e964c38416000798a80e7f985750",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0028__L032__p213:mtx:fluoxetine": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0028__L032__p213:mtx:fluoxetine",
+"anchor": "Fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "924d3f971ea960d6e68e426a5b27b0684c9eeafa30acaad27cde893fd4df84c3",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0028__L032__p87:aspirin:fluoxetine": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0028__L032__p87:aspirin:fluoxetine",
+"anchor": "fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "2e40cb5307011ec69ce66dc67943770db6e445299b4d2671864636e2d41ff3bb",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0028__L036__p213:metformin:fluoxetine": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0028__L036__p213:metformin:fluoxetine",
+"anchor": "Fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "557bf2ddf51d07df6814c00ac48f7e90bcc5c03d3303940faca34fb7fcd40009",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0028__L036__p213:paracetamol:fluoxetine": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0028__L036__p213:paracetamol:fluoxetine",
+"anchor": "Fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "f95a8de95b11e38a2dd5500342d6e1ddb170247765a8f9b74995fd0f4e2ce629",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0028__L036__p381:aspirin:fluoxetine": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0028__L036__p381:aspirin:fluoxetine",
+"anchor": "fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "d4ff115a3c862b146dbfd7de787c7ecd0389cfbb1db725c230b49e2424b26633",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0028__L040__p213:paracetamol:fluoxetine": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0028__L040__p213:paracetamol:fluoxetine",
+"anchor": "Fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "50ae19502870adcd005c312ebc08e3f923d47c30c07faeeeaa68a39da5879b2d",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0028__L044__p157:greenamphetamine:fluoxetine": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0028__L044__p157:greenamphetamine:fluoxetine",
+"anchor": "Fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "0b85f7790b818231e2e80415711718ea7cefce10ad821ed11961d2cadc055f61",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0028__L044__p213:paracetamol:fluoxetine": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0028__L044__p213:paracetamol:fluoxetine",
+"anchor": "Fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "65958d0b95266253b99ec2da27ca34b2128ea3a615c7675df82caa7f59e41234",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0028__L044__p327:cipro:fluoxetine": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0028__L044__p327:cipro:fluoxetine",
+"anchor": "fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "28f0a7fbef7506692753675ee2d6c998097aa3a33491bad8b528f2d9a934f07f",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0028__L044__p327:ciprofloxacin:fluoxetine": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0028__L044__p327:ciprofloxacin:fluoxetine",
+"anchor": "Fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "17fce5b3fc890197d109aa247eb787f7a7ae56ea9195d26e7068331a8b4dd963",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0028__L052__p30:chlorpromethazine:fluoxetine": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0028__L052__p30:chlorpromethazine:fluoxetine",
+"anchor": "fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "70eecd02721a13111aa32ac6c3ac35349acc52defe756d2afc3af6bd1ab32b04",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0028__L056__p327:chlorzoxazone:fluoxetine": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0028__L056__p327:chlorzoxazone:fluoxetine",
+"anchor": "fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "b8370e62671475e1708eea8cce29f7c86a8bed8fc947b1d60b5fd44b0672d76a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0028__L056__p381:metformin:fluoxetine": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0028__L056__p381:metformin:fluoxetine",
+"anchor": "Fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "c19af3b8fd332711b5fcd4611f54e5762a84b02c0b262143e71cc6240b492a11",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0051__L028__p424:cannabis:psychedelics": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0051__L028__p424:cannabis:psychedelics",
+"anchor": "Cannabis",
+"nearest": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin"
+],
+"random": [
+"chloroquine",
+"fluoxetine",
+"penicillin",
+"tetrahydrocannabinol"
+],
+"distractors": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin",
+"chloroquine",
+"fluoxetine",
+"penicillin",
+"tetrahydrocannabinol"
+],
+"n_eligible": 33,
+"sha": "c7acf3b9d94b291358ad73e5d6aafb25ebba50f8bc36461d2813ddf431a91196",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0051__L044__p424:cannabis:psychedelics": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0051__L044__p424:cannabis:psychedelics",
+"anchor": "Cannabis",
+"nearest": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin"
+],
+"random": [
+"Tylenol",
+"acetaminophen",
+"chlorpromazine",
+"psychedelics"
+],
+"distractors": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin",
+"Tylenol",
+"acetaminophen",
+"chlorpromazine",
+"psychedelics"
+],
+"n_eligible": 33,
+"sha": "bc4ee2285e019e12981742bdad2bc82bdd8a2ba6100bf4374a5f28cc40475ae7",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0051__L048__p35:cannabis:psychedelics": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0051__L048__p35:cannabis:psychedelics",
+"anchor": "Cannabis",
+"nearest": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin"
+],
+"random": [
+"Fluoxetine",
+"Paracetamol",
+"chlorzoxazone",
+"nivolumab"
+],
+"distractors": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin",
+"Fluoxetine",
+"Paracetamol",
+"chlorzoxazone",
+"nivolumab"
+],
+"n_eligible": 33,
+"sha": "4a7e6eea8bd070bc15e4c6a5ab50ae9824dc252670b0f8c3f2530a2c3fb51093",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0051__L048__p424:cannabis:psychedelics": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0051__L048__p424:cannabis:psychedelics",
+"anchor": "Cannabis",
+"nearest": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin"
+],
+"random": [
+"LSD",
+"chlorpromazine",
+"methotrexate",
+"nivolumab"
+],
+"distractors": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin",
+"LSD",
+"chlorpromazine",
+"methotrexate",
+"nivolumab"
+],
+"n_eligible": 33,
+"sha": "6396edc051d153db5daccf094dc057299389d48ec3aaf709c465724c637bd860",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0051__L048__p424:cannabis:psychedelictherapies": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0051__L048__p424:cannabis:psychedelictherapies",
+"anchor": "Cannabis",
+"nearest": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin"
+],
+"random": [
+"Tylenol",
+"acetaminophen",
+"methotrexate",
+"morphine"
+],
+"distractors": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin",
+"Tylenol",
+"acetaminophen",
+"methotrexate",
+"morphine"
+],
+"n_eligible": 33,
+"sha": "8da8a65fcad521096f870b65bc923c14da9adaf370beb9305b7cad5fa1d88a4b",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0051__L052__p424:cannabis:psychedelics": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0051__L052__p424:cannabis:psychedelics",
+"anchor": "Cannabis",
+"nearest": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin"
+],
+"random": [
+"Green Amphetamine",
+"Insulin",
+"LSD",
+"tetrahydrocannabinol"
+],
+"distractors": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin",
+"Green Amphetamine",
+"Insulin",
+"LSD",
+"tetrahydrocannabinol"
+],
+"n_eligible": 33,
+"sha": "6da7d72e9c4fd9b86e7848a1d77c3f20df7225a22cb96e8d7c78c244632872d8",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0051__L052__p424:cannabis:psychedelictherapies": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0051__L052__p424:cannabis:psychedelictherapies",
+"anchor": "Cannabis",
+"nearest": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin"
+],
+"random": [
+"Insulin",
+"Tylenol",
+"chlorpromazine",
+"psychedelics"
+],
+"distractors": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin",
+"Insulin",
+"Tylenol",
+"chlorpromazine",
+"psychedelics"
+],
+"n_eligible": 33,
+"sha": "a18148c6a02c5e147dabb16303c417008bc445b5772fd09ffbae0ed45963fc9e",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0051__L056__p424:cannabis:psychedelics": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0051__L056__p424:cannabis:psychedelics",
+"anchor": "Cannabis",
+"nearest": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin"
+],
+"random": [
+"LSD",
+"Opdivo",
+"Tylenol",
+"chloroquine"
+],
+"distractors": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin",
+"LSD",
+"Opdivo",
+"Tylenol",
+"chloroquine"
+],
+"n_eligible": 33,
+"sha": "220dada7037f9666be8849100adacecbcba2449205395cbe69698113c2fb689c",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0028__L020__p157:aspirin:fluoxetine": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0028__L020__p157:aspirin:fluoxetine",
+"anchor": "fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "79d019a1e7774ec4ba9c64613da1a73595945590b97b8dbce3f03dbf0cde106c",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0028__L020__p157:paracetamol:fluoxetine": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0028__L020__p157:paracetamol:fluoxetine",
+"anchor": "Fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "5f0abd9a28f742598a9e7ac9a134d1b57ed6fefe7a00385199bee888f5f98931",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0028__L020__p157:penicilling:fluoxetine": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0028__L020__p157:penicilling:fluoxetine",
+"anchor": "fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "a2c00d257b117a771f1f4bb7474a11977863f037826faba5fb74c73b53476663",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0028__L020__p327:metformin:fluoxetine": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0028__L020__p327:metformin:fluoxetine",
+"anchor": "Fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "e77da8b7ebbb742fc37f01643a05145490f8dd1bf59220d8cdbf4c64d9e84466",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0028__L020__p488:paracetamol:fluoxetine": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0028__L020__p488:paracetamol:fluoxetine",
+"anchor": "Fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "fcb32b48b46adb2d9d3e4ceaca1cba60c06ad113717292c858748579ec8d3677",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0028__L024__p157:penicillin:fluoxetine": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0028__L024__p157:penicillin:fluoxetine",
+"anchor": "fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "20d52f62eed891598f9a47a8368555996e517933331a010c795e10677d8de17b",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0028__L028__p157:insulin:fluoxetine": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0028__L028__p157:insulin:fluoxetine",
+"anchor": "Fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "a60ae5852721d61e1b257ecf8aaf215c6042d236d51bbb4417b82bba63fe30a4",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0028__L028__p157:penicilling:fluoxetine": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0028__L028__p157:penicilling:fluoxetine",
+"anchor": "fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "7a93ff8af8e3cf7eb3e011ff8c2104306ba43ca949fb07ec92765c34c07b18b9",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0028__L028__p327:aspirin:fluoxetine": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0028__L028__p327:aspirin:fluoxetine",
+"anchor": "fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "2571dd86017665364e7686546e668cc5e511a50545f775ac8a5c8ab511b3af0c",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0028__L032__p157:insulin:fluoxetine": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0028__L032__p157:insulin:fluoxetine",
+"anchor": "Fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "9b938a17411fa7e70164a2b07b3deefb3f400d92d02dea5b7a75e4c43dbd35a8",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0028__L032__p157:penicillin:fluoxetine": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0028__L032__p157:penicillin:fluoxetine",
+"anchor": "fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "133a6549c900f6a9be47336b0ff1251c6f0d2c234ced9c9e71b64d9a5461c227",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0028__L032__p327:aspirin:fluoxetine": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0028__L032__p327:aspirin:fluoxetine",
+"anchor": "fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "060ebf0ca6d53d8a03cb7f564c62d4d8f5341d95797a7b9bb6f9b5886f3b3665",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0028__L032__p327:aspirinibuprofen:fluoxetine": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0028__L032__p327:aspirinibuprofen:fluoxetine",
+"anchor": "fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "752d99eb4dee5a43b2a6eebfdc0f105e9a2956e915245988b1bcba0eef1d980e",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0028__L036__p213:paracetamol:fluoxetine": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0028__L036__p213:paracetamol:fluoxetine",
+"anchor": "Fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "8286f3ffdf5b77fbc2a403e079a16e48802b77695c0d61f682a39ee92829f67d",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0028__L036__p327:cefalexin:fluoxetine": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0028__L036__p327:cefalexin:fluoxetine",
+"anchor": "fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "cdb123fd95d0816bdb9420b3ba3fe4790fef0e70ac61336675c704b77c6a9618",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0028__L040__p213:paracetamol:fluoxetine": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0028__L040__p213:paracetamol:fluoxetine",
+"anchor": "Fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "13a61b204cf1b46e2a76ad0d1c83e25f83f5ae09929127b43dce12fc17a4b0e9",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0028__L040__p327:cefalexin:fluoxetine": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0028__L040__p327:cefalexin:fluoxetine",
+"anchor": "fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "328668563c48008bed2d9de5c43782cbc47da6e677136a489480c7652e6ebd0b",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0028__L040__p381:lsd:fluoxetine": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0028__L040__p381:lsd:fluoxetine",
+"anchor": "Fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "6fe3b963a4a1be1dde86693a0b6d6a02d47c661cba57974cabbf3e4f7df6553c",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0028__L044__p213:aspirin:fluoxetine": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0028__L044__p213:aspirin:fluoxetine",
+"anchor": "fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "1d45495615603678db9ca383b761c38a3b15fbec8d5796725ae234a884a3fee1",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0028__L044__p327:cefalexin:fluoxetine": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0028__L044__p327:cefalexin:fluoxetine",
+"anchor": "fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "803752b40b17844a9a35dae4bbee716441075d35f79d5c749bff1fa65cc5ce76",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0028__L044__p327:ciprofloxacin:fluoxetine": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0028__L044__p327:ciprofloxacin:fluoxetine",
+"anchor": "Fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "2457a1e8c10180e71de4f0c0334cd2e5d97bb129c8fcf420a386500bbfb933ef",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0028__L044__p381:lsd:fluoxetine": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0028__L044__p381:lsd:fluoxetine",
+"anchor": "Fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "f58fd22646c3387fd2d91f2e90ec9aef2d40cb0a591b55f2896d86775bf2f154",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0028__L048__p213:aspirin:fluoxetine": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0028__L048__p213:aspirin:fluoxetine",
+"anchor": "fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "1ad1ae4305dc037c2d5b43b6e58a23bd578e9c72a5612ce418b93c8563d430ce",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0028__L048__p327:atorvastatin:fluoxetine": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0028__L048__p327:atorvastatin:fluoxetine",
+"anchor": "fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "2f112626369af1ae55b78c5b549e35dd48f728e50649310ee5b3a858cbdea060",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0028__L048__p327:atorvastatincalcium:fluoxetine": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0028__L048__p327:atorvastatincalcium:fluoxetine",
+"anchor": "fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "6e7ef1a3d61f1f8446944f478120163b11908e296747dee1704ea11e4d3fa36e",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0028__L048__p327:atorvastatincalcium:fluoxetinehydrochloride": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0028__L048__p327:atorvastatincalcium:fluoxetinehydrochloride",
+"anchor": "fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "7691f7014a0e1aaed302fd09cb7c887097a04b988a234a8714ac14f3fa09f8e8",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0028__L052__p157:chloroquinesulfadrug:fluoxetine": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0028__L052__p157:chloroquinesulfadrug:fluoxetine",
+"anchor": "Fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "5d6bdc5af9a713a9cc80efff1f942a9f76009cc5c1000530f0dc591c65804cfc",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0028__L052__p327:chloramphenicol:fluoxetine": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0028__L052__p327:chloramphenicol:fluoxetine",
+"anchor": "Fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "184f1094db5a1e546c1b9dd4c67ac741239ee4ca7eec724cb6fd67220149f1ba",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0028__L060__p157:paracetamol:fluoxetine": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0028__L060__p157:paracetamol:fluoxetine",
+"anchor": "Fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "ee1e003c314f20ff90425b0de4c7ad56067010672505f111c02846982eb70206",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0051__L028__p424:cannabis:psychedelics": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0051__L028__p424:cannabis:psychedelics",
+"anchor": "Cannabis",
+"nearest": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin"
+],
+"random": [
+"Fluoxetine",
+"acetaminophen",
+"aspirin",
+"nivolumab"
+],
+"distractors": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin",
+"Fluoxetine",
+"acetaminophen",
+"aspirin",
+"nivolumab"
+],
+"n_eligible": 30,
+"sha": "b7adccf7ab67143854a8f3f9423b337054ac9b11a77e29f4c7be610242dbb045",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0051__L028__p494:cannabis:psychedelics": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0051__L028__p494:cannabis:psychedelics",
+"anchor": "Cannabis",
+"nearest": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin"
+],
+"random": [
+"Fluoxetine",
+"LSD",
+"chlorzoxazone",
+"penicillin"
+],
+"distractors": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin",
+"Fluoxetine",
+"LSD",
+"chlorzoxazone",
+"penicillin"
+],
+"n_eligible": 30,
+"sha": "bfd91e480ec7153fe29b91e329b88a6c15603e9145eea77d7377c030f3158bf6",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0051__L032__p494:cannabis:psychedelics": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0051__L032__p494:cannabis:psychedelics",
+"anchor": "Cannabis",
+"nearest": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin"
+],
+"random": [
+"Insulin",
+"Paracetamol",
+"Tylenol",
+"acetaminophen"
+],
+"distractors": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin",
+"Insulin",
+"Paracetamol",
+"Tylenol",
+"acetaminophen"
+],
+"n_eligible": 30,
+"sha": "e61b305af07ad734676e230768c943141466c701f9bacb05efd4e52735f3462e",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0051__L036__p424:cannabis:psychedelics": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0051__L036__p424:cannabis:psychedelics",
+"anchor": "Cannabis",
+"nearest": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin"
+],
+"random": [
+"amphetamine",
+"atorvastatin",
+"chlorzoxazone",
+"fluoxetine"
+],
+"distractors": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin",
+"amphetamine",
+"atorvastatin",
+"chlorzoxazone",
+"fluoxetine"
+],
+"n_eligible": 30,
+"sha": "ce3967731c2e19e8b0862d60b225d284d6db981a81f124c7a317fd4c8d77c137",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0051__L036__p424:thccannabis:classicpsychedelics": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0051__L036__p424:thccannabis:classicpsychedelics",
+"anchor": "psilocybin",
+"nearest": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin"
+],
+"random": [
+"Ibuprofen",
+"Modafinil",
+"aspirin",
+"atorvastatin"
+],
+"distractors": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin",
+"Ibuprofen",
+"Modafinil",
+"aspirin",
+"atorvastatin"
+],
+"n_eligible": 27,
+"sha": "77a31f3bd8e5a7bb2198c75c59e8a2d004b7d7abef79e73c792db4d069efa7b8",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0051__L040__p424:cannabis:classicpsychedelics": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0051__L040__p424:cannabis:classicpsychedelics",
+"anchor": "Cannabis",
+"nearest": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin"
+],
+"random": [
+"atorvastatin",
+"chloroquine",
+"metoprolol",
+"penicillin G"
+],
+"distractors": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin",
+"atorvastatin",
+"chloroquine",
+"metoprolol",
+"penicillin G"
+],
+"n_eligible": 30,
+"sha": "2fbaca302a844252961b37725ddb0f6a9def3d7e784cf2cb0cbcc155de1ca1d1",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0051__L040__p424:cannabis:psychedelics": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0051__L040__p424:cannabis:psychedelics",
+"anchor": "Cannabis",
+"nearest": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin"
+],
+"random": [
+"Fluoxetine",
+"Opdivo",
+"Paracetamol",
+"amphetamine"
+],
+"distractors": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin",
+"Fluoxetine",
+"Opdivo",
+"Paracetamol",
+"amphetamine"
+],
+"n_eligible": 30,
+"sha": "3ce1b637ed0bc99e9dd5cfa47da969e3dafeaa1246c0dc540befde455913cbef",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0051__L040__p424:marijuana:psychedelics": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0051__L040__p424:marijuana:psychedelics",
+"anchor": "psychedelics",
+"nearest": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin"
+],
+"random": [
+"Insulin",
+"acetaminophen",
+"chlorzoxazone",
+"diazepam"
+],
+"distractors": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin",
+"Insulin",
+"acetaminophen",
+"chlorzoxazone",
+"diazepam"
+],
+"n_eligible": 27,
+"sha": "91fe1bc2903bd5bdac00dc4572636afd127923065faaba86f181fb02338811ef",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0051__L044__p245:cannabis:psychedelics": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0051__L044__p245:cannabis:psychedelics",
+"anchor": "Cannabis",
+"nearest": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin"
+],
+"random": [
+"Ibuprofen",
+"Metformin",
+"atorvastatin",
+"chlorzoxazone"
+],
+"distractors": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin",
+"Ibuprofen",
+"Metformin",
+"atorvastatin",
+"chlorzoxazone"
+],
+"n_eligible": 30,
+"sha": "7c18ff36ad12ecfb87632aaa9154f53cb78c7a0603609d1ae32dbccb8343eec6",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0051__L044__p424:cannabis:classicpsychedelics": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0051__L044__p424:cannabis:classicpsychedelics",
+"anchor": "Cannabis",
+"nearest": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin"
+],
+"random": [
+"Metformin",
+"Tylenol",
+"amphetamine",
+"metoprolol"
+],
+"distractors": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin",
+"Metformin",
+"Tylenol",
+"amphetamine",
+"metoprolol"
+],
+"n_eligible": 30,
+"sha": "aec5bf9d170b65a2277e90a1b15e568dd9c2d2ae9001407c580f4ba8b107bfe4",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0051__L044__p424:cannabis:psychedelics": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0051__L044__p424:cannabis:psychedelics",
+"anchor": "Cannabis",
+"nearest": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin"
+],
+"random": [
+"Ibuprofen",
+"amphetamine",
+"cefalexin",
+"diazepam"
+],
+"distractors": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin",
+"Ibuprofen",
+"amphetamine",
+"cefalexin",
+"diazepam"
+],
+"n_eligible": 30,
+"sha": "5c634937e8a2ec87ee3e043d3111ff97d4504fdb240f3e774f65ad8c065ce0fa",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0051__L044__p494:cannabis:classicpsychedelics": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0051__L044__p494:cannabis:classicpsychedelics",
+"anchor": "Cannabis",
+"nearest": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin"
+],
+"random": [
+"LSD",
+"chlorzoxazone",
+"metoprolol",
+"psychedelics"
+],
+"distractors": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin",
+"LSD",
+"chlorzoxazone",
+"metoprolol",
+"psychedelics"
+],
+"n_eligible": 30,
+"sha": "ceb0e796a1868a912a9b00b79d6e4f05c6f7498a2434ce3c2f86be4c49e185fc",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0051__L044__p494:cannabis:psychedelics": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0051__L044__p494:cannabis:psychedelics",
+"anchor": "Cannabis",
+"nearest": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin"
+],
+"random": [
+"Insulin",
+"Paracetamol",
+"penicillin",
+"penicillin G"
+],
+"distractors": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin",
+"Insulin",
+"Paracetamol",
+"penicillin",
+"penicillin G"
+],
+"n_eligible": 30,
+"sha": "dfa472d9640e27d740256e4c33ac23686ab852d87572a0e235ccca5fd26d782b",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0051__L048__p245:cannabis:psychedelics": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0051__L048__p245:cannabis:psychedelics",
+"anchor": "Cannabis",
+"nearest": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin"
+],
+"random": [
+"Tylenol",
+"atorvastatin",
+"psychedelics",
+"tetrahydrocannabinol"
+],
+"distractors": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin",
+"Tylenol",
+"atorvastatin",
+"psychedelics",
+"tetrahydrocannabinol"
+],
+"n_eligible": 30,
+"sha": "5fa172ea5e47e364ff4af774de7576b4fc3e9dd66d07d47c8d367db2a3c8fcf3",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0051__L048__p424:cannabis:classicpsychedelics": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0051__L048__p424:cannabis:classicpsychedelics",
+"anchor": "Cannabis",
+"nearest": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin"
+],
+"random": [
+"Ibuprofen",
+"acetaminophen",
+"aspirin",
+"chloroquine"
+],
+"distractors": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin",
+"Ibuprofen",
+"acetaminophen",
+"aspirin",
+"chloroquine"
+],
+"n_eligible": 30,
+"sha": "c211211c0125a0ef04ae2e0b0d3ad75f86ac9dc9c07c2ff14811c95e3f03be61",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0051__L048__p424:cannabis:psychedelics": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0051__L048__p424:cannabis:psychedelics",
+"anchor": "Cannabis",
+"nearest": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin"
+],
+"random": [
+"Fluoxetine",
+"Modafinil",
+"diazepam",
+"penicillin G"
+],
+"distractors": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin",
+"Fluoxetine",
+"Modafinil",
+"diazepam",
+"penicillin G"
+],
+"n_eligible": 30,
+"sha": "6b30e0931598942c9facba5203a65f2203cca34d4bbef0c504e61b4e8d123ee3",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0028__L020__p157:penicilling:fluoxetine": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0028__L020__p157:penicilling:fluoxetine",
+"anchor": "fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "57a8257cb38b88592def884dc3088454c352e0b4f0cda8b1e647bde36edfd98b",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0028__L020__p327:metformin:fluoxetine": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0028__L020__p327:metformin:fluoxetine",
+"anchor": "Fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "b99ff37339e2e455b01db97fc2e6d869cf53d7ca4fac313f6faf4a1582b92cc0",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0028__L020__p87:metformin:fluoxetine": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0028__L020__p87:metformin:fluoxetine",
+"anchor": "Fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "55f0c0390d4de57e33a6c8b4868f5e3f9551c3faa53472c0056fdae95448c160",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0028__L024__p157:penicillin:fluoxetine": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0028__L024__p157:penicillin:fluoxetine",
+"anchor": "fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "de5485b8f29801e18afbd6e3b63a0042cc5da7a31849e6bbae2198c79df7c1d5",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0028__L024__p157:penicilling:fluoxetine": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0028__L024__p157:penicilling:fluoxetine",
+"anchor": "fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "3b02bd4700abf7915c7779e25a73a88bf870193a49ca53866d40ec018e2cad58",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0028__L028__p87:nivolumab:fluoxetine": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0028__L028__p87:nivolumab:fluoxetine",
+"anchor": "fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "473937f0aae2062d8ef30c256e253430ba2f3ba829df00d035972947b57a5f6a",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0028__L028__p87:opdivo:fluoxetine": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0028__L028__p87:opdivo:fluoxetine",
+"anchor": "Fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "1cf7d2d6a08fa4a73267de55c60cffa1e07a99e069d00596ddce63f43be67355",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0028__L036__p213:paracetamol:fluoxetine": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0028__L036__p213:paracetamol:fluoxetine",
+"anchor": "Fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "f139d62f88339106eb1c4a1888ac4927759c964a794df678133239a8b552b58f",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0028__L036__p327:chloramphenicol:fluoxetine": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0028__L036__p327:chloramphenicol:fluoxetine",
+"anchor": "Fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "6e777ca3d549e4f7d9dcc403d002b7e445b71fcd6f75df8e832a19adec8ba15b",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0028__L036__p440:bnb:fluoxetine": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0028__L036__p440:bnb:fluoxetine",
+"anchor": "Fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "7e57f38e4baee28f3e29589aba8cabc28900b1e57ff84213c13b5af7e9dbbd87",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0028__L040__p381:lsd:fluoxetine": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0028__L040__p381:lsd:fluoxetine",
+"anchor": "Fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "5b82c7b4f59515c2c29017b07ecbd802a802f45877df2a73f7990d1714501da4",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0028__L044__p327:cefalexin:fluoxetine": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0028__L044__p327:cefalexin:fluoxetine",
+"anchor": "fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "5d28a9f263f58e4055ff3a09a1ce6f2a871a97c9f358c4edb815b6a36789ce47",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0028__L048__p30:penicillin:fluoxetine": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0028__L048__p30:penicillin:fluoxetine",
+"anchor": "fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "6d81c891c6bd3d09caac3fa76a71d47c418e71e0aceabf2e74c9a711d98c1dfa",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0028__L048__p327:atorvastatin:fluoxetine": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0028__L048__p327:atorvastatin:fluoxetine",
+"anchor": "fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "e3a8c4a3f1bf2cd14868515e90e5d99137a1906dbf1ae04a3a2e61787080bcaf",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0028__L048__p381:thc:fluoxetine": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0028__L048__p381:thc:fluoxetine",
+"anchor": "fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "5f8a2ebca204c8889a613ce5e235d9865fc03c7aea471825f7c66167ed2893dc",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0028__L052__p327:chlorzoxazone:fluoxetine": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0028__L052__p327:chlorzoxazone:fluoxetine",
+"anchor": "fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "2bc1f2be23115609cb7f7b110343397b380596fd55376a8c2e8aa5b79437b25e",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0028__L056__p327:chlorzoxazone:fluoxetine": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0028__L056__p327:chlorzoxazone:fluoxetine",
+"anchor": "fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "bd9f4f91599a58462ae5a6ebe329db50a7f94b08239e5950e7f8293dcb70cf43",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0051__L036__p424:cannabis:psychedelics": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0051__L036__p424:cannabis:psychedelics",
+"anchor": "Cannabis",
+"nearest": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin"
+],
+"random": [
+"Fluoxetine",
+"amphetamine",
+"cefalexin",
+"tetrahydrocannabinol"
+],
+"distractors": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin",
+"Fluoxetine",
+"amphetamine",
+"cefalexin",
+"tetrahydrocannabinol"
+],
+"n_eligible": 30,
+"sha": "87783a08027f95fc05b041e93336283bbb3dd7d6559980612ee8ff825ce79142",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0051__L040__p424:cannabis:psychedelics": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0051__L040__p424:cannabis:psychedelics",
+"anchor": "Cannabis",
+"nearest": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin"
+],
+"random": [
+"LSD",
+"cefalexin",
+"chloroquine",
+"psilocybin"
+],
+"distractors": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin",
+"LSD",
+"cefalexin",
+"chloroquine",
+"psilocybin"
+],
+"n_eligible": 30,
+"sha": "adc3d204dfb5085098217c8e9559a50497f5be18343ee45b7bf13e081283f609",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0051__L044__p424:cannabis:psychedelics": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0051__L044__p424:cannabis:psychedelics",
+"anchor": "Cannabis",
+"nearest": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin"
+],
+"random": [
+"acetaminophen",
+"aspirin",
+"cefalexin",
+"nivolumab"
+],
+"distractors": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin",
+"acetaminophen",
+"aspirin",
+"cefalexin",
+"nivolumab"
+],
+"n_eligible": 30,
+"sha": "12fb241ef46964f5197586940069d3bb836d458598c90c19f8374159fb88227d",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0051__L044__p494:cannabis:psychedelics": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0051__L044__p494:cannabis:psychedelics",
+"anchor": "Cannabis",
+"nearest": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin"
+],
+"random": [
+"Ibuprofen",
+"penicillin G",
+"psilocybin",
+"psychedelics"
+],
+"distractors": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin",
+"Ibuprofen",
+"penicillin G",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 30,
+"sha": "b6e485ce1bc1fe4937e100f1af27b04eb85c33b0bdc647b8273dc64a03b8e564",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0051__L044__p494:cannabis:psychedelictherapies": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0051__L044__p494:cannabis:psychedelictherapies",
+"anchor": "Cannabis",
+"nearest": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin"
+],
+"random": [
+"LSD",
+"Metformin",
+"Opdivo",
+"Paracetamol"
+],
+"distractors": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin",
+"LSD",
+"Metformin",
+"Opdivo",
+"Paracetamol"
+],
+"n_eligible": 30,
+"sha": "59ab8a988a796df7940bda4b84322dbffee53823630461da4f0ea7d608834e1c",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0051__L048__p35:cannabis:psychedelicassistedtherapy": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0051__L048__p35:cannabis:psychedelicassistedtherapy",
+"anchor": "Cannabis",
+"nearest": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin"
+],
+"random": [
+"Opdivo",
+"Paracetamol",
+"cefalexin",
+"penicillin G"
+],
+"distractors": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin",
+"Opdivo",
+"Paracetamol",
+"cefalexin",
+"penicillin G"
+],
+"n_eligible": 30,
+"sha": "40fcdae5b294ff22cd5e52011d6674a834eefd33daf2ef1c11bc3ab7db7b3587",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0051__L048__p35:cannabis:psychedelicspsilocybinmdmalsd": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0051__L048__p35:cannabis:psychedelicspsilocybinmdmalsd",
+"anchor": "Cannabis",
+"nearest": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin"
+],
+"random": [
+"Tylenol",
+"chloroquine",
+"psilocybin",
+"psychedelics"
+],
+"distractors": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin",
+"Tylenol",
+"chloroquine",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 30,
+"sha": "87974ea77e43d73ec15ee1af722cac983d02028aef9152048c7b489f2d2c34c4",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0028__L042__p213:aspirin:fluoxetine": {
+"unit": "nla-rl-L42:chat-lmsys-0028__L042__p213:aspirin:fluoxetine",
+"anchor": "fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "1d1db1d6db5fc08a17ecb2d8977edf3ce7ccd1d3434a4704f019bd070c4e09c1",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0028__L042__p213:paracetamol:fluoxetine": {
+"unit": "nla-rl-L42:chat-lmsys-0028__L042__p213:paracetamol:fluoxetine",
+"anchor": "Fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "ef2a8e26bb3575ece35d3475d3d6f8eb28cea7ad6240b72ca857faa4ae6e69b2",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0028__L042__p327:metoprolol:fluoxetine": {
+"unit": "nla-rl-L42:chat-lmsys-0028__L042__p327:metoprolol:fluoxetine",
+"anchor": "fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "ee212c069e5ee5d1a3c7c091edfd07c32d2d6c4344251e87d729941bf28fc8c1",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0028__L042__p381:diazepam:fluoxetine": {
+"unit": "nla-rl-L42:chat-lmsys-0028__L042__p381:diazepam:fluoxetine",
+"anchor": "fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "744fe288a2eebbbcbbe26acb44e7ed6c5ca115839bbe6e3203dfc1d9746e8685",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0051__L042__p494:cannabis:classicpsychedelics": {
+"unit": "nla-rl-L42:chat-lmsys-0051__L042__p494:cannabis:classicpsychedelics",
+"anchor": "Cannabis",
+"nearest": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin"
+],
+"random": [
+"Fluoxetine",
+"Insulin",
+"atorvastatin",
+"penicillin"
+],
+"distractors": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin",
+"Fluoxetine",
+"Insulin",
+"atorvastatin",
+"penicillin"
+],
+"n_eligible": 30,
+"sha": "fe2bd75f0ac0d262ed2cfe37332a825470aa8b7bda2a3ab858ffa0d35a1b0a14",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0051__L042__p494:cannabis:psychedelics": {
+"unit": "nla-rl-L42:chat-lmsys-0051__L042__p494:cannabis:psychedelics",
+"anchor": "Cannabis",
+"nearest": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin"
+],
+"random": [
+"Tylenol",
+"atorvastatin",
+"diazepam",
+"morphine"
+],
+"distractors": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin",
+"Tylenol",
+"atorvastatin",
+"diazepam",
+"morphine"
+],
+"n_eligible": 30,
+"sha": "2544687afd4b69d1c3f608e0806b6628d0263dff901e1161ebd4fd426d92b545",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0051__L042__p494:cannabis:psychedelictherapies": {
+"unit": "nla-rl-L42:chat-lmsys-0051__L042__p494:cannabis:psychedelictherapies",
+"anchor": "Cannabis",
+"nearest": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin"
+],
+"random": [
+"LSD",
+"atorvastatin",
+"metoprolol",
+"psilocybin"
+],
+"distractors": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin",
+"LSD",
+"atorvastatin",
+"metoprolol",
+"psilocybin"
+],
+"n_eligible": 30,
+"sha": "63cad3e7856b77938bf9cdafee68dd66d9ea92e56bbbf4bdc8e09043b34f6fd3",
+"generation": 0
+},
+"nla-sft-L42:chat-lmsys-0051__L042__p424:cannabis:psychedelics": {
+"unit": "nla-sft-L42:chat-lmsys-0051__L042__p424:cannabis:psychedelics",
+"anchor": "Cannabis",
+"nearest": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin"
+],
+"random": [
+"Insulin",
+"acetaminophen",
+"aspirin",
+"morphine"
+],
+"distractors": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin",
+"Insulin",
+"acetaminophen",
+"aspirin",
+"morphine"
+],
+"n_eligible": 30,
+"sha": "5b6707962399f2958acc710ecd0e4f2c48fd80a52e95687d4caf5113acdd3ce0",
+"generation": 0
+},
+"nla-sft-L42:chat-lmsys-0051__L042__p424:marijuana:psychedelics": {
+"unit": "nla-sft-L42:chat-lmsys-0051__L042__p424:marijuana:psychedelics",
+"anchor": "psychedelics",
+"nearest": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin"
+],
+"random": [
+"Modafinil",
+"Paracetamol",
+"chloroquine",
+"penicillin G"
+],
+"distractors": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin",
+"Modafinil",
+"Paracetamol",
+"chloroquine",
+"penicillin G"
+],
+"n_eligible": 27,
+"sha": "3a4be5d5c0b5f12271eca66166738e9e3c48e10a29421483891a90138c3989f5",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0028__L020__p488:penicillin:fluoxetine": {
+"unit": "s3d-rl600-all11:chat-lmsys-0028__L020__p488:penicillin:fluoxetine",
+"anchor": "fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "fca69db4c30b24e6c164c0858ec7ea3a88e9d0528c6c32841e80776ab99fb892",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0028__L024__p488:ibuprofen:fluoxetine": {
+"unit": "s3d-rl600-all11:chat-lmsys-0028__L024__p488:ibuprofen:fluoxetine",
+"anchor": "Fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "4264bb667dfe1a820a316eed218d87eebb70b0fe9db511f40dd2bb8ab3039b02",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0028__L036__p213:acetaminophen:fluoxetine": {
+"unit": "s3d-rl600-all11:chat-lmsys-0028__L036__p213:acetaminophen:fluoxetine",
+"anchor": "fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "47c9e661308355df6724dc591d31ac6cfc2b5b36a7e0e5857d83fa8240d2f55d",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0028__L036__p213:ibuprofen:fluoxetine": {
+"unit": "s3d-rl600-all11:chat-lmsys-0028__L036__p213:ibuprofen:fluoxetine",
+"anchor": "Fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "99570f4e89342be4896f3fa363dc86993a06b1f6a5fde260b545a56f9c9be163",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0028__L036__p30:acetaminophen:fluoxetine": {
+"unit": "s3d-rl600-all11:chat-lmsys-0028__L036__p30:acetaminophen:fluoxetine",
+"anchor": "fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "bc4a6bdadf410c26b30423d708f4ba47b6e87b2eb4c66ce8acd52465f1fab4a2",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0028__L036__p30:paracetamol:fluoxetine": {
+"unit": "s3d-rl600-all11:chat-lmsys-0028__L036__p30:paracetamol:fluoxetine",
+"anchor": "Fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "c1af934fe7047c7d877e767efddda969e229ba8850c7ab5bf3435de1f8c385ad",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0028__L040__p30:acetaminophen:fluoxetine": {
+"unit": "s3d-rl600-all11:chat-lmsys-0028__L040__p30:acetaminophen:fluoxetine",
+"anchor": "fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "14c7f7b52ad39a62d68198f40463e9cbb4e69fe71b6bbe18f53a80929f28d381",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0028__L044__p213:amphetamine:fluoxetine": {
+"unit": "s3d-rl600-all11:chat-lmsys-0028__L044__p213:amphetamine:fluoxetine",
+"anchor": "fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "76dfe673f7f5465b0e6849abd868d64200cee917a1f0b75cba83da5057675e33",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0028__L044__p213:amphetamines:fluoxetine": {
+"unit": "s3d-rl600-all11:chat-lmsys-0028__L044__p213:amphetamines:fluoxetine",
+"anchor": "fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "d2e99f97f81bdf61d9754b75eb3d9d74783af01b4e18b6f080016f6d8977e551",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0028__L044__p30:acetaminophen:fluoxetine": {
+"unit": "s3d-rl600-all11:chat-lmsys-0028__L044__p30:acetaminophen:fluoxetine",
+"anchor": "fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "3922127e5cf23c9c3238a2d863a17f6888ba5faa72ecf2b9794904efeee3b9b7",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0028__L044__p30:chloramphenicol:fluoxetine": {
+"unit": "s3d-rl600-all11:chat-lmsys-0028__L044__p30:chloramphenicol:fluoxetine",
+"anchor": "Fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "c56037f5b7fca851035bd47cab2520cc1b66f431e18864cab37934f97b8b1bd7",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0028__L048__p30:acetaminophen:fluoxetine": {
+"unit": "s3d-rl600-all11:chat-lmsys-0028__L048__p30:acetaminophen:fluoxetine",
+"anchor": "fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "12fa514bb1714eb79848b8c2facec563404b131a1d73b91eedb928454d6a1499",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0028__L048__p30:tylenol:fluoxetine": {
+"unit": "s3d-rl600-all11:chat-lmsys-0028__L048__p30:tylenol:fluoxetine",
+"anchor": "Fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "85a3765d9501ebab5b1453ab17ff08dad7d79fff8eedb4300616b378fceacbfe",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0028__L048__p327:alprazolam:fluoxetine": {
+"unit": "s3d-rl600-all11:chat-lmsys-0028__L048__p327:alprazolam:fluoxetine",
+"anchor": "Fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "0d74dca0860f1712629dcdd502534447b8e620cfc721c79ae8614a6b0f9d3507",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0028__L052__p157:paracetamol:fluoxetine": {
+"unit": "s3d-rl600-all11:chat-lmsys-0028__L052__p157:paracetamol:fluoxetine",
+"anchor": "Fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "fe1eb578965d57ea8b2f6a6c1bacbfe1a071a7e52335d34adaedcd44262fd257",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0028__L052__p30:paracetamol:fluoxetine": {
+"unit": "s3d-rl600-all11:chat-lmsys-0028__L052__p30:paracetamol:fluoxetine",
+"anchor": "Fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "91a2ec836bd4121813c04cdeb4ca612b9acdf83e65e3c8c97996c3c1127fda21",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0028__L056__p381:modafinil:fluoxetine": {
+"unit": "s3d-rl600-all11:chat-lmsys-0028__L056__p381:modafinil:fluoxetine",
+"anchor": "Fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "d64370b140ecced20b91449bd6563d89b0e8cbff3cdfc3d3ca6da882a0ddb1ee",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0028__L060__p30:metformin:fluoxetine": {
+"unit": "s3d-rl600-all11:chat-lmsys-0028__L060__p30:metformin:fluoxetine",
+"anchor": "Fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "da1a03dbbfefc72c9c0af0035dd714bbcfe5f238ab88e32e4a5cc918327f9dfb",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0051__L028__p424:cannabis:psychedelics": {
+"unit": "s3d-rl600-all11:chat-lmsys-0051__L028__p424:cannabis:psychedelics",
+"anchor": "Cannabis",
+"nearest": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin"
+],
+"random": [
+"Tylenol",
+"cefalexin",
+"penicillin",
+"psilocybin"
+],
+"distractors": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin",
+"Tylenol",
+"cefalexin",
+"penicillin",
+"psilocybin"
+],
+"n_eligible": 30,
+"sha": "18f269a1c3eb7c1129b4b4867d3bbc94fbc1881397d59165a17deb45fd98ff34",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0051__L032__p424:cannabis:psychedelics": {
+"unit": "s3d-rl600-all11:chat-lmsys-0051__L032__p424:cannabis:psychedelics",
+"anchor": "Cannabis",
+"nearest": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin"
+],
+"random": [
+"Ibuprofen",
+"chloroquine",
+"diazepam",
+"penicillin"
+],
+"distractors": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin",
+"Ibuprofen",
+"chloroquine",
+"diazepam",
+"penicillin"
+],
+"n_eligible": 30,
+"sha": "30b5366327db8da799e2ac974330b78ee7714cc19ea84c483a44353f981f3ef4",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0051__L036__p245:cannabis:psychedelics": {
+"unit": "s3d-rl600-all11:chat-lmsys-0051__L036__p245:cannabis:psychedelics",
+"anchor": "Cannabis",
+"nearest": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin"
+],
+"random": [
+"Paracetamol",
+"acetaminophen",
+"diazepam",
+"fluoxetine"
+],
+"distractors": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin",
+"Paracetamol",
+"acetaminophen",
+"diazepam",
+"fluoxetine"
+],
+"n_eligible": 30,
+"sha": "3ad059a1e3e0eec15f7dc914dc6f7e2b14da1b90117371cb7ecb9f30258fec5e",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0051__L044__p424:cannabis:psychedelics": {
+"unit": "s3d-rl600-all11:chat-lmsys-0051__L044__p424:cannabis:psychedelics",
+"anchor": "Cannabis",
+"nearest": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin"
+],
+"random": [
+"acetaminophen",
+"atorvastatin",
+"diazepam",
+"psychedelics"
+],
+"distractors": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin",
+"acetaminophen",
+"atorvastatin",
+"diazepam",
+"psychedelics"
+],
+"n_eligible": 30,
+"sha": "8d1d6c45e41062afc9cab658676a52442f614fbe3d3b2f55b4e7309f327e79ba",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0028__L036__p213:acetaminophen:fluoxetine": {
+"unit": "s3d-rl600:chat-lmsys-0028__L036__p213:acetaminophen:fluoxetine",
+"anchor": "fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "03c77107a73c043678995f0191b1993aed7bc47e9d169a8c5097ab12be152b7f",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0028__L036__p213:ibuprofen:fluoxetine": {
+"unit": "s3d-rl600:chat-lmsys-0028__L036__p213:ibuprofen:fluoxetine",
+"anchor": "Fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "37f4d13760293084ee22a0fbe56fcf19c1e19bd58c5a581b297b3d27366c0d1e",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0028__L048__p30:paracetamol:fluoxetine": {
+"unit": "s3d-rl600:chat-lmsys-0028__L048__p30:paracetamol:fluoxetine",
+"anchor": "Fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "706c54185244d665ee6739cc97f0b73043c58581bec34b25ee2879b95beb6989",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0028__L048__p327:morphine:fluoxetine": {
+"unit": "s3d-rl600:chat-lmsys-0028__L048__p327:morphine:fluoxetine",
+"anchor": "Fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "18714a1dff039264213941e6bcdcc16f3a47e16d1b4f8fe08a5a3d2f66bc1720",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0051__L020__p424:cannabis:psychedelics": {
+"unit": "s3d-rl600:chat-lmsys-0051__L020__p424:cannabis:psychedelics",
+"anchor": "Cannabis",
+"nearest": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin"
+],
+"random": [
+"Insulin",
+"Tylenol",
+"cefalexin",
+"penicillin G"
+],
+"distractors": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin",
+"Insulin",
+"Tylenol",
+"cefalexin",
+"penicillin G"
+],
+"n_eligible": 30,
+"sha": "dc161c6fd1231b4f5fb3babb5a5074bab0bb7c95ce415a010f64bb38149b383a",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0051__L044__p245:cannabis:psychedelics": {
+"unit": "s3d-rl600:chat-lmsys-0051__L044__p245:cannabis:psychedelics",
+"anchor": "Cannabis",
+"nearest": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin"
+],
+"random": [
+"acetaminophen",
+"cefalexin",
+"nivolumab",
+"psychedelics"
+],
+"distractors": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin",
+"acetaminophen",
+"cefalexin",
+"nivolumab",
+"psychedelics"
+],
+"n_eligible": 30,
+"sha": "2150f33a66f200e8172d17990bda4c992e669409e47ac6324676a2beb30e81b5",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0051__L048__p245:cannabis:psychedelics": {
+"unit": "s3d-rl600:chat-lmsys-0051__L048__p245:cannabis:psychedelics",
+"anchor": "Cannabis",
+"nearest": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin"
+],
+"random": [
+"LSD",
+"Tylenol",
+"fluoxetine",
+"metoprolol"
+],
+"distractors": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin",
+"LSD",
+"Tylenol",
+"fluoxetine",
+"metoprolol"
+],
+"n_eligible": 30,
+"sha": "7c9a09950dd5a4ce10e05bb9fa83cd139083b0b1133f555b81a1f192a7838867",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0028__L036__p213:ibuprofen:fluoxetine": {
+"unit": "s3d-sft251:chat-lmsys-0028__L036__p213:ibuprofen:fluoxetine",
+"anchor": "Fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "1dc5e877f2bb53c8f769eadcffaf753ab61ffd47e80ad864445e1011d609a17e",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0028__L036__p213:paracetamol:fluoxetine": {
+"unit": "s3d-sft251:chat-lmsys-0028__L036__p213:paracetamol:fluoxetine",
+"anchor": "Fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "fd1f1b847b82327d06fe04a08b4ea530a56e10c74d31b21d5d6044f16fab3d82",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0028__L048__p30:acetaminophen:fluoxetine": {
+"unit": "s3d-sft251:chat-lmsys-0028__L048__p30:acetaminophen:fluoxetine",
+"anchor": "fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "ba6a561f9acf894bead3510d1218cea761fce022e8abe4607afb6725241bb126",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0028__L052__p30:paracetamol:fluoxetine": {
+"unit": "s3d-sft251:chat-lmsys-0028__L052__p30:paracetamol:fluoxetine",
+"anchor": "Fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "bbe33beae6dd1526fc866baf357ba3f6c9001d681a2c6fd5e55c789d05557d51",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0028__L056__p213:paracetamol:fluoxetine": {
+"unit": "s3d-sft251:chat-lmsys-0028__L056__p213:paracetamol:fluoxetine",
+"anchor": "Fluoxetine",
+"nearest": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin"
+],
+"random": [
+"psychedelics"
+],
+"distractors": [
+"Cannabis",
+"cannabis",
+"medical marijuana",
+"psilocybin",
+"psychedelics"
+],
+"n_eligible": 5,
+"sha": "7f39e49c93363a0d4cdd2c5543df4ba29126f693f12a079fd25b70e4003164f4",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0051__L020__p424:cannabis:psychedelics": {
+"unit": "s3d-sft251:chat-lmsys-0051__L020__p424:cannabis:psychedelics",
+"anchor": "Cannabis",
+"nearest": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin"
+],
+"random": [
+"Insulin",
+"acetaminophen",
+"psychedelics",
+"tetrahydrocannabinol"
+],
+"distractors": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin",
+"Insulin",
+"acetaminophen",
+"psychedelics",
+"tetrahydrocannabinol"
+],
+"n_eligible": 30,
+"sha": "8cf3b507405fa8bced3a7116f988c57c43eabd27fb8595937b35564ad07c87a3",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0051__L020__p424:marijuana:psychedelics": {
+"unit": "s3d-sft251:chat-lmsys-0051__L020__p424:marijuana:psychedelics",
+"anchor": "psychedelics",
+"nearest": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin"
+],
+"random": [
+"Ibuprofen",
+"amphetamine",
+"chloroquine",
+"metoprolol"
+],
+"distractors": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin",
+"Ibuprofen",
+"amphetamine",
+"chloroquine",
+"metoprolol"
+],
+"n_eligible": 27,
+"sha": "2459160186551b63c775cb3105fa91068c040f4968352876afa05f2413420a9d",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0051__L024__p424:cannabis:psychedelics": {
+"unit": "s3d-sft251:chat-lmsys-0051__L024__p424:cannabis:psychedelics",
+"anchor": "Cannabis",
+"nearest": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin"
+],
+"random": [
+"atorvastatin",
+"chloroquine",
+"chlorzoxazone",
+"metoprolol"
+],
+"distractors": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin",
+"atorvastatin",
+"chloroquine",
+"chlorzoxazone",
+"metoprolol"
+],
+"n_eligible": 30,
+"sha": "4aa0578f0e6ce9804f1d4eaca1c2c8ce33316a568504228be176ef39f07f5727",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0051__L028__p424:cannabis:psychedelics": {
+"unit": "s3d-sft251:chat-lmsys-0051__L028__p424:cannabis:psychedelics",
+"anchor": "Cannabis",
+"nearest": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin"
+],
+"random": [
+"Paracetamol",
+"amphetamine",
+"penicillin",
+"psilocybin"
+],
+"distractors": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin",
+"Paracetamol",
+"amphetamine",
+"penicillin",
+"psilocybin"
+],
+"n_eligible": 30,
+"sha": "80723c40740684d754c24a7c1fc6d3ef12cf736c4fcf448c1549226fc7b36f0b",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0051__L028__p424:medicalmarijuana:psychedelics": {
+"unit": "s3d-sft251:chat-lmsys-0051__L028__p424:medicalmarijuana:psychedelics",
+"anchor": "psychedelics",
+"nearest": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin"
+],
+"random": [
+"atorvastatin",
+"diazepam",
+"fluoxetine",
+"penicillin"
+],
+"distractors": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin",
+"atorvastatin",
+"diazepam",
+"fluoxetine",
+"penicillin"
+],
+"n_eligible": 27,
+"sha": "79c72393dc9159f5a4a4e3c3580f8f26c4f9f1859b11b0d8c3934fd211132170",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0051__L040__p245:cannabis:psychedelics": {
+"unit": "s3d-sft251:chat-lmsys-0051__L040__p245:cannabis:psychedelics",
+"anchor": "Cannabis",
+"nearest": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin"
+],
+"random": [
+"Metformin",
+"Tylenol",
+"chloroquine",
+"fluoxetine"
+],
+"distractors": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin",
+"Metformin",
+"Tylenol",
+"chloroquine",
+"fluoxetine"
+],
+"n_eligible": 30,
+"sha": "9666ec9727f9e380281ee78f513dfa22dfbea821eb66452a77308d38f6c0fe8c",
+"generation": 0
+},
+"template-v3:chat-lmsys-0051__L028__p35:cannabis:psychedelictherapies": {
+"unit": "template-v3:chat-lmsys-0051__L028__p35:cannabis:psychedelictherapies",
+"anchor": "Cannabis",
+"nearest": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin"
+],
+"random": [
+"Opdivo",
+"Paracetamol",
+"Tylenol",
+"psychedelics"
+],
+"distractors": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin",
+"Opdivo",
+"Paracetamol",
+"Tylenol",
+"psychedelics"
+],
+"n_eligible": 30,
+"sha": "99ab2c292067c9f74347b1801907d57ad3c74b67f0ce4a75a9783c861b20162b",
+"generation": 0
+},
+"template-v3:chat-lmsys-0051__L036__p494:marijuana:classicpsychedelics": {
+"unit": "template-v3:chat-lmsys-0051__L036__p494:marijuana:classicpsychedelics",
+"anchor": "psychedelics",
+"nearest": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin"
+],
+"random": [
+"Tylenol",
+"diazepam",
+"metoprolol",
+"tetrahydrocannabinol"
+],
+"distractors": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin",
+"Tylenol",
+"diazepam",
+"metoprolol",
+"tetrahydrocannabinol"
+],
+"n_eligible": 27,
+"sha": "32c66a580583b9b1103461737087e8ffd29fa412aee2e713c10625a5db14524e",
+"generation": 0
+},
+"template-v3:chat-lmsys-0051__L056__p494:cannabis:classicpsychedelics": {
+"unit": "template-v3:chat-lmsys-0051__L056__p494:cannabis:classicpsychedelics",
+"anchor": "Cannabis",
+"nearest": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin"
+],
+"random": [
+"Paracetamol",
+"acetaminophen",
+"morphine",
+"penicillin G"
+],
+"distractors": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin",
+"Paracetamol",
+"acetaminophen",
+"morphine",
+"penicillin G"
+],
+"n_eligible": 30,
+"sha": "a2751feda03293bbde352e77802907f5903f1f473a432f69e7013f9d4c583234",
+"generation": 0
+},
+"template-v3:chat-lmsys-0051__L056__p494:marijuana:classicpsychedelics": {
+"unit": "template-v3:chat-lmsys-0051__L056__p494:marijuana:classicpsychedelics",
+"anchor": "psychedelics",
+"nearest": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin"
+],
+"random": [
+"Fluoxetine",
+"Insulin",
+"Tylenol",
+"atorvastatin"
+],
+"distractors": [
+"Alprazolam",
+"BNB",
+"Chloramphenicol",
+"Ciprofloxacin",
+"Fluoxetine",
+"Insulin",
+"Tylenol",
+"atorvastatin"
+],
+"n_eligible": 27,
+"sha": "2467c27abc49e29a115d2e9fe05ac9700ffd6690c2ed424cdead692b45e05d95",
+"generation": 0
+}
+}

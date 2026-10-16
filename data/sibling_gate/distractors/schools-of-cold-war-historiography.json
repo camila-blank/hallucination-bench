@@ -1,0 +1,118 @@
+{
+"mlnla-ck2000-all11:chat-lmsys-0004__L020__p147:functionalism:revisionist": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0004__L020__p147:functionalism:revisionist",
+"anchor": "Revisionism",
+"nearest": [
+"Revisionists",
+"New Left",
+"Wisconsin School",
+"Orthodox"
+],
+"random": [
+"Neo-orthodoxy",
+"New Cold War History",
+"Traditionalism",
+"Triumphalism"
+],
+"distractors": [
+"Revisionists",
+"New Left",
+"Wisconsin School",
+"Orthodox",
+"Neo-orthodoxy",
+"New Cold War History",
+"Traditionalism",
+"Triumphalism"
+],
+"n_eligible": 9,
+"sha": "c4d4a99705ed9b32732ae5b2c93df8d82301b392e4483bb866ca9679865146ba",
+"generation": 1
+},
+"mlnla-rl600-all11:chat-lmsys-0004__L052__p306:realists:revisionists": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0004__L052__p306:realists:revisionists",
+"anchor": "Revisionists",
+"nearest": [
+"New Left",
+"Revisionism",
+"Orthodox",
+"Wisconsin School"
+],
+"random": [
+"Corporatism",
+"Neo-orthodoxy",
+"New Cold War History",
+"Post-post-revisionism"
+],
+"distractors": [
+"New Left",
+"Revisionism",
+"Orthodox",
+"Wisconsin School",
+"Corporatism",
+"Neo-orthodoxy",
+"New Cold War History",
+"Post-post-revisionism"
+],
+"n_eligible": 11,
+"sha": "e934fa40cdca6519bfd7a09946c4d66e8b28f7a209ae637ab193e93229e610d5",
+"generation": 1
+},
+"nla-rl-L42:chat-lmsys-0004__L042__p147:realism:revisionism": {
+"unit": "nla-rl-L42:chat-lmsys-0004__L042__p147:realism:revisionism",
+"anchor": "Orthodox",
+"nearest": [
+"Traditionalism",
+"Revisionism",
+"Revisionists",
+"Neo-orthodoxy"
+],
+"random": [
+"New Left",
+"Post-revisionism",
+"Triumphalism",
+"Wisconsin School"
+],
+"distractors": [
+"Traditionalism",
+"Revisionism",
+"Revisionists",
+"Neo-orthodoxy",
+"New Left",
+"Post-revisionism",
+"Triumphalism",
+"Wisconsin School"
+],
+"n_eligible": 11,
+"sha": "6aa7dd45a24f9ba577558476a1284229f49512942793527c4ca38d3209b5fca1",
+"generation": 1
+},
+"s3d-rl600:chat-lmsys-0004__L048__p147:conservative:orthodox": {
+"unit": "s3d-rl600:chat-lmsys-0004__L048__p147:conservative:orthodox",
+"anchor": "Orthodox",
+"nearest": [
+"Traditionalism",
+"Revisionism",
+"Revisionists",
+"Neo-orthodoxy"
+],
+"random": [
+"Corporatism",
+"New Cold War History",
+"Post-post-revisionism",
+"Post-revisionism"
+],
+"distractors": [
+"Traditionalism",
+"Revisionism",
+"Revisionists",
+"Neo-orthodoxy",
+"Corporatism",
+"New Cold War History",
+"Post-post-revisionism",
+"Post-revisionism"
+],
+"n_eligible": 11,
+"sha": "a7326f0c88c0633d83564c10e554216e89515b2a9cc7f81b9d8b6c28bb4c1f11",
+"generation": 1
+}
+}

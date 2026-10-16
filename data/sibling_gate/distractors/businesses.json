@@ -1,0 +1,118 @@
+{
+"mlnla-ck2000-all11:chat-dailydialog-0036__L048__p23:flowershop:friendshiprestaurant": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0036__L048__p23:flowershop:friendshiprestaurant",
+"anchor": "restaurant",
+"nearest": [
+"salons",
+"grocery store",
+"pharmacy",
+"tattoo studios"
+],
+"random": [
+"bank",
+"bookstore",
+"gas station",
+"hardware store"
+],
+"distractors": [
+"salons",
+"grocery store",
+"pharmacy",
+"tattoo studios",
+"bank",
+"bookstore",
+"gas station",
+"hardware store"
+],
+"n_eligible": 8,
+"sha": "2c9490376b74f80051104f31e0e88b5628238ec4df8068697c3197deedb04466",
+"generation": 1
+},
+"s3d-rl600-all11:chat-dailydialog-0023__L028__p158:salons:tattoostudios": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0023__L028__p158:salons:tattoostudios",
+"anchor": "tattoo studios",
+"nearest": [
+"pharmacy",
+"Tech Support Center",
+"barber shop",
+"restaurant"
+],
+"random": [
+"bakery",
+"bank",
+"gas station",
+"grocery store"
+],
+"distractors": [
+"pharmacy",
+"Tech Support Center",
+"barber shop",
+"restaurant",
+"bakery",
+"bank",
+"gas station",
+"grocery store"
+],
+"n_eligible": 14,
+"sha": "8840d9f6fe7f8d735892e45540f13ca84c9ed2b55a6a9a59f9bc1131baf901da",
+"generation": 1
+},
+"s3d-rl600:chat-dailydialog-0036__L036__p23:library:friendshiprestaurant": {
+"unit": "s3d-rl600:chat-dailydialog-0036__L036__p23:library:friendshiprestaurant",
+"anchor": "Friendship Restaurant",
+"nearest": [
+"bookstore",
+"hardware store",
+"barber shop",
+"bank"
+],
+"random": [
+"gas station",
+"grocery store",
+"pharmacy",
+"salons"
+],
+"distractors": [
+"bookstore",
+"hardware store",
+"barber shop",
+"bank",
+"gas station",
+"grocery store",
+"pharmacy",
+"salons"
+],
+"n_eligible": 9,
+"sha": "811fd17267fc828c5ab25e4deb2d9c4956156334932e5fcf4d8aa2976bb96638",
+"generation": 1
+},
+"s3d-rl600:chat-dailydialog-0036__L036__p23:techsupportcenter:friendshiprestaurant": {
+"unit": "s3d-rl600:chat-dailydialog-0036__L036__p23:techsupportcenter:friendshiprestaurant",
+"anchor": "Friendship Restaurant",
+"nearest": [
+"bookstore",
+"hardware store",
+"barber shop",
+"bank"
+],
+"random": [
+"grocery store",
+"pharmacy",
+"salons",
+"tattoo studios"
+],
+"distractors": [
+"bookstore",
+"hardware store",
+"barber shop",
+"bank",
+"grocery store",
+"pharmacy",
+"salons",
+"tattoo studios"
+],
+"n_eligible": 9,
+"sha": "80713ef89368b8135210b7bd99212b4130c3c233af9a9bc729486a1865e03093",
+"generation": 1
+}
+}

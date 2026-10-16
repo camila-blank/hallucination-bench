@@ -1,0 +1,118 @@
+{
+"mlnla-rl2-800-all11:chat-lmsys-0004__L056__p208:nazismfascismideology:sovietideology": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0004__L056__p208:nazismfascismideology:sovietideology",
+"anchor": "Marxism-Leninism",
+"nearest": [
+"fascism",
+"anarchism",
+"neoliberalism",
+"liberalism"
+],
+"random": [
+"democratic socialism",
+"nationalism",
+"populism",
+"social democracy"
+],
+"distractors": [
+"fascism",
+"anarchism",
+"neoliberalism",
+"liberalism",
+"democratic socialism",
+"nationalism",
+"populism",
+"social democracy"
+],
+"n_eligible": 12,
+"sha": "9c7abefb436f855666b9c691c4bd03352ab629e40e241801700e653ee293af67",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0065__L020__p22:neoliberalism:narcissism": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0065__L020__p22:neoliberalism:narcissism",
+"anchor": "neoliberalism",
+"nearest": [
+"social democracy",
+"libertarianism",
+"conservatism",
+"fascism"
+],
+"random": [
+"Marxism",
+"communism",
+"democratic socialism",
+"socialism"
+],
+"distractors": [
+"social democracy",
+"libertarianism",
+"conservatism",
+"fascism",
+"Marxism",
+"communism",
+"democratic socialism",
+"socialism"
+],
+"n_eligible": 13,
+"sha": "96c537693a63b7d7a1ed170cd1cae41459bb8e32ac79d4f7bc20fa6e7f3cac20",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0004__L056__p208:naziideology:sovietideology": {
+"unit": "s3d-rl600-all11:chat-lmsys-0004__L056__p208:naziideology:sovietideology",
+"anchor": "Marxism-Leninism",
+"nearest": [
+"fascism",
+"anarchism",
+"neoliberalism",
+"liberalism"
+],
+"random": [
+"environmentalism",
+"populism",
+"social democracy",
+"socialism"
+],
+"distractors": [
+"fascism",
+"anarchism",
+"neoliberalism",
+"liberalism",
+"environmentalism",
+"populism",
+"social democracy",
+"socialism"
+],
+"n_eligible": 12,
+"sha": "6f095ea3f19a69a40912cc44f3ac9534e9ca2fd11b9dac5c9c4fbad2e20be5d2",
+"generation": 0
+},
+"template-v3:chat-lmsys-0065__L032__p239:nationalism:narcissism": {
+"unit": "template-v3:chat-lmsys-0065__L032__p239:nationalism:narcissism",
+"anchor": "nationalism",
+"nearest": [
+"Nazism",
+"populism",
+"communism",
+"environmentalism"
+],
+"random": [
+"Marxism-Leninism",
+"anarchism",
+"fascism",
+"libertarianism"
+],
+"distractors": [
+"Nazism",
+"populism",
+"communism",
+"environmentalism",
+"Marxism-Leninism",
+"anarchism",
+"fascism",
+"libertarianism"
+],
+"n_eligible": 14,
+"sha": "f2bc96b0690e5db7d62cfca4c8b95397220837a8743ce8ec87da9c2b70d153c3",
+"generation": 0
+}
+}

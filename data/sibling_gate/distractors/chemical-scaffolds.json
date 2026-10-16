@@ -1,0 +1,108 @@
+{
+"mlnla-rl2-800-all11:chat-lmsys-0043__L024__p419:anilinebackbonenitroatpositionfour:pyrimidineringformylatposition5": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0043__L024__p419:anilinebackbonenitroatpositionfour:pyrimidineringformylatposition5",
+"anchor": "pyrimidine",
+"nearest": [],
+"random": [
+"benzodiazepine",
+"benzomorphan",
+"isoquinoline",
+"morphinan",
+"piperazine",
+"piperidine",
+"steroid nucleus"
+],
+"distractors": [
+"benzodiazepine",
+"benzomorphan",
+"isoquinoline",
+"morphinan",
+"piperazine",
+"piperidine",
+"steroid nucleus"
+],
+"n_eligible": 7,
+"sha": "96c15c0b1be8b24a7d9e6ac35b5164629e0ef2bd8663f5a8e26e80135ffd18ff",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0043__L024__p419:anilinecorenitro:pyrimidineringformyl": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0043__L024__p419:anilinecorenitro:pyrimidineringformyl",
+"anchor": "pyrimidine",
+"nearest": [],
+"random": [
+"benzodiazepine",
+"benzomorphan",
+"isoquinoline",
+"morphinan",
+"piperazine",
+"piperidine",
+"steroid nucleus"
+],
+"distractors": [
+"benzodiazepine",
+"benzomorphan",
+"isoquinoline",
+"morphinan",
+"piperazine",
+"piperidine",
+"steroid nucleus"
+],
+"n_eligible": 7,
+"sha": "22eee1a609f639161fa35243f93393c80c3a11f96c57cd5742fc7e319065c9f4",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0043__L048__p391:anilinepyrrolidinescaffold:pyrimidine": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0043__L048__p391:anilinepyrrolidinescaffold:pyrimidine",
+"anchor": "pyrimidine",
+"nearest": [],
+"random": [
+"benzodiazepine",
+"benzomorphan",
+"isoquinoline",
+"morphinan",
+"piperazine",
+"piperidine",
+"steroid nucleus"
+],
+"distractors": [
+"benzodiazepine",
+"benzomorphan",
+"isoquinoline",
+"morphinan",
+"piperazine",
+"piperidine",
+"steroid nucleus"
+],
+"n_eligible": 7,
+"sha": "b51f05f88fb43499d7ffefd8fea27f91981048cd16931f2551018e2bd07e9c51",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0001__L056__p316:benzomorphan:7methoxyisoquinoline": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0001__L056__p316:benzomorphan:7methoxyisoquinoline",
+"anchor": "isoquinoline",
+"nearest": [],
+"random": [
+"benzodiazepine",
+"imidazole",
+"morphinan",
+"piperazine",
+"piperidine",
+"purine",
+"pyrimidine",
+"steroid nucleus"
+],
+"distractors": [
+"benzodiazepine",
+"imidazole",
+"morphinan",
+"piperazine",
+"piperidine",
+"purine",
+"pyrimidine",
+"steroid nucleus"
+],
+"n_eligible": 8,
+"sha": "5e501f31aba0c807646ada53f5ecdefdaeeebf704f64d39c591be67c8406ffb8",
+"generation": 0
+}
+}

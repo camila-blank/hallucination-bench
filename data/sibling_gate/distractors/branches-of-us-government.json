@@ -1,0 +1,282 @@
+{
+"mlnla-ck2000-all11:chat-lmsys-0073__L028__p232:president:congress": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0073__L028__p232:president:congress",
+"anchor": "Congress",
+"nearest": [
+"Judicial Branch"
+],
+"random": [],
+"distractors": [
+"Judicial Branch"
+],
+"n_eligible": 1,
+"sha": "ff057fa9e9f42c87a6eb1b8eb24e2ec223bd3377292e1b3ad784bf0d0d308eeb",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0073__L056__p533:thepresident:thesupremecourt": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0073__L056__p533:thepresident:thesupremecourt",
+"anchor": "Congress",
+"nearest": [
+"Judicial Branch"
+],
+"random": [],
+"distractors": [
+"Judicial Branch"
+],
+"n_eligible": 1,
+"sha": "9da3d2f0eae43ca0a20f3b4a3d3824f4a84e6c390d9a1e53984b00a21b540fdc",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0073__L060__p533:thepresident:thesupremecourt": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0073__L060__p533:thepresident:thesupremecourt",
+"anchor": "Congress",
+"nearest": [
+"Judicial Branch"
+],
+"random": [],
+"distractors": [
+"Judicial Branch"
+],
+"n_eligible": 1,
+"sha": "cf00611d42aaabb9fcbcfc48be8fd48c8e838588515dcf7dd1d080cef01eef9b",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0073__L036__p533:thepresident:thesupremecourt": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0073__L036__p533:thepresident:thesupremecourt",
+"anchor": "Congress",
+"nearest": [
+"Judicial Branch"
+],
+"random": [],
+"distractors": [
+"Judicial Branch"
+],
+"n_eligible": 1,
+"sha": "b22d0b834c181f2e4544b4dbe9b5d720f17ec48d7160fc9f5842f7c8bd4e55bf",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0073__L040__p533:president:supremecourt": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0073__L040__p533:president:supremecourt",
+"anchor": "Congress",
+"nearest": [
+"Judicial Branch"
+],
+"random": [],
+"distractors": [
+"Judicial Branch"
+],
+"n_eligible": 1,
+"sha": "412f02f8bd3c0f64f3124d8d1ece8bc02b30ea43edd4716be18ff7e24ed3cde7",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0073__L056__p533:thepresident:thesupremecourt": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0073__L056__p533:thepresident:thesupremecourt",
+"anchor": "Congress",
+"nearest": [
+"Judicial Branch"
+],
+"random": [],
+"distractors": [
+"Judicial Branch"
+],
+"n_eligible": 1,
+"sha": "3b2d01e782069809a35055458045f0391627768c7732bcceccf6e1579d0fde79",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0073__L042__p308:thepresident:congress": {
+"unit": "nla-rl-L42:chat-lmsys-0073__L042__p308:thepresident:congress",
+"anchor": "Congress",
+"nearest": [
+"Judicial Branch"
+],
+"random": [],
+"distractors": [
+"Judicial Branch"
+],
+"n_eligible": 1,
+"sha": "a9d2775384709fccc5e7c8cb9c63ab281e766f55c48a01f97e0587310975b2aa",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0073__L020__p308:executivebranchpresident:congress": {
+"unit": "s3d-rl600-all11:chat-lmsys-0073__L020__p308:executivebranchpresident:congress",
+"anchor": "Congress",
+"nearest": [
+"Judicial Branch"
+],
+"random": [],
+"distractors": [
+"Judicial Branch"
+],
+"n_eligible": 1,
+"sha": "bb052ebc5515b83855c8f380423d03edb5789e00fdcf3c23cb6b7e08a1ffab04",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0073__L020__p308:thepresident:thesupremecourt": {
+"unit": "s3d-rl600-all11:chat-lmsys-0073__L020__p308:thepresident:thesupremecourt",
+"anchor": "Congress",
+"nearest": [
+"Judicial Branch"
+],
+"random": [],
+"distractors": [
+"Judicial Branch"
+],
+"n_eligible": 1,
+"sha": "9ed43d1ef4651872c78fac4c48e691d8adbc35e373ac798dd511a93bb90716d6",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0073__L024__p533:thepresident:congress": {
+"unit": "s3d-rl600-all11:chat-lmsys-0073__L024__p533:thepresident:congress",
+"anchor": "Congress",
+"nearest": [
+"Judicial Branch"
+],
+"random": [],
+"distractors": [
+"Judicial Branch"
+],
+"n_eligible": 1,
+"sha": "f7dd96d2ce4bfa76adbc16be1bf95c92335432d2efa3e299d78f8961959a6cb1",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0073__L028__p308:president:congress": {
+"unit": "s3d-rl600-all11:chat-lmsys-0073__L028__p308:president:congress",
+"anchor": "Congress",
+"nearest": [
+"Judicial Branch"
+],
+"random": [],
+"distractors": [
+"Judicial Branch"
+],
+"n_eligible": 1,
+"sha": "e1f081fba8ad1cbf1f476897750690fa2d1e94fa77adb97278b2d0f3466ac029",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0073__L032__p308:president:supremecourt": {
+"unit": "s3d-rl600-all11:chat-lmsys-0073__L032__p308:president:supremecourt",
+"anchor": "Congress",
+"nearest": [
+"Judicial Branch"
+],
+"random": [],
+"distractors": [
+"Judicial Branch"
+],
+"n_eligible": 1,
+"sha": "614e6f6b2cbea438dcbe85766c90691afb2802e53afac4221101784eae7eba3d",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0073__L036__p308:president:congress": {
+"unit": "s3d-rl600-all11:chat-lmsys-0073__L036__p308:president:congress",
+"anchor": "Congress",
+"nearest": [
+"Judicial Branch"
+],
+"random": [],
+"distractors": [
+"Judicial Branch"
+],
+"n_eligible": 1,
+"sha": "0f1d2e84531c355bc406a89d6595a859dcb1fd61c04ac1f657873a3f61e76c95",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0073__L036__p308:thepresident:congress": {
+"unit": "s3d-rl600-all11:chat-lmsys-0073__L036__p308:thepresident:congress",
+"anchor": "Congress",
+"nearest": [
+"Judicial Branch"
+],
+"random": [],
+"distractors": [
+"Judicial Branch"
+],
+"n_eligible": 1,
+"sha": "59424745e3787d3549525f3c49e9af1152ad870115420df4b17fce1409064d1c",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0073__L040__p308:president:congress": {
+"unit": "s3d-rl600-all11:chat-lmsys-0073__L040__p308:president:congress",
+"anchor": "Congress",
+"nearest": [
+"Judicial Branch"
+],
+"random": [],
+"distractors": [
+"Judicial Branch"
+],
+"n_eligible": 1,
+"sha": "e632182867dfcae262527f8d3679445364bf069e69c4c14bc83659863f95a2c1",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0073__L044__p232:president:congress": {
+"unit": "s3d-rl600-all11:chat-lmsys-0073__L044__p232:president:congress",
+"anchor": "Congress",
+"nearest": [
+"Judicial Branch"
+],
+"random": [],
+"distractors": [
+"Judicial Branch"
+],
+"n_eligible": 1,
+"sha": "16292eaec21b6e6bfdf98be7c76a6e5b806c48cebac03967da90d5d3675843f8",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0073__L020__p308:president:supremecourt": {
+"unit": "s3d-rl600:chat-lmsys-0073__L020__p308:president:supremecourt",
+"anchor": "Congress",
+"nearest": [
+"Judicial Branch"
+],
+"random": [],
+"distractors": [
+"Judicial Branch"
+],
+"n_eligible": 1,
+"sha": "88da9137d5dab189557df665c3c8252a700e29c1ccb43d433e2a2f8dec800f9f",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0073__L036__p308:president:congress": {
+"unit": "s3d-rl600:chat-lmsys-0073__L036__p308:president:congress",
+"anchor": "Congress",
+"nearest": [
+"Judicial Branch"
+],
+"random": [],
+"distractors": [
+"Judicial Branch"
+],
+"n_eligible": 1,
+"sha": "d132ab70a9dfe2bfbb8155b165ef13e84e790f911e77328e874dc7b35e171bd3",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0073__L036__p308:总统:congress": {
+"unit": "s3d-rl600:chat-lmsys-0073__L036__p308:总统:congress",
+"anchor": "Congress",
+"nearest": [
+"Judicial Branch"
+],
+"random": [],
+"distractors": [
+"Judicial Branch"
+],
+"n_eligible": 1,
+"sha": "53b8b2e22c69c20ace99dae23f53a98f73be81e74f89b71b48b7bd4ab150af04",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0073__L024__p308:thepresident:congress": {
+"unit": "s3d-sft251:chat-lmsys-0073__L024__p308:thepresident:congress",
+"anchor": "Congress",
+"nearest": [
+"Judicial Branch"
+],
+"random": [],
+"distractors": [
+"Judicial Branch"
+],
+"n_eligible": 1,
+"sha": "4098c9e05dfc9c484fb051ef48b31927e2164cf12a8d5f27ce8f6873d8ab49b0",
+"generation": 0
+}
+}

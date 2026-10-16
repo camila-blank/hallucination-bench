@@ -13,6 +13,7 @@ hallucination eval is one of many evals here; see `plans/` for the design histor
 | `wsbench_chat` | WorkspaceBench's hallucination (chat) eval, ported verbatim (v5c span + verify stages), plus the taxonomy classifier | [0001](plans/0001-bootstrap-wsbench-chat-taxonomy.md) |
 | `wsbench_chat` claim map | taxonomy v2: every character of every readout in exactly one of 11 scoring leaves (7 groups), rolled up into 6 verdicts | [0002](plans/0002-claim-map-taxonomy-v2.md) |
 | sibling gate (rev 21) | `substitution_sibling` counts as hallucination only when unambiguous: 10-sample lens resample (sibling rarely returns while other items or the right answer do), then whitened-DiffMean probes for stable siblings | [0009](plans/0009-sibling-resample-probe-gate.md) |
+| `hbench gate` | the sibling gate as one incremental pipeline step over the registered gate set (`data/arms.json`): `--plan` cost guard, frozen class map / fillers / merge / distractors, resumable resample runs; `run_all_arms.sh` runs it before the final v2 report | [0010](plans/0010-gate-in-pipeline.md) |
 
 Per cell (arm × item × read site × layer) `wsbench_chat` runs up to five calls:
 
@@ -117,6 +118,19 @@ uv run hbench report --out outputs --view v2   # report_v2.md, probe_candidates.
 uv run hbench calibrate --taxonomy v2 --split dev
 
 scripts/run_all_arms.sh                   # full run in tmux session `hbench`; tail -f logs/run_*.log
+                                          # (stage 1 -> stage 2 -> hbench gate -> report --view v2)
+
+# sibling gate (plan 0010): one command over data/arms.json gated_arms
+uv run hbench gate --plan                 # the work + cost estimate; no calls, no launches, no writes
+uv run hbench gate                        # proceeds if the estimate <= $GATE_AUTO_USD (300), else exit 2
+uv run hbench gate --yes                  # over the cap
+uv run hbench gate --add-arm mlnla-ck2000-all11 --plan   # a registered arm joins the gate set
+uv run hbench gate --offline              # fail (exit 3) on any LLM call / Modal command
+uv run hbench gate import --from /workspace/hb-sibling-resample \
+    --cells-root /workspace/hb-taxonomy-v2/outputs/wsbench_chat/claude-opus-5-5  # plan-0009 state
+uv run hbench gate diff --baseline /workspace/hb-sibling-resample/outputs/sibling_gate/labels
+uv run hbench gate snapshot               # git-archive the generator / capture script snapshots
+uv run hbench report --out outputs --view v2 --no-sibling-labels   # exact rev-20 scores
 ```
 
 Other commands: `hbench run --rebuild` (regenerate `cells.jsonl` / `summary.json` from the cache,

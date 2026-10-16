@@ -1,0 +1,137 @@
+{
+"mlnla-ck2000-all11:chat-lmsys-0069__L044__p94:ophiopogon:gastrodiaelata": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0069__L044__p94:ophiopogon:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [
+"Reishi mushroom",
+"Rehmannia",
+"Goji berry",
+"Ginger"
+],
+"random": [
+"Licorice root"
+],
+"distractors": [
+"Reishi mushroom",
+"Rehmannia",
+"Goji berry",
+"Ginger",
+"Licorice root"
+],
+"n_eligible": 5,
+"sha": "34e9983af159bc24c30ac6e896e901b580c6a546ca6a69f4bc9cfb22120b32ae",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0069__L020__p384:notoginseng:gastrodiaelata": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0069__L020__p384:notoginseng:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [
+"Reishi mushroom",
+"Rehmannia",
+"Ginger",
+"Goji berry"
+],
+"random": [
+"Licorice root"
+],
+"distractors": [
+"Reishi mushroom",
+"Rehmannia",
+"Ginger",
+"Goji berry",
+"Licorice root"
+],
+"n_eligible": 5,
+"sha": "64982fe37282a5aaa814e8fd4a9e597c7dc3f3a4a6e71dbad07b905d84537d30",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0069__L060__p384:chinesecordyceps:gastrodingastrodiaelata": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0069__L060__p384:chinesecordyceps:gastrodingastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [
+"Reishi mushroom",
+"Rehmannia",
+"Ginger",
+"Goji berry"
+],
+"random": [
+"Licorice root"
+],
+"distractors": [
+"Reishi mushroom",
+"Rehmannia",
+"Ginger",
+"Goji berry",
+"Licorice root"
+],
+"n_eligible": 5,
+"sha": "2de20e00dbc66e0fa4bf0cbc1db9b96a72d32b1e2f8374c2967a095a5b53fbe8",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0069__L020__p94:whitepeonyroot:gastrodiaelata": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0069__L020__p94:whitepeonyroot:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [
+"Reishi mushroom",
+"Rehmannia",
+"Ginger",
+"Goji berry"
+],
+"random": [],
+"distractors": [
+"Reishi mushroom",
+"Rehmannia",
+"Ginger",
+"Goji berry"
+],
+"n_eligible": 4,
+"sha": "a72e7dd5cc04cc793ef4b265329cdf992d7e3e3fb5e3543a3a0939a7ed941607",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0069__L020__p94:fuzi:tianma": {
+"unit": "s3d-rl600-all11:chat-lmsys-0069__L020__p94:fuzi:tianma",
+"anchor": "Tianma",
+"nearest": [
+"Rehmannia",
+"Licorice root",
+"Reishi mushroom",
+"Ginger"
+],
+"random": [
+"Goji berry"
+],
+"distractors": [
+"Rehmannia",
+"Licorice root",
+"Reishi mushroom",
+"Ginger",
+"Goji berry"
+],
+"n_eligible": 5,
+"sha": "1bb9b3900a2bfdc45810d2b2d9fdb004cd748f0178de00db5eb6734b2a685764",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0069__L020__p94:fuzi:gastrodiaelata": {
+"unit": "s3d-rl600:chat-lmsys-0069__L020__p94:fuzi:gastrodiaelata",
+"anchor": "Tianma",
+"nearest": [
+"Rehmannia",
+"Licorice root",
+"Reishi mushroom",
+"Ginger"
+],
+"random": [
+"Goji berry"
+],
+"distractors": [
+"Rehmannia",
+"Licorice root",
+"Reishi mushroom",
+"Ginger",
+"Goji berry"
+],
+"n_eligible": 5,
+"sha": "4e3d43a54e2f706f1add976166619faa953333a8217769aa5e507907b7ae8a74",
+"generation": 0
+}
+}

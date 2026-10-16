@@ -1,0 +1,256 @@
+{
+"mlnla-ck2000-all11:chat-dailydialog-0030__L036__p137:therestaurantattheendoftheuniverse:thehitchhikersguidetothegalaxy": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0030__L036__p137:therestaurantattheendoftheuniverse:thehitchhikersguidetothegalaxy",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"Moby-Dick",
+"1984",
+"The Catcher in the Rye",
+"The Righteous Mind"
+],
+"random": [
+"The Culture of Narcissism",
+"The Narcissism Epidemic"
+],
+"distractors": [
+"Moby-Dick",
+"1984",
+"The Catcher in the Rye",
+"The Righteous Mind",
+"The Culture of Narcissism",
+"The Narcissism Epidemic"
+],
+"n_eligible": 6,
+"sha": "25af70406adae624fac7f29a64c96e2c2a9e2671776dd0cb9e0f839f127891eb",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0030__L040__p87:therestaurantattheendoftheuniverse:thehitchhikersguidetothegalaxy": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0030__L040__p87:therestaurantattheendoftheuniverse:thehitchhikersguidetothegalaxy",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"Moby-Dick",
+"1984",
+"The Catcher in the Rye",
+"The Righteous Mind"
+],
+"random": [
+"The Culture of Narcissism",
+"The Narcissism Epidemic"
+],
+"distractors": [
+"Moby-Dick",
+"1984",
+"The Catcher in the Rye",
+"The Righteous Mind",
+"The Culture of Narcissism",
+"The Narcissism Epidemic"
+],
+"n_eligible": 6,
+"sha": "273e087bf7d829144834cd955972beff580c47ad35213d989a4b16136cf7a554",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0030__L048__p87:therestaurantattheendoftheuniverse:thehitchhikersguidetothegalaxy": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0030__L048__p87:therestaurantattheendoftheuniverse:thehitchhikersguidetothegalaxy",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"Moby-Dick",
+"1984",
+"The Catcher in the Rye",
+"The Righteous Mind"
+],
+"random": [
+"The Culture of Narcissism",
+"The Narcissism Epidemic"
+],
+"distractors": [
+"Moby-Dick",
+"1984",
+"The Catcher in the Rye",
+"The Righteous Mind",
+"The Culture of Narcissism",
+"The Narcissism Epidemic"
+],
+"n_eligible": 6,
+"sha": "a48f5e3afca81e20edffe554231d62a93230319446f99d926399137ea59f3ff4",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0065__L048__p287:twengesthenarcissismepidemic:thecultureofnarcissism": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0065__L048__p287:twengesthenarcissismepidemic:thecultureofnarcissism",
+"anchor": "The Culture of Narcissism",
+"nearest": [
+"The Catcher in the Rye",
+"1984",
+"The Great Gatsby",
+"Dr. Seuss book"
+],
+"random": [
+"Moby-Dick",
+"The Hitchhiker's Guide to the Galaxy",
+"The Restaurant at the End of the Universe",
+"To Kill a Mockingbird"
+],
+"distractors": [
+"The Catcher in the Rye",
+"1984",
+"The Great Gatsby",
+"Dr. Seuss book",
+"Moby-Dick",
+"The Hitchhiker's Guide to the Galaxy",
+"The Restaurant at the End of the Universe",
+"To Kill a Mockingbird"
+],
+"n_eligible": 10,
+"sha": "a53b211c96032688107e2bb31389ae348d167bc75a1754a046e26adcd466036c",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0030__L024__p137:seussbook:hitchhikersguide": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0030__L024__p137:seussbook:hitchhikersguide",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"Moby-Dick",
+"1984",
+"The Righteous Mind",
+"The Culture of Narcissism"
+],
+"random": [
+"The Catcher in the Rye"
+],
+"distractors": [
+"Moby-Dick",
+"1984",
+"The Righteous Mind",
+"The Culture of Narcissism",
+"The Catcher in the Rye"
+],
+"n_eligible": 5,
+"sha": "e630a22d28ecc62ee8ba762d7f57764096b5261ad6f72fffcc5c0355b7e42c92",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0065__L020__p186:haidtstherighteousmind:thecultureofnarcissism": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0065__L020__p186:haidtstherighteousmind:thecultureofnarcissism",
+"anchor": "The Culture of Narcissism",
+"nearest": [
+"1984",
+"The Catcher in the Rye",
+"The Great Gatsby",
+"To Kill a Mockingbird"
+],
+"random": [
+"The Hitchhiker's Guide to the Galaxy",
+"The Little Prince",
+"The Lord of the Rings",
+"The Restaurant at the End of the Universe"
+],
+"distractors": [
+"1984",
+"The Catcher in the Rye",
+"The Great Gatsby",
+"To Kill a Mockingbird",
+"The Hitchhiker's Guide to the Galaxy",
+"The Little Prince",
+"The Lord of the Rings",
+"The Restaurant at the End of the Universe"
+],
+"n_eligible": 10,
+"sha": "3867b64300c6f4649979d5ae33a15a8f8481f0b0e958b9ee8b42f2d27b2186c7",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0065__L024__p186:haidtstherighteousmind:thecultureofnarcissism": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0065__L024__p186:haidtstherighteousmind:thecultureofnarcissism",
+"anchor": "The Culture of Narcissism",
+"nearest": [
+"1984",
+"The Catcher in the Rye",
+"The Great Gatsby",
+"To Kill a Mockingbird"
+],
+"random": [
+"Dr. Seuss book",
+"Moby-Dick",
+"The Hitchhiker's Guide to the Galaxy",
+"The Lord of the Rings"
+],
+"distractors": [
+"1984",
+"The Catcher in the Rye",
+"The Great Gatsby",
+"To Kill a Mockingbird",
+"Dr. Seuss book",
+"Moby-Dick",
+"The Hitchhiker's Guide to the Galaxy",
+"The Lord of the Rings"
+],
+"n_eligible": 10,
+"sha": "650d38804a2f891e099da28ccd65690972065ced3129caa5e66278816c922560",
+"generation": 0
+},
+"nla-rl-L42:chat-dailydialog-0030__L042__p137:lifetheuniverseandeverything:thehitchhikersguidetothegalaxy": {
+"unit": "nla-rl-L42:chat-dailydialog-0030__L042__p137:lifetheuniverseandeverything:thehitchhikersguidetothegalaxy",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"Moby-Dick",
+"1984",
+"The Righteous Mind",
+"The Culture of Narcissism"
+],
+"random": [
+"The Catcher in the Rye"
+],
+"distractors": [
+"Moby-Dick",
+"1984",
+"The Righteous Mind",
+"The Culture of Narcissism",
+"The Catcher in the Rye"
+],
+"n_eligible": 5,
+"sha": "c13ee1e5259502a9ff24b5ea391809f7450de6745ef3ec5094dbe7887e826a3f",
+"generation": 0
+},
+"nla-rl-L42:chat-dailydialog-0030__L042__p87:therestaurantattheendoftheuniverse:thehitchhikersguidetothegalaxy": {
+"unit": "nla-rl-L42:chat-dailydialog-0030__L042__p87:therestaurantattheendoftheuniverse:thehitchhikersguidetothegalaxy",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"Moby-Dick",
+"1984",
+"The Righteous Mind",
+"The Culture of Narcissism"
+],
+"random": [
+"The Catcher in the Rye"
+],
+"distractors": [
+"Moby-Dick",
+"1984",
+"The Righteous Mind",
+"The Culture of Narcissism",
+"The Catcher in the Rye"
+],
+"n_eligible": 5,
+"sha": "6152f6484eb49ee8fe107d1574c579cec0d757ba17d19afbebf3dd9666e9f738",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0030__L044__p137:thelittle:thehitchhikersguidetothegalaxy": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0030__L044__p137:thelittle:thehitchhikersguidetothegalaxy",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"Moby-Dick",
+"1984",
+"The Righteous Mind",
+"The Culture of Narcissism"
+],
+"random": [
+"The Catcher in the Rye"
+],
+"distractors": [
+"Moby-Dick",
+"1984",
+"The Righteous Mind",
+"The Culture of Narcissism",
+"The Catcher in the Rye"
+],
+"n_eligible": 5,
+"sha": "0587793446338c1abf8937f7c87c6409a37947ecd61651f5671dec22e812a085",
+"generation": 0
+}
+}

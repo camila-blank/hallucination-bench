@@ -1,0 +1,461 @@
+{
+"mlnla-ck2000-all11:chat-lmsys-0051__L048__p35:cannabiscbd:psychedelics": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0051__L048__p35:cannabiscbd:psychedelics",
+"anchor": "psilocybin",
+"nearest": [
+"amphetamine",
+"heroin",
+"morphine",
+"cocaine"
+],
+"random": [
+"alcohol",
+"caffeine",
+"nicotine"
+],
+"distractors": [
+"amphetamine",
+"heroin",
+"morphine",
+"cocaine",
+"alcohol",
+"caffeine",
+"nicotine"
+],
+"n_eligible": 7,
+"sha": "da5b33b1668fd8b3ee920f083941660b235208c75c4c0c2c7f41d60e1ff5919e",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0051__L040__p424:thc:classicpsychedelics": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0051__L040__p424:thc:classicpsychedelics",
+"anchor": "psilocybin",
+"nearest": [
+"amphetamine",
+"heroin",
+"morphine",
+"cocaine"
+],
+"random": [
+"alcohol",
+"caffeine",
+"nicotine"
+],
+"distractors": [
+"amphetamine",
+"heroin",
+"morphine",
+"cocaine",
+"alcohol",
+"caffeine",
+"nicotine"
+],
+"n_eligible": 7,
+"sha": "10d9ca4772c5648766de857f1d347efd21e7ae7544f5bbdf6d7d5912cb5b9eae",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0051__L044__p424:cannabisthccbd:classicpsychedelics": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0051__L044__p424:cannabisthccbd:classicpsychedelics",
+"anchor": "psilocybin",
+"nearest": [
+"amphetamine",
+"heroin",
+"morphine",
+"cocaine"
+],
+"random": [
+"alcohol",
+"caffeine",
+"nicotine"
+],
+"distractors": [
+"amphetamine",
+"heroin",
+"morphine",
+"cocaine",
+"alcohol",
+"caffeine",
+"nicotine"
+],
+"n_eligible": 7,
+"sha": "98fd9a879e13ac6ea970490f0d013d19fc2562a166b67f3d3c57593876148541",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0051__L044__p424:thccbd:psilocybinmdmalsd": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0051__L044__p424:thccbd:psilocybinmdmalsd",
+"anchor": "psilocybin",
+"nearest": [
+"amphetamine",
+"heroin",
+"morphine",
+"cocaine"
+],
+"random": [
+"alcohol",
+"caffeine",
+"nicotine"
+],
+"distractors": [
+"amphetamine",
+"heroin",
+"morphine",
+"cocaine",
+"alcohol",
+"caffeine",
+"nicotine"
+],
+"n_eligible": 7,
+"sha": "aafe54a8fa9c440221e15cd1bd4db0ce03759a19f590842c69e95d3af7a7721d",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0051__L044__p494:thc:classicpsychedelics": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0051__L044__p494:thc:classicpsychedelics",
+"anchor": "psilocybin",
+"nearest": [
+"amphetamine",
+"heroin",
+"morphine",
+"cocaine"
+],
+"random": [
+"alcohol",
+"caffeine",
+"nicotine"
+],
+"distractors": [
+"amphetamine",
+"heroin",
+"morphine",
+"cocaine",
+"alcohol",
+"caffeine",
+"nicotine"
+],
+"n_eligible": 7,
+"sha": "e3dcaa7144197d9c737a54b6d4883acdba20b841a17de42c244423ec9da979c9",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0051__L024__p424:cbd:psychedelics": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0051__L024__p424:cbd:psychedelics",
+"anchor": "psychedelics",
+"nearest": [
+"cocaine",
+"alcohol",
+"heroin",
+"amphetamine"
+],
+"random": [
+"caffeine",
+"morphine",
+"nicotine"
+],
+"distractors": [
+"cocaine",
+"alcohol",
+"heroin",
+"amphetamine",
+"caffeine",
+"morphine",
+"nicotine"
+],
+"n_eligible": 7,
+"sha": "c5fd881e49020bab011794db0d2a3fead9445ded9f37352e576281f47af07b3a",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0051__L024__p424:cbdketamine:psychedelics": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0051__L024__p424:cbdketamine:psychedelics",
+"anchor": "psilocybin",
+"nearest": [
+"amphetamine",
+"heroin",
+"morphine",
+"cocaine"
+],
+"random": [
+"alcohol",
+"caffeine",
+"nicotine"
+],
+"distractors": [
+"amphetamine",
+"heroin",
+"morphine",
+"cocaine",
+"alcohol",
+"caffeine",
+"nicotine"
+],
+"n_eligible": 7,
+"sha": "ebe076fe6f4bd440dcf9307e303c66b19db7c30a0287129b996cea9854147d31",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0051__L044__p424:thc:psychedelics": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0051__L044__p424:thc:psychedelics",
+"anchor": "psilocybin",
+"nearest": [
+"amphetamine",
+"heroin",
+"morphine",
+"cocaine"
+],
+"random": [
+"alcohol",
+"caffeine",
+"nicotine"
+],
+"distractors": [
+"amphetamine",
+"heroin",
+"morphine",
+"cocaine",
+"alcohol",
+"caffeine",
+"nicotine"
+],
+"n_eligible": 7,
+"sha": "d8f21e36dbfc114c214c3c799fdb52b0bb318823f7d29fedbdd103ea39100041",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0051__L044__p494:cbd:psychedelics": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0051__L044__p494:cbd:psychedelics",
+"anchor": "psychedelics",
+"nearest": [
+"cocaine",
+"alcohol",
+"heroin",
+"amphetamine"
+],
+"random": [
+"caffeine",
+"morphine",
+"nicotine"
+],
+"distractors": [
+"cocaine",
+"alcohol",
+"heroin",
+"amphetamine",
+"caffeine",
+"morphine",
+"nicotine"
+],
+"n_eligible": 7,
+"sha": "39a29ae7cd701db349162b1a32571bde7415cc2b0ffb559a46514a61c45f1450",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0051__L042__p494:cbd:classicpsychedelics": {
+"unit": "nla-rl-L42:chat-lmsys-0051__L042__p494:cbd:classicpsychedelics",
+"anchor": "psychedelics",
+"nearest": [
+"cocaine",
+"alcohol",
+"heroin",
+"amphetamine"
+],
+"random": [
+"caffeine",
+"morphine",
+"nicotine"
+],
+"distractors": [
+"cocaine",
+"alcohol",
+"heroin",
+"amphetamine",
+"caffeine",
+"morphine",
+"nicotine"
+],
+"n_eligible": 7,
+"sha": "787a29752b2cb527bc1ba3eaa54c0feab2020245b3426af95e8aadf6fd4af837",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0051__L042__p494:cbd:psychedelics": {
+"unit": "nla-rl-L42:chat-lmsys-0051__L042__p494:cbd:psychedelics",
+"anchor": "psychedelics",
+"nearest": [
+"cocaine",
+"alcohol",
+"heroin",
+"amphetamine"
+],
+"random": [
+"caffeine",
+"morphine",
+"nicotine"
+],
+"distractors": [
+"cocaine",
+"alcohol",
+"heroin",
+"amphetamine",
+"caffeine",
+"morphine",
+"nicotine"
+],
+"n_eligible": 7,
+"sha": "e030185685eeb9dc9e332e4b7dede2e1c2fbf175539043c15029e70d33588eb6",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0051__L042__p494:cbd:psychedelictherapies": {
+"unit": "nla-rl-L42:chat-lmsys-0051__L042__p494:cbd:psychedelictherapies",
+"anchor": "psychedelics",
+"nearest": [
+"cocaine",
+"alcohol",
+"heroin",
+"amphetamine"
+],
+"random": [
+"caffeine",
+"morphine",
+"nicotine"
+],
+"distractors": [
+"cocaine",
+"alcohol",
+"heroin",
+"amphetamine",
+"caffeine",
+"morphine",
+"nicotine"
+],
+"n_eligible": 7,
+"sha": "2a93e1c0acffef2f9f36e62e12260ba37e106e95867ab0af351d4e92c6b565c9",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0051__L028__p35:cbd:psychedelics": {
+"unit": "s3d-rl600-all11:chat-lmsys-0051__L028__p35:cbd:psychedelics",
+"anchor": "psychedelics",
+"nearest": [
+"cocaine",
+"alcohol",
+"heroin",
+"amphetamine"
+],
+"random": [
+"caffeine",
+"morphine",
+"nicotine"
+],
+"distractors": [
+"cocaine",
+"alcohol",
+"heroin",
+"amphetamine",
+"caffeine",
+"morphine",
+"nicotine"
+],
+"n_eligible": 7,
+"sha": "80c3a34446c2e809a4c9b577211222ba85041f8628828a8d19f116ca7dfc0191",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0051__L044__p35:cbd:psychedelics": {
+"unit": "s3d-rl600-all11:chat-lmsys-0051__L044__p35:cbd:psychedelics",
+"anchor": "psychedelics",
+"nearest": [
+"cocaine",
+"alcohol",
+"heroin",
+"amphetamine"
+],
+"random": [
+"caffeine",
+"morphine",
+"nicotine"
+],
+"distractors": [
+"cocaine",
+"alcohol",
+"heroin",
+"amphetamine",
+"caffeine",
+"morphine",
+"nicotine"
+],
+"n_eligible": 7,
+"sha": "91d974cdac7e473a1e250e06e9ce062aaf2c006aef4e1bf2afb5b97b73db92e9",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0051__L020__p424:cbd:psychedelics": {
+"unit": "s3d-rl600:chat-lmsys-0051__L020__p424:cbd:psychedelics",
+"anchor": "psychedelics",
+"nearest": [
+"cocaine",
+"alcohol",
+"heroin",
+"amphetamine"
+],
+"random": [
+"caffeine",
+"morphine",
+"nicotine"
+],
+"distractors": [
+"cocaine",
+"alcohol",
+"heroin",
+"amphetamine",
+"caffeine",
+"morphine",
+"nicotine"
+],
+"n_eligible": 7,
+"sha": "00a13f82c03fbc9964f416488758243699970efdfd15248ea4a78c2b36cb7b38",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0051__L024__p424:cbd:psychedelics": {
+"unit": "s3d-sft251:chat-lmsys-0051__L024__p424:cbd:psychedelics",
+"anchor": "psychedelics",
+"nearest": [
+"cocaine",
+"alcohol",
+"heroin",
+"amphetamine"
+],
+"random": [
+"caffeine",
+"morphine",
+"nicotine"
+],
+"distractors": [
+"cocaine",
+"alcohol",
+"heroin",
+"amphetamine",
+"caffeine",
+"morphine",
+"nicotine"
+],
+"n_eligible": 7,
+"sha": "8e7da646440c00340d7eab2ff888b1633304cf62910c88882409a5c0d7e3cc6d",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0051__L040__p494:cannabidiol:classicpsychedelics": {
+"unit": "s3d-sft251:chat-lmsys-0051__L040__p494:cannabidiol:classicpsychedelics",
+"anchor": "psilocybin",
+"nearest": [
+"amphetamine",
+"heroin",
+"morphine",
+"cocaine"
+],
+"random": [
+"alcohol",
+"caffeine",
+"nicotine"
+],
+"distractors": [
+"amphetamine",
+"heroin",
+"morphine",
+"cocaine",
+"alcohol",
+"caffeine",
+"nicotine"
+],
+"n_eligible": 7,
+"sha": "7ec35df88b2574425a9a514abd66fb445bfe71d607a664a95b4c7eeddd3eadd4",
+"generation": 0
+}
+}

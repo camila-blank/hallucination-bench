@@ -1,0 +1,981 @@
+{
+"mlnla-ck2000-all11:chat-dailydialog-0034__L060__p56:icp:qwen": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0034__L060__p56:icp:qwen",
+"anchor": "Qwen",
+"nearest": [
+"GLM-4",
+"Hunyuan",
+"GPT-J",
+"AlphaFold"
+],
+"random": [
+"DALL-E",
+"Decision Transformer",
+"Siri",
+"Watson"
+],
+"distractors": [
+"GLM-4",
+"Hunyuan",
+"GPT-J",
+"AlphaFold",
+"DALL-E",
+"Decision Transformer",
+"Siri",
+"Watson"
+],
+"n_eligible": 10,
+"sha": "e7954ae952240f552a4da51378b445c25b3b6d7c0cf2738da55a5e1e139eddaf",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0000__L056__p113:glm4gemini:qwen": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0000__L056__p113:glm4gemini:qwen",
+"anchor": "Qwen",
+"nearest": [
+"GPT-J",
+"AlphaFold",
+"ICP",
+"DALL-E"
+],
+"random": [
+"AlphaGo",
+"Decision Transformer",
+"Siri",
+"Watson"
+],
+"distractors": [
+"GPT-J",
+"AlphaFold",
+"ICP",
+"DALL-E",
+"AlphaGo",
+"Decision Transformer",
+"Siri",
+"Watson"
+],
+"n_eligible": 9,
+"sha": "6a231484396b178066bee9013e49cc98bbd33b4d5f57438073e097fcb317380c",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0019__L040__p71:gpt4:qwen": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0019__L040__p71:gpt4:qwen",
+"anchor": "Qwen",
+"nearest": [
+"Hunyuan",
+"AlphaFold",
+"Gemini",
+"DALL-E"
+],
+"random": [
+"Alexa",
+"Decision Transformer",
+"Siri",
+"Watson"
+],
+"distractors": [
+"Hunyuan",
+"AlphaFold",
+"Gemini",
+"DALL-E",
+"Alexa",
+"Decision Transformer",
+"Siri",
+"Watson"
+],
+"n_eligible": 9,
+"sha": "78ada5023b04dc421f03e988b41eaa34e17355c2c54439d6cb81fa3e43ff3553",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0020__L048__p72:gpt4:qwen": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0020__L048__p72:gpt4:qwen",
+"anchor": "Qwen",
+"nearest": [
+"Hunyuan",
+"AlphaFold",
+"DALL-E",
+"Decision Transformer"
+],
+"random": [
+"AlphaGo",
+"Watson"
+],
+"distractors": [
+"Hunyuan",
+"AlphaFold",
+"DALL-E",
+"Decision Transformer",
+"AlphaGo",
+"Watson"
+],
+"n_eligible": 6,
+"sha": "647b19e7d9697eb0bca308ed60a2bb4bc9af8f5523cf1268e697f8f8d60cd4cc",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0000__L020__p103:gpt4:qwen": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0000__L020__p103:gpt4:qwen",
+"anchor": "Qwen",
+"nearest": [
+"AlphaFold",
+"DALL-E",
+"Decision Transformer",
+"Alexa"
+],
+"random": [
+"AlphaGo",
+"Siri",
+"Watson"
+],
+"distractors": [
+"AlphaFold",
+"DALL-E",
+"Decision Transformer",
+"Alexa",
+"AlphaGo",
+"Siri",
+"Watson"
+],
+"n_eligible": 7,
+"sha": "77b35227fd9d8e58a6960a964f4eb83c53b5ae6e4c3289c4bac76a58b42b9552",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0000__L024__p117:gpt4o:qwen": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0000__L024__p117:gpt4o:qwen",
+"anchor": "Qwen",
+"nearest": [
+"AlphaFold",
+"DALL-E",
+"Decision Transformer",
+"Alexa"
+],
+"random": [
+"AlphaGo",
+"Siri",
+"Watson"
+],
+"distractors": [
+"AlphaFold",
+"DALL-E",
+"Decision Transformer",
+"Alexa",
+"AlphaGo",
+"Siri",
+"Watson"
+],
+"n_eligible": 7,
+"sha": "9d506d9de2211dc4629d2678f9b42a95ad10c185c4a36c06d408e7280e8984e9",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0000__L028__p103:gpt4:qwen": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0000__L028__p103:gpt4:qwen",
+"anchor": "Qwen",
+"nearest": [
+"AlphaFold",
+"DALL-E",
+"Decision Transformer",
+"Alexa"
+],
+"random": [
+"AlphaGo",
+"Siri",
+"Watson"
+],
+"distractors": [
+"AlphaFold",
+"DALL-E",
+"Decision Transformer",
+"Alexa",
+"AlphaGo",
+"Siri",
+"Watson"
+],
+"n_eligible": 7,
+"sha": "2fb96df5309a1a2950faeaa33c08f7a8b579e1254be70edb706e22d7269f8b09",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0053__L056__p25:gpt4:therespondingmodel": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0053__L056__p25:gpt4:therespondingmodel",
+"anchor": "GPT-4",
+"nearest": [
+"AlphaGo",
+"Watson",
+"AlphaFold",
+"Claude"
+],
+"random": [
+"DALL-E",
+"Decision Transformer",
+"Hunyuan",
+"Siri"
+],
+"distractors": [
+"AlphaGo",
+"Watson",
+"AlphaFold",
+"Claude",
+"DALL-E",
+"Decision Transformer",
+"Hunyuan",
+"Siri"
+],
+"n_eligible": 12,
+"sha": "e9bf913425d21a4559a2a09cd868025e0c56154fefac4f129097e4017ff128ae",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0014__L020__p23:gpt:qwen": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0014__L020__p23:gpt:qwen",
+"anchor": "Qwen",
+"nearest": [
+"Hunyuan",
+"AlphaFold",
+"DALL-E",
+"Decision Transformer"
+],
+"random": [
+"AlphaGo",
+"Watson"
+],
+"distractors": [
+"Hunyuan",
+"AlphaFold",
+"DALL-E",
+"Decision Transformer",
+"AlphaGo",
+"Watson"
+],
+"n_eligible": 6,
+"sha": "169372c55ddd87283aac53149efa8f0cfe691429e0b324fd961b108d782aa102",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0020__L052__p37:gpt4:bill": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0020__L052__p37:gpt4:bill",
+"anchor": "Qwen",
+"nearest": [
+"Hunyuan",
+"AlphaFold",
+"DALL-E",
+"Decision Transformer"
+],
+"random": [
+"AlphaGo",
+"Watson"
+],
+"distractors": [
+"Hunyuan",
+"AlphaFold",
+"DALL-E",
+"Decision Transformer",
+"AlphaGo",
+"Watson"
+],
+"n_eligible": 6,
+"sha": "2f84658969334a7f8ecd057ae8672fefea3d0e57bbd5af62995382981adecd39",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0041__L028__p42:qwenalibabacloud:google": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0041__L028__p42:qwenalibabacloud:google",
+"anchor": "Gemini",
+"nearest": [
+"Hunyuan",
+"Alexa",
+"Siri",
+"DALL-E"
+],
+"random": [
+"AlphaFold",
+"Decision Transformer",
+"GPT-J",
+"Watson"
+],
+"distractors": [
+"Hunyuan",
+"Alexa",
+"Siri",
+"DALL-E",
+"AlphaFold",
+"Decision Transformer",
+"GPT-J",
+"Watson"
+],
+"n_eligible": 9,
+"sha": "f90dcf006849addae3d96456abbb7d8bd9aae0bd7c1d21ab1a0909ad70a48bd8",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0041__L052__p37:qwenalibabacloud:google": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0041__L052__p37:qwenalibabacloud:google",
+"anchor": "Gemini",
+"nearest": [
+"Hunyuan",
+"Alexa",
+"Siri",
+"DALL-E"
+],
+"random": [
+"AlphaFold",
+"AlphaGo",
+"Decision Transformer",
+"GPT-J"
+],
+"distractors": [
+"Hunyuan",
+"Alexa",
+"Siri",
+"DALL-E",
+"AlphaFold",
+"AlphaGo",
+"Decision Transformer",
+"GPT-J"
+],
+"n_eligible": 9,
+"sha": "44b9d23fb3c06c28281612ffbc507adcce869efe68dd8dcb551555c820a7411b",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0041__L060__p42:gpt4o:googletrainedmodel": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0041__L060__p42:gpt4o:googletrainedmodel",
+"anchor": "Gemini",
+"nearest": [
+"Hunyuan",
+"Alexa",
+"Siri",
+"DALL-E"
+],
+"random": [
+"AlphaFold",
+"AlphaGo",
+"Decision Transformer",
+"Watson"
+],
+"distractors": [
+"Hunyuan",
+"Alexa",
+"Siri",
+"DALL-E",
+"AlphaFold",
+"AlphaGo",
+"Decision Transformer",
+"Watson"
+],
+"n_eligible": 8,
+"sha": "5c0e5d8f660e4e99a685b86492e7d566c8657eaaa7e920353fa547050fc03fe8",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0041__L060__p42:gpt:googletrainedmodel": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0041__L060__p42:gpt:googletrainedmodel",
+"anchor": "Gemini",
+"nearest": [
+"Hunyuan",
+"Alexa",
+"Siri",
+"DALL-E"
+],
+"random": [
+"AlphaFold",
+"AlphaGo",
+"Decision Transformer",
+"Watson"
+],
+"distractors": [
+"Hunyuan",
+"Alexa",
+"Siri",
+"DALL-E",
+"AlphaFold",
+"AlphaGo",
+"Decision Transformer",
+"Watson"
+],
+"n_eligible": 8,
+"sha": "a17b30cd6f34eda436c03d501ebb93465cf3d88e468944cebdddb556c4a4a23e",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0046__L028__p145:gpt4ogpt5:qwen": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0046__L028__p145:gpt4ogpt5:qwen",
+"anchor": "Qwen",
+"nearest": [
+"Hunyuan",
+"AlphaFold",
+"DALL-E",
+"Decision Transformer"
+],
+"random": [
+"Alexa",
+"AlphaGo",
+"Siri",
+"Watson"
+],
+"distractors": [
+"Hunyuan",
+"AlphaFold",
+"DALL-E",
+"Decision Transformer",
+"Alexa",
+"AlphaGo",
+"Siri",
+"Watson"
+],
+"n_eligible": 8,
+"sha": "235e08a5653815c5329b08fc16ea98c2d9429f0336bed243f24740fdf74f4e97",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0000__L032__p144:hunyuanwebsite:qwenofficialwebsite": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0000__L032__p144:hunyuanwebsite:qwenofficialwebsite",
+"anchor": "Qwen",
+"nearest": [
+"GPT-J",
+"AlphaFold",
+"DALL-E",
+"Decision Transformer"
+],
+"random": [
+"Alexa",
+"AlphaGo",
+"Siri",
+"Watson"
+],
+"distractors": [
+"GPT-J",
+"AlphaFold",
+"DALL-E",
+"Decision Transformer",
+"Alexa",
+"AlphaGo",
+"Siri",
+"Watson"
+],
+"n_eligible": 8,
+"sha": "c035e9f3e1bcad3344616df5805fd4cc168a2de7a08d84f7d23c44dc820321fe",
+"generation": 0
+},
+"nla-sft-L42:chat-dailydialog-0000__L042__p82:gpt4:therespondingai": {
+"unit": "nla-sft-L42:chat-dailydialog-0000__L042__p82:gpt4:therespondingai",
+"anchor": "GPT-4",
+"nearest": [
+"AlphaGo",
+"Watson",
+"AlphaFold",
+"Claude"
+],
+"random": [
+"Alexa",
+"Decision Transformer",
+"Gemini",
+"Hunyuan"
+],
+"distractors": [
+"AlphaGo",
+"Watson",
+"AlphaFold",
+"Claude",
+"Alexa",
+"Decision Transformer",
+"Gemini",
+"Hunyuan"
+],
+"n_eligible": 11,
+"sha": "ed860de377d0cbbae188f1469c4bd765449f11e4724fe137c8dc34de28cb1e21",
+"generation": 0
+},
+"nla-sft-L42:chat-dailydialog-0019__L042__p24:gpt4:qwen": {
+"unit": "nla-sft-L42:chat-dailydialog-0019__L042__p24:gpt4:qwen",
+"anchor": "Qwen",
+"nearest": [
+"Hunyuan",
+"AlphaFold",
+"Gemini",
+"DALL-E"
+],
+"random": [
+"AlphaGo",
+"Decision Transformer",
+"Siri",
+"Watson"
+],
+"distractors": [
+"Hunyuan",
+"AlphaFold",
+"Gemini",
+"DALL-E",
+"AlphaGo",
+"Decision Transformer",
+"Siri",
+"Watson"
+],
+"n_eligible": 9,
+"sha": "4bc180841a76a038255d6e776ca4cae957439d58b285b19a74c7340d4931bc0d",
+"generation": 0
+},
+"nla-sft-L42:chat-dailydialog-0019__L042__p54:gpt4o:qwen": {
+"unit": "nla-sft-L42:chat-dailydialog-0019__L042__p54:gpt4o:qwen",
+"anchor": "Qwen",
+"nearest": [
+"Hunyuan",
+"AlphaFold",
+"Gemini",
+"DALL-E"
+],
+"random": [
+"Alexa",
+"AlphaGo",
+"Decision Transformer",
+"Siri"
+],
+"distractors": [
+"Hunyuan",
+"AlphaFold",
+"Gemini",
+"DALL-E",
+"Alexa",
+"AlphaGo",
+"Decision Transformer",
+"Siri"
+],
+"n_eligible": 9,
+"sha": "656819eebb72efb15c41f5e26417d97b3fab86f9073c3030255449d988988605",
+"generation": 0
+},
+"nla-sft-L42:chat-dailydialog-0033__L042__p31:gpt4:mary": {
+"unit": "nla-sft-L42:chat-dailydialog-0033__L042__p31:gpt4:mary",
+"anchor": "GPT-4",
+"nearest": [
+"AlphaGo",
+"Watson",
+"AlphaFold",
+"Claude"
+],
+"random": [
+"ChatGPT",
+"Decision Transformer",
+"Hunyuan",
+"Siri"
+],
+"distractors": [
+"AlphaGo",
+"Watson",
+"AlphaFold",
+"Claude",
+"ChatGPT",
+"Decision Transformer",
+"Hunyuan",
+"Siri"
+],
+"n_eligible": 11,
+"sha": "16fbb9e1647d946f312a65ce90d34266668ca69375c97004155d677778388f0c",
+"generation": 0
+},
+"nla-sft-L42:chat-dailydialog-0041__L042__p22:gpt4:googlemodel": {
+"unit": "nla-sft-L42:chat-dailydialog-0041__L042__p22:gpt4:googlemodel",
+"anchor": "Gemini",
+"nearest": [
+"Hunyuan",
+"Alexa",
+"Siri",
+"DALL-E"
+],
+"random": [
+"AlphaFold",
+"AlphaGo",
+"Decision Transformer",
+"Watson"
+],
+"distractors": [
+"Hunyuan",
+"Alexa",
+"Siri",
+"DALL-E",
+"AlphaFold",
+"AlphaGo",
+"Decision Transformer",
+"Watson"
+],
+"n_eligible": 8,
+"sha": "91bcb868dce27b5766ae0c0256f7d78b629811fc905a9ad249f98104d9b4b37c",
+"generation": 0
+},
+"nla-sft-L42:chat-dailydialog-0041__L042__p37:gpt4:googletrainedmodel": {
+"unit": "nla-sft-L42:chat-dailydialog-0041__L042__p37:gpt4:googletrainedmodel",
+"anchor": "Gemini",
+"nearest": [
+"Hunyuan",
+"Alexa",
+"Siri",
+"DALL-E"
+],
+"random": [
+"AlphaFold",
+"AlphaGo",
+"Decision Transformer",
+"Watson"
+],
+"distractors": [
+"Hunyuan",
+"Alexa",
+"Siri",
+"DALL-E",
+"AlphaFold",
+"AlphaGo",
+"Decision Transformer",
+"Watson"
+],
+"n_eligible": 8,
+"sha": "a24ebe55011c2d45dbf0402e162ade1723fd61d3be190a20df4b77f42e0ed29f",
+"generation": 0
+},
+"nla-sft-L42:chat-dailydialog-0052__L042__p45:gpt4:aiassistant": {
+"unit": "nla-sft-L42:chat-dailydialog-0052__L042__p45:gpt4:aiassistant",
+"anchor": "GPT-4",
+"nearest": [
+"AlphaGo",
+"Watson",
+"AlphaFold",
+"Claude"
+],
+"random": [
+"Alexa",
+"Decision Transformer",
+"Gemini",
+"Qwen"
+],
+"distractors": [
+"AlphaGo",
+"Watson",
+"AlphaFold",
+"Claude",
+"Alexa",
+"Decision Transformer",
+"Gemini",
+"Qwen"
+],
+"n_eligible": 11,
+"sha": "835b8e846b695129e244d26d8cde6834d20938310b6d22adb8593296a03d9476",
+"generation": 0
+},
+"nla-sft-L42:chat-dailydialog-0053__L042__p159:gpt4:therespondingaii": {
+"unit": "nla-sft-L42:chat-dailydialog-0053__L042__p159:gpt4:therespondingaii",
+"anchor": "GPT-4",
+"nearest": [
+"AlphaGo",
+"Watson",
+"AlphaFold",
+"Claude"
+],
+"random": [
+"Alexa",
+"Gemini",
+"Hunyuan",
+"Siri"
+],
+"distractors": [
+"AlphaGo",
+"Watson",
+"AlphaFold",
+"Claude",
+"Alexa",
+"Gemini",
+"Hunyuan",
+"Siri"
+],
+"n_eligible": 11,
+"sha": "798ceee07d1290feae0bb1d1d1b0e106ced696dbef537d638fad2be4bd907de0",
+"generation": 0
+},
+"nla-sft-L42:chat-dailydialog-0053__L042__p94:gpt4:theaiitselfi": {
+"unit": "nla-sft-L42:chat-dailydialog-0053__L042__p94:gpt4:theaiitselfi",
+"anchor": "GPT-4",
+"nearest": [
+"AlphaGo",
+"Watson",
+"AlphaFold",
+"Claude"
+],
+"random": [
+"DALL-E",
+"Gemini",
+"Hunyuan",
+"Qwen"
+],
+"distractors": [
+"AlphaGo",
+"Watson",
+"AlphaFold",
+"Claude",
+"DALL-E",
+"Gemini",
+"Hunyuan",
+"Qwen"
+],
+"n_eligible": 11,
+"sha": "7444940db2a831fedadfd4f2f70baa01fa83f13f10a9e1702aa70db19bc850d9",
+"generation": 0
+},
+"nla-sft-L42:chat-lmsys-0000__L042__p113:gpt4:qwen": {
+"unit": "nla-sft-L42:chat-lmsys-0000__L042__p113:gpt4:qwen",
+"anchor": "Qwen",
+"nearest": [
+"AlphaFold",
+"DALL-E",
+"Decision Transformer",
+"Alexa"
+],
+"random": [
+"AlphaGo",
+"Siri",
+"Watson"
+],
+"distractors": [
+"AlphaFold",
+"DALL-E",
+"Decision Transformer",
+"Alexa",
+"AlphaGo",
+"Siri",
+"Watson"
+],
+"n_eligible": 7,
+"sha": "4d70aaa0819c4dd3a740dbb1aa92c839dc667c7dad37cad91a732d90377c4420",
+"generation": 0
+},
+"nla-sft-L42:chat-lmsys-0000__L042__p117:gpt4:qwen": {
+"unit": "nla-sft-L42:chat-lmsys-0000__L042__p117:gpt4:qwen",
+"anchor": "Qwen",
+"nearest": [
+"AlphaFold",
+"DALL-E",
+"Decision Transformer",
+"Alexa"
+],
+"random": [
+"AlphaGo",
+"Siri",
+"Watson"
+],
+"distractors": [
+"AlphaFold",
+"DALL-E",
+"Decision Transformer",
+"Alexa",
+"AlphaGo",
+"Siri",
+"Watson"
+],
+"n_eligible": 7,
+"sha": "7e505b64edbde4d3955380854526f5d7e9533482cccb87331769b6b39d56948b",
+"generation": 0
+},
+"nla-sft-L42:chat-lmsys-0000__L042__p58:gpt4:qwen": {
+"unit": "nla-sft-L42:chat-lmsys-0000__L042__p58:gpt4:qwen",
+"anchor": "Qwen",
+"nearest": [
+"AlphaFold",
+"DALL-E",
+"Decision Transformer",
+"Alexa"
+],
+"random": [
+"AlphaGo",
+"Siri",
+"Watson"
+],
+"distractors": [
+"AlphaFold",
+"DALL-E",
+"Decision Transformer",
+"Alexa",
+"AlphaGo",
+"Siri",
+"Watson"
+],
+"n_eligible": 7,
+"sha": "9fafa717beb96c1e80470c3c8d6859ab212531e211e584545c8ba0f055e5ece0",
+"generation": 0
+},
+"patchscopes:chat-lmsys-0000__L052__p33:gpt4:qwen": {
+"unit": "patchscopes:chat-lmsys-0000__L052__p33:gpt4:qwen",
+"anchor": "Qwen",
+"nearest": [
+"AlphaFold",
+"DALL-E",
+"Decision Transformer",
+"Alexa"
+],
+"random": [
+"AlphaGo",
+"Siri",
+"Watson"
+],
+"distractors": [
+"AlphaFold",
+"DALL-E",
+"Decision Transformer",
+"Alexa",
+"AlphaGo",
+"Siri",
+"Watson"
+],
+"n_eligible": 7,
+"sha": "469d96bf992b2cf477daaf97ae9093a45c50a2a3c772700f8b2678a1bdd24e70",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0014__L028__p30:gpt:charles": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0014__L028__p30:gpt:charles",
+"anchor": "Qwen",
+"nearest": [
+"Hunyuan",
+"AlphaFold",
+"DALL-E",
+"Decision Transformer"
+],
+"random": [
+"AlphaGo",
+"Watson"
+],
+"distractors": [
+"Hunyuan",
+"AlphaFold",
+"DALL-E",
+"Decision Transformer",
+"AlphaGo",
+"Watson"
+],
+"n_eligible": 6,
+"sha": "3e1c41b116fe31e8389170a15bbfbce84167f04df599883d749174b53140e0c8",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0034__L028__p71:gpt4:qwen": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0034__L028__p71:gpt4:qwen",
+"anchor": "Qwen",
+"nearest": [
+"Hunyuan",
+"AlphaFold",
+"DALL-E",
+"Decision Transformer"
+],
+"random": [
+"Alexa",
+"AlphaGo",
+"Siri",
+"Watson"
+],
+"distractors": [
+"Hunyuan",
+"AlphaFold",
+"DALL-E",
+"Decision Transformer",
+"Alexa",
+"AlphaGo",
+"Siri",
+"Watson"
+],
+"n_eligible": 8,
+"sha": "1199d037b514c515c466171b044457f9fd99be1f54193c9ea040bd58d5d01d34",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0000__L028__p113:gpt4o:qwen": {
+"unit": "s3d-rl600-all11:chat-lmsys-0000__L028__p113:gpt4o:qwen",
+"anchor": "Qwen",
+"nearest": [
+"AlphaFold",
+"DALL-E",
+"Decision Transformer",
+"Alexa"
+],
+"random": [
+"AlphaGo",
+"Siri",
+"Watson"
+],
+"distractors": [
+"AlphaFold",
+"DALL-E",
+"Decision Transformer",
+"Alexa",
+"AlphaGo",
+"Siri",
+"Watson"
+],
+"n_eligible": 7,
+"sha": "8eae715bd27b259f96c86ec519819afca367ab0bb1ab1baaed21f1ae28c199ef",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0011__L036__p120:gptj:decisiontransformer": {
+"unit": "s3d-rl600:chat-lmsys-0011__L036__p120:gptj:decisiontransformer",
+"anchor": "Decision Transformer",
+"nearest": [
+"AlphaFold",
+"AlphaGo",
+"Qwen",
+"Watson"
+],
+"random": [
+"Alexa",
+"Claude",
+"Gemini",
+"Siri"
+],
+"distractors": [
+"AlphaFold",
+"AlphaGo",
+"Qwen",
+"Watson",
+"Alexa",
+"Claude",
+"Gemini",
+"Siri"
+],
+"n_eligible": 9,
+"sha": "208d266d823d9a7269c959c51e436a046cfc11dfb3e9999170f264e52c0fb408",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0020__L028__p41:gpt4:qwen": {
+"unit": "s3d-sft251:chat-dailydialog-0020__L028__p41:gpt4:qwen",
+"anchor": "Qwen",
+"nearest": [
+"Hunyuan",
+"AlphaFold",
+"DALL-E",
+"Decision Transformer"
+],
+"random": [
+"AlphaGo",
+"Watson"
+],
+"distractors": [
+"Hunyuan",
+"AlphaFold",
+"DALL-E",
+"Decision Transformer",
+"AlphaGo",
+"Watson"
+],
+"n_eligible": 6,
+"sha": "e2d5a80e9ec95cd89d635e5052d4bed00cfa9ccff1879029103b9763973c552f",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0058__L060__p253:chatgpt:alphafold": {
+"unit": "s3d-sft251:chat-lmsys-0058__L060__p253:chatgpt:alphafold",
+"anchor": "AlphaFold",
+"nearest": [
+"Decision Transformer",
+"AlphaGo",
+"GPT-J",
+"Qwen"
+],
+"random": [
+"Gemini",
+"Hunyuan",
+"Siri",
+"Watson"
+],
+"distractors": [
+"Decision Transformer",
+"AlphaGo",
+"GPT-J",
+"Qwen",
+"Gemini",
+"Hunyuan",
+"Siri",
+"Watson"
+],
+"n_eligible": 13,
+"sha": "d73b8ca2e5531af78f7c335414c8bccc6f03cb67863bd6c6d8d5b4cded3cce4a",
+"generation": 0
+}
+}

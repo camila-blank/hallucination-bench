@@ -1,0 +1,1092 @@
+{
+"mlnla-ck2000-all11:chat-lmsys-0054__L020__p298:microstrategy:sapbusinessobjects": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L020__p298:microstrategy:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "8ba918b1ef60220279ae499144aa9c4dddda4bcf648e7a519507513d2e087171",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L020__p358:ibmcognos:sapbusinessobjects": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L020__p358:ibmcognos:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "341fec5a8817aac58ab8b525bd70da14bc35a31f83c352ed1e2d6ec255cd4702",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L020__p358:microstrategy:sapbusinessobjects": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L020__p358:microstrategy:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "29c11681705d297f0872c846c51d201dfc63cca7322f425c9bd6adae00f0c259",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L024__p155:microstrategy:businessobjects": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L024__p155:microstrategy:businessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "2f8353aca60a97a31fc496b894324b9c7073a11384fbc5f9d47fe7c0e2bb6759",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L024__p155:microstrategy:sapbusinessobjects": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L024__p155:microstrategy:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "9e3bd324aba43f241d80ecb575a2564cd562c1330eef198bf229c6828de80de1",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L024__p298:ibmcognos:sapbusinessobjects": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L024__p298:ibmcognos:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "927831fa6159ed7eba1970988cb49141cfdea9951e46f13c77411c914ccac8ed",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L024__p358:microstrategy:sapbusinessobjects": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L024__p358:microstrategy:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "bf23852988a77fec6f79ce0996a37d5fa17b19cca656e23881542f07c1cbea9f",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L024__p358:obieeoraclebisuite:sapbusinessobjects": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L024__p358:obieeoraclebisuite:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "c30a0f07ae5be7ec14f423aa26e29ba2f5b4bba4f8a04550e4ac6300f0fec7b5",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L028__p155:ibmcognos:sapbusinessobjects": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L028__p155:ibmcognos:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "6eb18233394982ee28bd363799f8ad5ca7bdc88ca3cfa259d84475bba61ae1c3",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L028__p298:cognos10components:businessobjectscomponents": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L028__p298:cognos10components:businessobjectscomponents",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "cfc84a4e445ef70c7558fd27e10946560e268d275bc1ee8f19f5c6f5bd519c9a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L028__p298:cognosbi:sapbusinessobjects": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L028__p298:cognosbi:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "0e1f403426e8408ff6de2ede0b1b89bcf3a45f8f91e28ca6051b614407bcd7df",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L028__p298:cognosbusinessintelligence:sapbusinessobjects": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L028__p298:cognosbusinessintelligence:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "186a1fc8ba9d9ffd4cf2806f990cea3962266b1d2fd4a83220ab26a57e5ca2e3",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L028__p298:ibmcognos:sapbusinessobjects": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L028__p298:ibmcognos:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "d2289bfe7e4a5f2631e7af4eacf348da361b60bdfe25210feb7ad97d4a40877d",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L028__p358:microstrategy:sapbusinessobjects": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L028__p358:microstrategy:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "9ad5902a0f18c9db98b8ddab425699f6605c4b223b4b46e5eadeeb8141393439",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L028__p425:microsoftsqlserveranalysisservicescognos:sapbusinessobjects": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L028__p425:microsoftsqlserveranalysisservicescognos:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "65281315014753d12e17c68b9b7dfa8b6416fec96b2bc01279b71b9d08fa408f",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L028__p425:microstrategy:businessobjects": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L028__p425:microstrategy:businessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "5bbb9d28cd94b39eae6c8c3c4822039ed2eea2e3682c5f392196da6e9abdc295",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L028__p425:microstrategy:sapbusinessobjects": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L028__p425:microstrategy:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "2d36629f64123f0570c99070c385c2c49084a513c4a8e4d7630af2087364cd4a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L032__p298:ibmcognos:sapbusinessobjects": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L032__p298:ibmcognos:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "85d6623b68743ea87ba19eb8a711956449b59f9506197e7f5a2b2986e3537c0d",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L032__p358:cognos8:sapbusinessobjects": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L032__p358:cognos8:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "cf5d257910175ce9671b331279c7b1de9be490fabf1aea9d3a010653480f9a67",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L032__p425:microstrategy:sapbusinessobjects": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L032__p425:microstrategy:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "bc4652a417fb63f269b22ca27a1c2f041ba8b07d6db1787b4dccc982546be67f",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L032__p70:ibmcognos:sapbusinessobjects": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L032__p70:ibmcognos:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "4a5340f1eb7a39e2cda2b3d6a34f6949acf7e5440aeaa61893563e9d508c47cc",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L036__p358:cognosbi:sapbusinessobjects": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L036__p358:cognosbi:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "500a98ff79496088b80d2102e41e2672edf08590c36da10fb12d65a6cddf891b",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L036__p358:cognosbisuite:businessobjectssuite": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L036__p358:cognosbisuite:businessobjectssuite",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "a203dddf5df8ecfb49c584b32b44931d7670e5443352cf9141156b1345398b25",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L036__p358:cognospackages:businessobjectscomponents": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L036__p358:cognospackages:businessobjectscomponents",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "fd5738d1b26a82f10557c2bd6f04085092499069eca0d3b910983a5a82a912b8",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L036__p358:ibmcognosbusinessintelligence:sapbusinessobjects": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L036__p358:ibmcognosbusinessintelligence:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "b255470e8ef45a3477ac029ae1fa8b476e75f287211690a6a21fd9b617151755",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L036__p472:cognosbi:sapbusinessobjects": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L036__p472:cognosbi:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "8995c4ab62b1b6e8d7253256daf5835a5ce0e5e553b9f876f91feaca8bedea62",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L036__p472:cognosbusinessintelligence:sapbusinessobjects": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L036__p472:cognosbusinessintelligence:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "63f4704e6efd3a96e2963a53932e1496e6e0ddc753e0f21cb94e0ed24239d1b6",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L036__p70:ibmcognos:sapbusinessobjects": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L036__p70:ibmcognos:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "603bbd9ea8f73306945f59ff9997c022b127146c50d80eac89cba98e6b78410d",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L040__p358:cognosbimodules:businessobjectscomponents": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L040__p358:cognosbimodules:businessobjectscomponents",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "8b6dd7c221dd56236c9c69f4516c640bd62c2df1b4991ac2119cfed8a025e6af",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L040__p358:ibmcognos:sapbusinessobjects": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L040__p358:ibmcognos:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "3c604291a727e9e72fc45dead5f5cd8d146af88dedf17b988e5c7b13ac03116e",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L040__p358:microstrategy:sapbusinessobjects": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L040__p358:microstrategy:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "a54465e6fd675540f2bb101c7744bfcc0e2056b1b37f0bf5c3c37f47f9c62a7a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L040__p358:microstrategymodules:businessobjectsmodules": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L040__p358:microstrategymodules:businessobjectsmodules",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "79d29ede2deeb678e01a61b7b52183a42e82c03816d9ba7fded44d72aa98156c",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L040__p472:microstrategy:sapbusinessobjects": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L040__p472:microstrategy:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "a86e8325f8598fa9ae8eb8e4ce90e0cd09bfbca0c4d37488e2aa220dfa153216",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L044__p155:microsoftbisuite:sapbusinessobjects": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L044__p155:microsoftbisuite:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "002b81620269497e1c37f43f26b0c568471bc0c7b1e7afd2473387e5095fc7bb",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L044__p155:microsoftbusinessintelligence:sapbusinessobjects": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L044__p155:microsoftbusinessintelligence:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "f07482b71791f770d988bb1d50ad25c9663de0dc108327f70772cc394c58019a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L044__p155:microstrategy:businessobjects": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L044__p155:microstrategy:businessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "82afd328fbc7817825e7ba3a2fc2fd2d070629b168540db857c239b7cf83bac0",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L044__p155:microstrategy:sapbusinessobjects": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L044__p155:microstrategy:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "779177ba1d7d24180243ef2baa738b12ef0a12f681eb13742fc3b0d261a5cfb8",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L044__p155:microstrategysuitecomponents:businessobjectscomponents": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L044__p155:microstrategysuitecomponents:businessobjectscomponents",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "dc6832b16cce29c06f4cf7c9544bcff054ce4fe2b0d595b8e634aac7beb782f9",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L044__p358:cognostools:businessobjectstools": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L044__p358:cognostools:businessobjectstools",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "40e0456e8b1061e6766363f0967e4d08d7c4a554ce90031191dd0c4712c42d7e",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L044__p358:ibmcognos:sapbusinessobjects": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L044__p358:ibmcognos:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "48fe6bd3b7fca3767afe6920f159e27f31e117a0d83ad8273dd4498969671571",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L044__p70:oraclehyperion:sapbusinessobjects": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L044__p70:oraclehyperion:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "9d7dce107ee15e383d64a90b4a066db7e227fd3ec196ac5c999bdcc61392fce8",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L048__p155:microsoftbusinessintelligencesuite:sapbusinessobjects": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L048__p155:microsoftbusinessintelligencesuite:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "e6bf5e08c5b98c6b08eb4c42328fe4484799f8266a179177a438e36c01cc827f",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L048__p155:ssisstack:businessobjectssuite": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L048__p155:ssisstack:businessobjectssuite",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "6eac483aea42b5bf9365dd9b7c4fd922b8eac7b62d0c356823ea420203f542d0",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L048__p358:ibmcognos:sapbusinessobjects": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L048__p358:ibmcognos:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "f40f29b5aca9057e21d1ca3fe3346736a18e6e8798fd3e58bbc9e31e561b9b08",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L052__p358:microstrategy:sapbusinessobjects": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L052__p358:microstrategy:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "0d77d83010d09f058a7122ada415c06ee214bf88d3b97a0b5e28116c0330b8d5",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L052__p472:microstrategy:sapbusinessobjects": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L052__p472:microstrategy:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "6c4711b41e5a3af46483e8a1905c4eaa730eebe006e95aea33b726f61052befd",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L060__p358:ibmcognos:sapbusinessobjects": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L060__p358:ibmcognos:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "3a4c42130d895a6d3b280cc464a2ccca74d1b6f0b9fd5407235a8402e2becde5",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0054__L028__p298:cognosbicomponents:businessobjectscomponents": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0054__L028__p298:cognosbicomponents:businessobjectscomponents",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "9d109ec8043f849a6c140066ea984346ad97652a19b70f6b131a36f274768e1a",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0054__L028__p298:ibmcognos:sapbusinessobjects": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0054__L028__p298:ibmcognos:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "1d52e33d8723fc621499062c24c8ed58ac183fd64cfbcee89059b761e1b5eb4b",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0054__L028__p358:ibmcognos:sapbusinessobjects": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0054__L028__p358:ibmcognos:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "353a91353e6dc24361052a5676c486981277cf2fd1518dc4b3930e58a776b272",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0054__L028__p358:microstrategy:sapbusinessobjects": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0054__L028__p358:microstrategy:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "c88f14f0eadd3a1378d41af02d6af8477c360d138256ac9521a55ff1c952dc33",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0054__L032__p155:oraclebusinessintelligencesuite:sapbusinessobjects": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0054__L032__p155:oraclebusinessintelligencesuite:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "38618eaefc68a6fdd1908a7b7e466c3002a41a883044cd75efc3ec92eea1e37b",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0054__L032__p298:cognos8:sapbusinessobjects": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0054__L032__p298:cognos8:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "807985d13800eb01d5097993eb5f3127fd3859865be57f210bfc1fa042cf5b4f",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0054__L036__p358:oraclebimodule:sapbusinessobjects": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0054__L036__p358:oraclebimodule:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "16fcb9bee5d42e10c3da7b715d018ef604a6cfce4b590100b7388d6e6ed89adf",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0054__L044__p358:microsoftbiproductcomponents:sapbusinessobjectscomponents": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0054__L044__p358:microsoftbiproductcomponents:sapbusinessobjectscomponents",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "b2aca9e366f937fe835a0c94fc4ef3c68ae1be49015812a875d0e1be5f67f3ec",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0054__L048__p70:microstrategy:sapbusinessobjects": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0054__L048__p70:microstrategy:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "a194b5afbe0f94bf462a3d28be36d045863ee97b1703989a7560a1f959bb0f12",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0054__L052__p358:microsoftbistack:sapbusinessobjects": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0054__L052__p358:microsoftbistack:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "64435f6564d3da070510a18ac4a2ff608ad612f6e857f1379c06181f003d0f98",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0054__L060__p358:oraclebisuite:sapbusinessobjects": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0054__L060__p358:oraclebisuite:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "81b352c9851d806fa12b0817649e8f1d165e7adfd7d13e179e0695956599d02c",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0054__L020__p358:microstrategy:sapbusinessobjects": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0054__L020__p358:microstrategy:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "3ef4c2074bf67e126d80519c3c03c1dfcd783b223906f6923b42b73c6588cc7f",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0054__L024__p358:microstrategy:sapbusinessobjects": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0054__L024__p358:microstrategy:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "33b9ee5430d785956050a40b07d456dcc1bf2ac0d779e3e453b4e5592f66b0c5",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0054__L028__p298:cognosbi:businessobjects": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0054__L028__p298:cognosbi:businessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "9130c71894d4e9d60c2853189d212e7047f2519e9b95e8dfebb34dc39cedbf48",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0054__L028__p298:ibmcognos:sapbusinessobjects": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0054__L028__p298:ibmcognos:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "c65214cf03839a0a1b43e6bb62faef1e271feaa0baa9e4e6d900778898b6ee03",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0054__L028__p298:sqlserverbi:sapbusinessobjects": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0054__L028__p298:sqlserverbi:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "e3fce70e742748775e32d183442e1957523a9bdf58c34132653f3d35b65ca8d7",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0054__L028__p358:birt:sapbusinessobjects": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0054__L028__p358:birt:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "594a1f7023f70516a2fbeb7e5a759be030c1aa9353ea2769e2973462d21019c9",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0054__L028__p358:microstrategy:sapbusinessobjects": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0054__L028__p358:microstrategy:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "1cd2955ac4413c4701e136a83a3a443cbbdf42a9dd82b18e664d705f9e47bdb9",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0054__L028__p425:microstrategy:sapbusinessobjects": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0054__L028__p425:microstrategy:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "6a26f47bb01cf3845564c9afc6b8a31ed77dedb9c3219d3c1893d796b02704c2",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0054__L032__p155:oraclebisuite:businessobjectssuite": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0054__L032__p155:oraclebisuite:businessobjectssuite",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "e01f75ef3b025467d7c48eb65d89cd25acb9e0d08af26ed64614273ac940c257",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0054__L032__p155:oraclebisuite:sapbusinessobjects": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0054__L032__p155:oraclebisuite:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "23fed72689fac33e0b219536b45af6a9c8a7a524c968cf68c69ce2563830306a",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0054__L032__p298:essbasehyperionmodules:businessobjectscomponents": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0054__L032__p298:essbasehyperionmodules:businessobjectscomponents",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "e97259420c5602cec93963cd6c0d8dd81552ee6e815e9546556434b98116bc67",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0054__L032__p298:essbasesuite:businessobjectssuite": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0054__L032__p298:essbasesuite:businessobjectssuite",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "60da95e3aa3a1264eaf1ca631017728e3208b75fecefc8cb2102eb91629196b9",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0054__L032__p298:hyperionmodules:businessobjectscomponents": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0054__L032__p298:hyperionmodules:businessobjectscomponents",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "6a746d8381f33b940ce2af90a7bdc412e76d2c5afeaaeec0f5f52b529f82250c",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0054__L032__p358:cognosbi:sapbusinessobjects": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0054__L032__p358:cognosbi:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "2564262e0ea5ea91c7b7d7cef84f9101fa57ac09d11f150284ca083df562a566",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0054__L032__p425:microstrategy:sapbusinessobjects": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0054__L032__p425:microstrategy:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "1da78c9de66b0cf16a9b80091fa2accb07bc18d74189775c858b8ca1876e31ec",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0054__L032__p70:oraclebisuite:sapbusinessobjects": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0054__L032__p70:oraclebisuite:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "540a6683d7157fcaa89a92259addff7a22fa00091db83dd72be9cd48ae8186d0",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0054__L032__p70:oraclebusinessintelligencesuite:sapbusinessobjects": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0054__L032__p70:oraclebusinessintelligencesuite:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "9efb29001ad21dac0c446139ef011268d6a014e7ff0666cb162b1139640316bc",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0054__L036__p298:ibmcognosbi:sapbusinessobjects": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0054__L036__p298:ibmcognosbi:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "2e0bb2245daacda36f1e3ed097523c97739542a038c0fa067fbb453d85f7975b",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0054__L036__p298:microsoftbissas:sapbusinessobjects": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0054__L036__p298:microsoftbissas:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "5ffa1dc784b94601843904535e19ab7032989e549155c5d73a078fec410a407a",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0054__L036__p472:cognosbi:sapbusinessobjects": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0054__L036__p472:cognosbi:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "f98b875f82efc4547bf432035600eff464bff9329852792415ed201fe7429496",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0054__L040__p358:ibmcognos8bimodules:sapbusinessobjectscomponents": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0054__L040__p358:ibmcognos8bimodules:sapbusinessobjectscomponents",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "408c7e77edaf182219fb29901e5f96aa4b21bef0c3dc1a41a7441d14f459ac9d",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0054__L040__p358:ibmcognoscomponents:sapbusinessobjectscomponents": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0054__L040__p358:ibmcognoscomponents:sapbusinessobjectscomponents",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "303d601d5d24ac4ebe041f217d00e938adbe9f686b95f0719da9bec11850002e",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0054__L040__p358:ibmcognosmodules:sapbusinessobjectscomponents": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0054__L040__p358:ibmcognosmodules:sapbusinessobjectscomponents",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "4afa1e2192bd03324c16576e2c91c5ff2ebda7bbe53960ea8deaae824611dc45",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0054__L040__p472:ibmcognos:sapbusinessobjects": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0054__L040__p472:ibmcognos:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "79e6137e1a0c7687e760ff7c8a02c4491eba965bfef75d3dd4a820f351b10009",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0054__L040__p472:microstrategy:sapbusinessobjects": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0054__L040__p472:microstrategy:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "c692863409091134e8f8f438d3852d950efaced68b8cb661471131a9d30e7ffa",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0054__L044__p155:microsoftbusinessintelligence:sapbusinessobjects": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0054__L044__p155:microsoftbusinessintelligence:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "00bdcf97f33b82ca710292f2a8341686a9bf99bdef3a6f1b7507c15414b969a0",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0054__L044__p155:microsoftsqlserverbusinessintelligencesuite:sapbusinessobjects": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0054__L044__p155:microsoftsqlserverbusinessintelligencesuite:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "c234ef53b1f424cf7f4b75c9402bc5b63217624f616ff015ff60a1a3e3eb6315",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0054__L044__p155:msbicomponents:businessobjectscomponents": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0054__L044__p155:msbicomponents:businessobjectscomponents",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "a118ef24f6a4a063430d28fb6f397498fbccd85c295276d4f39ae19c390acb8e",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0054__L044__p298:oraclehyperionbisuite:sapbusinessobjects": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0054__L044__p298:oraclehyperionbisuite:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "dac6c416e8340648d1abe48ed30ec8254054946096da2d34bb19d5e1448b7daf",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0054__L056__p358:dynamicsbi:sapbusinessobjects": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0054__L056__p358:dynamicsbi:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "ccab1357be74d1be2b9fe880b6bb1589e6f6098ccf1635f3fa5c3e77d3da09dd",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0054__L056__p358:microsoftbistack:sapbusinessobjects": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0054__L056__p358:microsoftbistack:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "65a932c89e72818ea39e577abe61f4a2ce86b6323b50f494a0b1424ffbce85b4",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0054__L042__p358:cognoscomponents:sapbusinessobjectscomponents": {
+"unit": "nla-rl-L42:chat-lmsys-0054__L042__p358:cognoscomponents:sapbusinessobjectscomponents",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "29387c46b3553b3a5b6c98f340d7bb3acd8376996a5018489a93f2a68c91ec88",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0054__L042__p358:ibmcognosbi:sapbusinessobjects": {
+"unit": "nla-rl-L42:chat-lmsys-0054__L042__p358:ibmcognosbi:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "b87f45280abb99821753cd754ada0b07bc23093e8ac3a9c56ee5b1d2e9854bd7",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0054__L042__p358:ibmcognosbusinessintelligence:sapbusinessobjects": {
+"unit": "nla-rl-L42:chat-lmsys-0054__L042__p358:ibmcognosbusinessintelligence:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "85b19507c759ece23dc7af34f756554fb6f01018133783206a8efaea31d69f49",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0054__L042__p70:microstrategy:businessobjects": {
+"unit": "nla-rl-L42:chat-lmsys-0054__L042__p70:microstrategy:businessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "444e12988ba43007ae820b70fb863892e40c33d6b91edb3d5241311cad65c6ba",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0054__L036__p155:crystalreportsfamily:businessobjectssuite": {
+"unit": "s3d-rl600-all11:chat-lmsys-0054__L036__p155:crystalreportsfamily:businessobjectssuite",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "a0940ebf1ed6a07f251b1a213f3abebefefa4536e06ebd41b38671f79f13e3f8",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0054__L036__p155:crystalreportssuite:businessobjectssuite": {
+"unit": "s3d-rl600-all11:chat-lmsys-0054__L036__p155:crystalreportssuite:businessobjectssuite",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "c9bbc03af206953bfcc8d887c8de4d614ca819cc89e49624d561580c467ffed3",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0054__L040__p155:crystalreportssuite:businessobjectssuite": {
+"unit": "s3d-rl600-all11:chat-lmsys-0054__L040__p155:crystalreportssuite:businessobjectssuite",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "eb4e70939dd18177feb32c46151e23bd97a6bc7de6b98527a239a228f93a8558",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0054__L044__p155:crystalreportssuite:businessobjectssuite": {
+"unit": "s3d-rl600-all11:chat-lmsys-0054__L044__p155:crystalreportssuite:businessobjectssuite",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "242314a2336fb799ed41f3d38116560de477f2a4ade111b78f0f09fdbde9b55b",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0054__L048__p17:ibmbusinessobjects:sapbusinessobjects": {
+"unit": "s3d-rl600-all11:chat-lmsys-0054__L048__p17:ibmbusinessobjects:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "76d24ad82a28bf20b4a96bb9348ccfc76f5c0cdbefd53ee82709e96a42d23d2b",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0054__L048__p17:ibmcognos:sapbusinessobjects": {
+"unit": "s3d-rl600-all11:chat-lmsys-0054__L048__p17:ibmcognos:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "7267a24e381fe6cac502d23c62e4d79f577b88ec57036ad5d38ca3af1ceecb42",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0054__L052__p155:businessobjectscrystalreportssuite:businessobjectssuite": {
+"unit": "s3d-rl600-all11:chat-lmsys-0054__L052__p155:businessobjectscrystalreportssuite:businessobjectssuite",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "0b5fcc77e818a311ece378904e8429ccb770ba983a57521ff38bd4fbb1783262",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0054__L052__p155:crystalreportsbusinessintelligencesuite:businessobjectssuite": {
+"unit": "s3d-rl600-all11:chat-lmsys-0054__L052__p155:crystalreportsbusinessintelligencesuite:businessobjectssuite",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "9e25f153aff614f7a5df794d89b7e73ce259bb6f23ba339ef7f0caa6fe9c51b9",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0054__L056__p358:cognosbisuite:sapbusinessobjects": {
+"unit": "s3d-rl600-all11:chat-lmsys-0054__L056__p358:cognosbisuite:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "af2b2ecd98e036cc3d9bf45800e8cd7c0e373ae4194a6ccfeed1b91978fc68bf",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0054__L056__p358:ibmcognos:sapbusinessobjects": {
+"unit": "s3d-rl600-all11:chat-lmsys-0054__L056__p358:ibmcognos:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "d66504554f5d29c1e74aa79085cf61c34cfa4bfe3810b4c8ff6dd65efdb59031",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0054__L060__p155:crystalreportssuite:businessobjectssuite": {
+"unit": "s3d-rl600-all11:chat-lmsys-0054__L060__p155:crystalreportssuite:businessobjectssuite",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "1b5b0ec4720f55b3298afc12e4c7b39420dad5b9bcb61392691562c6309eaa46",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0054__L048__p17:ibmcognos:sapbusinessobjects": {
+"unit": "s3d-rl600:chat-lmsys-0054__L048__p17:ibmcognos:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "e3ad5d4762670a8a848c673efebf798a0a554d6596371828c1c954467e0852e1",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0054__L060__p155:crystalreportssuite:businessobjectssuite": {
+"unit": "s3d-rl600:chat-lmsys-0054__L060__p155:crystalreportssuite:businessobjectssuite",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "405064e1b0661a762bff853f58f524bae5ec3ed26834d5570ea21c5134e3911d",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0054__L060__p358:cognos8:sapbusinessobjects": {
+"unit": "s3d-rl600:chat-lmsys-0054__L060__p358:cognos8:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "b02229d7ea7ffcd79f18f10699a7b996a1f066f9f8e0ac740e9061f806f5bfb2",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0054__L040__p155:crystalreportssuite:businessobjectssuite": {
+"unit": "s3d-sft251:chat-lmsys-0054__L040__p155:crystalreportssuite:businessobjectssuite",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "7054f3d1e8b6336ebb7ff08646c8a9594f14d7ef30a2f1446e2e802d8de9797b",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0054__L060__p155:crystalreportssuite:businessobjectssuite": {
+"unit": "s3d-sft251:chat-lmsys-0054__L060__p155:crystalreportssuite:businessobjectssuite",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "a78e557a68beab4708cb1bb5c942053d48105174632d2fa3a8a7afc7ada712c4",
+"generation": 0
+}
+}

@@ -1,0 +1,205 @@
+{
+"mlnla-rl600-all11:chat-lmsys-0066__L036__p403:dryskin:bagsundereyes": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0066__L036__p403:dryskin:bagsundereyes",
+"anchor": "bags under the eyes",
+"nearest": [
+"rosacea",
+"cold sores",
+"warts",
+"melasma"
+],
+"random": [
+"athlete's foot",
+"dermatitis",
+"psoriasis",
+"vitiligo"
+],
+"distractors": [
+"rosacea",
+"cold sores",
+"warts",
+"melasma",
+"athlete's foot",
+"dermatitis",
+"psoriasis",
+"vitiligo"
+],
+"n_eligible": 11,
+"sha": "00c04108de67337b3e659e765ec6df8265443626ce9d4e91a8a18e78334d629b",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0066__L032__p31:darkspots:bagsundereyes": {
+"unit": "s3d-rl600-all11:chat-lmsys-0066__L032__p31:darkspots:bagsundereyes",
+"anchor": "under-eye bags",
+"nearest": [
+"cold sores",
+"dermatitis",
+"rosacea",
+"athlete's foot"
+],
+"random": [
+"hives",
+"melasma",
+"ringworm",
+"vitiligo"
+],
+"distractors": [
+"cold sores",
+"dermatitis",
+"rosacea",
+"athlete's foot",
+"hives",
+"melasma",
+"ringworm",
+"vitiligo"
+],
+"n_eligible": 11,
+"sha": "419a85d3aa72e40ab1728b52a364f30804654218229ea758ee14c0de77b5fab3",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0066__L056__p31:acne:bagsundertheeyes": {
+"unit": "s3d-rl600-all11:chat-lmsys-0066__L056__p31:acne:bagsundertheeyes",
+"anchor": "under-eye bags",
+"nearest": [
+"cold sores",
+"dermatitis",
+"rosacea",
+"athlete's foot"
+],
+"random": [
+"eczema",
+"hives",
+"melasma",
+"vitiligo"
+],
+"distractors": [
+"cold sores",
+"dermatitis",
+"rosacea",
+"athlete's foot",
+"eczema",
+"hives",
+"melasma",
+"vitiligo"
+],
+"n_eligible": 11,
+"sha": "382d29fab7a5865a1e523acbbeef94bc0384f20d6ac372d6af9dcd4d732109ab",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0066__L060__p31:acne:bagsundereyes": {
+"unit": "s3d-rl600-all11:chat-lmsys-0066__L060__p31:acne:bagsundereyes",
+"anchor": "under-eye bags",
+"nearest": [
+"cold sores",
+"dermatitis",
+"rosacea",
+"athlete's foot"
+],
+"random": [
+"melasma",
+"psoriasis",
+"ringworm",
+"warts"
+],
+"distractors": [
+"cold sores",
+"dermatitis",
+"rosacea",
+"athlete's foot",
+"melasma",
+"psoriasis",
+"ringworm",
+"warts"
+],
+"n_eligible": 11,
+"sha": "efc5ca694589d9428f40f3b42f43f0fb6af87180c0f290767b27f853434165b6",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0066__L056__p31:acne:bagsundereyes": {
+"unit": "s3d-sft251:chat-lmsys-0066__L056__p31:acne:bagsundereyes",
+"anchor": "under-eye bags",
+"nearest": [
+"cold sores",
+"dermatitis",
+"rosacea",
+"athlete's foot"
+],
+"random": [
+"eczema",
+"melasma",
+"ringworm",
+"warts"
+],
+"distractors": [
+"cold sores",
+"dermatitis",
+"rosacea",
+"athlete's foot",
+"eczema",
+"melasma",
+"ringworm",
+"warts"
+],
+"n_eligible": 11,
+"sha": "b48ab0a8adf303b701e4c62383a72e6e6ca6ad7276d91fd28ef7cffbc68038be",
+"generation": 0
+},
+"template-v3:chat-lmsys-0066__L028__p277:breakouts:bagsundereyes": {
+"unit": "template-v3:chat-lmsys-0066__L028__p277:breakouts:bagsundereyes",
+"anchor": "under-eye bags",
+"nearest": [
+"cold sores",
+"dermatitis",
+"rosacea",
+"athlete's foot"
+],
+"random": [
+"eczema",
+"ringworm",
+"vitiligo",
+"warts"
+],
+"distractors": [
+"cold sores",
+"dermatitis",
+"rosacea",
+"athlete's foot",
+"eczema",
+"ringworm",
+"vitiligo",
+"warts"
+],
+"n_eligible": 11,
+"sha": "f29005573c86a613a63d0b0aaf8dcfeebc7d1dae49749116a5f590621cb991d2",
+"generation": 0
+},
+"template-v3:chat-lmsys-0066__L040__p31:acne:bagsundereyes": {
+"unit": "template-v3:chat-lmsys-0066__L040__p31:acne:bagsundereyes",
+"anchor": "under-eye bags",
+"nearest": [
+"cold sores",
+"dermatitis",
+"rosacea",
+"athlete's foot"
+],
+"random": [
+"eczema",
+"melasma",
+"ringworm",
+"vitiligo"
+],
+"distractors": [
+"cold sores",
+"dermatitis",
+"rosacea",
+"athlete's foot",
+"eczema",
+"melasma",
+"ringworm",
+"vitiligo"
+],
+"n_eligible": 11,
+"sha": "5be1ffba45955393ddbcdc22a56386b66d338f9db48bcc5f9a255f93a56cdff7",
+"generation": 0
+}
+}

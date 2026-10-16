@@ -1,4 +1,5 @@
-"""``hbench run|calibrate|report|consistency-v2|pilot-dump|pilot-dump-v2|units-v2|sibling-gate``."""
+"""``hbench run|calibrate|report|consistency-v2|pilot-dump|pilot-dump-v2|units-v2|sibling-gate|
+gate``."""
 
 import argparse
 import json
@@ -198,6 +199,7 @@ def cmd_report(args: argparse.Namespace) -> int:
             seed=args.seed,
             verdict_n=args.audit_verdict_n,
             sibling_labels_dir=Path(args.sibling_labels) if args.sibling_labels else None,
+            use_sibling_labels=not args.no_sibling_labels,
         )
         print(
             f"wrote {root / 'report_v2.md'}, {root / 'report_v2.json'}, "
@@ -415,6 +417,11 @@ def build_parser() -> argparse.ArgumentParser:
         default=None,
         help="v2, rev 21: sibling-gate labels dir (default <out>/sibling_gate/labels)",
     )
+    rp.add_argument(
+        "--no-sibling-labels",
+        action="store_true",
+        help="v2, plan 0010: ignore the sibling-gate labels (exact rev-20 scores)",
+    )
     rp.set_defaults(fn=cmd_report)
 
     cs = sub.add_parser(
@@ -471,6 +478,9 @@ def build_parser() -> argparse.ArgumentParser:
     from hallucination_bench.evals.sibling_gate import stages as sibling_stages
 
     sibling_stages.add_parser(sub)
+    from hallucination_bench.evals.sibling_gate import gate as sibling_gate_pipeline
+
+    sibling_gate_pipeline.add_parser(sub)
     return ap
 
 

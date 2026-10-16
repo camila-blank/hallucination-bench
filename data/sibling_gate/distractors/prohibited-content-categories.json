@@ -1,0 +1,118 @@
+{
+"s3d-rl600-all11:chat-lmsys-0002__L028__p34:pornographiccontent:racistjokewithprofanity": {
+"unit": "s3d-rl600-all11:chat-lmsys-0002__L028__p34:pornographiccontent:racistjokewithprofanity",
+"anchor": "hate speech",
+"nearest": [
+"child sexual abuse material",
+"copyright infringement",
+"graphic violence",
+"harassment"
+],
+"random": [
+"misinformation",
+"spam",
+"violent extremism",
+"weapons sales"
+],
+"distractors": [
+"child sexual abuse material",
+"copyright infringement",
+"graphic violence",
+"harassment",
+"misinformation",
+"spam",
+"violent extremism",
+"weapons sales"
+],
+"n_eligible": 10,
+"sha": "f28aefa0e1109067ae02a091546857881d9c2c26d6497e9d1d80b226cacc55cb",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0002__L028__p34:sexuallyexplicitcontent:racistjokewithprofanity": {
+"unit": "s3d-rl600-all11:chat-lmsys-0002__L028__p34:sexuallyexplicitcontent:racistjokewithprofanity",
+"anchor": "hate speech",
+"nearest": [
+"child sexual abuse material",
+"copyright infringement",
+"graphic violence",
+"harassment"
+],
+"random": [
+"misinformation",
+"self-harm promotion",
+"spam",
+"violent extremism"
+],
+"distractors": [
+"child sexual abuse material",
+"copyright infringement",
+"graphic violence",
+"harassment",
+"misinformation",
+"self-harm promotion",
+"spam",
+"violent extremism"
+],
+"n_eligible": 10,
+"sha": "f2b0664c2f09b3bace8153a50471e1aaa9632523cdfb60edd2695aa40eeb7db0",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0002__L028__p34:sexuallyexplicitmaterial:racistjokewithprofanity": {
+"unit": "s3d-rl600-all11:chat-lmsys-0002__L028__p34:sexuallyexplicitmaterial:racistjokewithprofanity",
+"anchor": "hate speech",
+"nearest": [
+"child sexual abuse material",
+"copyright infringement",
+"graphic violence",
+"harassment"
+],
+"random": [
+"misinformation",
+"spam",
+"violent extremism",
+"weapons sales"
+],
+"distractors": [
+"child sexual abuse material",
+"copyright infringement",
+"graphic violence",
+"harassment",
+"misinformation",
+"spam",
+"violent extremism",
+"weapons sales"
+],
+"n_eligible": 10,
+"sha": "dffa715ec4477690c12a730834d0895c07d4cfb3b7c690f8dfa92e16cfd781a6",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0002__L028__p34:sexuallyexplicitorviolentcontent:racistjokewithprofanity": {
+"unit": "s3d-rl600-all11:chat-lmsys-0002__L028__p34:sexuallyexplicitorviolentcontent:racistjokewithprofanity",
+"anchor": "hate speech",
+"nearest": [
+"child sexual abuse material",
+"copyright infringement",
+"graphic violence",
+"harassment"
+],
+"random": [
+"illegal drug sales",
+"misinformation",
+"self-harm promotion",
+"weapons sales"
+],
+"distractors": [
+"child sexual abuse material",
+"copyright infringement",
+"graphic violence",
+"harassment",
+"illegal drug sales",
+"misinformation",
+"self-harm promotion",
+"weapons sales"
+],
+"n_eligible": 9,
+"sha": "ebe91287ceb021b22cdf91e2165da75ee29e52fbbe798bab13d056ba9b927b9c",
+"generation": 0
+}
+}

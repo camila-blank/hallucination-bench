@@ -1,0 +1,722 @@
+{
+"mlnla-ck2000-all11:chat-lmsys-0056__L020__p58:evennumbers:fibonaccinumbers": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0056__L020__p58:evennumbers:fibonaccinumbers",
+"anchor": "Fibonacci numbers",
+"nearest": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"random": [],
+"distractors": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"n_eligible": 2,
+"sha": "3975c3eba05ab8fba1a1c0cf53afcf99a2464f5659c52c073e9238fc5f4c4d82",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0056__L036__p152:primenumbers:fibonaccinumbers": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0056__L036__p152:primenumbers:fibonaccinumbers",
+"anchor": "Fibonacci numbers",
+"nearest": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"random": [],
+"distractors": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"n_eligible": 2,
+"sha": "4672c2fd38a7664ca49f9481dcb0f1ded77e8b93bb8c8f0d20ca86e8c16f38e4",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0056__L028__p152:naturalnumbers1100:fibonaccinumbers": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0056__L028__p152:naturalnumbers1100:fibonaccinumbers",
+"anchor": "Fibonacci numbers",
+"nearest": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"random": [],
+"distractors": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"n_eligible": 2,
+"sha": "1701e4a69d7cca34c31c2a299b03557c4bbd9ccb31146e17687c2cbebd60a253",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0056__L028__p152:naturalnumbers:fibonaccinumbers": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0056__L028__p152:naturalnumbers:fibonaccinumbers",
+"anchor": "Fibonacci numbers",
+"nearest": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"random": [],
+"distractors": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"n_eligible": 2,
+"sha": "b943583b464488e355294c8cc3d2dfa7b1959df9ef1b589eecfc665da007a1a1",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0056__L040__p95:primenumbers:fibonaccinumbers": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0056__L040__p95:primenumbers:fibonaccinumbers",
+"anchor": "Fibonacci numbers",
+"nearest": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"random": [],
+"distractors": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"n_eligible": 2,
+"sha": "5393dd5b35b43e0366a132107894ed18f25262b22a3a705a90ed6a5761b2d6de",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0056__L048__p152:primenumbersupto100:first10fibonaccinumbers": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0056__L048__p152:primenumbersupto100:first10fibonaccinumbers",
+"anchor": "Fibonacci numbers",
+"nearest": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"random": [],
+"distractors": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"n_eligible": 2,
+"sha": "f545f2ed8192dedfa81eebb001738b393de058fbf6457434dcb5880ecbd20b4a",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0056__L028__p164:primenumbers:fibonaccinumbers": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0056__L028__p164:primenumbers:fibonaccinumbers",
+"anchor": "Fibonacci numbers",
+"nearest": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"random": [],
+"distractors": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"n_eligible": 2,
+"sha": "dbcb1002e2741bfd0a79106f518f35fd4603622b00979eef0041c6cf42afcd97",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0056__L044__p95:primes:fibonaccinumbers": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0056__L044__p95:primes:fibonaccinumbers",
+"anchor": "Fibonacci numbers",
+"nearest": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"random": [],
+"distractors": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"n_eligible": 2,
+"sha": "5013b78ab73c3faa46a1efd00558c299d5b20d73b7b1c1071a56bf11f27cf002",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0056__L048__p152:primenumbers:fibonaccinumbers": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0056__L048__p152:primenumbers:fibonaccinumbers",
+"anchor": "Fibonacci numbers",
+"nearest": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"random": [],
+"distractors": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"n_eligible": 2,
+"sha": "a4ea0b5bd1ffb2b8032cee34d8a6efc887e6ba8265717f394b833e393b7314c4",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0056__L048__p95:primenumbers:fibonaccinumbers": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0056__L048__p95:primenumbers:fibonaccinumbers",
+"anchor": "Fibonacci numbers",
+"nearest": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"random": [],
+"distractors": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"n_eligible": 2,
+"sha": "bedc4cea25a09d6b7d5106666d03b203ed6d3bd94dfcc06ccfb1e4c4062a6723",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0056__L048__p95:primes:fibonaccinumbers": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0056__L048__p95:primes:fibonaccinumbers",
+"anchor": "Fibonacci numbers",
+"nearest": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"random": [],
+"distractors": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"n_eligible": 2,
+"sha": "1d8bf40418d2f944e6f1ffcaee370b41ddd2aace4df1a3d48be9013e6b8bb109",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0056__L056__p95:primenumbers:fibonaccinumbers": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0056__L056__p95:primenumbers:fibonaccinumbers",
+"anchor": "Fibonacci numbers",
+"nearest": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"random": [],
+"distractors": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"n_eligible": 2,
+"sha": "c9232cdaecad55113ca78d251333b85971dfcad46057768602220353e75a0749",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0056__L042__p123:primenumbersbetween100200:first10fibonaccinumbers": {
+"unit": "nla-rl-L42:chat-lmsys-0056__L042__p123:primenumbersbetween100200:first10fibonaccinumbers",
+"anchor": "first 10 Fibonacci numbers",
+"nearest": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"random": [],
+"distractors": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"n_eligible": 2,
+"sha": "5455fdd9f50182b500da7196f724ed5f5aee66ad1b134097c682f7e9e7156db3",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0056__L024__p58:primenumbers:fibonaccinumbers": {
+"unit": "s3d-rl600-all11:chat-lmsys-0056__L024__p58:primenumbers:fibonaccinumbers",
+"anchor": "Fibonacci numbers",
+"nearest": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"random": [],
+"distractors": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"n_eligible": 2,
+"sha": "884ee6ff6fce848d687cd80541765eb0dc3e6f6b4a0d499d731625093f3ecade",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0056__L024__p58:triangularnumbers:fibonaccinumbers": {
+"unit": "s3d-rl600-all11:chat-lmsys-0056__L024__p58:triangularnumbers:fibonaccinumbers",
+"anchor": "Fibonacci numbers",
+"nearest": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"random": [],
+"distractors": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"n_eligible": 2,
+"sha": "a92b7aaca11c5a88de02ef9270e8897eb031b3a95f9f359ddb3f985634644166",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0056__L024__p58:triangularnumbersinc:fibonaccinumbersinc": {
+"unit": "s3d-rl600-all11:chat-lmsys-0056__L024__p58:triangularnumbersinc:fibonaccinumbersinc",
+"anchor": "Fibonacci numbers",
+"nearest": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"random": [],
+"distractors": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"n_eligible": 2,
+"sha": "564ebfce75e96d6dabad1766a74b1684849e3b36b8023875d544123e52483d69",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0056__L024__p95:oddnumbers:fibonaccinumbers": {
+"unit": "s3d-rl600-all11:chat-lmsys-0056__L024__p95:oddnumbers:fibonaccinumbers",
+"anchor": "Fibonacci numbers",
+"nearest": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"random": [],
+"distractors": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"n_eligible": 2,
+"sha": "1457a503cd822feaebffd66c07516aeab66c7683e820f9cd61da889bfcc5aea5",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0056__L024__p95:primenumbers:fibonaccinumbers": {
+"unit": "s3d-rl600-all11:chat-lmsys-0056__L024__p95:primenumbers:fibonaccinumbers",
+"anchor": "Fibonacci numbers",
+"nearest": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"random": [],
+"distractors": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"n_eligible": 2,
+"sha": "ca2965e73d3b5f7b022c428acec41531cc1308995c8df3756e8e6c71f8862319",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0056__L032__p95:naturalnumbers:fibonaccinumbers": {
+"unit": "s3d-rl600-all11:chat-lmsys-0056__L032__p95:naturalnumbers:fibonaccinumbers",
+"anchor": "Fibonacci numbers",
+"nearest": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"random": [],
+"distractors": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"n_eligible": 2,
+"sha": "35514312b5d4314de4f4857006e08ea13859e39db71a67352eb5ae1390d7a94c",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0056__L032__p95:oddnumbers:fibonaccinumbers": {
+"unit": "s3d-rl600-all11:chat-lmsys-0056__L032__p95:oddnumbers:fibonaccinumbers",
+"anchor": "Fibonacci numbers",
+"nearest": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"random": [],
+"distractors": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"n_eligible": 2,
+"sha": "b88122454ef75e5900acdd32e7340f6a98fc69ef7af65a874cb01d43a7c1feda",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0056__L036__p152:primenumbers:fibonaccinumbers": {
+"unit": "s3d-rl600-all11:chat-lmsys-0056__L036__p152:primenumbers:fibonaccinumbers",
+"anchor": "Fibonacci numbers",
+"nearest": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"random": [],
+"distractors": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"n_eligible": 2,
+"sha": "e29058ba2bf2a666a435c680e5d762e2e3828ae08a69ce52600f3e8fe19b5b5d",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0056__L036__p95:triangularnumbers:fibonaccinumbers": {
+"unit": "s3d-rl600-all11:chat-lmsys-0056__L036__p95:triangularnumbers:fibonaccinumbers",
+"anchor": "Fibonacci numbers",
+"nearest": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"random": [],
+"distractors": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"n_eligible": 2,
+"sha": "f56430497a07d585968271525fb51c1005d4336c2bcfc8635131362bdbe15a40",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0056__L040__p95:squares:fibonaccinumbers": {
+"unit": "s3d-rl600-all11:chat-lmsys-0056__L040__p95:squares:fibonaccinumbers",
+"anchor": "Fibonacci numbers",
+"nearest": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"random": [],
+"distractors": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"n_eligible": 2,
+"sha": "ca067d4e3008f85f2acf00ca6b70a786d7cbd011210487876a13279995e835f9",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0056__L040__p95:squaresofpositiveintegers:fibonaccinumbers": {
+"unit": "s3d-rl600-all11:chat-lmsys-0056__L040__p95:squaresofpositiveintegers:fibonaccinumbers",
+"anchor": "Fibonacci numbers",
+"nearest": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"random": [],
+"distractors": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"n_eligible": 2,
+"sha": "3eb1d741d3e357022bc3f0864b10fbd76d39defc1c479af4d480fe3d734f6b5c",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0056__L044__p95:primenumbers:fibonaccinumbers": {
+"unit": "s3d-rl600-all11:chat-lmsys-0056__L044__p95:primenumbers:fibonaccinumbers",
+"anchor": "Fibonacci numbers",
+"nearest": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"random": [],
+"distractors": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"n_eligible": 2,
+"sha": "70bb0c4121bd3fe489f6b69073b6cd79f158e45e84f5c98750fbbed3a41649d9",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0056__L052__p28:first20primenumbers:first10fibonaccinumbers": {
+"unit": "s3d-rl600-all11:chat-lmsys-0056__L052__p28:first20primenumbers:first10fibonaccinumbers",
+"anchor": "Fibonacci numbers",
+"nearest": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"random": [],
+"distractors": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"n_eligible": 2,
+"sha": "6b9e46663d3d5f7b98e8304f364ad098980b759fd7c34810fdba7a01443c195f",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0056__L052__p28:numbersfrom1to100:first10fibonaccinumbers": {
+"unit": "s3d-rl600-all11:chat-lmsys-0056__L052__p28:numbersfrom1to100:first10fibonaccinumbers",
+"anchor": "Fibonacci numbers",
+"nearest": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"random": [],
+"distractors": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"n_eligible": 2,
+"sha": "9378bd96b4747c84518c7a65c81a2d778772ae3e05627a398c84d190f74f71d6",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0056__L052__p28:primenumbersfrom1to100:first10fibonaccinumbers": {
+"unit": "s3d-rl600-all11:chat-lmsys-0056__L052__p28:primenumbersfrom1to100:first10fibonaccinumbers",
+"anchor": "Fibonacci numbers",
+"nearest": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"random": [],
+"distractors": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"n_eligible": 2,
+"sha": "92e15aa9fdcfd5e9756bdf4862747479423a8c5dfcf7728796fefb0fc739702a",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0056__L052__p28:primenumbersupto100:first10fibonaccinumbers": {
+"unit": "s3d-rl600-all11:chat-lmsys-0056__L052__p28:primenumbersupto100:first10fibonaccinumbers",
+"anchor": "Fibonacci numbers",
+"nearest": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"random": [],
+"distractors": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"n_eligible": 2,
+"sha": "02406409a27bdddb5a88910eddf59aaea30e6ddb93a9aca19cea138475d08ff1",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0056__L052__p58:primenumbers:fibonaccinumbers": {
+"unit": "s3d-rl600-all11:chat-lmsys-0056__L052__p58:primenumbers:fibonaccinumbers",
+"anchor": "Fibonacci numbers",
+"nearest": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"random": [],
+"distractors": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"n_eligible": 2,
+"sha": "db90a5f06f5c4b9a0c08808930612c39f7414613af5ae32db243eaab9d1c85c9",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0056__L060__p28:numbers1through10:first10fibonaccinumbers": {
+"unit": "s3d-rl600-all11:chat-lmsys-0056__L060__p28:numbers1through10:first10fibonaccinumbers",
+"anchor": "first 10 Fibonacci numbers",
+"nearest": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"random": [],
+"distractors": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"n_eligible": 2,
+"sha": "72eff8f8e48b6a7decb972c046d16835bd7a2b29779eed7e84ccaef5a48c59d4",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0056__L036__p152:23571113:0112358132134": {
+"unit": "s3d-rl600:chat-lmsys-0056__L036__p152:23571113:0112358132134",
+"anchor": "Fibonacci numbers",
+"nearest": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"random": [],
+"distractors": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"n_eligible": 2,
+"sha": "3ea6135df23e5cbb6ae9b83b8951fb7f45c1600c3c0a1e140005f231e6ab5eb9",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0056__L036__p152:primes:fibonaccinumbers": {
+"unit": "s3d-rl600:chat-lmsys-0056__L036__p152:primes:fibonaccinumbers",
+"anchor": "Fibonacci numbers",
+"nearest": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"random": [],
+"distractors": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"n_eligible": 2,
+"sha": "06483ebc45703b80706c59188cfc5b518026f72a3c58c5de08d8e02384fa9ea6",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0056__L036__p95:triangularnumbers:fibonaccinumbers": {
+"unit": "s3d-rl600:chat-lmsys-0056__L036__p95:triangularnumbers:fibonaccinumbers",
+"anchor": "Fibonacci numbers",
+"nearest": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"random": [],
+"distractors": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"n_eligible": 2,
+"sha": "974828a9e54bdbc12bc57cc459cc28d68d78030c1771b9d56b8394e389fdd722",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0056__L024__p58:oddnaturalnumbers:fibonaccinumbers": {
+"unit": "s3d-sft251:chat-lmsys-0056__L024__p58:oddnaturalnumbers:fibonaccinumbers",
+"anchor": "Fibonacci numbers",
+"nearest": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"random": [],
+"distractors": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"n_eligible": 2,
+"sha": "03660030b2aaa2cc49f51677e7686c2341cce8d66fa6929b6b22d3d06858203e",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0056__L024__p58:triangularnumbers:fibonaccinumbers": {
+"unit": "s3d-sft251:chat-lmsys-0056__L024__p58:triangularnumbers:fibonaccinumbers",
+"anchor": "Fibonacci numbers",
+"nearest": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"random": [],
+"distractors": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"n_eligible": 2,
+"sha": "44d234fac3cdcdd64cf475ff72a35c71b0dc56cd780dcd762c9d7ad4ab82776f",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0056__L024__p95:primenumbers:fibonaccinumbers": {
+"unit": "s3d-sft251:chat-lmsys-0056__L024__p95:primenumbers:fibonaccinumbers",
+"anchor": "Fibonacci numbers",
+"nearest": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"random": [],
+"distractors": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"n_eligible": 2,
+"sha": "6d1cc99b218f409d3f17a185d521358eaaac90f240ef5a223ad17945fd2b4ee0",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0056__L024__p95:primes:fibonaccinumbers": {
+"unit": "s3d-sft251:chat-lmsys-0056__L024__p95:primes:fibonaccinumbers",
+"anchor": "Fibonacci numbers",
+"nearest": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"random": [],
+"distractors": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"n_eligible": 2,
+"sha": "b187b7a6b928c150c8842a2328c5865562cebdf8383fee6c0d00e6cabab45395",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0056__L028__p95:naturalnumbers:fibonaccinumbers": {
+"unit": "s3d-sft251:chat-lmsys-0056__L028__p95:naturalnumbers:fibonaccinumbers",
+"anchor": "Fibonacci numbers",
+"nearest": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"random": [],
+"distractors": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"n_eligible": 2,
+"sha": "873fc9cbeac37d413c81bdcd7f1ba0ef85fdaabf1faef0d85f07aa5809565451",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0056__L028__p95:primenumbers:fibonaccinumbers": {
+"unit": "s3d-sft251:chat-lmsys-0056__L028__p95:primenumbers:fibonaccinumbers",
+"anchor": "Fibonacci numbers",
+"nearest": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"random": [],
+"distractors": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"n_eligible": 2,
+"sha": "0eadd453354f7f33d90e3d3c271993653609587ab7b2e980c311427004bebfd0",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0056__L032__p58:primenumbers:fibonaccinumbers": {
+"unit": "s3d-sft251:chat-lmsys-0056__L032__p58:primenumbers:fibonaccinumbers",
+"anchor": "Fibonacci numbers",
+"nearest": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"random": [],
+"distractors": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"n_eligible": 2,
+"sha": "81e94992a4fa8605ba31a3e67bc57c859132e853e0cd40b6699e7ca80d64e462",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0056__L036__p58:primenumbers:fibonaccinumbers": {
+"unit": "s3d-sft251:chat-lmsys-0056__L036__p58:primenumbers:fibonaccinumbers",
+"anchor": "Fibonacci numbers",
+"nearest": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"random": [],
+"distractors": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"n_eligible": 2,
+"sha": "779d898b50943fe75edb252f8e68e7b005efdae45e7267cc62d9e03e84f8bb38",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0056__L052__p231:primes:fibonaccinumbers": {
+"unit": "s3d-sft251:chat-lmsys-0056__L052__p231:primes:fibonaccinumbers",
+"anchor": "Fibonacci numbers",
+"nearest": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"random": [],
+"distractors": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"n_eligible": 2,
+"sha": "f31ddf8197a5a677b112c1ee0632a126281e8a4d02cadbf251d6a9a21caec68b",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0056__L052__p95:primenumbers:fibonaccinumbers": {
+"unit": "s3d-sft251:chat-lmsys-0056__L052__p95:primenumbers:fibonaccinumbers",
+"anchor": "Fibonacci numbers",
+"nearest": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"random": [],
+"distractors": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"n_eligible": 2,
+"sha": "6e06384816581c073282417c43afe166330af97ed8a2b5522c889e993b117ae2",
+"generation": 0
+},
+"template-v3:chat-lmsys-0056__L024__p95:primefactorization:fibonaccisequence": {
+"unit": "template-v3:chat-lmsys-0056__L024__p95:primefactorization:fibonaccisequence",
+"anchor": "Fibonacci sequence",
+"nearest": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"random": [],
+"distractors": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"n_eligible": 2,
+"sha": "310bd3f6e939d4964353cd9329c4434f6249d17bb4a4f6c9f591e74098720840",
+"generation": 0
+}
+}

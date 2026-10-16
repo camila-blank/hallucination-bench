@@ -1,0 +1,193 @@
+{
+"mlnla-ck2000-all11:chat-lmsys-0064__L036__p529:dell:concórdia": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0064__L036__p529:dell:concórdia",
+"anchor": "Dell",
+"nearest": [
+"Gateway",
+"Razer",
+"Toshiba",
+"Sony VAIO"
+],
+"random": [
+"Alienware",
+"Concórdia",
+"Microsoft Surface",
+"PC Gamer Concórdia"
+],
+"distractors": [
+"Gateway",
+"Razer",
+"Toshiba",
+"Sony VAIO",
+"Alienware",
+"Concórdia",
+"Microsoft Surface",
+"PC Gamer Concórdia"
+],
+"n_eligible": 8,
+"sha": "147d02febf7dd942e4b878d580c8c234de69b4fac17f36ce0037702129ceb946",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0064__L036__p778:acer:pcgamerconcórdia": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0064__L036__p778:acer:pcgamerconcórdia",
+"anchor": "PC Gamer Concórdia",
+"nearest": [
+"Toshiba",
+"Alienware",
+"Microsoft Surface",
+"Gateway"
+],
+"random": [
+"Razer",
+"Sony VAIO"
+],
+"distractors": [
+"Toshiba",
+"Alienware",
+"Microsoft Surface",
+"Gateway",
+"Razer",
+"Sony VAIO"
+],
+"n_eligible": 6,
+"sha": "e062a6ed02d0c8b993c17d0c6118414efd7149e2bdc1f85f316284cf8f0ecf04",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0064__L056__p494:hpdesktop:pcgamerconcórdia": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0064__L056__p494:hpdesktop:pcgamerconcórdia",
+"anchor": "Concórdia",
+"nearest": [
+"Toshiba",
+"Alienware",
+"Microsoft Surface",
+"Gateway"
+],
+"random": [
+"Razer",
+"Sony VAIO"
+],
+"distractors": [
+"Toshiba",
+"Alienware",
+"Microsoft Surface",
+"Gateway",
+"Razer",
+"Sony VAIO"
+],
+"n_eligible": 6,
+"sha": "2923cecad6bce2737edb03861cb3717dad82d7e53703e99b8e57a2ebc8dece6d",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0064__L056__p568:dell:pcgamerconcórdia": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0064__L056__p568:dell:pcgamerconcórdia",
+"anchor": "Dell",
+"nearest": [
+"Gateway",
+"Razer",
+"Toshiba",
+"Sony VAIO"
+],
+"random": [
+"Alienware",
+"Concórdia",
+"Microsoft Surface",
+"PC Gamer Concórdia"
+],
+"distractors": [
+"Gateway",
+"Razer",
+"Toshiba",
+"Sony VAIO",
+"Alienware",
+"Concórdia",
+"Microsoft Surface",
+"PC Gamer Concórdia"
+],
+"n_eligible": 8,
+"sha": "9c491ba3a9a621ce2fc4e0375777c6e077da51b23ffa297aa85493defe634db2",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0064__L060__p494:lenovo:concórdia": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0064__L060__p494:lenovo:concórdia",
+"anchor": "PC Gamer Concórdia",
+"nearest": [
+"Toshiba",
+"Alienware",
+"Microsoft Surface",
+"Gateway"
+],
+"random": [
+"Razer",
+"Sony VAIO"
+],
+"distractors": [
+"Toshiba",
+"Alienware",
+"Microsoft Surface",
+"Gateway",
+"Razer",
+"Sony VAIO"
+],
+"n_eligible": 6,
+"sha": "0ab4483631ad1b6a4ee1fe4a9915eb035623505b0b97f9cda74b0c109f6c7afa",
+"generation": 1
+},
+"mlnla-rl600-all11:chat-lmsys-0064__L060__p638:dell:pcgamerconcórdia": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0064__L060__p638:dell:pcgamerconcórdia",
+"anchor": "Dell",
+"nearest": [
+"Gateway",
+"Razer",
+"Toshiba",
+"Sony VAIO"
+],
+"random": [
+"Alienware",
+"Concórdia",
+"Microsoft Surface",
+"PC Gamer Concórdia"
+],
+"distractors": [
+"Gateway",
+"Razer",
+"Toshiba",
+"Sony VAIO",
+"Alienware",
+"Concórdia",
+"Microsoft Surface",
+"PC Gamer Concórdia"
+],
+"n_eligible": 8,
+"sha": "cf8454c9f001b9d765aa505fbb8f073e585fde4cab207a8c7d014d64bda78038",
+"generation": 1
+},
+"template-v3:chat-lmsys-0064__L052__p529:dell:pcgamerconcórdia": {
+"unit": "template-v3:chat-lmsys-0064__L052__p529:dell:pcgamerconcórdia",
+"anchor": "Dell",
+"nearest": [
+"Gateway",
+"Razer",
+"Toshiba",
+"Sony VAIO"
+],
+"random": [
+"Alienware",
+"Concórdia",
+"Microsoft Surface",
+"PC Gamer Concórdia"
+],
+"distractors": [
+"Gateway",
+"Razer",
+"Toshiba",
+"Sony VAIO",
+"Alienware",
+"Concórdia",
+"Microsoft Surface",
+"PC Gamer Concórdia"
+],
+"n_eligible": 8,
+"sha": "27f7b4e4f8d0afe97b0c645937a77ff82e7645f3de4ad56ea5f0c034089300cc",
+"generation": 1
+}
+}

@@ -1,0 +1,452 @@
+{
+"mlnla-ck2000-all11:chat-lmsys-0069__L032__p311:curcumin:gastrodin": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0069__L032__p311:curcumin:gastrodin",
+"anchor": "gastrodin",
+"nearest": [
+"genistein",
+"capsaicin",
+"lycopene"
+],
+"random": [],
+"distractors": [
+"genistein",
+"capsaicin",
+"lycopene"
+],
+"n_eligible": 3,
+"sha": "5b239340b741f9cf86b056648d542974dec08abc414bd5a191276def9b3eb46f",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0069__L044__p311:curcumin:gastrodin": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0069__L044__p311:curcumin:gastrodin",
+"anchor": "gastrodin",
+"nearest": [
+"genistein",
+"capsaicin",
+"lycopene"
+],
+"random": [],
+"distractors": [
+"genistein",
+"capsaicin",
+"lycopene"
+],
+"n_eligible": 3,
+"sha": "8453e125f4cbcc802644b6d9a06705b5971fec7d14f84f7e4c01ad4344bdc2b7",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0069__L052__p31:melatonin:gastrodin": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0069__L052__p31:melatonin:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [
+"genistein",
+"capsaicin",
+"lycopene"
+],
+"random": [],
+"distractors": [
+"genistein",
+"capsaicin",
+"lycopene"
+],
+"n_eligible": 3,
+"sha": "255d9b6bfa0b34a801b95336a3712396e79913c8bb3dcac2aee274b23dfd01f2",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0069__L056__p31:melatonin:gastrodin": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0069__L056__p31:melatonin:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [
+"genistein",
+"capsaicin",
+"lycopene"
+],
+"random": [],
+"distractors": [
+"genistein",
+"capsaicin",
+"lycopene"
+],
+"n_eligible": 3,
+"sha": "7c5f735279cb6e3a6ea8a1a1f5688480ae30b3420c56a09088b927543b2e561d",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0069__L028__p94:paeonol:gastrodin": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0069__L028__p94:paeonol:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [
+"genistein",
+"capsaicin",
+"lycopene"
+],
+"random": [],
+"distractors": [
+"genistein",
+"capsaicin",
+"lycopene"
+],
+"n_eligible": 3,
+"sha": "f9777d53e7fd0a57d93deb34a94ac9a0c123fc407f3e75b5af92fe6ab1120e31",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0069__L032__p311:curcumin:gastrodin": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0069__L032__p311:curcumin:gastrodin",
+"anchor": "gastrodin",
+"nearest": [
+"genistein",
+"capsaicin",
+"lycopene"
+],
+"random": [],
+"distractors": [
+"genistein",
+"capsaicin",
+"lycopene"
+],
+"n_eligible": 3,
+"sha": "eb6368e69c6a13b4df7a6bd6e8dba259df5f66bd2d6e3addf6d336ffe9128c0b",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0069__L032__p94:paeonol:gastrodin": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0069__L032__p94:paeonol:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [
+"genistein",
+"capsaicin",
+"lycopene"
+],
+"random": [],
+"distractors": [
+"genistein",
+"capsaicin",
+"lycopene"
+],
+"n_eligible": 3,
+"sha": "af052ef621edd7700072b6e51347f4ce01f923ff526798b51d0d0a9a5b6f1b32",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0069__L044__p311:curcumin:gastrodin": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0069__L044__p311:curcumin:gastrodin",
+"anchor": "gastrodin",
+"nearest": [
+"genistein",
+"capsaicin",
+"lycopene"
+],
+"random": [],
+"distractors": [
+"genistein",
+"capsaicin",
+"lycopene"
+],
+"n_eligible": 3,
+"sha": "7c014ee3dc7dd9a67990cb88aa92fbec37ce727f9ee2355d4d648f394c7aa86c",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0069__L048__p311:curcumin:gastrodin": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0069__L048__p311:curcumin:gastrodin",
+"anchor": "gastrodin",
+"nearest": [
+"genistein",
+"capsaicin",
+"lycopene"
+],
+"random": [],
+"distractors": [
+"genistein",
+"capsaicin",
+"lycopene"
+],
+"n_eligible": 3,
+"sha": "aae052baf972243749933bb791d18f7b7b01c3b2d58383eaccc7f4afad626f68",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0069__L052__p31:melatonin:gastrodin": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0069__L052__p31:melatonin:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [
+"genistein",
+"capsaicin",
+"lycopene"
+],
+"random": [],
+"distractors": [
+"genistein",
+"capsaicin",
+"lycopene"
+],
+"n_eligible": 3,
+"sha": "437bc63e4a04b56775dcac8066e6441fe6285e057aaff86e21646acf4f2ee960",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0069__L032__p149:curcumin:gastrodin": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0069__L032__p149:curcumin:gastrodin",
+"anchor": "gastrodin",
+"nearest": [
+"genistein",
+"capsaicin",
+"lycopene"
+],
+"random": [],
+"distractors": [
+"genistein",
+"capsaicin",
+"lycopene"
+],
+"n_eligible": 3,
+"sha": "fbefd34f3fdc6921bf7285f98e03837ab9685f933d007858af67b84db42c5284",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0069__L032__p311:curcumin:gastrodin": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0069__L032__p311:curcumin:gastrodin",
+"anchor": "gastrodin",
+"nearest": [
+"genistein",
+"capsaicin",
+"lycopene"
+],
+"random": [],
+"distractors": [
+"genistein",
+"capsaicin",
+"lycopene"
+],
+"n_eligible": 3,
+"sha": "87ccb6decc71493b28dcfcd14f7801fd64d89fa467ab53a59e7aedd5d044418d",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0069__L032__p311:curcuminoids:gastrodin": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0069__L032__p311:curcuminoids:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [
+"genistein",
+"capsaicin",
+"lycopene"
+],
+"random": [],
+"distractors": [
+"genistein",
+"capsaicin",
+"lycopene"
+],
+"n_eligible": 3,
+"sha": "dd54bdcc0d3f9d8fedf80cb36e3335029b79f55173c3f54d301a5a1cde12eda9",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0069__L036__p149:curcumin:gastrodin": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0069__L036__p149:curcumin:gastrodin",
+"anchor": "gastrodin",
+"nearest": [
+"genistein",
+"capsaicin",
+"lycopene"
+],
+"random": [],
+"distractors": [
+"genistein",
+"capsaicin",
+"lycopene"
+],
+"n_eligible": 3,
+"sha": "aa052cf878eabbd3a4449c91d7cf0014ada31b4024370c3ce6c99c791ed38efe",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0069__L040__p311:curcuminoids:gastrodin": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0069__L040__p311:curcuminoids:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [
+"genistein",
+"capsaicin",
+"lycopene"
+],
+"random": [],
+"distractors": [
+"genistein",
+"capsaicin",
+"lycopene"
+],
+"n_eligible": 3,
+"sha": "7b2f04edf8cd483852a26d5663de465f9234301991d37134682962fd14d82caf",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0069__L040__p31:melatonin:gastrodin": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0069__L040__p31:melatonin:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [
+"genistein",
+"capsaicin",
+"lycopene"
+],
+"random": [],
+"distractors": [
+"genistein",
+"capsaicin",
+"lycopene"
+],
+"n_eligible": 3,
+"sha": "434ca0bd86382cd5d3e38eb7e8ffe5702722bf2b05b3fa5356d92cdefbae6da2",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0069__L044__p311:curcumin:gastrodin": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0069__L044__p311:curcumin:gastrodin",
+"anchor": "gastrodin",
+"nearest": [
+"genistein",
+"capsaicin",
+"lycopene"
+],
+"random": [],
+"distractors": [
+"genistein",
+"capsaicin",
+"lycopene"
+],
+"n_eligible": 3,
+"sha": "17539913ac591eb1e317fcb27439e0adcb81c5ccf6f39817b26f7c7f022378da",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0069__L044__p311:curcuminoids:gastrodin": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0069__L044__p311:curcuminoids:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [
+"genistein",
+"capsaicin",
+"lycopene"
+],
+"random": [],
+"distractors": [
+"genistein",
+"capsaicin",
+"lycopene"
+],
+"n_eligible": 3,
+"sha": "e10f9bb28824f1e8716ae66398f5f6a87383243ce4b7cc2b9c88d4363ef1125e",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0069__L048__p311:curcumin:gastrodin": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0069__L048__p311:curcumin:gastrodin",
+"anchor": "gastrodin",
+"nearest": [
+"genistein",
+"capsaicin",
+"lycopene"
+],
+"random": [],
+"distractors": [
+"genistein",
+"capsaicin",
+"lycopene"
+],
+"n_eligible": 3,
+"sha": "0978930f73d4740a89a1cd435462cbd430a720bff7dd875a64c1bb6bd76b9be4",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0069__L052__p311:curcumin:gastrodin": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0069__L052__p311:curcumin:gastrodin",
+"anchor": "gastrodin",
+"nearest": [
+"genistein",
+"capsaicin",
+"lycopene"
+],
+"random": [],
+"distractors": [
+"genistein",
+"capsaicin",
+"lycopene"
+],
+"n_eligible": 3,
+"sha": "70327ed056c47bf8507cdda010f19771036a03a3ab7d8e669af6180c874ec907",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0069__L052__p31:melatonin:gastrodin": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0069__L052__p31:melatonin:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [
+"genistein",
+"capsaicin",
+"lycopene"
+],
+"random": [],
+"distractors": [
+"genistein",
+"capsaicin",
+"lycopene"
+],
+"n_eligible": 3,
+"sha": "bd91afcff2aaf03bb1f4d51f2af97b4600fb986ce1444fa238d37a1b1a0c06f3",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0069__L056__p311:curcumin:gastrodin": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0069__L056__p311:curcumin:gastrodin",
+"anchor": "gastrodin",
+"nearest": [
+"genistein",
+"capsaicin",
+"lycopene"
+],
+"random": [],
+"distractors": [
+"genistein",
+"capsaicin",
+"lycopene"
+],
+"n_eligible": 3,
+"sha": "592387462b887c1783a044ce8efafb504b5c45bcc22ba19298bf8d9688583f7a",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0069__L056__p31:baikalinandmelatonin:gastrodin": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0069__L056__p31:baikalinandmelatonin:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [
+"genistein",
+"capsaicin",
+"lycopene"
+],
+"random": [],
+"distractors": [
+"genistein",
+"capsaicin",
+"lycopene"
+],
+"n_eligible": 3,
+"sha": "d0a57024a17f148c6602e9e0c5e2edd21890b5b87827e5490006f45a48d24574",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0069__L056__p31:melatonin:gastrodin": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0069__L056__p31:melatonin:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [
+"genistein",
+"capsaicin",
+"lycopene"
+],
+"random": [],
+"distractors": [
+"genistein",
+"capsaicin",
+"lycopene"
+],
+"n_eligible": 3,
+"sha": "0caabb4fab58d757175bf705df5a3c3ef3710dc5fc764dafa5d151cb2fe4b317",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0069__L052__p149:melatonin:gastrodin": {
+"unit": "s3d-sft251:chat-lmsys-0069__L052__p149:melatonin:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [
+"genistein",
+"capsaicin",
+"lycopene"
+],
+"random": [],
+"distractors": [
+"genistein",
+"capsaicin",
+"lycopene"
+],
+"n_eligible": 3,
+"sha": "3b3e429e302dd81d262e9e7c22cdcaf03b6bb4e1dcb8904e9e027ee14bf40a18",
+"generation": 0
+}
+}

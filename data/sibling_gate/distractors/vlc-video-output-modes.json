@@ -1,0 +1,234 @@
+{
+"mlnla-ck2000-all11:chat-lmsys-0029__L044__p316:anamorphicmode:3doutput": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0029__L044__p316:anamorphicmode:3doutput",
+"anchor": "3D output mode",
+"nearest": [
+"Direct3D11",
+"Framebuffer (fbdev)",
+"Vulkan",
+"DirectX (DirectDraw)"
+],
+"random": [
+"SDL",
+"Wayland",
+"X11",
+"XVideo"
+],
+"distractors": [
+"Direct3D11",
+"Framebuffer (fbdev)",
+"Vulkan",
+"DirectX (DirectDraw)",
+"SDL",
+"Wayland",
+"X11",
+"XVideo"
+],
+"n_eligible": 10,
+"sha": "9b06dad11b89ef151db4fe31faa30e9b0059df3f713a3405342afb8a55934553",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0029__L048__p316:anamorphicletterboxmode:3doutput": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0029__L048__p316:anamorphicletterboxmode:3doutput",
+"anchor": "3D output mode",
+"nearest": [
+"Direct3D11",
+"Framebuffer (fbdev)",
+"Vulkan",
+"DirectX (DirectDraw)"
+],
+"random": [
+"Direct3D9",
+"SDL",
+"Wayland",
+"XVideo"
+],
+"distractors": [
+"Direct3D11",
+"Framebuffer (fbdev)",
+"Vulkan",
+"DirectX (DirectDraw)",
+"Direct3D9",
+"SDL",
+"Wayland",
+"XVideo"
+],
+"n_eligible": 10,
+"sha": "04ea2951a4b60c2a31f47dc6d0da8da74e4de50829b8277f7d6e8ba51b9ac365",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0029__L032__p23:fullscreen:3doutput": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0029__L032__p23:fullscreen:3doutput",
+"anchor": "3D output",
+"nearest": [
+"DirectX (DirectDraw)",
+"Vulkan",
+"Wayland",
+"Direct3D11"
+],
+"random": [
+"Direct3D9",
+"Framebuffer (fbdev)",
+"X11",
+"XVideo"
+],
+"distractors": [
+"DirectX (DirectDraw)",
+"Vulkan",
+"Wayland",
+"Direct3D11",
+"Direct3D9",
+"Framebuffer (fbdev)",
+"X11",
+"XVideo"
+],
+"n_eligible": 10,
+"sha": "3d7919400d2bba72bd3fe3430e1c934a90c26cdaba44dc36fa57a7f3b9d2ac4c",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0029__L032__p23:fullscreenmode:3doutput": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0029__L032__p23:fullscreenmode:3doutput",
+"anchor": "3D output",
+"nearest": [
+"DirectX (DirectDraw)",
+"Vulkan",
+"Wayland",
+"Direct3D11"
+],
+"random": [
+"Direct3D9",
+"Framebuffer (fbdev)",
+"X11",
+"XVideo"
+],
+"distractors": [
+"DirectX (DirectDraw)",
+"Vulkan",
+"Wayland",
+"Direct3D11",
+"Direct3D9",
+"Framebuffer (fbdev)",
+"X11",
+"XVideo"
+],
+"n_eligible": 10,
+"sha": "1ce29b30e2f5d2e89ae1976563cbb72f624acff7abd572e35e93c5c06fe1aaf3",
+"generation": 1
+},
+"mlnla-rl600-all11:chat-lmsys-0029__L024__p23:fullscreen:3doutput": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0029__L024__p23:fullscreen:3doutput",
+"anchor": "3D output",
+"nearest": [
+"DirectX (DirectDraw)",
+"Vulkan",
+"Wayland",
+"Direct3D11"
+],
+"random": [
+"Direct3D9",
+"Framebuffer (fbdev)",
+"SDL",
+"X11"
+],
+"distractors": [
+"DirectX (DirectDraw)",
+"Vulkan",
+"Wayland",
+"Direct3D11",
+"Direct3D9",
+"Framebuffer (fbdev)",
+"SDL",
+"X11"
+],
+"n_eligible": 10,
+"sha": "9add8295462d5422d526bdde44e13062cf3c6238bfd5726e9f344dc74f0ac72d",
+"generation": 1
+},
+"mlnla-rl600-all11:chat-lmsys-0029__L024__p23:fullscreenletterboxmode:3doutput": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0029__L024__p23:fullscreenletterboxmode:3doutput",
+"anchor": "3D output mode",
+"nearest": [
+"Direct3D11",
+"Framebuffer (fbdev)",
+"Vulkan",
+"DirectX (DirectDraw)"
+],
+"random": [
+"Direct3D9",
+"SDL",
+"X11",
+"XVideo"
+],
+"distractors": [
+"Direct3D11",
+"Framebuffer (fbdev)",
+"Vulkan",
+"DirectX (DirectDraw)",
+"Direct3D9",
+"SDL",
+"X11",
+"XVideo"
+],
+"n_eligible": 10,
+"sha": "9a15b14fc3faae48f5178dd93579c2fa9c46cdf0226dc316b21f17733b101ce5",
+"generation": 1
+},
+"mlnla-rl600-all11:chat-lmsys-0029__L024__p23:fullscreenmode:3doutput": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0029__L024__p23:fullscreenmode:3doutput",
+"anchor": "3D output",
+"nearest": [
+"DirectX (DirectDraw)",
+"Vulkan",
+"Wayland",
+"Direct3D11"
+],
+"random": [
+"Framebuffer (fbdev)",
+"SDL",
+"X11",
+"XVideo"
+],
+"distractors": [
+"DirectX (DirectDraw)",
+"Vulkan",
+"Wayland",
+"Direct3D11",
+"Framebuffer (fbdev)",
+"SDL",
+"X11",
+"XVideo"
+],
+"n_eligible": 10,
+"sha": "03dd7577615a6dca3b0cba37a158dba6da7bd2827814e962cf67f71d53ffbcec",
+"generation": 1
+},
+"mlnla-rl600-all11:chat-lmsys-0029__L028__p23:fullscreenmode:3doutput": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0029__L028__p23:fullscreenmode:3doutput",
+"anchor": "3D output",
+"nearest": [
+"DirectX (DirectDraw)",
+"Vulkan",
+"Wayland",
+"Direct3D11"
+],
+"random": [
+"Direct3D9",
+"Framebuffer (fbdev)",
+"X11",
+"XVideo"
+],
+"distractors": [
+"DirectX (DirectDraw)",
+"Vulkan",
+"Wayland",
+"Direct3D11",
+"Direct3D9",
+"Framebuffer (fbdev)",
+"X11",
+"XVideo"
+],
+"n_eligible": 10,
+"sha": "ecc679870ab94ae8a37f65884a9987d30899949e6ad4df386759085e08b2e0dc",
+"generation": 1
+}
+}

@@ -1,0 +1,314 @@
+{
+"mlnla-ck2000-all11:chat-lmsys-0043__L024__p165:5halogenatedindolederivatives:2propylpyrimidine5carbaldehyde": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0043__L024__p165:5halogenatedindolederivatives:2propylpyrimidine5carbaldehyde",
+"anchor": "2-Propylpyrimidine-5-carbaldehyde",
+"nearest": [],
+"random": [
+"4-methyl compound",
+"4-substituted compound",
+"7-Methoxyisoquinoline",
+"7-methoxyisoquinoline",
+"isoquinoline",
+"isothiazole"
+],
+"distractors": [
+"4-methyl compound",
+"4-substituted compound",
+"7-Methoxyisoquinoline",
+"7-methoxyisoquinoline",
+"isoquinoline",
+"isothiazole"
+],
+"n_eligible": 6,
+"sha": "ffb54e6c8e75620aaf06090f35ed7b4f78618fd7b9d10cf7328135a1c507e710",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0001__L040__p316:2methylquinoline:7methoxyisoquinoline": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0001__L040__p316:2methylquinoline:7methoxyisoquinoline",
+"anchor": "7-Methoxyisoquinoline",
+"nearest": [],
+"random": [
+"3-ethylimidazole",
+"pyrazine",
+"pyrimidine",
+"pyrrole"
+],
+"distractors": [
+"3-ethylimidazole",
+"pyrazine",
+"pyrimidine",
+"pyrrole"
+],
+"n_eligible": 4,
+"sha": "77bd0336e33d65a4e9804cd999c4ca9725d296b669dcf022a0561194a9555068",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0043__L056__p53:benzotriazole:2propylpyrimidine5carbaldehyde": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0043__L056__p53:benzotriazole:2propylpyrimidine5carbaldehyde",
+"anchor": "2-propylpyrimidine-5-carbaldehyde",
+"nearest": [],
+"random": [
+"4-methyl compound",
+"4-substituted compound",
+"7-Methoxyisoquinoline",
+"7-methoxyisoquinoline",
+"isoquinoline",
+"isothiazole"
+],
+"distractors": [
+"4-methyl compound",
+"4-substituted compound",
+"7-Methoxyisoquinoline",
+"7-methoxyisoquinoline",
+"isoquinoline",
+"isothiazole"
+],
+"n_eligible": 6,
+"sha": "06a9223eeafb31349c0c096d7c615bff2bad4d90b1fa5583c8a5a4eff25120aa",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0001__L036__p316:benzimidazole:isoquinoline": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0001__L036__p316:benzimidazole:isoquinoline",
+"anchor": "isoquinoline",
+"nearest": [],
+"random": [
+"2-Propylpyrimidine-5-carbaldehyde",
+"2-propylpyrimidine-5-carbaldehyde",
+"3-ethylimidazole",
+"pyrazine",
+"pyrimidine",
+"pyrrole"
+],
+"distractors": [
+"2-Propylpyrimidine-5-carbaldehyde",
+"2-propylpyrimidine-5-carbaldehyde",
+"3-ethylimidazole",
+"pyrazine",
+"pyrimidine",
+"pyrrole"
+],
+"n_eligible": 6,
+"sha": "7712ba915d61a6413b75b9a9ae971c6f3d816676f337850d6d42ed3556b9dec0",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0001__L036__p316:isothiazole:isoquinoline": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0001__L036__p316:isothiazole:isoquinoline",
+"anchor": "isoquinoline",
+"nearest": [],
+"random": [
+"2-Propylpyrimidine-5-carbaldehyde",
+"2-propylpyrimidine-5-carbaldehyde",
+"3-ethylimidazole",
+"pyrazine",
+"pyrimidine",
+"pyrrole"
+],
+"distractors": [
+"2-Propylpyrimidine-5-carbaldehyde",
+"2-propylpyrimidine-5-carbaldehyde",
+"3-ethylimidazole",
+"pyrazine",
+"pyrimidine",
+"pyrrole"
+],
+"n_eligible": 6,
+"sha": "78665b536f1384194bd0bfaeac7d50463cdf57e9083f1fc03a0b98bfa99111c5",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0001__L052__p316:benzomorphanquinoline:7methoxyisoquinolineisoquinoline": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0001__L052__p316:benzomorphanquinoline:7methoxyisoquinolineisoquinoline",
+"anchor": "isoquinoline",
+"nearest": [],
+"random": [
+"2-Propylpyrimidine-5-carbaldehyde",
+"2-propylpyrimidine-5-carbaldehyde",
+"3-ethylimidazole",
+"pyrazine",
+"pyrimidine",
+"pyrrole"
+],
+"distractors": [
+"2-Propylpyrimidine-5-carbaldehyde",
+"2-propylpyrimidine-5-carbaldehyde",
+"3-ethylimidazole",
+"pyrazine",
+"pyrimidine",
+"pyrrole"
+],
+"n_eligible": 6,
+"sha": "d4c472163c3ea87944e372a079cc1f2d1e8d9954aa4f3a512389687664589f66",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0043__L032__p391:pyrazine:pyrimidine": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0043__L032__p391:pyrazine:pyrimidine",
+"anchor": "pyrimidine",
+"nearest": [],
+"random": [
+"2-Methylquinoline",
+"4-methyl compound",
+"4-substituted compound",
+"7-Methoxyisoquinoline",
+"7-methoxyisoquinoline",
+"isoquinoline",
+"isothiazole"
+],
+"distractors": [
+"2-Methylquinoline",
+"4-methyl compound",
+"4-substituted compound",
+"7-Methoxyisoquinoline",
+"7-methoxyisoquinoline",
+"isoquinoline",
+"isothiazole"
+],
+"n_eligible": 7,
+"sha": "ad19eeab4878ff3e55a9c73d93a10ae0336fd916507d9f840eef5947fdfba512",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0043__L056__p53:benzotriazole:2propylpyrimidine5carbaldehyde": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0043__L056__p53:benzotriazole:2propylpyrimidine5carbaldehyde",
+"anchor": "2-propylpyrimidine-5-carbaldehyde",
+"nearest": [],
+"random": [
+"4-methyl compound",
+"4-substituted compound",
+"7-Methoxyisoquinoline",
+"7-methoxyisoquinoline",
+"isoquinoline",
+"isothiazole"
+],
+"distractors": [
+"4-methyl compound",
+"4-substituted compound",
+"7-Methoxyisoquinoline",
+"7-methoxyisoquinoline",
+"isoquinoline",
+"isothiazole"
+],
+"n_eligible": 6,
+"sha": "e489d778e398ca890a626aa9d2b5618d7b3d5b3ad0f71fc360e9c3021abfecab",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0043__L032__p419:3ethylimidazole:2propylpyrimidine5carbaldehyde": {
+"unit": "s3d-rl600-all11:chat-lmsys-0043__L032__p419:3ethylimidazole:2propylpyrimidine5carbaldehyde",
+"anchor": "2-Propylpyrimidine-5-carbaldehyde",
+"nearest": [],
+"random": [
+"4-methyl compound",
+"4-substituted compound",
+"7-Methoxyisoquinoline",
+"7-methoxyisoquinoline",
+"isoquinoline",
+"isothiazole"
+],
+"distractors": [
+"4-methyl compound",
+"4-substituted compound",
+"7-Methoxyisoquinoline",
+"7-methoxyisoquinoline",
+"isoquinoline",
+"isothiazole"
+],
+"n_eligible": 6,
+"sha": "e428cba0027f9d903474d0e927bcba3edddd9a84cc4df2ecd293ef851f36975d",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0001__L060__p484:4ap:7methoxyisoquinoline": {
+"unit": "s3d-rl600:chat-lmsys-0001__L060__p484:4ap:7methoxyisoquinoline",
+"anchor": "7-methoxyisoquinoline",
+"nearest": [],
+"random": [
+"2-Propylpyrimidine-5-carbaldehyde",
+"2-propylpyrimidine-5-carbaldehyde",
+"3-ethylimidazole",
+"pyrazine",
+"pyrimidine",
+"pyrrole"
+],
+"distractors": [
+"2-Propylpyrimidine-5-carbaldehyde",
+"2-propylpyrimidine-5-carbaldehyde",
+"3-ethylimidazole",
+"pyrazine",
+"pyrimidine",
+"pyrrole"
+],
+"n_eligible": 6,
+"sha": "097f64c5e8e6760de65baaa95d51ae78f4649cf285f3035e42a4a1caf4c13f60",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0001__L060__p109:4methylcompound:7methoxyisoquinoline": {
+"unit": "s3d-sft251:chat-lmsys-0001__L060__p109:4methylcompound:7methoxyisoquinoline",
+"anchor": "7-methoxyisoquinoline",
+"nearest": [],
+"random": [
+"2-Propylpyrimidine-5-carbaldehyde",
+"2-propylpyrimidine-5-carbaldehyde",
+"3-ethylimidazole",
+"pyrazine",
+"pyrimidine",
+"pyrrole"
+],
+"distractors": [
+"2-Propylpyrimidine-5-carbaldehyde",
+"2-propylpyrimidine-5-carbaldehyde",
+"3-ethylimidazole",
+"pyrazine",
+"pyrimidine",
+"pyrrole"
+],
+"n_eligible": 6,
+"sha": "d35b272a20359ef20dc23dc89b88a0dee3d03a8f4b5b7f5b635700ef10716789",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0001__L060__p109:4substitutedcompound:7methoxyisoquinoline": {
+"unit": "s3d-sft251:chat-lmsys-0001__L060__p109:4substitutedcompound:7methoxyisoquinoline",
+"anchor": "7-methoxyisoquinoline",
+"nearest": [],
+"random": [
+"2-Propylpyrimidine-5-carbaldehyde",
+"2-propylpyrimidine-5-carbaldehyde",
+"3-ethylimidazole",
+"pyrazine",
+"pyrimidine",
+"pyrrole"
+],
+"distractors": [
+"2-Propylpyrimidine-5-carbaldehyde",
+"2-propylpyrimidine-5-carbaldehyde",
+"3-ethylimidazole",
+"pyrazine",
+"pyrimidine",
+"pyrrole"
+],
+"n_eligible": 6,
+"sha": "84e90ce661bf2aefe9dde19411e27252d43a1eb98c64d514ce2b3852d4c8a4ab",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0043__L028__p391:pyrrole:pyrimidine": {
+"unit": "s3d-sft251:chat-lmsys-0043__L028__p391:pyrrole:pyrimidine",
+"anchor": "pyrimidine",
+"nearest": [],
+"random": [
+"2-Methylquinoline",
+"4-methyl compound",
+"4-substituted compound",
+"7-Methoxyisoquinoline",
+"7-methoxyisoquinoline",
+"isoquinoline",
+"isothiazole"
+],
+"distractors": [
+"2-Methylquinoline",
+"4-methyl compound",
+"4-substituted compound",
+"7-Methoxyisoquinoline",
+"7-methoxyisoquinoline",
+"isoquinoline",
+"isothiazole"
+],
+"n_eligible": 7,
+"sha": "449d52797086b71100691de2f7a8cf22bb9d1db463b22a435d737867a3fe4f9c",
+"generation": 0
+}
+}

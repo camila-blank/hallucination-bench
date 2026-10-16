@@ -1,0 +1,247 @@
+{
+"mlnla-ck2000-all11:chat-dailydialog-0036__L032__p77:hotelreceptionist:restaurantstaff": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0036__L032__p77:hotelreceptionist:restaurantstaff",
+"anchor": "restaurant staff member",
+"nearest": [
+"server",
+"cashier",
+"busser",
+"bartender"
+],
+"random": [
+"dishwasher",
+"line cook",
+"waitress"
+],
+"distractors": [
+"server",
+"cashier",
+"busser",
+"bartender",
+"dishwasher",
+"line cook",
+"waitress"
+],
+"n_eligible": 7,
+"sha": "2991c51bc3da54b6d32c3054e36619f5a5bababce8662a3929bfee599a9a3f08",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0036__L044__p57:hotelreceptionist:restaurantstaff": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0036__L044__p57:hotelreceptionist:restaurantstaff",
+"anchor": "restaurant staff member",
+"nearest": [
+"server",
+"cashier",
+"busser",
+"bartender"
+],
+"random": [
+"dishwasher",
+"line cook",
+"waitress"
+],
+"distractors": [
+"server",
+"cashier",
+"busser",
+"bartender",
+"dishwasher",
+"line cook",
+"waitress"
+],
+"n_eligible": 7,
+"sha": "d2a4e0d5a1a05b18f2b6d6b28bc98a4949ea974d00095b2187223f9503c74031",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0036__L044__p77:hotelreceptionist:restaurantstaff": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0036__L044__p77:hotelreceptionist:restaurantstaff",
+"anchor": "restaurant staff member",
+"nearest": [
+"server",
+"cashier",
+"busser",
+"bartender"
+],
+"random": [
+"dishwasher",
+"line cook",
+"waitress"
+],
+"distractors": [
+"server",
+"cashier",
+"busser",
+"bartender",
+"dishwasher",
+"line cook",
+"waitress"
+],
+"n_eligible": 7,
+"sha": "94680adf66f2378b0d3e3073e8a38190159919209ca41d5d99163e90ed1fb807",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0036__L048__p57:hotelreceptionist:restaurantstaffmember": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0036__L048__p57:hotelreceptionist:restaurantstaffmember",
+"anchor": "restaurant staff member",
+"nearest": [
+"server",
+"cashier",
+"busser",
+"bartender"
+],
+"random": [
+"dishwasher",
+"line cook",
+"waitress"
+],
+"distractors": [
+"server",
+"cashier",
+"busser",
+"bartender",
+"dishwasher",
+"line cook",
+"waitress"
+],
+"n_eligible": 7,
+"sha": "1541ddc504c96fc03b252ee34bbf29ea5b1cf4fb9171d302cbd85514ab08c8c3",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0036__L048__p42:frontdeskagentforahotel:staffmemberatthefriendshiprestaurant": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0036__L048__p42:frontdeskagentforahotel:staffmemberatthefriendshiprestaurant",
+"anchor": "restaurant staff member",
+"nearest": [
+"server",
+"cashier",
+"busser",
+"bartender"
+],
+"random": [
+"dishwasher",
+"line cook",
+"waitress"
+],
+"distractors": [
+"server",
+"cashier",
+"busser",
+"bartender",
+"dishwasher",
+"line cook",
+"waitress"
+],
+"n_eligible": 7,
+"sha": "df169f11bf6bc3b09aefee1671679928346f8e66db50a7e03fe595e0003eed07",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0036__L020__p77:coffeeshopbarista:friendshiprestaurantstaff": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0036__L020__p77:coffeeshopbarista:friendshiprestaurantstaff",
+"anchor": "restaurant staff member",
+"nearest": [
+"server",
+"cashier",
+"busser",
+"bartender"
+],
+"random": [
+"dishwasher",
+"line cook",
+"waitress"
+],
+"distractors": [
+"server",
+"cashier",
+"busser",
+"bartender",
+"dishwasher",
+"line cook",
+"waitress"
+],
+"n_eligible": 7,
+"sha": "11e5db8cc6c0c4ec16161493788b4a169b5f806716bf2ada7174a539f836deb9",
+"generation": 0
+},
+"nla-rl-L42:chat-dailydialog-0036__L042__p57:frontdeskreceptionist:restaurantstaffmember": {
+"unit": "nla-rl-L42:chat-dailydialog-0036__L042__p57:frontdeskreceptionist:restaurantstaffmember",
+"anchor": "restaurant host",
+"nearest": [
+"busser",
+"cashier",
+"server",
+"waitress"
+],
+"random": [
+"bartender",
+"dishwasher",
+"line cook"
+],
+"distractors": [
+"busser",
+"cashier",
+"server",
+"waitress",
+"bartender",
+"dishwasher",
+"line cook"
+],
+"n_eligible": 7,
+"sha": "4c5ae42317647924d48f110d08d32a768bfc58ab522595d87c38856b47fa21f8",
+"generation": 0
+},
+"s3d-rl600:chat-dailydialog-0036__L036__p42:hotelfrontdeskstaff:restaurantstaff": {
+"unit": "s3d-rl600:chat-dailydialog-0036__L036__p42:hotelfrontdeskstaff:restaurantstaff",
+"anchor": "restaurant staff",
+"nearest": [
+"waiter",
+"server",
+"busser",
+"waitress"
+],
+"random": [
+"bartender",
+"cashier",
+"dishwasher",
+"line cook"
+],
+"distractors": [
+"waiter",
+"server",
+"busser",
+"waitress",
+"bartender",
+"cashier",
+"dishwasher",
+"line cook"
+],
+"n_eligible": 8,
+"sha": "e132ed3b9e043cff60497c5e1466cbd67297c714af47a1918b0b3919f8060284",
+"generation": 0
+},
+"s3d-rl600:chat-dailydialog-0036__L036__p42:hotelreceptionist:restaurantstaffmember": {
+"unit": "s3d-rl600:chat-dailydialog-0036__L036__p42:hotelreceptionist:restaurantstaffmember",
+"anchor": "restaurant staff member",
+"nearest": [
+"server",
+"cashier",
+"busser",
+"bartender"
+],
+"random": [
+"dishwasher",
+"line cook",
+"waitress"
+],
+"distractors": [
+"server",
+"cashier",
+"busser",
+"bartender",
+"dishwasher",
+"line cook",
+"waitress"
+],
+"n_eligible": 7,
+"sha": "5f9101c20cc6e53a53e449168578937162deb3323663162eb91fcb02ae11ebdb",
+"generation": 0
+}
+}

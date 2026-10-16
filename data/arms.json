@@ -1,0 +1,476 @@
+{
+ "version": 1,
+ "_doc": "Plan 0010 §1 arm registry. gated_arms = the persisted default gate set (hbench gate --add-arm X appends). arms.<a>.cells overrides <cells-root>/<a>/cells.jsonl. usd_per_generated_sample: plan-0009 wall-time estimates (16 H200 shards x $4.54/h), for the --plan cost guard only.",
+ "gated_arms": [
+  "s3d-rl600",
+  "s3d-rl600-all11",
+  "s3d-sft251",
+  "mlnla-rl600-all11",
+  "mlnla-rl2-800-all11",
+  "nla-rl-L42",
+  "nla-sft-L42",
+  "patchscopes",
+  "jlens",
+  "logit",
+  "tuned",
+  "rlens",
+  "template-v3",
+  "sae-l42",
+  "mlnla-ck2000-all11"
+ ],
+ "arms": {
+  "s3d-rl600": {
+   "cells": null,
+   "readouts": "/workspace/hb-readouts/s3d-rl600/hallucination.jsonl",
+   "kind": "sampled",
+   "family": "s3d",
+   "layers": [
+    20,
+    36,
+    44,
+    48,
+    60
+   ],
+   "pool": "s3d-rl600"
+  },
+  "s3d-rl600-all11": {
+   "cells": "/workspace/hb-taxonomy-v2/outputs/wsbench_chat/claude-opus-5-5/s3d-rl600-all11/cells.jsonl",
+   "readouts": "/workspace/hb-readouts/s3d-rl600-all11/hallucination.jsonl",
+   "kind": "sampled",
+   "family": "s3d",
+   "layers": [
+    20,
+    24,
+    28,
+    32,
+    36,
+    40,
+    44,
+    48,
+    52,
+    56,
+    60
+   ],
+   "pool": "s3d-rl600"
+  },
+  "s3d-sft251": {
+   "cells": null,
+   "readouts": "/workspace/hb-readouts/s3d-sft251/hallucination.jsonl",
+   "kind": "sampled",
+   "family": "s3d",
+   "layers": [
+    20,
+    24,
+    28,
+    32,
+    36,
+    40,
+    44,
+    48,
+    52,
+    56,
+    60
+   ],
+   "pool": "s3d-sft251"
+  },
+  "mlnla-rl600-all11": {
+   "cells": "/workspace/hb-taxonomy-v2/outputs/wsbench_chat/claude-opus-5-5/mlnla-rl600-all11/cells.jsonl",
+   "readouts": "/workspace/hb-readouts/mlnla-rl600-all11/hallucination.jsonl",
+   "kind": "sampled",
+   "family": "mlnla",
+   "layers": [
+    20,
+    24,
+    28,
+    32,
+    36,
+    40,
+    44,
+    48,
+    52,
+    56,
+    60
+   ],
+   "pool": "mlnla-rl600"
+  },
+  "mlnla-rl2-800-all11": {
+   "cells": "/workspace/hb-taxonomy-v2/outputs/wsbench_chat/claude-opus-5-5/mlnla-rl2-800-all11/cells.jsonl",
+   "readouts": "/workspace/hb-readouts/mlnla-rl2-800-all11/hallucination.jsonl",
+   "kind": "sampled",
+   "family": "mlnla",
+   "layers": [
+    20,
+    24,
+    28,
+    32,
+    36,
+    40,
+    44,
+    48,
+    52,
+    56,
+    60
+   ],
+   "pool": "mlnla-rl2-800"
+  },
+  "nla-rl-L42": {
+   "cells": null,
+   "readouts": "/workspace/hb-readouts/nla-rl-L42/hallucination.jsonl",
+   "kind": "sampled",
+   "family": "nla",
+   "layers": [
+    42
+   ],
+   "pool": "nla-rl"
+  },
+  "nla-sft-L42": {
+   "cells": null,
+   "readouts": "/workspace/hb-readouts/nla-sft-L42/hallucination.jsonl",
+   "kind": "sampled",
+   "family": "nla",
+   "layers": [
+    42
+   ],
+   "pool": "nla-sft"
+  },
+  "patchscopes": {
+   "cells": null,
+   "readouts": "/workspace/hb-readouts/patchscopes/hallucination.jsonl",
+   "kind": "sampled",
+   "family": "patchscopes",
+   "layers": [
+    20,
+    24,
+    28,
+    32,
+    36,
+    40,
+    44,
+    48,
+    52,
+    56,
+    60
+   ],
+   "pool": "patchscopes"
+  },
+  "jlens": {
+   "cells": null,
+   "readouts": "/workspace/hb-readouts/jlens/hallucination.jsonl",
+   "kind": "token",
+   "family": "jlens",
+   "layers": [
+    20,
+    24,
+    28,
+    32,
+    36,
+    40,
+    44,
+    48,
+    52,
+    56,
+    60
+   ],
+   "pool": null
+  },
+  "logit": {
+   "cells": null,
+   "readouts": "/workspace/hb-readouts/logit/hallucination.jsonl",
+   "kind": "token",
+   "family": "logit",
+   "layers": [
+    20,
+    24,
+    28,
+    32,
+    36,
+    40,
+    44,
+    48,
+    52,
+    56,
+    60
+   ],
+   "pool": null
+  },
+  "tuned": {
+   "cells": null,
+   "readouts": "/workspace/hb-readouts/tuned/hallucination.jsonl",
+   "kind": "token",
+   "family": "tuned",
+   "layers": [
+    20,
+    24,
+    28,
+    32,
+    36,
+    40,
+    44,
+    48,
+    52,
+    56,
+    60
+   ],
+   "pool": null
+  },
+  "rlens": {
+   "cells": null,
+   "readouts": "/workspace/hb-readouts/rlens/hallucination.jsonl",
+   "kind": "token",
+   "family": "rlens",
+   "layers": [
+    20,
+    24,
+    28,
+    32,
+    36,
+    40,
+    44,
+    48,
+    52,
+    56,
+    60
+   ],
+   "pool": null
+  },
+  "template-v3": {
+   "cells": null,
+   "readouts": "/workspace/hb-readouts/template-v3/hallucination.jsonl",
+   "kind": "token",
+   "family": "template-v3",
+   "layers": [
+    20,
+    24,
+    28,
+    32,
+    36,
+    40,
+    44,
+    48,
+    52,
+    56,
+    60
+   ],
+   "pool": null
+  },
+  "sae-l42": {
+   "cells": null,
+   "readouts": "/workspace/hb-readouts/sae-l42/hallucination.jsonl",
+   "kind": "token",
+   "family": "sae-l42",
+   "layers": [
+    42
+   ],
+   "pool": null
+  },
+  "mlnla-ck2000-all11": {
+   "cells": "/workspace/hb-taxonomy-v2/outputs/wsbench_chat/claude-opus-5-5/mlnla-ck2000-all11/cells.jsonl",
+   "readouts": "/workspace/hb-readouts/mlnla-ck2000-all11/hallucination.jsonl",
+   "kind": "sampled",
+   "family": "mlnla",
+   "layers": [
+    20,
+    24,
+    28,
+    32,
+    36,
+    40,
+    44,
+    48,
+    52,
+    56,
+    60
+   ],
+   "pool": "mlnla-ck2000"
+  }
+ },
+ "pools": {
+  "s3d-rl600": {
+   "generator": "read",
+   "args": {
+    "merged": "s3d-rl600",
+    "acts": "acts-hallucination-chat"
+   },
+   "sampling": {
+    "temperature": 1.0,
+    "top_p": 0.95,
+    "top_k": 64,
+    "max_new": 256
+   },
+   "orig_arm": "s3d-rl600-all11",
+   "orig_readouts": "/workspace/hb-readouts/s3d-rl600-all11/hallucination.jsonl",
+   "gpu": "H200",
+   "samples_per_run": 10,
+   "conditional": false,
+   "usd_per_generated_sample": 0.00056
+  },
+  "s3d-sft251": {
+   "generator": "read",
+   "args": {
+    "merged": "s3d-sft251",
+    "acts": "acts-hallucination-chat"
+   },
+   "sampling": {
+    "temperature": 1.0,
+    "top_p": 0.95,
+    "top_k": 64,
+    "max_new": 256
+   },
+   "orig_arm": "s3d-sft251",
+   "orig_readouts": "/workspace/hb-readouts/s3d-sft251/hallucination.jsonl",
+   "gpu": "H200",
+   "samples_per_run": 10,
+   "conditional": false,
+   "usd_per_generated_sample": 0.00056
+  },
+  "mlnla-rl600": {
+   "generator": "nla",
+   "args": {
+    "lens": "mlnla-rl600",
+    "acts": "acts-hallucination-chat"
+   },
+   "sampling": {
+    "temperature": 1.0,
+    "top_p": 0.95,
+    "top_k": 64,
+    "max_new": 256
+   },
+   "orig_arm": "mlnla-rl600-all11",
+   "orig_readouts": "/workspace/hb-readouts/mlnla-rl600-all11/hallucination.jsonl",
+   "gpu": "H200",
+   "samples_per_run": 10,
+   "conditional": false,
+   "usd_per_generated_sample": 0.0048
+  },
+  "mlnla-rl2-800": {
+   "generator": "nla",
+   "args": {
+    "lens": "mlnla-rl2-800",
+    "acts": "acts-hallucination-chat"
+   },
+   "sampling": {
+    "temperature": 1.0,
+    "top_p": 0.95,
+    "top_k": 64,
+    "max_new": 256
+   },
+   "orig_arm": "mlnla-rl2-800-all11",
+   "orig_readouts": "/workspace/hb-readouts/mlnla-rl2-800-all11/hallucination.jsonl",
+   "gpu": "H200",
+   "samples_per_run": 10,
+   "conditional": false,
+   "usd_per_generated_sample": 0.0048
+  },
+  "nla-rl": {
+   "generator": "nla",
+   "args": {
+    "lens": "nla-rl400",
+    "acts": "acts-hallucination-chat-L42"
+   },
+   "sampling": {
+    "temperature": 1.0,
+    "top_p": 0.95,
+    "top_k": 64,
+    "max_new": 256
+   },
+   "orig_arm": "nla-rl-L42",
+   "orig_readouts": "/workspace/hb-readouts/nla-rl-L42/hallucination.jsonl",
+   "gpu": "H200",
+   "samples_per_run": 10,
+   "conditional": false,
+   "usd_per_generated_sample": 0.011
+  },
+  "nla-sft": {
+   "generator": "nla",
+   "args": {
+    "lens": "nla-sft3864",
+    "acts": "acts-hallucination-chat-L42"
+   },
+   "sampling": {
+    "temperature": 1.0,
+    "top_p": 0.95,
+    "top_k": 64,
+    "max_new": 256
+   },
+   "orig_arm": "nla-sft-L42",
+   "orig_readouts": "/workspace/hb-readouts/nla-sft-L42/hallucination.jsonl",
+   "gpu": "H200",
+   "samples_per_run": 10,
+   "conditional": false,
+   "usd_per_generated_sample": 0.011
+  },
+  "patchscopes": {
+   "generator": "lensagree",
+   "args": {
+    "acts": "acts-hallucination-chat"
+   },
+   "sampling": {
+    "temperature": 1.0,
+    "top_p": 0.95,
+    "top_k": 64,
+    "max_new": 256
+   },
+   "orig_arm": "patchscopes",
+   "orig_readouts": "/workspace/hb-readouts/patchscopes/hallucination.jsonl",
+   "gpu": "H200",
+   "samples_per_run": 1,
+   "conditional": true,
+   "usd_per_generated_sample": 0.021
+  },
+  "mlnla-ck2000": {
+   "generator": "nla",
+   "args": {
+    "lens": "mlnla-rl2-2000",
+    "acts": "acts-hallucination-chat"
+   },
+   "sampling": {
+    "temperature": 1.0,
+    "top_p": 0.95,
+    "top_k": 64,
+    "max_new": 256
+   },
+   "orig_arm": "mlnla-ck2000-all11",
+   "orig_readouts": "/workspace/hb-readouts/mlnla-ck2000-all11/hallucination.jsonl",
+   "gpu": "H200",
+   "samples_per_run": 10,
+   "conditional": false,
+   "usd_per_generated_sample": 0.0048
+  }
+ },
+ "acts_manifests": {
+  "acts-hallucination-chat": "/workspace/gw-ar-probe-deception-v2/evals/workspace-bench/hillclimbing_evals/hallucination/chat/acts-hallucination-chat/manifest.json",
+  "acts-hallucination-chat-L42": "/workspace/gw-ar-probe-deception-v2/evals/workspace-bench/hillclimbing_evals/hallucination/chat/acts-hallucination-chat-L42/manifest.json"
+ },
+ "env": {
+  "MODAL_RESOURCE_ENV": "camila-blank",
+  "WSBENCH_GEN_VOLUME": "sibgate-gen",
+  "WSBENCH_READ_GPU": "H200",
+  "modal": "uvx --python 3.12 modal@latest",
+  "snapshot_root": "/workspace/hb-gate-snap",
+  "acts_volume": "wsbench-acts",
+  "probe_run": "sibgate-v1",
+  "tokenizer": "Qwen/Qwen3.6-27B"
+ },
+ "snapshots": {
+  "gw-mlnla": {
+   "commit": "f0d704ecdbbf837bc522ea22d1080fde46c27310",
+   "source": "/workspace/gw-mlnla",
+   "patches": [
+    {
+     "file": "scripts/patchscopes/modal_lensagree.py",
+     "old": "GPU = \"H100\"",
+     "new": "GPU = \"H200\"  # sibgate: Camila 2026-10-15 \"do h200s\" (original: H100)"
+    }
+   ],
+   "tree_sha256": "c705c95f1194278ea8f34366a0fc3898d065a53d94574436565355c38a8f5322",
+   "path": "/workspace/hb-gate-snap/gw-mlnla-f0d704ec"
+  },
+  "gw-wrong-bridge": {
+   "commit": "2e9413d3bd04d0f7a5abed035bf501ac9515e8f1",
+   "source": "/workspace/gw-wrong-bridge",
+   "patches": [],
+   "tree_sha256": "e4292f622607ef953ab257c561141ec7b31a634813cb5ba1ab461c469e40a8f1",
+   "path": "/workspace/hb-gate-snap/gw-wrong-bridge-2e9413d3"
+  }
+ }
+}

@@ -1,0 +1,930 @@
+{
+"mlnla-ck2000-all11:chat-dailydialog-0036__L032__p57:café:restaurant": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0036__L032__p57:café:restaurant",
+"anchor": "restaurant",
+"nearest": [
+"buffet",
+"food truck",
+"cafeteria",
+"steakhouse"
+],
+"random": [
+"bistro",
+"deli",
+"diner",
+"tavern"
+],
+"distractors": [
+"buffet",
+"food truck",
+"cafeteria",
+"steakhouse",
+"bistro",
+"deli",
+"diner",
+"tavern"
+],
+"n_eligible": 10,
+"sha": "d6e443168b578108adc504faf04bf739502ffd346fc6830cd4943f80ec305cd8",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0059__L024__p27:restaurant:coffeeshop": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0059__L024__p27:restaurant:coffeeshop",
+"anchor": "coffee shop",
+"nearest": [
+"pizzeria",
+"pub",
+"food truck",
+"cafeteria"
+],
+"random": [
+"bistro",
+"deli",
+"diner",
+"tavern"
+],
+"distractors": [
+"pizzeria",
+"pub",
+"food truck",
+"cafeteria",
+"bistro",
+"deli",
+"diner",
+"tavern"
+],
+"n_eligible": 11,
+"sha": "4ced37cb4125e7c1fcd95d9a737e6af24fb6ae66ac372ccc95d97f8f543566b6",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0059__L032__p27:restaurant:coffeeshop": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0059__L032__p27:restaurant:coffeeshop",
+"anchor": "coffee shop",
+"nearest": [
+"pizzeria",
+"pub",
+"food truck",
+"cafeteria"
+],
+"random": [
+"bistro",
+"brasserie",
+"steakhouse",
+"tavern"
+],
+"distractors": [
+"pizzeria",
+"pub",
+"food truck",
+"cafeteria",
+"bistro",
+"brasserie",
+"steakhouse",
+"tavern"
+],
+"n_eligible": 11,
+"sha": "e5a60daa3ba9992f7b76f8219e087d8ab338f97a16e06eb39d9d89c566d119ae",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0059__L036__p27:restaurant:coffeeshop": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0059__L036__p27:restaurant:coffeeshop",
+"anchor": "coffee shop",
+"nearest": [
+"pizzeria",
+"pub",
+"food truck",
+"cafeteria"
+],
+"random": [
+"bistro",
+"brasserie",
+"deli",
+"steakhouse"
+],
+"distractors": [
+"pizzeria",
+"pub",
+"food truck",
+"cafeteria",
+"bistro",
+"brasserie",
+"deli",
+"steakhouse"
+],
+"n_eligible": 11,
+"sha": "9d6e5df40517e948bf034d8b38535d589c2a1570887670113e55a15aa50a2c9e",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0059__L040__p27:restaurant:coffeeshop": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0059__L040__p27:restaurant:coffeeshop",
+"anchor": "coffee shop",
+"nearest": [
+"pizzeria",
+"pub",
+"food truck",
+"cafeteria"
+],
+"random": [
+"brasserie",
+"buffet",
+"deli",
+"steakhouse"
+],
+"distractors": [
+"pizzeria",
+"pub",
+"food truck",
+"cafeteria",
+"brasserie",
+"buffet",
+"deli",
+"steakhouse"
+],
+"n_eligible": 11,
+"sha": "8ea4aaf3517f8512dd80568a810b95342deb93f57d2b2282b612a9dbba9ff2b7",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0059__L044__p35:restaurant:coffeeshop": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0059__L044__p35:restaurant:coffeeshop",
+"anchor": "coffee shop",
+"nearest": [
+"pizzeria",
+"pub",
+"food truck",
+"cafeteria"
+],
+"random": [
+"bistro",
+"buffet",
+"steakhouse",
+"tavern"
+],
+"distractors": [
+"pizzeria",
+"pub",
+"food truck",
+"cafeteria",
+"bistro",
+"buffet",
+"steakhouse",
+"tavern"
+],
+"n_eligible": 11,
+"sha": "f09f5a99bd5806f18e389025c9ea74173ce53057bdd40c92a0e8ee6a0e1a502a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0059__L044__p35:restaurants:coffeeshop": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0059__L044__p35:restaurants:coffeeshop",
+"anchor": "coffee shop",
+"nearest": [
+"pizzeria",
+"pub",
+"food truck",
+"cafeteria"
+],
+"random": [
+"brasserie",
+"deli",
+"steakhouse",
+"tavern"
+],
+"distractors": [
+"pizzeria",
+"pub",
+"food truck",
+"cafeteria",
+"brasserie",
+"deli",
+"steakhouse",
+"tavern"
+],
+"n_eligible": 11,
+"sha": "4a87392fdc33df2f5960299f4daa4c6cdd34970f5715c271d23ad1916c00519e",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0059__L040__p27:restaurant:coffeeshop": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0059__L040__p27:restaurant:coffeeshop",
+"anchor": "coffee shop",
+"nearest": [
+"pizzeria",
+"pub",
+"food truck",
+"cafeteria"
+],
+"random": [
+"bistro",
+"brasserie",
+"steakhouse",
+"tavern"
+],
+"distractors": [
+"pizzeria",
+"pub",
+"food truck",
+"cafeteria",
+"bistro",
+"brasserie",
+"steakhouse",
+"tavern"
+],
+"n_eligible": 11,
+"sha": "356664466650c0b2e2ebf0991920b220b18e7824f3ced8e429fe401252aeb527",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0059__L040__p35:restaurant:coffeeshop": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0059__L040__p35:restaurant:coffeeshop",
+"anchor": "coffee shop",
+"nearest": [
+"pizzeria",
+"pub",
+"food truck",
+"cafeteria"
+],
+"random": [
+"bistro",
+"deli",
+"diner",
+"tavern"
+],
+"distractors": [
+"pizzeria",
+"pub",
+"food truck",
+"cafeteria",
+"bistro",
+"deli",
+"diner",
+"tavern"
+],
+"n_eligible": 11,
+"sha": "91d22d8c323f35d6a709c8ef43b858d15ef54fb7af56e0e380810360f20c1686",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0059__L040__p35:restaurants:coffeeshop": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0059__L040__p35:restaurants:coffeeshop",
+"anchor": "coffee shop",
+"nearest": [
+"pizzeria",
+"pub",
+"food truck",
+"cafeteria"
+],
+"random": [
+"bistro",
+"deli",
+"diner",
+"steakhouse"
+],
+"distractors": [
+"pizzeria",
+"pub",
+"food truck",
+"cafeteria",
+"bistro",
+"deli",
+"diner",
+"steakhouse"
+],
+"n_eligible": 11,
+"sha": "34be851f95e2608857a98733d033017b44f396649288504cb6b3df1ee21e8a7b",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0059__L044__p40:restaurant:coffeeshop": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0059__L044__p40:restaurant:coffeeshop",
+"anchor": "coffee shop",
+"nearest": [
+"pizzeria",
+"pub",
+"food truck",
+"cafeteria"
+],
+"random": [
+"bistro",
+"buffet",
+"deli",
+"diner"
+],
+"distractors": [
+"pizzeria",
+"pub",
+"food truck",
+"cafeteria",
+"bistro",
+"buffet",
+"deli",
+"diner"
+],
+"n_eligible": 11,
+"sha": "d1d82f6c4064ba932754a86132bf0019c302ef898ce9a0d1d4066f4251852542",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0059__L048__p35:restaurant:coffeeshop": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0059__L048__p35:restaurant:coffeeshop",
+"anchor": "coffee shop",
+"nearest": [
+"pizzeria",
+"pub",
+"food truck",
+"cafeteria"
+],
+"random": [
+"brasserie",
+"buffet",
+"steakhouse",
+"tavern"
+],
+"distractors": [
+"pizzeria",
+"pub",
+"food truck",
+"cafeteria",
+"brasserie",
+"buffet",
+"steakhouse",
+"tavern"
+],
+"n_eligible": 11,
+"sha": "9badeed30257223671998f3d23797efbf5ddbc5d72f7523dd41972401a277435",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0059__L048__p40:restaurant:coffeeshop": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0059__L048__p40:restaurant:coffeeshop",
+"anchor": "coffee shop",
+"nearest": [
+"pizzeria",
+"pub",
+"food truck",
+"cafeteria"
+],
+"random": [
+"buffet",
+"deli",
+"steakhouse",
+"tavern"
+],
+"distractors": [
+"pizzeria",
+"pub",
+"food truck",
+"cafeteria",
+"buffet",
+"deli",
+"steakhouse",
+"tavern"
+],
+"n_eligible": 11,
+"sha": "781ac69eb8d17b406103c61f2f5a12a0d0811986f60e827c31a49463ca8a7681",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0059__L052__p40:restaurant:coffeeshop": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0059__L052__p40:restaurant:coffeeshop",
+"anchor": "coffee shop",
+"nearest": [
+"pizzeria",
+"pub",
+"food truck",
+"cafeteria"
+],
+"random": [
+"buffet",
+"deli",
+"diner",
+"tavern"
+],
+"distractors": [
+"pizzeria",
+"pub",
+"food truck",
+"cafeteria",
+"buffet",
+"deli",
+"diner",
+"tavern"
+],
+"n_eligible": 11,
+"sha": "dd64cbc6d752620e5f77dc2380901cd911915dfd05f5effaf796a1c4b69af91d",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0036__L044__p77:coffeeshop:restaurant": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0036__L044__p77:coffeeshop:restaurant",
+"anchor": "restaurant",
+"nearest": [
+"food truck",
+"buffet",
+"cafeteria",
+"steakhouse"
+],
+"random": [
+"bistro",
+"brasserie",
+"deli",
+"tavern"
+],
+"distractors": [
+"food truck",
+"buffet",
+"cafeteria",
+"steakhouse",
+"bistro",
+"brasserie",
+"deli",
+"tavern"
+],
+"n_eligible": 10,
+"sha": "7125f9cf18b605dd5093daa0c05bab572940d5e2d9cb21da91a0d9f90d4f79b1",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0036__L052__p77:coffeeshop:friendshiprestaurant": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0036__L052__p77:coffeeshop:friendshiprestaurant",
+"anchor": "restaurant",
+"nearest": [
+"food truck",
+"buffet",
+"cafeteria",
+"steakhouse"
+],
+"random": [
+"bistro",
+"brasserie",
+"deli",
+"diner"
+],
+"distractors": [
+"food truck",
+"buffet",
+"cafeteria",
+"steakhouse",
+"bistro",
+"brasserie",
+"deli",
+"diner"
+],
+"n_eligible": 10,
+"sha": "6a15c930429cc5c8ac919b72d8dcab815258f857b2df6fadafa7216f62393a4f",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0059__L036__p27:restaurant:coffeeshop": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0059__L036__p27:restaurant:coffeeshop",
+"anchor": "coffee shop",
+"nearest": [
+"pizzeria",
+"pub",
+"food truck",
+"cafeteria"
+],
+"random": [
+"bistro",
+"buffet",
+"diner",
+"steakhouse"
+],
+"distractors": [
+"pizzeria",
+"pub",
+"food truck",
+"cafeteria",
+"bistro",
+"buffet",
+"diner",
+"steakhouse"
+],
+"n_eligible": 11,
+"sha": "22c933fe809ca42f2a4b5693dc88949066b7cd8a1f5623a60a13b9718be4bdc8",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0059__L036__p35:restaurant:coffeeshop": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0059__L036__p35:restaurant:coffeeshop",
+"anchor": "coffee shop",
+"nearest": [
+"pizzeria",
+"pub",
+"food truck",
+"cafeteria"
+],
+"random": [
+"bistro",
+"buffet",
+"steakhouse",
+"tavern"
+],
+"distractors": [
+"pizzeria",
+"pub",
+"food truck",
+"cafeteria",
+"bistro",
+"buffet",
+"steakhouse",
+"tavern"
+],
+"n_eligible": 11,
+"sha": "c58ecce0350a09aca675209678bb654974e34fb8c5fa4d894b5ace4282b0012d",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0059__L036__p36:restaurant:coffeeshop": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0059__L036__p36:restaurant:coffeeshop",
+"anchor": "coffee shop",
+"nearest": [
+"pizzeria",
+"pub",
+"food truck",
+"cafeteria"
+],
+"random": [
+"bistro",
+"buffet",
+"deli",
+"tavern"
+],
+"distractors": [
+"pizzeria",
+"pub",
+"food truck",
+"cafeteria",
+"bistro",
+"buffet",
+"deli",
+"tavern"
+],
+"n_eligible": 11,
+"sha": "40a3c9c10f142a93d59fcb2179638bb2a804de194d0f1266654ddc646578ede4",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0059__L040__p40:restaurant:coffeeshop": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0059__L040__p40:restaurant:coffeeshop",
+"anchor": "coffee shop",
+"nearest": [
+"pizzeria",
+"pub",
+"food truck",
+"cafeteria"
+],
+"random": [
+"brasserie",
+"buffet",
+"deli",
+"steakhouse"
+],
+"distractors": [
+"pizzeria",
+"pub",
+"food truck",
+"cafeteria",
+"brasserie",
+"buffet",
+"deli",
+"steakhouse"
+],
+"n_eligible": 11,
+"sha": "b9917d0e258f034e9ca3336aa08b6b2d43de3695d40b2c3113673e4211e21807",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0059__L044__p27:restaurant:coffeeshop": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0059__L044__p27:restaurant:coffeeshop",
+"anchor": "coffee shop",
+"nearest": [
+"pizzeria",
+"pub",
+"food truck",
+"cafeteria"
+],
+"random": [
+"brasserie",
+"buffet",
+"deli",
+"tavern"
+],
+"distractors": [
+"pizzeria",
+"pub",
+"food truck",
+"cafeteria",
+"brasserie",
+"buffet",
+"deli",
+"tavern"
+],
+"n_eligible": 11,
+"sha": "128baf969bb83372caebce2d66dc641e3c4b618e5c976373d2a60a47d074e0b3",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0059__L048__p27:restaurant:coffeeshop": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0059__L048__p27:restaurant:coffeeshop",
+"anchor": "coffee shop",
+"nearest": [
+"pizzeria",
+"pub",
+"food truck",
+"cafeteria"
+],
+"random": [
+"buffet",
+"deli",
+"diner",
+"tavern"
+],
+"distractors": [
+"pizzeria",
+"pub",
+"food truck",
+"cafeteria",
+"buffet",
+"deli",
+"diner",
+"tavern"
+],
+"n_eligible": 11,
+"sha": "892a9853f6ba02a332be082cdda7993027fb1aa0f6686047bdd60ac401a9ad78",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0059__L048__p35:restaurant:coffeeshop": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0059__L048__p35:restaurant:coffeeshop",
+"anchor": "coffee shop",
+"nearest": [
+"pizzeria",
+"pub",
+"food truck",
+"cafeteria"
+],
+"random": [
+"buffet",
+"diner",
+"steakhouse",
+"tavern"
+],
+"distractors": [
+"pizzeria",
+"pub",
+"food truck",
+"cafeteria",
+"buffet",
+"diner",
+"steakhouse",
+"tavern"
+],
+"n_eligible": 11,
+"sha": "0daaa81a5f777b59b9a993475585bcea991a8208b20a9bb2f150f39505f236b8",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0059__L052__p40:restaurant:coffeeshop": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0059__L052__p40:restaurant:coffeeshop",
+"anchor": "coffee shop",
+"nearest": [
+"pizzeria",
+"pub",
+"food truck",
+"cafeteria"
+],
+"random": [
+"bistro",
+"brasserie",
+"deli",
+"tavern"
+],
+"distractors": [
+"pizzeria",
+"pub",
+"food truck",
+"cafeteria",
+"bistro",
+"brasserie",
+"deli",
+"tavern"
+],
+"n_eligible": 11,
+"sha": "c165b8df6de8a6d28b5d2ef353a8fbf144a03bc38a5ab525ef2f23054a84db1f",
+"generation": 0
+},
+"nla-sft-L42:chat-dailydialog-0059__L042__p36:restaurant:coffeeshop": {
+"unit": "nla-sft-L42:chat-dailydialog-0059__L042__p36:restaurant:coffeeshop",
+"anchor": "coffee shop",
+"nearest": [
+"pizzeria",
+"pub",
+"food truck",
+"cafeteria"
+],
+"random": [
+"brasserie",
+"buffet",
+"diner",
+"steakhouse"
+],
+"distractors": [
+"pizzeria",
+"pub",
+"food truck",
+"cafeteria",
+"brasserie",
+"buffet",
+"diner",
+"steakhouse"
+],
+"n_eligible": 11,
+"sha": "7d06e8680f746b9388aae4d24577fb0b2bc5b93eaaffc610158aa984887b9c7e",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0036__L028__p42:cafe:restaurant": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0036__L028__p42:cafe:restaurant",
+"anchor": "restaurant",
+"nearest": [
+"food truck",
+"buffet",
+"steakhouse",
+"bistro"
+],
+"random": [
+"brasserie",
+"deli",
+"diner",
+"tavern"
+],
+"distractors": [
+"food truck",
+"buffet",
+"steakhouse",
+"bistro",
+"brasserie",
+"deli",
+"diner",
+"tavern"
+],
+"n_eligible": 9,
+"sha": "2c6237845845feb6f6497b9b2db06bb6f6cdbe133a77c13a4eee053c4a812889",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0059__L020__p27:restaurant:coffeeshop": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0059__L020__p27:restaurant:coffeeshop",
+"anchor": "coffee shop",
+"nearest": [
+"pizzeria",
+"pub",
+"food truck",
+"cafeteria"
+],
+"random": [
+"bistro",
+"brasserie",
+"diner",
+"tavern"
+],
+"distractors": [
+"pizzeria",
+"pub",
+"food truck",
+"cafeteria",
+"bistro",
+"brasserie",
+"diner",
+"tavern"
+],
+"n_eligible": 11,
+"sha": "594ac6bfb5e728fce44a70a65ddc9637ded0da7bbb42c30c4aec70226bcf07d2",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0059__L048__p35:restaurant:coffeeshop": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0059__L048__p35:restaurant:coffeeshop",
+"anchor": "coffee shop",
+"nearest": [
+"pizzeria",
+"pub",
+"food truck",
+"cafeteria"
+],
+"random": [
+"brasserie",
+"buffet",
+"diner",
+"steakhouse"
+],
+"distractors": [
+"pizzeria",
+"pub",
+"food truck",
+"cafeteria",
+"brasserie",
+"buffet",
+"diner",
+"steakhouse"
+],
+"n_eligible": 11,
+"sha": "a5ef9e2327126738352f390e78f566c839a576b2b6a4eddd72d78334a531ab29",
+"generation": 0
+},
+"s3d-rl600:chat-dailydialog-0059__L020__p27:restaurant:coffeeshop": {
+"unit": "s3d-rl600:chat-dailydialog-0059__L020__p27:restaurant:coffeeshop",
+"anchor": "coffee shop",
+"nearest": [
+"pizzeria",
+"pub",
+"food truck",
+"cafeteria"
+],
+"random": [
+"bistro",
+"brasserie",
+"buffet",
+"tavern"
+],
+"distractors": [
+"pizzeria",
+"pub",
+"food truck",
+"cafeteria",
+"bistro",
+"brasserie",
+"buffet",
+"tavern"
+],
+"n_eligible": 11,
+"sha": "5f65ae82462ff48ca9139e57c15505d39e6ecb8bdbfb07bdfc9b6ee52a00b52e",
+"generation": 0
+},
+"s3d-rl600:chat-dailydialog-0059__L036__p27:restaurant:coffeeshop": {
+"unit": "s3d-rl600:chat-dailydialog-0059__L036__p27:restaurant:coffeeshop",
+"anchor": "coffee shop",
+"nearest": [
+"pizzeria",
+"pub",
+"food truck",
+"cafeteria"
+],
+"random": [
+"brasserie",
+"buffet",
+"deli",
+"tavern"
+],
+"distractors": [
+"pizzeria",
+"pub",
+"food truck",
+"cafeteria",
+"brasserie",
+"buffet",
+"deli",
+"tavern"
+],
+"n_eligible": 11,
+"sha": "07657efe038d4bbb81e24a6098d9f0d73344244606a88e9037a6958c5bcd3f5e",
+"generation": 0
+},
+"s3d-rl600:chat-dailydialog-0059__L036__p50:restaurant:coffeeshop": {
+"unit": "s3d-rl600:chat-dailydialog-0059__L036__p50:restaurant:coffeeshop",
+"anchor": "coffee shop",
+"nearest": [
+"pizzeria",
+"pub",
+"food truck",
+"cafeteria"
+],
+"random": [
+"brasserie",
+"deli",
+"diner",
+"tavern"
+],
+"distractors": [
+"pizzeria",
+"pub",
+"food truck",
+"cafeteria",
+"brasserie",
+"deli",
+"diner",
+"tavern"
+],
+"n_eligible": 11,
+"sha": "ef6bb2405fcb3f24b0c9f645534302336bae4366821f25e4c1974cc0847405cd",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0059__L040__p27:restaurant:coffeeshop": {
+"unit": "s3d-sft251:chat-dailydialog-0059__L040__p27:restaurant:coffeeshop",
+"anchor": "coffee shop",
+"nearest": [
+"pizzeria",
+"pub",
+"food truck",
+"cafeteria"
+],
+"random": [
+"bistro",
+"brasserie",
+"steakhouse",
+"tavern"
+],
+"distractors": [
+"pizzeria",
+"pub",
+"food truck",
+"cafeteria",
+"bistro",
+"brasserie",
+"steakhouse",
+"tavern"
+],
+"n_eligible": 11,
+"sha": "c444370d6999ca2f57cb09cf109feb8944852797c2037b0fd7e106a8e24b1f32",
+"generation": 0
+}
+}

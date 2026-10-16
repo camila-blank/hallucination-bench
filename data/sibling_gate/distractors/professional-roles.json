@@ -1,0 +1,176 @@
+{
+"s3d-rl600-all11:chat-lmsys-0047__L036__p314:businessconsultant:familytravelspecialist": {
+"unit": "s3d-rl600-all11:chat-lmsys-0047__L036__p314:businessconsultant:familytravelspecialist",
+"anchor": "Family Travel Specialist",
+"nearest": [
+"nurse",
+"teacher",
+"dentist",
+"pharmacist"
+],
+"random": [
+"accountant",
+"architect",
+"doctor",
+"lawyer"
+],
+"distractors": [
+"nurse",
+"teacher",
+"dentist",
+"pharmacist",
+"accountant",
+"architect",
+"doctor",
+"lawyer"
+],
+"n_eligible": 9,
+"sha": "b05336ba69aedcd5ce4ab2650fee7e8a767a5335b92f4e6518f8a81acb315512",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0047__L036__p314:curriculumdeveloper:familytravelspecialist": {
+"unit": "s3d-rl600-all11:chat-lmsys-0047__L036__p314:curriculumdeveloper:familytravelspecialist",
+"anchor": "Family Travel Specialist",
+"nearest": [
+"nurse",
+"teacher",
+"dentist",
+"pharmacist"
+],
+"random": [
+"accountant",
+"architect",
+"doctor",
+"software engineer"
+],
+"distractors": [
+"nurse",
+"teacher",
+"dentist",
+"pharmacist",
+"accountant",
+"architect",
+"doctor",
+"software engineer"
+],
+"n_eligible": 9,
+"sha": "1b7d1ceb23b0febcf0444f00ab0e5c4e74d4070c37a9b8dd4d48170ec78c0794",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0047__L036__p314:marketingconsultant:familytravelspecialist": {
+"unit": "s3d-rl600-all11:chat-lmsys-0047__L036__p314:marketingconsultant:familytravelspecialist",
+"anchor": "Family Travel Specialist",
+"nearest": [
+"nurse",
+"teacher",
+"dentist",
+"pharmacist"
+],
+"random": [
+"accountant",
+"architect",
+"doctor",
+"software engineer"
+],
+"distractors": [
+"nurse",
+"teacher",
+"dentist",
+"pharmacist",
+"accountant",
+"architect",
+"doctor",
+"software engineer"
+],
+"n_eligible": 9,
+"sha": "15f8cc60f8498a0db9716eaeb8c4b228c768aeddd2ee7f4a6359d1a59d1f18bd",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0047__L036__p314:marketingstrategist:familytravelspecialist": {
+"unit": "s3d-rl600-all11:chat-lmsys-0047__L036__p314:marketingstrategist:familytravelspecialist",
+"anchor": "Family Travel Specialist",
+"nearest": [
+"nurse",
+"teacher",
+"dentist",
+"pharmacist"
+],
+"random": [
+"accountant",
+"architect",
+"doctor",
+"software engineer"
+],
+"distractors": [
+"nurse",
+"teacher",
+"dentist",
+"pharmacist",
+"accountant",
+"architect",
+"doctor",
+"software engineer"
+],
+"n_eligible": 9,
+"sha": "ca737638a5019f57cbde97d89e9804b2a9b496f371b843df1cb4688442f8b722",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0047__L044__p314:resumewriter:familytravelspecialist": {
+"unit": "s3d-rl600-all11:chat-lmsys-0047__L044__p314:resumewriter:familytravelspecialist",
+"anchor": "Family Travel Specialist",
+"nearest": [
+"nurse",
+"teacher",
+"dentist",
+"pharmacist"
+],
+"random": [
+"accountant",
+"architect",
+"lawyer",
+"software engineer"
+],
+"distractors": [
+"nurse",
+"teacher",
+"dentist",
+"pharmacist",
+"accountant",
+"architect",
+"lawyer",
+"software engineer"
+],
+"n_eligible": 9,
+"sha": "e924d0c714d14eefede0df24e2c1ffd673733fd24e1295b12f501bd7da5a51c0",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0047__L048__p314:copywriterandcontentstrategist:familytravelspecialist": {
+"unit": "s3d-sft251:chat-lmsys-0047__L048__p314:copywriterandcontentstrategist:familytravelspecialist",
+"anchor": "Family Travel Specialist",
+"nearest": [
+"nurse",
+"teacher",
+"dentist",
+"pharmacist"
+],
+"random": [
+"accountant",
+"doctor",
+"lawyer",
+"software engineer"
+],
+"distractors": [
+"nurse",
+"teacher",
+"dentist",
+"pharmacist",
+"accountant",
+"doctor",
+"lawyer",
+"software engineer"
+],
+"n_eligible": 9,
+"sha": "a2358b4a0fb2da40224dbf1210943579961d3246219a8605f15a5db222d6d2f0",
+"generation": 0
+}
+}

@@ -1,0 +1,654 @@
+{
+"mlnla-ck2000-all11:chat-lmsys-0011__L020__p244:diffusionpolicies:decisiontransformer": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0011__L020__p244:diffusionpolicies:decisiontransformer",
+"anchor": "Decision Transformer",
+"nearest": [
+"Asynchronous Advantage Actor-Critic",
+"REINFORCE",
+"Advantage Actor-Critic",
+"SARSA"
+],
+"random": [
+"Deep Q-Network",
+"Q-learning"
+],
+"distractors": [
+"Asynchronous Advantage Actor-Critic",
+"REINFORCE",
+"Advantage Actor-Critic",
+"SARSA",
+"Deep Q-Network",
+"Q-learning"
+],
+"n_eligible": 6,
+"sha": "2f798b0e3a7d51a7b402f9afbf8fd5601910a7f4694bd6005129e45b0e2e7411",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0011__L028__p87:trajectorytransformer:decisiontransformer": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0011__L028__p87:trajectorytransformer:decisiontransformer",
+"anchor": "Decision Transformer",
+"nearest": [
+"Asynchronous Advantage Actor-Critic",
+"REINFORCE",
+"Advantage Actor-Critic",
+"SARSA"
+],
+"random": [
+"Deep Deterministic Policy Gradient",
+"Deep Q-Network",
+"Q-learning",
+"Trust Region Policy Optimization"
+],
+"distractors": [
+"Asynchronous Advantage Actor-Critic",
+"REINFORCE",
+"Advantage Actor-Critic",
+"SARSA",
+"Deep Deterministic Policy Gradient",
+"Deep Q-Network",
+"Q-learning",
+"Trust Region Policy Optimization"
+],
+"n_eligible": 8,
+"sha": "b2dbb8489d03a5e5b86dbacba401fc57716a05c13aa94548f9def7906d645d9c",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0011__L036__p170:trajectorytransformer:decisiontransformer": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0011__L036__p170:trajectorytransformer:decisiontransformer",
+"anchor": "Decision Transformer",
+"nearest": [
+"Asynchronous Advantage Actor-Critic",
+"REINFORCE",
+"Advantage Actor-Critic",
+"SARSA"
+],
+"random": [
+"Deep Deterministic Policy Gradient",
+"Deep Q-Network",
+"Q-learning",
+"Trust Region Policy Optimization"
+],
+"distractors": [
+"Asynchronous Advantage Actor-Critic",
+"REINFORCE",
+"Advantage Actor-Critic",
+"SARSA",
+"Deep Deterministic Policy Gradient",
+"Deep Q-Network",
+"Q-learning",
+"Trust Region Policy Optimization"
+],
+"n_eligible": 8,
+"sha": "7bbc625eb66f47deb4d38620052d9d78e736b61b60c0e61a55e33c9cf57e0448",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0011__L056__p146:trajectorytransformer:decisiontransformer": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0011__L056__p146:trajectorytransformer:decisiontransformer",
+"anchor": "Decision Transformer",
+"nearest": [
+"Asynchronous Advantage Actor-Critic",
+"REINFORCE",
+"Advantage Actor-Critic",
+"SARSA"
+],
+"random": [
+"Deep Deterministic Policy Gradient",
+"Deep Q-Network",
+"Q-learning",
+"Trust Region Policy Optimization"
+],
+"distractors": [
+"Asynchronous Advantage Actor-Critic",
+"REINFORCE",
+"Advantage Actor-Critic",
+"SARSA",
+"Deep Deterministic Policy Gradient",
+"Deep Q-Network",
+"Q-learning",
+"Trust Region Policy Optimization"
+],
+"n_eligible": 8,
+"sha": "50d2f666d9cf82a0145f0e9cd91f6fc28938cdc14b92e0f6b9c28b42a89d8002",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0011__L044__p41:rlhf:decisiontransformer": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0011__L044__p41:rlhf:decisiontransformer",
+"anchor": "Decision Transformer",
+"nearest": [
+"Asynchronous Advantage Actor-Critic",
+"Advantage Actor-Critic",
+"SARSA",
+"Trust Region Policy Optimization"
+],
+"random": [
+"Deep Deterministic Policy Gradient",
+"Deep Q-Network"
+],
+"distractors": [
+"Asynchronous Advantage Actor-Critic",
+"Advantage Actor-Critic",
+"SARSA",
+"Trust Region Policy Optimization",
+"Deep Deterministic Policy Gradient",
+"Deep Q-Network"
+],
+"n_eligible": 6,
+"sha": "9694f2bad067c12bec1b5ca9c89fc27195b5d4d5ce5cbe596ab950995ab494c2",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0011__L052__p146:trajectorytransformer:decisiontransformer": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0011__L052__p146:trajectorytransformer:decisiontransformer",
+"anchor": "Decision Transformer",
+"nearest": [
+"Asynchronous Advantage Actor-Critic",
+"REINFORCE",
+"Advantage Actor-Critic",
+"SARSA"
+],
+"random": [
+"Deep Deterministic Policy Gradient",
+"Deep Q-Network",
+"Q-learning",
+"Trust Region Policy Optimization"
+],
+"distractors": [
+"Asynchronous Advantage Actor-Critic",
+"REINFORCE",
+"Advantage Actor-Critic",
+"SARSA",
+"Deep Deterministic Policy Gradient",
+"Deep Q-Network",
+"Q-learning",
+"Trust Region Policy Optimization"
+],
+"n_eligible": 8,
+"sha": "6a2667cd1762efc92a7de9c6298003383038d00f8e509320d14ddd1bf08a3f17",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0011__L056__p146:trajectorytransformer:decisiontransformer": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0011__L056__p146:trajectorytransformer:decisiontransformer",
+"anchor": "Decision Transformer",
+"nearest": [
+"Asynchronous Advantage Actor-Critic",
+"REINFORCE",
+"Advantage Actor-Critic",
+"SARSA"
+],
+"random": [
+"Deep Deterministic Policy Gradient",
+"Deep Q-Network",
+"Q-learning",
+"Trust Region Policy Optimization"
+],
+"distractors": [
+"Asynchronous Advantage Actor-Critic",
+"REINFORCE",
+"Advantage Actor-Critic",
+"SARSA",
+"Deep Deterministic Policy Gradient",
+"Deep Q-Network",
+"Q-learning",
+"Trust Region Policy Optimization"
+],
+"n_eligible": 8,
+"sha": "edc6ca0b855adfaa81b3de36b0dfd94cc011c64867dfcc96a029d288b8b00a4c",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0011__L056__p195:dreamerstyleworldmodelmethod:decisiontransformer": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0011__L056__p195:dreamerstyleworldmodelmethod:decisiontransformer",
+"anchor": "Decision Transformer",
+"nearest": [
+"Asynchronous Advantage Actor-Critic",
+"REINFORCE",
+"Advantage Actor-Critic",
+"SARSA"
+],
+"random": [
+"Deep Deterministic Policy Gradient",
+"Deep Q-Network",
+"Q-learning",
+"Trust Region Policy Optimization"
+],
+"distractors": [
+"Asynchronous Advantage Actor-Critic",
+"REINFORCE",
+"Advantage Actor-Critic",
+"SARSA",
+"Deep Deterministic Policy Gradient",
+"Deep Q-Network",
+"Q-learning",
+"Trust Region Policy Optimization"
+],
+"n_eligible": 8,
+"sha": "df44c4216e6d5027ccc2459f22363de7b7876f401b0ea0ca59d2233c581058a7",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0011__L044__p41:rlhf:decisiontransformer": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0011__L044__p41:rlhf:decisiontransformer",
+"anchor": "Decision Transformer",
+"nearest": [
+"Asynchronous Advantage Actor-Critic",
+"Advantage Actor-Critic",
+"SARSA",
+"Trust Region Policy Optimization"
+],
+"random": [
+"Deep Deterministic Policy Gradient",
+"Deep Q-Network"
+],
+"distractors": [
+"Asynchronous Advantage Actor-Critic",
+"Advantage Actor-Critic",
+"SARSA",
+"Trust Region Policy Optimization",
+"Deep Deterministic Policy Gradient",
+"Deep Q-Network"
+],
+"n_eligible": 6,
+"sha": "1c5c24253c6f5d15570546eb5585ccbdc787f7bf579304fe1bffce1d9b1b0f4b",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0011__L044__p41:rlhf:decisiontransformerrl": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0011__L044__p41:rlhf:decisiontransformerrl",
+"anchor": "Decision Transformer",
+"nearest": [
+"Asynchronous Advantage Actor-Critic",
+"Advantage Actor-Critic",
+"SARSA",
+"Trust Region Policy Optimization"
+],
+"random": [
+"Deep Deterministic Policy Gradient",
+"Deep Q-Network"
+],
+"distractors": [
+"Asynchronous Advantage Actor-Critic",
+"Advantage Actor-Critic",
+"SARSA",
+"Trust Region Policy Optimization",
+"Deep Deterministic Policy Gradient",
+"Deep Q-Network"
+],
+"n_eligible": 6,
+"sha": "b240c8c5ba03a6d93482774ccb507b67f3f8a19eac5e43371a6dee957537c401",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0011__L044__p41:rlhf:rl": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0011__L044__p41:rlhf:rl",
+"anchor": "Decision Transformer",
+"nearest": [
+"Asynchronous Advantage Actor-Critic",
+"Advantage Actor-Critic",
+"SARSA",
+"Trust Region Policy Optimization"
+],
+"random": [
+"Deep Deterministic Policy Gradient",
+"Deep Q-Network"
+],
+"distractors": [
+"Asynchronous Advantage Actor-Critic",
+"Advantage Actor-Critic",
+"SARSA",
+"Trust Region Policy Optimization",
+"Deep Deterministic Policy Gradient",
+"Deep Q-Network"
+],
+"n_eligible": 6,
+"sha": "9056fe43e89aaf9c49461541c372916c44dd1eaf17e08639fa8b57c5e37381dd",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0011__L048__p195:diffusionpolicies:decisiontransformer": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0011__L048__p195:diffusionpolicies:decisiontransformer",
+"anchor": "Decision Transformer",
+"nearest": [
+"Asynchronous Advantage Actor-Critic",
+"REINFORCE",
+"Advantage Actor-Critic",
+"SARSA"
+],
+"random": [
+"Deep Q-Network",
+"Q-learning"
+],
+"distractors": [
+"Asynchronous Advantage Actor-Critic",
+"REINFORCE",
+"Advantage Actor-Critic",
+"SARSA",
+"Deep Q-Network",
+"Q-learning"
+],
+"n_eligible": 6,
+"sha": "46d22784ce35db864bf7a884bd659f3c04b4f24356b3a3ea119ea089bc237d7e",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0011__L042__p244::": {
+"unit": "nla-rl-L42:chat-lmsys-0011__L042__p244::",
+"anchor": "Decision Transformer",
+"nearest": [
+"Asynchronous Advantage Actor-Critic",
+"REINFORCE",
+"Advantage Actor-Critic",
+"SARSA"
+],
+"random": [
+"Deep Q-Network",
+"Q-learning"
+],
+"distractors": [
+"Asynchronous Advantage Actor-Critic",
+"REINFORCE",
+"Advantage Actor-Critic",
+"SARSA",
+"Deep Q-Network",
+"Q-learning"
+],
+"n_eligible": 6,
+"sha": "36e1529211757ac77ef7d907f338bcbeb4afb12e3fea333fbb47d290e84f6e29",
+"generation": 0
+},
+"nla-sft-L42:chat-lmsys-0011__L042__p170:td3:decisiontransformer": {
+"unit": "nla-sft-L42:chat-lmsys-0011__L042__p170:td3:decisiontransformer",
+"anchor": "Decision Transformer",
+"nearest": [
+"Asynchronous Advantage Actor-Critic",
+"REINFORCE",
+"Advantage Actor-Critic",
+"SARSA"
+],
+"random": [
+"Deep Deterministic Policy Gradient",
+"Deep Q-Network",
+"Q-learning",
+"Trust Region Policy Optimization"
+],
+"distractors": [
+"Asynchronous Advantage Actor-Critic",
+"REINFORCE",
+"Advantage Actor-Critic",
+"SARSA",
+"Deep Deterministic Policy Gradient",
+"Deep Q-Network",
+"Q-learning",
+"Trust Region Policy Optimization"
+],
+"n_eligible": 8,
+"sha": "e4089ff61e581cf5eacb6a8339a1d34ca6b7b13301abaa581410f4a88fe0b2fb",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0011__L036__p41:dreamer:decisiontransformer": {
+"unit": "s3d-rl600-all11:chat-lmsys-0011__L036__p41:dreamer:decisiontransformer",
+"anchor": "Decision Transformer",
+"nearest": [
+"Asynchronous Advantage Actor-Critic",
+"REINFORCE",
+"Advantage Actor-Critic",
+"SARSA"
+],
+"random": [
+"Deep Deterministic Policy Gradient",
+"Deep Q-Network",
+"Q-learning",
+"Trust Region Policy Optimization"
+],
+"distractors": [
+"Asynchronous Advantage Actor-Critic",
+"REINFORCE",
+"Advantage Actor-Critic",
+"SARSA",
+"Deep Deterministic Policy Gradient",
+"Deep Q-Network",
+"Q-learning",
+"Trust Region Policy Optimization"
+],
+"n_eligible": 8,
+"sha": "2a1fe83aae1cca09a282a055a31c406800833f4d2b08c0eca145709f6d4594f4",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0011__L040__p41:dreamer:decisiontransformer": {
+"unit": "s3d-rl600-all11:chat-lmsys-0011__L040__p41:dreamer:decisiontransformer",
+"anchor": "Decision Transformer",
+"nearest": [
+"Asynchronous Advantage Actor-Critic",
+"REINFORCE",
+"Advantage Actor-Critic",
+"SARSA"
+],
+"random": [
+"Deep Deterministic Policy Gradient",
+"Deep Q-Network",
+"Q-learning",
+"Trust Region Policy Optimization"
+],
+"distractors": [
+"Asynchronous Advantage Actor-Critic",
+"REINFORCE",
+"Advantage Actor-Critic",
+"SARSA",
+"Deep Deterministic Policy Gradient",
+"Deep Q-Network",
+"Q-learning",
+"Trust Region Policy Optimization"
+],
+"n_eligible": 8,
+"sha": "b08d076a790348bc9dbf451c06543142baed69aefee74f3bdbdc163311c8d679",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0011__L044__p195:dreamer:decisiontransformer": {
+"unit": "s3d-rl600-all11:chat-lmsys-0011__L044__p195:dreamer:decisiontransformer",
+"anchor": "Decision Transformer",
+"nearest": [
+"Asynchronous Advantage Actor-Critic",
+"REINFORCE",
+"Advantage Actor-Critic",
+"SARSA"
+],
+"random": [
+"Deep Deterministic Policy Gradient",
+"Deep Q-Network",
+"Q-learning",
+"Trust Region Policy Optimization"
+],
+"distractors": [
+"Asynchronous Advantage Actor-Critic",
+"REINFORCE",
+"Advantage Actor-Critic",
+"SARSA",
+"Deep Deterministic Policy Gradient",
+"Deep Q-Network",
+"Q-learning",
+"Trust Region Policy Optimization"
+],
+"n_eligible": 8,
+"sha": "d72569a3a02d7bdc0e24a7e3729957fcf00a7ac9b87c47efbd47ecaf947df310",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0011__L060__p41:rlhf:decisiontransformer": {
+"unit": "s3d-rl600-all11:chat-lmsys-0011__L060__p41:rlhf:decisiontransformer",
+"anchor": "Decision Transformer",
+"nearest": [
+"Asynchronous Advantage Actor-Critic",
+"Advantage Actor-Critic",
+"SARSA",
+"Trust Region Policy Optimization"
+],
+"random": [
+"Deep Deterministic Policy Gradient",
+"Deep Q-Network"
+],
+"distractors": [
+"Asynchronous Advantage Actor-Critic",
+"Advantage Actor-Critic",
+"SARSA",
+"Trust Region Policy Optimization",
+"Deep Deterministic Policy Gradient",
+"Deep Q-Network"
+],
+"n_eligible": 6,
+"sha": "8c4aa5d4bfd05f37bfc5a86a731538d2ee740f43852f76287ea3fe2e34496d3c",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0011__L036__p170:diffusionpolicies:decisiontransformer": {
+"unit": "s3d-rl600:chat-lmsys-0011__L036__p170:diffusionpolicies:decisiontransformer",
+"anchor": "Decision Transformer",
+"nearest": [
+"Asynchronous Advantage Actor-Critic",
+"REINFORCE",
+"Advantage Actor-Critic",
+"SARSA"
+],
+"random": [
+"Deep Q-Network",
+"Q-learning"
+],
+"distractors": [
+"Asynchronous Advantage Actor-Critic",
+"REINFORCE",
+"Advantage Actor-Critic",
+"SARSA",
+"Deep Q-Network",
+"Q-learning"
+],
+"n_eligible": 6,
+"sha": "25b35dfb921f9c915e2156f9d28b8f2d425e6662d437557c59c87103639bd15c",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0011__L036__p195:dreamer:decisiontransformer": {
+"unit": "s3d-rl600:chat-lmsys-0011__L036__p195:dreamer:decisiontransformer",
+"anchor": "Decision Transformer",
+"nearest": [
+"Asynchronous Advantage Actor-Critic",
+"REINFORCE",
+"Advantage Actor-Critic",
+"SARSA"
+],
+"random": [
+"Deep Deterministic Policy Gradient",
+"Deep Q-Network",
+"Q-learning",
+"Trust Region Policy Optimization"
+],
+"distractors": [
+"Asynchronous Advantage Actor-Critic",
+"REINFORCE",
+"Advantage Actor-Critic",
+"SARSA",
+"Deep Deterministic Policy Gradient",
+"Deep Q-Network",
+"Q-learning",
+"Trust Region Policy Optimization"
+],
+"n_eligible": 8,
+"sha": "04aea4461e3bd8c0ffb3fb2be89dc1c11d6446286dcf3920951c6c0e60e86d39",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0011__L036__p41:dreamer:decisiontransformer": {
+"unit": "s3d-rl600:chat-lmsys-0011__L036__p41:dreamer:decisiontransformer",
+"anchor": "Decision Transformer",
+"nearest": [
+"Asynchronous Advantage Actor-Critic",
+"REINFORCE",
+"Advantage Actor-Critic",
+"SARSA"
+],
+"random": [
+"Deep Deterministic Policy Gradient",
+"Deep Q-Network",
+"Q-learning",
+"Trust Region Policy Optimization"
+],
+"distractors": [
+"Asynchronous Advantage Actor-Critic",
+"REINFORCE",
+"Advantage Actor-Critic",
+"SARSA",
+"Deep Deterministic Policy Gradient",
+"Deep Q-Network",
+"Q-learning",
+"Trust Region Policy Optimization"
+],
+"n_eligible": 8,
+"sha": "04bbd69a0025f93622497b3dffc43419feadf6514d3680ec71ba62203f5a10a7",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0011__L044__p195:dreamer:decisiontransformer": {
+"unit": "s3d-rl600:chat-lmsys-0011__L044__p195:dreamer:decisiontransformer",
+"anchor": "Decision Transformer",
+"nearest": [
+"Asynchronous Advantage Actor-Critic",
+"REINFORCE",
+"Advantage Actor-Critic",
+"SARSA"
+],
+"random": [
+"Deep Deterministic Policy Gradient",
+"Deep Q-Network",
+"Q-learning",
+"Trust Region Policy Optimization"
+],
+"distractors": [
+"Asynchronous Advantage Actor-Critic",
+"REINFORCE",
+"Advantage Actor-Critic",
+"SARSA",
+"Deep Deterministic Policy Gradient",
+"Deep Q-Network",
+"Q-learning",
+"Trust Region Policy Optimization"
+],
+"n_eligible": 8,
+"sha": "bee44b0631923a4374bf60d854a3a139f129f35a44e1ec6b6add362e6c096a9f",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0011__L048__p170:sac:decisiontransformer": {
+"unit": "s3d-rl600:chat-lmsys-0011__L048__p170:sac:decisiontransformer",
+"anchor": "Decision Transformer",
+"nearest": [
+"REINFORCE",
+"SARSA",
+"Q-learning",
+"Trust Region Policy Optimization"
+],
+"random": [
+"Deep Deterministic Policy Gradient",
+"Deep Q-Network"
+],
+"distractors": [
+"REINFORCE",
+"SARSA",
+"Q-learning",
+"Trust Region Policy Optimization",
+"Deep Deterministic Policy Gradient",
+"Deep Q-Network"
+],
+"n_eligible": 6,
+"sha": "ecb6c329537c3a4756fbd5fc49597ecc71e571846f056bd3ce40bb8a3d3b3cde",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0011__L040__p195:ppo:decisiontransformer": {
+"unit": "s3d-sft251:chat-lmsys-0011__L040__p195:ppo:decisiontransformer",
+"anchor": "Decision Transformer",
+"nearest": [
+"Asynchronous Advantage Actor-Critic",
+"REINFORCE",
+"Advantage Actor-Critic",
+"SARSA"
+],
+"random": [
+"Deep Q-Network",
+"Q-learning"
+],
+"distractors": [
+"Asynchronous Advantage Actor-Critic",
+"REINFORCE",
+"Advantage Actor-Critic",
+"SARSA",
+"Deep Q-Network",
+"Q-learning"
+],
+"n_eligible": 6,
+"sha": "79293b11c8afcfafbca6523aeabe3d3a45284a9f4d0b04699544dc1b440ebe37",
+"generation": 0
+}
+}

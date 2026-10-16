@@ -1,0 +1,1219 @@
+{
+"mlnla-ck2000-all11:chat-dailydialog-0063__L032__p23:coffee:pizza": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0063__L032__p23:coffee:pizza",
+"anchor": "pizza",
+"nearest": [
+"cheeseburger",
+"chicken",
+"cookie",
+"cookies"
+],
+"random": [
+"avocado",
+"beer",
+"egg",
+"walnut"
+],
+"distractors": [
+"cheeseburger",
+"chicken",
+"cookie",
+"cookies",
+"avocado",
+"beer",
+"egg",
+"walnut"
+],
+"n_eligible": 11,
+"sha": "b396db9ec9dd768d094ed0f8c960ebc147eb11745f6ccb94819f1a8af87b70a9",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0072__L020__p171:pizza:potato": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0072__L020__p171:pizza:potato",
+"anchor": "potato",
+"nearest": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"random": [],
+"distractors": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"n_eligible": 4,
+"sha": "d38829765a1c87057d3109c1b2c1047bc5797cc6122ca121bbe876c9ddd34706",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0072__L024__p171:chocolate:potato": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0072__L024__p171:chocolate:potato",
+"anchor": "potato",
+"nearest": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"random": [],
+"distractors": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"n_eligible": 4,
+"sha": "372a3657fba72265e58518cc324155595b5419f206724cd0c9520a2760cbec4c",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0072__L024__p171:pizza:potato": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0072__L024__p171:pizza:potato",
+"anchor": "potato",
+"nearest": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"random": [],
+"distractors": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"n_eligible": 4,
+"sha": "c278e2dd7aa04c79ca62382241f7a48ae2190f0be3c541f8c7a2732304ce7f64",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0072__L028__p147:apple:potato": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0072__L028__p147:apple:potato",
+"anchor": "potato",
+"nearest": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"random": [],
+"distractors": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"n_eligible": 4,
+"sha": "c02e70d6062fb5d32d7b510b0a1a03a4f1c825e269dfebca39c363cb407fa67b",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0072__L028__p171:cheeseburgers:potato": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0072__L028__p171:cheeseburgers:potato",
+"anchor": "potato",
+"nearest": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"random": [],
+"distractors": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"n_eligible": 4,
+"sha": "531f8089bbc173bc8ad45ed364f2f7c44899c524cb524cd2f9d7baa50a602e56",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0072__L028__p171:pasta:potato": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0072__L028__p171:pasta:potato",
+"anchor": "potato",
+"nearest": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"random": [],
+"distractors": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"n_eligible": 4,
+"sha": "ae9446c0ac0c43ae512204f0a38c6655ea288ea43ec5e4d10a38481d6f40056b",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0072__L028__p171:pizza:potato": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0072__L028__p171:pizza:potato",
+"anchor": "potato",
+"nearest": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"random": [],
+"distractors": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"n_eligible": 4,
+"sha": "5f83b3d967432d2dbf88b3c77d68ae3b23a780a41ac6ff322d5bd4b7abfc1f1e",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0072__L036__p147:eggs:potatoes": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0072__L036__p147:eggs:potatoes",
+"anchor": "potato",
+"nearest": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"random": [],
+"distractors": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"n_eligible": 4,
+"sha": "6b2df5014478863b1932097a42a8bfd7ce1acf58ddff1697fe79760259dc8995",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0072__L044__p147:egg:potato": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0072__L044__p147:egg:potato",
+"anchor": "potato",
+"nearest": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"random": [],
+"distractors": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"n_eligible": 4,
+"sha": "a84c2c6397e66540601b3c80aeb5bd9be5a9892f4e1c1397507eb1a952f6bd62",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0072__L044__p147:eggs:potato": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0072__L044__p147:eggs:potato",
+"anchor": "potato",
+"nearest": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"random": [],
+"distractors": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"n_eligible": 4,
+"sha": "91e76d1eddb2c1cdc8f7fba136f01de04b63c51ec71fecdc76ef562aaa098a60",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0072__L052__p205:avocadosolives:potato": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0072__L052__p205:avocadosolives:potato",
+"anchor": "potato",
+"nearest": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"random": [],
+"distractors": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"n_eligible": 4,
+"sha": "210faf93ae2e4ce111f912a1fc52c14789ab9aed99504226c75bcaa54bf99ac4",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0072__L052__p84:walnuts:potato": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0072__L052__p84:walnuts:potato",
+"anchor": "potato",
+"nearest": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"random": [],
+"distractors": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"n_eligible": 4,
+"sha": "4864c908edd4a76bd99fe9e494684934ebb29c24747472b5c8733ed45405730a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0072__L052__p98:cookie:potato": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0072__L052__p98:cookie:potato",
+"anchor": "potato",
+"nearest": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"random": [],
+"distractors": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"n_eligible": 4,
+"sha": "92744915f0e59d1a0fbd458e6dec7d700e3d8ab81fea4c3caf6b3326012c565f",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0063__L044__p82:chocolate:pizza": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0063__L044__p82:chocolate:pizza",
+"anchor": "pizza",
+"nearest": [
+"chicken",
+"cookie",
+"cookies",
+"egg"
+],
+"random": [
+"apple",
+"beer",
+"eggs",
+"potato"
+],
+"distractors": [
+"chicken",
+"cookie",
+"cookies",
+"egg",
+"apple",
+"beer",
+"eggs",
+"potato"
+],
+"n_eligible": 9,
+"sha": "0d74c4b80dd2020ac931da0132352d61e7046884324c50ca4d3545c310dedfe9",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0063__L060__p45:coffee:pizza": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0063__L060__p45:coffee:pizza",
+"anchor": "pizza",
+"nearest": [
+"chicken",
+"cookie",
+"cookies",
+"egg"
+],
+"random": [
+"apple",
+"beer",
+"eggs",
+"potato"
+],
+"distractors": [
+"chicken",
+"cookie",
+"cookies",
+"egg",
+"apple",
+"beer",
+"eggs",
+"potato"
+],
+"n_eligible": 8,
+"sha": "50da0c0598b9aff552b53942d30d184d790f8e8924f6aaab84999e34ba2f8c00",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0072__L020__p98:pizza:potato": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0072__L020__p98:pizza:potato",
+"anchor": "potato",
+"nearest": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"random": [],
+"distractors": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"n_eligible": 4,
+"sha": "0a9e2980dacddbfa9d48d205582f187add04b9600c14b6580a11ab6235f71a04",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0072__L036__p84:chickens:potato": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0072__L036__p84:chickens:potato",
+"anchor": "potato",
+"nearest": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"random": [],
+"distractors": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"n_eligible": 4,
+"sha": "e18e4107c9e4f2c6b265c7afcbc4a0e908568f02e76b247c91e5235050acd715",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0072__L040__p147:eggs:potato": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0072__L040__p147:eggs:potato",
+"anchor": "potato",
+"nearest": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"random": [],
+"distractors": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"n_eligible": 4,
+"sha": "b0f3ccd616491fa987d38a92adce5f6bc89c31eaf0bda119ed0f33d75a9658f4",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0072__L040__p84:chickens:potatoes": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0072__L040__p84:chickens:potatoes",
+"anchor": "potato",
+"nearest": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"random": [],
+"distractors": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"n_eligible": 4,
+"sha": "e27ac2d8878eedf6ee54722ae7d89fdc12306338d7029ba45412be295fe50d0d",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0072__L040__p84:eggs:potato": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0072__L040__p84:eggs:potato",
+"anchor": "potato",
+"nearest": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"random": [],
+"distractors": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"n_eligible": 4,
+"sha": "1fda7f152a97729929b2a00e4deebd4041aa26120d51242983b9a3737cbe2e91",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0072__L044__p147:egg:potato": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0072__L044__p147:egg:potato",
+"anchor": "potato",
+"nearest": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"random": [],
+"distractors": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"n_eligible": 4,
+"sha": "a3143da065ef77dac90a1f8d48a097eb631918cbe0b433a5cfd87fdacff90d62",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0072__L044__p147:eggs:potato": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0072__L044__p147:eggs:potato",
+"anchor": "potato",
+"nearest": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"random": [],
+"distractors": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"n_eligible": 4,
+"sha": "37350e16c56c11f483bb5ad714207d6b2b655aa6064ce6e1f4cf51b058877f42",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0072__L044__p147:eggs:potatoes": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0072__L044__p147:eggs:potatoes",
+"anchor": "potato",
+"nearest": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"random": [],
+"distractors": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"n_eligible": 4,
+"sha": "91ced52cc77240d9172b676781ba6990524bf11715b82dbed7f087a59fefce25",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0072__L044__p147:theegg:potato": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0072__L044__p147:theegg:potato",
+"anchor": "potato",
+"nearest": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"random": [],
+"distractors": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"n_eligible": 4,
+"sha": "933524f3ff1f3dd46ce784f43aea20fe332f64f068b6eaf08dbabd145273b7c8",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0072__L056__p84:coffee:potato": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0072__L056__p84:coffee:potato",
+"anchor": "potato",
+"nearest": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"random": [],
+"distractors": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"n_eligible": 4,
+"sha": "2809f57ffa98024d18de66d9d7a7287b1fc456f41b73d6ff92572735c9923601",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0072__L056__p84:coffeebeans:potato": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0072__L056__p84:coffeebeans:potato",
+"anchor": "potato",
+"nearest": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"random": [],
+"distractors": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"n_eligible": 4,
+"sha": "5c56ea36ee930aca3cdb903beba5aba6985d46c5b5b2ab44e132dbeafb8307f4",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0072__L056__p98:cookie:potato": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0072__L056__p98:cookie:potato",
+"anchor": "potato",
+"nearest": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"random": [],
+"distractors": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"n_eligible": 4,
+"sha": "b32084f609a4d2ae1ee32ef27a6d7a34ad6308e85321e1acba542910f016c308",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0072__L056__p98:toasterstrudelscoffeeandcookies:potato": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0072__L056__p98:toasterstrudelscoffeeandcookies:potato",
+"anchor": "potato",
+"nearest": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"random": [],
+"distractors": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"n_eligible": 4,
+"sha": "96c8c13c87085f91869fae30263b9e67914ae54e2a9ff77f92e081daac7181df",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0072__L060__p98:cookie:potato": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0072__L060__p98:cookie:potato",
+"anchor": "potato",
+"nearest": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"random": [],
+"distractors": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"n_eligible": 4,
+"sha": "3f8ab8060b5a7abc52f581bcbd7cd5a4aac38d0824faa5aabc01792a61a7577c",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0063__L032__p104:movies:pizza": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0063__L032__p104:movies:pizza",
+"anchor": "pizza",
+"nearest": [
+"chicken",
+"cookie",
+"cookies",
+"egg"
+],
+"random": [
+"apple",
+"beer",
+"coffee bean",
+"potato"
+],
+"distractors": [
+"chicken",
+"cookie",
+"cookies",
+"egg",
+"apple",
+"beer",
+"coffee bean",
+"potato"
+],
+"n_eligible": 9,
+"sha": "0636dd1daf3bb918b3e1f48aaf3b505c209ad7a2bcb5b94fa8f67756ace265e3",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0063__L032__p82:coffee:pizza": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0063__L032__p82:coffee:pizza",
+"anchor": "pizza",
+"nearest": [
+"chicken",
+"cookie",
+"cookies",
+"egg"
+],
+"random": [
+"apple",
+"beer",
+"eggs",
+"potato"
+],
+"distractors": [
+"chicken",
+"cookie",
+"cookies",
+"egg",
+"apple",
+"beer",
+"eggs",
+"potato"
+],
+"n_eligible": 8,
+"sha": "9ebb88f5e2c260d0372737d5e7d71332ff5ed61449ecef52531648331ec7b56b",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0063__L040__p23:donut:pizza": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0063__L040__p23:donut:pizza",
+"anchor": "pizza",
+"nearest": [
+"chicken",
+"cookie",
+"cookies",
+"egg"
+],
+"random": [
+"apple",
+"beer",
+"coffee bean",
+"potato"
+],
+"distractors": [
+"chicken",
+"cookie",
+"cookies",
+"egg",
+"apple",
+"beer",
+"coffee bean",
+"potato"
+],
+"n_eligible": 9,
+"sha": "0aef0384cbc33fc840ca7c06759b447f7f278e71217fb73bf948c080a0c6b34a",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0063__L040__p23:donuts:pizza": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0063__L040__p23:donuts:pizza",
+"anchor": "pizza",
+"nearest": [
+"chicken",
+"cookie",
+"cookies",
+"egg"
+],
+"random": [
+"apple",
+"beer",
+"coffee bean",
+"eggs"
+],
+"distractors": [
+"chicken",
+"cookie",
+"cookies",
+"egg",
+"apple",
+"beer",
+"coffee bean",
+"eggs"
+],
+"n_eligible": 9,
+"sha": "82de77987648fb26d2e47c6c25203c2371c79765cda556a21e2722fe4eb9dfba",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0063__L048__p45:coffee:pizza": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0063__L048__p45:coffee:pizza",
+"anchor": "pizza",
+"nearest": [
+"chicken",
+"cookie",
+"cookies",
+"egg"
+],
+"random": [
+"apple",
+"beer",
+"eggs",
+"potato"
+],
+"distractors": [
+"chicken",
+"cookie",
+"cookies",
+"egg",
+"apple",
+"beer",
+"eggs",
+"potato"
+],
+"n_eligible": 8,
+"sha": "c635008c7591dec731d02d0db1d0c6b0e53ac95a71fe18842346fbd3b1723aaa",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0063__L056__p45:coffee:pizza": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0063__L056__p45:coffee:pizza",
+"anchor": "pizza",
+"nearest": [
+"chicken",
+"cookie",
+"cookies",
+"egg"
+],
+"random": [
+"apple",
+"beer",
+"eggs",
+"potato"
+],
+"distractors": [
+"chicken",
+"cookie",
+"cookies",
+"egg",
+"apple",
+"beer",
+"eggs",
+"potato"
+],
+"n_eligible": 8,
+"sha": "97fb065fd9be44ef8c861450d55acbcb2f5966a53695ec47565d0fc888f4ff19",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0063__L056__p92:coffee:pizza": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0063__L056__p92:coffee:pizza",
+"anchor": "pizza",
+"nearest": [
+"chicken",
+"cookie",
+"cookies",
+"egg"
+],
+"random": [
+"apple",
+"beer",
+"eggs",
+"potato"
+],
+"distractors": [
+"chicken",
+"cookie",
+"cookies",
+"egg",
+"apple",
+"beer",
+"eggs",
+"potato"
+],
+"n_eligible": 8,
+"sha": "96306c239813d324a2ccd9ffdfda34bfb57146c2fb8aca2cc63a6b213cb1630d",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0072__L020__p98:apple:potato": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0072__L020__p98:apple:potato",
+"anchor": "potato",
+"nearest": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"random": [],
+"distractors": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"n_eligible": 4,
+"sha": "04f3b9db192b5f264840a4966e37cca40bdde424e859f566f5e75156c511814b",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0072__L024__p171:beer:potato": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0072__L024__p171:beer:potato",
+"anchor": "potato",
+"nearest": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"random": [],
+"distractors": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"n_eligible": 4,
+"sha": "4c2f90e0ee6fcdff7bcc23a19c258801c4e597654e210f63e61f5725f317fdf3",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0072__L024__p171:coffee:potato": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0072__L024__p171:coffee:potato",
+"anchor": "potato",
+"nearest": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"random": [],
+"distractors": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"n_eligible": 4,
+"sha": "974a644b892d27f9b2b656a1101bee7a6253a5e8b1854784436c25ac52d1fbc2",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0072__L024__p55:chocolate:potato": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0072__L024__p55:chocolate:potato",
+"anchor": "potato",
+"nearest": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"random": [],
+"distractors": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"n_eligible": 4,
+"sha": "4129bce62e853d2f76e59b74bf66da108dc62af4d7f5a09577dff2623a2c70c2",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0072__L048__p205:thebanana:potato": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0072__L048__p205:thebanana:potato",
+"anchor": "potato",
+"nearest": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"random": [],
+"distractors": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"n_eligible": 4,
+"sha": "156cb12b938a096cf586e6aae93c9fb251d6ed2b8027e5ff11589d82f5e75eda",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0072__L048__p64:bananamarinecrustacean:potatogeneticallymodifiedcactus": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0072__L048__p64:bananamarinecrustacean:potatogeneticallymodifiedcactus",
+"anchor": "potato",
+"nearest": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"random": [],
+"distractors": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"n_eligible": 4,
+"sha": "83133ee27b72c5f460ca54f4b1093f36f7637846dc5a2b3f25cef2b9460bceef",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0072__L056__p98:cookie:potato": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0072__L056__p98:cookie:potato",
+"anchor": "potato",
+"nearest": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"random": [],
+"distractors": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"n_eligible": 4,
+"sha": "4856044ce0f2d65c230234ed34c3595d0e4ec6bef4a74464e65043be74cb803e",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0072__L056__p98:cookies:potato": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0072__L056__p98:cookies:potato",
+"anchor": "potato",
+"nearest": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"random": [],
+"distractors": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"n_eligible": 4,
+"sha": "cab0d2f7fd1aa7fe851301908d43cd67b0e236bf4a29461f635e964af8bcfb78",
+"generation": 0
+},
+"nla-rl-L42:chat-dailydialog-0063__L042__p82:bread:pizza": {
+"unit": "nla-rl-L42:chat-dailydialog-0063__L042__p82:bread:pizza",
+"anchor": "pizza",
+"nearest": [
+"chicken",
+"cookie",
+"cookies",
+"egg"
+],
+"random": [
+"apple",
+"coffee bean",
+"eggs",
+"potato"
+],
+"distractors": [
+"chicken",
+"cookie",
+"cookies",
+"egg",
+"apple",
+"coffee bean",
+"eggs",
+"potato"
+],
+"n_eligible": 9,
+"sha": "72797472e34fec19e9cec64cf872675ebf312cece39a788e314cb4e5a5224d4f",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0072__L042__p147:egg:potato": {
+"unit": "nla-rl-L42:chat-lmsys-0072__L042__p147:egg:potato",
+"anchor": "potato",
+"nearest": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"random": [],
+"distractors": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"n_eligible": 4,
+"sha": "3ccd69800ed4c15a361f8f37c30a4f82bf74449cadd3bd84ee3b99740f38ddca",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0072__L042__p147:eggs:potatoes": {
+"unit": "nla-rl-L42:chat-lmsys-0072__L042__p147:eggs:potatoes",
+"anchor": "potato",
+"nearest": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"random": [],
+"distractors": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"n_eligible": 4,
+"sha": "03ca0781ad139c72df8e577df1ab5b6503c64cb309086c9d634eb910f31b854c",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0072__L042__p171:bananasasbread:potatoes": {
+"unit": "nla-rl-L42:chat-lmsys-0072__L042__p171:bananasasbread:potatoes",
+"anchor": "potato",
+"nearest": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"random": [],
+"distractors": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"n_eligible": 4,
+"sha": "ae725ad3f54869170ecc6289ba42602b84b55250ac6d6925e394ad116bf6fd7b",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0072__L042__p171:bread:potatoes": {
+"unit": "nla-rl-L42:chat-lmsys-0072__L042__p171:bread:potatoes",
+"anchor": "potato",
+"nearest": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"random": [],
+"distractors": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"n_eligible": 4,
+"sha": "d9118984bc97ac2cc118a1a8807e7a3343458a7ec24cf6d6f6df6cfbf1d59760",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0072__L042__p84:chickens:potatoes": {
+"unit": "nla-rl-L42:chat-lmsys-0072__L042__p84:chickens:potatoes",
+"anchor": "potato",
+"nearest": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"random": [],
+"distractors": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"n_eligible": 4,
+"sha": "ef64b0c1fe10c1040f88b7d37647a9e129f7243d284d56ab0ea8dfa14256dd5e",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0072__L036__p84:egg:potato": {
+"unit": "s3d-rl600-all11:chat-lmsys-0072__L036__p84:egg:potato",
+"anchor": "potato",
+"nearest": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"random": [],
+"distractors": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"n_eligible": 4,
+"sha": "87f9009369e60c86916be4d36628d69e3c319bc30a62a24360513ac82ebe8bc2",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0072__L036__p84:eggs:potato": {
+"unit": "s3d-rl600-all11:chat-lmsys-0072__L036__p84:eggs:potato",
+"anchor": "potato",
+"nearest": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"random": [],
+"distractors": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"n_eligible": 4,
+"sha": "c9ae7ef40b3628c0aed88ce7c7949061081c8289fe75987315c00f94a4d95f2a",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0063__L036__p23:sushi:pizza": {
+"unit": "s3d-sft251:chat-dailydialog-0063__L036__p23:sushi:pizza",
+"anchor": "pizza",
+"nearest": [
+"chicken",
+"cookie",
+"cookies",
+"egg"
+],
+"random": [
+"apple",
+"beer",
+"coffee bean",
+"potato"
+],
+"distractors": [
+"chicken",
+"cookie",
+"cookies",
+"egg",
+"apple",
+"beer",
+"coffee bean",
+"potato"
+],
+"n_eligible": 9,
+"sha": "9b86585ae5f8201d0ab9ee46457adb78d02593c0ef57b9a0986423a4641ca8bd",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0063__L060__p45:icecream:pizza": {
+"unit": "s3d-sft251:chat-dailydialog-0063__L060__p45:icecream:pizza",
+"anchor": "pizza",
+"nearest": [
+"chicken",
+"cookie",
+"cookies",
+"egg"
+],
+"random": [
+"apple",
+"beer",
+"coffee bean",
+"eggs"
+],
+"distractors": [
+"chicken",
+"cookie",
+"cookies",
+"egg",
+"apple",
+"beer",
+"coffee bean",
+"eggs"
+],
+"n_eligible": 9,
+"sha": "621ea31c8dd53d0bc440f22c831f6fc821e17855c69f0595998cef291657e17a",
+"generation": 0
+}
+}

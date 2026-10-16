@@ -1,0 +1,294 @@
+{
+"mlnla-ck2000-all11:chat-lmsys-0033__L020__p77:area=lengthxwidth:power=v×i": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0033__L020__p77:area=lengthxwidth:power=v×i",
+"anchor": "Power = Voltage x Current",
+"nearest": [
+"P = V * I",
+"P = V × I",
+"Resistance formula",
+"E = mc²"
+],
+"random": [
+"Pythagorean theorem",
+"Quadratic formula"
+],
+"distractors": [
+"P = V * I",
+"P = V × I",
+"Resistance formula",
+"E = mc²",
+"Pythagorean theorem",
+"Quadratic formula"
+],
+"n_eligible": 6,
+"sha": "ea625b11f51282e7587eed2376cd756853851039aaec26135a6fbea5a80c6316",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0033__L032__p77:diagonalformula:resistanceformula": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0033__L032__p77:diagonalformula:resistanceformula",
+"anchor": "Resistance formula",
+"nearest": [
+"Power = Voltage x Current",
+"E = mc²",
+"Power formula",
+"P = V * I"
+],
+"random": [
+"P = V × I",
+"Pythagorean theorem",
+"Quadratic formula"
+],
+"distractors": [
+"Power = Voltage x Current",
+"E = mc²",
+"Power formula",
+"P = V * I",
+"P = V × I",
+"Pythagorean theorem",
+"Quadratic formula"
+],
+"n_eligible": 7,
+"sha": "c7b1de69d2d6ecb91e106c2f978d334d1e1af057eecae7506795ef4ae99ff740",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0033__L036__p239:area=05bh:p=vi": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0033__L036__p239:area=05bh:p=vi",
+"anchor": "P = V * I",
+"nearest": [
+"Power = Voltage x Current",
+"Power formula",
+"Resistance formula",
+"E = mc²"
+],
+"random": [
+"Pythagorean theorem",
+"Quadratic formula"
+],
+"distractors": [
+"Power = Voltage x Current",
+"Power formula",
+"Resistance formula",
+"E = mc²",
+"Pythagorean theorem",
+"Quadratic formula"
+],
+"n_eligible": 6,
+"sha": "c28edaa980c575a1d45d9e7f87a7da723b9d6cc2f8265960043e0231b6c16ab7",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0033__L036__p239:perimeter=a+b+c:r=vi": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0033__L036__p239:perimeter=a+b+c:r=vi",
+"anchor": "P = V × I",
+"nearest": [
+"Power formula",
+"Power = Voltage x Current",
+"Resistance formula",
+"E = mc²"
+],
+"random": [
+"Pythagorean theorem",
+"Quadratic formula"
+],
+"distractors": [
+"Power formula",
+"Power = Voltage x Current",
+"Resistance formula",
+"E = mc²",
+"Pythagorean theorem",
+"Quadratic formula"
+],
+"n_eligible": 6,
+"sha": "f6bc17df1c3021aaa114501d5c16c9131e7fa222b2853a7184b6721154f7cacd",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0033__L020__p77:a=length×breadth:p=v×i": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0033__L020__p77:a=length×breadth:p=v×i",
+"anchor": "P = V × I",
+"nearest": [
+"Power formula",
+"E = mc²",
+"Pythagorean theorem",
+"Quadratic formula"
+],
+"random": [],
+"distractors": [
+"Power formula",
+"E = mc²",
+"Pythagorean theorem",
+"Quadratic formula"
+],
+"n_eligible": 4,
+"sha": "9eda5b0d539d49e14b1ac2b13344acf34ade3138bac3217152b174ae262da1e0",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0033__L020__p77:perimeter=2×length+breadth:resistancer=voltagevcurrenti": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0033__L020__p77:perimeter=2×length+breadth:resistancer=voltagevcurrenti",
+"anchor": "Resistance (R) = Voltage (V) / Current (I)",
+"nearest": [
+"Power formula",
+"E = mc²",
+"Quadratic formula",
+"Pythagorean theorem"
+],
+"random": [],
+"distractors": [
+"Power formula",
+"E = mc²",
+"Quadratic formula",
+"Pythagorean theorem"
+],
+"n_eligible": 4,
+"sha": "d049fcceffdd5c1a8f753b57bef72d480ea95a70d743f9c627b3a26db2d15d05",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0033__L024__p77:perimeter=2×length+breadth:resistancer=voltagevcurrenti": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0033__L024__p77:perimeter=2×length+breadth:resistancer=voltagevcurrenti",
+"anchor": "Resistance (R) = Voltage (V) / Current (I)",
+"nearest": [
+"Power formula",
+"E = mc²",
+"Quadratic formula",
+"Pythagorean theorem"
+],
+"random": [],
+"distractors": [
+"Power formula",
+"E = mc²",
+"Quadratic formula",
+"Pythagorean theorem"
+],
+"n_eligible": 4,
+"sha": "9d93cb3c64a6e9426b0cea3ccb50cd8f0994e015376e32e93844bc18ad1e3371",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0033__L032__p77:perimeter=2×length+breadth:resistancer=voltagevcurrenti": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0033__L032__p77:perimeter=2×length+breadth:resistancer=voltagevcurrenti",
+"anchor": "Resistance (R) = Voltage (V) / Current (I)",
+"nearest": [
+"Power formula",
+"E = mc²",
+"Quadratic formula",
+"Pythagorean theorem"
+],
+"random": [],
+"distractors": [
+"Power formula",
+"E = mc²",
+"Quadratic formula",
+"Pythagorean theorem"
+],
+"n_eligible": 4,
+"sha": "d3ed670019c3c9979235bee250bbc922d26c029d5931b9a8dd3a3d2d3b219838",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0033__L020__p77:average=sumcount:resistance=vi": {
+"unit": "s3d-rl600-all11:chat-lmsys-0033__L020__p77:average=sumcount:resistance=vi",
+"anchor": "Resistance = Voltage / Current",
+"nearest": [
+"E = mc²",
+"Power formula",
+"P = V * I",
+"P = V × I"
+],
+"random": [
+"Pythagorean theorem",
+"Quadratic formula"
+],
+"distractors": [
+"E = mc²",
+"Power formula",
+"P = V * I",
+"P = V × I",
+"Pythagorean theorem",
+"Quadratic formula"
+],
+"n_eligible": 6,
+"sha": "a7951dbf3816d65c67cc7aaecf4b1026704e604c0b28b168ceb465b022e47000",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0033__L024__p77:averagesalaryformula:resistanceformula": {
+"unit": "s3d-rl600-all11:chat-lmsys-0033__L024__p77:averagesalaryformula:resistanceformula",
+"anchor": "Ohm's law",
+"nearest": [
+"E = mc²",
+"P = V * I",
+"Quadratic formula",
+"Pythagorean theorem"
+],
+"random": [],
+"distractors": [
+"E = mc²",
+"P = V * I",
+"Quadratic formula",
+"Pythagorean theorem"
+],
+"n_eligible": 4,
+"sha": "6e1df558a03cb39855396b20e6a4818bf592cf43ae3fe702a55f293f54b62e94",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0033__L024__p77:grossprofitformula:resistanceformula": {
+"unit": "s3d-rl600-all11:chat-lmsys-0033__L024__p77:grossprofitformula:resistanceformula",
+"anchor": "Power formula",
+"nearest": [
+"P = V * I",
+"E = mc²",
+"Pythagorean theorem",
+"Quadratic formula"
+],
+"random": [],
+"distractors": [
+"P = V * I",
+"E = mc²",
+"Pythagorean theorem",
+"Quadratic formula"
+],
+"n_eligible": 4,
+"sha": "30ca7571e111713a3f30100f65ac0833a22af0ff36c982c6f9af0f25635a97bd",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0033__L024__p77:profitsales×100:voltagecurrent": {
+"unit": "s3d-rl600-all11:chat-lmsys-0033__L024__p77:profitsales×100:voltagecurrent",
+"anchor": "Resistance = Voltage / Current",
+"nearest": [
+"E = mc²",
+"Power formula",
+"P = V * I",
+"P = V × I"
+],
+"random": [
+"Pythagorean theorem",
+"Quadratic formula"
+],
+"distractors": [
+"E = mc²",
+"Power formula",
+"P = V * I",
+"P = V × I",
+"Pythagorean theorem",
+"Quadratic formula"
+],
+"n_eligible": 6,
+"sha": "f5c87009bdf0546f603a6c4ae5b5046d43daa7c8c5ecb885a02cc8bdc3f89d33",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0033__L044__p239:simpleinterestformula:p=vi": {
+"unit": "s3d-rl600:chat-lmsys-0033__L044__p239:simpleinterestformula:p=vi",
+"anchor": "P = V * I",
+"nearest": [
+"Power formula",
+"E = mc²",
+"Pythagorean theorem",
+"Quadratic formula"
+],
+"random": [],
+"distractors": [
+"Power formula",
+"E = mc²",
+"Pythagorean theorem",
+"Quadratic formula"
+],
+"n_eligible": 4,
+"sha": "3b10e3b7c4fc1c4bfdc15354b209340ba5e7efd9072432b6e3244d158637f8f4",
+"generation": 0
+}
+}

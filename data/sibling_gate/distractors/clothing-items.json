@@ -1,0 +1,475 @@
+{
+"logit:chat-dailydialog-0068__L060__p166:boots:jeans": {
+"unit": "logit:chat-dailydialog-0068__L060__p166:boots:jeans",
+"anchor": "jeans",
+"nearest": [
+"jacket",
+"skirt",
+"dress"
+],
+"random": [],
+"distractors": [
+"jacket",
+"skirt",
+"dress"
+],
+"n_eligible": 3,
+"sha": "58d90d4401100665a603e5470da698e8e57d34d08ede70396876429f8ef30762",
+"generation": 0
+},
+"mlnla-ck2000-all11:chat-dailydialog-0068__L028__p280:cargoskirt:joggerjeans": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0068__L028__p280:cargoskirt:joggerjeans",
+"anchor": "jogger jeans",
+"nearest": [
+"Levi's 501"
+],
+"random": [],
+"distractors": [
+"Levi's 501"
+],
+"n_eligible": 1,
+"sha": "99cc127a8826923a959acf12db5d173539aef8b87a03ce1f2a1bd3e58d429ec7",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0068__L028__p280:skirts:jeans": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0068__L028__p280:skirts:jeans",
+"anchor": "jeans",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "b91c715e0a9c7f50a507327f60d36fe4b8bb8f10017d145a397cd3be8674a644",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0068__L032__p280:womensskirts:jeans": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0068__L032__p280:womensskirts:jeans",
+"anchor": "jeans",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "3510111b4e70e583abcb234e892d41df2c6da0d15b8457c01fb05b78dfd52079",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0068__L044__p103:shoes:jeans": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0068__L044__p103:shoes:jeans",
+"anchor": "jeans",
+"nearest": [
+"skirt"
+],
+"random": [],
+"distractors": [
+"skirt"
+],
+"n_eligible": 1,
+"sha": "455f979565de9960a434871e41adf504a787c7f7dff87a56ac76c80f89961ff0",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0068__L044__p103:theoxfordshoe:classic501straightleg": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0068__L044__p103:theoxfordshoe:classic501straightleg",
+"anchor": "Levi's 501",
+"nearest": [
+"jogger jeans",
+"skirt"
+],
+"random": [],
+"distractors": [
+"jogger jeans",
+"skirt"
+],
+"n_eligible": 2,
+"sha": "d51af3b930672cacbd2c6bca430729c16f738bae9b12089423aff9530572986a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0068__L048__p103:jackets:jeans": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0068__L048__p103:jackets:jeans",
+"anchor": "jeans",
+"nearest": [
+"skirt"
+],
+"random": [],
+"distractors": [
+"skirt"
+],
+"n_eligible": 1,
+"sha": "0cb9ca0b54c69333739ea2107b6f652691ff4f25fc99e2c5aa17016c0e653138",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0068__L048__p103:mensjackets:jeans": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0068__L048__p103:mensjackets:jeans",
+"anchor": "jeans",
+"nearest": [
+"skirt"
+],
+"random": [],
+"distractors": [
+"skirt"
+],
+"n_eligible": 1,
+"sha": "2cc7237f58d00889f445bda196f240e15b336d3153a420473304612eaba19667",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0068__L048__p280:sneakersandshoes:jeans": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0068__L048__p280:sneakersandshoes:jeans",
+"anchor": "jeans",
+"nearest": [
+"skirt"
+],
+"random": [],
+"distractors": [
+"skirt"
+],
+"n_eligible": 1,
+"sha": "afedb5114404f101dd0dacb58b6652240790389a0e0b3a193960a10984c339b7",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0068__L052__p401:tshirtstyles:jeans": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0068__L052__p401:tshirtstyles:jeans",
+"anchor": "jeans",
+"nearest": [
+"skirt"
+],
+"random": [],
+"distractors": [
+"skirt"
+],
+"n_eligible": 1,
+"sha": "2d2ca9b32735484015026dd35703aa33b3987bd2add12a72c482bd028508b8e9",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0068__L036__p24:suit:jeans": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0068__L036__p24:suit:jeans",
+"anchor": "jeans",
+"nearest": [
+"jacket",
+"skirt",
+"dress"
+],
+"random": [],
+"distractors": [
+"jacket",
+"skirt",
+"dress"
+],
+"n_eligible": 3,
+"sha": "8c5e665d4d2d81d959ec6429faaa3e531f446d1db9e4018c7f6233005e78b5b0",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0068__L040__p24:shoestyles:jeans": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0068__L040__p24:shoestyles:jeans",
+"anchor": "jeans",
+"nearest": [
+"jacket",
+"skirt",
+"dress"
+],
+"random": [],
+"distractors": [
+"jacket",
+"skirt",
+"dress"
+],
+"n_eligible": 3,
+"sha": "e8d2d663913bc84f90b0873512f8c276d3aa0cb6130cef391b5df12bfc3d81d0",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0068__L040__p24:shoestyles:jeansstyles": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0068__L040__p24:shoestyles:jeansstyles",
+"anchor": "jeans",
+"nearest": [
+"jacket",
+"skirt",
+"dress"
+],
+"random": [],
+"distractors": [
+"jacket",
+"skirt",
+"dress"
+],
+"n_eligible": 3,
+"sha": "91a174527d1716d3d2c28fff8939aa60610dc8de7d74e0f43fad097e03e43fb1",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0068__L040__p24:sneakers:jeans": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0068__L040__p24:sneakers:jeans",
+"anchor": "jeans",
+"nearest": [
+"jacket",
+"skirt",
+"dress"
+],
+"random": [],
+"distractors": [
+"jacket",
+"skirt",
+"dress"
+],
+"n_eligible": 3,
+"sha": "88febbd62a866662477d77ea4894aec566b6c0c09a6a5288a52248254fa3b40b",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0068__L044__p24:shoes:jeans": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0068__L044__p24:shoes:jeans",
+"anchor": "jeans",
+"nearest": [
+"jacket",
+"skirt",
+"dress"
+],
+"random": [],
+"distractors": [
+"jacket",
+"skirt",
+"dress"
+],
+"n_eligible": 3,
+"sha": "90e8cbc6a3c0a49c13a5b5abfc232b723b342313b11be83919035ff5bf03b0e6",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0068__L048__p103:menscasualshoes:jeans": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0068__L048__p103:menscasualshoes:jeans",
+"anchor": "jeans",
+"nearest": [
+"jacket",
+"skirt",
+"dress"
+],
+"random": [],
+"distractors": [
+"jacket",
+"skirt",
+"dress"
+],
+"n_eligible": 3,
+"sha": "b7e19ae82ff61357cd91c45414fb83e842a078b79bbb5665f2e54dc585d04424",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0068__L052__p401:tee:jeans": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0068__L052__p401:tee:jeans",
+"anchor": "jeans",
+"nearest": [
+"jacket",
+"skirt",
+"dress"
+],
+"random": [],
+"distractors": [
+"jacket",
+"skirt",
+"dress"
+],
+"n_eligible": 3,
+"sha": "c01c55db31ad07e9b376150dd31b1dbe6e52f4a90013e01cb9b489673ddcd83f",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0068__L052__p401:tshirt:jeans": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0068__L052__p401:tshirt:jeans",
+"anchor": "jeans",
+"nearest": [
+"jacket",
+"skirt",
+"dress"
+],
+"random": [],
+"distractors": [
+"jacket",
+"skirt",
+"dress"
+],
+"n_eligible": 3,
+"sha": "2a36a0c2cc666a56fdf0fd15b80ea267d2178f93a64bbe9134840c56df1cb79c",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0068__L056__p401:menspants:jeans": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0068__L056__p401:menspants:jeans",
+"anchor": "jeans",
+"nearest": [
+"jacket",
+"skirt",
+"dress"
+],
+"random": [],
+"distractors": [
+"jacket",
+"skirt",
+"dress"
+],
+"n_eligible": 3,
+"sha": "675f60e62102ab6dd33b30961cb0a305e3c27f0e1e4e64abfbca1805e5fcd1fb",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0068__L060__p103:shoestyles:jeansstyles": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0068__L060__p103:shoestyles:jeansstyles",
+"anchor": "jeans",
+"nearest": [
+"jacket",
+"skirt",
+"dress"
+],
+"random": [],
+"distractors": [
+"jacket",
+"skirt",
+"dress"
+],
+"n_eligible": 3,
+"sha": "5ab532e0faa0dd1070f45c135e8e988f2b1a643f50c680e11044690d714bdcf9",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0068__L036__p280:menstailoredtrousers:jeans": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0068__L036__p280:menstailoredtrousers:jeans",
+"anchor": "jeans",
+"nearest": [
+"jacket",
+"skirt",
+"dress"
+],
+"random": [],
+"distractors": [
+"jacket",
+"skirt",
+"dress"
+],
+"n_eligible": 3,
+"sha": "e7c03ee683becd816d9c15e3e3ae07a93cd5705480138187e784a6e5460415b5",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0068__L052__p401:oversizedhoodielinenpoloshirt:jeansstyles": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0068__L052__p401:oversizedhoodielinenpoloshirt:jeansstyles",
+"anchor": "jeans",
+"nearest": [
+"jacket",
+"skirt",
+"dress"
+],
+"random": [],
+"distractors": [
+"jacket",
+"skirt",
+"dress"
+],
+"n_eligible": 3,
+"sha": "b3df1cb02a073d89038bb75816f676cfc8135a296f829150367acefd1be1e80c",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0068__L056__p103:boots:jeans": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0068__L056__p103:boots:jeans",
+"anchor": "jeans",
+"nearest": [
+"jacket",
+"skirt",
+"dress"
+],
+"random": [],
+"distractors": [
+"jacket",
+"skirt",
+"dress"
+],
+"n_eligible": 3,
+"sha": "e3a4eff2d5fd19a2262de4616c66fafba2197b99f2dd6cd73de3e54cce8bab5b",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0068__L056__p103:casualshoes:jeans": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0068__L056__p103:casualshoes:jeans",
+"anchor": "jeans",
+"nearest": [
+"jacket",
+"skirt",
+"dress"
+],
+"random": [],
+"distractors": [
+"jacket",
+"skirt",
+"dress"
+],
+"n_eligible": 3,
+"sha": "5f8de7b4aa7530581312c5aa33561b42f3c707ff33e2362760811939f946de6f",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0068__L056__p103:sneakers:jeans": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0068__L056__p103:sneakers:jeans",
+"anchor": "jeans",
+"nearest": [
+"jacket",
+"skirt",
+"dress"
+],
+"random": [],
+"distractors": [
+"jacket",
+"skirt",
+"dress"
+],
+"n_eligible": 3,
+"sha": "c416c9ae37fc77bf1b676327b67b9e80493cde46144b1604e33ca10a2dd4101e",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0068__L060__p103:mensboots:jeans": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0068__L060__p103:mensboots:jeans",
+"anchor": "jeans",
+"nearest": [
+"jacket",
+"skirt",
+"dress"
+],
+"random": [],
+"distractors": [
+"jacket",
+"skirt",
+"dress"
+],
+"n_eligible": 3,
+"sha": "f3a0c9160208e93227f267696fc9daa3fd259d78423edf7e0141f0ac463abc80",
+"generation": 0
+},
+"nla-rl-L42:chat-dailydialog-0068__L042__p24:shoes:jeans": {
+"unit": "nla-rl-L42:chat-dailydialog-0068__L042__p24:shoes:jeans",
+"anchor": "jeans",
+"nearest": [
+"jacket",
+"skirt",
+"dress"
+],
+"random": [],
+"distractors": [
+"jacket",
+"skirt",
+"dress"
+],
+"n_eligible": 3,
+"sha": "8473773ec87302666d32bacb6e18525dd9c534b47ce0c5f8f98ae437f171dd9d",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0060__L040__p24:jacket:skates": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0060__L040__p24:jacket:skates",
+"anchor": "jacket",
+"nearest": [
+"t-shirt",
+"shirt",
+"oversized hoodie",
+"jeans"
+],
+"random": [
+"casual shoes",
+"men's pants",
+"men's tailored trousers",
+"skirt"
+],
+"distractors": [
+"t-shirt",
+"shirt",
+"oversized hoodie",
+"jeans",
+"casual shoes",
+"men's pants",
+"men's tailored trousers",
+"skirt"
+],
+"n_eligible": 13,
+"sha": "553b6ef36dfceecebbf7a3a62ef17d3fa76b2ce36c652e1f3ec51c36b63676eb",
+"generation": 0
+}
+}

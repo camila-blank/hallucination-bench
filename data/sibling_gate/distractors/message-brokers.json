@@ -1,0 +1,280 @@
+{
+"mlnla-rl2-800-all11:chat-lmsys-0015__L020__p247:kafka:rabbitmq": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0015__L020__p247:kafka:rabbitmq",
+"anchor": "RabbitMQ",
+"nearest": [
+"ActiveMQ",
+"IBM MQ",
+"ZeroMQ",
+"NATS"
+],
+"random": [
+"Amazon Kinesis",
+"Amazon SQS",
+"Azure Service Bus"
+],
+"distractors": [
+"ActiveMQ",
+"IBM MQ",
+"ZeroMQ",
+"NATS",
+"Amazon Kinesis",
+"Amazon SQS",
+"Azure Service Bus"
+],
+"n_eligible": 7,
+"sha": "e1fee34dc4eeb13309132d69de778255ad3d96e82d6fe9842894e018fcdfa67e",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0015__L020__p387:kafka:rabbitmq": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0015__L020__p387:kafka:rabbitmq",
+"anchor": "RabbitMQ",
+"nearest": [
+"ActiveMQ",
+"IBM MQ",
+"ZeroMQ",
+"NATS"
+],
+"random": [
+"Amazon Kinesis",
+"Amazon SQS",
+"Azure Service Bus"
+],
+"distractors": [
+"ActiveMQ",
+"IBM MQ",
+"ZeroMQ",
+"NATS",
+"Amazon Kinesis",
+"Amazon SQS",
+"Azure Service Bus"
+],
+"n_eligible": 7,
+"sha": "a14fe89d0b3cd9b005ad9392cdb275a7ad0f2157ca2c39004401e0cb28801ba7",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0015__L020__p387:mqttbroker:rabbitmq": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0015__L020__p387:mqttbroker:rabbitmq",
+"anchor": "RabbitMQ",
+"nearest": [
+"ActiveMQ",
+"IBM MQ",
+"Apache RocketMQ",
+"ZeroMQ"
+],
+"random": [
+"Amazon Kinesis",
+"Apache Pulsar",
+"Azure Service Bus",
+"NATS"
+],
+"distractors": [
+"ActiveMQ",
+"IBM MQ",
+"Apache RocketMQ",
+"ZeroMQ",
+"Amazon Kinesis",
+"Apache Pulsar",
+"Azure Service Bus",
+"NATS"
+],
+"n_eligible": 9,
+"sha": "e15098279e3dbbea00be949e663f101483cb18abcebc8083eccd9dc48840ddc4",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0015__L032__p304:mqttbroker:rabbitmq": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0015__L032__p304:mqttbroker:rabbitmq",
+"anchor": "RabbitMQ",
+"nearest": [
+"ActiveMQ",
+"IBM MQ",
+"Apache RocketMQ",
+"ZeroMQ"
+],
+"random": [
+"Amazon Kinesis",
+"Amazon SQS",
+"Apache Pulsar",
+"Azure Service Bus"
+],
+"distractors": [
+"ActiveMQ",
+"IBM MQ",
+"Apache RocketMQ",
+"ZeroMQ",
+"Amazon Kinesis",
+"Amazon SQS",
+"Apache Pulsar",
+"Azure Service Bus"
+],
+"n_eligible": 9,
+"sha": "31267c925051485cb0cfd9496fa2313908fec169cf15573a81babad8c855ec87",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0015__L044__p247:solace:rabbitmq": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0015__L044__p247:solace:rabbitmq",
+"anchor": "RabbitMQ",
+"nearest": [
+"ActiveMQ",
+"IBM MQ",
+"Apache RocketMQ",
+"ZeroMQ"
+],
+"random": [
+"Amazon SQS",
+"Apache Pulsar",
+"Azure Service Bus",
+"NATS"
+],
+"distractors": [
+"ActiveMQ",
+"IBM MQ",
+"Apache RocketMQ",
+"ZeroMQ",
+"Amazon SQS",
+"Apache Pulsar",
+"Azure Service Bus",
+"NATS"
+],
+"n_eligible": 9,
+"sha": "5d98391bbb6fe584b8bc1be63ba30eeaa0798e8d20bcc24571fb744f80527de6",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0015__L052__p304:apachekafka:rabbitmq": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0015__L052__p304:apachekafka:rabbitmq",
+"anchor": "RabbitMQ",
+"nearest": [
+"ActiveMQ",
+"IBM MQ",
+"ZeroMQ",
+"NATS"
+],
+"random": [
+"Amazon Kinesis",
+"Amazon SQS",
+"Azure Service Bus"
+],
+"distractors": [
+"ActiveMQ",
+"IBM MQ",
+"ZeroMQ",
+"NATS",
+"Amazon Kinesis",
+"Amazon SQS",
+"Azure Service Bus"
+],
+"n_eligible": 7,
+"sha": "581568c5a4adecbfb3406d4ee8d77b9be08c9e5f308f80670e1a5f74a6afecb9",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0015__L052__p304:kafka:rabbitmq": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0015__L052__p304:kafka:rabbitmq",
+"anchor": "RabbitMQ",
+"nearest": [
+"ActiveMQ",
+"IBM MQ",
+"ZeroMQ",
+"NATS"
+],
+"random": [
+"Amazon Kinesis",
+"Amazon SQS",
+"Azure Service Bus"
+],
+"distractors": [
+"ActiveMQ",
+"IBM MQ",
+"ZeroMQ",
+"NATS",
+"Amazon Kinesis",
+"Amazon SQS",
+"Azure Service Bus"
+],
+"n_eligible": 7,
+"sha": "bbbc08164b9102e0d83ed70c51919a761a9b8b7f2d9e1f40faf06417ec1eb216",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0015__L024__p338:kafka:rabbitmq": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0015__L024__p338:kafka:rabbitmq",
+"anchor": "RabbitMQ",
+"nearest": [
+"ActiveMQ",
+"IBM MQ",
+"ZeroMQ",
+"NATS"
+],
+"random": [
+"Amazon Kinesis",
+"Amazon SQS",
+"Azure Service Bus"
+],
+"distractors": [
+"ActiveMQ",
+"IBM MQ",
+"ZeroMQ",
+"NATS",
+"Amazon Kinesis",
+"Amazon SQS",
+"Azure Service Bus"
+],
+"n_eligible": 7,
+"sha": "c1fbc6bf91090c7029d5f467d3fe2e13d323a7fbbd0b36b26a22de3d796c8011",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0015__L028__p269:mqttkafka:rabbitmq": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0015__L028__p269:mqttkafka:rabbitmq",
+"anchor": "RabbitMQ",
+"nearest": [
+"ActiveMQ",
+"IBM MQ",
+"Apache RocketMQ",
+"ZeroMQ"
+],
+"random": [
+"Amazon SQS",
+"Apache Pulsar",
+"Azure Service Bus",
+"NATS"
+],
+"distractors": [
+"ActiveMQ",
+"IBM MQ",
+"Apache RocketMQ",
+"ZeroMQ",
+"Amazon SQS",
+"Apache Pulsar",
+"Azure Service Bus",
+"NATS"
+],
+"n_eligible": 9,
+"sha": "8304d8aa59daff76c8ffb57383d316e2cfb854cb684bbee3ae0fc7d2972175b3",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0015__L036__p247:kafka:rabbitmq": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0015__L036__p247:kafka:rabbitmq",
+"anchor": "RabbitMQ",
+"nearest": [
+"ActiveMQ",
+"IBM MQ",
+"ZeroMQ",
+"NATS"
+],
+"random": [
+"Amazon Kinesis",
+"Amazon SQS",
+"Azure Service Bus"
+],
+"distractors": [
+"ActiveMQ",
+"IBM MQ",
+"ZeroMQ",
+"NATS",
+"Amazon Kinesis",
+"Amazon SQS",
+"Azure Service Bus"
+],
+"n_eligible": 7,
+"sha": "db211bceee280ef0e5fe72c856acf9efcbf3fd3645c2726df1c97368da083ea0",
+"generation": 0
+}
+}

@@ -1,0 +1,308 @@
+{
+"mlnla-ck2000-all11:chat-lmsys-0009__L056__p326:shanghaisinochemtrading:shanghaibmgchemicalcoltd": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0009__L056__p326:shanghaisinochemtrading:shanghaibmgchemicalcoltd",
+"anchor": "Shanghai BMG Chemical Co., Ltd.",
+"nearest": [
+"Shanghai Huihe Chemical",
+"Jiangsu Shuanghua",
+"SiATEX Yida",
+"Yitai Chemical"
+],
+"random": [
+"ChemChina",
+"Rongsheng Petrochemical",
+"Shanghai Huayi",
+"Wanhua Chemical"
+],
+"distractors": [
+"Shanghai Huihe Chemical",
+"Jiangsu Shuanghua",
+"SiATEX Yida",
+"Yitai Chemical",
+"ChemChina",
+"Rongsheng Petrochemical",
+"Shanghai Huayi",
+"Wanhua Chemical"
+],
+"n_eligible": 8,
+"sha": "2bec41b60f505775b0b3c47be6e6137dda20962bac428b677827e60c032960ce",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0009__L056__p326:shanghaisinochemtradingcoltd:shanghaibmgchemicalcoltd": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0009__L056__p326:shanghaisinochemtradingcoltd:shanghaibmgchemicalcoltd",
+"anchor": "Shanghai BMG Chemical Co., Ltd.",
+"nearest": [
+"Shanghai Huihe Chemical",
+"Jiangsu Shuanghua",
+"SiATEX Yida",
+"Yitai Chemical"
+],
+"random": [
+"ChemChina",
+"Rongsheng Petrochemical",
+"Shanghai Huayi",
+"Wanhua Chemical"
+],
+"distractors": [
+"Shanghai Huihe Chemical",
+"Jiangsu Shuanghua",
+"SiATEX Yida",
+"Yitai Chemical",
+"ChemChina",
+"Rongsheng Petrochemical",
+"Shanghai Huayi",
+"Wanhua Chemical"
+],
+"n_eligible": 8,
+"sha": "ae343f24cf2da439303d552cd153b614e704af92097d5f874ed025db74c74424",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0025__L052__p292:sinochem:shanghaihuihechemical": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0025__L052__p292:sinochem:shanghaihuihechemical",
+"anchor": "Shanghai Huihe Chemical",
+"nearest": [
+"Jiangsu Shuanghua",
+"Yitai Chemical",
+"Rongsheng Petrochemical",
+"Wanhua Chemical"
+],
+"random": [
+"Sinopec"
+],
+"distractors": [
+"Jiangsu Shuanghua",
+"Yitai Chemical",
+"Rongsheng Petrochemical",
+"Wanhua Chemical",
+"Sinopec"
+],
+"n_eligible": 5,
+"sha": "55637d6a404885bc4b857ce0a12dbfc154a09467dbdacbe5a293c3003444e363",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0025__L060__p292:shanghaisinochem:shanghaihuihechemical": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0025__L060__p292:shanghaisinochem:shanghaihuihechemical",
+"anchor": "Shanghai Huihe Chemical Co., Ltd.",
+"nearest": [
+"Jiangsu Shuanghua",
+"Rongsheng Petrochemical",
+"Yitai Chemical",
+"Wanhua Chemical"
+],
+"random": [
+"Sinopec"
+],
+"distractors": [
+"Jiangsu Shuanghua",
+"Rongsheng Petrochemical",
+"Yitai Chemical",
+"Wanhua Chemical",
+"Sinopec"
+],
+"n_eligible": 5,
+"sha": "3ae888474be7ab13d3d7ac2c59df67c3984d3eda37d868dfde3f9f9c1c7a439a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0070__L052__p154:jiangsushuanghua:chengdupushbiotechnology": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0070__L052__p154:jiangsushuanghua:chengdupushbiotechnology",
+"anchor": "Chengdu Push Bio-technology Co., Ltd.",
+"nearest": [
+"SiATEX Yida",
+"Shanghai SinoChem Trading",
+"Shanghai Huihe Chemical",
+"Sinopec"
+],
+"random": [
+"ChemChina",
+"Rongsheng Petrochemical",
+"Shanghai Huayi",
+"Wanhua Chemical"
+],
+"distractors": [
+"SiATEX Yida",
+"Shanghai SinoChem Trading",
+"Shanghai Huihe Chemical",
+"Sinopec",
+"ChemChina",
+"Rongsheng Petrochemical",
+"Shanghai Huayi",
+"Wanhua Chemical"
+],
+"n_eligible": 8,
+"sha": "40bc046168844019ba830da2eb2b84fcdf622a5d87af140c0514c2b5ab73357c",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0070__L056__p154:yitaichemical:chengdupushbiotechnology": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0070__L056__p154:yitaichemical:chengdupushbiotechnology",
+"anchor": "Chengdu Push Bio-technology Co., Ltd.",
+"nearest": [
+"SiATEX Yida",
+"Shanghai SinoChem Trading",
+"Shanghai Huihe Chemical",
+"Sinopec"
+],
+"random": [
+"ChemChina",
+"Rongsheng Petrochemical",
+"Shanghai Huayi",
+"Wanhua Chemical"
+],
+"distractors": [
+"SiATEX Yida",
+"Shanghai SinoChem Trading",
+"Shanghai Huihe Chemical",
+"Sinopec",
+"ChemChina",
+"Rongsheng Petrochemical",
+"Shanghai Huayi",
+"Wanhua Chemical"
+],
+"n_eligible": 8,
+"sha": "6f742d39a33aa9abf671a741b21d8e22da823ab0c455e489c525e9ebe3f8699b",
+"generation": 1
+},
+"s3d-rl600-all11:chat-lmsys-0009__L040__p203:shandongxinruichemicalcoltd:shanghaibmgchemicalcoltd": {
+"unit": "s3d-rl600-all11:chat-lmsys-0009__L040__p203:shandongxinruichemicalcoltd:shanghaibmgchemicalcoltd",
+"anchor": "Shanghai BMG Chemical Co., Ltd.",
+"nearest": [
+"Shanghai Huihe Chemical",
+"SiATEX Yida",
+"Rongsheng Petrochemical",
+"ChemChina"
+],
+"random": [
+"Shanghai Huayi",
+"Sinopec",
+"Wanhua Chemical"
+],
+"distractors": [
+"Shanghai Huihe Chemical",
+"SiATEX Yida",
+"Rongsheng Petrochemical",
+"ChemChina",
+"Shanghai Huayi",
+"Sinopec",
+"Wanhua Chemical"
+],
+"n_eligible": 7,
+"sha": "e5f926c96562d7f871e54c9e6c161928821d50bf54adaff1c234aa89310a1f9f",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0025__L060__p236:shanghaihuayi:shanghaihuihechemical": {
+"unit": "s3d-rl600-all11:chat-lmsys-0025__L060__p236:shanghaihuayi:shanghaihuihechemical",
+"anchor": "Shanghai Huihe Chemical",
+"nearest": [
+"Rongsheng Petrochemical",
+"Wanhua Chemical",
+"Sinopec"
+],
+"random": [],
+"distractors": [
+"Rongsheng Petrochemical",
+"Wanhua Chemical",
+"Sinopec"
+],
+"n_eligible": 3,
+"sha": "bf8a2e79eaabcbe6c47fe084c47587eedb316486f47ca8ff769ae59dbe35393d",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0025__L020__p176:shanghaichemicalscoltd:shanghaihuihechemicalcoltd": {
+"unit": "s3d-rl600:chat-lmsys-0025__L020__p176:shanghaichemicalscoltd:shanghaihuihechemicalcoltd",
+"anchor": "Shanghai Huihe Chemical Co., Ltd.",
+"nearest": [
+"Rongsheng Petrochemical",
+"Wanhua Chemical",
+"Sinopec"
+],
+"random": [],
+"distractors": [
+"Rongsheng Petrochemical",
+"Wanhua Chemical",
+"Sinopec"
+],
+"n_eligible": 3,
+"sha": "d37f41355c445cf0c0527364b104ddd942ad4dc8ab0f897dd10eb0b8f1d4c590",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0025__L020__p198:shanghaichemicalreagentcoltd:shanghaihuihechemicalcoltd": {
+"unit": "s3d-rl600:chat-lmsys-0025__L020__p198:shanghaichemicalreagentcoltd:shanghaihuihechemicalcoltd",
+"anchor": "Shanghai Huihe Chemical Co., Ltd.",
+"nearest": [
+"Rongsheng Petrochemical",
+"Wanhua Chemical",
+"Sinopec"
+],
+"random": [],
+"distractors": [
+"Rongsheng Petrochemical",
+"Wanhua Chemical",
+"Sinopec"
+],
+"n_eligible": 3,
+"sha": "de9e34b53d20ce6443dff769ce7fe3fa8e6b05a4038d15b5fbe6ee322b55f6a1",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0025__L036__p198:shenzhenxinhuaduchemicalcoltd:shanghaihuihechemicalcoltd": {
+"unit": "s3d-sft251:chat-lmsys-0025__L036__p198:shenzhenxinhuaduchemicalcoltd:shanghaihuihechemicalcoltd",
+"anchor": "Shanghai Huihe Chemical Co., Ltd",
+"nearest": [
+"Sinopec",
+"Wanhua Chemical",
+"Rongsheng Petrochemical"
+],
+"random": [],
+"distractors": [
+"Sinopec",
+"Wanhua Chemical",
+"Rongsheng Petrochemical"
+],
+"n_eligible": 3,
+"sha": "df330dde120ea7d6016f93057bec45b6a102e98850ae0c399b41b8ed55b6a5df",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0025__L052__p292:siatexyida:shanghaihuihechemical": {
+"unit": "s3d-sft251:chat-lmsys-0025__L052__p292:siatexyida:shanghaihuihechemical",
+"anchor": "Shanghai Huihe Chemical",
+"nearest": [
+"Rongsheng Petrochemical",
+"Wanhua Chemical",
+"Sinopec"
+],
+"random": [],
+"distractors": [
+"Rongsheng Petrochemical",
+"Wanhua Chemical",
+"Sinopec"
+],
+"n_eligible": 3,
+"sha": "046830bb606b9aa71abebb29c13908a4f4d7a25a5328c2785ea6c3a2b9ea3eee",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0070__L048__p222:sinomax:chengdupushbiotechnology": {
+"unit": "s3d-sft251:chat-lmsys-0070__L048__p222:sinomax:chengdupushbiotechnology",
+"anchor": "Chengdu Push Bio-technology Co., Ltd.",
+"nearest": [
+"SiATEX Yida",
+"Shanghai Huihe Chemical",
+"Sinopec",
+"Wanhua Chemical"
+],
+"random": [
+"ChemChina",
+"Rongsheng Petrochemical",
+"Shanghai Huayi"
+],
+"distractors": [
+"SiATEX Yida",
+"Shanghai Huihe Chemical",
+"Sinopec",
+"Wanhua Chemical",
+"ChemChina",
+"Rongsheng Petrochemical",
+"Shanghai Huayi"
+],
+"n_eligible": 7,
+"sha": "8af5f4c99174f4ba5840b9880780fbe0145088d0b73a8b8a59688f6026def4e5",
+"generation": 0
+}
+}

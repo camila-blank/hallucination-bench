@@ -1,0 +1,179 @@
+{
+"mlnla-ck2000-all11:chat-lmsys-0064__L032__p860:emmcandmicrosd:ssdandhdd": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0064__L032__p860:emmcandmicrosd:ssdandhdd",
+"anchor": "SSD and HDD",
+"nearest": [
+"Magnetic tape",
+"Cloud storage",
+"Floppy disk",
+"Optical disc"
+],
+"random": [
+"USB flash drive"
+],
+"distractors": [
+"Magnetic tape",
+"Cloud storage",
+"Floppy disk",
+"Optical disc",
+"USB flash drive"
+],
+"n_eligible": 5,
+"sha": "67dcd9266fd50fb8340f251b7bc73b4f2c3a2428d6968ed8a1b77c399b498941",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0064__L032__p860:sd:ssd": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0064__L032__p860:sd:ssd",
+"anchor": "SSD",
+"nearest": [
+"Magnetic tape",
+"USB flash drive",
+"Cloud storage",
+"Floppy disk"
+],
+"random": [
+"Optical disc"
+],
+"distractors": [
+"Magnetic tape",
+"USB flash drive",
+"Cloud storage",
+"Floppy disk",
+"Optical disc"
+],
+"n_eligible": 5,
+"sha": "51869b2986aae848fc96a853ae3a9fe45539607ea0b5bc908f24338f96e26ed4",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0064__L032__p860:sdmmc:ssd": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0064__L032__p860:sdmmc:ssd",
+"anchor": "SSD",
+"nearest": [
+"microSD card",
+"Magnetic tape",
+"USB flash drive",
+"Cloud storage"
+],
+"random": [
+"Floppy disk",
+"Optical disc"
+],
+"distractors": [
+"microSD card",
+"Magnetic tape",
+"USB flash drive",
+"Cloud storage",
+"Floppy disk",
+"Optical disc"
+],
+"n_eligible": 6,
+"sha": "333977b22c36f08cff677aa1d82cff0c0b0c6d228fced53d6b10c8d840c113e0",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0064__L032__p860:sdmmcmicrosd:ssd": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0064__L032__p860:sdmmcmicrosd:ssd",
+"anchor": "SSD",
+"nearest": [
+"microSD card",
+"Magnetic tape",
+"USB flash drive",
+"Cloud storage"
+],
+"random": [
+"Floppy disk",
+"Optical disc"
+],
+"distractors": [
+"microSD card",
+"Magnetic tape",
+"USB flash drive",
+"Cloud storage",
+"Floppy disk",
+"Optical disc"
+],
+"n_eligible": 6,
+"sha": "dd4dfdb8215912675a683d892555589bbe55cf3b07f5be7bedae5510cc8fcb1e",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0064__L040__p860:emmc:hdd": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0064__L040__p860:emmc:hdd",
+"anchor": "HDD",
+"nearest": [
+"SSD",
+"Optical disc",
+"USB flash drive",
+"NVMe SSD"
+],
+"random": [
+"Cloud storage",
+"Floppy disk",
+"Magnetic tape",
+"microSD card"
+],
+"distractors": [
+"SSD",
+"Optical disc",
+"USB flash drive",
+"NVMe SSD",
+"Cloud storage",
+"Floppy disk",
+"Magnetic tape",
+"microSD card"
+],
+"n_eligible": 8,
+"sha": "0caf481d95ad9060e5283f1780a60e87972f6a1dd5eeae69938996cc19dd611e",
+"generation": 1
+},
+"mlnla-rl600-all11:chat-lmsys-0064__L028__p860:emmc+microsdcard:ssdandhdd": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0064__L028__p860:emmc+microsdcard:ssdandhdd",
+"anchor": "Hybrid (SSD and HDD)",
+"nearest": [
+"Cloud storage",
+"Magnetic tape",
+"USB flash drive",
+"Floppy disk"
+],
+"random": [
+"Optical disc"
+],
+"distractors": [
+"Cloud storage",
+"Magnetic tape",
+"USB flash drive",
+"Floppy disk",
+"Optical disc"
+],
+"n_eligible": 5,
+"sha": "bbbf3ffc5525ac9522ed09da3adce3f08efc6cad42979dabe247c7a0bc61011b",
+"generation": 1
+},
+"s3d-sft251:chat-lmsys-0064__L048__p860:emmc:hdd": {
+"unit": "s3d-sft251:chat-lmsys-0064__L048__p860:emmc:hdd",
+"anchor": "HDD",
+"nearest": [
+"SSD",
+"Optical disc",
+"USB flash drive",
+"NVMe SSD"
+],
+"random": [
+"Cloud storage",
+"Floppy disk",
+"Magnetic tape",
+"microSD card"
+],
+"distractors": [
+"SSD",
+"Optical disc",
+"USB flash drive",
+"NVMe SSD",
+"Cloud storage",
+"Floppy disk",
+"Magnetic tape",
+"microSD card"
+],
+"n_eligible": 8,
+"sha": "aafbd49bf823963ddfae40d8fb9dda203a19efe9dafea8b7d929bba8022aa88b",
+"generation": 1
+}
+}

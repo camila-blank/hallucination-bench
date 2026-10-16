@@ -1,0 +1,872 @@
+{
+"mlnla-ck2000-all11:chat-lmsys-0069__L028__p384:panaxnotoginseng:gastrodiaelata": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0069__L028__p384:panaxnotoginseng:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "bdea41792fad8ec319400d9f6785f30ac4374513c4c254f7ccb7adbbec3217de",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0069__L032__p384:panaxnotoginseng:gastrodiaelata": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0069__L032__p384:panaxnotoginseng:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "85efa5ae0fe8d9b3698065fa5bc66b832c7fbf55a2d6293de37b0a9aa9d656f7",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0069__L044__p311:turmericcurcumin:gastrodiaelatagastrodin": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0069__L044__p311:turmericcurcumin:gastrodiaelatagastrodin",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "e44d3fe1f41e574ca06c81259496c8bb03c946d5f65924cb11ff35fd2d6259e4",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0069__L048__p311:ginsengroot:gastrodiaelatatuber": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0069__L048__p311:ginsengroot:gastrodiaelatatuber",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "580457ab33f159337622290865a21460a3512f5d91be7b18345025ce9693eab0",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0069__L052__p384:panaxnotoginsengginsenosiderg3:gastrodiaelatagastrodin": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0069__L052__p384:panaxnotoginsengginsenosiderg3:gastrodiaelatagastrodin",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "b0c749db2d13328914cb65ba990b6264298b2af4a690a7177d8cad199588d61b",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0069__L056__p311:vincristinerosecamptothecaacuminata:gastrodiaelata": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0069__L056__p311:vincristinerosecamptothecaacuminata:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "570e15ce8fc9635b3a12571d18416d59f5bed238128df06f4dbf97269c763e48",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0069__L020__p384:panaxnotoginseng:gastrodiaelata": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0069__L020__p384:panaxnotoginseng:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "46d840bc18950d82dbcb56f89eb99052907387aabb822090b6fe5f1d1cbaab88",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0069__L024__p311:ginseng:gastrodiaelata": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0069__L024__p311:ginseng:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "ecfe83ec2572d313304cd19b123d132b567810a7db30ad74573f329e4064ca76",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0069__L024__p384:panaxnotoginseng:gastrodiaelata": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0069__L024__p384:panaxnotoginseng:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "6bba2b167402c1faf7a50f5b9f3b1a9a007db16692364b2567da57e95851b3bf",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0069__L032__p311:turmeric:gastrodiaelata": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0069__L032__p311:turmeric:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "2af33e1467f684d89b00b523a6b0945fd11278b61b300ed089cd520168e00cfa",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0069__L032__p384:ginseng:gastrodiaelata": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0069__L032__p384:ginseng:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "4ceaf2f0595e50fbc9dd0aacc7db152fe8cf3379dc23e092f0d997dfafd23461",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0069__L032__p384:ginsengroot:gastrodiaelatatubers": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0069__L032__p384:ginsengroot:gastrodiaelatatubers",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "625a782e14237ab2994e3be63ef72a4006a4b97f1be653f4a783317a43cfbb9c",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0069__L032__p94:paeoniasuffruticosa:gastrodiaelata": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0069__L032__p94:paeoniasuffruticosa:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "a820d606f369bc2493c7115a157ecd3bed80492ad8de9751e873bada5c62f18a",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0069__L036__p31:artemisiaannua:gastrodiaelata": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0069__L036__p31:artemisiaannua:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "58e75e064a15ebf9cff80aec3b044ea675fd3d55e2fcd42f53c8ad7c8062439c",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0069__L036__p384:ginseng:gastrodiaelata": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0069__L036__p384:ginseng:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "ee418d0eed904fed8b34ffaf6d72e1f1c37e9bed8d36a18965b9a7fff99f3ae6",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0069__L036__p94:paeonialactiflora:gastrodiaelata": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0069__L036__p94:paeonialactiflora:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "f6f257801edd38bb873f49d9a2987131908cbe8d4fb742918408a08d45b173b7",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0069__L044__p311:quillajasaponaria:gastrodiaelata": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0069__L044__p311:quillajasaponaria:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "51fcc8620f9ecf14ca50c58126d622756c3065b3a8167f4abaf23ee6ee8a2ac7",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0069__L044__p311:turmeric:gastrodiaelata": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0069__L044__p311:turmeric:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "a10517dce0068486f32d629b42662614536704a69c10e953c5ccac2115c7af66",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0069__L052__p311:panaxginseng:gastrodiaelata": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0069__L052__p311:panaxginseng:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "988ce6ab0129b547869a40fa47503236e95a24bedb1848221af3b7a4279cf5d0",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0069__L056__p311:cinchonabark:gastrodiaelatatuber": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0069__L056__p311:cinchonabark:gastrodiaelatatuber",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "577a0f28330086dc70fa0256889cab8607d5fb2d326de022de21e11393fda014",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0069__L032__p94:paeonialactiflora:gastrodiaelata": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0069__L032__p94:paeonialactiflora:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "f83280c637111b33b07f6daf5084fca4701a2989b154f42111207250a574d3a8",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0069__L036__p94:polygala:gastrodiaelata": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0069__L036__p94:polygala:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "b62a70ca94c23cf9fdd09ed82d4f1c4c926145e8148cbde818752aff909716ef",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0069__L040__p311:turmeric:gastrodiaelata": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0069__L040__p311:turmeric:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "f54b677be674f4e85be5ce62e49bde89642f11557c4576284d35cfe25d185e6a",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0069__L044__p311:turmeric:gastrodiaelata": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0069__L044__p311:turmeric:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "b7165d72635a34d352620fb3040c86542cf33fb81b537636faa449ab0ffac488",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0069__L052__p311:ginsengroots:gastrodiaelatatuber": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0069__L052__p311:ginsengroots:gastrodiaelatatuber",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "9b8a8badc05bcad0f28418ded9cee9711261416b2634a704696569bd7150dce4",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0069__L042__p311:ginseng:gastrodiaelata": {
+"unit": "nla-rl-L42:chat-lmsys-0069__L042__p311:ginseng:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "ab1e685f121122dce6c16b4c1f02ada7345c615b6387511cf7b4f7b59bc49fab",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0069__L020__p384:cordyceps:gastrodiaelata": {
+"unit": "s3d-rl600-all11:chat-lmsys-0069__L020__p384:cordyceps:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "81fa41b51d9b796e718d73b118f233620b57919de47093e9b6e6252029dc21f1",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0069__L020__p384:ginseng:gastrodiaelata": {
+"unit": "s3d-rl600-all11:chat-lmsys-0069__L020__p384:ginseng:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "d3d3ba0511c3f777ec6078b6f9fff9434335b2ffcd2f6c5e6ff97e9b837b139b",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0069__L020__p384:ginseng:gastrodin": {
+"unit": "s3d-rl600-all11:chat-lmsys-0069__L020__p384:ginseng:gastrodin",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "3e2f7c55cfc561da949e6459d30bd468385943362ee3c6dc309a9b8a82f2559e",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0069__L020__p384:reishi:gastrodiaelata": {
+"unit": "s3d-rl600-all11:chat-lmsys-0069__L020__p384:reishi:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "69937385cb3dda4a9735568e142f0cf03d3c0f3282b533d29158d94aab92e389",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0069__L020__p384:wildginseng黄连:gastrodiaelata": {
+"unit": "s3d-rl600-all11:chat-lmsys-0069__L020__p384:wildginseng黄连:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "fb8ecc7e29bdc0c8d59a46130d720956461969cf18be1cd5bdcd2c666816bedd",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0069__L024__p384:astragalus:gastrodiaelata": {
+"unit": "s3d-rl600-all11:chat-lmsys-0069__L024__p384:astragalus:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "ec6f1c6fba2c0dfc8ad63600e5a6b92b910872573455834bc6e7098f3c8eec6e",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0069__L024__p384:panaxnotoginseng:gastrodiaelata": {
+"unit": "s3d-rl600-all11:chat-lmsys-0069__L024__p384:panaxnotoginseng:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "4919bf7253f72d3e814ac21e084663ae3abdf1cba149545426d09e1a1493b081",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0069__L024__p384:wildginseng:gastrodiaelata": {
+"unit": "s3d-rl600-all11:chat-lmsys-0069__L024__p384:wildginseng:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "fac2b255324a2077c390b3c29a14831d0f9dfc793491599feec0e65411ab6d8d",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0069__L028__p94:bacopamonnieri:gastrodiaelata": {
+"unit": "s3d-rl600-all11:chat-lmsys-0069__L028__p94:bacopamonnieri:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "a820e72f0e9cc167191d8a929b29623a943b8b80ae7c8bd984c35a5176cc574b",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0069__L028__p94:ziziphusspinosus:gastrodiaelata": {
+"unit": "s3d-rl600-all11:chat-lmsys-0069__L028__p94:ziziphusspinosus:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "76db7fd40363b1ba3ac7a9dbd0f41e8ad5c93cda72350198a57099ba88287b61",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0069__L032__p384:astragalusroot:gastrodiaelata": {
+"unit": "s3d-rl600-all11:chat-lmsys-0069__L032__p384:astragalusroot:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "445b6abb8be00cab5441c1f7cfe0e26e9b6a213addb9076ea71afd08ed994e09",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0069__L032__p384:astragalusroots:gastrodiaelata": {
+"unit": "s3d-rl600-all11:chat-lmsys-0069__L032__p384:astragalusroots:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "5885a1d2bdd48cdcee02fd6b570c7601b6fadae3d8d6d7dd62d456c676b307a6",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0069__L032__p384:danshenginseng:gastrodiaelata": {
+"unit": "s3d-rl600-all11:chat-lmsys-0069__L032__p384:danshenginseng:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "e98a785b5ff07624384c6e1b8d0c83d94dc4cbcfc09745d4c51ff98eed6de1ca",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0069__L032__p384:ginseng:gastrodiaelata": {
+"unit": "s3d-rl600-all11:chat-lmsys-0069__L032__p384:ginseng:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "faabe6819ca3ac7aaeb49c8b672e9e8652f6d281003f703cc21d6c788b754ca9",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0069__L032__p384:ginsengroot:gastrodiaelatatuber": {
+"unit": "s3d-rl600-all11:chat-lmsys-0069__L032__p384:ginsengroot:gastrodiaelatatuber",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "39ad23cd3e7fcebbaefd39953509477c6887f273537492b6a9ab2e94b8157a0b",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0069__L032__p94:danshenroot:gastrodiaelata": {
+"unit": "s3d-rl600-all11:chat-lmsys-0069__L032__p94:danshenroot:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "3456bf9c3165665cacc9469b715beeb66129ba9249b6bcff20d2f0119d701e65",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0069__L036__p384:ginseng:gastrodin": {
+"unit": "s3d-rl600-all11:chat-lmsys-0069__L036__p384:ginseng:gastrodin",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "bd9f670dd46aafa302965cfacf44d3399362879276b71f58fde014596c392053",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0069__L036__p486:ginseng:gastrodiaelata": {
+"unit": "s3d-rl600-all11:chat-lmsys-0069__L036__p486:ginseng:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "99478b2c71693602fc571f7f0811c3a3e6935ae154a5b3d5221aa7a0ac2346c8",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0069__L036__p486:rhizomasalviaedongquai:gastrodiaelata": {
+"unit": "s3d-rl600-all11:chat-lmsys-0069__L036__p486:rhizomasalviaedongquai:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "6f5adadc4285dbf40861bc4c348bdf51b7ec32fb792acf95e90a31373b033dd9",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0069__L040__p384:ginkgobiloba:gastrodiaelata": {
+"unit": "s3d-rl600-all11:chat-lmsys-0069__L040__p384:ginkgobiloba:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "13f6af1feb14e8173cf39f1fcd2a4278f711bc0f5e79ed51c1477bd953a7a1ba",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0069__L040__p384:ginseng:gastrodiaelata": {
+"unit": "s3d-rl600-all11:chat-lmsys-0069__L040__p384:ginseng:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "06e84ca6a482ab9384c1dc21aecf9476613dbc4d9385db3ae255cd7d644f3719",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0069__L040__p486:salviamiltiorrhiza:gastrodiaelata": {
+"unit": "s3d-rl600-all11:chat-lmsys-0069__L040__p486:salviamiltiorrhiza:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "e1c897d8727934f71b3554f77e150818c205cbe24dd939f393e3f6d63ff34706",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0069__L044__p311:ginsengroot:gastrodiaelata": {
+"unit": "s3d-rl600-all11:chat-lmsys-0069__L044__p311:ginsengroot:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "4dfce572f6f7dc953e245ef5a839006b01335b3dfa2d2800261613f67b19877d",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0069__L044__p384:ginseng:gastrodiaelata": {
+"unit": "s3d-rl600-all11:chat-lmsys-0069__L044__p384:ginseng:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "a18d43b636abf25af34a2cc8451471778df482399cbbebd008f8e026d902ffe4",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0069__L044__p384:goji:gastrodiaelata": {
+"unit": "s3d-rl600-all11:chat-lmsys-0069__L044__p384:goji:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "fecb7ae1f2c69d2bd218850610bbc0892520590496476c2a999faf885e9e6fab",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0069__L048__p311:ginsengroot:gastrodiaelata": {
+"unit": "s3d-rl600-all11:chat-lmsys-0069__L048__p311:ginsengroot:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "086dcaea6cc6d4ea47ebb3c7d2e48e323933fd829fce81fd496bd3ffdd5c6ae4",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0069__L052__p311:ginseng:gastrodiaelata": {
+"unit": "s3d-rl600-all11:chat-lmsys-0069__L052__p311:ginseng:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "d60a16d830bac33cc25c6c7c4587b2ce8c7acd3ab458405e54ec015c9f15a2b4",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0069__L056__p311:ginseng:gastrodiaelata": {
+"unit": "s3d-rl600-all11:chat-lmsys-0069__L056__p311:ginseng:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "5ed93936f17e6db9b77cb9c98672c91d6c31ce4cf8c6a975f88eefb8a245b727",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0069__L056__p486:salviaeherba:gastrodiaelata": {
+"unit": "s3d-rl600-all11:chat-lmsys-0069__L056__p486:salviaeherba:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "e3f44acecc62da63403fd46b8d45969c6fbb9bba4d3306d8b18f3a2376d87b9a",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0069__L060__p31:ginseng:gastrodin": {
+"unit": "s3d-rl600-all11:chat-lmsys-0069__L060__p31:ginseng:gastrodin",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "dc68a8a85f7f4c89b71a1f1823039e5ad58b5cdc38204f13ec08f53ccf0d9f8f",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0069__L060__p384:ginseng:gastrodiaelata": {
+"unit": "s3d-rl600-all11:chat-lmsys-0069__L060__p384:ginseng:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "6eef63a6f20bd82f7c73ca78b2fa32bbb46be0103f7284e5549286f55d45f1e5",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0069__L020__p311:ginseng:gastrodiaelata": {
+"unit": "s3d-rl600:chat-lmsys-0069__L020__p311:ginseng:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "0663824cc5061991d2a0e4dc7cddda0ce33f3e5c8cf6bef106611e37afa9d2e6",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0069__L020__p486:ephedra:gastrodiaelata": {
+"unit": "s3d-rl600:chat-lmsys-0069__L020__p486:ephedra:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "0c2b42830c8760f42bc92f0a50c4a5aad2fa0e1a1a87c65cbefb07d21d9bc6b7",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0069__L020__p94:peonyroot:gastrodiaelata": {
+"unit": "s3d-rl600:chat-lmsys-0069__L020__p94:peonyroot:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "1ec6b70ad0dd8231a6fcfef78ca964c148eee662de34cf4f8475645755cab858",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0069__L020__p94:peonyrootbark:gastrodiaelata": {
+"unit": "s3d-rl600:chat-lmsys-0069__L020__p94:peonyrootbark:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "ca297b8cca9d4b16d9538bf36be071a277debba0143a1e1ef23030f8c69b517d",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0069__L036__p384:ginseng:gastrodiaelata": {
+"unit": "s3d-rl600:chat-lmsys-0069__L036__p384:ginseng:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "7fc909e60ec9534f05b088d3aa8a5921083b7bd021958a2beef3dbfda16df500",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0069__L036__p486:ginseng:gastrodiaelata": {
+"unit": "s3d-rl600:chat-lmsys-0069__L036__p486:ginseng:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "9f617e9ad20e424f67ccc1b4c70b6d6ad8816406cffc78b5a0bc6cf158a082a0",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0069__L036__p486:salvia:gastrodiaelata": {
+"unit": "s3d-rl600:chat-lmsys-0069__L036__p486:salvia:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "20b53ba6a82ace094f905e28768cc3e3ae9005be4ac3da07c1a7139ead651780",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0069__L036__p486:salviadanshen:gastrodiaelata": {
+"unit": "s3d-rl600:chat-lmsys-0069__L036__p486:salviadanshen:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "e346815c7f946cb486e7a052b39cc998680dfef051a7d02f89338faaad5b089d",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0069__L036__p486:salviamiltiorrhiza:gastrodiaelata": {
+"unit": "s3d-rl600:chat-lmsys-0069__L036__p486:salviamiltiorrhiza:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "2b95eb0a2ac67e628d4fc4d3f37816535f713fb96ea28656661a9b023b9bf4f0",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0069__L048__p94:ziziphusspinosus:gastrodiaelata": {
+"unit": "s3d-rl600:chat-lmsys-0069__L048__p94:ziziphusspinosus:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "ac2ea7a1f050dd0deb13675946c69423f356dab3ea25a03057e1b5e920e3fbbc",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0069__L060__p31:ginsengroot:gastrodin": {
+"unit": "s3d-rl600:chat-lmsys-0069__L060__p31:ginsengroot:gastrodin",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "1e715bb515d38d92ada6e75705dcbe2d431f47745df7be771572f1c6c81793cc",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0069__L060__p384:ginseng:gastrodiaelata": {
+"unit": "s3d-rl600:chat-lmsys-0069__L060__p384:ginseng:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "024e82d70d1adb8932c681d988a5c89a683a7daf3ef0aff24236c97639b508f6",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0069__L060__p486:ginseng:gastrodiaelata": {
+"unit": "s3d-rl600:chat-lmsys-0069__L060__p486:ginseng:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "35a65cdd7b4b3041455aa8ca905feeb8a435cd2dc060e970f982b65fa06eb373",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0069__L020__p384:ginkgobiloba:gastrodiaelata": {
+"unit": "s3d-sft251:chat-lmsys-0069__L020__p384:ginkgobiloba:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "57d0d25375da565b80c6ad4c74ee7bde3f2b6a2e3ba3755109495d3689320e95",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0069__L020__p384:ginseng:gastrodiaelata": {
+"unit": "s3d-sft251:chat-lmsys-0069__L020__p384:ginseng:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "32bf34083106e6b648b87b41e5f7558e9d1a6313da7e701a318f85da6ffd711b",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0069__L024__p384:astragalus:gastrodiaelata": {
+"unit": "s3d-sft251:chat-lmsys-0069__L024__p384:astragalus:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "831a30f99285d8bf6f352b7eee2d94f666f15ff4286055a27e94497ce31ac464",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0069__L024__p384:panaxginseng:gastrodiaelata": {
+"unit": "s3d-sft251:chat-lmsys-0069__L024__p384:panaxginseng:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "2be54297f7d6750be75153f74e6cc1c29e931447247debfb8dabc577c1fca65b",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0069__L032__p384:astragalusmembranaceus:gastrodiaelata": {
+"unit": "s3d-sft251:chat-lmsys-0069__L032__p384:astragalusmembranaceus:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "62d62fc2f64c6751fb50ecb18a40f183cfc2ab53c4e972ce9e2f3b5121462d48",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0069__L032__p384:ginkgo:gastrodiaelata": {
+"unit": "s3d-sft251:chat-lmsys-0069__L032__p384:ginkgo:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "605dba13748c7db466c05f96710efa4020997d4e3aefe68119c1a663bd20bd7b",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0069__L032__p384:ginseng:gastrodin": {
+"unit": "s3d-sft251:chat-lmsys-0069__L032__p384:ginseng:gastrodin",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "c0d8b2cb75173e4fa34cd38167539c926849f4c87abea46bc41d792614e2df98",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0069__L036__p384:ginseng:gastrodiaelata": {
+"unit": "s3d-sft251:chat-lmsys-0069__L036__p384:ginseng:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "c3ddcaf952197540a8cd6ce523b43afecb348e4a573c9db975ad67f86b798825",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0069__L036__p486:ginseng:gastrodiaelata": {
+"unit": "s3d-sft251:chat-lmsys-0069__L036__p486:ginseng:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "d39aefa7a802f4aa2f1c7a2f651bb3dd64458fc8105562943666bdb4aa108e79",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0069__L044__p384:ginseng:gastrodiaelata": {
+"unit": "s3d-sft251:chat-lmsys-0069__L044__p384:ginseng:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "757775cd118870d5495c96174abc1b48d3fec8debca33fbe87acff3693d5ee55",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0069__L048__p311:epimedium:gastrodin": {
+"unit": "s3d-sft251:chat-lmsys-0069__L048__p311:epimedium:gastrodin",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "0b33890d5e9c0f013f8911f2ea6ba32095d23cdff4cf9165be5c2f89bcfc356f",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0069__L048__p486:ginseng:gastrodiaelata": {
+"unit": "s3d-sft251:chat-lmsys-0069__L048__p486:ginseng:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "c1d978a2b0eb4e928e54e2215caa56765c971c22c443fbcc4a1ac69b536a2825",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0069__L052__p311:ginseng:gastrodiaelata": {
+"unit": "s3d-sft251:chat-lmsys-0069__L052__p311:ginseng:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "9cabb77f5f5a5d9476ee02fe8b8b2480d74fb7f1fd08e0444ff5d5149ecef6c1",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0069__L052__p311:ginsengroot:gastrodiaelata": {
+"unit": "s3d-sft251:chat-lmsys-0069__L052__p311:ginsengroot:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "d992144c3dae992bde6337c0686cc6c4c332f9916e4b380a19d1cdeb9f1c12d9",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0069__L052__p384:ginseng:gastrodiaelata": {
+"unit": "s3d-sft251:chat-lmsys-0069__L052__p384:ginseng:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "0697fa68f5b4be1ae3e3c95c982f64f7cf8ba8964b846bde96eab1af5b7da468",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0069__L052__p486:wildginseng:gastrodiaelata": {
+"unit": "s3d-sft251:chat-lmsys-0069__L052__p486:wildginseng:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "3af8db8c1e477564ac565582e12e5cb977c7ba810c91bf220536869cde3b1e58",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0069__L060__p384:ginseng:gastrodin": {
+"unit": "s3d-sft251:chat-lmsys-0069__L060__p384:ginseng:gastrodin",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "31a01abccdfde99334f880ad4ffd54abaa0d1756c24c1166a7faf21fa37e9aa3",
+"generation": 0
+}
+}

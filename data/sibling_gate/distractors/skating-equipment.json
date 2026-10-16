@@ -1,0 +1,324 @@
+{
+"mlnla-ck2000-all11:chat-dailydialog-0060__L024__p29:skateboarddeck:skates": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0060__L024__p29:skateboarddeck:skates",
+"anchor": "skates",
+"nearest": [
+"knee pads",
+"helmet",
+"skate guards",
+"elbow pads"
+],
+"random": [
+"wrist guards"
+],
+"distractors": [
+"knee pads",
+"helmet",
+"skate guards",
+"elbow pads",
+"wrist guards"
+],
+"n_eligible": 5,
+"sha": "b2d733da86b22ee5f47e3fba7ab07752559e2d660fd879449ea811ad92d7c025",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0060__L036__p62:board:skates": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0060__L036__p62:board:skates",
+"anchor": "skates",
+"nearest": [
+"knee pads",
+"helmet",
+"skate guards",
+"elbow pads"
+],
+"random": [
+"wrist guards"
+],
+"distractors": [
+"knee pads",
+"helmet",
+"skate guards",
+"elbow pads",
+"wrist guards"
+],
+"n_eligible": 5,
+"sha": "9972cb77c08cc2fd6919666cfc3d416a74b21992e57b770f8e60c43bc7ec3bfb",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0060__L040__p62:longboard:skates": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0060__L040__p62:longboard:skates",
+"anchor": "skates",
+"nearest": [
+"knee pads",
+"helmet",
+"skate guards",
+"elbow pads"
+],
+"random": [
+"wrist guards"
+],
+"distractors": [
+"knee pads",
+"helmet",
+"skate guards",
+"elbow pads",
+"wrist guards"
+],
+"n_eligible": 5,
+"sha": "af4da9632ad8b8daa406c498ba96a758413bbbdc0541fefaf1a4135075d68fac",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0060__L044__p36:board:skates": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0060__L044__p36:board:skates",
+"anchor": "skates",
+"nearest": [
+"knee pads",
+"helmet",
+"skate guards",
+"elbow pads"
+],
+"random": [
+"wrist guards"
+],
+"distractors": [
+"knee pads",
+"helmet",
+"skate guards",
+"elbow pads",
+"wrist guards"
+],
+"n_eligible": 5,
+"sha": "33fd4fadfd65fc7321a8b659daef1b10d91b53ed9f055d2a061aeef93898c837",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0060__L048__p36:board:skates": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0060__L048__p36:board:skates",
+"anchor": "skates",
+"nearest": [
+"knee pads",
+"helmet",
+"skate guards",
+"elbow pads"
+],
+"random": [
+"wrist guards"
+],
+"distractors": [
+"knee pads",
+"helmet",
+"skate guards",
+"elbow pads",
+"wrist guards"
+],
+"n_eligible": 5,
+"sha": "36ef6b8f0e559939a49903303dad5a8bef7c8dc3df838cf06533462ac06ac19c",
+"generation": 1
+},
+"mlnla-rl600-all11:chat-dailydialog-0060__L036__p29:board:skates": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0060__L036__p29:board:skates",
+"anchor": "skates",
+"nearest": [
+"knee pads",
+"helmet",
+"skate guards",
+"elbow pads"
+],
+"random": [
+"wrist guards"
+],
+"distractors": [
+"knee pads",
+"helmet",
+"skate guards",
+"elbow pads",
+"wrist guards"
+],
+"n_eligible": 5,
+"sha": "c86016bbc8710d404287a806df8182abaad22905ada655e1c048a879270ebd0e",
+"generation": 1
+},
+"mlnla-rl600-all11:chat-dailydialog-0060__L036__p29:skateboardlongboard:skates": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0060__L036__p29:skateboardlongboard:skates",
+"anchor": "skates",
+"nearest": [
+"knee pads",
+"helmet",
+"skate guards",
+"elbow pads"
+],
+"random": [
+"wrist guards"
+],
+"distractors": [
+"knee pads",
+"helmet",
+"skate guards",
+"elbow pads",
+"wrist guards"
+],
+"n_eligible": 5,
+"sha": "9616efe3ceecf3d4357b68ed0ab772a4b68e521a1bcffcc0254630c4b190121f",
+"generation": 1
+},
+"mlnla-rl600-all11:chat-dailydialog-0060__L040__p49:board:skates": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0060__L040__p49:board:skates",
+"anchor": "skates",
+"nearest": [
+"knee pads",
+"helmet",
+"skate guards",
+"elbow pads"
+],
+"random": [
+"wrist guards"
+],
+"distractors": [
+"knee pads",
+"helmet",
+"skate guards",
+"elbow pads",
+"wrist guards"
+],
+"n_eligible": 5,
+"sha": "8ee22f07a88a5d6a8afd44cfbc061da9b4f1fe3c2edee9755ee03f9f390e9af8",
+"generation": 1
+},
+"mlnla-rl600-all11:chat-dailydialog-0060__L040__p49:deck:skates": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0060__L040__p49:deck:skates",
+"anchor": "skates",
+"nearest": [
+"knee pads",
+"helmet",
+"skate guards",
+"elbow pads"
+],
+"random": [
+"wrist guards"
+],
+"distractors": [
+"knee pads",
+"helmet",
+"skate guards",
+"elbow pads",
+"wrist guards"
+],
+"n_eligible": 5,
+"sha": "793efa9e3faab41400e77992c262de3d76dbf14fb596a171ac937afeb0aed4b3",
+"generation": 1
+},
+"nla-rl-L42:chat-dailydialog-0060__L042__p24:board:skates": {
+"unit": "nla-rl-L42:chat-dailydialog-0060__L042__p24:board:skates",
+"anchor": "skates",
+"nearest": [
+"knee pads",
+"helmet",
+"skate guards",
+"elbow pads"
+],
+"random": [
+"wrist guards"
+],
+"distractors": [
+"knee pads",
+"helmet",
+"skate guards",
+"elbow pads",
+"wrist guards"
+],
+"n_eligible": 5,
+"sha": "d28791decdfcd6a8c45774baa5ea16f660600afc8e5b93f46f380422deeceb8b",
+"generation": 1
+},
+"nla-rl-L42:chat-dailydialog-0060__L042__p67:board:skates": {
+"unit": "nla-rl-L42:chat-dailydialog-0060__L042__p67:board:skates",
+"anchor": "skates",
+"nearest": [
+"knee pads",
+"helmet",
+"skate guards",
+"elbow pads"
+],
+"random": [
+"wrist guards"
+],
+"distractors": [
+"knee pads",
+"helmet",
+"skate guards",
+"elbow pads",
+"wrist guards"
+],
+"n_eligible": 5,
+"sha": "79ed5f597dd68fae7a88ce91d5ed8e08a52b5f46dea15b54cc34db17fe83aa0c",
+"generation": 1
+},
+"s3d-rl600-all11:chat-dailydialog-0060__L020__p49:board:skates": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0060__L020__p49:board:skates",
+"anchor": "skates",
+"nearest": [
+"knee pads",
+"helmet",
+"skate guards",
+"elbow pads"
+],
+"random": [
+"wrist guards"
+],
+"distractors": [
+"knee pads",
+"helmet",
+"skate guards",
+"elbow pads",
+"wrist guards"
+],
+"n_eligible": 5,
+"sha": "58a707d76508758d691f8b9a42c0c6d361e768eeec2d19ea3b2fbc52df5bd8df",
+"generation": 1
+},
+"s3d-rl600-all11:chat-dailydialog-0060__L056__p24:board:skates": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0060__L056__p24:board:skates",
+"anchor": "skates",
+"nearest": [
+"knee pads",
+"helmet",
+"skate guards",
+"elbow pads"
+],
+"random": [
+"wrist guards"
+],
+"distractors": [
+"knee pads",
+"helmet",
+"skate guards",
+"elbow pads",
+"wrist guards"
+],
+"n_eligible": 5,
+"sha": "2e37e7daec8a23a9aa91349d053a927429a0a11d5fb355199e9de4647c551bf8",
+"generation": 1
+},
+"s3d-rl600:chat-dailydialog-0060__L036__p29:board:skates": {
+"unit": "s3d-rl600:chat-dailydialog-0060__L036__p29:board:skates",
+"anchor": "skates",
+"nearest": [
+"knee pads",
+"helmet",
+"skate guards",
+"elbow pads"
+],
+"random": [
+"wrist guards"
+],
+"distractors": [
+"knee pads",
+"helmet",
+"skate guards",
+"elbow pads",
+"wrist guards"
+],
+"n_eligible": 5,
+"sha": "05cf2f557211f70fb0ffc737833ab4a7851e6b9b59ffaef24a84447f437a268a",
+"generation": 1
+}
+}

@@ -1,0 +1,752 @@
+{
+"mlnla-ck2000-all11:chat-lmsys-0020__L020__p62:hodgetheoremhurewiczhomomorphism:derhamtheory": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0020__L020__p62:hodgetheoremhurewiczhomomorphism:derhamtheory",
+"anchor": "de Rham theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "20ca4e60d2f2b5b3b58c4b5b715fee10398cbd7724226dc90fa0a15ac0813db2",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0020__L020__p62:hurewicztheorem:derhamtheory": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0020__L020__p62:hurewicztheorem:derhamtheory",
+"anchor": "De Rham theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "d8d5c7aaf38a06330768d0597754f6320d4e26d591f26b82fd7178ea9438b7d8",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0020__L028__p197:singularhomologytheorem:derhamtheorem": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0020__L028__p197:singularhomologytheorem:derhamtheorem",
+"anchor": "De Rham theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "8c048d7830ff392c602e5143353602ea5070dbc9dd70932c121ce4088c8ed973",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0020__L028__p62:hodgeindextheorem:derhamtheory": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0020__L028__p62:hodgeindextheorem:derhamtheory",
+"anchor": "De Rham theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "e2c3443af7537a000a1614c3b79c634ae17d147dedefd936e8c38fa9916698a7",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0020__L028__p62:hodgetheorem:derhamtheory": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0020__L028__p62:hodgetheorem:derhamtheory",
+"anchor": "De Rham theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "6c415433d14128612a40223c484009fc80674a445db083872615317253a86da9",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0020__L028__p62:hodgetheorems:derhamtheory": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0020__L028__p62:hodgetheorems:derhamtheory",
+"anchor": "de Rham theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "ab0c645002ecf640b8300872aa884fa63a0910893cdbfa98abbebddce567f94d",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0020__L036__p62:hodgederhamtheorem:derhamtheory": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0020__L036__p62:hodgederhamtheorem:derhamtheory",
+"anchor": "de Rham's theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "1b8f0cc5165ae6ca24ee7e5d141cf83f294ffc3ed8812cb2e220508b6d334331",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0020__L036__p62:hodgetheorem:derhamtheory": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0020__L036__p62:hodgetheorem:derhamtheory",
+"anchor": "De Rham theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "e08674778612608d02b0afabe65343c72cc2db72bdebce6cff6c893bace43760",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0020__L040__p156:morsehomologytheorem:derhamtheorem": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0020__L040__p156:morsehomologytheorem:derhamtheorem",
+"anchor": "De Rham theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "bf2a77a937f103f6a6c470b635e1d5211bf92e77f738183e22fbbe3d99db4830",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0020__L040__p218:riemannrochtheorem:derhamtheory": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0020__L040__p218:riemannrochtheorem:derhamtheory",
+"anchor": "De Rham theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "4e6095a5e7fcd0f5ae1db43804765567db683c494c0825c2a07d39189b8d4e5c",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0020__L040__p62:hodgetheorem:derhamtheory": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0020__L040__p62:hodgetheorem:derhamtheory",
+"anchor": "De Rham theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "03e6e6658d84017a2720f21d615577ee9329802881426535d4833fee7a177dc5",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0020__L040__p62:hodgetheoremandlefschetzfixedpointtheorem:derhamtheory": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0020__L040__p62:hodgetheoremandlefschetzfixedpointtheorem:derhamtheory",
+"anchor": "de Rham theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "acc6a580405e1059138e7ceb56861d899e9b024ed1dc7831e61c392807679824",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0020__L044__p156:morsetheorem:derhamtheorem": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0020__L044__p156:morsetheorem:derhamtheorem",
+"anchor": "De Rham theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "0b4cb56b93f99e9743c7111d2f04291b560f5cb9a67735d8440298e3e85e8da6",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0020__L044__p197:hodgedecomposition:derhamtheorem": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0020__L044__p197:hodgedecomposition:derhamtheorem",
+"anchor": "De Rham theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "da5ab2ea5e7a602b4f0efc66a4e91eee13f22a425bfaa40da262106d89e312c7",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0020__L044__p197:hodgetheorem:derhamtheorem": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0020__L044__p197:hodgetheorem:derhamtheorem",
+"anchor": "De Rham theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "ff7ae692b6f74f546553a0838b8e4360dc4e89efa058cc25a0151f074b02f572",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0020__L048__p197:hodgetheorem:derhamtheory": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0020__L048__p197:hodgetheorem:derhamtheory",
+"anchor": "De Rham theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "d4686ff5fea0886edf0a0514c9ee87fb2d7d6e61dc7dfa3a62d09dfe6cef376a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0020__L048__p62:poincaréduality:derhamtheory": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0020__L048__p62:poincaréduality:derhamtheory",
+"anchor": "de Rham theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "7d5997e308c47716c89c6934c83716cd1fb2cf8826dc360e259d47063f57a6f1",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0020__L048__p62:poincarédualitytheorem:derhamtheory": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0020__L048__p62:poincarédualitytheorem:derhamtheory",
+"anchor": "de Rham's theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "8c09eab0c828b4f4f762ab9f9232439341f0de84e6b5c00c79d437e4c3b6d09b",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0020__L052__p156:hodgetheorem:derhamtheorem": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0020__L052__p156:hodgetheorem:derhamtheorem",
+"anchor": "De Rham theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "fc364fc67234796bea88c85ae7504851d90a9e6b168e48d6398e0dc6418010dc",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0020__L052__p197:hodgetheorem:derhamtheorem": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0020__L052__p197:hodgetheorem:derhamtheorem",
+"anchor": "De Rham theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "9ed7c0701b9a1b1afe0e5948f30ecf7217197ff41e5cc108e04814f235d56699",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0020__L056__p197:hodgetheorem:derhamtheorem": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0020__L056__p197:hodgetheorem:derhamtheorem",
+"anchor": "De Rham theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "e22fa34733587e6e5a94bd79a202c1f7ac1fdb199bd788ee26a265b3ad1da98f",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0020__L056__p218:hodgedecomposition:derhamtheorem": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0020__L056__p218:hodgedecomposition:derhamtheorem",
+"anchor": "De Rham theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "bafaf92574222a438112a797ba1c76a3a255688f71452690d702f5baf291036a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0020__L056__p218:hodgetheorem:derhamtheorem": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0020__L056__p218:hodgetheorem:derhamtheorem",
+"anchor": "De Rham theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "ea6d78dc6e502249c0c812920fbdb5bf2b38cbb55edc9c783f8d37e06c7410af",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0020__L056__p62:poincarédualityatiyahsingerindextheorem:derhamtheorem": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0020__L056__p62:poincarédualityatiyahsingerindextheorem:derhamtheorem",
+"anchor": "de Rham's theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "61bf9144244c9a22294e2df3fc63e08a38de257af955aae0f9c488459afae23f",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0020__L028__p218:centrallimittheoremconvergence:derhamtheorem": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0020__L028__p218:centrallimittheoremconvergence:derhamtheorem",
+"anchor": "De Rham theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "ba83faabb699a33c0e9a708ded84a0e501d74d4b3444fe04e663ee2e36530dce",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0020__L028__p218:clt:derhamtheory": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0020__L028__p218:clt:derhamtheory",
+"anchor": "de Rham theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "adc5bde7ab2778630733904c86c35a0fdf18d2557b14c50b8c2e988f0595d7f2",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0020__L028__p62:riemannrochtheorem:derhamtheory": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0020__L028__p62:riemannrochtheorem:derhamtheory",
+"anchor": "De Rham theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "f811dbb3d7599a8568c0b3f613abd665888683324012d66d8fb49a2aea9a7e8c",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0020__L032__p62:riemannrochtheorem:derhamtheory": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0020__L032__p62:riemannrochtheorem:derhamtheory",
+"anchor": "De Rham theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "6261b2bb9597a68e2431140a6f75d7ce18c1f8f1faebef3899c92050ba946c43",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0020__L036__p197:hodgetheorem:derhamtheorem": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0020__L036__p197:hodgetheorem:derhamtheorem",
+"anchor": "De Rham theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "16c135184b7141826272f7d600c6f509a68fcf1433c46bf78688bc97c7d0427a",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0020__L036__p62:hodgeconjectureandpoincaréhopf:derhamtheory": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0020__L036__p62:hodgeconjectureandpoincaréhopf:derhamtheory",
+"anchor": "de Rham theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "839fc485f23b5a6825b091e37bf5adc169bb08a39e6f29ce7787853700bd074b",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0020__L040__p218:riemannrochtheorem:derhamtheory": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0020__L040__p218:riemannrochtheorem:derhamtheory",
+"anchor": "De Rham theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "f20aaa68657eaeadfec603367fa3a435f5cdd4b960bb4e71aaf47ae96500364b",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0020__L044__p197:hodgetheorem:derhamtheorem": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0020__L044__p197:hodgetheorem:derhamtheorem",
+"anchor": "De Rham theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "ae58fe03b4aa9b3d5e24b0122a72f0e89c9190776e5f2da669f72b86af42dcec",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0020__L044__p197:hodgetheorem:derhamtheory": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0020__L044__p197:hodgetheorem:derhamtheory",
+"anchor": "De Rham theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "4ef65bb0667cdbc25394b399b2a3a3a68b4b1e8acf1fa666d999fb035800f626",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0020__L044__p218:hodgedecomposition:derhamtheorem": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0020__L044__p218:hodgedecomposition:derhamtheorem",
+"anchor": "De Rham theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "35743b0abcd666ebac7b65ec20d08b1dd30ff68482c5d057c4c132d19f8d5415",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0020__L048__p197:hodgetheorem:derhamtheorem": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0020__L048__p197:hodgetheorem:derhamtheorem",
+"anchor": "De Rham theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "5e97eac798c2d3d336f576f0eaa593c59d695b58d56a9446b14d6f85662ffe12",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0020__L048__p218:lefschetzfixedpointtheorem:derhamtheorem": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0020__L048__p218:lefschetzfixedpointtheorem:derhamtheorem",
+"anchor": "De Rham theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "f31fdd79841c73d7a3aaf884bcd5f360c9512bfc6fabe1e71efbf893780024c9",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0020__L048__p62:poincaréduality:derhamtheory": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0020__L048__p62:poincaréduality:derhamtheory",
+"anchor": "de Rham theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "a0c645da57b3540188730d7e90c9d03117e7c64290743aa3d49ad4d7f5994cf1",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0020__L020__p218:shannonstheorem:derhamtheorem": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0020__L020__p218:shannonstheorem:derhamtheorem",
+"anchor": "De Rham's theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "98be598c58740e40643c901722540fd4f72d394c4b766a86ff701fec436019a1",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0020__L024__p218:noetherstheorem:derhamtheorem": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0020__L024__p218:noetherstheorem:derhamtheorem",
+"anchor": "De Rham theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "496ae7e2ea7da5d39b4f6a6a7d7aad69cebfa12b25454bc16d1b34eeb78f82c2",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0020__L028__p62:indextheorem:derhamtheory": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0020__L028__p62:indextheorem:derhamtheory",
+"anchor": "de Rham's theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "714c8e43a978d2195ed57eb1a118a192702052a8879dd376999568e7020efafa",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0020__L032__p197:hurewicztheorem:derhamtheorem": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0020__L032__p197:hurewicztheorem:derhamtheorem",
+"anchor": "De Rham theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "7d96e78d64ff4a0e8aa47297dff6a211931dac0ee5c93a66aef9fababa94d1dd",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0020__L036__p218:fourierdualitytheorem:derhamtheory": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0020__L036__p218:fourierdualitytheorem:derhamtheory",
+"anchor": "de Rham theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "4add6ceb82ad0ffc9ff5a185414412d5d8381253b4be52ca02b0dfaf9e4a4652",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0020__L036__p62:hodgetheorem:derhamtheorem": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0020__L036__p62:hodgetheorem:derhamtheorem",
+"anchor": "De Rham theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "8cfa2c10913592d64874bfea1ce66fe8a3e6812af9865da81c2257fc7e87c8e3",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0020__L036__p62:hodgetheorem:derhamtheory": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0020__L036__p62:hodgetheorem:derhamtheory",
+"anchor": "De Rham theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "3531cea45f60cdfd10c35950ee74e715db2049e3835d9c3f63619382089a284c",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0020__L040__p197:hodgetheorem:derhamtheorem": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0020__L040__p197:hodgetheorem:derhamtheorem",
+"anchor": "De Rham theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "dec2dd8ed319f59b32797f49bba91f22cf4a676561adcf1b19a39696b902a6ce",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0020__L040__p218:riemannroch:derhamtheory": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0020__L040__p218:riemannroch:derhamtheory",
+"anchor": "De Rham theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "f567b321ab16811b6a61e1758d3ce87ab8926b2008b683ce1ec718960727735d",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0020__L040__p218:riemannrochtheorem:derhamtheory": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0020__L040__p218:riemannrochtheorem:derhamtheory",
+"anchor": "De Rham theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "3d9e93725daf1493155d02f8a64267ff940a8e36efbe3021d1f75782414fcede",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0020__L044__p197:hodgedecomposition:derhamcohomologygroups": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0020__L044__p197:hodgedecomposition:derhamcohomologygroups",
+"anchor": "De Rham theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "47b55a6f57ad9879aec2d8690e4205e6c63718b906e7a0760e4f87ff99926665",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0020__L044__p197:hodgeisomorphismtheorem:derhamtheorem": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0020__L044__p197:hodgeisomorphismtheorem:derhamtheorem",
+"anchor": "De Rham theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "bd54609e3b273934cabe4978eeaac4472b5ad16263c82d1a7f4d51c17f4fc5ca",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0020__L044__p197:hodgetheorem:derhamtheorem": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0020__L044__p197:hodgetheorem:derhamtheorem",
+"anchor": "De Rham theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "5b8ea7c006bf7b9c238fc9a3e09ab6d4600f44db703c0d46686fc8f4d1f1cc30",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0020__L044__p23:mordellstheorem:derhamtheorem": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0020__L044__p23:mordellstheorem:derhamtheorem",
+"anchor": "De Rham theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "8ea8bd618af29aa8cca098f6f6c128b72847a7563903495aac1f9e6c94e61088",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0020__L044__p62:hodgetheorem:derhamtheorem": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0020__L044__p62:hodgetheorem:derhamtheorem",
+"anchor": "De Rham theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "997d4f34ebbce67eb181b3927d2fb833b5805bf097dc3a24c7def54f3d3cafb4",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0020__L048__p156:classificationtheoremhurewicztheorem:derhamtheory": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0020__L048__p156:classificationtheoremhurewicztheorem:derhamtheory",
+"anchor": "De Rham's theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "4a05e3e4fa85da31df80e8b117d4393d24fdab7350f6c1c2ed88c5ff83d9b796",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0020__L048__p156:hurewicztheorem:derhamtheorem": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0020__L048__p156:hurewicztheorem:derhamtheorem",
+"anchor": "De Rham theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "a05829f7d7177973655cc7fdbb21c50a87caf555c44840ccc364af9d9541dc6f",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0020__L048__p156:singularhomologyhurewicztheorem:derhamcohomologyderhamtheorem": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0020__L048__p156:singularhomologyhurewicztheorem:derhamcohomologyderhamtheorem",
+"anchor": "De Rham theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "dab829e5decd5f04928ee4ca39e02e618192c397448ce3c6143e26a36d11bdd7",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0020__L048__p197:hodgetheorem:derhamtheorem": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0020__L048__p197:hodgetheorem:derhamtheorem",
+"anchor": "De Rham theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "34524f046da4bb514563cc4915a86922655d0ebf9e98fd819a3bacf929ba21b2",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0020__L048__p218:hodgedecomposition:derhamtheorem": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0020__L048__p218:hodgedecomposition:derhamtheorem",
+"anchor": "De Rham theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "99aa6e15ab74b78ab8ab4c619f7ed838fcb3c0d97722b7414676a2a93d09d3a5",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0020__L052__p156:hodgeconjecturetheorem:derhamtheorem": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0020__L052__p156:hodgeconjecturetheorem:derhamtheorem",
+"anchor": "De Rham theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "e72afdab5615f73c5dd5864b1d6aab3cb9a6fc692547887a080498cf814c522f",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0020__L056__p156:hodgetheorem:derhamtheorem": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0020__L056__p156:hodgetheorem:derhamtheorem",
+"anchor": "De Rham theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "32f03fa819aac727f6cbc00eae74d8281548e86a3bee818b9e20e69447e9681f",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0020__L060__p218:dolbeaultcohomologytheorem:derhamtheorem": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0020__L060__p218:dolbeaultcohomologytheorem:derhamtheorem",
+"anchor": "De Rham theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "f6aad5c8d33ff1e8fbdd30a8ca7442702394fd7e43995aede187a2c3d9ca3a3f",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0020__L060__p218:dolbeaultstheorem:derhamtheorem": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0020__L060__p218:dolbeaultstheorem:derhamtheorem",
+"anchor": "De Rham theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "cfc3a04b73920497bbc3baceed44c818ae643e4ef90abda8df39d40de58654b9",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0020__L042__p62:hurewicztheorem:derhamtheory": {
+"unit": "nla-rl-L42:chat-lmsys-0020__L042__p62:hurewicztheorem:derhamtheory",
+"anchor": "De Rham theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "3f3bcaa2082cff8f9b25b62f23cbaa22e5e7e8c07cf8b74774d7b18e7ae2485e",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0020__L028__p197:fundamentaltheoremofalgebra:derhamtheorem": {
+"unit": "s3d-rl600-all11:chat-lmsys-0020__L028__p197:fundamentaltheoremofalgebra:derhamtheorem",
+"anchor": "De Rham theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "70373412a7d683c4fc133638f23546bc53be7ce5bf51e9a5ae974110e78c54ef",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0020__L040__p156:riemannrochtheorem:derhamtheorem": {
+"unit": "s3d-rl600-all11:chat-lmsys-0020__L040__p156:riemannrochtheorem:derhamtheorem",
+"anchor": "De Rham theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "068ebd1393e60173950b8af2e18cfbe917b7943a1298ed6d1194c89bf9427fa1",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0020__L044__p156:hodgetheorem:derhamtheorem": {
+"unit": "s3d-rl600-all11:chat-lmsys-0020__L044__p156:hodgetheorem:derhamtheorem",
+"anchor": "De Rham theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "8f0b9b86fbee1d038c7a2964e495a8252a2c3a23c4161d700f83206782c5691c",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0020__L048__p218:riemannstheorem:derhamtheorem": {
+"unit": "s3d-rl600-all11:chat-lmsys-0020__L048__p218:riemannstheorem:derhamtheorem",
+"anchor": "De Rham theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "ad8f96fbe93378430af1b3b9cdb16fa209baa6fa2ed99981a2faa85f6c5cb57d",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0020__L052__p156:hodgestheorem:derhamtheorem": {
+"unit": "s3d-rl600-all11:chat-lmsys-0020__L052__p156:hodgestheorem:derhamtheorem",
+"anchor": "De Rham theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "3df3f4b53b436447be9630190180da848bf2c585579e05f7081eac31dc9e0d08",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0020__L052__p156:hodgetheorem:derhamtheorem": {
+"unit": "s3d-rl600-all11:chat-lmsys-0020__L052__p156:hodgetheorem:derhamtheorem",
+"anchor": "De Rham theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "aad5a36ce919f4e866a47defcfc723a40405326f18c728416f585be3a4426ab8",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0020__L052__p197:hodgetheorem:derhamtheorem": {
+"unit": "s3d-rl600-all11:chat-lmsys-0020__L052__p197:hodgetheorem:derhamtheorem",
+"anchor": "De Rham theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "9af1b3b8f611a48e4daec4e0baf4a38a91c31b7206b43ce7d18c34b5e3e81d06",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0020__L056__p156:poincarélemma:derhamtheorem": {
+"unit": "s3d-rl600-all11:chat-lmsys-0020__L056__p156:poincarélemma:derhamtheorem",
+"anchor": "De Rham theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "d251c68eb79e30fa3f99e028cbb81aca533638c8a09bd92a07eef12502f7577f",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0020__L060__p156:riemannrochtheorem:derhamtheorem": {
+"unit": "s3d-rl600-all11:chat-lmsys-0020__L060__p156:riemannrochtheorem:derhamtheorem",
+"anchor": "De Rham theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "92408a2fe5573198d6d0f5ed813375f301dc05b9422dc83ddacfd56e4b1a3e94",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0020__L036__p62:riemannrochtheorem:derhamtheorem": {
+"unit": "s3d-rl600:chat-lmsys-0020__L036__p62:riemannrochtheorem:derhamtheorem",
+"anchor": "De Rham theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "088385fc0148289d90575743d591b93b68e45a4cd191b9d7b9f77ff65bdf2500",
+"generation": 0
+},
+"s3d-rl600:chat-lmsys-0020__L044__p156:hodgetheorem:derhamtheorem": {
+"unit": "s3d-rl600:chat-lmsys-0020__L044__p156:hodgetheorem:derhamtheorem",
+"anchor": "De Rham theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "28c1f0951c73ca7fa854f296bff39049e7b7337bfe5ebef169f31b8bee51e2e3",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0020__L040__p218:fourierstheorem:derhamtheorem": {
+"unit": "s3d-sft251:chat-lmsys-0020__L040__p218:fourierstheorem:derhamtheorem",
+"anchor": "De Rham theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "06529b8613cd0c843be068e3d74452bb8284f430bd5777b8ab5628ac6bd29d6c",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0020__L048__p197:borelstheorem:derhamtheorem": {
+"unit": "s3d-sft251:chat-lmsys-0020__L048__p197:borelstheorem:derhamtheorem",
+"anchor": "De Rham theorem",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "e79ab3142e09301319df0ab58ab89e8b9f8fd0dba322cca40e758d4044b56fbd",
+"generation": 0
+}
+}

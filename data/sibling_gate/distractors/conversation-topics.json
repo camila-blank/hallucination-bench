@@ -1,0 +1,176 @@
+{
+"mlnla-ck2000-all11:chat-dailydialog-0032__L040__p105:favoritemovies:music": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0032__L040__p105:favoritemovies:music",
+"anchor": "music",
+"nearest": [
+"flowers",
+"food",
+"books",
+"travel"
+],
+"random": [
+"hobbies",
+"movie preferences",
+"pizza",
+"weather"
+],
+"distractors": [
+"flowers",
+"food",
+"books",
+"travel",
+"hobbies",
+"movie preferences",
+"pizza",
+"weather"
+],
+"n_eligible": 14,
+"sha": "89fc0abc7501cd2fc8ab067bcbee3b686d397417da28f66f78adb47dcf077e3d",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0063__L040__p45:weather:pizza": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0063__L040__p45:weather:pizza",
+"anchor": "pizza",
+"nearest": [
+"flowers",
+"travel",
+"music",
+"books"
+],
+"random": [
+"grades",
+"movie preferences",
+"relationships",
+"sports"
+],
+"distractors": [
+"flowers",
+"travel",
+"music",
+"books",
+"grades",
+"movie preferences",
+"relationships",
+"sports"
+],
+"n_eligible": 12,
+"sha": "e33350ebca8b36508f732428ab353cef87cbdb215da866d07933fec0a3fa9bfe",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0032__L020__p91:favoritemovies:musictheband": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0032__L020__p91:favoritemovies:musictheband",
+"anchor": "music",
+"nearest": [
+"flowers",
+"food",
+"books",
+"travel"
+],
+"random": [
+"family",
+"grades",
+"hobbies",
+"relationships"
+],
+"distractors": [
+"flowers",
+"food",
+"books",
+"travel",
+"family",
+"grades",
+"hobbies",
+"relationships"
+],
+"n_eligible": 14,
+"sha": "0f304ffaada0b9f995a417e50c20583a4197b3692bc1fea518c8ae6f4a6e586e",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0056__L020__p61:moviepreferences:flowers": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0056__L020__p61:moviepreferences:flowers",
+"anchor": "flowers",
+"nearest": [
+"food",
+"pizza",
+"travel",
+"weather"
+],
+"random": [
+"family",
+"favorite movies",
+"politics",
+"sports"
+],
+"distractors": [
+"food",
+"pizza",
+"travel",
+"weather",
+"family",
+"favorite movies",
+"politics",
+"sports"
+],
+"n_eligible": 13,
+"sha": "7d0175c2205a1a395e30c6330fefcbe7d555395d5ac9680dc30d3349d706815f",
+"generation": 1
+},
+"mlnla-rl600-all11:chat-dailydialog-0032__L040__p105:favoritemovies:music": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0032__L040__p105:favoritemovies:music",
+"anchor": "music",
+"nearest": [
+"flowers",
+"food",
+"books",
+"travel"
+],
+"random": [
+"grades",
+"politics",
+"weather",
+"work"
+],
+"distractors": [
+"flowers",
+"food",
+"books",
+"travel",
+"grades",
+"politics",
+"weather",
+"work"
+],
+"n_eligible": 14,
+"sha": "f37214acd764bbf81206ee5dc05711bb6e0c23cd22ede37275c9252ec8066c9e",
+"generation": 1
+},
+"mlnla-rl600-all11:chat-dailydialog-0073__L032__p36:relationships:grades": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0073__L032__p36:relationships:grades",
+"anchor": "grades",
+"nearest": [
+"work",
+"politics",
+"family",
+"weather"
+],
+"random": [
+"books",
+"flowers",
+"food",
+"pizza"
+],
+"distractors": [
+"work",
+"politics",
+"family",
+"weather",
+"books",
+"flowers",
+"food",
+"pizza"
+],
+"n_eligible": 14,
+"sha": "c299b6f5a98520d26d085af1bcda0ef934c777b2fb4f3fdfde0ac33b7e0dd535",
+"generation": 1
+}
+}

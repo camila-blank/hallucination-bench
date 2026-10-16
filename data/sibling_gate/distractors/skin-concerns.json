@@ -1,0 +1,427 @@
+{
+"mlnla-rl2-800-all11:chat-lmsys-0066__L020__p344:darkcircles:bagsundereyes": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0066__L020__p344:darkcircles:bagsundereyes",
+"anchor": "under-eye bags",
+"nearest": [
+"enlarged pores",
+"fine lines",
+"rosacea",
+"oily skin"
+],
+"random": [
+"eczema",
+"hyperpigmentation"
+],
+"distractors": [
+"enlarged pores",
+"fine lines",
+"rosacea",
+"oily skin",
+"eczema",
+"hyperpigmentation"
+],
+"n_eligible": 6,
+"sha": "d30c20ea63a97d6e19e86839e0f78279964de82920ad2ea07c2bd3fab0618f2a",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0066__L020__p344:darkeyecircles:bagsundereyes": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0066__L020__p344:darkeyecircles:bagsundereyes",
+"anchor": "under-eye bags",
+"nearest": [
+"enlarged pores",
+"fine lines",
+"rosacea",
+"oily skin"
+],
+"random": [
+"eczema",
+"hyperpigmentation"
+],
+"distractors": [
+"enlarged pores",
+"fine lines",
+"rosacea",
+"oily skin",
+"eczema",
+"hyperpigmentation"
+],
+"n_eligible": 6,
+"sha": "2ba80652603984bf4de44aee7e6a68fadcee82040eda679b0134b0e33cb70da1",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0066__L028__p403:hairgrowth:bagsundereyes": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0066__L028__p403:hairgrowth:bagsundereyes",
+"anchor": "under-eye bags",
+"nearest": [
+"enlarged pores",
+"fine lines",
+"rosacea",
+"oily skin"
+],
+"random": [
+"eczema",
+"hyperpigmentation"
+],
+"distractors": [
+"enlarged pores",
+"fine lines",
+"rosacea",
+"oily skin",
+"eczema",
+"hyperpigmentation"
+],
+"n_eligible": 6,
+"sha": "e1a5f6e303c4d92cb55d0302d82a777c7a8a5e01581820802add83a598e185ae",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0066__L044__p31:darkcircles:bagsundertheeyes": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0066__L044__p31:darkcircles:bagsundertheeyes",
+"anchor": "under-eye bags",
+"nearest": [
+"enlarged pores",
+"fine lines",
+"rosacea",
+"oily skin"
+],
+"random": [
+"eczema",
+"hyperpigmentation"
+],
+"distractors": [
+"enlarged pores",
+"fine lines",
+"rosacea",
+"oily skin",
+"eczema",
+"hyperpigmentation"
+],
+"n_eligible": 6,
+"sha": "b7fbdebdccf2930038fc3520ed00b76410ee54f1f6c141478aa8e807b7fec645",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0066__L020__p403:hairgrowth:undereyebags": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0066__L020__p403:hairgrowth:undereyebags",
+"anchor": "under-eye bags",
+"nearest": [
+"enlarged pores",
+"fine lines",
+"rosacea",
+"oily skin"
+],
+"random": [
+"eczema",
+"hyperpigmentation"
+],
+"distractors": [
+"enlarged pores",
+"fine lines",
+"rosacea",
+"oily skin",
+"eczema",
+"hyperpigmentation"
+],
+"n_eligible": 6,
+"sha": "94da477cb5c357fcc7fab1e38f886379bde4817e20cbe3d92e349f2c724fcb8c",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0066__L032__p344:darkundereyecircles:bagsundereyes": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0066__L032__p344:darkundereyecircles:bagsundereyes",
+"anchor": "under-eye bags",
+"nearest": [
+"enlarged pores",
+"fine lines",
+"rosacea",
+"oily skin"
+],
+"random": [
+"eczema",
+"hyperpigmentation"
+],
+"distractors": [
+"enlarged pores",
+"fine lines",
+"rosacea",
+"oily skin",
+"eczema",
+"hyperpigmentation"
+],
+"n_eligible": 6,
+"sha": "9676230097229d7cb46a8314c3197e7013e09cfc9bf14a2b0ab7c2e115872478",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0066__L032__p97:darkcircles:bagsundereyes": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0066__L032__p97:darkcircles:bagsundereyes",
+"anchor": "under-eye bags",
+"nearest": [
+"enlarged pores",
+"fine lines",
+"rosacea",
+"oily skin"
+],
+"random": [
+"eczema",
+"hyperpigmentation"
+],
+"distractors": [
+"enlarged pores",
+"fine lines",
+"rosacea",
+"oily skin",
+"eczema",
+"hyperpigmentation"
+],
+"n_eligible": 6,
+"sha": "961d5d55299843bddbd028a46f1bf9f0a3286f0ac1a54e0f25e4ad81b0f6c240",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0066__L048__p469:darkundereyecircles:bagsundereyes": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0066__L048__p469:darkundereyecircles:bagsundereyes",
+"anchor": "under-eye bags",
+"nearest": [
+"enlarged pores",
+"fine lines",
+"rosacea",
+"oily skin"
+],
+"random": [
+"eczema",
+"hyperpigmentation"
+],
+"distractors": [
+"enlarged pores",
+"fine lines",
+"rosacea",
+"oily skin",
+"eczema",
+"hyperpigmentation"
+],
+"n_eligible": 6,
+"sha": "536f36eb184fa7ffe635b12d6a3195dbfae1bbf21ef98b27bd380c9512324bae",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0066__L048__p469:undereyedarkcircles:bagsundereyes": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0066__L048__p469:undereyedarkcircles:bagsundereyes",
+"anchor": "under-eye bags",
+"nearest": [
+"enlarged pores",
+"fine lines",
+"rosacea",
+"oily skin"
+],
+"random": [
+"eczema",
+"hyperpigmentation"
+],
+"distractors": [
+"enlarged pores",
+"fine lines",
+"rosacea",
+"oily skin",
+"eczema",
+"hyperpigmentation"
+],
+"n_eligible": 6,
+"sha": "448e8050e2ed13b269ea52bdaf763cc5eda1d9eca065e17ff8947f1735e62c05",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0066__L056__p31:facialdarkspots:bagsundertheeyes": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0066__L056__p31:facialdarkspots:bagsundertheeyes",
+"anchor": "under-eye bags",
+"nearest": [
+"enlarged pores",
+"fine lines",
+"rosacea",
+"oily skin"
+],
+"random": [
+"eczema",
+"hyperpigmentation"
+],
+"distractors": [
+"enlarged pores",
+"fine lines",
+"rosacea",
+"oily skin",
+"eczema",
+"hyperpigmentation"
+],
+"n_eligible": 6,
+"sha": "9d452f4835c5dbf0c32e375ad4d2b47a0f372874c910ceff45b25725d38d4d25",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0066__L020__p31:darkcircles:bagsundereyes": {
+"unit": "s3d-rl600-all11:chat-lmsys-0066__L020__p31:darkcircles:bagsundereyes",
+"anchor": "under-eye bags",
+"nearest": [
+"enlarged pores",
+"fine lines",
+"rosacea",
+"oily skin"
+],
+"random": [
+"eczema",
+"hyperpigmentation"
+],
+"distractors": [
+"enlarged pores",
+"fine lines",
+"rosacea",
+"oily skin",
+"eczema",
+"hyperpigmentation"
+],
+"n_eligible": 6,
+"sha": "d6f8272c5ae13460e335c50b60465cb711b966faf5234e1f6c622c238b31a0cf",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0066__L020__p31:wrinkles:bagsundereyes": {
+"unit": "s3d-rl600-all11:chat-lmsys-0066__L020__p31:wrinkles:bagsundereyes",
+"anchor": "under-eye bags",
+"nearest": [
+"enlarged pores",
+"fine lines",
+"rosacea",
+"oily skin"
+],
+"random": [
+"eczema",
+"hyperpigmentation"
+],
+"distractors": [
+"enlarged pores",
+"fine lines",
+"rosacea",
+"oily skin",
+"eczema",
+"hyperpigmentation"
+],
+"n_eligible": 6,
+"sha": "323cd33305f1cdea7ee324a1df0fe935ad5a359da712af97e014fe27d631f106",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0066__L032__p31:darkcircles:bagsundereyes": {
+"unit": "s3d-rl600-all11:chat-lmsys-0066__L032__p31:darkcircles:bagsundereyes",
+"anchor": "under-eye bags",
+"nearest": [
+"enlarged pores",
+"fine lines",
+"rosacea",
+"oily skin"
+],
+"random": [
+"eczema",
+"hyperpigmentation"
+],
+"distractors": [
+"enlarged pores",
+"fine lines",
+"rosacea",
+"oily skin",
+"eczema",
+"hyperpigmentation"
+],
+"n_eligible": 6,
+"sha": "2c1a703e74918d88ca404fb08d919beffbdd60a447c9a4af77c3b312828afbaf",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0066__L052__p31:darkcircles:bagsundereyes": {
+"unit": "s3d-rl600-all11:chat-lmsys-0066__L052__p31:darkcircles:bagsundereyes",
+"anchor": "under-eye bags",
+"nearest": [
+"enlarged pores",
+"fine lines",
+"rosacea",
+"oily skin"
+],
+"random": [
+"eczema",
+"hyperpigmentation"
+],
+"distractors": [
+"enlarged pores",
+"fine lines",
+"rosacea",
+"oily skin",
+"eczema",
+"hyperpigmentation"
+],
+"n_eligible": 6,
+"sha": "a2d6d29fd2021753b3c3e2f2d40aedce42cbf1c957cde690f78eafcb42b1eddc",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0066__L056__p31:darkcircles:bagsundertheeyes": {
+"unit": "s3d-rl600-all11:chat-lmsys-0066__L056__p31:darkcircles:bagsundertheeyes",
+"anchor": "under-eye bags",
+"nearest": [
+"enlarged pores",
+"fine lines",
+"rosacea",
+"oily skin"
+],
+"random": [
+"eczema",
+"hyperpigmentation"
+],
+"distractors": [
+"enlarged pores",
+"fine lines",
+"rosacea",
+"oily skin",
+"eczema",
+"hyperpigmentation"
+],
+"n_eligible": 6,
+"sha": "1d1efea525fec5c585b7e96473d355137655bc5712f097da2293de2c009a17b6",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0066__L060__p31:darkcircles:bagsundereyes": {
+"unit": "s3d-rl600-all11:chat-lmsys-0066__L060__p31:darkcircles:bagsundereyes",
+"anchor": "under-eye bags",
+"nearest": [
+"enlarged pores",
+"fine lines",
+"rosacea",
+"oily skin"
+],
+"random": [
+"eczema",
+"hyperpigmentation"
+],
+"distractors": [
+"enlarged pores",
+"fine lines",
+"rosacea",
+"oily skin",
+"eczema",
+"hyperpigmentation"
+],
+"n_eligible": 6,
+"sha": "6051a3b722120d6515a662f0206a1f84c98db60c766b5fc09616e4f5d27e1494",
+"generation": 0
+},
+"s3d-sft251:chat-lmsys-0066__L056__p31:darkcircles:bagsundereyes": {
+"unit": "s3d-sft251:chat-lmsys-0066__L056__p31:darkcircles:bagsundereyes",
+"anchor": "under-eye bags",
+"nearest": [
+"enlarged pores",
+"fine lines",
+"rosacea",
+"oily skin"
+],
+"random": [
+"eczema",
+"hyperpigmentation"
+],
+"distractors": [
+"enlarged pores",
+"fine lines",
+"rosacea",
+"oily skin",
+"eczema",
+"hyperpigmentation"
+],
+"n_eligible": 6,
+"sha": "14bfcabff9e807537351bcaec741d903e7186f08136c94bef410ce02b908fd0f",
+"generation": 0
+}
+}

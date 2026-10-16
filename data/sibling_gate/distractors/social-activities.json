@@ -1,0 +1,350 @@
+{
+"mlnla-ck2000-all11:chat-dailydialog-0024__L028__p97:movienight:concert": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0024__L028__p97:movienight:concert",
+"anchor": "concert",
+"nearest": [
+"karaoke",
+"bowling",
+"happy hour",
+"picnic"
+],
+"random": [
+"brunch",
+"coffee",
+"party",
+"potluck"
+],
+"distractors": [
+"karaoke",
+"bowling",
+"happy hour",
+"picnic",
+"brunch",
+"coffee",
+"party",
+"potluck"
+],
+"n_eligible": 11,
+"sha": "c11a9a79245763e3fc77007515933b9daf7fcb31cebe26ec19d5ef6316eeee13",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0024__L044__p137:movienight:concert": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0024__L044__p137:movienight:concert",
+"anchor": "concert",
+"nearest": [
+"karaoke",
+"bowling",
+"happy hour",
+"picnic"
+],
+"random": [
+"barbecue",
+"coffee",
+"dance party",
+"potluck"
+],
+"distractors": [
+"karaoke",
+"bowling",
+"happy hour",
+"picnic",
+"barbecue",
+"coffee",
+"dance party",
+"potluck"
+],
+"n_eligible": 11,
+"sha": "09b2b1757c5d0b2b9476162cd7adeff4f56a2144c2e8db1ce8934664defef367",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0024__L036__p83:movienight:concert": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0024__L036__p83:movienight:concert",
+"anchor": "concert",
+"nearest": [
+"karaoke",
+"bowling",
+"happy hour",
+"picnic"
+],
+"random": [
+"barbecue",
+"brunch",
+"dinner party",
+"potluck"
+],
+"distractors": [
+"karaoke",
+"bowling",
+"happy hour",
+"picnic",
+"barbecue",
+"brunch",
+"dinner party",
+"potluck"
+],
+"n_eligible": 12,
+"sha": "0889a321cdecb125566864569f04bf767b73f62460df7695f04e673f4cd907e4",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0024__L044__p137:movienight:concert": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0024__L044__p137:movienight:concert",
+"anchor": "concert",
+"nearest": [
+"karaoke",
+"bowling",
+"happy hour",
+"picnic"
+],
+"random": [
+"brunch",
+"dance party",
+"dinner party",
+"potluck"
+],
+"distractors": [
+"karaoke",
+"bowling",
+"happy hour",
+"picnic",
+"brunch",
+"dance party",
+"dinner party",
+"potluck"
+],
+"n_eligible": 12,
+"sha": "8b365e6fd4c8839b4b0a13cdc1c29e931cd52e6b5aeec61644639eb185b8bfd0",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0024__L044__p73:movienight:concert": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0024__L044__p73:movienight:concert",
+"anchor": "concert",
+"nearest": [
+"karaoke",
+"bowling",
+"happy hour",
+"picnic"
+],
+"random": [
+"book club",
+"brunch",
+"dinner party",
+"potluck"
+],
+"distractors": [
+"karaoke",
+"bowling",
+"happy hour",
+"picnic",
+"book club",
+"brunch",
+"dinner party",
+"potluck"
+],
+"n_eligible": 12,
+"sha": "349104e4ac79a777669fdfca73530f0304e9ec29625d96339102cf2b9cddf6b1",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0024__L048__p137:movienight:concert": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0024__L048__p137:movienight:concert",
+"anchor": "concert",
+"nearest": [
+"karaoke",
+"bowling",
+"happy hour",
+"picnic"
+],
+"random": [
+"barbecue",
+"coffee",
+"dance party",
+"party"
+],
+"distractors": [
+"karaoke",
+"bowling",
+"happy hour",
+"picnic",
+"barbecue",
+"coffee",
+"dance party",
+"party"
+],
+"n_eligible": 12,
+"sha": "8e30dce7bdbb816618456494e0eeb5c2f8c747858f8ccb971f5ca1cfb868d697",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0024__L048__p73:movienight:concert": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0024__L048__p73:movienight:concert",
+"anchor": "concert",
+"nearest": [
+"karaoke",
+"bowling",
+"happy hour",
+"picnic"
+],
+"random": [
+"brunch",
+"coffee",
+"dinner party",
+"potluck"
+],
+"distractors": [
+"karaoke",
+"bowling",
+"happy hour",
+"picnic",
+"brunch",
+"coffee",
+"dinner party",
+"potluck"
+],
+"n_eligible": 12,
+"sha": "79d58f2ef6e2d1216c9251b78a6e730ec739c42bb4751ec3f2a131b76dff5d2c",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0024__L048__p83:movienight:concert": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0024__L048__p83:movienight:concert",
+"anchor": "concert",
+"nearest": [
+"karaoke",
+"bowling",
+"happy hour",
+"picnic"
+],
+"random": [
+"barbecue",
+"brunch",
+"coffee",
+"party"
+],
+"distractors": [
+"karaoke",
+"bowling",
+"happy hour",
+"picnic",
+"barbecue",
+"brunch",
+"coffee",
+"party"
+],
+"n_eligible": 12,
+"sha": "843897148e70470b1880ac5d31ba11c3d5e092e9cb309d2bc8a60c5fca4cff10",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0024__L048__p97:filmouting:concert": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0024__L048__p97:filmouting:concert",
+"anchor": "concert",
+"nearest": [
+"karaoke",
+"bowling",
+"happy hour",
+"picnic"
+],
+"random": [
+"barbecue",
+"brunch",
+"coffee",
+"dance party"
+],
+"distractors": [
+"karaoke",
+"bowling",
+"happy hour",
+"picnic",
+"barbecue",
+"brunch",
+"coffee",
+"dance party"
+],
+"n_eligible": 12,
+"sha": "ce80843d3b4cc48a2a4bac3da273cb0b43faa227b7ffa04fb80a45bb72282111",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0043__L024__p44:movienight:music": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0043__L024__p44:movienight:music",
+"anchor": "dance party",
+"nearest": [
+"coffee",
+"karaoke",
+"film outing",
+"barbecue"
+],
+"random": [
+"book club",
+"bowling",
+"happy hour",
+"potluck"
+],
+"distractors": [
+"coffee",
+"karaoke",
+"film outing",
+"barbecue",
+"book club",
+"bowling",
+"happy hour",
+"potluck"
+],
+"n_eligible": 10,
+"sha": "db035e10e91a51349a69ec07a2450d27f7dff523e8e6c1d7b8a6374515d84f8a",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0024__L044__p137:movienight:concert": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0024__L044__p137:movienight:concert",
+"anchor": "concert",
+"nearest": [
+"karaoke",
+"bowling",
+"happy hour",
+"picnic"
+],
+"random": [
+"barbecue",
+"book club",
+"brunch",
+"dance party"
+],
+"distractors": [
+"karaoke",
+"bowling",
+"happy hour",
+"picnic",
+"barbecue",
+"book club",
+"brunch",
+"dance party"
+],
+"n_eligible": 12,
+"sha": "3e803ae95932efd66ef88ed18d5cf8060ee628fe31088df70314dac9328b9f17",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0027__L028__p32:coffee:party": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0027__L028__p32:coffee:party",
+"anchor": "party",
+"nearest": [
+"potluck",
+"barbecue",
+"game night",
+"picnic"
+],
+"random": [
+"book club",
+"brunch",
+"happy hour",
+"karaoke"
+],
+"distractors": [
+"potluck",
+"barbecue",
+"game night",
+"picnic",
+"book club",
+"brunch",
+"happy hour",
+"karaoke"
+],
+"n_eligible": 12,
+"sha": "6faae48e371fed3ece18aaca859f885911df2809c4691a0a18367a422afb4359",
+"generation": 0
+}
+}

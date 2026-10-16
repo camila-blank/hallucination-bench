@@ -1,0 +1,164 @@
+{
+"mlnla-ck2000-all11:chat-dailydialog-0003__L020__p338:killtwobirdswithonestone:hitthenailonthehead": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0003__L020__p338:killtwobirdswithonestone:hitthenailonthehead",
+"anchor": "Kill two birds with one stone",
+"nearest": [
+"Break the ice",
+"learn to dance in the rain",
+"Bite the bullet",
+"Beat around the bush"
+],
+"random": [
+"Hit the nail on the head",
+"Once in a blue moon",
+"Spill the beans",
+"Under the weather"
+],
+"distractors": [
+"Break the ice",
+"learn to dance in the rain",
+"Bite the bullet",
+"Beat around the bush",
+"Hit the nail on the head",
+"Once in a blue moon",
+"Spill the beans",
+"Under the weather"
+],
+"n_eligible": 10,
+"sha": "2760310f78aeaef3adfd5ae00ccedb828f4dd5b7f98dc579f5a1423cc8915641",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0003__L020__p338:ablessingindisguise:breaktheice": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0003__L020__p338:ablessingindisguise:breaktheice",
+"anchor": "Break the ice",
+"nearest": [
+"Beat around the bush",
+"Bite the bullet",
+"roll with the punches",
+"Piece of cake"
+],
+"random": [
+"Kick the bucket"
+],
+"distractors": [
+"Beat around the bush",
+"Bite the bullet",
+"roll with the punches",
+"Piece of cake",
+"Kick the bucket"
+],
+"n_eligible": 5,
+"sha": "d4ff300e1d7e030593321623b5df17a7b9cfbda05499f73cdc17c727a92ab925",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0003__L020__p338:ablessingindisguise:hitthenailonthehead": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0003__L020__p338:ablessingindisguise:hitthenailonthehead",
+"anchor": "Break the ice",
+"nearest": [
+"Beat around the bush",
+"Bite the bullet",
+"roll with the punches",
+"Piece of cake"
+],
+"random": [
+"Kick the bucket"
+],
+"distractors": [
+"Beat around the bush",
+"Bite the bullet",
+"roll with the punches",
+"Piece of cake",
+"Kick the bucket"
+],
+"n_eligible": 5,
+"sha": "fa14f63f7ac0172eab5c93ca5417011502ec742cdb5be2e735155dab77794d28",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0003__L024__p338:apennyforyourthoughtsbiteoffmorethanonecanchew:breaktheicehitthenailonthehead": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0003__L024__p338:apennyforyourthoughtsbiteoffmorethanonecanchew:breaktheicehitthenailonthehead",
+"anchor": "A penny for your thoughts; Bite off more than one can chew",
+"nearest": [
+"Beat around the bush",
+"Break the ice",
+"Spill the beans",
+"Once in a blue moon"
+],
+"random": [
+"Hit the nail on the head",
+"Kick the bucket",
+"Under the weather",
+"learn to dance in the rain"
+],
+"distractors": [
+"Beat around the bush",
+"Break the ice",
+"Spill the beans",
+"Once in a blue moon",
+"Hit the nail on the head",
+"Kick the bucket",
+"Under the weather",
+"learn to dance in the rain"
+],
+"n_eligible": 10,
+"sha": "a5463f3c84f0f6d4c8d1e8f223cfc391d11ab0def99e37ae050d7351b4460abc",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0003__L048__p338:biteoffmorethanyoucanchew:hitthenailonthehead": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0003__L048__p338:biteoffmorethanyoucanchew:hitthenailonthehead",
+"anchor": "Hit the nail on the head",
+"nearest": [
+"Once in a blue moon",
+"Piece of cake",
+"Kick the bucket",
+"Under the weather"
+],
+"random": [
+"Beat around the bush",
+"Break the ice",
+"Spill the beans",
+"roll with the punches"
+],
+"distractors": [
+"Once in a blue moon",
+"Piece of cake",
+"Kick the bucket",
+"Under the weather",
+"Beat around the bush",
+"Break the ice",
+"Spill the beans",
+"roll with the punches"
+],
+"n_eligible": 9,
+"sha": "94673c34fd40ac642a679df9175d308baa5d5ba4f564f6a16849c0ce053acbfc",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0032__L028__p112:rollwiththepunches:danceintherain": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0032__L028__p112:rollwiththepunches:danceintherain",
+"anchor": "learn to dance in the rain",
+"nearest": [
+"Bite the bullet",
+"Bite off more than you can chew",
+"Break the ice",
+"Beat around the bush"
+],
+"random": [
+"Kick the bucket",
+"Let the cat out of the bag",
+"Spill the beans",
+"Under the weather"
+],
+"distractors": [
+"Bite the bullet",
+"Bite off more than you can chew",
+"Break the ice",
+"Beat around the bush",
+"Kick the bucket",
+"Let the cat out of the bag",
+"Spill the beans",
+"Under the weather"
+],
+"n_eligible": 10,
+"sha": "e0c736427755271322d44cc1784c168f6adcb60323905a3f9183d6d336e16c57",
+"generation": 0
+}
+}

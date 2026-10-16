@@ -1,0 +1,689 @@
+{
+"logit:chat-dailydialog-0006__L024__p134:beesting:mosquitobite": {
+"unit": "logit:chat-dailydialog-0006__L024__p134:beesting:mosquitobite",
+"anchor": "mosquito bite",
+"nearest": [
+"deer fly bite",
+"black fly bite",
+"bed bug bite",
+"flea bite"
+],
+"random": [
+"chigger bite",
+"horsefly bite"
+],
+"distractors": [
+"deer fly bite",
+"black fly bite",
+"bed bug bite",
+"flea bite",
+"chigger bite",
+"horsefly bite"
+],
+"n_eligible": 6,
+"sha": "cc22d91892121d5b794a4f026c2be9b32264767fbc493a31b11d81887fdc6993",
+"generation": 0
+},
+"mlnla-ck2000-all11:chat-dailydialog-0006__L020__p285:beesting:mosquitobite": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0006__L020__p285:beesting:mosquitobite",
+"anchor": "mosquito bite",
+"nearest": [
+"deer fly bite",
+"black fly bite",
+"bed bug bite",
+"flea bite"
+],
+"random": [
+"chigger bite",
+"horsefly bite"
+],
+"distractors": [
+"deer fly bite",
+"black fly bite",
+"bed bug bite",
+"flea bite",
+"chigger bite",
+"horsefly bite"
+],
+"n_eligible": 6,
+"sha": "2def95803450ebbbc61aec0cf894532d8c4d082f09674bc64dccc6fbe47c778a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0006__L020__p285:beestings:mosquitobites": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0006__L020__p285:beestings:mosquitobites",
+"anchor": "mosquito bite",
+"nearest": [
+"deer fly bite",
+"black fly bite",
+"bed bug bite",
+"flea bite"
+],
+"random": [
+"chigger bite",
+"horsefly bite"
+],
+"distractors": [
+"deer fly bite",
+"black fly bite",
+"bed bug bite",
+"flea bite",
+"chigger bite",
+"horsefly bite"
+],
+"n_eligible": 6,
+"sha": "9aed5c91ec14ac5215d6fff78f3880c345824a94642574029014aa3e510b0029",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0006__L028__p385:spiderbites:mosquitobites": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0006__L028__p385:spiderbites:mosquitobites",
+"anchor": "mosquito bites",
+"nearest": [
+"deer fly bite",
+"black fly bite",
+"bed bug bite",
+"flea bite"
+],
+"random": [
+"chigger bite",
+"fire ant sting",
+"horsefly bite"
+],
+"distractors": [
+"deer fly bite",
+"black fly bite",
+"bed bug bite",
+"flea bite",
+"chigger bite",
+"fire ant sting",
+"horsefly bite"
+],
+"n_eligible": 7,
+"sha": "6ae1127a0649613340cb661fe628e93ac7881b69bf44748053364736205b94c4",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0006__L036__p385:beesting:mosquitobites": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0006__L036__p385:beesting:mosquitobites",
+"anchor": "mosquito bite",
+"nearest": [
+"deer fly bite",
+"black fly bite",
+"bed bug bite",
+"flea bite"
+],
+"random": [
+"chigger bite",
+"horsefly bite"
+],
+"distractors": [
+"deer fly bite",
+"black fly bite",
+"bed bug bite",
+"flea bite",
+"chigger bite",
+"horsefly bite"
+],
+"n_eligible": 6,
+"sha": "d527c42fc9497ce97db74737f9d0a32960556c16f8237fd64f4c120fc87c39b5",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0006__L048__p385:beesting:mosquitobite": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0006__L048__p385:beesting:mosquitobite",
+"anchor": "mosquito bite",
+"nearest": [
+"deer fly bite",
+"black fly bite",
+"bed bug bite",
+"flea bite"
+],
+"random": [
+"chigger bite",
+"horsefly bite"
+],
+"distractors": [
+"deer fly bite",
+"black fly bite",
+"bed bug bite",
+"flea bite",
+"chigger bite",
+"horsefly bite"
+],
+"n_eligible": 6,
+"sha": "8360910a7d8a316f29fc9d1aee9af415fe019250c85abdd2058dea628ebbd01c",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0006__L028__p385:beestings:mosquitobites": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0006__L028__p385:beestings:mosquitobites",
+"anchor": "mosquito bite",
+"nearest": [
+"deer fly bite",
+"black fly bite",
+"bed bug bite",
+"flea bite"
+],
+"random": [
+"chigger bite",
+"horsefly bite"
+],
+"distractors": [
+"deer fly bite",
+"black fly bite",
+"bed bug bite",
+"flea bite",
+"chigger bite",
+"horsefly bite"
+],
+"n_eligible": 6,
+"sha": "959675053d49ce65898c4db2d86a118f6e4f70765a3f7cd0f042608540b5d0be",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0006__L032__p334:beestings:mosquitobites": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0006__L032__p334:beestings:mosquitobites",
+"anchor": "mosquito bite",
+"nearest": [
+"deer fly bite",
+"black fly bite",
+"bed bug bite",
+"flea bite"
+],
+"random": [
+"chigger bite",
+"horsefly bite"
+],
+"distractors": [
+"deer fly bite",
+"black fly bite",
+"bed bug bite",
+"flea bite",
+"chigger bite",
+"horsefly bite"
+],
+"n_eligible": 6,
+"sha": "c19051d89a4c2e63318dc9db64dfed3fe89e3df07ee04d5b66368c2bc71950b3",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0006__L032__p385:beesting:mosquitobite": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0006__L032__p385:beesting:mosquitobite",
+"anchor": "mosquito bite",
+"nearest": [
+"deer fly bite",
+"black fly bite",
+"bed bug bite",
+"flea bite"
+],
+"random": [
+"chigger bite",
+"horsefly bite"
+],
+"distractors": [
+"deer fly bite",
+"black fly bite",
+"bed bug bite",
+"flea bite",
+"chigger bite",
+"horsefly bite"
+],
+"n_eligible": 6,
+"sha": "545363e75caaf0f01b9af9ad501e80a0dcdcf5ffd8178cbdd9add3b298fd57d3",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0006__L048__p385:beesting:mosquitobite": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0006__L048__p385:beesting:mosquitobite",
+"anchor": "mosquito bite",
+"nearest": [
+"deer fly bite",
+"black fly bite",
+"bed bug bite",
+"flea bite"
+],
+"random": [
+"chigger bite",
+"horsefly bite"
+],
+"distractors": [
+"deer fly bite",
+"black fly bite",
+"bed bug bite",
+"flea bite",
+"chigger bite",
+"horsefly bite"
+],
+"n_eligible": 6,
+"sha": "499f4f1a2fac207f97728fae3fad0584ca4e47456d1a24a9df675e06aa4d93c5",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0006__L056__p334:spiderbite:mosquitobite": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0006__L056__p334:spiderbite:mosquitobite",
+"anchor": "mosquito bite",
+"nearest": [
+"deer fly bite",
+"black fly bite",
+"bed bug bite",
+"flea bite"
+],
+"random": [
+"chigger bite",
+"fire ant sting",
+"horsefly bite"
+],
+"distractors": [
+"deer fly bite",
+"black fly bite",
+"bed bug bite",
+"flea bite",
+"chigger bite",
+"fire ant sting",
+"horsefly bite"
+],
+"n_eligible": 7,
+"sha": "ebec46f0892d0f90872563d829185b7f6c1eacd2a63621e9b3b4038043f11231",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0006__L060__p334:tickbite:mosquitobites": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0006__L060__p334:tickbite:mosquitobites",
+"anchor": "mosquito bite",
+"nearest": [
+"deer fly bite",
+"black fly bite",
+"bed bug bite",
+"flea bite"
+],
+"random": [
+"chigger bite",
+"fire ant sting",
+"horsefly bite"
+],
+"distractors": [
+"deer fly bite",
+"black fly bite",
+"bed bug bite",
+"flea bite",
+"chigger bite",
+"fire ant sting",
+"horsefly bite"
+],
+"n_eligible": 7,
+"sha": "22ca58d3349b74a70a315430ed4925663f2101cc0e5fe6087be3c3947b05af51",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0006__L020__p186:beesting:mosquitobite": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0006__L020__p186:beesting:mosquitobite",
+"anchor": "mosquito bite",
+"nearest": [
+"deer fly bite",
+"black fly bite",
+"bed bug bite",
+"flea bite"
+],
+"random": [
+"chigger bite",
+"horsefly bite"
+],
+"distractors": [
+"deer fly bite",
+"black fly bite",
+"bed bug bite",
+"flea bite",
+"chigger bite",
+"horsefly bite"
+],
+"n_eligible": 6,
+"sha": "2cdd86b6c0611f274037cd9fe93ec96df90413b02a83b945c5281d25dc330d63",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0006__L024__p243:tickbites:mosquitobites": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0006__L024__p243:tickbites:mosquitobites",
+"anchor": "mosquito bites",
+"nearest": [
+"deer fly bite",
+"black fly bite",
+"bed bug bite",
+"flea bite"
+],
+"random": [
+"chigger bite",
+"fire ant sting",
+"horsefly bite"
+],
+"distractors": [
+"deer fly bite",
+"black fly bite",
+"bed bug bite",
+"flea bite",
+"chigger bite",
+"fire ant sting",
+"horsefly bite"
+],
+"n_eligible": 7,
+"sha": "29b90af83bffd3d2c666cb6260524fb25240c404affad78c5131c03e8c5185e7",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0006__L028__p285:beestings:mosquitobites": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0006__L028__p285:beestings:mosquitobites",
+"anchor": "mosquito bite",
+"nearest": [
+"deer fly bite",
+"black fly bite",
+"bed bug bite",
+"flea bite"
+],
+"random": [
+"chigger bite",
+"horsefly bite"
+],
+"distractors": [
+"deer fly bite",
+"black fly bite",
+"bed bug bite",
+"flea bite",
+"chigger bite",
+"horsefly bite"
+],
+"n_eligible": 6,
+"sha": "55bbb8a693d7cba57d1886f866a1cb4ed9f82cd7c47c1a5ba5e1a25c96e0a49d",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0006__L032__p385:beesting:mosquitobite": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0006__L032__p385:beesting:mosquitobite",
+"anchor": "mosquito bite",
+"nearest": [
+"deer fly bite",
+"black fly bite",
+"bed bug bite",
+"flea bite"
+],
+"random": [
+"chigger bite",
+"horsefly bite"
+],
+"distractors": [
+"deer fly bite",
+"black fly bite",
+"bed bug bite",
+"flea bite",
+"chigger bite",
+"horsefly bite"
+],
+"n_eligible": 6,
+"sha": "8704bb14a0b7a6f3a16cdad7d91998bf897700778b2b6d4d4d59402aed972223",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0006__L032__p385:beestings:mosquitobites": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0006__L032__p385:beestings:mosquitobites",
+"anchor": "mosquito bite",
+"nearest": [
+"deer fly bite",
+"black fly bite",
+"bed bug bite",
+"flea bite"
+],
+"random": [
+"chigger bite",
+"horsefly bite"
+],
+"distractors": [
+"deer fly bite",
+"black fly bite",
+"bed bug bite",
+"flea bite",
+"chigger bite",
+"horsefly bite"
+],
+"n_eligible": 6,
+"sha": "13fa36a182638581623ae84a29502ac1cb8b3047c9f688c04f9414b7c055098b",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0006__L036__p385:beestings:mosquitobites": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0006__L036__p385:beestings:mosquitobites",
+"anchor": "mosquito bite",
+"nearest": [
+"deer fly bite",
+"black fly bite",
+"bed bug bite",
+"flea bite"
+],
+"random": [
+"chigger bite",
+"horsefly bite"
+],
+"distractors": [
+"deer fly bite",
+"black fly bite",
+"bed bug bite",
+"flea bite",
+"chigger bite",
+"horsefly bite"
+],
+"n_eligible": 6,
+"sha": "c00e74fdf3fa21fd125b251e0208bacf6611497a3681684471b07f19a1eba0c3",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0006__L048__p385:beesting:mosquitobite": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0006__L048__p385:beesting:mosquitobite",
+"anchor": "mosquito bite",
+"nearest": [
+"deer fly bite",
+"black fly bite",
+"bed bug bite",
+"flea bite"
+],
+"random": [
+"chigger bite",
+"horsefly bite"
+],
+"distractors": [
+"deer fly bite",
+"black fly bite",
+"bed bug bite",
+"flea bite",
+"chigger bite",
+"horsefly bite"
+],
+"n_eligible": 6,
+"sha": "84f7640e56373e1a9eb718804a05f0bceff7c0458064fdbca0d7620538f73f67",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0006__L052__p134:beestings:mosquitobites": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0006__L052__p134:beestings:mosquitobites",
+"anchor": "mosquito bite",
+"nearest": [
+"deer fly bite",
+"black fly bite",
+"bed bug bite",
+"flea bite"
+],
+"random": [
+"chigger bite",
+"horsefly bite"
+],
+"distractors": [
+"deer fly bite",
+"black fly bite",
+"bed bug bite",
+"flea bite",
+"chigger bite",
+"horsefly bite"
+],
+"n_eligible": 6,
+"sha": "2e36b41eb642ad7c1621970e541bf8fe8aae96eb7cd6467e95c0f9683ebdee58",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0006__L056__p243:tickbites:mosquitobites": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0006__L056__p243:tickbites:mosquitobites",
+"anchor": "mosquito bites",
+"nearest": [
+"deer fly bite",
+"black fly bite",
+"bed bug bite",
+"flea bite"
+],
+"random": [
+"chigger bite",
+"fire ant sting",
+"horsefly bite"
+],
+"distractors": [
+"deer fly bite",
+"black fly bite",
+"bed bug bite",
+"flea bite",
+"chigger bite",
+"fire ant sting",
+"horsefly bite"
+],
+"n_eligible": 7,
+"sha": "a5c3aceeabac209c807d4fcc531b55b3a4e3c6b656bc947b14bd3124415458e5",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0006__L056__p334:spiderbites:mosquitobites": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0006__L056__p334:spiderbites:mosquitobites",
+"anchor": "mosquito bites",
+"nearest": [
+"deer fly bite",
+"black fly bite",
+"bed bug bite",
+"flea bite"
+],
+"random": [
+"chigger bite",
+"fire ant sting",
+"horsefly bite"
+],
+"distractors": [
+"deer fly bite",
+"black fly bite",
+"bed bug bite",
+"flea bite",
+"chigger bite",
+"fire ant sting",
+"horsefly bite"
+],
+"n_eligible": 7,
+"sha": "226ac2c9503aef8081f9fb6d68e93d23276b2cf1a03de37d169ab3bf6ea267ee",
+"generation": 0
+},
+"nla-sft-L42:chat-dailydialog-0006__L042__p85:waspsting:mosquitobite": {
+"unit": "nla-sft-L42:chat-dailydialog-0006__L042__p85:waspsting:mosquitobite",
+"anchor": "mosquito bite",
+"nearest": [
+"deer fly bite",
+"black fly bite",
+"bed bug bite",
+"flea bite"
+],
+"random": [
+"chigger bite",
+"horsefly bite"
+],
+"distractors": [
+"deer fly bite",
+"black fly bite",
+"bed bug bite",
+"flea bite",
+"chigger bite",
+"horsefly bite"
+],
+"n_eligible": 6,
+"sha": "b1c058159b19839e92bf30654b5a9cf42bd9eaba537efcb218e3de707dc265de",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0006__L024__p24:beesting:mosquitobites": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0006__L024__p24:beesting:mosquitobites",
+"anchor": "mosquito bite",
+"nearest": [
+"deer fly bite",
+"black fly bite",
+"bed bug bite",
+"flea bite"
+],
+"random": [
+"chigger bite",
+"horsefly bite"
+],
+"distractors": [
+"deer fly bite",
+"black fly bite",
+"bed bug bite",
+"flea bite",
+"chigger bite",
+"horsefly bite"
+],
+"n_eligible": 6,
+"sha": "44c5515e5edbdebb76999057e6aa40e556c7b5e9af4dd8ecd1f9cb39e294101b",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0006__L024__p85:beestings:mosquitobites": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0006__L024__p85:beestings:mosquitobites",
+"anchor": "mosquito bite",
+"nearest": [
+"deer fly bite",
+"black fly bite",
+"bed bug bite",
+"flea bite"
+],
+"random": [
+"chigger bite",
+"horsefly bite"
+],
+"distractors": [
+"deer fly bite",
+"black fly bite",
+"bed bug bite",
+"flea bite",
+"chigger bite",
+"horsefly bite"
+],
+"n_eligible": 6,
+"sha": "243271444f74b1f53627a3bf969489f97d98a14a70e5f45528e82f60e642bc1f",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0006__L060__p85:beestings:mosquitobites": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0006__L060__p85:beestings:mosquitobites",
+"anchor": "mosquito bite",
+"nearest": [
+"deer fly bite",
+"black fly bite",
+"bed bug bite",
+"flea bite"
+],
+"random": [
+"chigger bite",
+"horsefly bite"
+],
+"distractors": [
+"deer fly bite",
+"black fly bite",
+"bed bug bite",
+"flea bite",
+"chigger bite",
+"horsefly bite"
+],
+"n_eligible": 6,
+"sha": "ba86db6cc3f61b2a84e98c3344d4118489d59138767119c3444373209f95fd9f",
+"generation": 0
+},
+"tuned:chat-dailydialog-0006__L060__p134:antbites:mosquitobites": {
+"unit": "tuned:chat-dailydialog-0006__L060__p134:antbites:mosquitobites",
+"anchor": "mosquito bites",
+"nearest": [
+"deer fly bite",
+"black fly bite",
+"bed bug bite",
+"flea bite"
+],
+"random": [
+"chigger bite",
+"horsefly bite"
+],
+"distractors": [
+"deer fly bite",
+"black fly bite",
+"bed bug bite",
+"flea bite",
+"chigger bite",
+"horsefly bite"
+],
+"n_eligible": 6,
+"sha": "00d24abab84efe19d51469270f677b560ed573c44fcdbb6abdaa42011a202cb4",
+"generation": 0
+}
+}

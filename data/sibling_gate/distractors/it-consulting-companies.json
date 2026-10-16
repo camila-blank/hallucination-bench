@@ -1,0 +1,72 @@
+{
+"mlnla-ck2000-all11:chat-lmsys-0055__L024__p447:deloitte:tcs": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0055__L024__p447:deloitte:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [
+"DXC Technology",
+"IBM Consulting",
+"CGI"
+],
+"random": [],
+"distractors": [
+"DXC Technology",
+"IBM Consulting",
+"CGI"
+],
+"n_eligible": 3,
+"sha": "dcb55b780e0d44454dad75750d50e9f4676b4dc19afb846a61ce0b712969833b",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0055__L060__p160:indtechai:tataconsultancyservicestcs": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0055__L060__p160:indtechai:tataconsultancyservicestcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [
+"DXC Technology",
+"IBM Consulting",
+"CGI"
+],
+"random": [],
+"distractors": [
+"DXC Technology",
+"IBM Consulting",
+"CGI"
+],
+"n_eligible": 3,
+"sha": "2ded8eac13397a3ec472a81915631e28db4ff5c5553b82352e6309deceeb89b1",
+"generation": 1
+},
+"mlnla-rl600-all11:chat-lmsys-0055__L052__p43:infosysconsulting:tataconsultancyservices": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0055__L052__p43:infosysconsulting:tataconsultancyservices",
+"anchor": "Tata Consultancy Services",
+"nearest": [
+"DXC Technology",
+"CGI"
+],
+"random": [],
+"distractors": [
+"DXC Technology",
+"CGI"
+],
+"n_eligible": 2,
+"sha": "9bce6ea90f1441ef60b2933267a4d917154a5a2921992bd682428d1005c85a88",
+"generation": 1
+},
+"mlnla-rl600-all11:chat-lmsys-0055__L056__p104:pwc:tataconsultancyservicestcs": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0055__L056__p104:pwc:tataconsultancyservicestcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [
+"DXC Technology",
+"IBM Consulting",
+"CGI"
+],
+"random": [],
+"distractors": [
+"DXC Technology",
+"IBM Consulting",
+"CGI"
+],
+"n_eligible": 3,
+"sha": "92c434bd7303f105a81289e39df4c92321de297f3d6b95c14e396818bb1c1c7b",
+"generation": 1
+}
+}

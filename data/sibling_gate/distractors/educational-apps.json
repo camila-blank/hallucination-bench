@@ -1,0 +1,118 @@
+{
+"mlnla-rl600-all11:chat-lmsys-0005__L024__p483:chalkboard:bookcreator": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0005__L024__p483:chalkboard:bookcreator",
+"anchor": "Book Creator",
+"nearest": [
+"Seesaw",
+"Google Classroom",
+"Kahoot!",
+"ClassDojo"
+],
+"random": [
+"Babbel",
+"Coursera",
+"Quizlet",
+"Rosetta Stone"
+],
+"distractors": [
+"Seesaw",
+"Google Classroom",
+"Kahoot!",
+"ClassDojo",
+"Babbel",
+"Coursera",
+"Quizlet",
+"Rosetta Stone"
+],
+"n_eligible": 11,
+"sha": "75cb404df051e5640fe8be61c06bf275533e65acf50f534e743671b59abb4e3a",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0005__L044__p169:duolingominecrafteducation:swindleroboblitz20": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0005__L044__p169:duolingominecrafteducation:swindleroboblitz20",
+"anchor": "Duolingo",
+"nearest": [
+"Rosetta Stone",
+"Memrise",
+"Brainly",
+"Babbel"
+],
+"random": [
+"Book Creator",
+"Coursera",
+"Photomath",
+"Seesaw"
+],
+"distractors": [
+"Rosetta Stone",
+"Memrise",
+"Brainly",
+"Babbel",
+"Book Creator",
+"Coursera",
+"Photomath",
+"Seesaw"
+],
+"n_eligible": 12,
+"sha": "e843a5ec9a73dd40de64c6dd4e9e8e17233b71231063a530b4a3fa0f259cb9b2",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0005__L052__p483:seesawbooks:bookcreator": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0005__L052__p483:seesawbooks:bookcreator",
+"anchor": "Book Creator",
+"nearest": [
+"Google Classroom",
+"Kahoot!",
+"ClassDojo",
+"Quizlet"
+],
+"random": [
+"Brainly",
+"Memrise",
+"Photomath",
+"Rosetta Stone"
+],
+"distractors": [
+"Google Classroom",
+"Kahoot!",
+"ClassDojo",
+"Quizlet",
+"Brainly",
+"Memrise",
+"Photomath",
+"Rosetta Stone"
+],
+"n_eligible": 10,
+"sha": "38291beb5dcc822ef319f5b560d057b6a778b21d08f479b9b4dd333ef58f94a9",
+"generation": 0
+},
+"nla-sft-L42:chat-lmsys-0005__L042__p430:duolingogonoodle:plotagonstories": {
+"unit": "nla-sft-L42:chat-lmsys-0005__L042__p430:duolingogonoodle:plotagonstories",
+"anchor": "Duolingo",
+"nearest": [
+"Rosetta Stone",
+"Memrise",
+"Brainly",
+"Babbel"
+],
+"random": [
+"Google Classroom",
+"Kahoot!",
+"Quizlet",
+"Seesaw"
+],
+"distractors": [
+"Rosetta Stone",
+"Memrise",
+"Brainly",
+"Babbel",
+"Google Classroom",
+"Kahoot!",
+"Quizlet",
+"Seesaw"
+],
+"n_eligible": 12,
+"sha": "e432bd37e16d5f78a73317671c67fc88038ce6c4001965b732b9644a227df5dd",
+"generation": 0
+}
+}

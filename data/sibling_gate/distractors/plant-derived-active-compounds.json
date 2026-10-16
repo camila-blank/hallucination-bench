@@ -1,0 +1,200 @@
+{
+"mlnla-rl2-800-all11:chat-lmsys-0069__L024__p384:notoginsengsaponins:gastrodin": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0069__L024__p384:notoginsengsaponins:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [
+"salicin",
+"nicotine",
+"capsaicin"
+],
+"random": [],
+"distractors": [
+"salicin",
+"nicotine",
+"capsaicin"
+],
+"n_eligible": 3,
+"sha": "fac9e1883be0e20f85b5510a5fadd5a43646314896e0f07b4168b843fad45a3c",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0069__L032__p311:curcumininturmeric:gastrodiningastrodiaelata": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0069__L032__p311:curcumininturmeric:gastrodiningastrodiaelata",
+"anchor": "gastrodin",
+"nearest": [
+"salicin",
+"nicotine",
+"capsaicin"
+],
+"random": [],
+"distractors": [
+"salicin",
+"nicotine",
+"capsaicin"
+],
+"n_eligible": 3,
+"sha": "7200fb12229e70d04bee749ccb22a150b2808706eaf16a8ff4b853cab63df449",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-lmsys-0069__L056__p311:quinineinbark:gastrodinintuber": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0069__L056__p311:quinineinbark:gastrodinintuber",
+"anchor": "Gastrodin",
+"nearest": [
+"salicin",
+"nicotine",
+"capsaicin"
+],
+"random": [],
+"distractors": [
+"salicin",
+"nicotine",
+"capsaicin"
+],
+"n_eligible": 3,
+"sha": "0d21c6e8508f56e5a12cff982aad396a160a55428312a0f92029476835f9221a",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0069__L024__p311:ginsenosidesinginsengroots:gastrodinintuber": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0069__L024__p311:ginsenosidesinginsengroots:gastrodinintuber",
+"anchor": "Gastrodin",
+"nearest": [
+"salicin",
+"nicotine",
+"capsaicin"
+],
+"random": [],
+"distractors": [
+"salicin",
+"nicotine",
+"capsaicin"
+],
+"n_eligible": 3,
+"sha": "8932f2e987e3b13e18b23e6e0b52347ccb21eb61d067d2b0e567b502de664aee",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0069__L028__p384:notoginsengsaponins:gastrodin": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0069__L028__p384:notoginsengsaponins:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [
+"salicin",
+"nicotine",
+"capsaicin"
+],
+"random": [],
+"distractors": [
+"salicin",
+"nicotine",
+"capsaicin"
+],
+"n_eligible": 3,
+"sha": "6a69f1a42b7235dffd13e3f63b631df5881a25f320b73c6d1c0ee57a8677db42",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0069__L032__p311:curcumininturmeric:gastrodiningastrodiatuber": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0069__L032__p311:curcumininturmeric:gastrodiningastrodiatuber",
+"anchor": "gastrodin",
+"nearest": [
+"salicin",
+"nicotine",
+"capsaicin"
+],
+"random": [],
+"distractors": [
+"salicin",
+"nicotine",
+"capsaicin"
+],
+"n_eligible": 3,
+"sha": "027d412047279eb96d326573db2c990402519ed397df7c01d12d33882f6acbe3",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0069__L044__p311:curcumininturmeric:gastrodiningastrodiaelata": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0069__L044__p311:curcumininturmeric:gastrodiningastrodiaelata",
+"anchor": "gastrodin",
+"nearest": [
+"salicin",
+"nicotine",
+"capsaicin"
+],
+"random": [],
+"distractors": [
+"salicin",
+"nicotine",
+"capsaicin"
+],
+"n_eligible": 3,
+"sha": "27260ec8ea641cd1d730075c876c4be7154ddf918113c27b84e5c995f0c5305d",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0069__L048__p311:curcumininturmeric:gastrodiningastrodiaelata": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0069__L048__p311:curcumininturmeric:gastrodiningastrodiaelata",
+"anchor": "gastrodin",
+"nearest": [
+"salicin",
+"nicotine",
+"capsaicin"
+],
+"random": [],
+"distractors": [
+"salicin",
+"nicotine",
+"capsaicin"
+],
+"n_eligible": 3,
+"sha": "3626495a3e3ad864104faaab95ec71cf44d3e933c62199e789d0ff0197278073",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0069__L052__p311:curcumininturmeric:gastrodiningastrodiaelata": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0069__L052__p311:curcumininturmeric:gastrodiningastrodiaelata",
+"anchor": "gastrodin",
+"nearest": [
+"salicin",
+"nicotine",
+"capsaicin"
+],
+"random": [],
+"distractors": [
+"salicin",
+"nicotine",
+"capsaicin"
+],
+"n_eligible": 3,
+"sha": "6e728473044439247caea4ab6fd2871987a3a590408abf15a88a597d08513a61",
+"generation": 0
+},
+"nla-rl-L42:chat-lmsys-0069__L042__p311:ginsengginsenoside:gastrodiaelatagastrodin": {
+"unit": "nla-rl-L42:chat-lmsys-0069__L042__p311:ginsengginsenoside:gastrodiaelatagastrodin",
+"anchor": "gastrodin",
+"nearest": [
+"salicin",
+"nicotine",
+"capsaicin"
+],
+"random": [],
+"distractors": [
+"salicin",
+"nicotine",
+"capsaicin"
+],
+"n_eligible": 3,
+"sha": "e02a7d0884a609f405bddb31475a0e1fd38cddfb15a6d28c09a07c84e21ff1b5",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0069__L056__p486:epimediumalkaloids:gastrodin": {
+"unit": "s3d-rl600-all11:chat-lmsys-0069__L056__p486:epimediumalkaloids:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [
+"salicin",
+"nicotine",
+"capsaicin"
+],
+"random": [],
+"distractors": [
+"salicin",
+"nicotine",
+"capsaicin"
+],
+"n_eligible": 3,
+"sha": "f0cd49f308bb5d9d476e28c10459d368916e4b3267fcfb9f413a88e5e7a96206",
+"generation": 0
+}
+}

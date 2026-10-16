@@ -1,0 +1,623 @@
+{
+"mlnla-ck2000-all11:chat-dailydialog-0046__L020__p157:heidelbergortumunich:groupofeightgo8": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0046__L020__p157:heidelbergortumunich:groupofeightgo8",
+"anchor": "Heidelberg University",
+"nearest": [
+"Group of Eight"
+],
+"random": [],
+"distractors": [
+"Group of Eight"
+],
+"n_eligible": 1,
+"sha": "abcfb821c29cabdadd27c95b0f9b0dda2a08dbed2abdbf2b9a17e2e6f24de4ac",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0046__L020__p157:stockholmuniversitylunduppsala:groupofeightgo8": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0046__L020__p157:stockholmuniversitylunduppsala:groupofeightgo8",
+"anchor": "Group of Eight",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "d1040df19eb8e6ac2ce94608cffc9248d096a40b70b556461805e8057a874e08",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0046__L028__p145:nus:groupofeight": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0046__L028__p145:nus:groupofeight",
+"anchor": "National University of Singapore",
+"nearest": [
+"Group of Eight"
+],
+"random": [],
+"distractors": [
+"Group of Eight"
+],
+"n_eligible": 1,
+"sha": "e07064ebc2a2c7841c7c77cf4047365b612cd181faa7b59bef30792c82e4ee0b",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0046__L028__p145:oxford:groupofeight": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0046__L028__p145:oxford:groupofeight",
+"anchor": "University of Oxford",
+"nearest": [
+"Group of Eight"
+],
+"random": [],
+"distractors": [
+"Group of Eight"
+],
+"n_eligible": 1,
+"sha": "d79390e12ae52ca75d2674b097153de6a0b6e777efce783488118ddbc449870f",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0046__L028__p157:pekingortsinghua:groupofeight": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0046__L028__p157:pekingortsinghua:groupofeight",
+"anchor": "Group of Eight",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "dc7e43519be78bff0420cb412dcdceeb4e498e0862873a76aba95e22aa341db4",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0046__L028__p157:seoulnationaluniversity:groupofeight": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0046__L028__p157:seoulnationaluniversity:groupofeight",
+"anchor": "Seoul National University",
+"nearest": [
+"Group of Eight"
+],
+"random": [],
+"distractors": [
+"Group of Eight"
+],
+"n_eligible": 1,
+"sha": "605a56d5f89af5b4ea2ac4a94696c502d5f7caecbd9946224871142da1f6f7b2",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0046__L028__p157:seoulnationaluniversity:groupofeightgo8": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0046__L028__p157:seoulnationaluniversity:groupofeightgo8",
+"anchor": "Seoul National University",
+"nearest": [
+"Group of Eight"
+],
+"random": [],
+"distractors": [
+"Group of Eight"
+],
+"n_eligible": 1,
+"sha": "dc2dd93a43d945c9e9f1473bb2ffd50227410056a586e8d8171c85b0d18c1bcf",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0046__L028__p157:tsinghuapekinguniversity:groupofeight": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0046__L028__p157:tsinghuapekinguniversity:groupofeight",
+"anchor": "Tsinghua University",
+"nearest": [
+"Group of Eight"
+],
+"random": [],
+"distractors": [
+"Group of Eight"
+],
+"n_eligible": 1,
+"sha": "54facd7279a73a9ccd2c16d2acdaa0685f02fcd833c9943c1d658e55af633802",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0046__L032__p157:tokyouniversityandkyotouniversity:groupofeightgo8": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0046__L032__p157:tokyouniversityandkyotouniversity:groupofeightgo8",
+"anchor": "Group of Eight",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "ac53be7199126625e4810ee79dc10ed510e9a1a155f6ead6f39f93a87fc822ee",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0046__L032__p157:tokyouniversitykyotouniversity:groupofeightgo8": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0046__L032__p157:tokyouniversitykyotouniversity:groupofeightgo8",
+"anchor": "University of Tokyo",
+"nearest": [
+"Group of Eight"
+],
+"random": [],
+"distractors": [
+"Group of Eight"
+],
+"n_eligible": 1,
+"sha": "a7481b94887226ab11d912b8b93d86afab404d1a691a91af4788cbc773bd3155",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0068__L044__p103:oxford:classic501straightleg": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0068__L044__p103:oxford:classic501straightleg",
+"anchor": "University of Oxford",
+"nearest": [
+"University of Cambridge",
+"Kyoto University",
+"Harvard University",
+"University of Bristol"
+],
+"random": [
+"Group of Eight",
+"National University of Singapore",
+"Sorbonne University",
+"University of Tehran"
+],
+"distractors": [
+"University of Cambridge",
+"Kyoto University",
+"Harvard University",
+"University of Bristol",
+"Group of Eight",
+"National University of Singapore",
+"Sorbonne University",
+"University of Tehran"
+],
+"n_eligible": 17,
+"sha": "8b6901fe9dc20deec1ffc80daafd35ef83eb233a9c930bf5a98d99f73c8006af",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0046__L020__p157:universityofoslo:groupofeightgo8": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0046__L020__p157:universityofoslo:groupofeightgo8",
+"anchor": "University of Oslo",
+"nearest": [
+"Group of Eight"
+],
+"random": [],
+"distractors": [
+"Group of Eight"
+],
+"n_eligible": 1,
+"sha": "abbd18590a7e640d151633bf71ec067fca675e7e56274c7f2052b0d345337edb",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0046__L024__p157:stockholmuniversityorlunduniversity:groupofeightgo8": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0046__L024__p157:stockholmuniversityorlunduniversity:groupofeightgo8",
+"anchor": "Stockholm University",
+"nearest": [
+"Group of Eight"
+],
+"random": [],
+"distractors": [
+"Group of Eight"
+],
+"n_eligible": 1,
+"sha": "3fcd271e600d361d2731b1a35728140de690bd4afc4fda1b0c2a1322eba1afde",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0046__L028__p157:ethzurichoruniversityofgeneva:groupofeightgo8": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0046__L028__p157:ethzurichoruniversityofgeneva:groupofeightgo8",
+"anchor": "ETH Zurich",
+"nearest": [
+"Group of Eight"
+],
+"random": [],
+"distractors": [
+"Group of Eight"
+],
+"n_eligible": 1,
+"sha": "73f3b39ab315e23449b994fcf69182a5cdfba278e8842abf611f0a313ee6edd2",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0046__L032__p157:sorbonneandsciencespo:groupofeightgo8": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0046__L032__p157:sorbonneandsciencespo:groupofeightgo8",
+"anchor": "Group of Eight",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "74d51a0d49face64f6a0a56a7c63babb90ca0e561f716a007e02b6ed7d2a9c9d",
+"generation": 0
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0046__L032__p157:sorbonneandécolenormalesupérieure:groupofeightgo8": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0046__L032__p157:sorbonneandécolenormalesupérieure:groupofeightgo8",
+"anchor": "Group of Eight",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "798d2a1c3ab2111d78cc59b804350b3e3ff49c20726e444e65307127875bd00e",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0046__L024__p157:ubcortheuniversityoftoronto:thegroupofeightgo8": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0046__L024__p157:ubcortheuniversityoftoronto:thegroupofeightgo8",
+"anchor": "Group of Eight",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "c6c7b9d014a911c75bf54419801343275116baa576265ceb45e336aaf61cb90f",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0046__L028__p157:sorbonne:groupofeight": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0046__L028__p157:sorbonne:groupofeight",
+"anchor": "Sorbonne University",
+"nearest": [
+"Group of Eight"
+],
+"random": [],
+"distractors": [
+"Group of Eight"
+],
+"n_eligible": 1,
+"sha": "5368ee7ac074ef1f4685b9a8a086ac1f054463d3c2dcff23015ff5d3dd930952",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0046__L028__p157:universityoftehran:groupofeight": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0046__L028__p157:universityoftehran:groupofeight",
+"anchor": "University of Tehran",
+"nearest": [
+"Group of Eight"
+],
+"random": [],
+"distractors": [
+"Group of Eight"
+],
+"n_eligible": 1,
+"sha": "277c43c56c4af066bd2c5d9de7dc608a52ff9409d5cf4a9eb9a2438461393e8e",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-dailydialog-0046__L032__p157:universityoftokyokyotouniversity:groupofeightgo8": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0046__L032__p157:universityoftokyokyotouniversity:groupofeightgo8",
+"anchor": "University of Tokyo",
+"nearest": [
+"Group of Eight"
+],
+"random": [],
+"distractors": [
+"Group of Eight"
+],
+"n_eligible": 1,
+"sha": "bb54ded378f69ca38e57988854668ed87630a0d2390a6d6abeb85ddb1dfddf3d",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0046__L020__p157:harvardcambridge:groupofeight": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0046__L020__p157:harvardcambridge:groupofeight",
+"anchor": "Harvard University",
+"nearest": [
+"Group of Eight"
+],
+"random": [],
+"distractors": [
+"Group of Eight"
+],
+"n_eligible": 1,
+"sha": "3e6d08a7ea5fc162a1ef5445843ed081e1742531be6ebbc7e877ab2abcd25c54",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0046__L020__p157:harvardyale:groupofeight": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0046__L020__p157:harvardyale:groupofeight",
+"anchor": "Group of Eight",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "025601c8fdefeec3b2a7374f79b4df84351bcc36640055198a7dc6d3a79f7df2",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0046__L020__p157:oxfordandcambridge:groupofeight": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0046__L020__p157:oxfordandcambridge:groupofeight",
+"anchor": "Group of Eight",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "c212c9bc886fa3da4aa5c6656fd436650aefec83587fe0e46631b6515a05bb56",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0046__L020__p157:universityofcambridge:groupofeight": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0046__L020__p157:universityofcambridge:groupofeight",
+"anchor": "University of Cambridge",
+"nearest": [
+"Group of Eight"
+],
+"random": [],
+"distractors": [
+"Group of Eight"
+],
+"n_eligible": 1,
+"sha": "de7a835f53768fb6dadceec16ecdbbd3a50bc78576685b16e4c8d948d9244153",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0046__L024__p157:cambridgeandoxford:australianuniversities": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0046__L024__p157:cambridgeandoxford:australianuniversities",
+"anchor": "Group of Eight",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "011e4cc677c9aee9b10a214b186d7af2c1ea1bef595f29f3d70ead45593097dd",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0046__L024__p157:harvardoxford:australianuniversities": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0046__L024__p157:harvardoxford:australianuniversities",
+"anchor": "Harvard University",
+"nearest": [
+"Group of Eight"
+],
+"random": [],
+"distractors": [
+"Group of Eight"
+],
+"n_eligible": 1,
+"sha": "88cae1cbe9500a6b5d62ac13857ece254a0ade1306feaa560d058ba976e18fb8",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0046__L024__p157:oxford:australianuniversities": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0046__L024__p157:oxford:australianuniversities",
+"anchor": "University of Oxford",
+"nearest": [
+"Group of Eight"
+],
+"random": [],
+"distractors": [
+"Group of Eight"
+],
+"n_eligible": 1,
+"sha": "f350c3cf8fe0992f514090a4a65fe91b089fe0f514ff3cb1da6c741fb411ee07",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0046__L024__p157:oxfordcambridge:australianuniversities": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0046__L024__p157:oxfordcambridge:australianuniversities",
+"anchor": "University of Oxford",
+"nearest": [
+"Group of Eight"
+],
+"random": [],
+"distractors": [
+"Group of Eight"
+],
+"n_eligible": 1,
+"sha": "42c312466251e30e6c28ed16990287bc25efccfa9922090834a3f13f97aa055d",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0046__L024__p157:ukinstitutionslikeoxford:australianinstitutions": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0046__L024__p157:ukinstitutionslikeoxford:australianinstitutions",
+"anchor": "University of Oxford",
+"nearest": [
+"Group of Eight"
+],
+"random": [],
+"distractors": [
+"Group of Eight"
+],
+"n_eligible": 1,
+"sha": "60544984c81491061809d36c039cc1ca242c7b2af7b28252f46a57234884ef44",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0046__L028__p157:lasorbonne:groupofeight": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0046__L028__p157:lasorbonne:groupofeight",
+"anchor": "Sorbonne University",
+"nearest": [
+"Group of Eight"
+],
+"random": [],
+"distractors": [
+"Group of Eight"
+],
+"n_eligible": 1,
+"sha": "1c5bed2086f62082fb0f1804457c51e1c5dc6f680811fd3b05a3088a16dc3bbf",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0046__L028__p157:oxfordorcambridge:groupofeight": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0046__L028__p157:oxfordorcambridge:groupofeight",
+"anchor": "University of Oxford",
+"nearest": [
+"Group of Eight"
+],
+"random": [],
+"distractors": [
+"Group of Eight"
+],
+"n_eligible": 1,
+"sha": "79938746f391c9746ddb4c908529fb7268d284ff371b169afd9520618821239b",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0046__L028__p157:universityofoxford:groupofeight": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0046__L028__p157:universityofoxford:groupofeight",
+"anchor": "University of Oxford",
+"nearest": [
+"Group of Eight"
+],
+"random": [],
+"distractors": [
+"Group of Eight"
+],
+"n_eligible": 1,
+"sha": "f0eb56da9f8c6e0ee4a259425076d2502f714d2510a8d9d3172632c19ef0683c",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0046__L032__p157:kyotouniversity:australianuniversities": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0046__L032__p157:kyotouniversity:australianuniversities",
+"anchor": "Kyoto University",
+"nearest": [
+"Group of Eight"
+],
+"random": [],
+"distractors": [
+"Group of Eight"
+],
+"n_eligible": 1,
+"sha": "803f6040289e7d15dfa320e19d94748089c7de042f107b83d922a524f3440a47",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0046__L032__p157:kyotowaseda:australianuniversities": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0046__L032__p157:kyotowaseda:australianuniversities",
+"anchor": "Waseda University",
+"nearest": [
+"Group of Eight"
+],
+"random": [],
+"distractors": [
+"Group of Eight"
+],
+"n_eligible": 1,
+"sha": "f68eb2af59ba2617eb558110197fd0c0c306a3fddb4506a3af7533280f07350d",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0046__L032__p157:oxfordcambridgekyoto:australianuniversities": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0046__L032__p157:oxfordcambridgekyoto:australianuniversities",
+"anchor": "Group of Eight",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "2bcff65c3e2595e59fbdd6670c3365b536a1f11b45c417b95736edd011182d67",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0046__L032__p157:sorbonne:australianuniversities": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0046__L032__p157:sorbonne:australianuniversities",
+"anchor": "Sorbonne University",
+"nearest": [
+"Group of Eight"
+],
+"random": [],
+"distractors": [
+"Group of Eight"
+],
+"n_eligible": 1,
+"sha": "176ccc7b0d0a7a58b3a51757b47565b3f8e6e805686055cf93fdbba0f931a1e9",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0046__L032__p157:tokyouniversity:australianuniversities": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0046__L032__p157:tokyouniversity:australianuniversities",
+"anchor": "University of Tokyo",
+"nearest": [
+"Group of Eight"
+],
+"random": [],
+"distractors": [
+"Group of Eight"
+],
+"n_eligible": 1,
+"sha": "33d4f1dab9cf7a453f172ee30f04a47654b2611b7d1af7b16cb608d0db9e3108",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0046__L032__p157:ukuniversitiesoxfordcambridge:australianuniversities": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0046__L032__p157:ukuniversitiesoxfordcambridge:australianuniversities",
+"anchor": "University of Oxford",
+"nearest": [
+"Group of Eight"
+],
+"random": [],
+"distractors": [
+"Group of Eight"
+],
+"n_eligible": 1,
+"sha": "68c8d05ae026aad125f9edf949b75f44f4e6342af475d2bc442fd730f75555b1",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0046__L048__p145:oxfordcambridgeedinburgh:groupofeightgo8": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0046__L048__p145:oxfordcambridgeedinburgh:groupofeightgo8",
+"anchor": "Oxford, Cambridge, Edinburgh",
+"nearest": [
+"Group of Eight"
+],
+"random": [],
+"distractors": [
+"Group of Eight"
+],
+"n_eligible": 1,
+"sha": "46cda78a7c2f37260a0f25509b868a4753d67ce9d7c305c56374106e7ad2ba04",
+"generation": 0
+},
+"s3d-rl600:chat-dailydialog-0046__L020__p157:oxfordandcambridge:groupofeightaustralia": {
+"unit": "s3d-rl600:chat-dailydialog-0046__L020__p157:oxfordandcambridge:groupofeightaustralia",
+"anchor": "Group of Eight",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "8ad5fe4281524e8722b6b715bf42a0379a194e0b9d77f2570ba25ce44ee30253",
+"generation": 0
+},
+"s3d-rl600:chat-dailydialog-0046__L048__p132:pekinguniversitytsinghuauniversity:groupofeight": {
+"unit": "s3d-rl600:chat-dailydialog-0046__L048__p132:pekinguniversitytsinghuauniversity:groupofeight",
+"anchor": "Group of Eight",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "a378915c4f4aa2c60b4df7a5a964fd39003c327a20b21a18e22296e3c6c33405",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0046__L020__p157:universityofbristoloxford:groupofeightaustralianuniversities": {
+"unit": "s3d-sft251:chat-dailydialog-0046__L020__p157:universityofbristoloxford:groupofeightaustralianuniversities",
+"anchor": "University of Bristol",
+"nearest": [
+"Group of Eight"
+],
+"random": [],
+"distractors": [
+"Group of Eight"
+],
+"n_eligible": 1,
+"sha": "4d6f279f0b594b45e06cbb12135bd3d3735f9fab57d7a6d92824ca7956997147",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0046__L024__p157:oxford:groupofeightgo8": {
+"unit": "s3d-sft251:chat-dailydialog-0046__L024__p157:oxford:groupofeightgo8",
+"anchor": "University of Oxford",
+"nearest": [
+"Group of Eight"
+],
+"random": [],
+"distractors": [
+"Group of Eight"
+],
+"n_eligible": 1,
+"sha": "cdc3afbf4210b82447c3fcb5afae12b845b09b73f8d5c8ebc8e748e03937e5d2",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0046__L024__p157:oxfordcambridge:groupofeightgo8": {
+"unit": "s3d-sft251:chat-dailydialog-0046__L024__p157:oxfordcambridge:groupofeightgo8",
+"anchor": "University of Oxford",
+"nearest": [
+"Group of Eight"
+],
+"random": [],
+"distractors": [
+"Group of Eight"
+],
+"n_eligible": 1,
+"sha": "0d95f386e6a1415a947a9777433e73c41027877642cc40b57b3379f741ca586a",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0046__L028__p157:oxford:groupofeight": {
+"unit": "s3d-sft251:chat-dailydialog-0046__L028__p157:oxford:groupofeight",
+"anchor": "University of Oxford",
+"nearest": [
+"Group of Eight"
+],
+"random": [],
+"distractors": [
+"Group of Eight"
+],
+"n_eligible": 1,
+"sha": "8caa416d2ee409b2b81cb4edbf6f2148f6008eb90ab7c8a982ee0f53ada97e38",
+"generation": 0
+},
+"s3d-sft251:chat-dailydialog-0046__L028__p157:universityofcambridge:groupofeight": {
+"unit": "s3d-sft251:chat-dailydialog-0046__L028__p157:universityofcambridge:groupofeight",
+"anchor": "University of Cambridge",
+"nearest": [
+"Group of Eight"
+],
+"random": [],
+"distractors": [
+"Group of Eight"
+],
+"n_eligible": 1,
+"sha": "5826c12ac440f1dcd2a2847bec93f2dc4765f16fc3378eeac45c2118ccb2719e",
+"generation": 0
+},
+"template-v3:chat-dailydialog-0046__L052__p145:harvardstanfordprincetonyalecornell:groupofeightgo8": {
+"unit": "template-v3:chat-dailydialog-0046__L052__p145:harvardstanfordprincetonyalecornell:groupofeightgo8",
+"anchor": "Group of Eight",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "ca104405ec1c830582e6c78cb11052a995a5fb9c18de69664621ee9a0ae30e56",
+"generation": 0
+}
+}

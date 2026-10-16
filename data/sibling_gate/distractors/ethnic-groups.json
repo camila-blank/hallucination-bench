@@ -1,0 +1,205 @@
+{
+"mlnla-ck2000-all11:chat-lmsys-0039__L036__p91:asians:jews": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0039__L036__p91:asians:jews",
+"anchor": "Jews",
+"nearest": [
+"Japanese",
+"Yoruba",
+"Punjabis",
+"Bengalis"
+],
+"random": [
+"Arabs",
+"Kurds",
+"Pashtuns",
+"indigenous peoples"
+],
+"distractors": [
+"Japanese",
+"Yoruba",
+"Punjabis",
+"Bengalis",
+"Arabs",
+"Kurds",
+"Pashtuns",
+"indigenous peoples"
+],
+"n_eligible": 11,
+"sha": "080a37787e811ff85118a9df230bd61a5c82c005c8f0b5d81dc73fac6775f9d4",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0039__L056__p91:chinesepeople:jews": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0039__L056__p91:chinesepeople:jews",
+"anchor": "Jews",
+"nearest": [
+"Japanese",
+"Yoruba",
+"Punjabis",
+"Bengalis"
+],
+"random": [
+"Kurds",
+"Mafia",
+"Pashtuns",
+"indigenous peoples"
+],
+"distractors": [
+"Japanese",
+"Yoruba",
+"Punjabis",
+"Bengalis",
+"Kurds",
+"Mafia",
+"Pashtuns",
+"indigenous peoples"
+],
+"n_eligible": 10,
+"sha": "78c26bf2d5b88af1f8a03340f01d22d50535242c246fcb3dfb5ed26e0a34d1de",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0039__L040__p84:germanpeople:jews": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0039__L040__p84:germanpeople:jews",
+"anchor": "Jews",
+"nearest": [
+"Japanese",
+"Yoruba",
+"Punjabis",
+"Bengalis"
+],
+"random": [
+"Arabs",
+"Han Chinese",
+"Koreans",
+"Kurds"
+],
+"distractors": [
+"Japanese",
+"Yoruba",
+"Punjabis",
+"Bengalis",
+"Arabs",
+"Han Chinese",
+"Koreans",
+"Kurds"
+],
+"n_eligible": 11,
+"sha": "af0a596621cb5a4eb4ebd7b6d501773c714cfc91c9fd1da92d0a8493adfd7355",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0039__L036__p91:asians:jews": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0039__L036__p91:asians:jews",
+"anchor": "Jews",
+"nearest": [
+"Japanese",
+"Yoruba",
+"Punjabis",
+"Bengalis"
+],
+"random": [
+"Han Chinese",
+"Kurds",
+"Mafia",
+"Pashtuns"
+],
+"distractors": [
+"Japanese",
+"Yoruba",
+"Punjabis",
+"Bengalis",
+"Han Chinese",
+"Kurds",
+"Mafia",
+"Pashtuns"
+],
+"n_eligible": 11,
+"sha": "19cab64c996f9174c56f6b89b502b91fea1e8d611282e5a93b0d91199737b92a",
+"generation": 0
+},
+"mlnla-rl600-all11:chat-lmsys-0039__L052__p91:chinese:jews": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0039__L052__p91:chinese:jews",
+"anchor": "Jews",
+"nearest": [
+"Japanese",
+"Yoruba",
+"Punjabis",
+"Bengalis"
+],
+"random": [
+"Arabs",
+"Koreans",
+"Mafia",
+"Pashtuns"
+],
+"distractors": [
+"Japanese",
+"Yoruba",
+"Punjabis",
+"Bengalis",
+"Arabs",
+"Koreans",
+"Mafia",
+"Pashtuns"
+],
+"n_eligible": 10,
+"sha": "07e3e1b91e4704b058314f188d7a79aaa73a481b0b9157d842a9531f65ec8be1",
+"generation": 0
+},
+"s3d-rl600-all11:chat-dailydialog-0009__L036__p157:indigenouspeoples:italianamericanorganizedcrime": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0009__L036__p157:indigenouspeoples:italianamericanorganizedcrime",
+"anchor": "Mafia",
+"nearest": [
+"Kurds",
+"Pashtuns",
+"Asians",
+"Yoruba"
+],
+"random": [
+"Germans",
+"Han Chinese",
+"Japanese",
+"Punjabis"
+],
+"distractors": [
+"Kurds",
+"Pashtuns",
+"Asians",
+"Yoruba",
+"Germans",
+"Han Chinese",
+"Japanese",
+"Punjabis"
+],
+"n_eligible": 14,
+"sha": "de6c37b002db75d6618ec97324860d69a22394f03c5753faabd229dedf82ee5a",
+"generation": 0
+},
+"s3d-rl600-all11:chat-lmsys-0039__L036__p59:chineseperson:jew": {
+"unit": "s3d-rl600-all11:chat-lmsys-0039__L036__p59:chineseperson:jew",
+"anchor": "Jews",
+"nearest": [
+"Japanese",
+"Yoruba",
+"Punjabis",
+"Bengalis"
+],
+"random": [
+"Arabs",
+"Koreans",
+"Mafia",
+"indigenous peoples"
+],
+"distractors": [
+"Japanese",
+"Yoruba",
+"Punjabis",
+"Bengalis",
+"Arabs",
+"Koreans",
+"Mafia",
+"indigenous peoples"
+],
+"n_eligible": 10,
+"sha": "45016cd6cbdf1ecdb625f32b2b7c8f7dc638f018ac6eef8ad93b0ed5e3a58ad9",
+"generation": 0
+}
+}

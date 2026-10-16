@@ -1,0 +1,127 @@
+{
+"mlnla-ck2000-all11:chat-dailydialog-0030__L060__p137:solaris:thehitchhikersguidetothegalaxy": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0030__L060__p137:solaris:thehitchhikersguidetothegalaxy",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"The War of the Worlds",
+"Nineteen Eighty-Four",
+"Neuromancer",
+"Blade Runner"
+],
+"random": [
+"Brave New World",
+"Foundation"
+],
+"distractors": [
+"The War of the Worlds",
+"Nineteen Eighty-Four",
+"Neuromancer",
+"Blade Runner",
+"Brave New World",
+"Foundation"
+],
+"n_eligible": 6,
+"sha": "9d468fd3629e5fb04d7ab609ba21866a4a06dd17b32bfd7d093ad011b964c27d",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0030__L052__p137:2001:thehitchhikersguidetothegalaxy": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0030__L052__p137:2001:thehitchhikersguidetothegalaxy",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"The War of the Worlds",
+"Nineteen Eighty-Four",
+"Neuromancer",
+"Blade Runner"
+],
+"random": [
+"Brave New World",
+"Foundation"
+],
+"distractors": [
+"The War of the Worlds",
+"Nineteen Eighty-Four",
+"Neuromancer",
+"Blade Runner",
+"Brave New World",
+"Foundation"
+],
+"n_eligible": 6,
+"sha": "068f4866a7d65cd6b50958a27dc04a78415121d03cdfdbb254119421607c86f8",
+"generation": 1
+},
+"mlnla-rl600-all11:chat-dailydialog-0030__L056__p137:2001aspaceodyssey:thehitchhikersguidetothegalaxy": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0030__L056__p137:2001aspaceodyssey:thehitchhikersguidetothegalaxy",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"The War of the Worlds",
+"Nineteen Eighty-Four",
+"Neuromancer",
+"Blade Runner"
+],
+"random": [
+"Brave New World",
+"Foundation"
+],
+"distractors": [
+"The War of the Worlds",
+"Nineteen Eighty-Four",
+"Neuromancer",
+"Blade Runner",
+"Brave New World",
+"Foundation"
+],
+"n_eligible": 6,
+"sha": "80fc2d81b7552962bdec7ebff062984e1cf197e57ed76be85e6570db735536e3",
+"generation": 1
+},
+"mlnla-rl600-all11:chat-dailydialog-0030__L060__p137:kubrickalien2001:thehitchhikersguidetothegalaxy": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0030__L060__p137:kubrickalien2001:thehitchhikersguidetothegalaxy",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"The War of the Worlds",
+"Nineteen Eighty-Four",
+"Neuromancer",
+"Blade Runner"
+],
+"random": [
+"Brave New World",
+"Foundation"
+],
+"distractors": [
+"The War of the Worlds",
+"Nineteen Eighty-Four",
+"Neuromancer",
+"Blade Runner",
+"Brave New World",
+"Foundation"
+],
+"n_eligible": 6,
+"sha": "544a0eb2ef4b94a6411277bfcbc8c0aac769a9f1b7fe47c4dc75df8d58a33daf",
+"generation": 1
+},
+"s3d-sft251:chat-dailydialog-0030__L044__p203:2001aspaceodyssey:thehitchhikersguidetothegalaxy": {
+"unit": "s3d-sft251:chat-dailydialog-0030__L044__p203:2001aspaceodyssey:thehitchhikersguidetothegalaxy",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"The War of the Worlds",
+"Nineteen Eighty-Four",
+"Neuromancer",
+"Blade Runner"
+],
+"random": [
+"Brave New World",
+"Foundation"
+],
+"distractors": [
+"The War of the Worlds",
+"Nineteen Eighty-Four",
+"Neuromancer",
+"Blade Runner",
+"Brave New World",
+"Foundation"
+],
+"n_eligible": 6,
+"sha": "802a0d407f26d87b7f011a54b68048ed4634292ac9ab496de78faa5434797d2e",
+"generation": 1
+}
+}
