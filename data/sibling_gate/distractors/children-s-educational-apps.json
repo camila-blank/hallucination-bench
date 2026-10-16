@@ -1,4 +1,323 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0005__L028__p169:abcmouse:starfalllearning": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0005__L028__p169:abcmouse:starfalllearning",
+"anchor": "ABCmouse",
+"nearest": [
+"Homer",
+"Lingokids",
+"Prodigy Math",
+"Epic!"
+],
+"random": [
+"Duolingo ABC",
+"Endless Alphabet",
+"PBS Kids Games",
+"Starfall Learning"
+],
+"distractors": [
+"Homer",
+"Lingokids",
+"Prodigy Math",
+"Epic!",
+"Duolingo ABC",
+"Endless Alphabet",
+"PBS Kids Games",
+"Starfall Learning"
+],
+"n_eligible": 10,
+"sha": "403066ce4906f864a592966deefffe82d20c6eb6b9fe7f297db954b84ad924af",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0005__L028__p169:abcya:starfalllearning": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0005__L028__p169:abcya:starfalllearning",
+"anchor": "Starfall",
+"nearest": [
+"Duolingo ABC",
+"Homer",
+"Endless Alphabet",
+"Epic!"
+],
+"random": [
+"Lingokids",
+"PBS Kids Games",
+"Prodigy Math",
+"Toontastic 3D"
+],
+"distractors": [
+"Duolingo ABC",
+"Homer",
+"Endless Alphabet",
+"Epic!",
+"Lingokids",
+"PBS Kids Games",
+"Prodigy Math",
+"Toontastic 3D"
+],
+"n_eligible": 8,
+"sha": "8b4a4d5efdcf634ba7364b02a469006d7fa85439a3e711d603f0afd3d3d6cd1f",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0005__L036__p169:abcmouse:starfalllearning": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0005__L036__p169:abcmouse:starfalllearning",
+"anchor": "ABCmouse",
+"nearest": [
+"Homer",
+"Lingokids",
+"Prodigy Math",
+"Epic!"
+],
+"random": [
+"PBS Kids Games",
+"Starfall",
+"Starfall Learning",
+"Toontastic 3D"
+],
+"distractors": [
+"Homer",
+"Lingokids",
+"Prodigy Math",
+"Epic!",
+"PBS Kids Games",
+"Starfall",
+"Starfall Learning",
+"Toontastic 3D"
+],
+"n_eligible": 10,
+"sha": "e23b265109d503fc4a95d3381d1ed895a5c4d5feb4372e73bd4d508ff4d0afac",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0005__L040__p169:abcmouse:starfalllearning": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0005__L040__p169:abcmouse:starfalllearning",
+"anchor": "ABCmouse",
+"nearest": [
+"Homer",
+"Lingokids",
+"Prodigy Math",
+"Epic!"
+],
+"random": [
+"Duolingo ABC",
+"Endless Alphabet",
+"Starfall",
+"Starfall Learning"
+],
+"distractors": [
+"Homer",
+"Lingokids",
+"Prodigy Math",
+"Epic!",
+"Duolingo ABC",
+"Endless Alphabet",
+"Starfall",
+"Starfall Learning"
+],
+"n_eligible": 10,
+"sha": "f58122600a6a1654674cd0fe96e2315a2f0cc44a46e69f344c7c54d1adb5e4e5",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0005__L048__p169:abcmouse:starfalllearning": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0005__L048__p169:abcmouse:starfalllearning",
+"anchor": "ABCmouse",
+"nearest": [
+"Homer",
+"Lingokids",
+"Prodigy Math",
+"Epic!"
+],
+"random": [
+"Duolingo ABC",
+"Endless Alphabet",
+"Starfall Learning",
+"Toontastic 3D"
+],
+"distractors": [
+"Homer",
+"Lingokids",
+"Prodigy Math",
+"Epic!",
+"Duolingo ABC",
+"Endless Alphabet",
+"Starfall Learning",
+"Toontastic 3D"
+],
+"n_eligible": 10,
+"sha": "769a2f865cec4ce4903e76db677e1965d5369f5b87e85a0d62f27f45ba72d3ed",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0005__L048__p169:khanacademyabcmouse:swindlethegameroboblitz20": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0005__L048__p169:khanacademyabcmouse:swindlethegameroboblitz20",
+"anchor": "Khan Academy",
+"nearest": [
+"Epic!",
+"PBS Kids Games",
+"Starfall",
+"Duolingo ABC"
+],
+"random": [
+"Endless Alphabet",
+"Prodigy Math",
+"Starfall Learning",
+"Toontastic 3D"
+],
+"distractors": [
+"Epic!",
+"PBS Kids Games",
+"Starfall",
+"Duolingo ABC",
+"Endless Alphabet",
+"Prodigy Math",
+"Starfall Learning",
+"Toontastic 3D"
+],
+"n_eligible": 10,
+"sha": "d24c48281dc47d71433d89db0e5455a363376225bf4c199042fa30ec5c4cbf67",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0005__L056__p169:abcmouse:starfalllearning": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0005__L056__p169:abcmouse:starfalllearning",
+"anchor": "ABCmouse",
+"nearest": [
+"Homer",
+"Lingokids",
+"Prodigy Math",
+"Epic!"
+],
+"random": [
+"PBS Kids Games",
+"Starfall",
+"Starfall Learning",
+"Toontastic 3D"
+],
+"distractors": [
+"Homer",
+"Lingokids",
+"Prodigy Math",
+"Epic!",
+"PBS Kids Games",
+"Starfall",
+"Starfall Learning",
+"Toontastic 3D"
+],
+"n_eligible": 10,
+"sha": "7cc86e7de4a7c1fa71316d57d910761822719f1c6fcd5fce11017097fdc18eb9",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0005__L056__p169:abcya:starfalllearning": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0005__L056__p169:abcya:starfalllearning",
+"anchor": "Starfall",
+"nearest": [
+"Duolingo ABC",
+"Homer",
+"Endless Alphabet",
+"Epic!"
+],
+"random": [
+"Lingokids",
+"PBS Kids Games",
+"Prodigy Math",
+"Toontastic 3D"
+],
+"distractors": [
+"Duolingo ABC",
+"Homer",
+"Endless Alphabet",
+"Epic!",
+"Lingokids",
+"PBS Kids Games",
+"Prodigy Math",
+"Toontastic 3D"
+],
+"n_eligible": 8,
+"sha": "01ad7244293097d98e600e2a1a93abf36af6e81da32b8e7fe0e131ca73eea667",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0005__L060__p169:abcmouse:starfalllearning": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0005__L060__p169:abcmouse:starfalllearning",
+"anchor": "ABCmouse",
+"nearest": [
+"Homer",
+"Lingokids",
+"Prodigy Math",
+"Epic!"
+],
+"random": [
+"Duolingo ABC",
+"Endless Alphabet",
+"PBS Kids Games",
+"Starfall"
+],
+"distractors": [
+"Homer",
+"Lingokids",
+"Prodigy Math",
+"Epic!",
+"Duolingo ABC",
+"Endless Alphabet",
+"PBS Kids Games",
+"Starfall"
+],
+"n_eligible": 10,
+"sha": "0aa6a074e712c7964e27a7a359da88b13e64d5b8b54ebe61954e2ea5856b39a4",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0005__L060__p430:alphabetgarden:toontastic3d": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0005__L060__p430:alphabetgarden:toontastic3d",
+"anchor": "Toontastic 3D",
+"nearest": [
+"Prodigy Math",
+"Epic!",
+"Starfall",
+"PBS Kids Games"
+],
+"random": [
+"Duolingo ABC",
+"Homer",
+"Lingokids",
+"Starfall Learning"
+],
+"distractors": [
+"Prodigy Math",
+"Epic!",
+"Starfall",
+"PBS Kids Games",
+"Duolingo ABC",
+"Homer",
+"Lingokids",
+"Starfall Learning"
+],
+"n_eligible": 8,
+"sha": "17cbe27df45990ec31386564274454dec09bc9ee9ab2745e2c1a0b95761608f4",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0005__L060__p430:googlealphabetgarden:toontastic3d": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0005__L060__p430:googlealphabetgarden:toontastic3d",
+"anchor": "Toontastic 3D",
+"nearest": [
+"Prodigy Math",
+"Epic!",
+"Starfall",
+"PBS Kids Games"
+],
+"random": [
+"Duolingo ABC",
+"Homer",
+"Lingokids",
+"Starfall Learning"
+],
+"distractors": [
+"Prodigy Math",
+"Epic!",
+"Starfall",
+"PBS Kids Games",
+"Duolingo ABC",
+"Homer",
+"Lingokids",
+"Starfall Learning"
+],
+"n_eligible": 8,
+"sha": "0ea7778a0bf3df90b7f5d1c27f1d545df7f37c7b537d4f1d5bd3780b63544502",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0005__L028__p169:abcmouse:starfalllearning": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0005__L028__p169:abcmouse:starfalllearning",
 "anchor": "ABCmouse",

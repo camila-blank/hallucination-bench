@@ -1,4 +1,31 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0051__L048__p35:cannabiscbd:psychedelics": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0051__L048__p35:cannabiscbd:psychedelics",
+"anchor": "psilocybin",
+"nearest": [
+"amphetamine",
+"heroin",
+"morphine",
+"cocaine"
+],
+"random": [
+"alcohol",
+"caffeine",
+"nicotine"
+],
+"distractors": [
+"amphetamine",
+"heroin",
+"morphine",
+"cocaine",
+"alcohol",
+"caffeine",
+"nicotine"
+],
+"n_eligible": 7,
+"sha": "da5b33b1668fd8b3ee920f083941660b235208c75c4c0c2c7f41d60e1ff5919e",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0051__L040__p424:thc:classicpsychedelics": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0051__L040__p424:thc:classicpsychedelics",
 "anchor": "psilocybin",

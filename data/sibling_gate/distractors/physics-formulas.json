@@ -1,4 +1,252 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0033__L020__p77:area=length×breadth:power=v×i": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0033__L020__p77:area=length×breadth:power=v×i",
+"anchor": "P = V × I",
+"nearest": [
+"Power formula",
+"Resistance formula",
+"Ohm's law resistance formula"
+],
+"random": [],
+"distractors": [
+"Power formula",
+"Resistance formula",
+"Ohm's law resistance formula"
+],
+"n_eligible": 3,
+"sha": "36d6e18c7983de2f97f65c78ba8a43ede28b91f38ea9694c0c7aeafc713d965f",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0033__L020__p77:area=length×breadth:powerp=voltagev×currenti": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0033__L020__p77:area=length×breadth:powerp=voltagev×currenti",
+"anchor": "P = V × I",
+"nearest": [
+"Power formula",
+"Resistance formula",
+"Ohm's law resistance formula"
+],
+"random": [],
+"distractors": [
+"Power formula",
+"Resistance formula",
+"Ohm's law resistance formula"
+],
+"n_eligible": 3,
+"sha": "479f4f14cab4f55e3933972ee0188a948c4426e8525791974fb984402f8bd197",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0033__L020__p77:perimeterformula:resistanceformula": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0033__L020__p77:perimeterformula:resistanceformula",
+"anchor": "Ohm's law (R = V / I)",
+"nearest": [
+"Power = Voltage × Current"
+],
+"random": [],
+"distractors": [
+"Power = Voltage × Current"
+],
+"n_eligible": 1,
+"sha": "ed0bf66b23e71f01fe57fa9c5d68b6cde1aaf6b84da4dfbd546f0fbafcad4fcb",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0033__L024__p128:f=ma:p=vi": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0033__L024__p128:f=ma:p=vi",
+"anchor": "Ohm's law (R=V/I)",
+"nearest": [
+"Power = Voltage × Current",
+"Power formula"
+],
+"random": [],
+"distractors": [
+"Power = Voltage × Current",
+"Power formula"
+],
+"n_eligible": 2,
+"sha": "12ec506a130970edd251deb243d4100f3fbaa73af77fbf0aa378194a5a727f5f",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0033__L024__p128:work=force×distance:power=voltage×current": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0033__L024__p128:work=force×distance:power=voltage×current",
+"anchor": "Power = Voltage × Current",
+"nearest": [
+"Ohm's law resistance formula",
+"Resistance formula"
+],
+"random": [],
+"distractors": [
+"Ohm's law resistance formula",
+"Resistance formula"
+],
+"n_eligible": 2,
+"sha": "f82bf34d35fa74c5284b7c6e0177743c6eebcce8156b1e58b0767eb45025833c",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0033__L024__p77:area=length×width:power=voltage×current": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0033__L024__p77:area=length×width:power=voltage×current",
+"anchor": "Resistance = Voltage / Current",
+"nearest": [
+"Power formula",
+"P = V × I"
+],
+"random": [],
+"distractors": [
+"Power formula",
+"P = V × I"
+],
+"n_eligible": 2,
+"sha": "11abb8684d25db32d994870c05bfa81c28764422ec11c076a2a6caa82fdaef57",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0033__L024__p77:areaperimeter:powerandresistance": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0033__L024__p77:areaperimeter:powerandresistance",
+"anchor": "Power and Resistance (P = V × I, R = V / I)",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "64169b2e125920d391776648b7a5c8384582e5c41ef207110ee077c527877a2b",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0033__L024__p77:perimeter=2×length+width:resistance=voltagecurrent": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0033__L024__p77:perimeter=2×length+width:resistance=voltagecurrent",
+"anchor": "Resistance = Voltage / Current",
+"nearest": [
+"Power formula",
+"P = V × I"
+],
+"random": [],
+"distractors": [
+"Power formula",
+"P = V × I"
+],
+"n_eligible": 2,
+"sha": "39397226accdc67c8accb0ffba1869075f0bd78b9b834427470e340f0ab02d37",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0033__L028__p77:a=base×height:powerp=voltagev×currenti": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0033__L028__p77:a=base×height:powerp=voltagev×currenti",
+"anchor": "P = V × I",
+"nearest": [
+"Power formula",
+"Resistance formula",
+"Ohm's law resistance formula"
+],
+"random": [],
+"distractors": [
+"Power formula",
+"Resistance formula",
+"Ohm's law resistance formula"
+],
+"n_eligible": 3,
+"sha": "b8180db88ac1f0f2ef1b9abdfdb87bff9ef4acaffc6760155db55dadd99a650e",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0033__L028__p77:volume=areaxh:resistancer=voltagevcurrenti": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0033__L028__p77:volume=areaxh:resistancer=voltagevcurrenti",
+"anchor": "Resistance = Voltage / Current",
+"nearest": [
+"Power formula",
+"P = V × I"
+],
+"random": [],
+"distractors": [
+"Power formula",
+"P = V × I"
+],
+"n_eligible": 2,
+"sha": "fc9f9e7e4925e4c3c3ced7f28ec81fbd2c096492689d30833a4f475bd7bf9a30",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0033__L028__p77:volume=areaxheight:resistancer=voltagevcurrenti": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0033__L028__p77:volume=areaxheight:resistancer=voltagevcurrenti",
+"anchor": "Resistance = Voltage / Current",
+"nearest": [
+"Power formula",
+"P = V × I"
+],
+"random": [],
+"distractors": [
+"Power formula",
+"P = V × I"
+],
+"n_eligible": 2,
+"sha": "02d2ddc35ca526ed74a8b3f55f1a42aef1133d1fd262b4b88416e6ba4f452fcf",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0033__L032__p77:area=base×height:power=voltage×current": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0033__L032__p77:area=base×height:power=voltage×current",
+"anchor": "Power = Voltage × Current",
+"nearest": [
+"Ohm's law resistance formula",
+"Resistance formula"
+],
+"random": [],
+"distractors": [
+"Ohm's law resistance formula",
+"Resistance formula"
+],
+"n_eligible": 2,
+"sha": "9de7e3a05106f3bd79b9b94d5f0e23ff3dee9f72071f4d44f77da042588b0251",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0033__L032__p77:area=length×breadth:power=voltage×current": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0033__L032__p77:area=length×breadth:power=voltage×current",
+"anchor": "P = V × I",
+"nearest": [
+"Power formula",
+"Resistance formula",
+"Ohm's law resistance formula"
+],
+"random": [],
+"distractors": [
+"Power formula",
+"Resistance formula",
+"Ohm's law resistance formula"
+],
+"n_eligible": 3,
+"sha": "c93cfd76b6177d4e24af344e9acc240d961cadbd93c85f81158afcfdb55ac40c",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0033__L032__p77:areaformula:powerformula": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0033__L032__p77:areaformula:powerformula",
+"anchor": "Power formula",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "4da9053b21dbced4f41dda9ce84aef971745beccc57a4cb4e044c853ed07d6f3",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0033__L032__p77:perimeterformula:resistanceformula": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0033__L032__p77:perimeterformula:resistanceformula",
+"anchor": "Ohm's law (R = V / I)",
+"nearest": [
+"Power = Voltage × Current"
+],
+"random": [],
+"distractors": [
+"Power = Voltage × Current"
+],
+"n_eligible": 1,
+"sha": "36397bad06aa5f6249d5276cc468a5c44b9aa7cb91808f18224ade8fbb34c52e",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0033__L036__p239:area=05baseheight:power=voltagecurrent": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0033__L036__p239:area=05baseheight:power=voltagecurrent",
+"anchor": "Ohm's law resistance formula",
+"nearest": [
+"Power = Voltage × Current",
+"P = V × I"
+],
+"random": [],
+"distractors": [
+"Power = Voltage × Current",
+"P = V × I"
+],
+"n_eligible": 2,
+"sha": "148890f37f7819d60a93de4aceb5ea97e01888ffef7a0f4a53ee6f067cfcef25",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0033__L020__p77:area=length×breadth:powerp=voltagev×currenti": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0033__L020__p77:area=length×breadth:powerp=voltagev×currenti",
 "anchor": "P = V × I",

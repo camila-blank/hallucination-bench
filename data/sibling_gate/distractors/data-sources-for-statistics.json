@@ -1,0 +1,394 @@
+{
+"logit:chat-dailydialog-0019__L060__p134:worldhealthorganization:worldbank": {
+"unit": "logit:chat-dailydialog-0019__L060__p134:worldhealthorganization:worldbank",
+"anchor": "World Bank",
+"nearest": [
+"International Monetary Fund",
+"Our World in Data",
+"Eurostat",
+"OECD"
+],
+"random": [
+"Bureau of Labor Statistics",
+"Gallup",
+"Pew Research Center",
+"Statista"
+],
+"distractors": [
+"International Monetary Fund",
+"Our World in Data",
+"Eurostat",
+"OECD",
+"Bureau of Labor Statistics",
+"Gallup",
+"Pew Research Center",
+"Statista"
+],
+"n_eligible": 9,
+"sha": "8811dd92f8565bad96557cafb2ba7834c179b795c0de461c85db428ad8c35b41",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0019__L024__p188:unworldometercia:worldbanknationalbureauofstatisticsofchina": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0019__L024__p188:unworldometercia:worldbanknationalbureauofstatisticsofchina",
+"anchor": "World Bank",
+"nearest": [
+"International Monetary Fund",
+"Our World in Data",
+"Eurostat",
+"OECD"
+],
+"random": [
+"Gallup",
+"Office for National Statistics",
+"Pew Research Center",
+"Statista"
+],
+"distractors": [
+"International Monetary Fund",
+"Our World in Data",
+"Eurostat",
+"OECD",
+"Gallup",
+"Office for National Statistics",
+"Pew Research Center",
+"Statista"
+],
+"n_eligible": 9,
+"sha": "878b6dd132b2f3eb2aa3ca0ae8386b4557bd17221137fece6c3e948088f1f175",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0019__L040__p161:worldhealthorganization:worldbank": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0019__L040__p161:worldhealthorganization:worldbank",
+"anchor": "World Bank",
+"nearest": [
+"International Monetary Fund",
+"Our World in Data",
+"Eurostat",
+"OECD"
+],
+"random": [
+"Bureau of Labor Statistics",
+"Gallup",
+"Office for National Statistics",
+"Pew Research Center"
+],
+"distractors": [
+"International Monetary Fund",
+"Our World in Data",
+"Eurostat",
+"OECD",
+"Bureau of Labor Statistics",
+"Gallup",
+"Office for National Statistics",
+"Pew Research Center"
+],
+"n_eligible": 9,
+"sha": "3b441bbbe0e39f6652d5b1e4939a4f90977a3b0cac19e0fdf49b8e031885a5a6",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0019__L044__p161:nationalhealthstatisticsyearbook:nationalbureauofstatisticsofchina": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0019__L044__p161:nationalhealthstatisticsyearbook:nationalbureauofstatisticsofchina",
+"anchor": "National Bureau of Statistics of China",
+"nearest": [
+"OECD",
+"Eurostat",
+"Statista",
+"Gallup"
+],
+"random": [
+"International Monetary Fund",
+"Our World in Data",
+"Pew Research Center"
+],
+"distractors": [
+"OECD",
+"Eurostat",
+"Statista",
+"Gallup",
+"International Monetary Fund",
+"Our World in Data",
+"Pew Research Center"
+],
+"n_eligible": 7,
+"sha": "71b1790c7ba7fed00439d2cbaec3e3a322ffdb13ad0845dc7a0ead5bcb41026a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0019__L044__p161:who:worldbank": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0019__L044__p161:who:worldbank",
+"anchor": "National Bureau of Statistics of China",
+"nearest": [
+"OECD",
+"Eurostat",
+"Statista",
+"Gallup"
+],
+"random": [
+"International Monetary Fund",
+"Our World in Data",
+"Pew Research Center"
+],
+"distractors": [
+"OECD",
+"Eurostat",
+"Statista",
+"Gallup",
+"International Monetary Fund",
+"Our World in Data",
+"Pew Research Center"
+],
+"n_eligible": 7,
+"sha": "63acac693c620dd41ea3c3997bd681e0f9c805cd185c7a474ce24c571a0623d9",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0019__L052__p145:who:worldbank": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0019__L052__p145:who:worldbank",
+"anchor": "National Bureau of Statistics of China",
+"nearest": [
+"OECD",
+"Eurostat",
+"Statista",
+"Gallup"
+],
+"random": [
+"International Monetary Fund",
+"Our World in Data",
+"Pew Research Center"
+],
+"distractors": [
+"OECD",
+"Eurostat",
+"Statista",
+"Gallup",
+"International Monetary Fund",
+"Our World in Data",
+"Pew Research Center"
+],
+"n_eligible": 7,
+"sha": "339e5ff8631ce4194ce45bb2d6eb50a33b276b32478efc89391ed30f9e572f5f",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0019__L052__p145:worldhealthorganization:worldbank": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0019__L052__p145:worldhealthorganization:worldbank",
+"anchor": "World Bank",
+"nearest": [
+"International Monetary Fund",
+"Our World in Data",
+"Eurostat",
+"OECD"
+],
+"random": [
+"Gallup",
+"Office for National Statistics",
+"Pew Research Center",
+"Statista"
+],
+"distractors": [
+"International Monetary Fund",
+"Our World in Data",
+"Eurostat",
+"OECD",
+"Gallup",
+"Office for National Statistics",
+"Pew Research Center",
+"Statista"
+],
+"n_eligible": 9,
+"sha": "e1d260bad489fc03cf0a15c46a7ef2d69e66ed3e08a4e0ec3e77bd66028d3eb2",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0019__L060__p188:who:worldbank": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0019__L060__p188:who:worldbank",
+"anchor": "National Bureau of Statistics of China",
+"nearest": [
+"OECD",
+"Eurostat",
+"Statista",
+"Gallup"
+],
+"random": [
+"International Monetary Fund",
+"Our World in Data",
+"Pew Research Center"
+],
+"distractors": [
+"OECD",
+"Eurostat",
+"Statista",
+"Gallup",
+"International Monetary Fund",
+"Our World in Data",
+"Pew Research Center"
+],
+"n_eligible": 7,
+"sha": "fc3651405e85e174258e865504f4c1a204b1f38131cec111b84cd137966c3a63",
+"generation": 1
+},
+"mlnla-rl600-all11:chat-dailydialog-0019__L020__p145:unworldpopulationprospects:worldbank": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0019__L020__p145:unworldpopulationprospects:worldbank",
+"anchor": "World Bank",
+"nearest": [
+"International Monetary Fund",
+"Our World in Data",
+"Eurostat",
+"OECD"
+],
+"random": [
+"Bureau of Labor Statistics",
+"Office for National Statistics",
+"Pew Research Center",
+"Statista"
+],
+"distractors": [
+"International Monetary Fund",
+"Our World in Data",
+"Eurostat",
+"OECD",
+"Bureau of Labor Statistics",
+"Office for National Statistics",
+"Pew Research Center",
+"Statista"
+],
+"n_eligible": 9,
+"sha": "6f259f020831be751b7677a8720d849b51a25041ff381009229a9c0eed7c7be6",
+"generation": 1
+},
+"mlnla-rl600-all11:chat-dailydialog-0019__L040__p161:who:worldbank": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0019__L040__p161:who:worldbank",
+"anchor": "National Bureau of Statistics of China",
+"nearest": [
+"OECD",
+"Eurostat",
+"Statista",
+"Gallup"
+],
+"random": [
+"International Monetary Fund",
+"Our World in Data",
+"Pew Research Center"
+],
+"distractors": [
+"OECD",
+"Eurostat",
+"Statista",
+"Gallup",
+"International Monetary Fund",
+"Our World in Data",
+"Pew Research Center"
+],
+"n_eligible": 7,
+"sha": "a2c62d18c0338d09c177a7ed1dde5b6abb0b78f50b09144085a77f193c45852a",
+"generation": 1
+},
+"mlnla-rl600-all11:chat-dailydialog-0019__L060__p161:who:worldbank": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0019__L060__p161:who:worldbank",
+"anchor": "National Bureau of Statistics of China",
+"nearest": [
+"OECD",
+"Eurostat",
+"Statista",
+"Gallup"
+],
+"random": [
+"International Monetary Fund",
+"Our World in Data",
+"Pew Research Center"
+],
+"distractors": [
+"OECD",
+"Eurostat",
+"Statista",
+"Gallup",
+"International Monetary Fund",
+"Our World in Data",
+"Pew Research Center"
+],
+"n_eligible": 7,
+"sha": "7d1778fe0bc4841e876c752bd5432f58c7600fea452eef7137a88db3b6f06619",
+"generation": 1
+},
+"nla-rl-L42:chat-dailydialog-0019__L042__p161:who:worldbank": {
+"unit": "nla-rl-L42:chat-dailydialog-0019__L042__p161:who:worldbank",
+"anchor": "National Bureau of Statistics of China",
+"nearest": [
+"OECD",
+"Eurostat",
+"Statista",
+"Gallup"
+],
+"random": [
+"International Monetary Fund",
+"Our World in Data",
+"Pew Research Center"
+],
+"distractors": [
+"OECD",
+"Eurostat",
+"Statista",
+"Gallup",
+"International Monetary Fund",
+"Our World in Data",
+"Pew Research Center"
+],
+"n_eligible": 7,
+"sha": "45791659e999d8c573272f1fbf1529ebf6331fb71ee9f7746231f60993611e64",
+"generation": 1
+},
+"s3d-rl600:chat-dailydialog-0019__L044__p145:worldhealthorganization:worldbank": {
+"unit": "s3d-rl600:chat-dailydialog-0019__L044__p145:worldhealthorganization:worldbank",
+"anchor": "World Bank",
+"nearest": [
+"International Monetary Fund",
+"Our World in Data",
+"Eurostat",
+"OECD"
+],
+"random": [
+"Bureau of Labor Statistics",
+"Gallup",
+"Office for National Statistics",
+"Pew Research Center"
+],
+"distractors": [
+"International Monetary Fund",
+"Our World in Data",
+"Eurostat",
+"OECD",
+"Bureau of Labor Statistics",
+"Gallup",
+"Office for National Statistics",
+"Pew Research Center"
+],
+"n_eligible": 9,
+"sha": "9df9c162d5f825b8f38adb49292f028e7633f37f024a064a49fdf8f4744101a2",
+"generation": 1
+},
+"s3d-sft251:chat-dailydialog-0019__L060__p145:worldhealthorganization:nationalbureauofstatisticsofchina": {
+"unit": "s3d-sft251:chat-dailydialog-0019__L060__p145:worldhealthorganization:nationalbureauofstatisticsofchina",
+"anchor": "World Bank",
+"nearest": [
+"International Monetary Fund",
+"Our World in Data",
+"Eurostat",
+"OECD"
+],
+"random": [
+"Bureau of Labor Statistics",
+"Office for National Statistics",
+"Pew Research Center",
+"Statista"
+],
+"distractors": [
+"International Monetary Fund",
+"Our World in Data",
+"Eurostat",
+"OECD",
+"Bureau of Labor Statistics",
+"Office for National Statistics",
+"Pew Research Center",
+"Statista"
+],
+"n_eligible": 9,
+"sha": "1c90584cb170857023cf9081684217be975e7480f612c2f7eecd33e194097298",
+"generation": 1
+}
+}

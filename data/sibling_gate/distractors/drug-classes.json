@@ -1,4 +1,33 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0051__L048__p424:opioids:psychedelics": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0051__L048__p424:opioids:psychedelics",
+"anchor": "psychedelics",
+"nearest": [
+"amphetamines",
+"stimulants",
+"benzodiazepines",
+"antidepressant"
+],
+"random": [
+"NSAIDs",
+"antibiotic",
+"antipsychotics",
+"beta blockers"
+],
+"distractors": [
+"amphetamines",
+"stimulants",
+"benzodiazepines",
+"antidepressant",
+"NSAIDs",
+"antibiotic",
+"antipsychotics",
+"beta blockers"
+],
+"n_eligible": 10,
+"sha": "b410622853ba3472f4468bd380698ece71097936753c032853ea08e3114cdbcc",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0051__L044__p424:cannabisdrugs:psychedelics": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0051__L044__p424:cannabisdrugs:psychedelics",
 "anchor": "Psychedelics",

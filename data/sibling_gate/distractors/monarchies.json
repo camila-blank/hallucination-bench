@@ -1,4 +1,68 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0031__L032__p57:britishmonarch:swedishmonarch": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0031__L032__p57:britishmonarch:swedishmonarch",
+"anchor": "Swedish Monarch",
+"nearest": [
+"Belgian monarchy",
+"Japanese monarchy"
+],
+"random": [],
+"distractors": [
+"Belgian monarchy",
+"Japanese monarchy"
+],
+"n_eligible": 2,
+"sha": "68d80cd050b6cbf2bd87fb57e5700cff85c6f9ca6273223c618a7ae4954ca84b",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0031__L032__p57:britishmonarchy:swedishmonarch": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0031__L032__p57:britishmonarchy:swedishmonarch",
+"anchor": "Swedish monarchy",
+"nearest": [
+"Belgian monarchy",
+"Japanese monarchy"
+],
+"random": [],
+"distractors": [
+"Belgian monarchy",
+"Japanese monarchy"
+],
+"n_eligible": 2,
+"sha": "107e3b601b08dbad1daffcd853a244513bfbccde8dcdb02725d15c5abdddeab1",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0031__L048__p81:monarchyintheuk:swedishmonarch": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0031__L048__p81:monarchyintheuk:swedishmonarch",
+"anchor": "Swedish monarchy",
+"nearest": [
+"Belgian monarchy",
+"Japanese monarchy"
+],
+"random": [],
+"distractors": [
+"Belgian monarchy",
+"Japanese monarchy"
+],
+"n_eligible": 2,
+"sha": "559755b54d88b088da6ef55204f4bc642712d2becfbd01ecb80b4d4bdd40924a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0031__L048__p81:ukmonarchy:swedishmonarchy": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0031__L048__p81:ukmonarchy:swedishmonarchy",
+"anchor": "Swedish monarchy",
+"nearest": [
+"Belgian monarchy",
+"Japanese monarchy"
+],
+"random": [],
+"distractors": [
+"Belgian monarchy",
+"Japanese monarchy"
+],
+"n_eligible": 2,
+"sha": "224541861116636d335332cce90de4a04cc8c39c220f3fde477fe0c21611d080",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0031__L028__p57:britishmonarch:swedishmonarch": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0031__L028__p57:britishmonarch:swedishmonarch",
 "anchor": "Swedish Monarch",

@@ -1,4 +1,62 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0033__L020__p77:cprogramforareaandperimeterofarectangle:c++programforpowerandresistance": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0033__L020__p77:cprogramforareaandperimeterofarectangle:c++programforpowerandresistance",
+"anchor": "C++ program for power and resistance from voltage and current",
+"nearest": [
+"sum of two numbers",
+"Hello World",
+"Laravel query filtering",
+"factorial calculation"
+],
+"random": [
+"array iteration",
+"binary search",
+"bubble sort",
+"first 10 Fibonacci numbers"
+],
+"distractors": [
+"sum of two numbers",
+"Hello World",
+"Laravel query filtering",
+"factorial calculation",
+"array iteration",
+"binary search",
+"bubble sort",
+"first 10 Fibonacci numbers"
+],
+"n_eligible": 15,
+"sha": "f1fb4d5241bc81e95986875a44c6f11d0c8c1c9396862eb1f7fb1a8f855f643b",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0042__L040__p27:arrayloopiteration:laravelfilter": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0042__L040__p27:arrayloopiteration:laravelfilter",
+"anchor": "Laravel query filtering",
+"nearest": [
+"sum of two numbers",
+"FizzBuzz",
+"string reversal",
+"sum of 1 to 100"
+],
+"random": [
+"Fibonacci sequence",
+"Fibonacci sequence in C#",
+"first 10 Fibonacci numbers",
+"printing Fibonacci numbers in C#"
+],
+"distractors": [
+"sum of two numbers",
+"FizzBuzz",
+"string reversal",
+"sum of 1 to 100",
+"Fibonacci sequence",
+"Fibonacci sequence in C#",
+"first 10 Fibonacci numbers",
+"printing Fibonacci numbers in C#"
+],
+"n_eligible": 16,
+"sha": "432118bbea1fb4d49f41a4db1d0b9d968aa9e1f7075bea909dfc933a5d106b9c",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0056__L048__p28:sumof1to100:first10fibonaccinumbers": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0056__L048__p28:sumof1to100:first10fibonaccinumbers",
 "anchor": "first 10 Fibonacci numbers",

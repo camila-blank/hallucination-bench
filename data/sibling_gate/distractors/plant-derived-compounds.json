@@ -1,4 +1,36 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0069__L040__p384:quercetin:gastrodin": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0069__L040__p384:quercetin:gastrodin",
+"anchor": "gastrodin",
+"nearest": [
+"nicotine",
+"capsaicin"
+],
+"random": [],
+"distractors": [
+"nicotine",
+"capsaicin"
+],
+"n_eligible": 2,
+"sha": "b8730e78893e0bed79d474bcabad9f54c3056a093b6fca9bf837349c922a8419",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0069__L048__p384:swertiamarin:gastrodin": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0069__L048__p384:swertiamarin:gastrodin",
+"anchor": "gastrodin",
+"nearest": [
+"nicotine",
+"capsaicin"
+],
+"random": [],
+"distractors": [
+"nicotine",
+"capsaicin"
+],
+"n_eligible": 2,
+"sha": "f8f5b2731710a7fd447afa05160f0514d1103a67596af808aa8e9af0b76d0082",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0069__L028__p94:paeoniflorinpaeonialactiflora:gastrodingastrodiaelata": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0069__L028__p94:paeoniflorinpaeonialactiflora:gastrodingastrodiaelata",
 "anchor": "gastrodin",

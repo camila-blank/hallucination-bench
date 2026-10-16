@@ -1,0 +1,176 @@
+{
+"mlnla-ck2000-all11:chat-dailydialog-0009__L024__p127:gameofthrones:boardwalkempire": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0009__L024__p127:gameofthrones:boardwalkempire",
+"anchor": "Boardwalk Empire",
+"nearest": [
+"Grey's Anatomy",
+"The Wire",
+"Twin Peaks",
+"Breaking Bad"
+],
+"random": [
+"Friends",
+"Mad Men",
+"Stranger Things",
+"The Simpsons"
+],
+"distractors": [
+"Grey's Anatomy",
+"The Wire",
+"Twin Peaks",
+"Breaking Bad",
+"Friends",
+"Mad Men",
+"Stranger Things",
+"The Simpsons"
+],
+"n_eligible": 13,
+"sha": "a55d5455c6b9d8305b61b9e711575f3522e2ec5f8d4fcff1c3cc1331d3e0cd48",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0030__L032__p110:thesimpsons:thehitchhikersguidetothegalaxy": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0030__L032__p110:thesimpsons:thehitchhikersguidetothegalaxy",
+"anchor": "The Simpsons",
+"nearest": [
+"Grey's Anatomy",
+"Game of Thrones",
+"Boardwalk Empire",
+"Breaking Bad"
+],
+"random": [
+"Lost",
+"Mad Men",
+"The Sopranos",
+"The Walking Dead"
+],
+"distractors": [
+"Grey's Anatomy",
+"Game of Thrones",
+"Boardwalk Empire",
+"Breaking Bad",
+"Lost",
+"Mad Men",
+"The Sopranos",
+"The Walking Dead"
+],
+"n_eligible": 9,
+"sha": "9eb1f0655607fde64900f083107a27a7426265a7a1f9624121fb9596f450d170",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0009__L024__p127:gameofthrones:thegodfather": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0009__L024__p127:gameofthrones:thegodfather",
+"anchor": "Boardwalk Empire",
+"nearest": [
+"Grey's Anatomy",
+"The Wire",
+"Twin Peaks",
+"Breaking Bad"
+],
+"random": [
+"Friends",
+"Mad Men",
+"Seinfeld",
+"The Office"
+],
+"distractors": [
+"Grey's Anatomy",
+"The Wire",
+"Twin Peaks",
+"Breaking Bad",
+"Friends",
+"Mad Men",
+"Seinfeld",
+"The Office"
+],
+"n_eligible": 13,
+"sha": "6aa0da38b113cc2d8e71e53dc0965e9c35fe8b0e018666269a15201d8e9cd102",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0009__L036__p127:gameofthrones:mafiathevideogameboardwalkempire": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0009__L036__p127:gameofthrones:mafiathevideogameboardwalkempire",
+"anchor": "Boardwalk Empire",
+"nearest": [
+"Grey's Anatomy",
+"The Wire",
+"Twin Peaks",
+"Breaking Bad"
+],
+"random": [
+"Friends",
+"Mad Men",
+"Seinfeld",
+"Stranger Things"
+],
+"distractors": [
+"Grey's Anatomy",
+"The Wire",
+"Twin Peaks",
+"Breaking Bad",
+"Friends",
+"Mad Men",
+"Seinfeld",
+"Stranger Things"
+],
+"n_eligible": 13,
+"sha": "10a29a20834e361f81b6c5a1f3018dec2b06754daaceabccf5a7898b8b025430",
+"generation": 1
+},
+"mlnla-rl600-all11:chat-dailydialog-0030__L028__p173:twinpeaks:thehitchhikersguidetothegalaxy": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0030__L028__p173:twinpeaks:thehitchhikersguidetothegalaxy",
+"anchor": "Twin Peaks",
+"nearest": [
+"Boardwalk Empire",
+"Breaking Bad",
+"Game of Thrones",
+"Grey's Anatomy"
+],
+"random": [
+"Lost",
+"Mad Men",
+"The Sopranos",
+"The Walking Dead"
+],
+"distractors": [
+"Boardwalk Empire",
+"Breaking Bad",
+"Game of Thrones",
+"Grey's Anatomy",
+"Lost",
+"Mad Men",
+"The Sopranos",
+"The Walking Dead"
+],
+"n_eligible": 9,
+"sha": "022b99bae3fe41a45ce5e117fa28fd49e840d97963e50bca8b5b675448a93487",
+"generation": 1
+},
+"mlnla-rl600-all11:chat-lmsys-0006__L032__p142:2days1night:lendasurbanas": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0006__L032__p142:2days1night:lendasurbanas",
+"anchor": "2 Days & 1 Night",
+"nearest": [
+"The Walking Dead",
+"The Wire",
+"Friends",
+"Boardwalk Empire"
+],
+"random": [
+"Breaking Bad",
+"Game of Thrones",
+"Lost",
+"The Office"
+],
+"distractors": [
+"The Walking Dead",
+"The Wire",
+"Friends",
+"Boardwalk Empire",
+"Breaking Bad",
+"Game of Thrones",
+"Lost",
+"The Office"
+],
+"n_eligible": 15,
+"sha": "0a2a3e53336253ecc4d7e3c63f3b03294836279382ac3ec32a4f136e8f2548bd",
+"generation": 1
+}
+}

@@ -1,4 +1,154 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0014__L040__p150:ieee8023:3gppts36322": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0014__L040__p150:ieee8023:3gppts36322",
+"anchor": "3GPP TS 36.322",
+"nearest": [
+"RFC 2616",
+"ISO 9001",
+"ISO 8601",
+"HTML5"
+],
+"random": [
+"ECMA-262",
+"Unicode Standard"
+],
+"distractors": [
+"RFC 2616",
+"ISO 9001",
+"ISO 8601",
+"HTML5",
+"ECMA-262",
+"Unicode Standard"
+],
+"n_eligible": 6,
+"sha": "c47ff233b5c6ddc71469005412b6bce12a9eed610b979e0f44c5f384d659791b",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0014__L040__p150:ieeestd8023202x:3gppts36322": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0014__L040__p150:ieeestd8023202x:3gppts36322",
+"anchor": "3GPP TS 36.322",
+"nearest": [
+"RFC 2616",
+"ISO 9001",
+"ISO 8601",
+"HTML5"
+],
+"random": [
+"ECMA-262",
+"Unicode Standard"
+],
+"distractors": [
+"RFC 2616",
+"ISO 9001",
+"ISO 8601",
+"HTML5",
+"ECMA-262",
+"Unicode Standard"
+],
+"n_eligible": 6,
+"sha": "30295b1f5783e451971ffc158d6831615de7554fa081d7c366d52d2beecc82d1",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0014__L040__p97:8022:ts36322": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0014__L040__p97:8022:ts36322",
+"anchor": "3GPP TS 36.322",
+"nearest": [
+"RFC 2616",
+"ISO 9001",
+"ISO 8601",
+"HTML5"
+],
+"random": [
+"ECMA-262",
+"Unicode Standard"
+],
+"distractors": [
+"RFC 2616",
+"ISO 9001",
+"ISO 8601",
+"HTML5",
+"ECMA-262",
+"Unicode Standard"
+],
+"n_eligible": 6,
+"sha": "057bc29482fafef58579de0e58501c802b7e109ca87a6a3046de7c6d190596dd",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0014__L044__p150:ieee8023:3gppts36322": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0014__L044__p150:ieee8023:3gppts36322",
+"anchor": "3GPP TS 36.322",
+"nearest": [
+"RFC 2616",
+"ISO 9001",
+"ISO 8601",
+"HTML5"
+],
+"random": [
+"ECMA-262",
+"Unicode Standard"
+],
+"distractors": [
+"RFC 2616",
+"ISO 9001",
+"ISO 8601",
+"HTML5",
+"ECMA-262",
+"Unicode Standard"
+],
+"n_eligible": 6,
+"sha": "b633e3f601981db56cbba50fce746c58fef4824884ce8bfdd6f39d2949819b0d",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0014__L052__p97:ieee8023:3gppts36322": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0014__L052__p97:ieee8023:3gppts36322",
+"anchor": "3GPP TS 36.322",
+"nearest": [
+"RFC 2616",
+"ISO 9001",
+"ISO 8601",
+"HTML5"
+],
+"random": [
+"ECMA-262",
+"Unicode Standard"
+],
+"distractors": [
+"RFC 2616",
+"ISO 9001",
+"ISO 8601",
+"HTML5",
+"ECMA-262",
+"Unicode Standard"
+],
+"n_eligible": 6,
+"sha": "51b491fd6d9eddc1ea9275fbf94daaf2e01f54b3466df1353dd83c4ffce4ec13",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0014__L056__p150:ieee8023:3gppts36322": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0014__L056__p150:ieee8023:3gppts36322",
+"anchor": "3GPP TS 36.322",
+"nearest": [
+"RFC 2616",
+"ISO 9001",
+"ISO 8601",
+"HTML5"
+],
+"random": [
+"ECMA-262",
+"Unicode Standard"
+],
+"distractors": [
+"RFC 2616",
+"ISO 9001",
+"ISO 8601",
+"HTML5",
+"ECMA-262",
+"Unicode Standard"
+],
+"n_eligible": 6,
+"sha": "d033d8d126ba291bd15674cbd3a82828ef04a04179899a3fb7764eed36edb17c",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0014__L036__p150:ieeestd8023:3gppts36322": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0014__L036__p150:ieeestd8023:3gppts36322",
 "anchor": "3GPP TS 36.322",

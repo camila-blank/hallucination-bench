@@ -1,4 +1,91 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0036__L028__p61:buddhism:islam": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0036__L028__p61:buddhism:islam",
+"anchor": "Islam",
+"nearest": [
+"Judaism",
+"Sikhism",
+"Hinduism",
+"Catholicism"
+],
+"random": [
+"Bahá'í Faith",
+"Eastern Orthodoxy",
+"Scientology",
+"Zoroastrianism"
+],
+"distractors": [
+"Judaism",
+"Sikhism",
+"Hinduism",
+"Catholicism",
+"Bahá'í Faith",
+"Eastern Orthodoxy",
+"Scientology",
+"Zoroastrianism"
+],
+"n_eligible": 14,
+"sha": "e9e48e9524e7168560ffb3c312d4bb3e6d6c437b0ba17d1b9b4332360b3a2220",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0036__L028__p61:buddhistprinciples:islam": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0036__L028__p61:buddhistprinciples:islam",
+"anchor": "Islam",
+"nearest": [
+"Judaism",
+"Sikhism",
+"Hinduism",
+"Catholicism"
+],
+"random": [
+"Mormonism",
+"Protestantism",
+"Scientology",
+"Shinto"
+],
+"distractors": [
+"Judaism",
+"Sikhism",
+"Hinduism",
+"Catholicism",
+"Mormonism",
+"Protestantism",
+"Scientology",
+"Shinto"
+],
+"n_eligible": 14,
+"sha": "e118362b0efc448d031c45e6886b48fa51089b1539c1b48df593e60db5a1ee43",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0059__L044__p461:scientology:science": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0059__L044__p461:scientology:science",
+"anchor": "Scientology",
+"nearest": [
+"Mormonism",
+"Bahá'í Faith",
+"Zoroastrianism",
+"Protestantism"
+],
+"random": [
+"Catholicism",
+"Christianity",
+"Judaism",
+"Shinto"
+],
+"distractors": [
+"Mormonism",
+"Bahá'í Faith",
+"Zoroastrianism",
+"Protestantism",
+"Catholicism",
+"Christianity",
+"Judaism",
+"Shinto"
+],
+"n_eligible": 16,
+"sha": "00fee61aec61a576a0d8ee62df4b890f6cf4ca186664e818af4fafa063747c51",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0036__L020__p61:christianity:islam": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0036__L020__p61:christianity:islam",
 "anchor": "Islam",

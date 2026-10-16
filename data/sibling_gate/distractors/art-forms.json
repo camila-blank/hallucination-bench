@@ -1,4 +1,33 @@
 {
+"mlnla-ck2000-all11:chat-dailydialog-0032__L040__p105:films:music": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0032__L040__p105:films:music",
+"anchor": "music",
+"nearest": [
+"dance",
+"photography",
+"drawing",
+"printmaking"
+],
+"random": [
+"architecture",
+"literature",
+"poetry",
+"sculpture"
+],
+"distractors": [
+"dance",
+"photography",
+"drawing",
+"printmaking",
+"architecture",
+"literature",
+"poetry",
+"sculpture"
+],
+"n_eligible": 10,
+"sha": "7e2f6316427eb7d52249e934f00b7eecaab38a42b45c37bf7a0a2fe67e3f2473",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-dailydialog-0032__L020__p91:narrativecraft:music": {
 "unit": "mlnla-rl2-800-all11:chat-dailydialog-0032__L020__p91:narrativecraft:music",
 "anchor": "music",

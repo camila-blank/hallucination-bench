@@ -1,4 +1,31 @@
 {
+"mlnla-ck2000-all11:chat-dailydialog-0006__L020__p186:bees:mosquitoes": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0006__L020__p186:bees:mosquitoes",
+"anchor": "mosquitoes",
+"nearest": [
+"wasp",
+"ant",
+"cricket",
+"ladybug"
+],
+"random": [
+"butterfly",
+"dragonfly",
+"grasshopper"
+],
+"distractors": [
+"wasp",
+"ant",
+"cricket",
+"ladybug",
+"butterfly",
+"dragonfly",
+"grasshopper"
+],
+"n_eligible": 7,
+"sha": "b61e1136b2401ef2a0213e20fc0bf523554a6bedd96e4038d98247e1fb5e2f0e",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-dailydialog-0006__L028__p24:fly:mosquito": {
 "unit": "mlnla-rl2-800-all11:chat-dailydialog-0006__L028__p24:fly:mosquito",
 "anchor": "mosquito",

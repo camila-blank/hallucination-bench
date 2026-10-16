@@ -1,4 +1,260 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0040__L020__p54:soybeans:chineseelmseed": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0040__L020__p54:soybeans:chineseelmseed",
+"anchor": "Chinese elm",
+"nearest": [
+"apples",
+"flowers"
+],
+"random": [],
+"distractors": [
+"apples",
+"flowers"
+],
+"n_eligible": 2,
+"sha": "ef88c374b96f6ab5547d8b7dd1e6a59e0c0ac6b9970ce4534d3123d33ec768d9",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0040__L024__p65:basil:chineseelm": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0040__L024__p65:basil:chineseelm",
+"anchor": "Chinese elm",
+"nearest": [
+"apples",
+"flowers"
+],
+"random": [],
+"distractors": [
+"apples",
+"flowers"
+],
+"n_eligible": 2,
+"sha": "bbc0c39c838fbbef4dfb14f1624fad46f53f75d99dff3c04bcaf04bf940229b4",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0040__L028__p58:hazelnut:chineseelm": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0040__L028__p58:hazelnut:chineseelm",
+"anchor": "Chinese elm",
+"nearest": [
+"apples",
+"flowers"
+],
+"random": [],
+"distractors": [
+"apples",
+"flowers"
+],
+"n_eligible": 2,
+"sha": "1cf5735debd61165ffd8425aa35b0f9e5e90752dbc51df418581d80e19cef25c",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0040__L036__p44:jadeplant:chineseelm": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0040__L036__p44:jadeplant:chineseelm",
+"anchor": "Chinese elm",
+"nearest": [
+"apples",
+"flowers"
+],
+"random": [],
+"distractors": [
+"apples",
+"flowers"
+],
+"n_eligible": 2,
+"sha": "fa73f2a5d567a21a23bc34e7c1f8bb496647611dace5e72b16e8c1230c0467b1",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0040__L036__p58:lupin:chineseelm": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0040__L036__p58:lupin:chineseelm",
+"anchor": "Chinese elm",
+"nearest": [
+"apples",
+"flowers"
+],
+"random": [],
+"distractors": [
+"apples",
+"flowers"
+],
+"n_eligible": 2,
+"sha": "8f9f20e381e559999d667c67a828ae3bbad848d862f3135cbd9e42bc1af7b29c",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0040__L036__p76:avocado:chineseelm": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0040__L036__p76:avocado:chineseelm",
+"anchor": "Chinese elm",
+"nearest": [
+"apples",
+"flowers"
+],
+"random": [],
+"distractors": [
+"apples",
+"flowers"
+],
+"n_eligible": 2,
+"sha": "ce7d40596add3b2da664760f7619cb0d904af7ca701ce2ddc26e618576b0f8b4",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0040__L040__p58:soybean:chineseelm": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0040__L040__p58:soybean:chineseelm",
+"anchor": "Chinese elm",
+"nearest": [
+"apples",
+"flowers"
+],
+"random": [],
+"distractors": [
+"apples",
+"flowers"
+],
+"n_eligible": 2,
+"sha": "b237fa028e18eaa536e9c97c28e6b4880caff913d010cf064e25da22008adb20",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0040__L040__p65:mango:chineseelm": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0040__L040__p65:mango:chineseelm",
+"anchor": "Chinese elm",
+"nearest": [
+"apples",
+"flowers"
+],
+"random": [],
+"distractors": [
+"apples",
+"flowers"
+],
+"n_eligible": 2,
+"sha": "0c8b31fb99bd2db6c48ac3eb9f2e3e8fdf985f38e6dda944bdbaea1979f61530",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0040__L040__p68:olive:chineseelm": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0040__L040__p68:olive:chineseelm",
+"anchor": "Chinese elm",
+"nearest": [
+"apples",
+"flowers"
+],
+"random": [],
+"distractors": [
+"apples",
+"flowers"
+],
+"n_eligible": 2,
+"sha": "e2ab8aa67f2f80babc6fdd1da1626b6c04e911660e7e005124b1fea9f82bbc4c",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0040__L044__p76:pepperplants:chineseelm": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0040__L044__p76:pepperplants:chineseelm",
+"anchor": "Chinese elm",
+"nearest": [
+"apples",
+"flowers"
+],
+"random": [],
+"distractors": [
+"apples",
+"flowers"
+],
+"n_eligible": 2,
+"sha": "27a5881bf35d59b1c555e560da74b8df8906776e4362ffe2d7c4b3e268d3562b",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0040__L044__p84:strawberry:chineseelm": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0040__L044__p84:strawberry:chineseelm",
+"anchor": "Chinese elm",
+"nearest": [
+"apples",
+"flowers"
+],
+"random": [],
+"distractors": [
+"apples",
+"flowers"
+],
+"n_eligible": 2,
+"sha": "a367ec4852880458b97b170a3ce9e5077025bd0e0fd97f1d62e647969aae5a8a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0040__L048__p68:basil:chineseelm": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0040__L048__p68:basil:chineseelm",
+"anchor": "Chinese elm",
+"nearest": [
+"apples",
+"flowers"
+],
+"random": [],
+"distractors": [
+"apples",
+"flowers"
+],
+"n_eligible": 2,
+"sha": "7ede76424691d4f0d37f4745290e5c776b893ec4eff04fa3eaeb54c8567e2487",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0040__L048__p76:sweetpeppers:chineseelm": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0040__L048__p76:sweetpeppers:chineseelm",
+"anchor": "Chinese elm",
+"nearest": [
+"apples",
+"flowers"
+],
+"random": [],
+"distractors": [
+"apples",
+"flowers"
+],
+"n_eligible": 2,
+"sha": "c75dcc0631dfca96202e7358ab6a41e2870f8ee42918790a4c6deb94527eb7bc",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0040__L052__p54:castor:chineseelm": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0040__L052__p54:castor:chineseelm",
+"anchor": "Chinese elm",
+"nearest": [
+"apples",
+"flowers"
+],
+"random": [],
+"distractors": [
+"apples",
+"flowers"
+],
+"n_eligible": 2,
+"sha": "ce67ceafdd508d90d96b6a2082e9f093a3e36d48463c0778411b147cef67c050",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0040__L052__p54:castorbean:chineseelm": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0040__L052__p54:castorbean:chineseelm",
+"anchor": "Chinese elm",
+"nearest": [
+"apples",
+"flowers"
+],
+"random": [],
+"distractors": [
+"apples",
+"flowers"
+],
+"n_eligible": 2,
+"sha": "6c3632cca2f64961cafcafa29359001125c234cc57f616faf186ec223e7187cd",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0040__L056__p58:coriander:chineseelm": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0040__L056__p58:coriander:chineseelm",
+"anchor": "Chinese elm",
+"nearest": [
+"apples",
+"flowers"
+],
+"random": [],
+"distractors": [
+"apples",
+"flowers"
+],
+"n_eligible": 2,
+"sha": "e31df8996d967673b7604592bfe167344c455a8f50756a6b0e66b2527a12b4d3",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0040__L032__p68:tomato:chineseelm": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0040__L032__p68:tomato:chineseelm",
 "anchor": "Chinese elm",

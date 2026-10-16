@@ -1,4 +1,134 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0038__L020__p252:iloc:sortvalues": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0038__L020__p252:iloc:sortvalues",
+"anchor": "sort_values",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "ad529fed953a817c1ea5c706555ba3a05cc6366c3068223eb863b91b082ee0ad",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0038__L020__p252:locvsiloc:sortvalues": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0038__L020__p252:locvsiloc:sortvalues",
+"anchor": "sort_values",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "cfa69e8b4432d4aec569d4a4982e2d63489acbf57d31489a3d1b217902e1b359",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0038__L024__p189:selectiontechniqueslocilocrename:sortvalues": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0038__L024__p189:selectiontechniqueslocilocrename:sortvalues",
+"anchor": "sort_values",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "17b79b39cfd9ec786d2dc4249101fbbc8621d9990ad64b206edde03d1a6c86e3",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0038__L028__p212:dropduplicates:sortvalues": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0038__L028__p212:dropduplicates:sortvalues",
+"anchor": "sort_values()",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "f9d774a787e883435da457cb531a9c47a3fffe2c4e7980ae5fda9d8bb1928512",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0038__L048__p473:dfdropnasubset=:sortvalues": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0038__L048__p473:dfdropnasubset=:sortvalues",
+"anchor": "DataFrame.sort_values",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "677e23ed476ac21b61d42e89a2623cb811ea06461c03a9fc4689c7eaceecbd6c",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0038__L048__p99:shift:sortvalues": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0038__L048__p99:shift:sortvalues",
+"anchor": "sort_values",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "1d10e2c1a55df740e79b2c5d1c50e06b03409ee5faecab7a1c836bc89ed075dd",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0038__L052__p99:dataframereplace:sortvalues": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0038__L052__p99:dataframereplace:sortvalues",
+"anchor": "DataFrame.sort_values",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "2d052f9a7a54a842ab9d2a6bc96683d4f64927ec0e3e202dd9c7d9cee6e892e9",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0038__L052__p99:replace:sortvalues": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0038__L052__p99:replace:sortvalues",
+"anchor": "sort_values()",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "ea74ee133d604ef44314864d81da3b110ecca6baa7ae709c8d1c0b665d9dcb41",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0038__L056__p99:dtastypetodatetime:sortvalues": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0038__L056__p99:dtastypetodatetime:sortvalues",
+"anchor": "sort_values",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "cb98fa0461481b489c6f4af73808ea74b0513159346c09b340459fc4bd541ae2",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0038__L060__p473:dataframeresetindex:sortvalues": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0038__L060__p473:dataframeresetindex:sortvalues",
+"anchor": "DataFrame.sort_values()",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "1266717fa88932720ff84cb3b34d4ee8a3d292adaeb4efe962dce3851cb8cff7",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0038__L060__p473:pandasdataframeresetindex:sortvalues": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0038__L060__p473:pandasdataframeresetindex:sortvalues",
+"anchor": "pandas.DataFrame.sort_values",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "77eb254d24184e53cf9aaa19f97d0f77522b1f28a67c9cda5af5e1f3aa8db140",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0038__L060__p473:resetindex:sortvalues": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0038__L060__p473:resetindex:sortvalues",
+"anchor": "sort_values",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "3e0f36e155ce64b0b242e6938902f57b738be0e926ddd7d2ef47c5a0f7adb711",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0038__L060__p99:straccessor:sortvalues": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0038__L060__p99:straccessor:sortvalues",
+"anchor": "sort_values",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "f12b6e7ffb06883eed8bf274e1517039efe96e2384ea4fd321bd369501e13a66",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0038__L020__p189:iloc:sortvalues": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0038__L020__p189:iloc:sortvalues",
 "anchor": "sort_values",

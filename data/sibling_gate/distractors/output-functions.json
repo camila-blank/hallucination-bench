@@ -26,6 +26,31 @@
 "sha": "41ae7153b98a265e78f47dff6e28884a0c10bc74514093f7c85e112b475ec57b",
 "generation": 0
 },
+"mlnla-ck2000-all11:chat-lmsys-0056__L040__p95:print:consolewriteline": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0056__L040__p95:print:consolewriteline",
+"anchor": "Console.Write",
+"nearest": [
+"puts",
+"putchar",
+"sprintf",
+"fputs"
+],
+"random": [
+"cout",
+"fprintf"
+],
+"distractors": [
+"puts",
+"putchar",
+"sprintf",
+"fputs",
+"cout",
+"fprintf"
+],
+"n_eligible": 6,
+"sha": "dbbd893ffbe49b4cc6ee58f6b0b0471daab6b263acebcd0a83b01d78e2fb41a5",
+"generation": 1
+},
 "mlnla-rl600-all11:chat-lmsys-0056__L040__p123:printf:consolewrite": {
 "unit": "mlnla-rl600-all11:chat-lmsys-0056__L040__p123:printf:consolewrite",
 "anchor": "Console.WriteLine",

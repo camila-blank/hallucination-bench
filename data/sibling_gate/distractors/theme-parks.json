@@ -62,6 +62,115 @@
 "sha": "81caf2045662b7fa7a14da28b17730b8c1f5bd19ca177311bdee57cf7c7cca02",
 "generation": 0
 },
+"mlnla-ck2000-all11:chat-dailydialog-0065__L024__p139:disneyland:waltdisneyworld": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0065__L024__p139:disneyland:waltdisneyworld",
+"anchor": "Walt Disney World",
+"nearest": [
+"Universal Studios Japan",
+"Universal Studios Hollywood",
+"Universal Studios Florida",
+"Islands of Adventure"
+],
+"random": [],
+"distractors": [
+"Universal Studios Japan",
+"Universal Studios Hollywood",
+"Universal Studios Florida",
+"Islands of Adventure"
+],
+"n_eligible": 4,
+"sha": "c4339c95858221e5cf40689aef6f788b557aecfa54fde4eeb623299a8100d32c",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0065__L024__p179:disneyland:waltdisneyworld": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0065__L024__p179:disneyland:waltdisneyworld",
+"anchor": "Walt Disney World",
+"nearest": [
+"Universal Studios Japan",
+"Universal Studios Hollywood",
+"Universal Studios Florida",
+"Islands of Adventure"
+],
+"random": [],
+"distractors": [
+"Universal Studios Japan",
+"Universal Studios Hollywood",
+"Universal Studios Florida",
+"Islands of Adventure"
+],
+"n_eligible": 4,
+"sha": "e2765d5d178e36031eb8d09b4734ee83aca5f750153cebd40d21ba327ced34dd",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0065__L028__p126:disneyland:waltdisneyworld": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0065__L028__p126:disneyland:waltdisneyworld",
+"anchor": "Walt Disney World",
+"nearest": [
+"Universal Studios Japan",
+"Universal Studios Hollywood",
+"Universal Studios Florida",
+"Islands of Adventure"
+],
+"random": [],
+"distractors": [
+"Universal Studios Japan",
+"Universal Studios Hollywood",
+"Universal Studios Florida",
+"Islands of Adventure"
+],
+"n_eligible": 4,
+"sha": "121b75f556656cc92749716dbb9d6fdf6fc2d91035c2255983fa1b478f74b072",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0065__L056__p179:disneyland:waltdisneyworld": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0065__L056__p179:disneyland:waltdisneyworld",
+"anchor": "Walt Disney World",
+"nearest": [
+"Universal Studios Japan",
+"Universal Studios Hollywood",
+"Universal Studios Florida",
+"Islands of Adventure"
+],
+"random": [],
+"distractors": [
+"Universal Studios Japan",
+"Universal Studios Hollywood",
+"Universal Studios Florida",
+"Islands of Adventure"
+],
+"n_eligible": 4,
+"sha": "d73d967ce3091a3033524be02efa803d9314c2f5219b290b86f26b61a70eaaff",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0047__L056__p449:disneylandparis:alysbeachorwatercolor": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0047__L056__p449:disneylandparis:alysbeachorwatercolor",
+"anchor": "Disneyland Paris",
+"nearest": [
+"Universal Studios Japan",
+"Shanghai Disneyland",
+"Tokyo Disneyland",
+"Disneyland Park"
+],
+"random": [
+"Disney California Adventure",
+"Disney's Hollywood Studios",
+"Universal Studios Florida",
+"Universal Studios Hollywood"
+],
+"distractors": [
+"Universal Studios Japan",
+"Shanghai Disneyland",
+"Tokyo Disneyland",
+"Disneyland Park",
+"Disney California Adventure",
+"Disney's Hollywood Studios",
+"Universal Studios Florida",
+"Universal Studios Hollywood"
+],
+"n_eligible": 13,
+"sha": "bf4091c31b12fd37d97174a94db98bf36d12b98c807349ee7f63b9b73ec23352",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-dailydialog-0065__L020__p139:californiaadventuredisneylandparis:waltdisneyworldparks": {
 "unit": "mlnla-rl2-800-all11:chat-dailydialog-0065__L020__p139:californiaadventuredisneylandparis:waltdisneyworldparks",
 "anchor": "Walt Disney World",

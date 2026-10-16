@@ -1,4 +1,79 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0012__L020__p578:contextapi:bloc": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0012__L020__p578:contextapi:bloc",
+"anchor": "React Context API",
+"nearest": [
+"Recoil",
+"NgRx",
+"Apollo Client",
+"Jotai"
+],
+"random": [
+"Valtio",
+"XState"
+],
+"distractors": [
+"Recoil",
+"NgRx",
+"Apollo Client",
+"Jotai",
+"Valtio",
+"XState"
+],
+"n_eligible": 6,
+"sha": "2a3589118ddb06b121463f8e835555b1cb3052f370df9472dd50b1e94eeda76a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0012__L020__p578:zustand:flutterriverpod": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0012__L020__p578:zustand:flutterriverpod",
+"anchor": "Riverpod",
+"nearest": [
+"Valtio",
+"Jotai",
+"Apollo Client",
+"XState"
+],
+"random": [
+"NgRx",
+"Recoil"
+],
+"distractors": [
+"Valtio",
+"Jotai",
+"Apollo Client",
+"XState",
+"NgRx",
+"Recoil"
+],
+"n_eligible": 6,
+"sha": "b82c02685acd84468f16d9bf585d8ba352145254444887aa3daf2a5038140267",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0012__L028__p650:zustand:riverpod": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0012__L028__p650:zustand:riverpod",
+"anchor": "Riverpod",
+"nearest": [
+"Valtio",
+"Jotai",
+"Apollo Client",
+"XState"
+],
+"random": [
+"NgRx",
+"Recoil"
+],
+"distractors": [
+"Valtio",
+"Jotai",
+"Apollo Client",
+"XState",
+"NgRx",
+"Recoil"
+],
+"n_eligible": 6,
+"sha": "902cca8bd3aa01d7ccb8dc4110c46e50625c1d91acafa20131de001914494451",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0012__L020__p578:zustand:flutterriverpod": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0012__L020__p578:zustand:flutterriverpod",
 "anchor": "Riverpod",

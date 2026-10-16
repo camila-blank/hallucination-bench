@@ -1,4 +1,114 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0033__L024__p128:forceanddistance:voltageandcurrent": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0033__L024__p128:forceanddistance:voltageandcurrent",
+"anchor": "voltage and current",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "50565aa63657780d2d65fcfe5e430dbe319e54a0faa79107ed7960342da4147e",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0033__L024__p77:perimeter:resistance": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0033__L024__p77:perimeter:resistance",
+"anchor": "Resistance",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "d296cf1942f564bfd08e9b720ffd92f8b7c698c34abdf3e1508184f2dc6489af",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0033__L028__p307:torque:power": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0033__L028__p307:torque:power",
+"anchor": "power",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "433f54f175a3ba1910278debcf8e8e205a2b634b7132ac15080e874952e4fefc",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0033__L032__p181:weight:current": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0033__L032__p181:weight:current",
+"anchor": "current",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "474fc65951790fec7f7bef35906c5202a1821e2af9f741f76c86960c0d873ca1",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0033__L032__p37:volumedensityarea:powerandresistance": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0033__L032__p37:volumedensityarea:powerandresistance",
+"anchor": "Voltage, Current",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "ae4ed5fb57b85c6c62311652040117ba33244d7e2266de429bf889c4a4f65af3",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0033__L032__p77:perimeter:resistance": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0033__L032__p77:perimeter:resistance",
+"anchor": "Resistance",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "b0374db42c720fd24e7efe470833310b9f2d56e7ad454a91708cb75c250602c1",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0033__L036__p128:force:voltage": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0033__L036__p128:force:voltage",
+"anchor": "Voltage",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "1546da9104f88bd5049aa0c23416a052c8dd82655b404e2af3c9cf547312f595",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0033__L036__p128:pressure:powerandresistance": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0033__L036__p128:pressure:powerandresistance",
+"anchor": "Resistance",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "e9dccc16d2f65b20ac7cbd7eb42ce783c9a060257f9ec5b99557abb29bc8bcc6",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0033__L036__p128:pressure:voltage": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0033__L036__p128:pressure:voltage",
+"anchor": "Resistance",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "a6c6b8c59b50fbcb0d3c816190fa5884f7350a2a423a316f2fa66fec4d72a282",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0033__L040__p37:energy:resistance": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0033__L040__p37:energy:resistance",
+"anchor": "Resistance",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "d10ff479d702c473006e34c06d8613fa96bf7e95edee78b5dcce0d4ff3e15204",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0033__L052__p239:energy:resistance": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0033__L052__p239:energy:resistance",
+"anchor": "Resistance",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "c90101d203d97cc8708f6e5a1a5484fe229f7096f35e7356e7d2d9388db3284f",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0033__L024__p37:work:resistance": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0033__L024__p37:work:resistance",
 "anchor": "Resistance",

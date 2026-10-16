@@ -1,4 +1,149 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0012__L020__p316:reactnative:flutter": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0012__L020__p316:reactnative:flutter",
+"anchor": "Flutter",
+"nearest": [
+"UIKit",
+"Kotlin Multiplatform",
+"Onsen UI",
+"Capacitor"
+],
+"random": [
+"Apache Cordova",
+"Framework7",
+"NativeScript",
+"PhoneGap"
+],
+"distractors": [
+"UIKit",
+"Kotlin Multiplatform",
+"Onsen UI",
+"Capacitor",
+"Apache Cordova",
+"Framework7",
+"NativeScript",
+"PhoneGap"
+],
+"n_eligible": 10,
+"sha": "4a2ad59e6f1480ad120b89ed21f0b0dbd21ca80a10128b21aa76a1a53a08f7f3",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0012__L020__p578:reactnative:flutter": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0012__L020__p578:reactnative:flutter",
+"anchor": "Flutter",
+"nearest": [
+"UIKit",
+"Kotlin Multiplatform",
+"Onsen UI",
+"Capacitor"
+],
+"random": [
+"Framework7",
+"NativeScript",
+"Quasar",
+"Xamarin"
+],
+"distractors": [
+"UIKit",
+"Kotlin Multiplatform",
+"Onsen UI",
+"Capacitor",
+"Framework7",
+"NativeScript",
+"Quasar",
+"Xamarin"
+],
+"n_eligible": 10,
+"sha": "933c646c1cc5820be31d19c62b3f7bcfc2280d5d9061dfbd28c75ac1d356af70",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0012__L028__p316:reactnative:flutter": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0012__L028__p316:reactnative:flutter",
+"anchor": "Flutter",
+"nearest": [
+"UIKit",
+"Kotlin Multiplatform",
+"Onsen UI",
+"Capacitor"
+],
+"random": [
+"Apache Cordova",
+"NativeScript",
+"PhoneGap",
+"Xamarin"
+],
+"distractors": [
+"UIKit",
+"Kotlin Multiplatform",
+"Onsen UI",
+"Capacitor",
+"Apache Cordova",
+"NativeScript",
+"PhoneGap",
+"Xamarin"
+],
+"n_eligible": 10,
+"sha": "94e6cf37c8cb36004ec7e30b25b6d1cc0aed0b5e275761cd4eacc95d687bcfe3",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0012__L028__p504:swiftuiiosapp:flutterapp": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0012__L028__p504:swiftuiiosapp:flutterapp",
+"anchor": "Flutter",
+"nearest": [
+"UIKit",
+"Kotlin Multiplatform",
+"Onsen UI",
+"Capacitor"
+],
+"random": [
+"Apache Cordova",
+"Framework7",
+"PhoneGap",
+"Quasar"
+],
+"distractors": [
+"UIKit",
+"Kotlin Multiplatform",
+"Onsen UI",
+"Capacitor",
+"Apache Cordova",
+"Framework7",
+"PhoneGap",
+"Quasar"
+],
+"n_eligible": 10,
+"sha": "655e2986254eb08ab1bf3bfc3c22e638ad5fa13cbe5cb16a5559c5d60806a314",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0012__L032__p316:reactnative:flutter": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0012__L032__p316:reactnative:flutter",
+"anchor": "Flutter",
+"nearest": [
+"UIKit",
+"Kotlin Multiplatform",
+"Onsen UI",
+"Capacitor"
+],
+"random": [
+"Apache Cordova",
+"NativeScript",
+"PhoneGap",
+"Xamarin"
+],
+"distractors": [
+"UIKit",
+"Kotlin Multiplatform",
+"Onsen UI",
+"Capacitor",
+"Apache Cordova",
+"NativeScript",
+"PhoneGap",
+"Xamarin"
+],
+"n_eligible": 10,
+"sha": "52e38e16b321884e183dd84b6332aa53467d137f75be63c9a3df01c52164db8b",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0012__L020__p316:reactnative:flutter": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0012__L020__p316:reactnative:flutter",
 "anchor": "Flutter",

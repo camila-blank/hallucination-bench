@@ -1,4 +1,75 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0043__L048__p222::": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0043__L048__p222::",
+"anchor": "formyl group",
+"nearest": [
+"ketone",
+"ester",
+"propyl",
+"propyl group"
+],
+"random": [
+"carbonyl group"
+],
+"distractors": [
+"ketone",
+"ester",
+"propyl",
+"propyl group",
+"carbonyl group"
+],
+"n_eligible": 5,
+"sha": "5309113bfd6867ec09b7e637bc30a72aa69ecfd51c2bcd2c5bd7d41ab09c0641",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0043__L052__p419:methoxy:formyl": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0043__L052__p419:methoxy:formyl",
+"anchor": "propyl group",
+"nearest": [
+"ketone",
+"formyl group",
+"ester",
+"aldehyde"
+],
+"random": [
+"aldehyde group",
+"carbonyl group"
+],
+"distractors": [
+"ketone",
+"formyl group",
+"ester",
+"aldehyde",
+"aldehyde group",
+"carbonyl group"
+],
+"n_eligible": 6,
+"sha": "f15085547378b655e0e27d4181830e935b5b1cd271be81d30b956d975fbf463d",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0043__L056__p419::": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0043__L056__p419::",
+"anchor": "formyl group",
+"nearest": [
+"ketone",
+"ester",
+"propyl",
+"propyl group"
+],
+"random": [
+"carbonyl group"
+],
+"distractors": [
+"ketone",
+"ester",
+"propyl",
+"propyl group",
+"carbonyl group"
+],
+"n_eligible": 5,
+"sha": "ab7019f265064c25d98eb0348f313e511f91a22016f2b23723a249fbc024582b",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0043__L024__p419:nitrogrouponthebenzenering:formylonpyrimidinering": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0043__L024__p419:nitrogrouponthebenzenering:formylonpyrimidinering",
 "anchor": "formyl group",

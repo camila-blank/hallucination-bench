@@ -1,4 +1,79 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0054__L032__p298:querystudio:universedesigntool": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L032__p298:querystudio:universedesigntool",
+"anchor": "SAP BusinessObjects Dashboard Design",
+"nearest": [
+"Sisense",
+"Domo",
+"QlikView",
+"Looker"
+],
+"random": [
+"Qlik Sense",
+"Web Intelligence"
+],
+"distractors": [
+"Sisense",
+"Domo",
+"QlikView",
+"Looker",
+"Qlik Sense",
+"Web Intelligence"
+],
+"n_eligible": 6,
+"sha": "1f98197038f8317cccf825f7780ccc78c00e082a0ad1cd0ac828080b4015e96d",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L032__p298:reportstudio:webintelligence": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L032__p298:reportstudio:webintelligence",
+"anchor": "SAP BusinessObjects Web Intelligence",
+"nearest": [
+"QlikView",
+"Qlik Sense",
+"Domo",
+"Sisense"
+],
+"random": [
+"Looker"
+],
+"distractors": [
+"QlikView",
+"Qlik Sense",
+"Domo",
+"Sisense",
+"Looker"
+],
+"n_eligible": 5,
+"sha": "46fd10cc242bf8eb69da93965dc5525f7659455cb36604b61b1f1ee6baa72c75",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L036__p358:querystudioreportstudio:webintelligenceinfoview": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L036__p358:querystudioreportstudio:webintelligenceinfoview",
+"anchor": "Web Intelligence",
+"nearest": [
+"SAP BusinessObjects Universe Design Tool",
+"QlikView",
+"Qlik Sense",
+"SAP BusinessObjects Dashboard Design"
+],
+"random": [
+"Domo",
+"Looker",
+"Sisense"
+],
+"distractors": [
+"SAP BusinessObjects Universe Design Tool",
+"QlikView",
+"Qlik Sense",
+"SAP BusinessObjects Dashboard Design",
+"Domo",
+"Looker",
+"Sisense"
+],
+"n_eligible": 7,
+"sha": "633572c3ba0f73a843dbc7b7696d501d8a330d72ff0111543cb5ab67e4b45d81",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0054__L040__p358:cognosreportstudio:sapbusinessobjectswebintelligence": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0054__L040__p358:cognosreportstudio:sapbusinessobjectswebintelligence",
 "anchor": "SAP BusinessObjects Web Intelligence",

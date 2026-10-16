@@ -1,4 +1,106 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0054__L028__p298:reportnet:sapbusinessobjectsinfoview": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L028__p298:reportnet:sapbusinessobjectsinfoview",
+"anchor": "SAP BusinessObjects InfoView",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "5edbf71e80eeffacd09787bca44668866f6da33d8ebf599ff55e741a6c9cf69f",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L028__p358:microstrategyreportservices:sapbusinessobjects": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L028__p358:microstrategyreportservices:sapbusinessobjects",
+"anchor": "SAP BusinessObjects Web Intelligence",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "fa6da28b4aae72b789f0836ced2162295f265def14e16c999a9858da4fcb983d",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L028__p425:microstrategydesktopdeveloper:webintelligenceinfoview": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L028__p425:microstrategydesktopdeveloper:webintelligenceinfoview",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "100fc2b608c7dd811976d712c1777fe81f613a9d97907bde945b1761f01276a7",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L032__p298:reportnet:infoview": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L032__p298:reportnet:infoview",
+"anchor": "SAP BusinessObjects InfoView",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "f263f3dc9181fb993e61cb440bac027b2732b4fb222f72f2f03154955fcbc411",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L036__p472:frameworkmanagerreportstudio:webintelligenceuniversedesigntool": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L036__p472:frameworkmanagerreportstudio:webintelligenceuniversedesigntool",
+"anchor": "SAP BusinessObjects Universe Design Tool",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "990251099667224e63bb62c28f84b4ea6c1320328a5026ef0cd23c000c6bec81",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L048__p472:powerbi:sapbusinessobjects": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L048__p472:powerbi:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "c285544bf30dd5c7dc5672106b8f0aee63314c1469f03449a413ba1cae1f0282",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L048__p472:powerbiandqlik:sapbusinessobjects": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L048__p472:powerbiandqlik:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "8e1d97f0a9de7513ef9af6795e78e3d298946ba896fa479847a95b4b2c060af4",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L048__p472:powerbissisinformatica:sapbusinessobjects": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L048__p472:powerbissisinformatica:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "687a0c620d465ee4b92a8661a99294e4d352b11641d660327c2757c4865ddff4",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L052__p358:powerpivotreportbuilderperformancepoint:webintelligenceuniversedesigntoolinfoview": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L052__p358:powerpivotreportbuilderperformancepoint:webintelligenceuniversedesigntoolinfoview",
+"anchor": "PowerPivot",
+"nearest": [],
+"random": [
+"SAP BusinessObjects",
+"SAP BusinessObjects InfoView",
+"SAP BusinessObjects Report Caster",
+"SAP BusinessObjects Universe Design Tool",
+"SAP BusinessObjects Web Intelligence"
+],
+"distractors": [
+"SAP BusinessObjects",
+"SAP BusinessObjects InfoView",
+"SAP BusinessObjects Report Caster",
+"SAP BusinessObjects Universe Design Tool",
+"SAP BusinessObjects Web Intelligence"
+],
+"n_eligible": 5,
+"sha": "06698d82eea9254874aed5d3d56653a6076fcd146f14ad3fde3e079e44e5701b",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0054__L028__p298:reportnet:infoview": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0054__L028__p298:reportnet:infoview",
 "anchor": "SAP BusinessObjects InfoView",

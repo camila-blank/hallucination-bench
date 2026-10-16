@@ -1,0 +1,52 @@
+{
+"mlnla-ck2000-all11:chat-lmsys-0047__L020__p513:floridakeysandclearwater:rosemarybeach": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0047__L020__p513:floridakeysandclearwater:rosemarybeach",
+"anchor": "Rosemary Beach",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "3f8288d77435dc8f2a0722492fb129599e4f4c537d63f3bb53cb433360b3b52f",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0047__L036__p513:destinflorida:rosemarybeachflorida": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0047__L036__p513:destinflorida:rosemarybeachflorida",
+"anchor": "Rosemary Beach, Florida",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "0ecffef87c4d735a51aec84c40171290c782943c4e2d00d1fbd582e96e1b857a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0047__L052__p314::": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0047__L052__p314::",
+"anchor": "Rosemary Beach",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "5dfe45b9f82dd7c2bde775b16d4ae639b870816b870fe6ac2d91612d4ac3af66",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0047__L048__p513:ncouterbanksplacenames:30aplacesalysbeachwatercolor": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0047__L048__p513:ncouterbanksplacenames:30aplacesalysbeachwatercolor",
+"anchor": "Rosemary Beach",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "3a4e38eaaa2fe143c9e4118b1ee2705fb1043bce549f2461453141381f3cb07b",
+"generation": 1
+},
+"mlnla-rl600-all11:chat-lmsys-0047__L036__p391::": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0047__L036__p391::",
+"anchor": "Rosemary Beach",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "e0d1cdb5df8d4011c8d8be6875f20de2794e33517c827d36a9c8716582a8e1d1",
+"generation": 1
+}
+}

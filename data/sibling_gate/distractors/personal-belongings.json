@@ -1,4 +1,207 @@
 {
+"mlnla-ck2000-all11:chat-dailydialog-0060__L052__p24:backpack:skates": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0060__L052__p24:backpack:skates",
+"anchor": "skates",
+"nearest": [
+"guitar",
+"umbrella",
+"sunglasses",
+"watch"
+],
+"random": [
+"keys",
+"laptop",
+"passport",
+"reading glasses"
+],
+"distractors": [
+"guitar",
+"umbrella",
+"sunglasses",
+"watch",
+"keys",
+"laptop",
+"passport",
+"reading glasses"
+],
+"n_eligible": 14,
+"sha": "28161a017931e141375e63c20bf4ac2254282ba0cbf1af5f2a7f2b8303f23a85",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0072__L020__p49:bag:bike": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0072__L020__p49:bag:bike",
+"anchor": "bike",
+"nearest": [
+"skates",
+"backpack",
+"headphones",
+"watch"
+],
+"random": [
+"keys",
+"laptop charger",
+"passport",
+"sunglasses"
+],
+"distractors": [
+"skates",
+"backpack",
+"headphones",
+"watch",
+"keys",
+"laptop charger",
+"passport",
+"sunglasses"
+],
+"n_eligible": 14,
+"sha": "99da423fb58cf598a098b9a1e0d901567012897dd0c7348f7b8e5f29a351f498",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0072__L020__p49:phone:bike": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0072__L020__p49:phone:bike",
+"anchor": "bike",
+"nearest": [
+"skates",
+"backpack",
+"headphones",
+"watch"
+],
+"random": [
+"laptop charger",
+"purse",
+"reading glasses",
+"sunglasses"
+],
+"distractors": [
+"skates",
+"backpack",
+"headphones",
+"watch",
+"laptop charger",
+"purse",
+"reading glasses",
+"sunglasses"
+],
+"n_eligible": 14,
+"sha": "e9436703283c3f4e602187c501aead670fd0e33cb743626a01f6873a3921c666",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0072__L028__p59:laptop:bike": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0072__L028__p59:laptop:bike",
+"anchor": "bike",
+"nearest": [
+"skates",
+"backpack",
+"headphones",
+"watch"
+],
+"random": [
+"Passport",
+"purse",
+"sunglasses",
+"umbrella"
+],
+"distractors": [
+"skates",
+"backpack",
+"headphones",
+"watch",
+"Passport",
+"purse",
+"sunglasses",
+"umbrella"
+],
+"n_eligible": 13,
+"sha": "29049d5b8074658932f2f1233551e6b6efc88b3000b0631e21abc0a574bc7c48",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0019__L036__p286:wallet:passport": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0019__L036__p286:wallet:passport",
+"anchor": "passport",
+"nearest": [
+"purse",
+"laptop",
+"bike",
+"skates"
+],
+"random": [
+"backpack",
+"bag",
+"guitar",
+"headphones"
+],
+"distractors": [
+"purse",
+"laptop",
+"bike",
+"skates",
+"backpack",
+"bag",
+"guitar",
+"headphones"
+],
+"n_eligible": 8,
+"sha": "b123b4dd0ace6819eccdcb37143ae26dc0cbbb1edc8c7e15730cdcca89d4b40d",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0019__L036__p286:wallet:traveldocument": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0019__L036__p286:wallet:traveldocument",
+"anchor": "passport",
+"nearest": [
+"purse",
+"laptop",
+"bike",
+"skates"
+],
+"random": [
+"backpack",
+"bag",
+"guitar",
+"headphones"
+],
+"distractors": [
+"purse",
+"laptop",
+"bike",
+"skates",
+"backpack",
+"bag",
+"guitar",
+"headphones"
+],
+"n_eligible": 8,
+"sha": "70742053b74f675b7bd55fbff7df4b9d20d7ac2b95e4d5aab1540becdcbbd2a3",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0019__L036__p286:walletpurse:traveldocument": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0019__L036__p286:walletpurse:traveldocument",
+"anchor": "passport",
+"nearest": [
+"purse",
+"laptop",
+"bike",
+"skates"
+],
+"random": [
+"backpack",
+"bag",
+"guitar",
+"headphones"
+],
+"distractors": [
+"purse",
+"laptop",
+"bike",
+"skates",
+"backpack",
+"bag",
+"guitar",
+"headphones"
+],
+"n_eligible": 8,
+"sha": "f3e4b083c904deaf3cb930fc785ee81410b067ddde577c8eb017b0ba5d18063d",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-dailydialog-0072__L024__p49:phone:bike": {
 "unit": "mlnla-rl2-800-all11:chat-dailydialog-0072__L024__p49:phone:bike",
 "anchor": "bike",

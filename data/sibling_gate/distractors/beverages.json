@@ -1,4 +1,1761 @@
 {
+"mlnla-ck2000-all11:chat-dailydialog-0011__L020__p52:coffee:tea": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0011__L020__p52:coffee:tea",
+"anchor": "tea",
+"nearest": [
+"matcha",
+"wine",
+"whiskey",
+"lemonade"
+],
+"random": [
+"beer",
+"orange juice",
+"vodka"
+],
+"distractors": [
+"matcha",
+"wine",
+"whiskey",
+"lemonade",
+"beer",
+"orange juice",
+"vodka"
+],
+"n_eligible": 7,
+"sha": "6b9338e41a87da360cdfe83d068a29020e23a1b9ec8157ecdda49d90ee0ff6b8",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0011__L020__p61:milk:teawater": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0011__L020__p61:milk:teawater",
+"anchor": "tea",
+"nearest": [
+"matcha",
+"wine",
+"whiskey",
+"morning coffee"
+],
+"random": [
+"beer",
+"lemonade",
+"orange juice",
+"vodka"
+],
+"distractors": [
+"matcha",
+"wine",
+"whiskey",
+"morning coffee",
+"beer",
+"lemonade",
+"orange juice",
+"vodka"
+],
+"n_eligible": 8,
+"sha": "b0f214960974802f4a321f94ed8091fb4d91931f98161a502747b98cae7dc7e2",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0011__L024__p61:milk:teawater": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0011__L024__p61:milk:teawater",
+"anchor": "tea",
+"nearest": [
+"matcha",
+"wine",
+"whiskey",
+"morning coffee"
+],
+"random": [
+"beer",
+"lemonade",
+"orange juice",
+"vodka"
+],
+"distractors": [
+"matcha",
+"wine",
+"whiskey",
+"morning coffee",
+"beer",
+"lemonade",
+"orange juice",
+"vodka"
+],
+"n_eligible": 8,
+"sha": "e3ec1fec896da096058c0d92e500fdf04234ade1b693ba9ae3c1b2fa33e9d7dc",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0011__L028__p30:coffee:teawater": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0011__L028__p30:coffee:teawater",
+"anchor": "tea",
+"nearest": [
+"matcha",
+"wine",
+"whiskey",
+"lemonade"
+],
+"random": [
+"beer",
+"orange juice",
+"vodka"
+],
+"distractors": [
+"matcha",
+"wine",
+"whiskey",
+"lemonade",
+"beer",
+"orange juice",
+"vodka"
+],
+"n_eligible": 7,
+"sha": "cf8c147ff748fb237071bad6626584147ec780f036f45b0182823a3293922f41",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0011__L028__p39:coffee:tea": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0011__L028__p39:coffee:tea",
+"anchor": "tea",
+"nearest": [
+"matcha",
+"wine",
+"whiskey",
+"lemonade"
+],
+"random": [
+"beer",
+"orange juice",
+"vodka"
+],
+"distractors": [
+"matcha",
+"wine",
+"whiskey",
+"lemonade",
+"beer",
+"orange juice",
+"vodka"
+],
+"n_eligible": 7,
+"sha": "b618ffbd477fb46ae86d15d3d0d6d4168ec033aece7e4030e153de24cce41264",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0011__L028__p50:coffee:tea": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0011__L028__p50:coffee:tea",
+"anchor": "tea",
+"nearest": [
+"matcha",
+"wine",
+"whiskey",
+"lemonade"
+],
+"random": [
+"beer",
+"orange juice",
+"vodka"
+],
+"distractors": [
+"matcha",
+"wine",
+"whiskey",
+"lemonade",
+"beer",
+"orange juice",
+"vodka"
+],
+"n_eligible": 7,
+"sha": "877082a71aa5e2bb1eee35a209d7596910351422d609bee5b4fab25d79ffa73c",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0011__L028__p52:coffee:teawater": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0011__L028__p52:coffee:teawater",
+"anchor": "tea",
+"nearest": [
+"matcha",
+"wine",
+"whiskey",
+"lemonade"
+],
+"random": [
+"beer",
+"orange juice",
+"vodka"
+],
+"distractors": [
+"matcha",
+"wine",
+"whiskey",
+"lemonade",
+"beer",
+"orange juice",
+"vodka"
+],
+"n_eligible": 7,
+"sha": "fbacbd47e254f4acd01073e8f7a6ca9d5adc0ae1897cc1c901e67d21188ce8c9",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0011__L032__p38:coffee:tea": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0011__L032__p38:coffee:tea",
+"anchor": "tea",
+"nearest": [
+"matcha",
+"wine",
+"whiskey",
+"lemonade"
+],
+"random": [
+"beer",
+"orange juice",
+"vodka"
+],
+"distractors": [
+"matcha",
+"wine",
+"whiskey",
+"lemonade",
+"beer",
+"orange juice",
+"vodka"
+],
+"n_eligible": 7,
+"sha": "d4742e12ee6bb77ade0321990df90eb834571c0d2d81b3ac9ef5f5f06e337a00",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0011__L032__p50:coffee:tea": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0011__L032__p50:coffee:tea",
+"anchor": "tea",
+"nearest": [
+"matcha",
+"wine",
+"whiskey",
+"lemonade"
+],
+"random": [
+"beer",
+"orange juice",
+"vodka"
+],
+"distractors": [
+"matcha",
+"wine",
+"whiskey",
+"lemonade",
+"beer",
+"orange juice",
+"vodka"
+],
+"n_eligible": 7,
+"sha": "1acaa8abd3b698357dde3dee0b8db2bef18e178dce199befad352b8b768c971b",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0011__L032__p51:coffee:tea": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0011__L032__p51:coffee:tea",
+"anchor": "tea",
+"nearest": [
+"matcha",
+"wine",
+"whiskey",
+"lemonade"
+],
+"random": [
+"beer",
+"orange juice",
+"vodka"
+],
+"distractors": [
+"matcha",
+"wine",
+"whiskey",
+"lemonade",
+"beer",
+"orange juice",
+"vodka"
+],
+"n_eligible": 7,
+"sha": "e28a8d0c578a39516da020c139bbd50fcbefb62f1babdacf01143aa081d09f90",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0011__L036__p30:coffee:teawater": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0011__L036__p30:coffee:teawater",
+"anchor": "tea",
+"nearest": [
+"matcha",
+"wine",
+"whiskey",
+"lemonade"
+],
+"random": [
+"beer",
+"orange juice",
+"vodka"
+],
+"distractors": [
+"matcha",
+"wine",
+"whiskey",
+"lemonade",
+"beer",
+"orange juice",
+"vodka"
+],
+"n_eligible": 7,
+"sha": "c190f2120791bd9dbcd95c029369630cf1458b040745829ce89bd52bbf15c0ca",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0011__L036__p38:coffee:tea": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0011__L036__p38:coffee:tea",
+"anchor": "tea",
+"nearest": [
+"matcha",
+"wine",
+"whiskey",
+"lemonade"
+],
+"random": [
+"beer",
+"orange juice",
+"vodka"
+],
+"distractors": [
+"matcha",
+"wine",
+"whiskey",
+"lemonade",
+"beer",
+"orange juice",
+"vodka"
+],
+"n_eligible": 7,
+"sha": "274ea29762e8cda3b572ab29f9e047320a5e78a67955f07033c1998e4a47869e",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0011__L036__p39:coffee:tea": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0011__L036__p39:coffee:tea",
+"anchor": "tea",
+"nearest": [
+"matcha",
+"wine",
+"whiskey",
+"lemonade"
+],
+"random": [
+"beer",
+"orange juice",
+"vodka"
+],
+"distractors": [
+"matcha",
+"wine",
+"whiskey",
+"lemonade",
+"beer",
+"orange juice",
+"vodka"
+],
+"n_eligible": 7,
+"sha": "6b684f0dc48a02746c3404c2b54ddfb9477d9f808313da1352857aa671920437",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0011__L036__p50:coffee:tea": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0011__L036__p50:coffee:tea",
+"anchor": "tea",
+"nearest": [
+"matcha",
+"wine",
+"whiskey",
+"lemonade"
+],
+"random": [
+"beer",
+"orange juice",
+"vodka"
+],
+"distractors": [
+"matcha",
+"wine",
+"whiskey",
+"lemonade",
+"beer",
+"orange juice",
+"vodka"
+],
+"n_eligible": 7,
+"sha": "7ef05e8875b9d7ebfae93b80b8a0a5a41df69807b1f882303a761f8e3e8e2535",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0011__L036__p51:coffee:tea": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0011__L036__p51:coffee:tea",
+"anchor": "tea",
+"nearest": [
+"matcha",
+"wine",
+"whiskey",
+"lemonade"
+],
+"random": [
+"beer",
+"orange juice",
+"vodka"
+],
+"distractors": [
+"matcha",
+"wine",
+"whiskey",
+"lemonade",
+"beer",
+"orange juice",
+"vodka"
+],
+"n_eligible": 7,
+"sha": "8153fca27dfd98f25a7f2c0caeb275710b536673faaa78247b6ef4520baebea6",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0011__L040__p24:coffee:tea": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0011__L040__p24:coffee:tea",
+"anchor": "tea",
+"nearest": [
+"matcha",
+"wine",
+"whiskey",
+"lemonade"
+],
+"random": [
+"beer",
+"orange juice",
+"vodka"
+],
+"distractors": [
+"matcha",
+"wine",
+"whiskey",
+"lemonade",
+"beer",
+"orange juice",
+"vodka"
+],
+"n_eligible": 7,
+"sha": "6f587da99a240edd91d802ebef2ffae6aa19dc9d0b083d1e28c48a5d81910949",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0011__L040__p39:coffee:tea": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0011__L040__p39:coffee:tea",
+"anchor": "tea",
+"nearest": [
+"matcha",
+"wine",
+"whiskey",
+"lemonade"
+],
+"random": [
+"beer",
+"orange juice",
+"vodka"
+],
+"distractors": [
+"matcha",
+"wine",
+"whiskey",
+"lemonade",
+"beer",
+"orange juice",
+"vodka"
+],
+"n_eligible": 7,
+"sha": "b37fc021fa3a8c2417103616cffed02c7773753a30f1345020c3968d7dafe939",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0011__L040__p50:coffee:tea": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0011__L040__p50:coffee:tea",
+"anchor": "tea",
+"nearest": [
+"matcha",
+"wine",
+"whiskey",
+"lemonade"
+],
+"random": [
+"beer",
+"orange juice",
+"vodka"
+],
+"distractors": [
+"matcha",
+"wine",
+"whiskey",
+"lemonade",
+"beer",
+"orange juice",
+"vodka"
+],
+"n_eligible": 7,
+"sha": "4a6d693201785d9a0399516fead861cb87113a8737d889164e52b87577ad8e9b",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0011__L040__p61:coffee:tea": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0011__L040__p61:coffee:tea",
+"anchor": "tea",
+"nearest": [
+"matcha",
+"wine",
+"whiskey",
+"lemonade"
+],
+"random": [
+"beer",
+"orange juice",
+"vodka"
+],
+"distractors": [
+"matcha",
+"wine",
+"whiskey",
+"lemonade",
+"beer",
+"orange juice",
+"vodka"
+],
+"n_eligible": 7,
+"sha": "90789cab1c15b513615d9f1068a96a84aaea7c6bf36ad5f5f7eb7fe7274f9844",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0011__L044__p24:coffee:teawater": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0011__L044__p24:coffee:teawater",
+"anchor": "tea",
+"nearest": [
+"matcha",
+"wine",
+"whiskey",
+"lemonade"
+],
+"random": [
+"beer",
+"orange juice",
+"vodka"
+],
+"distractors": [
+"matcha",
+"wine",
+"whiskey",
+"lemonade",
+"beer",
+"orange juice",
+"vodka"
+],
+"n_eligible": 7,
+"sha": "2ffae139b504dcbd469549bf8a0197a44d5b357a1b1be63ecbe3a6727781d79a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0011__L044__p50:coffee:tea": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0011__L044__p50:coffee:tea",
+"anchor": "tea",
+"nearest": [
+"matcha",
+"wine",
+"whiskey",
+"lemonade"
+],
+"random": [
+"beer",
+"orange juice",
+"vodka"
+],
+"distractors": [
+"matcha",
+"wine",
+"whiskey",
+"lemonade",
+"beer",
+"orange juice",
+"vodka"
+],
+"n_eligible": 7,
+"sha": "7baed72d2899959b9b4242564d4af1a05743b07dfec537635ccace66f0ed1948",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0011__L044__p51:coffee:tea": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0011__L044__p51:coffee:tea",
+"anchor": "tea",
+"nearest": [
+"matcha",
+"wine",
+"whiskey",
+"lemonade"
+],
+"random": [
+"beer",
+"orange juice",
+"vodka"
+],
+"distractors": [
+"matcha",
+"wine",
+"whiskey",
+"lemonade",
+"beer",
+"orange juice",
+"vodka"
+],
+"n_eligible": 7,
+"sha": "fd0cf5f4d2e4ae53b436c221f4c9bd74432004ed20f5a0d07c4c5d04dabdada3",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0011__L048__p24:coffee:teawater": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0011__L048__p24:coffee:teawater",
+"anchor": "tea",
+"nearest": [
+"matcha",
+"wine",
+"whiskey",
+"lemonade"
+],
+"random": [
+"beer",
+"orange juice",
+"vodka"
+],
+"distractors": [
+"matcha",
+"wine",
+"whiskey",
+"lemonade",
+"beer",
+"orange juice",
+"vodka"
+],
+"n_eligible": 7,
+"sha": "fd148a943525cf62494987441283d17774c63c883320f16dd41fa908cbca8e99",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0011__L048__p50:coffee:tea": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0011__L048__p50:coffee:tea",
+"anchor": "tea",
+"nearest": [
+"matcha",
+"wine",
+"whiskey",
+"lemonade"
+],
+"random": [
+"beer",
+"orange juice",
+"vodka"
+],
+"distractors": [
+"matcha",
+"wine",
+"whiskey",
+"lemonade",
+"beer",
+"orange juice",
+"vodka"
+],
+"n_eligible": 7,
+"sha": "db843b18155949e5ffe9fca6afc7b026380ab9ef6e502fa3a4e6015519c95650",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0011__L048__p51:coffee:tea": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0011__L048__p51:coffee:tea",
+"anchor": "tea",
+"nearest": [
+"matcha",
+"wine",
+"whiskey",
+"lemonade"
+],
+"random": [
+"beer",
+"orange juice",
+"vodka"
+],
+"distractors": [
+"matcha",
+"wine",
+"whiskey",
+"lemonade",
+"beer",
+"orange juice",
+"vodka"
+],
+"n_eligible": 7,
+"sha": "13f21c2be42bbff84a35ca47b4db59e32196a60d70b4968d63802f04a72dc848",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0011__L048__p52:coffee:tea": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0011__L048__p52:coffee:tea",
+"anchor": "tea",
+"nearest": [
+"matcha",
+"wine",
+"whiskey",
+"lemonade"
+],
+"random": [
+"beer",
+"orange juice",
+"vodka"
+],
+"distractors": [
+"matcha",
+"wine",
+"whiskey",
+"lemonade",
+"beer",
+"orange juice",
+"vodka"
+],
+"n_eligible": 7,
+"sha": "8fbb10d70120f0d913c793c1a794f94d8fd45408f5167e6343c5e50705951625",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0011__L048__p61:coffee:tea": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0011__L048__p61:coffee:tea",
+"anchor": "tea",
+"nearest": [
+"matcha",
+"wine",
+"whiskey",
+"lemonade"
+],
+"random": [
+"beer",
+"orange juice",
+"vodka"
+],
+"distractors": [
+"matcha",
+"wine",
+"whiskey",
+"lemonade",
+"beer",
+"orange juice",
+"vodka"
+],
+"n_eligible": 7,
+"sha": "352b8394a161d4ef78b7ec077b9cebd36b09491cc61649a87870134046068bdc",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0011__L052__p24:coffee:tea": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0011__L052__p24:coffee:tea",
+"anchor": "tea",
+"nearest": [
+"matcha",
+"wine",
+"whiskey",
+"lemonade"
+],
+"random": [
+"beer",
+"orange juice",
+"vodka"
+],
+"distractors": [
+"matcha",
+"wine",
+"whiskey",
+"lemonade",
+"beer",
+"orange juice",
+"vodka"
+],
+"n_eligible": 7,
+"sha": "9b20cd7ef8b7990a504128ab5fa7bb5150342dc96fbf6ca843a131c7cdc36ed9",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0011__L052__p50:coffee:tea": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0011__L052__p50:coffee:tea",
+"anchor": "tea",
+"nearest": [
+"matcha",
+"wine",
+"whiskey",
+"lemonade"
+],
+"random": [
+"beer",
+"orange juice",
+"vodka"
+],
+"distractors": [
+"matcha",
+"wine",
+"whiskey",
+"lemonade",
+"beer",
+"orange juice",
+"vodka"
+],
+"n_eligible": 7,
+"sha": "bfe788d796c9222b78b2e0fec7a646ab5c9fdde17ea6519fa6c4d4a5771c3f24",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0011__L052__p51:coffee:tea": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0011__L052__p51:coffee:tea",
+"anchor": "tea",
+"nearest": [
+"matcha",
+"wine",
+"whiskey",
+"lemonade"
+],
+"random": [
+"beer",
+"orange juice",
+"vodka"
+],
+"distractors": [
+"matcha",
+"wine",
+"whiskey",
+"lemonade",
+"beer",
+"orange juice",
+"vodka"
+],
+"n_eligible": 7,
+"sha": "b809cdc45b2dd2593e2e2dc2ca56528a70819e1d138f1018adee1fda457db924",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0011__L052__p61:coffee:tea": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0011__L052__p61:coffee:tea",
+"anchor": "tea",
+"nearest": [
+"matcha",
+"wine",
+"whiskey",
+"lemonade"
+],
+"random": [
+"beer",
+"orange juice",
+"vodka"
+],
+"distractors": [
+"matcha",
+"wine",
+"whiskey",
+"lemonade",
+"beer",
+"orange juice",
+"vodka"
+],
+"n_eligible": 7,
+"sha": "69ff27c0ee2b90500549d92c27c59bd0bbe3d2956fe02aa69deb5703a8637baf",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0011__L056__p39:coffee:tea": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0011__L056__p39:coffee:tea",
+"anchor": "tea",
+"nearest": [
+"matcha",
+"wine",
+"whiskey",
+"lemonade"
+],
+"random": [
+"beer",
+"orange juice",
+"vodka"
+],
+"distractors": [
+"matcha",
+"wine",
+"whiskey",
+"lemonade",
+"beer",
+"orange juice",
+"vodka"
+],
+"n_eligible": 7,
+"sha": "c8b8ad445beb52fc769c9cdf91a5b9cc2339009fead95adf31c57f622e1658ce",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0011__L060__p24:coffee:tea": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0011__L060__p24:coffee:tea",
+"anchor": "tea",
+"nearest": [
+"matcha",
+"wine",
+"whiskey",
+"lemonade"
+],
+"random": [
+"beer",
+"orange juice",
+"vodka"
+],
+"distractors": [
+"matcha",
+"wine",
+"whiskey",
+"lemonade",
+"beer",
+"orange juice",
+"vodka"
+],
+"n_eligible": 7,
+"sha": "40515bc37186f7d3820fd158ae1fe263361a1114aae2aeef744b0277ae29cfec",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0011__L060__p39:coffee:tea": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0011__L060__p39:coffee:tea",
+"anchor": "tea",
+"nearest": [
+"matcha",
+"wine",
+"whiskey",
+"lemonade"
+],
+"random": [
+"beer",
+"orange juice",
+"vodka"
+],
+"distractors": [
+"matcha",
+"wine",
+"whiskey",
+"lemonade",
+"beer",
+"orange juice",
+"vodka"
+],
+"n_eligible": 7,
+"sha": "6fc1f58502f0c8f5d57e64d4fe9b6197ac2cc900776eae021d129000aec7b4dd",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0011__L060__p39:virtualcoffee:teawater": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0011__L060__p39:virtualcoffee:teawater",
+"anchor": "tea",
+"nearest": [
+"matcha",
+"wine",
+"whiskey",
+"lemonade"
+],
+"random": [
+"beer",
+"orange juice",
+"vodka"
+],
+"distractors": [
+"matcha",
+"wine",
+"whiskey",
+"lemonade",
+"beer",
+"orange juice",
+"vodka"
+],
+"n_eligible": 7,
+"sha": "3ffabdd070ca63ec5a0ee6cb4e3c3afdf58df12cfda367299cda099ee467b6bd",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0011__L060__p51:coffee:tea": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0011__L060__p51:coffee:tea",
+"anchor": "tea",
+"nearest": [
+"matcha",
+"wine",
+"whiskey",
+"lemonade"
+],
+"random": [
+"beer",
+"orange juice",
+"vodka"
+],
+"distractors": [
+"matcha",
+"wine",
+"whiskey",
+"lemonade",
+"beer",
+"orange juice",
+"vodka"
+],
+"n_eligible": 7,
+"sha": "030023b60e301bf91cf48ad99adb369e7321ab9640a0b6ad96f00044430277bc",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0011__L060__p61:coffee:tea": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0011__L060__p61:coffee:tea",
+"anchor": "tea",
+"nearest": [
+"matcha",
+"wine",
+"whiskey",
+"lemonade"
+],
+"random": [
+"beer",
+"orange juice",
+"vodka"
+],
+"distractors": [
+"matcha",
+"wine",
+"whiskey",
+"lemonade",
+"beer",
+"orange juice",
+"vodka"
+],
+"n_eligible": 7,
+"sha": "ec97012d0097452ad116ab20e2e3371063a5fcaa726938042b22736130cfca4e",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0057__L020__p36:coffee:beers": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0057__L020__p36:coffee:beers",
+"anchor": "beer",
+"nearest": [
+"wine",
+"whiskey",
+"vodka",
+"afternoon tea"
+],
+"random": [
+"milk",
+"orange juice",
+"tea",
+"water"
+],
+"distractors": [
+"wine",
+"whiskey",
+"vodka",
+"afternoon tea",
+"milk",
+"orange juice",
+"tea",
+"water"
+],
+"n_eligible": 16,
+"sha": "ecb4e5264c44bee8384e7e926c39e3ae9acb0cf783a76fab88bf6e8f055a588a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0057__L024__p36:coffee:beers": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0057__L024__p36:coffee:beers",
+"anchor": "beer",
+"nearest": [
+"wine",
+"whiskey",
+"vodka",
+"afternoon tea"
+],
+"random": [
+"Japanese tea",
+"green tea",
+"orange juice",
+"soup"
+],
+"distractors": [
+"wine",
+"whiskey",
+"vodka",
+"afternoon tea",
+"Japanese tea",
+"green tea",
+"orange juice",
+"soup"
+],
+"n_eligible": 16,
+"sha": "c069014c8a557d9ec67bf96fdf0f1db21dcd7bf63d67a93c958ae2d287b0081a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0057__L024__p36:coffeeafterwork:afewbeersafterdinner": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0057__L024__p36:coffeeafterwork:afewbeersafterdinner",
+"anchor": "beer",
+"nearest": [
+"wine",
+"whiskey",
+"vodka",
+"afternoon tea"
+],
+"random": [
+"green tea",
+"hot chocolate",
+"juice",
+"tea"
+],
+"distractors": [
+"wine",
+"whiskey",
+"vodka",
+"afternoon tea",
+"green tea",
+"hot chocolate",
+"juice",
+"tea"
+],
+"n_eligible": 16,
+"sha": "72a698299abb61beb5e0b7a15406d0ba8c6896317469ccb47f2e53877fb63f76",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0057__L028__p36:coffeethisafternoon:afewbeersafterdinner": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0057__L028__p36:coffeethisafternoon:afewbeersafterdinner",
+"anchor": "beer",
+"nearest": [
+"wine",
+"whiskey",
+"vodka",
+"afternoon tea"
+],
+"random": [
+"juice",
+"lemonade",
+"orange juice",
+"soup"
+],
+"distractors": [
+"wine",
+"whiskey",
+"vodka",
+"afternoon tea",
+"juice",
+"lemonade",
+"orange juice",
+"soup"
+],
+"n_eligible": 16,
+"sha": "49cde556f6b639f48bb08a9594e87b2ac38d48794b9fff078f3cce66b534700a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0057__L032__p30::": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0057__L032__p30::",
+"anchor": "beer",
+"nearest": [
+"wine",
+"whiskey",
+"vodka",
+"afternoon tea"
+],
+"random": [
+"hot chocolate",
+"milk",
+"orange juice",
+"soup"
+],
+"distractors": [
+"wine",
+"whiskey",
+"vodka",
+"afternoon tea",
+"hot chocolate",
+"milk",
+"orange juice",
+"soup"
+],
+"n_eligible": 16,
+"sha": "0001bd75caf71a57c8b1358020c1fcba5db60e8ba7784e2f7c8f3f372c679859",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0057__L032__p30:coffee:beers": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0057__L032__p30:coffee:beers",
+"anchor": "beer",
+"nearest": [
+"wine",
+"whiskey",
+"vodka",
+"afternoon tea"
+],
+"random": [
+"green tea",
+"matcha",
+"soup",
+"water"
+],
+"distractors": [
+"wine",
+"whiskey",
+"vodka",
+"afternoon tea",
+"green tea",
+"matcha",
+"soup",
+"water"
+],
+"n_eligible": 16,
+"sha": "54e273581b8c3787be864b939b0710a9f4cf42a51c918998b37cde6b26b06ec9",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0071__L020__p88:tea:coffee": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0071__L020__p88:tea:coffee",
+"anchor": "coffee",
+"nearest": [
+"wine",
+"soda",
+"milk",
+"beer"
+],
+"random": [
+"juice",
+"lemonade",
+"soup",
+"water"
+],
+"distractors": [
+"wine",
+"soda",
+"milk",
+"beer",
+"juice",
+"lemonade",
+"soup",
+"water"
+],
+"n_eligible": 12,
+"sha": "5b1040175baaa1a5c732e66662a78f67b5c390e957700eb5a4c1468f04eb9fa7",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0071__L024__p88:tea:coffee": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0071__L024__p88:tea:coffee",
+"anchor": "coffee",
+"nearest": [
+"wine",
+"soda",
+"milk",
+"beer"
+],
+"random": [
+"hot chocolate",
+"lemonade",
+"soup",
+"vodka"
+],
+"distractors": [
+"wine",
+"soda",
+"milk",
+"beer",
+"hot chocolate",
+"lemonade",
+"soup",
+"vodka"
+],
+"n_eligible": 12,
+"sha": "2e20dcac75e7ac7da27269d729125c31cb99b115bec48ef6caa6f054a1379e14",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0071__L028__p88:tea:coffee": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0071__L028__p88:tea:coffee",
+"anchor": "coffee",
+"nearest": [
+"wine",
+"soda",
+"milk",
+"beer"
+],
+"random": [
+"hot chocolate",
+"lemonade",
+"soup",
+"water"
+],
+"distractors": [
+"wine",
+"soda",
+"milk",
+"beer",
+"hot chocolate",
+"lemonade",
+"soup",
+"water"
+],
+"n_eligible": 12,
+"sha": "86a8f2964ab2f99b87f9b0cd7d89a2b5b29d7bcc7ccecb14d040cb905a96c3f7",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0071__L032__p88:afternoontea:morningcoffee": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0071__L032__p88:afternoontea:morningcoffee",
+"anchor": "morning coffee",
+"nearest": [
+"water",
+"hot chocolate",
+"juice",
+"beer"
+],
+"random": [
+"milk",
+"soda",
+"soup",
+"wine"
+],
+"distractors": [
+"water",
+"hot chocolate",
+"juice",
+"beer",
+"milk",
+"soda",
+"soup",
+"wine"
+],
+"n_eligible": 12,
+"sha": "1545dae2e107a6c39683e6c54f22cb01cec1025852e82ac0083fc1556dcf1c19",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0071__L032__p88:matcha:coffee": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0071__L032__p88:matcha:coffee",
+"anchor": "coffee",
+"nearest": [
+"wine",
+"soda",
+"milk",
+"beer"
+],
+"random": [
+"juice",
+"orange juice",
+"vodka",
+"whiskey"
+],
+"distractors": [
+"wine",
+"soda",
+"milk",
+"beer",
+"juice",
+"orange juice",
+"vodka",
+"whiskey"
+],
+"n_eligible": 12,
+"sha": "c41ec4d1f352a150a924d9b6bcd5cb2aae0407eb06c83c064c3e0a6091f9b0c1",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0071__L032__p88:tea:coffee": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0071__L032__p88:tea:coffee",
+"anchor": "coffee",
+"nearest": [
+"wine",
+"soda",
+"milk",
+"beer"
+],
+"random": [
+"juice",
+"lemonade",
+"orange juice",
+"whiskey"
+],
+"distractors": [
+"wine",
+"soda",
+"milk",
+"beer",
+"juice",
+"lemonade",
+"orange juice",
+"whiskey"
+],
+"n_eligible": 12,
+"sha": "80b36d1c10a8044d01002caf0b1014587de1e69552774eff19c7ae95452f0856",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0071__L036__p88:greentea:coffee": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0071__L036__p88:greentea:coffee",
+"anchor": "coffee",
+"nearest": [
+"wine",
+"soda",
+"milk",
+"beer"
+],
+"random": [
+"juice",
+"lemonade",
+"soup",
+"water"
+],
+"distractors": [
+"wine",
+"soda",
+"milk",
+"beer",
+"juice",
+"lemonade",
+"soup",
+"water"
+],
+"n_eligible": 12,
+"sha": "6aefeb19c0d1cf70f6c8aca941228e737773aa76b7841a59d4f927d47cea2c12",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0071__L036__p88:morningtea:morningcoffee": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0071__L036__p88:morningtea:morningcoffee",
+"anchor": "coffee",
+"nearest": [
+"wine",
+"soda",
+"milk",
+"beer"
+],
+"random": [
+"lemonade",
+"soup",
+"water",
+"whiskey"
+],
+"distractors": [
+"wine",
+"soda",
+"milk",
+"beer",
+"lemonade",
+"soup",
+"water",
+"whiskey"
+],
+"n_eligible": 12,
+"sha": "d2d5414ad89156b21e566e6c6ef2c7fe10dc1978c13f779adc5304c1ae0cdcda",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0071__L036__p88:tea:coffee": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0071__L036__p88:tea:coffee",
+"anchor": "coffee",
+"nearest": [
+"wine",
+"soda",
+"milk",
+"beer"
+],
+"random": [
+"juice",
+"lemonade",
+"orange juice",
+"vodka"
+],
+"distractors": [
+"wine",
+"soda",
+"milk",
+"beer",
+"juice",
+"lemonade",
+"orange juice",
+"vodka"
+],
+"n_eligible": 12,
+"sha": "75fbc685bc4e63adb552f79956c57cda46d8c1bd1042851060f2ddf0be6ad89d",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0071__L044__p45:matcha:coffee": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0071__L044__p45:matcha:coffee",
+"anchor": "coffee",
+"nearest": [
+"wine",
+"soda",
+"milk",
+"beer"
+],
+"random": [
+"juice",
+"lemonade",
+"vodka",
+"whiskey"
+],
+"distractors": [
+"wine",
+"soda",
+"milk",
+"beer",
+"juice",
+"lemonade",
+"vodka",
+"whiskey"
+],
+"n_eligible": 12,
+"sha": "752fa0480254942e21954b0d9586a42e0f99849171a2936f1018cdf31c59d5e6",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0071__L044__p88:japanesetea:coffee": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0071__L044__p88:japanesetea:coffee",
+"anchor": "coffee",
+"nearest": [
+"wine",
+"soda",
+"milk",
+"beer"
+],
+"random": [
+"juice",
+"soup",
+"vodka",
+"water"
+],
+"distractors": [
+"wine",
+"soda",
+"milk",
+"beer",
+"juice",
+"soup",
+"vodka",
+"water"
+],
+"n_eligible": 12,
+"sha": "8a94159b486e00248d92697a49d62c41b7abd17ee2f699802f971da8f57a0210",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0071__L044__p88:tea:coffee": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0071__L044__p88:tea:coffee",
+"anchor": "coffee",
+"nearest": [
+"wine",
+"soda",
+"milk",
+"beer"
+],
+"random": [
+"orange juice",
+"soup",
+"vodka",
+"water"
+],
+"distractors": [
+"wine",
+"soda",
+"milk",
+"beer",
+"orange juice",
+"soup",
+"vodka",
+"water"
+],
+"n_eligible": 12,
+"sha": "44dc95b7d745cb79bdf5f126356615a606474c3b992df07da4bb817dc5d21416",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0071__L048__p45::": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0071__L048__p45::",
+"anchor": "coffee",
+"nearest": [
+"wine",
+"soda",
+"milk",
+"beer"
+],
+"random": [
+"hot chocolate",
+"juice",
+"lemonade",
+"whiskey"
+],
+"distractors": [
+"wine",
+"soda",
+"milk",
+"beer",
+"hot chocolate",
+"juice",
+"lemonade",
+"whiskey"
+],
+"n_eligible": 12,
+"sha": "cb0ee89135660e7f65a476f0beb9842d8ac9ee9dfde095c865ba2c6ed56129b7",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0071__L048__p45:matcha:coffee": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0071__L048__p45:matcha:coffee",
+"anchor": "coffee",
+"nearest": [
+"wine",
+"soda",
+"milk",
+"beer"
+],
+"random": [
+"juice",
+"lemonade",
+"orange juice",
+"vodka"
+],
+"distractors": [
+"wine",
+"soda",
+"milk",
+"beer",
+"juice",
+"lemonade",
+"orange juice",
+"vodka"
+],
+"n_eligible": 12,
+"sha": "fcb9b16d0481529c4be3753ef587ea95d324711b5ad021cb5dbfc9de9e309cbc",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0071__L048__p45:tea:coffee": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0071__L048__p45:tea:coffee",
+"anchor": "coffee",
+"nearest": [
+"wine",
+"soda",
+"milk",
+"beer"
+],
+"random": [
+"hot chocolate",
+"juice",
+"soup",
+"water"
+],
+"distractors": [
+"wine",
+"soda",
+"milk",
+"beer",
+"hot chocolate",
+"juice",
+"soup",
+"water"
+],
+"n_eligible": 12,
+"sha": "2d991ac7bf8defae94ba1dabc2239f9a8de8d11d2dbced903efb18d77258e515",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0071__L048__p81:matchatea:coffee": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0071__L048__p81:matchatea:coffee",
+"anchor": "coffee",
+"nearest": [
+"wine",
+"soda",
+"milk",
+"beer"
+],
+"random": [
+"lemonade",
+"soup",
+"vodka",
+"whiskey"
+],
+"distractors": [
+"wine",
+"soda",
+"milk",
+"beer",
+"lemonade",
+"soup",
+"vodka",
+"whiskey"
+],
+"n_eligible": 12,
+"sha": "d18bbcc9aa84e340c42600992bc11d3824bd28ac003f781c0ee1fb50cd9a54c8",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0071__L048__p81:tea:coffee": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0071__L048__p81:tea:coffee",
+"anchor": "coffee",
+"nearest": [
+"wine",
+"soda",
+"milk",
+"beer"
+],
+"random": [
+"juice",
+"orange juice",
+"soup",
+"whiskey"
+],
+"distractors": [
+"wine",
+"soda",
+"milk",
+"beer",
+"juice",
+"orange juice",
+"soup",
+"whiskey"
+],
+"n_eligible": 12,
+"sha": "2935b390ab8ab90d75d773337543b730f0e8d4647118c549083b4b280c6006f0",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0071__L052__p25:tea:coffee": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0071__L052__p25:tea:coffee",
+"anchor": "coffee",
+"nearest": [
+"wine",
+"soda",
+"milk",
+"beer"
+],
+"random": [
+"orange juice",
+"soup",
+"vodka",
+"whiskey"
+],
+"distractors": [
+"wine",
+"soda",
+"milk",
+"beer",
+"orange juice",
+"soup",
+"vodka",
+"whiskey"
+],
+"n_eligible": 12,
+"sha": "c065f266d37f10602f01aac8032d8aeef0c99a86ae832e792e87b07b4b567162",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0071__L056__p25:tea:coffee": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0071__L056__p25:tea:coffee",
+"anchor": "coffee",
+"nearest": [
+"wine",
+"soda",
+"milk",
+"beer"
+],
+"random": [
+"juice",
+"lemonade",
+"water",
+"whiskey"
+],
+"distractors": [
+"wine",
+"soda",
+"milk",
+"beer",
+"juice",
+"lemonade",
+"water",
+"whiskey"
+],
+"n_eligible": 12,
+"sha": "fee0dc6e2b2699c1cd82a7f76c5d71cd9b0865ec2b85af148adca07d79480ee6",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0071__L060__p25:tea:coffee": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0071__L060__p25:tea:coffee",
+"anchor": "coffee",
+"nearest": [
+"wine",
+"soda",
+"milk",
+"beer"
+],
+"random": [
+"orange juice",
+"soup",
+"vodka",
+"water"
+],
+"distractors": [
+"wine",
+"soda",
+"milk",
+"beer",
+"orange juice",
+"soup",
+"vodka",
+"water"
+],
+"n_eligible": 12,
+"sha": "b9949624b878c9d71f9e0499eb46b282e0b0228d2483367bbea65b7ad5217cbe",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-dailydialog-0011__L020__p24:coffee:tea": {
 "unit": "mlnla-rl2-800-all11:chat-dailydialog-0011__L020__p24:coffee:tea",
 "anchor": "tea",

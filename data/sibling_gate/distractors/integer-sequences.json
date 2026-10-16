@@ -1,4 +1,36 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0056__L020__p58:evennumbers:fibonaccinumbers": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0056__L020__p58:evennumbers:fibonaccinumbers",
+"anchor": "Fibonacci numbers",
+"nearest": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"random": [],
+"distractors": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"n_eligible": 2,
+"sha": "3975c3eba05ab8fba1a1c0cf53afcf99a2464f5659c52c073e9238fc5f4c4d82",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0056__L036__p152:primenumbers:fibonaccinumbers": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0056__L036__p152:primenumbers:fibonaccinumbers",
+"anchor": "Fibonacci numbers",
+"nearest": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"random": [],
+"distractors": [
+"Lucas numbers",
+"Catalan numbers"
+],
+"n_eligible": 2,
+"sha": "4672c2fd38a7664ca49f9481dcb0f1ded77e8b93bb8c8f0d20ca86e8c16f38e4",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0056__L028__p152:naturalnumbers1100:fibonaccinumbers": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0056__L028__p152:naturalnumbers1100:fibonaccinumbers",
 "anchor": "Fibonacci numbers",

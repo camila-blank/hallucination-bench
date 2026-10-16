@@ -1,0 +1,140 @@
+{
+"mlnla-ck2000-all11:chat-lmsys-0012__L024__p504:swiftui:flutter": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0012__L024__p504:swiftui:flutter",
+"anchor": "Flutter",
+"nearest": [
+"Windows Forms",
+"Qt",
+"Windows Presentation Foundation",
+"Ember.js"
+],
+"random": [
+"Svelte"
+],
+"distractors": [
+"Windows Forms",
+"Qt",
+"Windows Presentation Foundation",
+"Ember.js",
+"Svelte"
+],
+"n_eligible": 5,
+"sha": "75bfd70da106b1e2e104ee8b2baedcfb05dee43a105338b4bf4b2257bcdd16a6",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0012__L032__p578:swiftui:flutter": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0012__L032__p578:swiftui:flutter",
+"anchor": "Flutter",
+"nearest": [
+"Windows Forms",
+"Qt",
+"Windows Presentation Foundation",
+"Ember.js"
+],
+"random": [
+"Svelte"
+],
+"distractors": [
+"Windows Forms",
+"Qt",
+"Windows Presentation Foundation",
+"Ember.js",
+"Svelte"
+],
+"n_eligible": 5,
+"sha": "1782177866bd6b1549656013099c23e0fe0cf3f79bff2c06a001c090aefd0d79",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0012__L052__p684:javadesktopstack:flutter": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0012__L052__p684:javadesktopstack:flutter",
+"anchor": "Flutter",
+"nearest": [
+"Windows Forms",
+"Qt",
+"Windows Presentation Foundation",
+"Ember.js"
+],
+"random": [
+"Svelte"
+],
+"distractors": [
+"Windows Forms",
+"Qt",
+"Windows Presentation Foundation",
+"Ember.js",
+"Svelte"
+],
+"n_eligible": 5,
+"sha": "40b140dfa0c45f2e05bddf137ccdb59a4588ff4a042169446aefc753a1f46260",
+"generation": 1
+},
+"mlnla-rl600-all11:chat-lmsys-0012__L036__p316:androidjetpackcompose:flutter": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0012__L036__p316:androidjetpackcompose:flutter",
+"anchor": "Flutter",
+"nearest": [
+"Windows Forms",
+"Qt",
+"Windows Presentation Foundation",
+"Ember.js"
+],
+"random": [
+"Svelte"
+],
+"distractors": [
+"Windows Forms",
+"Qt",
+"Windows Presentation Foundation",
+"Ember.js",
+"Svelte"
+],
+"n_eligible": 5,
+"sha": "23234cc1cd401c588349700bf3e7290c9d69598ad7e97b070524ca081865c73b",
+"generation": 1
+},
+"mlnla-rl600-all11:chat-lmsys-0012__L040__p650:sapui5:tablecalendarflutterpackages": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0012__L040__p650:sapui5:tablecalendarflutterpackages",
+"anchor": "Flutter",
+"nearest": [
+"Windows Forms",
+"Qt",
+"Windows Presentation Foundation",
+"Ember.js"
+],
+"random": [
+"Svelte"
+],
+"distractors": [
+"Windows Forms",
+"Qt",
+"Windows Presentation Foundation",
+"Ember.js",
+"Svelte"
+],
+"n_eligible": 5,
+"sha": "128e59fc68773127831f68e93789b74fd193a5d6231d98fad0f81537788f914b",
+"generation": 1
+},
+"s3d-rl600:chat-lmsys-0012__L020__p745:bootstrap5:graphic": {
+"unit": "s3d-rl600:chat-lmsys-0012__L020__p745:bootstrap5:graphic",
+"anchor": "Flutter",
+"nearest": [
+"Windows Forms",
+"Qt",
+"Windows Presentation Foundation",
+"Ember.js"
+],
+"random": [
+"Svelte"
+],
+"distractors": [
+"Windows Forms",
+"Qt",
+"Windows Presentation Foundation",
+"Ember.js",
+"Svelte"
+],
+"n_eligible": 5,
+"sha": "6f9a96cf8d075ddf5b14778bf7d28d54c39987724c40b238b8d8863bab438d42",
+"generation": 1
+}
+}

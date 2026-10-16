@@ -86,6 +86,122 @@
 "sha": "7af82d95430b957e795f6d2798fa8a5f0f6ab0f3d9fb27f4668bbc239c38f184",
 "generation": 0
 },
+"mlnla-ck2000-all11:chat-dailydialog-0044__L048__p136:uspresidentsday:springfestival": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0044__L048__p136:uspresidentsday:springfestival",
+"anchor": "Spring Festival",
+"nearest": [
+"Hanukkah",
+"Ramadan",
+"Easter",
+"New Year's Day"
+],
+"random": [
+"Halloween",
+"Independence Day",
+"Memorial Day",
+"New Year's Eve"
+],
+"distractors": [
+"Hanukkah",
+"Ramadan",
+"Easter",
+"New Year's Day",
+"Halloween",
+"Independence Day",
+"Memorial Day",
+"New Year's Eve"
+],
+"n_eligible": 9,
+"sha": "83ecbb70f4e422364a2b432f65e486e5a013403f7bddcbf339999cff5c77920a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0044__L048__p289:earthday:springfestival": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0044__L048__p289:earthday:springfestival",
+"anchor": "Spring Festival",
+"nearest": [
+"Hanukkah",
+"Ramadan",
+"Easter",
+"New Year's Day"
+],
+"random": [
+"Halloween",
+"Independence Day",
+"Memorial Day",
+"New Year's Eve"
+],
+"distractors": [
+"Hanukkah",
+"Ramadan",
+"Easter",
+"New Year's Day",
+"Halloween",
+"Independence Day",
+"Memorial Day",
+"New Year's Eve"
+],
+"n_eligible": 9,
+"sha": "1baebac5207dbfcbd0c64605b0dc17993e0203576ea840aef407a333f63bbba0",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0044__L048__p289:worldoceansday:springfestival": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0044__L048__p289:worldoceansday:springfestival",
+"anchor": "Spring Festival",
+"nearest": [
+"Hanukkah",
+"Ramadan",
+"Easter",
+"New Year's Day"
+],
+"random": [
+"Halloween",
+"Independence Day",
+"Labor Day",
+"Memorial Day"
+],
+"distractors": [
+"Hanukkah",
+"Ramadan",
+"Easter",
+"New Year's Day",
+"Halloween",
+"Independence Day",
+"Labor Day",
+"Memorial Day"
+],
+"n_eligible": 9,
+"sha": "8d08c40b3ec47d607c83d5c47638d858d8d21a88ffc01db822fed753124a9e2f",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0047__L048__p391:labordayweekend:memorialdayweekend": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0047__L048__p391:labordayweekend:memorialdayweekend",
+"anchor": "Memorial Day",
+"nearest": [
+"Presidents' Day",
+"World Oceans Day",
+"Earth Day",
+"New Year's Day"
+],
+"random": [
+"Christmas",
+"Halloween",
+"Hanukkah",
+"Valentine's Day"
+],
+"distractors": [
+"Presidents' Day",
+"World Oceans Day",
+"Earth Day",
+"New Year's Day",
+"Christmas",
+"Halloween",
+"Hanukkah",
+"Valentine's Day"
+],
+"n_eligible": 11,
+"sha": "cc56bd820c2ef23f6f31ddd75cbfef1804a65e850e32ae0b8a9a977117c7e945",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-dailydialog-0044__L020__p408:christmasintheusa:springfestivalinchina": {
 "unit": "mlnla-rl2-800-all11:chat-dailydialog-0044__L020__p408:christmasintheusa:springfestivalinchina",
 "anchor": "Spring Festival",

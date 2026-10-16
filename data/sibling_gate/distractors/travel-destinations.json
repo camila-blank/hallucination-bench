@@ -1,4 +1,94 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0047__L036__p586:disneyworld:rosemarybeach": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0047__L036__p586:disneyworld:rosemarybeach",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Hong Kong",
+"Bali",
+"Egypt"
+],
+"random": [],
+"distractors": [
+"Hong Kong",
+"Bali",
+"Egypt"
+],
+"n_eligible": 3,
+"sha": "b9ddcc671a6c16e45e1132aefcccf567cd57f9d193ed16dc6c6041c6771bd495",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0047__L044__p586:disneyworld:rosemarybeach": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0047__L044__p586:disneyworld:rosemarybeach",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Hong Kong",
+"Bali",
+"Egypt"
+],
+"random": [],
+"distractors": [
+"Hong Kong",
+"Bali",
+"Egypt"
+],
+"n_eligible": 3,
+"sha": "9f26cb20980485c830b675e30011e824a1e4e08ae9e5ad4626bdcb1acab3f030",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0047__L048__p513:charlestonsouthcarolina:rosemarybeachflorida": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0047__L048__p513:charlestonsouthcarolina:rosemarybeachflorida",
+"anchor": "Rosemary Beach, Florida",
+"nearest": [
+"Hong Kong",
+"Egypt",
+"Bali"
+],
+"random": [],
+"distractors": [
+"Hong Kong",
+"Egypt",
+"Bali"
+],
+"n_eligible": 3,
+"sha": "85250589a7a38ec3d52eec1de4d9bb26e57565a0d1d14df2ccac543f7d778924",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0047__L048__p586:disneyworld:rosemarybeach": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0047__L048__p586:disneyworld:rosemarybeach",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Hong Kong",
+"Bali",
+"Egypt"
+],
+"random": [],
+"distractors": [
+"Hong Kong",
+"Bali",
+"Egypt"
+],
+"n_eligible": 3,
+"sha": "7ebed566a679083f3c64d91da2a6efd27857177d9ac87e3376fdeb6e867dab31",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0047__L052__p449:londonuk:rosemarybeachflorida": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0047__L052__p449:londonuk:rosemarybeachflorida",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Hong Kong",
+"Bali",
+"Egypt"
+],
+"random": [],
+"distractors": [
+"Hong Kong",
+"Bali",
+"Egypt"
+],
+"n_eligible": 3,
+"sha": "e1ebbc755498164666c9389455317d22d188a04213457e9f9c0a2ad647f09ca4",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0047__L036__p135:nyc:rosemarybeachflorida": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0047__L036__p135:nyc:rosemarybeachflorida",
 "anchor": "Rosemary Beach",

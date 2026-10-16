@@ -1,4 +1,33 @@
 {
+"mlnla-ck2000-all11:chat-dailydialog-0003__L020__p338:killtwobirdswithonestone:hitthenailonthehead": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0003__L020__p338:killtwobirdswithonestone:hitthenailonthehead",
+"anchor": "Kill two birds with one stone",
+"nearest": [
+"Break the ice",
+"learn to dance in the rain",
+"Bite the bullet",
+"Beat around the bush"
+],
+"random": [
+"Hit the nail on the head",
+"Once in a blue moon",
+"Spill the beans",
+"Under the weather"
+],
+"distractors": [
+"Break the ice",
+"learn to dance in the rain",
+"Bite the bullet",
+"Beat around the bush",
+"Hit the nail on the head",
+"Once in a blue moon",
+"Spill the beans",
+"Under the weather"
+],
+"n_eligible": 10,
+"sha": "2760310f78aeaef3adfd5ae00ccedb828f4dd5b7f98dc579f5a1423cc8915641",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-dailydialog-0003__L020__p338:ablessingindisguise:breaktheice": {
 "unit": "mlnla-rl2-800-all11:chat-dailydialog-0003__L020__p338:ablessingindisguise:breaktheice",
 "anchor": "Break the ice",

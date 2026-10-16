@@ -1,4 +1,85 @@
 {
+"mlnla-ck2000-all11:chat-dailydialog-0060__L024__p67:basketball:skating": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0060__L024__p67:basketball:skating",
+"anchor": "skating",
+"nearest": [
+"swimming",
+"volleyball",
+"soccer",
+"baseball"
+],
+"random": [
+"American football",
+"cricket",
+"rugby"
+],
+"distractors": [
+"swimming",
+"volleyball",
+"soccer",
+"baseball",
+"American football",
+"cricket",
+"rugby"
+],
+"n_eligible": 7,
+"sha": "e6a01cf7256eed2fe9d4c1549ea9a303c2e348ef582a1b8607e56a1dca34eb19",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0060__L024__p67:hoops:skating": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0060__L024__p67:hoops:skating",
+"anchor": "skating",
+"nearest": [
+"swimming",
+"volleyball",
+"soccer",
+"baseball"
+],
+"random": [
+"American football",
+"cricket",
+"rugby"
+],
+"distractors": [
+"swimming",
+"volleyball",
+"soccer",
+"baseball",
+"American football",
+"cricket",
+"rugby"
+],
+"n_eligible": 7,
+"sha": "79b7b018612a117371f2a22c5d6bf7d50c3e605290fe895eb1786650bf99d527",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0060__L036__p62:skateboarding:skating": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0060__L036__p62:skateboarding:skating",
+"anchor": "skating",
+"nearest": [
+"swimming",
+"volleyball",
+"soccer",
+"baseball"
+],
+"random": [
+"American football",
+"cricket",
+"rugby"
+],
+"distractors": [
+"swimming",
+"volleyball",
+"soccer",
+"baseball",
+"American football",
+"cricket",
+"rugby"
+],
+"n_eligible": 7,
+"sha": "e3267fc45211d92ed2c195c15ccff6da51d76d165cc9cf66627d7e689b1c939b",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-dailydialog-0060__L020__p67:basketball:skating": {
 "unit": "mlnla-rl2-800-all11:chat-dailydialog-0060__L020__p67:basketball:skating",
 "anchor": "skating",

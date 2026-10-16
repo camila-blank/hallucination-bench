@@ -1,4 +1,58 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0034__L032__p311:ibeam:tubularsections": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0034__L032__p311:ibeam:tubularsections",
+"anchor": "rectangular tube",
+"nearest": [
+"square hollow section",
+"Hollow Structural Sections",
+"Hollow Structural Section (HSS)",
+"tubular section"
+],
+"random": [
+"Z-section",
+"channel section"
+],
+"distractors": [
+"square hollow section",
+"Hollow Structural Sections",
+"Hollow Structural Section (HSS)",
+"tubular section",
+"Z-section",
+"channel section"
+],
+"n_eligible": 6,
+"sha": "5b0f170b292a901160e3a0d8e0769c659e640d761fec4773b1f1d7ba6512be9c",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0034__L044__p417:w10x49wideflangesection:tubularhsssections": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0034__L044__p417:w10x49wideflangesection:tubularhsssections",
+"anchor": "W10x49",
+"nearest": [
+"H-beam",
+"rectangular tube",
+"Hollow Structural Section (HSS)",
+"S-shape (American Standard beam)"
+],
+"random": [
+"Z-section",
+"hollow structural section",
+"square hollow section",
+"tubular section"
+],
+"distractors": [
+"H-beam",
+"rectangular tube",
+"Hollow Structural Section (HSS)",
+"S-shape (American Standard beam)",
+"Z-section",
+"hollow structural section",
+"square hollow section",
+"tubular section"
+],
+"n_eligible": 10,
+"sha": "2abcca394cade95a6b99ddc6b39016499f372114f18db40d93a59fccbbd0331b",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0034__L052__p357:hotrolledsteelwshapes:tubularsteelsections": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0034__L052__p357:hotrolledsteelwshapes:tubularsteelsections",
 "anchor": "Hollow Structural Section (HSS)",

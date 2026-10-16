@@ -1,4 +1,73 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0043__L028__p391:purine:pyrimidine": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0043__L028__p391:purine:pyrimidine",
+"anchor": "pyrimidine",
+"nearest": [
+"oxazole",
+"isoquinoline",
+"thiazole",
+"thiophene"
+],
+"random": [
+"furan"
+],
+"distractors": [
+"oxazole",
+"isoquinoline",
+"thiazole",
+"thiophene",
+"furan"
+],
+"n_eligible": 5,
+"sha": "d37095a9bd1427996d35f679d23fa212b7d3b427a28d9799f348dbbe2767fb10",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0043__L036__p419:benzimidazolecore:pyrimidinering": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0043__L036__p419:benzimidazolecore:pyrimidinering",
+"anchor": "pyrimidine",
+"nearest": [
+"oxazole",
+"isoquinoline",
+"thiazole",
+"thiophene"
+],
+"random": [
+"furan"
+],
+"distractors": [
+"oxazole",
+"isoquinoline",
+"thiazole",
+"thiophene",
+"furan"
+],
+"n_eligible": 5,
+"sha": "46eb6ebf8607d4d32baf7012d97c0c25726f2183dd1863634d5baf316ee1fd0a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0043__L036__p419:benzimidazolering:pyrimidinering": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0043__L036__p419:benzimidazolering:pyrimidinering",
+"anchor": "pyrimidine",
+"nearest": [
+"oxazole",
+"isoquinoline",
+"thiazole",
+"thiophene"
+],
+"random": [
+"furan"
+],
+"distractors": [
+"oxazole",
+"isoquinoline",
+"thiazole",
+"thiophene",
+"furan"
+],
+"n_eligible": 5,
+"sha": "1c88a6bc2e5a575d9549e417a278f39833c05ccc8223921131e5985dce2407f8",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0043__L020__p391:quinolinefusedbicyclicsystem:pyrimidinering": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0043__L020__p391:quinolinefusedbicyclicsystem:pyrimidinering",
 "anchor": "pyrimidine",

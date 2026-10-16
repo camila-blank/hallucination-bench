@@ -1,4 +1,294 @@
 {
+"mlnla-ck2000-all11:chat-dailydialog-0030__L036__p203:shakespeare:douglasadams": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0030__L036__p203:shakespeare:douglasadams",
+"anchor": "Douglas Adams",
+"nearest": [
+"John Green",
+"Rick Riordan",
+"Vivian Greene",
+"John Muir"
+],
+"random": [
+"Albert O. Hirschman",
+"Gabriel García Márquez",
+"Hirschfeld",
+"James Baldwin"
+],
+"distractors": [
+"John Green",
+"Rick Riordan",
+"Vivian Greene",
+"John Muir",
+"Albert O. Hirschman",
+"Gabriel García Márquez",
+"Hirschfeld",
+"James Baldwin"
+],
+"n_eligible": 19,
+"sha": "fffa1d5dbbcfbeb5c1476bb4ded80c4915400b0fef90e59e67059f35e1a0c3d8",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0030__L056__p110:lewiscarroll:douglasadams": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0030__L056__p110:lewiscarroll:douglasadams",
+"anchor": "Douglas Adams",
+"nearest": [
+"John Green",
+"Rick Riordan",
+"Vivian Greene",
+"John Muir"
+],
+"random": [
+"Albert O. Hirschman",
+"Christine Larson",
+"Kristof",
+"Maya Angelou"
+],
+"distractors": [
+"John Green",
+"Rick Riordan",
+"Vivian Greene",
+"John Muir",
+"Albert O. Hirschman",
+"Christine Larson",
+"Kristof",
+"Maya Angelou"
+],
+"n_eligible": 19,
+"sha": "d336a861bcc87030b2094344d4c60afd323918bfa9a483bfd14674ccbc93f860",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0005__L044__p106:rickriordan:mfmurphy": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0005__L044__p106:rickriordan:mfmurphy",
+"anchor": "MF Murphy",
+"nearest": [
+"Vivian Greene",
+"Atticus",
+"Albert O. Hirschman",
+"Dr. Seuss"
+],
+"random": [
+"Christopher Lasch",
+"J. R. R. Tolkien",
+"John Muir",
+"Kurt Vonnegut"
+],
+"distractors": [
+"Vivian Greene",
+"Atticus",
+"Albert O. Hirschman",
+"Dr. Seuss",
+"Christopher Lasch",
+"J. R. R. Tolkien",
+"John Muir",
+"Kurt Vonnegut"
+],
+"n_eligible": 32,
+"sha": "70d6e33d0fefb9cd660ca2d2692d76aadee194bbcd0229d34369cd1159658cbf",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0032__L024__p112:derekwalder:viviangreen": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0032__L024__p112:derekwalder:viviangreen",
+"anchor": "Vivian Green",
+"nearest": [
+"Gerald Durrell",
+"Christine Larson",
+"Terry Savage",
+"Christopher Lasch"
+],
+"random": [
+"Albert O. Hirschman",
+"Hirschfeld",
+"Jean Twenge",
+"Tom Stoppard"
+],
+"distractors": [
+"Gerald Durrell",
+"Christine Larson",
+"Terry Savage",
+"Christopher Lasch",
+"Albert O. Hirschman",
+"Hirschfeld",
+"Jean Twenge",
+"Tom Stoppard"
+],
+"n_eligible": 23,
+"sha": "f27718642ba3e6ff4c9aff1e59abb2bb31fd4a4eb4acc56be1ea01ebff390549",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0032__L040__p68::": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0032__L040__p68::",
+"anchor": "Vivian Greene",
+"nearest": [
+"MF Murphy",
+"Dr. Seuss",
+"Albert O. Hirschman",
+"Christine Larson"
+],
+"random": [
+"Gabriel García Márquez",
+"Jean Twenge",
+"Kurt Vonnegut",
+"Terry Savage"
+],
+"distractors": [
+"MF Murphy",
+"Dr. Seuss",
+"Albert O. Hirschman",
+"Christine Larson",
+"Gabriel García Márquez",
+"Jean Twenge",
+"Kurt Vonnegut",
+"Terry Savage"
+],
+"n_eligible": 23,
+"sha": "030f0236bd8824cc9132842c835516e4885191f4ee3045f603e63602bfe67efd",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0032__L044__p157:atticus:viviangreen": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0032__L044__p157:atticus:viviangreen",
+"anchor": "Vivian Greene",
+"nearest": [
+"MF Murphy",
+"Dr. Seuss",
+"Albert O. Hirschman",
+"Christine Larson"
+],
+"random": [
+"Hirschfeld",
+"Kurt Vonnegut",
+"Rick Riordan",
+"William Shakespeare"
+],
+"distractors": [
+"MF Murphy",
+"Dr. Seuss",
+"Albert O. Hirschman",
+"Christine Larson",
+"Hirschfeld",
+"Kurt Vonnegut",
+"Rick Riordan",
+"William Shakespeare"
+],
+"n_eligible": 23,
+"sha": "d01cc191801148f583664073ece837140cac9cf246597c310fae0b72c9f7dbcf",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0032__L048__p258::": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0032__L048__p258::",
+"anchor": "Vivian Greene",
+"nearest": [
+"MF Murphy",
+"Dr. Seuss",
+"Albert O. Hirschman",
+"Christine Larson"
+],
+"random": [
+"Gabriel García Márquez",
+"H.G. Wells",
+"Kristof",
+"Leonard Cohen"
+],
+"distractors": [
+"MF Murphy",
+"Dr. Seuss",
+"Albert O. Hirschman",
+"Christine Larson",
+"Gabriel García Márquez",
+"H.G. Wells",
+"Kristof",
+"Leonard Cohen"
+],
+"n_eligible": 23,
+"sha": "f2d91190dc470c430ce243ea91c77343449962a69408117cd692f413a305ba68",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0065__L020__p186:lasch:christinelarson": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0065__L020__p186:lasch:christinelarson",
+"anchor": "Christine Larson",
+"nearest": [
+"Vivian Green",
+"Vivian Greene",
+"MF Murphy",
+"Atticus"
+],
+"random": [
+"Frank Herbert",
+"Hermann Hesse",
+"John Green",
+"Kurt Vonnegut"
+],
+"distractors": [
+"Vivian Green",
+"Vivian Greene",
+"MF Murphy",
+"Atticus",
+"Frank Herbert",
+"Hermann Hesse",
+"John Green",
+"Kurt Vonnegut"
+],
+"n_eligible": 27,
+"sha": "38d798338bcf5dcc1662b51426d9429f78781f6e76aca40f407a5bc3ccd71a5b",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0065__L032__p186:hirschfeld:christinelarson": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0065__L032__p186:hirschfeld:christinelarson",
+"anchor": "Christine Larson",
+"nearest": [
+"Vivian Green",
+"Vivian Greene",
+"MF Murphy",
+"Atticus"
+],
+"random": [
+"Douglas Adams",
+"Gabriel García Márquez",
+"Hermann Hesse",
+"John Muir"
+],
+"distractors": [
+"Vivian Green",
+"Vivian Greene",
+"MF Murphy",
+"Atticus",
+"Douglas Adams",
+"Gabriel García Márquez",
+"Hermann Hesse",
+"John Muir"
+],
+"n_eligible": 27,
+"sha": "b6c7172a77cf1e175c69b731bd9490503390013b353e668653bf3964f3926ee1",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0065__L032__p186:lasch:christinelarson": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0065__L032__p186:lasch:christinelarson",
+"anchor": "Christine Larson",
+"nearest": [
+"Vivian Green",
+"Vivian Greene",
+"MF Murphy",
+"Atticus"
+],
+"random": [
+"Gerald Durrell",
+"John Green",
+"Lewis Carroll",
+"Rick Riordan"
+],
+"distractors": [
+"Vivian Green",
+"Vivian Greene",
+"MF Murphy",
+"Atticus",
+"Gerald Durrell",
+"John Green",
+"Lewis Carroll",
+"Rick Riordan"
+],
+"n_eligible": 27,
+"sha": "5a40f06335d1467ee1733103e7e2ded66bde824844cbdd665d6b0721f31f6d8e",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-dailydialog-0030__L028__p53:tolkien:douglasadams": {
 "unit": "mlnla-rl2-800-all11:chat-dailydialog-0030__L028__p53:tolkien:douglasadams",
 "anchor": "Douglas Adams",

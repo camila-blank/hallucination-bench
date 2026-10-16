@@ -1,0 +1,362 @@
+{
+"mlnla-ck2000-all11:chat-lmsys-0032__L020__p112:windsofchangewindmillsproverb:danceintherainquote": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0032__L020__p112:windsofchangewindmillsproverb:danceintherainquote",
+"anchor": "Life isn't about waiting for the storm to pass, it's about learning to dance in the rain",
+"nearest": [
+"Actions speak louder than words",
+"An apple a day keeps the doctor away",
+"Birds of a feather flock together",
+"A picture is worth a thousand words"
+],
+"random": [
+"A penny saved is a penny earned",
+"Don't count your chickens before they hatch",
+"The early bird catches the worm"
+],
+"distractors": [
+"Actions speak louder than words",
+"An apple a day keeps the doctor away",
+"Birds of a feather flock together",
+"A picture is worth a thousand words",
+"A penny saved is a penny earned",
+"Don't count your chickens before they hatch",
+"The early bird catches the worm"
+],
+"n_eligible": 7,
+"sha": "46f7015eaa2b25a71421529a0938a2b34901892a821fae2dfad1e5f81a51bfb4",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0032__L020__p38:laughteristhebestmedicine:learntodanceintherain": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0032__L020__p38:laughteristhebestmedicine:learntodanceintherain",
+"anchor": "Don't wait for the storm to pass, learn to dance in the rain",
+"nearest": [
+"Actions speak louder than words",
+"The early bird catches the worm",
+"Birds of a feather flock together",
+"An apple a day keeps the doctor away"
+],
+"random": [],
+"distractors": [
+"Actions speak louder than words",
+"The early bird catches the worm",
+"Birds of a feather flock together",
+"An apple a day keeps the doctor away"
+],
+"n_eligible": 4,
+"sha": "c025a01b7be42d371120d201adb4ae4ca0d138972d9a29ccffc5b6af17e20e29",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0032__L024__p38:laughteristhebestmedicine:learntodanceintherain": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0032__L024__p38:laughteristhebestmedicine:learntodanceintherain",
+"anchor": "Don't wait for the storm to pass, learn to dance in the rain",
+"nearest": [
+"Actions speak louder than words",
+"The early bird catches the worm",
+"Birds of a feather flock together",
+"An apple a day keeps the doctor away"
+],
+"random": [],
+"distractors": [
+"Actions speak louder than words",
+"The early bird catches the worm",
+"Birds of a feather flock together",
+"An apple a day keeps the doctor away"
+],
+"n_eligible": 4,
+"sha": "0e69203fab52ff28d3933a1917fe1e4d769abc9b9195a2e3944072c4537ddf63",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0032__L028__p68:thistooshallpass:dontwaitforthestormtopasslearntodanceintherain": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0032__L028__p68:thistooshallpass:dontwaitforthestormtopasslearntodanceintherain",
+"anchor": "Life isn't about waiting for the storm to pass, it's about learning to dance in the rain",
+"nearest": [
+"Actions speak louder than words",
+"An apple a day keeps the doctor away",
+"Birds of a feather flock together",
+"A picture is worth a thousand words"
+],
+"random": [
+"A penny saved is a penny earned",
+"Don't count your chickens before they hatch",
+"The early bird catches the worm"
+],
+"distractors": [
+"Actions speak louder than words",
+"An apple a day keeps the doctor away",
+"Birds of a feather flock together",
+"A picture is worth a thousand words",
+"A penny saved is a penny earned",
+"Don't count your chickens before they hatch",
+"The early bird catches the worm"
+],
+"n_eligible": 7,
+"sha": "42d55c81199aa47fff2934fdc3f3438e005a81af678c6fdb9786343a9e328998",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0032__L036__p186:thistooshallpass:danceintherain": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0032__L036__p186:thistooshallpass:danceintherain",
+"anchor": "Life isn't about waiting for the storm to pass, it's about learning to dance in the rain",
+"nearest": [
+"Actions speak louder than words",
+"An apple a day keeps the doctor away",
+"Birds of a feather flock together",
+"A picture is worth a thousand words"
+],
+"random": [
+"A penny saved is a penny earned",
+"Don't count your chickens before they hatch",
+"The early bird catches the worm"
+],
+"distractors": [
+"Actions speak louder than words",
+"An apple a day keeps the doctor away",
+"Birds of a feather flock together",
+"A picture is worth a thousand words",
+"A penny saved is a penny earned",
+"Don't count your chickens before they hatch",
+"The early bird catches the worm"
+],
+"n_eligible": 7,
+"sha": "7a686269bcd79edf6885ee340f4823d3e4a2e5813ad70798638f7b983c3e6b15",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0032__L040__p112:ifyoucantchangethewindchangethesails:dontwaitforthestormtopasslearntodanceintherain": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0032__L040__p112:ifyoucantchangethewindchangethesails:dontwaitforthestormtopasslearntodanceintherain",
+"anchor": "Don't wait for the storm to pass, learn to dance in the rain",
+"nearest": [
+"Actions speak louder than words",
+"A picture is worth a thousand words",
+"The early bird catches the worm",
+"Birds of a feather flock together"
+],
+"random": [
+"A penny saved is a penny earned",
+"An apple a day keeps the doctor away"
+],
+"distractors": [
+"Actions speak louder than words",
+"A picture is worth a thousand words",
+"The early bird catches the worm",
+"Birds of a feather flock together",
+"A penny saved is a penny earned",
+"An apple a day keeps the doctor away"
+],
+"n_eligible": 6,
+"sha": "82b1c6558c619cdd83c305a05ab405d26f4dbaf298d0041fa93f3b4ccc301243",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0032__L040__p186:thistooshallpass:dontwaitforthestormtopasslearntodanceintherain": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0032__L040__p186:thistooshallpass:dontwaitforthestormtopasslearntodanceintherain",
+"anchor": "Life isn't about waiting for the storm to pass, it's about learning to dance in the rain",
+"nearest": [
+"Actions speak louder than words",
+"An apple a day keeps the doctor away",
+"Birds of a feather flock together",
+"A picture is worth a thousand words"
+],
+"random": [
+"A penny saved is a penny earned",
+"Don't count your chickens before they hatch",
+"The early bird catches the worm"
+],
+"distractors": [
+"Actions speak louder than words",
+"An apple a day keeps the doctor away",
+"Birds of a feather flock together",
+"A picture is worth a thousand words",
+"A penny saved is a penny earned",
+"Don't count your chickens before they hatch",
+"The early bird catches the worm"
+],
+"n_eligible": 7,
+"sha": "938e10ffa91cc5d0f5a4a53adae1c7eeac1114302cf53bc5de473116259c9c29",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0032__L040__p38:thistooshallpass:learntodanceintherain": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0032__L040__p38:thistooshallpass:learntodanceintherain",
+"anchor": "Life isn't about waiting for the storm to pass, it's about learning to dance in the rain",
+"nearest": [
+"Actions speak louder than words",
+"An apple a day keeps the doctor away",
+"Birds of a feather flock together",
+"A picture is worth a thousand words"
+],
+"random": [
+"A penny saved is a penny earned",
+"Don't count your chickens before they hatch",
+"The early bird catches the worm"
+],
+"distractors": [
+"Actions speak louder than words",
+"An apple a day keeps the doctor away",
+"Birds of a feather flock together",
+"A picture is worth a thousand words",
+"A penny saved is a penny earned",
+"Don't count your chickens before they hatch",
+"The early bird catches the worm"
+],
+"n_eligible": 7,
+"sha": "941fb48a229fbcd6fc2eec9c27ef7d86749e576df98d1db0ce306c4da218c6a7",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0032__L048__p68:whenlifegivesyoulemonsmakelemonade:dontwaitforthestormtopasslearntodanceintherain": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0032__L048__p68:whenlifegivesyoulemonsmakelemonade:dontwaitforthestormtopasslearntodanceintherain",
+"anchor": "life isn't about waiting for the storm to pass, it's about learning to dance in the rain",
+"nearest": [
+"An apple a day keeps the doctor away",
+"Birds of a feather flock together",
+"The early bird catches the worm",
+"A picture is worth a thousand words"
+],
+"random": [
+"A penny saved is a penny earned",
+"Actions speak louder than words",
+"Don't count your chickens before they hatch"
+],
+"distractors": [
+"An apple a day keeps the doctor away",
+"Birds of a feather flock together",
+"The early bird catches the worm",
+"A picture is worth a thousand words",
+"A penny saved is a penny earned",
+"Actions speak louder than words",
+"Don't count your chickens before they hatch"
+],
+"n_eligible": 7,
+"sha": "299a92fe8f49735e35be9cbb875aa0f617c20f4be0b0f808de8d21c880dc83b8",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0032__L036__p186:thistooshallpass:dontwaitforthestormtopasslearntodanceintherain": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0032__L036__p186:thistooshallpass:dontwaitforthestormtopasslearntodanceintherain",
+"anchor": "Life isn't about waiting for the storm to pass, it's about learning to dance in the rain",
+"nearest": [
+"Actions speak louder than words",
+"An apple a day keeps the doctor away",
+"Birds of a feather flock together",
+"A picture is worth a thousand words"
+],
+"random": [
+"A penny saved is a penny earned",
+"Don't count your chickens before they hatch",
+"The early bird catches the worm"
+],
+"distractors": [
+"Actions speak louder than words",
+"An apple a day keeps the doctor away",
+"Birds of a feather flock together",
+"A picture is worth a thousand words",
+"A penny saved is a penny earned",
+"Don't count your chickens before they hatch",
+"The early bird catches the worm"
+],
+"n_eligible": 7,
+"sha": "167715b9056001d67972cf923a06a13412748af9c7e53dcb116b5b1a1791f246",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0032__L036__p68:whenitrainsitpours:dontwaitforthestormtopasslearntodanceintherain": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0032__L036__p68:whenitrainsitpours:dontwaitforthestormtopasslearntodanceintherain",
+"anchor": "Don't wait for the storm to pass, learn to dance in the rain",
+"nearest": [
+"Actions speak louder than words",
+"A picture is worth a thousand words",
+"The early bird catches the worm",
+"Birds of a feather flock together"
+],
+"random": [
+"A penny saved is a penny earned",
+"An apple a day keeps the doctor away"
+],
+"distractors": [
+"Actions speak louder than words",
+"A picture is worth a thousand words",
+"The early bird catches the worm",
+"Birds of a feather flock together",
+"A penny saved is a penny earned",
+"An apple a day keeps the doctor away"
+],
+"n_eligible": 6,
+"sha": "0c23bdae7453ab375d010668302410912b4a2ccc2843529ef21e2bbf1cbc28d0",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0032__L036__p68:whenlifegivesyoulemonsmakelemonade:dontwaitforthestormtopasslearntodanceintherain": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0032__L036__p68:whenlifegivesyoulemonsmakelemonade:dontwaitforthestormtopasslearntodanceintherain",
+"anchor": "life isn't about waiting for the storm to pass, it's about learning to dance in the rain",
+"nearest": [
+"An apple a day keeps the doctor away",
+"Birds of a feather flock together",
+"The early bird catches the worm",
+"A picture is worth a thousand words"
+],
+"random": [
+"A penny saved is a penny earned",
+"Actions speak louder than words",
+"Don't count your chickens before they hatch"
+],
+"distractors": [
+"An apple a day keeps the doctor away",
+"Birds of a feather flock together",
+"The early bird catches the worm",
+"A picture is worth a thousand words",
+"A penny saved is a penny earned",
+"Actions speak louder than words",
+"Don't count your chickens before they hatch"
+],
+"n_eligible": 7,
+"sha": "ad5cc0169a6861d6be2a413d785b1581a72e9ee219bbd9da9c8df797fdaf19e0",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0032__L044__p186:thistooshallpass:learntodanceintherain": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0032__L044__p186:thistooshallpass:learntodanceintherain",
+"anchor": "Life isn't about waiting for the storm to pass, it's about learning to dance in the rain",
+"nearest": [
+"Actions speak louder than words",
+"An apple a day keeps the doctor away",
+"Birds of a feather flock together",
+"A picture is worth a thousand words"
+],
+"random": [
+"A penny saved is a penny earned",
+"Don't count your chickens before they hatch",
+"The early bird catches the worm"
+],
+"distractors": [
+"Actions speak louder than words",
+"An apple a day keeps the doctor away",
+"Birds of a feather flock together",
+"A picture is worth a thousand words",
+"A penny saved is a penny earned",
+"Don't count your chickens before they hatch",
+"The early bird catches the worm"
+],
+"n_eligible": 7,
+"sha": "616eb70991b21a5559eee3c3679bc600e36022879d769cd0608b980328390209",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0032__L048__p186:thistooshallpass:learntodanceintherain": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0032__L048__p186:thistooshallpass:learntodanceintherain",
+"anchor": "Life isn't about waiting for the storm to pass, it's about learning to dance in the rain",
+"nearest": [
+"Actions speak louder than words",
+"An apple a day keeps the doctor away",
+"Birds of a feather flock together",
+"A picture is worth a thousand words"
+],
+"random": [
+"A penny saved is a penny earned",
+"Don't count your chickens before they hatch",
+"The early bird catches the worm"
+],
+"distractors": [
+"Actions speak louder than words",
+"An apple a day keeps the doctor away",
+"Birds of a feather flock together",
+"A picture is worth a thousand words",
+"A penny saved is a penny earned",
+"Don't count your chickens before they hatch",
+"The early bird catches the worm"
+],
+"n_eligible": 7,
+"sha": "fac5ec10c6fa43086305f31e35ff51cbc724f53076e1f7980c100bb809184a89",
+"generation": 1
+}
+}

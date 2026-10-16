@@ -1,4 +1,38 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0020__L036__p23:stochasticgeometry:derhamtheory": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0020__L036__p23:stochasticgeometry:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [
+"Linear algebra",
+"Statistics"
+],
+"random": [],
+"distractors": [
+"Linear algebra",
+"Statistics"
+],
+"n_eligible": 2,
+"sha": "72fd079d0d0933e5913fe2100e68df24ad3f2495405f2b6783eafba40538d404",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0020__L060__p62:algebraictopology:derhamtheory": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0020__L060__p62:algebraictopology:derhamtheory",
+"anchor": "De Rham theory",
+"nearest": [
+"Linear algebra",
+"Statistics",
+"Geometry"
+],
+"random": [],
+"distractors": [
+"Linear algebra",
+"Statistics",
+"Geometry"
+],
+"n_eligible": 3,
+"sha": "e2baf849a762cb3f34a9e62bdd97902b1f52691d4ff07710feaaf5daed76e141",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0020__L052__p62:algebraictopology:derhamtheory": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0020__L052__p62:algebraictopology:derhamtheory",
 "anchor": "De Rham theory",

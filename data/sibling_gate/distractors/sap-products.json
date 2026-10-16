@@ -1,4 +1,40 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0054__L020__p70:sapbusinessone:sapbusinessobjects": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L020__p70:sapbusinessone:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"SAP Fiori",
+"SAP Ariba",
+"SAP SuccessFactors"
+],
+"random": [],
+"distractors": [
+"SAP Fiori",
+"SAP Ariba",
+"SAP SuccessFactors"
+],
+"n_eligible": 3,
+"sha": "688a56f6389c9493fbb4916a4eda7bbfd546ae95d2f3909d492c643e8672b527",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L020__p70:sapbusinessoneerp:sapbusinessobjectsbisuite": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L020__p70:sapbusinessoneerp:sapbusinessobjectsbisuite",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"SAP Fiori",
+"SAP Ariba",
+"SAP SuccessFactors"
+],
+"random": [],
+"distractors": [
+"SAP Fiori",
+"SAP Ariba",
+"SAP SuccessFactors"
+],
+"n_eligible": 3,
+"sha": "dccbcce0d3a1a68ca8ac531605f4c40d2683c35593fa366e5aa17a73dbea6b15",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0054__L020__p472:sapdataservices:sapbusinessobjects": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0054__L020__p472:sapdataservices:sapbusinessobjects",
 "anchor": "SAP BusinessObjects",

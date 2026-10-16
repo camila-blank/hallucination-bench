@@ -1,0 +1,116 @@
+{
+"mlnla-ck2000-all11:chat-lmsys-0004__L020__p147:functionalist:revisionist": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0004__L020__p147:functionalist:revisionist",
+"anchor": "Revisionism",
+"nearest": [
+"revisionist",
+"Revisionist historians",
+"Whig history",
+"Intentionalism"
+],
+"random": [
+"Cambridge School",
+"Microhistory",
+"Postcolonial historiography",
+"Rankean historicism"
+],
+"distractors": [
+"revisionist",
+"Revisionist historians",
+"Whig history",
+"Intentionalism",
+"Cambridge School",
+"Microhistory",
+"Postcolonial historiography",
+"Rankean historicism"
+],
+"n_eligible": 10,
+"sha": "91a3ec72395afdf1651867b82c2f5b0fc614fd52bedcfd60b8e5c7749a041abb",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0004__L040__p532:marxisthistorians:revisionisthistorians": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0004__L040__p532:marxisthistorians:revisionisthistorians",
+"anchor": "Revisionist historians",
+"nearest": [
+"Revisionism",
+"Subaltern Studies",
+"Cambridge School",
+"Intentionalism"
+],
+"random": [
+"Annales school",
+"Microhistory",
+"Postcolonial historiography",
+"Rankean historicism"
+],
+"distractors": [
+"Revisionism",
+"Subaltern Studies",
+"Cambridge School",
+"Intentionalism",
+"Annales school",
+"Microhistory",
+"Postcolonial historiography",
+"Rankean historicism"
+],
+"n_eligible": 9,
+"sha": "b47880ea71da22b17b2ea95879193b2e61677ca2466b2c96daf3f6e987e09d53",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0004__L040__p532:traditionalist:revisionist": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0004__L040__p532:traditionalist:revisionist",
+"anchor": "revisionist",
+"nearest": [
+"Revisionism",
+"Intentionalism",
+"Subaltern Studies",
+"Whig history"
+],
+"random": [
+"Annales school",
+"Cambridge School",
+"Microhistory",
+"Rankean historicism"
+],
+"distractors": [
+"Revisionism",
+"Intentionalism",
+"Subaltern Studies",
+"Whig history",
+"Annales school",
+"Cambridge School",
+"Microhistory",
+"Rankean historicism"
+],
+"n_eligible": 9,
+"sha": "aadaddd6fb87e30a5caef84bc4f5c0a327aba06103cb9435e66e45cd4cc5569b",
+"generation": 1
+},
+"mlnla-rl600-all11:chat-lmsys-0004__L036__p456:orthodox:revisionist": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0004__L036__p456:orthodox:revisionist",
+"anchor": "Revisionist school",
+"nearest": [
+"Intentionalism",
+"Subaltern Studies",
+"Revisionism",
+"Rankean historicism"
+],
+"random": [
+"Microhistory",
+"Postcolonial historiography",
+"Whig history"
+],
+"distractors": [
+"Intentionalism",
+"Subaltern Studies",
+"Revisionism",
+"Rankean historicism",
+"Microhistory",
+"Postcolonial historiography",
+"Whig history"
+],
+"n_eligible": 7,
+"sha": "9629db41f8c303c4a88e306ad58748ff2d4b03ff8a769ed20646b8b796078b56",
+"generation": 1
+}
+}

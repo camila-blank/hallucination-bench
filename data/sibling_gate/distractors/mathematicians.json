@@ -26,6 +26,33 @@
 "sha": "73f9e2ca59a62b0b22fe892706816e536f0a32cc36d7bde372c3369fc17b3066",
 "generation": 0
 },
+"mlnla-ck2000-all11:chat-lmsys-0020__L020__p62:hurewicz:derham": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0020__L020__p62:hurewicz:derham",
+"anchor": "Georges de Rham",
+"nearest": [
+"Carl Friedrich Gauss",
+"Archimedes",
+"Euclid",
+"Leonhard Euler"
+],
+"random": [
+"Gottfried Wilhelm Leibniz",
+"Isaac Newton",
+"Pythagoras"
+],
+"distractors": [
+"Carl Friedrich Gauss",
+"Archimedes",
+"Euclid",
+"Leonhard Euler",
+"Gottfried Wilhelm Leibniz",
+"Isaac Newton",
+"Pythagoras"
+],
+"n_eligible": 7,
+"sha": "22a3bd6870ccaa41348e66ed9f05947f5c4b9e14c5d49604961492c8ca7fb248",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0020__L028__p23:alanturing:derham": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0020__L028__p23:alanturing:derham",
 "anchor": "Georges de Rham",

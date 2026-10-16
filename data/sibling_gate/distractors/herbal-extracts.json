@@ -1,4 +1,62 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0069__L028__p384:ginsenosideextract:gastrodin": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0069__L028__p384:ginsenosideextract:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [
+"Gastrodia elata extract",
+"Gastrodia elata tuber extract",
+"Milk thistle extract",
+"Echinacea extract"
+],
+"random": [
+"Garlic extract",
+"St. John's wort extract",
+"Turmeric extract",
+"Valerian root extract"
+],
+"distractors": [
+"Gastrodia elata extract",
+"Gastrodia elata tuber extract",
+"Milk thistle extract",
+"Echinacea extract",
+"Garlic extract",
+"St. John's wort extract",
+"Turmeric extract",
+"Valerian root extract"
+],
+"n_eligible": 12,
+"sha": "f04ba355f8ab4e6f09127e71f8b4f9d3e2fa615f250a05ac1c9317844d5d72bd",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0069__L036__p384:ginsenosidepowder:gastrodin": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0069__L036__p384:ginsenosidepowder:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [
+"Gastrodia elata extract",
+"Gastrodia elata tuber extract",
+"Milk thistle extract",
+"Echinacea extract"
+],
+"random": [
+"Elderberry extract",
+"Garlic extract",
+"Saw palmetto extract",
+"Valerian root extract"
+],
+"distractors": [
+"Gastrodia elata extract",
+"Gastrodia elata tuber extract",
+"Milk thistle extract",
+"Echinacea extract",
+"Elderberry extract",
+"Garlic extract",
+"Saw palmetto extract",
+"Valerian root extract"
+],
+"n_eligible": 12,
+"sha": "039dc9ec1db0377f0f9b2b9a7f0097fca52b5ec8c7aa150ea96446cfc092aef8",
+"generation": 1
+},
 "s3d-rl600-all11:chat-lmsys-0069__L020__p384:ginsengrootextract:gastrodin": {
 "unit": "s3d-rl600-all11:chat-lmsys-0069__L020__p384:ginsengrootextract:gastrodin",
 "anchor": "Gastrodia elata tuber extract",

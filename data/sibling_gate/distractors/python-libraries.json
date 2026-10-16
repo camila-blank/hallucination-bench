@@ -1,4 +1,822 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0007__L020__p74:sqlalchemy:sqlite3": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0007__L020__p74:sqlalchemy:sqlite3",
+"anchor": "sqlite3",
+"nearest": [
+"Flask",
+"PyQt",
+"requests",
+"sys"
+],
+"random": [
+"Django",
+"PyTorch",
+"Streamlit",
+"TensorFlow"
+],
+"distractors": [
+"Flask",
+"PyQt",
+"requests",
+"sys",
+"Django",
+"PyTorch",
+"Streamlit",
+"TensorFlow"
+],
+"n_eligible": 15,
+"sha": "605618437d475bd3ee6bbd9137d9560dc5a2e076fe85b79024ebf46ec9a0deea",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0030__L020__p203:pandas:keras": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0030__L020__p203:pandas:keras",
+"anchor": "Keras",
+"nearest": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"random": [],
+"distractors": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"n_eligible": 4,
+"sha": "2d2360e51e6f2bddc976cb3974e8f3116a844ab129934a4c23f27eb3481b872a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0030__L020__p203:pandasmatplotlib:tensorflowkeras": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0030__L020__p203:pandasmatplotlib:tensorflowkeras",
+"anchor": "Keras",
+"nearest": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"random": [],
+"distractors": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"n_eligible": 4,
+"sha": "9f002c670b56485417596bbc00ad13865c069679213ee5437306474df4d45e37",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0030__L020__p235:numpy:kerastensorflow": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0030__L020__p235:numpy:kerastensorflow",
+"anchor": "Keras",
+"nearest": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"random": [],
+"distractors": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"n_eligible": 4,
+"sha": "a047ceb143c3b40f3371ae7e058a9bda8cf69e69d8e8e60cff204a2125a5c7ed",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0030__L020__p95:pandas:keras": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0030__L020__p95:pandas:keras",
+"anchor": "Keras",
+"nearest": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"random": [],
+"distractors": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"n_eligible": 4,
+"sha": "5e06887a24d8779fd1e8ac1a3387552f2705fe2614dfc86ab6e06a9bc3225cf9",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0030__L024__p203:pandasdataframe:keras": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0030__L024__p203:pandasdataframe:keras",
+"anchor": "Keras",
+"nearest": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"random": [],
+"distractors": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"n_eligible": 4,
+"sha": "5a38f2541c862c73aafe034f71874434c121709dd33e4fc03b4ea663bc19edd4",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0030__L024__p219:numpy:keras": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0030__L024__p219:numpy:keras",
+"anchor": "Keras",
+"nearest": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"random": [],
+"distractors": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"n_eligible": 4,
+"sha": "07623eb08dec04f6435095fbc02fae131097dcb51e60acfed5698bd6edf54db5",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0030__L024__p95:numpy:keras": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0030__L024__p95:numpy:keras",
+"anchor": "Keras",
+"nearest": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"random": [],
+"distractors": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"n_eligible": 4,
+"sha": "265f22101b2d378e164d9c1b9d3d0fa30b853492eb25384b479ed3eedc96a0e6",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0030__L024__p95:pandas:keras": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0030__L024__p95:pandas:keras",
+"anchor": "Keras",
+"nearest": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"random": [],
+"distractors": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"n_eligible": 4,
+"sha": "3a356acbe34ec60d223f78092578da71a56dd6913a8e44c61281d5ceb7ada927",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0030__L028__p219:numpy:keras": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0030__L028__p219:numpy:keras",
+"anchor": "Keras",
+"nearest": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"random": [],
+"distractors": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"n_eligible": 4,
+"sha": "b771534f7c19be3961e1a746f0cae323ee98e851c271161459f41e2622079b0d",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0030__L028__p219:pytorchvsnumpy:keras": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0030__L028__p219:pytorchvsnumpy:keras",
+"anchor": "Keras",
+"nearest": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"random": [],
+"distractors": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"n_eligible": 4,
+"sha": "5e8aa9490b68d3b2c94eca7cb63c0470e49f01f6ebfdd73827b41133995c0d6a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0030__L028__p95:numpy:keras": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0030__L028__p95:numpy:keras",
+"anchor": "Keras",
+"nearest": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"random": [],
+"distractors": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"n_eligible": 4,
+"sha": "9322b39ff0756bf21498a31a405eacdf810a837ebc0210fd38c92aa45f99dc4f",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0030__L028__p95:pandas:keras": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0030__L028__p95:pandas:keras",
+"anchor": "Keras",
+"nearest": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"random": [],
+"distractors": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"n_eligible": 4,
+"sha": "83f5a010e6acd306e770b8cc6f5e59ef154ec4bb00aba6ac0547681591093bfc",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0030__L032__p219:numpy:keras": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0030__L032__p219:numpy:keras",
+"anchor": "Keras",
+"nearest": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"random": [],
+"distractors": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"n_eligible": 4,
+"sha": "c4fcf3207110a4bf147c0180e6103940f63b5507d5ba1322bf83f496fdacaac2",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0030__L032__p219:numpy:tensorflow": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0030__L032__p219:numpy:tensorflow",
+"anchor": "Keras",
+"nearest": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"random": [],
+"distractors": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"n_eligible": 4,
+"sha": "72412d29aacfc612b217b82a2b402dcb9de53d9250297299d0904a0d3c51189e",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0030__L032__p219:numpy:tfkeras": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0030__L032__p219:numpy:tfkeras",
+"anchor": "Keras",
+"nearest": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"random": [],
+"distractors": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"n_eligible": 4,
+"sha": "a2a82bc18d07822cc1079ddafed71fd18418ccfae7a97442a9b667f9843ae063",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0030__L032__p219:pandas:keras": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0030__L032__p219:pandas:keras",
+"anchor": "Keras",
+"nearest": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"random": [],
+"distractors": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"n_eligible": 4,
+"sha": "da1537b33a57b7c78ecbd283a3bc6d02522c6e3ead15a962a6cee7a4bab8c9b0",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0030__L032__p219:pandas:kerasmodules": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0030__L032__p219:pandas:kerasmodules",
+"anchor": "Keras",
+"nearest": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"random": [],
+"distractors": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"n_eligible": 4,
+"sha": "87e273b6b707467e2b81584b8f586d0b91cec911ea17041f17c2ca01418b4d04",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0030__L032__p219:pandas:tfkeras": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0030__L032__p219:pandas:tfkeras",
+"anchor": "Keras",
+"nearest": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"random": [],
+"distractors": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"n_eligible": 4,
+"sha": "7023c0071cf3de3950c4f691234bd3edf3ae623ef0b5b0b756889a4b6c217638",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0030__L032__p219:pd:tfkeras": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0030__L032__p219:pd:tfkeras",
+"anchor": "TensorFlow",
+"nearest": [
+"Streamlit",
+"SQLAlchemy",
+"sqlite3",
+"PyQt"
+],
+"random": [],
+"distractors": [
+"Streamlit",
+"SQLAlchemy",
+"sqlite3",
+"PyQt"
+],
+"n_eligible": 4,
+"sha": "65436655c1180dfb05034ea02db524f3f0f375670d55612a635d14239ab77e8b",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0030__L032__p95:pandas:keras": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0030__L032__p95:pandas:keras",
+"anchor": "Keras",
+"nearest": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"random": [],
+"distractors": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"n_eligible": 4,
+"sha": "6d33c4cde9a98c6e0da63c35bf9b7bd793af4fdc14856080c5e27b1bb679cf13",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0030__L036__p95:matplotlib:keras": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0030__L036__p95:matplotlib:keras",
+"anchor": "Keras",
+"nearest": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"random": [],
+"distractors": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"n_eligible": 4,
+"sha": "680b0c1acd7065767026d5e30fe2bbc90807b738541c2db25a80a8e61453b1cd",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0030__L036__p95:numpy:keras": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0030__L036__p95:numpy:keras",
+"anchor": "Keras",
+"nearest": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"random": [],
+"distractors": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"n_eligible": 4,
+"sha": "16e3f75ec29d6c89cf6d5083efc7c220ae8a88f393d99ca8dc4c9144728dd78f",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0030__L040__p95:cv2:keras": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0030__L040__p95:cv2:keras",
+"anchor": "Keras",
+"nearest": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"random": [],
+"distractors": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"n_eligible": 4,
+"sha": "8dbb077608224ed9c4956a2e17e642216d86c2f957558142de3fae20d252df54",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0030__L040__p95:cv2:tensorflowkeras": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0030__L040__p95:cv2:tensorflowkeras",
+"anchor": "Keras",
+"nearest": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"random": [],
+"distractors": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"n_eligible": 4,
+"sha": "cee57f4c40a1e2d2f7d66355b486207ecbfe4fc848055fa0984b4404e5a5170b",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0030__L040__p95:opencv:keras": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0030__L040__p95:opencv:keras",
+"anchor": "Keras",
+"nearest": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"random": [],
+"distractors": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"n_eligible": 4,
+"sha": "440a712d2e2099452e41131763a7084515551aa70046cb04e9de297a79c94a6d",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0030__L044__p203:pythonmathlibrary:keras": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0030__L044__p203:pythonmathlibrary:keras",
+"anchor": "Keras",
+"nearest": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"random": [],
+"distractors": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"n_eligible": 4,
+"sha": "c54bc755e6d69ba2e23832a270adcaceee5bb4a3b7c5947e048786d8d18c4f2c",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0030__L044__p95:cv2:tensorflowkeras": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0030__L044__p95:cv2:tensorflowkeras",
+"anchor": "Keras",
+"nearest": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"random": [],
+"distractors": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"n_eligible": 4,
+"sha": "af4cf8c0833fb9824766c32e078279697d66a1f931246e0847ee800223682fd5",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0030__L044__p95:opencv:keras": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0030__L044__p95:opencv:keras",
+"anchor": "Keras",
+"nearest": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"random": [],
+"distractors": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"n_eligible": 4,
+"sha": "f55d30039a814b09d0b2e18caa2569321cbc8b731af68648c5fc22e06c278f73",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0030__L044__p95:pandas:keras": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0030__L044__p95:pandas:keras",
+"anchor": "Keras",
+"nearest": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"random": [],
+"distractors": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"n_eligible": 4,
+"sha": "a4a69e5cec24594472517cdcfce54fef5c0f8fe1b9cdab90c27537e3066d2403",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0030__L044__p95:pandasandopencv:keras": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0030__L044__p95:pandasandopencv:keras",
+"anchor": "Keras",
+"nearest": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"random": [],
+"distractors": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"n_eligible": 4,
+"sha": "9c8dad7b2898ba0007c95fd7572517b79d74b1d09d839c0132aa4f70d1796eb6",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0030__L048__p203:sysos:kerastensorflow": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0030__L048__p203:sysos:kerastensorflow",
+"anchor": "Keras",
+"nearest": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"random": [],
+"distractors": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"n_eligible": 4,
+"sha": "2641e93318a67b2c087b9a1489855253fea5acdd976a297f5c1022db71e2c6ff",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0030__L048__p95:numpy:keras": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0030__L048__p95:numpy:keras",
+"anchor": "Keras",
+"nearest": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"random": [],
+"distractors": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"n_eligible": 4,
+"sha": "1783ccc611c51722ae765a24d85349d81079832f319b6aa970e1533d55002f35",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0030__L048__p95:pandas:keras": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0030__L048__p95:pandas:keras",
+"anchor": "Keras",
+"nearest": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"random": [],
+"distractors": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"n_eligible": 4,
+"sha": "a4d25884c7d13a59a534174dc4f57937a41b3ebc9d4a36d31a041bb5fdc8db10",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0030__L052__p219:numpy:tensorflow": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0030__L052__p219:numpy:tensorflow",
+"anchor": "Keras",
+"nearest": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"random": [],
+"distractors": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"n_eligible": 4,
+"sha": "581594bbb2b5c2c6851018e1936973a3fa8c26a45dcc891071920b4d2349a897",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0030__L052__p219:numpypytorchpython:kerastensorflow": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0030__L052__p219:numpypytorchpython:kerastensorflow",
+"anchor": "Keras",
+"nearest": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"random": [],
+"distractors": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"n_eligible": 4,
+"sha": "66b3e4f13264e62ccc01a8b1a9d534d95861112085dcaf1260d5d68edc8ba9d9",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0030__L052__p219:pythonsysmodule:keras": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0030__L052__p219:pythonsysmodule:keras",
+"anchor": "Keras",
+"nearest": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"random": [],
+"distractors": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"n_eligible": 4,
+"sha": "5b81c52afa18d9e1aaa7ab34100725b654bbaea3e2a7853f2f6e4a823f9af0cf",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0030__L056__p95:numpy:keras": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0030__L056__p95:numpy:keras",
+"anchor": "Keras",
+"nearest": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"random": [],
+"distractors": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"n_eligible": 4,
+"sha": "7d3709a9b90630999821848523c64f26400dda2aa40ea14c802f783304302c2e",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0030__L056__p95:numpytensorflow:keras": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0030__L056__p95:numpytensorflow:keras",
+"anchor": "Keras",
+"nearest": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"random": [],
+"distractors": [
+"SQLAlchemy",
+"Streamlit",
+"PyQt",
+"sqlite3"
+],
+"n_eligible": 4,
+"sha": "6b2daf5775148f1e66f09e97cfaae236fde912cbcd346225f5554446597ae9be",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0074__L024__p200:pyqt:python": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0074__L024__p200:pyqt:python",
+"anchor": "PyQt",
+"nearest": [
+"Django",
+"Flask",
+"OpenCV",
+"Matplotlib"
+],
+"random": [
+"Pandas",
+"PyTorch",
+"math",
+"sys"
+],
+"distractors": [
+"Django",
+"Flask",
+"OpenCV",
+"Matplotlib",
+"Pandas",
+"PyTorch",
+"math",
+"sys"
+],
+"n_eligible": 18,
+"sha": "bb6b15eb06fddde494f70ea9f634a6c525ecb6de13566f0483302fb16a7c9538",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0007__L028__p128:sqlalchemy:sqlite3": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0007__L028__p128:sqlalchemy:sqlite3",
 "anchor": "sqlite3",

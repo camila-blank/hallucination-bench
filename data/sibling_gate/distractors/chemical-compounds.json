@@ -27,6 +27,2442 @@
 "sha": "5b1d4c67cf0a14f11c41b4a3c9bab77f0d72e1b7e0abd0069f8f2c8b05fafe81",
 "generation": 0
 },
+"mlnla-ck2000-all11:chat-lmsys-0001__L040__p316:4methoxyquinoline:7methoxyisoquinoline": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0001__L040__p316:4methoxyquinoline:7methoxyisoquinoline",
+"anchor": "7-Methoxyisoquinoline",
+"nearest": [],
+"random": [
+"5-formyl-2-methylbenzaldehyde",
+"dimethyl sulfoxide",
+"ginsenosides",
+"lithium niobate",
+"nitric acid",
+"sodium thiosulfate",
+"sodium thiosulfate pentahydrate",
+"urea"
+],
+"distractors": [
+"5-formyl-2-methylbenzaldehyde",
+"dimethyl sulfoxide",
+"ginsenosides",
+"lithium niobate",
+"nitric acid",
+"sodium thiosulfate",
+"sodium thiosulfate pentahydrate",
+"urea"
+],
+"n_eligible": 61,
+"sha": "be874c963a9b7913a2e96a1550a1c518c480f4f97ac4f4cf2c29fe65945f9ee1",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0001__L048__p197:phosgene:7methoxyisoquinoline": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0001__L048__p197:phosgene:7methoxyisoquinoline",
+"anchor": "7-methoxyisoquinoline",
+"nearest": [],
+"random": [
+"Gastrodin",
+"L-Methionine",
+"Polyurethane",
+"methyl parathion",
+"sodium acetate",
+"sodium hypochlorite",
+"sodium thiosulfate pentahydrate",
+"water"
+],
+"distractors": [
+"Gastrodin",
+"L-Methionine",
+"Polyurethane",
+"methyl parathion",
+"sodium acetate",
+"sodium hypochlorite",
+"sodium thiosulfate pentahydrate",
+"water"
+],
+"n_eligible": 66,
+"sha": "6a25dc3271846b96ace75adc0ebd403ed0c05fda7d5ffaa9f7cb78f9d511bd03",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0001__L048__p197:tmeda:7methoxyisoquinoline": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0001__L048__p197:tmeda:7methoxyisoquinoline",
+"anchor": "7-methoxyisoquinoline",
+"nearest": [],
+"random": [
+"MG",
+"Vitamin C",
+"sodium chloride",
+"sodium nitrite",
+"sodium thiosulfate",
+"sulfur dioxide",
+"sulfur trioxide",
+"urea"
+],
+"distractors": [
+"MG",
+"Vitamin C",
+"sodium chloride",
+"sodium nitrite",
+"sodium thiosulfate",
+"sulfur dioxide",
+"sulfur trioxide",
+"urea"
+],
+"n_eligible": 66,
+"sha": "f55e309daeabc357ff472d30f7a6dccf9997990eabf1f596986d5a285dd4bf66",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0001__L052__p197:methacrylicacid:7methoxyisoquinoline": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0001__L052__p197:methacrylicacid:7methoxyisoquinoline",
+"anchor": "7-methoxyisoquinoline",
+"nearest": [],
+"random": [
+"2-Propylpyrimidine-5-carbaldehyde",
+"2-butylphenol",
+"2-propylphenol",
+"Fluoxetine",
+"Gastrodin",
+"MG",
+"Vitamin C",
+"sodium sulfate"
+],
+"distractors": [
+"2-Propylpyrimidine-5-carbaldehyde",
+"2-butylphenol",
+"2-propylphenol",
+"Fluoxetine",
+"Gastrodin",
+"MG",
+"Vitamin C",
+"sodium sulfate"
+],
+"n_eligible": 62,
+"sha": "077cf7a2ce89789156723aa4d7ba55e7af248efa40f89712e392b3a0ccea9e56",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0001__L052__p197:methylmethacrylate:7methoxyisoquinoline": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0001__L052__p197:methylmethacrylate:7methoxyisoquinoline",
+"anchor": "7-methoxyisoquinoline",
+"nearest": [],
+"random": [
+"2-Propylpyrimidine-5-carbaldehyde",
+"2-butylphenol",
+"4-hydroxybenzyl alcohol",
+"Imidacloprid",
+"Paeonol",
+"sodium nitrite",
+"sulfur trioxide",
+"water"
+],
+"distractors": [
+"2-Propylpyrimidine-5-carbaldehyde",
+"2-butylphenol",
+"4-hydroxybenzyl alcohol",
+"Imidacloprid",
+"Paeonol",
+"sodium nitrite",
+"sulfur trioxide",
+"water"
+],
+"n_eligible": 65,
+"sha": "1b6857e7ca000d38802feffa013584e32ef0cecbfb328825052bbf0a1ea15bb8",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0001__L052__p252:arsenic:7methoxyisoquinoline": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0001__L052__p252:arsenic:7methoxyisoquinoline",
+"anchor": "7-methoxyisoquinoline",
+"nearest": [],
+"random": [
+"2-propyl-4-nitroaniline",
+"Lithium bromide",
+"Vitamin C",
+"carbon dioxide",
+"carbon monoxide",
+"potassium sulfate",
+"sulfur dioxide",
+"urea"
+],
+"distractors": [
+"2-propyl-4-nitroaniline",
+"Lithium bromide",
+"Vitamin C",
+"carbon dioxide",
+"carbon monoxide",
+"potassium sulfate",
+"sulfur dioxide",
+"urea"
+],
+"n_eligible": 66,
+"sha": "a40ea039dd911598f30426b8c347200321545d13940b7688756bfd1c71b48c17",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0001__L052__p40:2methylimidazole:7methoxyisoquinoline": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0001__L052__p40:2methylimidazole:7methoxyisoquinoline",
+"anchor": "7-methoxyisoquinoline",
+"nearest": [],
+"random": [
+"Sodium Nitrite",
+"Vanillin",
+"dimethyl sulfoxide",
+"ethanol",
+"lithium niobate",
+"polyacrylamide",
+"potassium nitrate",
+"sodium acetate"
+],
+"distractors": [
+"Sodium Nitrite",
+"Vanillin",
+"dimethyl sulfoxide",
+"ethanol",
+"lithium niobate",
+"polyacrylamide",
+"potassium nitrate",
+"sodium acetate"
+],
+"n_eligible": 59,
+"sha": "f6233f7653a3d037e64dd40a61cfa2cd39aacc93ff482808b35646c0c87d1c00",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0001__L056__p197:methylmethacrylate:7methoxyisoquinoline": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0001__L056__p197:methylmethacrylate:7methoxyisoquinoline",
+"anchor": "7-methoxyisoquinoline",
+"nearest": [],
+"random": [
+"2-Propyl-4-hydroxyquinoline",
+"4-Formylbenzaldehyde",
+"5-formyl-2-methylbenzaldehyde",
+"Paeonol",
+"calcium chloride",
+"lithium niobate",
+"nitric acid",
+"sodium iodide"
+],
+"distractors": [
+"2-Propyl-4-hydroxyquinoline",
+"4-Formylbenzaldehyde",
+"5-formyl-2-methylbenzaldehyde",
+"Paeonol",
+"calcium chloride",
+"lithium niobate",
+"nitric acid",
+"sodium iodide"
+],
+"n_eligible": 65,
+"sha": "898021752f466eedc98f1256cce2c4025a5fd58989a019cdf59d02fe7fe0ffd6",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0001__L056__p197:mma:7methoxyisoquinoline": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0001__L056__p197:mma:7methoxyisoquinoline",
+"anchor": "7-methoxyisoquinoline",
+"nearest": [],
+"random": [
+"2-butylphenol",
+"Polyethylene",
+"barium chloride",
+"potassium acetate",
+"potassium sulfate",
+"sodium acetate",
+"sodium hypochlorite",
+"water"
+],
+"distractors": [
+"2-butylphenol",
+"Polyethylene",
+"barium chloride",
+"potassium acetate",
+"potassium sulfate",
+"sodium acetate",
+"sodium hypochlorite",
+"water"
+],
+"n_eligible": 65,
+"sha": "a98cbbd3f9dd46958859d65e400030e09fbe374d10f74354506e7d2d17ed141a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0001__L056__p40:nmethyl2bromopyridine:7methoxyisoquinoline": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0001__L056__p40:nmethyl2bromopyridine:7methoxyisoquinoline",
+"anchor": "7-methoxyisoquinoline",
+"nearest": [],
+"random": [
+"Caffeic acid",
+"Imidacloprid",
+"Lithium bromide",
+"Sodium Nitrite",
+"barium chloride",
+"carbon dioxide",
+"fluoxetine",
+"sodium hypochlorite"
+],
+"distractors": [
+"Caffeic acid",
+"Imidacloprid",
+"Lithium bromide",
+"Sodium Nitrite",
+"barium chloride",
+"carbon dioxide",
+"fluoxetine",
+"sodium hypochlorite"
+],
+"n_eligible": 57,
+"sha": "c63de910117c57597e8c282cf3cb5452c16ec3d85818ae063b794e3dc51ddfe6",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0001__L056__p40:nmethylpyrrolidone:7methoxyisoquinoline": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0001__L056__p40:nmethylpyrrolidone:7methoxyisoquinoline",
+"anchor": "7-methoxyisoquinoline",
+"nearest": [],
+"random": [
+"L-Tyrosine",
+"Polyurethane",
+"bromine",
+"carbon monoxide",
+"potassium chloride",
+"potassium permanganate",
+"pyrimidine",
+"sodium chloride"
+],
+"distractors": [
+"L-Tyrosine",
+"Polyurethane",
+"bromine",
+"carbon monoxide",
+"potassium chloride",
+"potassium permanganate",
+"pyrimidine",
+"sodium chloride"
+],
+"n_eligible": 57,
+"sha": "40b7635a57135a599f8a6321200181fa7ddd16a474a24e9e94bf0ade311723fe",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0001__L056__p40:nmp:7methoxyisoquinoline": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0001__L056__p40:nmp:7methoxyisoquinoline",
+"anchor": "7-Methoxyisoquinoline",
+"nearest": [],
+"random": [
+"Fluoroantimonic acid",
+"Sodium Nitrite",
+"calcium chloride",
+"dimethyl sulfoxide",
+"ginsenosides",
+"lithium niobate",
+"nitric acid",
+"sodium hydroxide"
+],
+"distractors": [
+"Fluoroantimonic acid",
+"Sodium Nitrite",
+"calcium chloride",
+"dimethyl sulfoxide",
+"ginsenosides",
+"lithium niobate",
+"nitric acid",
+"sodium hydroxide"
+],
+"n_eligible": 57,
+"sha": "a4f72224db254ae9a6914c8fc35a24f4d44a51dbf4e356e25a4874c31abb9ea9",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0001__L060__p197:methylmethacrylate:7methoxyisoquinoline": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0001__L060__p197:methylmethacrylate:7methoxyisoquinoline",
+"anchor": "7-methoxyisoquinoline",
+"nearest": [],
+"random": [
+"4-hydroxybenzyl alcohol",
+"Fluoxetine",
+"Lithium bromide",
+"Paeonol",
+"calcium chloride",
+"ginsenosides",
+"potassium chloride",
+"valproic acid"
+],
+"distractors": [
+"4-hydroxybenzyl alcohol",
+"Fluoxetine",
+"Lithium bromide",
+"Paeonol",
+"calcium chloride",
+"ginsenosides",
+"potassium chloride",
+"valproic acid"
+],
+"n_eligible": 65,
+"sha": "170f3b0eb0a14f2a6df78df36b32c99f7de9799908dd41e17ea40b64330ba862",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0001__L060__p252:hydrogenchloride:7methoxyisoquinoline": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0001__L060__p252:hydrogenchloride:7methoxyisoquinoline",
+"anchor": "7-methoxyisoquinoline",
+"nearest": [],
+"random": [
+"5-formyl-2-methylbenzaldehyde",
+"Caffeic acid",
+"Sodium Nitrite",
+"nitric acid",
+"ozone",
+"potassium acetate",
+"sodium iodide",
+"sulfur dioxide"
+],
+"distractors": [
+"5-formyl-2-methylbenzaldehyde",
+"Caffeic acid",
+"Sodium Nitrite",
+"nitric acid",
+"ozone",
+"potassium acetate",
+"sodium iodide",
+"sulfur dioxide"
+],
+"n_eligible": 62,
+"sha": "b4187423984a0c9b4cb48c909590dba685bc31bf751ebea0be6b4519edbc3646",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0001__L060__p40:dmf:7methoxyisoquinoline": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0001__L060__p40:dmf:7methoxyisoquinoline",
+"anchor": "7-Methoxyisoquinoline",
+"nearest": [],
+"random": [
+"2-propyl-4-nitroaniline",
+"4-Fluoroacetophenone",
+"carbon monoxide",
+"lithium niobate",
+"methyl parathion",
+"nitric acid",
+"sodium nitrate",
+"water"
+],
+"distractors": [
+"2-propyl-4-nitroaniline",
+"4-Fluoroacetophenone",
+"carbon monoxide",
+"lithium niobate",
+"methyl parathion",
+"nitric acid",
+"sodium nitrate",
+"water"
+],
+"n_eligible": 65,
+"sha": "fa62c9fdd6bfab6d36887d45f7065460897f90897c8698505b306193b3ce42e3",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0001__L060__p40:nndimethylformamide:7methoxyisoquinoline": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0001__L060__p40:nndimethylformamide:7methoxyisoquinoline",
+"anchor": "7-Methoxyisoquinoline",
+"nearest": [],
+"random": [
+"2-butylphenol",
+"Gastrodin",
+"Lithium bromide",
+"calcium chloride",
+"carbon monoxide",
+"sodium acetate",
+"sodium nitrate",
+"sodium sulfate"
+],
+"distractors": [
+"2-butylphenol",
+"Gastrodin",
+"Lithium bromide",
+"calcium chloride",
+"carbon monoxide",
+"sodium acetate",
+"sodium nitrate",
+"sodium sulfate"
+],
+"n_eligible": 65,
+"sha": "2fcb05832a1b634056a1c4dca00f4e7084004094246e6588709e7dc6fa7ed415",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0028__L024__p327:methylmethacrylate:fluoxetine": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0028__L024__p327:methylmethacrylate:fluoxetine",
+"anchor": "fluoxetine",
+"nearest": [],
+"random": [
+"1-Methylisoquinoline",
+"4-Aminopyridine",
+"4-Fluoroacetophenone",
+"7-Methoxyisoquinoline",
+"barium chloride",
+"isopropanol",
+"sulfur trioxide",
+"urea"
+],
+"distractors": [
+"1-Methylisoquinoline",
+"4-Aminopyridine",
+"4-Fluoroacetophenone",
+"7-Methoxyisoquinoline",
+"barium chloride",
+"isopropanol",
+"sulfur trioxide",
+"urea"
+],
+"n_eligible": 88,
+"sha": "b607bd3465a8c3e04d4ffc1b457345afeb2644e004cf352376977c098c53fbf8",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0028__L024__p327:mma:fluoxetine": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0028__L024__p327:mma:fluoxetine",
+"anchor": "fluoxetine",
+"nearest": [],
+"random": [
+"L-Tyrosine",
+"barium chloride",
+"dimethylformamide",
+"phenylalanine",
+"polyacrylamide",
+"sodium iodide",
+"urea",
+"valproic acid"
+],
+"distractors": [
+"L-Tyrosine",
+"barium chloride",
+"dimethylformamide",
+"phenylalanine",
+"polyacrylamide",
+"sodium iodide",
+"urea",
+"valproic acid"
+],
+"n_eligible": 88,
+"sha": "8ccd45f5e89befc0491699cc064898afec77f0f9a0ce24d1320e8089e5656407",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0028__L028__p213:polyethylene:fluoxetine": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0028__L028__p213:polyethylene:fluoxetine",
+"anchor": "Fluoxetine",
+"nearest": [],
+"random": [
+"2-propyl-4-nitroaniline",
+"DMAn",
+"Paeonol",
+"benzomorphine",
+"dimethyl sulfoxide",
+"methyl parathion",
+"pyrimidine",
+"sodium chlorate"
+],
+"distractors": [
+"2-propyl-4-nitroaniline",
+"DMAn",
+"Paeonol",
+"benzomorphine",
+"dimethyl sulfoxide",
+"methyl parathion",
+"pyrimidine",
+"sodium chlorate"
+],
+"n_eligible": 91,
+"sha": "210a34363043ecc5365773005f5b16176e35951598d7d4ac5900626217dd2196",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0028__L040__p30:lithiumbromide:fluoxetine": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0028__L040__p30:lithiumbromide:fluoxetine",
+"anchor": "Fluoxetine",
+"nearest": [],
+"random": [
+"2-methylimidazole",
+"2-propylphenol",
+"Butyl acrylate",
+"L-Methionine",
+"Vanadium Pentoxide",
+"benzoic acid",
+"carbon monoxide",
+"estradiol"
+],
+"distractors": [
+"2-methylimidazole",
+"2-propylphenol",
+"Butyl acrylate",
+"L-Methionine",
+"Vanadium Pentoxide",
+"benzoic acid",
+"carbon monoxide",
+"estradiol"
+],
+"n_eligible": 90,
+"sha": "e0f5b42be9353e947c133bc985de3120555372b204e01ba48296a33d9dd35992",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0028__L052__p213:methylamine:fluoxetine": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0028__L052__p213:methylamine:fluoxetine",
+"anchor": "Fluoxetine",
+"nearest": [],
+"random": [
+"1-Methylisoquinoline",
+"2-propylpyrimidine-5-carbaldehyde",
+"Hydrogen chloride",
+"arsenic",
+"benzomorphine",
+"hydroquinone",
+"sulfur trioxide",
+"vanadium pentoxide"
+],
+"distractors": [
+"1-Methylisoquinoline",
+"2-propylpyrimidine-5-carbaldehyde",
+"Hydrogen chloride",
+"arsenic",
+"benzomorphine",
+"hydroquinone",
+"sulfur trioxide",
+"vanadium pentoxide"
+],
+"n_eligible": 91,
+"sha": "041c701e86e48800b38bb8891588cdbcee55359e3f9b6ab3095caa488d0de91a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0043__L024__p419:benzoicacid:pyrimidine": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0043__L024__p419:benzoicacid:pyrimidine",
+"anchor": "pyrimidine",
+"nearest": [],
+"random": [
+"4-Methoxyquinoline",
+"Vitamin C",
+"acetophenone",
+"bromine",
+"potassium dichromate",
+"sodium sulfate",
+"sodium thiosulfate",
+"sulfur trioxide"
+],
+"distractors": [
+"4-Methoxyquinoline",
+"Vitamin C",
+"acetophenone",
+"bromine",
+"potassium dichromate",
+"sodium sulfate",
+"sodium thiosulfate",
+"sulfur trioxide"
+],
+"n_eligible": 57,
+"sha": "4c2534a2480395e5b8e2b9548e7667ed22cf6d6836039d7690798efc027fec70",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0043__L028__p419:2propyl4hydroxyquinoline:2propylpyrimidine5carbaldehyde": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0043__L028__p419:2propyl4hydroxyquinoline:2propylpyrimidine5carbaldehyde",
+"anchor": "2-Propylpyrimidine-5-carbaldehyde",
+"nearest": [],
+"random": [
+"acetophenone",
+"calcium chloride",
+"gastrodin",
+"isoquinoline",
+"nitric acid",
+"potassium sulfate",
+"sodium nitrate",
+"tetramethylethylenediamine"
+],
+"distractors": [
+"acetophenone",
+"calcium chloride",
+"gastrodin",
+"isoquinoline",
+"nitric acid",
+"potassium sulfate",
+"sodium nitrate",
+"tetramethylethylenediamine"
+],
+"n_eligible": 57,
+"sha": "c8c229479ff4609e48eef53e0bfc65e1428a9f43ecb1e420501d6db7e64dc214",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0043__L048__p222:methacrylicacid:2propylpyrimidine5carbaldehyde": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0043__L048__p222:methacrylicacid:2propylpyrimidine5carbaldehyde",
+"anchor": "2-propylpyrimidine-5-carbaldehyde",
+"nearest": [],
+"random": [
+"7-methoxyisoquinoline",
+"DMAn",
+"Gastrodin",
+"benzomorphine",
+"isoquinoline",
+"nitrogen",
+"potassium dichromate",
+"vanadium pentoxide"
+],
+"distractors": [
+"7-methoxyisoquinoline",
+"DMAn",
+"Gastrodin",
+"benzomorphine",
+"isoquinoline",
+"nitrogen",
+"potassium dichromate",
+"vanadium pentoxide"
+],
+"n_eligible": 56,
+"sha": "0ef9b594197c8d7544a31384e9feb655600c7d9db17fc857f100887de2f045cb",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0043__L048__p222:methylmethacrylate:2propylpyrimidine5carbaldehyde": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0043__L048__p222:methylmethacrylate:2propylpyrimidine5carbaldehyde",
+"anchor": "2-propylpyrimidine-5-carbaldehyde",
+"nearest": [],
+"random": [
+"DMAn",
+"Hydrogen chloride",
+"carbon dioxide",
+"potassium acetate",
+"potassium dichromate",
+"sodium iodide",
+"urea",
+"vanadium pentoxide"
+],
+"distractors": [
+"DMAn",
+"Hydrogen chloride",
+"carbon dioxide",
+"potassium acetate",
+"potassium dichromate",
+"sodium iodide",
+"urea",
+"vanadium pentoxide"
+],
+"n_eligible": 60,
+"sha": "1b998a320f4a6dd66069ca1cc0858182f709e1564b6196f797e1f73bb8c27bbe",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0043__L052__p53:2methylimidazole:2propylpyrimidine5carbaldehyde": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0043__L052__p53:2methylimidazole:2propylpyrimidine5carbaldehyde",
+"anchor": "2-Propylpyrimidine-5-carbaldehyde",
+"nearest": [],
+"random": [
+"4-Methoxybenzaldehyde",
+"Paeonol",
+"Vanadium Pentoxide",
+"carbon dioxide",
+"ginsenosides",
+"potassium acetate",
+"potassium nitrate",
+"sulfur trioxide"
+],
+"distractors": [
+"4-Methoxybenzaldehyde",
+"Paeonol",
+"Vanadium Pentoxide",
+"carbon dioxide",
+"ginsenosides",
+"potassium acetate",
+"potassium nitrate",
+"sulfur trioxide"
+],
+"n_eligible": 60,
+"sha": "3525f86d0fd806802322a96f926d93e85129715816c662d3aaae2150ac147cd3",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0043__L056__p458:chlorpyrifos:2propylpyrimidine5carbaldehyde": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0043__L056__p458:chlorpyrifos:2propylpyrimidine5carbaldehyde",
+"anchor": "2-Propylpyrimidine-5-carbaldehyde",
+"nearest": [],
+"random": [
+"4-Methoxybenzaldehyde",
+"Gastrodin",
+"MG",
+"isoquinoline",
+"potassium dichromate",
+"sodium hypochlorite",
+"sodium thiosulfate",
+"urea"
+],
+"distractors": [
+"4-Methoxybenzaldehyde",
+"Gastrodin",
+"MG",
+"isoquinoline",
+"potassium dichromate",
+"sodium hypochlorite",
+"sodium thiosulfate",
+"urea"
+],
+"n_eligible": 60,
+"sha": "c012169b6aa8e89ff94ab492beb1b44785485362696599905b89b512a94e6a88",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0043__L056__p458:methylparathion:2propylpyrimidine5carbaldehyde": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0043__L056__p458:methylparathion:2propylpyrimidine5carbaldehyde",
+"anchor": "2-propylpyrimidine-5-carbaldehyde",
+"nearest": [],
+"random": [
+"Ethanolamines",
+"Paeonol",
+"arsenic",
+"benzomorphine",
+"bromine",
+"potassium chloride",
+"sodium thiosulfate pentahydrate",
+"tetramethylethylenediamine"
+],
+"distractors": [
+"Ethanolamines",
+"Paeonol",
+"arsenic",
+"benzomorphine",
+"bromine",
+"potassium chloride",
+"sodium thiosulfate pentahydrate",
+"tetramethylethylenediamine"
+],
+"n_eligible": 60,
+"sha": "67d77c769e821767bf03ddcfa72cc3f46273230a034b0b100a7f45aab59e55f1",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0043__L056__p53:dimethylformamide:2propylpyrimidine5carbaldehyde": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0043__L056__p53:dimethylformamide:2propylpyrimidine5carbaldehyde",
+"anchor": "2-Propylpyrimidine-5-carbaldehyde",
+"nearest": [],
+"random": [
+"L-Tyrosine",
+"Vanadium Pentoxide",
+"arsenic",
+"phenylalanine",
+"potassium nitrate",
+"sodium chloride",
+"sodium thiosulfate pentahydrate",
+"tetramethylethylenediamine"
+],
+"distractors": [
+"L-Tyrosine",
+"Vanadium Pentoxide",
+"arsenic",
+"phenylalanine",
+"potassium nitrate",
+"sodium chloride",
+"sodium thiosulfate pentahydrate",
+"tetramethylethylenediamine"
+],
+"n_eligible": 60,
+"sha": "396264b735252fd653ea977f678282b469bba96f2424f14355688bffada63d39",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0043__L060__p458:2butoxyethanol:2propylpyrimidine5carbaldehyde": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0043__L060__p458:2butoxyethanol:2propylpyrimidine5carbaldehyde",
+"anchor": "2-propylpyrimidine-5-carbaldehyde",
+"nearest": [],
+"random": [
+"4-Methoxybenzaldehyde",
+"4-Methoxyquinoline",
+"Caffeic acid",
+"Vanillin",
+"Vitamin C",
+"nitric acid",
+"potassium sulfate",
+"sodium thiosulfate"
+],
+"distractors": [
+"4-Methoxybenzaldehyde",
+"4-Methoxyquinoline",
+"Caffeic acid",
+"Vanillin",
+"Vitamin C",
+"nitric acid",
+"potassium sulfate",
+"sodium thiosulfate"
+],
+"n_eligible": 60,
+"sha": "94ee3f45952a3e84c2314f169232969d48746688f87fd2f3788774a42d97f3e2",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0043__L060__p53:nmethylpyrrolidone:2propylpyrimidine5carbaldehyde": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0043__L060__p53:nmethylpyrrolidone:2propylpyrimidine5carbaldehyde",
+"anchor": "2-Propylpyrimidine-5-carbaldehyde",
+"nearest": [],
+"random": [
+"L-Tyrosine",
+"MG",
+"acetophenone",
+"barium hydroxide",
+"bromine",
+"gastrodin",
+"potassium dichromate",
+"sodium hypochlorite"
+],
+"distractors": [
+"L-Tyrosine",
+"MG",
+"acetophenone",
+"barium hydroxide",
+"bromine",
+"gastrodin",
+"potassium dichromate",
+"sodium hypochlorite"
+],
+"n_eligible": 60,
+"sha": "b72b6e0b55d8cf34b3db3864e46873c4eba279ff7ff33cb471f762fc98957686",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0043__L060__p53:nmp:2propylpyrimidine5carbaldehyde": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0043__L060__p53:nmp:2propylpyrimidine5carbaldehyde",
+"anchor": "2-Propylpyrimidine-5-carbaldehyde",
+"nearest": [],
+"random": [
+"L-Methionine",
+"Paeonol",
+"bromine",
+"carbon monoxide",
+"potassium permanganate",
+"potassium sulfate",
+"sodium hypochlorite",
+"water"
+],
+"distractors": [
+"L-Methionine",
+"Paeonol",
+"bromine",
+"carbon monoxide",
+"potassium permanganate",
+"potassium sulfate",
+"sodium hypochlorite",
+"water"
+],
+"n_eligible": 60,
+"sha": "da5b7877dcccc379d2f5411dd80220568072c9f610df96071d518c16aeafb032",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0052__L020__p253:sodiumchloride:sodiumnitrite": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0052__L020__p253:sodiumchloride:sodiumnitrite",
+"anchor": "sodium nitrite",
+"nearest": [],
+"random": [
+"2-Propyl-4-hydroxyquinoline",
+"7-Methoxyisoquinoline",
+"Acrylonitrile",
+"Trichloroethylene",
+"benzene",
+"fluoxetine",
+"isopropyl alcohol",
+"methylamine"
+],
+"distractors": [
+"2-Propyl-4-hydroxyquinoline",
+"7-Methoxyisoquinoline",
+"Acrylonitrile",
+"Trichloroethylene",
+"benzene",
+"fluoxetine",
+"isopropyl alcohol",
+"methylamine"
+],
+"n_eligible": 81,
+"sha": "7642af4713e8c48dafd023d032969a3942fed0658b25bbccc0edcc82c98842aa",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0052__L020__p302:sodiumchloride:sodiumnitrite": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0052__L020__p302:sodiumchloride:sodiumnitrite",
+"anchor": "sodium nitrite",
+"nearest": [],
+"random": [
+"2-methylimidazole",
+"4-Methoxybenzaldehyde",
+"Fluoroantimonic acid",
+"Vanillin",
+"acetonitrile",
+"ginsenosides",
+"pyrimidine",
+"valproic acid"
+],
+"distractors": [
+"2-methylimidazole",
+"4-Methoxybenzaldehyde",
+"Fluoroantimonic acid",
+"Vanillin",
+"acetonitrile",
+"ginsenosides",
+"pyrimidine",
+"valproic acid"
+],
+"n_eligible": 81,
+"sha": "bf85158bdea7fa3b73c8b5fdf1caa52cfad5e5a137162ba86fd7f12d9adb320b",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0052__L024__p164:potassiumpermanganate:sodiumnitrite": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0052__L024__p164:potassiumpermanganate:sodiumnitrite",
+"anchor": "sodium nitrite",
+"nearest": [],
+"random": [
+"4-Formylbenzaldehyde",
+"4-methylquinoline",
+"7-methoxyisoquinoline",
+"Isopropyl Alcohol",
+"Polyurethane",
+"gastrodin",
+"phenylalanine",
+"polyacrylamide"
+],
+"distractors": [
+"4-Formylbenzaldehyde",
+"4-methylquinoline",
+"7-methoxyisoquinoline",
+"Isopropyl Alcohol",
+"Polyurethane",
+"gastrodin",
+"phenylalanine",
+"polyacrylamide"
+],
+"n_eligible": 81,
+"sha": "24905487292496b05eeabad174badddefd487bbfeca6e4e5f2fa188b80612cc2",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0052__L024__p164:sodiumchloride:sodiumnitrite": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0052__L024__p164:sodiumchloride:sodiumnitrite",
+"anchor": "sodium nitrite",
+"nearest": [],
+"random": [
+"2-Propylpyrimidine-5-carbaldehyde",
+"2-propyl-4-nitroaniline",
+"4-hydroxybenzyl alcohol",
+"4-methylquinoline",
+"Vitamin C",
+"phosgene",
+"polyacrylamide",
+"trichloroethylene"
+],
+"distractors": [
+"2-Propylpyrimidine-5-carbaldehyde",
+"2-propyl-4-nitroaniline",
+"4-hydroxybenzyl alcohol",
+"4-methylquinoline",
+"Vitamin C",
+"phosgene",
+"polyacrylamide",
+"trichloroethylene"
+],
+"n_eligible": 81,
+"sha": "6628d73ae9054dc510cd83c7cec9cb2405516d7fc263625ebc04468c49d90bba",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0052__L024__p209:kno3:nano2": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0052__L024__p209:kno3:nano2",
+"anchor": "sodium nitrite",
+"nearest": [],
+"random": [
+"2-propyl-4-nitroaniline",
+"Butyl acrylate",
+"DMAn",
+"Toluene",
+"benzyl alcohol",
+"methyl parathion",
+"n-Butyl acrylate",
+"polyacrylamide"
+],
+"distractors": [
+"2-propyl-4-nitroaniline",
+"Butyl acrylate",
+"DMAn",
+"Toluene",
+"benzyl alcohol",
+"methyl parathion",
+"n-Butyl acrylate",
+"polyacrylamide"
+],
+"n_eligible": 81,
+"sha": "be86b6a5009c11165095a4ca7a2d1d2352698a34fdf7ba8f1b814c51ee7aae8d",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0052__L024__p209:potassiumnitrate:sodiumnitrite": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0052__L024__p209:potassiumnitrate:sodiumnitrite",
+"anchor": "sodium nitrite",
+"nearest": [],
+"random": [
+"4-Methoxybenzaldehyde",
+"Polyurethane",
+"arsenic",
+"benzomorphine",
+"dimethyl sulfoxide",
+"fluoxetine",
+"gastrodin",
+"isoquinoline"
+],
+"distractors": [
+"4-Methoxybenzaldehyde",
+"Polyurethane",
+"arsenic",
+"benzomorphine",
+"dimethyl sulfoxide",
+"fluoxetine",
+"gastrodin",
+"isoquinoline"
+],
+"n_eligible": 81,
+"sha": "cffe3b586e22542bf5b2675403567b56f262affd8257769cc6c8234f8f002590",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0052__L028__p209:nacl:nano2": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0052__L028__p209:nacl:nano2",
+"anchor": "sodium nitrite",
+"nearest": [],
+"random": [
+"2-Propylpyrimidine-5-carbaldehyde",
+"2-propylphenol",
+"4-Methoxyquinoline",
+"4-methylquinoline",
+"Imidacloprid",
+"Isopropyl Alcohol",
+"Toluene",
+"dimethyl sulfoxide"
+],
+"distractors": [
+"2-Propylpyrimidine-5-carbaldehyde",
+"2-propylphenol",
+"4-Methoxyquinoline",
+"4-methylquinoline",
+"Imidacloprid",
+"Isopropyl Alcohol",
+"Toluene",
+"dimethyl sulfoxide"
+],
+"n_eligible": 81,
+"sha": "908fcf100b3be50d2a8594295031e797e940f65ef70b203c0707d5024af1b92c",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0052__L028__p209:sodiumchloride:sodiumnitrite": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0052__L028__p209:sodiumchloride:sodiumnitrite",
+"anchor": "sodium nitrite",
+"nearest": [],
+"random": [
+"1-Methylisoquinoline",
+"Butyl acrylate",
+"Chloroform",
+"Isopropyl alcohol",
+"Polyurethane",
+"dimethyl sulfoxide",
+"methylamine",
+"n-Butyl acrylate"
+],
+"distractors": [
+"1-Methylisoquinoline",
+"Butyl acrylate",
+"Chloroform",
+"Isopropyl alcohol",
+"Polyurethane",
+"dimethyl sulfoxide",
+"methylamine",
+"n-Butyl acrylate"
+],
+"n_eligible": 81,
+"sha": "47da54abfeeaaf0c819faa9443040ef03ef09c38bad0a5526cb46ebf42d208a5",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0052__L028__p428:potassiumchloridekcl:sodiumnitritenano2": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0052__L028__p428:potassiumchloridekcl:sodiumnitritenano2",
+"anchor": "sodium nitrite",
+"nearest": [],
+"random": [
+"7-Methoxyisoquinoline",
+"Gastrodin",
+"Paeonol",
+"Vanillin",
+"benzyl alcohol",
+"chlorpyrifos",
+"nitrobenzene",
+"phenylalanine"
+],
+"distractors": [
+"7-Methoxyisoquinoline",
+"Gastrodin",
+"Paeonol",
+"Vanillin",
+"benzyl alcohol",
+"chlorpyrifos",
+"nitrobenzene",
+"phenylalanine"
+],
+"n_eligible": 81,
+"sha": "b701ae0bd6f00fed660a209d9ccf6751886b5c308c4c331100357754c7473a00",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0052__L032__p164:sodiumchlorate:sodiumnitrite": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0052__L032__p164:sodiumchlorate:sodiumnitrite",
+"anchor": "sodium nitrite",
+"nearest": [],
+"random": [
+"Butyl acrylate",
+"Ethanolamines",
+"Fluoxetine",
+"Vitamin C",
+"estradiol",
+"methylamine",
+"phosgene",
+"tetramethylethylenediamine"
+],
+"distractors": [
+"Butyl acrylate",
+"Ethanolamines",
+"Fluoxetine",
+"Vitamin C",
+"estradiol",
+"methylamine",
+"phosgene",
+"tetramethylethylenediamine"
+],
+"n_eligible": 81,
+"sha": "656b8719201ed95a68cd0194c47bf35454903e43b990c246a32a2bf7699c57ba",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0052__L032__p209:nacl:sodiumnitrite": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0052__L032__p209:nacl:sodiumnitrite",
+"anchor": "sodium nitrite",
+"nearest": [],
+"random": [
+"2-methylimidazole",
+"Isopropyl Alcohol",
+"Polyethylene",
+"acetaldehyde",
+"acetophenone",
+"gastrodin",
+"isocyanates",
+"methylamine"
+],
+"distractors": [
+"2-methylimidazole",
+"Isopropyl Alcohol",
+"Polyethylene",
+"acetaldehyde",
+"acetophenone",
+"gastrodin",
+"isocyanates",
+"methylamine"
+],
+"n_eligible": 81,
+"sha": "3a4ea2b38e16d7d707399f4dbd0946a2fb33e2defcd556649f0e62ee97549a61",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0052__L032__p209:sodiumchloride:sodiumnitrite": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0052__L032__p209:sodiumchloride:sodiumnitrite",
+"anchor": "sodium nitrite",
+"nearest": [],
+"random": [
+"Ethanolamines",
+"Vanadium Pentoxide",
+"benzomorphine",
+"benzyl alcohol",
+"estradiol",
+"isocyanates",
+"nitrobenzene",
+"vanadium pentoxide"
+],
+"distractors": [
+"Ethanolamines",
+"Vanadium Pentoxide",
+"benzomorphine",
+"benzyl alcohol",
+"estradiol",
+"isocyanates",
+"nitrobenzene",
+"vanadium pentoxide"
+],
+"n_eligible": 81,
+"sha": "e5518da926e7db7c88a43172db5e8644c101bd009623109de0d3c92d4798a819",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0052__L032__p428:nacl:sodiumnitrite": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0052__L032__p428:nacl:sodiumnitrite",
+"anchor": "sodium nitrite",
+"nearest": [],
+"random": [
+"4-Aminopyridine",
+"4-Methoxyquinoline",
+"4-hydroxybenzyl alcohol",
+"5-formyl-2-methylbenzaldehyde",
+"benzyl alcohol",
+"dimethylformamide",
+"phosgene",
+"trichloroethylene"
+],
+"distractors": [
+"4-Aminopyridine",
+"4-Methoxyquinoline",
+"4-hydroxybenzyl alcohol",
+"5-formyl-2-methylbenzaldehyde",
+"benzyl alcohol",
+"dimethylformamide",
+"phosgene",
+"trichloroethylene"
+],
+"n_eligible": 81,
+"sha": "acffdb02d62e3496b24f6ce6e175771b8443ba9cc8785e2e5cfe5c4982920c01",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0052__L032__p428:sodiumchloride:sodiumnitrite": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0052__L032__p428:sodiumchloride:sodiumnitrite",
+"anchor": "sodium nitrite",
+"nearest": [],
+"random": [
+"2-propyl-4-nitroaniline",
+"2-propylphenol",
+"Caffeic acid",
+"estradiol",
+"fluoxetine",
+"hydroquinone",
+"methyl methacrylate",
+"pyrimidine"
+],
+"distractors": [
+"2-propyl-4-nitroaniline",
+"2-propylphenol",
+"Caffeic acid",
+"estradiol",
+"fluoxetine",
+"hydroquinone",
+"methyl methacrylate",
+"pyrimidine"
+],
+"n_eligible": 81,
+"sha": "b5d968f5284a635bd00043c13a55212471cf9f638a54e2089296558fdfba12fe",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0052__L036__p112:kcl:sodiumnitrite": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0052__L036__p112:kcl:sodiumnitrite",
+"anchor": "sodium nitrite",
+"nearest": [],
+"random": [
+"4-Aminopyridine",
+"4-Methoxybenzaldehyde",
+"L-Tyrosine",
+"Vanillin",
+"benzyl alcohol",
+"estradiol",
+"hydroquinone",
+"n-Butyl acrylate"
+],
+"distractors": [
+"4-Aminopyridine",
+"4-Methoxybenzaldehyde",
+"L-Tyrosine",
+"Vanillin",
+"benzyl alcohol",
+"estradiol",
+"hydroquinone",
+"n-Butyl acrylate"
+],
+"n_eligible": 81,
+"sha": "95dc5297bef236c9cae65455a988b9104f45387c786d0e9bd3a38c08b780d058",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0052__L036__p209:naoh:sodiumnitrite": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0052__L036__p209:naoh:sodiumnitrite",
+"anchor": "sodium nitrite",
+"nearest": [],
+"random": [
+"2-butylphenol",
+"7-Methoxyisoquinoline",
+"Caffeic acid",
+"Ethanolamines",
+"L-Tyrosine",
+"Vanillin",
+"tetramethylethylenediamine",
+"toluene diisocyanate"
+],
+"distractors": [
+"2-butylphenol",
+"7-Methoxyisoquinoline",
+"Caffeic acid",
+"Ethanolamines",
+"L-Tyrosine",
+"Vanillin",
+"tetramethylethylenediamine",
+"toluene diisocyanate"
+],
+"n_eligible": 81,
+"sha": "53bb347b8c28f3e51c212744b0d08303c6204f8d8d81caed5866b6cf2482d389",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0052__L036__p209:sodiumhydroxide:sodiumnitrite": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0052__L036__p209:sodiumhydroxide:sodiumnitrite",
+"anchor": "sodium nitrite",
+"nearest": [],
+"random": [
+"4-Formylbenzaldehyde",
+"7-methoxyisoquinoline",
+"Paeonol",
+"Polyurethane",
+"benzyl alcohol",
+"chlorpyrifos",
+"hydroquinone",
+"vanadium pentoxide"
+],
+"distractors": [
+"4-Formylbenzaldehyde",
+"7-methoxyisoquinoline",
+"Paeonol",
+"Polyurethane",
+"benzyl alcohol",
+"chlorpyrifos",
+"hydroquinone",
+"vanadium pentoxide"
+],
+"n_eligible": 81,
+"sha": "150c5b5974ab179dcb1a35cfa490e356f82720d6a96eec3a69c32dbd206ea3af",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0052__L036__p253:ammonia:sodiumnitrite": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0052__L036__p253:ammonia:sodiumnitrite",
+"anchor": "sodium nitrite",
+"nearest": [],
+"random": [
+"2-butylphenol",
+"4-hydroxybenzyl alcohol",
+"Polyurethane",
+"Vitamin C",
+"methacrylic acid",
+"methylamine",
+"phenylalanine",
+"quinalizarin"
+],
+"distractors": [
+"2-butylphenol",
+"4-hydroxybenzyl alcohol",
+"Polyurethane",
+"Vitamin C",
+"methacrylic acid",
+"methylamine",
+"phenylalanine",
+"quinalizarin"
+],
+"n_eligible": 81,
+"sha": "b176e4a43b8aa888c3a7eeadc237238c5a52fc491550596efe24ce5603c5c376",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0052__L040__p112:kno3:sodiumnitrite": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0052__L040__p112:kno3:sodiumnitrite",
+"anchor": "sodium nitrite",
+"nearest": [],
+"random": [
+"2-butylphenol",
+"2-methylimidazole",
+"2-propylpyrimidine-5-carbaldehyde",
+"4-hydroxybenzyl alcohol",
+"MG",
+"Vitamin C",
+"arsenic",
+"fluoxetine"
+],
+"distractors": [
+"2-butylphenol",
+"2-methylimidazole",
+"2-propylpyrimidine-5-carbaldehyde",
+"4-hydroxybenzyl alcohol",
+"MG",
+"Vitamin C",
+"arsenic",
+"fluoxetine"
+],
+"n_eligible": 81,
+"sha": "1a8398df2048dfc2e5aa4cf7ab8592f83cc4174cdd33209f1621f650b6b12be0",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0052__L040__p112:potassiumnitrateat50°c:sodiumnitriteat100°c": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0052__L040__p112:potassiumnitrateat50°c:sodiumnitriteat100°c",
+"anchor": "sodium nitrite",
+"nearest": [],
+"random": [
+"4-hydroxybenzyl alcohol",
+"Ethanolamines",
+"L-Methionine",
+"MG",
+"Vanillin",
+"acetophenone",
+"n-Butyl acrylate",
+"phenylalanine"
+],
+"distractors": [
+"4-hydroxybenzyl alcohol",
+"Ethanolamines",
+"L-Methionine",
+"MG",
+"Vanillin",
+"acetophenone",
+"n-Butyl acrylate",
+"phenylalanine"
+],
+"n_eligible": 81,
+"sha": "7e5b175818323ef40dec1610dfd6e626e995df708737958986bb7b8ddb2e1b78",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0052__L044__p112:kcl:sodiumnitrite": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0052__L044__p112:kcl:sodiumnitrite",
+"anchor": "sodium nitrite",
+"nearest": [],
+"random": [
+"1-Methylisoquinoline",
+"4-Formylbenzaldehyde",
+"Isopropyl alcohol",
+"Vanadium Pentoxide",
+"Vitamin C",
+"acetophenone",
+"benzene",
+"trichloroethylene"
+],
+"distractors": [
+"1-Methylisoquinoline",
+"4-Formylbenzaldehyde",
+"Isopropyl alcohol",
+"Vanadium Pentoxide",
+"Vitamin C",
+"acetophenone",
+"benzene",
+"trichloroethylene"
+],
+"n_eligible": 81,
+"sha": "ee976b104960712698823ba594c02ac3fa3482ec1e548627675a4840caf5cd30",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0052__L044__p164:sodiumchloride:sodiumnitrite": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0052__L044__p164:sodiumchloride:sodiumnitrite",
+"anchor": "sodium nitrite",
+"nearest": [],
+"random": [
+"2-Propyl-4-hydroxyquinoline",
+"Caffeic acid",
+"Ethanolamines",
+"Isopropyl Alcohol",
+"MG",
+"acetophenone",
+"dimethylformamide",
+"tetrahydrocannabinol"
+],
+"distractors": [
+"2-Propyl-4-hydroxyquinoline",
+"Caffeic acid",
+"Ethanolamines",
+"Isopropyl Alcohol",
+"MG",
+"acetophenone",
+"dimethylformamide",
+"tetrahydrocannabinol"
+],
+"n_eligible": 81,
+"sha": "ac6ae04994329c3b549a31334fa0868fe8ecbc28b6959d62a2f1cebfe4f021c2",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0052__L044__p209:ethanol:sodiumnitrite": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0052__L044__p209:ethanol:sodiumnitrite",
+"anchor": "sodium nitrite",
+"nearest": [],
+"random": [
+"4-Methoxybenzaldehyde",
+"Isopropyl Alcohol",
+"L-Tyrosine",
+"Polyurethane",
+"methyl methacrylate",
+"methyl parathion",
+"nitrobenzene",
+"tetramethylethylenediamine"
+],
+"distractors": [
+"4-Methoxybenzaldehyde",
+"Isopropyl Alcohol",
+"L-Tyrosine",
+"Polyurethane",
+"methyl methacrylate",
+"methyl parathion",
+"nitrobenzene",
+"tetramethylethylenediamine"
+],
+"n_eligible": 79,
+"sha": "3ca07d9a4da88e49548bf3dc753881ae70d117ad3be05346d9408fa4ecb4299c",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0052__L044__p209:methanol:sodiumnitrite": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0052__L044__p209:methanol:sodiumnitrite",
+"anchor": "water",
+"nearest": [],
+"random": [
+"1-Methylisoquinoline",
+"Acrylonitrile",
+"Vitamin C",
+"ginsenosides",
+"isocyanates",
+"nitrobenzene",
+"pyrimidine",
+"toluene diisocyanate"
+],
+"distractors": [
+"1-Methylisoquinoline",
+"Acrylonitrile",
+"Vitamin C",
+"ginsenosides",
+"isocyanates",
+"nitrobenzene",
+"pyrimidine",
+"toluene diisocyanate"
+],
+"n_eligible": 81,
+"sha": "d98a3767cb2674eddcfb9659a9edddeb91242ab8eade71776ea15159f45b6d9a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0052__L048__p112:calciumchloride:sodiumnitrite": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0052__L048__p112:calciumchloride:sodiumnitrite",
+"anchor": "sodium nitrite",
+"nearest": [],
+"random": [
+"Butyl acrylate",
+"Caffeic acid",
+"benzomorphine",
+"benzyl alcohol",
+"methyl methacrylate",
+"n-Butyl acrylate",
+"nitrogen",
+"tetrahydrocannabinol"
+],
+"distractors": [
+"Butyl acrylate",
+"Caffeic acid",
+"benzomorphine",
+"benzyl alcohol",
+"methyl methacrylate",
+"n-Butyl acrylate",
+"nitrogen",
+"tetrahydrocannabinol"
+],
+"n_eligible": 81,
+"sha": "699ebf186af8f6c16ab52c5492e75bce4347209420f5d29a5a417d3b5154f03b",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0052__L048__p164:nacl:sodiumnitrite": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0052__L048__p164:nacl:sodiumnitrite",
+"anchor": "sodium nitrite",
+"nearest": [],
+"random": [
+"2-propylphenol",
+"Ethanolamines",
+"Fluoxetine",
+"Imidacloprid",
+"L-Methionine",
+"dimethylformamide",
+"ginsenosides",
+"nitrobenzene"
+],
+"distractors": [
+"2-propylphenol",
+"Ethanolamines",
+"Fluoxetine",
+"Imidacloprid",
+"L-Methionine",
+"dimethylformamide",
+"ginsenosides",
+"nitrobenzene"
+],
+"n_eligible": 81,
+"sha": "3fbfba16695b53944dab90aeaecaac0121c1c912fdc6aea2270cd18c211105ec",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0052__L048__p428:potassiumnitrate:sodiumnitrite": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0052__L048__p428:potassiumnitrate:sodiumnitrite",
+"anchor": "sodium nitrite",
+"nearest": [],
+"random": [
+"4-Fluoroacetophenone",
+"4-methylquinoline",
+"DMAn",
+"Fluoxetine",
+"L-Methionine",
+"Polyethylene",
+"fluoxetine",
+"isoquinoline"
+],
+"distractors": [
+"4-Fluoroacetophenone",
+"4-methylquinoline",
+"DMAn",
+"Fluoxetine",
+"L-Methionine",
+"Polyethylene",
+"fluoxetine",
+"isoquinoline"
+],
+"n_eligible": 81,
+"sha": "572630110c3fe404a04a4236eecec2e328d8607da79a035c3cca51867dea2e82",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0052__L052__p112:bariumchloride:sodiumnitrite": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0052__L052__p112:bariumchloride:sodiumnitrite",
+"anchor": "sodium nitrite",
+"nearest": [],
+"random": [
+"4-Methoxybenzaldehyde",
+"4-methylquinoline",
+"Fluoroantimonic acid",
+"N-methyl-2-bromopyridine",
+"isoquinoline",
+"phosgene",
+"pyrimidine",
+"trichloroethylene"
+],
+"distractors": [
+"4-Methoxybenzaldehyde",
+"4-methylquinoline",
+"Fluoroantimonic acid",
+"N-methyl-2-bromopyridine",
+"isoquinoline",
+"phosgene",
+"pyrimidine",
+"trichloroethylene"
+],
+"n_eligible": 81,
+"sha": "278b20ec9139de72fe907fca6fec65b8619f7657fdf5d36358c7f3ac30409c5a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0052__L052__p164:calciumchloride:sodiumnitrite": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0052__L052__p164:calciumchloride:sodiumnitrite",
+"anchor": "sodium nitrite",
+"nearest": [],
+"random": [
+"2-propylphenol",
+"4-Formylbenzaldehyde",
+"Butyl acrylate",
+"Ethanolamines",
+"N-methyl-2-bromopyridine",
+"Polyethylene",
+"benzene",
+"nitrogen"
+],
+"distractors": [
+"2-propylphenol",
+"4-Formylbenzaldehyde",
+"Butyl acrylate",
+"Ethanolamines",
+"N-methyl-2-bromopyridine",
+"Polyethylene",
+"benzene",
+"nitrogen"
+],
+"n_eligible": 81,
+"sha": "e46596e6045a2d163f60f0aa9313366047a7642907f17a95424448d8a1ada357",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0052__L052__p209:potassiumpermanganate:sodiumnitrite": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0052__L052__p209:potassiumpermanganate:sodiumnitrite",
+"anchor": "sodium nitrite",
+"nearest": [],
+"random": [
+"2-Propylpyrimidine-5-carbaldehyde",
+"2-propylphenol",
+"Fluoroantimonic acid",
+"dimethylformamide",
+"methacrylic acid",
+"nitrobenzene",
+"quinalizarin",
+"trichloroethylene"
+],
+"distractors": [
+"2-Propylpyrimidine-5-carbaldehyde",
+"2-propylphenol",
+"Fluoroantimonic acid",
+"dimethylformamide",
+"methacrylic acid",
+"nitrobenzene",
+"quinalizarin",
+"trichloroethylene"
+],
+"n_eligible": 81,
+"sha": "1c5cfe4fb338ec9493769b06ad6cdada762c7bbe663b975e91d4fe7ebc3c7b8a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0052__L052__p26:kcl:sodiumnitrite": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0052__L052__p26:kcl:sodiumnitrite",
+"anchor": "sodium nitrite",
+"nearest": [],
+"random": [
+"7-Methoxyisoquinoline",
+"Fluoxetine",
+"Paeonol",
+"hydroquinone",
+"isopropyl alcohol",
+"isoquinoline",
+"quinalizarin",
+"toluene diisocyanate"
+],
+"distractors": [
+"7-Methoxyisoquinoline",
+"Fluoxetine",
+"Paeonol",
+"hydroquinone",
+"isopropyl alcohol",
+"isoquinoline",
+"quinalizarin",
+"toluene diisocyanate"
+],
+"n_eligible": 81,
+"sha": "91d540c1370a31d950ff678cc56bfc2f717eebdfb31c191561d84e927f45927c",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0052__L052__p26:kclat30°c:sodiumnitriteat100°c": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0052__L052__p26:kclat30°c:sodiumnitriteat100°c",
+"anchor": "sodium nitrite",
+"nearest": [],
+"random": [
+"2-Propyl-4-hydroxyquinoline",
+"2-propylphenol",
+"4-Methoxyquinoline",
+"Acrylonitrile",
+"Ethanolamines",
+"dimethylformamide",
+"pyrimidine",
+"vanadium pentoxide"
+],
+"distractors": [
+"2-Propyl-4-hydroxyquinoline",
+"2-propylphenol",
+"4-Methoxyquinoline",
+"Acrylonitrile",
+"Ethanolamines",
+"dimethylformamide",
+"pyrimidine",
+"vanadium pentoxide"
+],
+"n_eligible": 81,
+"sha": "354056391faef293840322452fe549a4c2515db18165151ed982569b287de385",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0052__L052__p26:potassiumchlorideat30°c:sodiumnitriteinboilingwater": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0052__L052__p26:potassiumchlorideat30°c:sodiumnitriteinboilingwater",
+"anchor": "Sodium Nitrite",
+"nearest": [],
+"random": [
+"Fluoxetine",
+"Imidacloprid",
+"Isopropyl Alcohol",
+"Vitamin C",
+"arsenic",
+"dimethyl sulfoxide",
+"estradiol",
+"pyrimidine"
+],
+"distractors": [
+"Fluoxetine",
+"Imidacloprid",
+"Isopropyl Alcohol",
+"Vitamin C",
+"arsenic",
+"dimethyl sulfoxide",
+"estradiol",
+"pyrimidine"
+],
+"n_eligible": 81,
+"sha": "f3fc8afb06b7dac6953a2d4b083a61de2fa7cdeb27240f8e047a8ba4037fb2d0",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0052__L052__p26:potassiumchloridekclat30°c:sodiumnitriteinboilingwater": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0052__L052__p26:potassiumchloridekclat30°c:sodiumnitriteinboilingwater",
+"anchor": "Sodium nitrite",
+"nearest": [],
+"random": [
+"4-Methoxyquinoline",
+"Butyl acrylate",
+"L-Methionine",
+"Toluene",
+"chlorpyrifos",
+"fluoxetine",
+"methylamine",
+"nitrobenzene"
+],
+"distractors": [
+"4-Methoxyquinoline",
+"Butyl acrylate",
+"L-Methionine",
+"Toluene",
+"chlorpyrifos",
+"fluoxetine",
+"methylamine",
+"nitrobenzene"
+],
+"n_eligible": 81,
+"sha": "dbfbb5451f499b42ce7c8ee7bc8b6cf7a616b60ec05d07282549294854a4114a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0052__L052__p365:nacl:sodiumnitrite": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0052__L052__p365:nacl:sodiumnitrite",
+"anchor": "sodium nitrite",
+"nearest": [],
+"random": [
+"4-Methoxyquinoline",
+"Caffeic acid",
+"DMAn",
+"Vanillin",
+"acetaldehyde",
+"acetophenone",
+"benzene",
+"phosgene"
+],
+"distractors": [
+"4-Methoxyquinoline",
+"Caffeic acid",
+"DMAn",
+"Vanillin",
+"acetaldehyde",
+"acetophenone",
+"benzene",
+"phosgene"
+],
+"n_eligible": 81,
+"sha": "850274bd73414254a608054781adf17869f38360f13a4f1cab77f9106f9d589f",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0052__L052__p428:bariumchloride:sodiumnitrite": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0052__L052__p428:bariumchloride:sodiumnitrite",
+"anchor": "sodium nitrite",
+"nearest": [],
+"random": [
+"2-Propylpyrimidine-5-carbaldehyde",
+"5-formyl-2-methylbenzaldehyde",
+"Ethanolamines",
+"Polyethylene",
+"Toluene",
+"isoquinoline",
+"nitrogen",
+"toluene diisocyanate"
+],
+"distractors": [
+"2-Propylpyrimidine-5-carbaldehyde",
+"5-formyl-2-methylbenzaldehyde",
+"Ethanolamines",
+"Polyethylene",
+"Toluene",
+"isoquinoline",
+"nitrogen",
+"toluene diisocyanate"
+],
+"n_eligible": 81,
+"sha": "72a82719e89d2cb158875d4005f4e0887410a56b877851d3c124b89625c61835",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0052__L056__p112:sodiumnitrate:sodiumnitrite": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0052__L056__p112:sodiumnitrate:sodiumnitrite",
+"anchor": "sodium nitrite",
+"nearest": [],
+"random": [
+"2-Propylpyrimidine-5-carbaldehyde",
+"2-butylphenol",
+"4-hydroxybenzyl alcohol",
+"4-methylquinoline",
+"Imidacloprid",
+"acetonitrile",
+"benzomorphine",
+"trichloroethylene"
+],
+"distractors": [
+"2-Propylpyrimidine-5-carbaldehyde",
+"2-butylphenol",
+"4-hydroxybenzyl alcohol",
+"4-methylquinoline",
+"Imidacloprid",
+"acetonitrile",
+"benzomorphine",
+"trichloroethylene"
+],
+"n_eligible": 81,
+"sha": "e46244d3762f4ae193592b5940fd1d09c3538f81bbc21fbdec0cbafc9f2ff6a1",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0052__L056__p164:calciumchloride:sodiumnitrite": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0052__L056__p164:calciumchloride:sodiumnitrite",
+"anchor": "sodium nitrite",
+"nearest": [],
+"random": [
+"2-Propylpyrimidine-5-carbaldehyde",
+"4-Methoxyquinoline",
+"5-formyl-2-methylbenzaldehyde",
+"gastrodin",
+"methyl methacrylate",
+"n-Butyl acrylate",
+"pyrimidine",
+"tetramethylethylenediamine"
+],
+"distractors": [
+"2-Propylpyrimidine-5-carbaldehyde",
+"4-Methoxyquinoline",
+"5-formyl-2-methylbenzaldehyde",
+"gastrodin",
+"methyl methacrylate",
+"n-Butyl acrylate",
+"pyrimidine",
+"tetramethylethylenediamine"
+],
+"n_eligible": 81,
+"sha": "807028ecc0e4193a43e10d294cd8a33ac0968b523c90993e854286574b33f38b",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0052__L056__p302:ethanol:sodiumnitrite": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0052__L056__p302:ethanol:sodiumnitrite",
+"anchor": "sodium nitrite",
+"nearest": [],
+"random": [
+"2-butylphenol",
+"4-Fluoroacetophenone",
+"Fluoroantimonic acid",
+"Paeonol",
+"Polyethylene",
+"isocyanates",
+"nitrobenzene",
+"polyacrylamide"
+],
+"distractors": [
+"2-butylphenol",
+"4-Fluoroacetophenone",
+"Fluoroantimonic acid",
+"Paeonol",
+"Polyethylene",
+"isocyanates",
+"nitrobenzene",
+"polyacrylamide"
+],
+"n_eligible": 79,
+"sha": "5cef59a40e4b1dc38c02ddcdb710729ed56f482abc6885219169f334437fa374",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0052__L056__p428:potassiumchlorate:sodiumnitrite": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0052__L056__p428:potassiumchlorate:sodiumnitrite",
+"anchor": "sodium nitrite",
+"nearest": [],
+"random": [
+"2-Propylpyrimidine-5-carbaldehyde",
+"4-Methoxybenzaldehyde",
+"7-methoxyisoquinoline",
+"N-Methyl-2-pyrrolidone",
+"Vanadium Pentoxide",
+"hydroquinone",
+"n-Butyl acrylate",
+"quinalizarin"
+],
+"distractors": [
+"2-Propylpyrimidine-5-carbaldehyde",
+"4-Methoxybenzaldehyde",
+"7-methoxyisoquinoline",
+"N-Methyl-2-pyrrolidone",
+"Vanadium Pentoxide",
+"hydroquinone",
+"n-Butyl acrylate",
+"quinalizarin"
+],
+"n_eligible": 81,
+"sha": "541d859b4b173a4f047125539defb37ff1f5b8cdf52cb2519b1049311dc2a518",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0052__L060__p112:sodiumiodide:sodiumnitrite": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0052__L060__p112:sodiumiodide:sodiumnitrite",
+"anchor": "sodium nitrite",
+"nearest": [],
+"random": [
+"2-Propyl-4-hydroxyquinoline",
+"4-Methoxyquinoline",
+"4-hydroxybenzyl alcohol",
+"7-methoxyisoquinoline",
+"Butyl acrylate",
+"Vitamin C",
+"acetaldehyde",
+"polyacrylamide"
+],
+"distractors": [
+"2-Propyl-4-hydroxyquinoline",
+"4-Methoxyquinoline",
+"4-hydroxybenzyl alcohol",
+"7-methoxyisoquinoline",
+"Butyl acrylate",
+"Vitamin C",
+"acetaldehyde",
+"polyacrylamide"
+],
+"n_eligible": 81,
+"sha": "98d8a6a046325fc603b6d601a7e854202ed546cd9e035c427441207236a34962",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0052__L060__p26:kno3:nano2": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0052__L060__p26:kno3:nano2",
+"anchor": "sodium nitrite",
+"nearest": [],
+"random": [
+"2-Methylimidazole",
+"7-methoxyisoquinoline",
+"Isopropyl alcohol",
+"L-Tyrosine",
+"N-methyl-2-bromopyridine",
+"estradiol",
+"fluoxetine",
+"methyl parathion"
+],
+"distractors": [
+"2-Methylimidazole",
+"7-methoxyisoquinoline",
+"Isopropyl alcohol",
+"L-Tyrosine",
+"N-methyl-2-bromopyridine",
+"estradiol",
+"fluoxetine",
+"methyl parathion"
+],
+"n_eligible": 81,
+"sha": "e859cfca938d9745a584fccdde6048e203a2d4533a7126efd32ccf25cbb02dc0",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0052__L060__p26:potassiumnitrateat25°c:sodiumnitriteinboilingwater": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0052__L060__p26:potassiumnitrateat25°c:sodiumnitriteinboilingwater",
+"anchor": "sodium nitrite",
+"nearest": [],
+"random": [
+"2-propylphenol",
+"Chloroform",
+"Fluoroantimonic acid",
+"Fluoxetine",
+"isopropyl alcohol",
+"methyl methacrylate",
+"nitrobenzene",
+"tetrahydrocannabinol"
+],
+"distractors": [
+"2-propylphenol",
+"Chloroform",
+"Fluoroantimonic acid",
+"Fluoxetine",
+"isopropyl alcohol",
+"methyl methacrylate",
+"nitrobenzene",
+"tetrahydrocannabinol"
+],
+"n_eligible": 81,
+"sha": "6aeed3119653c55566fded6f4b82675875e48b67c771fc6dffd1866cd8b97884",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0052__L060__p302:sodiumchloride:sodiumnitrite": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0052__L060__p302:sodiumchloride:sodiumnitrite",
+"anchor": "sodium nitrite",
+"nearest": [],
+"random": [
+"2-propyl-4-nitroaniline",
+"4-Methoxyquinoline",
+"4-methylquinoline",
+"Acrylonitrile",
+"Vitamin C",
+"benzene",
+"methyl methacrylate",
+"polyacrylamide"
+],
+"distractors": [
+"2-propyl-4-nitroaniline",
+"4-Methoxyquinoline",
+"4-methylquinoline",
+"Acrylonitrile",
+"Vitamin C",
+"benzene",
+"methyl methacrylate",
+"polyacrylamide"
+],
+"n_eligible": 81,
+"sha": "9c75aa35780867d933eca409894ae4d11e85592763c95cfa0071197e4498b397",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0052__L060__p365:kcl:sodiumnitrite": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0052__L060__p365:kcl:sodiumnitrite",
+"anchor": "sodium nitrite",
+"nearest": [],
+"random": [
+"2-propyl-4-nitroaniline",
+"4-hydroxybenzyl alcohol",
+"5-formyl-2-methylbenzaldehyde",
+"Isopropyl Alcohol",
+"Vanadium Pentoxide",
+"benzomorphine",
+"ginsenosides",
+"vanadium pentoxide"
+],
+"distractors": [
+"2-propyl-4-nitroaniline",
+"4-hydroxybenzyl alcohol",
+"5-formyl-2-methylbenzaldehyde",
+"Isopropyl Alcohol",
+"Vanadium Pentoxide",
+"benzomorphine",
+"ginsenosides",
+"vanadium pentoxide"
+],
+"n_eligible": 81,
+"sha": "91040e9a8d83b077680ab7cece01819a53e7f1ae8d36011ff3c5d81d2ce17398",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0052__L060__p428:bariumchloride:sodiumnitrite": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0052__L060__p428:bariumchloride:sodiumnitrite",
+"anchor": "sodium nitrite",
+"nearest": [],
+"random": [
+"4-Formylbenzaldehyde",
+"Fluoxetine",
+"MG",
+"Vanadium Pentoxide",
+"acetonitrile",
+"acetophenone",
+"dimethyl sulfoxide",
+"ginsenosides"
+],
+"distractors": [
+"4-Formylbenzaldehyde",
+"Fluoxetine",
+"MG",
+"Vanadium Pentoxide",
+"acetonitrile",
+"acetophenone",
+"dimethyl sulfoxide",
+"ginsenosides"
+],
+"n_eligible": 81,
+"sha": "d0361ca5fd9e5fed637f7f07c99704c466f1c7e4fcda499b4433d79b43147213",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0069__L036__p31:vanillin:gastrodin": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0069__L036__p31:vanillin:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [],
+"random": [
+"7-methoxyisoquinoline",
+"Ethanolamines",
+"Hydrogen chloride",
+"Lithium bromide",
+"acetophenone",
+"nitrobenzene",
+"potassium chlorate",
+"sulfur dioxide"
+],
+"distractors": [
+"7-methoxyisoquinoline",
+"Ethanolamines",
+"Hydrogen chloride",
+"Lithium bromide",
+"acetophenone",
+"nitrobenzene",
+"potassium chlorate",
+"sulfur dioxide"
+],
+"n_eligible": 95,
+"sha": "d60c2a6e5c8cd9b541edab15afdce18f7f5c55edf0886347c148548259cac7cf",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0069__L036__p384:ginsenosidesandquinclorac:gastrodin": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0069__L036__p384:ginsenosidesandquinclorac:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [],
+"random": [
+"ammonia",
+"barium hydroxide",
+"carbon dioxide",
+"dimethyl sulfoxide",
+"potassium permanganate",
+"sodium iodide",
+"sodium thiosulfate pentahydrate",
+"valproic acid"
+],
+"distractors": [
+"ammonia",
+"barium hydroxide",
+"carbon dioxide",
+"dimethyl sulfoxide",
+"potassium permanganate",
+"sodium iodide",
+"sodium thiosulfate pentahydrate",
+"valproic acid"
+],
+"n_eligible": 95,
+"sha": "f510716f6020109aabf9fe81181f0e74f2d7dfcb89ad0a0e91451f73f7c3a461",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0069__L040__p426:polyacrylamide:gastrodin": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0069__L040__p426:polyacrylamide:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [],
+"random": [
+"2-Propylpyrimidine-5-carbaldehyde",
+"5-formyl-2-methylbenzaldehyde",
+"Fluoroantimonic acid",
+"Isopropyl Alcohol",
+"Potassium Chlorate",
+"phosgene",
+"sodium hydroxide",
+"toluene diisocyanate"
+],
+"distractors": [
+"2-Propylpyrimidine-5-carbaldehyde",
+"5-formyl-2-methylbenzaldehyde",
+"Fluoroantimonic acid",
+"Isopropyl Alcohol",
+"Potassium Chlorate",
+"phosgene",
+"sodium hydroxide",
+"toluene diisocyanate"
+],
+"n_eligible": 95,
+"sha": "660c711aa3b5f90ee24411d71b64fb2162feb94384a9cfa089659219b4b51a85",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0069__L048__p31::": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0069__L048__p31::",
+"anchor": "Gastrodin",
+"nearest": [],
+"random": [
+"4-Formylbenzaldehyde",
+"4-Methoxybenzaldehyde",
+"ammonium chloride",
+"benzoic acid",
+"isoquinoline",
+"ozone",
+"sodium hydroxide",
+"sodium thiosulfate"
+],
+"distractors": [
+"4-Formylbenzaldehyde",
+"4-Methoxybenzaldehyde",
+"ammonium chloride",
+"benzoic acid",
+"isoquinoline",
+"ozone",
+"sodium hydroxide",
+"sodium thiosulfate"
+],
+"n_eligible": 95,
+"sha": "09c6f6a0bf0e5d8f6f484d66dab88f0924962bb5a5494fdf550e955613244942",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0069__L048__p31:ltyrosine:gastrodin": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0069__L048__p31:ltyrosine:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [],
+"random": [
+"2-Propyl-4-hydroxyquinoline",
+"5-formyl-2-methylbenzaldehyde",
+"Isopropyl Alcohol",
+"chlorpyrifos",
+"sodium chlorate",
+"sodium hydroxide",
+"sodium hypochlorite",
+"vanadium pentoxide"
+],
+"distractors": [
+"2-Propyl-4-hydroxyquinoline",
+"5-formyl-2-methylbenzaldehyde",
+"Isopropyl Alcohol",
+"chlorpyrifos",
+"sodium chlorate",
+"sodium hydroxide",
+"sodium hypochlorite",
+"vanadium pentoxide"
+],
+"n_eligible": 95,
+"sha": "4f963358284601305e2b69e7c3218b99937458bc5e5a4dde579d28a5802c1eec",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0069__L052__p149:ltyrosine:gastrodin": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0069__L052__p149:ltyrosine:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [],
+"random": [
+"2-propyl-4-nitroaniline",
+"4-Methoxybenzaldehyde",
+"7-Methoxyisoquinoline",
+"Vanadium Pentoxide",
+"benzoic acid",
+"dimethylformamide",
+"isoquinoline",
+"sodium chloride"
+],
+"distractors": [
+"2-propyl-4-nitroaniline",
+"4-Methoxybenzaldehyde",
+"7-Methoxyisoquinoline",
+"Vanadium Pentoxide",
+"benzoic acid",
+"dimethylformamide",
+"isoquinoline",
+"sodium chloride"
+],
+"n_eligible": 95,
+"sha": "847991541816e4d57325775e09b32d49681b84e360d0a508cd9d303d82096e59",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0069__L056__p149:caffeicacid:gastrodin": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0069__L056__p149:caffeicacid:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [],
+"random": [
+"Sodium Nitrite",
+"ammonia",
+"barium chloride",
+"benzene",
+"calcium chloride",
+"isoquinoline",
+"potassium chloride",
+"sodium chlorate"
+],
+"distractors": [
+"Sodium Nitrite",
+"ammonia",
+"barium chloride",
+"benzene",
+"calcium chloride",
+"isoquinoline",
+"potassium chloride",
+"sodium chlorate"
+],
+"n_eligible": 89,
+"sha": "4d174ffb0cca0e3ab726cc82a50b1af760ae9cb71466e7f5159d6b238e1cdb1c",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0069__L056__p31:mg:gastrodin": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0069__L056__p31:mg:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [],
+"random": [
+"4-Formylbenzaldehyde",
+"ammonia",
+"ammonium chloride",
+"carbon dioxide",
+"methacrylic acid",
+"sodium iodide",
+"sodium thiosulfate pentahydrate",
+"valproic acid"
+],
+"distractors": [
+"4-Formylbenzaldehyde",
+"ammonia",
+"ammonium chloride",
+"carbon dioxide",
+"methacrylic acid",
+"sodium iodide",
+"sodium thiosulfate pentahydrate",
+"valproic acid"
+],
+"n_eligible": 95,
+"sha": "65cb760818287fb4e42683329dbe45017d4cce92a064c0778331cf975965de9f",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0069__L060__p230:phenylalanine:gastrodin": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0069__L060__p230:phenylalanine:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [],
+"random": [
+"4-methylquinoline",
+"N-methyl-2-bromopyridine",
+"ammonia",
+"carbon dioxide",
+"potassium dichromate",
+"sodium chlorate",
+"toluene diisocyanate",
+"vanadium pentoxide"
+],
+"distractors": [
+"4-methylquinoline",
+"N-methyl-2-bromopyridine",
+"ammonia",
+"carbon dioxide",
+"potassium dichromate",
+"sodium chlorate",
+"toluene diisocyanate",
+"vanadium pentoxide"
+],
+"n_eligible": 95,
+"sha": "58a4ff39339c796b82e836bacdcbc5a3cdb7089f64f3ce68391db4d54249417f",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0001__L020__p316:4methoxyquinoline:7methoxyisoquinoline": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0001__L020__p316:4methoxyquinoline:7methoxyisoquinoline",
 "anchor": "7-Methoxyisoquinoline",

@@ -1,4 +1,24 @@
 {
+"mlnla-ck2000-all11:chat-dailydialog-0030__L048__p24:sherlockholmeshouseofusher:thehitchhikersguidetothegalaxy": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0030__L048__p24:sherlockholmeshouseofusher:thehitchhikersguidetothegalaxy",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"Moby-Dick",
+"1984",
+"The Odyssey",
+"The Iliad"
+],
+"random": [],
+"distractors": [
+"Moby-Dick",
+"1984",
+"The Odyssey",
+"The Iliad"
+],
+"n_eligible": 4,
+"sha": "a966b323bfa07993bdc3f5b0e7b17b7266c61b4e365586fd2227c544452895a0",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-dailydialog-0030__L028__p110:jabberwockywonderland:thehitchhikersguidetothegalaxy": {
 "unit": "mlnla-rl2-800-all11:chat-dailydialog-0030__L028__p110:jabberwockywonderland:thehitchhikersguidetothegalaxy",
 "anchor": "The Hitchhiker's Guide to the Galaxy",

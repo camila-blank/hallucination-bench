@@ -1,4 +1,62 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0014__L024__p471:ieee802:3gpp": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0014__L024__p471:ieee802:3gpp",
+"anchor": "3GPP",
+"nearest": [
+"ITU",
+"NIST",
+"IETF",
+"W3C"
+],
+"random": [
+"CEN",
+"ICAO",
+"IEC",
+"ISO"
+],
+"distractors": [
+"ITU",
+"NIST",
+"IETF",
+"W3C",
+"CEN",
+"ICAO",
+"IEC",
+"ISO"
+],
+"n_eligible": 10,
+"sha": "94a52918d93db04250edbcae63120fe771b62f549b2a45cef5d3243334da6376",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0014__L056__p150:ieee:3gpp": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0014__L056__p150:ieee:3gpp",
+"anchor": "3GPP",
+"nearest": [
+"ITU",
+"NIST",
+"IETF",
+"W3C"
+],
+"random": [
+"ANSI",
+"CEN",
+"ICAO",
+"ISO"
+],
+"distractors": [
+"ITU",
+"NIST",
+"IETF",
+"W3C",
+"ANSI",
+"CEN",
+"ICAO",
+"ISO"
+],
+"n_eligible": 10,
+"sha": "ab1c8d5160a7e96f0903e000fc985edb9aafb1609c4ebd3b3b772b6e757141d9",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0026__L048__p223:itut:icao": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0026__L048__p223:itut:icao",
 "anchor": "ICAO",

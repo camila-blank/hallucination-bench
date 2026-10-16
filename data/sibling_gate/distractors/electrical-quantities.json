@@ -1,4 +1,29 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0033__L048__p307:impedance:resistance": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0033__L048__p307:impedance:resistance",
+"anchor": "Resistance",
+"nearest": [
+"Electric charge",
+"Conductance",
+"Reactance",
+"Capacitance"
+],
+"random": [
+"Admittance",
+"Inductance"
+],
+"distractors": [
+"Electric charge",
+"Conductance",
+"Reactance",
+"Capacitance",
+"Admittance",
+"Inductance"
+],
+"n_eligible": 6,
+"sha": "f8087bd187409fdd4c043bc5167068027cb10373f58bc69170fb389a2eaa0ca7",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0033__L040__p37:current:resistance": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0033__L040__p37:current:resistance",
 "anchor": "Resistance",

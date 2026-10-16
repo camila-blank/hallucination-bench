@@ -1,4 +1,28 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0043__L024__p165:5halogenatedindolederivatives:2propylpyrimidine5carbaldehyde": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0043__L024__p165:5halogenatedindolederivatives:2propylpyrimidine5carbaldehyde",
+"anchor": "2-Propylpyrimidine-5-carbaldehyde",
+"nearest": [],
+"random": [
+"4-methyl compound",
+"4-substituted compound",
+"7-Methoxyisoquinoline",
+"7-methoxyisoquinoline",
+"isoquinoline",
+"isothiazole"
+],
+"distractors": [
+"4-methyl compound",
+"4-substituted compound",
+"7-Methoxyisoquinoline",
+"7-methoxyisoquinoline",
+"isoquinoline",
+"isothiazole"
+],
+"n_eligible": 6,
+"sha": "ffb54e6c8e75620aaf06090f35ed7b4f78618fd7b9d10cf7328135a1c507e710",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0001__L040__p316:2methylquinoline:7methoxyisoquinoline": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0001__L040__p316:2methylquinoline:7methoxyisoquinoline",
 "anchor": "7-Methoxyisoquinoline",

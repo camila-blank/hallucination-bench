@@ -1,0 +1,227 @@
+{
+"mlnla-ck2000-all11:chat-dailydialog-0009__L036__p127:thelordoftherings:boardwalkempire": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0009__L036__p127:thelordoftherings:boardwalkempire",
+"anchor": "Mafia",
+"nearest": [
+"The Hobbit",
+"Harry Potter",
+"Sherlock Holmes",
+"The Hitchhiker's Guide to the Galaxy"
+],
+"random": [
+"Don Quixote",
+"Moby-Dick",
+"The Great Gatsby",
+"To Kill a Mockingbird"
+],
+"distractors": [
+"The Hobbit",
+"Harry Potter",
+"Sherlock Holmes",
+"The Hitchhiker's Guide to the Galaxy",
+"Don Quixote",
+"Moby-Dick",
+"The Great Gatsby",
+"To Kill a Mockingbird"
+],
+"n_eligible": 9,
+"sha": "7c8bc24bc31f3d1e23e1cd35b86e2912f4180eb5790e03d9f450a4c272b55c32",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0009__L044__p127:thelordoftheringsassassinscreedtheoutsider:thegodfathermafiaboardwalkempire": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0009__L044__p127:thelordoftheringsassassinscreedtheoutsider:thegodfathermafiaboardwalkempire",
+"anchor": "The Godfather, Mafia, Boardwalk Empire",
+"nearest": [
+"Moby-Dick",
+"Don Quixote",
+"Sherlock Holmes",
+"Harry Potter"
+],
+"random": [
+"1984",
+"The Great Gatsby",
+"The Hobbit",
+"To Kill a Mockingbird"
+],
+"distractors": [
+"Moby-Dick",
+"Don Quixote",
+"Sherlock Holmes",
+"Harry Potter",
+"1984",
+"The Great Gatsby",
+"The Hobbit",
+"To Kill a Mockingbird"
+],
+"n_eligible": 8,
+"sha": "4f86a5536d55acdd8a46911d826cbe78ac585f58f1049b1cf93625d711b742ea",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0030__L028__p24:sherlockholmes:douglasadamshitchhikersguide": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0030__L028__p24:sherlockholmes:douglasadamshitchhikersguide",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"Harry Potter",
+"1984",
+"Moby-Dick",
+"Mafia"
+],
+"random": [],
+"distractors": [
+"Harry Potter",
+"1984",
+"Moby-Dick",
+"Mafia"
+],
+"n_eligible": 4,
+"sha": "135af87bc26ef44b51a4ef803f1d9c90579e3e9a4a1a727aff31552780488ea5",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0030__L040__p24:sherlockholmeshalloween:thehitchhikersguidetothegalaxy": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0030__L040__p24:sherlockholmeshalloween:thehitchhikersguidetothegalaxy",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"Harry Potter",
+"1984",
+"Moby-Dick",
+"Mafia"
+],
+"random": [],
+"distractors": [
+"Harry Potter",
+"1984",
+"Moby-Dick",
+"Mafia"
+],
+"n_eligible": 4,
+"sha": "298a6a2cb1912601d416b65817415318705aa1899840d212406f317452afad4c",
+"generation": 1
+},
+"mlnla-rl600-all11:chat-dailydialog-0030__L028__p24:sherlockholmes:arthurdent": {
+"unit": "mlnla-rl600-all11:chat-dailydialog-0030__L028__p24:sherlockholmes:arthurdent",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"Harry Potter",
+"1984",
+"Moby-Dick",
+"Mafia"
+],
+"random": [],
+"distractors": [
+"Harry Potter",
+"1984",
+"Moby-Dick",
+"Mafia"
+],
+"n_eligible": 4,
+"sha": "526f6545e1444525ced56c6b7253722d8f47a084348e1fcc04249fc05c48fcfa",
+"generation": 1
+},
+"s3d-rl600-all11:chat-dailydialog-0009__L036__p127:thelordoftherings:thegodfather": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0009__L036__p127:thelordoftherings:thegodfather",
+"anchor": "Mafia",
+"nearest": [
+"The Hobbit",
+"Harry Potter",
+"Sherlock Holmes",
+"The Hitchhiker's Guide to the Galaxy"
+],
+"random": [
+"1984",
+"Moby-Dick",
+"The Great Gatsby",
+"To Kill a Mockingbird"
+],
+"distractors": [
+"The Hobbit",
+"Harry Potter",
+"Sherlock Holmes",
+"The Hitchhiker's Guide to the Galaxy",
+"1984",
+"Moby-Dick",
+"The Great Gatsby",
+"To Kill a Mockingbird"
+],
+"n_eligible": 9,
+"sha": "b89b6b61dd3facd8f273caf75a0da8b265407981c2f5e46818368676867451b3",
+"generation": 1
+},
+"s3d-rl600-all11:chat-dailydialog-0009__L044__p127:thelordoftherings:thegodfather": {
+"unit": "s3d-rl600-all11:chat-dailydialog-0009__L044__p127:thelordoftherings:thegodfather",
+"anchor": "Mafia",
+"nearest": [
+"The Hobbit",
+"Harry Potter",
+"Sherlock Holmes",
+"The Hitchhiker's Guide to the Galaxy"
+],
+"random": [
+"Don Quixote",
+"Moby-Dick",
+"The Great Gatsby",
+"To Kill a Mockingbird"
+],
+"distractors": [
+"The Hobbit",
+"Harry Potter",
+"Sherlock Holmes",
+"The Hitchhiker's Guide to the Galaxy",
+"Don Quixote",
+"Moby-Dick",
+"The Great Gatsby",
+"To Kill a Mockingbird"
+],
+"n_eligible": 9,
+"sha": "0ffec257923238124b29ccd3625fc46144ddb939dd96e59a9fc0ea1ddabae9d7",
+"generation": 1
+},
+"s3d-sft251:chat-dailydialog-0009__L040__p127:thelordoftherings:thegodfather": {
+"unit": "s3d-sft251:chat-dailydialog-0009__L040__p127:thelordoftherings:thegodfather",
+"anchor": "Mafia",
+"nearest": [
+"The Hobbit",
+"Harry Potter",
+"Sherlock Holmes",
+"The Hitchhiker's Guide to the Galaxy"
+],
+"random": [
+"1984",
+"Don Quixote",
+"Moby-Dick",
+"To Kill a Mockingbird"
+],
+"distractors": [
+"The Hobbit",
+"Harry Potter",
+"Sherlock Holmes",
+"The Hitchhiker's Guide to the Galaxy",
+"1984",
+"Don Quixote",
+"Moby-Dick",
+"To Kill a Mockingbird"
+],
+"n_eligible": 9,
+"sha": "ef9e69021ab1ca5aa85e769a4ade1fcfaf75749900e060235d21a8a2cfc725ab",
+"generation": 1
+},
+"s3d-sft251:chat-dailydialog-0030__L044__p24:sherlockholmes:thehitchhikersguidetothegalaxy": {
+"unit": "s3d-sft251:chat-dailydialog-0030__L044__p24:sherlockholmes:thehitchhikersguidetothegalaxy",
+"anchor": "The Hitchhiker's Guide to the Galaxy",
+"nearest": [
+"Harry Potter",
+"1984",
+"Moby-Dick",
+"Mafia"
+],
+"random": [],
+"distractors": [
+"Harry Potter",
+"1984",
+"Moby-Dick",
+"Mafia"
+],
+"n_eligible": 4,
+"sha": "8a5993aaa40ebc944445e76f4695717aec416210bdc498ec4bfebabd0de4dc39",
+"generation": 1
+}
+}

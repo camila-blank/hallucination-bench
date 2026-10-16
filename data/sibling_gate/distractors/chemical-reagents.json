@@ -19,6 +19,95 @@
 "sha": "4914a61264b9665137269e19bf04137565a9a1754fddc41ffd836ecc975be393",
 "generation": 0
 },
+"mlnla-ck2000-all11:chat-lmsys-0028__L020__p381:salicylicacidaceticanhydride:fluoxetineprecursors": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0028__L020__p381:salicylicacidaceticanhydride:fluoxetineprecursors",
+"anchor": "4-trifluoromethylphenyl-acetic acid",
+"nearest": [
+"Benedict's reagent",
+"Fehling's solution",
+"Grignard reagent",
+"Tollens' reagent"
+],
+"random": [],
+"distractors": [
+"Benedict's reagent",
+"Fehling's solution",
+"Grignard reagent",
+"Tollens' reagent"
+],
+"n_eligible": 4,
+"sha": "385763d688411a54a7245dc3ec729abffa0763c2f9419d71daf5829f7c500a16",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0028__L048__p440:lithiumaluminumhydride:sodiumhydride": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0028__L048__p440:lithiumaluminumhydride:sodiumhydride",
+"anchor": "sodium hydride",
+"nearest": [
+"Grignard reagent",
+"4-trifluoromethylphenyl-acetic acid",
+"Tollens' reagent",
+"Benedict's reagent"
+],
+"random": [
+"Fehling's solution"
+],
+"distractors": [
+"Grignard reagent",
+"4-trifluoromethylphenyl-acetic acid",
+"Tollens' reagent",
+"Benedict's reagent",
+"Fehling's solution"
+],
+"n_eligible": 5,
+"sha": "ad4f4bdc72cc031e9281b93a41bfcdb7949205f2f834a384ac7939f9c472c5fc",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0028__L052__p440:lithiumhydride:sodiumhydride": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0028__L052__p440:lithiumhydride:sodiumhydride",
+"anchor": "Sodium hydride",
+"nearest": [
+"4-trifluoromethylphenyl-acetic acid",
+"Fehling's solution",
+"Benedict's reagent",
+"Grignard reagent"
+],
+"random": [
+"Tollens' reagent"
+],
+"distractors": [
+"4-trifluoromethylphenyl-acetic acid",
+"Fehling's solution",
+"Benedict's reagent",
+"Grignard reagent",
+"Tollens' reagent"
+],
+"n_eligible": 5,
+"sha": "15025a56498dd984c2a518f79c8a73cb41d1c69b4154b8710958cb3ae6e4d427",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0028__L052__p440:lithiumhydridelih:sodiumhydride": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0028__L052__p440:lithiumhydridelih:sodiumhydride",
+"anchor": "Sodium hydride",
+"nearest": [
+"4-trifluoromethylphenyl-acetic acid",
+"Fehling's solution",
+"Benedict's reagent",
+"Grignard reagent"
+],
+"random": [
+"Tollens' reagent"
+],
+"distractors": [
+"4-trifluoromethylphenyl-acetic acid",
+"Fehling's solution",
+"Benedict's reagent",
+"Grignard reagent",
+"Tollens' reagent"
+],
+"n_eligible": 5,
+"sha": "bb71f15d5f3d396a39d6e430b629811cff8a4124630fc52973e2458ab6749666",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0028__L020__p440:nbutyllithium:sodiumhydride": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0028__L020__p440:nbutyllithium:sodiumhydride",
 "anchor": "sodium hydride",

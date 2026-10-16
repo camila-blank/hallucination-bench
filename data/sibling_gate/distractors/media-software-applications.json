@@ -1,4 +1,116 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0029__L020__p369:adobepremierepro:vlcmediaplayer": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0029__L020__p369:adobepremierepro:vlcmediaplayer",
+"anchor": "VLC Media Player",
+"nearest": [
+"FL Studio"
+],
+"random": [],
+"distractors": [
+"FL Studio"
+],
+"n_eligible": 1,
+"sha": "25363976ec56ff166bf7023839985a24e3628b8073e74c975859cb3bc4a6d7d8",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0029__L032__p166:obs30:vlc": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0029__L032__p166:obs30:vlc",
+"anchor": "VLC media player",
+"nearest": [],
+"random": [
+"Logic Pro",
+"Pro Tools"
+],
+"distractors": [
+"Logic Pro",
+"Pro Tools"
+],
+"n_eligible": 2,
+"sha": "54ffe217be30380df80f9b8965f99e180cca62e4cf60796d55ab663ce608c7dc",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0029__L032__p166:obsstudio:vlcmediaplayer": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0029__L032__p166:obsstudio:vlcmediaplayer",
+"anchor": "VLC Media Player",
+"nearest": [
+"Logic Pro",
+"Pro Tools"
+],
+"random": [],
+"distractors": [
+"Logic Pro",
+"Pro Tools"
+],
+"n_eligible": 2,
+"sha": "592f0317d22c9bf65bdba6a4c2d2ef039c215efc031cf0d141b022bae82cc1dd",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0029__L036__p273:davinciresolve:vlcmediaplayer": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0029__L036__p273:davinciresolve:vlcmediaplayer",
+"anchor": "VLC Media Player",
+"nearest": [
+"FL Studio",
+"Logic Pro",
+"Pro Tools"
+],
+"random": [],
+"distractors": [
+"FL Studio",
+"Logic Pro",
+"Pro Tools"
+],
+"n_eligible": 3,
+"sha": "4122de367de53cadecdd435c0fe68f047bfdf339428a9837efc3c17b0369c314",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0029__L040__p23:obsstudio:vlcmediaplayer": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0029__L040__p23:obsstudio:vlcmediaplayer",
+"anchor": "VLC Media Player",
+"nearest": [
+"Logic Pro",
+"Pro Tools"
+],
+"random": [],
+"distractors": [
+"Logic Pro",
+"Pro Tools"
+],
+"n_eligible": 2,
+"sha": "fd5b1f6ffe5123adf09a088abdb7928b3ddec3b0b5be82f9407a00e0366988e9",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0029__L048__p23:adobepremierepro:vlcmediaplayer": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0029__L048__p23:adobepremierepro:vlcmediaplayer",
+"anchor": "VLC Media Player",
+"nearest": [
+"FL Studio"
+],
+"random": [],
+"distractors": [
+"FL Studio"
+],
+"n_eligible": 1,
+"sha": "9790dcda2fc54e64b839ebecfcd30ede83c6b8dd8b7f388c1ffd0baa75f65905",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0029__L056__p23:davinciresolve:vlc": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0029__L056__p23:davinciresolve:vlc",
+"anchor": "VLC Media Player",
+"nearest": [
+"FL Studio",
+"Logic Pro",
+"Pro Tools"
+],
+"random": [],
+"distractors": [
+"FL Studio",
+"Logic Pro",
+"Pro Tools"
+],
+"n_eligible": 3,
+"sha": "274ae11530c7a50e03710a8575b7a9de31e5fa44bb2df5ee9962d3d2249c0a83",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0029__L020__p369:adobepremierepro:vlcmediaplayer": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0029__L020__p369:adobepremierepro:vlcmediaplayer",
 "anchor": "VLC Media Player",

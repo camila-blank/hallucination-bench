@@ -1,0 +1,118 @@
+{
+"mlnla-ck2000-all11:chat-lmsys-0038__L020__p283:sqlselectorderby:dfsortvaluesby=age": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0038__L020__p283:sqlselectorderby:dfsortvaluesby=age",
+"anchor": "pandas sort_values",
+"nearest": [
+"Merge sort",
+"Timsort",
+"Shell sort",
+"Counting sort"
+],
+"random": [
+"Bubble sort",
+"Bucket sort",
+"Quicksort",
+"Tree sort"
+],
+"distractors": [
+"Merge sort",
+"Timsort",
+"Shell sort",
+"Counting sort",
+"Bubble sort",
+"Bucket sort",
+"Quicksort",
+"Tree sort"
+],
+"n_eligible": 13,
+"sha": "91f7bee01448e248552f6eb9a43772918054b0cb5673621a593e698663839e02",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0038__L032__p283:sqlorderby:pandassortvalues": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0038__L032__p283:sqlorderby:pandassortvalues",
+"anchor": "pandas sort_values",
+"nearest": [
+"Merge sort",
+"Timsort",
+"Shell sort",
+"Counting sort"
+],
+"random": [
+"Bubble sort",
+"Insertion sort",
+"Quicksort",
+"Selection sort"
+],
+"distractors": [
+"Merge sort",
+"Timsort",
+"Shell sort",
+"Counting sort",
+"Bubble sort",
+"Insertion sort",
+"Quicksort",
+"Selection sort"
+],
+"n_eligible": 13,
+"sha": "97387185a626e0e3707282c9f243080ba30236b2760d0bb47d5115cb59c9ac72",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0038__L032__p283:sqlselectorderbysalary:dfsortvalues": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0038__L032__p283:sqlselectorderbysalary:dfsortvalues",
+"anchor": "pandas sort_values",
+"nearest": [
+"Merge sort",
+"Timsort",
+"Shell sort",
+"Counting sort"
+],
+"random": [
+"Bucket sort",
+"Heapsort",
+"Introsort",
+"Selection sort"
+],
+"distractors": [
+"Merge sort",
+"Timsort",
+"Shell sort",
+"Counting sort",
+"Bucket sort",
+"Heapsort",
+"Introsort",
+"Selection sort"
+],
+"n_eligible": 13,
+"sha": "06a54fac777341fac812ab385fcca243b31f6e49526d62c63774b0107562d786",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0038__L032__p283:sqliteorderby:pandassortvalues": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0038__L032__p283:sqliteorderby:pandassortvalues",
+"anchor": "pandas sort_values",
+"nearest": [
+"Merge sort",
+"Timsort",
+"Shell sort",
+"Counting sort"
+],
+"random": [
+"Bubble sort",
+"Heapsort",
+"Insertion sort",
+"Quicksort"
+],
+"distractors": [
+"Merge sort",
+"Timsort",
+"Shell sort",
+"Counting sort",
+"Bubble sort",
+"Heapsort",
+"Insertion sort",
+"Quicksort"
+],
+"n_eligible": 13,
+"sha": "66771c5e7fbf0eaa62c7eb0421e494d1ee7bff69bbc8170039fb983d79be9aef",
+"generation": 1
+}
+}

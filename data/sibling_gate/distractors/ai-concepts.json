@@ -1,4 +1,33 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0024__L044__p89:superintelligence:technologicalsingularity": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0024__L044__p89:superintelligence:technologicalsingularity",
+"anchor": "Technological Singularity",
+"nearest": [
+"Turing test",
+"transformer",
+"large language model",
+"reinforcement learning"
+],
+"random": [
+"computer vision",
+"natural language processing",
+"supervised learning",
+"unsupervised learning"
+],
+"distractors": [
+"Turing test",
+"transformer",
+"large language model",
+"reinforcement learning",
+"computer vision",
+"natural language processing",
+"supervised learning",
+"unsupervised learning"
+],
+"n_eligible": 10,
+"sha": "9deefd5b56b47701b7c45daa840d8faa6540aee4db616d2c158ccbd3afcab6b6",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0024__L032__p89:agentaffordances:technologicalsingularity": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0024__L032__p89:agentaffordances:technologicalsingularity",
 "anchor": "Technological Singularity",

@@ -57,6 +57,2326 @@
 "sha": "e905a107dc2c7a9da1e003b8edace7b8979fd815ccf2be764aa4f2b23ed2fc0d",
 "generation": 0
 },
+"mlnla-ck2000-all11:chat-dailydialog-0002__L024__p20:chatgpt:qwen": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0002__L024__p20:chatgpt:qwen",
+"anchor": "Qwen",
+"nearest": [
+"Hunyuan",
+"Gemma",
+"Ernie",
+"Nova"
+],
+"random": [
+"Bing Chat",
+"GPT-3",
+"Nebula",
+"Wolfram Alpha"
+],
+"distractors": [
+"Hunyuan",
+"Gemma",
+"Ernie",
+"Nova",
+"Bing Chat",
+"GPT-3",
+"Nebula",
+"Wolfram Alpha"
+],
+"n_eligible": 38,
+"sha": "accc93d844bd3e45f9a2989d3fc18bd6af4908b6e9ef91c4de8b9c4e706fb104",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0002__L048__p32:xiaoice:missli": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0002__L048__p32:xiaoice:missli",
+"anchor": "Qwen",
+"nearest": [
+"Hunyuan",
+"Gemma",
+"Ernie",
+"Nova"
+],
+"random": [
+"Bing Chat",
+"Disney Genie",
+"HuggingChat",
+"Pi"
+],
+"distractors": [
+"Hunyuan",
+"Gemma",
+"Ernie",
+"Nova",
+"Bing Chat",
+"Disney Genie",
+"HuggingChat",
+"Pi"
+],
+"n_eligible": 38,
+"sha": "249ff90eb9d188bed135658cdff1a5b1eb9544647cfd2134569dccebe7100104",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0002__L052__p32:tongyi:qwen": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0002__L052__p32:tongyi:qwen",
+"anchor": "Qwen",
+"nearest": [
+"Hunyuan",
+"Gemma",
+"Ernie",
+"Nova"
+],
+"random": [
+"Bing Chat",
+"DeepSeek",
+"Grok",
+"Wolfram Alpha"
+],
+"distractors": [
+"Hunyuan",
+"Gemma",
+"Ernie",
+"Nova",
+"Bing Chat",
+"DeepSeek",
+"Grok",
+"Wolfram Alpha"
+],
+"n_eligible": 37,
+"sha": "cf6caed7bc04d6aaa34c486bf47b0928db4f9c6bbd9b28d4c42ad209681a5181",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0005__L056__p91:googlegemini:theassistantinthisresponse": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0005__L056__p91:googlegemini:theassistantinthisresponse",
+"anchor": "Google Gemini",
+"nearest": [
+"Bing",
+"Perplexity",
+"Cody",
+"Nova"
+],
+"random": [
+"ChatGLM",
+"ChatGPT",
+"GPT",
+"LM Studio"
+],
+"distractors": [
+"Bing",
+"Perplexity",
+"Cody",
+"Nova",
+"ChatGLM",
+"ChatGPT",
+"GPT",
+"LM Studio"
+],
+"n_eligible": 47,
+"sha": "4a74ef2060bc389816cab019dfcd4684d1825b660e13cd007f8d59da7adde34a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0010__L032__p83:chatgpt:theaiassistantthemodelitself": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0010__L032__p83:chatgpt:theaiassistantthemodelitself",
+"anchor": "ChatGPT",
+"nearest": [
+"Nexus",
+"HuggingChat",
+"Disney Genie",
+"Bing Chat"
+],
+"random": [
+"Alice",
+"Claude",
+"ERNIE Bot",
+"Nova"
+],
+"distractors": [
+"Nexus",
+"HuggingChat",
+"Disney Genie",
+"Bing Chat",
+"Alice",
+"Claude",
+"ERNIE Bot",
+"Nova"
+],
+"n_eligible": 46,
+"sha": "143c1a6e076bdc95a1679288aa85b317851b5fe4c6d9f5d6853dd17a39598c4a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0010__L040__p83:chatgpt:therespondingai": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0010__L040__p83:chatgpt:therespondingai",
+"anchor": "ChatGPT",
+"nearest": [
+"Nexus",
+"HuggingChat",
+"Disney Genie",
+"Bing Chat"
+],
+"random": [
+"Lilli",
+"Nova",
+"Pi",
+"Wolfram|Alpha"
+],
+"distractors": [
+"Nexus",
+"HuggingChat",
+"Disney Genie",
+"Bing Chat",
+"Lilli",
+"Nova",
+"Pi",
+"Wolfram|Alpha"
+],
+"n_eligible": 46,
+"sha": "a550f8fea70436640bf303a750ebdaf68ab704ee8281533ed37a380c53654540",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0010__L048__p65:canchatgpthelpwiththebank:areyoureadytogotothebank": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0010__L048__p65:canchatgpthelpwiththebank:areyoureadytogotothebank",
+"anchor": "ChatGPT",
+"nearest": [
+"Nexus",
+"HuggingChat",
+"Disney Genie",
+"Bing Chat"
+],
+"random": [
+"Alice",
+"GPTZero",
+"Nova",
+"Perplexica"
+],
+"distractors": [
+"Nexus",
+"HuggingChat",
+"Disney Genie",
+"Bing Chat",
+"Alice",
+"GPTZero",
+"Nova",
+"Perplexica"
+],
+"n_eligible": 46,
+"sha": "f0a0778dd5da00f9e436de2046d9974d408e6805e5395e4dcd6579bb21d13050",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0013__L056__p91:chatgpt:theaiassistant": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0013__L056__p91:chatgpt:theaiassistant",
+"anchor": "ChatGPT",
+"nearest": [
+"Nexus",
+"HuggingChat",
+"Google Assistant",
+"Disney Genie"
+],
+"random": [
+"Anwen",
+"Lilli",
+"Nebula",
+"Qwen"
+],
+"distractors": [
+"Nexus",
+"HuggingChat",
+"Google Assistant",
+"Disney Genie",
+"Anwen",
+"Lilli",
+"Nebula",
+"Qwen"
+],
+"n_eligible": 47,
+"sha": "e1a6eba76c365a45fa7cb944c2fc8df06e426470164ec517d127ac0049450193",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0014__L020__p36:chatgpt:charles": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0014__L020__p36:chatgpt:charles",
+"anchor": "Qwen",
+"nearest": [
+"Hunyuan",
+"Llama",
+"Gemma",
+"Ernie"
+],
+"random": [
+"GPT-4o",
+"Perplexica",
+"Sarah",
+"Wolfram Alpha"
+],
+"distractors": [
+"Hunyuan",
+"Llama",
+"Gemma",
+"Ernie",
+"GPT-4o",
+"Perplexica",
+"Sarah",
+"Wolfram Alpha"
+],
+"n_eligible": 34,
+"sha": "2ea428487d07bb9579a96a6bf203a3cb32f91380c26c9f68b739e47c426a6dae",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0014__L036__p30:nexus:qwen": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0014__L036__p30:nexus:qwen",
+"anchor": "Qwen",
+"nearest": [
+"Hunyuan",
+"Llama",
+"Gemma",
+"Ernie"
+],
+"random": [
+"GPTZero",
+"Hongyi",
+"LingChat",
+"Sarah"
+],
+"distractors": [
+"Hunyuan",
+"Llama",
+"Gemma",
+"Ernie",
+"GPTZero",
+"Hongyi",
+"LingChat",
+"Sarah"
+],
+"n_eligible": 34,
+"sha": "ded4eef75d3c053275bf9236e4361b1c5d3f073828298329185537b49d2aa58e",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0014__L036__p68:chatgpt:qwen": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0014__L036__p68:chatgpt:qwen",
+"anchor": "Qwen",
+"nearest": [
+"Hunyuan",
+"Llama",
+"Gemma",
+"Ernie"
+],
+"random": [
+"Anwen",
+"Ernie Bot",
+"Hongyi",
+"Xiaoice"
+],
+"distractors": [
+"Hunyuan",
+"Llama",
+"Gemma",
+"Ernie",
+"Anwen",
+"Ernie Bot",
+"Hongyi",
+"Xiaoice"
+],
+"n_eligible": 34,
+"sha": "5470d5a332f6b8abaf102d8955e9c78f7aff4d24e8ff7be874a3ba0765c2a007",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0014__L040__p30:nova:qwen": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0014__L040__p30:nova:qwen",
+"anchor": "Qwen",
+"nearest": [
+"Hunyuan",
+"Llama",
+"Gemma",
+"Ernie"
+],
+"random": [
+"Bing Chat",
+"Cody",
+"Google Assistant",
+"Hongyi"
+],
+"distractors": [
+"Hunyuan",
+"Llama",
+"Gemma",
+"Ernie",
+"Bing Chat",
+"Cody",
+"Google Assistant",
+"Hongyi"
+],
+"n_eligible": 34,
+"sha": "b8a293f5fc90a361c34a5e3ff81db299c0756e1e01f5ea0360ae2a2550af2a7c",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0014__L040__p37:chatgpt:qwen": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0014__L040__p37:chatgpt:qwen",
+"anchor": "Qwen",
+"nearest": [
+"Hunyuan",
+"Llama",
+"Gemma",
+"Ernie"
+],
+"random": [
+"Anwen",
+"Pi",
+"Tencent Hunyuan",
+"Xiaoice"
+],
+"distractors": [
+"Hunyuan",
+"Llama",
+"Gemma",
+"Ernie",
+"Anwen",
+"Pi",
+"Tencent Hunyuan",
+"Xiaoice"
+],
+"n_eligible": 34,
+"sha": "119456b66795f3d875f6d4d6ee5153c14fdc58a4ce401c17f70382118bf65270",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0014__L040__p82:grok:qwen": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0014__L040__p82:grok:qwen",
+"anchor": "Qwen",
+"nearest": [
+"Hunyuan",
+"Llama",
+"Gemma",
+"Ernie"
+],
+"random": [
+"Alice",
+"GermanyBot",
+"Hongyi",
+"Xiaoice"
+],
+"distractors": [
+"Hunyuan",
+"Llama",
+"Gemma",
+"Ernie",
+"Alice",
+"GermanyBot",
+"Hongyi",
+"Xiaoice"
+],
+"n_eligible": 34,
+"sha": "6dad88e681e3804b92299a529a93e66c141136d9d206026702ab6bfe847abf64",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0014__L044__p30:nova:qwen": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0014__L044__p30:nova:qwen",
+"anchor": "Qwen",
+"nearest": [
+"Hunyuan",
+"Llama",
+"Gemma",
+"Ernie"
+],
+"random": [
+"Chinese weather assistant",
+"Ernie Bot",
+"Tencent Hunyuan",
+"Wolfram|Alpha"
+],
+"distractors": [
+"Hunyuan",
+"Llama",
+"Gemma",
+"Ernie",
+"Chinese weather assistant",
+"Ernie Bot",
+"Tencent Hunyuan",
+"Wolfram|Alpha"
+],
+"n_eligible": 34,
+"sha": "f41669e975780db8948ebb0d4c791e6a822e9c64b986fccbfa034e431b02f276",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0014__L044__p36:nova:qwen": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0014__L044__p36:nova:qwen",
+"anchor": "Qwen",
+"nearest": [
+"Hunyuan",
+"Llama",
+"Gemma",
+"Ernie"
+],
+"random": [
+"Alice",
+"Ernie Bot",
+"GermanyBot",
+"HuggingChat"
+],
+"distractors": [
+"Hunyuan",
+"Llama",
+"Gemma",
+"Ernie",
+"Alice",
+"Ernie Bot",
+"GermanyBot",
+"HuggingChat"
+],
+"n_eligible": 34,
+"sha": "cd7515624c2e3021e2af9f46297fde20ee72f7c8e0f8d50721867c7ddad3a4b0",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0014__L052__p23:chatgpt:qwen": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0014__L052__p23:chatgpt:qwen",
+"anchor": "Qwen",
+"nearest": [
+"Hunyuan",
+"Llama",
+"Gemma",
+"Ernie"
+],
+"random": [
+"GPT-4o",
+"Google Gemini",
+"LingChat",
+"Xiaoice"
+],
+"distractors": [
+"Hunyuan",
+"Llama",
+"Gemma",
+"Ernie",
+"GPT-4o",
+"Google Gemini",
+"LingChat",
+"Xiaoice"
+],
+"n_eligible": 34,
+"sha": "1c4691d5b80b59a0c80f8caf3858cb972f5835b285dd8cf410a52bbf3a43dfed",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0014__L052__p30:qwen:charles": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0014__L052__p30:qwen:charles",
+"anchor": "Qwen",
+"nearest": [
+"Hunyuan",
+"Llama",
+"Gemma",
+"Ernie"
+],
+"random": [
+"GPT-4o",
+"Lilli",
+"Pi",
+"Sarah"
+],
+"distractors": [
+"Hunyuan",
+"Llama",
+"Gemma",
+"Ernie",
+"GPT-4o",
+"Lilli",
+"Pi",
+"Sarah"
+],
+"n_eligible": 34,
+"sha": "a1a469d72ec67ea6619df0d702ac72766e3d1d0bc1948c6e676e11ee8a5a59a8",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0014__L052__p30:tongyi:qwen": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0014__L052__p30:tongyi:qwen",
+"anchor": "Qwen",
+"nearest": [
+"Hunyuan",
+"Llama",
+"Gemma",
+"Ernie"
+],
+"random": [
+"Alice",
+"DeepSeek Chat",
+"GermanyBot",
+"YiYi"
+],
+"distractors": [
+"Hunyuan",
+"Llama",
+"Gemma",
+"Ernie",
+"Alice",
+"DeepSeek Chat",
+"GermanyBot",
+"YiYi"
+],
+"n_eligible": 33,
+"sha": "c1bc27522050cb18dba9fee9dc0ca67ead29df6242203e70f52e65d940a7616f",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0014__L056__p23:chatgpt:qwen": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0014__L056__p23:chatgpt:qwen",
+"anchor": "Qwen",
+"nearest": [
+"Hunyuan",
+"Llama",
+"Gemma",
+"Ernie"
+],
+"random": [
+"Chinese weather assistant",
+"ERNIE Bot",
+"LM Studio",
+"Sarah"
+],
+"distractors": [
+"Hunyuan",
+"Llama",
+"Gemma",
+"Ernie",
+"Chinese weather assistant",
+"ERNIE Bot",
+"LM Studio",
+"Sarah"
+],
+"n_eligible": 34,
+"sha": "96f5b6ef449aedaa90a7b7a0e9fd48dd118550cd45e02d045c55c8ebbb445d3a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0014__L056__p30:chatgpt:charles": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0014__L056__p30:chatgpt:charles",
+"anchor": "Qwen",
+"nearest": [
+"Hunyuan",
+"Llama",
+"Gemma",
+"Ernie"
+],
+"random": [
+"Bing",
+"DeepSeek Chat",
+"Perplexity",
+"Wolfram Alpha"
+],
+"distractors": [
+"Hunyuan",
+"Llama",
+"Gemma",
+"Ernie",
+"Bing",
+"DeepSeek Chat",
+"Perplexity",
+"Wolfram Alpha"
+],
+"n_eligible": 34,
+"sha": "54b88c843633217c2f003c04f849a9ce970bec4ef1f57e7a9b442bcf9fe6fcd5",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0019__L036__p71:gemini:qwen": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0019__L036__p71:gemini:qwen",
+"anchor": "Qwen",
+"nearest": [
+"Hunyuan",
+"Llama",
+"Ernie",
+"YiYi"
+],
+"random": [
+"Cody",
+"HuggingChat",
+"Nexus",
+"Sarah"
+],
+"distractors": [
+"Hunyuan",
+"Llama",
+"Ernie",
+"YiYi",
+"Cody",
+"HuggingChat",
+"Nexus",
+"Sarah"
+],
+"n_eligible": 38,
+"sha": "735c1335c7c18c304dd60db489181d05f4d06b77a3d98895a5a0dd0e66f9dbd6",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0019__L044__p24:chatgpt:qwen": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0019__L044__p24:chatgpt:qwen",
+"anchor": "Qwen",
+"nearest": [
+"Hunyuan",
+"Llama",
+"Ernie",
+"YiYi"
+],
+"random": [
+"DeepSeek Chat",
+"Disney Genie",
+"GermanyBot",
+"Wolfram|Alpha"
+],
+"distractors": [
+"Hunyuan",
+"Llama",
+"Ernie",
+"YiYi",
+"DeepSeek Chat",
+"Disney Genie",
+"GermanyBot",
+"Wolfram|Alpha"
+],
+"n_eligible": 38,
+"sha": "c486e22e0aec8e7379e245b7cf18ff256349e8820415ce2bdf6d2ffaab4b8c7a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0019__L044__p24:chatgptopenai:qwenalibaba": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0019__L044__p24:chatgptopenai:qwenalibaba",
+"anchor": "Qwen",
+"nearest": [
+"Hunyuan",
+"Llama",
+"Ernie",
+"YiYi"
+],
+"random": [
+"Alexa",
+"Anwen",
+"Google Gemini",
+"Xiaoice"
+],
+"distractors": [
+"Hunyuan",
+"Llama",
+"Ernie",
+"YiYi",
+"Alexa",
+"Anwen",
+"Google Gemini",
+"Xiaoice"
+],
+"n_eligible": 38,
+"sha": "422fc1b9463f2fce23dbdc621d9cc11e195cf56221d582c24d9dd9d5b64cd298",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0020__L024__p41:kimi:qwen": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0020__L024__p41:kimi:qwen",
+"anchor": "Qwen",
+"nearest": [
+"Hunyuan",
+"Gemma",
+"Ernie",
+"YiYi"
+],
+"random": [
+"Anwen",
+"ERNIE Bot",
+"Google Assistant",
+"Wolfram Alpha"
+],
+"distractors": [
+"Hunyuan",
+"Gemma",
+"Ernie",
+"YiYi",
+"Anwen",
+"ERNIE Bot",
+"Google Assistant",
+"Wolfram Alpha"
+],
+"n_eligible": 32,
+"sha": "3defc8a39fa1a23f7e56989360b4610dec145a73838d0c89f949e3ef36d1b5c9",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0020__L052__p22:chatgpt:qwen": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0020__L052__p22:chatgpt:qwen",
+"anchor": "Qwen",
+"nearest": [
+"Hunyuan",
+"Gemma",
+"Ernie",
+"YiYi"
+],
+"random": [
+"DeepSeek",
+"Lilli",
+"Perplexity",
+"Wolfram Alpha"
+],
+"distractors": [
+"Hunyuan",
+"Gemma",
+"Ernie",
+"YiYi",
+"DeepSeek",
+"Lilli",
+"Perplexity",
+"Wolfram Alpha"
+],
+"n_eligible": 32,
+"sha": "6a89e47258c1fc30cb948275895f115a4f0d0a770294dfa546a946a8478efb8c",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0020__L052__p37:chatgpt:bill": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0020__L052__p37:chatgpt:bill",
+"anchor": "Qwen",
+"nearest": [
+"Hunyuan",
+"Gemma",
+"Ernie",
+"YiYi"
+],
+"random": [
+"ERNIE Bot",
+"Nebula",
+"Nexus",
+"Tencent Hunyuan"
+],
+"distractors": [
+"Hunyuan",
+"Gemma",
+"Ernie",
+"YiYi",
+"ERNIE Bot",
+"Nebula",
+"Nexus",
+"Tencent Hunyuan"
+],
+"n_eligible": 32,
+"sha": "118e333581a7d5272cbea3926cbac3d4038ac0530c63ad7d1d0bfb71f58745a7",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0020__L052__p57:chatgpt:qwen": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0020__L052__p57:chatgpt:qwen",
+"anchor": "Qwen",
+"nearest": [
+"Hunyuan",
+"Gemma",
+"Ernie",
+"YiYi"
+],
+"random": [
+"DeepSeek Chat",
+"Nova",
+"Tencent Hunyuan",
+"Wolfram|Alpha"
+],
+"distractors": [
+"Hunyuan",
+"Gemma",
+"Ernie",
+"YiYi",
+"DeepSeek Chat",
+"Nova",
+"Tencent Hunyuan",
+"Wolfram|Alpha"
+],
+"n_eligible": 32,
+"sha": "71bb5a3ad47aebc32c990a7fb957ffa8b73a0e1e6bb70a9c80aa122ca94e4b93",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0020__L052__p60:googlegemini:qwen": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0020__L052__p60:googlegemini:qwen",
+"anchor": "Qwen",
+"nearest": [
+"Hunyuan",
+"Gemma",
+"Ernie",
+"YiYi"
+],
+"random": [
+"Anwen",
+"Chinese weather assistant",
+"ERNIE Bot",
+"Wolfram Alpha"
+],
+"distractors": [
+"Hunyuan",
+"Gemma",
+"Ernie",
+"YiYi",
+"Anwen",
+"Chinese weather assistant",
+"ERNIE Bot",
+"Wolfram Alpha"
+],
+"n_eligible": 31,
+"sha": "ac771868e6496d407adacd5e4c00f2144d0236b2572aa109c5d8cf8e67c0bbd0",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0020__L060__p41:bing:qwen": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0020__L060__p41:bing:qwen",
+"anchor": "Qwen",
+"nearest": [
+"Hunyuan",
+"Gemma",
+"Ernie",
+"YiYi"
+],
+"random": [
+"GermanyBot",
+"Hongyi",
+"HuggingChat",
+"Perplexity"
+],
+"distractors": [
+"Hunyuan",
+"Gemma",
+"Ernie",
+"YiYi",
+"GermanyBot",
+"Hongyi",
+"HuggingChat",
+"Perplexity"
+],
+"n_eligible": 31,
+"sha": "eeeac07458917755c9e3e02af2e8e13adf4291890d468a37e06234a920c0b146",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0020__L060__p72::": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0020__L060__p72::",
+"anchor": "Qwen",
+"nearest": [
+"Hunyuan",
+"Gemma",
+"Ernie",
+"YiYi"
+],
+"random": [
+"DeepSeek Chat",
+"Disney Genie",
+"Hongyi",
+"Tencent Hunyuan"
+],
+"distractors": [
+"Hunyuan",
+"Gemma",
+"Ernie",
+"YiYi",
+"DeepSeek Chat",
+"Disney Genie",
+"Hongyi",
+"Tencent Hunyuan"
+],
+"n_eligible": 32,
+"sha": "4d0fa129741a317b547e35f66347c380f93a29df0193aac69a3acd85a32ca92e",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0027__L032__p123:grok:aiassistant": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0027__L032__p123:grok:aiassistant",
+"anchor": "Grok",
+"nearest": [
+"Pi",
+"GPT-4o",
+"Bing Chat",
+"DeepSeek Chat"
+],
+"random": [
+"GPTZero",
+"Gemma",
+"LM Studio",
+"Siri"
+],
+"distractors": [
+"Pi",
+"GPT-4o",
+"Bing Chat",
+"DeepSeek Chat",
+"GPTZero",
+"Gemma",
+"LM Studio",
+"Siri"
+],
+"n_eligible": 49,
+"sha": "ec305f85e25fd4a59f7b5f62faa5f1cd2e2f37f796d5ad1cf90a8a5dfbb01dec",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0030__L048__p203:grok:aiassistant": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0030__L048__p203:grok:aiassistant",
+"anchor": "Grok",
+"nearest": [
+"Pi",
+"GPT-4o",
+"Bing Chat",
+"DeepSeek Chat"
+],
+"random": [
+"Alice",
+"Llama",
+"Nebula",
+"Nova"
+],
+"distractors": [
+"Pi",
+"GPT-4o",
+"Bing Chat",
+"DeepSeek Chat",
+"Alice",
+"Llama",
+"Nebula",
+"Nova"
+],
+"n_eligible": 50,
+"sha": "c4cf169f88da62633b783e04e1aec6db23595f46134adbce5425848902addb60",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0034__L024__p25:kimi:dolly": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0034__L024__p25:kimi:dolly",
+"anchor": "Qwen",
+"nearest": [
+"Hunyuan",
+"Llama",
+"YiYi",
+"Nova"
+],
+"random": [
+"DeepSeek Chat",
+"Google Assistant",
+"Lilli",
+"Perplexica"
+],
+"distractors": [
+"Hunyuan",
+"Llama",
+"YiYi",
+"Nova",
+"DeepSeek Chat",
+"Google Assistant",
+"Lilli",
+"Perplexica"
+],
+"n_eligible": 34,
+"sha": "55e5f336bb38d3c19b6cbf23473cb373a4f7a2e0fbe7b7c019fc8368c7c2ae47",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0034__L032__p65:deepseek:qwen": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0034__L032__p65:deepseek:qwen",
+"anchor": "Qwen",
+"nearest": [
+"Hunyuan",
+"Llama",
+"YiYi",
+"Nova"
+],
+"random": [
+"Bing Chat",
+"GermanyBot",
+"Perplexica",
+"Perplexity"
+],
+"distractors": [
+"Hunyuan",
+"Llama",
+"YiYi",
+"Nova",
+"Bing Chat",
+"GermanyBot",
+"Perplexica",
+"Perplexity"
+],
+"n_eligible": 33,
+"sha": "8b66d195fe1ab052888bc5993f2d2b0f5c073dd4c761d7a30263b80b5680c926",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0034__L060__p47:anwen:qwen": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0034__L060__p47:anwen:qwen",
+"anchor": "Qwen",
+"nearest": [
+"Hunyuan",
+"Llama",
+"YiYi",
+"Nova"
+],
+"random": [
+"Alexa",
+"DeepSeek Chat",
+"Grok",
+"HuggingChat"
+],
+"distractors": [
+"Hunyuan",
+"Llama",
+"YiYi",
+"Nova",
+"Alexa",
+"DeepSeek Chat",
+"Grok",
+"HuggingChat"
+],
+"n_eligible": 34,
+"sha": "30ec610d579cd4080e7a77480d835031fc316f59fa40c45567d47f57e351c574",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0034__L060__p65:chatgpt:qwen": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0034__L060__p65:chatgpt:qwen",
+"anchor": "Qwen",
+"nearest": [
+"Hunyuan",
+"Llama",
+"YiYi",
+"Nova"
+],
+"random": [
+"Google Gemini",
+"Perplexica",
+"Pi",
+"Wolfram Alpha"
+],
+"distractors": [
+"Hunyuan",
+"Llama",
+"YiYi",
+"Nova",
+"Google Gemini",
+"Perplexica",
+"Pi",
+"Wolfram Alpha"
+],
+"n_eligible": 34,
+"sha": "a3092d0cb7eab65bdd8cfbd130c2b37b2f4f517c6b233e175e0cea84acc9187d",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0035__L036__p121:chatgpt:therespondingai": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0035__L036__p121:chatgpt:therespondingai",
+"anchor": "ChatGPT",
+"nearest": [
+"Nexus",
+"Alexa",
+"HuggingChat",
+"Disney Genie"
+],
+"random": [
+"Google Gemini",
+"Nebula",
+"Perplexica",
+"Tongyi Qianwen"
+],
+"distractors": [
+"Nexus",
+"Alexa",
+"HuggingChat",
+"Disney Genie",
+"Google Gemini",
+"Nebula",
+"Perplexica",
+"Tongyi Qianwen"
+],
+"n_eligible": 48,
+"sha": "e81461493ebb5bc3035aa599f4ddaede76f8594132032a03bdcddc5648bf0386",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0035__L044__p103:chatgpt:therespondingai": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0035__L044__p103:chatgpt:therespondingai",
+"anchor": "ChatGPT",
+"nearest": [
+"Nexus",
+"Alexa",
+"HuggingChat",
+"Disney Genie"
+],
+"random": [
+"GPT-3",
+"Nebula",
+"Nova",
+"YiYi"
+],
+"distractors": [
+"Nexus",
+"Alexa",
+"HuggingChat",
+"Disney Genie",
+"GPT-3",
+"Nebula",
+"Nova",
+"YiYi"
+],
+"n_eligible": 48,
+"sha": "d964b6f9c9753de30fff7b7bc148b6a6adcb6d5b2ef146607e653317ff3bb739",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0035__L044__p121:chatgpt:therespondingaiself": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0035__L044__p121:chatgpt:therespondingaiself",
+"anchor": "ChatGPT",
+"nearest": [
+"Nexus",
+"Alexa",
+"HuggingChat",
+"Disney Genie"
+],
+"random": [
+"Bing",
+"ChatGLM",
+"Ernie Bot",
+"Pi"
+],
+"distractors": [
+"Nexus",
+"Alexa",
+"HuggingChat",
+"Disney Genie",
+"Bing",
+"ChatGLM",
+"Ernie Bot",
+"Pi"
+],
+"n_eligible": 48,
+"sha": "dab88149f9feea251cb23c62fdfd6742b4c4cad28f1d4a582c06a0fc282a0683",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0035__L056__p121::": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0035__L056__p121::",
+"anchor": "ChatGPT",
+"nearest": [
+"Nexus",
+"Alexa",
+"HuggingChat",
+"Disney Genie"
+],
+"random": [
+"Claude",
+"Cody",
+"Tencent Hunyuan",
+"YiYi"
+],
+"distractors": [
+"Nexus",
+"Alexa",
+"HuggingChat",
+"Disney Genie",
+"Claude",
+"Cody",
+"Tencent Hunyuan",
+"YiYi"
+],
+"n_eligible": 48,
+"sha": "fd893fdc528d0feec345c94c2dbe186edc868722954ad5d421cad2991793c46b",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0035__L060__p83::": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0035__L060__p83::",
+"anchor": "ChatGPT",
+"nearest": [
+"Nexus",
+"Alexa",
+"HuggingChat",
+"Disney Genie"
+],
+"random": [
+"GPTZero",
+"Google Gemini",
+"LM Studio",
+"Qwen"
+],
+"distractors": [
+"Nexus",
+"Alexa",
+"HuggingChat",
+"Disney Genie",
+"GPTZero",
+"Google Gemini",
+"LM Studio",
+"Qwen"
+],
+"n_eligible": 48,
+"sha": "83283ebb9ba1497beeddbdd4d4b237ea99a6cb839f649ac017a771e36b42f4fb",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0035__L060__p83:chatgpt:itheairesponding": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0035__L060__p83:chatgpt:itheairesponding",
+"anchor": "ChatGPT",
+"nearest": [
+"Nexus",
+"Alexa",
+"HuggingChat",
+"Disney Genie"
+],
+"random": [
+"Ernie Bot",
+"GermanyBot",
+"Nebula",
+"Nova"
+],
+"distractors": [
+"Nexus",
+"Alexa",
+"HuggingChat",
+"Disney Genie",
+"Ernie Bot",
+"GermanyBot",
+"Nebula",
+"Nova"
+],
+"n_eligible": 48,
+"sha": "0e4d653eefa499494acbab7bb392f9dfafd8a207bdb84615bf9fc363b030b2cc",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0038__L036__p51:chatgpt:diana": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0038__L036__p51:chatgpt:diana",
+"anchor": "ChatGPT",
+"nearest": [
+"Nexus",
+"Alexa",
+"HuggingChat",
+"Google Assistant"
+],
+"random": [
+"Claude",
+"GPT-4o",
+"Siri",
+"YiYi"
+],
+"distractors": [
+"Nexus",
+"Alexa",
+"HuggingChat",
+"Google Assistant",
+"Claude",
+"GPT-4o",
+"Siri",
+"YiYi"
+],
+"n_eligible": 48,
+"sha": "720313d7b7bbf7c30e1c0ee74f438b453ec0f6cbd807736af74810b04fbe8240",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0038__L044__p51:chatgpt:diana": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0038__L044__p51:chatgpt:diana",
+"anchor": "ChatGPT",
+"nearest": [
+"Nexus",
+"Alexa",
+"HuggingChat",
+"Google Assistant"
+],
+"random": [
+"DeepSeek Chat",
+"ERNIE Bot",
+"GermanyBot",
+"Wolfram Alpha"
+],
+"distractors": [
+"Nexus",
+"Alexa",
+"HuggingChat",
+"Google Assistant",
+"DeepSeek Chat",
+"ERNIE Bot",
+"GermanyBot",
+"Wolfram Alpha"
+],
+"n_eligible": 48,
+"sha": "1c82f2b0e92d0c37fc1d9fdf57a627902e89ef6000913545bad1003f54c5288c",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0041__L028__p78:chatgpt:googletrainedmodel": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0041__L028__p78:chatgpt:googletrainedmodel",
+"anchor": "Gemini",
+"nearest": [
+"Grok",
+"Bing",
+"Perplexity",
+"Nova"
+],
+"random": [
+"Anwen",
+"DeepSeek",
+"Siri",
+"Tencent Hunyuan"
+],
+"distractors": [
+"Grok",
+"Bing",
+"Perplexity",
+"Nova",
+"Anwen",
+"DeepSeek",
+"Siri",
+"Tencent Hunyuan"
+],
+"n_eligible": 39,
+"sha": "d9f4b3d5370b413da40705322f562c23644af3ff6736e652de9165a62a6f622b",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0041__L032__p22:qwen:googlesmodel": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0041__L032__p22:qwen:googlesmodel",
+"anchor": "Gemini",
+"nearest": [
+"Grok",
+"Bing",
+"Perplexity",
+"Nova"
+],
+"random": [
+"Alexa",
+"DeepSeek",
+"DeepSeek Chat",
+"Sarah"
+],
+"distractors": [
+"Grok",
+"Bing",
+"Perplexity",
+"Nova",
+"Alexa",
+"DeepSeek",
+"DeepSeek Chat",
+"Sarah"
+],
+"n_eligible": 38,
+"sha": "115c2269d468bfbe0b488e997e6f4584b34a2a0471060bf219415e66316caeb2",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0041__L032__p37:qwen:googlemodel": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0041__L032__p37:qwen:googlemodel",
+"anchor": "Gemini",
+"nearest": [
+"Grok",
+"Bing",
+"Perplexity",
+"Nova"
+],
+"random": [
+"Alexa",
+"Ernie Bot",
+"GermanyBot",
+"Pi"
+],
+"distractors": [
+"Grok",
+"Bing",
+"Perplexity",
+"Nova",
+"Alexa",
+"Ernie Bot",
+"GermanyBot",
+"Pi"
+],
+"n_eligible": 38,
+"sha": "275bad78a18ccba48a52ee9a45d03a5c0830c4031893111bd74c83e7f6c7dec7",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0041__L032__p78:chatgpt:googletrainedmodel": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0041__L032__p78:chatgpt:googletrainedmodel",
+"anchor": "Gemini",
+"nearest": [
+"Grok",
+"Bing",
+"Perplexity",
+"Nova"
+],
+"random": [
+"Chinese weather assistant",
+"DeepSeek",
+"Ernie",
+"Hongyi"
+],
+"distractors": [
+"Grok",
+"Bing",
+"Perplexity",
+"Nova",
+"Chinese weather assistant",
+"DeepSeek",
+"Ernie",
+"Hongyi"
+],
+"n_eligible": 39,
+"sha": "954b9ae116acb136ab47429c537465c8cdcdbf68fc6e33a729db3b2707d172f7",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0041__L036__p58:chatgpt:googletrainedmodel": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0041__L036__p58:chatgpt:googletrainedmodel",
+"anchor": "Gemini",
+"nearest": [
+"Grok",
+"Bing",
+"Perplexity",
+"Nova"
+],
+"random": [
+"Alexa",
+"ERNIE Bot",
+"Nebula",
+"YiYi"
+],
+"distractors": [
+"Grok",
+"Bing",
+"Perplexity",
+"Nova",
+"Alexa",
+"ERNIE Bot",
+"Nebula",
+"YiYi"
+],
+"n_eligible": 39,
+"sha": "0dd9c3112188dd6310bbfbfb708267948a222733ea12233aa131b4af6814fbaf",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0041__L036__p78:chatgpt:googlesmodel": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0041__L036__p78:chatgpt:googlesmodel",
+"anchor": "Gemini",
+"nearest": [
+"Grok",
+"Bing",
+"Perplexity",
+"Nova"
+],
+"random": [
+"Cody",
+"LingChat",
+"Perplexica",
+"Xiaoice"
+],
+"distractors": [
+"Grok",
+"Bing",
+"Perplexity",
+"Nova",
+"Cody",
+"LingChat",
+"Perplexica",
+"Xiaoice"
+],
+"n_eligible": 39,
+"sha": "b5ab9ed6951a1d7ae0e1250f871e813b60725359183ad090a5aee8be1809f073",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0041__L036__p89:chatgpt:googletrainedmodel": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0041__L036__p89:chatgpt:googletrainedmodel",
+"anchor": "Gemini",
+"nearest": [
+"Grok",
+"Bing",
+"Perplexity",
+"Nova"
+],
+"random": [
+"Alexa",
+"Chinese weather assistant",
+"Pi",
+"Siri"
+],
+"distractors": [
+"Grok",
+"Bing",
+"Perplexity",
+"Nova",
+"Alexa",
+"Chinese weather assistant",
+"Pi",
+"Siri"
+],
+"n_eligible": 39,
+"sha": "52c960731b6bcb74cf8df648f06cb0f596ba4430f7432dcf4aa78d2430c94b7a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0041__L040__p74:chatgpt:googlemodel": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0041__L040__p74:chatgpt:googlemodel",
+"anchor": "Gemini",
+"nearest": [
+"Grok",
+"Bing",
+"Perplexity",
+"Nova"
+],
+"random": [
+"DeepSeek",
+"DeepSeek Chat",
+"LM Studio",
+"an AI distinct from Qwen"
+],
+"distractors": [
+"Grok",
+"Bing",
+"Perplexity",
+"Nova",
+"DeepSeek",
+"DeepSeek Chat",
+"LM Studio",
+"an AI distinct from Qwen"
+],
+"n_eligible": 39,
+"sha": "4f72308d5029a976ed26980886d9bfb440347bfa2347b3ec9253c9eae398210a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0041__L040__p78:chatgpt:googlemodel": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0041__L040__p78:chatgpt:googlemodel",
+"anchor": "Gemini",
+"nearest": [
+"Grok",
+"Bing",
+"Perplexity",
+"Nova"
+],
+"random": [
+"Anwen",
+"GPT-3",
+"Pi",
+"Sarah"
+],
+"distractors": [
+"Grok",
+"Bing",
+"Perplexity",
+"Nova",
+"Anwen",
+"GPT-3",
+"Pi",
+"Sarah"
+],
+"n_eligible": 39,
+"sha": "707ce9767871635a03b7cf3096ad8b35009cb68827062dd9626cea499fdf861d",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0041__L040__p89:chatgpt:googleslargelanguagemodel": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0041__L040__p89:chatgpt:googleslargelanguagemodel",
+"anchor": "Gemini",
+"nearest": [
+"Grok",
+"Bing",
+"Perplexity",
+"Nova"
+],
+"random": [
+"Alexa",
+"Cody",
+"Nexus",
+"Sarah"
+],
+"distractors": [
+"Grok",
+"Bing",
+"Perplexity",
+"Nova",
+"Alexa",
+"Cody",
+"Nexus",
+"Sarah"
+],
+"n_eligible": 39,
+"sha": "bba46ff8bd9bf5c9f74b0b2aa39997a451f973fcd357327a9a33c9bb6c116a42",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0041__L044__p78:chatgpt:googletrainedmodel": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0041__L044__p78:chatgpt:googletrainedmodel",
+"anchor": "Gemini",
+"nearest": [
+"Grok",
+"Bing",
+"Perplexity",
+"Nova"
+],
+"random": [
+"Ernie Bot",
+"Tencent Hunyuan",
+"Xiaoice",
+"YiYi"
+],
+"distractors": [
+"Grok",
+"Bing",
+"Perplexity",
+"Nova",
+"Ernie Bot",
+"Tencent Hunyuan",
+"Xiaoice",
+"YiYi"
+],
+"n_eligible": 39,
+"sha": "73f937e3b3b27938ea1cd8ac4d163e8898ef9e8dca8904b8c2125ed5c86c0615",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0041__L044__p89:chatgpt:googletrainedmodel": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0041__L044__p89:chatgpt:googletrainedmodel",
+"anchor": "Gemini",
+"nearest": [
+"Grok",
+"Bing",
+"Perplexity",
+"Nova"
+],
+"random": [
+"ERNIE Bot",
+"Ernie Bot",
+"Hunyuan",
+"Sarah"
+],
+"distractors": [
+"Grok",
+"Bing",
+"Perplexity",
+"Nova",
+"ERNIE Bot",
+"Ernie Bot",
+"Hunyuan",
+"Sarah"
+],
+"n_eligible": 39,
+"sha": "1dfc5196a13aeaa76bb331f7517ef1b2bc1725838bf589111ea2ad33d4eae33a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0041__L048__p89:chatgpt:alargelanguagemodeltrainedbygoogle": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0041__L048__p89:chatgpt:alargelanguagemodeltrainedbygoogle",
+"anchor": "Gemini",
+"nearest": [
+"Grok",
+"Bing",
+"Perplexity",
+"Nova"
+],
+"random": [
+"GPTZero",
+"LingChat",
+"Xiaoice",
+"YiYi"
+],
+"distractors": [
+"Grok",
+"Bing",
+"Perplexity",
+"Nova",
+"GPTZero",
+"LingChat",
+"Xiaoice",
+"YiYi"
+],
+"n_eligible": 39,
+"sha": "bcfce84eb8853f9f197c4c2e6a21d5680165bce324f48feb40d5bb51f2a2a22d",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0041__L052__p37:qwen:googlemodel": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0041__L052__p37:qwen:googlemodel",
+"anchor": "Gemini",
+"nearest": [
+"Grok",
+"Bing",
+"Perplexity",
+"Nova"
+],
+"random": [
+"Hunyuan",
+"LingChat",
+"Siri",
+"Tongyi Qianwen"
+],
+"distractors": [
+"Grok",
+"Bing",
+"Perplexity",
+"Nova",
+"Hunyuan",
+"LingChat",
+"Siri",
+"Tongyi Qianwen"
+],
+"n_eligible": 38,
+"sha": "b592949fef3a2fb1051daa610f6ac0a25407d143f8693328e9f49c042e098987",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0041__L056__p37:alibabaqwen:google": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0041__L056__p37:alibabaqwen:google",
+"anchor": "Gemini",
+"nearest": [
+"Grok",
+"Bing",
+"Perplexity",
+"Nova"
+],
+"random": [
+"GermanyBot",
+"Hongyi",
+"Siri",
+"Wolfram|Alpha"
+],
+"distractors": [
+"Grok",
+"Bing",
+"Perplexity",
+"Nova",
+"GermanyBot",
+"Hongyi",
+"Siri",
+"Wolfram|Alpha"
+],
+"n_eligible": 38,
+"sha": "b20d68efbc0ce98bc782083c6804c381920709ced486a8abc17e8e0cc2d1f3c3",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0041__L056__p37:qwen:googletrainedmodel": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0041__L056__p37:qwen:googletrainedmodel",
+"anchor": "Gemini",
+"nearest": [
+"Grok",
+"Bing",
+"Perplexity",
+"Nova"
+],
+"random": [
+"Alexa",
+"Bing Chat",
+"Disney Genie",
+"Tencent Hunyuan"
+],
+"distractors": [
+"Grok",
+"Bing",
+"Perplexity",
+"Nova",
+"Alexa",
+"Bing Chat",
+"Disney Genie",
+"Tencent Hunyuan"
+],
+"n_eligible": 38,
+"sha": "77e4cbb20eb8abf170ee3065d4ca93ddd05e52ee7c118ffa707bca66a77c7e95",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0041__L056__p89:chatgpt:googletrainedmodel": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0041__L056__p89:chatgpt:googletrainedmodel",
+"anchor": "Gemini",
+"nearest": [
+"Grok",
+"Bing",
+"Perplexity",
+"Nova"
+],
+"random": [
+"Anwen",
+"Chinese weather assistant",
+"GermanyBot",
+"Nexus"
+],
+"distractors": [
+"Grok",
+"Bing",
+"Perplexity",
+"Nova",
+"Anwen",
+"Chinese weather assistant",
+"GermanyBot",
+"Nexus"
+],
+"n_eligible": 39,
+"sha": "d3093c2c41f31a9fb6e0083b92cb2606b93d8264c6c52999f9547c7bab7a1563",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0041__L060__p37:qwen:googlemodel": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0041__L060__p37:qwen:googlemodel",
+"anchor": "Gemini",
+"nearest": [
+"Grok",
+"Bing",
+"Perplexity",
+"Nova"
+],
+"random": [
+"DeepSeek Chat",
+"Ernie",
+"Google Assistant",
+"Sarah"
+],
+"distractors": [
+"Grok",
+"Bing",
+"Perplexity",
+"Nova",
+"DeepSeek Chat",
+"Ernie",
+"Google Assistant",
+"Sarah"
+],
+"n_eligible": 38,
+"sha": "6c301e336ccfaa81cf913362526f820b603368b84d49aac87164127ee79304f5",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0041__L060__p37:qwenbyalibabacloud:googlemodel": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0041__L060__p37:qwenbyalibabacloud:googlemodel",
+"anchor": "Gemini",
+"nearest": [
+"Grok",
+"Bing",
+"Perplexity",
+"Nova"
+],
+"random": [
+"DeepSeek Chat",
+"Google Assistant",
+"Perplexica",
+"Xiaoice"
+],
+"distractors": [
+"Grok",
+"Bing",
+"Perplexity",
+"Nova",
+"DeepSeek Chat",
+"Google Assistant",
+"Perplexica",
+"Xiaoice"
+],
+"n_eligible": 38,
+"sha": "3375407f3ceffd354f871bb84b46bc81e1cfd5116bf36c1c15f284c3990cbfdf",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0046__L020__p157:germanybot:qwen": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0046__L020__p157:germanybot:qwen",
+"anchor": "Qwen",
+"nearest": [
+"Hunyuan",
+"Llama",
+"Gemma",
+"Ernie"
+],
+"random": [
+"Bing",
+"Chinese weather assistant",
+"ERNIE Bot",
+"Google Gemini"
+],
+"distractors": [
+"Hunyuan",
+"Llama",
+"Gemma",
+"Ernie",
+"Bing",
+"Chinese weather assistant",
+"ERNIE Bot",
+"Google Gemini"
+],
+"n_eligible": 32,
+"sha": "1ac39af6046a1491021770b3f21c786ec7ee24097bebdebfea76324b322c7cb3",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0046__L024__p46:perplexity:qwen": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0046__L024__p46:perplexity:qwen",
+"anchor": "Qwen",
+"nearest": [
+"Hunyuan",
+"Llama",
+"Gemma",
+"Ernie"
+],
+"random": [
+"Bing Chat",
+"Disney Genie",
+"Perplexica",
+"YiYi"
+],
+"distractors": [
+"Hunyuan",
+"Llama",
+"Gemma",
+"Ernie",
+"Bing Chat",
+"Disney Genie",
+"Perplexica",
+"YiYi"
+],
+"n_eligible": 32,
+"sha": "de3645e172f04b65b58eb8184fbe6eb1f4ba9680eefce2c0d6c77bc2671a0346",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0046__L028__p22:lingchat:qwen": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0046__L028__p22:lingchat:qwen",
+"anchor": "Qwen",
+"nearest": [
+"Hunyuan",
+"Llama",
+"Gemma",
+"Ernie"
+],
+"random": [
+"Bing Chat",
+"Chinese weather assistant",
+"Ernie Bot",
+"YiYi"
+],
+"distractors": [
+"Hunyuan",
+"Llama",
+"Gemma",
+"Ernie",
+"Bing Chat",
+"Chinese weather assistant",
+"Ernie Bot",
+"YiYi"
+],
+"n_eligible": 32,
+"sha": "0841b052a11138c1f4290097e7cd6c03a1e2bf975d01c2f6971be269b79777fb",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0052__L024__p103:alexa:aiassistant": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0052__L024__p103:alexa:aiassistant",
+"anchor": "Alexa",
+"nearest": [
+"Google Assistant",
+"Siri",
+"Alice",
+"Disney Genie"
+],
+"random": [
+"Google Gemini",
+"Hongyi",
+"Nexus",
+"Perplexica"
+],
+"distractors": [
+"Google Assistant",
+"Siri",
+"Alice",
+"Disney Genie",
+"Google Gemini",
+"Hongyi",
+"Nexus",
+"Perplexica"
+],
+"n_eligible": 45,
+"sha": "42f1807bebc84eed3032cc2bc25363bf0d4b9c4ae7829dd337803f9d5f2c137e",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0053__L060__p56:chatgptsessions:thischatwiththeassistant": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0053__L060__p56:chatgptsessions:thischatwiththeassistant",
+"anchor": "ChatGPT",
+"nearest": [
+"Nexus",
+"Alexa",
+"HuggingChat",
+"Google Assistant"
+],
+"random": [
+"Alice",
+"Anwen",
+"Ernie",
+"Hunyuan"
+],
+"distractors": [
+"Nexus",
+"Alexa",
+"HuggingChat",
+"Google Assistant",
+"Alice",
+"Anwen",
+"Ernie",
+"Hunyuan"
+],
+"n_eligible": 48,
+"sha": "bf92b803f766a7f26709ff6a64e8e4af7e000bf9e121f432f2b425262c646138",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0055__L060__p55:chatgpt:i": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0055__L060__p55:chatgpt:i",
+"anchor": "ChatGPT",
+"nearest": [
+"Nexus",
+"Alexa",
+"HuggingChat",
+"Google Assistant"
+],
+"random": [
+"Bing Chat",
+"Claude",
+"Nova",
+"Pi"
+],
+"distractors": [
+"Nexus",
+"Alexa",
+"HuggingChat",
+"Google Assistant",
+"Bing Chat",
+"Claude",
+"Nova",
+"Pi"
+],
+"n_eligible": 49,
+"sha": "536a2e973f3cda8342ae2ed72bf7c633e5474a780deff6b44ebd13368363869d",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0065__L056__p139:disneygenie:theaiassistantitself": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0065__L056__p139:disneygenie:theaiassistantitself",
+"anchor": "Disney Genie",
+"nearest": [
+"Alexa",
+"Google Assistant",
+"HuggingChat",
+"Alice"
+],
+"random": [
+"DeepSeek",
+"Wolfram|Alpha",
+"Xiaoice",
+"YiYi"
+],
+"distractors": [
+"Alexa",
+"Google Assistant",
+"HuggingChat",
+"Alice",
+"DeepSeek",
+"Wolfram|Alpha",
+"Xiaoice",
+"YiYi"
+],
+"n_eligible": 49,
+"sha": "603ca5c63bddbe3fc42895fb06906c3390defe817529de2198c5ecd0213194ab",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0067__L020__p71:wolframalpha:theaiassistant": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0067__L020__p71:wolframalpha:theaiassistant",
+"anchor": "Wolfram Alpha",
+"nearest": [
+"Siri",
+"Chinese weather assistant",
+"Perplexity",
+"Alexa"
+],
+"random": [
+"Anwen",
+"Grok",
+"LingChat",
+"Tongyi Qianwen"
+],
+"distractors": [
+"Siri",
+"Chinese weather assistant",
+"Perplexity",
+"Alexa",
+"Anwen",
+"Grok",
+"LingChat",
+"Tongyi Qianwen"
+],
+"n_eligible": 45,
+"sha": "c211999996d4110e125ed2834c0ff592e470e744f3f853445b75fa76160536bc",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0067__L060__p64:chatgpt:theaiassistantanswering": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0067__L060__p64:chatgpt:theaiassistantanswering",
+"anchor": "ChatGPT",
+"nearest": [
+"Nexus",
+"Alexa",
+"HuggingChat",
+"Disney Genie"
+],
+"random": [
+"ChatGLM",
+"Ernie",
+"Kimi",
+"Perplexica"
+],
+"distractors": [
+"Nexus",
+"Alexa",
+"HuggingChat",
+"Disney Genie",
+"ChatGLM",
+"Ernie",
+"Kimi",
+"Perplexica"
+],
+"n_eligible": 45,
+"sha": "f896b762fde29c2db7e307619b2295dc5bc07ea703416dda45e24492a0e22a4f",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0071__L024__p195:chatgpt:themodel": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0071__L024__p195:chatgpt:themodel",
+"anchor": "ChatGPT",
+"nearest": [
+"Nexus",
+"Alexa",
+"HuggingChat",
+"Disney Genie"
+],
+"random": [
+"ChatGLM",
+"ERNIE Bot",
+"Hongyi",
+"LingChat"
+],
+"distractors": [
+"Nexus",
+"Alexa",
+"HuggingChat",
+"Disney Genie",
+"ChatGLM",
+"ERNIE Bot",
+"Hongyi",
+"LingChat"
+],
+"n_eligible": 45,
+"sha": "62b7e4721ca31ed6179b34d5a7d84536d3d91edf5e57c56c99c1b8bdfaeca91c",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0071__L040__p130:chatgptblogexplainer:aiassistantchatresponse": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0071__L040__p130:chatgptblogexplainer:aiassistantchatresponse",
+"anchor": "ChatGPT",
+"nearest": [
+"Nexus",
+"Alexa",
+"HuggingChat",
+"Disney Genie"
+],
+"random": [
+"ChatGLM",
+"DeepSeek Chat",
+"Ernie",
+"Kimi"
+],
+"distractors": [
+"Nexus",
+"Alexa",
+"HuggingChat",
+"Disney Genie",
+"ChatGLM",
+"DeepSeek Chat",
+"Ernie",
+"Kimi"
+],
+"n_eligible": 45,
+"sha": "d9b96f2c9d22da85f34d625fedadceb954e2da5619effd985146d93ad1baf69f",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0071__L040__p130:gemini:therespondingai": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0071__L040__p130:gemini:therespondingai",
+"anchor": "Gemini",
+"nearest": [
+"Grok",
+"Bing",
+"Perplexity",
+"Nova"
+],
+"random": [
+"GPT",
+"GPT-4",
+"LingChat",
+"Xiaoice"
+],
+"distractors": [
+"Grok",
+"Bing",
+"Perplexity",
+"Nova",
+"GPT",
+"GPT-4",
+"LingChat",
+"Xiaoice"
+],
+"n_eligible": 45,
+"sha": "d336df56c029b3054420300967f671ea64de95463cf5cbea91cbdb5d816032e0",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0071__L060__p195:chatgpt:therespondingaiassistant": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0071__L060__p195:chatgpt:therespondingaiassistant",
+"anchor": "ChatGPT",
+"nearest": [
+"Nexus",
+"Alexa",
+"HuggingChat",
+"Disney Genie"
+],
+"random": [
+"Alice",
+"Google Gemini",
+"Lilli",
+"Xiaoice"
+],
+"distractors": [
+"Nexus",
+"Alexa",
+"HuggingChat",
+"Disney Genie",
+"Alice",
+"Google Gemini",
+"Lilli",
+"Xiaoice"
+],
+"n_eligible": 45,
+"sha": "aa7704a915b088fb8420300203703746d853b7fa1b0ce92cc51c0f20ce37aa0b",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0000__L024__p124:yiyan:qwen": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0000__L024__p124:yiyan:qwen",
+"anchor": "Qwen",
+"nearest": [
+"Llama",
+"Gemma",
+"YiYi",
+"Nova"
+],
+"random": [
+"Alexa",
+"ChatGLM",
+"LingChat",
+"Nexus"
+],
+"distractors": [
+"Llama",
+"Gemma",
+"YiYi",
+"Nova",
+"Alexa",
+"ChatGLM",
+"LingChat",
+"Nexus"
+],
+"n_eligible": 32,
+"sha": "41d7a5564dc6918fecc119cca44897fc5aa5eb1956221c5855da0a95e37b06e9",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0000__L056__p117:kimi:qwen": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0000__L056__p117:kimi:qwen",
+"anchor": "Qwen",
+"nearest": [
+"Llama",
+"Gemma",
+"Ernie",
+"YiYi"
+],
+"random": [
+"Anwen",
+"GPT-3",
+"Perplexica",
+"Siri"
+],
+"distractors": [
+"Llama",
+"Gemma",
+"Ernie",
+"YiYi",
+"Anwen",
+"GPT-3",
+"Perplexica",
+"Siri"
+],
+"n_eligible": 33,
+"sha": "e05f1c6c52ef63ed110f06316831ae6c5121657575defb3793e19d789549f072",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0005__L060__p291:chatgpt:storywagon": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0005__L060__p291:chatgpt:storywagon",
+"anchor": "ChatGPT",
+"nearest": [
+"Nexus",
+"Alexa",
+"HuggingChat",
+"Google Assistant"
+],
+"random": [
+"DeepSeek",
+"Disney Genie",
+"Wolfram|Alpha",
+"an AI distinct from Qwen"
+],
+"distractors": [
+"Nexus",
+"Alexa",
+"HuggingChat",
+"Google Assistant",
+"DeepSeek",
+"Disney Genie",
+"Wolfram|Alpha",
+"an AI distinct from Qwen"
+],
+"n_eligible": 48,
+"sha": "f78a3d60d8d807a5a85cc2d58d0b10983e5fb4e069d6b30b800e880780f98fff",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-dailydialog-0005__L060__p91:gemini:unnamedaiassistant": {
 "unit": "mlnla-rl2-800-all11:chat-dailydialog-0005__L060__p91:gemini:unnamedaiassistant",
 "anchor": "Gemini",

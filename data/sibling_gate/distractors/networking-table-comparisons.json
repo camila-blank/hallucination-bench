@@ -1,4 +1,89 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0008__L044__p213:camtablevsarpcache:ribvsfib": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0008__L044__p213:camtablevsarpcache:ribvsfib",
+"anchor": "RIB vs FIB",
+"nearest": [
+"Routing table vs forwarding table",
+"Topology table vs routing table",
+"Routing table vs neighbor table",
+"Neighbor table vs topology table"
+],
+"random": [
+"ARP table vs routing table",
+"MAC address table vs ARP table",
+"MAC table vs routing table",
+"Routing table vs NAT table"
+],
+"distractors": [
+"Routing table vs forwarding table",
+"Topology table vs routing table",
+"Routing table vs neighbor table",
+"Neighbor table vs topology table",
+"ARP table vs routing table",
+"MAC address table vs ARP table",
+"MAC table vs routing table",
+"Routing table vs NAT table"
+],
+"n_eligible": 8,
+"sha": "3b0211da0791fe9f85ac43154c2154f0da24a42709eaa074a23121d01359286a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0008__L048__p213:camvstcam:ribvsfib": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0008__L048__p213:camvstcam:ribvsfib",
+"anchor": "RIB vs FIB",
+"nearest": [
+"Routing table vs forwarding table",
+"Topology table vs routing table",
+"Routing table vs neighbor table",
+"Neighbor table vs topology table"
+],
+"random": [
+"ARP table vs routing table",
+"MAC address table vs ARP table",
+"MAC table vs routing table",
+"Routing table vs NAT table"
+],
+"distractors": [
+"Routing table vs forwarding table",
+"Topology table vs routing table",
+"Routing table vs neighbor table",
+"Neighbor table vs topology table",
+"ARP table vs routing table",
+"MAC address table vs ARP table",
+"MAC table vs routing table",
+"Routing table vs NAT table"
+],
+"n_eligible": 9,
+"sha": "900ad8e5f9c2770495d7f2594681707b69e67eef2e9b6d46435b5b6c24bf6ba4",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0008__L048__p213:macaddresstablevscamtable:ribvsfib": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0008__L048__p213:macaddresstablevscamtable:ribvsfib",
+"anchor": "RIB vs. FIB",
+"nearest": [
+"Routing table vs forwarding table",
+"Routing table vs neighbor table",
+"Topology table vs routing table",
+"Neighbor table vs topology table"
+],
+"random": [
+"ARP table vs NDP neighbor cache",
+"ARP table vs routing table",
+"Routing table vs NAT table"
+],
+"distractors": [
+"Routing table vs forwarding table",
+"Routing table vs neighbor table",
+"Topology table vs routing table",
+"Neighbor table vs topology table",
+"ARP table vs NDP neighbor cache",
+"ARP table vs routing table",
+"Routing table vs NAT table"
+],
+"n_eligible": 7,
+"sha": "33e6423cb42f738b256a5f888b9bb49cf6d8973937365f62fe2be6982646a782",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0008__L028__p213:tcamvscam:ribvsfib": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0008__L028__p213:tcamvscam:ribvsfib",
 "anchor": "RIB vs FIB",

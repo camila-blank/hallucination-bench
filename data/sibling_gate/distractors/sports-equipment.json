@@ -1,4 +1,556 @@
 {
+"mlnla-ck2000-all11:chat-dailydialog-0060__L020__p49:bike:skates": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0060__L020__p49:bike:skates",
+"anchor": "skates",
+"nearest": [
+"ball",
+"bat",
+"helmet",
+"racket"
+],
+"random": [
+"golf club"
+],
+"distractors": [
+"ball",
+"bat",
+"helmet",
+"racket",
+"golf club"
+],
+"n_eligible": 5,
+"sha": "f7d3d770bd1a2530f3f8caab0720ad4144d4007f8081310528c6b0eb014a91fd",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0060__L024__p29:bike:skates": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0060__L024__p29:bike:skates",
+"anchor": "skates",
+"nearest": [
+"ball",
+"bat",
+"helmet",
+"racket"
+],
+"random": [
+"golf club"
+],
+"distractors": [
+"ball",
+"bat",
+"helmet",
+"racket",
+"golf club"
+],
+"n_eligible": 5,
+"sha": "f045f98b0c9f7a94af9af453a5b75d1e07bdd5f7bbad24e04e0e4fc7201a2007",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0060__L024__p49:bike:skates": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0060__L024__p49:bike:skates",
+"anchor": "skates",
+"nearest": [
+"ball",
+"bat",
+"helmet",
+"racket"
+],
+"random": [
+"golf club"
+],
+"distractors": [
+"ball",
+"bat",
+"helmet",
+"racket",
+"golf club"
+],
+"n_eligible": 5,
+"sha": "aa029d5378b25a9feabd8f59da0f4de4582c688b87376af0bce5855e04e7e644",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0060__L028__p24:bike:skates": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0060__L028__p24:bike:skates",
+"anchor": "skates",
+"nearest": [
+"ball",
+"bat",
+"helmet",
+"racket"
+],
+"random": [
+"golf club"
+],
+"distractors": [
+"ball",
+"bat",
+"helmet",
+"racket",
+"golf club"
+],
+"n_eligible": 5,
+"sha": "402604217bb0ccafda5fc94d10a5c2bea026c4f1ae575a1f7c6c5027ea7f828f",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0060__L028__p49:bike:skates": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0060__L028__p49:bike:skates",
+"anchor": "skates",
+"nearest": [
+"ball",
+"bat",
+"helmet",
+"racket"
+],
+"random": [
+"golf club"
+],
+"distractors": [
+"ball",
+"bat",
+"helmet",
+"racket",
+"golf club"
+],
+"n_eligible": 5,
+"sha": "6ead96cdc995b1ea091fcda0c520f7247e277abd94d36691d982e96f2fafc65f",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0060__L028__p49:newbike:skates": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0060__L028__p49:newbike:skates",
+"anchor": "skates",
+"nearest": [
+"ball",
+"bat",
+"helmet",
+"racket"
+],
+"random": [
+"golf club"
+],
+"distractors": [
+"ball",
+"bat",
+"helmet",
+"racket",
+"golf club"
+],
+"n_eligible": 5,
+"sha": "be6c2d6900a1101ab671be33d4024ad49abeb4c5a4473fdcc4c6fea97c50bb92",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0060__L032__p24:bike:skates": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0060__L032__p24:bike:skates",
+"anchor": "skates",
+"nearest": [
+"ball",
+"bat",
+"helmet",
+"racket"
+],
+"random": [
+"golf club"
+],
+"distractors": [
+"ball",
+"bat",
+"helmet",
+"racket",
+"golf club"
+],
+"n_eligible": 5,
+"sha": "11ebfa4f17fb55f025a24da57272a7532a15eaadf096894cf82a8ba6ff3f6cec",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0060__L032__p29:bike:skates": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0060__L032__p29:bike:skates",
+"anchor": "skates",
+"nearest": [
+"ball",
+"bat",
+"helmet",
+"racket"
+],
+"random": [
+"golf club"
+],
+"distractors": [
+"ball",
+"bat",
+"helmet",
+"racket",
+"golf club"
+],
+"n_eligible": 5,
+"sha": "1d3df5aec0b64ec00affaca81a58dc244dcb66efb78e85a10ddf0be4f837239d",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0060__L032__p49:bike:skates": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0060__L032__p49:bike:skates",
+"anchor": "skates",
+"nearest": [
+"ball",
+"bat",
+"helmet",
+"racket"
+],
+"random": [
+"golf club"
+],
+"distractors": [
+"ball",
+"bat",
+"helmet",
+"racket",
+"golf club"
+],
+"n_eligible": 5,
+"sha": "605275e9ace3b0b8f3da9c0b1e31652efa17830338afb424eb7948571628ac43",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0060__L032__p62:bike:skating": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0060__L032__p62:bike:skating",
+"anchor": "skates",
+"nearest": [
+"ball",
+"bat",
+"helmet",
+"racket"
+],
+"random": [
+"golf club"
+],
+"distractors": [
+"ball",
+"bat",
+"helmet",
+"racket",
+"golf club"
+],
+"n_eligible": 5,
+"sha": "83dde0979f0c2040f217b6d394ef7d10d96238eca632a62d16f72beda602896f",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0060__L032__p62:skateboard:skates": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0060__L032__p62:skateboard:skates",
+"anchor": "skates",
+"nearest": [
+"ball",
+"bat",
+"helmet",
+"racket"
+],
+"random": [
+"golf club"
+],
+"distractors": [
+"ball",
+"bat",
+"helmet",
+"racket",
+"golf club"
+],
+"n_eligible": 5,
+"sha": "b3f280111ea6cea0cee79edbb5e0a9301259aadeee188f43e5a42057c365a2c6",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0060__L036__p24:bike:skates": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0060__L036__p24:bike:skates",
+"anchor": "skates",
+"nearest": [
+"ball",
+"bat",
+"helmet",
+"racket"
+],
+"random": [
+"golf club"
+],
+"distractors": [
+"ball",
+"bat",
+"helmet",
+"racket",
+"golf club"
+],
+"n_eligible": 5,
+"sha": "3b1c8cde8a95b60d71b3987a3d10d3b458b074a29b03d21ed6829a4f1dff7508",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0060__L036__p36:bike:skates": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0060__L036__p36:bike:skates",
+"anchor": "skates",
+"nearest": [
+"ball",
+"bat",
+"helmet",
+"racket"
+],
+"random": [
+"golf club"
+],
+"distractors": [
+"ball",
+"bat",
+"helmet",
+"racket",
+"golf club"
+],
+"n_eligible": 5,
+"sha": "6833a11d1cc1e8036324143609093a82c503feaa6db55723388f56307a897eda",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0060__L036__p62:skateboard:skates": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0060__L036__p62:skateboard:skates",
+"anchor": "skates",
+"nearest": [
+"ball",
+"bat",
+"helmet",
+"racket"
+],
+"random": [
+"golf club"
+],
+"distractors": [
+"ball",
+"bat",
+"helmet",
+"racket",
+"golf club"
+],
+"n_eligible": 5,
+"sha": "f2a17a0ae78a4a4eb4db3ea267f6a54dc3f5ec86a2db745519c36cb7af4edfaa",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0060__L040__p24:bike:skates": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0060__L040__p24:bike:skates",
+"anchor": "skates",
+"nearest": [
+"ball",
+"bat",
+"helmet",
+"racket"
+],
+"random": [
+"golf club"
+],
+"distractors": [
+"ball",
+"bat",
+"helmet",
+"racket",
+"golf club"
+],
+"n_eligible": 5,
+"sha": "0ac91906cb05eb99d7a694d165c84756b476295dee0e9bd755628f08f46993ad",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0060__L040__p29:bike:skates": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0060__L040__p29:bike:skates",
+"anchor": "skates",
+"nearest": [
+"ball",
+"bat",
+"helmet",
+"racket"
+],
+"random": [
+"golf club"
+],
+"distractors": [
+"ball",
+"bat",
+"helmet",
+"racket",
+"golf club"
+],
+"n_eligible": 5,
+"sha": "743d9ee4d9a54c78b431e61f2ae178ae8610fb967c74d8f3fd93c1b86e8ff446",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0060__L044__p29:bike:skates": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0060__L044__p29:bike:skates",
+"anchor": "skates",
+"nearest": [
+"ball",
+"bat",
+"helmet",
+"racket"
+],
+"random": [
+"golf club"
+],
+"distractors": [
+"ball",
+"bat",
+"helmet",
+"racket",
+"golf club"
+],
+"n_eligible": 5,
+"sha": "569e3fee7c721ca14e7f0532337970acbed1987b7cfc20688e13453c91007009",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0060__L044__p36:skateboard:skates": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0060__L044__p36:skateboard:skates",
+"anchor": "skates",
+"nearest": [
+"ball",
+"bat",
+"helmet",
+"racket"
+],
+"random": [
+"golf club"
+],
+"distractors": [
+"ball",
+"bat",
+"helmet",
+"racket",
+"golf club"
+],
+"n_eligible": 5,
+"sha": "1b39f6cb5e31790ead59e732bfc7123397aedae6306f5fdfe0d9d5193a7f1159",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0060__L044__p49:bike:skates": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0060__L044__p49:bike:skates",
+"anchor": "skates",
+"nearest": [
+"ball",
+"bat",
+"helmet",
+"racket"
+],
+"random": [
+"golf club"
+],
+"distractors": [
+"ball",
+"bat",
+"helmet",
+"racket",
+"golf club"
+],
+"n_eligible": 5,
+"sha": "3a5e3ca4ad6dee61193614f832312b3e2b788a4f9cf99076161ffa204f3f501d",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0060__L044__p49:skateboard:skates": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0060__L044__p49:skateboard:skates",
+"anchor": "skates",
+"nearest": [
+"ball",
+"bat",
+"helmet",
+"racket"
+],
+"random": [
+"golf club"
+],
+"distractors": [
+"ball",
+"bat",
+"helmet",
+"racket",
+"golf club"
+],
+"n_eligible": 5,
+"sha": "95cd690e14e7af995367f92c19e8c1ca0eb98160d55edb4ad2129ccaec012aff",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0060__L044__p58:bike:skates": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0060__L044__p58:bike:skates",
+"anchor": "skates",
+"nearest": [
+"ball",
+"bat",
+"helmet",
+"racket"
+],
+"random": [
+"golf club"
+],
+"distractors": [
+"ball",
+"bat",
+"helmet",
+"racket",
+"golf club"
+],
+"n_eligible": 5,
+"sha": "735556ebd90b0ff2fc9459922bbb1451323b4cf864c0602298e84835ddb41cc7",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0060__L044__p58:mtbbike:skates": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0060__L044__p58:mtbbike:skates",
+"anchor": "skates",
+"nearest": [
+"ball",
+"bat",
+"helmet",
+"racket"
+],
+"random": [
+"golf club"
+],
+"distractors": [
+"ball",
+"bat",
+"helmet",
+"racket",
+"golf club"
+],
+"n_eligible": 5,
+"sha": "f6a4e2870b9d64188cc04fabf55bca4214fc57a8a04a8d2c960044dde531ff0d",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0060__L048__p24:bike:skates": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0060__L048__p24:bike:skates",
+"anchor": "skates",
+"nearest": [
+"ball",
+"bat",
+"helmet",
+"racket"
+],
+"random": [
+"golf club"
+],
+"distractors": [
+"ball",
+"bat",
+"helmet",
+"racket",
+"golf club"
+],
+"n_eligible": 5,
+"sha": "6f9889b45ac0f93db1d419fb8f024e122e00d6e9dcb7209859ae0b8ece902571",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0060__L056__p24:bike:skates": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0060__L056__p24:bike:skates",
+"anchor": "skates",
+"nearest": [
+"ball",
+"bat",
+"helmet",
+"racket"
+],
+"random": [
+"golf club"
+],
+"distractors": [
+"ball",
+"bat",
+"helmet",
+"racket",
+"golf club"
+],
+"n_eligible": 5,
+"sha": "6a954ada8ba8277b5eb339dc34aa7c13e3a8b275f444489c50b654fb349f4d2f",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-dailydialog-0060__L024__p29:bike:skates": {
 "unit": "mlnla-rl2-800-all11:chat-dailydialog-0060__L024__p29:bike:skates",
 "anchor": "skates",

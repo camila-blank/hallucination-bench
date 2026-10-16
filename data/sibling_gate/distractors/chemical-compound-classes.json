@@ -1,4 +1,60 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0043__L040__p222:azocompounds:2propylpyrimidine5carbaldehyde": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0043__L040__p222:azocompounds:2propylpyrimidine5carbaldehyde",
+"anchor": "aldehydes",
+"nearest": [],
+"random": [
+"amines",
+"carboxylic acids",
+"chiral amines",
+"esters",
+"ethers",
+"ketones",
+"pyrimidine derivatives",
+"substituted pyrimidine"
+],
+"distractors": [
+"amines",
+"carboxylic acids",
+"chiral amines",
+"esters",
+"ethers",
+"ketones",
+"pyrimidine derivatives",
+"substituted pyrimidine"
+],
+"n_eligible": 11,
+"sha": "4980c93cd71d4e2ca8c667b6becee93415fd31bd927c7e7ee8056d535a18439e",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0043__L040__p222:hydrazines:2propylpyrimidine5carbaldehyde": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0043__L040__p222:hydrazines:2propylpyrimidine5carbaldehyde",
+"anchor": "aldehydes",
+"nearest": [],
+"random": [
+"alcohols",
+"amides",
+"amines",
+"carboxylic acids",
+"chiral amines",
+"isoquinoline derivatives",
+"ketones",
+"substituted pyrimidine"
+],
+"distractors": [
+"alcohols",
+"amides",
+"amines",
+"carboxylic acids",
+"chiral amines",
+"isoquinoline derivatives",
+"ketones",
+"substituted pyrimidine"
+],
+"n_eligible": 11,
+"sha": "51cfc2b3924121ae4a60cceeda5f84e37b900f1a87908522bb382661245fe9db",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0001__L040__p420:chiralamines:7methoxyisoquinoline": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0001__L040__p420:chiralamines:7methoxyisoquinoline",
 "anchor": "isoquinoline derivatives",

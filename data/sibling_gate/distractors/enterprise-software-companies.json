@@ -1,4 +1,114 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0054__L032__p70:oracle:sap": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L032__p70:oracle:sap",
+"anchor": "SAP",
+"nearest": [
+"ServiceNow",
+"Workday",
+"VMware",
+"Epicor"
+],
+"random": [
+"Intuit",
+"Siemens Digital Industries Software",
+"Tata Consultancy Services"
+],
+"distractors": [
+"ServiceNow",
+"Workday",
+"VMware",
+"Epicor",
+"Intuit",
+"Siemens Digital Industries Software",
+"Tata Consultancy Services"
+],
+"n_eligible": 7,
+"sha": "bb94a1ba9fa9a32664c9d9ddc2311e69949e9915eb6415afc59d8e43397fdab0",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L044__p70:oracle:sap": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L044__p70:oracle:sap",
+"anchor": "SAP",
+"nearest": [
+"ServiceNow",
+"Workday",
+"VMware",
+"Epicor"
+],
+"random": [
+"Intuit",
+"Siemens Digital Industries Software",
+"Tata Consultancy Services"
+],
+"distractors": [
+"ServiceNow",
+"Workday",
+"VMware",
+"Epicor",
+"Intuit",
+"Siemens Digital Industries Software",
+"Tata Consultancy Services"
+],
+"n_eligible": 7,
+"sha": "2d17bf07bc877b473c471b947d2f9bf4df3b59526b3b8d638ef9e25a5bc3360d",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L048__p70:oracle:sap": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L048__p70:oracle:sap",
+"anchor": "SAP",
+"nearest": [
+"ServiceNow",
+"Workday",
+"VMware",
+"Epicor"
+],
+"random": [
+"Intuit",
+"Siemens Digital Industries Software",
+"Tata Consultancy Services"
+],
+"distractors": [
+"ServiceNow",
+"Workday",
+"VMware",
+"Epicor",
+"Intuit",
+"Siemens Digital Industries Software",
+"Tata Consultancy Services"
+],
+"n_eligible": 7,
+"sha": "fe0aa754936d907a1025d583858c64d1fbbfebb71808deb581b6f1b6c64b68e0",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0055__L044__p160:siemensdigitalindustriessoftware:tataconsultancyservices": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0055__L044__p160:siemensdigitalindustriessoftware:tataconsultancyservices",
+"anchor": "Tata Consultancy Services",
+"nearest": [
+"Autodesk",
+"Intuit",
+"Atlassian",
+"VMware"
+],
+"random": [
+"Adobe",
+"Epicor",
+"Salesforce",
+"Workday"
+],
+"distractors": [
+"Autodesk",
+"Intuit",
+"Atlassian",
+"VMware",
+"Adobe",
+"Epicor",
+"Salesforce",
+"Workday"
+],
+"n_eligible": 8,
+"sha": "6d27d1a087607a7bb0a78383d18056a42ad503046091a89a670040a8c7e3d386",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0054__L032__p70:oracle:sap": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0054__L032__p70:oracle:sap",
 "anchor": "SAP",

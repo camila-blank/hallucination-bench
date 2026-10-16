@@ -1,4 +1,166 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0009__L056__p326:shanghaisinochemtrading:shanghaibmgchemicalcoltd": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0009__L056__p326:shanghaisinochemtrading:shanghaibmgchemicalcoltd",
+"anchor": "Shanghai BMG Chemical Co., Ltd.",
+"nearest": [
+"Shanghai Huihe Chemical",
+"Jiangsu Shuanghua",
+"SiATEX Yida",
+"Yitai Chemical"
+],
+"random": [
+"ChemChina",
+"Rongsheng Petrochemical",
+"Shanghai Huayi",
+"Wanhua Chemical"
+],
+"distractors": [
+"Shanghai Huihe Chemical",
+"Jiangsu Shuanghua",
+"SiATEX Yida",
+"Yitai Chemical",
+"ChemChina",
+"Rongsheng Petrochemical",
+"Shanghai Huayi",
+"Wanhua Chemical"
+],
+"n_eligible": 8,
+"sha": "2bec41b60f505775b0b3c47be6e6137dda20962bac428b677827e60c032960ce",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0009__L056__p326:shanghaisinochemtradingcoltd:shanghaibmgchemicalcoltd": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0009__L056__p326:shanghaisinochemtradingcoltd:shanghaibmgchemicalcoltd",
+"anchor": "Shanghai BMG Chemical Co., Ltd.",
+"nearest": [
+"Shanghai Huihe Chemical",
+"Jiangsu Shuanghua",
+"SiATEX Yida",
+"Yitai Chemical"
+],
+"random": [
+"ChemChina",
+"Rongsheng Petrochemical",
+"Shanghai Huayi",
+"Wanhua Chemical"
+],
+"distractors": [
+"Shanghai Huihe Chemical",
+"Jiangsu Shuanghua",
+"SiATEX Yida",
+"Yitai Chemical",
+"ChemChina",
+"Rongsheng Petrochemical",
+"Shanghai Huayi",
+"Wanhua Chemical"
+],
+"n_eligible": 8,
+"sha": "ae343f24cf2da439303d552cd153b614e704af92097d5f874ed025db74c74424",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0025__L052__p292:sinochem:shanghaihuihechemical": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0025__L052__p292:sinochem:shanghaihuihechemical",
+"anchor": "Shanghai Huihe Chemical",
+"nearest": [
+"Jiangsu Shuanghua",
+"Yitai Chemical",
+"Rongsheng Petrochemical",
+"Wanhua Chemical"
+],
+"random": [
+"Sinopec"
+],
+"distractors": [
+"Jiangsu Shuanghua",
+"Yitai Chemical",
+"Rongsheng Petrochemical",
+"Wanhua Chemical",
+"Sinopec"
+],
+"n_eligible": 5,
+"sha": "55637d6a404885bc4b857ce0a12dbfc154a09467dbdacbe5a293c3003444e363",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0025__L060__p292:shanghaisinochem:shanghaihuihechemical": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0025__L060__p292:shanghaisinochem:shanghaihuihechemical",
+"anchor": "Shanghai Huihe Chemical Co., Ltd.",
+"nearest": [
+"Jiangsu Shuanghua",
+"Rongsheng Petrochemical",
+"Yitai Chemical",
+"Wanhua Chemical"
+],
+"random": [
+"Sinopec"
+],
+"distractors": [
+"Jiangsu Shuanghua",
+"Rongsheng Petrochemical",
+"Yitai Chemical",
+"Wanhua Chemical",
+"Sinopec"
+],
+"n_eligible": 5,
+"sha": "3ae888474be7ab13d3d7ac2c59df67c3984d3eda37d868dfde3f9f9c1c7a439a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0070__L052__p154:jiangsushuanghua:chengdupushbiotechnology": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0070__L052__p154:jiangsushuanghua:chengdupushbiotechnology",
+"anchor": "Chengdu Push Bio-technology Co., Ltd.",
+"nearest": [
+"SiATEX Yida",
+"Shanghai SinoChem Trading",
+"Shanghai Huihe Chemical",
+"Sinopec"
+],
+"random": [
+"ChemChina",
+"Rongsheng Petrochemical",
+"Shanghai Huayi",
+"Wanhua Chemical"
+],
+"distractors": [
+"SiATEX Yida",
+"Shanghai SinoChem Trading",
+"Shanghai Huihe Chemical",
+"Sinopec",
+"ChemChina",
+"Rongsheng Petrochemical",
+"Shanghai Huayi",
+"Wanhua Chemical"
+],
+"n_eligible": 8,
+"sha": "40bc046168844019ba830da2eb2b84fcdf622a5d87af140c0514c2b5ab73357c",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0070__L056__p154:yitaichemical:chengdupushbiotechnology": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0070__L056__p154:yitaichemical:chengdupushbiotechnology",
+"anchor": "Chengdu Push Bio-technology Co., Ltd.",
+"nearest": [
+"SiATEX Yida",
+"Shanghai SinoChem Trading",
+"Shanghai Huihe Chemical",
+"Sinopec"
+],
+"random": [
+"ChemChina",
+"Rongsheng Petrochemical",
+"Shanghai Huayi",
+"Wanhua Chemical"
+],
+"distractors": [
+"SiATEX Yida",
+"Shanghai SinoChem Trading",
+"Shanghai Huihe Chemical",
+"Sinopec",
+"ChemChina",
+"Rongsheng Petrochemical",
+"Shanghai Huayi",
+"Wanhua Chemical"
+],
+"n_eligible": 8,
+"sha": "6f742d39a33aa9abf671a741b21d8e22da823ab0c455e489c525e9ebe3f8699b",
+"generation": 1
+},
 "s3d-rl600-all11:chat-lmsys-0009__L040__p203:shandongxinruichemicalcoltd:shanghaibmgchemicalcoltd": {
 "unit": "s3d-rl600-all11:chat-lmsys-0009__L040__p203:shandongxinruichemicalcoltd:shanghaibmgchemicalcoltd",
 "anchor": "Shanghai BMG Chemical Co., Ltd.",

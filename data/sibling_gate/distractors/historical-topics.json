@@ -1,4 +1,33 @@
 {
+"mlnla-ck2000-all11:chat-dailydialog-0009__L044__p157:nativeamericanhistory:italianamericanorganizedcrime": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0009__L044__p157:nativeamericanhistory:italianamericanorganizedcrime",
+"anchor": "Italian-American organized crime history",
+"nearest": [
+"Mafia",
+"history of the Mafia",
+"Mafia culture",
+"Roman Empire"
+],
+"random": [
+"Ancient Egypt",
+"Cold War",
+"French Revolution",
+"World War I"
+],
+"distractors": [
+"Mafia",
+"history of the Mafia",
+"Mafia culture",
+"Roman Empire",
+"Ancient Egypt",
+"Cold War",
+"French Revolution",
+"World War I"
+],
+"n_eligible": 8,
+"sha": "453f6babc45dba36f7d5771cc99e4dcc37f08af5fc40fb2d09a5e6d8ca6428d4",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-dailydialog-0009__L040__p157:ww2history:mafiaculture": {
 "unit": "mlnla-rl2-800-all11:chat-dailydialog-0009__L040__p157:ww2history:mafiaculture",
 "anchor": "Mafia culture",

@@ -1,4 +1,29 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0043__L036__p419:methyl:formylgroup": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0043__L036__p419:methyl:formylgroup",
+"anchor": "propyl",
+"nearest": [
+"isobutyl",
+"sec-butyl",
+"pentyl",
+"hexyl"
+],
+"random": [
+"heptyl",
+"octyl"
+],
+"distractors": [
+"isobutyl",
+"sec-butyl",
+"pentyl",
+"hexyl",
+"heptyl",
+"octyl"
+],
+"n_eligible": 6,
+"sha": "204eeecec051dcf33c92f1edbf673211b06ccd6a2133065d2dcf23ba4834a468",
+"generation": 1
+},
 "mlnla-rl600-all11:chat-lmsys-0043__L020__p419:butylchain:propylgroup": {
 "unit": "mlnla-rl600-all11:chat-lmsys-0043__L020__p419:butylchain:propylgroup",
 "anchor": "propyl group",

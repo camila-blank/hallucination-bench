@@ -1,4 +1,229 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0029__L020__p166:kodi:vlcmediaplayer": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0029__L020__p166:kodi:vlcmediaplayer",
+"anchor": "VLC Media Player",
+"nearest": [
+"QuickTime Player",
+"MPV",
+"foobar2000",
+"MPlayer"
+],
+"random": [
+"KMPlayer",
+"Winamp"
+],
+"distractors": [
+"QuickTime Player",
+"MPV",
+"foobar2000",
+"MPlayer",
+"KMPlayer",
+"Winamp"
+],
+"n_eligible": 6,
+"sha": "22c76700954c61bbaa3e05f8ffa8be640e16ee6eabc54292bfc7cf131514d8fe",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0029__L024__p166:kodi:vlcmediaplayer": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0029__L024__p166:kodi:vlcmediaplayer",
+"anchor": "VLC Media Player",
+"nearest": [
+"QuickTime Player",
+"MPV",
+"foobar2000",
+"MPlayer"
+],
+"random": [
+"KMPlayer",
+"Winamp"
+],
+"distractors": [
+"QuickTime Player",
+"MPV",
+"foobar2000",
+"MPlayer",
+"KMPlayer",
+"Winamp"
+],
+"n_eligible": 6,
+"sha": "cab62835f9a556a6c7b6083452a5d45ab7f669541b89d83a79f59f7e24ec19f4",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0029__L024__p220:mediamonkey:vlcmediaplayer": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0029__L024__p220:mediamonkey:vlcmediaplayer",
+"anchor": "VLC Media Player",
+"nearest": [
+"QuickTime Player",
+"MPV",
+"foobar2000",
+"MPlayer"
+],
+"random": [
+"KMPlayer",
+"Winamp"
+],
+"distractors": [
+"QuickTime Player",
+"MPV",
+"foobar2000",
+"MPlayer",
+"KMPlayer",
+"Winamp"
+],
+"n_eligible": 6,
+"sha": "0d52c74af6794fb14b65b6f1d21ed1a08359569120254328ee0bff55e6591dbc",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0029__L028__p166:viziotv:vlcmediaplayer": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0029__L028__p166:viziotv:vlcmediaplayer",
+"anchor": "VLC Media Player",
+"nearest": [
+"QuickTime Player",
+"MPV",
+"foobar2000",
+"MPlayer"
+],
+"random": [
+"KMPlayer",
+"Winamp"
+],
+"distractors": [
+"QuickTime Player",
+"MPV",
+"foobar2000",
+"MPlayer",
+"KMPlayer",
+"Winamp"
+],
+"n_eligible": 6,
+"sha": "ec1ffcf8557705f8722fa3171581e1fdce41b041a6cce1bbcd8f58d6ee20a459",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0029__L028__p316:mpchc:vlcmediaplayer": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0029__L028__p316:mpchc:vlcmediaplayer",
+"anchor": "VLC Media Player",
+"nearest": [
+"QuickTime Player",
+"MPV",
+"foobar2000",
+"MPlayer"
+],
+"random": [
+"KMPlayer",
+"Winamp"
+],
+"distractors": [
+"QuickTime Player",
+"MPV",
+"foobar2000",
+"MPlayer",
+"KMPlayer",
+"Winamp"
+],
+"n_eligible": 6,
+"sha": "1f580134215e80eae84877ae2e9dfc334f62533b1a8bc44ac215b694afa9dce1",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0029__L028__p316:mpchcklite:vlcmediaplayer": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0029__L028__p316:mpchcklite:vlcmediaplayer",
+"anchor": "VLC Media Player",
+"nearest": [
+"QuickTime Player",
+"MPV",
+"foobar2000",
+"MPlayer"
+],
+"random": [
+"KMPlayer",
+"Winamp"
+],
+"distractors": [
+"QuickTime Player",
+"MPV",
+"foobar2000",
+"MPlayer",
+"KMPlayer",
+"Winamp"
+],
+"n_eligible": 6,
+"sha": "3a2040e544a9b3a44a2a40db30c1793c97524e2c0763585b38ef44d7628ba47a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0029__L032__p220:mpchc:vlc": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0029__L032__p220:mpchc:vlc",
+"anchor": "VLC Media Player",
+"nearest": [
+"QuickTime Player",
+"MPV",
+"foobar2000",
+"MPlayer"
+],
+"random": [
+"KMPlayer",
+"Winamp"
+],
+"distractors": [
+"QuickTime Player",
+"MPV",
+"foobar2000",
+"MPlayer",
+"KMPlayer",
+"Winamp"
+],
+"n_eligible": 6,
+"sha": "c42464120a257bd7a9ffc2f1286fed56d3818b69c9e60b636a101e3617df51b0",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0029__L032__p316:mpchc:vlc": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0029__L032__p316:mpchc:vlc",
+"anchor": "VLC Media Player",
+"nearest": [
+"QuickTime Player",
+"MPV",
+"foobar2000",
+"MPlayer"
+],
+"random": [
+"KMPlayer",
+"Winamp"
+],
+"distractors": [
+"QuickTime Player",
+"MPV",
+"foobar2000",
+"MPlayer",
+"KMPlayer",
+"Winamp"
+],
+"n_eligible": 6,
+"sha": "cc285baa6c03ca44fa0f258c2be95eb9f560840097391a04dae62907a6d031ab",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0029__L060__p83:windowsmediaplayer:vlcmediaplayer": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0029__L060__p83:windowsmediaplayer:vlcmediaplayer",
+"anchor": "VLC Media Player",
+"nearest": [
+"QuickTime Player",
+"MPV",
+"foobar2000",
+"MPlayer"
+],
+"random": [
+"KMPlayer",
+"Winamp"
+],
+"distractors": [
+"QuickTime Player",
+"MPV",
+"foobar2000",
+"MPlayer",
+"KMPlayer",
+"Winamp"
+],
+"n_eligible": 6,
+"sha": "db9c7a1c38afb435f84871f66b28dfc6e3f4173d299726088fada4c22c26ff4e",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0029__L032__p220:mpchc:vlc": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0029__L032__p220:mpchc:vlc",
 "anchor": "VLC Media Player",

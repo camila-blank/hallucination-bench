@@ -1,0 +1,118 @@
+{
+"mlnla-ck2000-all11:chat-lmsys-0024__L032__p89:csikszentmihalyi:ijgood": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0024__L032__p89:csikszentmihalyi:ijgood",
+"anchor": "Mihaly Csikszentmihalyi",
+"nearest": [
+"Abraham Maslow",
+"B. F. Skinner",
+"Carl Rogers",
+"Erik Erikson"
+],
+"random": [
+"Christopher Lasch",
+"Jean Twenge",
+"Sigmund Freud",
+"Stanley Milgram"
+],
+"distractors": [
+"Abraham Maslow",
+"B. F. Skinner",
+"Carl Rogers",
+"Erik Erikson",
+"Christopher Lasch",
+"Jean Twenge",
+"Sigmund Freud",
+"Stanley Milgram"
+],
+"n_eligible": 13,
+"sha": "c6a02757b89344c0971907606fa343f261b4e6a1064cb06aeb90f2cbac592a7f",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0065__L036__p287:haidtkernberg:christinelarson": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0065__L036__p287:haidtkernberg:christinelarson",
+"anchor": "Christopher Lasch",
+"nearest": [
+"William James",
+"Sigmund Freud",
+"Carl Jung",
+"Stanley Milgram"
+],
+"random": [
+"Abraham Maslow",
+"Albert Bandura",
+"Carl Rogers",
+"Mihaly Csikszentmihalyi"
+],
+"distractors": [
+"William James",
+"Sigmund Freud",
+"Carl Jung",
+"Stanley Milgram",
+"Abraham Maslow",
+"Albert Bandura",
+"Carl Rogers",
+"Mihaly Csikszentmihalyi"
+],
+"n_eligible": 11,
+"sha": "a6ca6e2dcaa894ac42e1e08cea8489f1f395d1332df358454387fbce43abc108",
+"generation": 1
+},
+"s3d-rl600:chat-lmsys-0065__L020__p333:johngottmanandrobertleahy:jeantwenge": {
+"unit": "s3d-rl600:chat-lmsys-0065__L020__p333:johngottmanandrobertleahy:jeantwenge",
+"anchor": "Jean Twenge",
+"nearest": [
+"Stanley Milgram",
+"William James",
+"Erik Erikson",
+"Sigmund Freud"
+],
+"random": [
+"Albert Bandura",
+"B. F. Skinner",
+"Carl Jung",
+"Carl Rogers"
+],
+"distractors": [
+"Stanley Milgram",
+"William James",
+"Erik Erikson",
+"Sigmund Freud",
+"Albert Bandura",
+"B. F. Skinner",
+"Carl Jung",
+"Carl Rogers"
+],
+"n_eligible": 11,
+"sha": "97c48a71f8203de998c890eabac8c30996deb0da2f348eb8eb8bfaf57673c640",
+"generation": 1
+},
+"s3d-sft251:chat-lmsys-0065__L024__p333:jeanpiaget:jeantwenge": {
+"unit": "s3d-sft251:chat-lmsys-0065__L024__p333:jeanpiaget:jeantwenge",
+"anchor": "Jean Twenge",
+"nearest": [
+"Stanley Milgram",
+"William James",
+"Erik Erikson",
+"Sigmund Freud"
+],
+"random": [
+"Abraham Maslow",
+"B. F. Skinner",
+"Carl Jung",
+"Carl Rogers"
+],
+"distractors": [
+"Stanley Milgram",
+"William James",
+"Erik Erikson",
+"Sigmund Freud",
+"Abraham Maslow",
+"B. F. Skinner",
+"Carl Jung",
+"Carl Rogers"
+],
+"n_eligible": 11,
+"sha": "7474d6da5c450e348840fc37c54bca859d7cb1a53aeb2a214adec6fd59f30387",
+"generation": 1
+}
+}

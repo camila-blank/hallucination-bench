@@ -1,4 +1,33 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0047__L024__p586:hawaii:rosemarybeachflorida": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0047__L024__p586:hawaii:rosemarybeachflorida",
+"anchor": "Florida",
+"nearest": [
+"New York",
+"California",
+"Washington",
+"Pennsylvania"
+],
+"random": [
+"Alaska",
+"Illinois",
+"Kentucky",
+"Ohio"
+],
+"distractors": [
+"New York",
+"California",
+"Washington",
+"Pennsylvania",
+"Alaska",
+"Illinois",
+"Kentucky",
+"Ohio"
+],
+"n_eligible": 9,
+"sha": "daccf6450c93c3475a3cb019527cce6f2c06f1f1b3a53c3ee5ef79e7ebcce7c5",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-dailydialog-0062__L020__p164:hawaii:londonnewyork": {
 "unit": "mlnla-rl2-800-all11:chat-dailydialog-0062__L020__p164:hawaii:londonnewyork",
 "anchor": "New York",

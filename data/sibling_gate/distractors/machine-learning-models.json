@@ -1,4 +1,22 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0011__L024__p120:seqgan:decisiontransformer": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0011__L024__p120:seqgan:decisiontransformer",
+"anchor": "Decision Transformer",
+"nearest": [
+"VGG",
+"LeNet",
+"AlexNet"
+],
+"random": [],
+"distractors": [
+"VGG",
+"LeNet",
+"AlexNet"
+],
+"n_eligible": 3,
+"sha": "a9c4fe2033f72e4c5571610d7cbdf3c78f63ef2902c6d810ae649ba8f7810d4e",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0011__L028__p244:pointe:decisiontransformer": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0011__L028__p244:pointe:decisiontransformer",
 "anchor": "Decision Transformer",

@@ -1,4 +1,120 @@
 {
+"mlnla-ck2000-all11:chat-dailydialog-0030__L028__p137:plankton:thehouse": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0030__L028__p137:plankton:thehouse",
+"anchor": "Arthur Dent",
+"nearest": [
+"Harry Potter",
+"Elizabeth Bennet",
+"Frodo Baggins",
+"Romeo Montague"
+],
+"random": [
+"Alice",
+"Batman",
+"Mickey Mouse",
+"Superman"
+],
+"distractors": [
+"Harry Potter",
+"Elizabeth Bennet",
+"Frodo Baggins",
+"Romeo Montague",
+"Alice",
+"Batman",
+"Mickey Mouse",
+"Superman"
+],
+"n_eligible": 9,
+"sha": "18b762e06b7e9ca2b048e6ce937fc08cebb2836811ab33b90d2ff2e2ca259263",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0030__L032__p24:holmesaddressingwatson:arthurdent": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0030__L032__p24:holmesaddressingwatson:arthurdent",
+"anchor": "Sherlock Holmes",
+"nearest": [
+"James Bond",
+"Mickey Mouse",
+"Superman",
+"Batman"
+],
+"random": [
+"Alice",
+"Arthur Dent",
+"Harry Potter",
+"Romeo Montague"
+],
+"distractors": [
+"James Bond",
+"Mickey Mouse",
+"Superman",
+"Batman",
+"Alice",
+"Arthur Dent",
+"Harry Potter",
+"Romeo Montague"
+],
+"n_eligible": 10,
+"sha": "677f3725c1f8bcd3f9d8bfa742f7cccc80a9c9e8c2a902ddc0031e695b6daa5a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0030__L048__p137:zaphodmarvin:arthurdent": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0030__L048__p137:zaphodmarvin:arthurdent",
+"anchor": "Arthur Dent",
+"nearest": [
+"Harry Potter",
+"Elizabeth Bennet",
+"Frodo Baggins",
+"Romeo Montague"
+],
+"random": [
+"Alice",
+"Batman",
+"Mickey Mouse",
+"Superman"
+],
+"distractors": [
+"Harry Potter",
+"Elizabeth Bennet",
+"Frodo Baggins",
+"Romeo Montague",
+"Alice",
+"Batman",
+"Mickey Mouse",
+"Superman"
+],
+"n_eligible": 9,
+"sha": "617d935691b66cdaaa5c14299a0d118f21277c44f9a662fb563dfe64b31417e6",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0030__L060__p173:jarjar:arthurdent": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0030__L060__p173:jarjar:arthurdent",
+"anchor": "Arthur Dent",
+"nearest": [
+"Harry Potter",
+"Elizabeth Bennet",
+"Frodo Baggins",
+"Romeo Montague"
+],
+"random": [
+"Batman",
+"James Bond",
+"Mickey Mouse",
+"Superman"
+],
+"distractors": [
+"Harry Potter",
+"Elizabeth Bennet",
+"Frodo Baggins",
+"Romeo Montague",
+"Batman",
+"James Bond",
+"Mickey Mouse",
+"Superman"
+],
+"n_eligible": 9,
+"sha": "2e26af536e31d1663cb228fb5a05e6cb1ab70f99faa45d1a1991255dee49b321",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-dailydialog-0030__L020__p173:frankensteinsmonster:arthurdent": {
 "unit": "mlnla-rl2-800-all11:chat-dailydialog-0030__L020__p173:frankensteinsmonster:arthurdent",
 "anchor": "Arthur Dent",

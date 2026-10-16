@@ -1,0 +1,194 @@
+{
+"mlnla-ck2000-all11:chat-lmsys-0008__L020__p470:arpcache:rib": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0008__L020__p470:arpcache:rib",
+"anchor": "FIB",
+"nearest": [
+"Flow table",
+"Neighbor table"
+],
+"random": [],
+"distractors": [
+"Flow table",
+"Neighbor table"
+],
+"n_eligible": 2,
+"sha": "089130004a8dd8a4ef6f29dc1bb2bef7d80bfde48723b9b91f29d14e7d1bf8fc",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0008__L032__p213:ramvscamtable:ribvsfib": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0008__L032__p213:ramvscamtable:ribvsfib",
+"anchor": "FIB",
+"nearest": [
+"Flow table",
+"Neighbor table"
+],
+"random": [],
+"distractors": [
+"Flow table",
+"Neighbor table"
+],
+"n_eligible": 2,
+"sha": "a8891a8f2752a9640bf42c5b045753aff8f2cb4d36ce26836dfbb78bcb8f7b25",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0008__L032__p470:arptables:fib": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0008__L032__p470:arptables:fib",
+"anchor": "Forwarding Information Base",
+"nearest": [
+"Flow table",
+"Neighbor table"
+],
+"random": [],
+"distractors": [
+"Flow table",
+"Neighbor table"
+],
+"n_eligible": 2,
+"sha": "9fa5efdd139f2c4d4e2002d8ddcc644a7f4e1d68c627d243bb4a52b4c13308e0",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0008__L040__p111:memorymanagementunitmmu:routinginformationbaserib": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0008__L040__p111:memorymanagementunitmmu:routinginformationbaserib",
+"anchor": "Routing Information Base",
+"nearest": [
+"Neighbor table",
+"Flow table"
+],
+"random": [],
+"distractors": [
+"Neighbor table",
+"Flow table"
+],
+"n_eligible": 2,
+"sha": "1d6720db3254413e652986b3ea269d5603890e3594c30a4745cde58537e6256e",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0008__L044__p213:arpcache:fib": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0008__L044__p213:arpcache:fib",
+"anchor": "FIB",
+"nearest": [
+"Flow table",
+"Neighbor table"
+],
+"random": [],
+"distractors": [
+"Flow table",
+"Neighbor table"
+],
+"n_eligible": 2,
+"sha": "8b997c1beaa6848428289bfba88b5b43a8c625d5cc8930500ec8320d59a6aadf",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0008__L044__p213:camtableandarpcache:ribandfib": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0008__L044__p213:camtableandarpcache:ribandfib",
+"anchor": "RIB and FIB",
+"nearest": [
+"Neighbor table",
+"Flow table"
+],
+"random": [],
+"distractors": [
+"Neighbor table",
+"Flow table"
+],
+"n_eligible": 2,
+"sha": "c61426febd1594e9fa8cc67a45307a07f4cc8a08596016124ad1680d0c200e50",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0008__L056__p213:arpforwardingdatabase:routinginformationbase": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0008__L056__p213:arpforwardingdatabase:routinginformationbase",
+"anchor": "Routing Information Base",
+"nearest": [
+"Neighbor table",
+"Flow table"
+],
+"random": [],
+"distractors": [
+"Neighbor table",
+"Flow table"
+],
+"n_eligible": 2,
+"sha": "d57b11c383b6f6f4a85d0b76e56aaca8c7cfdfe04c7490c5fd501fb8b01ee5d9",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0008__L048__p213:tcm:rib": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0008__L048__p213:tcm:rib",
+"anchor": "RIB",
+"nearest": [
+"Neighbor table",
+"Flow table"
+],
+"random": [],
+"distractors": [
+"Neighbor table",
+"Flow table"
+],
+"n_eligible": 2,
+"sha": "ab40ee62b366f1fb1211780ff50de6e442c624e97aebb72779b458258ef2df7d",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0008__L052__p111:arpcache:fib": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0008__L052__p111:arpcache:fib",
+"anchor": "FIB",
+"nearest": [
+"Flow table",
+"Neighbor table"
+],
+"random": [],
+"distractors": [
+"Flow table",
+"Neighbor table"
+],
+"n_eligible": 2,
+"sha": "4128a24841f88f5bccc17c46c0af0125ad3c8ae975e903aea1e04ba63adb53c1",
+"generation": 1
+},
+"mlnla-rl600-all11:chat-lmsys-0008__L032__p213:arpcache:fib": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0008__L032__p213:arpcache:fib",
+"anchor": "FIB",
+"nearest": [
+"Flow table",
+"Neighbor table"
+],
+"random": [],
+"distractors": [
+"Flow table",
+"Neighbor table"
+],
+"n_eligible": 2,
+"sha": "18a6781cf07d0355a525c30ca941a8bf913a73d41cb411d6994d111234c62bc4",
+"generation": 1
+},
+"s3d-rl600-all11:chat-lmsys-0008__L020__p213:arpcache:fib": {
+"unit": "s3d-rl600-all11:chat-lmsys-0008__L020__p213:arpcache:fib",
+"anchor": "FIB",
+"nearest": [
+"Flow table",
+"Neighbor table"
+],
+"random": [],
+"distractors": [
+"Flow table",
+"Neighbor table"
+],
+"n_eligible": 2,
+"sha": "fbf39e59c79ca08566530fd3fc0992daff347b173ecc895201b9857eb3ff1f2d",
+"generation": 1
+},
+"s3d-rl600-all11:chat-lmsys-0008__L052__p213:arpcache:rib": {
+"unit": "s3d-rl600-all11:chat-lmsys-0008__L052__p213:arpcache:rib",
+"anchor": "FIB",
+"nearest": [
+"Flow table",
+"Neighbor table"
+],
+"random": [],
+"distractors": [
+"Flow table",
+"Neighbor table"
+],
+"n_eligible": 2,
+"sha": "8f6372c6a66add760d3a941156e0cb96c18713abdc155927d7d987c9a337eaa6",
+"generation": 1
+}
+}

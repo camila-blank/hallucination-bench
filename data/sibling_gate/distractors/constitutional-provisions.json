@@ -1,4 +1,31 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0073__L028__p194:firstamendment:articleiiisection1": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0073__L028__p194:firstamendment:articleiiisection1",
+"anchor": "Article III",
+"nearest": [
+"Fourth Amendment",
+"Fourteenth Amendment",
+"Due Process Clause",
+"Equal Protection Clause"
+],
+"random": [
+"Fifth Amendment",
+"Second Amendment",
+"Supremacy Clause"
+],
+"distractors": [
+"Fourth Amendment",
+"Fourteenth Amendment",
+"Due Process Clause",
+"Equal Protection Clause",
+"Fifth Amendment",
+"Second Amendment",
+"Supremacy Clause"
+],
+"n_eligible": 7,
+"sha": "7a1fbfc563467ac93f8307ea09d30437abad4c0f1ef4c7daea9f24014638dedd",
+"generation": 1
+},
 "mlnla-rl600-all11:chat-lmsys-0073__L044__p114:firstamendmentfreespeech:articleiiifederalcourts": {
 "unit": "mlnla-rl600-all11:chat-lmsys-0073__L044__p114:firstamendmentfreespeech:articleiiifederalcourts",
 "anchor": "Article III",

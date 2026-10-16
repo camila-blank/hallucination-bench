@@ -1,4 +1,33 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0003__L024__p439:webmidiserial:webbluetooth": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0003__L024__p439:webmidiserial:webbluetooth",
+"anchor": "Web Bluetooth API",
+"nearest": [
+"WebHID API",
+"Web NFC API",
+"Battery Status API",
+"Generic Sensor API"
+],
+"random": [
+"Device Orientation Events",
+"Geolocation API",
+"Screen Wake Lock API",
+"Vibration API"
+],
+"distractors": [
+"WebHID API",
+"Web NFC API",
+"Battery Status API",
+"Generic Sensor API",
+"Device Orientation Events",
+"Geolocation API",
+"Screen Wake Lock API",
+"Vibration API"
+],
+"n_eligible": 8,
+"sha": "180f0b5d42b341ff17ac54407db02b93cb7ae8f70f0dea1e3e2b9b26c0ddec42",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0003__L020__p439:webusb:webbluetooth": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0003__L020__p439:webusb:webbluetooth",
 "anchor": "Web Bluetooth",

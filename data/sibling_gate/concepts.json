@@ -18,18 +18,24 @@
     "physical layer procedures for UMTS",
     "RRC protocol for UMTS",
     "UMTS RRC",
-    "3GPP TS 36.331"
+    "3GPP TS 36.331",
+    "3GPP TS 23.216",
+    "MAC protocol specification",
+    "RLC protocol specification"
    ],
    "said": [
+    "3GPP TS 23.216",
     "3GPP TS 23.501",
     "3GPP TS 25.321",
     "3GPP TS 25.321 (UMTS MAC protocol specification)",
     "3GPP TS 25.322",
     "3GPP TS 25.331",
+    "3GPP TS 36.321",
     "3GPP TS 38.21x",
     "3GPP TS 38.305",
     "3GPP TS 38.321",
     "3GPP TS 38.331",
+    "MAC protocol specification",
     "RRC protocol for UMTS",
     "UMTS RRC",
     "physical layer procedures for UMTS"
@@ -37,10 +43,16 @@
    "gold": [
     "3GPP TS 36.321",
     "3GPP TS 36.322",
-    "E-UTRA RLC"
+    "E-UTRA RLC",
+    "RLC protocol specification"
    ],
    "fillers": [
     "3GPP TS 36.331"
+   ],
+   "appended": [
+    "3GPP TS 23.216",
+    "MAC protocol specification",
+    "RLC protocol specification"
    ]
   },
   "AI assistants": {
@@ -84,18 +96,33 @@
     "Wolfram Alpha",
     "Wolfram|Alpha",
     "Xiaoice",
-    "YiYi"
+    "YiYi",
+    "Anwen",
+    "Bing",
+    "DeepSeek",
+    "Disney Genie",
+    "GermanyBot",
+    "Google Gemini",
+    "Kimi",
+    "LingChat",
+    "Nexus",
+    "Perplexity",
+    "Tongyi Qianwen"
    ],
    "said": [
     "Alexa",
     "Alice",
+    "Anwen",
+    "Bing",
     "Bing Chat",
     "ChatGLM",
     "ChatGPT",
     "Chinese weather assistant",
     "Claude",
     "Cody",
+    "DeepSeek",
     "DeepSeek Chat",
+    "Disney Genie",
     "ERNIE Bot",
     "Ernie",
     "Ernie Bot",
@@ -106,22 +133,29 @@
     "GPTZero",
     "Gemini",
     "Gemma",
+    "GermanyBot",
     "Google Assistant",
+    "Google Gemini",
     "Grok",
     "Hongyi",
     "HuggingChat",
     "Hunyuan",
+    "Kimi",
     "LM Studio",
     "Lilli",
+    "LingChat",
     "Llama",
     "Nebula",
+    "Nexus",
     "Nova",
     "Perplexica",
+    "Perplexity",
     "Pi",
     "Qwen",
     "Sarah",
     "Siri",
     "Tencent Hunyuan",
+    "Tongyi Qianwen",
     "Wolfram Alpha",
     "Wolfram|Alpha",
     "Xiaoice",
@@ -132,7 +166,20 @@
     "Gemini",
     "Qwen"
    ],
-   "fillers": []
+   "fillers": [],
+   "appended": [
+    "Anwen",
+    "Bing",
+    "DeepSeek",
+    "Disney Genie",
+    "GermanyBot",
+    "Google Gemini",
+    "Kimi",
+    "LingChat",
+    "Nexus",
+    "Perplexity",
+    "Tongyi Qianwen"
+   ]
   },
   "AI companies": {
    "concepts": [
@@ -195,11 +242,13 @@
     "unsupervised learning",
     "large language model",
     "transformer",
-    "Turing test"
+    "Turing test",
+    "Superintelligence"
    ],
    "said": [
     "Artificial General Intelligence",
     "Existential AI risk",
+    "Superintelligence",
     "agent affordances",
     "artificial general intelligence",
     "existential risk from artificial general intelligence"
@@ -219,6 +268,9 @@
     "large language model",
     "transformer",
     "Turing test"
+   ],
+   "appended": [
+    "Superintelligence"
    ]
   },
   "AI language models": {
@@ -280,15 +332,19 @@
     "Alexa",
     "Watson",
     "AlphaGo",
-    "DALL-E"
+    "DALL-E",
+    "GLM-4",
+    "ICP"
    ],
    "said": [
     "ChatGPT",
+    "GLM-4",
     "GPT",
     "GPT-4",
     "GPT-4o",
     "GPT-J",
     "Hunyuan",
+    "ICP",
     "Qwen"
    ],
    "gold": [
@@ -304,6 +360,10 @@
     "Watson",
     "AlphaGo",
     "DALL-E"
+   ],
+   "appended": [
+    "GLM-4",
+    "ICP"
    ]
   },
   "BI platforms": {
@@ -323,9 +383,13 @@
     "WebFOCUS",
     "Tableau",
     "Qlik Sense",
-    "QlikView"
+    "QlikView",
+    "Crystal Enterprise",
+    "Pentaho",
+    "Qlik"
    ],
    "said": [
+    "Crystal Enterprise",
     "IBM Cognos",
     "IBM Cognos Analytics",
     "MicroStrategy",
@@ -335,6 +399,8 @@
     "Microsoft SQL Server BI",
     "Oracle Business Intelligence Enterprise Edition",
     "Oracle Business Intelligence Enterprise Edition 12c",
+    "Pentaho",
+    "Qlik",
     "SQL Server Analysis Services",
     "SQL Server Reporting Services",
     "WebFOCUS"
@@ -346,6 +412,11 @@
     "Tableau",
     "Qlik Sense",
     "QlikView"
+   ],
+   "appended": [
+    "Crystal Enterprise",
+    "Pentaho",
+    "Qlik"
    ]
   },
   "BI reporting tools": {
@@ -365,16 +436,20 @@
     "Looker",
     "MicroStrategy",
     "Domo",
-    "Sisense"
+    "Sisense",
+    "IBM Cognos Query Studio",
+    "SAP BusinessObjects Dashboard Design"
    ],
    "said": [
     "Crystal Reports",
+    "IBM Cognos Query Studio",
     "IBM Cognos Report Studio",
     "Oracle BI Publisher",
     "Query Studio",
     "SQL Server Reporting Services"
    ],
    "gold": [
+    "SAP BusinessObjects Dashboard Design",
     "SAP BusinessObjects Universe Design Tool",
     "SAP BusinessObjects Web Intelligence",
     "Web Intelligence"
@@ -388,6 +463,10 @@
     "MicroStrategy",
     "Domo",
     "Sisense"
+   ],
+   "appended": [
+    "IBM Cognos Query Studio",
+    "SAP BusinessObjects Dashboard Design"
    ]
   },
   "BI software components": {
@@ -451,23 +530,35 @@
     "Oracle Essbase",
     "SAP BusinessObjects",
     "SAP Crystal Reports",
-    "Talend"
+    "Talend",
+    "IBM Cognos",
+    "IBM SPSS",
+    "Informatica PowerCenter",
+    "MicroStrategy Desktop",
+    "Oracle Business Intelligence Enterprise Edition",
+    "Pentaho Data Integration"
    ],
    "said": [
     "Cognos ReportNet",
     "Crystal Reports",
     "Essbase",
+    "IBM Cognos",
     "IBM Cognos Analytics",
     "IBM QRadar",
+    "IBM SPSS",
     "IBM iBusiness",
+    "Informatica PowerCenter",
     "MicroStrategy",
+    "MicroStrategy Desktop",
     "Microsoft Dynamics BI",
     "Microsoft Power BI",
     "Microsoft SQL Server Business Intelligence",
     "Microsoft SQL Server Reporting Services",
     "Oracle BI Publisher",
     "Oracle Business Intelligence",
+    "Oracle Business Intelligence Enterprise Edition",
     "Oracle Essbase",
+    "Pentaho Data Integration",
     "SAP Crystal Reports",
     "Talend"
    ],
@@ -475,7 +566,15 @@
     "BusinessObjects",
     "SAP BusinessObjects"
    ],
-   "fillers": []
+   "fillers": [],
+   "appended": [
+    "IBM Cognos",
+    "IBM SPSS",
+    "Informatica PowerCenter",
+    "MicroStrategy Desktop",
+    "Oracle Business Intelligence Enterprise Edition",
+    "Pentaho Data Integration"
+   ]
   },
   "BI suites": {
    "concepts": [
@@ -501,7 +600,9 @@
     "Oracle Business Intelligence Suite",
     "Oracle Essbase",
     "Oracle Hyperion",
-    "SAP BusinessObjects"
+    "SAP BusinessObjects",
+    "Microsoft BI Suite",
+    "Microsoft SQL Server BI stack"
    ],
    "said": [
     "BIRT",
@@ -515,10 +616,12 @@
     "IBM Cognos Business Intelligence",
     "MicroStrategy",
     "Microsoft BI",
+    "Microsoft BI Suite",
     "Microsoft BI stack",
     "Microsoft Business Intelligence",
     "Microsoft Dynamics BI",
     "Microsoft SQL Server Analysis Services",
+    "Microsoft SQL Server BI stack",
     "Microsoft SQL Server Business Intelligence",
     "Microsoft SQL Server Business Intelligence Suite",
     "Oracle Business Intelligence",
@@ -530,7 +633,11 @@
    "gold": [
     "SAP BusinessObjects"
    ],
-   "fillers": []
+   "fillers": [],
+   "appended": [
+    "Microsoft BI Suite",
+    "Microsoft SQL Server BI stack"
+   ]
   },
   "BI tools": {
    "concepts": [
@@ -551,18 +658,25 @@
     "SAP BusinessObjects Web Intelligence",
     "SQL Server Analysis Services",
     "SQL Server Reporting Services",
-    "SSRS/Power BI"
+    "SSRS/Power BI",
+    "MicroStrategy",
+    "MicroStrategy Report Services",
+    "Power BI"
    ],
    "said": [
     "Cognos Report Distributor",
     "Crystal Reports XI",
     "IBM Cognos Framework Manager",
     "InfoPath Forms Services",
+    "MicroStrategy",
     "MicroStrategy Developer",
+    "MicroStrategy Report Services",
     "Oracle Analytics Server",
     "Oracle BI Answers and Oracle Smart View",
     "Oracle Hyperion Workspace",
+    "Power BI",
     "Power Pivot",
+    "PowerPivot",
     "ReportNet",
     "SQL Server Analysis Services",
     "SQL Server Reporting Services",
@@ -575,7 +689,12 @@
     "SAP BusinessObjects Universe Design Tool",
     "SAP BusinessObjects Web Intelligence"
    ],
-   "fillers": []
+   "fillers": [],
+   "appended": [
+    "MicroStrategy",
+    "MicroStrategy Report Services",
+    "Power BI"
+   ]
   },
   "CPUs": {
    "concepts": [
@@ -679,16 +798,25 @@
     "ChemChina",
     "Wanhua Chemical",
     "Sinochem",
-    "Rongsheng Petrochemical"
+    "Rongsheng Petrochemical",
+    "Jiangsu Shuanghua",
+    "Shanghai SinoChem Trading",
+    "Shanghai SinoChem Trading Co., Ltd.",
+    "Yitai Chemical"
    ],
    "said": [
+    "Jiangsu Shuanghua",
     "Shandong Xinrui Chemical Co., Ltd.",
     "Shanghai Chemical Reagent Co., Ltd.",
     "Shanghai Chemicals Co., Ltd.",
     "Shanghai Huayi",
+    "Shanghai SinoChem Trading",
+    "Shanghai SinoChem Trading Co., Ltd.",
     "Shenzhen Xinhuadu Chemical Co., Ltd",
     "SiATEX Yida",
-    "Sinomax"
+    "Sinochem",
+    "Sinomax",
+    "Yitai Chemical"
    ],
    "gold": [
     "Chengdu Push Bio-technology Co., Ltd.",
@@ -703,6 +831,12 @@
     "Wanhua Chemical",
     "Sinochem",
     "Rongsheng Petrochemical"
+   ],
+   "appended": [
+    "Jiangsu Shuanghua",
+    "Shanghai SinoChem Trading",
+    "Shanghai SinoChem Trading Co., Ltd.",
+    "Yitai Chemical"
    ]
   },
   "Chinese cities": {
@@ -833,11 +967,13 @@
     "Reishi mushroom",
     "Schisandra",
     "Rehmannia",
-    "Ginger"
+    "Ginger",
+    "Ophiopogon"
    ],
    "said": [
     "Cordyceps sinensis",
     "Fuzi",
+    "Ophiopogon",
     "Panax notoginseng",
     "white peony root"
    ],
@@ -856,6 +992,9 @@
     "Schisandra",
     "Rehmannia",
     "Ginger"
+   ],
+   "appended": [
+    "Ophiopogon"
    ]
   },
   "Chinese provinces": {
@@ -917,15 +1056,18 @@
     "NetEase",
     "BYD",
     "Didi Chuxing",
-    "OPPO"
+    "OPPO",
+    "Tongyi Lab"
    ],
    "said": [
+    "Alibaba",
     "Baidu",
     "Huawei",
     "Tencent"
    ],
    "gold": [
-    "Alibaba"
+    "Alibaba",
+    "Tongyi Lab"
    ],
    "fillers": [
     "ByteDance",
@@ -940,6 +1082,9 @@
     "BYD",
     "Didi Chuxing",
     "OPPO"
+   ],
+   "appended": [
+    "Tongyi Lab"
    ]
   },
   "English idioms": {
@@ -959,12 +1104,14 @@
     "Cost an arm and a leg",
     "Once in a blue moon",
     "Beat around the bush",
-    "Bite the bullet"
+    "Bite the bullet",
+    "Kill two birds with one stone"
    ],
    "said": [
     "A blessing in disguise",
     "A penny for your thoughts; Bite off more than one can chew",
     "Bite off more than you can chew",
+    "Kill two birds with one stone",
     "roll with the punches"
    ],
    "gold": [
@@ -982,6 +1129,9 @@
     "Once in a blue moon",
     "Beat around the bush",
     "Bite the bullet"
+   ],
+   "appended": [
+    "Kill two birds with one stone"
    ]
   },
   "Flutter packages": {
@@ -1001,16 +1151,26 @@
     "table_calendar",
     "provider",
     "http",
-    "shared_preferences"
+    "shared_preferences",
+    "Bloc/Cubit, GetX, dio, sqlite",
+    "cupertino_icons",
+    "flutter_map",
+    "go_router",
+    "google_maps_flutter"
    ],
    "said": [
+    "Bloc/Cubit, GetX, dio, sqlite",
     "Dio",
     "Leaflet",
     "charts_flutter",
     "cloud_firestore",
+    "cupertino_icons",
     "firebase_core",
     "flutter_bloc",
+    "flutter_map",
     "flutter_svg",
+    "go_router",
+    "google_maps_flutter",
     "syncfusion_flutter_charts"
    ],
    "gold": [
@@ -1024,6 +1184,13 @@
     "provider",
     "http",
     "shared_preferences"
+   ],
+   "appended": [
+    "Bloc/Cubit, GetX, dio, sqlite",
+    "cupertino_icons",
+    "flutter_map",
+    "go_router",
+    "google_maps_flutter"
    ]
   },
   "Flutter state management libraries": {
@@ -1069,6 +1236,48 @@
     "Momentum"
    ]
   },
+  "GPUs": {
+   "concepts": [
+    "GeForce RTX 2060",
+    "GeForce RTX 3060",
+    "NVIDIA GeForce RTX 2060",
+    "NVIDIA GeForce RTX 2080",
+    "NVIDIA GeForce RTX 3070",
+    "Radeon RX 570",
+    "NVIDIA GeForce RTX 4090",
+    "NVIDIA GeForce RTX 3080",
+    "NVIDIA GeForce RTX 3090",
+    "NVIDIA GeForce GTX 1080 Ti",
+    "NVIDIA GeForce GTX 1060",
+    "NVIDIA GeForce RTX 4080",
+    "NVIDIA GeForce RTX 4070",
+    "NVIDIA GeForce RTX 4060",
+    "NVIDIA GeForce GTX 1660",
+    "NVIDIA GeForce GTX 1050 Ti"
+   ],
+   "said": [
+    "GeForce RTX 3060",
+    "NVIDIA GeForce RTX 2080",
+    "NVIDIA GeForce RTX 3070",
+    "Radeon RX 570"
+   ],
+   "gold": [
+    "GeForce RTX 2060",
+    "NVIDIA GeForce RTX 2060"
+   ],
+   "fillers": [
+    "NVIDIA GeForce RTX 4090",
+    "NVIDIA GeForce RTX 3080",
+    "NVIDIA GeForce RTX 3090",
+    "NVIDIA GeForce GTX 1080 Ti",
+    "NVIDIA GeForce GTX 1060",
+    "NVIDIA GeForce RTX 4080",
+    "NVIDIA GeForce RTX 4070",
+    "NVIDIA GeForce RTX 4060",
+    "NVIDIA GeForce GTX 1660",
+    "NVIDIA GeForce GTX 1050 Ti"
+   ]
+  },
   "Hitchhiker's Guide to the Galaxy characters": {
    "concepts": [
     "Arthur Dent",
@@ -1086,9 +1295,11 @@
     "Zarniwoop",
     "Wonko the Sane",
     "Gag Halfrunt",
-    "Hotblack Desiato"
+    "Hotblack Desiato",
+    "Ford Prefect"
    ],
    "said": [
+    "Ford Prefect",
     "Ford Prefect and Zaphod Beeblebrox",
     "Marvin the Paranoid Android",
     "Zaphod Beeblebrox"
@@ -1109,6 +1320,9 @@
     "Wonko the Sane",
     "Gag Halfrunt",
     "Hotblack Desiato"
+   ],
+   "appended": [
+    "Ford Prefect"
    ]
   },
   "ICAO Annexes": {
@@ -1202,6 +1416,48 @@
     "ICAO Annex 2"
    ]
   },
+  "IT consulting companies": {
+   "concepts": [
+    "Deloitte",
+    "IndtechAI",
+    "Infosys Consulting",
+    "PwC",
+    "Tata Consultancy Services",
+    "Accenture",
+    "IBM Consulting",
+    "Capgemini",
+    "Cognizant",
+    "Wipro",
+    "HCLTech",
+    "Tech Mahindra",
+    "CGI",
+    "DXC Technology",
+    "EY",
+    "KPMG"
+   ],
+   "said": [
+    "Deloitte",
+    "IndtechAI",
+    "Infosys Consulting",
+    "PwC"
+   ],
+   "gold": [
+    "Tata Consultancy Services"
+   ],
+   "fillers": [
+    "Accenture",
+    "IBM Consulting",
+    "Capgemini",
+    "Cognizant",
+    "Wipro",
+    "HCLTech",
+    "Tech Mahindra",
+    "CGI",
+    "DXC Technology",
+    "EY",
+    "KPMG"
+   ]
+  },
   "IT services companies": {
    "concepts": [
     "Accenture",
@@ -1219,11 +1475,13 @@
     "TCS",
     "Tech Mahindra",
     "Wipro",
-    "WNS"
+    "WNS",
+    "Dell"
    ],
    "said": [
     "Accenture",
     "Capgemini",
+    "Dell",
     "GE Digital",
     "HP",
     "IBM",
@@ -1241,7 +1499,52 @@
     "TCS",
     "Tata Consultancy Services"
    ],
-   "fillers": []
+   "fillers": [],
+   "appended": [
+    "Dell"
+   ]
+  },
+  "Keras layers": {
+   "concepts": [
+    "Conv1D",
+    "Conv2D",
+    "Dense",
+    "Embedding",
+    "LSTM",
+    "Dropout",
+    "Flatten",
+    "MaxPooling2D",
+    "BatchNormalization",
+    "GRU",
+    "SimpleRNN",
+    "Conv3D",
+    "Activation",
+    "Input",
+    "Reshape",
+    "Concatenate"
+   ],
+   "said": [
+    "Conv1D",
+    "Conv2D",
+    "Embedding"
+   ],
+   "gold": [
+    "Dense"
+   ],
+   "fillers": [
+    "LSTM",
+    "Dropout",
+    "Flatten",
+    "MaxPooling2D",
+    "BatchNormalization",
+    "GRU",
+    "SimpleRNN",
+    "Conv3D",
+    "Activation",
+    "Input",
+    "Reshape",
+    "Concatenate"
+   ]
   },
   "LTE protocol layers": {
    "concepts": [
@@ -1260,10 +1563,13 @@
     "Packet Data Convergence Protocol",
     "Physical Layer",
     "Non-Access Stratum",
-    "Access Stratum"
+    "Access Stratum",
+    "LTE MAC layer",
+    "LTE RLC layer"
    ],
    "said": [
     "LTE MAC",
+    "LTE MAC layer",
     "MAC",
     "MAC sublayer",
     "Medium Access Control",
@@ -1274,6 +1580,7 @@
    ],
    "gold": [
     "LTE RLC",
+    "LTE RLC layer",
     "MAC",
     "RLC",
     "RLC sublayer",
@@ -1284,6 +1591,10 @@
     "Physical Layer",
     "Non-Access Stratum",
     "Access Stratum"
+   ],
+   "appended": [
+    "LTE MAC layer",
+    "LTE RLC layer"
    ]
   },
   "ORM frameworks": {
@@ -1328,6 +1639,48 @@
     "GORM"
    ]
   },
+  "PC manufacturers": {
+   "concepts": [
+    "Apple",
+    "ASUS",
+    "Concórdia",
+    "Dell",
+    "HP Inc.",
+    "Lenovo",
+    "Acer",
+    "Microsoft",
+    "MSI",
+    "Samsung",
+    "Toshiba",
+    "Sony",
+    "Fujitsu",
+    "Razer",
+    "Gateway",
+    "Compaq"
+   ],
+   "said": [
+    "ASUS",
+    "Apple",
+    "Dell",
+    "HP Inc."
+   ],
+   "gold": [
+    "Concórdia"
+   ],
+   "fillers": [
+    "Lenovo",
+    "Acer",
+    "Microsoft",
+    "MSI",
+    "Samsung",
+    "Toshiba",
+    "Sony",
+    "Fujitsu",
+    "Razer",
+    "Gateway",
+    "Compaq"
+   ]
+  },
   "Python libraries": {
    "concepts": [
     "datetime",
@@ -1346,7 +1699,10 @@
     "Streamlit",
     "TensorFlow",
     "Django",
-    "PyTorch"
+    "PyTorch",
+    "PyQt",
+    "sys",
+    "sys, os"
    ],
    "said": [
     "Flask",
@@ -1355,12 +1711,16 @@
     "NumPy",
     "OpenCV",
     "Pandas",
+    "PyQt",
+    "PyTorch",
     "SQLAlchemy",
     "Streamlit",
     "datetime",
     "math",
     "pandas",
-    "requests"
+    "requests",
+    "sys",
+    "sys, os"
    ],
    "gold": [
     "Keras",
@@ -1371,6 +1731,53 @@
    "fillers": [
     "Django",
     "PyTorch"
+   ],
+   "appended": [
+    "PyQt",
+    "sys",
+    "sys, os"
+   ]
+  },
+  "Python library version attributes": {
+   "concepts": [
+    "np.__version__",
+    "numpy.__version__",
+    "pandas.__version__",
+    "tf.keras.__version__",
+    "torch.__version__",
+    "sklearn.__version__",
+    "scipy.__version__",
+    "matplotlib.__version__",
+    "tensorflow.__version__",
+    "keras.__version__",
+    "requests.__version__",
+    "django.__version__",
+    "flask.__version__",
+    "seaborn.__version__",
+    "cv2.__version__",
+    "PIL.__version__"
+   ],
+   "said": [
+    "np.__version__",
+    "numpy.__version__",
+    "pandas.__version__",
+    "torch.__version__"
+   ],
+   "gold": [
+    "tf.keras.__version__"
+   ],
+   "fillers": [
+    "sklearn.__version__",
+    "scipy.__version__",
+    "matplotlib.__version__",
+    "tensorflow.__version__",
+    "keras.__version__",
+    "requests.__version__",
+    "django.__version__",
+    "flask.__version__",
+    "seaborn.__version__",
+    "cv2.__version__",
+    "PIL.__version__"
    ]
   },
   "Python modules": {
@@ -1476,13 +1883,15 @@
     "SAP BusinessObjects Universe Designer",
     "SAP BusinessObjects Information Design Tool",
     "SAP Lumira",
-    "SAP BusinessObjects Explorer"
+    "SAP BusinessObjects Explorer",
+    "SAP BusinessObjects Analysis for Office"
    ],
    "said": [
     "Content Engine",
     "InfoCenter",
     "Oracle WebCenter Content",
     "Report Builder",
+    "SAP BusinessObjects Analysis for Office",
     "SAP BusinessObjects Analysis, Edition for OLAP",
     "SAP Crystal Reports"
    ],
@@ -1499,6 +1908,9 @@
     "SAP BusinessObjects Information Design Tool",
     "SAP Lumira",
     "SAP BusinessObjects Explorer"
+   ],
+   "appended": [
+    "SAP BusinessObjects Analysis for Office"
    ]
   },
   "SAP products": {
@@ -1543,6 +1955,180 @@
     "SAP Fiori"
    ]
   },
+  "SSRIs": {
+   "concepts": [
+    "fluoxetine",
+    "Fluoxetine",
+    "paroxetine",
+    "Paroxetine",
+    "Sertraline",
+    "sertraline",
+    "citalopram",
+    "escitalopram",
+    "fluvoxamine",
+    "vilazodone",
+    "vortioxetine",
+    "dapoxetine",
+    "zimelidine",
+    "indalpine",
+    "femoxetine",
+    "alaproclate",
+    "cericlamine",
+    "ifoxetine",
+    "omiloxetine"
+   ],
+   "said": [
+    "Paroxetine",
+    "Sertraline",
+    "paroxetine",
+    "sertraline"
+   ],
+   "gold": [
+    "Fluoxetine",
+    "fluoxetine"
+   ],
+   "fillers": [
+    "citalopram",
+    "escitalopram",
+    "fluvoxamine",
+    "vilazodone",
+    "vortioxetine",
+    "dapoxetine",
+    "zimelidine",
+    "indalpine",
+    "femoxetine",
+    "alaproclate",
+    "cericlamine",
+    "ifoxetine",
+    "omiloxetine"
+   ]
+  },
+  "TV series": {
+   "concepts": [
+    "2 Days & 1 Night",
+    "Boardwalk Empire",
+    "Game of Thrones",
+    "The Simpsons",
+    "Twin Peaks",
+    "Breaking Bad",
+    "Friends",
+    "The Sopranos",
+    "The Wire",
+    "Seinfeld",
+    "The Office",
+    "Stranger Things",
+    "Lost",
+    "Mad Men",
+    "The Walking Dead",
+    "Grey's Anatomy"
+   ],
+   "said": [
+    "2 Days & 1 Night",
+    "Game of Thrones",
+    "The Simpsons",
+    "Twin Peaks"
+   ],
+   "gold": [
+    "Boardwalk Empire"
+   ],
+   "fillers": [
+    "Breaking Bad",
+    "Friends",
+    "The Sopranos",
+    "The Wire",
+    "Seinfeld",
+    "The Office",
+    "Stranger Things",
+    "Lost",
+    "Mad Men",
+    "The Walking Dead",
+    "Grey's Anatomy"
+   ]
+  },
+  "UI frameworks": {
+   "concepts": [
+    "Bootstrap",
+    "Flutter",
+    "Java desktop stack",
+    "Jetpack Compose",
+    "SAPUI5",
+    "SwiftUI",
+    "React",
+    "Angular",
+    "Vue.js",
+    "Svelte",
+    "Qt",
+    "Windows Presentation Foundation",
+    "Windows Forms",
+    "React Native",
+    "Tailwind CSS",
+    "Ember.js"
+   ],
+   "said": [
+    "Bootstrap",
+    "Java desktop stack",
+    "Jetpack Compose",
+    "SAPUI5",
+    "SwiftUI"
+   ],
+   "gold": [
+    "Flutter"
+   ],
+   "fillers": [
+    "React",
+    "Angular",
+    "Vue.js",
+    "Svelte",
+    "Qt",
+    "Windows Presentation Foundation",
+    "Windows Forms",
+    "React Native",
+    "Tailwind CSS",
+    "Ember.js"
+   ]
+  },
+  "US beach towns": {
+   "concepts": [
+    "Destin, Florida",
+    "Florida Keys and Clearwater",
+    "Key West",
+    "Outer Banks",
+    "Rosemary Beach",
+    "Rosemary Beach, Florida",
+    "Myrtle Beach, South Carolina",
+    "Malibu, California",
+    "Santa Monica, California",
+    "Miami Beach, Florida",
+    "Ocean City, Maryland",
+    "Virginia Beach, Virginia",
+    "Cape May, New Jersey",
+    "Nantucket, Massachusetts",
+    "Provincetown, Massachusetts",
+    "Laguna Beach, California"
+   ],
+   "said": [
+    "Destin, Florida",
+    "Florida Keys and Clearwater",
+    "Key West",
+    "Outer Banks"
+   ],
+   "gold": [
+    "Rosemary Beach",
+    "Rosemary Beach, Florida"
+   ],
+   "fillers": [
+    "Myrtle Beach, South Carolina",
+    "Malibu, California",
+    "Santa Monica, California",
+    "Miami Beach, Florida",
+    "Ocean City, Maryland",
+    "Virginia Beach, Virginia",
+    "Cape May, New Jersey",
+    "Nantucket, Massachusetts",
+    "Provincetown, Massachusetts",
+    "Laguna Beach, California"
+   ]
+  },
   "US states": {
    "concepts": [
     "California",
@@ -1585,6 +2171,91 @@
     "Ohio"
    ]
   },
+  "VLC video output modes": {
+   "concepts": [
+    "3D output",
+    "3D output mode",
+    "anamorphic mode",
+    "anamorphic/letterbox mode",
+    "full-screen mode",
+    "fullscreen",
+    "fullscreen mode",
+    "Direct3D11",
+    "Direct3D9",
+    "OpenGL",
+    "DirectX (DirectDraw)",
+    "XVideo",
+    "X11",
+    "Wayland",
+    "Vulkan",
+    "SDL",
+    "Framebuffer (fbdev)"
+   ],
+   "said": [
+    "anamorphic mode",
+    "anamorphic/letterbox mode",
+    "full-screen mode",
+    "fullscreen",
+    "fullscreen mode"
+   ],
+   "gold": [
+    "3D output",
+    "3D output mode"
+   ],
+   "fillers": [
+    "Direct3D11",
+    "Direct3D9",
+    "OpenGL",
+    "DirectX (DirectDraw)",
+    "XVideo",
+    "X11",
+    "Wayland",
+    "Vulkan",
+    "SDL",
+    "Framebuffer (fbdev)"
+   ]
+  },
+  "VPN services": {
+   "concepts": [
+    "Cloudflare",
+    "Cloudflare WARP",
+    "Tailscale",
+    "NordVPN",
+    "ExpressVPN",
+    "Surfshark",
+    "ProtonVPN",
+    "CyberGhost",
+    "Private Internet Access",
+    "Mullvad",
+    "IPVanish",
+    "Windscribe",
+    "TunnelBear",
+    "Hotspot Shield",
+    "PureVPN",
+    "Atlas VPN"
+   ],
+   "said": [
+    "Cloudflare",
+    "Cloudflare WARP",
+    "Tailscale"
+   ],
+   "gold": [],
+   "fillers": [
+    "NordVPN",
+    "ExpressVPN",
+    "Surfshark",
+    "ProtonVPN",
+    "CyberGhost",
+    "Private Internet Access",
+    "Mullvad",
+    "IPVanish",
+    "Windscribe",
+    "TunnelBear",
+    "Hotspot Shield",
+    "PureVPN",
+    "Atlas VPN"
+   ]
+  },
   "Web API interfaces": {
    "concepts": [
     "BluetoothDevice",
@@ -1602,15 +2273,21 @@
     "Element",
     "Node",
     "Event",
-    "EventTarget"
+    "EventTarget",
+    "HTMLElement",
+    "IDBObjectStore",
+    "RTCCertificate"
    ],
    "said": [
     "DOMTokenList",
+    "HTMLElement",
     "HTMLVideoElement",
+    "IDBObjectStore",
     "MediaSource",
     "MediaStream",
     "MediaStreamTrack",
     "Navigator",
+    "RTCCertificate",
     "USBDevice",
     "Window"
    ],
@@ -1625,6 +2302,11 @@
     "Node",
     "Event",
     "EventTarget"
+   ],
+   "appended": [
+    "HTMLElement",
+    "IDBObjectStore",
+    "RTCCertificate"
    ]
   },
   "Web APIs": {
@@ -1644,10 +2326,12 @@
     "Web Audio API",
     "IndexedDB API",
     "Service Worker API",
-    "Web Workers API"
+    "Web Workers API",
+    "Web MIDI API"
    ],
    "said": [
     "Fetch API",
+    "Web MIDI API",
     "WebGPU",
     "WebRTC API",
     "WebSocket",
@@ -1667,6 +2351,9 @@
     "IndexedDB API",
     "Service Worker API",
     "Web Workers API"
+   ],
+   "appended": [
+    "Web MIDI API"
    ]
   },
   "Web Bluetooth API interfaces": {
@@ -1728,9 +2415,11 @@
     "Device Orientation Events",
     "Generic Sensor API",
     "Media Capture and Streams API",
-    "Web MIDI API"
+    "Web MIDI API",
+    "Web MIDI/Serial"
    ],
    "said": [
+    "Web MIDI/Serial",
     "WebUSB",
     "WebUSB API"
    ],
@@ -1751,6 +2440,9 @@
     "Generic Sensor API",
     "Media Capture and Streams API",
     "Web MIDI API"
+   ],
+   "appended": [
+    "Web MIDI/Serial"
    ]
   },
   "WebIDL interfaces": {
@@ -1911,7 +2603,8 @@
     "spiders",
     "squirrel",
     "tiger",
-    "turtle"
+    "turtle",
+    "pet"
    ],
    "said": [
     "Alligator",
@@ -1930,6 +2623,7 @@
     "fish",
     "frogs",
     "lion",
+    "pet",
     "raccoon",
     "rat",
     "rodent",
@@ -1948,7 +2642,52 @@
     "shark",
     "sharks"
    ],
-   "fillers": []
+   "fillers": [],
+   "appended": [
+    "pet"
+   ]
+  },
+  "app types": {
+   "concepts": [
+    "gardening planner app",
+    "habit tracker",
+    "note-taking app",
+    "notes app",
+    "vegetable garden planner",
+    "vegetable garden planner app",
+    "weather app",
+    "social media app",
+    "messaging app",
+    "email app",
+    "calendar app",
+    "music streaming app",
+    "video streaming app",
+    "fitness app",
+    "banking app",
+    "ride-sharing app"
+   ],
+   "said": [
+    "habit tracker",
+    "note-taking app",
+    "notes app",
+    "weather app"
+   ],
+   "gold": [
+    "gardening planner app",
+    "vegetable garden planner",
+    "vegetable garden planner app"
+   ],
+   "fillers": [
+    "social media app",
+    "messaging app",
+    "email app",
+    "calendar app",
+    "music streaming app",
+    "video streaming app",
+    "fitness app",
+    "banking app",
+    "ride-sharing app"
+   ]
   },
   "aromatic rings": {
    "concepts": [
@@ -2063,19 +2802,29 @@
     "Tom Stoppard",
     "Vivian Green",
     "Vivian Greene",
-    "William Shakespeare"
+    "William Shakespeare",
+    "Atticus",
+    "Derek Walder",
+    "Frank Herbert",
+    "Hirschfeld",
+    "MF Murphy",
+    "Rick Riordan"
    ],
    "said": [
     "Agatha Christie",
     "Albert O. Hirschman",
+    "Atticus",
     "Christopher Lasch",
+    "Derek Walder",
     "Douglas Adams",
     "Dr. Seuss",
+    "Frank Herbert",
     "Gabriel García Márquez",
     "Gerald Durrell",
     "H...",
     "H.G. Wells",
     "Hermann Hesse",
+    "Hirschfeld",
     "J. R. R. Tolkien",
     "J.R.R. Tolkien",
     "James Baldwin",
@@ -2088,6 +2837,7 @@
     "Lewis Carroll",
     "Mark Twain",
     "Maya Angelou",
+    "Rick Riordan",
     "Terry Savage",
     "Tom Stoppard",
     "William Shakespeare"
@@ -2095,10 +2845,19 @@
    "gold": [
     "Christine Larson",
     "Douglas Adams",
+    "MF Murphy",
     "Vivian Green",
     "Vivian Greene"
    ],
-   "fillers": []
+   "fillers": [],
+   "appended": [
+    "Atticus",
+    "Derek Walder",
+    "Frank Herbert",
+    "Hirschfeld",
+    "MF Murphy",
+    "Rick Riordan"
+   ]
   },
   "aviation regulatory authorities": {
    "concepts": [
@@ -2243,14 +3002,19 @@
     "Laguna Beach",
     "Huntington Beach",
     "Miami Beach",
-    "Key West"
+    "Key West",
+    "Clearwater",
+    "Clearwater Beach"
    ],
    "said": [
+    "Clearwater",
+    "Clearwater Beach",
     "Cocoa Beach",
     "Delray Beach",
     "Emerald Isle",
     "Folly Beach",
     "Fort Myers Beach",
+    "Miami Beach",
     "Myrtle Beach",
     "Ocean City",
     "St. Augustine"
@@ -2266,6 +3030,52 @@
     "Huntington Beach",
     "Miami Beach",
     "Key West"
+   ],
+   "appended": [
+    "Clearwater",
+    "Clearwater Beach"
+   ]
+  },
+  "beginner programming exercises": {
+   "concepts": [
+    "Area and Perimeter of a rectangle",
+    "C program for area and perimeter of a rectangle",
+    "C rectangle area/perimeter calculator",
+    "C++ power and resistance calculator",
+    "C++ program for power and resistance from voltage and current",
+    "Fibonacci sequence program",
+    "Power and Resistance from Voltage and Current",
+    "sum of two numbers program",
+    "Hello World",
+    "FizzBuzz",
+    "Factorial calculator",
+    "Prime number checker",
+    "Palindrome checker",
+    "Reverse a string",
+    "Temperature converter (Celsius to Fahrenheit)",
+    "Guess the number game"
+   ],
+   "said": [
+    "Area and Perimeter of a rectangle",
+    "C program for area and perimeter of a rectangle",
+    "C rectangle area/perimeter calculator",
+    "sum of two numbers program"
+   ],
+   "gold": [
+    "C++ power and resistance calculator",
+    "C++ program for power and resistance from voltage and current",
+    "Fibonacci sequence program",
+    "Power and Resistance from Voltage and Current"
+   ],
+   "fillers": [
+    "Hello World",
+    "FizzBuzz",
+    "Factorial calculator",
+    "Prime number checker",
+    "Palindrome checker",
+    "Reverse a string",
+    "Temperature converter (Celsius to Fahrenheit)",
+    "Guess the number game"
    ]
   },
   "beverages": {
@@ -2285,9 +3095,14 @@
     "hot chocolate",
     "orange juice",
     "whiskey",
-    "vodka"
+    "vodka",
+    "afternoon tea",
+    "Japanese tea",
+    "morning coffee"
    ],
    "said": [
+    "Japanese tea",
+    "afternoon tea",
     "coffee",
     "green tea",
     "juice",
@@ -2299,6 +3114,7 @@
    "gold": [
     "beer",
     "coffee",
+    "morning coffee",
     "tea"
    ],
    "fillers": [
@@ -2310,6 +3126,11 @@
     "orange juice",
     "whiskey",
     "vodka"
+   ],
+   "appended": [
+    "afternoon tea",
+    "Japanese tea",
+    "morning coffee"
    ]
   },
   "books": {
@@ -2329,12 +3150,14 @@
     "War and Peace",
     "The Catcher in the Rye",
     "Harry Potter and the Philosopher's Stone",
-    "The Lord of the Rings"
+    "The Lord of the Rings",
+    "The Narcissism Epidemic"
    ],
    "said": [
     "Dr. Seuss book",
     "Life, the Universe and Everything",
     "The Little Prince",
+    "The Narcissism Epidemic",
     "The Restaurant at the End of the Universe",
     "The Righteous Mind"
    ],
@@ -2352,6 +3175,9 @@
     "The Catcher in the Rye",
     "Harry Potter and the Philosopher's Stone",
     "The Lord of the Rings"
+   ],
+   "appended": [
+    "The Narcissism Epidemic"
    ]
   },
   "branches of US government": {
@@ -2394,13 +3220,15 @@
     "Probability theory",
     "Number theory",
     "Topology",
-    "Linear algebra"
+    "Linear algebra",
+    "Stochastic geometry"
    ],
    "said": [
     "Algebra",
     "Calculus",
     "Ergodic theory",
     "Functional Analysis",
+    "Stochastic geometry",
     "algebra and calculus",
     "algebraic topology",
     "complex analysis"
@@ -2418,6 +3246,51 @@
     "Number theory",
     "Topology",
     "Linear algebra"
+   ],
+   "appended": [
+    "Stochastic geometry"
+   ]
+  },
+  "businesses": {
+   "concepts": [
+    "flower shop",
+    "Friendship Restaurant",
+    "library",
+    "restaurant",
+    "salons",
+    "tattoo studios",
+    "Tech Support Center",
+    "bakery",
+    "grocery store",
+    "pharmacy",
+    "bank",
+    "hardware store",
+    "bookstore",
+    "coffee shop",
+    "gas station",
+    "barber shop"
+   ],
+   "said": [
+    "Tech Support Center",
+    "flower shop",
+    "library",
+    "salons"
+   ],
+   "gold": [
+    "Friendship Restaurant",
+    "restaurant",
+    "tattoo studios"
+   ],
+   "fillers": [
+    "bakery",
+    "grocery store",
+    "pharmacy",
+    "bank",
+    "hardware store",
+    "bookstore",
+    "coffee shop",
+    "gas station",
+    "barber shop"
    ]
   },
   "celebration events": {
@@ -2523,15 +3396,20 @@
     "esters",
     "ethers",
     "amines",
-    "amides"
+    "amides",
+    "azo compounds",
+    "hydrazines"
    ],
    "said": [
+    "azo compounds",
     "benzaldehyde derivatives",
     "brominated anilines",
     "chiral amines",
+    "hydrazines",
     "substituted aniline"
    ],
    "gold": [
+    "aldehydes",
     "isoquinoline derivatives",
     "pyrimidine carbaldehydes",
     "pyrimidine derivatives",
@@ -2546,6 +3424,10 @@
     "ethers",
     "amines",
     "amides"
+   ],
+   "appended": [
+    "azo compounds",
+    "hydrazines"
    ]
   },
   "chemical compounds": {
@@ -2654,13 +3536,44 @@
     "vanadium pentoxide",
     "Vanillin",
     "Vitamin C",
-    "water"
+    "water",
+    "2-butoxyethanol",
+    "2-Methylimidazole",
+    "2-methylimidazole",
+    "2-Propyl-4-hydroxyquinoline",
+    "ammonia",
+    "arsenic",
+    "benzoic acid",
+    "Caffeic acid",
+    "chlorpyrifos",
+    "ethanol",
+    "ginsenosides",
+    "Hydrogen chloride",
+    "L-Tyrosine",
+    "Lithium bromide",
+    "methyl methacrylate",
+    "methyl parathion",
+    "methylamine",
+    "MG",
+    "N,N-Dimethylformamide",
+    "N-methyl-2-bromopyridine",
+    "phenylalanine",
+    "phosgene",
+    "polyacrylamide",
+    "Polyethylene",
+    "pyrimidine",
+    "sodium iodide",
+    "tetramethylethylenediamine"
    ],
    "said": [
     "1,3-Dichloropropene",
     "1-Methylisoquinoline",
     "2,4,5-Trichlorophenoxyacetic acid",
+    "2-Methylimidazole",
+    "2-Propyl-4-hydroxyquinoline",
+    "2-butoxyethanol",
     "2-butylphenol",
+    "2-methylimidazole",
     "2-propyl-4-nitroaniline",
     "2-propylphenol",
     "4-Aminopyridine",
@@ -2674,20 +3587,32 @@
     "Acetone",
     "Acrylonitrile",
     "Butyl acrylate",
+    "Caffeic acid",
     "Chloroform",
     "DMAn",
+    "Dimethylformamide",
     "Ethanolamines",
     "Fluoroantimonic acid",
     "Formaldehyde",
+    "Hydrogen chloride",
     "Imidacloprid",
     "Isopropyl Alcohol",
     "Isopropyl alcohol",
     "L-Methionine",
+    "L-Tyrosine",
+    "Lithium bromide",
+    "MG",
+    "N,N-Dimethylformamide",
     "N,N-dimethylaniline",
     "N-Methyl-2-pyrrolidone",
+    "N-methyl-2-bromopyridine",
+    "N-methyl-2-pyrrolidone",
     "Paeonol",
+    "Polyethylene",
     "Polyurethane",
     "Potassium Chlorate",
+    "Potassium Chloride",
+    "Potassium chloride",
     "Toluene",
     "Trichloroethylene",
     "Vanadium Pentoxide",
@@ -2697,19 +3622,25 @@
     "acetone",
     "acetonitrile",
     "acetophenone",
+    "ammonia",
     "ammonium chloride",
+    "arsenic",
     "barium chloride",
     "barium hydroxide",
     "benzene",
+    "benzoic acid",
     "benzomorphine",
     "benzyl alcohol",
     "bromine",
     "calcium chloride",
     "carbon dioxide",
     "carbon monoxide",
+    "chlorpyrifos",
     "dimethyl sulfoxide",
     "dimethylformamide",
     "estradiol",
+    "ethanol",
+    "ginsenosides",
     "hydroquinone",
     "isocyanates",
     "isopropanol",
@@ -2717,12 +3648,18 @@
     "lithium niobate",
     "methacrylic acid",
     "methanol",
+    "methyl methacrylate",
+    "methyl parathion",
+    "methylamine",
     "n-Butyl acrylate",
     "nitric acid",
     "nitrobenzene",
     "nitrogen",
     "organosilane/nitroaniline",
     "ozone",
+    "phenylalanine",
+    "phosgene",
+    "polyacrylamide",
     "potassium acetate",
     "potassium chlorate",
     "potassium chloride",
@@ -2736,6 +3673,7 @@
     "sodium chloride",
     "sodium hydroxide",
     "sodium hypochlorite",
+    "sodium iodide",
     "sodium nitrate",
     "sodium sulfate",
     "sodium thiosulfate",
@@ -2744,6 +3682,7 @@
     "sulfur trioxide",
     "sulfuric acid",
     "tetrahydrocannabinol",
+    "tetramethylethylenediamine",
     "titanium dioxide",
     "toluene diisocyanate",
     "trichloroethylene",
@@ -2759,13 +3698,44 @@
     "Fluoxetine",
     "Gastrodin",
     "Sodium Nitrite",
+    "Sodium nitrite",
     "fluoxetine",
     "gastrodin",
     "isoquinoline",
+    "pyrimidine",
     "sodium nitrite",
     "water"
    ],
-   "fillers": []
+   "fillers": [],
+   "appended": [
+    "2-butoxyethanol",
+    "2-Methylimidazole",
+    "2-methylimidazole",
+    "2-Propyl-4-hydroxyquinoline",
+    "ammonia",
+    "arsenic",
+    "benzoic acid",
+    "Caffeic acid",
+    "chlorpyrifos",
+    "ethanol",
+    "ginsenosides",
+    "Hydrogen chloride",
+    "L-Tyrosine",
+    "Lithium bromide",
+    "methyl methacrylate",
+    "methyl parathion",
+    "methylamine",
+    "MG",
+    "N,N-Dimethylformamide",
+    "N-methyl-2-bromopyridine",
+    "phenylalanine",
+    "phosgene",
+    "polyacrylamide",
+    "Polyethylene",
+    "pyrimidine",
+    "sodium iodide",
+    "tetramethylethylenediamine"
+   ]
   },
   "chemical reagents": {
    "concepts": [
@@ -2787,7 +3757,9 @@
     "Grignard reagent",
     "Fehling's solution",
     "Tollens' reagent",
-    "Benedict's reagent"
+    "Benedict's reagent",
+    "4-trifluoromethylphenyl-acetic acid",
+    "salicylic acid, acetic anhydride"
    ],
    "said": [
     "Cp*Zr, Al–H",
@@ -2802,9 +3774,11 @@
     "lithium hydride",
     "n-butyllithium",
     "phosgene, organolithiums, lithium aluminum hydride",
+    "salicylic acid, acetic anhydride",
     "sodium"
    ],
    "gold": [
+    "4-trifluoromethylphenyl-acetic acid",
     "Sodium hydride",
     "sodium hydride"
    ],
@@ -2813,6 +3787,10 @@
     "Fehling's solution",
     "Tollens' reagent",
     "Benedict's reagent"
+   ],
+   "appended": [
+    "4-trifluoromethylphenyl-acetic acid",
+    "salicylic acid, acetic anhydride"
    ]
   },
   "chemical scaffolds": {
@@ -2891,14 +3869,20 @@
     "Sicilian Dragon",
     "Sicilian Najdorf",
     "Slav Defense",
-    "Vienna Game"
+    "Vienna Game",
+    "Danish Gambit",
+    "Four Knights Game",
+    "Sicilian Gambit",
+    "Vienna Gambit"
    ],
    "said": [
     "Caro-Kann Defense",
+    "Danish Gambit",
     "Dragon Variation",
     "Dutch Defense",
     "English Opening",
     "Evans Gambit",
+    "Four Knights Game",
     "French Defense",
     "German Game",
     "Italian Game",
@@ -2921,17 +3905,27 @@
     "Scotch Game",
     "Sicilian Defense",
     "Sicilian Dragon",
-    "Slav Defense"
+    "Sicilian Gambit",
+    "Slav Defense",
+    "Vienna Gambit",
+    "Vienna Game"
    ],
    "gold": [
     "King's Gambit",
     "King's Gambit Accepted",
     "King's Gambit Declined",
     "Najdorf Variation",
+    "Sicilian Defense",
     "Sicilian Najdorf",
     "Vienna Game"
    ],
-   "fillers": []
+   "fillers": [],
+   "appended": [
+    "Danish Gambit",
+    "Four Knights Game",
+    "Sicilian Gambit",
+    "Vienna Gambit"
+   ]
   },
   "children's educational apps": {
    "concepts": [
@@ -2950,11 +3944,18 @@
     "Prodigy Math",
     "Epic!",
     "Homer",
-    "Lingokids"
+    "Lingokids",
+    "ABCya",
+    "Alphabet Garden",
+    "Khan Academy",
+    "Starfall"
    ],
    "said": [
     "ABCmouse",
+    "ABCya",
+    "Alphabet Garden",
     "Alphabet Garden: Early Literacy for Kids",
+    "Khan Academy",
     "Khan Academy Kids",
     "Khan Academy Kids, Scratch",
     "Minecraft Education Edition",
@@ -2962,6 +3963,7 @@
     "ScratchJr"
    ],
    "gold": [
+    "Starfall",
     "Starfall Learning",
     "Toontastic 3D"
    ],
@@ -2973,6 +3975,12 @@
     "Epic!",
     "Homer",
     "Lingokids"
+   ],
+   "appended": [
+    "ABCya",
+    "Alphabet Garden",
+    "Khan Academy",
+    "Starfall"
    ]
   },
   "children's storytelling apps": {
@@ -3068,7 +4076,10 @@
     "Toronto",
     "Washington, D.C.",
     "Wuhan",
-    "Zurich"
+    "Zurich",
+    "Los Angeles",
+    "Ningbo",
+    "Tokyo"
    ],
    "said": [
     "Anaheim",
@@ -3094,6 +4105,7 @@
     "Las Vegas",
     "Liverpool",
     "London",
+    "Los Angeles",
     "Lund",
     "Madrid",
     "Manchester",
@@ -3102,6 +4114,7 @@
     "Nanjing",
     "New Delhi",
     "New York City",
+    "Ningbo",
     "Orlando",
     "Osaka, Tokyo, Kyoto",
     "Paris",
@@ -3114,6 +4127,7 @@
     "Singapore",
     "Tampa",
     "Tehran",
+    "Tokyo",
     "Toronto",
     "Washington, D.C.",
     "Wuhan",
@@ -3128,7 +4142,12 @@
     "Rosemary Beach",
     "Shanghai"
    ],
-   "fillers": []
+   "fillers": [],
+   "appended": [
+    "Los Angeles",
+    "Ningbo",
+    "Tokyo"
+   ]
   },
   "classic programming exercises": {
    "concepts": [
@@ -3190,30 +4209,50 @@
     "t-shirt",
     "shirt",
     "dress",
-    "skirt"
+    "skirt",
+    "cargo skirt",
+    "jogger jeans",
+    "Levi's 501",
+    "men's jackets",
+    "Oxford shoe",
+    "skirts"
    ],
    "said": [
+    "Oxford shoe",
     "T-shirt",
     "boots",
+    "cargo skirt",
     "casual shoes",
     "jacket",
     "men's boots",
     "men's casual shoes",
+    "men's jackets",
     "men's pants",
     "men's tailored trousers",
     "oversized hoodie",
     "shoes",
+    "skirts",
     "sneakers",
     "suit",
     "t-shirt"
    ],
    "gold": [
-    "jeans"
+    "Levi's 501",
+    "jeans",
+    "jogger jeans"
    ],
    "fillers": [
     "shirt",
     "dress",
     "skirt"
+   ],
+   "appended": [
+    "cargo skirt",
+    "jogger jeans",
+    "Levi's 501",
+    "men's jackets",
+    "Oxford shoe",
+    "skirts"
    ]
   },
   "cohomology theories": {
@@ -3234,10 +4273,12 @@
     "crystalline cohomology",
     "K-theory",
     "group cohomology",
-    "Dolbeault cohomology"
+    "Dolbeault cohomology",
+    "Morse cohomology"
    ],
    "said": [
     "Hodge cohomology",
+    "Morse cohomology",
     "Sheaf cohomology",
     "harmonic forms",
     "holomorphic cohomology",
@@ -3245,6 +4286,7 @@
     "simplicial homology",
     "singular cohomology",
     "singular homology",
+    "Čech cohomology",
     "Čech homology"
    ],
    "gold": [
@@ -3259,6 +4301,9 @@
     "K-theory",
     "group cohomology",
     "Dolbeault cohomology"
+   ],
+   "appended": [
+    "Morse cohomology"
    ]
   },
   "comedy works": {
@@ -3327,12 +4372,14 @@
     "Siemens",
     "Tata Consultancy Services",
     "The Hershey Company",
-    "Wujie Machinery Co., Ltd."
+    "Wujie Machinery Co., Ltd.",
+    "General Electric"
    ],
    "said": [
     "Arab Group Bank",
     "BMW",
     "GE Healthcare",
+    "General Electric",
     "Huacheng Technology",
     "Jixing Trading Co., Ltd.",
     "Samsung",
@@ -3356,7 +4403,52 @@
     "Shanghai Huihe Chemical Co., Ltd.",
     "Tata Consultancy Services"
    ],
-   "fillers": []
+   "fillers": [],
+   "appended": [
+    "General Electric"
+   ]
+  },
+  "computer brands": {
+   "concepts": [
+    "Acer",
+    "Concórdia",
+    "Dell",
+    "HP",
+    "Lenovo",
+    "PC Gamer Concórdia",
+    "Apple",
+    "ASUS",
+    "Microsoft Surface",
+    "Samsung",
+    "Toshiba",
+    "Sony VAIO",
+    "MSI",
+    "Alienware",
+    "Razer",
+    "Gateway"
+   ],
+   "said": [
+    "Acer",
+    "Dell",
+    "HP",
+    "Lenovo"
+   ],
+   "gold": [
+    "Concórdia",
+    "PC Gamer Concórdia"
+   ],
+   "fillers": [
+    "Apple",
+    "ASUS",
+    "Microsoft Surface",
+    "Samsung",
+    "Toshiba",
+    "Sony VAIO",
+    "MSI",
+    "Alienware",
+    "Razer",
+    "Gateway"
+   ]
   },
   "computer hardware brands": {
    "concepts": [
@@ -3502,9 +4594,12 @@
     "Turing machine",
     "Big O notation",
     "binary search",
-    "linked list"
+    "linked list",
+    "Finite State Machine",
+    "query planner"
    ],
    "said": [
+    "Finite State Machine",
     "computational complexity",
     "hashing",
     "infinite recursion",
@@ -3512,6 +4607,7 @@
    ],
    "gold": [
     "Technological Singularity",
+    "query planner",
     "technological singularity"
    ],
    "fillers": [
@@ -3526,6 +4622,52 @@
     "Big O notation",
     "binary search",
     "linked list"
+   ],
+   "appended": [
+    "Finite State Machine",
+    "query planner"
+   ]
+  },
+  "computer scientists": {
+   "concepts": [
+    "Alan Turing",
+    "I.J. Good",
+    "John von Neumann",
+    "Donald Knuth",
+    "Edsger Dijkstra",
+    "Grace Hopper",
+    "Ada Lovelace",
+    "Tim Berners-Lee",
+    "Dennis Ritchie",
+    "Ken Thompson",
+    "John McCarthy",
+    "Claude Shannon",
+    "Alan Kay",
+    "Barbara Liskov",
+    "Tony Hoare",
+    "Vint Cerf"
+   ],
+   "said": [
+    "Alan Turing",
+    "John von Neumann"
+   ],
+   "gold": [
+    "I.J. Good"
+   ],
+   "fillers": [
+    "Donald Knuth",
+    "Edsger Dijkstra",
+    "Grace Hopper",
+    "Ada Lovelace",
+    "Tim Berners-Lee",
+    "Dennis Ritchie",
+    "Ken Thompson",
+    "John McCarthy",
+    "Claude Shannon",
+    "Alan Kay",
+    "Barbara Liskov",
+    "Tony Hoare",
+    "Vint Cerf"
    ]
   },
   "computer vision models": {
@@ -3546,7 +4688,9 @@
     "Vision Transformer",
     "ViT",
     "ViT-B/16",
-    "ViT-Seg"
+    "ViT-Seg",
+    "SegNet",
+    "Transformer for Semantic Segmentation"
    ],
    "said": [
     "DINOv2",
@@ -3558,9 +4702,11 @@
     "MaskFormer",
     "Masked Autoencoders",
     "SegFormer",
+    "SegNet",
     "Segment Anything",
     "Segment Anything Model",
     "TransUNet",
+    "Transformer for Semantic Segmentation",
     "ViT",
     "ViT-B/16",
     "ViT-Seg",
@@ -3569,7 +4715,11 @@
    "gold": [
     "DETR"
    ],
-   "fillers": []
+   "fillers": [],
+   "appended": [
+    "SegNet",
+    "Transformer for Semantic Segmentation"
+   ]
   },
   "computer vision papers": {
    "concepts": [
@@ -3588,14 +4738,20 @@
     "Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks",
     "Mask R-CNN",
     "Rich Feature Hierarchies for Accurate Object Detection and Semantic Segmentation (R-CNN)",
-    "Fully Convolutional Networks for Semantic Segmentation (FCN)"
+    "Fully Convolutional Networks for Semantic Segmentation (FCN)",
+    "DETR",
+    "SAM 2",
+    "YOLO"
    ],
    "said": [
     "An Image is Worth 16x16 Words (ViT)",
+    "SAM 2",
     "Vision Transformer (Dosovitskiy et al. 2020)",
-    "Vision Transformer (ViT) paper"
+    "Vision Transformer (ViT) paper",
+    "YOLO"
    ],
    "gold": [
+    "DETR",
     "DETR (Carion et al. 2020)",
     "DETR paper",
     "End-to-End Object Detection with Transformers (DETR)"
@@ -3611,6 +4767,11 @@
     "Mask R-CNN",
     "Rich Feature Hierarchies for Accurate Object Detection and Semantic Segmentation (R-CNN)",
     "Fully Convolutional Networks for Semantic Segmentation (FCN)"
+   ],
+   "appended": [
+    "DETR",
+    "SAM 2",
+    "YOLO"
    ]
   },
   "console output functions": {
@@ -3697,6 +4858,48 @@
     "Supremacy Clause"
    ]
   },
+  "conversation topics": {
+   "concepts": [
+    "favorite movies",
+    "flowers",
+    "grades",
+    "movie preferences",
+    "music",
+    "pizza",
+    "relationships",
+    "weather",
+    "sports",
+    "travel",
+    "food",
+    "work",
+    "family",
+    "hobbies",
+    "books",
+    "politics"
+   ],
+   "said": [
+    "favorite movies",
+    "movie preferences",
+    "relationships",
+    "weather"
+   ],
+   "gold": [
+    "flowers",
+    "grades",
+    "music",
+    "pizza"
+   ],
+   "fillers": [
+    "sports",
+    "travel",
+    "food",
+    "work",
+    "family",
+    "hobbies",
+    "books",
+    "politics"
+   ]
+  },
   "countries": {
    "concepts": [
     "Australia",
@@ -3747,7 +4950,8 @@
     "United States",
     "United States / United Kingdom",
     "Vatican City",
-    "Vietnam"
+    "Vietnam",
+    "Malaysia"
    ],
    "said": [
     "Austria",
@@ -3770,6 +4974,7 @@
     "Japan",
     "Kingdom of Finland",
     "Korea/Japan",
+    "Malaysia",
     "Mexico",
     "Mongolia",
     "Myanmar",
@@ -3808,7 +5013,10 @@
     "United Kingdom",
     "United States"
    ],
-   "fillers": []
+   "fillers": [],
+   "appended": [
+    "Malaysia"
+   ]
   },
   "criminal organizations": {
    "concepts": [
@@ -3850,6 +5058,132 @@
     "Sinaloa Cartel",
     "Cali Cartel",
     "Los Zetas"
+   ]
+  },
+  "dangerous animals": {
+   "concepts": [
+    "alligator",
+    "bear",
+    "dog",
+    "shark",
+    "venomous snake",
+    "lion",
+    "tiger",
+    "crocodile",
+    "hippopotamus",
+    "mosquito",
+    "elephant",
+    "box jellyfish",
+    "scorpion",
+    "black widow spider",
+    "Cape buffalo",
+    "rhinoceros"
+   ],
+   "said": [
+    "alligator",
+    "bear",
+    "dog",
+    "venomous snake"
+   ],
+   "gold": [
+    "shark"
+   ],
+   "fillers": [
+    "lion",
+    "tiger",
+    "crocodile",
+    "hippopotamus",
+    "mosquito",
+    "elephant",
+    "box jellyfish",
+    "scorpion",
+    "black widow spider",
+    "Cape buffalo",
+    "rhinoceros"
+   ]
+  },
+  "data sorting methods": {
+   "concepts": [
+    "pandas sort_values",
+    "SQL ORDER BY",
+    "SQLite ORDER BY",
+    "Quicksort",
+    "Merge sort",
+    "Bubble sort",
+    "Insertion sort",
+    "Selection sort",
+    "Heapsort",
+    "Radix sort",
+    "Counting sort",
+    "Bucket sort",
+    "Shell sort",
+    "Timsort",
+    "Introsort",
+    "Tree sort"
+   ],
+   "said": [
+    "SQL ORDER BY",
+    "SQLite ORDER BY"
+   ],
+   "gold": [
+    "pandas sort_values"
+   ],
+   "fillers": [
+    "Quicksort",
+    "Merge sort",
+    "Bubble sort",
+    "Insertion sort",
+    "Selection sort",
+    "Heapsort",
+    "Radix sort",
+    "Counting sort",
+    "Bucket sort",
+    "Shell sort",
+    "Timsort",
+    "Introsort",
+    "Tree sort"
+   ]
+  },
+  "data sources for statistics": {
+   "concepts": [
+    "China Health Statistics Yearbook",
+    "National Bureau of Statistics of China",
+    "UN World Population Prospects",
+    "UN, Worldometer, CIA World Factbook",
+    "World Bank",
+    "World Health Organization",
+    "U.S. Census Bureau",
+    "Eurostat",
+    "International Monetary Fund",
+    "OECD",
+    "Bureau of Labor Statistics",
+    "Our World in Data",
+    "Statista",
+    "Pew Research Center",
+    "Gallup",
+    "Office for National Statistics"
+   ],
+   "said": [
+    "China Health Statistics Yearbook",
+    "UN World Population Prospects",
+    "UN, Worldometer, CIA World Factbook",
+    "World Health Organization"
+   ],
+   "gold": [
+    "National Bureau of Statistics of China",
+    "World Bank"
+   ],
+   "fillers": [
+    "U.S. Census Bureau",
+    "Eurostat",
+    "International Monetary Fund",
+    "OECD",
+    "Bureau of Labor Statistics",
+    "Our World in Data",
+    "Statista",
+    "Pew Research Center",
+    "Gallup",
+    "Office for National Statistics"
    ]
   },
   "database management systems": {
@@ -3951,18 +5285,26 @@
     "students/departments tables",
     "User",
     "users",
-    "users table"
+    "users table",
+    "Department",
+    "Employees and Orders tables",
+    "Orders/Products",
+    "scores"
    ],
    "said": [
     "CUSTOMERS and ORDERS",
     "Class",
     "Customer",
     "Customers",
+    "Customers / Orders",
     "Customers and Orders",
+    "Department",
     "Employee",
     "Employee and Dept",
+    "Employees and Orders tables",
     "Enrollments",
     "ORDER and CUSTOMER",
+    "Orders/Products",
     "User",
     "actors",
     "animals",
@@ -3993,6 +5335,7 @@
     "projects",
     "salary table",
     "score",
+    "scores",
     "student_courses",
     "students",
     "users",
@@ -4005,6 +5348,7 @@
     "legacy",
     "legacy table",
     "students",
+    "students / departments",
     "students and departments",
     "students and departments tables",
     "students table",
@@ -4013,7 +5357,13 @@
     "students/departments query",
     "students/departments tables"
    ],
-   "fillers": []
+   "fillers": [],
+   "appended": [
+    "Department",
+    "Employees and Orders tables",
+    "Orders/Products",
+    "scores"
+   ]
   },
   "databases": {
    "concepts": [
@@ -4032,10 +5382,12 @@
     "MariaDB",
     "Cassandra",
     "DynamoDB",
-    "Elasticsearch"
+    "Elasticsearch",
+    "Firestore"
    ],
    "said": [
     "Firebase",
+    "Firestore",
     "Firestore/SQLite",
     "MySQL",
     "PostgreSQL",
@@ -4055,6 +5407,9 @@
     "Cassandra",
     "DynamoDB",
     "Elasticsearch"
+   ],
+   "appended": [
+    "Firestore"
    ]
   },
   "deep learning frameworks": {
@@ -4204,7 +5559,8 @@
     "tinea pedis",
     "Tuberculosis",
     "Windpocken",
-    "Diabetes mellitus"
+    "Diabetes mellitus",
+    "diarrhea"
    ],
    "said": [
     "Anorexia nervosa",
@@ -4215,6 +5571,7 @@
     "Windpocken",
     "acute sinusitis",
     "chronic obstructive pulmonary disease",
+    "diarrhea",
     "impetigo",
     "molluscum contagiosum",
     "myocardial infarction",
@@ -4229,6 +5586,9 @@
    ],
    "fillers": [
     "Diabetes mellitus"
+   ],
+   "appended": [
+    "diarrhea"
    ]
   },
   "drug classes": {
@@ -4313,7 +5673,10 @@
     "psilocybin",
     "psychedelics",
     "tetrahydrocannabinol",
-    "Tylenol"
+    "Tylenol",
+    "chlorpromazine",
+    "Green Amphetamine",
+    "methotrexate"
    ],
    "said": [
     "Alprazolam",
@@ -4321,6 +5684,7 @@
     "Cannabis",
     "Chloramphenicol",
     "Ciprofloxacin",
+    "Green Amphetamine",
     "Ibuprofen",
     "Insulin",
     "LSD",
@@ -4336,9 +5700,12 @@
     "cannabis",
     "cefalexin",
     "chloroquine",
+    "chlorpromazine",
     "chlorzoxazone",
+    "ciprofloxacin",
     "diazepam",
     "medical marijuana",
+    "methotrexate",
     "metoprolol",
     "morphine",
     "nivolumab",
@@ -4352,7 +5719,12 @@
     "psilocybin",
     "psychedelics"
    ],
-   "fillers": []
+   "fillers": [],
+   "appended": [
+    "chlorpromazine",
+    "Green Amphetamine",
+    "methotrexate"
+   ]
   },
   "educational apps": {
    "concepts": [
@@ -4572,14 +5944,27 @@
     "TCS Enterprise Digital Twin",
     "TCS PreMAP",
     "TCS PreMAP and TCS Enterprise Digital Twin",
-    "Workfront"
+    "Workfront",
+    "Apache Kafka",
+    "HCL Domino",
+    "IBM Content Management",
+    "IBM FileNet Content Manager",
+    "IBM FileNet Content Services",
+    "InForms",
+    "Microsoft Azure",
+    "SAP BusinessObjects InfoView"
    ],
    "said": [
     "Alfresco",
     "Apache Cassandra",
+    "Apache Kafka",
     "Documentum",
+    "HCL Domino",
+    "IBM Content Management",
     "IBM Domino",
     "IBM FileNet",
+    "IBM FileNet Content Manager",
+    "IBM FileNet Content Services",
     "IBM FileNet P8",
     "IBM FileNet Workplace XT",
     "IBM Lotus Notes",
@@ -4588,9 +5973,11 @@
     "IBM Notes and Domino",
     "IBM QRadar",
     "IBM WebSphere",
+    "InForms",
     "Informatica PowerCenter",
     "Jira",
     "Lotus Notes",
+    "Microsoft Azure",
     "Microsoft BizTalk Server",
     "Microsoft Dynamics",
     "Microsoft Dynamics 365",
@@ -4614,12 +6001,23 @@
    "gold": [
     "BusinessObjects",
     "SAP BusinessObjects",
+    "SAP BusinessObjects InfoView",
     "SAP BusinessObjects Web Intelligence",
     "TCS Enterprise Digital Twin",
     "TCS PreMAP",
     "TCS PreMAP and TCS Enterprise Digital Twin"
    ],
-   "fillers": []
+   "fillers": [],
+   "appended": [
+    "Apache Kafka",
+    "HCL Domino",
+    "IBM Content Management",
+    "IBM FileNet Content Manager",
+    "IBM FileNet Content Services",
+    "InForms",
+    "Microsoft Azure",
+    "SAP BusinessObjects InfoView"
+   ]
   },
   "enterprise software suites": {
    "concepts": [
@@ -4638,11 +6036,13 @@
     "Workday",
     "SAP ERP Central Component",
     "Infor CloudSuite",
-    "Epicor ERP"
+    "Epicor ERP",
+    "Oracle EPM"
    ],
    "said": [
     "IBM FileNet P8",
     "Microsoft Dynamics",
+    "Oracle EPM",
     "Oracle Fusion Middleware",
     "Oracle WebCenter Content",
     "SharePoint"
@@ -4661,6 +6061,9 @@
     "SAP ERP Central Component",
     "Infor CloudSuite",
     "Epicor ERP"
+   ],
+   "appended": [
+    "Oracle EPM"
    ]
   },
   "ethnic groups": {
@@ -4765,12 +6168,18 @@
     "Peter Pan",
     "Don Quixote",
     "Elizabeth Bennet",
-    "Romeo Montague"
+    "Romeo Montague",
+    "Jar Jar Binks",
+    "Plankton",
+    "Zaphod Beeblebrox"
    ],
    "said": [
     "Bilbo Baggins",
     "Frankenstein's monster",
-    "Sherlock Holmes"
+    "Jar Jar Binks",
+    "Plankton",
+    "Sherlock Holmes",
+    "Zaphod Beeblebrox"
    ],
    "gold": [
     "Arthur Dent"
@@ -4788,6 +6197,53 @@
     "Don Quixote",
     "Elizabeth Bennet",
     "Romeo Montague"
+   ],
+   "appended": [
+    "Jar Jar Binks",
+    "Plankton",
+    "Zaphod Beeblebrox"
+   ]
+  },
+  "fictional works": {
+   "concepts": [
+    "Mafia",
+    "Sherlock Holmes",
+    "The Godfather, Mafia, Boardwalk Empire",
+    "The Hitchhiker's Guide to the Galaxy",
+    "The Lord of the Rings",
+    "The Lord of the Rings, Assassin's Creed, The Outsider",
+    "Harry Potter",
+    "Star Wars",
+    "Pride and Prejudice",
+    "To Kill a Mockingbird",
+    "1984",
+    "The Great Gatsby",
+    "Moby-Dick",
+    "Don Quixote",
+    "War and Peace",
+    "The Hobbit"
+   ],
+   "said": [
+    "Sherlock Holmes",
+    "The Lord of the Rings",
+    "The Lord of the Rings, Assassin's Creed, The Outsider"
+   ],
+   "gold": [
+    "Mafia",
+    "The Godfather, Mafia, Boardwalk Empire",
+    "The Hitchhiker's Guide to the Galaxy"
+   ],
+   "fillers": [
+    "Harry Potter",
+    "Star Wars",
+    "Pride and Prejudice",
+    "To Kill a Mockingbird",
+    "1984",
+    "The Great Gatsby",
+    "Moby-Dick",
+    "Don Quixote",
+    "War and Peace",
+    "The Hobbit"
    ]
   },
   "films": {
@@ -4822,7 +6278,11 @@
     "The Lord of the Rings",
     "The Matrix",
     "The Princess Bride",
-    "Whiplash"
+    "Whiplash",
+    "Dune",
+    "Inception",
+    "The Avengers",
+    "The Matrix Resurrections"
    ],
    "said": [
     "American Sniper",
@@ -4830,8 +6290,10 @@
     "Blade Runner",
     "Bridesmaids",
     "Dr. Who and the Daleks",
+    "Dune",
     "Everything Everywhere All at Once",
     "Gladiator",
+    "Inception",
     "Interstellar",
     "Joker",
     "La La Land",
@@ -4841,6 +6303,7 @@
     "Pirates of the Caribbean",
     "Portrait of a Lady on Fire",
     "Pulp Fiction",
+    "The Avengers",
     "The Batman",
     "The Godfather",
     "The Green Knight",
@@ -4849,6 +6312,7 @@
     "The Lion King, Princess Mononoke",
     "The Lord of the Rings",
     "The Matrix",
+    "The Matrix Resurrections",
     "The Princess Bride"
    ],
    "gold": [
@@ -4861,7 +6325,13 @@
     "The Princess Bride",
     "Whiplash"
    ],
-   "fillers": []
+   "fillers": [],
+   "appended": [
+    "Dune",
+    "Inception",
+    "The Avengers",
+    "The Matrix Resurrections"
+   ]
   },
   "food establishments": {
    "concepts": [
@@ -4880,10 +6350,12 @@
     "buffet",
     "brasserie",
     "tavern",
-    "pub"
+    "pub",
+    "café"
    ],
    "said": [
     "cafe",
+    "café",
     "coffee shop",
     "restaurant"
    ],
@@ -4905,6 +6377,9 @@
     "brasserie",
     "tavern",
     "pub"
+   ],
+   "appended": [
+    "café"
    ]
   },
   "foods": {
@@ -4928,13 +6403,19 @@
     "pizza",
     "potato",
     "sushi",
-    "toaster strudels, coffee, and cookies"
+    "toaster strudels, coffee, and cookies",
+    "avocado",
+    "cheeseburger",
+    "pasta",
+    "walnut"
    ],
    "said": [
     "apple",
+    "avocado",
     "banana",
     "beer",
     "bread",
+    "cheeseburger",
     "chicken",
     "chocolate",
     "coffee",
@@ -4947,15 +6428,23 @@
     "eggs",
     "ice cream",
     "movies",
+    "pasta",
     "pizza",
     "sushi",
-    "toaster strudels, coffee, and cookies"
+    "toaster strudels, coffee, and cookies",
+    "walnut"
    ],
    "gold": [
     "pizza",
     "potato"
    ],
-   "fillers": []
+   "fillers": [],
+   "appended": [
+    "avocado",
+    "cheeseburger",
+    "pasta",
+    "walnut"
+   ]
   },
   "footwear styles": {
    "concepts": [
@@ -5016,29 +6505,49 @@
     "simple interest formula",
     "Pythagorean theorem",
     "Quadratic formula",
-    "E = mc²"
+    "E = mc²",
+    "Area = Length x Width",
+    "Diagonal formula",
+    "perimeter = a + b + c",
+    "Power = Voltage x Current",
+    "Resistance formula",
+    "triangle area formula"
    ],
    "said": [
+    "Area = Length x Width",
     "Area of a rectangle formula",
     "Average = Sum / Count",
     "Average Salary formula",
+    "Diagonal formula",
     "Gross Profit formula",
     "Perimeter = 2 × (Length + Breadth)",
     "Profit margin formula",
-    "simple interest formula"
+    "perimeter = a + b + c",
+    "simple interest formula",
+    "triangle area formula"
    ],
    "gold": [
     "Ohm's law",
     "P = V * I",
     "P = V × I",
+    "Power = Voltage x Current",
     "Power formula",
     "Resistance (R) = Voltage (V) / Current (I)",
-    "Resistance = Voltage / Current"
+    "Resistance = Voltage / Current",
+    "Resistance formula"
    ],
    "fillers": [
     "Pythagorean theorem",
     "Quadratic formula",
     "E = mc²"
+   ],
+   "appended": [
+    "Area = Length x Width",
+    "Diagonal formula",
+    "perimeter = a + b + c",
+    "Power = Voltage x Current",
+    "Resistance formula",
+    "triangle area formula"
    ]
   },
   "frontend frameworks": {
@@ -5168,6 +6677,48 @@
     "Kevin Kelly"
    ]
   },
+  "garment types": {
+   "concepts": [
+    "jacket",
+    "jeans",
+    "leather skirts",
+    "shorts",
+    "skirts",
+    "trousers",
+    "shirt",
+    "t-shirt",
+    "dress",
+    "sweater",
+    "coat",
+    "blouse",
+    "hoodie",
+    "suit",
+    "vest",
+    "cardigan"
+   ],
+   "said": [
+    "jacket",
+    "leather skirts",
+    "shorts",
+    "skirts",
+    "trousers"
+   ],
+   "gold": [
+    "jeans"
+   ],
+   "fillers": [
+    "shirt",
+    "t-shirt",
+    "dress",
+    "sweater",
+    "coat",
+    "blouse",
+    "hoodie",
+    "suit",
+    "vest",
+    "cardigan"
+   ]
+  },
   "graphics cards": {
    "concepts": [
     "AMD Radeon RX 5700 XT",
@@ -5185,12 +6736,16 @@
     "NVIDIA GeForce RTX 4080",
     "NVIDIA GeForce RTX 3070",
     "NVIDIA GeForce GTX 970",
-    "NVIDIA GeForce RTX 2080 Ti"
+    "NVIDIA GeForce RTX 2080 Ti",
+    "GeForce GTX 970",
+    "Radeon RX 550"
    ],
    "said": [
     "AMD Radeon RX 5700 XT",
     "GeForce GTS 450",
+    "GeForce GTX 970",
     "MSI GeForce GTS",
+    "Radeon RX 550",
     "Zotac GeForce RTX 4090"
    ],
    "gold": [
@@ -5208,6 +6763,10 @@
     "NVIDIA GeForce RTX 3070",
     "NVIDIA GeForce GTX 970",
     "NVIDIA GeForce RTX 2080 Ti"
+   ],
+   "appended": [
+    "GeForce GTX 970",
+    "Radeon RX 550"
    ]
   },
   "heads of state": {
@@ -5227,20 +6786,28 @@
     "Swiss Federal Council",
     "the Pope and a French head of state",
     "Xi Jinping",
-    "Abraham Lincoln"
+    "Abraham Lincoln",
+    "German Federal President and British monarch",
+    "German President or U.S. President",
+    "President of Germany",
+    "Vladimir Putin"
    ],
    "said": [
     "Donald Trump",
+    "German Federal President and British monarch",
+    "German President or U.S. President",
     "Joe Biden",
     "King Charles III",
     "Napoleon Bonaparte",
     "Pope",
     "President of Finland",
     "President of France",
+    "President of Germany",
     "President of Iceland and British monarch",
     "President of the Swiss Confederation",
     "President of the United States",
     "Swiss Federal Council",
+    "Vladimir Putin",
     "Xi Jinping",
     "the Pope and a French head of state"
    ],
@@ -5250,6 +6817,12 @@
    ],
    "fillers": [
     "Abraham Lincoln"
+   ],
+   "appended": [
+    "German Federal President and British monarch",
+    "German President or U.S. President",
+    "President of Germany",
+    "Vladimir Putin"
    ]
   },
   "herbal extracts": {
@@ -5269,12 +6842,14 @@
     "Saw palmetto extract",
     "Ashwagandha extract",
     "Elderberry extract",
-    "Garlic extract"
+    "Garlic extract",
+    "ginsenoside"
    ],
    "said": [
     "Ginkgo biloba extract",
     "Ginseng Root Extract",
-    "ginseng extract"
+    "ginseng extract",
+    "ginsenoside"
    ],
    "gold": [
     "Gastrodia elata extract",
@@ -5292,6 +6867,9 @@
     "Ashwagandha extract",
     "Elderberry extract",
     "Garlic extract"
+   ],
+   "appended": [
+    "ginsenoside"
    ]
   },
   "heterocyclic aromatic compounds": {
@@ -5359,7 +6937,8 @@
     "pyrimidine",
     "pyrrole",
     "quinoline",
-    "pyridine"
+    "pyridine",
+    "5-halogenated indole derivatives"
    ],
    "said": [
     "2-Methylquinoline",
@@ -5367,6 +6946,7 @@
     "4-aminopyridine",
     "4-methyl compound",
     "4-substituted compound",
+    "5-halogenated indole derivatives",
     "benzimidazole",
     "benzotriazole",
     "isothiazole",
@@ -5384,6 +6964,9 @@
    ],
    "fillers": [
     "pyridine"
+   ],
+   "appended": [
+    "5-halogenated indole derivatives"
    ]
   },
   "heterocyclic ring systems": {
@@ -5445,12 +7028,18 @@
     "Leopold von Ranke",
     "Thomas Babington Macaulay",
     "Eric Hobsbawm",
-    "Fernand Braudel"
+    "Fernand Braudel",
+    "Charles Beard",
+    "Robert Beisner, John Lewis Gaddis",
+    "Wightman, Gaddis"
    ],
    "said": [
+    "Charles Beard",
     "Immanuel Wallerstein",
     "John Lewis Gaddis",
-    "Walter LaFeber"
+    "Robert Beisner, John Lewis Gaddis",
+    "Walter LaFeber",
+    "Wightman, Gaddis"
    ],
    "gold": [
     "William Appleman Williams"
@@ -5468,6 +7057,53 @@
     "Thomas Babington Macaulay",
     "Eric Hobsbawm",
     "Fernand Braudel"
+   ],
+   "appended": [
+    "Charles Beard",
+    "Robert Beisner, John Lewis Gaddis",
+    "Wightman, Gaddis"
+   ]
+  },
+  "historical events": {
+   "concepts": [
+    "American entry into World War I",
+    "Civil Rights Movement",
+    "Cold War",
+    "Great Depression",
+    "Holocaust",
+    "Russian Revolution",
+    "World War II",
+    "World War I",
+    "French Revolution",
+    "American Revolution",
+    "Fall of the Berlin Wall",
+    "Moon Landing",
+    "Fall of the Roman Empire",
+    "Black Death",
+    "Renaissance",
+    "Industrial Revolution"
+   ],
+   "said": [
+    "American entry into World War I",
+    "Civil Rights Movement",
+    "Great Depression",
+    "Holocaust",
+    "Russian Revolution"
+   ],
+   "gold": [
+    "Cold War"
+   ],
+   "fillers": [
+    "World War II",
+    "World War I",
+    "French Revolution",
+    "American Revolution",
+    "Fall of the Berlin Wall",
+    "Moon Landing",
+    "Fall of the Roman Empire",
+    "Black Death",
+    "Renaissance",
+    "Industrial Revolution"
    ]
   },
   "historical topics": {
@@ -5512,6 +7148,48 @@
     "Cold War"
    ]
   },
+  "historiographical schools": {
+   "concepts": [
+    "Functionalism",
+    "Marxist historians",
+    "Orthodox school",
+    "Revisionism",
+    "revisionist",
+    "Revisionist historians",
+    "Revisionist school",
+    "traditionalist",
+    "Annales school",
+    "Whig history",
+    "Intentionalism",
+    "Cambridge School",
+    "Subaltern Studies",
+    "Microhistory",
+    "Postcolonial historiography",
+    "Rankean historicism"
+   ],
+   "said": [
+    "Functionalism",
+    "Marxist historians",
+    "Orthodox school",
+    "traditionalist"
+   ],
+   "gold": [
+    "Revisionism",
+    "Revisionist historians",
+    "Revisionist school",
+    "revisionist"
+   ],
+   "fillers": [
+    "Annales school",
+    "Whig history",
+    "Intentionalism",
+    "Cambridge School",
+    "Subaltern Studies",
+    "Microhistory",
+    "Postcolonial historiography",
+    "Rankean historicism"
+   ]
+  },
   "holidays": {
    "concepts": [
     "Christmas",
@@ -5529,7 +7207,9 @@
     "New Year's Day",
     "Hanukkah",
     "Diwali",
-    "Ramadan"
+    "Ramadan",
+    "Presidents' Day",
+    "World Oceans Day"
    ],
    "said": [
     "Christmas",
@@ -5539,7 +7219,9 @@
     "Independence Day",
     "Labor Day",
     "New Year's Eve",
-    "Thanksgiving"
+    "Presidents' Day",
+    "Thanksgiving",
+    "World Oceans Day"
    ],
    "gold": [
     "Memorial Day",
@@ -5552,6 +7234,10 @@
     "Hanukkah",
     "Diwali",
     "Ramadan"
+   ],
+   "appended": [
+    "Presidents' Day",
+    "World Oceans Day"
    ]
   },
   "horror films": {
@@ -5614,11 +7300,16 @@
     "fork",
     "knife",
     "plate",
-    "cup"
+    "cup",
+    "clock",
+    "table knife"
    ],
    "said": [
+    "clock",
     "glasses",
     "keys",
+    "knife",
+    "table knife",
     "watch"
    ],
    "gold": [
@@ -5638,6 +7329,10 @@
     "knife",
     "plate",
     "cup"
+   ],
+   "appended": [
+    "clock",
+    "table knife"
    ]
   },
   "inorganic salts": {
@@ -5657,10 +7352,12 @@
     "sodium carbonate",
     "calcium sulfate",
     "potassium iodide",
-    "silver nitrate"
+    "silver nitrate",
+    "ammonium sulfate"
    ],
    "said": [
     "ammonium nitrate",
+    "ammonium sulfate",
     "calcium chloride",
     "potassium bromide",
     "potassium chloride",
@@ -5680,6 +7377,9 @@
     "calcium sulfate",
     "potassium iodide",
     "silver nitrate"
+   ],
+   "appended": [
+    "ammonium sulfate"
    ]
   },
   "insect bites": {
@@ -5783,9 +7483,11 @@
     "triangular numbers",
     "Lucas numbers",
     "Catalan numbers",
-    "perfect numbers"
+    "perfect numbers",
+    "even numbers"
    ],
    "said": [
+    "even numbers",
     "natural numbers",
     "numbers 1 through 10",
     "numbers from 1 to 100",
@@ -5806,6 +7508,9 @@
     "Lucas numbers",
     "Catalan numbers",
     "perfect numbers"
+   ],
+   "appended": [
+    "even numbers"
    ]
   },
   "interface definition languages": {
@@ -5892,6 +7597,48 @@
     "International Labour Organization"
    ]
   },
+  "jean styles": {
+   "concepts": [
+    "Bomber jacket",
+    "Bootcut Jeans",
+    "Classic 501 Straight-Leg",
+    "High-Waisted Pants",
+    "Jeggings",
+    "Jogger Jeans",
+    "Jogger skirts",
+    "Skinny Jeans",
+    "Slim Jeans",
+    "Straight-Leg Jeans",
+    "Wide-Leg Jeans",
+    "Boyfriend Jeans",
+    "Mom Jeans",
+    "Flare Jeans",
+    "Bell-Bottom Jeans",
+    "Relaxed Fit Jeans"
+   ],
+   "said": [
+    "Bomber jacket",
+    "Bootcut Jeans",
+    "High-Waisted Pants",
+    "Jeggings",
+    "Jogger skirts",
+    "Skinny Jeans",
+    "Slim Jeans"
+   ],
+   "gold": [
+    "Classic 501 Straight-Leg",
+    "Jogger Jeans",
+    "Straight-Leg Jeans",
+    "Wide-Leg Jeans"
+   ],
+   "fillers": [
+    "Boyfriend Jeans",
+    "Mom Jeans",
+    "Flare Jeans",
+    "Bell-Bottom Jeans",
+    "Relaxed Fit Jeans"
+   ]
+  },
   "languages": {
    "concepts": [
     "Arabic",
@@ -5945,6 +7692,48 @@
    ],
    "fillers": []
   },
+  "levels of government": {
+   "concepts": [
+    "federal politics",
+    "Gemeinde",
+    "German federal government",
+    "government",
+    "municipality",
+    "State",
+    "national government",
+    "state government",
+    "local government",
+    "provincial government",
+    "regional government",
+    "municipal government",
+    "county government",
+    "city government",
+    "federal government",
+    "supranational government"
+   ],
+   "said": [
+    "German federal government",
+    "State",
+    "federal politics",
+    "government"
+   ],
+   "gold": [
+    "Gemeinde",
+    "municipality"
+   ],
+   "fillers": [
+    "national government",
+    "state government",
+    "local government",
+    "provincial government",
+    "regional government",
+    "municipal government",
+    "county government",
+    "city government",
+    "federal government",
+    "supranational government"
+   ]
+  },
   "literary works": {
    "concepts": [
     "Romeo and Juliet",
@@ -5962,12 +7751,14 @@
     "1984",
     "To Kill a Mockingbird",
     "The Great Gatsby",
-    "Crime and Punishment"
+    "Crime and Punishment",
+    "The Fall of the House of Usher"
    ],
    "said": [
     "Romeo and Juliet",
     "Shakespeare's sonnets",
     "Silver Blaze",
+    "The Fall of the House of Usher",
     "Through the Looking-Glass"
    ],
    "gold": [
@@ -5985,6 +7776,9 @@
     "To Kill a Mockingbird",
     "The Great Gatsby",
     "Crime and Punishment"
+   ],
+   "appended": [
+    "The Fall of the House of Usher"
    ]
   },
   "local databases": {
@@ -6130,7 +7924,8 @@
     "AlexNet",
     "VGG",
     "LeNet",
-    "Generative Adversarial Network"
+    "Generative Adversarial Network",
+    "SeqGAN"
    ],
    "said": [
     "BERT",
@@ -6141,6 +7936,7 @@
     "PaLM",
     "Perceiver IO",
     "Point-E",
+    "SeqGAN",
     "Variational Autoencoder"
    ],
    "gold": [
@@ -6153,6 +7949,9 @@
     "VGG",
     "LeNet",
     "Generative Adversarial Network"
+   ],
+   "appended": [
+    "SeqGAN"
    ]
   },
   "machine learning papers": {
@@ -6175,15 +7974,24 @@
     "Training language models to follow instructions with human feedback",
     "Transformer-based Reinforcement Learning (GPT-RL)",
     "Transformer-XL",
-    "Transformers: A Survey"
+    "Transformers: A Survey",
+    "Diffusion Models as Trajectory Optimizers for Offline Reinforcement Learning",
+    "Diffusion Models for Generation",
+    "diffusion models survey",
+    "Offline Reinforcement Learning: Algorithmic Framework and Benchmark",
+    "Perceiver"
    ],
    "said": [
     "Attention Is All You Need",
     "Deep Residual Learning for Image Recognition",
     "Diffusion Models Beat GANs on Image Synthesis",
+    "Diffusion Models as Trajectory Optimizers for Offline Reinforcement Learning",
+    "Diffusion Models for Generation",
     "Diffusion Models paper",
     "Diffusion Policies for Reinforcement Learning",
     "Graph Transformer",
+    "Offline Reinforcement Learning: Algorithmic Framework and Benchmark",
+    "Perceiver",
     "Perceiver IO",
     "RLHF",
     "RLHF and RLPrompt papers",
@@ -6192,7 +8000,8 @@
     "Training language models to follow instructions with human feedback",
     "Transformer-XL",
     "Transformer-based Reinforcement Learning (GPT-RL)",
-    "Transformers: A Survey"
+    "Transformers: A Survey",
+    "diffusion models survey"
    ],
    "gold": [
     "DETR",
@@ -6200,7 +8009,14 @@
     "Decision Transformer: Reinforcement Learning via Sequence Modeling",
     "End-to-End Object Detection with Transformers"
    ],
-   "fillers": []
+   "fillers": [],
+   "appended": [
+    "Diffusion Models as Trajectory Optimizers for Offline Reinforcement Learning",
+    "Diffusion Models for Generation",
+    "diffusion models survey",
+    "Offline Reinforcement Learning: Algorithmic Framework and Benchmark",
+    "Perceiver"
+   ]
   },
   "mathematical constants": {
    "concepts": [
@@ -6219,9 +8035,11 @@
     "Khinchin's constant",
     "square root of 3",
     "Glaisher–Kinkelin constant",
-    "Gelfond's constant"
+    "Gelfond's constant",
+    "1/7"
    ],
    "said": [
+    "1/7",
     "e",
     "e (Euler's number)",
     "square root of 2",
@@ -6242,6 +8060,9 @@
     "square root of 3",
     "Glaisher–Kinkelin constant",
     "Gelfond's constant"
+   ],
+   "appended": [
+    "1/7"
    ]
   },
   "mathematical theorems": {
@@ -6271,7 +8092,13 @@
     "Riemann's theorem",
     "Riemann-Roch theorem",
     "Riemann–Roch theorem",
-    "Shannon's theorem"
+    "Shannon's theorem",
+    "Hodge Index Theorem",
+    "Hodge theorem and Lefschetz fixed-point theorem",
+    "Hodge-de Rham Theorem",
+    "Morse homology theorem",
+    "Morse Theorem",
+    "Singular Homology Theorem"
    ],
    "said": [
     "Atiyah-Singer index theorem",
@@ -6283,19 +8110,25 @@
     "Fourier duality theorem",
     "Fourier's theorem",
     "Fundamental Theorem of Algebra",
+    "Hodge Index Theorem",
     "Hodge conjecture",
     "Hodge decomposition",
     "Hodge theorem",
+    "Hodge theorem and Lefschetz fixed-point theorem",
+    "Hodge-de Rham Theorem",
     "Hurewicz theorem",
     "Lefschetz fixed-point theorem",
     "Mordell's theorem",
+    "Morse Theorem",
+    "Morse homology theorem",
     "Noether's theorem",
     "Poincaré Lemma",
     "Poincaré duality",
     "Riemann's theorem",
     "Riemann-Roch theorem",
     "Riemann–Roch theorem",
-    "Shannon's theorem"
+    "Shannon's theorem",
+    "Singular Homology Theorem"
    ],
    "gold": [
     "De Rham theorem",
@@ -6303,7 +8136,15 @@
     "de Rham theorem",
     "de Rham's theorem"
    ],
-   "fillers": []
+   "fillers": [],
+   "appended": [
+    "Hodge Index Theorem",
+    "Hodge theorem and Lefschetz fixed-point theorem",
+    "Hodge-de Rham Theorem",
+    "Morse homology theorem",
+    "Morse Theorem",
+    "Singular Homology Theorem"
+   ]
   },
   "mathematical theories": {
    "concepts": [
@@ -6325,7 +8166,9 @@
     "Riemann Hypothesis",
     "Sheaf theory",
     "singular homology",
-    "Topological Data Analysis"
+    "Topological Data Analysis",
+    "random geometric structures",
+    "Stochastic Topology"
    ],
    "said": [
     "Atiyah–Singer index theorem",
@@ -6336,21 +8179,28 @@
     "Game theory",
     "Hilbert space",
     "Hodge theory",
+    "Homology theory",
     "Kleinberg's Theory",
     "Measure Theory",
     "Morse theory",
     "Quantum mechanics",
     "Riemann Hypothesis",
     "Sheaf theory",
+    "Stochastic Topology",
     "Topological Data Analysis",
     "homology theory",
     "information theory",
+    "random geometric structures",
     "singular homology"
    ],
    "gold": [
     "De Rham theory"
    ],
-   "fillers": []
+   "fillers": [],
+   "appended": [
+    "random geometric structures",
+    "Stochastic Topology"
+   ]
   },
   "mathematicians": {
    "concepts": [
@@ -6369,7 +8219,8 @@
     "Euclid",
     "Pythagoras",
     "Gottfried Wilhelm Leibniz",
-    "Pierre de Fermat"
+    "Pierre de Fermat",
+    "Witold Hurewicz"
    ],
    "said": [
     "Alan Turing",
@@ -6378,7 +8229,8 @@
     "Emmy Noether",
     "Henri Poincaré",
     "Pierre Dolbeault",
-    "W. V. D. Hodge"
+    "W. V. D. Hodge",
+    "Witold Hurewicz"
    ],
    "gold": [
     "Georges de Rham"
@@ -6392,6 +8244,9 @@
     "Pythagoras",
     "Gottfried Wilhelm Leibniz",
     "Pierre de Fermat"
+   ],
+   "appended": [
+    "Witold Hurewicz"
    ]
   },
   "media franchises": {
@@ -6453,7 +8308,8 @@
     "KMPlayer",
     "GOM Player",
     "MPV",
-    "MPlayer"
+    "MPlayer",
+    "Vizio TV"
    ],
    "said": [
     "Kodi",
@@ -6461,6 +8317,7 @@
     "Media Player",
     "Media Player Classic",
     "MediaMonkey",
+    "Vizio TV",
     "Windows Media Player",
     "iTunes"
    ],
@@ -6476,6 +8333,9 @@
     "GOM Player",
     "MPV",
     "MPlayer"
+   ],
+   "appended": [
+    "Vizio TV"
    ]
   },
   "media software applications": {
@@ -6594,13 +8454,15 @@
     "Salvia officinalis",
     "turmeric",
     "wild ginseng",
-    "Ziziphus spinosa"
+    "Ziziphus spinosa",
+    "Catharanthus roseus"
    ],
    "said": [
     "Artemisia annua",
     "Astragalus",
     "Astragalus membranaceus",
     "Bacopa monnieri",
+    "Catharanthus roseus",
     "Cinchona",
     "Coptis chinensis (黄连)",
     "Cordyceps",
@@ -6631,7 +8493,10 @@
    "gold": [
     "Gastrodia elata"
    ],
-   "fillers": []
+   "fillers": [],
+   "appended": [
+    "Catharanthus roseus"
+   ]
   },
   "message brokers": {
    "concepts": [
@@ -6820,14 +8685,18 @@
     "Queen Juan",
     "Henry VIII",
     "Louis XIV",
-    "Queen Victoria"
+    "Queen Victoria",
+    "Harald V of Norway",
+    "King of Iceland"
    ],
    "said": [
     "Charles III",
     "Harald V",
+    "Harald V of Norway",
     "King Charles III",
     "King of Denmark",
     "King of England",
+    "King of Iceland",
     "King of Norway",
     "King of Spain",
     "King of the United Kingdom",
@@ -6843,6 +8712,10 @@
     "Henry VIII",
     "Louis XIV",
     "Queen Victoria"
+   ],
+   "appended": [
+    "Harald V of Norway",
+    "King of Iceland"
    ]
   },
   "multiple-choice options": {
@@ -6950,11 +8823,13 @@
     "Chinese education system",
     "South Korean education system",
     "Indian education system",
-    "Canadian education system"
+    "Canadian education system",
+    "Japanese education"
    ],
    "said": [
     "British education system",
     "French education system",
+    "Japanese education",
     "Swiss education",
     "UK education system",
     "UK higher education",
@@ -6973,6 +8848,9 @@
     "South Korean education system",
     "Indian education system",
     "Canadian education system"
+   ],
+   "appended": [
+    "Japanese education"
    ]
   },
   "national identities": {
@@ -7015,6 +8893,48 @@
     "Indian",
     "Russian",
     "Mexican"
+   ]
+  },
+  "national statistics agencies": {
+   "concepts": [
+    "National Bureau of Health Statistics",
+    "National Bureau of Statistics of China",
+    "Statistics Bureau of Japan",
+    "Statistics Korea",
+    "United States Census Bureau",
+    "Office for National Statistics",
+    "Statistics Canada",
+    "Australian Bureau of Statistics",
+    "Eurostat",
+    "Destatis",
+    "INSEE",
+    "Istat",
+    "Statistics Netherlands",
+    "Statistics Sweden",
+    "Statistics Norway",
+    "Statistics Denmark"
+   ],
+   "said": [
+    "National Bureau of Health Statistics",
+    "Statistics Bureau of Japan",
+    "Statistics Korea"
+   ],
+   "gold": [
+    "National Bureau of Statistics of China"
+   ],
+   "fillers": [
+    "United States Census Bureau",
+    "Office for National Statistics",
+    "Statistics Canada",
+    "Australian Bureau of Statistics",
+    "Eurostat",
+    "Destatis",
+    "INSEE",
+    "Istat",
+    "Statistics Netherlands",
+    "Statistics Sweden",
+    "Statistics Norway",
+    "Statistics Denmark"
    ]
   },
   "natural bioactive compounds": {
@@ -7082,7 +9002,11 @@
     "Panax notoginseng saponins",
     "Quinine",
     "resveratrol",
-    "saponin"
+    "saponin",
+    "curcumin derivatives",
+    "ginsenosides",
+    "Panax notoginsenoside",
+    "panaxadiol"
    ],
    "said": [
     "Cordycepin",
@@ -7094,13 +9018,17 @@
     "Ginsenoside Rg3",
     "Glycyrrhizic acid",
     "Panax notoginseng saponins",
+    "Panax notoginsenoside",
     "Quinine",
     "berberine",
     "curcumin",
+    "curcumin derivatives",
     "curcuminoid",
     "ginsenoside",
+    "ginsenosides",
     "glycyrrhetinic acid and paclitaxel",
     "paeoniflorin",
+    "panaxadiol",
     "resveratrol",
     "saponin"
    ],
@@ -7108,7 +9036,13 @@
     "Gastrodin",
     "gastrodin"
    ],
-   "fillers": []
+   "fillers": [],
+   "appended": [
+    "curcumin derivatives",
+    "ginsenosides",
+    "Panax notoginsenoside",
+    "panaxadiol"
+   ]
   },
   "natural product pharmaceutical compounds": {
    "concepts": [
@@ -7150,6 +9084,48 @@
     "Codeine",
     "Atropine",
     "Ephedrine"
+   ]
+  },
+  "network data structures": {
+   "concepts": [
+    "ARP cache",
+    "ARP table",
+    "CAM table",
+    "CAM table and ARP cache",
+    "FIB",
+    "Forwarding Information Base",
+    "Memory Management Unit",
+    "RIB",
+    "RIB and FIB",
+    "Routing Information Base",
+    "Term Cache Memory",
+    "Routing table",
+    "MAC address table",
+    "NAT table",
+    "Flow table",
+    "Neighbor table"
+   ],
+   "said": [
+    "ARP cache",
+    "ARP table",
+    "CAM table",
+    "CAM table and ARP cache",
+    "Memory Management Unit",
+    "Term Cache Memory"
+   ],
+   "gold": [
+    "FIB",
+    "Forwarding Information Base",
+    "RIB",
+    "RIB and FIB",
+    "Routing Information Base"
+   ],
+   "fillers": [
+    "Routing table",
+    "MAC address table",
+    "NAT table",
+    "Flow table",
+    "Neighbor table"
    ]
   },
   "network protocols": {
@@ -7212,14 +9188,22 @@
     "public vs private IP address",
     "IDS vs IPS",
     "HTTP vs HTTPS",
-    "distance vector vs link state routing"
+    "distance vector vs link state routing",
+    "MAC vs IP addresses",
+    "SAN and NAS",
+    "switch vs hub",
+    "TCP vs IP"
    ],
    "said": [
     "IP vs MAC addressing",
     "LAN vs. WAN",
     "MAC address and IP address",
+    "MAC vs IP addresses",
     "MAC vs. IP addressing",
+    "SAN and NAS",
+    "TCP vs IP",
     "hub vs switch",
+    "switch vs hub",
     "switch vs router"
    ],
    "gold": [
@@ -7236,6 +9220,12 @@
     "IDS vs IPS",
     "HTTP vs HTTPS",
     "distance vector vs link state routing"
+   ],
+   "appended": [
+    "MAC vs IP addresses",
+    "SAN and NAS",
+    "switch vs hub",
+    "TCP vs IP"
    ]
   },
   "networking concepts": {
@@ -7255,14 +9245,18 @@
     "DHCP",
     "Subnetting",
     "Routing",
-    "NAT"
+    "NAT",
+    "switch and router",
+    "switches and routers"
    ],
    "said": [
     "MAC and IP addresses",
     "TCP and IP",
     "VLAN",
     "circuit switching vs packet switching",
-    "hub and switch"
+    "hub and switch",
+    "switch and router",
+    "switches and routers"
    ],
    "gold": [
     "RIB",
@@ -7278,6 +9272,10 @@
     "Subnetting",
     "Routing",
     "NAT"
+   ],
+   "appended": [
+    "switch and router",
+    "switches and routers"
    ]
   },
   "networking table comparisons": {
@@ -7298,12 +9296,16 @@
     "Routing table vs neighbor table",
     "Neighbor table vs topology table",
     "Topology table vs routing table",
-    "ARP table vs NDP neighbor cache"
+    "ARP table vs NDP neighbor cache",
+    "CAM Table vs ARP Cache",
+    "MAC Address Table vs. CAM Table"
    ],
    "said": [
+    "CAM Table vs ARP Cache",
     "CAM table vs routing table",
     "CAM vs TCAM",
     "CAM vs. ARP",
+    "MAC Address Table vs. CAM Table",
     "TCAM vs CAM"
    ],
    "gold": [
@@ -7322,6 +9324,54 @@
     "Neighbor table vs topology table",
     "Topology table vs routing table",
     "ARP table vs NDP neighbor cache"
+   ],
+   "appended": [
+    "CAM Table vs ARP Cache",
+    "MAC Address Table vs. CAM Table"
+   ]
+  },
+  "networking table types": {
+   "concepts": [
+    "CAM and TCAM",
+    "Forwarding Information Base",
+    "MAC Address Table",
+    "MAC address table",
+    "RAM/CAM",
+    "RIB and FIB",
+    "RIB/FIB",
+    "Routing Information Base",
+    "Routing table",
+    "ARP table",
+    "NAT table",
+    "Flow table",
+    "Neighbor table",
+    "Topology table",
+    "Adjacency table",
+    "Label Forwarding Information Base",
+    "Connection tracking table"
+   ],
+   "said": [
+    "CAM and TCAM",
+    "MAC Address Table",
+    "MAC address table",
+    "RAM/CAM"
+   ],
+   "gold": [
+    "Forwarding Information Base",
+    "RIB and FIB",
+    "RIB/FIB",
+    "Routing Information Base"
+   ],
+   "fillers": [
+    "Routing table",
+    "ARP table",
+    "NAT table",
+    "Flow table",
+    "Neighbor table",
+    "Topology table",
+    "Adjacency table",
+    "Label Forwarding Information Base",
+    "Connection tracking table"
    ]
   },
   "neural network architectures": {
@@ -7347,7 +9397,8 @@
     "Transformer decoder",
     "Transformer encoder-decoder",
     "U-Net",
-    "Vision Transformer"
+    "Vision Transformer",
+    "SegNet"
    ],
    "said": [
     "Bi-LSTM",
@@ -7362,6 +9413,7 @@
     "Perceiver",
     "ResNet",
     "ResNet-50",
+    "SegNet",
     "Set Transformer",
     "Transformer",
     "U-Net",
@@ -7376,7 +9428,10 @@
     "Transformer decoder",
     "Transformer encoder-decoder"
    ],
-   "fillers": []
+   "fillers": [],
+   "appended": [
+    "SegNet"
+   ]
   },
   "novels": {
    "concepts": [
@@ -7395,13 +9450,15 @@
     "Jane Eyre",
     "The Catcher in the Rye",
     "Crime and Punishment",
-    "Don Quixote"
+    "Don Quixote",
+    "The Restaurant at the End of the Universe"
    ],
    "said": [
     "Alice's Adventures in Wonderland",
     "Les Misérables",
     "The Lord of the Rings",
     "The Martian",
+    "The Restaurant at the End of the Universe",
     "The Wizard of Oz"
    ],
    "gold": [
@@ -7418,6 +9475,9 @@
     "The Catcher in the Rye",
     "Crime and Punishment",
     "Don Quixote"
+   ],
+   "appended": [
+    "The Restaurant at the End of the Universe"
    ]
   },
   "object detection models": {
@@ -7442,7 +9502,10 @@
     "YOLOv2",
     "YOLOv3/CenterNet",
     "YOLOv4",
-    "YOLOv8"
+    "YOLOv8",
+    "Grounding DINO",
+    "YOLOS",
+    "YOLOv3"
    ],
    "said": [
     "DINO",
@@ -7452,6 +9515,7 @@
     "FCOS",
     "Faster R-CNN",
     "Feature Pyramid Network",
+    "Grounding DINO",
     "Mask R-CNN",
     "One Stage framework",
     "R-CNN",
@@ -7460,8 +9524,10 @@
     "Set R-CNN",
     "ViTDet",
     "YOLO",
+    "YOLOS",
     "YOLOv1",
     "YOLOv2",
+    "YOLOv3",
     "YOLOv3/CenterNet",
     "YOLOv4",
     "YOLOv8"
@@ -7469,7 +9535,12 @@
    "gold": [
     "DETR"
    ],
-   "fillers": []
+   "fillers": [],
+   "appended": [
+    "Grounding DINO",
+    "YOLOS",
+    "YOLOv3"
+   ]
   },
   "operating systems": {
    "concepts": [
@@ -7488,9 +9559,11 @@
     "Chrome OS",
     "FreeBSD",
     "Debian",
-    "Fedora"
+    "Fedora",
+    "Android, macOS, Windows"
    ],
    "said": [
+    "Android, macOS, Windows",
     "Microsoft Windows",
     "Ubuntu",
     "Windows 10",
@@ -7499,6 +9572,7 @@
     "Windows, Mac"
    ],
    "gold": [
+    "Linux",
     "Windows 10",
     "Windows 10 Pro"
    ],
@@ -7512,6 +9586,9 @@
     "FreeBSD",
     "Debian",
     "Fedora"
+   ],
+   "appended": [
+    "Android, macOS, Windows"
    ]
   },
   "output functions": {
@@ -7592,17 +9669,28 @@
     "sort_by",
     "sort_index()",
     "sort_values",
-    "sort_values()"
+    "sort_values()",
+    ".dt/.astype/.to_datetime",
+    "DataFrame.dropna",
+    "DataFrame.replace",
+    "DataFrame.reset_index()",
+    "loc/iloc/rename",
+    "pandas.DataFrame.reset_index",
+    "str accessor"
    ],
    "said": [
+    ".dt/.astype/.to_datetime",
     ".iloc[] and .loc[]",
     ".loc and .iloc",
     "DataFrame.drop",
+    "DataFrame.dropna",
     "DataFrame.groupby()",
     "DataFrame.iloc",
     "DataFrame.insert()",
     "DataFrame.loc",
     "DataFrame.rename()",
+    "DataFrame.replace",
+    "DataFrame.reset_index()",
     "DataFrame.sort",
     "DataFrame.sort()",
     "drop",
@@ -7614,8 +9702,10 @@
     "iloc",
     "loc",
     "loc vs iloc",
+    "loc/iloc/rename",
     "max()",
     "pandas.DataFrame.drop()",
+    "pandas.DataFrame.reset_index",
     "pandas.DataFrame.sort()",
     "replace()",
     "reset_index",
@@ -7624,16 +9714,27 @@
     "sort",
     "sort()",
     "sort_by",
-    "sort_index()"
+    "sort_index()",
+    "str accessor"
    ],
    "gold": [
     "DataFrame.sort_values",
     "DataFrame.sort_values()",
+    "pandas.DataFrame.sort_values",
     "pandas.DataFrame.sort_values()",
     "sort_values",
     "sort_values()"
    ],
-   "fillers": []
+   "fillers": [],
+   "appended": [
+    ".dt/.astype/.to_datetime",
+    "DataFrame.dropna",
+    "DataFrame.replace",
+    "DataFrame.reset_index()",
+    "loc/iloc/rename",
+    "pandas.DataFrame.reset_index",
+    "str accessor"
+   ]
   },
   "pandas DataFrame operations": {
    "concepts": [
@@ -7653,17 +9754,23 @@
     "sorting by column",
     "merge",
     "concat",
-    "pivot_table"
+    "pivot_table",
+    "concatenation",
+    "iloc column filtering",
+    "renaming"
    ],
    "said": [
     "boolean indexing (df[df['col'] == value])",
     "boolean indexing with .loc[]",
+    "concatenation",
     "data visualization with matplotlib",
     "datetime conversion",
     "datetime manipulation",
     "dropping rows/columns",
     "filtering",
-    "groupby aggregation"
+    "groupby aggregation",
+    "iloc column filtering",
+    "renaming"
    ],
    "gold": [
     "df.sort_values()",
@@ -7677,6 +9784,11 @@
     "merge",
     "concat",
     "pivot_table"
+   ],
+   "appended": [
+    "concatenation",
+    "iloc column filtering",
+    "renaming"
    ]
   },
   "people": {
@@ -7739,9 +9851,13 @@
     "sunglasses",
     "umbrella",
     "backpack",
-    "headphones"
+    "headphones",
+    "bag",
+    "skates"
    ],
    "said": [
+    "backpack",
+    "bag",
     "guitar",
     "keys",
     "laptop",
@@ -7754,7 +9870,8 @@
    "gold": [
     "Passport",
     "bike",
-    "passport"
+    "passport",
+    "skates"
    ],
    "fillers": [
     "purse",
@@ -7763,6 +9880,10 @@
     "umbrella",
     "backpack",
     "headphones"
+   ],
+   "appended": [
+    "bag",
+    "skates"
    ]
   },
   "pharmaceutical compounds": {
@@ -7783,14 +9904,20 @@
     "Penicillin",
     "Amoxicillin",
     "Morphine",
-    "Atorvastatin"
+    "Atorvastatin",
+    "L-DOPA",
+    "levodopa",
+    "melatonin"
    ],
    "said": [
     "Cannabidiol",
+    "L-DOPA",
     "Lithium carbonate",
     "Metformin",
     "Montelukast",
     "caffeine",
+    "levodopa",
+    "melatonin",
     "merotensin",
     "paracetamol",
     "paroxetine"
@@ -7807,6 +9934,11 @@
     "Amoxicillin",
     "Morphine",
     "Atorvastatin"
+   ],
+   "appended": [
+    "L-DOPA",
+    "levodopa",
+    "melatonin"
    ]
   },
   "physical quantities": {
@@ -7854,7 +9986,10 @@
     "Voltage, Current, Power, Resistance",
     "Volume",
     "weight",
-    "Work"
+    "Work",
+    "Force",
+    "torque",
+    "Volume, Density, Area"
    ],
    "said": [
     "Average Velocity and Density",
@@ -7862,6 +9997,7 @@
     "Energy",
     "Fahrenheit and Celsius",
     "Flow Rate",
+    "Force",
     "Force, Distance, Work Done",
     "Heart Rate",
     "Heat Transfer",
@@ -7873,6 +10009,7 @@
     "Pressure and Energy",
     "Profit Margin",
     "Volume",
+    "Volume, Density, Area",
     "Work",
     "area, volume, density",
     "base height",
@@ -7887,6 +10024,7 @@
     "mass, height",
     "mass, velocity",
     "radius",
+    "torque",
     "weight"
    ],
    "gold": [
@@ -7904,7 +10042,12 @@
     "voltage and current",
     "voltage, current"
    ],
-   "fillers": []
+   "fillers": [],
+   "appended": [
+    "Force",
+    "torque",
+    "Volume, Density, Area"
+   ]
   },
   "physics formulas": {
    "concepts": [
@@ -7937,9 +10080,17 @@
     "Resistance formula",
     "temperature conversion formulas",
     "W = P × t",
-    "Work = Force × Distance"
+    "Work = Force × Distance",
+    "A = Base × Height",
+    "Area = Base × Height",
+    "Ohm's law resistance formula",
+    "triangle area formula",
+    "Volume = Area x height",
+    "Volume = Area × height"
    ],
    "said": [
+    "A = Base × Height",
+    "Area = Base × Height",
     "Area = Length × Width",
     "Area and Perimeter of a rectangle",
     "Area formula",
@@ -7951,18 +10102,22 @@
     "Perimeter = 2 × (Length + Width)",
     "Perimeter and Area formulas",
     "Profit formula",
+    "Volume = Area x height",
+    "Volume = Area × height",
     "W = P × t",
     "Work = Force × Distance",
     "area = length × breadth",
     "kinetic and potential energy formulas",
     "perimeter of a rectangle formula",
-    "temperature conversion formulas"
+    "temperature conversion formulas",
+    "triangle area formula"
    ],
    "gold": [
     "Ohm's law",
     "Ohm's law (R = V / I)",
     "Ohm's law (R=V/I)",
     "Ohm's law / electrical power formulas",
+    "Ohm's law resistance formula",
     "P = V × I",
     "P = VI, R = V/I",
     "Power = Voltage × Current",
@@ -7973,7 +10128,15 @@
     "Resistance = Voltage / Current",
     "Resistance formula"
    ],
-   "fillers": []
+   "fillers": [],
+   "appended": [
+    "A = Base × Height",
+    "Area = Base × Height",
+    "Ohm's law resistance formula",
+    "triangle area formula",
+    "Volume = Area x height",
+    "Volume = Area × height"
+   ]
   },
   "places": {
    "concepts": [
@@ -8078,11 +10241,13 @@
     "poppy seed",
     "mustard seed",
     "corn seed",
-    "watermelon seed"
+    "watermelon seed",
+    "pepper seed"
    ],
    "said": [
     "bean seeds",
     "cannabis seed",
+    "pepper seed",
     "strawberry seeds",
     "tomato seed",
     "tomato seeds"
@@ -8101,6 +10266,51 @@
     "mustard seed",
     "corn seed",
     "watermelon seed"
+   ],
+   "appended": [
+    "pepper seed"
+   ]
+  },
+  "plant species": {
+   "concepts": [
+    "Carob",
+    "cashew",
+    "Chinese elm",
+    "Gastrodia elata",
+    "Moringa",
+    "Rosmarinus officinalis",
+    "Rose",
+    "Sunflower",
+    "Oak",
+    "Maple",
+    "Tulip",
+    "Wheat",
+    "Rice",
+    "Corn",
+    "Potato",
+    "Tomato"
+   ],
+   "said": [
+    "Carob",
+    "Moringa",
+    "Rosmarinus officinalis",
+    "cashew"
+   ],
+   "gold": [
+    "Chinese elm",
+    "Gastrodia elata"
+   ],
+   "fillers": [
+    "Rose",
+    "Sunflower",
+    "Oak",
+    "Maple",
+    "Tulip",
+    "Wheat",
+    "Rice",
+    "Corn",
+    "Potato",
+    "Tomato"
    ]
   },
   "plant-derived active compounds": {
@@ -8165,7 +10375,8 @@
     "curcumin",
     "resveratrol",
     "capsaicin",
-    "quinine"
+    "quinine",
+    "swertiamarin"
    ],
    "said": [
     "CBD",
@@ -8175,7 +10386,8 @@
     "ginsenoside Rg1",
     "notoginsenosides",
     "paeoniflorin",
-    "quercetin"
+    "quercetin",
+    "swertiamarin"
    ],
    "gold": [
     "Gastrodin",
@@ -8189,6 +10401,9 @@
     "resveratrol",
     "capsaicin",
     "quinine"
+   ],
+   "appended": [
+    "swertiamarin"
    ]
   },
   "plants": {
@@ -8208,21 +10423,43 @@
     "rosemary",
     "Strawberry",
     "tomato",
-    "tomato plant"
+    "tomato plant",
+    "avocado",
+    "castor bean",
+    "Coriander",
+    "hazelnut",
+    "jade plant",
+    "Lupin",
+    "olive",
+    "pepper plant",
+    "soybean",
+    "Soybean",
+    "sweet pepper"
    ],
    "said": [
+    "Coriander",
+    "Lupin",
     "Mango",
     "Papaya",
+    "Soybean",
     "Strawberry",
     "apples",
+    "avocado",
     "basil",
     "cacao",
     "cannabis",
+    "castor bean",
     "coffee",
+    "hazelnut",
+    "jade plant",
     "lettuce",
+    "olive",
     "pea",
+    "pepper plant",
     "pistachio",
     "rosemary",
+    "soybean",
+    "sweet pepper",
     "tomato",
     "tomato plant"
    ],
@@ -8230,7 +10467,62 @@
     "Chinese elm",
     "flowers"
    ],
-   "fillers": []
+   "fillers": [],
+   "appended": [
+    "avocado",
+    "castor bean",
+    "Coriander",
+    "hazelnut",
+    "jade plant",
+    "Lupin",
+    "olive",
+    "pepper plant",
+    "soybean",
+    "Soybean",
+    "sweet pepper"
+   ]
+  },
+  "podcast hosts": {
+   "concepts": [
+    "Brazilian podcasters",
+    "Chris Truby",
+    "Guga Manga",
+    "Guga Manga and Pabi Zimmermann",
+    "Joe Rogan",
+    "Kapil Sharma",
+    "Telugu/Indian podcasters",
+    "Wu and Sacks",
+    "Marc Maron",
+    "Ira Glass",
+    "Dax Shepard",
+    "Conan O'Brien",
+    "Theo Von",
+    "Alex Cooper",
+    "Lex Fridman",
+    "Tim Ferriss"
+   ],
+   "said": [
+    "Chris Truby",
+    "Joe Rogan",
+    "Kapil Sharma",
+    "Telugu/Indian podcasters",
+    "Wu and Sacks"
+   ],
+   "gold": [
+    "Brazilian podcasters",
+    "Guga Manga",
+    "Guga Manga and Pabi Zimmermann"
+   ],
+   "fillers": [
+    "Marc Maron",
+    "Ira Glass",
+    "Dax Shepard",
+    "Conan O'Brien",
+    "Theo Von",
+    "Alex Cooper",
+    "Lex Fridman",
+    "Tim Ferriss"
+   ]
   },
   "podcasts": {
    "concepts": [
@@ -8249,17 +10541,23 @@
     "Call Her Daddy",
     "Stuff You Should Know",
     "Crime Junkie",
-    "My Favorite Murder"
+    "My Favorite Murder",
+    "Hot Ones",
+    "Lendas Urbanas",
+    "Paranormal Podcast"
    ],
    "said": [
     "Definitely Not the Opera",
+    "Hot Ones",
     "Hype Podcast",
     "Lado B",
+    "Paranormal Podcast",
     "Radiolab",
     "Radiolab España"
    ],
    "gold": [
     "Legendas Legendárias",
+    "Lendas Urbanas",
     "Leyendas Legendarias",
     "Podpah"
    ],
@@ -8272,6 +10570,11 @@
     "Stuff You Should Know",
     "Crime Junkie",
     "My Favorite Murder"
+   ],
+   "appended": [
+    "Hot Ones",
+    "Lendas Urbanas",
+    "Paranormal Podcast"
    ]
   },
   "political ideologies": {
@@ -8402,6 +10705,48 @@
     "dentist"
    ]
   },
+  "programming exercises": {
+   "concepts": [
+    "add two numbers program",
+    "C area-perimeter calculator",
+    "C++ power-resistance calculator",
+    "C++ program for Power and Resistance from Voltage and Current",
+    "Fibonacci numbers program",
+    "Fibonacci program",
+    "power and resistance calculation",
+    "prime-sum program",
+    "Python program for Area and Perimeter of a Rectangle",
+    "temperature conversion",
+    "Hello World",
+    "FizzBuzz",
+    "factorial program",
+    "palindrome checker",
+    "reverse a string",
+    "bubble sort"
+   ],
+   "said": [
+    "C area-perimeter calculator",
+    "Python program for Area and Perimeter of a Rectangle",
+    "add two numbers program",
+    "prime-sum program",
+    "temperature conversion"
+   ],
+   "gold": [
+    "C++ power-resistance calculator",
+    "C++ program for Power and Resistance from Voltage and Current",
+    "Fibonacci numbers program",
+    "Fibonacci program",
+    "power and resistance calculation"
+   ],
+   "fillers": [
+    "Hello World",
+    "FizzBuzz",
+    "factorial program",
+    "palindrome checker",
+    "reverse a string",
+    "bubble sort"
+   ]
+  },
   "programming frameworks": {
    "concepts": [
     "Android",
@@ -8419,13 +10764,15 @@
     "Flask",
     "ASP.NET",
     "Next.js",
-    "Svelte"
+    "Svelte",
+    "Unity"
    ],
    "said": [
     "Android",
     "Android Room",
     "Android/Kotlin",
-    "Flutter"
+    "Flutter",
+    "Unity"
    ],
    "gold": [
     "Laravel"
@@ -8442,6 +10789,9 @@
     "ASP.NET",
     "Next.js",
     "Svelte"
+   ],
+   "appended": [
+    "Unity"
    ]
   },
   "programming languages": {
@@ -8503,10 +10853,19 @@
     "TypeScript",
     "TypeScript/Python",
     "VB.NET",
-    "WebIDL"
+    "WebIDL",
+    "Bash",
+    "C, Go",
+    "C, Java, Python",
+    "Crystal",
+    "Elixir",
+    "Kaito",
+    "Kotlin/Native",
+    "Python, Rust, and C++"
    ],
    "said": [
     "AutoIt",
+    "Bash",
     "C",
     "C and Java",
     "C#",
@@ -8516,9 +10875,13 @@
     "C++ and Java",
     "C++ and Python",
     "C++/OCaml",
+    "C, Go",
+    "C, Java, Python",
     "C/C++",
     "C/Java",
+    "Crystal",
     "Dart",
+    "Elixir",
     "Elm",
     "Erlang",
     "F#",
@@ -8535,7 +10898,9 @@
     "JavaScript and C++",
     "JavaScript and Python",
     "Julia",
+    "Kaito",
     "Kotlin",
+    "Kotlin/Native",
     "Node.js",
     "OCaml",
     "PHP",
@@ -8547,6 +10912,7 @@
     "Python and Java",
     "Python and JavaScript",
     "Python vs Java",
+    "Python, Rust, and C++",
     "R",
     "ReScript",
     "Roc",
@@ -8576,7 +10942,17 @@
     "TypeScript",
     "WebIDL"
    ],
-   "fillers": []
+   "fillers": [],
+   "appended": [
+    "Bash",
+    "C, Go",
+    "C, Java, Python",
+    "Crystal",
+    "Elixir",
+    "Kaito",
+    "Kotlin/Native",
+    "Python, Rust, and C++"
+   ]
   },
   "programming tasks": {
    "concepts": [
@@ -8595,17 +10971,25 @@
     "palindrome check",
     "binary search",
     "bubble sort",
-    "quicksort"
+    "quicksort",
+    "array iteration",
+    "C program for area and perimeter of a rectangle",
+    "C++ program for power and resistance from voltage and current",
+    "Laravel query filtering"
    ],
    "said": [
+    "C program for area and perimeter of a rectangle",
+    "array iteration",
     "prime generation in Python",
     "printing prime numbers in C",
     "sum of 1 to 100",
     "sum of two numbers"
    ],
    "gold": [
+    "C++ program for power and resistance from voltage and current",
     "Fibonacci sequence",
     "Fibonacci sequence in C#",
+    "Laravel query filtering",
     "first 10 Fibonacci numbers",
     "printing Fibonacci numbers in C#"
    ],
@@ -8618,6 +11002,12 @@
     "binary search",
     "bubble sort",
     "quicksort"
+   ],
+   "appended": [
+    "array iteration",
+    "C program for area and perimeter of a rectangle",
+    "C++ program for power and resistance from voltage and current",
+    "Laravel query filtering"
    ]
   },
   "prohibited content categories": {
@@ -8704,6 +11094,50 @@
     "Link layer"
    ]
   },
+  "proverbs": {
+   "concepts": [
+    "Don't wait for the storm to pass, learn to dance in the rain",
+    "If you can't change the wind, change the sails",
+    "Laughter is the best medicine",
+    "Life isn't about waiting for the storm to pass, it's about learning to dance in the rain",
+    "life isn't about waiting for the storm to pass, it's about learning to dance in the rain",
+    "this too shall pass",
+    "When it rains, it pours",
+    "when life gives you lemons, make lemonade",
+    "When the winds of change blow, some build walls and others build windmills",
+    "A penny saved is a penny earned",
+    "Actions speak louder than words",
+    "The early bird catches the worm",
+    "Don't count your chickens before they hatch",
+    "A picture is worth a thousand words",
+    "Birds of a feather flock together",
+    "An apple a day keeps the doctor away",
+    "Don't put all your eggs in one basket"
+   ],
+   "said": [
+    "If you can't change the wind, change the sails",
+    "Laughter is the best medicine",
+    "When it rains, it pours",
+    "When the winds of change blow, some build walls and others build windmills",
+    "this too shall pass",
+    "when life gives you lemons, make lemonade"
+   ],
+   "gold": [
+    "Don't wait for the storm to pass, learn to dance in the rain",
+    "Life isn't about waiting for the storm to pass, it's about learning to dance in the rain",
+    "life isn't about waiting for the storm to pass, it's about learning to dance in the rain"
+   ],
+   "fillers": [
+    "A penny saved is a penny earned",
+    "Actions speak louder than words",
+    "The early bird catches the worm",
+    "Don't count your chickens before they hatch",
+    "A picture is worth a thousand words",
+    "Birds of a feather flock together",
+    "An apple a day keeps the doctor away",
+    "Don't put all your eggs in one basket"
+   ]
+  },
   "psychedelic drugs": {
    "concepts": [
     "ayahuasca",
@@ -8764,15 +11198,19 @@
     "Esketamine therapy",
     "Psycholytic therapy",
     "Holotropic breathwork",
-    "Microdosing"
+    "Microdosing",
+    "psychedelic-assisted therapy"
    ],
    "said": [
     "Ketamine therapy",
     "Ketamine-Assisted Psychotherapy",
     "Ketamine-assisted therapy",
-    "ketamine-assisted psychotherapy"
+    "ketamine-assisted psychotherapy",
+    "ketamine-assisted therapy"
    ],
-   "gold": [],
+   "gold": [
+    "psychedelic-assisted therapy"
+   ],
    "fillers": [
     "Psilocybin-assisted therapy",
     "MDMA-assisted therapy",
@@ -8787,6 +11225,9 @@
     "Psycholytic therapy",
     "Holotropic breathwork",
     "Microdosing"
+   ],
+   "appended": [
+    "psychedelic-assisted therapy"
    ]
   },
   "psychoactive drugs": {
@@ -8829,6 +11270,90 @@
     "methamphetamine",
     "amphetamine",
     "morphine"
+   ]
+  },
+  "psychologists": {
+   "concepts": [
+    "Christopher Lasch",
+    "Jean Piaget",
+    "Jean Twenge",
+    "John Gottman and Robert Leahy",
+    "Jonathan Haidt",
+    "Mihaly Csikszentmihalyi",
+    "Sigmund Freud",
+    "Carl Jung",
+    "B. F. Skinner",
+    "Ivan Pavlov",
+    "Abraham Maslow",
+    "Carl Rogers",
+    "William James",
+    "Erik Erikson",
+    "Albert Bandura",
+    "Stanley Milgram"
+   ],
+   "said": [
+    "Jean Piaget",
+    "John Gottman and Robert Leahy",
+    "Jonathan Haidt",
+    "Mihaly Csikszentmihalyi"
+   ],
+   "gold": [
+    "Christopher Lasch",
+    "Jean Twenge"
+   ],
+   "fillers": [
+    "Sigmund Freud",
+    "Carl Jung",
+    "B. F. Skinner",
+    "Ivan Pavlov",
+    "Abraham Maslow",
+    "Carl Rogers",
+    "William James",
+    "Erik Erikson",
+    "Albert Bandura",
+    "Stanley Milgram"
+   ]
+  },
+  "quote authors": {
+   "concepts": [
+    "Benjamin Franklin",
+    "Eleanor Roosevelt",
+    "Vivian Green",
+    "Vivian Greene",
+    "W.C. Fields",
+    "Woolhouse, Adler",
+    "Mark Twain",
+    "Albert Einstein",
+    "Oscar Wilde",
+    "Winston Churchill",
+    "Abraham Lincoln",
+    "Mahatma Gandhi",
+    "Confucius",
+    "William Shakespeare",
+    "Maya Angelou",
+    "Martin Luther King Jr."
+   ],
+   "said": [
+    "Benjamin Franklin",
+    "Eleanor Roosevelt",
+    "W.C. Fields",
+    "Woolhouse, Adler"
+   ],
+   "gold": [
+    "Vivian Green",
+    "Vivian Greene"
+   ],
+   "fillers": [
+    "Mark Twain",
+    "Albert Einstein",
+    "Oscar Wilde",
+    "Winston Churchill",
+    "Abraham Lincoln",
+    "Mahatma Gandhi",
+    "Confucius",
+    "William Shakespeare",
+    "Maya Angelou",
+    "Martin Luther King Jr."
    ]
   },
   "radio protocol layers": {
@@ -8934,9 +11459,11 @@
     "Theta join",
     "Equijoin",
     "Left outer join",
-    "Right outer join"
+    "Right outer join",
+    "NOT operator"
    ],
    "said": [
+    "NOT operator",
     "Negation",
     "Projection",
     "Projection (π)",
@@ -8963,6 +11490,9 @@
     "Equijoin",
     "Left outer join",
     "Right outer join"
+   ],
+   "appended": [
+    "NOT operator"
    ]
   },
   "religions": {
@@ -8982,13 +11512,15 @@
     "Bahá'í Faith",
     "Protestantism",
     "Eastern Orthodoxy",
-    "Mormonism"
+    "Mormonism",
+    "Scientology"
    ],
    "said": [
     "Buddhism",
     "Catholicism",
     "Christianity",
-    "Hinduism"
+    "Hinduism",
+    "Scientology"
    ],
    "gold": [
     "Islam"
@@ -9005,6 +11537,9 @@
     "Protestantism",
     "Eastern Orthodoxy",
     "Mormonism"
+   ],
+   "appended": [
+    "Scientology"
    ]
   },
   "router data structures": {
@@ -9091,6 +11626,48 @@
     "Bhutanese royal family"
    ]
   },
+  "schools of Cold War historiography": {
+   "concepts": [
+    "Conservative",
+    "Functionalism",
+    "Orthodox",
+    "Realism",
+    "Realists",
+    "Revisionism",
+    "Revisionists",
+    "Post-revisionism",
+    "New Cold War History",
+    "Traditionalism",
+    "Wisconsin School",
+    "New Left",
+    "Corporatism",
+    "Neo-orthodoxy",
+    "Triumphalism",
+    "Post-post-revisionism"
+   ],
+   "said": [
+    "Conservative",
+    "Functionalism",
+    "Realism",
+    "Realists"
+   ],
+   "gold": [
+    "Orthodox",
+    "Revisionism",
+    "Revisionists"
+   ],
+   "fillers": [
+    "Post-revisionism",
+    "New Cold War History",
+    "Traditionalism",
+    "Wisconsin School",
+    "New Left",
+    "Corporatism",
+    "Neo-orthodoxy",
+    "Triumphalism",
+    "Post-post-revisionism"
+   ]
+  },
   "science fiction authors": {
    "concepts": [
     "Arthur C. Clarke",
@@ -9131,6 +11708,90 @@
     "Kurt Vonnegut",
     "Mary Shelley",
     "Neal Stephenson"
+   ]
+  },
+  "science fiction franchises": {
+   "concepts": [
+    "Doctor Who",
+    "Star Trek",
+    "Star Trek: The Original Series",
+    "Star Wars",
+    "The Hitchhiker's Guide to the Galaxy",
+    "Alien",
+    "The Terminator",
+    "The Matrix",
+    "Dune",
+    "Jurassic Park",
+    "Planet of the Apes",
+    "Back to the Future",
+    "Battlestar Galactica",
+    "Stargate",
+    "Mass Effect",
+    "Halo"
+   ],
+   "said": [
+    "Doctor Who",
+    "Star Trek",
+    "Star Trek: The Original Series",
+    "Star Wars"
+   ],
+   "gold": [
+    "The Hitchhiker's Guide to the Galaxy"
+   ],
+   "fillers": [
+    "Alien",
+    "The Terminator",
+    "The Matrix",
+    "Dune",
+    "Jurassic Park",
+    "Planet of the Apes",
+    "Back to the Future",
+    "Battlestar Galactica",
+    "Stargate",
+    "Mass Effect",
+    "Halo"
+   ]
+  },
+  "science fiction works": {
+   "concepts": [
+    "2001: A Space Odyssey",
+    "Solaris",
+    "The Hitchhiker's Guide to the Galaxy",
+    "Dune",
+    "Frankenstein",
+    "Nineteen Eighty-Four",
+    "Brave New World",
+    "Foundation",
+    "Neuromancer",
+    "Star Wars",
+    "Star Trek",
+    "Blade Runner",
+    "The War of the Worlds",
+    "The Time Machine",
+    "Fahrenheit 451",
+    "Ender's Game"
+   ],
+   "said": [
+    "2001: A Space Odyssey",
+    "Solaris"
+   ],
+   "gold": [
+    "The Hitchhiker's Guide to the Galaxy"
+   ],
+   "fillers": [
+    "Dune",
+    "Frankenstein",
+    "Nineteen Eighty-Four",
+    "Brave New World",
+    "Foundation",
+    "Neuromancer",
+    "Star Wars",
+    "Star Trek",
+    "Blade Runner",
+    "The War of the Worlds",
+    "The Time Machine",
+    "Fahrenheit 451",
+    "Ender's Game"
    ]
   },
   "seasons": {
@@ -9219,6 +11880,48 @@
     "busser",
     "dishwasher",
     "line cook"
+   ]
+  },
+  "skating equipment": {
+   "concepts": [
+    "longboard",
+    "skateboard",
+    "skateboard deck",
+    "skates",
+    "ice skates",
+    "roller skates",
+    "inline skates",
+    "figure skates",
+    "hockey skates",
+    "speed skates",
+    "skate guards",
+    "helmet",
+    "knee pads",
+    "elbow pads",
+    "wrist guards",
+    "skateboard wheels"
+   ],
+   "said": [
+    "longboard",
+    "skateboard",
+    "skateboard deck"
+   ],
+   "gold": [
+    "skates"
+   ],
+   "fillers": [
+    "ice skates",
+    "roller skates",
+    "inline skates",
+    "figure skates",
+    "hockey skates",
+    "speed skates",
+    "skate guards",
+    "helmet",
+    "knee pads",
+    "elbow pads",
+    "wrist guards",
+    "skateboard wheels"
    ]
   },
   "skin concerns": {
@@ -9365,19 +12068,27 @@
     "VLC Media Player",
     "Zoom",
     "Microsoft Word",
-    "Microsoft Excel"
+    "Microsoft Excel",
+    "AutoHotkey",
+    "Google Chrome",
+    "Notepad++",
+    "SketchUp"
    ],
    "said": [
     "Adobe Photoshop",
     "Affinity Photo",
+    "AutoHotkey",
     "Blender",
     "GIMP",
+    "Google Chrome",
     "Logitech G Hub",
     "Microsoft Outlook",
     "Minecraft",
     "Nisus Writer",
+    "Notepad++",
     "OBS Studio",
     "Photoshop",
+    "SketchUp",
     "Steam",
     "Unity Editor",
     "Zoom"
@@ -9389,6 +12100,12 @@
    "fillers": [
     "Microsoft Word",
     "Microsoft Excel"
+   ],
+   "appended": [
+    "AutoHotkey",
+    "Google Chrome",
+    "Notepad++",
+    "SketchUp"
    ]
   },
   "software companies": {
@@ -9418,9 +12135,11 @@
     "SAS Institute",
     "Siemens Industry Software",
     "Tata Consultancy Services",
-    "TCS"
+    "TCS",
+    "Actian"
    ],
    "said": [
+    "Actian",
     "Adobe",
     "Atlassian",
     "BEA Systems",
@@ -9451,7 +12170,10 @@
     "TCS",
     "Tata Consultancy Services"
    ],
-   "fillers": []
+   "fillers": [],
+   "appended": [
+    "Actian"
+   ]
   },
   "software frameworks": {
    "concepts": [
@@ -9470,7 +12192,8 @@
     "Spring Boot, Vue.js, Hibernate",
     "Spring Framework",
     "Unity",
-    "React"
+    "React",
+    "React Native"
    ],
    "said": [
     "Android Kotlin/Room",
@@ -9481,6 +12204,7 @@
     "Flutter",
     "Java ecosystem tools",
     "Prisma/Node.js/Next.js",
+    "React Native",
     "Spring",
     "Spring Boot",
     "Spring Boot, Vue.js, Hibernate",
@@ -9494,6 +12218,9 @@
    ],
    "fillers": [
     "React"
+   ],
+   "appended": [
+    "React Native"
    ]
   },
   "software libraries": {
@@ -9555,12 +12282,16 @@
     "macOS",
     "Microsoft PowerPoint",
     "Microsoft Outlook",
-    "Zoom"
+    "Zoom",
+    "Apache Kafka",
+    "Oracle Identity Manager"
    ],
    "said": [
     "Apache Hadoop",
+    "Apache Kafka",
     "Blackboard",
     "Microsoft InfoPath",
+    "Oracle Identity Manager",
     "Slack",
     "Zabbix"
    ],
@@ -9578,6 +12309,10 @@
     "Microsoft PowerPoint",
     "Microsoft Outlook",
     "Zoom"
+   ],
+   "appended": [
+    "Apache Kafka",
+    "Oracle Identity Manager"
    ]
   },
   "soil types": {
@@ -9639,7 +12374,8 @@
     "cricket",
     "rugby",
     "volleyball",
-    "swimming"
+    "swimming",
+    "skateboarding"
    ],
    "said": [
     "basketball",
@@ -9647,7 +12383,8 @@
     "ice hockey",
     "motor racing",
     "motorsports",
-    "mountain biking"
+    "mountain biking",
+    "skateboarding"
    ],
    "gold": [
     "skating"
@@ -9662,6 +12399,9 @@
     "rugby",
     "volleyball",
     "swimming"
+   ],
+   "appended": [
+    "skateboarding"
    ]
   },
   "sports equipment": {
@@ -9765,10 +12505,12 @@
     "XState",
     "NgRx",
     "Valtio",
-    "Apollo Client"
+    "Apollo Client",
+    "React Context API"
    ],
    "said": [
     "Pinia",
+    "React Context API",
     "React Hooks",
     "React state management libraries",
     "Redux Toolkit",
@@ -9788,6 +12530,51 @@
     "NgRx",
     "Valtio",
     "Apollo Client"
+   ],
+   "appended": [
+    "React Context API"
+   ]
+  },
+  "storage types": {
+   "concepts": [
+    "eMMC",
+    "eMMC + Micro SD card",
+    "eMMC and MicroSD",
+    "HDD",
+    "Hybrid (SSD and HDD)",
+    "SD card",
+    "SD/MMC",
+    "SSD",
+    "SSD and HDD",
+    "NVMe SSD",
+    "USB flash drive",
+    "microSD card",
+    "Optical disc",
+    "Magnetic tape",
+    "Floppy disk",
+    "Cloud storage"
+   ],
+   "said": [
+    "SD card",
+    "SD/MMC",
+    "eMMC",
+    "eMMC + Micro SD card",
+    "eMMC and MicroSD"
+   ],
+   "gold": [
+    "HDD",
+    "Hybrid (SSD and HDD)",
+    "SSD",
+    "SSD and HDD"
+   ],
+   "fillers": [
+    "NVMe SSD",
+    "USB flash drive",
+    "microSD card",
+    "Optical disc",
+    "Magnetic tape",
+    "Floppy disk",
+    "Cloud storage"
    ]
   },
   "structural steel cross-sections": {
@@ -9807,12 +12594,14 @@
     "T-section",
     "Z-section",
     "S-shape (American Standard beam)",
-    "square hollow section"
+    "square hollow section",
+    "W10x49"
    ],
    "said": [
     "I-beam",
     "W-shape (wide-flange beam)",
     "W-shape steel sections",
+    "W10x49",
     "angle section",
     "wide-flange beam"
    ],
@@ -9830,6 +12619,9 @@
     "Z-section",
     "S-shape (American Standard beam)",
     "square hollow section"
+   ],
+   "appended": [
+    "W10x49"
    ]
   },
   "technical specifications": {
@@ -9849,7 +12641,8 @@
     "HTTP/1.1 (RFC 9112)",
     "TCP (RFC 793)",
     "IPv6 (RFC 8200)",
-    "Unicode Standard"
+    "Unicode Standard",
+    "TypeScript language specification"
    ],
    "said": [
     "ECMAScript",
@@ -9857,6 +12650,7 @@
     "Java documentation",
     "Python documentation",
     "Python standard library documentation",
+    "TypeScript language specification",
     "UEFI specification",
     "USB/PCIe specifications"
    ],
@@ -9872,6 +12666,9 @@
     "TCP (RFC 793)",
     "IPv6 (RFC 8200)",
     "Unicode Standard"
+   ],
+   "appended": [
+    "TypeScript language specification"
    ]
   },
   "technical standards": {
@@ -9891,14 +12688,20 @@
     "Unicode",
     "HTTP",
     "TCP/IP",
-    "USB"
+    "USB",
+    "IEC 62443",
+    "IEC 62443-3-3",
+    "IEEE 802.3-2018"
    ],
    "said": [
     "IEC 61131-3",
+    "IEC 62443",
+    "IEC 62443-3-3",
     "IEEE 754",
     "IEEE 802.11-2016",
     "IEEE 802.11i",
     "IEEE 802.3",
+    "IEEE 802.3-2018",
     "IEEE standard",
     "ITU-T standards"
    ],
@@ -9914,6 +12717,11 @@
     "HTTP",
     "TCP/IP",
     "USB"
+   ],
+   "appended": [
+    "IEC 62443",
+    "IEC 62443-3-3",
+    "IEEE 802.3-2018"
    ]
   },
   "technical standards specifications": {
@@ -9933,11 +12741,13 @@
     "ISO/IEC 14882",
     "Unicode Standard",
     "ECMA-262",
-    "HTML5"
+    "HTML5",
+    "IEEE 802.2"
    ],
    "said": [
     "IEEE 802.1",
     "IEEE 802.11",
+    "IEEE 802.2",
     "IEEE 802.3"
    ],
    "gold": [
@@ -9956,6 +12766,9 @@
     "Unicode Standard",
     "ECMA-262",
     "HTML5"
+   ],
+   "appended": [
+    "IEEE 802.2"
    ]
   },
   "technology companies": {
@@ -9976,7 +12789,8 @@
     "Siemens and Microsoft",
     "Siemens-Microsoft",
     "Sun Microsystems",
-    "Tata Consultancy Services"
+    "Tata Consultancy Services",
+    "Siemens Digital Industries Software"
    ],
    "said": [
     "Alibaba",
@@ -9990,6 +12804,7 @@
     "SAP/Microsoft",
     "Samsung",
     "Samsung Electronics",
+    "Siemens Digital Industries Software",
     "Siemens and Microsoft",
     "Siemens-Microsoft",
     "Sun Microsystems"
@@ -10002,7 +12817,10 @@
     "SAP",
     "Tata Consultancy Services"
    ],
-   "fillers": []
+   "fillers": [],
+   "appended": [
+    "Siemens Digital Industries Software"
+   ]
   },
   "theme parks": {
    "concepts": [
@@ -10088,6 +12906,48 @@
     "season"
    ]
   },
+  "time zones": {
+   "concepts": [
+    "Beijing Time",
+    "Central Standard Time",
+    "China Standard Time (UTC+8)",
+    "Coordinated Universal Time",
+    "Eastern Standard Time",
+    "Pacific Standard Time",
+    "Mountain Standard Time",
+    "Greenwich Mean Time",
+    "Central European Time",
+    "Japan Standard Time",
+    "Indian Standard Time",
+    "Alaska Standard Time",
+    "Hawaii-Aleutian Standard Time",
+    "Atlantic Standard Time",
+    "Eastern European Time",
+    "Western European Time"
+   ],
+   "said": [
+    "Beijing Time",
+    "Central Standard Time",
+    "China Standard Time (UTC+8)",
+    "Eastern Standard Time"
+   ],
+   "gold": [
+    "Coordinated Universal Time"
+   ],
+   "fillers": [
+    "Pacific Standard Time",
+    "Mountain Standard Time",
+    "Greenwich Mean Time",
+    "Central European Time",
+    "Japan Standard Time",
+    "Indian Standard Time",
+    "Alaska Standard Time",
+    "Hawaii-Aleutian Standard Time",
+    "Atlantic Standard Time",
+    "Eastern European Time",
+    "Western European Time"
+   ]
+  },
   "travel destinations": {
    "concepts": [
     "Egypt",
@@ -10105,10 +12965,13 @@
     "Rome",
     "Tokyo",
     "Bali",
-    "Barcelona"
+    "Barcelona",
+    "Charleston, South Carolina"
    ],
    "said": [
+    "Charleston, South Carolina",
     "Egypt",
+    "London",
     "Maui",
     "Nantucket",
     "New York City",
@@ -10128,6 +12991,9 @@
     "Tokyo",
     "Bali",
     "Barcelona"
+   ],
+   "appended": [
+    "Charleston, South Carolina"
    ]
   },
   "travel items": {
@@ -10191,7 +13057,8 @@
     "Willow",
     "Cedar",
     "Redwood",
-    "Spruce"
+    "Spruce",
+    "Pistachio tree"
    ],
    "said": [
     "Acacia",
@@ -10200,6 +13067,7 @@
     "Kapok",
     "Oak",
     "Oak, Pine, and Jatropha",
+    "Pistachio tree",
     "almond",
     "oak",
     "pine",
@@ -10216,6 +13084,9 @@
     "Cedar",
     "Redwood",
     "Spruce"
+   ],
+   "appended": [
+    "Pistachio tree"
    ]
   },
   "type systems": {
@@ -10284,20 +13155,31 @@
     "University of Oxford, University of Cambridge, Kyoto University",
     "University of Tehran",
     "University of Tokyo",
-    "Waseda University"
+    "Waseda University",
+    "Heidelberg University",
+    "National University of Singapore",
+    "Peking University or Tsinghua University",
+    "Seoul National University",
+    "Tsinghua University",
+    "University of Tokyo and Kyoto University"
    ],
    "said": [
     "ETH Zurich",
     "Harvard University",
     "Harvard University, Yale University",
     "Harvard, Stanford, Princeton, Yale, Cornell",
+    "Heidelberg University",
     "Kyoto University",
+    "National University of Singapore",
     "Oxford, Cambridge, Edinburgh",
     "Peking University",
+    "Peking University or Tsinghua University",
+    "Seoul National University",
     "Sorbonne University",
     "Sorbonne and Sciences Po",
     "Sorbonne and École Normale Supérieure",
     "Stockholm University",
+    "Tsinghua University",
     "University of Bristol",
     "University of British Columbia or University of Toronto",
     "University of Cambridge",
@@ -10308,12 +13190,21 @@
     "University of Oxford, University of Cambridge, Kyoto University",
     "University of Tehran",
     "University of Tokyo",
+    "University of Tokyo and Kyoto University",
     "Waseda University"
    ],
    "gold": [
     "Group of Eight"
    ],
-   "fillers": []
+   "fillers": [],
+   "appended": [
+    "Heidelberg University",
+    "National University of Singapore",
+    "Peking University or Tsinghua University",
+    "Seoul National University",
+    "Tsinghua University",
+    "University of Tokyo and Kyoto University"
+   ]
   },
   "vegetables": {
    "concepts": [
@@ -10332,7 +13223,8 @@
     "cauliflower",
     "celery",
     "garlic",
-    "pea"
+    "pea",
+    "olives"
    ],
    "said": [
     "apple",
@@ -10341,6 +13233,8 @@
     "broccoli",
     "carrot",
     "cucumber",
+    "olives",
+    "onion",
     "tomato"
    ],
    "gold": [
@@ -10355,6 +13249,9 @@
     "celery",
     "garlic",
     "pea"
+   ],
+   "appended": [
+    "olives"
    ]
   },
   "vehicles": {
@@ -10558,6 +13455,7 @@
    "alibaba",
    "alibabacloud",
    "alibabagroup",
+   "tongyi",
    "tongyilab",
    "tongyiqianwen"
   ],
@@ -10628,6 +13526,7 @@
   "thehitchhikersguidetothegalaxy": [
    "arthurdent",
    "douglasadams",
+   "hitchhikersguidetothegalaxyseries",
    "thehitchhikersguidetothegalaxyseries",
    "vogons"
   ],
@@ -10679,9 +13578,15 @@
   ],
   "springfestival": [
    "chinesenewyear",
-   "lunarnewyear"
+   "chunyun",
+   "lanterns",
+   "lunarnewyear",
+   "nianlegend",
+   "nianyefan",
+   "redcouplets"
   ],
   "australia": [
+   "australianeducationsystem",
    "groupofeight",
    "tafe"
   ],
@@ -10728,6 +13633,7 @@
    "skates"
   ],
   "legpain": [
+   "achinglegs",
    "calfpain",
    "kneepain",
    "legcramps",
@@ -10758,7 +13664,9 @@
    "waltdisneycompany"
   ],
   "bicycle": [
-   "bike"
+   "bike",
+   "borrowedbike",
+   "lentbike"
   ],
   "bike": [
    "bicycle",
@@ -10862,6 +13770,7 @@
   "decisiontransformer": [
    "conditionalsequencemodeling",
    "decisiontransformerreinforcementlearningviasequencemodeling",
+   "gpt",
    "markovdecisionprocess",
    "offlinereinforcementlearning",
    "offlinerl",
@@ -10876,6 +13785,7 @@
    "decisiontransformer",
    "offlinereinforcementlearning",
    "reinforcementlearning",
+   "reinforcementlearningviasequencemodeling",
    "sequencemodeling",
    "transformerarchitecture"
   ],
@@ -10892,9 +13802,12 @@
    "transformerencoderdecoder"
   ],
   "hive": [
+   "dart",
    "flutter",
+   "flutterriverpod",
    "hiveflutter",
-   "riverpod"
+   "riverpod",
+   "sharedpreferences"
   ],
   "flutter": [
    "bloc",
@@ -10911,7 +13824,11 @@
    "tablecalendar"
   ],
   "flchart": [
-   "flutter"
+   "calendarview",
+   "flutter",
+   "flutterriverpod",
+   "graphic",
+   "tablecalendar"
   ],
   "riverpod": [
    "bloc",
@@ -10974,7 +13891,8 @@
    "derhamtheory",
    "differentialforms",
    "georgesderham",
-   "singularcohomology"
+   "singularcohomology",
+   "stokestheorem"
   ],
   "georgesderham": [
    "derhamcohomology",
@@ -11010,6 +13928,7 @@
    "resnetbackbone",
    "setprediction",
    "transformer",
+   "transformerbaseddetection",
    "transformerencoderdecoder",
    "visiontransformers"
   ],
@@ -11045,6 +13964,7 @@
    "transformer"
   ],
   "technologicalsingularity": [
+   "aisuperintelligence",
    "artificialgeneralintelligence",
    "ijgood",
    "intelligenceexplosion",
@@ -11074,27 +13994,36 @@
    "amendment56",
    "annex10",
    "annex4amendment56",
+   "annex4tothechicagoconvention",
    "icao",
    "icaoannex",
    "icaoannexes",
-   "internationalcivilaviationorganization"
+   "internationalcivilaviationorganization",
+   "pbnmanualdoc9613"
   ],
-  "italian": [],
+  "italian": [
+   "certamente",
+   "italiano"
+  ],
   "sodiumhydride": [
    "chlorinebasedreagents",
    "hydrogengas",
+   "metalhydrides",
    "nah",
    "potassiumtertbutoxide",
    "strongbases"
   ],
   "fluoxetine": [
    "activepharmaceuticalingredient",
+   "activepharmaceuticalingredients",
    "antidepressant",
    "antidepressants",
    "fluoxetinehydrochloride",
    "prozac",
    "selectiveserotoninreuptakeinhibitor",
+   "selectiveserotoninreuptakeinhibitors",
    "ssri",
+   "ssriantidepressant",
    "ssris"
   ],
   "vlcmediaplayer": [
@@ -11127,6 +14056,7 @@
   "tensorflow": [
    "google",
    "keras",
+   "tf",
    "tfkeras"
   ],
   "tfkeras": [
@@ -11137,9 +14067,11 @@
   "dense": [
    "keras",
    "layersdense",
+   "tensorflow",
    "tensorflowkeraslayers",
    "tensorflowkeraslayersdense",
    "tfkeras",
+   "tfkeraslayers",
    "tfkeraslayersdense"
   ],
   "swedishgovernment": [
@@ -11194,9 +14126,11 @@
    "swedishroyalcourt"
   ],
   "dontwaitforthestormtopasslearntodanceintherain": [
+   "lifeisntaboutwaitingforthestormtopass",
    "viviangreen"
   ],
   "c++": [
+   "c++powerandresistancecalculator",
    "cincout",
    "cout",
    "cpp",
@@ -11251,20 +14185,24 @@
   ],
   "rectangulartube": [
    "boxsection",
+   "circulartube",
    "closedsection",
    "hollowstructuralsection",
    "thinwalledclosedsection"
   ],
   "sortvalues": [
+   "ascendingparameter",
    "by",
    "dataframe",
    "dataframesortvalues",
    "pandas",
    "sortingadataframebycolumn",
-   "sortingbycolumn"
+   "sortingbycolumn",
+   "sortingdataframebycolumn"
   ],
   "pandas": [
    "dataframe",
+   "dataframesortvalues",
    "python",
    "sortvalues"
   ],
@@ -11282,6 +14220,7 @@
   "chineseelm": [
    "chineseelmseed",
    "elm",
+   "lacebarkelm",
    "ulmusparvifolia"
   ],
   "loam": [
@@ -11314,11 +14253,13 @@
    "13diazine",
    "2propylpyrimidine5carbaldehyde",
    "aldehyde",
+   "aldehydes",
    "aromaticheterocycle",
    "diazine",
    "formylgroup",
    "formylgroupatposition5",
    "heterocyclicaromaticcompound",
+   "heterocyclicaromaticcompounds",
    "heterocyclicaromaticring",
    "propylgroup",
    "propylgroupatposition2",
@@ -11337,15 +14278,18 @@
    "2propylpyrimidine5carbaldehyde",
    "aldehyde",
    "aldehydes",
+   "chemicalintermediate",
    "chemicalintermediates",
    "heterocyclicaldehyde",
    "heterocyclicaldehydes",
    "heterocyclicaromaticcompounds",
    "heterocycliccompound",
+   "heterocycliccompounds",
    "heterocyclicintermediate",
    "heterocyclicintermediates",
    "pyrimidine",
    "pyrimidine5carbaldehyde",
+   "pyrimidine5carbaldehydederivatives",
    "pyrimidinealdehyde",
    "pyrimidinealdehydes",
    "pyrimidinecarbaldehyde",
@@ -11388,6 +14332,7 @@
    "alysbeach",
    "florida",
    "floridapanhandle",
+   "gulfcoast",
    "scenichighway30a",
    "waltoncounty",
    "watercolor"
@@ -11398,6 +14343,7 @@
    "bürgermeister",
    "community",
    "diegemeinde",
+   "gemeinderat",
    "localgovernment",
    "municipality",
    "müllabfuhr",
@@ -11412,7 +14358,9 @@
    "oberhaupteinergemeinde"
   ],
   "students": [
-   "departments"
+   "departments",
+   "s",
+   "studentss"
   ],
   "computerscience": [],
   "departments": [
@@ -11439,7 +14387,9 @@
   "sodiumnitrite": [
    "nano2",
    "nitritesalts",
-   "sodiumsalts"
+   "sodiumnitriteinboilingwater",
+   "sodiumsalts",
+   "water"
   ],
   "portuguese": [
    "brazilianportuguese",
@@ -11447,6 +14397,7 @@
    "pt"
   ],
   "sap": [
+   "bobj",
    "businessobjects",
    "infoview",
    "sapanalyticscloud",
@@ -11470,12 +14421,15 @@
    "bobj",
    "businessobjects",
    "businessobjectscompany",
+   "businessobjectsenterprise",
    "centralmanagementconsole",
+   "crystalreports",
    "infoview",
    "sap",
    "sapanalyticscloud",
    "sapbusinessintelligence",
    "sapbusinessobjectsadmintools",
+   "sapbusinessobjectsbi",
    "sapbusinessobjectsbiplatform",
    "sapbusinessobjectsbusinessintelligence",
    "sapbusinessobjectsdashboarddesign",
@@ -11484,6 +14438,8 @@
    "sapbusinessobjectsreportcaster",
    "sapbusinessobjectsuniversedesigntool",
    "sapbusinessobjectswebintelligence",
+   "sapdataservices",
+   "sapse",
    "sapwebintelligence",
    "universedesigntool",
    "webintelligence",
@@ -11530,6 +14486,7 @@
    "microsoft",
    "net",
    "staticvoidmain",
+   "systemnamespace",
    "usingsystem"
   ],
   "consolewriteline": [
@@ -11612,6 +14569,7 @@
   ],
   "geforcertx2060": [
    "geforce",
+   "geforcertx20series",
    "intelcorei710700f",
    "nvidia",
    "pcgamerconcórdia",
@@ -11620,16 +14578,20 @@
   "pcgamerconcórdia": [
    "concórdia",
    "intelcorei710700f",
+   "pcgamerconcórdiaintelcorei710700f16gbssd480gbehd1tbrtx2060fonte650wwindows10pro30224",
    "rtx2060",
    "windows10pro"
   ],
   "jeantwenge": [],
   "narcissism": [
    "clinicalnarcissism",
+   "darktriad",
    "narcissisticpersonalitydisorder",
    "narcissisticpersonalityinventory",
    "selfenhancementbias",
-   "subclinicalnarcissistictraits"
+   "subclinicalnarcissism",
+   "subclinicalnarcissistictraits",
+   "westernculture"
   ],
   "narcissisticpersonalitydisorder": [
    "narcissism",
@@ -11648,7 +14610,10 @@
    "π"
   ],
   "chess": [],
-  "viennagame": [],
+  "viennagame": [
+   "1e4e52nc3",
+   "opengame"
+  ],
   "siciliannajdorf": [
    "englishattack",
    "najdorf",
@@ -11690,6 +14655,8 @@
    "4hydroxybenzylalcoholglucoside",
    "4hydroxymethylphenylβdglucopyranoside",
    "gastrodiaelata",
+   "gastrodin",
+   "gastrodinextract",
    "phenolicglycoside",
    "phenolicglycosides",
    "tianma"
@@ -11816,6 +14783,8 @@
    "italianamericanorganizedcrime",
    "italianmafia",
    "lacosanostra",
+   "mafiaculture",
+   "mafiagame",
    "mafiavideogame",
    "organizedcrime",
    "sicilianmafia",
@@ -11898,6 +14867,7 @@
    "vet"
   ],
   "flowers": [
+   "blossoms",
    "plants"
   ],
   "skateculture": [
@@ -11914,6 +14884,7 @@
   ],
   "jeans": [
    "501straightleg",
+   "clothing",
    "denim",
    "highwaistedjeans",
    "joggerjeans",
@@ -11922,6 +14893,7 @@
    "levis501straightlegjeans",
    "momjeans",
    "pants",
+   "skinnyjeans",
    "slimskinnyjeans",
    "straightlegjeans",
    "widelegjeans"
@@ -11958,7 +14930,11 @@
    "racistcontent",
    "racistjokes"
   ],
-  "getprimaryservice": [],
+  "getprimaryservice": [
+   "bluetoothdevice",
+   "bluetoothremotegattserver",
+   "devicegatt"
+  ],
   "webidl": [
    "ecmascript",
    "idl",
@@ -12003,6 +14979,7 @@
    "javascriptpromises",
    "w3c",
    "w3cwebbluetoothcommunitygroup",
+   "webbluetooth",
    "webidl"
   ],
   "coldwar": [
@@ -12027,20 +15004,26 @@
    "sqlite"
   ],
   "fib": [
+   "cef",
    "forwardinginformationbase",
    "rib"
   ],
   "forwardinginformationbase": [
+   "cef",
    "ceftable",
    "ciscoexpressforwarding",
    "fib",
    "rib",
    "routinginformationbase",
+   "routingtable",
    "tcam"
   ],
   "ribandfib": [
+   "fib",
    "forwardinginformationbase",
    "forwardingtable",
+   "rib",
+   "routers",
    "routinginformationbase",
    "routingtable"
   ],
@@ -12053,7 +15036,8 @@
    "etsi",
    "eutra",
    "eutrarlcprotocolspecification",
-   "lte"
+   "lte",
+   "ts36322"
   ],
   "differentialgeometryandalgebraictopology": [
    "algebraictopology",
@@ -12071,9 +15055,11 @@
   ],
   "derhamcohomology": [
    "algebraictopology",
+   "closedandexactforms",
    "closedforms",
    "closedformsmoduloexactforms",
    "cohomology",
+   "derhamcomplex",
    "derhamstheorem",
    "derhamtheorem",
    "derhamtheory",
@@ -12091,6 +15077,7 @@
   "maybe": [
    "enum",
    "haskell",
+   "haskellmaybe",
    "just",
    "nothing",
    "rustoption",
@@ -12292,12 +15279,16 @@
   ],
   "floridapanhandle": [
    "30a",
+   "alysbeach",
    "florida",
-   "rosemarybeach"
+   "rosemarybeach",
+   "watercolor"
   ],
   "municipality": [
+   "bürgermeister",
    "community",
    "gemeinde",
+   "gemeinderat",
    "localgovernment",
    "municipalcouncil"
   ],
@@ -12356,6 +15347,7 @@
   ],
   "premap": [],
   "tcspremap": [
+   "premappingacceleratedprocess",
    "tataconsultancyservices",
    "tcs",
    "tcsenterprisedigitaltwin"
@@ -12447,7 +15439,9 @@
   ],
   "idioms": [
    "englishidioms",
+   "englishlanguage",
    "expressions",
+   "figurativeexpressions",
    "fixedexpressions",
    "phrases"
   ],
@@ -12457,7 +15451,10 @@
    "tattoostudio"
   ],
   "nightclub": [],
-  "pizza": [],
+  "pizza": [
+   "food",
+   "pizzatoppings"
+  ],
   "pizzeria": [
    "restaurant"
   ],
@@ -12469,6 +15466,7 @@
    "sequencemodeling"
   ],
   "asfaras": [
+   "onconditionthat",
    "providedthat",
    "totheextentthat"
   ],
@@ -12478,10 +15476,12 @@
   ],
   "power": [
    "current",
+   "ohms",
    "ohmslaw",
    "p=v×i",
    "resistance",
-   "voltage"
+   "voltage",
+   "watts"
   ],
   "squaremile": [],
   "snow": [
@@ -12517,7 +15517,9 @@
    "englishattack",
    "siciliandefense"
   ],
-  "chengdupushbiotechnologycoltd": [],
+  "chengdupushbiotechnologycoltd": [
+   "chengdupushbiotechnology"
+  ],
   "communistpartyofchina": [
    "centralcommissionfordisciplineinspection",
    "partydisciplineinspectionandsupervisionorgan"
@@ -12542,6 +15544,7 @@
    "sqlite3"
   ],
   "chemicalcompany": [
+   "biochemicalcompany",
    "biotechnologycompany",
    "chengdupushbiotechnologycoltd",
    "shanghaibmgchemicalcoltd",
@@ -12592,7 +15595,10 @@
    "selectcolumnlist"
   ],
   "idiom": [],
-  "mosquitobites": [],
+  "mosquitobites": [
+   "insectbites",
+   "mosquitoes"
+  ],
   "mosquitobiteprevention": [
    "insectrepellent",
    "mosquitobiterelief"
@@ -12600,7 +15606,10 @@
   "calaminelotion": [],
   "sicilianmafia": [
    "americanlacosanostra",
+   "americanmafia",
    "cosanostra",
+   "italianamericanmafia",
+   "lacosanostra",
    "mafia"
   ],
   "mafiafiction": [
@@ -12638,7 +15647,9 @@
    "tobaccoresidue"
   ],
   "lifeexpectancy": [
-   "lifeexpectancyatbirth"
+   "averagelifeexpectancy",
+   "lifeexpectancyatbirth",
+   "lifeexpectancyinchina"
   ],
   "samaritans": [
    "988suicideandcrisislifeline"
@@ -12711,6 +15722,7 @@
   ],
   "australianeducation": [
    "australia",
+   "australianschools",
    "australianuniversities",
    "groupofeight",
    "tafe",
@@ -12733,7 +15745,8 @@
   "handwriting": [
    "calligraphy",
    "penmanship",
-   "writing"
+   "writing",
+   "writingpractice"
   ],
   "handwritingflaws": [
    "baseline",
@@ -12743,7 +15756,8 @@
    "spacing"
   ],
   "cinema": [
-   "movienight"
+   "movienight",
+   "movietheater"
   ],
   "beer": [
    "afterdinner",
@@ -12777,6 +15791,7 @@
    "denim",
    "levis501",
    "levis501straightleg",
+   "pantsstyles",
    "slimskinnyfitjeans",
    "straightlegjeans"
   ],
@@ -12837,13 +15852,17 @@
   ],
   "williamapplemanwilliams": [
    "gabrielkolko",
+   "merlefeigel",
    "revisionisthistorians"
   ],
   "bookcreator": [],
   "leyendaslegendarias": [
    "legendaslegendarias"
   ],
-  "legendaslegendárias": [],
+  "legendaslegendárias": [
+   "lendasurbanas",
+   "podpah"
+  ],
   "rib": [
    "fib",
    "forwardinginformationbase",
@@ -12858,7 +15877,8 @@
    "fibpopulatedfromrib",
    "forwardinginformationbase",
    "rib",
-   "routinginformationbase"
+   "routinginformationbase",
+   "thefibispopulatedbasedonribcontent"
   ],
   "computernetworking": [
    "iprouting",
@@ -12867,7 +15887,10 @@
   ],
   "router": [
    "fib",
-   "rib"
+   "gateway",
+   "nat",
+   "rib",
+   "vpn"
   ],
   "chemicalindustry": [],
   "kde": [
@@ -12901,7 +15924,9 @@
   ],
   "gemüseanbauplaner": [
    "flutterapp",
-   "vegetablegardenplannerapp"
+   "gardenplannerapp",
+   "vegetablegardenplannerapp",
+   "vegetableplantingplannerapp"
   ],
   "tablecalendar": [
    "calendarview",
@@ -12914,9 +15939,11 @@
    "flutter"
   ],
   "vegetablegardenplannerapp": [
+   "calendarapp",
    "flutterapp",
    "gardeningapp",
-   "gemüseanbauplaner"
+   "gemüseanbauplaner",
+   "seeddatabase"
   ],
   "pubdev": [
    "dart",
@@ -12975,11 +16002,13 @@
   ],
   "derhamstheorem": [
    "derhamcohomology",
-   "derhamtheory"
+   "derhamtheory",
+   "stokestheorem"
   ],
   "singularcohomology": [
    "derhamcohomology",
    "derhamtheorem",
+   "realcoefficients",
    "singularcohomologywithrealcoefficients"
   ],
   "differentialforms": [],
@@ -13021,6 +16050,7 @@
    "topbottom"
   ],
   "tfkerasversion": [
+   "2150",
    "keras",
    "tensorflow",
    "tensorflowkerasversion",
@@ -13088,6 +16118,7 @@
   "c++cout": [
    "c++",
    "iostream",
+   "setprecision",
    "stdcout"
   ],
   "cincout": [
@@ -13186,7 +16217,10 @@
    "departments",
    "students"
   ],
-  "studentsanddepartmentstables": [],
+  "studentsanddepartmentstables": [
+   "departmentstable",
+   "studentstable"
+  ],
   "sdid=did": [
    "studentsdid=departmentsid"
   ],
@@ -13248,6 +16282,7 @@
    "acuteotitismedia",
    "earinfection",
    "middleearinfection",
+   "middleearinflammation",
    "otitisexterna"
   ],
   "jockl": [
@@ -13256,6 +16291,7 @@
   "ssdandhdd": [
    "harddiskdrive",
    "hdd",
+   "hybrid",
    "solidstatedrive",
    "ssd"
   ],
@@ -13284,6 +16320,7 @@
    "intel"
   ],
   "thecultureofnarcissism": [
+   "christinelarson",
    "christopherlasch"
   ],
   "christinelarson": [
@@ -13332,9 +16369,12 @@
    "biotechnology",
    "pharmaceuticals"
   ],
-  "haiku": [],
+  "haiku": [
+   "tercet"
+  ],
   "queryplanner": [
    "abstractsyntaxtree",
+   "ast",
    "python",
    "queryoptimizer",
    "relationalalgebra",
@@ -13401,6 +16441,7 @@
   ],
   "thegodfathermafiaboardwalkempire": [
    "boardwalkempire",
+   "mafia",
    "mafiavideogame",
    "thegodfather"
   ],
@@ -13499,7 +16540,10 @@
    "rib"
   ],
   "routinginformationbase": [
-   "rib"
+   "fib",
+   "forwardinginformationbase",
+   "rib",
+   "routingtable"
   ],
   "vegetablegardenplanner": [
    "flutterapp",
@@ -13602,9 +16646,15 @@
   ],
   "icaoannexes": [
    "aeronauticalcharting",
+   "aeronauticalcharts",
+   "amendment56",
    "annex4",
    "icao",
-   "internationalcivilaviationorganization"
+   "icaoamendments",
+   "icaoannex10",
+   "icaoannex4",
+   "internationalcivilaviationorganization",
+   "standardsandrecommendedpractices"
   ],
   "icaoannexamendments": [
    "icao",
@@ -13617,9 +16667,12 @@
    "ssri"
   ],
   "vlc3doutputshortcut": [
+   "ctrl+p",
    "ctrl+ppreferences",
    "nodefaultshortcutassigned",
-   "tools>preferences>hotkeys"
+   "tools>preferences",
+   "tools>preferences>hotkeys",
+   "vlcmediaplayer"
   ],
   "importingkeras": [
    "importtensorflowastf",
@@ -13656,7 +16709,9 @@
    "ohmslaw"
   ],
   "powerandresistancecalculatorprogram": [
+   "c++program",
    "ohmslawcalculator",
+   "voltageandcurrentinput",
    "voltagecurrentprogram"
   ],
   "c++powerresistancecalculator": [
@@ -13664,7 +16719,10 @@
    "ohmslawcalculator"
   ],
   "c++programforpowerandresistancefromvoltageandcurrent": [
+   "c++",
    "c++program",
+   "electricalpowercalculation",
+   "ohmslaw",
    "ohmslawcalculator"
   ],
   "powerandresistanceformulas": [
@@ -13691,11 +16749,14 @@
   "powerresistance": [
    "current",
    "ohmslaw",
+   "power",
+   "resistance",
    "voltage"
   ],
   "power=voltage×current": [
    "ohmslaw",
    "p=vi",
+   "p=v×i",
    "resistance=voltagecurrent"
   ],
   "c++cin": [
@@ -13749,6 +16810,7 @@
    "pandas"
   ],
   "pandassortvalues": [
+   "ascending=false",
    "dataframesortvalues",
    "pandas",
    "python"
@@ -13760,6 +16822,7 @@
    "sortvalues"
   ],
   "sorting": [
+   "sortindex",
    "sortingbycolumn",
    "sortvalues"
   ],
@@ -13819,7 +16882,11 @@
    "oracle",
    "sql"
   ],
-  "studentsjoindepartments": [],
+  "studentsjoindepartments": [
+   "departments",
+   "joindepartmentsdonsdid=did",
+   "students"
+  ],
   "studentsidsndid": [
    "departmentsiddn",
    "studentstable"
@@ -13864,6 +16931,7 @@
    "otitis"
   ],
   "eisenhowermatrix": [
+   "eisenhowerbox",
    "timemanagementmatrix",
    "urgentimportantmatrix"
   ],
@@ -14007,6 +17075,316 @@
   "studioghibli": [
    "hayaomiyazaki",
    "spiritedaway"
+  ],
+  "mosquitobornediseases": [
+   "insectbites",
+   "mosquitobites"
+  ],
+  "mosquitobornedisease": [
+   "mosquitobites"
+  ],
+  "whitevinegar": [
+   "activatedcharcoal",
+   "bakingsoda",
+   "coffeegrounds"
+  ],
+  "restaurantreception": [
+   "customerservice",
+   "friendshiprestaurant",
+   "restaurantstaff"
+  ],
+  "restaurantoperations": [
+   "customerservice",
+   "friendshiprestaurant",
+   "reservations"
+  ],
+  "birthdaycelebrationplanning": [
+   "nightclubpartyplanning",
+   "partyplanning"
+  ],
+  "confuse": [
+   "confused"
+  ],
+  "thesmiths": [],
+  "pizzaquestion": [
+   "foodpreferencequestion",
+   "restaurantopinionquestion"
+  ],
+  "magickingdom": [
+   "animalkingdom",
+   "epcot",
+   "hollywoodstudios",
+   "orlando",
+   "waltdisneyworld"
+  ],
+  "whatareyourworkinghours": [],
+  "straightlegjeans": [
+   "classic501straightleg",
+   "jeans",
+   "levis",
+   "levis501",
+   "slimskinnyjeans"
+  ],
+  "levis501": [
+   "jeans",
+   "levis",
+   "straightlegjeans"
+  ],
+  "widelegjeans": [
+   "classic501straightleg",
+   "momjeans",
+   "slimskinnyfit"
+  ],
+  "classic501straightleg": [
+   "levis",
+   "levis501",
+   "straightlegjeans"
+  ],
+  "summervacation": [
+   "summer",
+   "summermonths"
+  ],
+  "summeractivities": [],
+  "registerforaclass": [],
+  "iwouldliketoregisterforaclasstoday": [],
+  "hatespeechrequest": [
+   "offensivecontentrequest",
+   "profanityrequest",
+   "racistjokerequest"
+  ],
+  "revisionism": [
+   "coldwarrevisionism",
+   "revisionistschool"
+  ],
+  "revisionist": [
+   "gabrielkolko",
+   "newlefthistorians",
+   "williamapplemanwilliams"
+  ],
+  "revisionisthistorians": [
+   "gabrielkolko",
+   "newlefthistorians",
+   "williamapplemanwilliams"
+  ],
+  "optionb": [
+   "domesticconcernsoftheus"
+  ],
+  "b": [],
+  "starfall": [
+   "starfalleducation",
+   "starfalllearning"
+  ],
+  "mfmurphy": [],
+  "interactivestoryapps": [
+   "chooseyourownadventure"
+  ],
+  "interactivestoryappschooseyourownadventure": [],
+  "storywagon": [],
+  "brazilianpodcasts": [
+   "lendasurbanas",
+   "podpah",
+   "portugueselanguagepodcasts"
+  ],
+  "brazilianpodcasters": [
+   "podpah"
+  ],
+  "lendasurbanas": [
+   "legendaslegendárias",
+   "podpah"
+  ],
+  "gugamangaandpabizimmermann": [
+   "lendasurbanas",
+   "podpah"
+  ],
+  "createtable": [],
+  "routerforwardingtablesribandfib": [
+   "forwardinginformationbase",
+   "iprouting",
+   "routinginformationbase"
+  ],
+  "iprouting": [
+   "cisconetworking",
+   "fib",
+   "rib",
+   "routerforwarding"
+  ],
+  "optiona": [],
+  "ribfib": [
+   "forwardinginformationbase",
+   "routinginformationbase"
+  ],
+  "linux": [
+   "bsd",
+   "unixlikesystems"
+  ],
+  "gardeningplannerapp": [
+   "flutterapp",
+   "gemüseanbauplaner",
+   "vegetablegardenplanner"
+  ],
+  "rlcprotocolspecification": [
+   "3gppts36322",
+   "eutraradiolinkcontrolprotocolspecification"
+  ],
+  "observableuniverse": [
+   "universe"
+  ],
+  "differentialform": [
+   "closedform",
+   "derhamcohomology",
+   "exactform",
+   "exteriorderivative"
+  ],
+  "derhamcomplex": [
+   "derhamcohomology",
+   "derhamtheorem",
+   "differentialforms"
+  ],
+  "rustenums": [
+   "haskellalgebraicdatatypes",
+   "sumtypes"
+  ],
+  "detrobjectqueries": [
+   "bipartitematching",
+   "detr",
+   "hungarianmatching",
+   "setprediction",
+   "transformerencoderdecoder"
+  ],
+  "icaoannex4amendment56": [
+   "aeronauticalcharting",
+   "icaoannex4",
+   "internationalcivilaviationorganization"
+  ],
+  "4trifluoromethylphenylaceticacid": [
+   "3phenyl3hydroxynmethylpropylamine",
+   "chloromethane",
+   "fluoxetine"
+  ],
+  "swedishhistory": [
+   "sweden",
+   "swedishmonarchy"
+  ],
+  "pimp": [],
+  "power=voltagexcurrent": [
+   "ohmslaw",
+   "p=vxi",
+   "resistance=voltagecurrent"
+  ],
+  "powerandresistanceprogram": [
+   "ohmslawcalculator",
+   "voltageandcurrentprogram"
+  ],
+  "powerresistancefromvoltageandcurrent": [
+   "electricalpowercalculation",
+   "ohmslaw"
+  ],
+  "electricalresistance": [
+   "ohmslaw",
+   "power",
+   "r=vi"
+  ],
+  "ohmslawresistanceformula": [
+   "powerformulap=vi",
+   "r=vi"
+  ],
+  "polarmomentofinertia": [
+   "j",
+   "torsionconstant"
+  ],
+  "circle": [
+   "circulartube"
+  ],
+  "dfsortvaluesby=age": [
+   "dataframesortvalues",
+   "pandas",
+   "sortvalues"
+  ],
+  "upstairs": [],
+  "sharkinabasementpool": [],
+  "sharkinbasementpool": [],
+  "laravelqueryfiltering": [
+   "eloquentqueryscopes",
+   "laravel",
+   "searchfilter"
+  ],
+  "aldehydes": [
+   "2propylpyrimidine5carbaldehyde",
+   "heterocyclicaromaticcompounds",
+   "pyrimidines"
+  ],
+  "primaryschool": [
+   "elementaryschool",
+   "fourthgrade",
+   "grundschule"
+  ],
+  "departmentsandstudentstables": [],
+  "psychedelicassistedtherapy": [
+   "lsd",
+   "mdma",
+   "psilocybin"
+  ],
+  "crchandbookofchemistryandphysics": [
+   "handbookofinorganicchemicals",
+   "merckindex"
+  ],
+  "fibonaccisequenceprogram": [
+   "c",
+   "first10fibonaccinumbers"
+  ],
+  "fibonaccinumbersprogram": [
+   "consolewriteline",
+   "cprogram",
+   "fibonaccisequence"
+  ],
+  "shiva": [
+   "mahadeva",
+   "rudra"
+  ],
+  "brother": [
+   "sibling"
+  ],
+  "mariamagdalenemarianne": [
+   "jockl"
+  ],
+  "vpngatewaysharing": [
+   "internetconnectionsharing",
+   "routergateway",
+   "vpn"
+  ],
+  "ssd": [
+   "harddrive",
+   "hdd",
+   "hybridssdandhdd",
+   "solidstatedrive"
+  ],
+  "siciliandefense": [
+   "dragonvariation",
+   "najdorfvariation",
+   "opensicilian"
+  ],
+  "opening": [
+   "middlegame",
+   "openingrepertoire",
+   "siciliannajdorf"
+  ],
+  "chemicalsynthesis": [
+   "chemicalmanufacturing",
+   "gastrodinproduction",
+   "pharmaceuticalmanufacturing"
+  ],
+  "gastrodinproductionprocess": [
+   "chemicalindustry",
+   "gastrodiaelata",
+   "gastrodin",
+   "pharmaceuticalchemistry"
+  ],
+  "morningcoffee": [
+   "coffee",
+   "darkroast"
+  ],
+  "tablescan": [
+   "relop"
   ]
  }
 }

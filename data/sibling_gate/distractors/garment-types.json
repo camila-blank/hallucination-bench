@@ -1,0 +1,152 @@
+{
+"mlnla-ck2000-all11:chat-dailydialog-0068__L028__p280:skirttypes:jeansstyles": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0068__L028__p280:skirttypes:jeansstyles",
+"anchor": "jeans",
+"nearest": [
+"sweater",
+"coat",
+"hoodie",
+"vest"
+],
+"random": [
+"blouse",
+"cardigan"
+],
+"distractors": [
+"sweater",
+"coat",
+"hoodie",
+"vest",
+"blouse",
+"cardigan"
+],
+"n_eligible": 6,
+"sha": "0039a20365a025a8cf282706c09bf72aef40ccde018b6ea15b58bb7f9eb97909",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0068__L032__p280:leatherskirts:jeans": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0068__L032__p280:leatherskirts:jeans",
+"anchor": "jeans",
+"nearest": [
+"sweater",
+"coat",
+"hoodie",
+"vest"
+],
+"random": [
+"blouse",
+"cardigan"
+],
+"distractors": [
+"sweater",
+"coat",
+"hoodie",
+"vest",
+"blouse",
+"cardigan"
+],
+"n_eligible": 6,
+"sha": "e354d6d7c84cc0b24552597df10db8a69dad670454e38eefac68c37706969ce6",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0068__L048__p103:jacket:jeans": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0068__L048__p103:jacket:jeans",
+"anchor": "jeans",
+"nearest": [
+"sweater",
+"coat",
+"hoodie",
+"vest"
+],
+"random": [
+"blouse",
+"cardigan"
+],
+"distractors": [
+"sweater",
+"coat",
+"hoodie",
+"vest",
+"blouse",
+"cardigan"
+],
+"n_eligible": 6,
+"sha": "4565050e36a99c72bdecb974faf16dd14c9f031f40bda9dc19cf62e7fd162a9f",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0068__L056__p401:shorts:jeans": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0068__L056__p401:shorts:jeans",
+"anchor": "jeans",
+"nearest": [
+"sweater",
+"coat",
+"hoodie",
+"vest"
+],
+"random": [
+"blouse",
+"cardigan"
+],
+"distractors": [
+"sweater",
+"coat",
+"hoodie",
+"vest",
+"blouse",
+"cardigan"
+],
+"n_eligible": 6,
+"sha": "515ddfde6cf88d5a215541ca1a6946af2e303b37b5018d452891ff41fd347bf4",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-dailydialog-0068__L028__p280:trousers:jeans": {
+"unit": "mlnla-rl2-800-all11:chat-dailydialog-0068__L028__p280:trousers:jeans",
+"anchor": "jeans",
+"nearest": [
+"sweater",
+"coat",
+"hoodie",
+"vest"
+],
+"random": [
+"blouse",
+"cardigan"
+],
+"distractors": [
+"sweater",
+"coat",
+"hoodie",
+"vest",
+"blouse",
+"cardigan"
+],
+"n_eligible": 6,
+"sha": "d3d191383781ea593c0f68b477400a451173768cfca7609246b86dbeeca67d9a",
+"generation": 1
+},
+"nla-rl-L42:chat-dailydialog-0068__L042__p280:skirttypes:jeansstyles": {
+"unit": "nla-rl-L42:chat-dailydialog-0068__L042__p280:skirttypes:jeansstyles",
+"anchor": "jeans",
+"nearest": [
+"sweater",
+"coat",
+"hoodie",
+"vest"
+],
+"random": [
+"blouse",
+"cardigan"
+],
+"distractors": [
+"sweater",
+"coat",
+"hoodie",
+"vest",
+"blouse",
+"cardigan"
+],
+"n_eligible": 6,
+"sha": "7fa7300f893857307bf50c70d3c0f7a8baf120eae9d393fed8bcd87a2ce99189",
+"generation": 1
+}
+}

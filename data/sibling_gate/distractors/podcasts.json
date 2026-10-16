@@ -1,4 +1,114 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0006__L032__p142:hotonespodcast:lendasurbanas": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0006__L032__p142:hotonespodcast:lendasurbanas",
+"anchor": "Lendas Urbanas",
+"nearest": [
+"Leyendas Legendarias",
+"This American Life",
+"The Daily",
+"My Favorite Murder"
+],
+"random": [
+"Call Her Daddy",
+"Crime Junkie",
+"Serial"
+],
+"distractors": [
+"Leyendas Legendarias",
+"This American Life",
+"The Daily",
+"My Favorite Murder",
+"Call Her Daddy",
+"Crime Junkie",
+"Serial"
+],
+"n_eligible": 7,
+"sha": "78e12962025a672ba4a392bd0ee43514e29246951a737b42adfa07fd9ef77c59",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0006__L036__p70:paranormalpodcast:lendasurbanas": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0006__L036__p70:paranormalpodcast:lendasurbanas",
+"anchor": "Lendas Urbanas",
+"nearest": [
+"Leyendas Legendarias",
+"This American Life",
+"The Daily",
+"My Favorite Murder"
+],
+"random": [
+"Call Her Daddy",
+"Crime Junkie",
+"Serial"
+],
+"distractors": [
+"Leyendas Legendarias",
+"This American Life",
+"The Daily",
+"My Favorite Murder",
+"Call Her Daddy",
+"Crime Junkie",
+"Serial"
+],
+"n_eligible": 7,
+"sha": "6bb6dd9f56a8aa9fa09a7af424fefc35a3c9ad2137adf31e31a84b9983a5f6a5",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0006__L048__p194:radiolab:podpah": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0006__L048__p194:radiolab:podpah",
+"anchor": "Podpah",
+"nearest": [
+"Leyendas Legendarias",
+"Call Her Daddy",
+"Serial",
+"The Daily"
+],
+"random": [
+"Crime Junkie",
+"Legendas Legendárias",
+"My Favorite Murder",
+"This American Life"
+],
+"distractors": [
+"Leyendas Legendarias",
+"Call Her Daddy",
+"Serial",
+"The Daily",
+"Crime Junkie",
+"Legendas Legendárias",
+"My Favorite Murder",
+"This American Life"
+],
+"n_eligible": 8,
+"sha": "c29d9df7611d64393a2553141cfda6a3cb3f13ef2067827a137b802a5d66af34",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0006__L056__p142:ladob:lendasurbanas": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0006__L056__p142:ladob:lendasurbanas",
+"anchor": "Legendas Legendárias",
+"nearest": [
+"Leyendas Legendarias",
+"This American Life",
+"The Daily",
+"Call Her Daddy"
+],
+"random": [
+"Crime Junkie",
+"My Favorite Murder",
+"Serial"
+],
+"distractors": [
+"Leyendas Legendarias",
+"This American Life",
+"The Daily",
+"Call Her Daddy",
+"Crime Junkie",
+"My Favorite Murder",
+"Serial"
+],
+"n_eligible": 7,
+"sha": "f1afee078f3d61e5e825a580cd6d74fcfe5083aa1dd3e3fa32756828407bab1d",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0006__L036__p233:ladob:lendasurbanas": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0006__L036__p233:ladob:lendasurbanas",
 "anchor": "Legendas Legendárias",

@@ -1,4 +1,124 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0069__L020__p384:panaxnotoginsenoside:gastrodin": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0069__L020__p384:panaxnotoginsenoside:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "9a621e9c51b2681b22ad67b3886659f729066bb8175bc851ddf248aa83d90f21",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0069__L020__p94:paeoniflorin:gastrodin": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0069__L020__p94:paeoniflorin:gastrodin",
+"anchor": "gastrodin",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "7209b7654ace3e474905ccbd7737798fe3f2f7c25d6c673e4c1454c7755084f0",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0069__L024__p94:paeoniflorin:gastrodin": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0069__L024__p94:paeoniflorin:gastrodin",
+"anchor": "gastrodin",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "dd9e088dd61ff42fecc99b7f2803ead2c6cc1f057dd738644e687c40e04c2d77",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0069__L028__p94:paeoniflorin:gastrodin": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0069__L028__p94:paeoniflorin:gastrodin",
+"anchor": "gastrodin",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "37d91b426d0e2b3354be2e1f59c17f780a4aca1f952f1a2b5f69bb69c1c8c602",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0069__L032__p311:curcuminderivatives:gastrodin": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0069__L032__p311:curcuminderivatives:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "eb70c8e39213a00027a03a93c3e10e8cba81912cff0f22815f8e3bdcdcc06802",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0069__L032__p94:paeoniflorin:gastrodin": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0069__L032__p94:paeoniflorin:gastrodin",
+"anchor": "gastrodin",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "bdb5e216d05392adc8cad8b1317699f5d3bb270780d25f4bb82b5f40e2e36882",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0069__L036__p384:recompoundkginsenosides:gastrodin": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0069__L036__p384:recompoundkginsenosides:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "8045d9a1b34712beaa55bc823349fb9776bcde09ee31ed4be721ee435cef734d",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0069__L056__p311:quinine:gastrodin": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0069__L056__p311:quinine:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "32135953867ba55b5c4b6c8f1c051759a36eeee2d4d9e836684f52a13d7450ee",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0069__L056__p486:panaxnotoginsengsaponins:gastrodin": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0069__L056__p486:panaxnotoginsengsaponins:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "62054c5da242bcc66de7f290292043d615320213c7c0544e45a900553fae4d37",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0069__L060__p311:quinine:gastrodin": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0069__L060__p311:quinine:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "b781c7eee5eb0f117c88789b9da2b5a6f3044aefa5be840425150a6158452b18",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0069__L060__p486:panaxadiol:gastrodin": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0069__L060__p486:panaxadiol:gastrodin",
+"anchor": "gastrodin",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "3e33ec44a6ad8f3317abd71a3451884d4de481efdd43b7b882dd5893681ef8b7",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0069__L060__p486:panaxnotoginsengsaponins:gastrodin": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0069__L060__p486:panaxnotoginsengsaponins:gastrodin",
+"anchor": "Gastrodin",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "f95f014e8b3c35ee84a43648e0abf27c3d935f12a4109e247427bc4631be8c6a",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0069__L020__p384:panaxnotoginsengsaponins:gastrodin": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0069__L020__p384:panaxnotoginsengsaponins:gastrodin",
 "anchor": "Gastrodin",

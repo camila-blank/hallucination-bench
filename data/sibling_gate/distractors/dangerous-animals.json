@@ -1,0 +1,152 @@
+{
+"mlnla-ck2000-all11:chat-lmsys-0041__L020__p127:threateningdog:shark": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0041__L020__p127:threateningdog:shark",
+"anchor": "shark",
+"nearest": [
+"hippopotamus",
+"box jellyfish",
+"rhinoceros",
+"mosquito"
+],
+"random": [
+"Cape buffalo",
+"black widow spider"
+],
+"distractors": [
+"hippopotamus",
+"box jellyfish",
+"rhinoceros",
+"mosquito",
+"Cape buffalo",
+"black widow spider"
+],
+"n_eligible": 6,
+"sha": "b6980755a36496adfe9b293b9e00c39bb8480995f281485c361db90ea626db08",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0041__L032__p145:chargingbear:shark": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0041__L032__p145:chargingbear:shark",
+"anchor": "shark",
+"nearest": [
+"hippopotamus",
+"box jellyfish",
+"rhinoceros",
+"mosquito"
+],
+"random": [
+"Cape buffalo",
+"black widow spider"
+],
+"distractors": [
+"hippopotamus",
+"box jellyfish",
+"rhinoceros",
+"mosquito",
+"Cape buffalo",
+"black widow spider"
+],
+"n_eligible": 6,
+"sha": "119f5c115b414e32bf0b2c993cfa82b1a9c2de8c3bd480fd686e0b3f9af89319",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0041__L040__p127:alligatorinabathroom:sharkinabasementpool": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0041__L040__p127:alligatorinabathroom:sharkinabasementpool",
+"anchor": "shark",
+"nearest": [
+"hippopotamus",
+"box jellyfish",
+"rhinoceros",
+"mosquito"
+],
+"random": [
+"Cape buffalo",
+"black widow spider"
+],
+"distractors": [
+"hippopotamus",
+"box jellyfish",
+"rhinoceros",
+"mosquito",
+"Cape buffalo",
+"black widow spider"
+],
+"n_eligible": 6,
+"sha": "44d93baa0dd1c5930cfa9c8f67843692409c8e0a7b08446f04c8f1ccddbd880a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0041__L048__p127:venomoussnake:shark": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0041__L048__p127:venomoussnake:shark",
+"anchor": "shark",
+"nearest": [
+"hippopotamus",
+"box jellyfish",
+"rhinoceros",
+"mosquito"
+],
+"random": [
+"Cape buffalo",
+"black widow spider"
+],
+"distractors": [
+"hippopotamus",
+"box jellyfish",
+"rhinoceros",
+"mosquito",
+"Cape buffalo",
+"black widow spider"
+],
+"n_eligible": 6,
+"sha": "646590dd2c72b390d1f28c8a584546134c241e38e8588d9d0aaf19da07284fe1",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0041__L052__p105:bearbehindadoor:sharkinbasementpool": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0041__L052__p105:bearbehindadoor:sharkinbasementpool",
+"anchor": "shark",
+"nearest": [
+"hippopotamus",
+"box jellyfish",
+"rhinoceros",
+"mosquito"
+],
+"random": [
+"Cape buffalo",
+"black widow spider"
+],
+"distractors": [
+"hippopotamus",
+"box jellyfish",
+"rhinoceros",
+"mosquito",
+"Cape buffalo",
+"black widow spider"
+],
+"n_eligible": 6,
+"sha": "ce077ceffd9108ae38e16f5e0727c62b9a5f2490a022690826cb8a9590c3c7f0",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0041__L052__p105:chargingbear:shark": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0041__L052__p105:chargingbear:shark",
+"anchor": "shark",
+"nearest": [
+"hippopotamus",
+"box jellyfish",
+"rhinoceros",
+"mosquito"
+],
+"random": [
+"Cape buffalo",
+"black widow spider"
+],
+"distractors": [
+"hippopotamus",
+"box jellyfish",
+"rhinoceros",
+"mosquito",
+"Cape buffalo",
+"black widow spider"
+],
+"n_eligible": 6,
+"sha": "5142619eaf7968adc53197361ca5b891518ea10b316db4bcb156cce0b54f6055",
+"generation": 1
+}
+}

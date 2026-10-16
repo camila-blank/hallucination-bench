@@ -1,4 +1,62 @@
 {
+"mlnla-ck2000-all11:chat-dailydialog-0009__L052__p127:thewitcher:thegodfather": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0009__L052__p127:thewitcher:thegodfather",
+"anchor": "Mafia",
+"nearest": [
+"Grand Theft Auto V",
+"Halo: Combat Evolved",
+"The Elder Scrolls V: Skyrim",
+"Fortnite"
+],
+"random": [
+"Minecraft",
+"Slenderman",
+"Tetris",
+"The Legend of Zelda: Breath of the Wild"
+],
+"distractors": [
+"Grand Theft Auto V",
+"Halo: Combat Evolved",
+"The Elder Scrolls V: Skyrim",
+"Fortnite",
+"Minecraft",
+"Slenderman",
+"Tetris",
+"The Legend of Zelda: Breath of the Wild"
+],
+"n_eligible": 11,
+"sha": "2893ec87b2a390821903e9190fedf6306d1d99d72d4b18deb1e99c6a2a84c84d",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0005__L056__p106:slenderman:swindle": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0005__L056__p106:slenderman:swindle",
+"anchor": "Slenderman",
+"nearest": [
+"Super Mario Bros.",
+"Halo: Combat Evolved",
+"The Legend of Zelda: Breath of the Wild",
+"Pac-Man"
+],
+"random": [
+"Grand Theft Auto V",
+"Mafia",
+"The Elder Scrolls V: Skyrim",
+"The Witcher"
+],
+"distractors": [
+"Super Mario Bros.",
+"Halo: Combat Evolved",
+"The Legend of Zelda: Breath of the Wild",
+"Pac-Man",
+"Grand Theft Auto V",
+"Mafia",
+"The Elder Scrolls V: Skyrim",
+"The Witcher"
+],
+"n_eligible": 12,
+"sha": "7a12f41ac3095a920fc2f929a6641201443b3246c2fb96c13b19ab24f399e245",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-dailydialog-0009__L044__p127:thewitchergodofwar:thegodfathermafiaboardwalkempire": {
 "unit": "mlnla-rl2-800-all11:chat-dailydialog-0009__L044__p127:thewitchergodofwar:thegodfathermafiaboardwalkempire",
 "anchor": "Mafia",

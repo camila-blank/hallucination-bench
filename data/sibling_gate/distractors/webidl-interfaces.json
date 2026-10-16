@@ -1,4 +1,60 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0003__L020__p121:document:device": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0003__L020__p121:document:device",
+"anchor": "BluetoothRemoteGATTServer",
+"nearest": [
+"XMLHttpRequest"
+],
+"random": [],
+"distractors": [
+"XMLHttpRequest"
+],
+"n_eligible": 1,
+"sha": "dc9d780d752e6895d088e6c54a7231de0198cf3eec9509dc572714557d47351a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0003__L020__p121:documentobject:bluetoothdevice": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0003__L020__p121:documentobject:bluetoothdevice",
+"anchor": "BluetoothDevice",
+"nearest": [
+"XMLHttpRequest"
+],
+"random": [],
+"distractors": [
+"XMLHttpRequest"
+],
+"n_eligible": 1,
+"sha": "08b2403bc81a0c2b1b0a2fc5c5805c85a95840881f19dac3ffb894a1fb22949b",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0003__L020__p121:documentobject:devicebluetoothdevice": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0003__L020__p121:documentobject:devicebluetoothdevice",
+"anchor": "BluetoothDevice",
+"nearest": [
+"XMLHttpRequest"
+],
+"random": [],
+"distractors": [
+"XMLHttpRequest"
+],
+"n_eligible": 1,
+"sha": "43b385f9b75dd5dd0aa62e13c03b929ce86c075f3b4032771ae8509103a34be9",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0003__L024__p121:document:bluetoothdevice": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0003__L024__p121:document:bluetoothdevice",
+"anchor": "BluetoothRemoteGATTServer",
+"nearest": [
+"XMLHttpRequest"
+],
+"random": [],
+"distractors": [
+"XMLHttpRequest"
+],
+"n_eligible": 1,
+"sha": "45383c69099d969bc9a9d98384e6ec58f37285ee356413821fcff59f819ecfb7",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0003__L020__p121:documentdocument:devicebluetoothdevice": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0003__L020__p121:documentdocument:devicebluetoothdevice",
 "anchor": "BluetoothDevice",

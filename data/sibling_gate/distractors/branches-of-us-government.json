@@ -1,4 +1,32 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0073__L028__p232:president:congress": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0073__L028__p232:president:congress",
+"anchor": "Congress",
+"nearest": [
+"Judicial Branch"
+],
+"random": [],
+"distractors": [
+"Judicial Branch"
+],
+"n_eligible": 1,
+"sha": "ff057fa9e9f42c87a6eb1b8eb24e2ec223bd3377292e1b3ad784bf0d0d308eeb",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0073__L056__p533:thepresident:thesupremecourt": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0073__L056__p533:thepresident:thesupremecourt",
+"anchor": "Congress",
+"nearest": [
+"Judicial Branch"
+],
+"random": [],
+"distractors": [
+"Judicial Branch"
+],
+"n_eligible": 1,
+"sha": "9da3d2f0eae43ca0a20f3b4a3d3824f4a84e6c390d9a1e53984b00a21b540fdc",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0073__L060__p533:thepresident:thesupremecourt": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0073__L060__p533:thepresident:thesupremecourt",
 "anchor": "Congress",

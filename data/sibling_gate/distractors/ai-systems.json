@@ -1,4 +1,62 @@
 {
+"mlnla-ck2000-all11:chat-dailydialog-0034__L060__p56:icp:qwen": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0034__L060__p56:icp:qwen",
+"anchor": "Qwen",
+"nearest": [
+"GLM-4",
+"Hunyuan",
+"GPT-J",
+"AlphaFold"
+],
+"random": [
+"DALL-E",
+"Decision Transformer",
+"Siri",
+"Watson"
+],
+"distractors": [
+"GLM-4",
+"Hunyuan",
+"GPT-J",
+"AlphaFold",
+"DALL-E",
+"Decision Transformer",
+"Siri",
+"Watson"
+],
+"n_eligible": 10,
+"sha": "e7954ae952240f552a4da51378b445c25b3b6d7c0cf2738da55a5e1e139eddaf",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0000__L056__p113:glm4gemini:qwen": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0000__L056__p113:glm4gemini:qwen",
+"anchor": "Qwen",
+"nearest": [
+"GPT-J",
+"AlphaFold",
+"ICP",
+"DALL-E"
+],
+"random": [
+"AlphaGo",
+"Decision Transformer",
+"Siri",
+"Watson"
+],
+"distractors": [
+"GPT-J",
+"AlphaFold",
+"ICP",
+"DALL-E",
+"AlphaGo",
+"Decision Transformer",
+"Siri",
+"Watson"
+],
+"n_eligible": 9,
+"sha": "6a231484396b178066bee9013e49cc98bbd33b4d5f57438073e097fcb317380c",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-dailydialog-0019__L040__p71:gpt4:qwen": {
 "unit": "mlnla-rl2-800-all11:chat-dailydialog-0019__L040__p71:gpt4:qwen",
 "anchor": "Qwen",

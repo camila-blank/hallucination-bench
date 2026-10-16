@@ -1,4 +1,58 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0064__L032__p529:msi:pcgamerconcórdia": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0064__L032__p529:msi:pcgamerconcórdia",
+"anchor": "MSI",
+"nearest": [
+"Corsair",
+"Concórdia",
+"Nvidia",
+"PC Gamer Concórdia"
+],
+"random": [
+"AMD",
+"Intel",
+"Logitech"
+],
+"distractors": [
+"Corsair",
+"Concórdia",
+"Nvidia",
+"PC Gamer Concórdia",
+"AMD",
+"Intel",
+"Logitech"
+],
+"n_eligible": 7,
+"sha": "cfc866c5cf7aadc19b64fb9200c3bb9224037143e258fb0b37b5a790b35dc779",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0064__L044__p778:msi:pcgamerconcórdia": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0064__L044__p778:msi:pcgamerconcórdia",
+"anchor": "MSI",
+"nearest": [
+"Corsair",
+"Concórdia",
+"Nvidia",
+"PC Gamer Concórdia"
+],
+"random": [
+"AMD",
+"Intel",
+"Logitech"
+],
+"distractors": [
+"Corsair",
+"Concórdia",
+"Nvidia",
+"PC Gamer Concórdia",
+"AMD",
+"Intel",
+"Logitech"
+],
+"n_eligible": 7,
+"sha": "de1b553be2251db94605696a0a1ddb87a86927902951f45b45ee0fc29a7b65c9",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0064__L036__p778:msi:pcgamerconcórdia": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0064__L036__p778:msi:pcgamerconcórdia",
 "anchor": "MSI",

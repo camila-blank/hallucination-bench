@@ -1,4 +1,33 @@
 {
+"mlnla-ck2000-all11:chat-dailydialog-0031__L048__p122::": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0031__L048__p122::",
+"anchor": "Hereditary",
+"nearest": [
+"Get Out",
+"It",
+"The Ring",
+"Saw"
+],
+"random": [
+"Friday the 13th",
+"Psycho",
+"Scream",
+"The Texas Chain Saw Massacre"
+],
+"distractors": [
+"Get Out",
+"It",
+"The Ring",
+"Saw",
+"Friday the 13th",
+"Psycho",
+"Scream",
+"The Texas Chain Saw Massacre"
+],
+"n_eligible": 10,
+"sha": "0f7da81367a8474e1b9d5aba3ae682af0df30379c7e8ce537e43fffc5fd1d7cd",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-dailydialog-0031__L028__p81::": {
 "unit": "mlnla-rl2-800-all11:chat-dailydialog-0031__L028__p81::",
 "anchor": "Hereditary",

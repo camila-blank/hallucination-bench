@@ -1,4 +1,54 @@
 {
+"mlnla-ck2000-all11:chat-dailydialog-0020__L036__p77:grandfather:grandma": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0020__L036__p77:grandfather:grandma",
+"anchor": "grandmother",
+"nearest": [
+"niece",
+"daughter",
+"brother",
+"uncle"
+],
+"random": [
+"nephew",
+"son"
+],
+"distractors": [
+"niece",
+"daughter",
+"brother",
+"uncle",
+"nephew",
+"son"
+],
+"n_eligible": 6,
+"sha": "8733ca51cd15f60e83294e21b347dddb0560891554f9672cbfbc01e0e350b1ca",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0020__L060__p77:grandfather:grandma": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0020__L060__p77:grandfather:grandma",
+"anchor": "grandmother",
+"nearest": [
+"niece",
+"daughter",
+"brother",
+"uncle"
+],
+"random": [
+"nephew",
+"son"
+],
+"distractors": [
+"niece",
+"daughter",
+"brother",
+"uncle",
+"nephew",
+"son"
+],
+"n_eligible": 6,
+"sha": "4a979a2fec548dc1c928b66b0701cf0fe6ba6536acfe97991d3b3ce306513d7c",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-dailydialog-0016__L036__p131:dad:mother": {
 "unit": "mlnla-rl2-800-all11:chat-dailydialog-0016__L036__p131:dad:mother",
 "anchor": "mother",

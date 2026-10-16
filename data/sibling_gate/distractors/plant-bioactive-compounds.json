@@ -1,4 +1,68 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0069__L024__p384:ginsenosides:gastrodin": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0069__L024__p384:ginsenosides:gastrodin",
+"anchor": "gastrodin",
+"nearest": [
+"nicotine",
+"capsaicin"
+],
+"random": [],
+"distractors": [
+"nicotine",
+"capsaicin"
+],
+"n_eligible": 2,
+"sha": "cdf4398e6e870663dc672c27dcd3276571fccbaa96996df47f5cbb2dbbaeeacc",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0069__L028__p384:ginsenosides:gastrodin": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0069__L028__p384:ginsenosides:gastrodin",
+"anchor": "gastrodin",
+"nearest": [
+"nicotine",
+"capsaicin"
+],
+"random": [],
+"distractors": [
+"nicotine",
+"capsaicin"
+],
+"n_eligible": 2,
+"sha": "1b344d34d6c40d92d31608b45fd66318cd35ddbee403bc1f719e96c7af2840a4",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0069__L036__p384:ginsenosides:gastrodin": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0069__L036__p384:ginsenosides:gastrodin",
+"anchor": "gastrodin",
+"nearest": [
+"nicotine",
+"capsaicin"
+],
+"random": [],
+"distractors": [
+"nicotine",
+"capsaicin"
+],
+"n_eligible": 2,
+"sha": "6604f34fb0c058b40d2dffa0e84dab0bf1eaee3edba53bea6eb5801d0125747a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0069__L040__p311:ginsenosides:gastrodin": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0069__L040__p311:ginsenosides:gastrodin",
+"anchor": "gastrodin",
+"nearest": [
+"nicotine",
+"capsaicin"
+],
+"random": [],
+"distractors": [
+"nicotine",
+"capsaicin"
+],
+"n_eligible": 2,
+"sha": "ff68dfc99f70ebcad68af5d51192236ddf4fe2c2004eace6fec9270ea76ea364",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0069__L024__p311:ginsenosides:gastrodin": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0069__L024__p311:ginsenosides:gastrodin",
 "anchor": "gastrodin",

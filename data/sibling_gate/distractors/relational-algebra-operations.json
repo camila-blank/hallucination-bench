@@ -1,4 +1,33 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0074__L032__p372:notoperator:selectionoperation": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0074__L032__p372:notoperator:selectionoperation",
+"anchor": "NOT operator",
+"nearest": [
+"Selection",
+"Theta join",
+"Set difference",
+"Division"
+],
+"random": [
+"Intersection",
+"Left outer join",
+"SelectionFilter",
+"Union"
+],
+"distractors": [
+"Selection",
+"Theta join",
+"Set difference",
+"Division",
+"Intersection",
+"Left outer join",
+"SelectionFilter",
+"Union"
+],
+"n_eligible": 13,
+"sha": "0e41675efaa2f2a2002fa069a31b3e6240286f170ebb2f71323484068eca8683",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0074__L052__p372:project:tablescan": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0074__L052__p372:project:tablescan",
 "anchor": "SelectionFilter",

@@ -28,6 +28,122 @@
 "sha": "26be8e704a48a0627e91f16f6d0e73ef83ebdbce95e9a487bf9573b1716cb7c9",
 "generation": 0
 },
+"mlnla-ck2000-all11:chat-dailydialog-0002__L056__p42:alibaba:tongyilab": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0002__L056__p42:alibaba:tongyilab",
+"anchor": "Tongyi Lab",
+"nearest": [
+"NetEase",
+"ByteDance",
+"OPPO",
+"BYD"
+],
+"random": [
+"DJI",
+"Lenovo",
+"Meituan",
+"Pinduoduo"
+],
+"distractors": [
+"NetEase",
+"ByteDance",
+"OPPO",
+"BYD",
+"DJI",
+"Lenovo",
+"Meituan",
+"Pinduoduo"
+],
+"n_eligible": 12,
+"sha": "e7bf3fd67184a943a401794f1113c6f3a5d4905964cd833b2ab237fbb14f84b3",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0000__L020__p144::": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0000__L020__p144::",
+"anchor": "Alibaba",
+"nearest": [
+"ZTE",
+"NetEase",
+"Lenovo",
+"Meituan"
+],
+"random": [
+"DJI",
+"JD.com",
+"OPPO",
+"Xiaomi"
+],
+"distractors": [
+"ZTE",
+"NetEase",
+"Lenovo",
+"Meituan",
+"DJI",
+"JD.com",
+"OPPO",
+"Xiaomi"
+],
+"n_eligible": 12,
+"sha": "64ad07831f128735be82b0ae124df4fbb5ef300db649a9053116e6d9df530e9b",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0000__L024__p117:tencent:alibabagroup": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0000__L024__p117:tencent:alibabagroup",
+"anchor": "Alibaba",
+"nearest": [
+"ZTE",
+"NetEase",
+"Lenovo",
+"Meituan"
+],
+"random": [
+"BYD",
+"DJI",
+"OPPO",
+"Xiaomi"
+],
+"distractors": [
+"ZTE",
+"NetEase",
+"Lenovo",
+"Meituan",
+"BYD",
+"DJI",
+"OPPO",
+"Xiaomi"
+],
+"n_eligible": 12,
+"sha": "d0c86d08dec2bdbf6c855eb30a8aabdb6c76e346778ecf39bafcad2e48001271",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0000__L032__p103:tencent:alibabagroup": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0000__L032__p103:tencent:alibabagroup",
+"anchor": "Alibaba",
+"nearest": [
+"ZTE",
+"NetEase",
+"Lenovo",
+"Meituan"
+],
+"random": [
+"Didi Chuxing",
+"OPPO",
+"Pinduoduo",
+"Xiaomi"
+],
+"distractors": [
+"ZTE",
+"NetEase",
+"Lenovo",
+"Meituan",
+"Didi Chuxing",
+"OPPO",
+"Pinduoduo",
+"Xiaomi"
+],
+"n_eligible": 12,
+"sha": "ec26eda30f5acf5ba1ded8ac6851c0d2b61ac0e6dfa8a86587b21b3c77e37cb1",
+"generation": 1
+},
 "s3d-rl600-all11:chat-dailydialog-0002__L032__p42:tencent:tongyilab": {
 "unit": "s3d-rl600-all11:chat-dailydialog-0002__L032__p42:tencent:tongyilab",
 "anchor": "Alibaba",

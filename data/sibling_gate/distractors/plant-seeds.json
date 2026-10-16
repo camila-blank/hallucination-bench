@@ -1,4 +1,33 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0040__L048__p54:pepperseed:chineseelmseed": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0040__L048__p54:pepperseed:chineseelmseed",
+"anchor": "Chinese elm seed",
+"nearest": [
+"corn seed",
+"mustard seed",
+"watermelon seed",
+"chia seed"
+],
+"random": [
+"flax seed",
+"poppy seed",
+"pumpkin seed",
+"sesame seed"
+],
+"distractors": [
+"corn seed",
+"mustard seed",
+"watermelon seed",
+"chia seed",
+"flax seed",
+"poppy seed",
+"pumpkin seed",
+"sesame seed"
+],
+"n_eligible": 9,
+"sha": "97e44256ea928381e65f76d7c3424d0a695d2f693da3459012a9072f2e883c37",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0040__L044__p44:cannabisseed:chineseelmseed": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0040__L044__p44:cannabisseed:chineseelmseed",
 "anchor": "Chinese elm seed",

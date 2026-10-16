@@ -1,4 +1,188 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0008__L024__p288:tcpvsip:ribvsfib": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0008__L024__p288:tcpvsip:ribvsfib",
+"anchor": "RIB vs FIB",
+"nearest": [
+"IDS vs IPS",
+"distance vector vs link state routing",
+"HTTP vs HTTPS",
+"public vs private IP address"
+],
+"random": [
+"IPv4 vs IPv6"
+],
+"distractors": [
+"IDS vs IPS",
+"distance vector vs link state routing",
+"HTTP vs HTTPS",
+"public vs private IP address",
+"IPv4 vs IPv6"
+],
+"n_eligible": 5,
+"sha": "288dea3fefc0e469139af3a3b13a9cba48c98a5c8f7d5f924d034a1b720dadf6",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0008__L028__p111:sanandnas:ribandfib": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0008__L028__p111:sanandnas:ribandfib",
+"anchor": "RIB and FIB",
+"nearest": [
+"IDS vs IPS",
+"distance vector vs link state routing",
+"public vs private IP address",
+"HTTP vs HTTPS"
+],
+"random": [
+"IPv4 vs IPv6"
+],
+"distractors": [
+"IDS vs IPS",
+"distance vector vs link state routing",
+"public vs private IP address",
+"HTTP vs HTTPS",
+"IPv4 vs IPv6"
+],
+"n_eligible": 5,
+"sha": "969c0ba83fd5197eddb64de00808583fe91cde8ef6fee8b38340fab43b64e23c",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0008__L028__p288:switchvsrouter:ribvsfib": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0008__L028__p288:switchvsrouter:ribvsfib",
+"anchor": "RIB vs FIB",
+"nearest": [
+"IDS vs IPS",
+"distance vector vs link state routing",
+"HTTP vs HTTPS",
+"public vs private IP address"
+],
+"random": [
+"IPv4 vs IPv6"
+],
+"distractors": [
+"IDS vs IPS",
+"distance vector vs link state routing",
+"HTTP vs HTTPS",
+"public vs private IP address",
+"IPv4 vs IPv6"
+],
+"n_eligible": 5,
+"sha": "0fa6c35761cbe32d044205b2f8ad3e38be2c6131e7f30dc37666026c6c36800f",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0008__L032__p111:macvsipaddresses:ribvsfib": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0008__L032__p111:macvsipaddresses:ribvsfib",
+"anchor": "RIB vs FIB",
+"nearest": [
+"IDS vs IPS",
+"distance vector vs link state routing",
+"HTTP vs HTTPS",
+"public vs private IP address"
+],
+"random": [
+"IPv4 vs IPv6"
+],
+"distractors": [
+"IDS vs IPS",
+"distance vector vs link state routing",
+"HTTP vs HTTPS",
+"public vs private IP address",
+"IPv4 vs IPv6"
+],
+"n_eligible": 5,
+"sha": "bdef2f3636bb42a9a023df0da825240134c5daaa308e3f514d972dabbeecc6ec",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0008__L032__p111:macvsipaddressing:ribvsfib": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0008__L032__p111:macvsipaddressing:ribvsfib",
+"anchor": "RIB vs. FIB",
+"nearest": [
+"IDS vs IPS",
+"distance vector vs link state routing",
+"public vs private IP address",
+"HTTP vs HTTPS"
+],
+"random": [
+"IPv4 vs IPv6"
+],
+"distractors": [
+"IDS vs IPS",
+"distance vector vs link state routing",
+"public vs private IP address",
+"HTTP vs HTTPS",
+"IPv4 vs IPv6"
+],
+"n_eligible": 5,
+"sha": "5d41146d068f3f01b71a67c3ec9baeb0e2d978895ebe03a521cb23ab9244926c",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0008__L036__p288:switchvshub:ribvsfib": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0008__L036__p288:switchvshub:ribvsfib",
+"anchor": "RIB vs FIB",
+"nearest": [
+"IDS vs IPS",
+"distance vector vs link state routing",
+"HTTP vs HTTPS",
+"public vs private IP address"
+],
+"random": [
+"IPv4 vs IPv6"
+],
+"distractors": [
+"IDS vs IPS",
+"distance vector vs link state routing",
+"HTTP vs HTTPS",
+"public vs private IP address",
+"IPv4 vs IPv6"
+],
+"n_eligible": 5,
+"sha": "8001be5da02b436f510f3e5bb3db10758f20ea52b344200791815e5ad30a3ba8",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0008__L040__p288:switchvsrouter:ribvsfib": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0008__L040__p288:switchvsrouter:ribvsfib",
+"anchor": "RIB vs FIB",
+"nearest": [
+"IDS vs IPS",
+"distance vector vs link state routing",
+"HTTP vs HTTPS",
+"public vs private IP address"
+],
+"random": [
+"IPv4 vs IPv6"
+],
+"distractors": [
+"IDS vs IPS",
+"distance vector vs link state routing",
+"HTTP vs HTTPS",
+"public vs private IP address",
+"IPv4 vs IPv6"
+],
+"n_eligible": 5,
+"sha": "26972373768e343ee3c7e6a50b07ac72a20a00fd00a0d144a76257f0bdf77961",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0008__L052__p288:lanvswan:ribvsfib": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0008__L052__p288:lanvswan:ribvsfib",
+"anchor": "RIB vs. FIB",
+"nearest": [
+"IDS vs IPS",
+"distance vector vs link state routing",
+"public vs private IP address",
+"HTTP vs HTTPS"
+],
+"random": [
+"IPv4 vs IPv6"
+],
+"distractors": [
+"IDS vs IPS",
+"distance vector vs link state routing",
+"public vs private IP address",
+"HTTP vs HTTPS",
+"IPv4 vs IPv6"
+],
+"n_eligible": 5,
+"sha": "ba1eff76e576286fe53ad3113267cc97f1a5785a51534f582d7003dcbfb7c4fd",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0008__L032__p111:macaddressandipaddress:ribandfib": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0008__L032__p111:macaddressandipaddress:ribandfib",
 "anchor": "RIB and FIB",

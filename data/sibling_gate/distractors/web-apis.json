@@ -1,4 +1,85 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0003__L020__p439:webmidiapi:webbluetoothapi": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0003__L020__p439:webmidiapi:webbluetoothapi",
+"anchor": "Web Bluetooth API",
+"nearest": [
+"Geolocation API",
+"Web Workers API",
+"Service Worker API",
+"IndexedDB API"
+],
+"random": [
+"Canvas API",
+"Web Audio API",
+"Web Storage API"
+],
+"distractors": [
+"Geolocation API",
+"Web Workers API",
+"Service Worker API",
+"IndexedDB API",
+"Canvas API",
+"Web Audio API",
+"Web Storage API"
+],
+"n_eligible": 7,
+"sha": "7413385f3644c6e001e2561314edf3a14cd7e104b19f38d9c8f1c91977207f0d",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0003__L032__p230:fetch:getprimaryservice": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0003__L032__p230:fetch:getprimaryservice",
+"anchor": "Web Bluetooth API",
+"nearest": [
+"Geolocation API",
+"Web Workers API",
+"Service Worker API",
+"IndexedDB API"
+],
+"random": [
+"Canvas API",
+"Web Audio API",
+"Web Storage API"
+],
+"distractors": [
+"Geolocation API",
+"Web Workers API",
+"Service Worker API",
+"IndexedDB API",
+"Canvas API",
+"Web Audio API",
+"Web Storage API"
+],
+"n_eligible": 7,
+"sha": "6f244f4806b1cecff5d44176997a62bebdcf69569dadd0fb49071ad43793a609",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0003__L032__p230:fetchapi:webbluetoothapi": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0003__L032__p230:fetchapi:webbluetoothapi",
+"anchor": "Web Bluetooth API",
+"nearest": [
+"Geolocation API",
+"Web Workers API",
+"Service Worker API",
+"IndexedDB API"
+],
+"random": [
+"Canvas API",
+"Web Audio API",
+"Web Storage API"
+],
+"distractors": [
+"Geolocation API",
+"Web Workers API",
+"Service Worker API",
+"IndexedDB API",
+"Canvas API",
+"Web Audio API",
+"Web Storage API"
+],
+"n_eligible": 7,
+"sha": "789fc42742bb79e6b9e2af5549caba8c3834842473e5483661dc27229dd86ed7",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0003__L024__p439:usbxinterfaces:bluetoothinterfaces": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0003__L024__p439:usbxinterfaces:bluetoothinterfaces",
 "anchor": "Web Bluetooth",

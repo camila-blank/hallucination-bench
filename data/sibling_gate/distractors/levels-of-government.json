@@ -1,0 +1,109 @@
+{
+"mlnla-ck2000-all11:chat-lmsys-0049__L024__p217:germangovernmentparliament:gemeinde": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0049__L024__p217:germangovernmentparliament:gemeinde",
+"anchor": "municipality",
+"nearest": [
+"municipal government",
+"city government",
+"county government",
+"national government"
+],
+"random": [
+"provincial government",
+"regional government",
+"state government",
+"supranational government"
+],
+"distractors": [
+"municipal government",
+"city government",
+"county government",
+"national government",
+"provincial government",
+"regional government",
+"state government",
+"supranational government"
+],
+"n_eligible": 8,
+"sha": "12b05ee3b54d0c7c0eded58ce42409cb8d5ae248f2818d11ec77be5f6ec76d4d",
+"generation": 1
+},
+"mlnla-rl600-all11:chat-lmsys-0049__L024__p346:federalpoliticsbundestag:municipalitygemeinde": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0049__L024__p346:federalpoliticsbundestag:municipalitygemeinde",
+"anchor": "municipality",
+"nearest": [
+"municipal government",
+"city government",
+"county government",
+"national government"
+],
+"random": [
+"provincial government",
+"regional government",
+"state government",
+"supranational government"
+],
+"distractors": [
+"municipal government",
+"city government",
+"county government",
+"national government",
+"provincial government",
+"regional government",
+"state government",
+"supranational government"
+],
+"n_eligible": 8,
+"sha": "e4cfcee94a4eda84985fe2bd99a41115626d9e9bde80c56cabb036b396d2d149",
+"generation": 1
+},
+"s3d-rl600-all11:chat-lmsys-0049__L020__p217:government:gemeinde": {
+"unit": "s3d-rl600-all11:chat-lmsys-0049__L020__p217:government:gemeinde",
+"anchor": "municipality",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "3e9f664f54750af2f4f7e32d4cefedf40a231e88cbf6fcdb1e382e51eaf1515f",
+"generation": 1
+},
+"s3d-rl600-all11:chat-lmsys-0049__L028__p217:government:gemeinde": {
+"unit": "s3d-rl600-all11:chat-lmsys-0049__L028__p217:government:gemeinde",
+"anchor": "municipality",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "4682cf8963dca5c9fcc240d435249a917b15b0f6ec1cd423b33abfca44755909",
+"generation": 1
+},
+"s3d-rl600-all11:chat-lmsys-0049__L032__p217:state:gemeinde": {
+"unit": "s3d-rl600-all11:chat-lmsys-0049__L032__p217:state:gemeinde",
+"anchor": "Gemeinde",
+"nearest": [
+"county government",
+"regional government",
+"provincial government",
+"supranational government"
+],
+"random": [
+"city government",
+"federal government",
+"municipal government",
+"national government"
+],
+"distractors": [
+"county government",
+"regional government",
+"provincial government",
+"supranational government",
+"city government",
+"federal government",
+"municipal government",
+"national government"
+],
+"n_eligible": 8,
+"sha": "90e60f64ab904234d052a4fb2c0f8e7ef1b12ba913b9e466d8f9f659c5a32b39",
+"generation": 1
+}
+}

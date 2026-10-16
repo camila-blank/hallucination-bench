@@ -1,4 +1,284 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0023__L028__p346:segnetunet:detr": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0023__L028__p346:segnetunet:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "129f813cb9e64261abbe11e0eb6b1702b14bac6cbe380f54eca4c3cf9d4fba5a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0023__L032__p112:vit:detr": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0023__L032__p112:vit:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "363eb790652079a00e612cb8cbafc8cc8b91b93b5796dc326affccdacbe3a1ab",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0023__L036__p112:vit:detr": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0023__L036__p112:vit:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "e8c24bb12fd715946c7c7999b5e72ab70b45f87f6ffa5f52473b3b75437ec760",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0023__L036__p170:segformer:detr": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0023__L036__p170:segformer:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "4bcdef7dbaded00e5e791754c83ba43fb92c6288123ea03c7642ab3e2dd5cd3c",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0023__L036__p170:segformertransformerforsegmentation:detr": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0023__L036__p170:segformertransformerforsegmentation:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "ace340373224d1eacf088d27cd4a0247789e9eb109bb24f5dbab82d911b95561",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0023__L036__p346:mask2former:detr": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0023__L036__p346:mask2former:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "fb9a87c8ceeb47d3995f62311a39a4110a14b16d694afa845ee2e4f4265002e0",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0023__L040__p112:visiontransformers:detr": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0023__L040__p112:visiontransformers:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "219a4a6bef21a06715cc9f327c381f469a7582cd0c1c4cd25bf3739e8b9b20d2",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0023__L040__p112:vit:detr": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0023__L040__p112:vit:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "1671973427d1d6ac75685bcd19bf018ca6777210247a9a7d05d9cb15d2657983",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0023__L040__p112:vitdeitpaper:detr": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0023__L040__p112:vitdeitpaper:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "0450fdb4a979f7361e88c000c0e800af8511b3ac1694711e3dc29265b2c7ef0d",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0023__L040__p112:vitimageclassification:detrobjectdetection": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0023__L040__p112:vitimageclassification:detrobjectdetection",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "9544d62d5f4dec1d223404027c94454d0fde50c391e4e03e905b27debeee53fe",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0023__L040__p170:transformerforsemanticsegmentation:detr": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0023__L040__p170:transformerforsemanticsegmentation:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "c2efa71089b7d75bca8b7e172a5427676f4ceb5c0038090f71b4c5a8923e22e3",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0023__L040__p464:mask2former:detr": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0023__L040__p464:mask2former:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "75834e218ec969e674e259d3884db302421da771c3f07fa33eb24e6675588dbc",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0023__L044__p112:deeplabv3+:detr": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0023__L044__p112:deeplabv3+:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "d0d228971c438ada20923b8712f1fd7eb8bae1404be95c03ab0cdd0828011563",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0023__L044__p112:vit:detr": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0023__L044__p112:vit:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "f2dd9978675f2dac3059b48dc1b3199b69a1bc567ab38019275e21817b5a3ff6",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0023__L044__p170:transunet:detr": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0023__L044__p170:transunet:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "e37d3e67cf8b9db1d64bebca08d5de53b8432f0be482e478055d04e7241d4766",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0023__L044__p464:deit:detr": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0023__L044__p464:deit:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "9c6e50576e90b3794e977d52edb88c404d50a1d3db08c6b9811842700970b4b7",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0023__L048__p112:visiontransformer:detr": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0023__L048__p112:visiontransformer:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "8b993b048237b21f1f459a974ac514b86952b5b3baa74784790f1d63a2386e97",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0023__L048__p112:vit:detr": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0023__L048__p112:vit:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "416996deb55954c68d9d80c9f4bd43f094c8d8d1907ca0a0d3261857088de3da",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0023__L048__p170:deeplabv3+:detr": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0023__L048__p170:deeplabv3+:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "59365e7dfb3da560e9fe4d9d69a34e4040ec80cbd6f5fe856302c125b732e1c6",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0023__L048__p170:transunet:detr": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0023__L048__p170:transunet:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "fdc47244ac48a5a306a145d1b8090f44a5ab400c5e9f7376d6f4a793e034c062",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0023__L048__p346:mask2former:detr": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0023__L048__p346:mask2former:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "975ae5f1d3691b15bab61605d3a5a9f3546b3476fe10e170f7c0408ab19e5338",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0023__L052__p112:visiontransformer:detr": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0023__L052__p112:visiontransformer:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "d5c66b7867c01b2cd36cf11190833abf20fd33d581d4ac6426bf6113ce99a743",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0023__L052__p112:vit:detr": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0023__L052__p112:vit:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "72f10b3ccdaf8ed28ef6bbdf5887dda6ce82a635672afc480119401d7294eda0",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0023__L052__p170:mask2former:detr": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0023__L052__p170:mask2former:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "385f7ed5d572b672bc11120c7ed6a30a1fc4c64462287077c16daee4a862a211",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0023__L052__p20:vit:detr": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0023__L052__p20:vit:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "83a00178190a72260a55c9d4878c636c92cf9b005fd8fb4aa38fb011ef2ad4e4",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0023__L056__p20:visiontransformers:detr": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0023__L056__p20:visiontransformers:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "1a58c65939bfc74e64017279aca2249407db6b108cf4d2aced2727721b82cb72",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0023__L056__p20:vit:detr": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0023__L056__p20:vit:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "121830c65c8d60cf4e02e1905961e84b63b82940398b52f274337dc403374240",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0023__L056__p464:mask2former:detr": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0023__L056__p464:mask2former:detr",
+"anchor": "DETR",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "0257bd2eb7561127f575e3df11dd5bf2a1489c26cdd9b81ca31f3518b058dfd5",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0023__L020__p395:segmentanythingmodel:detr": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0023__L020__p395:segmentanythingmodel:detr",
 "anchor": "DETR",

@@ -1,4 +1,220 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0054__L020__p17:salesforce:businessobjects": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L020__p17:salesforce:businessobjects",
+"anchor": "SAP",
+"nearest": [
+"Siemens Industry Software",
+"Tata Consultancy Services",
+"TCS"
+],
+"random": [],
+"distractors": [
+"Siemens Industry Software",
+"Tata Consultancy Services",
+"TCS"
+],
+"n_eligible": 3,
+"sha": "e4b22fc4f1d344f1c3b92524c2ad2150b723435d2fe0ad221d2a206ae5942888",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L024__p17:salesforce:businessobjects": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L024__p17:salesforce:businessobjects",
+"anchor": "SAP",
+"nearest": [
+"Siemens Industry Software",
+"Tata Consultancy Services",
+"TCS"
+],
+"random": [],
+"distractors": [
+"Siemens Industry Software",
+"Tata Consultancy Services",
+"TCS"
+],
+"n_eligible": 3,
+"sha": "e2532fac58ca6057bae46851f134766697b31d461e6d4f25928e31bf42a269de",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L024__p17:salesforce:sapbusinessobjects": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L024__p17:salesforce:sapbusinessobjects",
+"anchor": "SAP",
+"nearest": [
+"Siemens Industry Software",
+"Tata Consultancy Services",
+"TCS"
+],
+"random": [],
+"distractors": [
+"Siemens Industry Software",
+"Tata Consultancy Services",
+"TCS"
+],
+"n_eligible": 3,
+"sha": "6c14bbfd648751a58df1276b7a972d70722a332ee0fb7c6e6f8d99112f0e4c76",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L028__p70:adobe:sap": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L028__p70:adobe:sap",
+"anchor": "SAP",
+"nearest": [
+"Siemens Industry Software",
+"Tata Consultancy Services",
+"TCS"
+],
+"random": [],
+"distractors": [
+"Siemens Industry Software",
+"Tata Consultancy Services",
+"TCS"
+],
+"n_eligible": 3,
+"sha": "fdfc484c3afb63fde74f07877435e8862e0a80f5115c8ac6581b1d8cfe218e21",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L032__p17:sap:businessobjects": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L032__p17:sap:businessobjects",
+"anchor": "Business Objects",
+"nearest": [
+"TCS",
+"Siemens Industry Software",
+"Tata Consultancy Services"
+],
+"random": [],
+"distractors": [
+"TCS",
+"Siemens Industry Software",
+"Tata Consultancy Services"
+],
+"n_eligible": 3,
+"sha": "ad8dbade1eafc652e3492620b4424b499dfb7d1ddd4ffff4a57f9c1c3ee78e02",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L032__p70:ibm:sap": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L032__p70:ibm:sap",
+"anchor": "Business Objects",
+"nearest": [
+"TCS",
+"Siemens Industry Software",
+"Tata Consultancy Services"
+],
+"random": [],
+"distractors": [
+"TCS",
+"Siemens Industry Software",
+"Tata Consultancy Services"
+],
+"n_eligible": 3,
+"sha": "6ee24b6989a2de18a083db179a2cfba01c1a4a6f462f6bfdedc8e92bc66599cc",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L036__p358:ibm:sap": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L036__p358:ibm:sap",
+"anchor": "Business Objects",
+"nearest": [
+"TCS",
+"Siemens Industry Software",
+"Tata Consultancy Services"
+],
+"random": [],
+"distractors": [
+"TCS",
+"Siemens Industry Software",
+"Tata Consultancy Services"
+],
+"n_eligible": 3,
+"sha": "cc06ba746b0d1fbd0eb3ab76774828629abb09e0e6610e648b088b4e2c660ddf",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L036__p472:hyperion:sapbusinessobjects": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L036__p472:hyperion:sapbusinessobjects",
+"anchor": "Business Objects",
+"nearest": [
+"TCS",
+"Siemens Industry Software",
+"Tata Consultancy Services"
+],
+"random": [],
+"distractors": [
+"TCS",
+"Siemens Industry Software",
+"Tata Consultancy Services"
+],
+"n_eligible": 3,
+"sha": "68d0651f6973dcb9412c0a409461c51cb356529aede156ca2268a6eee13f286f",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L036__p70:ibm:sap": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L036__p70:ibm:sap",
+"anchor": "Business Objects",
+"nearest": [
+"TCS",
+"Siemens Industry Software",
+"Tata Consultancy Services"
+],
+"random": [],
+"distractors": [
+"TCS",
+"Siemens Industry Software",
+"Tata Consultancy Services"
+],
+"n_eligible": 3,
+"sha": "2e464489886b1c38947daf65de2be2e4bdf26dd1e7703b427433e469898de2b2",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L044__p70:hyperion:businessobjects": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L044__p70:hyperion:businessobjects",
+"anchor": "Business Objects",
+"nearest": [
+"TCS",
+"Siemens Industry Software",
+"Tata Consultancy Services"
+],
+"random": [],
+"distractors": [
+"TCS",
+"Siemens Industry Software",
+"Tata Consultancy Services"
+],
+"n_eligible": 3,
+"sha": "e9e9e751b5352080df7230b7afd246f503fe069152a28c1f64b29aa4d7014021",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L048__p155:microsoftproducts:sapproducts": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L048__p155:microsoftproducts:sapproducts",
+"anchor": "SAP",
+"nearest": [
+"Siemens Industry Software",
+"Tata Consultancy Services",
+"TCS"
+],
+"random": [],
+"distractors": [
+"Siemens Industry Software",
+"Tata Consultancy Services",
+"TCS"
+],
+"n_eligible": 3,
+"sha": "ecaded4feaf9e1b52694d1c1b38f3cd4082f260163a889fd3aed76f386311344",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L048__p17:actian:businessobjects": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L048__p17:actian:businessobjects",
+"anchor": "SAP",
+"nearest": [
+"Siemens Industry Software",
+"Tata Consultancy Services",
+"TCS"
+],
+"random": [],
+"distractors": [
+"Siemens Industry Software",
+"Tata Consultancy Services",
+"TCS"
+],
+"n_eligible": 3,
+"sha": "32ebbf349b585ae7ea5af0d26d9df4f8d357478ca4ec51e211921b57fcf1bdca",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0054__L020__p17:salesforce:businessobjects": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0054__L020__p17:salesforce:businessobjects",
 "anchor": "SAP",

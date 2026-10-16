@@ -1,4 +1,56 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0003__L024__p121:htmlelementcssstyledeclaration:bluetoothremotegattserverbluetoothremotegattservice": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0003__L024__p121:htmlelementcssstyledeclaration:bluetoothremotegattserverbluetoothremotegattservice",
+"anchor": "BluetoothDevice",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "d28efded3a347922b834825588bc1c9bf1ffd763f6e3a023df796c75ff4119cb",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0003__L032__p439:usbdevice:bluetoothdevice": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0003__L032__p439:usbdevice:bluetoothdevice",
+"anchor": "BluetoothDevice",
+"nearest": [
+"Element"
+],
+"random": [],
+"distractors": [
+"Element"
+],
+"n_eligible": 1,
+"sha": "23482925c7ffa1710df5f017dec1c464fb5887dd6f0ffac5eee57b1504bb4b2b",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0003__L044__p439:idbobjectstore:bluetoothremotegattservice": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0003__L044__p439:idbobjectstore:bluetoothremotegattservice",
+"anchor": "BluetoothRemoteGATTServer",
+"nearest": [
+"Element"
+],
+"random": [],
+"distractors": [
+"Element"
+],
+"n_eligible": 1,
+"sha": "baea3ce737c5db967566c871e90f6afbb1813827c2536230b93db6b43251c0a0",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0003__L052__p310:rtccertificate:bluetoothremotegattservice": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0003__L052__p310:rtccertificate:bluetoothremotegattservice",
+"anchor": "BluetoothDevice",
+"nearest": [
+"Element"
+],
+"random": [],
+"distractors": [
+"Element"
+],
+"n_eligible": 1,
+"sha": "f90bf4a6758bdd4e575f85236c4bfa58c27dd84d744a01cf8a59263d3fa8afbf",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0003__L024__p439:usbdevice:bluetoothdevice": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0003__L024__p439:usbdevice:bluetoothdevice",
 "anchor": "BluetoothDevice",

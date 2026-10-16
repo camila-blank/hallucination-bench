@@ -1,0 +1,118 @@
+{
+"mlnla-ck2000-all11:chat-lmsys-0064__L056__p529:rtx3060:rtx2060": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0064__L056__p529:rtx3060:rtx2060",
+"anchor": "GeForce RTX 2060",
+"nearest": [
+"NVIDIA GeForce RTX 4060",
+"NVIDIA GeForce GTX 1080 Ti",
+"NVIDIA GeForce GTX 1050 Ti",
+"NVIDIA GeForce GTX 1660"
+],
+"random": [
+"NVIDIA GeForce GTX 1060",
+"NVIDIA GeForce RTX 3090",
+"NVIDIA GeForce RTX 4080",
+"NVIDIA GeForce RTX 4090"
+],
+"distractors": [
+"NVIDIA GeForce RTX 4060",
+"NVIDIA GeForce GTX 1080 Ti",
+"NVIDIA GeForce GTX 1050 Ti",
+"NVIDIA GeForce GTX 1660",
+"NVIDIA GeForce GTX 1060",
+"NVIDIA GeForce RTX 3090",
+"NVIDIA GeForce RTX 4080",
+"NVIDIA GeForce RTX 4090"
+],
+"n_eligible": 10,
+"sha": "8466369dd0f2388b6ffd64cd04117e377a5d8590e26095f0eb8771cd18933c19",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0064__L056__p638:nvidiageforcertx3070:rtx2060": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0064__L056__p638:nvidiageforcertx3070:rtx2060",
+"anchor": "NVIDIA GeForce RTX 2060",
+"nearest": [
+"NVIDIA GeForce GTX 1060",
+"NVIDIA GeForce GTX 1660",
+"NVIDIA GeForce GTX 1080 Ti",
+"NVIDIA GeForce RTX 4060"
+],
+"random": [
+"NVIDIA GeForce GTX 1050 Ti",
+"NVIDIA GeForce RTX 3090",
+"NVIDIA GeForce RTX 4070",
+"NVIDIA GeForce RTX 4090"
+],
+"distractors": [
+"NVIDIA GeForce GTX 1060",
+"NVIDIA GeForce GTX 1660",
+"NVIDIA GeForce GTX 1080 Ti",
+"NVIDIA GeForce RTX 4060",
+"NVIDIA GeForce GTX 1050 Ti",
+"NVIDIA GeForce RTX 3090",
+"NVIDIA GeForce RTX 4070",
+"NVIDIA GeForce RTX 4090"
+],
+"n_eligible": 10,
+"sha": "713fe64aca606c0079c67eeed2324872fa48cb5ff5317be8e3cd1554d1aae3ee",
+"generation": 1
+},
+"mlnla-rl600-all11:chat-lmsys-0064__L044__p860:rtx2080:rtx2060": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0064__L044__p860:rtx2080:rtx2060",
+"anchor": "NVIDIA GeForce RTX 2060",
+"nearest": [
+"NVIDIA GeForce GTX 1060",
+"NVIDIA GeForce GTX 1660",
+"NVIDIA GeForce GTX 1080 Ti",
+"NVIDIA GeForce RTX 4060"
+],
+"random": [
+"NVIDIA GeForce GTX 1050 Ti",
+"NVIDIA GeForce RTX 3090",
+"NVIDIA GeForce RTX 4070",
+"NVIDIA GeForce RTX 4090"
+],
+"distractors": [
+"NVIDIA GeForce GTX 1060",
+"NVIDIA GeForce GTX 1660",
+"NVIDIA GeForce GTX 1080 Ti",
+"NVIDIA GeForce RTX 4060",
+"NVIDIA GeForce GTX 1050 Ti",
+"NVIDIA GeForce RTX 3090",
+"NVIDIA GeForce RTX 4070",
+"NVIDIA GeForce RTX 4090"
+],
+"n_eligible": 10,
+"sha": "0864a4a32aa0b024bfe1efcfc013bfa38f7fe393bca721ad228d2d25811825ac",
+"generation": 1
+},
+"mlnla-rl600-all11:chat-lmsys-0064__L060__p778:rx570:rtx2060": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0064__L060__p778:rx570:rtx2060",
+"anchor": "GeForce RTX 2060",
+"nearest": [
+"NVIDIA GeForce RTX 4060",
+"NVIDIA GeForce GTX 1080 Ti",
+"NVIDIA GeForce GTX 1050 Ti",
+"NVIDIA GeForce GTX 1660"
+],
+"random": [
+"NVIDIA GeForce GTX 1060",
+"NVIDIA GeForce RTX 4070",
+"NVIDIA GeForce RTX 4080",
+"NVIDIA GeForce RTX 4090"
+],
+"distractors": [
+"NVIDIA GeForce RTX 4060",
+"NVIDIA GeForce GTX 1080 Ti",
+"NVIDIA GeForce GTX 1050 Ti",
+"NVIDIA GeForce GTX 1660",
+"NVIDIA GeForce GTX 1060",
+"NVIDIA GeForce RTX 4070",
+"NVIDIA GeForce RTX 4080",
+"NVIDIA GeForce RTX 4090"
+],
+"n_eligible": 10,
+"sha": "1ca4484b59aa680aa6b406ff49e3b5e837632b5e11966a9af9ee753833c95619",
+"generation": 1
+}
+}

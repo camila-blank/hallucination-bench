@@ -1,4 +1,58 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0042__L048__p99:firebasefirestoreinflutter:laravel": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0042__L048__p99:firebasefirestoreinflutter:laravel",
+"anchor": "Laravel",
+"nearest": [
+"Java ecosystem tools",
+"Hive",
+"Spring Framework"
+],
+"random": [],
+"distractors": [
+"Java ecosystem tools",
+"Hive",
+"Spring Framework"
+],
+"n_eligible": 3,
+"sha": "825d1e4e89e6ebcc542696cb023e2e07401f5308fd7ef049976688162ad4a724",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0042__L052__p462:flutterprovider:laravel": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0042__L052__p462:flutterprovider:laravel",
+"anchor": "Laravel",
+"nearest": [
+"Java ecosystem tools",
+"Hive",
+"Spring Framework"
+],
+"random": [],
+"distractors": [
+"Java ecosystem tools",
+"Hive",
+"Spring Framework"
+],
+"n_eligible": 3,
+"sha": "6e7c4f0d0d2007120ef8e11a0279bfc37e8d7f2a1f94b213cf76b26ade375db3",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0042__L056__p271:reactnative:laravel": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0042__L056__p271:reactnative:laravel",
+"anchor": "Laravel",
+"nearest": [
+"Java ecosystem tools",
+"Hive",
+"Spring Framework"
+],
+"random": [],
+"distractors": [
+"Java ecosystem tools",
+"Hive",
+"Spring Framework"
+],
+"n_eligible": 3,
+"sha": "316fe90f75db8260d2165742f491ccf600f9704f32f3509dbab8f30dc9bde296",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0012__L028__p316:unityblenderthreejsreact:flutterpackages": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0012__L028__p316:unityblenderthreejsreact:flutterpackages",
 "anchor": "Flutter",

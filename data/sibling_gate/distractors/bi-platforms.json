@@ -1,4 +1,318 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0054__L024__p472:pentaho:sapbusinessobjects": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L024__p472:pentaho:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"Qlik Sense",
+"QlikView"
+],
+"random": [],
+"distractors": [
+"Qlik Sense",
+"QlikView"
+],
+"n_eligible": 2,
+"sha": "2203d22587c26bd8b9f5d68f7de8825bb4cd74a2d069e5b604bbbe3ca19d590e",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L028__p155:cognos:businessobjects": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L028__p155:cognos:businessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"Qlik Sense",
+"QlikView"
+],
+"random": [],
+"distractors": [
+"Qlik Sense",
+"QlikView"
+],
+"n_eligible": 2,
+"sha": "75a233eddb1cfb080f1e72978c7f02bdba94e19b9a5bb3920e3916eecfb93a41",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L028__p425:cognos:businessobjects": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L028__p425:cognos:businessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"Qlik Sense",
+"QlikView"
+],
+"random": [],
+"distractors": [
+"Qlik Sense",
+"QlikView"
+],
+"n_eligible": 2,
+"sha": "b1ed9e5a75afe749183a10b6882b4a82901bebcd251081bfd92773968e3ec787",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L032__p298:cognos:businessobjects": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L032__p298:cognos:businessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"Qlik Sense",
+"QlikView"
+],
+"random": [],
+"distractors": [
+"Qlik Sense",
+"QlikView"
+],
+"n_eligible": 2,
+"sha": "7627c454b48c1b4fa0dc441e767acc56c409c083ecef22e6bdb42eec38224340",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L032__p358:cognos:sapbusinessobjects": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L032__p358:cognos:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"Qlik Sense",
+"QlikView"
+],
+"random": [],
+"distractors": [
+"Qlik Sense",
+"QlikView"
+],
+"n_eligible": 2,
+"sha": "a5e42bc857f659da25872a27152eb633d5f5d7a973fb02c5e3459069c4ddf330",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L032__p70:cognos:businessobjects": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L032__p70:cognos:businessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"Qlik Sense",
+"QlikView"
+],
+"random": [],
+"distractors": [
+"Qlik Sense",
+"QlikView"
+],
+"n_eligible": 2,
+"sha": "280433186fb04e70102886b4fcbf22602830421c3a83439228c1a26c150e5af3",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L036__p298:cognos:sapbusinessobjects": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L036__p298:cognos:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"Qlik Sense",
+"QlikView"
+],
+"random": [],
+"distractors": [
+"Qlik Sense",
+"QlikView"
+],
+"n_eligible": 2,
+"sha": "7ce46d30f3a7a02303f8a997c1f266efb1d62987e40cdd31e95aa7b8904b4ec7",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L036__p358:cognos:sapbusinessobjects": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L036__p358:cognos:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"Qlik Sense",
+"QlikView"
+],
+"random": [],
+"distractors": [
+"Qlik Sense",
+"QlikView"
+],
+"n_eligible": 2,
+"sha": "c269311e2982263c67bd99c54dd7fc7ee7b65becb36b3a7a58dee4a73d389364",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L040__p358:cognos:sapbusinessobjects": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L040__p358:cognos:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"Qlik Sense",
+"QlikView"
+],
+"random": [],
+"distractors": [
+"Qlik Sense",
+"QlikView"
+],
+"n_eligible": 2,
+"sha": "8acc32114a46648d5bf98d97d0162fa1cea5e990cd788fdefa3c47afae884854",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L040__p358:microstrategycomponents:businessobjectscomponents": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L040__p358:microstrategycomponents:businessobjectscomponents",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"Qlik Sense",
+"QlikView"
+],
+"random": [],
+"distractors": [
+"Qlik Sense",
+"QlikView"
+],
+"n_eligible": 2,
+"sha": "925ac210811613e0eb021376aafc015d093a09e7df26eae6676b92aa49d2f61a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L040__p472:cognos:sapbusinessobjects": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L040__p472:cognos:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"Qlik Sense",
+"QlikView"
+],
+"random": [],
+"distractors": [
+"Qlik Sense",
+"QlikView"
+],
+"n_eligible": 2,
+"sha": "d91e91588976d6eaf0b2f8461e7bca226f6b60b656528473bb182610e2e65c71",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L040__p472:ibmcognosanalytics:sapbusinessobjects": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L040__p472:ibmcognosanalytics:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"Qlik Sense",
+"QlikView"
+],
+"random": [],
+"distractors": [
+"Qlik Sense",
+"QlikView"
+],
+"n_eligible": 2,
+"sha": "9889f4ca0d72d1ea10dbfeadd52e7341e24735db1352214ef40af0c46faf6443",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L044__p155:microsoftsqlserverbi:sapbusinessobjects": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L044__p155:microsoftsqlserverbi:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"Qlik Sense",
+"QlikView"
+],
+"random": [],
+"distractors": [
+"Qlik Sense",
+"QlikView"
+],
+"n_eligible": 2,
+"sha": "f2cf5c2ae8c63951a1d29b0dcf1b111626ce0e0f9288d8399c6b18fd717f5eed",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L044__p70:cognos:sap": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L044__p70:cognos:sap",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"Qlik Sense",
+"QlikView"
+],
+"random": [],
+"distractors": [
+"Qlik Sense",
+"QlikView"
+],
+"n_eligible": 2,
+"sha": "75ece9b9b510783eaa330f74ff92bfea9745b5cb77c733df541ab1ae7db76f9c",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L048__p155:microsoftbi:businessobjects": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L048__p155:microsoftbi:businessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"Qlik Sense",
+"QlikView"
+],
+"random": [],
+"distractors": [
+"Qlik Sense",
+"QlikView"
+],
+"n_eligible": 2,
+"sha": "9c9a1d85ee766a6057f866d1e7afd60714c1d47bee6e097ec44f48da468b74d6",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L048__p155:sqlserverreportingservices:webintelligence": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L048__p155:sqlserverreportingservices:webintelligence",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"Qlik Sense",
+"QlikView"
+],
+"random": [],
+"distractors": [
+"Qlik Sense",
+"QlikView"
+],
+"n_eligible": 2,
+"sha": "53adcccc3724b0804e5be950c951b60b2b72b33d28a14a3a023e1e7aa4e46f2a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L048__p358:cognostooling:businessobjectstools": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L048__p358:cognostooling:businessobjectstools",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"Qlik Sense",
+"QlikView"
+],
+"random": [],
+"distractors": [
+"Qlik Sense",
+"QlikView"
+],
+"n_eligible": 2,
+"sha": "3c1b3799a7d7eb67ec120527130e474607b2cc28febbc0231841460fd69fa8cb",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L052__p358:microsoftbi:sapbusinessobjects": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L052__p358:microsoftbi:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"Qlik Sense",
+"QlikView"
+],
+"random": [],
+"distractors": [
+"Qlik Sense",
+"QlikView"
+],
+"n_eligible": 2,
+"sha": "ce14c2bc7abf53a4f66fb3cd0f249769bf90c3042a467da4575ae1ba08c42b18",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L056__p425:crystalenterprise:sapbusinessobjects": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L056__p425:crystalenterprise:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"Qlik Sense",
+"QlikView"
+],
+"random": [],
+"distractors": [
+"Qlik Sense",
+"QlikView"
+],
+"n_eligible": 2,
+"sha": "6af8d3c8b97439dcf305f329cea3b8db9367e7ba8d4ab0bcabc7906a9e0f408d",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L056__p472:qlik:sapbusinessobjects": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L056__p472:qlik:sapbusinessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "c095108a626d09d2f15fa699d6da7dfbc2ebfbc9fb60540cc253bcbd8840410f",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0054__L032__p155:obiee12c:sapbusinessobjects": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0054__L032__p155:obiee12c:sapbusinessobjects",
 "anchor": "SAP BusinessObjects",

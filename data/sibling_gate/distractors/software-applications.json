@@ -1,4 +1,356 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0029__L020__p83:blender28:vlcmediaplayer": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0029__L020__p83:blender28:vlcmediaplayer",
+"anchor": "VLC Media Player",
+"nearest": [
+"Microsoft Word",
+"Microsoft Excel"
+],
+"random": [],
+"distractors": [
+"Microsoft Word",
+"Microsoft Excel"
+],
+"n_eligible": 2,
+"sha": "6337dcc46a1a9936da697638e4dd55602e15222210f706e1a5d02622aa07e7d8",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0029__L028__p273:blender:vlcmediaplayer": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0029__L028__p273:blender:vlcmediaplayer",
+"anchor": "VLC Media Player",
+"nearest": [
+"Microsoft Word",
+"Microsoft Excel"
+],
+"random": [],
+"distractors": [
+"Microsoft Word",
+"Microsoft Excel"
+],
+"n_eligible": 2,
+"sha": "8f19c479e3cc6e937871029e48b8e6b2742f9db1396423606bc42d76e8dbce79",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0029__L032__p166:obs:vlc": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0029__L032__p166:obs:vlc",
+"anchor": "VLC media player",
+"nearest": [
+"Microsoft Word",
+"Microsoft Excel"
+],
+"random": [],
+"distractors": [
+"Microsoft Word",
+"Microsoft Excel"
+],
+"n_eligible": 2,
+"sha": "7b2afcda4799439e24ea4a2d0e725ba533953a3b780f0e4d1af9259be7ecefd6",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0029__L032__p273:chrome:vlc": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0029__L032__p273:chrome:vlc",
+"anchor": "VLC media player",
+"nearest": [
+"Microsoft Word",
+"Microsoft Excel"
+],
+"random": [],
+"distractors": [
+"Microsoft Word",
+"Microsoft Excel"
+],
+"n_eligible": 2,
+"sha": "31837a187712eea7732dab7e88520ceb4373bf9bd86c08e0e62f58cce9d93775",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0029__L032__p273:googlechrome:vlcmediaplayer": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0029__L032__p273:googlechrome:vlcmediaplayer",
+"anchor": "VLC Media Player",
+"nearest": [
+"Microsoft Word",
+"Microsoft Excel"
+],
+"random": [],
+"distractors": [
+"Microsoft Word",
+"Microsoft Excel"
+],
+"n_eligible": 2,
+"sha": "50979ab9da027674b6e405ad7d021223049a7f643b65cedd0d82760399de537f",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0029__L032__p273:sketchup2014:vlcmediaplayer": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0029__L032__p273:sketchup2014:vlcmediaplayer",
+"anchor": "VLC Media Player",
+"nearest": [
+"Microsoft Word",
+"Microsoft Excel"
+],
+"random": [],
+"distractors": [
+"Microsoft Word",
+"Microsoft Excel"
+],
+"n_eligible": 2,
+"sha": "dcba5f36401889b789f9172107dd99f8c122a1a68eacea7fb5b8a20a81fc17d7",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0029__L036__p369:blender:vlc": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0029__L036__p369:blender:vlc",
+"anchor": "VLC Media Player",
+"nearest": [
+"Microsoft Word",
+"Microsoft Excel"
+],
+"random": [],
+"distractors": [
+"Microsoft Word",
+"Microsoft Excel"
+],
+"n_eligible": 2,
+"sha": "986f58ebdeb74736ece678298f331c79bc75ea7ab3a496f4f19c1971d9dfa9f2",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0029__L040__p23:obs:vlc": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0029__L040__p23:obs:vlc",
+"anchor": "VLC media player",
+"nearest": [
+"Microsoft Word",
+"Microsoft Excel"
+],
+"random": [],
+"distractors": [
+"Microsoft Word",
+"Microsoft Excel"
+],
+"n_eligible": 2,
+"sha": "cdafb88be1d570828eb4567f43d0d113dd40cb55eca7a5ed4f937e07e1df8ca1",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0029__L040__p369:blender:vlcmediaplayer": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0029__L040__p369:blender:vlcmediaplayer",
+"anchor": "VLC Media Player",
+"nearest": [
+"Microsoft Word",
+"Microsoft Excel"
+],
+"random": [],
+"distractors": [
+"Microsoft Word",
+"Microsoft Excel"
+],
+"n_eligible": 2,
+"sha": "a4a7e67de7f28f14a930be44d7c2cd5555c6a466190d818321a3331d1b1ac038",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0029__L044__p273:photoshop:vlcmediaplayer": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0029__L044__p273:photoshop:vlcmediaplayer",
+"anchor": "VLC Media Player",
+"nearest": [
+"Microsoft Word",
+"Microsoft Excel"
+],
+"random": [],
+"distractors": [
+"Microsoft Word",
+"Microsoft Excel"
+],
+"n_eligible": 2,
+"sha": "1e2c32959a40bf6c33a0854704790b6a2bae4fa4c140bb3dbfd5f88a44f01594",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0029__L044__p273:photoshopcc:vlcmediaplayer": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0029__L044__p273:photoshopcc:vlcmediaplayer",
+"anchor": "VLC Media Player",
+"nearest": [
+"Microsoft Word",
+"Microsoft Excel"
+],
+"random": [],
+"distractors": [
+"Microsoft Word",
+"Microsoft Excel"
+],
+"n_eligible": 2,
+"sha": "012dd6af8c31ca3382734b7f160d1bfbf0514d5dcbc318c4310c947041ca27b2",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0029__L048__p220:notepad++:vlcmediaplayer": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0029__L048__p220:notepad++:vlcmediaplayer",
+"anchor": "VLC Media Player",
+"nearest": [
+"Microsoft Word",
+"Microsoft Excel"
+],
+"random": [],
+"distractors": [
+"Microsoft Word",
+"Microsoft Excel"
+],
+"n_eligible": 2,
+"sha": "29a36029793e91ff6b6276e88613fed9a5f03cebfdc24ba53cf4205857f14ccb",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0029__L048__p273:photoshop:vlcmediaplayer": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0029__L048__p273:photoshop:vlcmediaplayer",
+"anchor": "VLC Media Player",
+"nearest": [
+"Microsoft Word",
+"Microsoft Excel"
+],
+"random": [],
+"distractors": [
+"Microsoft Word",
+"Microsoft Excel"
+],
+"n_eligible": 2,
+"sha": "ad173e75094538440b6a3a9aae4e56b7c14f3fd46b146f14f7a326bd6f6fdfae",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0029__L052__p23:blender:vlc": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0029__L052__p23:blender:vlc",
+"anchor": "VLC Media Player",
+"nearest": [
+"Microsoft Word",
+"Microsoft Excel"
+],
+"random": [],
+"distractors": [
+"Microsoft Word",
+"Microsoft Excel"
+],
+"n_eligible": 2,
+"sha": "fa2caf7aaa8f3408a1246c4cf6546466b18e719998f28ab4599fae54328e8baa",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0029__L052__p23:obsblender:vlc": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0029__L052__p23:obsblender:vlc",
+"anchor": "VLC Media Player",
+"nearest": [
+"Microsoft Word",
+"Microsoft Excel"
+],
+"random": [],
+"distractors": [
+"Microsoft Word",
+"Microsoft Excel"
+],
+"n_eligible": 2,
+"sha": "3d1cb532cf073b028e2c0611e1ae3c88d0776cb2fd1abee76128aaa9eedc203b",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0029__L052__p273:blender:vlc": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0029__L052__p273:blender:vlc",
+"anchor": "VLC Media Player",
+"nearest": [
+"Microsoft Word",
+"Microsoft Excel"
+],
+"random": [],
+"distractors": [
+"Microsoft Word",
+"Microsoft Excel"
+],
+"n_eligible": 2,
+"sha": "3f1466d48b44e2ac0dbfc608325ef764077e7e77e57f0d1e657bd926e06be160",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0029__L056__p220:autohotkey:vlc": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0029__L056__p220:autohotkey:vlc",
+"anchor": "VLC Media Player",
+"nearest": [
+"Microsoft Word",
+"Microsoft Excel"
+],
+"random": [],
+"distractors": [
+"Microsoft Word",
+"Microsoft Excel"
+],
+"n_eligible": 2,
+"sha": "bee5edf0fbb4f53fe7cc70077a4fa802c5017c026b34c0a45376a0b7455471dc",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0029__L056__p23:blender:vlc": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0029__L056__p23:blender:vlc",
+"anchor": "VLC Media Player",
+"nearest": [
+"Microsoft Word",
+"Microsoft Excel"
+],
+"random": [],
+"distractors": [
+"Microsoft Word",
+"Microsoft Excel"
+],
+"n_eligible": 2,
+"sha": "74ff6aa26a76ec8db2478ced433eb08f3e335d0622a0d847865248efc0de052d",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0029__L056__p23:blender:vlcmediaplayer": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0029__L056__p23:blender:vlcmediaplayer",
+"anchor": "VLC Media Player",
+"nearest": [
+"Microsoft Word",
+"Microsoft Excel"
+],
+"random": [],
+"distractors": [
+"Microsoft Word",
+"Microsoft Excel"
+],
+"n_eligible": 2,
+"sha": "44475bc5bf8a6544b93df6d6906b17fa50422ed0baf8305f8a78e1f0d30cd739",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0029__L056__p273:blender:vlcmediaplayer": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0029__L056__p273:blender:vlcmediaplayer",
+"anchor": "VLC Media Player",
+"nearest": [
+"Microsoft Word",
+"Microsoft Excel"
+],
+"random": [],
+"distractors": [
+"Microsoft Word",
+"Microsoft Excel"
+],
+"n_eligible": 2,
+"sha": "a92cf00cec356339831a95e46bf81c2f3fe69c2c64e7f5daf17f967a98ff777d",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0029__L060__p23:blender:vlc": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0029__L060__p23:blender:vlc",
+"anchor": "VLC Media Player",
+"nearest": [
+"Microsoft Word",
+"Microsoft Excel"
+],
+"random": [],
+"distractors": [
+"Microsoft Word",
+"Microsoft Excel"
+],
+"n_eligible": 2,
+"sha": "4af01f8ce7f056f936499bc2c9b38e80929036b4a0732e5616c376b463682d44",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0029__L060__p23:blender:vlcmediaplayer": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0029__L060__p23:blender:vlcmediaplayer",
+"anchor": "VLC Media Player",
+"nearest": [
+"Microsoft Word",
+"Microsoft Excel"
+],
+"random": [],
+"distractors": [
+"Microsoft Word",
+"Microsoft Excel"
+],
+"n_eligible": 2,
+"sha": "11d8f3e3cc9e8b8c0d20768ec7e7394b516c5b33e925bbf1108bad6c8a9ab6a6",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0029__L024__p166:logitechghub:vlcmediaplayer": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0029__L024__p166:logitechghub:vlcmediaplayer",
 "anchor": "VLC Media Player",

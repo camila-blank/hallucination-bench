@@ -26,6 +26,26 @@
 "sha": "dd353396d16ed3e8b03fed4e3c6eac5bc49640e4e17aa68b1a31edc54e446a95",
 "generation": 0
 },
+"mlnla-ck2000-all11:chat-lmsys-0056__L040__p58:javasystemoutprintln:cconsolewriteline": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0056__L040__p58:javasystemoutprintln:cconsolewriteline",
+"anchor": "Console.WriteLine",
+"nearest": [
+"console.info",
+"puts",
+"console.warn",
+"console.error"
+],
+"random": [],
+"distractors": [
+"console.info",
+"puts",
+"console.warn",
+"console.error"
+],
+"n_eligible": 4,
+"sha": "7b1c44544858c3baf3b116d514f83f569fe09c0cf207a57b5eb190bb677fdb3e",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0056__L028__p123:cout:consolewrite": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0056__L028__p123:cout:consolewrite",
 "anchor": "Console.Write",

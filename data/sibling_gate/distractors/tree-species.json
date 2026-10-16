@@ -1,4 +1,54 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0040__L028__p58:pistachiotree:chineseelm": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0040__L028__p58:pistachiotree:chineseelm",
+"anchor": "Chinese elm",
+"nearest": [
+"Spruce",
+"Maple",
+"Willow",
+"Cedar"
+],
+"random": [
+"Birch",
+"Redwood"
+],
+"distractors": [
+"Spruce",
+"Maple",
+"Willow",
+"Cedar",
+"Birch",
+"Redwood"
+],
+"n_eligible": 6,
+"sha": "0a5fb523f9ac9a1f57ab088b77789995903f99d9084cdbc06c4aceed1a5fc6b3",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0040__L040__p54:walnut:chineseelm": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0040__L040__p54:walnut:chineseelm",
+"anchor": "Chinese elm",
+"nearest": [
+"Spruce",
+"Maple",
+"Willow",
+"Cedar"
+],
+"random": [
+"Birch",
+"Redwood"
+],
+"distractors": [
+"Spruce",
+"Maple",
+"Willow",
+"Cedar",
+"Birch",
+"Redwood"
+],
+"n_eligible": 6,
+"sha": "c49d3fb7c3f36942865eb40f9a912c8967605e0a5659c84eb8c0bdd3cf1269f4",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0040__L024__p58:oakormango:chineseelm": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0040__L024__p58:oakormango:chineseelm",
 "anchor": "Chinese elm",

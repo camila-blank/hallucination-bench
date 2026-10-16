@@ -1,4 +1,207 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0003__L040__p310:postgresql:webidlwebbluetoothapi": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0003__L040__p310:postgresql:webidlwebbluetoothapi",
+"anchor": "PostgreSQL",
+"nearest": [
+"DuckDB",
+"Redis",
+"Neo4j",
+"SQLite"
+],
+"random": [
+"Amazon DynamoDB",
+"Elasticsearch",
+"Microsoft Access",
+"Microsoft SQL Server"
+],
+"distractors": [
+"DuckDB",
+"Redis",
+"Neo4j",
+"SQLite",
+"Amazon DynamoDB",
+"Elasticsearch",
+"Microsoft Access",
+"Microsoft SQL Server"
+],
+"n_eligible": 15,
+"sha": "95dc9b9f1b47d693c4034e444089bb01fb80b040fc8871c146519fbbb6499a98",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0007__L036__p170:postgresql:sqlite": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0007__L036__p170:postgresql:sqlite",
+"anchor": "SQLite",
+"nearest": [
+"Redis",
+"Microsoft Access",
+"Oracle Database",
+"MongoDB"
+],
+"random": [
+"Amazon DynamoDB",
+"Couchbase",
+"Elasticsearch",
+"Neo4j"
+],
+"distractors": [
+"Redis",
+"Microsoft Access",
+"Oracle Database",
+"MongoDB",
+"Amazon DynamoDB",
+"Couchbase",
+"Elasticsearch",
+"Neo4j"
+],
+"n_eligible": 9,
+"sha": "1805acfa647160539074a3280fc441459e8731a294defb48d80e77c9824f7923",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0007__L044__p170:postgresql:sqlite3": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0007__L044__p170:postgresql:sqlite3",
+"anchor": "SQLite",
+"nearest": [
+"Redis",
+"Microsoft Access",
+"Oracle Database",
+"MongoDB"
+],
+"random": [
+"Amazon DynamoDB",
+"Cassandra",
+"Couchbase",
+"Neo4j"
+],
+"distractors": [
+"Redis",
+"Microsoft Access",
+"Oracle Database",
+"MongoDB",
+"Amazon DynamoDB",
+"Cassandra",
+"Couchbase",
+"Neo4j"
+],
+"n_eligible": 9,
+"sha": "04462a88ea7ea58bf4cd935e57152b34ff8c7fe6a35c05c24e8c268d172e5d55",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0007__L052__p147:sqlserver:sqlite": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0007__L052__p147:sqlserver:sqlite",
+"anchor": "SQLite",
+"nearest": [
+"Redis",
+"Oracle Database",
+"MongoDB",
+"Elasticsearch"
+],
+"random": [
+"Amazon DynamoDB",
+"Cassandra",
+"Couchbase",
+"Neo4j"
+],
+"distractors": [
+"Redis",
+"Oracle Database",
+"MongoDB",
+"Elasticsearch",
+"Amazon DynamoDB",
+"Cassandra",
+"Couchbase",
+"Neo4j"
+],
+"n_eligible": 8,
+"sha": "0fca32cbfaf25963676f09f3f1b9f56953696deae23570c7714d05c07e5b6d07",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L060__p96:sqlserver:mysql": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L060__p96:sqlserver:mysql",
+"anchor": "MySQL",
+"nearest": [
+"MariaDB",
+"IBM Db2",
+"SQLite",
+"PostgreSQL"
+],
+"random": [
+"Cassandra",
+"Elasticsearch",
+"MongoDB",
+"Oracle Database"
+],
+"distractors": [
+"MariaDB",
+"IBM Db2",
+"SQLite",
+"PostgreSQL",
+"Cassandra",
+"Elasticsearch",
+"MongoDB",
+"Oracle Database"
+],
+"n_eligible": 13,
+"sha": "2a4c9e0dcebf58bc6ae3dc32fdf07bef11649dd36827680b2e7fb05b884ebcfe",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L056__p221:oracledatabase:sapbusinessobjectswebintelligence": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L056__p221:oracledatabase:sapbusinessobjectswebintelligence",
+"anchor": "Oracle Database",
+"nearest": [
+"Microsoft SQL Server",
+"IBM Db2",
+"PostgreSQL",
+"Cassandra"
+],
+"random": [
+"Couchbase",
+"MySQL",
+"Redis",
+"SQLite"
+],
+"distractors": [
+"Microsoft SQL Server",
+"IBM Db2",
+"PostgreSQL",
+"Cassandra",
+"Couchbase",
+"MySQL",
+"Redis",
+"SQLite"
+],
+"n_eligible": 13,
+"sha": "210b5d986410aa7e0093ce6014a0d1bbe740d3eb9db423e15df0af98514c158b",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0074__L044__p443:mongodb:pythontoysqldatabase": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0074__L044__p443:mongodb:pythontoysqldatabase",
+"anchor": "MongoDB",
+"nearest": [
+"Elasticsearch",
+"Redis",
+"Neo4j",
+"Cassandra"
+],
+"random": [
+"Amazon DynamoDB",
+"MariaDB",
+"PostgreSQL",
+"SQLite"
+],
+"distractors": [
+"Elasticsearch",
+"Redis",
+"Neo4j",
+"Cassandra",
+"Amazon DynamoDB",
+"MariaDB",
+"PostgreSQL",
+"SQLite"
+],
+"n_eligible": 14,
+"sha": "d9a075000d632ef637f79ebdcefc49d01c65e0924c76ff6fee1873c7dc4e81a6",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0003__L040__p310:postgresql:webbluetoothapi": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0003__L040__p310:postgresql:webbluetoothapi",
 "anchor": "PostgreSQL",

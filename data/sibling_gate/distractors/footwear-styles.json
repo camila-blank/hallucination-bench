@@ -1,4 +1,265 @@
 {
+"mlnla-ck2000-all11:chat-dailydialog-0060__L024__p49:sneakers:skates": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0060__L024__p49:sneakers:skates",
+"anchor": "skates",
+"nearest": [
+"high heels",
+"flip-flops",
+"slippers",
+"oxfords"
+],
+"random": [
+"Chukka Boot",
+"Chukka boots",
+"pumps",
+"sandals"
+],
+"distractors": [
+"high heels",
+"flip-flops",
+"slippers",
+"oxfords",
+"Chukka Boot",
+"Chukka boots",
+"pumps",
+"sandals"
+],
+"n_eligible": 9,
+"sha": "d585850ccd8bcfb2fcf5d2dcf6fec1a6651a18eda34e9f8e174b983b25bfc8cc",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0060__L028__p31:sneakers:skates": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0060__L028__p31:sneakers:skates",
+"anchor": "skates",
+"nearest": [
+"high heels",
+"flip-flops",
+"slippers",
+"oxfords"
+],
+"random": [
+"Chukka Boot",
+"Chukka boots",
+"pumps",
+"sandals"
+],
+"distractors": [
+"high heels",
+"flip-flops",
+"slippers",
+"oxfords",
+"Chukka Boot",
+"Chukka boots",
+"pumps",
+"sandals"
+],
+"n_eligible": 9,
+"sha": "e59f6cbd8e2118c31a5566761e707ab27ac1aa124cafdd0ae244fa4b6d4cb581",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0060__L048__p29:sneakers:skates": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0060__L048__p29:sneakers:skates",
+"anchor": "skates",
+"nearest": [
+"high heels",
+"flip-flops",
+"slippers",
+"oxfords"
+],
+"random": [
+"Chukka boots",
+"loafers",
+"pumps",
+"sandals"
+],
+"distractors": [
+"high heels",
+"flip-flops",
+"slippers",
+"oxfords",
+"Chukka boots",
+"loafers",
+"pumps",
+"sandals"
+],
+"n_eligible": 9,
+"sha": "6f069453fd610394ee1daa3cb2ab08468b4c53b24c71ee577bbfeb1145c22067",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0060__L048__p31:skateshoes:skates": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0060__L048__p31:skateshoes:skates",
+"anchor": "skate shoes",
+"nearest": [
+"Chukka Boot",
+"high heels",
+"Chukka boots",
+"flip-flops"
+],
+"random": [
+"loafers",
+"oxfords",
+"sandals",
+"slippers"
+],
+"distractors": [
+"Chukka Boot",
+"high heels",
+"Chukka boots",
+"flip-flops",
+"loafers",
+"oxfords",
+"sandals",
+"slippers"
+],
+"n_eligible": 9,
+"sha": "9880d6a7e3acd539a9b0a5b960ffd5e94a4786a104995b4af774b5eef5ffc4c0",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0060__L052__p29:sneakers:skates": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0060__L052__p29:sneakers:skates",
+"anchor": "skates",
+"nearest": [
+"high heels",
+"flip-flops",
+"slippers",
+"oxfords"
+],
+"random": [
+"Chukka Boot",
+"Chukka boots",
+"loafers",
+"pumps"
+],
+"distractors": [
+"high heels",
+"flip-flops",
+"slippers",
+"oxfords",
+"Chukka Boot",
+"Chukka boots",
+"loafers",
+"pumps"
+],
+"n_eligible": 9,
+"sha": "4d0233b30659e95caedf10a5a98efb89a16c8ab90a62a479047ea97c95e0cc42",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0060__L052__p58:basketballshoes:skates": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0060__L052__p58:basketballshoes:skates",
+"anchor": "skates",
+"nearest": [
+"high heels",
+"flip-flops",
+"slippers",
+"oxfords"
+],
+"random": [
+"Chukka Boot",
+"Chukka boots",
+"loafers",
+"pumps"
+],
+"distractors": [
+"high heels",
+"flip-flops",
+"slippers",
+"oxfords",
+"Chukka Boot",
+"Chukka boots",
+"loafers",
+"pumps"
+],
+"n_eligible": 9,
+"sha": "6a79f8c816c6f00aee38d8b34dddb6af70998732f067f3de2a07d778a0e88300",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0060__L052__p58:sneakers:skates": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0060__L052__p58:sneakers:skates",
+"anchor": "skates",
+"nearest": [
+"high heels",
+"flip-flops",
+"slippers",
+"oxfords"
+],
+"random": [
+"Chukka Boot",
+"Chukka boots",
+"loafers",
+"pumps"
+],
+"distractors": [
+"high heels",
+"flip-flops",
+"slippers",
+"oxfords",
+"Chukka Boot",
+"Chukka boots",
+"loafers",
+"pumps"
+],
+"n_eligible": 9,
+"sha": "03b20f253a2041e56204746e03835bf52d706005a3a2e7dadeb0635db3b35a85",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0060__L056__p29:kicks:skates": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0060__L056__p29:kicks:skates",
+"anchor": "skates",
+"nearest": [
+"high heels",
+"flip-flops",
+"slippers",
+"oxfords"
+],
+"random": [
+"Chukka boots",
+"loafers",
+"pumps",
+"sandals"
+],
+"distractors": [
+"high heels",
+"flip-flops",
+"slippers",
+"oxfords",
+"Chukka boots",
+"loafers",
+"pumps",
+"sandals"
+],
+"n_eligible": 9,
+"sha": "bcbdb066f9658e99011f52be2f234f4c2737752e324e6c001b857f99f04df5a3",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0060__L056__p29:shoessneakers:skates": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0060__L056__p29:shoessneakers:skates",
+"anchor": "skates",
+"nearest": [
+"high heels",
+"flip-flops",
+"slippers",
+"oxfords"
+],
+"random": [
+"Chukka Boot",
+"Chukka boots",
+"loafers",
+"sandals"
+],
+"distractors": [
+"high heels",
+"flip-flops",
+"slippers",
+"oxfords",
+"Chukka Boot",
+"Chukka boots",
+"loafers",
+"sandals"
+],
+"n_eligible": 9,
+"sha": "2a1a2598f12bb2cfedb464cd9b99d962b8a904fa20c10064fba786018a957eda",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-dailydialog-0060__L020__p31:shoessneakers:skates": {
 "unit": "mlnla-rl2-800-all11:chat-dailydialog-0060__L020__p31:shoessneakers:skates",
 "anchor": "skates",

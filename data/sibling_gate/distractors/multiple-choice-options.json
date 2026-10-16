@@ -57,6 +57,122 @@
 "sha": "b8f52d2be71f68f9dc0bde9f22aa97f51058e6067ee4c722a012ea5ceae7389a",
 "generation": 0
 },
+"mlnla-ck2000-all11:chat-lmsys-0004__L048__p306:c:b": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0004__L048__p306:c:b",
+"anchor": "B",
+"nearest": [
+"Option A",
+"Option D",
+"option D",
+"G"
+],
+"random": [
+"D",
+"E",
+"F",
+"None of the above"
+],
+"distractors": [
+"Option A",
+"Option D",
+"option D",
+"G",
+"D",
+"E",
+"F",
+"None of the above"
+],
+"n_eligible": 13,
+"sha": "8464cbfe1d7cf7b947a60a9be54d360f86aa3e38395d366bd5d4cea2fd698d63",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0004__L048__p306:optionc:optionb": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0004__L048__p306:optionc:optionb",
+"anchor": "option B",
+"nearest": [
+"Option A",
+"A",
+"Option D",
+"True"
+],
+"random": [
+"D",
+"E",
+"F",
+"None of the above"
+],
+"distractors": [
+"Option A",
+"A",
+"Option D",
+"True",
+"D",
+"E",
+"F",
+"None of the above"
+],
+"n_eligible": 13,
+"sha": "6e4de21fa8bd7dda4cb9c3c51a533d20a8c8ab37a7c9f44bf8783555e9efff86",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0008__L028__p378:b:a": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0008__L028__p378:b:a",
+"anchor": "A",
+"nearest": [
+"True",
+"Option A",
+"F",
+"Option D"
+],
+"random": [
+"All of the above",
+"E",
+"G",
+"H"
+],
+"distractors": [
+"True",
+"Option A",
+"F",
+"Option D",
+"All of the above",
+"E",
+"G",
+"H"
+],
+"n_eligible": 12,
+"sha": "3d522c8421aeda31f0a5e413a423007cd85c46f3b3b4acdcf52f49f712121cf5",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0008__L028__p378:optionb:optiona": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0008__L028__p378:optionb:optiona",
+"anchor": "Option A",
+"nearest": [
+"A",
+"Option C",
+"Option D",
+"option D"
+],
+"random": [
+"All of the above",
+"None of the above",
+"Option E",
+"True"
+],
+"distractors": [
+"A",
+"Option C",
+"Option D",
+"option D",
+"All of the above",
+"None of the above",
+"Option E",
+"True"
+],
+"n_eligible": 12,
+"sha": "f2ceba924187156e912fb29cf037802a2f17bc714fc43be770aad6c9cb4795ca",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0008__L024__p378:b:a": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0008__L024__p378:b:a",
 "anchor": "A",

@@ -26,6 +26,60 @@
 "sha": "02eeb2a2eea905212f21ff58938664052e762e57e602b73054e81035c0e76afa",
 "generation": 0
 },
+"mlnla-ck2000-all11:chat-lmsys-0024__L028__p253:vinge:ijgood": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0024__L028__p253:vinge:ijgood",
+"anchor": "I.J. Good",
+"nearest": [
+"Herman Kahn",
+"Arthur C. Clarke",
+"H. G. Wells",
+"Marshall McLuhan"
+],
+"random": [
+"Alvin Toffler",
+"Buckminster Fuller",
+"Kevin Kelly"
+],
+"distractors": [
+"Herman Kahn",
+"Arthur C. Clarke",
+"H. G. Wells",
+"Marshall McLuhan",
+"Alvin Toffler",
+"Buckminster Fuller",
+"Kevin Kelly"
+],
+"n_eligible": 7,
+"sha": "b74779a91f31f02ffa2674d52692841006c8cde72c9d8c9a94809026424fd92e",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0024__L060__p89:vernorvinge:ijgood": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0024__L060__p89:vernorvinge:ijgood",
+"anchor": "I.J. Good",
+"nearest": [
+"Herman Kahn",
+"Arthur C. Clarke",
+"H. G. Wells",
+"Marshall McLuhan"
+],
+"random": [
+"Alvin Toffler",
+"Buckminster Fuller",
+"Kevin Kelly"
+],
+"distractors": [
+"Herman Kahn",
+"Arthur C. Clarke",
+"H. G. Wells",
+"Marshall McLuhan",
+"Alvin Toffler",
+"Buckminster Fuller",
+"Kevin Kelly"
+],
+"n_eligible": 7,
+"sha": "23ac760c0461f2b2e6a608fcece9b9764210060adf840244383061e4d6d7cec6",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0024__L028__p141:vernorvinge:ijgood": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0024__L028__p141:vernorvinge:ijgood",
 "anchor": "I.J. Good",

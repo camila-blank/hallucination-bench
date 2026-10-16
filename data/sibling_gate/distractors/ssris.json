@@ -1,0 +1,408 @@
+{
+"mlnla-ck2000-all11:chat-lmsys-0028__L040__p381:sertraline:fluoxetine": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0028__L040__p381:sertraline:fluoxetine",
+"anchor": "Fluoxetine",
+"nearest": [
+"indalpine",
+"zimelidine",
+"fluvoxamine",
+"escitalopram"
+],
+"random": [
+"cericlamine",
+"dapoxetine",
+"omiloxetine",
+"vortioxetine"
+],
+"distractors": [
+"indalpine",
+"zimelidine",
+"fluvoxamine",
+"escitalopram",
+"cericlamine",
+"dapoxetine",
+"omiloxetine",
+"vortioxetine"
+],
+"n_eligible": 12,
+"sha": "c5e8595076b9c8f96bff36c452f26e38d43981e26abbdca6c07b4c8a4bf434aa",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0028__L052__p381:sertraline:fluoxetine": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0028__L052__p381:sertraline:fluoxetine",
+"anchor": "Fluoxetine",
+"nearest": [
+"indalpine",
+"zimelidine",
+"fluvoxamine",
+"escitalopram"
+],
+"random": [
+"cericlamine",
+"dapoxetine",
+"ifoxetine",
+"omiloxetine"
+],
+"distractors": [
+"indalpine",
+"zimelidine",
+"fluvoxamine",
+"escitalopram",
+"cericlamine",
+"dapoxetine",
+"ifoxetine",
+"omiloxetine"
+],
+"n_eligible": 12,
+"sha": "3daf6b78fe503f64eaad919541217f10b80174f784d924d01070d0c38a82cc4b",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0028__L056__p381:sertraline:fluoxetine": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0028__L056__p381:sertraline:fluoxetine",
+"anchor": "Fluoxetine",
+"nearest": [
+"indalpine",
+"zimelidine",
+"fluvoxamine",
+"escitalopram"
+],
+"random": [
+"cericlamine",
+"dapoxetine",
+"ifoxetine",
+"omiloxetine"
+],
+"distractors": [
+"indalpine",
+"zimelidine",
+"fluvoxamine",
+"escitalopram",
+"cericlamine",
+"dapoxetine",
+"ifoxetine",
+"omiloxetine"
+],
+"n_eligible": 12,
+"sha": "b55958c3ac0a553fbaaff1fca1fea2c8c6fd692e181f0f42671c620cde465f78",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0028__L056__p381:sertralinezoloft:fluoxetineprozac": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0028__L056__p381:sertralinezoloft:fluoxetineprozac",
+"anchor": "fluoxetine",
+"nearest": [
+"vilazodone",
+"escitalopram",
+"fluvoxamine",
+"vortioxetine"
+],
+"random": [
+"cericlamine",
+"dapoxetine",
+"femoxetine",
+"omiloxetine"
+],
+"distractors": [
+"vilazodone",
+"escitalopram",
+"fluvoxamine",
+"vortioxetine",
+"cericlamine",
+"dapoxetine",
+"femoxetine",
+"omiloxetine"
+],
+"n_eligible": 12,
+"sha": "67dd0c6d16ec1d691f7ffb870628697becbb950392306e95e1d7325e6c849e7c",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0028__L060__p30:sertraline:fluoxetine": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0028__L060__p30:sertraline:fluoxetine",
+"anchor": "Fluoxetine",
+"nearest": [
+"indalpine",
+"zimelidine",
+"fluvoxamine",
+"escitalopram"
+],
+"random": [
+"alaproclate",
+"cericlamine",
+"dapoxetine",
+"vortioxetine"
+],
+"distractors": [
+"indalpine",
+"zimelidine",
+"fluvoxamine",
+"escitalopram",
+"alaproclate",
+"cericlamine",
+"dapoxetine",
+"vortioxetine"
+],
+"n_eligible": 12,
+"sha": "c5a5292877ce93366bcb34cf988d00f6d719aa790848300147edb2dbf4c1668a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0028__L060__p381:sertraline:fluoxetine": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0028__L060__p381:sertraline:fluoxetine",
+"anchor": "Fluoxetine",
+"nearest": [
+"indalpine",
+"zimelidine",
+"fluvoxamine",
+"escitalopram"
+],
+"random": [
+"alaproclate",
+"cericlamine",
+"omiloxetine",
+"vortioxetine"
+],
+"distractors": [
+"indalpine",
+"zimelidine",
+"fluvoxamine",
+"escitalopram",
+"alaproclate",
+"cericlamine",
+"omiloxetine",
+"vortioxetine"
+],
+"n_eligible": 12,
+"sha": "33fa148050fecc7595299f4680b355fdf52f98403b560ee84a8a6a536aab9756",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0028__L052__p381:sertraline:fluoxetine": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0028__L052__p381:sertraline:fluoxetine",
+"anchor": "Fluoxetine",
+"nearest": [
+"indalpine",
+"zimelidine",
+"fluvoxamine",
+"escitalopram"
+],
+"random": [
+"cericlamine",
+"dapoxetine",
+"omiloxetine",
+"vortioxetine"
+],
+"distractors": [
+"indalpine",
+"zimelidine",
+"fluvoxamine",
+"escitalopram",
+"cericlamine",
+"dapoxetine",
+"omiloxetine",
+"vortioxetine"
+],
+"n_eligible": 12,
+"sha": "46cfd681e75cdbdf6cd1f2fdbac96c1dfc8eb676536d7a9e9b37e1d2f0db7b2b",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0028__L056__p157:paroxetine:fluoxetine": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0028__L056__p157:paroxetine:fluoxetine",
+"anchor": "fluoxetine",
+"nearest": [
+"vilazodone",
+"escitalopram",
+"fluvoxamine",
+"vortioxetine"
+],
+"random": [
+"alaproclate",
+"dapoxetine",
+"femoxetine",
+"indalpine"
+],
+"distractors": [
+"vilazodone",
+"escitalopram",
+"fluvoxamine",
+"vortioxetine",
+"alaproclate",
+"dapoxetine",
+"femoxetine",
+"indalpine"
+],
+"n_eligible": 12,
+"sha": "a2f36325ab05741cd266a498a94baa570e32a1eb43ab1e7f7c59aad54983f177",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0028__L056__p157:sertraline:fluoxetine": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0028__L056__p157:sertraline:fluoxetine",
+"anchor": "Fluoxetine",
+"nearest": [
+"indalpine",
+"zimelidine",
+"fluvoxamine",
+"escitalopram"
+],
+"random": [
+"dapoxetine",
+"femoxetine",
+"ifoxetine",
+"omiloxetine"
+],
+"distractors": [
+"indalpine",
+"zimelidine",
+"fluvoxamine",
+"escitalopram",
+"dapoxetine",
+"femoxetine",
+"ifoxetine",
+"omiloxetine"
+],
+"n_eligible": 12,
+"sha": "fd1b1f575683735d3b9708207a443dabfd59f407747de103d46cbf71f5cfaadf",
+"generation": 1
+},
+"mlnla-rl600-all11:chat-lmsys-0028__L036__p157:sertraline:fluoxetine": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0028__L036__p157:sertraline:fluoxetine",
+"anchor": "Fluoxetine",
+"nearest": [
+"indalpine",
+"zimelidine",
+"fluvoxamine",
+"escitalopram"
+],
+"random": [
+"alaproclate",
+"cericlamine",
+"femoxetine",
+"vilazodone"
+],
+"distractors": [
+"indalpine",
+"zimelidine",
+"fluvoxamine",
+"escitalopram",
+"alaproclate",
+"cericlamine",
+"femoxetine",
+"vilazodone"
+],
+"n_eligible": 12,
+"sha": "c2ad50d4090900141b40aae34aaedbc2f224f482f3b613ac8af35ac68e00534a",
+"generation": 1
+},
+"mlnla-rl600-all11:chat-lmsys-0028__L056__p157:paroxetineseroxat:fluoxetineprozac": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0028__L056__p157:paroxetineseroxat:fluoxetineprozac",
+"anchor": "Fluoxetine",
+"nearest": [
+"indalpine",
+"zimelidine",
+"fluvoxamine",
+"escitalopram"
+],
+"random": [
+"cericlamine",
+"femoxetine",
+"vilazodone",
+"vortioxetine"
+],
+"distractors": [
+"indalpine",
+"zimelidine",
+"fluvoxamine",
+"escitalopram",
+"cericlamine",
+"femoxetine",
+"vilazodone",
+"vortioxetine"
+],
+"n_eligible": 12,
+"sha": "4f00e45f73997acc9b71ab74b4190b2aef7487ed4614f66a90de8f4f221ca3c5",
+"generation": 1
+},
+"mlnla-rl600-all11:chat-lmsys-0028__L060__p157:paroxetine:fluoxetine": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0028__L060__p157:paroxetine:fluoxetine",
+"anchor": "fluoxetine",
+"nearest": [
+"vilazodone",
+"escitalopram",
+"fluvoxamine",
+"vortioxetine"
+],
+"random": [
+"alaproclate",
+"dapoxetine",
+"ifoxetine",
+"omiloxetine"
+],
+"distractors": [
+"vilazodone",
+"escitalopram",
+"fluvoxamine",
+"vortioxetine",
+"alaproclate",
+"dapoxetine",
+"ifoxetine",
+"omiloxetine"
+],
+"n_eligible": 12,
+"sha": "45215899db8e025ca846067ef2d8d7d5983697fe67b238e3cd9f14933f5b6c3e",
+"generation": 1
+},
+"nla-rl-L42:chat-lmsys-0028__L042__p157:paroxetine:fluoxetine": {
+"unit": "nla-rl-L42:chat-lmsys-0028__L042__p157:paroxetine:fluoxetine",
+"anchor": "fluoxetine",
+"nearest": [
+"vilazodone",
+"escitalopram",
+"fluvoxamine",
+"vortioxetine"
+],
+"random": [
+"cericlamine",
+"dapoxetine",
+"ifoxetine",
+"omiloxetine"
+],
+"distractors": [
+"vilazodone",
+"escitalopram",
+"fluvoxamine",
+"vortioxetine",
+"cericlamine",
+"dapoxetine",
+"ifoxetine",
+"omiloxetine"
+],
+"n_eligible": 12,
+"sha": "7a7325e634b1f08a25f715cebcb5277b608e36a904a7dfe43da71164d9e0a8ae",
+"generation": 1
+},
+"s3d-rl600-all11:chat-lmsys-0028__L056__p30:sertraline:fluoxetine": {
+"unit": "s3d-rl600-all11:chat-lmsys-0028__L056__p30:sertraline:fluoxetine",
+"anchor": "Fluoxetine",
+"nearest": [
+"indalpine",
+"zimelidine",
+"fluvoxamine",
+"escitalopram"
+],
+"random": [
+"alaproclate",
+"cericlamine",
+"omiloxetine",
+"vilazodone"
+],
+"distractors": [
+"indalpine",
+"zimelidine",
+"fluvoxamine",
+"escitalopram",
+"alaproclate",
+"cericlamine",
+"omiloxetine",
+"vilazodone"
+],
+"n_eligible": 12,
+"sha": "9ed222d8c24d2464b9709cef174b210df1f2cd8759d137f2b9af2bbd832e9f65",
+"generation": 1
+}
+}

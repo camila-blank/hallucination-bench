@@ -1,0 +1,147 @@
+{
+"mlnla-ck2000-all11:chat-lmsys-0024__L056__p141:vonneumann:ijgood": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0024__L056__p141:vonneumann:ijgood",
+"anchor": "I.J. Good",
+"nearest": [
+"Ada Lovelace",
+"Vint Cerf",
+"Edsger Dijkstra",
+"Alan Kay"
+],
+"random": [
+"Claude Shannon",
+"Donald Knuth",
+"Tim Berners-Lee",
+"Tony Hoare"
+],
+"distractors": [
+"Ada Lovelace",
+"Vint Cerf",
+"Edsger Dijkstra",
+"Alan Kay",
+"Claude Shannon",
+"Donald Knuth",
+"Tim Berners-Lee",
+"Tony Hoare"
+],
+"n_eligible": 12,
+"sha": "af9813e557009d33b4e76f2c32ba7d31c487024c4b3e3d9d30bed2732015b877",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0024__L056__p89:johnvonneumann:ijgood": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0024__L056__p89:johnvonneumann:ijgood",
+"anchor": "I.J. Good",
+"nearest": [
+"Ada Lovelace",
+"Vint Cerf",
+"Edsger Dijkstra",
+"Alan Kay"
+],
+"random": [
+"Claude Shannon",
+"Grace Hopper",
+"Tim Berners-Lee",
+"Tony Hoare"
+],
+"distractors": [
+"Ada Lovelace",
+"Vint Cerf",
+"Edsger Dijkstra",
+"Alan Kay",
+"Claude Shannon",
+"Grace Hopper",
+"Tim Berners-Lee",
+"Tony Hoare"
+],
+"n_eligible": 12,
+"sha": "6fdbc086bf4058f36529f794433b61e62c905da01ca10508bb6011c9e03fc71d",
+"generation": 1
+},
+"mlnla-rl600-all11:chat-lmsys-0024__L032__p141:johnvonneumann1950s:ijgood1965": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0024__L032__p141:johnvonneumann1950s:ijgood1965",
+"anchor": "I.J. Good",
+"nearest": [
+"Ada Lovelace",
+"Vint Cerf",
+"Edsger Dijkstra",
+"Alan Kay"
+],
+"random": [
+"Dennis Ritchie",
+"Donald Knuth",
+"Grace Hopper",
+"Tony Hoare"
+],
+"distractors": [
+"Ada Lovelace",
+"Vint Cerf",
+"Edsger Dijkstra",
+"Alan Kay",
+"Dennis Ritchie",
+"Donald Knuth",
+"Grace Hopper",
+"Tony Hoare"
+],
+"n_eligible": 12,
+"sha": "34c70a86929eae62b2e5499342c47c4de37c64631cd3c50b05de6f49b861280d",
+"generation": 1
+},
+"mlnla-rl600-all11:chat-lmsys-0024__L052__p141:alanturing:ijgood": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0024__L052__p141:alanturing:ijgood",
+"anchor": "I.J. Good",
+"nearest": [
+"John McCarthy",
+"Ada Lovelace",
+"Vint Cerf",
+"Edsger Dijkstra"
+],
+"random": [
+"Barbara Liskov",
+"Claude Shannon",
+"Dennis Ritchie",
+"Donald Knuth"
+],
+"distractors": [
+"John McCarthy",
+"Ada Lovelace",
+"Vint Cerf",
+"Edsger Dijkstra",
+"Barbara Liskov",
+"Claude Shannon",
+"Dennis Ritchie",
+"Donald Knuth"
+],
+"n_eligible": 12,
+"sha": "f7421ba38d7dfee402edd714c4559b5b2e28daaf4b0dd9497e8cbf09133efe95",
+"generation": 1
+},
+"s3d-rl600-all11:chat-lmsys-0024__L060__p89:johnvonneumann:ijgood": {
+"unit": "s3d-rl600-all11:chat-lmsys-0024__L060__p89:johnvonneumann:ijgood",
+"anchor": "I.J. Good",
+"nearest": [
+"Ada Lovelace",
+"Vint Cerf",
+"Edsger Dijkstra",
+"Alan Kay"
+],
+"random": [
+"Barbara Liskov",
+"Claude Shannon",
+"Donald Knuth",
+"Grace Hopper"
+],
+"distractors": [
+"Ada Lovelace",
+"Vint Cerf",
+"Edsger Dijkstra",
+"Alan Kay",
+"Barbara Liskov",
+"Claude Shannon",
+"Donald Knuth",
+"Grace Hopper"
+],
+"n_eligible": 12,
+"sha": "11589a98a85b750b2a24544418bf813c4f7bce0dc5fca281b2511a977007a0d7",
+"generation": 1
+}
+}

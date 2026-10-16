@@ -1,4 +1,204 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0012__L024__p650:bloccubitgetxdiosqlite:hiveflutterriverpod": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0012__L024__p650:bloccubitgetxdiosqlite:hiveflutterriverpod",
+"anchor": "hive",
+"nearest": [
+"provider",
+"http",
+"graphic",
+"fl_chart"
+],
+"random": [
+"table_calendar"
+],
+"distractors": [
+"provider",
+"http",
+"graphic",
+"fl_chart",
+"table_calendar"
+],
+"n_eligible": 5,
+"sha": "e880013d8324c2562a739059361486086ae2f1a1c1e9851efc98c6618c7a74ee",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0012__L036__p745:fluttermap:tablecalendar": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0012__L036__p745:fluttermap:tablecalendar",
+"anchor": "flutter_map",
+"nearest": [
+"table_calendar",
+"graphic",
+"fl_chart",
+"http"
+],
+"random": [
+"flutter_riverpod",
+"hive",
+"provider",
+"shared_preferences"
+],
+"distractors": [
+"table_calendar",
+"graphic",
+"fl_chart",
+"http",
+"flutter_riverpod",
+"hive",
+"provider",
+"shared_preferences"
+],
+"n_eligible": 8,
+"sha": "4a5c84f4a2437608f217b2490a3d64845228ccdb2998848a82cec8d7df094830",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0012__L036__p745:googlemapsflutter:tablecalendar": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0012__L036__p745:googlemapsflutter:tablecalendar",
+"anchor": "google_maps_flutter",
+"nearest": [
+"table_calendar",
+"fl_chart",
+"http",
+"shared_preferences"
+],
+"random": [
+"flutter_riverpod",
+"graphic",
+"hive",
+"provider"
+],
+"distractors": [
+"table_calendar",
+"fl_chart",
+"http",
+"shared_preferences",
+"flutter_riverpod",
+"graphic",
+"hive",
+"provider"
+],
+"n_eligible": 8,
+"sha": "ec1f2126bf0064e722307a79a2de69b0dc712a53ed90bc608d9cdcc2f7d250be",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0012__L036__p745:gorouter:hive": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0012__L036__p745:gorouter:hive",
+"anchor": "hive",
+"nearest": [
+"provider",
+"http",
+"graphic",
+"fl_chart"
+],
+"random": [
+"table_calendar"
+],
+"distractors": [
+"provider",
+"http",
+"graphic",
+"fl_chart",
+"table_calendar"
+],
+"n_eligible": 5,
+"sha": "c41a7c55b857582524b2a69479c27534fb7cc65616eef0c7223c469e851288f3",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0012__L036__p745:syncfusionfluttercharts:tablecalendar": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0012__L036__p745:syncfusionfluttercharts:tablecalendar",
+"anchor": "fl_chart",
+"nearest": [
+"hive",
+"http",
+"shared_preferences",
+"provider"
+],
+"random": [],
+"distractors": [
+"hive",
+"http",
+"shared_preferences",
+"provider"
+],
+"n_eligible": 4,
+"sha": "8952cfbd3579bf0981cec7f56658d898c87575b409064f4be2805c81de73f4b3",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0012__L052__p745:gorouterfluttermarkdown:tablecalendarflchart": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0012__L052__p745:gorouterfluttermarkdown:tablecalendarflchart",
+"anchor": "fl_chart",
+"nearest": [
+"hive",
+"http",
+"shared_preferences",
+"provider"
+],
+"random": [],
+"distractors": [
+"hive",
+"http",
+"shared_preferences",
+"provider"
+],
+"n_eligible": 4,
+"sha": "f4cb566786194effe9b45fae988fc10d8ca0567ee8197498c5e1b637f3840373",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0012__L056__p745:cupertinoicons:tablecalendar": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0012__L056__p745:cupertinoicons:tablecalendar",
+"anchor": "cupertino_icons",
+"nearest": [
+"shared_preferences",
+"hive",
+"provider",
+"http"
+],
+"random": [
+"fl_chart",
+"flutter_riverpod",
+"graphic",
+"table_calendar"
+],
+"distractors": [
+"shared_preferences",
+"hive",
+"provider",
+"http",
+"fl_chart",
+"flutter_riverpod",
+"graphic",
+"table_calendar"
+],
+"n_eligible": 8,
+"sha": "32dff2a3d04e328c4b19865c7ebeea4fd0566322f4272a8d94cca4660436f76a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0012__L056__p745:fluttersvg:flchart": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0012__L056__p745:fluttersvg:flchart",
+"anchor": "graphic",
+"nearest": [
+"fl_chart",
+"table_calendar",
+"flutter_riverpod",
+"provider"
+],
+"random": [
+"hive",
+"http",
+"shared_preferences"
+],
+"distractors": [
+"fl_chart",
+"table_calendar",
+"flutter_riverpod",
+"provider",
+"hive",
+"http",
+"shared_preferences"
+],
+"n_eligible": 7,
+"sha": "45248422f24c3c1cc46f8ee84d3a645129094af6be4bd4a6ec95fba16d629340",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0012__L040__p745:flutterlocalizationsflutterbloc:hiveflutterriverpodtablecalendar": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0012__L040__p745:flutterlocalizationsflutterbloc:hiveflutterriverpodtablecalendar",
 "anchor": "flutter_riverpod",

@@ -1,4 +1,44 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0008__L040__p288:switchandrouter:ribandfib": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0008__L040__p288:switchandrouter:ribandfib",
+"anchor": "RIB and FIB",
+"nearest": [
+"UDP",
+"TCP",
+"Subnetting",
+"IP address"
+],
+"random": [],
+"distractors": [
+"UDP",
+"TCP",
+"Subnetting",
+"IP address"
+],
+"n_eligible": 4,
+"sha": "a6925a63e2ad9285cd34782ebd513c5d1823ff7b4ff2c052dc601883a680957f",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0008__L040__p288:switchesandrouters:ribandfib": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0008__L040__p288:switchesandrouters:ribandfib",
+"anchor": "RIB and FIB",
+"nearest": [
+"UDP",
+"TCP",
+"Subnetting",
+"IP address"
+],
+"random": [],
+"distractors": [
+"UDP",
+"TCP",
+"Subnetting",
+"IP address"
+],
+"n_eligible": 4,
+"sha": "338ffca9fb75b38d1e89dca1a3fd179c8d47e8c85bf33cb5cf1d3721dde018a2",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0008__L024__p288:tcpandip:ribandfib": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0008__L024__p288:tcpandip:ribandfib",
 "anchor": "RIB and FIB",

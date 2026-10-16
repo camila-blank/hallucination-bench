@@ -1,4 +1,119 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0047__L020__p513:clearwaterbeach:rosemarybeach": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0047__L020__p513:clearwaterbeach:rosemarybeach",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Venice Beach",
+"Santa Monica",
+"Laguna Beach",
+"Huntington Beach"
+],
+"random": [
+"Malibu"
+],
+"distractors": [
+"Venice Beach",
+"Santa Monica",
+"Laguna Beach",
+"Huntington Beach",
+"Malibu"
+],
+"n_eligible": 5,
+"sha": "4b4c9707350c65db0a3bd73d9dbaf44f685e2b33e9b19e376c5fe9143a795380",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0047__L052__p513:clearwater:rosemarybeach": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0047__L052__p513:clearwater:rosemarybeach",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Venice Beach",
+"Santa Monica",
+"Laguna Beach",
+"Huntington Beach"
+],
+"random": [
+"Malibu"
+],
+"distractors": [
+"Venice Beach",
+"Santa Monica",
+"Laguna Beach",
+"Huntington Beach",
+"Malibu"
+],
+"n_eligible": 5,
+"sha": "a004c206ae56da8c19ff26aedd3b10137049c5e25064b30ed62974af7875fb3b",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0047__L052__p513:clearwatersiestakey:rosemarybeach": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0047__L052__p513:clearwatersiestakey:rosemarybeach",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Venice Beach",
+"Santa Monica",
+"Laguna Beach",
+"Huntington Beach"
+],
+"random": [
+"Malibu"
+],
+"distractors": [
+"Venice Beach",
+"Santa Monica",
+"Laguna Beach",
+"Huntington Beach",
+"Malibu"
+],
+"n_eligible": 5,
+"sha": "6414228303f3599eb9d45db506c714de4d46a63710619bbab737d6f8d31d923c",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0047__L056__p513:clearwaterbeach:rosemarybeach": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0047__L056__p513:clearwaterbeach:rosemarybeach",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Venice Beach",
+"Santa Monica",
+"Laguna Beach",
+"Huntington Beach"
+],
+"random": [
+"Malibu"
+],
+"distractors": [
+"Venice Beach",
+"Santa Monica",
+"Laguna Beach",
+"Huntington Beach",
+"Malibu"
+],
+"n_eligible": 5,
+"sha": "d4d19b3ed7a3e3b711ff4ce0ea5ad185f909e992d7730a2f2e94fc8829d8561f",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0047__L056__p586:miamibeach:rosemarybeach": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0047__L056__p586:miamibeach:rosemarybeach",
+"anchor": "Rosemary Beach",
+"nearest": [
+"Venice Beach",
+"Santa Monica",
+"Laguna Beach",
+"Huntington Beach"
+],
+"random": [
+"Malibu"
+],
+"distractors": [
+"Venice Beach",
+"Santa Monica",
+"Laguna Beach",
+"Huntington Beach",
+"Malibu"
+],
+"n_eligible": 5,
+"sha": "9edb19e62e66b68791a18bf6c7caad3acfcfff55be778f3c6756d9670e35cfc2",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0047__L052__p513:cocoabeach:rosemarybeach": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0047__L052__p513:cocoabeach:rosemarybeach",
 "anchor": "Rosemary Beach",

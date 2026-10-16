@@ -1,6 +1,6 @@
 {
  "version": 1,
- "_doc": "Plan 0010 \u00a71 arm registry. gated_arms = the persisted default gate set (hbench gate --add-arm X appends). arms.<a>.cells overrides <cells-root>/<a>/cells.jsonl. usd_per_generated_sample: plan-0009 wall-time estimates (16 H200 shards x $4.54/h), for the --plan cost guard only.",
+ "_doc": "Plan 0010 §1 arm registry. gated_arms = the persisted default gate set (hbench gate --add-arm X appends). arms.<a>.cells overrides <cells-root>/<a>/cells.jsonl. usd_per_generated_sample: plan-0009 wall-time estimates (16 H200 shards x $4.54/h), for the --plan cost guard only.",
  "gated_arms": [
   "s3d-rl600",
   "s3d-rl600-all11",
@@ -15,7 +15,8 @@
   "tuned",
   "rlens",
   "template-v3",
-  "sae-l42"
+  "sae-l42",
+  "mlnla-ck2000-all11"
  ],
  "arms": {
   "s3d-rl600": {
@@ -461,13 +462,15 @@
      "new": "GPU = \"H200\"  # sibgate: Camila 2026-10-15 \"do h200s\" (original: H100)"
     }
    ],
-   "tree_sha256": null
+   "tree_sha256": "c705c95f1194278ea8f34366a0fc3898d065a53d94574436565355c38a8f5322",
+   "path": "/workspace/hb-gate-snap/gw-mlnla-f0d704ec"
   },
   "gw-wrong-bridge": {
    "commit": "2e9413d3bd04d0f7a5abed035bf501ac9515e8f1",
    "source": "/workspace/gw-wrong-bridge",
    "patches": [],
-   "tree_sha256": null
+   "tree_sha256": "e4292f622607ef953ab257c561141ec7b31a634813cb5ba1ab461c469e40a8f1",
+   "path": "/workspace/hb-gate-snap/gw-wrong-bridge-2e9413d3"
   }
  }
 }

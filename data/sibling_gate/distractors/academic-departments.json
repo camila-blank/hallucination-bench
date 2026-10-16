@@ -1,4 +1,74 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0050__L020__p69:sales:computerscience": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L020__p69:sales:computerscience",
+"anchor": "Computer Science",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "d65a4eaa6c256d7d3c447cccd4a44ea73dfa0c41475f435cff02c2033bc4edf2",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L028__p97:sales:computerscience": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L028__p97:sales:computerscience",
+"anchor": "Computer Science",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "027f115eaae2523c65176c5564cf804c7e6ecaa5bba80641e6d01a26168e46de",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L032__p69:sales:computerscience": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L032__p69:sales:computerscience",
+"anchor": "Computer Science",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "d35502ff82be0bc291aa23d83b87420f88cda4f0bef26cd26fc04db37a5bc678",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L036__p69:sales:computerscience": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L036__p69:sales:computerscience",
+"anchor": "Computer Science",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "34b10ba3ba67e721bfa3304cf1f3662fd635d5d520698269d6767f27e21885f8",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L036__p87:sales:computerscience": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L036__p87:sales:computerscience",
+"anchor": "Computer Science",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "5d2d0eb96551f916531b119046ca9efe7e603cd0dda3fd0f3e3b281a0abd56e9",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L044__p77:sales:computerscience": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L044__p77:sales:computerscience",
+"anchor": "Computer Science",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "c27fb74286f2629b736c3501c5921ef138f5591f1e7c1afb3aa17948f6f3dfed",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0050__L044__p87:sales:computerscience": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0050__L044__p87:sales:computerscience",
+"anchor": "Computer Science",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "56711af5acdc17201da869a128284d731f985fa079396af96a580eb6238ebdca",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0050__L024__p87:sales:computerscience": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0050__L024__p87:sales:computerscience",
 "anchor": "Computer Science",

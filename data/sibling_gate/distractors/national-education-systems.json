@@ -1,4 +1,29 @@
 {
+"mlnla-ck2000-all11:chat-dailydialog-0046__L032__p157:japaneseeducation:australianeducation": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0046__L032__p157:japaneseeducation:australianeducation",
+"anchor": "Australian education",
+"nearest": [
+"American education system",
+"Indian education system",
+"Canadian education system",
+"German education system"
+],
+"random": [
+"Finnish education system",
+"South Korean education system"
+],
+"distractors": [
+"American education system",
+"Indian education system",
+"Canadian education system",
+"German education system",
+"Finnish education system",
+"South Korean education system"
+],
+"n_eligible": 6,
+"sha": "d660479afd21adbf1e4fcf9e18e5dd87d9cb501646a5ed2e017c2287fcd41178",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-dailydialog-0046__L024__p145:swisseducation:australiaseducationsystem": {
 "unit": "mlnla-rl2-800-all11:chat-dailydialog-0046__L024__p145:swisseducation:australiaseducationsystem",
 "anchor": "Australian education",

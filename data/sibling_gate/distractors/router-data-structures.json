@@ -1,4 +1,27 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0008__L032__p213:ram:rib": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0008__L032__p213:ram:rib",
+"anchor": "RIB",
+"nearest": [
+"Forwarding Information Base (FIB)",
+"Adjacency table",
+"Access control list",
+"Trie"
+],
+"random": [
+"Patricia trie"
+],
+"distractors": [
+"Forwarding Information Base (FIB)",
+"Adjacency table",
+"Access control list",
+"Trie",
+"Patricia trie"
+],
+"n_eligible": 5,
+"sha": "85dd5ea8660256c56cae7dfbcde58ef777c8992d89757a8a14ec2dfb887973c6",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0008__L060__p213:contentaddressablememorycam:routinginformationbaserib": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0008__L060__p213:contentaddressablememorycam:routinginformationbaserib",
 "anchor": "Routing Information Base",

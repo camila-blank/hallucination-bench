@@ -1,0 +1,150 @@
+{
+"mlnla-ck2000-all11:chat-lmsys-0004__L024__p306:civilrightsmovement:coldwar": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0004__L024__p306:civilrightsmovement:coldwar",
+"anchor": "Cold War",
+"nearest": [
+"Fall of the Roman Empire",
+"Renaissance",
+"Industrial Revolution",
+"Fall of the Berlin Wall"
+],
+"random": [
+"Black Death",
+"Moon Landing"
+],
+"distractors": [
+"Fall of the Roman Empire",
+"Renaissance",
+"Industrial Revolution",
+"Fall of the Berlin Wall",
+"Black Death",
+"Moon Landing"
+],
+"n_eligible": 6,
+"sha": "944126f6d3967dd85c077a54f32ac55efac6e64e91dedb2574621d63020b68c9",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0004__L060__p147:americanentryintoworldwari:coldwar": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0004__L060__p147:americanentryintoworldwari:coldwar",
+"anchor": "Cold War",
+"nearest": [
+"Fall of the Roman Empire",
+"Renaissance",
+"Industrial Revolution",
+"Fall of the Berlin Wall"
+],
+"random": [
+"Black Death",
+"Moon Landing"
+],
+"distractors": [
+"Fall of the Roman Empire",
+"Renaissance",
+"Industrial Revolution",
+"Fall of the Berlin Wall",
+"Black Death",
+"Moon Landing"
+],
+"n_eligible": 6,
+"sha": "7e885cf86c8dbfa88da40913f9884632b3ce4d23095800c9fb848035974e0d83",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0004__L060__p208:holocaust:coldwar": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0004__L060__p208:holocaust:coldwar",
+"anchor": "Cold War",
+"nearest": [
+"Fall of the Roman Empire",
+"Renaissance",
+"Industrial Revolution",
+"Fall of the Berlin Wall"
+],
+"random": [
+"Black Death",
+"Moon Landing"
+],
+"distractors": [
+"Fall of the Roman Empire",
+"Renaissance",
+"Industrial Revolution",
+"Fall of the Berlin Wall",
+"Black Death",
+"Moon Landing"
+],
+"n_eligible": 6,
+"sha": "94e129b4418c4525345639c832d9fb52a82c37b309ad526504186b57d6756894",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0004__L024__p306:russianrevolution:coldwar": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0004__L024__p306:russianrevolution:coldwar",
+"anchor": "Cold War",
+"nearest": [
+"Fall of the Roman Empire",
+"Renaissance",
+"Fall of the Berlin Wall",
+"Moon Landing"
+],
+"random": [
+"Black Death"
+],
+"distractors": [
+"Fall of the Roman Empire",
+"Renaissance",
+"Fall of the Berlin Wall",
+"Moon Landing",
+"Black Death"
+],
+"n_eligible": 5,
+"sha": "01eac1e6e44f7251950a06878f3f9ab49fc612d63871445bcf847d2d504153fc",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0004__L036__p306:greatdepression:coldwar": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0004__L036__p306:greatdepression:coldwar",
+"anchor": "Cold War",
+"nearest": [
+"Fall of the Roman Empire",
+"Renaissance",
+"Industrial Revolution",
+"Fall of the Berlin Wall"
+],
+"random": [
+"Black Death",
+"Moon Landing"
+],
+"distractors": [
+"Fall of the Roman Empire",
+"Renaissance",
+"Industrial Revolution",
+"Fall of the Berlin Wall",
+"Black Death",
+"Moon Landing"
+],
+"n_eligible": 6,
+"sha": "577fedddb8ef502527eb4a207afe928cfc30f3f18eb0141fccdb24d5bd075a11",
+"generation": 1
+},
+"mlnla-rl600-all11:chat-lmsys-0004__L036__p306:greatdepression:coldwar": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0004__L036__p306:greatdepression:coldwar",
+"anchor": "Cold War",
+"nearest": [
+"Fall of the Roman Empire",
+"Renaissance",
+"Industrial Revolution",
+"Fall of the Berlin Wall"
+],
+"random": [
+"Black Death",
+"Moon Landing"
+],
+"distractors": [
+"Fall of the Roman Empire",
+"Renaissance",
+"Industrial Revolution",
+"Fall of the Berlin Wall",
+"Black Death",
+"Moon Landing"
+],
+"n_eligible": 6,
+"sha": "8bf6c66526120b6542cefafd637cdc4bb67482b1fcf84fa7e0f512a97ddb4083",
+"generation": 1
+}
+}

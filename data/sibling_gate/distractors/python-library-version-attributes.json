@@ -1,0 +1,350 @@
+{
+"mlnla-ck2000-all11:chat-lmsys-0030__L020__p219:torchversion:tfkerasversion": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0030__L020__p219:torchversion:tfkerasversion",
+"anchor": "tf.keras.__version__",
+"nearest": [
+"matplotlib.__version__",
+"cv2.__version__",
+"PIL.__version__",
+"requests.__version__"
+],
+"random": [
+"flask.__version__",
+"seaborn.__version__",
+"sklearn.__version__",
+"tensorflow.__version__"
+],
+"distractors": [
+"matplotlib.__version__",
+"cv2.__version__",
+"PIL.__version__",
+"requests.__version__",
+"flask.__version__",
+"seaborn.__version__",
+"sklearn.__version__",
+"tensorflow.__version__"
+],
+"n_eligible": 10,
+"sha": "6fb44630fadc05bfc3e6c7120ca56b5505d76e15efb03f94d56d5b0ddda33e67",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0030__L028__p219:npversion:tfkerasversion": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0030__L028__p219:npversion:tfkerasversion",
+"anchor": "tf.keras.__version__",
+"nearest": [
+"matplotlib.__version__",
+"cv2.__version__",
+"PIL.__version__",
+"requests.__version__"
+],
+"random": [
+"django.__version__",
+"scipy.__version__",
+"sklearn.__version__",
+"tensorflow.__version__"
+],
+"distractors": [
+"matplotlib.__version__",
+"cv2.__version__",
+"PIL.__version__",
+"requests.__version__",
+"django.__version__",
+"scipy.__version__",
+"sklearn.__version__",
+"tensorflow.__version__"
+],
+"n_eligible": 10,
+"sha": "6bd0629cd07283db8789450ec9abe31bbbf8e1fa988fb8b31096e4e13f1f7f8a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0030__L028__p219:numpyversion:tfkerasversion": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0030__L028__p219:numpyversion:tfkerasversion",
+"anchor": "tf.keras.__version__",
+"nearest": [
+"matplotlib.__version__",
+"cv2.__version__",
+"PIL.__version__",
+"requests.__version__"
+],
+"random": [
+"flask.__version__",
+"seaborn.__version__",
+"sklearn.__version__",
+"tensorflow.__version__"
+],
+"distractors": [
+"matplotlib.__version__",
+"cv2.__version__",
+"PIL.__version__",
+"requests.__version__",
+"flask.__version__",
+"seaborn.__version__",
+"sklearn.__version__",
+"tensorflow.__version__"
+],
+"n_eligible": 10,
+"sha": "847e9bcc6f30a503bb578125ac477d84cc0ec391f2eeefc7ce3a2b666ff02c67",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0030__L028__p219:torchversion:tfkerasversion": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0030__L028__p219:torchversion:tfkerasversion",
+"anchor": "tf.keras.__version__",
+"nearest": [
+"matplotlib.__version__",
+"cv2.__version__",
+"PIL.__version__",
+"requests.__version__"
+],
+"random": [
+"flask.__version__",
+"scipy.__version__",
+"sklearn.__version__",
+"tensorflow.__version__"
+],
+"distractors": [
+"matplotlib.__version__",
+"cv2.__version__",
+"PIL.__version__",
+"requests.__version__",
+"flask.__version__",
+"scipy.__version__",
+"sklearn.__version__",
+"tensorflow.__version__"
+],
+"n_eligible": 10,
+"sha": "f96d315fd8c62580594c564c6060e89fe089e148dfb916b41762c414112ad0b4",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0030__L032__p219:numpyversion:tfkerasversion": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0030__L032__p219:numpyversion:tfkerasversion",
+"anchor": "tf.keras.__version__",
+"nearest": [
+"matplotlib.__version__",
+"cv2.__version__",
+"PIL.__version__",
+"requests.__version__"
+],
+"random": [
+"django.__version__",
+"flask.__version__",
+"scipy.__version__",
+"sklearn.__version__"
+],
+"distractors": [
+"matplotlib.__version__",
+"cv2.__version__",
+"PIL.__version__",
+"requests.__version__",
+"django.__version__",
+"flask.__version__",
+"scipy.__version__",
+"sklearn.__version__"
+],
+"n_eligible": 10,
+"sha": "5ad2b4e26d80e8894720aaa009493c7a4ce4ed43545504dd774e5e8d7372e8eb",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0030__L032__p219:pdversion:tfkerasversion": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0030__L032__p219:pdversion:tfkerasversion",
+"anchor": "tf.keras.__version__",
+"nearest": [
+"matplotlib.__version__",
+"cv2.__version__",
+"PIL.__version__",
+"requests.__version__"
+],
+"random": [
+"flask.__version__",
+"scipy.__version__",
+"seaborn.__version__",
+"tensorflow.__version__"
+],
+"distractors": [
+"matplotlib.__version__",
+"cv2.__version__",
+"PIL.__version__",
+"requests.__version__",
+"flask.__version__",
+"scipy.__version__",
+"seaborn.__version__",
+"tensorflow.__version__"
+],
+"n_eligible": 10,
+"sha": "87bc31c05eb08f681563f259d9e59edde975ed4a18e4ca744d5fe2d101f25b16",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0030__L024__p219:torchversion:tfkerasversion": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0030__L024__p219:torchversion:tfkerasversion",
+"anchor": "tf.keras.__version__",
+"nearest": [
+"matplotlib.__version__",
+"cv2.__version__",
+"PIL.__version__",
+"requests.__version__"
+],
+"random": [
+"django.__version__",
+"flask.__version__",
+"scipy.__version__",
+"sklearn.__version__"
+],
+"distractors": [
+"matplotlib.__version__",
+"cv2.__version__",
+"PIL.__version__",
+"requests.__version__",
+"django.__version__",
+"flask.__version__",
+"scipy.__version__",
+"sklearn.__version__"
+],
+"n_eligible": 10,
+"sha": "ba123f4c7a690e28e2576f35382ddb0621d106d3bcb196a5adbb2f385c05885b",
+"generation": 1
+},
+"mlnla-rl600-all11:chat-lmsys-0030__L020__p219:torchversion:tfkerasversion": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0030__L020__p219:torchversion:tfkerasversion",
+"anchor": "tf.keras.__version__",
+"nearest": [
+"matplotlib.__version__",
+"cv2.__version__",
+"PIL.__version__",
+"requests.__version__"
+],
+"random": [
+"django.__version__",
+"flask.__version__",
+"scipy.__version__",
+"sklearn.__version__"
+],
+"distractors": [
+"matplotlib.__version__",
+"cv2.__version__",
+"PIL.__version__",
+"requests.__version__",
+"django.__version__",
+"flask.__version__",
+"scipy.__version__",
+"sklearn.__version__"
+],
+"n_eligible": 10,
+"sha": "5e6d5331aa9f25217b41ee15e68efe835462a0af58dc895fe3750ae1df5ac979",
+"generation": 1
+},
+"mlnla-rl600-all11:chat-lmsys-0030__L020__p235:torchversion:tfkerasversion": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0030__L020__p235:torchversion:tfkerasversion",
+"anchor": "tf.keras.__version__",
+"nearest": [
+"matplotlib.__version__",
+"cv2.__version__",
+"PIL.__version__",
+"requests.__version__"
+],
+"random": [
+"django.__version__",
+"flask.__version__",
+"scipy.__version__",
+"sklearn.__version__"
+],
+"distractors": [
+"matplotlib.__version__",
+"cv2.__version__",
+"PIL.__version__",
+"requests.__version__",
+"django.__version__",
+"flask.__version__",
+"scipy.__version__",
+"sklearn.__version__"
+],
+"n_eligible": 10,
+"sha": "789a554b3cb9f75ad5a46ba039f05f4a4fd45817dbed7596679e3fb45fbf2f1f",
+"generation": 1
+},
+"mlnla-rl600-all11:chat-lmsys-0030__L028__p219:torchversion:tfkerasversion": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0030__L028__p219:torchversion:tfkerasversion",
+"anchor": "tf.keras.__version__",
+"nearest": [
+"matplotlib.__version__",
+"cv2.__version__",
+"PIL.__version__",
+"requests.__version__"
+],
+"random": [
+"flask.__version__",
+"scipy.__version__",
+"seaborn.__version__",
+"tensorflow.__version__"
+],
+"distractors": [
+"matplotlib.__version__",
+"cv2.__version__",
+"PIL.__version__",
+"requests.__version__",
+"flask.__version__",
+"scipy.__version__",
+"seaborn.__version__",
+"tensorflow.__version__"
+],
+"n_eligible": 10,
+"sha": "151b24960f2d6baef3fa8912320129eea578a4155c217ecec79705132c5a8c5d",
+"generation": 1
+},
+"mlnla-rl600-all11:chat-lmsys-0030__L032__p219:npversion:tfkerasversion": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0030__L032__p219:npversion:tfkerasversion",
+"anchor": "tf.keras.__version__",
+"nearest": [
+"matplotlib.__version__",
+"cv2.__version__",
+"PIL.__version__",
+"requests.__version__"
+],
+"random": [
+"django.__version__",
+"flask.__version__",
+"scipy.__version__",
+"tensorflow.__version__"
+],
+"distractors": [
+"matplotlib.__version__",
+"cv2.__version__",
+"PIL.__version__",
+"requests.__version__",
+"django.__version__",
+"flask.__version__",
+"scipy.__version__",
+"tensorflow.__version__"
+],
+"n_eligible": 10,
+"sha": "0d8040698e6058584288ce83a8bae02276405042d5897fc2f6395f59a03617e6",
+"generation": 1
+},
+"mlnla-rl600-all11:chat-lmsys-0030__L056__p203:numpyversion:tfkerasversion": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0030__L056__p203:numpyversion:tfkerasversion",
+"anchor": "tf.keras.__version__",
+"nearest": [
+"matplotlib.__version__",
+"cv2.__version__",
+"PIL.__version__",
+"requests.__version__"
+],
+"random": [
+"flask.__version__",
+"scipy.__version__",
+"seaborn.__version__",
+"sklearn.__version__"
+],
+"distractors": [
+"matplotlib.__version__",
+"cv2.__version__",
+"PIL.__version__",
+"requests.__version__",
+"flask.__version__",
+"scipy.__version__",
+"seaborn.__version__",
+"sklearn.__version__"
+],
+"n_eligible": 10,
+"sha": "38e4a8ea74829a71cd2db83b272befff6cb5415a663853881de2e5c6c15ec99a",
+"generation": 1
+}
+}

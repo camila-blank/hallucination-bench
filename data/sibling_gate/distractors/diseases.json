@@ -1,4 +1,74 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0060__L052__p889:lungenentzündung:aom": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0060__L052__p889:lungenentzündung:aom",
+"anchor": "acute otitis media",
+"nearest": [
+"Diabetes mellitus"
+],
+"random": [],
+"distractors": [
+"Diabetes mellitus"
+],
+"n_eligible": 1,
+"sha": "73cd37609bb4e613686d781f4506489ee061f5db14f55532586ab1c4bd82f3e3",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0060__L052__p889:pneumonia:acuteotitismedia": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0060__L052__p889:pneumonia:acuteotitismedia",
+"anchor": "otitis media",
+"nearest": [
+"Diabetes mellitus"
+],
+"random": [],
+"distractors": [
+"Diabetes mellitus"
+],
+"n_eligible": 1,
+"sha": "66193aaf935e90affb7b6a161148297ab4f793217ec73828442d349b12bf1f43",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0060__L052__p889:pneumonia:aom": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0060__L052__p889:pneumonia:aom",
+"anchor": "otitis media",
+"nearest": [
+"Diabetes mellitus"
+],
+"random": [],
+"distractors": [
+"Diabetes mellitus"
+],
+"n_eligible": 1,
+"sha": "fa98812c73b10b86138a4ec18ac6e6e39b91fb322862ebf790b96221693d719d",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0060__L056__p889:diarrhea:acuteotitismedia": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0060__L056__p889:diarrhea:acuteotitismedia",
+"anchor": "otitis media",
+"nearest": [
+"Diabetes mellitus"
+],
+"random": [],
+"distractors": [
+"Diabetes mellitus"
+],
+"n_eligible": 1,
+"sha": "305530d2aab38857fd2e16be2a0ffbdccac837b2ecee2e80fbab9895e45879da",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0060__L056__p889:pneumonia:acuteotitismedia": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0060__L056__p889:pneumonia:acuteotitismedia",
+"anchor": "otitis media",
+"nearest": [
+"Diabetes mellitus"
+],
+"random": [],
+"distractors": [
+"Diabetes mellitus"
+],
+"n_eligible": 1,
+"sha": "32693c2ce7dca9939a09c63502f1899768f9b78d46adb85c62f101a8b00fb625",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0060__L020__p833:anorexianervosa:akuteotitismedia": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0060__L020__p833:anorexianervosa:akuteotitismedia",
 "anchor": "Acute otitis media",

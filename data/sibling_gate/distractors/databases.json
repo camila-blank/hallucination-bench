@@ -28,6 +28,60 @@
 "sha": "1fbc49b3bcf897ba11d8c855bce34f4d1fc347d79f31b61573de2d2d857cc5f4",
 "generation": 0
 },
+"mlnla-ck2000-all11:chat-lmsys-0012__L028__p684:firestorefirebaseauth:hive": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0012__L028__p684:firestorefirebaseauth:hive",
+"anchor": "Hive",
+"nearest": [
+"Oracle Database",
+"Microsoft SQL Server",
+"Redis",
+"Cassandra"
+],
+"random": [
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"distractors": [
+"Oracle Database",
+"Microsoft SQL Server",
+"Redis",
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"n_eligible": 7,
+"sha": "1d5c69dc9ce0e6485bdd10e392f1b1ad1adb75e5e40f7e39cda56f133b70831b",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0012__L056__p316:firebasefirestore:hive": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0012__L056__p316:firebasefirestore:hive",
+"anchor": "Hive",
+"nearest": [
+"Oracle Database",
+"Microsoft SQL Server",
+"Redis",
+"Cassandra"
+],
+"random": [
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"distractors": [
+"Oracle Database",
+"Microsoft SQL Server",
+"Redis",
+"Cassandra",
+"DynamoDB",
+"Elasticsearch",
+"MariaDB"
+],
+"n_eligible": 7,
+"sha": "4e95656cbea33da627a06658edf2653ec9f2c17b067ad64d7f9cd7263d205c8a",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0012__L020__p504:sqlite:hive": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0012__L020__p504:sqlite:hive",
 "anchor": "Hive",

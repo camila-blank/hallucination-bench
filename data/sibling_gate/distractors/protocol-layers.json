@@ -1,4 +1,27 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0014__L040__p353:maclayerforumts:rlcsublayerforlte": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0014__L040__p353:maclayerforumts:rlcsublayerforlte",
+"anchor": "Radio Link Control (RLC) layer for LTE",
+"nearest": [
+"Session layer",
+"Presentation layer",
+"Internet layer",
+"Network layer"
+],
+"random": [
+"Application layer"
+],
+"distractors": [
+"Session layer",
+"Presentation layer",
+"Internet layer",
+"Network layer",
+"Application layer"
+],
+"n_eligible": 5,
+"sha": "e05b139c3820da539bbb466d634258355b4dc749f1ca8cc4b78f0c12836994b9",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0014__L028__p471:transport:rlc": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0014__L028__p471:transport:rlc",
 "anchor": "Transport layer",

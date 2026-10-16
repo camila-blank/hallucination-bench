@@ -1,4 +1,264 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0042__L020__p462:react:laravel": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0042__L020__p462:react:laravel",
+"anchor": "Laravel",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "a598a6bb2b2a92bcba6175f075d87711edfcc1fbfc23b074253dcc433cd61e85",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0042__L020__p462:reactredux:laravel": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0042__L020__p462:reactredux:laravel",
+"anchor": "Laravel",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "c8e1d55b691e8a5b7358ceeb6bd8f4dfab6f9029f94c828d05db6236a32f81f5",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0042__L020__p99:flutter:laravel": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0042__L020__p99:flutter:laravel",
+"anchor": "Laravel",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "5b85cc24ea918099cbe0b49765104e17ed80b02ed05b3ccd858d7d62bc9d4bec",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0042__L024__p27:wordpress+elementor:laravel": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0042__L024__p27:wordpress+elementor:laravel",
+"anchor": "Laravel",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "4e7dec70f09ab5eb6ada5498dac332a26924b3ab9d93abbe0a90d022c1fe4a42",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0042__L028__p27:react:laravel": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0042__L028__p27:react:laravel",
+"anchor": "Laravel",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "7fb0a2e636db67b1ff8337acdeb59d3ff2831a3dc3cdaef82720355ed93900f8",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0042__L028__p99:aspnetcore:laravel": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0042__L028__p99:aspnetcore:laravel",
+"anchor": "Laravel",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "5f6ae29d2caeb0df9a1d99117ed82c3d64f0e1e6b14daa15ac5d956b3ec398b8",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0042__L032__p154:aspnetcore:laravel": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0042__L032__p154:aspnetcore:laravel",
+"anchor": "Laravel",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "b389d61220ac87ae8eaa102ff691062736d5192e6c3d81ff9087bb03be335a14",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0042__L032__p27:react:laravel": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0042__L032__p27:react:laravel",
+"anchor": "Laravel",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "e1a075e6722f2c20fb24e269ee22b2f11d765dc67906693538cd6ba93a9eef25",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0042__L032__p462:flutter:laravel": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0042__L032__p462:flutter:laravel",
+"anchor": "Laravel",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "9561a61e014eb71d7cdebe158fa1c1d007ef7ffe28e5dbd240b85a03c974cc50",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0042__L032__p99:flutter:laravel": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0042__L032__p99:flutter:laravel",
+"anchor": "Laravel",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "7c7c5fa1ff52fd543d35d8e092b80b68a27ac12b6477696f2a80a06b13184379",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0042__L036__p27::": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0042__L036__p27::",
+"anchor": "Laravel",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "016e8d68db39c045731a660663ec8014ef33593ec8a03077745ac5116b393d97",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0042__L036__p27:react:laravel": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0042__L036__p27:react:laravel",
+"anchor": "Laravel",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "7db0c5ca39b1ada62e4f25e294c8ec7ecce64d35c1bf42541ec0b722a2efee45",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0042__L040__p462:flutter:laravel": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0042__L040__p462:flutter:laravel",
+"anchor": "Laravel",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "6df4b2f82d0b649365e531187c77c068b01ee9cf97eb83d91bc0734453d321c7",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0042__L044__p271:nestjsprisma:laravel": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0042__L044__p271:nestjsprisma:laravel",
+"anchor": "Laravel",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "64358c10e610d5c801eca6ec51880356700bf36915d254bad9fcdaa54538d210",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0042__L044__p271:prismanestjs:laraveleloquent": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0042__L044__p271:prismanestjs:laraveleloquent",
+"anchor": "Laravel",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "e8e749b8395594d2f845efed586f1a33aa24ff90a6d5c168d1ec2b04a4ce60aa",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0042__L044__p462:flutter:laravel": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0042__L044__p462:flutter:laravel",
+"anchor": "Laravel",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "5f9a66407b713a1ae4b6efb55da42b99caa6d6ce3d58c27291491b1c7b982849",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0042__L044__p99:firebasefirestore:laravel": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0042__L044__p99:firebasefirestore:laravel",
+"anchor": "Laravel",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "3493af53e139677c3993b1793fc2a67824172b47a02d7c46a816f68015ccb49f",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0042__L048__p271:fastapi:laravel": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0042__L048__p271:fastapi:laravel",
+"anchor": "Laravel",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "17d9e329eee23be4be35a75cab0f3d14161ab43b2b118eb71c65c9cb0d0fbe01",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0042__L048__p271:fastapiwithsqlalchemy:laravel": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0042__L048__p271:fastapiwithsqlalchemy:laravel",
+"anchor": "Laravel",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "2704c178c5bf77413acc26d02c2c8a9ed3494527816df6f0efaa7424552f57a3",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0042__L048__p99:flutter:laravel": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0042__L048__p99:flutter:laravel",
+"anchor": "Laravel",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "38b03b2dcf168e96020f542a2fbca1cdbb01e50c00a6b46d378acc3b19a73a18",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0042__L052__p271:djangodrf:laravel": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0042__L052__p271:djangodrf:laravel",
+"anchor": "Laravel",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "15f3b85889238d95c0ff8f75e388df854e40305eea809127e1cb790fc0b02177",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0042__L052__p27:flutter:laravel": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0042__L052__p27:flutter:laravel",
+"anchor": "Laravel",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "4039555b0f18cc0f480778542975b6c058092455fb34fc7d36da0e6280e66aa2",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0042__L052__p27:react:laravel": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0042__L052__p27:react:laravel",
+"anchor": "Laravel",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "81ac8bc14c1ae1375be486aaba3284b4a6343ab8a5adc3a8a5c504b25d6f4ad8",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0042__L052__p462:flutter:laravel": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0042__L052__p462:flutter:laravel",
+"anchor": "Laravel",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "eb5178ef2e5bdd3f8948b76c12ded99c0e2e55b28672b204cc324c1927d66360",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0042__L056__p271:reactnext:laravel": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0042__L056__p271:reactnext:laravel",
+"anchor": "Laravel",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "ad279f8c2b0825c2fcf25cbe5bdac8b2ecb6bfe6334ef6c933d523d94038a5d3",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0042__L056__p462:reactjavascript:laravel": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0042__L056__p462:reactjavascript:laravel",
+"anchor": "Laravel",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "097ac2530e358b2bed7fbc4fc16a81054a6ab9117c1f9f117b82d677bacc0c5c",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0042__L020__p271:elixirecto:laravel": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0042__L020__p271:elixirecto:laravel",
 "anchor": "Laravel",

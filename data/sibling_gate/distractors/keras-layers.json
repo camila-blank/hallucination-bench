@@ -1,0 +1,234 @@
+{
+"mlnla-ck2000-all11:chat-lmsys-0030__L020__p336:conv1dlayer:denselayer": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0030__L020__p336:conv1dlayer:denselayer",
+"anchor": "Dense",
+"nearest": [
+"Concatenate",
+"Input",
+"LSTM",
+"SimpleRNN"
+],
+"random": [
+"BatchNormalization",
+"Conv3D",
+"GRU",
+"MaxPooling2D"
+],
+"distractors": [
+"Concatenate",
+"Input",
+"LSTM",
+"SimpleRNN",
+"BatchNormalization",
+"Conv3D",
+"GRU",
+"MaxPooling2D"
+],
+"n_eligible": 11,
+"sha": "df27528361acbfe363eb9648f0e0c1681d793c72f77586aafdcc30188945a85c",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0030__L020__p336:conv1dobject:denseobject": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0030__L020__p336:conv1dobject:denseobject",
+"anchor": "Dense",
+"nearest": [
+"Concatenate",
+"Input",
+"LSTM",
+"SimpleRNN"
+],
+"random": [
+"Activation",
+"BatchNormalization",
+"Conv3D",
+"GRU"
+],
+"distractors": [
+"Concatenate",
+"Input",
+"LSTM",
+"SimpleRNN",
+"Activation",
+"BatchNormalization",
+"Conv3D",
+"GRU"
+],
+"n_eligible": 11,
+"sha": "0b16390e1b5368bf97b5d153064daca7410614d5d9ff7bafdf7946ab70d2959e",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0030__L020__p336:conv2d:dense": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0030__L020__p336:conv2d:dense",
+"anchor": "Dense",
+"nearest": [
+"Concatenate",
+"Input",
+"LSTM",
+"SimpleRNN"
+],
+"random": [
+"BatchNormalization",
+"Conv3D",
+"Flatten",
+"MaxPooling2D"
+],
+"distractors": [
+"Concatenate",
+"Input",
+"LSTM",
+"SimpleRNN",
+"BatchNormalization",
+"Conv3D",
+"Flatten",
+"MaxPooling2D"
+],
+"n_eligible": 11,
+"sha": "3896a9197c80c889e4a5d1ccbd7f7e6684b41b96e62c93445fdd1a105b2ae6f0",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0030__L020__p336:conv2dlayer:denselayer": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0030__L020__p336:conv2dlayer:denselayer",
+"anchor": "Dense",
+"nearest": [
+"Concatenate",
+"Input",
+"LSTM",
+"SimpleRNN"
+],
+"random": [
+"BatchNormalization",
+"Conv3D",
+"Flatten",
+"GRU"
+],
+"distractors": [
+"Concatenate",
+"Input",
+"LSTM",
+"SimpleRNN",
+"BatchNormalization",
+"Conv3D",
+"Flatten",
+"GRU"
+],
+"n_eligible": 11,
+"sha": "47e91c5e359979c7cf7a1c121386b1f0a67ce7e9083e9e5fe6920529459fe1cb",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0030__L032__p336:conv2d:dense": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0030__L032__p336:conv2d:dense",
+"anchor": "Dense",
+"nearest": [
+"Concatenate",
+"Input",
+"LSTM",
+"SimpleRNN"
+],
+"random": [
+"BatchNormalization",
+"Conv3D",
+"Flatten",
+"GRU"
+],
+"distractors": [
+"Concatenate",
+"Input",
+"LSTM",
+"SimpleRNN",
+"BatchNormalization",
+"Conv3D",
+"Flatten",
+"GRU"
+],
+"n_eligible": 11,
+"sha": "804a10559bd8b6c51ce0fb642f0116fbc396b0e43998eb7c83857b1ddde5cb34",
+"generation": 1
+},
+"mlnla-rl600-all11:chat-lmsys-0030__L020__p336:conv2d:dense": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0030__L020__p336:conv2d:dense",
+"anchor": "Dense",
+"nearest": [
+"Concatenate",
+"Input",
+"LSTM",
+"SimpleRNN"
+],
+"random": [
+"BatchNormalization",
+"GRU",
+"MaxPooling2D",
+"Reshape"
+],
+"distractors": [
+"Concatenate",
+"Input",
+"LSTM",
+"SimpleRNN",
+"BatchNormalization",
+"GRU",
+"MaxPooling2D",
+"Reshape"
+],
+"n_eligible": 11,
+"sha": "30e04b7f4316c44f7e97028130714daf9af8a0f24c07f1acf35310c1b3acd77b",
+"generation": 1
+},
+"s3d-rl600:chat-lmsys-0030__L060__p336:embeddinglayer:denselayer": {
+"unit": "s3d-rl600:chat-lmsys-0030__L060__p336:embeddinglayer:denselayer",
+"anchor": "Dense",
+"nearest": [
+"Concatenate",
+"Input",
+"LSTM",
+"SimpleRNN"
+],
+"random": [
+"Activation",
+"BatchNormalization",
+"Conv3D",
+"GRU"
+],
+"distractors": [
+"Concatenate",
+"Input",
+"LSTM",
+"SimpleRNN",
+"Activation",
+"BatchNormalization",
+"Conv3D",
+"GRU"
+],
+"n_eligible": 11,
+"sha": "9acb7259ea43a17af159db5e9f694d1e6efb663afd24aaa52dc26937852ce165",
+"generation": 1
+},
+"s3d-sft251:chat-lmsys-0030__L028__p319:conv2dlayer:denselayer": {
+"unit": "s3d-sft251:chat-lmsys-0030__L028__p319:conv2dlayer:denselayer",
+"anchor": "Dense",
+"nearest": [
+"Concatenate",
+"Input",
+"LSTM",
+"SimpleRNN"
+],
+"random": [
+"BatchNormalization",
+"Conv3D",
+"Flatten",
+"GRU"
+],
+"distractors": [
+"Concatenate",
+"Input",
+"LSTM",
+"SimpleRNN",
+"BatchNormalization",
+"Conv3D",
+"Flatten",
+"GRU"
+],
+"n_eligible": 11,
+"sha": "88789bd8aba932688f4494217d3f7f96e7d9e425e436b8679e0afaa19a110e2a",
+"generation": 1
+}
+}

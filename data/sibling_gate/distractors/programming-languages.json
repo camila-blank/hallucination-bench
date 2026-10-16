@@ -144,6 +144,5864 @@
 "sha": "14e28b0769a43355e5ec41c6bb21ba0f26e89897388f79f4079658cb5fb3af55",
 "generation": 0
 },
+"mlnla-ck2000-all11:chat-lmsys-0003__L020__p466:typescript:webidl": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0003__L020__p466:typescript:webidl",
+"anchor": "WebIDL",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart"
+],
+"random": [
+"Elm",
+"Perl",
+"Roc",
+"VB.NET"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart",
+"Elm",
+"Perl",
+"Roc",
+"VB.NET"
+],
+"n_eligible": 22,
+"sha": "474ec74fc99ba8bb48bf798296e7ec64a0152c91bf3c8f3285e2091a7845d76a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0003__L024__p345:c++:webidl": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0003__L024__p345:c++:webidl",
+"anchor": "JavaScript",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart"
+],
+"random": [
+"Elixir",
+"Elm",
+"Haskell vs Rust",
+"Julia"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart",
+"Elixir",
+"Elm",
+"Haskell vs Rust",
+"Julia"
+],
+"n_eligible": 22,
+"sha": "6e96c441772be412c45dae41a5bf059d662868b808c7dbfc8670d51708908810",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0003__L024__p466:c:webidljavascript": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0003__L024__p466:c:webidljavascript",
+"anchor": "JavaScript",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart"
+],
+"random": [
+"HTML",
+"Kaito",
+"Node.js",
+"Perl"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart",
+"HTML",
+"Kaito",
+"Node.js",
+"Perl"
+],
+"n_eligible": 22,
+"sha": "d3ef66b39c75f2902f7980c541d5efaeb76f30f4df791eff46407c513702fcf8",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0003__L024__p466:kotlin:webidljavascript": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0003__L024__p466:kotlin:webidljavascript",
+"anchor": "JavaScript",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart"
+],
+"random": [
+"Elm",
+"F#",
+"PureScript",
+"Scheme"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart",
+"Elm",
+"F#",
+"PureScript",
+"Scheme"
+],
+"n_eligible": 22,
+"sha": "e435f52abea3223f58ba0f70a2335cc132b90b1487b83e0abb9fe9a16e8e0182",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0003__L024__p466:kotlinnative:webidljavascript": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0003__L024__p466:kotlinnative:webidljavascript",
+"anchor": "JavaScript",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart"
+],
+"random": [
+"Elixir",
+"Python vs Java",
+"Roc",
+"VB.NET"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart",
+"Elixir",
+"Python vs Java",
+"Roc",
+"VB.NET"
+],
+"n_eligible": 22,
+"sha": "3f03a1923845b8ea23bf376f2e21f9125283af2f9f535d69db576b8b62724960",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0003__L028__p121:java:webidl": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0003__L028__p121:java:webidl",
+"anchor": "WebIDL",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart"
+],
+"random": [
+"Haskell vs Rust",
+"Julia",
+"Node.js",
+"Roc"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart",
+"Haskell vs Rust",
+"Julia",
+"Node.js",
+"Roc"
+],
+"n_eligible": 21,
+"sha": "7f16a31046294a4fadec5f771fbe9af79692c6f67950e86c497ec86c2a1c68c7",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0003__L028__p396:kotlin:webidl": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0003__L028__p396:kotlin:webidl",
+"anchor": "JavaScript",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart"
+],
+"random": [
+"Node.js",
+"OCaml",
+"Perl",
+"ReScript"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart",
+"Node.js",
+"OCaml",
+"Perl",
+"ReScript"
+],
+"n_eligible": 22,
+"sha": "0ab94056a66f4e8001647b36cd2536ffd645800a527462ec792dc1ad694fe800",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0003__L032__p310:java:webidl": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0003__L032__p310:java:webidl",
+"anchor": "WebIDL",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart"
+],
+"random": [
+"Elm",
+"F#",
+"Julia",
+"Node.js"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart",
+"Elm",
+"F#",
+"Julia",
+"Node.js"
+],
+"n_eligible": 21,
+"sha": "27da86e02f88f7f239e2a5e469743a45c1cb2869d73aee86106a94308b7dd703",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0003__L032__p310:javatypes:webidldefinitions": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0003__L032__p310:javatypes:webidldefinitions",
+"anchor": "WebIDL",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart"
+],
+"random": [
+"HTML",
+"Haskell vs Rust",
+"R",
+"Scheme"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart",
+"HTML",
+"Haskell vs Rust",
+"R",
+"Scheme"
+],
+"n_eligible": 21,
+"sha": "6a66c002f5e3394eadd78823829bbb8b04e1eba37380154c00832f44388f1581",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0003__L032__p396:kotlin:webidl": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0003__L032__p396:kotlin:webidl",
+"anchor": "JavaScript",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart"
+],
+"random": [
+"F#",
+"Node.js",
+"Scheme",
+"VB.NET"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart",
+"F#",
+"Node.js",
+"Scheme",
+"VB.NET"
+],
+"n_eligible": 22,
+"sha": "3955e34eb6578f1ae26a6193bbc90a6a3a80c5b566215fcda10086bb610298cf",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0003__L032__p466:c:javascriptwebidl": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0003__L032__p466:c:javascriptwebidl",
+"anchor": "JavaScript",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart"
+],
+"random": [
+"Elixir",
+"Elm",
+"Perl",
+"R"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart",
+"Elixir",
+"Elm",
+"Perl",
+"R"
+],
+"n_eligible": 22,
+"sha": "8ed4f01cba9acca2084df5f819c9b0289b60a2bfd309a8a8bfacff453cb48b44",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0003__L036__p466:typescript:webidl": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0003__L036__p466:typescript:webidl",
+"anchor": "WebIDL",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart"
+],
+"random": [
+"Elm",
+"Kaito",
+"PHP",
+"ReScript"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart",
+"Elm",
+"Kaito",
+"PHP",
+"ReScript"
+],
+"n_eligible": 22,
+"sha": "003a08164c2375dd182cecb9b54e0ce21468e09c893182b7ee76388c89e60fae",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0003__L040__p310:sqlpostgresql:webidl": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0003__L040__p310:sqlpostgresql:webidl",
+"anchor": "WebIDL",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart"
+],
+"random": [
+"Node.js",
+"OCaml",
+"PHP",
+"R"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart",
+"Node.js",
+"OCaml",
+"PHP",
+"R"
+],
+"n_eligible": 22,
+"sha": "2d21c56834892d7058744622d169335c2e1374869761ec94d50bd4ed1808766b",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0003__L040__p345:c:webidl": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0003__L040__p345:c:webidl",
+"anchor": "JavaScript",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart"
+],
+"random": [
+"Haskell vs Rust",
+"Python vs Java",
+"Scheme",
+"VB.NET"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart",
+"Haskell vs Rust",
+"Python vs Java",
+"Scheme",
+"VB.NET"
+],
+"n_eligible": 22,
+"sha": "2f0c41a56d53167e3e004264a17d769f12a7043156c47b17b0bd211fe1ac2f5e",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0003__L040__p396:c:javascriptwebidl": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0003__L040__p396:c:javascriptwebidl",
+"anchor": "JavaScript",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart"
+],
+"random": [
+"OCaml",
+"Perl",
+"PureScript",
+"Scheme"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart",
+"OCaml",
+"Perl",
+"PureScript",
+"Scheme"
+],
+"n_eligible": 22,
+"sha": "9f5ace576ad358326fe29e09c3bb3ad4c8af37ad21bd0a18a8c931b13436d536",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0003__L040__p466:c:webidljavascript": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0003__L040__p466:c:webidljavascript",
+"anchor": "JavaScript",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart"
+],
+"random": [
+"F#",
+"HTML",
+"ReScript",
+"VB.NET"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart",
+"F#",
+"HTML",
+"ReScript",
+"VB.NET"
+],
+"n_eligible": 22,
+"sha": "ee381eba42f7b415db4d2c09a30a1b5a4268d9bebeb856b20140a6520ab66b7b",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0003__L044__p310:java:javascriptwebidl": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0003__L044__p310:java:javascriptwebidl",
+"anchor": "WebIDL",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart"
+],
+"random": [
+"HTML",
+"Haskell vs Rust",
+"PureScript",
+"Roc"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart",
+"HTML",
+"Haskell vs Rust",
+"PureScript",
+"Roc"
+],
+"n_eligible": 21,
+"sha": "f36cb623964f5f6240c8c507a6de3a2ba3accbb3254e43a822a7d7349717ca28",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0003__L044__p310:java:webidl": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0003__L044__p310:java:webidl",
+"anchor": "WebIDL",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart"
+],
+"random": [
+"Elm",
+"Julia",
+"OCaml",
+"PHP"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart",
+"Elm",
+"Julia",
+"OCaml",
+"PHP"
+],
+"n_eligible": 21,
+"sha": "baa4c855dc98357dbe905388b03d7fba8162cac4bc5101490163c833edf629dc",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0003__L044__p310:javagrammar:webidl": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0003__L044__p310:javagrammar:webidl",
+"anchor": "TypeScript",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart"
+],
+"random": [
+"Elm",
+"Julia",
+"PHP",
+"Roc"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart",
+"Elm",
+"Julia",
+"PHP",
+"Roc"
+],
+"n_eligible": 21,
+"sha": "65ccd7a82599113d0038dcfcfa8b4dc1d292aeb05e08019203cf184a8213a99b",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0003__L044__p310:scala:webidl": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0003__L044__p310:scala:webidl",
+"anchor": "JavaScript",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart"
+],
+"random": [
+"Julia",
+"Kaito",
+"PHP",
+"Scheme"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart",
+"Julia",
+"Kaito",
+"PHP",
+"Scheme"
+],
+"n_eligible": 22,
+"sha": "3b4824afdbc7b92167bcfb781c9bebcdf11dc722fa4f17b64ab4e770ca33ff52",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0003__L044__p345:c++:webidl": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0003__L044__p345:c++:webidl",
+"anchor": "JavaScript",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart"
+],
+"random": [
+"HTML",
+"Haskell vs Rust",
+"Perl",
+"Roc"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart",
+"HTML",
+"Haskell vs Rust",
+"Perl",
+"Roc"
+],
+"n_eligible": 22,
+"sha": "398387bdba2ff79d2472273138423cc161652868cff6b9c99e27273e2ba117dc",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0003__L044__p466:python:javascriptwebidl": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0003__L044__p466:python:javascriptwebidl",
+"anchor": "WebIDL",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart"
+],
+"random": [
+"Elm",
+"Node.js",
+"PHP",
+"Perl"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart",
+"Elm",
+"Node.js",
+"PHP",
+"Perl"
+],
+"n_eligible": 21,
+"sha": "8195843703b4ede6deaecd133d1d05524938f95af4e782378b51359c78fec202",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0003__L060__p396:java:javascriptwebidl": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0003__L060__p396:java:javascriptwebidl",
+"anchor": "WebIDL",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart"
+],
+"random": [
+"F#",
+"Julia",
+"Kaito",
+"PHP"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart",
+"F#",
+"Julia",
+"Kaito",
+"PHP"
+],
+"n_eligible": 21,
+"sha": "583b13b9900e1c576ee5414208bd8b644be6073b26fc14b91f92e737a7300cff",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0022__L020__p155:ocaml:rust": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0022__L020__p155:ocaml:rust",
+"anchor": "Rust",
+"nearest": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir"
+],
+"random": [
+"HTML",
+"Node.js",
+"R",
+"VB.NET"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir",
+"HTML",
+"Node.js",
+"R",
+"VB.NET"
+],
+"n_eligible": 11,
+"sha": "e3cee375e70bc66c68f38ff5e2d8214b40c6f57498c63bae6bace3a29a2b5638",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0022__L020__p221:python:haskell": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0022__L020__p221:python:haskell",
+"anchor": "Haskell",
+"nearest": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir"
+],
+"random": [
+"HTML",
+"PHP",
+"SQL",
+"VB.NET"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir",
+"HTML",
+"PHP",
+"SQL",
+"VB.NET"
+],
+"n_eligible": 11,
+"sha": "7143de0e7f326fb64ebc2f3c34ffa7a96ca18f3da1152b435067e5fe8ff75cc5",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0022__L020__p297:go:haskell": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0022__L020__p297:go:haskell",
+"anchor": "Haskell",
+"nearest": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir"
+],
+"random": [
+"Node.js",
+"R",
+"SQL",
+"VB.NET"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir",
+"Node.js",
+"R",
+"SQL",
+"VB.NET"
+],
+"n_eligible": 11,
+"sha": "63584c3a948db466d16cf70253b4c5191e830db26cc6823357259719d74fc383",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0022__L020__p359:julia:rust": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0022__L020__p359:julia:rust",
+"anchor": "Haskell",
+"nearest": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir"
+],
+"random": [
+"R",
+"SQL",
+"VB.NET",
+"WebIDL"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir",
+"R",
+"SQL",
+"VB.NET",
+"WebIDL"
+],
+"n_eligible": 11,
+"sha": "453940ba0a76fa4ae66ec88f5ab7beb2acfc815ae61d4edf1456c251831af945",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0022__L020__p440:scala:rust": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0022__L020__p440:scala:rust",
+"anchor": "Rust",
+"nearest": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir"
+],
+"random": [
+"PHP",
+"R",
+"SQL",
+"VB.NET"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir",
+"PHP",
+"R",
+"SQL",
+"VB.NET"
+],
+"n_eligible": 11,
+"sha": "f4fbb330e746194f85ec336cf8171b0da90015460c1bb688f427766ccc87d8c5",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0022__L020__p488:python:haskell": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0022__L020__p488:python:haskell",
+"anchor": "Haskell",
+"nearest": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir"
+],
+"random": [
+"PHP",
+"R",
+"SQL",
+"VB.NET"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir",
+"PHP",
+"R",
+"SQL",
+"VB.NET"
+],
+"n_eligible": 11,
+"sha": "d0e437d5bca583022a53d20c6f9d7dec8d3baed6e9c51491deebd960acdb2311",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0022__L024__p297:python3:haskell": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0022__L024__p297:python3:haskell",
+"anchor": "Haskell",
+"nearest": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir"
+],
+"random": [
+"Node.js",
+"PHP",
+"R",
+"VB.NET"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir",
+"Node.js",
+"PHP",
+"R",
+"VB.NET"
+],
+"n_eligible": 11,
+"sha": "ed58a4e3e4e7059468a7fbab906769a2ed75a1be84aab59cb7aec6294e14cfad",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0022__L024__p297:python:haskell": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0022__L024__p297:python:haskell",
+"anchor": "Haskell",
+"nearest": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir"
+],
+"random": [
+"Node.js",
+"SQL",
+"VB.NET",
+"WebIDL"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir",
+"Node.js",
+"SQL",
+"VB.NET",
+"WebIDL"
+],
+"n_eligible": 11,
+"sha": "076e63b7757ab59a6b300a43aed12f956a64d5b633fa52ec82a5222bb729e817",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0022__L024__p359:javapythonc:rust": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0022__L024__p359:javapythonc:rust",
+"anchor": "Rust",
+"nearest": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir"
+],
+"random": [
+"PHP",
+"R",
+"SQL",
+"VB.NET"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir",
+"PHP",
+"R",
+"SQL",
+"VB.NET"
+],
+"n_eligible": 11,
+"sha": "523fb073d16415608c6a9f03fc0181afe32baa7a51f99236ba3d080dee1c4df9",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0022__L024__p359:python:haskellandrustonly": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0022__L024__p359:python:haskellandrustonly",
+"anchor": "Haskell",
+"nearest": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir"
+],
+"random": [
+"PHP",
+"SQL",
+"VB.NET",
+"WebIDL"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir",
+"PHP",
+"SQL",
+"VB.NET",
+"WebIDL"
+],
+"n_eligible": 11,
+"sha": "798f6ade4f6cb48bcdc817b1ada3d8a6b731567ce414585b475e1d855b6b87bf",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0022__L024__p488:python:haskell": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0022__L024__p488:python:haskell",
+"anchor": "Haskell",
+"nearest": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir"
+],
+"random": [
+"HTML",
+"PHP",
+"SQL",
+"VB.NET"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir",
+"HTML",
+"PHP",
+"SQL",
+"VB.NET"
+],
+"n_eligible": 11,
+"sha": "626b0ba7314e3a2d2e937733a0361dd0fa7968d816f648f8438a34c9e23507c8",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0022__L024__p488:pythonjulia:haskell": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0022__L024__p488:pythonjulia:haskell",
+"anchor": "Haskell",
+"nearest": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir"
+],
+"random": [
+"HTML",
+"PHP",
+"SQL",
+"WebIDL"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir",
+"HTML",
+"PHP",
+"SQL",
+"WebIDL"
+],
+"n_eligible": 11,
+"sha": "b5dcae4b413e99638290a05990dd858dcc6dc3e37d8cedd59dce155ccecb10f5",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0022__L028__p155:ocaml:rust": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0022__L028__p155:ocaml:rust",
+"anchor": "Rust",
+"nearest": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir"
+],
+"random": [
+"Node.js",
+"PHP",
+"VB.NET",
+"WebIDL"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir",
+"Node.js",
+"PHP",
+"VB.NET",
+"WebIDL"
+],
+"n_eligible": 11,
+"sha": "c7f136feeb22708481bed4b89af5cbc69fc74a15494d653702d035b4ebc7899d",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0022__L028__p155:scala:rust": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0022__L028__p155:scala:rust",
+"anchor": "Rust",
+"nearest": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir"
+],
+"random": [
+"HTML",
+"Node.js",
+"VB.NET",
+"WebIDL"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir",
+"HTML",
+"Node.js",
+"VB.NET",
+"WebIDL"
+],
+"n_eligible": 11,
+"sha": "03139bf7637b58bb2d3ade1dcd35aaa38ca126ed627406b47d54d8e976204bed",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0022__L028__p221:julia:haskellandrust": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0022__L028__p221:julia:haskellandrust",
+"anchor": "Haskell",
+"nearest": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir"
+],
+"random": [
+"Node.js",
+"PHP",
+"SQL",
+"VB.NET"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir",
+"Node.js",
+"PHP",
+"SQL",
+"VB.NET"
+],
+"n_eligible": 11,
+"sha": "0fe7b605f2cfc42b91c495cbc365bdd9ef67624b6a3b4f252ec69b94069102cf",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0022__L028__p297:python:haskell": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0022__L028__p297:python:haskell",
+"anchor": "Haskell",
+"nearest": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir"
+],
+"random": [
+"HTML",
+"PHP",
+"R",
+"VB.NET"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir",
+"HTML",
+"PHP",
+"R",
+"VB.NET"
+],
+"n_eligible": 11,
+"sha": "666ea9d54840a05d433a86593c8c9af80870b456f0e7b8fb960484d500669918",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0022__L028__p297:swift:rust": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0022__L028__p297:swift:rust",
+"anchor": "Haskell",
+"nearest": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir"
+],
+"random": [
+"HTML",
+"Node.js",
+"PHP",
+"VB.NET"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir",
+"HTML",
+"Node.js",
+"PHP",
+"VB.NET"
+],
+"n_eligible": 11,
+"sha": "b3c53f773d175e3d0a2b298ae4690c32c355485e1cf55fa8b5ea031089aab98a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0022__L028__p359:swift:rust": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0022__L028__p359:swift:rust",
+"anchor": "Haskell",
+"nearest": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir"
+],
+"random": [
+"Node.js",
+"SQL",
+"VB.NET",
+"WebIDL"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir",
+"Node.js",
+"SQL",
+"VB.NET",
+"WebIDL"
+],
+"n_eligible": 11,
+"sha": "1653b1c9c3748b19068ddb66de8e6fc2d11565297c310a449d1456e99f0d8848",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0022__L028__p440:scala:haskell": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0022__L028__p440:scala:haskell",
+"anchor": "Rust",
+"nearest": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir"
+],
+"random": [
+"HTML",
+"R",
+"VB.NET",
+"WebIDL"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir",
+"HTML",
+"R",
+"VB.NET",
+"WebIDL"
+],
+"n_eligible": 11,
+"sha": "86b921675898cf2bd10e1f39b1323b7d9bf8e597ef3c6ccab5d8a70293fb9b0a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0022__L028__p440:swift:rust": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0022__L028__p440:swift:rust",
+"anchor": "Haskell",
+"nearest": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir"
+],
+"random": [
+"Node.js",
+"SQL",
+"VB.NET",
+"WebIDL"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir",
+"Node.js",
+"SQL",
+"VB.NET",
+"WebIDL"
+],
+"n_eligible": 11,
+"sha": "d0d0b9ccc3745e4787ab3db28b77beac17b1e80ebd1ac38b7bb9aa3b1ed3d926",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0022__L028__p488:java:rust": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0022__L028__p488:java:rust",
+"anchor": "Java",
+"nearest": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir"
+],
+"random": [
+"Haskell",
+"Haskell vs Rust",
+"R",
+"VB.NET"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir",
+"Haskell",
+"Haskell vs Rust",
+"R",
+"VB.NET"
+],
+"n_eligible": 13,
+"sha": "86fd375b926b66ed2c4557031b03c2e0f6bda104145b159327bf87accf54db00",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0022__L028__p488:python:haskell": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0022__L028__p488:python:haskell",
+"anchor": "Haskell",
+"nearest": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir"
+],
+"random": [
+"HTML",
+"Node.js",
+"SQL",
+"VB.NET"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir",
+"HTML",
+"Node.js",
+"SQL",
+"VB.NET"
+],
+"n_eligible": 11,
+"sha": "7221951dc5d6bb713f229d6b4bb422d2cb8203b899d5743f15f271d67d284467",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0022__L028__p488:pythonandjava:haskellandrust": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0022__L028__p488:pythonandjava:haskellandrust",
+"anchor": "Haskell and Rust",
+"nearest": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir"
+],
+"random": [
+"HTML",
+"PHP",
+"R",
+"WebIDL"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir",
+"HTML",
+"PHP",
+"R",
+"WebIDL"
+],
+"n_eligible": 11,
+"sha": "77e1252dcfbfbc18ef4d6978192d1af45ff1f5dc7c8c466c394d46dc245cf6ce",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0022__L028__p488:pythonjava:haskellrust": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0022__L028__p488:pythonjava:haskellrust",
+"anchor": "Haskell",
+"nearest": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir"
+],
+"random": [
+"HTML",
+"PHP",
+"VB.NET",
+"WebIDL"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir",
+"HTML",
+"PHP",
+"VB.NET",
+"WebIDL"
+],
+"n_eligible": 11,
+"sha": "9142c2931d525618d621fa85996b3825b4df363470735ba0f3d2e113da79e6d8",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0022__L028__p488:pythonvsjava:haskellvsrust": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0022__L028__p488:pythonvsjava:haskellvsrust",
+"anchor": "Haskell vs Rust",
+"nearest": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir"
+],
+"random": [
+"HTML",
+"Node.js",
+"PHP",
+"WebIDL"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir",
+"HTML",
+"Node.js",
+"PHP",
+"WebIDL"
+],
+"n_eligible": 11,
+"sha": "876df73218f4493ba3c374d765343b870c74cfc0865710dff8f9863571ef0596",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0022__L032__p155:ocamlscala:rust": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0022__L032__p155:ocamlscala:rust",
+"anchor": "Rust",
+"nearest": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir"
+],
+"random": [
+"PHP",
+"R",
+"SQL",
+"VB.NET"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir",
+"PHP",
+"R",
+"SQL",
+"VB.NET"
+],
+"n_eligible": 11,
+"sha": "b2b73d9f9cd640e578a5556a71de1b15b99f1ff2787c0f8b9ba24bc61bcd223f",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0022__L032__p297:jscolumn:rust": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0022__L032__p297:jscolumn:rust",
+"anchor": "Rust",
+"nearest": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir"
+],
+"random": [
+"HTML",
+"PHP",
+"R",
+"WebIDL"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir",
+"HTML",
+"PHP",
+"R",
+"WebIDL"
+],
+"n_eligible": 11,
+"sha": "52794b2b0e56ec2dcd659a6a2c622a69176d6f930ccc4cc02eaad89a43dbc833",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0022__L032__p297:kotlin:haskell": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0022__L032__p297:kotlin:haskell",
+"anchor": "Haskell",
+"nearest": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir"
+],
+"random": [
+"PHP",
+"R",
+"SQL",
+"VB.NET"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir",
+"PHP",
+"R",
+"SQL",
+"VB.NET"
+],
+"n_eligible": 11,
+"sha": "292c137cf7aa630f09d13ff68dfdb893569c798e1714a81c828b914d19451bda",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0022__L032__p297:kotlinvspythonjavascript:haskellandrust": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0022__L032__p297:kotlinvspythonjavascript:haskellandrust",
+"anchor": "Haskell",
+"nearest": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir"
+],
+"random": [
+"HTML",
+"Node.js",
+"PHP",
+"SQL"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir",
+"HTML",
+"Node.js",
+"PHP",
+"SQL"
+],
+"n_eligible": 11,
+"sha": "aef2dd57713e0e444f50a19a2ae2a416fe8bda9fcd96f55fb2b53b19b368ffff",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0022__L032__p359:python:rust": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0022__L032__p359:python:rust",
+"anchor": "Haskell",
+"nearest": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir"
+],
+"random": [
+"PHP",
+"SQL",
+"VB.NET",
+"WebIDL"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir",
+"PHP",
+"SQL",
+"VB.NET",
+"WebIDL"
+],
+"n_eligible": 11,
+"sha": "6b5720235daa19f63e89ac594c15492f0cf757c8b06bab86ff3460689a1d119e",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0022__L032__p359:scala:rust": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0022__L032__p359:scala:rust",
+"anchor": "Rust",
+"nearest": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir"
+],
+"random": [
+"HTML",
+"Node.js",
+"SQL",
+"VB.NET"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir",
+"HTML",
+"Node.js",
+"SQL",
+"VB.NET"
+],
+"n_eligible": 11,
+"sha": "e69ef7b6c0d867eb65e5c349bbf8abbfd7df83aff2d00e910ad67ef1bd34bb7f",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0022__L032__p488:java:haskell": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0022__L032__p488:java:haskell",
+"anchor": "Java",
+"nearest": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir"
+],
+"random": [
+"HTML",
+"Node.js",
+"SQL",
+"WebIDL"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir",
+"HTML",
+"Node.js",
+"SQL",
+"WebIDL"
+],
+"n_eligible": 13,
+"sha": "6d7a591669164ea53f0bd4503a3679dd8c5e03995a2a20daf0b4727daf1e6313",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0022__L032__p488:java:rust": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0022__L032__p488:java:rust",
+"anchor": "Java",
+"nearest": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir"
+],
+"random": [
+"HTML",
+"Haskell vs Rust",
+"Node.js",
+"PHP"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir",
+"HTML",
+"Haskell vs Rust",
+"Node.js",
+"PHP"
+],
+"n_eligible": 13,
+"sha": "a79ffb7b02d1efa42519171317be453d5e800e7b6dae7195440a8d98e0799526",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0022__L036__p221:python:haskell": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0022__L036__p221:python:haskell",
+"anchor": "Haskell",
+"nearest": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir"
+],
+"random": [
+"HTML",
+"Node.js",
+"VB.NET",
+"WebIDL"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir",
+"HTML",
+"Node.js",
+"VB.NET",
+"WebIDL"
+],
+"n_eligible": 11,
+"sha": "ca2278a39f3e4cbdbca4b09b24cec7c17a3001ae66f22821f8224420c6e46e12",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0022__L036__p28:pythonandjavascript:haskellandrust": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0022__L036__p28:pythonandjavascript:haskellandrust",
+"anchor": "Haskell and Rust",
+"nearest": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir"
+],
+"random": [
+"Node.js",
+"R",
+"SQL",
+"VB.NET"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir",
+"Node.js",
+"R",
+"SQL",
+"VB.NET"
+],
+"n_eligible": 11,
+"sha": "2217fa30d1be9301f53c36a160b8c3258f0dbcfc81b21c4121875dead9e30746",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0022__L036__p297:python:haskell": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0022__L036__p297:python:haskell",
+"anchor": "Haskell",
+"nearest": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir"
+],
+"random": [
+"PHP",
+"R",
+"SQL",
+"WebIDL"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir",
+"PHP",
+"R",
+"SQL",
+"WebIDL"
+],
+"n_eligible": 11,
+"sha": "466ae3b074f14621210958cce85dedb21bf3ec2580e92ff7b283ddd2f95686c6",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0022__L036__p488:c++:haskell": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0022__L036__p488:c++:haskell",
+"anchor": "C++",
+"nearest": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir"
+],
+"random": [
+"HTML",
+"Haskell vs Rust",
+"SQL",
+"WebIDL"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir",
+"HTML",
+"Haskell vs Rust",
+"SQL",
+"WebIDL"
+],
+"n_eligible": 13,
+"sha": "17aa51e8132dbefe42dfee9061afb1fa7564da64eb89ef247e880210b581b198",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0022__L036__p488:c:haskell": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0022__L036__p488:c:haskell",
+"anchor": "Rust",
+"nearest": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir"
+],
+"random": [
+"PHP",
+"R",
+"VB.NET",
+"WebIDL"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir",
+"PHP",
+"R",
+"VB.NET",
+"WebIDL"
+],
+"n_eligible": 11,
+"sha": "675409aadf3f37339dc657e6a5bc12931594ca155125a7b050573bfaefb6b046",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0022__L040__p28:python:haskell": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0022__L040__p28:python:haskell",
+"anchor": "Haskell",
+"nearest": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir"
+],
+"random": [
+"HTML",
+"Node.js",
+"R",
+"VB.NET"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir",
+"HTML",
+"Node.js",
+"R",
+"VB.NET"
+],
+"n_eligible": 11,
+"sha": "2ef6d8e1229fb5106ef94b34ffbc98aba34f37f8b63456bb6c841d65753a9f9c",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0022__L040__p488::": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0022__L040__p488::",
+"anchor": "Haskell",
+"nearest": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir"
+],
+"random": [
+"Node.js",
+"SQL",
+"VB.NET",
+"WebIDL"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir",
+"Node.js",
+"SQL",
+"VB.NET",
+"WebIDL"
+],
+"n_eligible": 11,
+"sha": "ca6489b8e4a9d618cc23b32458829c5a634e2b27be01f140eeeb30e651bee58d",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0022__L044__p155:purescript:haskell": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0022__L044__p155:purescript:haskell",
+"anchor": "Haskell",
+"nearest": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir"
+],
+"random": [
+"HTML",
+"Node.js",
+"PHP",
+"R"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir",
+"HTML",
+"Node.js",
+"PHP",
+"R"
+],
+"n_eligible": 11,
+"sha": "5dcfd1a861ef898decea9cc5c601282b3e71f56bcec25aa684ce47fd1cccde8c",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0022__L044__p155:purescriptracket:haskell": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0022__L044__p155:purescriptracket:haskell",
+"anchor": "Haskell",
+"nearest": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir"
+],
+"random": [
+"HTML",
+"PHP",
+"SQL",
+"VB.NET"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir",
+"HTML",
+"PHP",
+"SQL",
+"VB.NET"
+],
+"n_eligible": 11,
+"sha": "564a03070aeae0339b3cba69cad3ff19bfd491f19ffc041c1f4936ab635f16c4",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0022__L044__p28:python:haskell": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0022__L044__p28:python:haskell",
+"anchor": "Haskell",
+"nearest": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir"
+],
+"random": [
+"HTML",
+"PHP",
+"R",
+"VB.NET"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir",
+"HTML",
+"PHP",
+"R",
+"VB.NET"
+],
+"n_eligible": 11,
+"sha": "6fd7357f7c0e5c77bef94ccf088506d2c472dbe87a5185d9a9f0d5bb5a91d95f",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0022__L044__p28:pythonjavascript:rust": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0022__L044__p28:pythonjavascript:rust",
+"anchor": "Haskell",
+"nearest": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir"
+],
+"random": [
+"PHP",
+"R",
+"SQL",
+"VB.NET"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir",
+"PHP",
+"R",
+"SQL",
+"VB.NET"
+],
+"n_eligible": 11,
+"sha": "d4c19a4a63e1c16d87d60124a04725635c9b78dff8501da612e9a12a41f8b4ff",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0022__L044__p297:python:haskell": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0022__L044__p297:python:haskell",
+"anchor": "Haskell",
+"nearest": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir"
+],
+"random": [
+"HTML",
+"Node.js",
+"SQL",
+"WebIDL"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir",
+"HTML",
+"Node.js",
+"SQL",
+"WebIDL"
+],
+"n_eligible": 11,
+"sha": "e79bf638b6588b6e69521dfd55de4e051c56d957b91bae9b9a1e310380e4402b",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0022__L044__p297:pythonoriginals:haskelloriginals": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0022__L044__p297:pythonoriginals:haskelloriginals",
+"anchor": "Haskell",
+"nearest": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir"
+],
+"random": [
+"Node.js",
+"PHP",
+"R",
+"SQL"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir",
+"Node.js",
+"PHP",
+"R",
+"SQL"
+],
+"n_eligible": 11,
+"sha": "fbdfbdce7937ddd95a35f9302d6ad889bf055864a55c85d0a435b4daafa563d3",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0022__L044__p297:pythonrustandc++:haskellandrust": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0022__L044__p297:pythonrustandc++:haskellandrust",
+"anchor": "Haskell",
+"nearest": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir"
+],
+"random": [
+"Node.js",
+"PHP",
+"R",
+"WebIDL"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir",
+"Node.js",
+"PHP",
+"R",
+"WebIDL"
+],
+"n_eligible": 11,
+"sha": "7d6ed86756a41156b2fcc9ffba1fef7e2ac86319ed341c20a82f0aeb406d2c76",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0022__L044__p488:c:haskell": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0022__L044__p488:c:haskell",
+"anchor": "Rust",
+"nearest": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir"
+],
+"random": [
+"HTML",
+"R",
+"VB.NET",
+"WebIDL"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir",
+"HTML",
+"R",
+"VB.NET",
+"WebIDL"
+],
+"n_eligible": 11,
+"sha": "043a89703c50ac5321106acdba8576657b5b528c5c11c23339a9f42987af48eb",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0022__L048__p155:scala:rust": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0022__L048__p155:scala:rust",
+"anchor": "Rust",
+"nearest": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir"
+],
+"random": [
+"HTML",
+"PHP",
+"SQL",
+"VB.NET"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir",
+"HTML",
+"PHP",
+"SQL",
+"VB.NET"
+],
+"n_eligible": 11,
+"sha": "c6dd9a5d1930d9d814ebd6f65244fe8eb9f2523452b0e673343aa97c40ec9925",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0022__L048__p221:julia:rust": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0022__L048__p221:julia:rust",
+"anchor": "Haskell",
+"nearest": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir"
+],
+"random": [
+"Node.js",
+"PHP",
+"SQL",
+"VB.NET"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir",
+"Node.js",
+"PHP",
+"SQL",
+"VB.NET"
+],
+"n_eligible": 11,
+"sha": "1e78735d4a7dd37471fd6b725769bdb8a9c199d1233dee057418cd851c242914",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0022__L048__p221:juliaprimitivenumerictypes:rustprimitivetypes": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0022__L048__p221:juliaprimitivenumerictypes:rustprimitivetypes",
+"anchor": "Rust",
+"nearest": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir"
+],
+"random": [
+"HTML",
+"Node.js",
+"PHP",
+"R"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir",
+"HTML",
+"Node.js",
+"PHP",
+"R"
+],
+"n_eligible": 11,
+"sha": "25ed0ced34c6b5b9b9b325a0105a8793580696d00cab37dd83e758213cf68641",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0022__L048__p28:python:haskell": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0022__L048__p28:python:haskell",
+"anchor": "Haskell",
+"nearest": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir"
+],
+"random": [
+"Node.js",
+"PHP",
+"R",
+"SQL"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir",
+"Node.js",
+"PHP",
+"R",
+"SQL"
+],
+"n_eligible": 11,
+"sha": "d835f39c1cb59362ef752ebcf84b12e1e090894a14736aaa184c6635e7875249",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0022__L048__p28:swift:haskell": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0022__L048__p28:swift:haskell",
+"anchor": "Haskell",
+"nearest": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir"
+],
+"random": [
+"HTML",
+"PHP",
+"R",
+"VB.NET"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir",
+"HTML",
+"PHP",
+"R",
+"VB.NET"
+],
+"n_eligible": 11,
+"sha": "756e43f500fba7995fc44c5d659a8a31e24b6d5651b0f90087d9d8da73d17b4c",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0022__L048__p297:cgo:haskell": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0022__L048__p297:cgo:haskell",
+"anchor": "Haskell",
+"nearest": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir"
+],
+"random": [
+"HTML",
+"Node.js",
+"R",
+"SQL"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir",
+"HTML",
+"Node.js",
+"R",
+"SQL"
+],
+"n_eligible": 11,
+"sha": "5dc43fffb27e26c38aad12dee91c945c75eb88f074d1041ba9d70032a8db5953",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0022__L048__p297:cpython:haskell": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0022__L048__p297:cpython:haskell",
+"anchor": "Haskell",
+"nearest": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir"
+],
+"random": [
+"HTML",
+"Node.js",
+"R",
+"VB.NET"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir",
+"HTML",
+"Node.js",
+"R",
+"VB.NET"
+],
+"n_eligible": 11,
+"sha": "8783b229f16ef561b9c2025947187bcd4f4b90f50cee304c299f5d4daea9fe94",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0022__L048__p359:c++:haskell": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0022__L048__p359:c++:haskell",
+"anchor": "C++",
+"nearest": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir"
+],
+"random": [
+"HTML",
+"Haskell",
+"SQL",
+"VB.NET"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir",
+"HTML",
+"Haskell",
+"SQL",
+"VB.NET"
+],
+"n_eligible": 13,
+"sha": "e4c6db91f1a57d13377101e28378fb246931f0304e409f7fead735d1eaae660c",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0022__L048__p488:python:haskell": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0022__L048__p488:python:haskell",
+"anchor": "Haskell",
+"nearest": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir"
+],
+"random": [
+"HTML",
+"PHP",
+"R",
+"WebIDL"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir",
+"HTML",
+"PHP",
+"R",
+"WebIDL"
+],
+"n_eligible": 11,
+"sha": "03ac35f5ec5c42e94eb88fe4fe4a2770df6fe7f20efe8cdb55cd163d2ee5da99",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0022__L048__p488:pythonocaml:haskell": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0022__L048__p488:pythonocaml:haskell",
+"anchor": "Python",
+"nearest": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir"
+],
+"random": [
+"HTML",
+"PHP",
+"R",
+"WebIDL"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir",
+"HTML",
+"PHP",
+"R",
+"WebIDL"
+],
+"n_eligible": 13,
+"sha": "c0570454a02de1c453f7f9351278d4e94e00f5aeb68f7a05a8b08c3a50284ba6",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0022__L052__p155:kaito:rust": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0022__L052__p155:kaito:rust",
+"anchor": "Rust",
+"nearest": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir"
+],
+"random": [
+"PHP",
+"R",
+"SQL",
+"VB.NET"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir",
+"PHP",
+"R",
+"SQL",
+"VB.NET"
+],
+"n_eligible": 11,
+"sha": "c61c3d5891c8fd20fe9bb55eb6f868194f444a5cd89c0e45a206cb92956eabb4",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0022__L052__p28:typescript:haskell": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0022__L052__p28:typescript:haskell",
+"anchor": "Rust",
+"nearest": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir"
+],
+"random": [
+"HTML",
+"SQL",
+"VB.NET",
+"WebIDL"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir",
+"HTML",
+"SQL",
+"VB.NET",
+"WebIDL"
+],
+"n_eligible": 11,
+"sha": "be5f820b43772b3d7e0e24b3ece2c8c39165234e400f385e2769cc3efadfbf56",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0022__L052__p297:c:haskell": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0022__L052__p297:c:haskell",
+"anchor": "Rust",
+"nearest": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir"
+],
+"random": [
+"PHP",
+"R",
+"VB.NET",
+"WebIDL"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir",
+"PHP",
+"R",
+"VB.NET",
+"WebIDL"
+],
+"n_eligible": 11,
+"sha": "b877e26e8441ed21094a50bebe534c54403fd1a1ce3ce2a90dceba128dae0dc6",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0022__L052__p297:c:rust": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0022__L052__p297:c:rust",
+"anchor": "Rust",
+"nearest": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir"
+],
+"random": [
+"HTML",
+"R",
+"SQL",
+"VB.NET"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir",
+"HTML",
+"R",
+"SQL",
+"VB.NET"
+],
+"n_eligible": 11,
+"sha": "08e794a5f9fc2d157284f91ab0c2975053de398470c2330a49d92e02df62610c",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0022__L052__p297:python:haskell": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0022__L052__p297:python:haskell",
+"anchor": "Haskell",
+"nearest": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir"
+],
+"random": [
+"HTML",
+"R",
+"VB.NET",
+"WebIDL"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir",
+"HTML",
+"R",
+"VB.NET",
+"WebIDL"
+],
+"n_eligible": 11,
+"sha": "ff814b176de1bccdcbbaaeafc056b6ff784b17bfc2e489b3b991adc4cc2cdc82",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0022__L052__p359:python:rust": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0022__L052__p359:python:rust",
+"anchor": "Haskell",
+"nearest": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir"
+],
+"random": [
+"HTML",
+"Node.js",
+"PHP",
+"R"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir",
+"HTML",
+"Node.js",
+"PHP",
+"R"
+],
+"n_eligible": 11,
+"sha": "3f85ac623302bb1e66e865142253bd4eaa91cee6eb88af08ac7b53d2e194b930",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0022__L052__p488:c++:haskellandrustonly": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0022__L052__p488:c++:haskellandrustonly",
+"anchor": "C++",
+"nearest": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir"
+],
+"random": [
+"HTML",
+"Haskell",
+"PHP",
+"SQL"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir",
+"HTML",
+"Haskell",
+"PHP",
+"SQL"
+],
+"n_eligible": 13,
+"sha": "7e82cb9e292cd243aab0e9a41d64d9c725f4d07361b0375c020ccb855ecb360a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0022__L052__p488:c:haskell": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0022__L052__p488:c:haskell",
+"anchor": "Rust",
+"nearest": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir"
+],
+"random": [
+"HTML",
+"PHP",
+"R",
+"VB.NET"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir",
+"HTML",
+"PHP",
+"R",
+"VB.NET"
+],
+"n_eligible": 11,
+"sha": "861644605c7f66421a11785c8712b3d0b5a062eaaac8fcd5dda819753717db4f",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0022__L056__p28:ocaml:haskellandrustonly": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0022__L056__p28:ocaml:haskellandrustonly",
+"anchor": "Rust",
+"nearest": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir"
+],
+"random": [
+"PHP",
+"R",
+"SQL",
+"WebIDL"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir",
+"PHP",
+"R",
+"SQL",
+"WebIDL"
+],
+"n_eligible": 11,
+"sha": "3775751afc96e28a812fc34a9f8f77304b83fd1d4c910a49331ba2bd68395eb2",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0022__L056__p297:c++:haskell": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0022__L056__p297:c++:haskell",
+"anchor": "C++",
+"nearest": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir"
+],
+"random": [
+"Haskell",
+"Haskell vs Rust",
+"VB.NET",
+"WebIDL"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir",
+"Haskell",
+"Haskell vs Rust",
+"VB.NET",
+"WebIDL"
+],
+"n_eligible": 13,
+"sha": "5b9f9b1886c33f57425dc28bb1fa2ed3d08e7ecffd528b8744c2c69e5de4826e",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0022__L056__p297:c:haskell": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0022__L056__p297:c:haskell",
+"anchor": "Rust",
+"nearest": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir"
+],
+"random": [
+"HTML",
+"PHP",
+"R",
+"VB.NET"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir",
+"HTML",
+"PHP",
+"R",
+"VB.NET"
+],
+"n_eligible": 11,
+"sha": "282f4a808393872a02453965f314abf159102edad4f2d24238c6392b7e356612",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0022__L056__p359:python:rust": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0022__L056__p359:python:rust",
+"anchor": "Haskell",
+"nearest": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir"
+],
+"random": [
+"Node.js",
+"R",
+"VB.NET",
+"WebIDL"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir",
+"Node.js",
+"R",
+"VB.NET",
+"WebIDL"
+],
+"n_eligible": 11,
+"sha": "b818a9fe0922397328391c83c0fbb406c3628a64d5fae1d44ac853d391a7fb4f",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0022__L060__p221:crystal:rusthaskell": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0022__L060__p221:crystal:rusthaskell",
+"anchor": "Haskell",
+"nearest": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir"
+],
+"random": [
+"Node.js",
+"R",
+"SQL",
+"VB.NET"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Dart",
+"Elixir",
+"Node.js",
+"R",
+"SQL",
+"VB.NET"
+],
+"n_eligible": 11,
+"sha": "18cb6a2a301bec200083599b5eec0d95742af192933f10b7f0fade052a2e39d4",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0030__L024__p203:bashexample:pythonexample": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0030__L024__p203:bashexample:pythonexample",
+"anchor": "Python",
+"nearest": [
+"AutoIt",
+"C",
+"C#",
+"C++"
+],
+"random": [
+"Haskell vs Rust",
+"Julia",
+"Kaito",
+"Rust"
+],
+"distractors": [
+"AutoIt",
+"C",
+"C#",
+"C++",
+"Haskell vs Rust",
+"Julia",
+"Kaito",
+"Rust"
+],
+"n_eligible": 30,
+"sha": "4bfdaf38db0aeb29442db3c079373c93226b8be4b229be8c586358216882d89e",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0033__L020__p239:c:c++": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0033__L020__p239:c:c++",
+"anchor": "C++",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart"
+],
+"random": [
+"Haskell vs Rust",
+"Kotlin",
+"Perl",
+"WebIDL"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart",
+"Haskell vs Rust",
+"Kotlin",
+"Perl",
+"WebIDL"
+],
+"n_eligible": 29,
+"sha": "e9e82dbd234fe93fcf4063ce1622db090424faaabd2f6c1ce4533ad749349c56",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0033__L020__p239:java:c++": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0033__L020__p239:java:c++",
+"anchor": "C++",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart"
+],
+"random": [
+"Go",
+"R",
+"ReScript",
+"SQL"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart",
+"Go",
+"R",
+"ReScript",
+"SQL"
+],
+"n_eligible": 28,
+"sha": "e7f9c115adaff3908a5c73c8b12c2da19fdbed20e9b09e8138c102c7d3bf2810",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0033__L020__p307:python:c++": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0033__L020__p307:python:c++",
+"anchor": "C++",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart"
+],
+"random": [
+"Elixir",
+"Elm",
+"Perl",
+"Swift"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart",
+"Elixir",
+"Elm",
+"Perl",
+"Swift"
+],
+"n_eligible": 28,
+"sha": "9d773d01fe8b94f49186fdad3932ed9def635352b380f756606ff605ee82394e",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0033__L020__p77::": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0033__L020__p77::",
+"anchor": "C++",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart"
+],
+"random": [
+"Erlang",
+"F#",
+"Julia",
+"Roc"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart",
+"Erlang",
+"F#",
+"Julia",
+"Roc"
+],
+"n_eligible": 28,
+"sha": "75ee401732acf6730841b05fd1cdd562bcfdf66093deaa0ed60a67c47d3ed79c",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0033__L020__p77:python:c++": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0033__L020__p77:python:c++",
+"anchor": "C++",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart"
+],
+"random": [
+"OCaml",
+"Perl",
+"SQL",
+"WebIDL"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart",
+"OCaml",
+"Perl",
+"SQL",
+"WebIDL"
+],
+"n_eligible": 28,
+"sha": "7523b044af4351ac69c43baa23243f54b6bfb5867745409bfb99d3836abd65cd",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0033__L024__p239:c:c++": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0033__L024__p239:c:c++",
+"anchor": "C++",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart"
+],
+"random": [
+"Kaito",
+"Kotlin",
+"PureScript",
+"SQL"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart",
+"Kaito",
+"Kotlin",
+"PureScript",
+"SQL"
+],
+"n_eligible": 29,
+"sha": "49b78a80a0a7a15b04df86941306eda2084d3db953ac7154fc34d1c0e379bc5c",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0033__L024__p307:python:c++": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0033__L024__p307:python:c++",
+"anchor": "C++",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart"
+],
+"random": [
+"Perl",
+"Roc",
+"SQL",
+"WebIDL"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart",
+"Perl",
+"Roc",
+"SQL",
+"WebIDL"
+],
+"n_eligible": 28,
+"sha": "27bb1335ada53a8048e3ac67b9e7293c4ba546b305f0bebd47b588a33eefe721",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0033__L024__p37:htmljs:c++": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0033__L024__p37:htmljs:c++",
+"anchor": "C++",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart"
+],
+"random": [
+"Elm",
+"PureScript",
+"R",
+"Rust"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart",
+"Elm",
+"PureScript",
+"R",
+"Rust"
+],
+"n_eligible": 29,
+"sha": "21532c50f44a87b272bc4580656e7c03a89a4e1c71b0cbef7509d5899667606a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0033__L024__p37:htmljspython:c++": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0033__L024__p37:htmljspython:c++",
+"anchor": "C++",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart"
+],
+"random": [
+"Elixir",
+"Go",
+"Kotlin",
+"Roc"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart",
+"Elixir",
+"Go",
+"Kotlin",
+"Roc"
+],
+"n_eligible": 28,
+"sha": "edd8369ef30970b28bf0cba800bc81411a6f1f3e112ea2c14b040cc68ae493a4",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0033__L024__p419:c:c++": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0033__L024__p419:c:c++",
+"anchor": "C++",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart"
+],
+"random": [
+"Haskell",
+"Julia",
+"OCaml",
+"ReScript"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart",
+"Haskell",
+"Julia",
+"OCaml",
+"ReScript"
+],
+"n_eligible": 29,
+"sha": "30b70325cc9d41bb4fc2a299b88ff9aca878506a8c1b182c12c604fd2a390605",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0033__L028__p128:python:c++": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0033__L028__p128:python:c++",
+"anchor": "C++",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart"
+],
+"random": [
+"Elm",
+"Haskell",
+"Kaito",
+"Rust"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart",
+"Elm",
+"Haskell",
+"Kaito",
+"Rust"
+],
+"n_eligible": 28,
+"sha": "d67fc94851c24e7f0631bd0c6b8c5b9a0b192b3038a3434cc621f78bb95ae1b8",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0033__L028__p307:python:c++": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0033__L028__p307:python:c++",
+"anchor": "C++",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart"
+],
+"random": [
+"Elm",
+"Erlang",
+"PureScript",
+"ReScript"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart",
+"Elm",
+"Erlang",
+"PureScript",
+"ReScript"
+],
+"n_eligible": 28,
+"sha": "218e4c2f5b22cc1877321d0c819fbe41000fa5aca1bc2e6b954abd79f8fbd1f5",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0033__L028__p350:python:c++": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0033__L028__p350:python:c++",
+"anchor": "C++",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart"
+],
+"random": [
+"Erlang",
+"Go",
+"PureScript",
+"WebIDL"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart",
+"Erlang",
+"Go",
+"PureScript",
+"WebIDL"
+],
+"n_eligible": 28,
+"sha": "5aceed3abe8895e7fc364167cf008e31f01bd99a1fbdb49f1f4b0f295d4ce3b6",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0033__L028__p37:python:c++": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0033__L028__p37:python:c++",
+"anchor": "C++",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart"
+],
+"random": [
+"Elixir",
+"Kotlin",
+"Node.js",
+"Scheme"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart",
+"Elixir",
+"Kotlin",
+"Node.js",
+"Scheme"
+],
+"n_eligible": 28,
+"sha": "f9a7057d09c23be8b60325f1a30c4ff09eda5c01d2615eb6d50eca544445b7d3",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0033__L032__p128:python:c++": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0033__L032__p128:python:c++",
+"anchor": "C++",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart"
+],
+"random": [
+"Julia",
+"Kaito",
+"Perl",
+"ReScript"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart",
+"Julia",
+"Kaito",
+"Perl",
+"ReScript"
+],
+"n_eligible": 28,
+"sha": "9e8415506cb8cbf42b4f46f7280ee4918d73ee1a8fe093a67c8d992a2b5fee1f",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0033__L032__p239:java:c++": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0033__L032__p239:java:c++",
+"anchor": "C++",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart"
+],
+"random": [
+"Kaito",
+"PureScript",
+"Roc",
+"Scheme"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart",
+"Kaito",
+"PureScript",
+"Roc",
+"Scheme"
+],
+"n_eligible": 28,
+"sha": "a7b624ee963213d7ae9d03228329975a334f2f844ca2448a35d877366e8e1f92",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0033__L032__p307:python:c++": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0033__L032__p307:python:c++",
+"anchor": "C++",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart"
+],
+"random": [
+"Kaito",
+"R",
+"SQL",
+"WebIDL"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart",
+"Kaito",
+"R",
+"SQL",
+"WebIDL"
+],
+"n_eligible": 28,
+"sha": "a45591784797cfeca245833f62306f99e29a8123b2671559c60b5985a77b494d",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0033__L032__p350:python:c++": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0033__L032__p350:python:c++",
+"anchor": "C++",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart"
+],
+"random": [
+"Elm",
+"Kotlin",
+"ReScript",
+"WebIDL"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart",
+"Elm",
+"Kotlin",
+"ReScript",
+"WebIDL"
+],
+"n_eligible": 28,
+"sha": "ba595cd35efff27ec16b7067396adc092af720c2d71aabfa80c1b9836abfc073",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0033__L032__p350:pythonbmiprogram:c++powerresistanceprogram": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0033__L032__p350:pythonbmiprogram:c++powerresistanceprogram",
+"anchor": "C++",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart"
+],
+"random": [
+"F#",
+"Kaito",
+"Scheme",
+"Swift"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart",
+"F#",
+"Kaito",
+"Scheme",
+"Swift"
+],
+"n_eligible": 28,
+"sha": "678e85e5b282c5aaeed1a34a3bb0a6f82815d3c81f65915aef541753106a13e0",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0033__L032__p419:c:c++": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0033__L032__p419:c:c++",
+"anchor": "C++",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart"
+],
+"random": [
+"F#",
+"Julia",
+"Kaito",
+"SQL"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart",
+"F#",
+"Julia",
+"Kaito",
+"SQL"
+],
+"n_eligible": 29,
+"sha": "f86a5d191ba2485c9b93999eaca1cf40c71ff960318a0de878f6285398f5d297",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0033__L032__p77:java:c++": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0033__L032__p77:java:c++",
+"anchor": "C++",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart"
+],
+"random": [
+"Elixir",
+"R",
+"Roc",
+"Swift"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart",
+"Elixir",
+"R",
+"Roc",
+"Swift"
+],
+"n_eligible": 28,
+"sha": "3522e4668c9588f5dd097e3d27ed15800888754649512eeaf21cbb942a069f59",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0033__L036__p307:python:c++": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0033__L036__p307:python:c++",
+"anchor": "C++",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart"
+],
+"random": [
+"F#",
+"Roc",
+"Swift",
+"TypeScript"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart",
+"F#",
+"Roc",
+"Swift",
+"TypeScript"
+],
+"n_eligible": 28,
+"sha": "86b0a5db3b7da9b213cc4e0eef5ec5910b2c636dad004c5a785fa82bb37c944b",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0033__L040__p128:c:c++": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0033__L040__p128:c:c++",
+"anchor": "C++",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart"
+],
+"random": [
+"Kaito",
+"Perl",
+"Python vs Java",
+"Rust"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart",
+"Kaito",
+"Perl",
+"Python vs Java",
+"Rust"
+],
+"n_eligible": 29,
+"sha": "1b6a06e5dad501e020949db025f78cb8fce63624f077e0863afa81d6be663792",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0033__L040__p239:cprogram:c++": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0033__L040__p239:cprogram:c++",
+"anchor": "C++",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart"
+],
+"random": [
+"Elixir",
+"Python vs Java",
+"ReScript",
+"Rust"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart",
+"Elixir",
+"Python vs Java",
+"ReScript",
+"Rust"
+],
+"n_eligible": 29,
+"sha": "6cf215f86ec88be8adb59d0605fdf923d59b3ab3b2e6fdf3e0bcaccc48136805",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0033__L040__p307:python:c++": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0033__L040__p307:python:c++",
+"anchor": "C++",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart"
+],
+"random": [
+"Node.js",
+"ReScript",
+"Swift",
+"TypeScript"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart",
+"Node.js",
+"ReScript",
+"Swift",
+"TypeScript"
+],
+"n_eligible": 28,
+"sha": "e4be7422f040146474a7e4b11a7b4ebdb2ef878f4d5812ae93d91954a6350226",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0033__L040__p37::": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0033__L040__p37::",
+"anchor": "C++",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart"
+],
+"random": [
+"Elixir",
+"Erlang",
+"Haskell",
+"Roc"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart",
+"Elixir",
+"Erlang",
+"Haskell",
+"Roc"
+],
+"n_eligible": 28,
+"sha": "dc2f690ee66790cf6b3cda0c984b9c839ded3e8976954d36c16aa1d3fb51e1d6",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0033__L040__p419:c:c++": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0033__L040__p419:c:c++",
+"anchor": "C++",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart"
+],
+"random": [
+"Haskell",
+"Haskell vs Rust",
+"TypeScript",
+"WebIDL"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart",
+"Haskell",
+"Haskell vs Rust",
+"TypeScript",
+"WebIDL"
+],
+"n_eligible": 29,
+"sha": "30f68f4f2a663cd82286025ee1e2f314e29b11065d89925ae3cca9c441978ea3",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0033__L040__p77:html:c++": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0033__L040__p77:html:c++",
+"anchor": "C++",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart"
+],
+"random": [
+"Go",
+"Kaito",
+"Roc",
+"Scala"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart",
+"Go",
+"Kaito",
+"Roc",
+"Scala"
+],
+"n_eligible": 29,
+"sha": "473ea42972406dd8b94af0a4356e0b27f5595175f169e7dc624fbdace6c21651",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0033__L044__p307:python:c++": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0033__L044__p307:python:c++",
+"anchor": "C++",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart"
+],
+"random": [
+"Erlang",
+"Haskell",
+"Kaito",
+"OCaml"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart",
+"Erlang",
+"Haskell",
+"Kaito",
+"OCaml"
+],
+"n_eligible": 28,
+"sha": "fa6135dc448512061a849670b8f871877f841d921420e6a3b0467b33a5dc70e8",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0033__L044__p37:python:c++": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0033__L044__p37:python:c++",
+"anchor": "C++",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart"
+],
+"random": [
+"Elm",
+"Perl",
+"R",
+"ReScript"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart",
+"Elm",
+"Perl",
+"R",
+"ReScript"
+],
+"n_eligible": 28,
+"sha": "c3cbe88b1ca4aa013948378ab8169a16569008be92ac9629f9e95e3e2234c118",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0033__L048__p307:python:c++": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0033__L048__p307:python:c++",
+"anchor": "C++",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart"
+],
+"random": [
+"Elm",
+"Go",
+"PureScript",
+"WebIDL"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart",
+"Elm",
+"Go",
+"PureScript",
+"WebIDL"
+],
+"n_eligible": 28,
+"sha": "fa389b1fa5cd730d8b21fc384657272dd0ce1a297a198ad566305c6a5f6b2f91",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0033__L048__p37:python:c++": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0033__L048__p37:python:c++",
+"anchor": "C++",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart"
+],
+"random": [
+"Erlang",
+"Julia",
+"Scala",
+"Swift"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart",
+"Erlang",
+"Julia",
+"Scala",
+"Swift"
+],
+"n_eligible": 28,
+"sha": "be9af47ebd1ae5756fd30f0cb9adabe427276744d582376a5b67a9705337c2bf",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0033__L048__p419:cprogram:c++program": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0033__L048__p419:cprogram:c++program",
+"anchor": "C++",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart"
+],
+"random": [
+"Haskell",
+"Python vs Java",
+"Rust",
+"WebIDL"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart",
+"Haskell",
+"Python vs Java",
+"Rust",
+"WebIDL"
+],
+"n_eligible": 29,
+"sha": "7efd4e62655467103a020996f2316295731e7fe2d5a106d34026f99460b4153d",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0033__L052__p307:python:c++": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0033__L052__p307:python:c++",
+"anchor": "C++",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart"
+],
+"random": [
+"Julia",
+"Rust",
+"Scheme",
+"WebIDL"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart",
+"Julia",
+"Rust",
+"Scheme",
+"WebIDL"
+],
+"n_eligible": 28,
+"sha": "b5e2be40af22a367436b6f029a3d88cc35c16f18ca84843cca15308e4ac31115",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0033__L052__p350:c:c++": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0033__L052__p350:c:c++",
+"anchor": "C++",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart"
+],
+"random": [
+"Haskell vs Rust",
+"Node.js",
+"Perl",
+"Roc"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart",
+"Haskell vs Rust",
+"Node.js",
+"Perl",
+"Roc"
+],
+"n_eligible": 29,
+"sha": "e04b0788d982ab17f111355945e11f895aec12afa7d8f3d92ae84260573c9d75",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0033__L056__p307:python:c++": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0033__L056__p307:python:c++",
+"anchor": "C++",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart"
+],
+"random": [
+"Kaito",
+"Kotlin",
+"ReScript",
+"SQL"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart",
+"Kaito",
+"Kotlin",
+"ReScript",
+"SQL"
+],
+"n_eligible": 28,
+"sha": "bc10e309a2735f1b255e73a53602bcf754aa0b985199aed19f8ef7b3b4ed2b48",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0033__L060__p128:c:c++": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0033__L060__p128:c:c++",
+"anchor": "C++",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart"
+],
+"random": [
+"Haskell",
+"Haskell vs Rust",
+"Perl",
+"TypeScript"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Dart",
+"Haskell",
+"Haskell vs Rust",
+"Perl",
+"TypeScript"
+],
+"n_eligible": 29,
+"sha": "632047eae04a77c2a05b59370174f0322de28dd3549feb1d00cf806dcb4f470c",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0038__L020__p473:r:pythonpandas": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0038__L020__p473:r:pythonpandas",
+"anchor": "Python",
+"nearest": [
+"AutoIt",
+"Bash",
+"C",
+"C#"
+],
+"random": [
+"Kaito",
+"Perl",
+"Roc",
+"Swift"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"C",
+"C#",
+"Kaito",
+"Perl",
+"Roc",
+"Swift"
+],
+"n_eligible": 34,
+"sha": "ee7d86e08d6a1d27155a17afbdd334a700c4708e14f4c773dbf581854e1d4356",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0038__L024__p473:r:pythonpandas": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0038__L024__p473:r:pythonpandas",
+"anchor": "Python",
+"nearest": [
+"AutoIt",
+"Bash",
+"C",
+"C#"
+],
+"random": [
+"Elm",
+"HTML",
+"Java",
+"Roc"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"C",
+"C#",
+"Elm",
+"HTML",
+"Java",
+"Roc"
+],
+"n_eligible": 34,
+"sha": "d60751787ecf0a0c771851366b6b132f24125a5fa2898ede745025a0872fb595",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0038__L032__p283:sql:pandas": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0038__L032__p283:sql:pandas",
+"anchor": "Python",
+"nearest": [
+"AutoIt",
+"Bash",
+"C",
+"C#"
+],
+"random": [
+"Elixir",
+"Perl",
+"Scheme",
+"TypeScript"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"C",
+"C#",
+"Elixir",
+"Perl",
+"Scheme",
+"TypeScript"
+],
+"n_eligible": 34,
+"sha": "1793a732469f472ee031a01a303cbf20b260b15696e559e32e544fb69437a46c",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0042__L028__p271:elixir:laravel": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0042__L028__p271:elixir:laravel",
+"anchor": "PHP",
+"nearest": [
+"AutoIt",
+"Bash",
+"C++",
+"Crystal"
+],
+"random": [
+"Haskell vs Rust",
+"SQL",
+"Scala",
+"Swift"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"C++",
+"Crystal",
+"Haskell vs Rust",
+"SQL",
+"Scala",
+"Swift"
+],
+"n_eligible": 24,
+"sha": "6af656020a85951c04ec597d527d29e04a22dd744633ac2639bf9b56b0d0eeb9",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0042__L028__p462:kotlinandroid:laravel": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0042__L028__p462:kotlinandroid:laravel",
+"anchor": "PHP",
+"nearest": [
+"AutoIt",
+"Bash",
+"C++",
+"Crystal"
+],
+"random": [
+"Haskell vs Rust",
+"Julia",
+"ReScript",
+"Swift"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"C++",
+"Crystal",
+"Haskell vs Rust",
+"Julia",
+"ReScript",
+"Swift"
+],
+"n_eligible": 24,
+"sha": "97bd568caa14558abf7b624512db593f86ff150be6fc1a3ab7ee5e9c5febd650",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0042__L032__p462:kotlinandroid:laravel": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0042__L032__p462:kotlinandroid:laravel",
+"anchor": "PHP",
+"nearest": [
+"AutoIt",
+"Bash",
+"C++",
+"Crystal"
+],
+"random": [
+"Haskell vs Rust",
+"Julia",
+"OCaml",
+"PureScript"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"C++",
+"Crystal",
+"Haskell vs Rust",
+"Julia",
+"OCaml",
+"PureScript"
+],
+"n_eligible": 24,
+"sha": "db4ea356ed0d9e622b88e566c825b9323ff4543cb0280974419baf97782ef2cc",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0042__L032__p99:dart:php": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0042__L032__p99:dart:php",
+"anchor": "PHP",
+"nearest": [
+"AutoIt",
+"Bash",
+"C++",
+"Crystal"
+],
+"random": [
+"HTML",
+"Perl",
+"PureScript",
+"ReScript"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"C++",
+"Crystal",
+"HTML",
+"Perl",
+"PureScript",
+"ReScript"
+],
+"n_eligible": 24,
+"sha": "a9f9fd47d4feb1409d7e7541af39121b8b265eedfed49b70e37a8165d08fe4cb",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0042__L044__p462:dart:php": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0042__L044__p462:dart:php",
+"anchor": "PHP",
+"nearest": [
+"AutoIt",
+"Bash",
+"C++",
+"Crystal"
+],
+"random": [
+"HTML",
+"Haskell",
+"Roc",
+"SQL"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"C++",
+"Crystal",
+"HTML",
+"Haskell",
+"Roc",
+"SQL"
+],
+"n_eligible": 24,
+"sha": "165c8485a10a0c2b4a9f124d787cd95b8fe9b8ac36617535639dd8c8509247b7",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0042__L056__p27:python:laravel": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0042__L056__p27:python:laravel",
+"anchor": "PHP",
+"nearest": [
+"AutoIt",
+"Bash",
+"C++",
+"Crystal"
+],
+"random": [
+"F#",
+"Haskell",
+"Julia",
+"Kaito"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"C++",
+"Crystal",
+"F#",
+"Haskell",
+"Julia",
+"Kaito"
+],
+"n_eligible": 23,
+"sha": "e30365176cf9d8ece28f6f988534fbd8d715d07a29c8e1152f8e7d0bad099862",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0056__L020__p164:java:c": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0056__L020__p164:java:c",
+"anchor": "C#",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir"
+],
+"random": [
+"F#",
+"PHP",
+"R",
+"WebIDL"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir",
+"F#",
+"PHP",
+"R",
+"WebIDL"
+],
+"n_eligible": 27,
+"sha": "f1e614139e0868f6958796923ab216462776dd85ea57755c8c9a400276a384de",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0056__L020__p164:python:c": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0056__L020__p164:python:c",
+"anchor": "C#",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir"
+],
+"random": [
+"Elm",
+"Haskell vs Rust",
+"Kotlin",
+"R"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir",
+"Elm",
+"Haskell vs Rust",
+"Kotlin",
+"R"
+],
+"n_eligible": 27,
+"sha": "9466f87e61c3143a02ebdf00d8baacb0d76289aaf65b42981c19a2b172e28cbc",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0056__L020__p231:swift:c": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0056__L020__p231:swift:c",
+"anchor": "C#",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir"
+],
+"random": [
+"Haskell",
+"Node.js",
+"PureScript",
+"SQL"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir",
+"Haskell",
+"Node.js",
+"PureScript",
+"SQL"
+],
+"n_eligible": 28,
+"sha": "364252428fcd39cd8fd9d9ade06c9ea5e79c4236839bddc29ab6c8167b0b5127",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0056__L020__p273:javascript:c": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0056__L020__p273:javascript:c",
+"anchor": "C#",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir"
+],
+"random": [
+"Haskell vs Rust",
+"Kaito",
+"ReScript",
+"TypeScript"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir",
+"Haskell vs Rust",
+"Kaito",
+"ReScript",
+"TypeScript"
+],
+"n_eligible": 28,
+"sha": "926dc6f8d95713727614aa5eb3871f3436cc1c5f44b9f6711a8aa60275e343fd",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0056__L024__p123:python:c": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0056__L024__p123:python:c",
+"anchor": "C#",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir"
+],
+"random": [
+"Elm",
+"Erlang",
+"Perl",
+"SQL"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir",
+"Elm",
+"Erlang",
+"Perl",
+"SQL"
+],
+"n_eligible": 27,
+"sha": "d382d8d0ce8eea4b0b70b40f1da8b260bd6501be328e29fcbd75a159f6b74db6",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0056__L024__p152:java:c": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0056__L024__p152:java:c",
+"anchor": "C#",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir"
+],
+"random": [
+"Erlang",
+"PureScript",
+"Rust",
+"WebIDL"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir",
+"Erlang",
+"PureScript",
+"Rust",
+"WebIDL"
+],
+"n_eligible": 27,
+"sha": "a702f92ddfa42f9c6720b143c78bf32fc1a847dbcd8ace059a6396d507b3fdac",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0056__L024__p164:python:c": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0056__L024__p164:python:c",
+"anchor": "C#",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir"
+],
+"random": [
+"OCaml",
+"PHP",
+"R",
+"Scheme"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir",
+"OCaml",
+"PHP",
+"R",
+"Scheme"
+],
+"n_eligible": 27,
+"sha": "8f868da3b44693cf7afa870e5083829f62345f3f14dd13fae528f6bb0a93d4a5",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0056__L024__p231:c:c": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0056__L024__p231:c:c",
+"anchor": "C#",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir"
+],
+"random": [
+"Erlang",
+"Perl",
+"PureScript",
+"R"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir",
+"Erlang",
+"Perl",
+"PureScript",
+"R"
+],
+"n_eligible": 28,
+"sha": "ff0a53f8a76c480d954ce802e3ba25671e4fe0cb46ea845bc03cd8eeb839aa9d",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0056__L024__p231:cjavapython:c": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0056__L024__p231:cjavapython:c",
+"anchor": "C#",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir"
+],
+"random": [
+"HTML",
+"Haskell",
+"Julia",
+"PHP"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir",
+"HTML",
+"Haskell",
+"Julia",
+"PHP"
+],
+"n_eligible": 27,
+"sha": "c9e0fd6b10d5c6bc538820c519db0da21b3fd3acf8a303faf599ff2995515693",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0056__L024__p273:c:c": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0056__L024__p273:c:c",
+"anchor": "C#",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir"
+],
+"random": [
+"Haskell vs Rust",
+"Kotlin",
+"Roc",
+"Rust"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir",
+"Haskell vs Rust",
+"Kotlin",
+"Roc",
+"Rust"
+],
+"n_eligible": 28,
+"sha": "01e6b6d284a1bad5b90ff40fc5a3b7c4a9434422752c6cc9f0beb9013cd88fbd",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0056__L024__p58:c++:c": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0056__L024__p58:c++:c",
+"anchor": "C#",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir"
+],
+"random": [
+"Elm",
+"OCaml",
+"Perl",
+"PureScript"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir",
+"Elm",
+"OCaml",
+"Perl",
+"PureScript"
+],
+"n_eligible": 28,
+"sha": "636b66745dd335eef503519699f83758ecfebf8114cc9ecc4006bd8098aa418d",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0056__L024__p58:python:c": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0056__L024__p58:python:c",
+"anchor": "C#",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir"
+],
+"random": [
+"Node.js",
+"PHP",
+"R",
+"Scheme"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir",
+"Node.js",
+"PHP",
+"R",
+"Scheme"
+],
+"n_eligible": 27,
+"sha": "a46fa88d1b540bba6d030f61b3949fae53de43d03771676a15efc28ed608c470",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0056__L024__p95::": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0056__L024__p95::",
+"anchor": "C#",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir"
+],
+"random": [
+"Haskell",
+"OCaml",
+"ReScript",
+"Scala"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir",
+"Haskell",
+"OCaml",
+"ReScript",
+"Scala"
+],
+"n_eligible": 27,
+"sha": "8d290a0074af0b7608e28ec03e74380159c58d5f6bbe2f24c6f6f5383db656b3",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0056__L024__p95:python:c": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0056__L024__p95:python:c",
+"anchor": "C#",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir"
+],
+"random": [
+"Elm",
+"Haskell vs Rust",
+"Roc",
+"Scheme"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir",
+"Elm",
+"Haskell vs Rust",
+"Roc",
+"Scheme"
+],
+"n_eligible": 27,
+"sha": "6a76bd1980ea33342c73e0e38998b6817450d8f88c2288e710adb5779a1d0538",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0056__L028__p123:c++:c": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0056__L028__p123:c++:c",
+"anchor": "C#",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir"
+],
+"random": [
+"Erlang",
+"Haskell",
+"ReScript",
+"WebIDL"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir",
+"Erlang",
+"Haskell",
+"ReScript",
+"WebIDL"
+],
+"n_eligible": 28,
+"sha": "95a2b21f298e6f7dafa0b727597180013f7b295a942034495d8d8b4f3d3460ed",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0056__L028__p123:python:c": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0056__L028__p123:python:c",
+"anchor": "C#",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir"
+],
+"random": [
+"Erlang",
+"F#",
+"Julia",
+"Scheme"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir",
+"Erlang",
+"F#",
+"Julia",
+"Scheme"
+],
+"n_eligible": 27,
+"sha": "8dcc608af343df85cc27be58ea1dd9d4e5741a6589f5ed508f7107fd01252c9f",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0056__L028__p164:c:c": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0056__L028__p164:c:c",
+"anchor": "C#",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir"
+],
+"random": [
+"Elm",
+"F#",
+"Haskell vs Rust",
+"Roc"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir",
+"Elm",
+"F#",
+"Haskell vs Rust",
+"Roc"
+],
+"n_eligible": 28,
+"sha": "334fd7c923200e9552bf4e9f78ce5bcc7d1181037be02666b747be544a4baf8a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0056__L028__p231:python:c": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0056__L028__p231:python:c",
+"anchor": "C#",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir"
+],
+"random": [
+"F#",
+"Perl",
+"Scheme",
+"TypeScript"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir",
+"F#",
+"Perl",
+"Scheme",
+"TypeScript"
+],
+"n_eligible": 27,
+"sha": "505feaac9a7a6e460cbb50d6d67ae59555f04a28c893fa5c1d0292776858a5d9",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0056__L028__p231:pythonforinrangen:cforinti=0i<ni++": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0056__L028__p231:pythonforinrangen:cforinti=0i<ni++",
+"anchor": "C#",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir"
+],
+"random": [
+"Elm",
+"Haskell vs Rust",
+"SQL",
+"Scheme"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir",
+"Elm",
+"Haskell vs Rust",
+"SQL",
+"Scheme"
+],
+"n_eligible": 27,
+"sha": "dc8f87d54b79ef52ed4d24c63e4e6a8efefd1460131acee206e7a8fbb14a572f",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0056__L028__p58:python:c": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0056__L028__p58:python:c",
+"anchor": "C#",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir"
+],
+"random": [
+"HTML",
+"Julia",
+"PHP",
+"PureScript"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir",
+"HTML",
+"Julia",
+"PHP",
+"PureScript"
+],
+"n_eligible": 27,
+"sha": "b8a8178669c5acfb78c80cb941124d972d10416e849f39b4c261db6d8bdc2814",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0056__L028__p95:python:c": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0056__L028__p95:python:c",
+"anchor": "C#",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir"
+],
+"random": [
+"Kaito",
+"Node.js",
+"Scala",
+"Scheme"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir",
+"Kaito",
+"Node.js",
+"Scala",
+"Scheme"
+],
+"n_eligible": 27,
+"sha": "27781217354dafbfb1d886f85acf25f30ff2e2aef4b2e245da2550d78305ebf1",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0056__L032__p123:c++:c": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0056__L032__p123:c++:c",
+"anchor": "C#",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir"
+],
+"random": [
+"F#",
+"Haskell",
+"Perl",
+"Python vs Java"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir",
+"F#",
+"Haskell",
+"Perl",
+"Python vs Java"
+],
+"n_eligible": 28,
+"sha": "101f01dcd6ddbefb71f55bab2f8963ac6de1f300441e594e94ea5c3a8b3a2dcd",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0056__L032__p123:python:c": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0056__L032__p123:python:c",
+"anchor": "C#",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir"
+],
+"random": [
+"Julia",
+"ReScript",
+"Roc",
+"SQL"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir",
+"Julia",
+"ReScript",
+"Roc",
+"SQL"
+],
+"n_eligible": 27,
+"sha": "1255ad2f0d62e1caa3fbbfc09d80e84a44134dc8588770113d7f62251871b94c",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0056__L032__p152:c++:c": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0056__L032__p152:c++:c",
+"anchor": "C#",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir"
+],
+"random": [
+"Elm",
+"Rust",
+"SQL",
+"Scheme"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir",
+"Elm",
+"Rust",
+"SQL",
+"Scheme"
+],
+"n_eligible": 28,
+"sha": "484fb2ef58f8fdc7bd589160fc692619185177bd0c08630327730a49c56dad11",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0056__L032__p152:c:c": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0056__L032__p152:c:c",
+"anchor": "C#",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir"
+],
+"random": [
+"Kaito",
+"PHP",
+"Scala",
+"WebIDL"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir",
+"Kaito",
+"PHP",
+"Scala",
+"WebIDL"
+],
+"n_eligible": 28,
+"sha": "d749559567b2020852a09d6836ba6911e0f0b21a1088bfd9d5a5e2fe583fc0fb",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0056__L032__p164:python:c": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0056__L032__p164:python:c",
+"anchor": "C#",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir"
+],
+"random": [
+"Haskell",
+"R",
+"Roc",
+"Rust"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir",
+"Haskell",
+"R",
+"Roc",
+"Rust"
+],
+"n_eligible": 27,
+"sha": "1a3d0ed80400a76a691e58bf3a2a9a9268cfba1a98debe8cb7a1547dd0ac0412",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0056__L032__p231:python:c": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0056__L032__p231:python:c",
+"anchor": "C#",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir"
+],
+"random": [
+"Julia",
+"PHP",
+"PureScript",
+"R"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir",
+"Julia",
+"PHP",
+"PureScript",
+"R"
+],
+"n_eligible": 27,
+"sha": "3ec7d3dfd600d4b10dd23ff01ac4a9ce468801a31ce61665ad8a9ce1399a331b",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0056__L032__p58:python:c": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0056__L032__p58:python:c",
+"anchor": "C#",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir"
+],
+"random": [
+"Elm",
+"Haskell",
+"Node.js",
+"Scheme"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir",
+"Elm",
+"Haskell",
+"Node.js",
+"Scheme"
+],
+"n_eligible": 27,
+"sha": "41e56c9ed71db0a508161e0532a0e7cc05a8e212914e57aad68c36b455371743",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0056__L032__p95:python:c": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0056__L032__p95:python:c",
+"anchor": "C#",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir"
+],
+"random": [
+"Julia",
+"PureScript",
+"Rust",
+"WebIDL"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir",
+"Julia",
+"PureScript",
+"Rust",
+"WebIDL"
+],
+"n_eligible": 27,
+"sha": "d289d4a06faa1d3c118150f29c2b4fe56f9a2b89bd06ab9d6553ff5571f31f08",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0056__L036__p123:java:c": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0056__L036__p123:java:c",
+"anchor": "C#",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir"
+],
+"random": [
+"F#",
+"Haskell",
+"Kotlin",
+"ReScript"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir",
+"F#",
+"Haskell",
+"Kotlin",
+"ReScript"
+],
+"n_eligible": 27,
+"sha": "4f2d068510e35371b5bc7b72fdc3e3270d716a7788eb7c15d39a91b83c01e997",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0056__L036__p164:c:c": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0056__L036__p164:c:c",
+"anchor": "C#",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir"
+],
+"random": [
+"Elm",
+"Node.js",
+"PureScript",
+"TypeScript"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir",
+"Elm",
+"Node.js",
+"PureScript",
+"TypeScript"
+],
+"n_eligible": 28,
+"sha": "53f724af213c459a55201986e3a49eaac5c01a293038998ed89289b5f321b63e",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0056__L036__p164:java:c": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0056__L036__p164:java:c",
+"anchor": "C#",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir"
+],
+"random": [
+"Haskell vs Rust",
+"Julia",
+"Kaito",
+"TypeScript"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir",
+"Haskell vs Rust",
+"Julia",
+"Kaito",
+"TypeScript"
+],
+"n_eligible": 27,
+"sha": "8421cbb0956fb4c03061acde5880596f858154796fe8f3e71649e3e12efe1a50",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0056__L036__p231:c:c": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0056__L036__p231:c:c",
+"anchor": "C#",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir"
+],
+"random": [
+"HTML",
+"Haskell vs Rust",
+"PHP",
+"PureScript"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir",
+"HTML",
+"Haskell vs Rust",
+"PHP",
+"PureScript"
+],
+"n_eligible": 28,
+"sha": "c02f9a4562ae0068b01e37b89d0325d97bcf4ef08dadc0500b5c7dff40f3c1d0",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0056__L036__p231:python:c": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0056__L036__p231:python:c",
+"anchor": "C#",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir"
+],
+"random": [
+"F#",
+"R",
+"Scala",
+"Scheme"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir",
+"F#",
+"R",
+"Scala",
+"Scheme"
+],
+"n_eligible": 27,
+"sha": "0ac6d693e0dcd77cba3cf5bbb21ae4be24fa0632a5ed2c944ff4f7bb5faa90be",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0056__L036__p273:java:c": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0056__L036__p273:java:c",
+"anchor": "C#",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir"
+],
+"random": [
+"Elm",
+"Erlang",
+"Haskell",
+"R"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir",
+"Elm",
+"Erlang",
+"Haskell",
+"R"
+],
+"n_eligible": 27,
+"sha": "086a5d4e2b9c77501dc0f827d675301a44a344098146fbaa264af60f4b8ebb68",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0056__L036__p58:java:c": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0056__L036__p58:java:c",
+"anchor": "C#",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir"
+],
+"random": [
+"HTML",
+"Kaito",
+"OCaml",
+"Roc"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir",
+"HTML",
+"Kaito",
+"OCaml",
+"Roc"
+],
+"n_eligible": 27,
+"sha": "bbc1fcecc8107076b8fae480d211f63310792ef10fdd89b5cc1771f6a23ed47e",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0056__L036__p58:javapublicclassfibonaccimainstringargs:cclassprogramstaticvoidmain": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0056__L036__p58:javapublicclassfibonaccimainstringargs:cclassprogramstaticvoidmain",
+"anchor": "C#",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir"
+],
+"random": [
+"Elm",
+"Kaito",
+"ReScript",
+"Scala"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir",
+"Elm",
+"Kaito",
+"ReScript",
+"Scala"
+],
+"n_eligible": 27,
+"sha": "393584072c8c7af88b92100c3125697942aa5dacb80c690afd3c8bce8a739b33",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0056__L036__p58:publicclassmainmainstringargs:classprogramstaticvoidmain": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0056__L036__p58:publicclassmainmainstringargs:classprogramstaticvoidmain",
+"anchor": "C#",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir"
+],
+"random": [
+"Kotlin",
+"SQL",
+"TypeScript",
+"WebIDL"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir",
+"Kotlin",
+"SQL",
+"TypeScript",
+"WebIDL"
+],
+"n_eligible": 27,
+"sha": "8146a71356eda288b77a579fc7f80defbc75b66beed9b6f8e7ef8f1b5828b6e4",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0056__L036__p95:java:c": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0056__L036__p95:java:c",
+"anchor": "C#",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir"
+],
+"random": [
+"Haskell",
+"Julia",
+"Node.js",
+"Roc"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir",
+"Haskell",
+"Julia",
+"Node.js",
+"Roc"
+],
+"n_eligible": 27,
+"sha": "3335b253e4b726c5ed4beac4344eebafc84e7b00bb492555a40d6c0f449181b8",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0056__L040__p231:c++:c": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0056__L040__p231:c++:c",
+"anchor": "C#",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir"
+],
+"random": [
+"Haskell vs Rust",
+"Julia",
+"Node.js",
+"Rust"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir",
+"Haskell vs Rust",
+"Julia",
+"Node.js",
+"Rust"
+],
+"n_eligible": 28,
+"sha": "36b504b25e2a7c3370035292c95170e3da2efb1019fb690d59ae2901a1f9e368",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0056__L040__p231:python:c": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0056__L040__p231:python:c",
+"anchor": "C#",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir"
+],
+"random": [
+"Erlang",
+"PureScript",
+"SQL",
+"Scheme"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir",
+"Erlang",
+"PureScript",
+"SQL",
+"Scheme"
+],
+"n_eligible": 27,
+"sha": "969bca4a949913043f8381d7b808487eda30b13fbfdd24d4682e54d1a4d884aa",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0056__L040__p273:javascript:c": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0056__L040__p273:javascript:c",
+"anchor": "C#",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir"
+],
+"random": [
+"Erlang",
+"Julia",
+"Kotlin",
+"Perl"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir",
+"Erlang",
+"Julia",
+"Kotlin",
+"Perl"
+],
+"n_eligible": 28,
+"sha": "e10c30798f8b236157cd1d8e710809f25857966324a2c9b5a32616b50453dad5",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0056__L040__p58:c:c": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0056__L040__p58:c:c",
+"anchor": "C#",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir"
+],
+"random": [
+"Elm",
+"Erlang",
+"Python vs Java",
+"R"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir",
+"Elm",
+"Erlang",
+"Python vs Java",
+"R"
+],
+"n_eligible": 28,
+"sha": "0c6194a5c46c1ce5f571ff88ac9f7b75b96912ad13ade457a857843b6a7946e4",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0056__L040__p58:cprogram:c": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0056__L040__p58:cprogram:c",
+"anchor": "C#",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir"
+],
+"random": [
+"Elm",
+"Haskell",
+"Node.js",
+"PHP"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir",
+"Elm",
+"Haskell",
+"Node.js",
+"PHP"
+],
+"n_eligible": 28,
+"sha": "539e7c1865c49db7a3026f211bca5b38aa9dec5badd82bb4af087fba66278808",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0056__L040__p58:java:c": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0056__L040__p58:java:c",
+"anchor": "C#",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir"
+],
+"random": [
+"Elm",
+"Haskell vs Rust",
+"Kaito",
+"R"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir",
+"Elm",
+"Haskell vs Rust",
+"Kaito",
+"R"
+],
+"n_eligible": 27,
+"sha": "bb56380e38cc68064c582458767827f5ad4e0038b5298b9371d0a62c1855716c",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0056__L040__p58:pythonc:c": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0056__L040__p58:pythonc:c",
+"anchor": "C#",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir"
+],
+"random": [
+"Erlang",
+"Julia",
+"OCaml",
+"PHP"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir",
+"Erlang",
+"Julia",
+"OCaml",
+"PHP"
+],
+"n_eligible": 27,
+"sha": "be8aa9f0e73b7f4976f6985519c7113b2abab4afed0bda2894153452c78814c3",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0056__L040__p95:python:c": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0056__L040__p95:python:c",
+"anchor": "C#",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir"
+],
+"random": [
+"Haskell vs Rust",
+"Node.js",
+"PHP",
+"Scala"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir",
+"Haskell vs Rust",
+"Node.js",
+"PHP",
+"Scala"
+],
+"n_eligible": 27,
+"sha": "9e90e3713c7ee051c9da9ca10186239ff96ac8711778536ec989af0c9d8baf12",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0056__L044__p164:c:c": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0056__L044__p164:c:c",
+"anchor": "C#",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir"
+],
+"random": [
+"Erlang",
+"F#",
+"Python vs Java",
+"WebIDL"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir",
+"Erlang",
+"F#",
+"Python vs Java",
+"WebIDL"
+],
+"n_eligible": 28,
+"sha": "c19dc26eea57241d604578bb8b505cf614128ef646b349a6cfe5ab983423c2a6",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0056__L044__p231:python:c": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0056__L044__p231:python:c",
+"anchor": "C#",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir"
+],
+"random": [
+"Julia",
+"Rust",
+"Scala",
+"TypeScript"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir",
+"Julia",
+"Rust",
+"Scala",
+"TypeScript"
+],
+"n_eligible": 27,
+"sha": "f0405c8852a6a7d278b3c2d69526c2f5f2fadfbb7179bdffe734691609b7f04d",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0056__L044__p58:java:c": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0056__L044__p58:java:c",
+"anchor": "C#",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir"
+],
+"random": [
+"Elm",
+"Julia",
+"Node.js",
+"Rust"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir",
+"Elm",
+"Julia",
+"Node.js",
+"Rust"
+],
+"n_eligible": 27,
+"sha": "324f25008ae0a0df1474cec1db1114aef7ee06395e283e1479b44d5c20fe22cd",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0056__L044__p58:python:c": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0056__L044__p58:python:c",
+"anchor": "C#",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir"
+],
+"random": [
+"PHP",
+"PureScript",
+"Roc",
+"Rust"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir",
+"PHP",
+"PureScript",
+"Roc",
+"Rust"
+],
+"n_eligible": 27,
+"sha": "6672b5a82582d38774e11822884906309881427218a370572036fc8a796eafb2",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0056__L044__p95:java:c": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0056__L044__p95:java:c",
+"anchor": "C#",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir"
+],
+"random": [
+"Elm",
+"Kaito",
+"Node.js",
+"Scala"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir",
+"Elm",
+"Kaito",
+"Node.js",
+"Scala"
+],
+"n_eligible": 27,
+"sha": "caf8a429832eacade31145743a0f22018b145bc526f50d772eb05dab41da3671",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0056__L044__p95:javapublicclassmainsystemoutprintln:cclassprogramconsolewriteline": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0056__L044__p95:javapublicclassmainsystemoutprintln:cclassprogramconsolewriteline",
+"anchor": "C#",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir"
+],
+"random": [
+"Haskell",
+"Kotlin",
+"Scheme",
+"WebIDL"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir",
+"Haskell",
+"Kotlin",
+"Scheme",
+"WebIDL"
+],
+"n_eligible": 27,
+"sha": "a30c0a1faac0b16c327f9d4748d908c896e045537d034a1d83f0f149531d9020",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0056__L048__p123:c++:c": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0056__L048__p123:c++:c",
+"anchor": "C#",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir"
+],
+"random": [
+"Haskell vs Rust",
+"OCaml",
+"PureScript",
+"WebIDL"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir",
+"Haskell vs Rust",
+"OCaml",
+"PureScript",
+"WebIDL"
+],
+"n_eligible": 28,
+"sha": "80ef40555b90b2994b8579ace8c22c91c1b068378182408bc158a5c0009830b6",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0056__L048__p164:c:c": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0056__L048__p164:c:c",
+"anchor": "C#",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir"
+],
+"random": [
+"Erlang",
+"Haskell vs Rust",
+"Kaito",
+"Python vs Java"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir",
+"Erlang",
+"Haskell vs Rust",
+"Kaito",
+"Python vs Java"
+],
+"n_eligible": 28,
+"sha": "b514ddc49b205bd1e41c925bd56a03e700003686c9ff52e62481907582adb6fb",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0056__L048__p273:java:c": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0056__L048__p273:java:c",
+"anchor": "C#",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir"
+],
+"random": [
+"OCaml",
+"Perl",
+"Rust",
+"Scheme"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir",
+"OCaml",
+"Perl",
+"Rust",
+"Scheme"
+],
+"n_eligible": 27,
+"sha": "e1b444531189c3aa620dbb28b530c1de9d8e28c624e50e45cf78031308db475d",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0056__L048__p58:java:c": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0056__L048__p58:java:c",
+"anchor": "C#",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir"
+],
+"random": [
+"Elm",
+"F#",
+"Node.js",
+"Perl"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir",
+"Elm",
+"F#",
+"Node.js",
+"Perl"
+],
+"n_eligible": 27,
+"sha": "aeb7a01f88585b756616f582616b5db59042511e8927b50e8d6f10508a8c874f",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0056__L048__p95:c:c": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0056__L048__p95:c:c",
+"anchor": "C#",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir"
+],
+"random": [
+"Erlang",
+"Kaito",
+"PHP",
+"WebIDL"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir",
+"Erlang",
+"Kaito",
+"PHP",
+"WebIDL"
+],
+"n_eligible": 28,
+"sha": "6a1ce141d507596dd18a505badb0d36b32272c7609429bf47165b3b5f2c71cf4",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0056__L056__p231:c++:c": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0056__L056__p231:c++:c",
+"anchor": "C#",
+"nearest": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir"
+],
+"random": [
+"Elm",
+"R",
+"Rust",
+"Scheme"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"Crystal",
+"Elixir",
+"Elm",
+"R",
+"Rust",
+"Scheme"
+],
+"n_eligible": 28,
+"sha": "9ad9c1672ebf8d6904ea54545cbdf359c4d41bfc7db3acb064c5bf632061a5e8",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0074__L028__p554:rust:python": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0074__L028__p554:rust:python",
+"anchor": "Python",
+"nearest": [
+"AutoIt",
+"Bash",
+"C",
+"C#"
+],
+"random": [
+"Elm",
+"Julia",
+"Kaito",
+"Swift"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"C",
+"C#",
+"Elm",
+"Julia",
+"Kaito",
+"Swift"
+],
+"n_eligible": 30,
+"sha": "820af94ad34b2b33ebf085894e32481fc5c0fb317dc21cc0630fdcf602672ace",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0074__L040__p372:go:python": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0074__L040__p372:go:python",
+"anchor": "Python",
+"nearest": [
+"AutoIt",
+"Bash",
+"C",
+"C#"
+],
+"random": [
+"C++",
+"Erlang",
+"JavaScript",
+"Scheme"
+],
+"distractors": [
+"AutoIt",
+"Bash",
+"C",
+"C#",
+"C++",
+"Erlang",
+"JavaScript",
+"Scheme"
+],
+"n_eligible": 31,
+"sha": "b52e34c170ee10f06045823187144ad61697d740baf91d6244a45a94d98b3758",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0003__L024__p396:java:javascript": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0003__L024__p396:java:javascript",
 "anchor": "WebIDL",

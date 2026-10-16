@@ -1,4 +1,64 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0069__L028__p384:panaxnotoginseng:gastrodiaelata": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0069__L028__p384:panaxnotoginseng:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "bdea41792fad8ec319400d9f6785f30ac4374513c4c254f7ccb7adbbec3217de",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0069__L032__p384:panaxnotoginseng:gastrodiaelata": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0069__L032__p384:panaxnotoginseng:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "85efa5ae0fe8d9b3698065fa5bc66b832c7fbf55a2d6293de37b0a9aa9d656f7",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0069__L044__p311:turmericcurcumin:gastrodiaelatagastrodin": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0069__L044__p311:turmericcurcumin:gastrodiaelatagastrodin",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "e44d3fe1f41e574ca06c81259496c8bb03c946d5f65924cb11ff35fd2d6259e4",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0069__L048__p311:ginsengroot:gastrodiaelatatuber": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0069__L048__p311:ginsengroot:gastrodiaelatatuber",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "580457ab33f159337622290865a21460a3512f5d91be7b18345025ce9693eab0",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0069__L052__p384:panaxnotoginsengginsenosiderg3:gastrodiaelatagastrodin": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0069__L052__p384:panaxnotoginsengginsenosiderg3:gastrodiaelatagastrodin",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "b0c749db2d13328914cb65ba990b6264298b2af4a690a7177d8cad199588d61b",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0069__L056__p311:vincristinerosecamptothecaacuminata:gastrodiaelata": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0069__L056__p311:vincristinerosecamptothecaacuminata:gastrodiaelata",
+"anchor": "Gastrodia elata",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "570e15ce8fc9635b3a12571d18416d59f5bed238128df06f4dbf97269c763e48",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0069__L020__p384:panaxnotoginseng:gastrodiaelata": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0069__L020__p384:panaxnotoginseng:gastrodiaelata",
 "anchor": "Gastrodia elata",

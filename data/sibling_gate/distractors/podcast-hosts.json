@@ -1,0 +1,147 @@
+{
+"mlnla-ck2000-all11:chat-lmsys-0006__L028__p194:teluguindianpodcasters:brazilianpodcast": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0006__L028__p194:teluguindianpodcasters:brazilianpodcast",
+"anchor": "Brazilian podcasters",
+"nearest": [
+"Guga Manga",
+"Theo Von",
+"Tim Ferriss",
+"Lex Fridman"
+],
+"random": [
+"Alex Cooper",
+"Conan O'Brien",
+"Ira Glass",
+"Marc Maron"
+],
+"distractors": [
+"Guga Manga",
+"Theo Von",
+"Tim Ferriss",
+"Lex Fridman",
+"Alex Cooper",
+"Conan O'Brien",
+"Ira Glass",
+"Marc Maron"
+],
+"n_eligible": 9,
+"sha": "2a362ccdbeb475c7077ea3a9724a3fd4ba307af40c5984a0055a3ae97eaf5e95",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0006__L048__p194:wuandsacks:gugamangaandpabizimmermann": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0006__L048__p194:wuandsacks:gugamangaandpabizimmermann",
+"anchor": "Guga Manga and Pabi Zimmermann",
+"nearest": [
+"Brazilian podcasters",
+"Theo Von",
+"Tim Ferriss",
+"Alex Cooper"
+],
+"random": [
+"Conan O'Brien",
+"Dax Shepard",
+"Ira Glass",
+"Marc Maron"
+],
+"distractors": [
+"Brazilian podcasters",
+"Theo Von",
+"Tim Ferriss",
+"Alex Cooper",
+"Conan O'Brien",
+"Dax Shepard",
+"Ira Glass",
+"Marc Maron"
+],
+"n_eligible": 9,
+"sha": "a4d57584ad935276a29ef3ec8a0d434b0f75f9cc1ff64880de281fbbe45ba844",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0006__L052__p293:theaceschristrubyetal:lendasurbanasgugamangaandpabizimmermann": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0006__L052__p293:theaceschristrubyetal:lendasurbanasgugamangaandpabizimmermann",
+"anchor": "Guga Manga",
+"nearest": [
+"Brazilian podcasters",
+"Theo Von",
+"Alex Cooper",
+"Lex Fridman"
+],
+"random": [
+"Conan O'Brien",
+"Dax Shepard",
+"Ira Glass",
+"Tim Ferriss"
+],
+"distractors": [
+"Brazilian podcasters",
+"Theo Von",
+"Alex Cooper",
+"Lex Fridman",
+"Conan O'Brien",
+"Dax Shepard",
+"Ira Glass",
+"Tim Ferriss"
+],
+"n_eligible": 9,
+"sha": "db62b0841f46e07ea29481b7bf0b81e7bddf21513b22279dc516760c2489866c",
+"generation": 1
+},
+"mlnla-rl600-all11:chat-lmsys-0006__L028__p142:kapilsharma:gugamanga": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0006__L028__p142:kapilsharma:gugamanga",
+"anchor": "Guga Manga",
+"nearest": [
+"Brazilian podcasters",
+"Theo Von",
+"Alex Cooper",
+"Lex Fridman"
+],
+"random": [
+"Dax Shepard",
+"Ira Glass",
+"Marc Maron",
+"Tim Ferriss"
+],
+"distractors": [
+"Brazilian podcasters",
+"Theo Von",
+"Alex Cooper",
+"Lex Fridman",
+"Dax Shepard",
+"Ira Glass",
+"Marc Maron",
+"Tim Ferriss"
+],
+"n_eligible": 9,
+"sha": "4aa46fd6cabc05407d538be11ea12bf37282140c2697b33ee352aa181836612b",
+"generation": 1
+},
+"mlnla-rl600-all11:chat-lmsys-0006__L048__p122:joerogan:gugamanga": {
+"unit": "mlnla-rl600-all11:chat-lmsys-0006__L048__p122:joerogan:gugamanga",
+"anchor": "Joe Rogan",
+"nearest": [
+"Conan O'Brien",
+"Lex Fridman",
+"Dax Shepard",
+"Tim Ferriss"
+],
+"random": [
+"Brazilian podcasters",
+"Guga Manga",
+"Ira Glass",
+"Theo Von"
+],
+"distractors": [
+"Conan O'Brien",
+"Lex Fridman",
+"Dax Shepard",
+"Tim Ferriss",
+"Brazilian podcasters",
+"Guga Manga",
+"Ira Glass",
+"Theo Von"
+],
+"n_eligible": 10,
+"sha": "343119a26f3fe5028bd2b15432b4040d13ae9a591d6c0458c02219447cb7d467",
+"generation": 1
+}
+}

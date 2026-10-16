@@ -1,4 +1,114 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0055__L024__p104:capgemini:tataconsultancyservicestcs": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0055__L024__p104:capgemini:tataconsultancyservicestcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "28db6762f07e846798452ec4c9121cb533c963e076873e1e5494e3ebda80880c",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0055__L024__p104:dell:tataconsultancyservicestcs": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0055__L024__p104:dell:tataconsultancyservicestcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "73211a4996b9fda8178556f7c38742fecc6db28ecfbda9960ce400f53100b4ad",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0055__L036__p104:capgemini:tataconsultancyservices": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0055__L036__p104:capgemini:tataconsultancyservices",
+"anchor": "Tata Consultancy Services",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "91aa2e99f3b4cadaa6d6fc02ad5687df70b6990f457820725fb80d33b9245efe",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0055__L040__p104:capgemini:tataconsultancyservices": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0055__L040__p104:capgemini:tataconsultancyservices",
+"anchor": "Tata Consultancy Services",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "29415eb96a511eecadbffb6b7b95e00613c2bac2f35b7e5688ea29072dcfb7fd",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0055__L040__p104:capgemini:tcs": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0055__L040__p104:capgemini:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "17e9ec6da609cd91cfd92d025b8046b6abebda37df5d1d724b35efc2f2980d12",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0055__L040__p160:gedigital:tcs": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0055__L040__p160:gedigital:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "e165a5eb9809fede2c8048fd8a086bd7fc77d86fde257250e0b05f5aed754ebf",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0055__L044__p104:capgemini:tcs": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0055__L044__p104:capgemini:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "859e5d239aac63b875fa7371d13bb590a4bd523032ce34038ca5db0dc70bab91",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0055__L048__p43:capgemini:tcs": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0055__L048__p43:capgemini:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "2e2c0ee893128963bada5e5cefbbe6870c57a24f765a9ea834931818f6957ba4",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0055__L052__p211:infosys:tcs": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0055__L052__p211:infosys:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "8d9d9c296f66c0c6e26501d3e7430efbbcc03851c28e1aab92e052dcb8369b93",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0055__L056__p104:accenture:tcs": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0055__L056__p104:accenture:tcs",
+"anchor": "TCS",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "02f958d10418f93eb70f41e96e0cf127c658b06ee32c4a0a8e92272ba1ef57ce",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0055__L056__p316:accenture:tcs": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0055__L056__p316:accenture:tcs",
+"anchor": "TCS",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "495b059cdfb9fcc8f5d45de8760720ce3ae41d3799b554443d0a639d7f914b54",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0055__L020__p104:accenture:tcs": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0055__L020__p104:accenture:tcs",
 "anchor": "TCS",

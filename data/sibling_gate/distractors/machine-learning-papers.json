@@ -1,4 +1,290 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0011__L020__p120:attentionisallyouneed:decisiontransformer": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0011__L020__p120:attentionisallyouneed:decisiontransformer",
+"anchor": "Decision Transformer",
+"nearest": [
+"DETR",
+"End-to-End Object Detection with Transformers",
+"Deep Residual Learning for Image Recognition"
+],
+"random": [],
+"distractors": [
+"DETR",
+"End-to-End Object Detection with Transformers",
+"Deep Residual Learning for Image Recognition"
+],
+"n_eligible": 3,
+"sha": "fa0d75b201f1e68eaa3ed22530b0ca4c502db2f2ae6fd0df1be0471c9f36160a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0011__L020__p146:transformerxl:decisiontransformer": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0011__L020__p146:transformerxl:decisiontransformer",
+"anchor": "Decision Transformer",
+"nearest": [
+"DETR",
+"End-to-End Object Detection with Transformers",
+"Deep Residual Learning for Image Recognition"
+],
+"random": [],
+"distractors": [
+"DETR",
+"End-to-End Object Detection with Transformers",
+"Deep Residual Learning for Image Recognition"
+],
+"n_eligible": 3,
+"sha": "bb611291aebd1862a5afd010fe36af07a03ec036501def9b740eee67467921af",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0011__L024__p120:attentionisallyouneed:decisiontransformer": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0011__L024__p120:attentionisallyouneed:decisiontransformer",
+"anchor": "Decision Transformer",
+"nearest": [
+"DETR",
+"End-to-End Object Detection with Transformers",
+"Deep Residual Learning for Image Recognition"
+],
+"random": [],
+"distractors": [
+"DETR",
+"End-to-End Object Detection with Transformers",
+"Deep Residual Learning for Image Recognition"
+],
+"n_eligible": 3,
+"sha": "8c259d4101208842787307322308f335b2dd46c935071e83c4472bacab35261a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0011__L024__p120:transformerattentionisallyouneed:decisiontransformer": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0011__L024__p120:transformerattentionisallyouneed:decisiontransformer",
+"anchor": "Decision Transformer: Reinforcement Learning via Sequence Modeling",
+"nearest": [
+"DETR",
+"End-to-End Object Detection with Transformers"
+],
+"random": [],
+"distractors": [
+"DETR",
+"End-to-End Object Detection with Transformers"
+],
+"n_eligible": 2,
+"sha": "d11c01f2c841eab85197f5718f5e4eece663639a7b6bdf9aee6729246c569aba",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0011__L024__p120:transformerpaper:decisiontransformer": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0011__L024__p120:transformerpaper:decisiontransformer",
+"anchor": "Decision Transformer: Reinforcement Learning via Sequence Modeling",
+"nearest": [
+"DETR",
+"End-to-End Object Detection with Transformers"
+],
+"random": [],
+"distractors": [
+"DETR",
+"End-to-End Object Detection with Transformers"
+],
+"n_eligible": 2,
+"sha": "f9d9dbfd3dbf1a9d0d55b7fed2934e2c2008ce0c4a8de0b15dc5ecb047cf13c0",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0011__L024__p41:diffusionmodelssurvey:decisiontransformerpaper": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0011__L024__p41:diffusionmodelssurvey:decisiontransformerpaper",
+"anchor": "Decision Transformer: Reinforcement Learning via Sequence Modeling",
+"nearest": [
+"DETR",
+"End-to-End Object Detection with Transformers"
+],
+"random": [],
+"distractors": [
+"DETR",
+"End-to-End Object Detection with Transformers"
+],
+"n_eligible": 2,
+"sha": "f710fe091681bf80b910706a054bf17a7a5ca0f9fd350a7000a937ded507fd25",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0011__L028__p120:thetransformerpaper:decisiontransformerpaper": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0011__L028__p120:thetransformerpaper:decisiontransformerpaper",
+"anchor": "Decision Transformer: Reinforcement Learning via Sequence Modeling",
+"nearest": [
+"DETR",
+"End-to-End Object Detection with Transformers"
+],
+"random": [],
+"distractors": [
+"DETR",
+"End-to-End Object Detection with Transformers"
+],
+"n_eligible": 2,
+"sha": "96f71413826eaf4c2240a08cc38172d946f3f2af06f1cefd37d52bff1a5c5bf4",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0011__L028__p41:diffusionmodelsforgeneration:decisiontransformer": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0011__L028__p41:diffusionmodelsforgeneration:decisiontransformer",
+"anchor": "Decision Transformer: Reinforcement Learning via Sequence Modeling",
+"nearest": [
+"DETR",
+"End-to-End Object Detection with Transformers"
+],
+"random": [],
+"distractors": [
+"DETR",
+"End-to-End Object Detection with Transformers"
+],
+"n_eligible": 2,
+"sha": "6a25e6359bd869798266a1a343a6089d6b79a8d3d261a0a9fdf14a28a43a2d3c",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0011__L028__p87:conditioneddiffusionmodelsforsequencegenerationperceiver:decisiontransformer": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0011__L028__p87:conditioneddiffusionmodelsforsequencegenerationperceiver:decisiontransformer",
+"anchor": "Decision Transformer: Reinforcement Learning via Sequence Modeling",
+"nearest": [
+"DETR",
+"End-to-End Object Detection with Transformers"
+],
+"random": [],
+"distractors": [
+"DETR",
+"End-to-End Object Detection with Transformers"
+],
+"n_eligible": 2,
+"sha": "c34dc8d3fed04e8f7e48304baa385fe1f70e7d3587ab36f0198b08d463f32e4e",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0011__L032__p120:attentionisallyouneed:decisiontransformerreinforcementlearningviasequencemodeling": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0011__L032__p120:attentionisallyouneed:decisiontransformerreinforcementlearningviasequencemodeling",
+"anchor": "Decision Transformer",
+"nearest": [
+"DETR",
+"End-to-End Object Detection with Transformers",
+"Deep Residual Learning for Image Recognition"
+],
+"random": [],
+"distractors": [
+"DETR",
+"End-to-End Object Detection with Transformers",
+"Deep Residual Learning for Image Recognition"
+],
+"n_eligible": 3,
+"sha": "8a3fada3fa7896875f6d4f1535e48fbca5b5e197ca34b4cd6784e621da53c7ae",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0011__L032__p120:transformerpaper:decisiontransformerpaper": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0011__L032__p120:transformerpaper:decisiontransformerpaper",
+"anchor": "Decision Transformer: Reinforcement Learning via Sequence Modeling",
+"nearest": [
+"DETR",
+"End-to-End Object Detection with Transformers"
+],
+"random": [],
+"distractors": [
+"DETR",
+"End-to-End Object Detection with Transformers"
+],
+"n_eligible": 2,
+"sha": "cd96f11b9da60ddb19b4f0edbc74dd6733544a25470ba9d1fb65f6d9a67063d1",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0011__L032__p195:transformerpaperattentionisallyouneed:decisiontransformerpaper": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0011__L032__p195:transformerpaperattentionisallyouneed:decisiontransformerpaper",
+"anchor": "Decision Transformer: Reinforcement Learning via Sequence Modeling",
+"nearest": [
+"DETR",
+"End-to-End Object Detection with Transformers"
+],
+"random": [],
+"distractors": [
+"DETR",
+"End-to-End Object Detection with Transformers"
+],
+"n_eligible": 2,
+"sha": "5b13778218388d7a9faeaee3f812f3659cfd73c4d9607c791a4318adb00d835b",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0011__L032__p87:transformerxl:transformer": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0011__L032__p87:transformerxl:transformer",
+"anchor": "Decision Transformer",
+"nearest": [
+"DETR",
+"End-to-End Object Detection with Transformers",
+"Deep Residual Learning for Image Recognition"
+],
+"random": [],
+"distractors": [
+"DETR",
+"End-to-End Object Detection with Transformers",
+"Deep Residual Learning for Image Recognition"
+],
+"n_eligible": 3,
+"sha": "7138f590d0112ac02ddea09a1b4e98af0da46e1ea4fc19c1cec8c49449fc6064",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0011__L040__p170:offlinereinforcementlearningalgorithmicframeworkandbenchmark:decisiontransformerreinforcementlearningviasequencemodeling": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0011__L040__p170:offlinereinforcementlearningalgorithmicframeworkandbenchmark:decisiontransformerreinforcementlearningviasequencemodeling",
+"anchor": "Decision Transformer: Reinforcement Learning via Sequence Modeling",
+"nearest": [
+"DETR",
+"End-to-End Object Detection with Transformers"
+],
+"random": [],
+"distractors": [
+"DETR",
+"End-to-End Object Detection with Transformers"
+],
+"n_eligible": 2,
+"sha": "839b2e439de8d512ab41c6a20a19f7c873748157e0db94c9f0a3f5c09f6e0db1",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0011__L044__p146:transformerxl:decisiontransformer": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0011__L044__p146:transformerxl:decisiontransformer",
+"anchor": "Decision Transformer",
+"nearest": [
+"DETR",
+"End-to-End Object Detection with Transformers",
+"Deep Residual Learning for Image Recognition"
+],
+"random": [],
+"distractors": [
+"DETR",
+"End-to-End Object Detection with Transformers",
+"Deep Residual Learning for Image Recognition"
+],
+"n_eligible": 3,
+"sha": "795159825190d506869af88d0afc955c6bc1d8601d47968e67433d3517a775d0",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0011__L044__p146:transformerxl:transformer": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0011__L044__p146:transformerxl:transformer",
+"anchor": "Decision Transformer",
+"nearest": [
+"DETR",
+"End-to-End Object Detection with Transformers",
+"Deep Residual Learning for Image Recognition"
+],
+"random": [],
+"distractors": [
+"DETR",
+"End-to-End Object Detection with Transformers",
+"Deep Residual Learning for Image Recognition"
+],
+"n_eligible": 3,
+"sha": "6906363c8557d4912023cece681e8f6adbd04c5cdb2369f8a971e5645919af83",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0011__L052__p195:diffusionmodelsastrajectoryoptimizersforofflinereinforcementlearning:decisiontransformerreinforcementlearningviasequencemodeling": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0011__L052__p195:diffusionmodelsastrajectoryoptimizersforofflinereinforcementlearning:decisiontransformerreinforcementlearningviasequencemodeling",
+"anchor": "Decision Transformer: Reinforcement Learning via Sequence Modeling",
+"nearest": [
+"DETR",
+"End-to-End Object Detection with Transformers"
+],
+"random": [],
+"distractors": [
+"DETR",
+"End-to-End Object Detection with Transformers"
+],
+"n_eligible": 2,
+"sha": "5714a3cd6b8c1e5b1552f55bb9cf02d1469122595dfc23dfca248b4a28d4654a",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0011__L020__p120:attentionisallyouneed:decisiontransformerreinforcementlearningviasequencemodeling": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0011__L020__p120:attentionisallyouneed:decisiontransformerreinforcementlearningviasequencemodeling",
 "anchor": "Decision Transformer",

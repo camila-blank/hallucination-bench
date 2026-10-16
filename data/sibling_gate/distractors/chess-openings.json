@@ -1,4 +1,362 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0068__L020__p191:viennagambit:siciliannajdorf": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0068__L020__p191:viennagambit:siciliannajdorf",
+"anchor": "Sicilian Najdorf",
+"nearest": [
+"King's Gambit Accepted",
+"King's Gambit Declined"
+],
+"random": [],
+"distractors": [
+"King's Gambit Accepted",
+"King's Gambit Declined"
+],
+"n_eligible": 2,
+"sha": "d3aabcf340e2a17f858cdbc09d14a726ae29cbffcd153a0ee7d75b12cab9ed18",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0068__L020__p252:queensgambitdeclined:siciliannajdorf": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0068__L020__p252:queensgambitdeclined:siciliannajdorf",
+"anchor": "Sicilian Najdorf",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "eee67d0f5e613a6b4fdc8a4c9a25f5c4db01589537be2232e6e3804d834a87ec",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0068__L020__p428:sicilian:kingsgambit": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0068__L020__p428:sicilian:kingsgambit",
+"anchor": "Vienna Game",
+"nearest": [
+"King's Gambit Accepted",
+"Najdorf Variation",
+"King's Gambit Declined"
+],
+"random": [],
+"distractors": [
+"King's Gambit Accepted",
+"Najdorf Variation",
+"King's Gambit Declined"
+],
+"n_eligible": 3,
+"sha": "b9fe438858ee3a63d1fbad35939f1258982139c6743fdacce340564af5716524",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0068__L024__p252:qgd:siciliannajdorf": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0068__L024__p252:qgd:siciliannajdorf",
+"anchor": "Sicilian Najdorf",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "6644a25b37a94b633f1c3a610f171fa1f6841ee0b39d138ce3e5fa8240d2ae3a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0068__L024__p252:queensgambitdeclined:siciliannajdorf": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0068__L024__p252:queensgambitdeclined:siciliannajdorf",
+"anchor": "Sicilian Najdorf",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "c2c13399645c77539b4abb88dab379c3efb0bd39a03dc0011ec1f5bfa7cccc10",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0068__L024__p296:siciliandragon:siciliannajdorf": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0068__L024__p296:siciliandragon:siciliannajdorf",
+"anchor": "King's Gambit",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "2dd399d2de9cdc9751307fe21c1585ab39af70a847f10a954018e2f5078470ce",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0068__L028__p252:nimzoindian:kingsgambit": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0068__L028__p252:nimzoindian:kingsgambit",
+"anchor": "Sicilian Najdorf",
+"nearest": [
+"King's Gambit Accepted",
+"King's Gambit Declined"
+],
+"random": [],
+"distractors": [
+"King's Gambit Accepted",
+"King's Gambit Declined"
+],
+"n_eligible": 2,
+"sha": "785c24cfb6b1c06ddfa2f99b5fd535c22334f5f66e53e040f2c2f2605f97dc57",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0068__L028__p252:queensgambitdeclined:siciliannajdorf": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0068__L028__p252:queensgambitdeclined:siciliannajdorf",
+"anchor": "Sicilian Najdorf",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "2aa173f011b7c95ecd973bb012b9cefc35a7989292fb198e75cfd727e5bbc373",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0068__L028__p296:siciliandragon:siciliannajdorf": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0068__L028__p296:siciliandragon:siciliannajdorf",
+"anchor": "King's Gambit",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "48414fd6b8f81670166c0b025299e618396e4e8d1e2586e36dc7efc63deef01e",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0068__L028__p296:siciliangambit:poisonedpawnvariation": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0068__L028__p296:siciliangambit:poisonedpawnvariation",
+"anchor": "Sicilian Defense",
+"nearest": [
+"King's Gambit Declined",
+"King's Gambit Accepted"
+],
+"random": [],
+"distractors": [
+"King's Gambit Declined",
+"King's Gambit Accepted"
+],
+"n_eligible": 2,
+"sha": "ca8b2b91b7e70565e89a9ad3e68889eef0b79cebd903b602a11097e2c85e3657",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0068__L032__p296:londonsystem:siciliannajdorf": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0068__L032__p296:londonsystem:siciliannajdorf",
+"anchor": "Sicilian Najdorf",
+"nearest": [
+"King's Gambit Accepted",
+"King's Gambit Declined"
+],
+"random": [],
+"distractors": [
+"King's Gambit Accepted",
+"King's Gambit Declined"
+],
+"n_eligible": 2,
+"sha": "53fefaf5e9c5e076211d1707767ba2a4ec5bb6333b5f6b2a7fa970ac584b976e",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0068__L032__p428:siciliandefense:kingsgambit": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0068__L032__p428:siciliandefense:kingsgambit",
+"anchor": "Vienna Game",
+"nearest": [
+"King's Gambit Accepted",
+"Najdorf Variation",
+"King's Gambit Declined"
+],
+"random": [],
+"distractors": [
+"King's Gambit Accepted",
+"Najdorf Variation",
+"King's Gambit Declined"
+],
+"n_eligible": 3,
+"sha": "5cfc82314b2f7cadfc946af573ddfd5a9a7ac68bbf323f6d83a8d53fbc0e9100",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0068__L036__p296:londonsystem:siciliannajdorf": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0068__L036__p296:londonsystem:siciliannajdorf",
+"anchor": "Sicilian Najdorf",
+"nearest": [
+"King's Gambit Accepted",
+"King's Gambit Declined"
+],
+"random": [],
+"distractors": [
+"King's Gambit Accepted",
+"King's Gambit Declined"
+],
+"n_eligible": 2,
+"sha": "fc05decc83a442d7b18f598c4bc33a8d39a5672315b47007d02b0fefa23cb979",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0068__L036__p428:viennagame:kingsgambit": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0068__L036__p428:viennagame:kingsgambit",
+"anchor": "King's Gambit",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "f1b053c9bcfde06ab0ff63cf574ea6b6f2de83c45b768b99118514c0e5c10e51",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0068__L040__p191:nimzoindian:siciliannajdorf": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0068__L040__p191:nimzoindian:siciliannajdorf",
+"anchor": "Sicilian Najdorf",
+"nearest": [
+"King's Gambit Accepted",
+"King's Gambit Declined"
+],
+"random": [],
+"distractors": [
+"King's Gambit Accepted",
+"King's Gambit Declined"
+],
+"n_eligible": 2,
+"sha": "a8cded2f6812fc180a94b52f66b95d6e1cef4135fc753b45219bac7bb35cba46",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0068__L040__p428:viennagame:kingsgambit": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0068__L040__p428:viennagame:kingsgambit",
+"anchor": "King's Gambit",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "e8b394a72c5a92ffe23688b3c37d3c91238806d83fe55c3c90794318154ab844",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0068__L040__p482:queensgambitdeclined:kingsgambit": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0068__L040__p482:queensgambitdeclined:kingsgambit",
+"anchor": "Sicilian Najdorf",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "51aecf715c44c9d3fb2fc4077d1585cb14f41ed801cc4320e03f0ef9e6267c31",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0068__L044__p252:kingsindian:siciliannajdorf": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0068__L044__p252:kingsindian:siciliannajdorf",
+"anchor": "Sicilian Najdorf",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "980ef7995b296c618835704d6df35abf9289cb4942f8e86a549d80bd0dd17380",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0068__L044__p296:carokannqueensgambitaccepted:kingsgambitviennagame": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0068__L044__p296:carokannqueensgambitaccepted:kingsgambitviennagame",
+"anchor": "King's Gambit",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "685101873a39082de6c522af7b73da8c388d72e69dc6c999223d4606307000ad",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0068__L044__p296:englishopening:siciliannajdorf": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0068__L044__p296:englishopening:siciliannajdorf",
+"anchor": "King's Gambit",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "08f4ccb93beb2c683df357a69e8a2d762dea2e3da5da8032add3ecb0b5930540",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0068__L044__p354:danishgambit:kingsgambit": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0068__L044__p354:danishgambit:kingsgambit",
+"anchor": "King's Gambit",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "6e43368c16bf5593f6297ddaef3195b7358b6805ae2c1abe8ec12a43ac460f4d",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0068__L044__p354:queensgambit:siciliannajdorf": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0068__L044__p354:queensgambit:siciliannajdorf",
+"anchor": "Sicilian Najdorf",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "d2ff9140219ea827a8128503c5613b04899583bb1c5fbf6a9e9d2f847681fcd8",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0068__L044__p428:viennagame:kingsgambit": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0068__L044__p428:viennagame:kingsgambit",
+"anchor": "King's Gambit",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "06f127aaf973d579264011c8e0bc9167ebe88808882bf096651a74764024ddc6",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0068__L048__p354:fourknights:kingsgambit": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0068__L048__p354:fourknights:kingsgambit",
+"anchor": "King's Gambit",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "f7728c128b29e11dec49cd2cb71f12f473345a67d03a8cbea57c8466bf60f61a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0068__L052__p191:ruylopez:siciliannajdorf": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0068__L052__p191:ruylopez:siciliannajdorf",
+"anchor": "King's Gambit",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "03e4ee686ef7f469a1d1442d3fd3757c530d00018d9f4ff7bc3db56dbd052222",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0068__L052__p428:queensgambit:kingsgambit": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0068__L052__p428:queensgambit:kingsgambit",
+"anchor": "Sicilian Najdorf",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "34e9211ad47bcfdbc983c18b1babff6b3581d28913c48e01490a9c21db22a4dc",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0068__L052__p482:londonsystem:kingsgambit": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0068__L052__p482:londonsystem:kingsgambit",
+"anchor": "Sicilian Najdorf",
+"nearest": [
+"King's Gambit Accepted",
+"King's Gambit Declined"
+],
+"random": [],
+"distractors": [
+"King's Gambit Accepted",
+"King's Gambit Declined"
+],
+"n_eligible": 2,
+"sha": "5577f8eed2ffd4d6274b7acb12464e0cd0451353489f788a632ac77a32c46930",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0068__L056__p296:queensgambitdeclined:siciliannajdorf": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0068__L056__p296:queensgambitdeclined:siciliannajdorf",
+"anchor": "Sicilian Najdorf",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "868829c0f41da3357f38fecad4f1fefc5e5f8af3b21736c4235d9572c0cb6947",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0068__L060__p252:kingsindianattack:englishattack": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0068__L060__p252:kingsindianattack:englishattack",
+"anchor": "Sicilian Najdorf",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "a08bec4ec3ae76b9612cc719992010398d14600f65e723a97c9e9aaa5a5780af",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0068__L060__p252:queensgambit:siciliannajdorf": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0068__L060__p252:queensgambit:siciliannajdorf",
+"anchor": "Sicilian Najdorf",
+"nearest": [],
+"random": [],
+"distractors": [],
+"n_eligible": 0,
+"sha": "e5df49c0040d7ac32803c54378abe976814e569d489d433a7a19cf510fdf2f26",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0068__L020__p482:londonsystem:kingsgambit": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0068__L020__p482:londonsystem:kingsgambit",
 "anchor": "Sicilian Najdorf",

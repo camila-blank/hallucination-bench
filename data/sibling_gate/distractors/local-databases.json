@@ -1,4 +1,149 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0012__L020__p504:room:hive": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0012__L020__p504:room:hive",
+"anchor": "Hive",
+"nearest": [
+"IndexedDB",
+"DuckDB",
+"PouchDB",
+"HSQLDB"
+],
+"random": [
+"Apache Derby",
+"H2",
+"LMDB",
+"RocksDB"
+],
+"distractors": [
+"IndexedDB",
+"DuckDB",
+"PouchDB",
+"HSQLDB",
+"Apache Derby",
+"H2",
+"LMDB",
+"RocksDB"
+],
+"n_eligible": 9,
+"sha": "ede605aa6d59d51702cbcf7789bbecebcaad70a74cc4f5d9267c6384d41524ff",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0012__L024__p504:room:hive": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0012__L024__p504:room:hive",
+"anchor": "Hive",
+"nearest": [
+"IndexedDB",
+"DuckDB",
+"PouchDB",
+"HSQLDB"
+],
+"random": [
+"Apache Derby",
+"Berkeley DB",
+"LMDB",
+"RocksDB"
+],
+"distractors": [
+"IndexedDB",
+"DuckDB",
+"PouchDB",
+"HSQLDB",
+"Apache Derby",
+"Berkeley DB",
+"LMDB",
+"RocksDB"
+],
+"n_eligible": 9,
+"sha": "8ab5161783361954d29eeb30624a47cac19df19ce31661b177a301cc57f90bd5",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0012__L028__p650:room:hive": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0012__L028__p650:room:hive",
+"anchor": "Hive",
+"nearest": [
+"IndexedDB",
+"DuckDB",
+"PouchDB",
+"HSQLDB"
+],
+"random": [
+"Apache Derby",
+"Berkeley DB",
+"H2",
+"RocksDB"
+],
+"distractors": [
+"IndexedDB",
+"DuckDB",
+"PouchDB",
+"HSQLDB",
+"Apache Derby",
+"Berkeley DB",
+"H2",
+"RocksDB"
+],
+"n_eligible": 9,
+"sha": "61439951683bce8e9289474afaaf9a608809d2f127ae6eff493e838f473e6c92",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0012__L032__p504:realmsqlite:hive": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0012__L032__p504:realmsqlite:hive",
+"anchor": "Hive",
+"nearest": [
+"IndexedDB",
+"DuckDB",
+"PouchDB",
+"HSQLDB"
+],
+"random": [
+"Apache Derby",
+"Berkeley DB",
+"H2",
+"RocksDB"
+],
+"distractors": [
+"IndexedDB",
+"DuckDB",
+"PouchDB",
+"HSQLDB",
+"Apache Derby",
+"Berkeley DB",
+"H2",
+"RocksDB"
+],
+"n_eligible": 9,
+"sha": "83cd79b4a2c8087ed44f310cf30587939664ae3d37a078c3ec66dcac14f59018",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0012__L060__p504:room:hive": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0012__L060__p504:room:hive",
+"anchor": "Hive",
+"nearest": [
+"IndexedDB",
+"DuckDB",
+"PouchDB",
+"HSQLDB"
+],
+"random": [
+"Apache Derby",
+"Berkeley DB",
+"LMDB",
+"RocksDB"
+],
+"distractors": [
+"IndexedDB",
+"DuckDB",
+"PouchDB",
+"HSQLDB",
+"Apache Derby",
+"Berkeley DB",
+"LMDB",
+"RocksDB"
+],
+"n_eligible": 9,
+"sha": "7ad85489c57271e2c9e799b5e958dab729899fedb350c7e69d28769477cd8bfd",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0012__L020__p504:room:hive": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0012__L020__p504:room:hive",
 "anchor": "Hive",

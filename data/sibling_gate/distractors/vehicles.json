@@ -1,4 +1,1309 @@
 {
+"mlnla-ck2000-all11:chat-dailydialog-0060__L032__p67:car:skates": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0060__L032__p67:car:skates",
+"anchor": "skates",
+"nearest": [
+"bicycle",
+"boat",
+"truck",
+"van"
+],
+"random": [
+"airplane",
+"bus",
+"helicopter",
+"train"
+],
+"distractors": [
+"bicycle",
+"boat",
+"truck",
+"van",
+"airplane",
+"bus",
+"helicopter",
+"train"
+],
+"n_eligible": 9,
+"sha": "4f44c659f05a5e28592b2f3c2f20561193d4da2cda4c04fc5c807cd920618cc8",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0060__L048__p24:car:skates": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0060__L048__p24:car:skates",
+"anchor": "skates",
+"nearest": [
+"bicycle",
+"boat",
+"truck",
+"van"
+],
+"random": [
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"distractors": [
+"bicycle",
+"boat",
+"truck",
+"van",
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"n_eligible": 9,
+"sha": "329448584a3c4e85abb77ea66e0ba395a3675bb6a779d06c653f956d2921615e",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0072__L020__p43:car:bike": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0072__L020__p43:car:bike",
+"anchor": "bicycle",
+"nearest": [
+"skates",
+"motorcycle",
+"boat",
+"airplane"
+],
+"random": [
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"distractors": [
+"skates",
+"motorcycle",
+"boat",
+"airplane",
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"n_eligible": 8,
+"sha": "5200e69767f980b84c46585e06ca15054cacb0b5a718c92985181cb4d9413b4b",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0072__L020__p43:mycar:thebikeyoulentme": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0072__L020__p43:mycar:thebikeyoulentme",
+"anchor": "bike",
+"nearest": [
+"skates",
+"motorcycle",
+"boat",
+"airplane"
+],
+"random": [
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"distractors": [
+"skates",
+"motorcycle",
+"boat",
+"airplane",
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"n_eligible": 8,
+"sha": "0c431aedc8b45727b58b14c19cbdfc7bacff8c3aebdb323b8d4e5225d4fea891",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0072__L024__p59:car:bike": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0072__L024__p59:car:bike",
+"anchor": "bicycle",
+"nearest": [
+"skates",
+"motorcycle",
+"boat",
+"airplane"
+],
+"random": [
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"distractors": [
+"skates",
+"motorcycle",
+"boat",
+"airplane",
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"n_eligible": 8,
+"sha": "c26f14a19686eb2940bac68d02df703c1d3aba9f920ea7b77726d48d96c20b37",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0072__L028__p43:car:bike": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0072__L028__p43:car:bike",
+"anchor": "bicycle",
+"nearest": [
+"skates",
+"motorcycle",
+"boat",
+"airplane"
+],
+"random": [
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"distractors": [
+"skates",
+"motorcycle",
+"boat",
+"airplane",
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"n_eligible": 8,
+"sha": "f7cd01a9a31d02cfbb41658d20119e3f49b824e5ea6c364f35663825b3fbbeb3",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0072__L028__p84:car:bike": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0072__L028__p84:car:bike",
+"anchor": "bicycle",
+"nearest": [
+"skates",
+"motorcycle",
+"boat",
+"airplane"
+],
+"random": [
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"distractors": [
+"skates",
+"motorcycle",
+"boat",
+"airplane",
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"n_eligible": 8,
+"sha": "538045e0f6a1b95d5359fbed9b87ba3a9a38e85116247d2ddbce726e5c7e4972",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0072__L032__p43:car:bike": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0072__L032__p43:car:bike",
+"anchor": "bicycle",
+"nearest": [
+"skates",
+"motorcycle",
+"boat",
+"airplane"
+],
+"random": [
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"distractors": [
+"skates",
+"motorcycle",
+"boat",
+"airplane",
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"n_eligible": 8,
+"sha": "c81e2b9f1411380bfee174b475424711b6f56c486f6763af92aebdb4cd2086fd",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0072__L032__p49:car:bike": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0072__L032__p49:car:bike",
+"anchor": "bicycle",
+"nearest": [
+"skates",
+"motorcycle",
+"boat",
+"airplane"
+],
+"random": [
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"distractors": [
+"skates",
+"motorcycle",
+"boat",
+"airplane",
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"n_eligible": 8,
+"sha": "369a42b9f6adf733185db350946bd1b93fd3abe9a85ea75b0b593a18831e9a63",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0072__L032__p59::": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0072__L032__p59::",
+"anchor": "bicycle",
+"nearest": [
+"skates",
+"motorcycle",
+"boat",
+"airplane"
+],
+"random": [
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"distractors": [
+"skates",
+"motorcycle",
+"boat",
+"airplane",
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"n_eligible": 8,
+"sha": "90c09031ad70504fff3b80429b16ddc9f74f76d7a92dd17c884435ae77c7e6c9",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0072__L032__p59:car:bike": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0072__L032__p59:car:bike",
+"anchor": "bicycle",
+"nearest": [
+"skates",
+"motorcycle",
+"boat",
+"airplane"
+],
+"random": [
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"distractors": [
+"skates",
+"motorcycle",
+"boat",
+"airplane",
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"n_eligible": 8,
+"sha": "035987adaf5cc7bdae3aa04228721fa2f7910672b4a0032cfc5bea49c99b8994",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0072__L032__p82:car:bike": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0072__L032__p82:car:bike",
+"anchor": "bicycle",
+"nearest": [
+"skates",
+"motorcycle",
+"boat",
+"airplane"
+],
+"random": [
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"distractors": [
+"skates",
+"motorcycle",
+"boat",
+"airplane",
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"n_eligible": 8,
+"sha": "e222dbf3ceb3f1259ce77dd1640e680a311be8493c008f451ffbad22cd209d81",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0072__L032__p82:scooter:bike": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0072__L032__p82:scooter:bike",
+"anchor": "bicycle",
+"nearest": [
+"skates",
+"motorcycle",
+"boat",
+"airplane"
+],
+"random": [
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"distractors": [
+"skates",
+"motorcycle",
+"boat",
+"airplane",
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"n_eligible": 8,
+"sha": "af2deec30a15594268e8287e3e8f386a7e04ed27473db80dfaf57e97585fff68",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0072__L036__p27:scooter:bike": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0072__L036__p27:scooter:bike",
+"anchor": "bicycle",
+"nearest": [
+"skates",
+"motorcycle",
+"boat",
+"airplane"
+],
+"random": [
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"distractors": [
+"skates",
+"motorcycle",
+"boat",
+"airplane",
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"n_eligible": 8,
+"sha": "3f7fd1e7a61dfb6239ed3def6e0b1077802fd910518f95bcc5ba071ae0d8b7ac",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0072__L036__p34:car:bike": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0072__L036__p34:car:bike",
+"anchor": "bicycle",
+"nearest": [
+"skates",
+"motorcycle",
+"boat",
+"airplane"
+],
+"random": [
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"distractors": [
+"skates",
+"motorcycle",
+"boat",
+"airplane",
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"n_eligible": 8,
+"sha": "40648a4707370041f15180cc35bb5568ab9c3d22510f78feee790a5313feda13",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0072__L036__p49:car:bike": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0072__L036__p49:car:bike",
+"anchor": "bicycle",
+"nearest": [
+"skates",
+"motorcycle",
+"boat",
+"airplane"
+],
+"random": [
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"distractors": [
+"skates",
+"motorcycle",
+"boat",
+"airplane",
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"n_eligible": 8,
+"sha": "326a455e6c11efa05ed16556a41595013582c5e21c5c177321a896ac37a2f5a7",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0072__L036__p59:car:bike": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0072__L036__p59:car:bike",
+"anchor": "bicycle",
+"nearest": [
+"skates",
+"motorcycle",
+"boat",
+"airplane"
+],
+"random": [
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"distractors": [
+"skates",
+"motorcycle",
+"boat",
+"airplane",
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"n_eligible": 8,
+"sha": "4193558b12ab7c05b0bb4c9158f47d1624b8b496a250ad6d4dfd25adce138159",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0072__L040__p27:scooter:bike": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0072__L040__p27:scooter:bike",
+"anchor": "bicycle",
+"nearest": [
+"skates",
+"motorcycle",
+"boat",
+"airplane"
+],
+"random": [
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"distractors": [
+"skates",
+"motorcycle",
+"boat",
+"airplane",
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"n_eligible": 8,
+"sha": "48a441186ff8524f0e93f3e13af29687c8f86276154f2edde8e2b52130c66ade",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0072__L040__p34:car:bike": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0072__L040__p34:car:bike",
+"anchor": "bicycle",
+"nearest": [
+"skates",
+"motorcycle",
+"boat",
+"airplane"
+],
+"random": [
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"distractors": [
+"skates",
+"motorcycle",
+"boat",
+"airplane",
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"n_eligible": 8,
+"sha": "0a11cb3334fc440213096fdc81d581b0a143e65d80e8ec549f6c7c38b4c7126d",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0072__L040__p49:car:bike": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0072__L040__p49:car:bike",
+"anchor": "bicycle",
+"nearest": [
+"skates",
+"motorcycle",
+"boat",
+"airplane"
+],
+"random": [
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"distractors": [
+"skates",
+"motorcycle",
+"boat",
+"airplane",
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"n_eligible": 8,
+"sha": "75a6d959e398fe45fa4cbba6999bf7d8e81ca05de7dfe9c439d1a4e187e5810c",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0072__L040__p49:friendscar:bike": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0072__L040__p49:friendscar:bike",
+"anchor": "bicycle",
+"nearest": [
+"skates",
+"motorcycle",
+"boat",
+"airplane"
+],
+"random": [
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"distractors": [
+"skates",
+"motorcycle",
+"boat",
+"airplane",
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"n_eligible": 8,
+"sha": "973fad0a33a220c79c03b30f19c3eae77ddd06304484d442d6b5624a63ec178b",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0072__L040__p59:car:bike": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0072__L040__p59:car:bike",
+"anchor": "bicycle",
+"nearest": [
+"skates",
+"motorcycle",
+"boat",
+"airplane"
+],
+"random": [
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"distractors": [
+"skates",
+"motorcycle",
+"boat",
+"airplane",
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"n_eligible": 8,
+"sha": "9aea0515a560db6d33c2a4094755d5a4d0e190f5e20a6f522efdc94cbd66f7de",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0072__L044__p59:car:bike": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0072__L044__p59:car:bike",
+"anchor": "bicycle",
+"nearest": [
+"skates",
+"motorcycle",
+"boat",
+"airplane"
+],
+"random": [
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"distractors": [
+"skates",
+"motorcycle",
+"boat",
+"airplane",
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"n_eligible": 8,
+"sha": "c3db54931b595937249d93959458bc644c5d092f22b6a3f71db2c28858597409",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0072__L044__p82:scooter:bike": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0072__L044__p82:scooter:bike",
+"anchor": "bicycle",
+"nearest": [
+"skates",
+"motorcycle",
+"boat",
+"airplane"
+],
+"random": [
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"distractors": [
+"skates",
+"motorcycle",
+"boat",
+"airplane",
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"n_eligible": 8,
+"sha": "22017607ed8963439397a14153f38165371162abe1b65f142759bc9a669cb845",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0072__L048__p27:car:bike": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0072__L048__p27:car:bike",
+"anchor": "bicycle",
+"nearest": [
+"skates",
+"motorcycle",
+"boat",
+"airplane"
+],
+"random": [
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"distractors": [
+"skates",
+"motorcycle",
+"boat",
+"airplane",
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"n_eligible": 8,
+"sha": "dd96f0c12b9199e36765e9b7e53bc534551cbf9e5fad7b7c9fd37cba0e721cd0",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0072__L048__p34:car:bike": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0072__L048__p34:car:bike",
+"anchor": "bicycle",
+"nearest": [
+"skates",
+"motorcycle",
+"boat",
+"airplane"
+],
+"random": [
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"distractors": [
+"skates",
+"motorcycle",
+"boat",
+"airplane",
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"n_eligible": 8,
+"sha": "7163daaea877c1a4ff768ad6cbd8df5d36897621f94760a0e86986bad0044d70",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0072__L048__p49:car:bike": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0072__L048__p49:car:bike",
+"anchor": "bicycle",
+"nearest": [
+"skates",
+"motorcycle",
+"boat",
+"airplane"
+],
+"random": [
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"distractors": [
+"skates",
+"motorcycle",
+"boat",
+"airplane",
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"n_eligible": 8,
+"sha": "02645e09fdf6c92c018471c298cba39e3240d2a16420000a52ea35317e001f64",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0072__L048__p49:mycar:thebikeyoulentme": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0072__L048__p49:mycar:thebikeyoulentme",
+"anchor": "bike",
+"nearest": [
+"skates",
+"motorcycle",
+"boat",
+"airplane"
+],
+"random": [
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"distractors": [
+"skates",
+"motorcycle",
+"boat",
+"airplane",
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"n_eligible": 8,
+"sha": "d885f0ec6c58bc85074e95730130a450bbf345ff2fb1a5d46393748575722c96",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0072__L048__p59:car:bike": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0072__L048__p59:car:bike",
+"anchor": "bicycle",
+"nearest": [
+"skates",
+"motorcycle",
+"boat",
+"airplane"
+],
+"random": [
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"distractors": [
+"skates",
+"motorcycle",
+"boat",
+"airplane",
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"n_eligible": 8,
+"sha": "f1e288a70042564f7e8a84e18e1104205ec975b05aecae910ed0bfaff443c7e3",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0072__L048__p82:scooter:bike": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0072__L048__p82:scooter:bike",
+"anchor": "bicycle",
+"nearest": [
+"skates",
+"motorcycle",
+"boat",
+"airplane"
+],
+"random": [
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"distractors": [
+"skates",
+"motorcycle",
+"boat",
+"airplane",
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"n_eligible": 8,
+"sha": "59910826c4106bb88465c690972d921652f45e1985bc71d7944c81118355b276",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0072__L048__p84:scooter:bike": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0072__L048__p84:scooter:bike",
+"anchor": "bicycle",
+"nearest": [
+"skates",
+"motorcycle",
+"boat",
+"airplane"
+],
+"random": [
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"distractors": [
+"skates",
+"motorcycle",
+"boat",
+"airplane",
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"n_eligible": 8,
+"sha": "75a2c613056a69f91b8240aa9aa5b80ab2525372ca5868b8909de42987c6ca5f",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0072__L052__p49::": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0072__L052__p49::",
+"anchor": "bicycle",
+"nearest": [
+"skates",
+"motorcycle",
+"boat",
+"airplane"
+],
+"random": [
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"distractors": [
+"skates",
+"motorcycle",
+"boat",
+"airplane",
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"n_eligible": 8,
+"sha": "16ed1976194b212048eddd39c4cdddd825962608f5e4875a6218288bf834f27a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0072__L052__p49:car:bike": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0072__L052__p49:car:bike",
+"anchor": "bicycle",
+"nearest": [
+"skates",
+"motorcycle",
+"boat",
+"airplane"
+],
+"random": [
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"distractors": [
+"skates",
+"motorcycle",
+"boat",
+"airplane",
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"n_eligible": 8,
+"sha": "078bb4b444b3b47d7a4fea3de34ac8c08e6ff469eab3567fe98ea3c0b1e002ce",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0072__L052__p59::": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0072__L052__p59::",
+"anchor": "bicycle",
+"nearest": [
+"skates",
+"motorcycle",
+"boat",
+"airplane"
+],
+"random": [
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"distractors": [
+"skates",
+"motorcycle",
+"boat",
+"airplane",
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"n_eligible": 8,
+"sha": "ebfa6bf9fbbbfaf26b5964931814fa63984b15982c75ed12ee77b7789ab360cd",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0072__L052__p59:car:bike": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0072__L052__p59:car:bike",
+"anchor": "bicycle",
+"nearest": [
+"skates",
+"motorcycle",
+"boat",
+"airplane"
+],
+"random": [
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"distractors": [
+"skates",
+"motorcycle",
+"boat",
+"airplane",
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"n_eligible": 8,
+"sha": "3b6877574da6430eb8ea7cdc19c9106d165e937e640407b31207bf897e3ffe9d",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0072__L052__p82:scooter:bike": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0072__L052__p82:scooter:bike",
+"anchor": "bicycle",
+"nearest": [
+"skates",
+"motorcycle",
+"boat",
+"airplane"
+],
+"random": [
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"distractors": [
+"skates",
+"motorcycle",
+"boat",
+"airplane",
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"n_eligible": 8,
+"sha": "1de7243b4473ac88a6a2d300a35e88cca2eccc6b479464375d69893ef0e5ce7b",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0072__L052__p84:scooter:bike": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0072__L052__p84:scooter:bike",
+"anchor": "bicycle",
+"nearest": [
+"skates",
+"motorcycle",
+"boat",
+"airplane"
+],
+"random": [
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"distractors": [
+"skates",
+"motorcycle",
+"boat",
+"airplane",
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"n_eligible": 8,
+"sha": "50504b01cba33ea1c6e65a19532604265ef93eef77e55518b74d3a5f3a8a5d9e",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0072__L052__p96:car:bike": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0072__L052__p96:car:bike",
+"anchor": "bicycle",
+"nearest": [
+"skates",
+"motorcycle",
+"boat",
+"airplane"
+],
+"random": [
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"distractors": [
+"skates",
+"motorcycle",
+"boat",
+"airplane",
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"n_eligible": 8,
+"sha": "36a1454d36b9080d828556ec89bdc196b9f48f84372ce3c11cf61656c016e45d",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0072__L056__p49:car:bike": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0072__L056__p49:car:bike",
+"anchor": "bicycle",
+"nearest": [
+"skates",
+"motorcycle",
+"boat",
+"airplane"
+],
+"random": [
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"distractors": [
+"skates",
+"motorcycle",
+"boat",
+"airplane",
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"n_eligible": 8,
+"sha": "062d8bd4fcd19cf246047d6c1a6abff16d06ba7ca4e66d16a408a2e2922f734e",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0072__L056__p59:car:bike": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0072__L056__p59:car:bike",
+"anchor": "bicycle",
+"nearest": [
+"skates",
+"motorcycle",
+"boat",
+"airplane"
+],
+"random": [
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"distractors": [
+"skates",
+"motorcycle",
+"boat",
+"airplane",
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"n_eligible": 8,
+"sha": "e853a8b9b60e2e24415363dd943eb3b62120db0bb04408a411f06ac7382b34ab",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0072__L056__p84:car:bike": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0072__L056__p84:car:bike",
+"anchor": "bicycle",
+"nearest": [
+"skates",
+"motorcycle",
+"boat",
+"airplane"
+],
+"random": [
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"distractors": [
+"skates",
+"motorcycle",
+"boat",
+"airplane",
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"n_eligible": 8,
+"sha": "ac666de2018ada39887ad5ebca879446b47a182bbc10abceb73c0b45cbd6d143",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0072__L056__p96:car:bike": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0072__L056__p96:car:bike",
+"anchor": "bicycle",
+"nearest": [
+"skates",
+"motorcycle",
+"boat",
+"airplane"
+],
+"random": [
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"distractors": [
+"skates",
+"motorcycle",
+"boat",
+"airplane",
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"n_eligible": 8,
+"sha": "9bc705c3ddd255820af9c890bd15be221efbd2d2383d21599b65a3f9b7dd5a34",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0072__L060__p27:car:bike": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0072__L060__p27:car:bike",
+"anchor": "bicycle",
+"nearest": [
+"skates",
+"motorcycle",
+"boat",
+"airplane"
+],
+"random": [
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"distractors": [
+"skates",
+"motorcycle",
+"boat",
+"airplane",
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"n_eligible": 8,
+"sha": "c320ea0153a713b57a942c9b063422cabcb7c7c001f02a7ffd86e2393b8562a3",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0072__L060__p34:car:bike": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0072__L060__p34:car:bike",
+"anchor": "bicycle",
+"nearest": [
+"skates",
+"motorcycle",
+"boat",
+"airplane"
+],
+"random": [
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"distractors": [
+"skates",
+"motorcycle",
+"boat",
+"airplane",
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"n_eligible": 8,
+"sha": "0ad5fbfc10a1f2c93a9da0de833e190edf3a78103e4a13274cdf8db03ad07405",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0072__L060__p84:car:bike": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0072__L060__p84:car:bike",
+"anchor": "bicycle",
+"nearest": [
+"skates",
+"motorcycle",
+"boat",
+"airplane"
+],
+"random": [
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"distractors": [
+"skates",
+"motorcycle",
+"boat",
+"airplane",
+"bus",
+"helicopter",
+"ship",
+"train"
+],
+"n_eligible": 8,
+"sha": "bf6db21f3e02f8ad366137e43fe4665c092c5aaad48d0da8ca081f562a8434de",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-dailydialog-0060__L048__p24:car:skates": {
 "unit": "mlnla-rl2-800-all11:chat-dailydialog-0060__L048__p24:car:skates",
 "anchor": "skates",

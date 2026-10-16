@@ -1,4 +1,33 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0074__L040__p200:finitestatemachine:relationaldatabasequeryplanner": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0074__L040__p200:finitestatemachine:relationaldatabasequeryplanner",
+"anchor": "query planner",
+"nearest": [
+"computational complexity",
+"infinite recursion",
+"polymorphism",
+"encapsulation"
+],
+"random": [
+"abstraction",
+"algorithm",
+"recursion",
+"time travel"
+],
+"distractors": [
+"computational complexity",
+"infinite recursion",
+"polymorphism",
+"encapsulation",
+"abstraction",
+"algorithm",
+"recursion",
+"time travel"
+],
+"n_eligible": 16,
+"sha": "ad3e78e4a56e180b4406931c88cde626838ff5f656016de56600599f88f35c5e",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0024__L060__p451:hashing:singularity": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0024__L060__p451:hashing:singularity",
 "anchor": "technological singularity",

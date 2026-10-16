@@ -1,4 +1,91 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0019__L032__p286:clockwatch:passport": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0019__L032__p286:clockwatch:passport",
+"anchor": "Passport",
+"nearest": [
+"television",
+"refrigerator",
+"bed",
+"plate"
+],
+"random": [
+"chair",
+"cup",
+"spoon",
+"table"
+],
+"distractors": [
+"television",
+"refrigerator",
+"bed",
+"plate",
+"chair",
+"cup",
+"spoon",
+"table"
+],
+"n_eligible": 11,
+"sha": "ea7a7a7611787ac8412549f1cdb99b33c948f1de5d6991f158da0ef6a50e24ff",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0019__L032__p286:knife:passport": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0019__L032__p286:knife:passport",
+"anchor": "Passport",
+"nearest": [
+"television",
+"refrigerator",
+"bed",
+"plate"
+],
+"random": [
+"cup",
+"fork",
+"lamp",
+"spoon"
+],
+"distractors": [
+"television",
+"refrigerator",
+"bed",
+"plate",
+"cup",
+"fork",
+"lamp",
+"spoon"
+],
+"n_eligible": 11,
+"sha": "2271e1428e83500a48c0dd42e4c285add6a100c1fa748370819ce0c98289b342",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0019__L032__p286:tableknife:traveldocument": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0019__L032__p286:tableknife:traveldocument",
+"anchor": "passport",
+"nearest": [
+"television",
+"refrigerator",
+"bed",
+"plate"
+],
+"random": [
+"chair",
+"fork",
+"lamp",
+"spoon"
+],
+"distractors": [
+"television",
+"refrigerator",
+"bed",
+"plate",
+"chair",
+"fork",
+"lamp",
+"spoon"
+],
+"n_eligible": 10,
+"sha": "ad414ac7fb34fbfa155804ad892e6a8344ac730372f317f741c746a1793a2dd5",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0019__L032__p286:watch:passport": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0019__L032__p286:watch:passport",
 "anchor": "Passport",

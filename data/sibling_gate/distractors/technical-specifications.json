@@ -1,4 +1,27 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0003__L024__p58:typescriptlanguagespecification:webidl": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0003__L024__p58:typescriptlanguagespecification:webidl",
+"anchor": "WebIDL",
+"nearest": [
+"Unicode Standard",
+"3GPP TS 36.322",
+"HTML Living Standard",
+"TCP (RFC 793)"
+],
+"random": [
+"IPv6 (RFC 8200)"
+],
+"distractors": [
+"Unicode Standard",
+"3GPP TS 36.322",
+"HTML Living Standard",
+"TCP (RFC 793)",
+"IPv6 (RFC 8200)"
+],
+"n_eligible": 5,
+"sha": "8bb30b35315771bc0d770b0e6bd20564a042ab4364cd8e631e475c88bcd1bca9",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0014__L056__p97:usbpciespecs:3gppltespecs": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0014__L056__p97:usbpciespecs:3gppltespecs",
 "anchor": "3GPP TS 36.322",

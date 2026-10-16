@@ -1,4 +1,207 @@
 {
+"mlnla-ck2000-all11:chat-dailydialog-0036__L032__p57:café:restaurant": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0036__L032__p57:café:restaurant",
+"anchor": "restaurant",
+"nearest": [
+"buffet",
+"food truck",
+"cafeteria",
+"steakhouse"
+],
+"random": [
+"bistro",
+"deli",
+"diner",
+"tavern"
+],
+"distractors": [
+"buffet",
+"food truck",
+"cafeteria",
+"steakhouse",
+"bistro",
+"deli",
+"diner",
+"tavern"
+],
+"n_eligible": 10,
+"sha": "d6e443168b578108adc504faf04bf739502ffd346fc6830cd4943f80ec305cd8",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0059__L024__p27:restaurant:coffeeshop": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0059__L024__p27:restaurant:coffeeshop",
+"anchor": "coffee shop",
+"nearest": [
+"pizzeria",
+"pub",
+"food truck",
+"cafeteria"
+],
+"random": [
+"bistro",
+"deli",
+"diner",
+"tavern"
+],
+"distractors": [
+"pizzeria",
+"pub",
+"food truck",
+"cafeteria",
+"bistro",
+"deli",
+"diner",
+"tavern"
+],
+"n_eligible": 11,
+"sha": "4ced37cb4125e7c1fcd95d9a737e6af24fb6ae66ac372ccc95d97f8f543566b6",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0059__L032__p27:restaurant:coffeeshop": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0059__L032__p27:restaurant:coffeeshop",
+"anchor": "coffee shop",
+"nearest": [
+"pizzeria",
+"pub",
+"food truck",
+"cafeteria"
+],
+"random": [
+"bistro",
+"brasserie",
+"steakhouse",
+"tavern"
+],
+"distractors": [
+"pizzeria",
+"pub",
+"food truck",
+"cafeteria",
+"bistro",
+"brasserie",
+"steakhouse",
+"tavern"
+],
+"n_eligible": 11,
+"sha": "e5a60daa3ba9992f7b76f8219e087d8ab338f97a16e06eb39d9d89c566d119ae",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0059__L036__p27:restaurant:coffeeshop": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0059__L036__p27:restaurant:coffeeshop",
+"anchor": "coffee shop",
+"nearest": [
+"pizzeria",
+"pub",
+"food truck",
+"cafeteria"
+],
+"random": [
+"bistro",
+"brasserie",
+"deli",
+"steakhouse"
+],
+"distractors": [
+"pizzeria",
+"pub",
+"food truck",
+"cafeteria",
+"bistro",
+"brasserie",
+"deli",
+"steakhouse"
+],
+"n_eligible": 11,
+"sha": "9d6e5df40517e948bf034d8b38535d589c2a1570887670113e55a15aa50a2c9e",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0059__L040__p27:restaurant:coffeeshop": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0059__L040__p27:restaurant:coffeeshop",
+"anchor": "coffee shop",
+"nearest": [
+"pizzeria",
+"pub",
+"food truck",
+"cafeteria"
+],
+"random": [
+"brasserie",
+"buffet",
+"deli",
+"steakhouse"
+],
+"distractors": [
+"pizzeria",
+"pub",
+"food truck",
+"cafeteria",
+"brasserie",
+"buffet",
+"deli",
+"steakhouse"
+],
+"n_eligible": 11,
+"sha": "8ea4aaf3517f8512dd80568a810b95342deb93f57d2b2282b612a9dbba9ff2b7",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0059__L044__p35:restaurant:coffeeshop": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0059__L044__p35:restaurant:coffeeshop",
+"anchor": "coffee shop",
+"nearest": [
+"pizzeria",
+"pub",
+"food truck",
+"cafeteria"
+],
+"random": [
+"bistro",
+"buffet",
+"steakhouse",
+"tavern"
+],
+"distractors": [
+"pizzeria",
+"pub",
+"food truck",
+"cafeteria",
+"bistro",
+"buffet",
+"steakhouse",
+"tavern"
+],
+"n_eligible": 11,
+"sha": "f09f5a99bd5806f18e389025c9ea74173ce53057bdd40c92a0e8ee6a0e1a502a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0059__L044__p35:restaurants:coffeeshop": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0059__L044__p35:restaurants:coffeeshop",
+"anchor": "coffee shop",
+"nearest": [
+"pizzeria",
+"pub",
+"food truck",
+"cafeteria"
+],
+"random": [
+"brasserie",
+"deli",
+"steakhouse",
+"tavern"
+],
+"distractors": [
+"pizzeria",
+"pub",
+"food truck",
+"cafeteria",
+"brasserie",
+"deli",
+"steakhouse",
+"tavern"
+],
+"n_eligible": 11,
+"sha": "4a87392fdc33df2f5960299f4daa4c6cdd34970f5715c271d23ad1916c00519e",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-dailydialog-0059__L040__p27:restaurant:coffeeshop": {
 "unit": "mlnla-rl2-800-all11:chat-dailydialog-0059__L040__p27:restaurant:coffeeshop",
 "anchor": "coffee shop",

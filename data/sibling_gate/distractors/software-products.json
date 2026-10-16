@@ -1,4 +1,62 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0054__L028__p17:kafka:businessobjects": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L028__p17:kafka:businessobjects",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"Microsoft PowerPoint",
+"Microsoft Outlook",
+"Microsoft Excel",
+"Microsoft Word"
+],
+"random": [
+"Adobe Photoshop",
+"Mozilla Firefox",
+"Zoom",
+"macOS"
+],
+"distractors": [
+"Microsoft PowerPoint",
+"Microsoft Outlook",
+"Microsoft Excel",
+"Microsoft Word",
+"Adobe Photoshop",
+"Mozilla Firefox",
+"Zoom",
+"macOS"
+],
+"n_eligible": 10,
+"sha": "794b0fe91db1e0943193f0058f9d29760484c8f43b316cec1f7b71218008776b",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0054__L032__p155:oimproductsaccesscontrolfederationserver:businessobjectscomponents": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0054__L032__p155:oimproductsaccesscontrolfederationserver:businessobjectscomponents",
+"anchor": "SAP BusinessObjects",
+"nearest": [
+"Microsoft PowerPoint",
+"Microsoft Outlook",
+"Microsoft Excel",
+"Microsoft Word"
+],
+"random": [
+"Google Chrome",
+"Microsoft Windows",
+"Mozilla Firefox",
+"Zoom"
+],
+"distractors": [
+"Microsoft PowerPoint",
+"Microsoft Outlook",
+"Microsoft Excel",
+"Microsoft Word",
+"Google Chrome",
+"Microsoft Windows",
+"Mozilla Firefox",
+"Zoom"
+],
+"n_eligible": 10,
+"sha": "17d0de645465f9a6fb0e640f68972e589381acfe9f2fa6888c4328aced4f30a0",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0054__L028__p17:apachehadoop:businessobjects": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0054__L028__p17:apachehadoop:businessobjects",
 "anchor": "SAP BusinessObjects",

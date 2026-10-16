@@ -1,0 +1,205 @@
+{
+"mlnla-ck2000-all11:chat-lmsys-0063__L048__p321:cloudflare:pcasvpn": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0063__L048__p321:cloudflare:pcasvpn",
+"anchor": "Cloudflare",
+"nearest": [
+"Hotspot Shield",
+"ProtonVPN",
+"Windscribe",
+"Surfshark"
+],
+"random": [
+"CyberGhost",
+"ExpressVPN",
+"NordVPN",
+"TunnelBear"
+],
+"distractors": [
+"Hotspot Shield",
+"ProtonVPN",
+"Windscribe",
+"Surfshark",
+"CyberGhost",
+"ExpressVPN",
+"NordVPN",
+"TunnelBear"
+],
+"n_eligible": 12,
+"sha": "d65d00b1d995e6fff78c40095678d1b8f641d2d8f0e0de85e980caecc33a36ca",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0063__L048__p321:cloudflarewarpzerotrust:pcasvpnclientrouting": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0063__L048__p321:cloudflarewarpzerotrust:pcasvpnclientrouting",
+"anchor": "Cloudflare WARP",
+"nearest": [
+"Hotspot Shield",
+"ExpressVPN",
+"ProtonVPN",
+"Atlas VPN"
+],
+"random": [
+"IPVanish",
+"NordVPN",
+"Surfshark",
+"TunnelBear"
+],
+"distractors": [
+"Hotspot Shield",
+"ExpressVPN",
+"ProtonVPN",
+"Atlas VPN",
+"IPVanish",
+"NordVPN",
+"Surfshark",
+"TunnelBear"
+],
+"n_eligible": 12,
+"sha": "938b50223934c1892fdbedbab879f3b0edaec93a9e07a515f0ed25c3d0edf8be",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0063__L048__p321:cloudflarezerotrustwarp:pcasvpnclientrouting": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0063__L048__p321:cloudflarezerotrustwarp:pcasvpnclientrouting",
+"anchor": "Cloudflare WARP",
+"nearest": [
+"Hotspot Shield",
+"ExpressVPN",
+"ProtonVPN",
+"Atlas VPN"
+],
+"random": [
+"IPVanish",
+"NordVPN",
+"Surfshark",
+"TunnelBear"
+],
+"distractors": [
+"Hotspot Shield",
+"ExpressVPN",
+"ProtonVPN",
+"Atlas VPN",
+"IPVanish",
+"NordVPN",
+"Surfshark",
+"TunnelBear"
+],
+"n_eligible": 12,
+"sha": "f87b43bb6c114a35a118665cd7f71e0f88a1251fc22379deb2722e5a537711a2",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0063__L036__p520:cloudflarezerotrustwarp:vpnonroutingpc": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0063__L036__p520:cloudflarezerotrustwarp:vpnonroutingpc",
+"anchor": "Cloudflare WARP",
+"nearest": [
+"Hotspot Shield",
+"ExpressVPN",
+"ProtonVPN",
+"Atlas VPN"
+],
+"random": [
+"IPVanish",
+"NordVPN",
+"PureVPN",
+"TunnelBear"
+],
+"distractors": [
+"Hotspot Shield",
+"ExpressVPN",
+"ProtonVPN",
+"Atlas VPN",
+"IPVanish",
+"NordVPN",
+"PureVPN",
+"TunnelBear"
+],
+"n_eligible": 12,
+"sha": "7cc154eb32cfbad8599a8f993875bc365285ed2b66f14cd9f63e42eb188b8f47",
+"generation": 1
+},
+"mlnla-rl2-800-all11:chat-lmsys-0063__L036__p520:tailscale:vpnonroutingpc": {
+"unit": "mlnla-rl2-800-all11:chat-lmsys-0063__L036__p520:tailscale:vpnonroutingpc",
+"anchor": "Tailscale",
+"nearest": [
+"ExpressVPN",
+"Windscribe",
+"Mullvad",
+"ProtonVPN"
+],
+"random": [
+"Atlas VPN",
+"CyberGhost",
+"IPVanish",
+"TunnelBear"
+],
+"distractors": [
+"ExpressVPN",
+"Windscribe",
+"Mullvad",
+"ProtonVPN",
+"Atlas VPN",
+"CyberGhost",
+"IPVanish",
+"TunnelBear"
+],
+"n_eligible": 12,
+"sha": "c9f885cb48a72ab9f4deda88e2772e2aa202f5987c0f32460d5ab0ef72cf3d86",
+"generation": 1
+},
+"s3d-rl600:chat-lmsys-0063__L048__p249:cloudflare:vpnprovider": {
+"unit": "s3d-rl600:chat-lmsys-0063__L048__p249:cloudflare:vpnprovider",
+"anchor": "Cloudflare",
+"nearest": [
+"Hotspot Shield",
+"ProtonVPN",
+"Windscribe",
+"Surfshark"
+],
+"random": [
+"ExpressVPN",
+"Mullvad",
+"PureVPN",
+"TunnelBear"
+],
+"distractors": [
+"Hotspot Shield",
+"ProtonVPN",
+"Windscribe",
+"Surfshark",
+"ExpressVPN",
+"Mullvad",
+"PureVPN",
+"TunnelBear"
+],
+"n_eligible": 12,
+"sha": "18afcdd7d7c05106b2f1dbe74f147abd60dea942ff49ee4706b262a8a4753bbf",
+"generation": 1
+},
+"s3d-rl600:chat-lmsys-0063__L060__p457:tailscale:vpn": {
+"unit": "s3d-rl600:chat-lmsys-0063__L060__p457:tailscale:vpn",
+"anchor": "Tailscale",
+"nearest": [
+"ExpressVPN",
+"Windscribe",
+"Mullvad",
+"ProtonVPN"
+],
+"random": [
+"Atlas VPN",
+"IPVanish",
+"Surfshark",
+"TunnelBear"
+],
+"distractors": [
+"ExpressVPN",
+"Windscribe",
+"Mullvad",
+"ProtonVPN",
+"Atlas VPN",
+"IPVanish",
+"Surfshark",
+"TunnelBear"
+],
+"n_eligible": 12,
+"sha": "c7c75a33f660baa28f754304e4a32453cea1f25c1075b45be569d0658504971c",
+"generation": 1
+}
+}

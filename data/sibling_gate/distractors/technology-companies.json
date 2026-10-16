@@ -28,6 +28,151 @@
 "sha": "f84dae4cb16b3f746bc5b03085bafe816e3323751a6ed3924082cc7410d4e554",
 "generation": 0
 },
+"mlnla-ck2000-all11:chat-dailydialog-0019__L056__p24:google:alibabagroup": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0019__L056__p24:google:alibabagroup",
+"anchor": "Alibaba",
+"nearest": [
+"ByteDance",
+"Meta",
+"Microsoft",
+"Sun Microsystems"
+],
+"random": [
+"Apple",
+"SAP",
+"Samsung Electronics",
+"Siemens-Microsoft"
+],
+"distractors": [
+"ByteDance",
+"Meta",
+"Microsoft",
+"Sun Microsystems",
+"Apple",
+"SAP",
+"Samsung Electronics",
+"Siemens-Microsoft"
+],
+"n_eligible": 11,
+"sha": "b5eea4243464efa15e16b1c7c70a7781b8945a79a36a7bd3d22be7652aa79c55",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0046__L032__p102:google:alibabagroup": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0046__L032__p102:google:alibabagroup",
+"anchor": "Alibaba",
+"nearest": [
+"ByteDance",
+"Meta",
+"Sun Microsystems",
+"Tata Consultancy Services"
+],
+"random": [
+"LeapFrog",
+"Samsung",
+"Samsung Electronics",
+"Siemens-Microsoft"
+],
+"distractors": [
+"ByteDance",
+"Meta",
+"Sun Microsystems",
+"Tata Consultancy Services",
+"LeapFrog",
+"Samsung",
+"Samsung Electronics",
+"Siemens-Microsoft"
+],
+"n_eligible": 10,
+"sha": "f7c684fa8885d11930d17962a85bea4c72c2b81d49878dd70fd28c605185d6f7",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0046__L036__p102:google:alibabagroup": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0046__L036__p102:google:alibabagroup",
+"anchor": "Alibaba",
+"nearest": [
+"ByteDance",
+"Meta",
+"Sun Microsystems",
+"Tata Consultancy Services"
+],
+"random": [
+"LeapFrog",
+"SAP",
+"Samsung",
+"Siemens Digital Industries Software"
+],
+"distractors": [
+"ByteDance",
+"Meta",
+"Sun Microsystems",
+"Tata Consultancy Services",
+"LeapFrog",
+"SAP",
+"Samsung",
+"Siemens Digital Industries Software"
+],
+"n_eligible": 10,
+"sha": "a69042047aed774e68024f20ef48642ee5d7a12ab52a9013e89bf5b05ed51576",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0055__L048__p160:siemensdigitalindustrysoftware:tcs": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0055__L048__p160:siemensdigitalindustrysoftware:tcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [
+"Apple",
+"Sun Microsystems",
+"Google",
+"Alibaba Cloud"
+],
+"random": [
+"ByteDance",
+"LeapFrog",
+"Meta",
+"Samsung Electronics"
+],
+"distractors": [
+"Apple",
+"Sun Microsystems",
+"Google",
+"Alibaba Cloud",
+"ByteDance",
+"LeapFrog",
+"Meta",
+"Samsung Electronics"
+],
+"n_eligible": 10,
+"sha": "4c6d97e1422d0f3938e3a6561b0c3a614309279f05615fb3c95b99ab1de16c7f",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0055__L052__p104:microsoft:tataconsultancyservicestcs": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0055__L052__p104:microsoft:tataconsultancyservicestcs",
+"anchor": "Tata Consultancy Services",
+"nearest": [
+"Apple",
+"Sun Microsystems",
+"Google",
+"Alibaba Cloud"
+],
+"random": [
+"Alibaba",
+"Alibaba Group",
+"ByteDance",
+"LeapFrog"
+],
+"distractors": [
+"Apple",
+"Sun Microsystems",
+"Google",
+"Alibaba Cloud",
+"Alibaba",
+"Alibaba Group",
+"ByteDance",
+"LeapFrog"
+],
+"n_eligible": 10,
+"sha": "70366d11e0f3962895cdd4062e19af566e7c684e73dd772759da361f38ce1358",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-dailydialog-0000__L032__p82:theteamatgoogle:theengineersresearchersanddata": {
 "unit": "mlnla-rl2-800-all11:chat-dailydialog-0000__L032__p82:theteamatgoogle:theengineersresearchersanddata",
 "anchor": "Google",

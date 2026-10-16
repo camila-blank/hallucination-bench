@@ -19,6 +19,126 @@
 "sha": "388a966563a8daced9104d123af879ad38b639b325b6ebc2f92eaa8c9a6f21c3",
 "generation": 0
 },
+"mlnla-ck2000-all11:chat-dailydialog-0017__L028__p64::": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0017__L028__p64::",
+"anchor": "Deng Liqun",
+"nearest": [
+"Liu Shaoqi",
+"Mao Zedong",
+"Hu Jintao",
+"Xi Jinping"
+],
+"random": [],
+"distractors": [
+"Liu Shaoqi",
+"Mao Zedong",
+"Hu Jintao",
+"Xi Jinping"
+],
+"n_eligible": 4,
+"sha": "5ffecf792b1e673fd5b70819a2c0287c163c303a79b1b85f53f0e9a8163542e6",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0017__L036__p103:chenxitong:dengliqun": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0017__L036__p103:chenxitong:dengliqun",
+"anchor": "Deng Liqun",
+"nearest": [
+"Liu Shaoqi",
+"Mao Zedong",
+"Hu Jintao",
+"Xi Jinping"
+],
+"random": [],
+"distractors": [
+"Liu Shaoqi",
+"Mao Zedong",
+"Hu Jintao",
+"Xi Jinping"
+],
+"n_eligible": 4,
+"sha": "ded36c3e17a908f4f222670ad19ebb09f89d190c1a21a809e1a2f4e4195096a6",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0017__L036__p44:chenxitong:dengliqun": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0017__L036__p44:chenxitong:dengliqun",
+"anchor": "Deng Liqun",
+"nearest": [
+"Liu Shaoqi",
+"Mao Zedong",
+"Hu Jintao",
+"Xi Jinping"
+],
+"random": [],
+"distractors": [
+"Liu Shaoqi",
+"Mao Zedong",
+"Hu Jintao",
+"Xi Jinping"
+],
+"n_eligible": 4,
+"sha": "bc5687f163a526cdfe095ce5aa9e76e4dae05572c7b7768ff3ad26df85066d4f",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0017__L040__p103:zhaoziyang:dengliqun": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0017__L040__p103:zhaoziyang:dengliqun",
+"anchor": "Deng Liqun",
+"nearest": [
+"Liu Shaoqi",
+"Mao Zedong",
+"Hu Jintao",
+"Xi Jinping"
+],
+"random": [],
+"distractors": [
+"Liu Shaoqi",
+"Mao Zedong",
+"Hu Jintao",
+"Xi Jinping"
+],
+"n_eligible": 4,
+"sha": "8663c8f6c3969b9c3cad68a33fd694597a2adf1bc3425b6de723ad77e9ab5bb3",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0017__L056__p44:chenxitong:dengliqun": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0017__L056__p44:chenxitong:dengliqun",
+"anchor": "Deng Liqun",
+"nearest": [
+"Liu Shaoqi",
+"Mao Zedong",
+"Hu Jintao",
+"Xi Jinping"
+],
+"random": [],
+"distractors": [
+"Liu Shaoqi",
+"Mao Zedong",
+"Hu Jintao",
+"Xi Jinping"
+],
+"n_eligible": 4,
+"sha": "6514836dc5fd84092d69c3a56db7516c86d7dde2463535a3b522d023a31f9abc",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0017__L060__p44:chenxitong:dengliqun": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0017__L060__p44:chenxitong:dengliqun",
+"anchor": "Deng Liqun",
+"nearest": [
+"Liu Shaoqi",
+"Mao Zedong",
+"Hu Jintao",
+"Xi Jinping"
+],
+"random": [],
+"distractors": [
+"Liu Shaoqi",
+"Mao Zedong",
+"Hu Jintao",
+"Xi Jinping"
+],
+"n_eligible": 4,
+"sha": "48e704e5fdeddb83e4d54c37c061866ba236ed4f8b0a687bd358a8ee31a76af0",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-dailydialog-0017__L020__p44:chenxitong:dengliqun": {
 "unit": "mlnla-rl2-800-all11:chat-dailydialog-0017__L020__p44:chenxitong:dengliqun",
 "anchor": "Deng Liqun",

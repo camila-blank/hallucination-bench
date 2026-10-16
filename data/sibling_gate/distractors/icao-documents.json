@@ -1,4 +1,102 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0026__L036__p471:icaodoc8168:annex4": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0026__L036__p471:icaodoc8168:annex4",
+"anchor": "ICAO Annex 4",
+"nearest": [
+"Chicago Convention (Doc 7300)"
+],
+"random": [],
+"distractors": [
+"Chicago Convention (Doc 7300)"
+],
+"n_eligible": 1,
+"sha": "bc8cd848bbc7f3728ea1005a1f15f7556a5653f12a8239573e987bb959268696",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0026__L036__p471:icaodoc8168:annex4amendment56": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0026__L036__p471:icaodoc8168:annex4amendment56",
+"anchor": "ICAO Annex 4",
+"nearest": [
+"Chicago Convention (Doc 7300)"
+],
+"random": [],
+"distractors": [
+"Chicago Convention (Doc 7300)"
+],
+"n_eligible": 1,
+"sha": "784a48b24e077efa0397e6523a03d822a4913450afae1def42f9d88a97137015",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0026__L036__p471:pansopsannex10:annex4": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0026__L036__p471:pansopsannex10:annex4",
+"anchor": "ICAO Annex 4",
+"nearest": [
+"Chicago Convention (Doc 7300)"
+],
+"random": [],
+"distractors": [
+"Chicago Convention (Doc 7300)"
+],
+"n_eligible": 1,
+"sha": "7387a0194527fe94b4655bc897276472a59be5013963b80b183438a34579e6a2",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0026__L040__p471:icaodoc8168:icaoannex4": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0026__L040__p471:icaodoc8168:icaoannex4",
+"anchor": "ICAO Annex 4",
+"nearest": [
+"Chicago Convention (Doc 7300)"
+],
+"random": [],
+"distractors": [
+"Chicago Convention (Doc 7300)"
+],
+"n_eligible": 1,
+"sha": "df9d0eaf2bbd27f635b9e9d17b1dc9b5a44b9e92ab7f4cc63b23390b7725edd0",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0026__L044__p36:icaodoc8168:icaoannex4": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0026__L044__p36:icaodoc8168:icaoannex4",
+"anchor": "ICAO Annex 4",
+"nearest": [
+"Chicago Convention (Doc 7300)"
+],
+"random": [],
+"distractors": [
+"Chicago Convention (Doc 7300)"
+],
+"n_eligible": 1,
+"sha": "dae6d906b18ab1264b805a13846b3b07bae8a197c2bddf0d1b7cac717a1d0ed2",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0026__L044__p36:icaodocument8168:icaoannex4": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0026__L044__p36:icaodocument8168:icaoannex4",
+"anchor": "ICAO Annex 4",
+"nearest": [
+"Chicago Convention (Doc 7300)"
+],
+"random": [],
+"distractors": [
+"Chicago Convention (Doc 7300)"
+],
+"n_eligible": 1,
+"sha": "c25de632680e700c81350e62a498578b356798a7eafb5079e8e3d67f6664508a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0026__L060__p471:icaodoc8168:icaoannex4": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0026__L060__p471:icaodoc8168:icaoannex4",
+"anchor": "ICAO Annex 4",
+"nearest": [
+"Chicago Convention (Doc 7300)"
+],
+"random": [],
+"distractors": [
+"Chicago Convention (Doc 7300)"
+],
+"n_eligible": 1,
+"sha": "35a75a4ec84f14a03b8e999254766f359ee095a595b788af1f575d502d1f73d1",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0026__L020__p471:pansopsdoc8166:annex4": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0026__L020__p471:pansopsdoc8166:annex4",
 "anchor": "Annex 4",

@@ -1,4 +1,411 @@
 {
+"mlnla-ck2000-all11:chat-lmsys-0010__L020__p33:kde:gnome": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0010__L020__p33:kde:gnome",
+"anchor": "GNOME",
+"nearest": [
+"LXQt",
+"Budgie",
+"Pantheon",
+"COSMIC"
+],
+"random": [
+"Deepin Desktop Environment",
+"Enlightenment",
+"Trinity Desktop Environment"
+],
+"distractors": [
+"LXQt",
+"Budgie",
+"Pantheon",
+"COSMIC",
+"Deepin Desktop Environment",
+"Enlightenment",
+"Trinity Desktop Environment"
+],
+"n_eligible": 7,
+"sha": "836170b97bbfc2bf7bd478240156e98b8c7c06b6deaa63cdf24144e2815d847a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0010__L020__p36:gnome:kde": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0010__L020__p36:gnome:kde",
+"anchor": "KDE Plasma",
+"nearest": [
+"Pantheon",
+"COSMIC",
+"Budgie",
+"Deepin Desktop Environment"
+],
+"random": [
+"Trinity Desktop Environment"
+],
+"distractors": [
+"Pantheon",
+"COSMIC",
+"Budgie",
+"Deepin Desktop Environment",
+"Trinity Desktop Environment"
+],
+"n_eligible": 5,
+"sha": "6a9e7317709e7e0ad54bad1a7a333427bd76bb2d14626307c36dfc5d72f25217",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0010__L020__p39:gnome:kde": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0010__L020__p39:gnome:kde",
+"anchor": "KDE Plasma",
+"nearest": [
+"Pantheon",
+"COSMIC",
+"Budgie",
+"Deepin Desktop Environment"
+],
+"random": [
+"Trinity Desktop Environment"
+],
+"distractors": [
+"Pantheon",
+"COSMIC",
+"Budgie",
+"Deepin Desktop Environment",
+"Trinity Desktop Environment"
+],
+"n_eligible": 5,
+"sha": "f1d5371014ef80e4deddea3ec72b2efbc9df84df40b9ad76c958be55d0c2a9bf",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0010__L020__p39:kde:xfce": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0010__L020__p39:kde:xfce",
+"anchor": "GNOME",
+"nearest": [
+"LXQt",
+"Budgie",
+"Pantheon",
+"COSMIC"
+],
+"random": [
+"Deepin Desktop Environment",
+"Enlightenment",
+"Trinity Desktop Environment"
+],
+"distractors": [
+"LXQt",
+"Budgie",
+"Pantheon",
+"COSMIC",
+"Deepin Desktop Environment",
+"Enlightenment",
+"Trinity Desktop Environment"
+],
+"n_eligible": 7,
+"sha": "ff9d00cbc17a2b74b810be705c0d3dbcf2d2a5beb0f0ed845801566e45c94265",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0010__L024__p39:gnome:kde": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0010__L024__p39:gnome:kde",
+"anchor": "KDE Plasma",
+"nearest": [
+"Pantheon",
+"COSMIC",
+"Budgie",
+"Deepin Desktop Environment"
+],
+"random": [
+"Trinity Desktop Environment"
+],
+"distractors": [
+"Pantheon",
+"COSMIC",
+"Budgie",
+"Deepin Desktop Environment",
+"Trinity Desktop Environment"
+],
+"n_eligible": 5,
+"sha": "2016aae1512db1dc716a1a7535339b672da0870131c0cb5e369f037749ddbda7",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0010__L024__p45:xfce:kde": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0010__L024__p45:xfce:kde",
+"anchor": "KDE Plasma",
+"nearest": [
+"Pantheon",
+"COSMIC",
+"Budgie",
+"Deepin Desktop Environment"
+],
+"random": [
+"Trinity Desktop Environment"
+],
+"distractors": [
+"Pantheon",
+"COSMIC",
+"Budgie",
+"Deepin Desktop Environment",
+"Trinity Desktop Environment"
+],
+"n_eligible": 5,
+"sha": "8e0a1ac6d91eea66b358d7eca667050724112a8b6ec378f65e671bee3762ee0d",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0010__L028__p45:gnome:kde": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0010__L028__p45:gnome:kde",
+"anchor": "KDE Plasma",
+"nearest": [
+"Pantheon",
+"COSMIC",
+"Budgie",
+"Deepin Desktop Environment"
+],
+"random": [
+"Trinity Desktop Environment"
+],
+"distractors": [
+"Pantheon",
+"COSMIC",
+"Budgie",
+"Deepin Desktop Environment",
+"Trinity Desktop Environment"
+],
+"n_eligible": 5,
+"sha": "3a69b2a012e5f12a1084899ee48c7682893f803e8c21902e2abef8f876bac652",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0010__L032__p33:xfce:kde": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0010__L032__p33:xfce:kde",
+"anchor": "KDE Plasma",
+"nearest": [
+"Pantheon",
+"COSMIC",
+"Budgie",
+"Deepin Desktop Environment"
+],
+"random": [
+"Trinity Desktop Environment"
+],
+"distractors": [
+"Pantheon",
+"COSMIC",
+"Budgie",
+"Deepin Desktop Environment",
+"Trinity Desktop Environment"
+],
+"n_eligible": 5,
+"sha": "1bd7a7af5f1c0f75d93ec1a530e46c222605ba5bbc063c1ac84cc0877eddf172",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0010__L032__p36::": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0010__L032__p36::",
+"anchor": "KDE",
+"nearest": [
+"Pantheon",
+"COSMIC",
+"Deepin Desktop Environment",
+"Budgie"
+],
+"random": [
+"Trinity Desktop Environment"
+],
+"distractors": [
+"Pantheon",
+"COSMIC",
+"Deepin Desktop Environment",
+"Budgie",
+"Trinity Desktop Environment"
+],
+"n_eligible": 5,
+"sha": "b64f4bdb2c112e695a93bc1117e89f77bb5e92b1bb5d013ae069d0bff296ead1",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0010__L032__p39:gnome:kde": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0010__L032__p39:gnome:kde",
+"anchor": "KDE Plasma",
+"nearest": [
+"Pantheon",
+"COSMIC",
+"Budgie",
+"Deepin Desktop Environment"
+],
+"random": [
+"Trinity Desktop Environment"
+],
+"distractors": [
+"Pantheon",
+"COSMIC",
+"Budgie",
+"Deepin Desktop Environment",
+"Trinity Desktop Environment"
+],
+"n_eligible": 5,
+"sha": "733e7dc913a593a6fc5b57eddbb5675df3038202741d8f6f4b7d3bcb2156eaad",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0010__L032__p42:gnome:kde": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0010__L032__p42:gnome:kde",
+"anchor": "KDE Plasma",
+"nearest": [
+"Pantheon",
+"COSMIC",
+"Budgie",
+"Deepin Desktop Environment"
+],
+"random": [
+"Trinity Desktop Environment"
+],
+"distractors": [
+"Pantheon",
+"COSMIC",
+"Budgie",
+"Deepin Desktop Environment",
+"Trinity Desktop Environment"
+],
+"n_eligible": 5,
+"sha": "9c4cf78d42a623f50af4c2ec04d9ecf9a1fd33184acbf9059f0d3ea982ca8249",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0010__L032__p45:gnome:kde": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0010__L032__p45:gnome:kde",
+"anchor": "KDE Plasma",
+"nearest": [
+"Pantheon",
+"COSMIC",
+"Budgie",
+"Deepin Desktop Environment"
+],
+"random": [
+"Trinity Desktop Environment"
+],
+"distractors": [
+"Pantheon",
+"COSMIC",
+"Budgie",
+"Deepin Desktop Environment",
+"Trinity Desktop Environment"
+],
+"n_eligible": 5,
+"sha": "dbc5a84920ac520fca3390817a029874f898d2c90eba50cae989bef8f4971212",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0010__L036__p39:gnome:kde": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0010__L036__p39:gnome:kde",
+"anchor": "KDE Plasma",
+"nearest": [
+"Pantheon",
+"COSMIC",
+"Budgie",
+"Deepin Desktop Environment"
+],
+"random": [
+"Trinity Desktop Environment"
+],
+"distractors": [
+"Pantheon",
+"COSMIC",
+"Budgie",
+"Deepin Desktop Environment",
+"Trinity Desktop Environment"
+],
+"n_eligible": 5,
+"sha": "31491708db2f800eaa554b3a15f6b16d7764ed5f7d2b967351801e9357b0cef2",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0010__L040__p33:gnome:kde": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0010__L040__p33:gnome:kde",
+"anchor": "KDE Plasma",
+"nearest": [
+"Pantheon",
+"COSMIC",
+"Budgie",
+"Deepin Desktop Environment"
+],
+"random": [
+"Trinity Desktop Environment"
+],
+"distractors": [
+"Pantheon",
+"COSMIC",
+"Budgie",
+"Deepin Desktop Environment",
+"Trinity Desktop Environment"
+],
+"n_eligible": 5,
+"sha": "e6ec3c2e10d55928b5156b6c8de9638d0eedec9c5a3f6c7b964490341889ce94",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0010__L040__p33:kde:gnome": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0010__L040__p33:kde:gnome",
+"anchor": "GNOME",
+"nearest": [
+"LXQt",
+"Budgie",
+"Pantheon",
+"COSMIC"
+],
+"random": [
+"Deepin Desktop Environment",
+"Enlightenment",
+"Trinity Desktop Environment"
+],
+"distractors": [
+"LXQt",
+"Budgie",
+"Pantheon",
+"COSMIC",
+"Deepin Desktop Environment",
+"Enlightenment",
+"Trinity Desktop Environment"
+],
+"n_eligible": 7,
+"sha": "10733f0ac07b6de734d0e4f932419feb22220771720cec2905bc0aab8160c145",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0010__L040__p45:gnome:kdesktopenvironment": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0010__L040__p45:gnome:kdesktopenvironment",
+"anchor": "KDE Plasma",
+"nearest": [
+"Pantheon",
+"COSMIC",
+"Budgie",
+"Deepin Desktop Environment"
+],
+"random": [
+"Trinity Desktop Environment"
+],
+"distractors": [
+"Pantheon",
+"COSMIC",
+"Budgie",
+"Deepin Desktop Environment",
+"Trinity Desktop Environment"
+],
+"n_eligible": 5,
+"sha": "4f4308a1bd969a485060cf5ef818efa38706be7fdbed5eadb33f16ee84e82cdf",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0010__L056__p33:kdeplasma:gnome": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0010__L056__p33:kdeplasma:gnome",
+"anchor": "GNOME",
+"nearest": [
+"LXQt",
+"Budgie",
+"Pantheon",
+"COSMIC"
+],
+"random": [
+"Deepin Desktop Environment",
+"Enlightenment",
+"Trinity Desktop Environment"
+],
+"distractors": [
+"LXQt",
+"Budgie",
+"Pantheon",
+"COSMIC",
+"Deepin Desktop Environment",
+"Enlightenment",
+"Trinity Desktop Environment"
+],
+"n_eligible": 7,
+"sha": "54972add24d3d9278ce746380d9d7bbfb08a4e62449ae153f3997f1dd81f00f8",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-lmsys-0010__L024__p39:linuxdisplayserverx11wayland:kde": {
 "unit": "mlnla-rl2-800-all11:chat-lmsys-0010__L024__p39:linuxdisplayserverx11wayland:kde",
 "anchor": "KDE Plasma",

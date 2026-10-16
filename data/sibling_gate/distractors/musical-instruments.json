@@ -1,4 +1,124 @@
 {
+"mlnla-ck2000-all11:chat-dailydialog-0030__L020__p137:flute:ukulele": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0030__L020__p137:flute:ukulele",
+"anchor": "ukulele",
+"nearest": [
+"drums",
+"trombone",
+"double bass",
+"trumpet"
+],
+"random": [],
+"distractors": [
+"drums",
+"trombone",
+"double bass",
+"trumpet"
+],
+"n_eligible": 4,
+"sha": "99989b51f5197dad5d7fc763e5c29b9c9709b1d5d1af59b8ccd68765630c976d",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0030__L032__p137:flute:ukulele": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0030__L032__p137:flute:ukulele",
+"anchor": "ukulele",
+"nearest": [
+"drums",
+"trombone",
+"double bass",
+"trumpet"
+],
+"random": [],
+"distractors": [
+"drums",
+"trombone",
+"double bass",
+"trumpet"
+],
+"n_eligible": 4,
+"sha": "aced2334c9bd5949b7b2fc137b0d8ca904315b4ce8adef68db46a8b41bd69bc3",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0030__L032__p137:violin:ukulele": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0030__L032__p137:violin:ukulele",
+"anchor": "ukulele",
+"nearest": [
+"drums",
+"trombone",
+"double bass",
+"trumpet"
+],
+"random": [],
+"distractors": [
+"drums",
+"trombone",
+"double bass",
+"trumpet"
+],
+"n_eligible": 4,
+"sha": "a62f6ab010835c43f3696e01a33eb587f80c6f1bc3fb12547e9d9833d9b60dee",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0030__L040__p137:flute:ukulele": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0030__L040__p137:flute:ukulele",
+"anchor": "ukulele",
+"nearest": [
+"drums",
+"trombone",
+"double bass",
+"trumpet"
+],
+"random": [],
+"distractors": [
+"drums",
+"trombone",
+"double bass",
+"trumpet"
+],
+"n_eligible": 4,
+"sha": "9ce91838379e65e658478b2c36c6791724ac6515c7677333e463ab94c4affdf3",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0030__L048__p137:pianoviolin:ukulele": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0030__L048__p137:pianoviolin:ukulele",
+"anchor": "ukulele",
+"nearest": [
+"drums",
+"trombone",
+"double bass",
+"trumpet"
+],
+"random": [],
+"distractors": [
+"drums",
+"trombone",
+"double bass",
+"trumpet"
+],
+"n_eligible": 4,
+"sha": "1bbe6aa2b5739a4e3eb7f94b7232961f02e861fe3f456f19a7e15bd82383863d",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0030__L060__p137:guitar:ukulele": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0030__L060__p137:guitar:ukulele",
+"anchor": "ukulele",
+"nearest": [
+"drums",
+"trombone",
+"double bass",
+"trumpet"
+],
+"random": [],
+"distractors": [
+"drums",
+"trombone",
+"double bass",
+"trumpet"
+],
+"n_eligible": 4,
+"sha": "b584770f586e274fb1c1ac560c48e81a710df9eb0f78d2900eb6794072131e9e",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-dailydialog-0030__L036__p137:guitar:ukulele": {
 "unit": "mlnla-rl2-800-all11:chat-dailydialog-0030__L036__p137:guitar:ukulele",
 "anchor": "ukulele",

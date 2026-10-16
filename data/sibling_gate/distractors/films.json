@@ -1,4 +1,149 @@
 {
+"mlnla-ck2000-all11:chat-dailydialog-0009__L036__p127:missionimpossiblebourneidentity:thegodfatherboardwalkempire": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0009__L036__p127:missionimpossiblebourneidentity:thegodfatherboardwalkempire",
+"anchor": "The Godfather",
+"nearest": [
+"Interstellar",
+"Inception",
+"Gladiator",
+"Pulp Fiction"
+],
+"random": [
+"Barbie",
+"Spirited Away",
+"The Hangover",
+"The Matrix Resurrections"
+],
+"distractors": [
+"Interstellar",
+"Inception",
+"Gladiator",
+"Pulp Fiction",
+"Barbie",
+"Spirited Away",
+"The Hangover",
+"The Matrix Resurrections"
+],
+"n_eligible": 23,
+"sha": "6784110b490810d7d6bdeec0cc23b2752232026c56571824a3fa8ffa33dde8d9",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0009__L044__p127:theavengerslordoftherings:thegodfathermafiaboardwalkempire": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0009__L044__p127:theavengerslordoftherings:thegodfathermafiaboardwalkempire",
+"anchor": "The Godfather",
+"nearest": [
+"Interstellar",
+"Inception",
+"Gladiator",
+"Pulp Fiction"
+],
+"random": [
+"Bridesmaids",
+"Joker",
+"The Hangover",
+"The Matrix Resurrections"
+],
+"distractors": [
+"Interstellar",
+"Inception",
+"Gladiator",
+"Pulp Fiction",
+"Bridesmaids",
+"Joker",
+"The Hangover",
+"The Matrix Resurrections"
+],
+"n_eligible": 23,
+"sha": "484e0655256bfb546f97bb5d87ce0752078b9b5e2f2d4fc21bd97e14b817a594",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0031__L024__p300:inception:theprincessbride": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0031__L024__p300:inception:theprincessbride",
+"anchor": "The Princess Bride",
+"nearest": [
+"Superbad",
+"The Hitchhiker's Guide to the Galaxy",
+"Pirates of the Caribbean",
+"The Iron Giant"
+],
+"random": [
+"Blade Runner",
+"John Wick",
+"The Green Knight",
+"Whiplash"
+],
+"distractors": [
+"Superbad",
+"The Hitchhiker's Guide to the Galaxy",
+"Pirates of the Caribbean",
+"The Iron Giant",
+"Blade Runner",
+"John Wick",
+"The Green Knight",
+"Whiplash"
+],
+"n_eligible": 10,
+"sha": "c42b42a1c04b882bf8ac7f049ad30c04da656e4e01da18deb952d1fa70aa7d94",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0031__L048__p122:dune:johnwick": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0031__L048__p122:dune:johnwick",
+"anchor": "Dune",
+"nearest": [
+"The Green Knight",
+"Blade Runner",
+"Pirates of the Caribbean",
+"John Wick"
+],
+"random": [
+"Knives Out",
+"Superbad",
+"The Hitchhiker's Guide to the Galaxy",
+"Whiplash"
+],
+"distractors": [
+"The Green Knight",
+"Blade Runner",
+"Pirates of the Caribbean",
+"John Wick",
+"Knives Out",
+"Superbad",
+"The Hitchhiker's Guide to the Galaxy",
+"Whiplash"
+],
+"n_eligible": 11,
+"sha": "bba9e865222e2377ae32d2daf14ce6ec4fcd1256fbb62a341c61d9ad4d0dafb7",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0031__L056__p300:thematrixresurrections:theprincessbride": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0031__L056__p300:thematrixresurrections:theprincessbride",
+"anchor": "The Matrix Resurrections",
+"nearest": [
+"The Green Knight",
+"John Wick",
+"The Iron Giant",
+"The Hitchhiker's Guide to the Galaxy"
+],
+"random": [
+"American Sniper",
+"Blade Runner",
+"Pirates of the Caribbean",
+"Whiplash"
+],
+"distractors": [
+"The Green Knight",
+"John Wick",
+"The Iron Giant",
+"The Hitchhiker's Guide to the Galaxy",
+"American Sniper",
+"Blade Runner",
+"Pirates of the Caribbean",
+"Whiplash"
+],
+"n_eligible": 11,
+"sha": "c531ffd73e2f407eccd7749d4e04119d9d8e3c9f6a50eab62918b0c9249e8d4d",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-dailydialog-0009__L020__p127:piratesofthecaribbean:boardwalkempire": {
 "unit": "mlnla-rl2-800-all11:chat-dailydialog-0009__L020__p127:piratesofthecaribbean:boardwalkempire",
 "anchor": "The Godfather",

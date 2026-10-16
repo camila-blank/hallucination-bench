@@ -1,4 +1,293 @@
 {
+"mlnla-ck2000-all11:chat-dailydialog-0063__L032__p23:coffee:pizza": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0063__L032__p23:coffee:pizza",
+"anchor": "pizza",
+"nearest": [
+"cheeseburger",
+"chicken",
+"cookie",
+"cookies"
+],
+"random": [
+"avocado",
+"beer",
+"egg",
+"walnut"
+],
+"distractors": [
+"cheeseburger",
+"chicken",
+"cookie",
+"cookies",
+"avocado",
+"beer",
+"egg",
+"walnut"
+],
+"n_eligible": 11,
+"sha": "b396db9ec9dd768d094ed0f8c960ebc147eb11745f6ccb94819f1a8af87b70a9",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0072__L020__p171:pizza:potato": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0072__L020__p171:pizza:potato",
+"anchor": "potato",
+"nearest": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"random": [],
+"distractors": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"n_eligible": 4,
+"sha": "d38829765a1c87057d3109c1b2c1047bc5797cc6122ca121bbe876c9ddd34706",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0072__L024__p171:chocolate:potato": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0072__L024__p171:chocolate:potato",
+"anchor": "potato",
+"nearest": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"random": [],
+"distractors": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"n_eligible": 4,
+"sha": "372a3657fba72265e58518cc324155595b5419f206724cd0c9520a2760cbec4c",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0072__L024__p171:pizza:potato": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0072__L024__p171:pizza:potato",
+"anchor": "potato",
+"nearest": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"random": [],
+"distractors": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"n_eligible": 4,
+"sha": "c278e2dd7aa04c79ca62382241f7a48ae2190f0be3c541f8c7a2732304ce7f64",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0072__L028__p147:apple:potato": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0072__L028__p147:apple:potato",
+"anchor": "potato",
+"nearest": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"random": [],
+"distractors": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"n_eligible": 4,
+"sha": "c02e70d6062fb5d32d7b510b0a1a03a4f1c825e269dfebca39c363cb407fa67b",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0072__L028__p171:cheeseburgers:potato": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0072__L028__p171:cheeseburgers:potato",
+"anchor": "potato",
+"nearest": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"random": [],
+"distractors": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"n_eligible": 4,
+"sha": "531f8089bbc173bc8ad45ed364f2f7c44899c524cb524cd2f9d7baa50a602e56",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0072__L028__p171:pasta:potato": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0072__L028__p171:pasta:potato",
+"anchor": "potato",
+"nearest": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"random": [],
+"distractors": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"n_eligible": 4,
+"sha": "ae9446c0ac0c43ae512204f0a38c6655ea288ea43ec5e4d10a38481d6f40056b",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0072__L028__p171:pizza:potato": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0072__L028__p171:pizza:potato",
+"anchor": "potato",
+"nearest": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"random": [],
+"distractors": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"n_eligible": 4,
+"sha": "5f83b3d967432d2dbf88b3c77d68ae3b23a780a41ac6ff322d5bd4b7abfc1f1e",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0072__L036__p147:eggs:potatoes": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0072__L036__p147:eggs:potatoes",
+"anchor": "potato",
+"nearest": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"random": [],
+"distractors": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"n_eligible": 4,
+"sha": "6b2df5014478863b1932097a42a8bfd7ce1acf58ddff1697fe79760259dc8995",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0072__L044__p147:egg:potato": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0072__L044__p147:egg:potato",
+"anchor": "potato",
+"nearest": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"random": [],
+"distractors": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"n_eligible": 4,
+"sha": "a84c2c6397e66540601b3c80aeb5bd9be5a9892f4e1c1397507eb1a952f6bd62",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0072__L044__p147:eggs:potato": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0072__L044__p147:eggs:potato",
+"anchor": "potato",
+"nearest": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"random": [],
+"distractors": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"n_eligible": 4,
+"sha": "91e76d1eddb2c1cdc8f7fba136f01de04b63c51ec71fecdc76ef562aaa098a60",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0072__L052__p205:avocadosolives:potato": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0072__L052__p205:avocadosolives:potato",
+"anchor": "potato",
+"nearest": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"random": [],
+"distractors": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"n_eligible": 4,
+"sha": "210faf93ae2e4ce111f912a1fc52c14789ab9aed99504226c75bcaa54bf99ac4",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0072__L052__p84:walnuts:potato": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0072__L052__p84:walnuts:potato",
+"anchor": "potato",
+"nearest": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"random": [],
+"distractors": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"n_eligible": 4,
+"sha": "4864c908edd4a76bd99fe9e494684934ebb29c24747472b5c8733ed45405730a",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-lmsys-0072__L052__p98:cookie:potato": {
+"unit": "mlnla-ck2000-all11:chat-lmsys-0072__L052__p98:cookie:potato",
+"anchor": "potato",
+"nearest": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"random": [],
+"distractors": [
+"donuts",
+"donut",
+"movies",
+"ice cream"
+],
+"n_eligible": 4,
+"sha": "92744915f0e59d1a0fbd458e6dec7d700e3d8ab81fea4c3caf6b3326012c565f",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-dailydialog-0063__L044__p82:chocolate:pizza": {
 "unit": "mlnla-rl2-800-all11:chat-dailydialog-0063__L044__p82:chocolate:pizza",
 "anchor": "pizza",

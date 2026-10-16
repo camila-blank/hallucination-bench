@@ -1,4 +1,294 @@
 {
+"mlnla-ck2000-all11:chat-dailydialog-0044__L020__p289:midautumnfestival:springfestival": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0044__L020__p289:midautumnfestival:springfestival",
+"anchor": "Spring Festival",
+"nearest": [
+"Ghost Festival",
+"Qingming Festival",
+"Qixi Festival",
+"Dongzhi Festival"
+],
+"random": [
+"Cold Food Festival",
+"Kitchen God Festival",
+"Laba Festival",
+"Zhonghe Festival"
+],
+"distractors": [
+"Ghost Festival",
+"Qingming Festival",
+"Qixi Festival",
+"Dongzhi Festival",
+"Cold Food Festival",
+"Kitchen God Festival",
+"Laba Festival",
+"Zhonghe Festival"
+],
+"n_eligible": 9,
+"sha": "3cd128a7631092ac40e387c872de4392cdeb791509be8bbffb6b5d9a550864c3",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0044__L020__p289:mooncakeschangelegend:redenvelopesnianlegend": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0044__L020__p289:mooncakeschangelegend:redenvelopesnianlegend",
+"anchor": "Spring Festival",
+"nearest": [
+"Ghost Festival",
+"Qingming Festival",
+"Qixi Festival",
+"Dongzhi Festival"
+],
+"random": [
+"Cold Food Festival",
+"Kitchen God Festival",
+"Laba Festival",
+"Zhonghe Festival"
+],
+"distractors": [
+"Ghost Festival",
+"Qingming Festival",
+"Qixi Festival",
+"Dongzhi Festival",
+"Cold Food Festival",
+"Kitchen God Festival",
+"Laba Festival",
+"Zhonghe Festival"
+],
+"n_eligible": 9,
+"sha": "3aea01a37badd899ea71eb9bddd2bf9eb20e6ceb0b057b044b42bb7d867d7892",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0044__L020__p408:midautumnfestival:springfestival": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0044__L020__p408:midautumnfestival:springfestival",
+"anchor": "Spring Festival",
+"nearest": [
+"Ghost Festival",
+"Qingming Festival",
+"Qixi Festival",
+"Dongzhi Festival"
+],
+"random": [
+"Cold Food Festival",
+"Kitchen God Festival",
+"Laba Festival",
+"Zhonghe Festival"
+],
+"distractors": [
+"Ghost Festival",
+"Qingming Festival",
+"Qixi Festival",
+"Dongzhi Festival",
+"Cold Food Festival",
+"Kitchen God Festival",
+"Laba Festival",
+"Zhonghe Festival"
+],
+"n_eligible": 9,
+"sha": "59eb60cc41975a2616a2b560d2e3f93efd07152c567ad3822d0ef9fed84eca51",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0044__L028__p289:midautumnfestival:springfestival": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0044__L028__p289:midautumnfestival:springfestival",
+"anchor": "Spring Festival",
+"nearest": [
+"Ghost Festival",
+"Qingming Festival",
+"Qixi Festival",
+"Dongzhi Festival"
+],
+"random": [
+"Cold Food Festival",
+"Kitchen God Festival",
+"Shangsi Festival",
+"Zhonghe Festival"
+],
+"distractors": [
+"Ghost Festival",
+"Qingming Festival",
+"Qixi Festival",
+"Dongzhi Festival",
+"Cold Food Festival",
+"Kitchen God Festival",
+"Shangsi Festival",
+"Zhonghe Festival"
+],
+"n_eligible": 9,
+"sha": "928162da9b946a0939f34f15b54bb2d2523a9166de4b3f0300fb3e4a36e08133",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0044__L052__p337:midautumnfestival:springfestival": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0044__L052__p337:midautumnfestival:springfestival",
+"anchor": "Spring Festival",
+"nearest": [
+"Ghost Festival",
+"Qingming Festival",
+"Qixi Festival",
+"Dongzhi Festival"
+],
+"random": [
+"Cold Food Festival",
+"Kitchen God Festival",
+"Laba Festival",
+"Shangsi Festival"
+],
+"distractors": [
+"Ghost Festival",
+"Qingming Festival",
+"Qixi Festival",
+"Dongzhi Festival",
+"Cold Food Festival",
+"Kitchen God Festival",
+"Laba Festival",
+"Shangsi Festival"
+],
+"n_eligible": 9,
+"sha": "c315728edf882036cbbf8c2bdba8f3c7ee3605cb1a73ccd99e36581277169b62",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0044__L056__p136:midautumnfestival:springfestival": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0044__L056__p136:midautumnfestival:springfestival",
+"anchor": "Spring Festival",
+"nearest": [
+"Ghost Festival",
+"Qingming Festival",
+"Qixi Festival",
+"Dongzhi Festival"
+],
+"random": [
+"Cold Food Festival",
+"Kitchen God Festival",
+"Laba Festival",
+"Zhonghe Festival"
+],
+"distractors": [
+"Ghost Festival",
+"Qingming Festival",
+"Qixi Festival",
+"Dongzhi Festival",
+"Cold Food Festival",
+"Kitchen God Festival",
+"Laba Festival",
+"Zhonghe Festival"
+],
+"n_eligible": 9,
+"sha": "4618721833408de67ca23cba1c04091b8c519c0c711badaace34a8ef257d5dd6",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0044__L056__p337:midautumnfestival:springfestival": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0044__L056__p337:midautumnfestival:springfestival",
+"anchor": "Spring Festival",
+"nearest": [
+"Ghost Festival",
+"Qingming Festival",
+"Qixi Festival",
+"Dongzhi Festival"
+],
+"random": [
+"Cold Food Festival",
+"Kitchen God Festival",
+"Shangsi Festival",
+"Zhonghe Festival"
+],
+"distractors": [
+"Ghost Festival",
+"Qingming Festival",
+"Qixi Festival",
+"Dongzhi Festival",
+"Cold Food Festival",
+"Kitchen God Festival",
+"Shangsi Festival",
+"Zhonghe Festival"
+],
+"n_eligible": 9,
+"sha": "55c1c75a345eb13c34a3b1c655a40bf3cfaa1f3afb7ade21be3aaea4783f6af8",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0044__L060__p136:midautumnfestival:springfestival": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0044__L060__p136:midautumnfestival:springfestival",
+"anchor": "Spring Festival",
+"nearest": [
+"Ghost Festival",
+"Qingming Festival",
+"Qixi Festival",
+"Dongzhi Festival"
+],
+"random": [
+"Cold Food Festival",
+"Kitchen God Festival",
+"Laba Festival",
+"Zhonghe Festival"
+],
+"distractors": [
+"Ghost Festival",
+"Qingming Festival",
+"Qixi Festival",
+"Dongzhi Festival",
+"Cold Food Festival",
+"Kitchen God Festival",
+"Laba Festival",
+"Zhonghe Festival"
+],
+"n_eligible": 9,
+"sha": "93d7defbc9a74f5885903b049c6d83e6cca1b98788a3429857668216d7172ce8",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0044__L060__p136:moonfestival:springfestival": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0044__L060__p136:moonfestival:springfestival",
+"anchor": "Spring Festival",
+"nearest": [
+"Ghost Festival",
+"Qingming Festival",
+"Qixi Festival",
+"Dongzhi Festival"
+],
+"random": [
+"Cold Food Festival",
+"Laba Festival",
+"Shangsi Festival",
+"Zhonghe Festival"
+],
+"distractors": [
+"Ghost Festival",
+"Qingming Festival",
+"Qixi Festival",
+"Dongzhi Festival",
+"Cold Food Festival",
+"Laba Festival",
+"Shangsi Festival",
+"Zhonghe Festival"
+],
+"n_eligible": 9,
+"sha": "8a34e16510f6a11fae293e0df953676482eb1004d6363ec99dfe92a3ff2d8ad5",
+"generation": 1
+},
+"mlnla-ck2000-all11:chat-dailydialog-0044__L060__p337:midautumnfestival:springfestival": {
+"unit": "mlnla-ck2000-all11:chat-dailydialog-0044__L060__p337:midautumnfestival:springfestival",
+"anchor": "Spring Festival",
+"nearest": [
+"Ghost Festival",
+"Qingming Festival",
+"Qixi Festival",
+"Dongzhi Festival"
+],
+"random": [
+"Cold Food Festival",
+"Kitchen God Festival",
+"Laba Festival",
+"Shangsi Festival"
+],
+"distractors": [
+"Ghost Festival",
+"Qingming Festival",
+"Qixi Festival",
+"Dongzhi Festival",
+"Cold Food Festival",
+"Kitchen God Festival",
+"Laba Festival",
+"Shangsi Festival"
+],
+"n_eligible": 9,
+"sha": "e4971625d338f938bebb7f1e07cbf6275c41d9a3bf87f8c2d206b3cf695a04d8",
+"generation": 1
+},
 "mlnla-rl2-800-all11:chat-dailydialog-0044__L060__p136:midautumnfestival:springfestival": {
 "unit": "mlnla-rl2-800-all11:chat-dailydialog-0044__L060__p136:midautumnfestival:springfestival",
 "anchor": "Spring Festival",
