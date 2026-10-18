@@ -8,8 +8,9 @@
   judge       umcommit-v1 per (unit, sample) -> outputs/sibling/um/commit.jsonl
   calib       judge vs data/sibling_probe/umcommit_{dev,gold}.jsonl -> outputs/sibling/um/calib.json
 
-Inputs come from ``--src-root`` (default /workspace/hb-sibling-probes, read only): readouts,
-the plan 0004 J-lens summary cache. Keyless Anthropic auth (repo convention).
+Inputs come from ``--src-root`` (default ``$HBENCH_SIBLING_SRC_ROOT``, else
+/workspace/hb-sibling-probes; read only): readouts, the plan 0004 J-lens summary cache.
+Keyless Anthropic auth (repo convention).
 
     uv run --no-sync python scripts/sibling_probe/um_ladder.py mentions
 """
@@ -24,7 +25,7 @@ from collections import Counter, defaultdict
 from pathlib import Path
 from typing import Any
 
-from hallucination_bench import REPO_ROOT, summarizer
+from hallucination_bench import REPO_ROOT, paths, summarizer
 from hallucination_bench.cache import Cache, fingerprint
 from hallucination_bench.evals.sibling_probe import um_ladder as U
 from hallucination_bench.llm import LLM, Usage
@@ -32,7 +33,7 @@ from hallucination_bench.readouts import decode_token
 
 OUT = REPO_ROOT / "outputs" / "sibling" / "um"
 DATA = REPO_ROOT / "data" / "sibling_probe"
-SRC_DEFAULT = Path("/workspace/hb-sibling-probes")
+SRC_DEFAULT = paths.SIBLING_SRC_ROOT
 MODEL = "claude-opus-5-5"
 FALLBACK_MODEL = "claude-sonnet-5-5"
 EFFORT = "low"
@@ -528,7 +529,7 @@ def cmd_concepts(a: argparse.Namespace) -> None:
     )
     C = set(golds) | set(sibs)
     pool: list[tuple[str, str]] = []  # (gold, concept)
-    if U.CATEGORY != "country":  # plan 0007: no regions -> the most-mentioned other concepts
+    if U.CATEGORY != "country":  # plan 0011: no regions -> the most-mentioned other concepts
         compat = {c for g in golds for c in U._COMPATIBLE.get(g, ())}
         cands = sorted(
             (c for c in lex_ids() if c not in C and c not in compat), key=lambda c: (-n_men[c], c)
@@ -665,7 +666,7 @@ def text_check(
 
 def cmd_probe_texts(a: argparse.Namespace) -> None:
     """24 explicit + 24 implied texts per concept of C and 24 neutral, balanced over the domain's
-    request sentences (plan 0007: 12 / 12 with two). Plan 0003 texts are reused where they pass
+    request sentences (plan 0011: 12 / 12 with two). Plan 0003 texts are reused where they pass
     the checks; the rest come from the plan 0003 ``sibgen-v1`` prompt over C."""
     sys.path.insert(0, str(REPO_ROOT / "scripts" / "sibling_probe"))
     import gen_items as G  # type: ignore[import-not-found]
@@ -1076,7 +1077,7 @@ def cmd_label(a: argparse.Namespace) -> None:
                 key = "ii"
             elif U.CATEGORY == "country":
                 key = "iii" if REGION_OF.get(gj) == REGION_OF.get(g) else None
-            else:  # plan 0007: no regions -> pool (iii) = every other item
+            else:  # plan 0011: no regions -> pool (iii) = every other item
                 key = "iii"
             if key is None:
                 continue
@@ -1645,7 +1646,7 @@ CAL_PREFIX = "umcommit"
 
 
 def setup_domain(cat: str) -> None:
-    """Plan 0007: point every path / run name at the domain (country keeps plan 0006's)."""
+    """Plan 0011: point every path / run name at the domain (country keeps plan 0006's)."""
     global OUT, READOUTS, CONCEPTS_PATH, PROBE_TEXTS_PATH, PROBE_RUN, PROBE_ACTS, PROBES_DIR
     global PROBES_ADJ_DIR, DISTRACTORS_PATH, LABEL_DIR, CAPTURE_PREFIX, CAL_PREFIX
     U.configure(cat)
@@ -1673,7 +1674,7 @@ def setup_domain(cat: str) -> None:
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawTextHelpFormatter)
     ap.add_argument("--src-root", type=Path, default=SRC_DEFAULT)
-    ap.add_argument("--category", default="country", help="plan 0007 domain (default country)")
+    ap.add_argument("--category", default="country", help="plan 0011 domain (default country)")
     sub = ap.add_subparsers(dest="cmd", required=True)
     s = sub.add_parser("summarize")
     s.add_argument("--dry-run", action="store_true")

@@ -1,4 +1,4 @@
-"""Combined simple plot across domains (plan 0007): the um_country_simple.png panel for each
+"""Combined simple plot across domains (plan 0011): the um_country_simple.png panel for each
 domain whose judge met the 85% gold target (emotion is excluded: 0.71). Same rules as
 um_plot_simple.py: committed mentions the probe can test at their own layer, no nearby tier.
 """

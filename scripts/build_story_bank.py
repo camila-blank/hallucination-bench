@@ -16,16 +16,18 @@ Deterministic; re-run to rebuild. Fails loudly on any check in plan 0007 §Bank.
 import argparse
 import hashlib
 import json
+import os
 import subprocess
 from pathlib import Path
 from typing import Any
 
 REPO = Path(__file__).resolve().parents[1]
 OUT = REPO / "data" / "story"
-DEFAULT_SRC = Path(
-    "/workspace/global-workspace/evals/workspace-bench/hillclimbing_evals/hallucination/creative"
-)
 SRC_REL = "evals/workspace-bench/hillclimbing_evals/hallucination/creative"
+# a global-workspace checkout (same variable as hallucination_bench.paths.GLOBAL_WORKSPACE)
+DEFAULT_SRC = (
+    Path(os.environ.get("HBENCH_GLOBAL_WORKSPACE") or "/workspace/global-workspace") / SRC_REL
+)
 MAX_SITES = 8
 N_ITEMS = 20
 SITE_KEYS = ("pos", "token", "kind", "char")

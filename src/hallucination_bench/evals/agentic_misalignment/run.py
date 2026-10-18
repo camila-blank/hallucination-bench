@@ -44,7 +44,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
-from hallucination_bench import summarizer
+from hallucination_bench import paths, summarizer
 from hallucination_bench.cache import Cache, fingerprint
 from hallucination_bench.evals.wsbench_chat.run import (
     MAP_INVALID_RETRIES,
@@ -61,7 +61,7 @@ from . import NAME, bank, detect, intent, score, verify
 from . import kinds as K
 
 READOUTS_FILE = "agentic_misalignment.jsonl"
-DEFAULT_READOUTS_ROOT = Path("/workspace/wsbench-paper-data/readouts")
+DEFAULT_READOUTS_ROOT = paths.READOUTS_ROOT
 DEFAULT_ARMS: tuple[str, ...] = ("s3d-rl600", "nla-rl-L42", "jlens")
 STAGES: tuple[str, ...] = ("detect", "summ", "verify", "map", "intent")
 MAP_ARM_ORDER: tuple[str, ...] = ("nla-rl-L42", "s3d-rl600", "jlens")

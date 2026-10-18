@@ -9,13 +9,14 @@ from pathlib import Path
 
 import pytest
 
+from hallucination_bench import paths
 from hallucination_bench.evals.sibling_probe import CATEGORIES, SYSTEM_PROMPT
 from hallucination_bench.evals.sibling_probe import bank as B
 from hallucination_bench.evals.sibling_probe import concepts as C
 from hallucination_bench.readouts import _bytes_to_unicode
 
 INV = C.load_inventory()
-WSB_SRC = Path("/workspace/root/wsbench-pub/src")
+WSB_SRC = paths.WSBENCH_PUB / "src"
 PILOT = Path(__file__).resolve().parents[1] / "data" / "sibling_probe" / "pilot"
 
 
@@ -266,7 +267,10 @@ def test_window_identity_on_pilot_and_quote_failure():
     assert tok.decode(canon).endswith("<|im_start|>assistant\n<think>\n\n</think>\n\n")
 
 
-@pytest.mark.skipif(not WSB_SRC.is_dir(), reason="wsbench-pub checkout absent")
+@pytest.mark.skipif(
+    not WSB_SRC.is_dir(),
+    reason=f"wsbench-pub checkout absent at {WSB_SRC} (set HBENCH_WSBENCH_PUB)",
+)
 def test_from_last_sentence_start_matches_wsbench():
     tok = tokenizer()
     sys.path.insert(0, str(WSB_SRC))

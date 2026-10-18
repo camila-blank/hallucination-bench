@@ -5,12 +5,12 @@
 # already-judged layers are reused from the cache).
 set -euo pipefail
 arm=$1; gen=$2; kind=$3
-G=/workspace/gw-mlnla/outputs/oracle_lens_evals/olens_sglang
+G=${HBENCH_MLNLA_GEN:-/workspace/gw-mlnla/outputs/oracle_lens_evals/olens_sglang}
 cd $G && MODAL_RESOURCE_ENV=camila-blank uvx --python 3.12 modal@latest volume get wsbench-gen-3 /$gen . --force >/dev/null
 tmp=/tmp/hbx6_$arm.jsonl
-cd /workspace/root/wsbench-pub && /workspace/root/wsbench-venv/bin/python -m wsbench convert-gen-dir gen_dir=$G/$gen out=$tmp kind=$kind | tail -1
-src=/workspace/wsbench-paper-data/readouts/$arm/hallucination.jsonl
-dst=/workspace/hb-readouts/$arm
+cd ${HBENCH_WSBENCH_PUB:-/workspace/root/wsbench-pub} && ${HBENCH_WSBENCH_PY:-/workspace/root/wsbench-venv/bin/python} -m wsbench convert-gen-dir gen_dir=$G/$gen out=$tmp kind=$kind | tail -1
+src=${HBENCH_READOUTS_ROOT:-/workspace/wsbench-paper-data/readouts}/$arm/hallucination.jsonl
+dst=${HBENCH_EXTRA_READOUTS:-/workspace/hb-readouts}/$arm
 [ -L $dst ] && rm $dst
 mkdir -p $dst
 python3 - "$src" "$tmp" "$dst/hallucination.jsonl" <<'PY'

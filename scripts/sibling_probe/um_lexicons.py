@@ -1,4 +1,4 @@
-"""Plan 0007 step 1: comprehensive lexicons for occupation / emotion / capital_city / holiday.
+"""Plan 0011 step 1: comprehensive lexicons for occupation / emotion / capital_city / holiday.
 
 Seeded with the Set A inventory (`data/sibling_probe/concepts.json` of the plan 0003 worktree:
 concept ids, aliases, merges, exclusion phrases); `claude-opus-5-5` (prompt `umlex-v1`, cached in
@@ -16,14 +16,15 @@ import argparse
 import asyncio
 import json
 import re
-from pathlib import Path
 from typing import Any
 
-from hallucination_bench import REPO_ROOT
+from hallucination_bench import DATA, REPO_ROOT
 from hallucination_bench.cache import Cache, fingerprint
 from hallucination_bench.llm import LLM, schema_block
 
-SRC = Path("/workspace/hb-sibling-probes/data/sibling_probe/concepts.json")
+SRC = (
+    DATA / "sibling_probe" / "concepts.json"
+)  # tracked; was read from the hb-sibling-probes checkout
 OUT = REPO_ROOT / "data" / "sibling_probe" / "um_lexicons.json"
 CACHE = REPO_ROOT / "outputs" / "sibling" / "um" / "lexicon_cache.jsonl"
 MODEL = "claude-opus-5-5"

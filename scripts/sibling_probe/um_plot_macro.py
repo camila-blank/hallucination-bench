@@ -1,4 +1,4 @@
-"""Macro average across user-modelling domains (plan 0007): the unweighted mean over domains of
+"""Macro average across user-modelling domains (plan 0011): the unweighted mean over domains of
 each label's share among committed, probe-testable sibling mentions (no nearby tier). Two panels:
 all four domains, and without occupation (its judge's committed precision is 0.50). Error bar:
 95% CI on the macro hallucination share, items resampled within each domain (1,000 draws)."""

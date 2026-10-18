@@ -36,7 +36,7 @@ except ImportError:  # pragma: no cover
 
 
 def _key(ts: P.TextSet) -> np.ndarray:
-    """Position key for centring and the null (plan 0007): ``ending * 1000 + offset``. With one
+    """Position key for centring and the null (plan 0011): ``ending * 1000 + offset``. With one
     request sentence (ending 0) it equals the offset, so one-ending results are unchanged."""
     return np.asarray(ts.ending, dtype=np.int64) * 1000 + np.asarray(ts.offset, dtype=np.int64)
 

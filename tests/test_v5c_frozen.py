@@ -6,16 +6,15 @@ import json
 import random
 import re
 from collections import Counter
-from pathlib import Path
 from typing import Any
 
 import pytest
 
-from hallucination_bench import DATA
+from hallucination_bench import DATA, paths
 from hallucination_bench.evals.wsbench_chat import bank
 from hallucination_bench.judges import v5c
 
-SOURCE = Path("/workspace/root/wsbench-pub/src/wsbench/evals/hallucination/prompts.py")
+SOURCE = paths.WSBENCH_PUB / "src" / "wsbench" / "evals" / "hallucination" / "prompts.py"
 README = DATA / "wsbench_chat" / "README.md"
 _FENCE = re.compile(r"(`{3,})[^\n]*\n(.*?)\1", re.DOTALL)
 
@@ -89,7 +88,10 @@ def _source_literals() -> dict[str, str]:
     return out
 
 
-@pytest.mark.skipif(not SOURCE.exists(), reason="wsbench-pub clone not present")
+@pytest.mark.skipif(
+    not SOURCE.exists(),
+    reason=f"wsbench-pub clone not present at {SOURCE} (set HBENCH_WSBENCH_PUB)",
+)
 def test_literals_equal_the_wsbench_pub_source() -> None:
     src = _source_literals()
     assert src["VERIFY_SYSTEM"] == v5c.VERIFY_SYSTEM

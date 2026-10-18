@@ -13,7 +13,7 @@
 set -uo pipefail
 cd "$(dirname "$0")/.."
 
-READOUTS_ROOT=${READOUTS_ROOT:-/workspace/wsbench-paper-data/readouts}
+READOUTS_ROOT=${READOUTS_ROOT:-${HBENCH_READOUTS_ROOT:-/workspace/wsbench-paper-data/readouts}}
 OUT=${OUT:-outputs}
 ARMS=${ARMS:-s3d-rl600,s3d-sft251,nla-rl-L42,nla-sft-L42,patchscopes,jlens,logit,tuned,rlens,template-v3,sae-l42}
 SESSION=${SESSION:-hbench}

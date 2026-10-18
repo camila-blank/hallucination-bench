@@ -49,7 +49,12 @@ src/hallucination_bench/
   report.py       cross-arm report, audit samples, pilot-dump
   report_v2.py    `report --view v2`, probe_candidates.jsonl, audit_samples_v2.md, pilot-dump-v2
   consistency_v2.py  `consistency-v2`: two fresh :M calls per sampled cell, κ / confusion / flags
-  cli.py          hbench run|calibrate|report|consistency-v2|pilot-dump|pilot-dump-v2|units-v2
+  cli.py          hbench run|calibrate|report|consistency-v2|pilot-dump|pilot-dump-v2|units-v2|
+                  sibling: shared commands + helpers; eval subcommands come from EVAL_CLIS
+  evals/<eval>/cli.py  an eval's own CLI: sibling_probe (`register(sub)`: hbench sibling ...),
+                  agentic_misalignment (run / report behind `--eval agentic_misalignment`).
+                  A new eval adds its CLI here, not in cli.py (plan 0012 D2)
+  paths.py        external locations as HBENCH_* env vars with dev-box defaults (plan 0012 D3)
   evals/sibling_probe/{concepts,bank}.py  plan 0003: inventory + alias matcher (text / token
                   bags), leak / 8-gram / window-identity checks, coverage rule, ReadSpec writers
   evals/sibling_probe/probes.py   cross-fit probes, recipes V2 (shrinkage-whitened DiffMean, primary) and V0
@@ -82,7 +87,7 @@ scripts/run_am.sh    AM driver: step1 (tmux hbench-am-detect) | step2 (tmux hben
 - `uv` for everything: `uv sync`, `uv run pytest`, `uv run ruff check`, `uv run ruff format --check`.
 - The v5c span/verify literals are frozen: `judges/v5c.py` asserts the span literals equal
   `data/wsbench_chat/judge_prompt_v5c_chat.json` at import; tests check the verify literals
-  against the wsbench-pub source (`/workspace/root/wsbench-pub`, skipped if absent) and the
+  against the wsbench-pub source (`$HBENCH_WSBENCH_PUB`, skipped if absent) and the
   data README. Never edit them; a classifier change bumps `taxonomy_v1.PROMPT_VERSION`
   (`taxonomy-v1.1`, ...), which re-queues only `:C` cache entries.
 - Label definitions live only in `taxonomy.py` / `taxonomy_v2.py`. Tests assert the prompt
@@ -97,11 +102,18 @@ scripts/run_am.sh    AM driver: step1 (tmux hbench-am-detect) | step2 (tmux hben
   `data/calibration/README.md`. Do not create or edit `data/calibration/heldout.jsonl` unless
   you are the designated blind author.
 - Modified pre-existing tests are a red flag in review: a test change must be sanctioned by the plan.
+- External paths come from `paths.py` (`HBENCH_*` env vars, dev-box defaults); never hardcode a
+  `/workspace/...` path in `src/`, `scripts/*.py` or `tests/`. Shell drivers `cd` to the repo
+  root from their own location and read `${HBENCH_X:-<default>}`.
+- CI (`.github/workflows/ci.yml`): a locked sync, ruff check + format, and `pytest -rs` with
+  `--with scikit-learn` and `HF_HUB_OFFLINE=1`. Run the same locally before pushing. Plan
+  numbers are unique: the next free one is 0013 (0009/0010 belong to the unlanded
+  resampling-gate branches).
 
 ## Run commands
 
 ```bash
-R=/workspace/wsbench-paper-data/readouts
+R=${HBENCH_READOUTS_ROOT:-/workspace/wsbench-paper-data/readouts}
 uv run hbench run --out outputs/smoke --readouts-root $R --arms s3d-rl600,nla-rl-L42,jlens \
     --layers 42,44 --limit 5 --show-prompts 5          # smoke; prompts -> <arm>/prompts_sample.txt
 uv run hbench run --rebuild --readouts-root $R --arms jlens --out outputs   # no API calls
@@ -379,7 +391,7 @@ uv run python scripts/sibling_probe/viewer/build_viewer.py  # viewer incl. the l
 ## sibling_probe plan 0006 (user-modelling ladder v2, country)
 
 ```bash
-S=scripts/sibling_probe/um_ladder.py            # inputs read from --src-root (default /workspace/hb-sibling-probes)
+S=scripts/sibling_probe/um_ladder.py            # inputs read from --src-root (default $HBENCH_SIBLING_SRC_ROOT)
 uv run --no-sync python $S summarize            # missing J-lens summaries (token-hit cells only)
 uv run --no-sync python $S mentions             # -> outputs/sibling/um/{mentions,strata}.jsonl, counts.json
 uv run --no-sync python $S todo                 # dev 40 / gold 80 (+ dev2 60, see data README)
@@ -420,3 +432,14 @@ uv run --no-sync python $S label && uv run --no-sync python $S figures
   whose sha256 differs from the one Phase B recorded.
 - sklearn is not a project dependency: `uv run --with scikit-learn` for the logistic test
   (skipped otherwise); the Modal image installs it.
+
+## sibling_probe plan 0011 (user-modelling ladder, 4 more domains)
+
+Plan 0011 was numbered 0007 until plan 0012 renumbered it (story holds 0007). The same driver
+as plan 0006 with `--category occupation|emotion|capital_city|holiday`
+(`scripts/sibling_probe/um_run_domains_stage1.sh`, `um_run_domain_stage2.sh`); domain library
+`evals/sibling_probe/um_domains.py`, lexicons `data/sibling_probe/um_lexicons.json`
+(`scripts/sibling_probe/um_lexicons.py`); macro plots `um_plot_macro*.py`. No results doc yet.
+
+- **Unvalidated:** the adjacent-layer (L±1) code paths (`um_run_adj.sh`, added in `451b1e3`)
+  never finished a run. No result depends on them; validate before citing anything from them.

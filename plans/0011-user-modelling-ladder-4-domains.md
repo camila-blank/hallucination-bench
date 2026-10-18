@@ -1,4 +1,6 @@
-# Plan 0007: the plan 0006 sibling ladder on 4 more user-modelling domains
+# Plan 0011: the plan 0006 sibling ladder on 4 more user-modelling domains
+
+> Numbered 0007 until plan 0012 (D1) renumbered it: `plans/0007-story-eval.md` already held 0007.
 
 Branch `camila/um-ladder-v2` (stacked on plan 0006). Author: Camila Blank (planned with Claude),
 2026-10-13. Revision 2 (after critique 1; the section below overrides the body).
@@ -159,7 +161,7 @@ Outputs per domain go to `outputs/sibling/um/<domain>/`; country stays at
 
 - `plots/sibling_probe/um_<domain>_simple.png` for the 4 domains, plus
   `um_5domains_simple.png`.
-- `docs/results/0007_um_4domains.md`:
+- `docs/results/0011_um_4domains.md`:
   - per domain: mention / commit counts, the plot's table with CIs, probe quality, judge
     calibration, the n/a share;
   - the plan 0006 gate per domain, reported (it does not block anything here).
