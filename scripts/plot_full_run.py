@@ -36,7 +36,6 @@ METHODS = [
     ("s3d-sft251", "O-lens SFT (11 layers)", "prose"),
     ("mlnla-rl600-all11", "ML-NLA step 600 (11 layers)", "prose"),
     ("mlnla-rl600-all11@44", "ML-NLA step 600 (L44)", "prose"),
-    ("mlnla-rl2-800-all11", "ML-NLA step 800 (11 layers)", "prose"),
     ("nla-rl-L42", "NLA-RL (L42)", "prose"),
     ("nla-sft-L42", "NLA-SFT (L42)", "prose"),
     ("patchscopes", "Patchscopes (11 layers)", "prose"),
@@ -318,7 +317,7 @@ def main() -> None:
         "By layer: hallucinated share of text",
         out / "layers_share.png",
     )
-    headline(out / "hallucinationbench_per_method.png")
+    headline(out / "hallucinationbench_per_method.png", FULL11_METHODS)
     headline(
         out / "hallucinationbench_per_method_and_layer.png",
         PER_LAYER_METHODS,
@@ -329,6 +328,8 @@ def main() -> None:
 
 
 LAYERS11 = range(20, 61, 4)
+# headline plot: methods pooled over all 11 layers, plus the single-layer NLA baselines (L42)
+FULL11_METHODS = [m for m in METHODS if "(11 layers)" in m[1] or m[0].startswith("nla-")]
 PER_LAYER_METHODS = [
     m for m in METHODS if m[0] not in ("s3d-rl600-all11", "mlnla-rl600-all11@44")
 ] + [

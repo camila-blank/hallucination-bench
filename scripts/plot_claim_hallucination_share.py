@@ -28,7 +28,6 @@ METHODS = [
     ("s3d-rl600-all11", "O-lens RL (11 layers)", False),
     ("s3d-sft251", "O-lens SFT (11 layers)", False),
     ("mlnla-rl600-all11", "ML-NLA step 600 (11 layers)", False),
-    ("mlnla-rl2-800-all11", "ML-NLA step 800 (11 layers)", False),
     ("nla-rl-L42", "NLA-RL (L42)", False),
     ("nla-sft-L42", "NLA-SFT (L42)", False),
     ("patchscopes", "Patchscopes (11 layers)", False),
@@ -160,8 +159,13 @@ def main() -> None:
         )
 
     rows = [row(f"{lab}{' †' if tok else ''}", tallies[arm]["all"]) for arm, lab, tok in METHODS]
+    # headline: methods pooled over all 11 layers, plus the single-layer NLA baselines (L42)
     bar_plot(
-        rows,
+        [
+            r
+            for r, (arm, lab, _) in zip(rows, METHODS, strict=True)
+            if "(11 layers)" in lab or arm.startswith("nla-")
+        ],
         "% of claims that are hallucinations, per method",
         out / "claims_hallucination_share.png",
         7.8,
