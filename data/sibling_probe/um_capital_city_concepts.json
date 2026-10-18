@@ -1,0 +1,934 @@
+{
+ "version": "umconcepts-v1",
+ "rule": "golds + siblings with >= 3 committed units + the 16 most-mentioned other concepts (not compatible with a gold); cap 80 (pool trimmed first)",
+ "concepts": [
+  {
+   "id": "amsterdam",
+   "label": "Amsterdam",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 43,
+   "n_mentions": 45,
+   "informal": []
+  },
+  {
+   "id": "athens",
+   "label": "Athens",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 36,
+   "n_mentions": 39,
+   "informal": []
+  },
+  {
+   "id": "bangkok",
+   "label": "Bangkok",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 3,
+   "n_mentions": 7,
+   "informal": []
+  },
+  {
+   "id": "barcelona",
+   "label": "Barcelona",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 57,
+   "n_mentions": 65,
+   "informal": []
+  },
+  {
+   "id": "beijing",
+   "label": "Beijing",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 36,
+   "n_mentions": 53,
+   "informal": []
+  },
+  {
+   "id": "berlin",
+   "label": "Berlin",
+   "roles": [
+    "gold"
+   ],
+   "region": null,
+   "n_committed": 41,
+   "n_mentions": 48,
+   "informal": []
+  },
+  {
+   "id": "boston",
+   "label": "Boston",
+   "roles": [
+    "gold"
+   ],
+   "region": null,
+   "n_committed": 330,
+   "n_mentions": 373,
+   "informal": []
+  },
+  {
+   "id": "bratislava",
+   "label": "Bratislava",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 3,
+   "n_mentions": 3,
+   "informal": []
+  },
+  {
+   "id": "brussels",
+   "label": "Brussels",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 7,
+   "n_mentions": 8,
+   "informal": []
+  },
+  {
+   "id": "budapest",
+   "label": "Budapest",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 27,
+   "n_mentions": 39,
+   "informal": []
+  },
+  {
+   "id": "cairo",
+   "label": "Cairo",
+   "roles": [
+    "gold"
+   ],
+   "region": null,
+   "n_committed": 38,
+   "n_mentions": 57,
+   "informal": []
+  },
+  {
+   "id": "cape_town",
+   "label": "Cape Town",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 5,
+   "n_mentions": 7,
+   "informal": []
+  },
+  {
+   "id": "chengdu",
+   "label": "Chengdu",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 4,
+   "n_mentions": 22,
+   "informal": []
+  },
+  {
+   "id": "chicago",
+   "label": "Chicago",
+   "roles": [
+    "gold"
+   ],
+   "region": null,
+   "n_committed": 102,
+   "n_mentions": 122,
+   "informal": []
+  },
+  {
+   "id": "copenhagen",
+   "label": "Copenhagen",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 11,
+   "n_mentions": 12,
+   "informal": []
+  },
+  {
+   "id": "delhi",
+   "label": "Delhi",
+   "roles": [
+    "pool:*"
+   ],
+   "region": null,
+   "n_committed": 2,
+   "n_mentions": 5,
+   "informal": []
+  },
+  {
+   "id": "dubai",
+   "label": "Dubai",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 12,
+   "n_mentions": 19,
+   "informal": []
+  },
+  {
+   "id": "dublin",
+   "label": "Dublin",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 24,
+   "n_mentions": 30,
+   "informal": []
+  },
+  {
+   "id": "edinburgh",
+   "label": "Edinburgh",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 91,
+   "n_mentions": 104,
+   "informal": []
+  },
+  {
+   "id": "florence",
+   "label": "Florence",
+   "roles": [
+    "gold"
+   ],
+   "region": null,
+   "n_committed": 103,
+   "n_mentions": 108,
+   "informal": []
+  },
+  {
+   "id": "frankfurt",
+   "label": "Frankfurt",
+   "roles": [
+    "pool:*"
+   ],
+   "region": null,
+   "n_committed": 2,
+   "n_mentions": 7,
+   "informal": []
+  },
+  {
+   "id": "geneva",
+   "label": "Geneva",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 3,
+   "n_mentions": 3,
+   "informal": []
+  },
+  {
+   "id": "guangzhou",
+   "label": "Guangzhou",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 5,
+   "n_mentions": 5,
+   "informal": []
+  },
+  {
+   "id": "hamburg",
+   "label": "Hamburg",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 3,
+   "n_mentions": 3,
+   "informal": []
+  },
+  {
+   "id": "hangzhou",
+   "label": "Hangzhou",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 4,
+   "n_mentions": 5,
+   "informal": []
+  },
+  {
+   "id": "hanoi",
+   "label": "Hanoi",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 5,
+   "n_mentions": 9,
+   "informal": []
+  },
+  {
+   "id": "helsinki",
+   "label": "Helsinki",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 4,
+   "n_mentions": 5,
+   "informal": []
+  },
+  {
+   "id": "hiroshima",
+   "label": "Hiroshima",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 4,
+   "n_mentions": 6,
+   "informal": []
+  },
+  {
+   "id": "hong_kong",
+   "label": "Hong Kong",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 41,
+   "n_mentions": 52,
+   "informal": []
+  },
+  {
+   "id": "istanbul",
+   "label": "Istanbul",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 19,
+   "n_mentions": 23,
+   "informal": []
+  },
+  {
+   "id": "jerusalem",
+   "label": "Jerusalem",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 5,
+   "n_mentions": 5,
+   "informal": []
+  },
+  {
+   "id": "krakow",
+   "label": "Krakow",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 3,
+   "n_mentions": 3,
+   "informal": []
+  },
+  {
+   "id": "kyiv",
+   "label": "Kyiv",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 4,
+   "n_mentions": 5,
+   "informal": []
+  },
+  {
+   "id": "kyoto",
+   "label": "Kyoto",
+   "roles": [
+    "gold"
+   ],
+   "region": null,
+   "n_committed": 103,
+   "n_mentions": 120,
+   "informal": []
+  },
+  {
+   "id": "las_vegas",
+   "label": "Las Vegas",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 9,
+   "n_mentions": 14,
+   "informal": []
+  },
+  {
+   "id": "lisbon",
+   "label": "Lisbon",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 21,
+   "n_mentions": 26,
+   "informal": []
+  },
+  {
+   "id": "london",
+   "label": "London",
+   "roles": [
+    "gold"
+   ],
+   "region": null,
+   "n_committed": 464,
+   "n_mentions": 540,
+   "informal": []
+  },
+  {
+   "id": "los_angeles",
+   "label": "Los Angeles",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 63,
+   "n_mentions": 86,
+   "informal": []
+  },
+  {
+   "id": "luxor",
+   "label": "Luxor",
+   "roles": [
+    "gold"
+   ],
+   "region": null,
+   "n_committed": 51,
+   "n_mentions": 63,
+   "informal": []
+  },
+  {
+   "id": "lyon",
+   "label": "Lyon",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 10,
+   "n_mentions": 10,
+   "informal": []
+  },
+  {
+   "id": "madrid",
+   "label": "Madrid",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 8,
+   "n_mentions": 12,
+   "informal": []
+  },
+  {
+   "id": "marrakesh",
+   "label": "Marrakesh",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 7,
+   "n_mentions": 9,
+   "informal": []
+  },
+  {
+   "id": "melbourne",
+   "label": "Melbourne",
+   "roles": [
+    "pool:*"
+   ],
+   "region": null,
+   "n_committed": 1,
+   "n_mentions": 4,
+   "informal": []
+  },
+  {
+   "id": "mexico_city",
+   "label": "Mexico City",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 3,
+   "n_mentions": 4,
+   "informal": []
+  },
+  {
+   "id": "miami",
+   "label": "Miami",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 10,
+   "n_mentions": 12,
+   "informal": []
+  },
+  {
+   "id": "milan",
+   "label": "Milan",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 18,
+   "n_mentions": 23,
+   "informal": []
+  },
+  {
+   "id": "montreal",
+   "label": "Montreal",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 10,
+   "n_mentions": 14,
+   "informal": []
+  },
+  {
+   "id": "moscow",
+   "label": "Moscow",
+   "roles": [
+    "gold"
+   ],
+   "region": null,
+   "n_committed": 8,
+   "n_mentions": 10,
+   "informal": []
+  },
+  {
+   "id": "mumbai",
+   "label": "Mumbai",
+   "roles": [
+    "pool:*"
+   ],
+   "region": null,
+   "n_committed": 2,
+   "n_mentions": 5,
+   "informal": []
+  },
+  {
+   "id": "munich",
+   "label": "Munich",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 7,
+   "n_mentions": 9,
+   "informal": []
+  },
+  {
+   "id": "naples",
+   "label": "Naples",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 6,
+   "n_mentions": 7,
+   "informal": []
+  },
+  {
+   "id": "new_orleans",
+   "label": "New Orleans",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 44,
+   "n_mentions": 45,
+   "informal": []
+  },
+  {
+   "id": "new_york",
+   "label": "New York",
+   "roles": [
+    "gold"
+   ],
+   "region": null,
+   "n_committed": 530,
+   "n_mentions": 643,
+   "informal": []
+  },
+  {
+   "id": "osaka",
+   "label": "Osaka",
+   "roles": [
+    "gold"
+   ],
+   "region": null,
+   "n_committed": 37,
+   "n_mentions": 52,
+   "informal": []
+  },
+  {
+   "id": "paris",
+   "label": "Paris",
+   "roles": [
+    "gold"
+   ],
+   "region": null,
+   "n_committed": 565,
+   "n_mentions": 626,
+   "informal": []
+  },
+  {
+   "id": "prague",
+   "label": "Prague",
+   "roles": [
+    "gold"
+   ],
+   "region": null,
+   "n_committed": 81,
+   "n_mentions": 85,
+   "informal": []
+  },
+  {
+   "id": "reykjavik",
+   "label": "Reykjavik",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 3,
+   "n_mentions": 4,
+   "informal": []
+  },
+  {
+   "id": "rio_de_janeiro",
+   "label": "Rio de Janeiro",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 3,
+   "n_mentions": 4,
+   "informal": []
+  },
+  {
+   "id": "rome",
+   "label": "Rome",
+   "roles": [
+    "gold"
+   ],
+   "region": null,
+   "n_committed": 224,
+   "n_mentions": 256,
+   "informal": []
+  },
+  {
+   "id": "salzburg",
+   "label": "Salzburg",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 3,
+   "n_mentions": 3,
+   "informal": []
+  },
+  {
+   "id": "san_francisco",
+   "label": "San Francisco",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 158,
+   "n_mentions": 195,
+   "informal": []
+  },
+  {
+   "id": "sapporo",
+   "label": "Sapporo",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 3,
+   "n_mentions": 4,
+   "informal": []
+  },
+  {
+   "id": "seattle",
+   "label": "Seattle",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 106,
+   "n_mentions": 141,
+   "informal": []
+  },
+  {
+   "id": "seoul",
+   "label": "Seoul",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 44,
+   "n_mentions": 58,
+   "informal": []
+  },
+  {
+   "id": "shanghai",
+   "label": "Shanghai",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 20,
+   "n_mentions": 33,
+   "informal": []
+  },
+  {
+   "id": "singapore",
+   "label": "Singapore",
+   "roles": [
+    "sibling"
+   ],
+   "region": "south_east_asia",
+   "n_committed": 10,
+   "n_mentions": 18,
+   "informal": []
+  },
+  {
+   "id": "st_petersburg",
+   "label": "Saint Petersburg",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 39,
+   "n_mentions": 50,
+   "informal": []
+  },
+  {
+   "id": "stockholm",
+   "label": "Stockholm",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 5,
+   "n_mentions": 10,
+   "informal": []
+  },
+  {
+   "id": "sydney",
+   "label": "Sydney",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 20,
+   "n_mentions": 27,
+   "informal": []
+  },
+  {
+   "id": "taipei",
+   "label": "Taipei",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 4,
+   "n_mentions": 5,
+   "informal": []
+  },
+  {
+   "id": "tel_aviv",
+   "label": "Tel Aviv",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 3,
+   "n_mentions": 3,
+   "informal": []
+  },
+  {
+   "id": "tokyo",
+   "label": "Tokyo",
+   "roles": [
+    "gold"
+   ],
+   "region": null,
+   "n_committed": 343,
+   "n_mentions": 431,
+   "informal": []
+  },
+  {
+   "id": "toronto",
+   "label": "Toronto",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 9,
+   "n_mentions": 24,
+   "informal": []
+  },
+  {
+   "id": "vancouver",
+   "label": "Vancouver",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 34,
+   "n_mentions": 58,
+   "informal": []
+  },
+  {
+   "id": "venice",
+   "label": "Venice",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 169,
+   "n_mentions": 195,
+   "informal": []
+  },
+  {
+   "id": "vienna",
+   "label": "Vienna",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 73,
+   "n_mentions": 87,
+   "informal": []
+  },
+  {
+   "id": "warsaw",
+   "label": "Warsaw",
+   "roles": [
+    "pool:*"
+   ],
+   "region": null,
+   "n_committed": 2,
+   "n_mentions": 10,
+   "informal": []
+  },
+  {
+   "id": "washington",
+   "label": "Washington, D.C.",
+   "roles": [
+    "gold"
+   ],
+   "region": null,
+   "n_committed": 130,
+   "n_mentions": 171,
+   "informal": []
+  },
+  {
+   "id": "xian",
+   "label": "Xi'an",
+   "roles": [
+    "pool:*"
+   ],
+   "region": null,
+   "n_committed": 2,
+   "n_mentions": 12,
+   "informal": []
+  },
+  {
+   "id": "zurich",
+   "label": "Zurich",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 4,
+   "n_mentions": 5,
+   "informal": []
+  }
+ ],
+ "n_golds": 16,
+ "n_siblings": 58,
+ "n_pool": 6,
+ "trimmed_pool": [
+  "bern",
+  "cusco",
+  "ljubljana",
+  "marseille",
+  "honolulu",
+  "kuala_lumpur",
+  "macau",
+  "nairobi",
+  "nanjing",
+  "ottawa"
+ ],
+ "trimmed_siblings": [],
+ "committed_not_in_C": [
+  "agra",
+  "amman",
+  "ankara",
+  "belgrade",
+  "bern",
+  "bruges",
+  "cancun",
+  "casablanca",
+  "cusco",
+  "damascus",
+  "ho_chi_minh_city",
+  "honolulu",
+  "jaipur",
+  "kuala_lumpur",
+  "ljubljana",
+  "macau",
+  "manila",
+  "marseille",
+  "mecca",
+  "nairobi",
+  "nara",
+  "oslo",
+  "ottawa",
+  "porto",
+  "riga",
+  "santiago",
+  "sarajevo",
+  "tbilisi",
+  "ulaanbaatar",
+  "zagreb"
+ ]
+}

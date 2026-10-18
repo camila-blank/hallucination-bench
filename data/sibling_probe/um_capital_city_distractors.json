@@ -1,0 +1,1191 @@
+{
+ "version": "umdist-v1",
+ "layer": 44,
+ "rule": "4 nearest (grand-mean-centred implied centroids, cosine) + 4 seeded random among C, valid at L44 in both types, not gold / equivalent, not committed for the item",
+ "items": {
+  "gen-capital-city-berlin-a0-00": {
+   "item": "gen-capital-city-berlin-a0-00",
+   "gold": "berlin",
+   "nearest": [
+    "warsaw",
+    "kyiv",
+    "athens",
+    "munich"
+   ],
+   "random": [
+    "hanoi",
+    "las_vegas",
+    "luxor",
+    "sapporo"
+   ],
+   "distractors": [
+    "warsaw",
+    "kyiv",
+    "athens",
+    "munich",
+    "hanoi",
+    "las_vegas",
+    "luxor",
+    "sapporo"
+   ],
+   "n_eligible": 44,
+   "cos_to_gold": {
+    "warsaw": 0.3849,
+    "kyiv": 0.2133,
+    "athens": 0.2043,
+    "munich": 0.1925,
+    "hanoi": -0.1352,
+    "las_vegas": 0.0015,
+    "luxor": -0.0581,
+    "sapporo": -0.1794
+   }
+  },
+  "gen-capital-city-boston-a0-00": {
+   "item": "gen-capital-city-boston-a0-00",
+   "gold": "boston",
+   "nearest": [
+    "toronto",
+    "los_angeles",
+    "miami",
+    "melbourne"
+   ],
+   "random": [
+    "florence",
+    "lisbon",
+    "naples",
+    "shanghai"
+   ],
+   "distractors": [
+    "toronto",
+    "los_angeles",
+    "miami",
+    "melbourne",
+    "florence",
+    "lisbon",
+    "naples",
+    "shanghai"
+   ],
+   "n_eligible": 62,
+   "cos_to_gold": {
+    "toronto": 0.5237,
+    "los_angeles": 0.4518,
+    "miami": 0.3905,
+    "melbourne": 0.2055,
+    "florence": -0.0592,
+    "lisbon": -0.2917,
+    "naples": -0.0948,
+    "shanghai": -0.1306
+   }
+  },
+  "gen-capital-city-boston-a0-01": {
+   "item": "gen-capital-city-boston-a0-01",
+   "gold": "boston",
+   "nearest": [
+    "toronto",
+    "new_orleans",
+    "miami",
+    "vancouver"
+   ],
+   "random": [
+    "kyiv",
+    "kyoto",
+    "sapporo",
+    "seoul"
+   ],
+   "distractors": [
+    "toronto",
+    "new_orleans",
+    "miami",
+    "vancouver",
+    "kyiv",
+    "kyoto",
+    "sapporo",
+    "seoul"
+   ],
+   "n_eligible": 65,
+   "cos_to_gold": {
+    "toronto": 0.5237,
+    "new_orleans": 0.4391,
+    "miami": 0.3905,
+    "vancouver": 0.3887,
+    "kyiv": -0.241,
+    "kyoto": -0.2357,
+    "sapporo": -0.1408,
+    "seoul": -0.1331
+   }
+  },
+  "gen-capital-city-cairo-a0-00": {
+   "item": "gen-capital-city-cairo-a0-00",
+   "gold": "cairo",
+   "nearest": [
+    "bangkok",
+    "delhi",
+    "hanoi",
+    "beijing"
+   ],
+   "random": [
+    "krakow",
+    "milan",
+    "reykjavik",
+    "vancouver"
+   ],
+   "distractors": [
+    "bangkok",
+    "delhi",
+    "hanoi",
+    "beijing",
+    "krakow",
+    "milan",
+    "reykjavik",
+    "vancouver"
+   ],
+   "n_eligible": 48,
+   "cos_to_gold": {
+    "bangkok": 0.4712,
+    "delhi": 0.2984,
+    "hanoi": 0.2774,
+    "beijing": 0.2735,
+    "krakow": -0.0972,
+    "milan": -0.1839,
+    "reykjavik": -0.103,
+    "vancouver": -0.3123
+   }
+  },
+  "gen-capital-city-chicago-a0-00": {
+   "item": "gen-capital-city-chicago-a0-00",
+   "gold": "chicago",
+   "nearest": [
+    "new_orleans",
+    "toronto",
+    "montreal",
+    "melbourne"
+   ],
+   "random": [
+    "brussels",
+    "lyon",
+    "mexico_city",
+    "mumbai"
+   ],
+   "distractors": [
+    "new_orleans",
+    "toronto",
+    "montreal",
+    "melbourne",
+    "brussels",
+    "lyon",
+    "mexico_city",
+    "mumbai"
+   ],
+   "n_eligible": 61,
+   "cos_to_gold": {
+    "new_orleans": 0.5935,
+    "toronto": 0.5455,
+    "montreal": 0.4262,
+    "melbourne": 0.2175,
+    "brussels": -0.0981,
+    "lyon": -0.2052,
+    "mexico_city": 0.1591,
+    "mumbai": -0.0517
+   }
+  },
+  "gen-capital-city-chicago-a0-01": {
+   "item": "gen-capital-city-chicago-a0-01",
+   "gold": "chicago",
+   "nearest": [
+    "washington",
+    "las_vegas",
+    "montreal",
+    "melbourne"
+   ],
+   "random": [
+    "hangzhou",
+    "moscow",
+    "prague",
+    "sapporo"
+   ],
+   "distractors": [
+    "washington",
+    "las_vegas",
+    "montreal",
+    "melbourne",
+    "hangzhou",
+    "moscow",
+    "prague",
+    "sapporo"
+   ],
+   "n_eligible": 65,
+   "cos_to_gold": {
+    "washington": 0.5029,
+    "las_vegas": 0.4959,
+    "montreal": 0.4262,
+    "melbourne": 0.2175,
+    "hangzhou": -0.2909,
+    "moscow": -0.1264,
+    "prague": -0.1657,
+    "sapporo": -0.0178
+   }
+  },
+  "gen-capital-city-florence-a0-00": {
+   "item": "gen-capital-city-florence-a0-00",
+   "gold": "florence",
+   "nearest": [
+    "athens",
+    "naples",
+    "salzburg",
+    "marrakesh"
+   ],
+   "random": [
+    "delhi",
+    "hanoi",
+    "singapore",
+    "taipei"
+   ],
+   "distractors": [
+    "athens",
+    "naples",
+    "salzburg",
+    "marrakesh",
+    "delhi",
+    "hanoi",
+    "singapore",
+    "taipei"
+   ],
+   "n_eligible": 48,
+   "cos_to_gold": {
+    "athens": 0.4145,
+    "naples": 0.3212,
+    "salzburg": 0.2958,
+    "marrakesh": 0.25,
+    "delhi": -0.1899,
+    "hanoi": -0.1974,
+    "singapore": -0.2598,
+    "taipei": -0.3258
+   }
+  },
+  "gen-capital-city-florence-a0-01": {
+   "item": "gen-capital-city-florence-a0-01",
+   "gold": "florence",
+   "nearest": [
+    "athens",
+    "marrakesh",
+    "luxor",
+    "lyon"
+   ],
+   "random": [
+    "cairo",
+    "guangzhou",
+    "las_vegas",
+    "munich"
+   ],
+   "distractors": [
+    "athens",
+    "marrakesh",
+    "luxor",
+    "lyon",
+    "cairo",
+    "guangzhou",
+    "las_vegas",
+    "munich"
+   ],
+   "n_eligible": 51,
+   "cos_to_gold": {
+    "athens": 0.4145,
+    "marrakesh": 0.25,
+    "luxor": 0.2308,
+    "lyon": 0.2063,
+    "cairo": 0.0794,
+    "guangzhou": -0.1918,
+    "las_vegas": -0.1142,
+    "munich": 0.0083
+   }
+  },
+  "gen-capital-city-kyoto-a0-00": {
+   "item": "gen-capital-city-kyoto-a0-00",
+   "gold": "kyoto",
+   "nearest": [
+    "hangzhou",
+    "xian",
+    "chengdu",
+    "sapporo"
+   ],
+   "random": [
+    "chicago",
+    "hanoi",
+    "munich",
+    "singapore"
+   ],
+   "distractors": [
+    "hangzhou",
+    "xian",
+    "chengdu",
+    "sapporo",
+    "chicago",
+    "hanoi",
+    "munich",
+    "singapore"
+   ],
+   "n_eligible": 49,
+   "cos_to_gold": {
+    "hangzhou": 0.3626,
+    "xian": 0.2936,
+    "chengdu": 0.2711,
+    "sapporo": 0.2644,
+    "chicago": -0.2935,
+    "hanoi": 0.2346,
+    "munich": -0.0767,
+    "singapore": -0.0222
+   }
+  },
+  "gen-capital-city-kyoto-a0-01": {
+   "item": "gen-capital-city-kyoto-a0-01",
+   "gold": "kyoto",
+   "nearest": [
+    "hiroshima",
+    "xian",
+    "chengdu",
+    "marrakesh"
+   ],
+   "random": [
+    "geneva",
+    "jerusalem",
+    "rio_de_janeiro",
+    "toronto"
+   ],
+   "distractors": [
+    "hiroshima",
+    "xian",
+    "chengdu",
+    "marrakesh",
+    "geneva",
+    "jerusalem",
+    "rio_de_janeiro",
+    "toronto"
+   ],
+   "n_eligible": 47,
+   "cos_to_gold": {
+    "hiroshima": 0.3285,
+    "xian": 0.2936,
+    "chengdu": 0.2711,
+    "marrakesh": 0.2168,
+    "geneva": 0.0038,
+    "jerusalem": 0.1041,
+    "rio_de_janeiro": -0.079,
+    "toronto": -0.3758
+   }
+  },
+  "gen-capital-city-london-a0-01": {
+   "item": "gen-capital-city-london-a0-01",
+   "gold": "london",
+   "nearest": [
+    "melbourne",
+    "madrid",
+    "copenhagen",
+    "rome"
+   ],
+   "random": [
+    "amsterdam",
+    "budapest",
+    "chengdu",
+    "mexico_city"
+   ],
+   "distractors": [
+    "melbourne",
+    "madrid",
+    "copenhagen",
+    "rome",
+    "amsterdam",
+    "budapest",
+    "chengdu",
+    "mexico_city"
+   ],
+   "n_eligible": 60,
+   "cos_to_gold": {
+    "melbourne": 0.3802,
+    "madrid": 0.2567,
+    "copenhagen": 0.2445,
+    "rome": 0.1864,
+    "amsterdam": 0.1842,
+    "budapest": 0.0815,
+    "chengdu": -0.2845,
+    "mexico_city": -0.1233
+   }
+  },
+  "gen-capital-city-luxor-a0-00": {
+   "item": "gen-capital-city-luxor-a0-00",
+   "gold": "luxor",
+   "nearest": [
+    "xian",
+    "jerusalem",
+    "marrakesh",
+    "athens"
+   ],
+   "random": [
+    "hangzhou",
+    "melbourne",
+    "osaka",
+    "vancouver"
+   ],
+   "distractors": [
+    "xian",
+    "jerusalem",
+    "marrakesh",
+    "athens",
+    "hangzhou",
+    "melbourne",
+    "osaka",
+    "vancouver"
+   ],
+   "n_eligible": 55,
+   "cos_to_gold": {
+    "xian": 0.4334,
+    "jerusalem": 0.3694,
+    "marrakesh": 0.3692,
+    "athens": 0.2485,
+    "hangzhou": 0.1005,
+    "melbourne": -0.302,
+    "osaka": 0.0196,
+    "vancouver": -0.3436
+   }
+  },
+  "gen-capital-city-luxor-a0-01": {
+   "item": "gen-capital-city-luxor-a0-01",
+   "gold": "luxor",
+   "nearest": [
+    "jerusalem",
+    "st_petersburg",
+    "naples",
+    "geneva"
+   ],
+   "random": [
+    "hangzhou",
+    "lisbon",
+    "moscow",
+    "rio_de_janeiro"
+   ],
+   "distractors": [
+    "jerusalem",
+    "st_petersburg",
+    "naples",
+    "geneva",
+    "hangzhou",
+    "lisbon",
+    "moscow",
+    "rio_de_janeiro"
+   ],
+   "n_eligible": 51,
+   "cos_to_gold": {
+    "jerusalem": 0.3694,
+    "st_petersburg": 0.2375,
+    "naples": 0.2318,
+    "geneva": 0.202,
+    "hangzhou": 0.1005,
+    "lisbon": -0.0814,
+    "moscow": 0.0218,
+    "rio_de_janeiro": 0.0638
+   }
+  },
+  "gen-capital-city-moscow-a0-00": {
+   "item": "gen-capital-city-moscow-a0-00",
+   "gold": "moscow",
+   "nearest": [
+    "kyiv",
+    "reykjavik",
+    "helsinki",
+    "copenhagen"
+   ],
+   "random": [
+    "dubai",
+    "hiroshima",
+    "luxor",
+    "salzburg"
+   ],
+   "distractors": [
+    "kyiv",
+    "reykjavik",
+    "helsinki",
+    "copenhagen",
+    "dubai",
+    "hiroshima",
+    "luxor",
+    "salzburg"
+   ],
+   "n_eligible": 43,
+   "cos_to_gold": {
+    "kyiv": 0.3609,
+    "reykjavik": 0.2401,
+    "helsinki": 0.2005,
+    "copenhagen": 0.1989,
+    "dubai": -0.0592,
+    "hiroshima": -0.1315,
+    "luxor": 0.0218,
+    "salzburg": -0.0799
+   }
+  },
+  "gen-capital-city-new-york-a0-00": {
+   "item": "gen-capital-city-new-york-a0-00",
+   "gold": "new_york",
+   "nearest": [
+    "toronto",
+    "las_vegas",
+    "new_orleans",
+    "miami"
+   ],
+   "random": [
+    "brussels",
+    "mexico_city",
+    "osaka",
+    "stockholm"
+   ],
+   "distractors": [
+    "toronto",
+    "las_vegas",
+    "new_orleans",
+    "miami",
+    "brussels",
+    "mexico_city",
+    "osaka",
+    "stockholm"
+   ],
+   "n_eligible": 70,
+   "cos_to_gold": {
+    "toronto": 0.4538,
+    "las_vegas": 0.4487,
+    "new_orleans": 0.383,
+    "miami": 0.3454,
+    "brussels": -0.0565,
+    "mexico_city": 0.0422,
+    "osaka": -0.2307,
+    "stockholm": -0.2221
+   }
+  },
+  "gen-capital-city-new-york-a0-01": {
+   "item": "gen-capital-city-new-york-a0-01",
+   "gold": "new_york",
+   "nearest": [
+    "las_vegas",
+    "new_orleans",
+    "miami",
+    "sydney"
+   ],
+   "random": [
+    "istanbul",
+    "lisbon",
+    "munich",
+    "salzburg"
+   ],
+   "distractors": [
+    "las_vegas",
+    "new_orleans",
+    "miami",
+    "sydney",
+    "istanbul",
+    "lisbon",
+    "munich",
+    "salzburg"
+   ],
+   "n_eligible": 56,
+   "cos_to_gold": {
+    "las_vegas": 0.4487,
+    "new_orleans": 0.383,
+    "miami": 0.3454,
+    "sydney": 0.2194,
+    "istanbul": -0.1535,
+    "lisbon": -0.1865,
+    "munich": -0.1878,
+    "salzburg": -0.2758
+   }
+  },
+  "gen-capital-city-osaka-a0-00": {
+   "item": "gen-capital-city-osaka-a0-00",
+   "gold": "osaka",
+   "nearest": [
+    "sapporo",
+    "xian",
+    "frankfurt",
+    "naples"
+   ],
+   "random": [
+    "hangzhou",
+    "marrakesh",
+    "reykjavik",
+    "rio_de_janeiro"
+   ],
+   "distractors": [
+    "sapporo",
+    "xian",
+    "frankfurt",
+    "naples",
+    "hangzhou",
+    "marrakesh",
+    "reykjavik",
+    "rio_de_janeiro"
+   ],
+   "n_eligible": 48,
+   "cos_to_gold": {
+    "sapporo": 0.475,
+    "xian": 0.2695,
+    "frankfurt": 0.2223,
+    "naples": 0.2171,
+    "hangzhou": 0.1537,
+    "marrakesh": 0.0097,
+    "reykjavik": -0.0931,
+    "rio_de_janeiro": 0.018
+   }
+  },
+  "gen-capital-city-osaka-a0-01": {
+   "item": "gen-capital-city-osaka-a0-01",
+   "gold": "osaka",
+   "nearest": [
+    "xian",
+    "frankfurt",
+    "naples",
+    "singapore"
+   ],
+   "random": [
+    "berlin",
+    "las_vegas",
+    "miami",
+    "rome"
+   ],
+   "distractors": [
+    "xian",
+    "frankfurt",
+    "naples",
+    "singapore",
+    "berlin",
+    "las_vegas",
+    "miami",
+    "rome"
+   ],
+   "n_eligible": 48,
+   "cos_to_gold": {
+    "xian": 0.2695,
+    "frankfurt": 0.2223,
+    "naples": 0.2171,
+    "singapore": 0.2149,
+    "berlin": -0.1542,
+    "las_vegas": 0.0379,
+    "miami": -0.0723,
+    "rome": -0.2172
+   }
+  },
+  "gen-capital-city-paris-a0-00": {
+   "item": "gen-capital-city-paris-a0-00",
+   "gold": "paris",
+   "nearest": [
+    "athens",
+    "madrid",
+    "moscow",
+    "budapest"
+   ],
+   "random": [
+    "cairo",
+    "chengdu",
+    "guangzhou",
+    "hiroshima"
+   ],
+   "distractors": [
+    "athens",
+    "madrid",
+    "moscow",
+    "budapest",
+    "cairo",
+    "chengdu",
+    "guangzhou",
+    "hiroshima"
+   ],
+   "n_eligible": 45,
+   "cos_to_gold": {
+    "athens": 0.3689,
+    "madrid": 0.2877,
+    "moscow": 0.2258,
+    "budapest": 0.2102,
+    "cairo": 0.1406,
+    "chengdu": -0.3237,
+    "guangzhou": -0.2967,
+    "hiroshima": -0.2766
+   }
+  },
+  "gen-capital-city-prague-a0-00": {
+   "item": "gen-capital-city-prague-a0-00",
+   "gold": "prague",
+   "nearest": [
+    "warsaw",
+    "copenhagen",
+    "madrid",
+    "stockholm"
+   ],
+   "random": [
+    "hong_kong",
+    "melbourne",
+    "osaka",
+    "shanghai"
+   ],
+   "distractors": [
+    "warsaw",
+    "copenhagen",
+    "madrid",
+    "stockholm",
+    "hong_kong",
+    "melbourne",
+    "osaka",
+    "shanghai"
+   ],
+   "n_eligible": 44,
+   "cos_to_gold": {
+    "warsaw": 0.5414,
+    "copenhagen": 0.2576,
+    "madrid": 0.2241,
+    "stockholm": 0.2023,
+    "hong_kong": -0.1497,
+    "melbourne": -0.1498,
+    "osaka": -0.2169,
+    "shanghai": -0.1128
+   }
+  },
+  "gen-capital-city-prague-a0-01": {
+   "item": "gen-capital-city-prague-a0-01",
+   "gold": "prague",
+   "nearest": [
+    "moscow",
+    "brussels",
+    "kyiv",
+    "amsterdam"
+   ],
+   "random": [
+    "marrakesh",
+    "miami",
+    "milan",
+    "toronto"
+   ],
+   "distractors": [
+    "moscow",
+    "brussels",
+    "kyiv",
+    "amsterdam",
+    "marrakesh",
+    "miami",
+    "milan",
+    "toronto"
+   ],
+   "n_eligible": 39,
+   "cos_to_gold": {
+    "moscow": 0.3717,
+    "brussels": 0.2474,
+    "kyiv": 0.2472,
+    "amsterdam": 0.2299,
+    "marrakesh": 0.0226,
+    "miami": -0.3927,
+    "milan": 0.0756,
+    "toronto": -0.2314
+   }
+  },
+  "gen-capital-city-rome-a0-00": {
+   "item": "gen-capital-city-rome-a0-00",
+   "gold": "rome",
+   "nearest": [
+    "prague",
+    "madrid",
+    "luxor",
+    "lisbon"
+   ],
+   "random": [
+    "frankfurt",
+    "hong_kong",
+    "melbourne",
+    "osaka"
+   ],
+   "distractors": [
+    "prague",
+    "madrid",
+    "luxor",
+    "lisbon",
+    "frankfurt",
+    "hong_kong",
+    "melbourne",
+    "osaka"
+   ],
+   "n_eligible": 53,
+   "cos_to_gold": {
+    "prague": 0.3461,
+    "madrid": 0.2624,
+    "luxor": 0.2321,
+    "lisbon": 0.2299,
+    "frankfurt": -0.1964,
+    "hong_kong": -0.2236,
+    "melbourne": -0.2036,
+    "osaka": -0.2172
+   }
+  },
+  "gen-capital-city-tokyo-a0-00": {
+   "item": "gen-capital-city-tokyo-a0-00",
+   "gold": "tokyo",
+   "nearest": [
+    "bangkok",
+    "taipei",
+    "delhi",
+    "hanoi"
+   ],
+   "random": [
+    "barcelona",
+    "kyiv",
+    "lisbon",
+    "tel_aviv"
+   ],
+   "distractors": [
+    "bangkok",
+    "taipei",
+    "delhi",
+    "hanoi",
+    "barcelona",
+    "kyiv",
+    "lisbon",
+    "tel_aviv"
+   ],
+   "n_eligible": 50,
+   "cos_to_gold": {
+    "bangkok": 0.335,
+    "taipei": 0.2864,
+    "delhi": 0.1994,
+    "hanoi": 0.1445,
+    "barcelona": -0.134,
+    "kyiv": -0.0676,
+    "lisbon": -0.0509,
+    "tel_aviv": -0.1035
+   }
+  },
+  "gen-capital-city-washington-a0-00": {
+   "item": "gen-capital-city-washington-a0-00",
+   "gold": "washington",
+   "nearest": [
+    "miami",
+    "toronto",
+    "new_orleans",
+    "jerusalem"
+   ],
+   "random": [
+    "budapest",
+    "dublin",
+    "frankfurt",
+    "mumbai"
+   ],
+   "distractors": [
+    "miami",
+    "toronto",
+    "new_orleans",
+    "jerusalem",
+    "budapest",
+    "dublin",
+    "frankfurt",
+    "mumbai"
+   ],
+   "n_eligible": 64,
+   "cos_to_gold": {
+    "miami": 0.3727,
+    "toronto": 0.3399,
+    "new_orleans": 0.2914,
+    "jerusalem": 0.2091,
+    "budapest": -0.154,
+    "dublin": -0.0238,
+    "frankfurt": -0.1172,
+    "mumbai": -0.0422
+   }
+  },
+  "pilot-capital_city-00": {
+   "item": "pilot-capital_city-00",
+   "gold": "paris",
+   "nearest": [
+    "lisbon",
+    "madrid",
+    "berlin",
+    "brussels"
+   ],
+   "random": [
+    "munich",
+    "taipei",
+    "warsaw",
+    "xian"
+   ],
+   "distractors": [
+    "lisbon",
+    "madrid",
+    "berlin",
+    "brussels",
+    "munich",
+    "taipei",
+    "warsaw",
+    "xian"
+   ],
+   "n_eligible": 47,
+   "cos_to_gold": {
+    "lisbon": 0.3153,
+    "madrid": 0.2877,
+    "berlin": 0.2594,
+    "brussels": 0.24,
+    "munich": -0.0749,
+    "taipei": -0.324,
+    "warsaw": 0.1016,
+    "xian": -0.2896
+   }
+  },
+  "pilot-capital_city-01": {
+   "item": "pilot-capital_city-01",
+   "gold": "london",
+   "nearest": [
+    "dublin",
+    "melbourne",
+    "sydney",
+    "amsterdam"
+   ],
+   "random": [
+    "bangkok",
+    "berlin",
+    "geneva",
+    "singapore"
+   ],
+   "distractors": [
+    "dublin",
+    "melbourne",
+    "sydney",
+    "amsterdam",
+    "bangkok",
+    "berlin",
+    "geneva",
+    "singapore"
+   ],
+   "n_eligible": 57,
+   "cos_to_gold": {
+    "dublin": 0.4711,
+    "melbourne": 0.3802,
+    "sydney": 0.3021,
+    "amsterdam": 0.1842,
+    "bangkok": -0.0291,
+    "berlin": 0.1036,
+    "geneva": -0.1654,
+    "singapore": 0.0108
+   }
+  },
+  "pilot-capital_city-02": {
+   "item": "pilot-capital_city-02",
+   "gold": "tokyo",
+   "nearest": [
+    "bangkok",
+    "shanghai",
+    "delhi",
+    "chengdu"
+   ],
+   "random": [
+    "frankfurt",
+    "hamburg",
+    "istanbul",
+    "warsaw"
+   ],
+   "distractors": [
+    "bangkok",
+    "shanghai",
+    "delhi",
+    "chengdu",
+    "frankfurt",
+    "hamburg",
+    "istanbul",
+    "warsaw"
+   ],
+   "n_eligible": 43,
+   "cos_to_gold": {
+    "bangkok": 0.335,
+    "shanghai": 0.3267,
+    "delhi": 0.1994,
+    "chengdu": 0.1497,
+    "frankfurt": -0.1976,
+    "hamburg": -0.1887,
+    "istanbul": 0.138,
+    "warsaw": -0.0957
+   }
+  },
+  "pilot-capital_city-03": {
+   "item": "pilot-capital_city-03",
+   "gold": "rome",
+   "nearest": [
+    "madrid",
+    "luxor",
+    "berlin",
+    "cairo"
+   ],
+   "random": [
+    "budapest",
+    "hangzhou",
+    "hanoi",
+    "mumbai"
+   ],
+   "distractors": [
+    "madrid",
+    "luxor",
+    "berlin",
+    "cairo",
+    "budapest",
+    "hangzhou",
+    "hanoi",
+    "mumbai"
+   ],
+   "n_eligible": 49,
+   "cos_to_gold": {
+    "madrid": 0.2624,
+    "luxor": 0.2321,
+    "berlin": 0.2262,
+    "cairo": 0.2157,
+    "budapest": 0.2006,
+    "hangzhou": -0.1517,
+    "hanoi": -0.1653,
+    "mumbai": -0.1859
+   }
+  },
+  "pilot-capital_city-04": {
+   "item": "pilot-capital_city-04",
+   "gold": "berlin",
+   "nearest": [
+    "warsaw",
+    "hamburg",
+    "budapest",
+    "kyiv"
+   ],
+   "random": [
+    "bangkok",
+    "helsinki",
+    "jerusalem",
+    "tel_aviv"
+   ],
+   "distractors": [
+    "warsaw",
+    "hamburg",
+    "budapest",
+    "kyiv",
+    "bangkok",
+    "helsinki",
+    "jerusalem",
+    "tel_aviv"
+   ],
+   "n_eligible": 48,
+   "cos_to_gold": {
+    "warsaw": 0.3849,
+    "hamburg": 0.2718,
+    "budapest": 0.2488,
+    "kyiv": 0.2133,
+    "bangkok": -0.2138,
+    "helsinki": 0.0617,
+    "jerusalem": -0.0108,
+    "tel_aviv": -0.0521
+   }
+  },
+  "pilot-capital_city-05": {
+   "item": "pilot-capital_city-05",
+   "gold": "cairo",
+   "nearest": [
+    "marrakesh",
+    "delhi",
+    "hanoi",
+    "beijing"
+   ],
+   "random": [
+    "guangzhou",
+    "hiroshima",
+    "naples",
+    "stockholm"
+   ],
+   "distractors": [
+    "marrakesh",
+    "delhi",
+    "hanoi",
+    "beijing",
+    "guangzhou",
+    "hiroshima",
+    "naples",
+    "stockholm"
+   ],
+   "n_eligible": 44,
+   "cos_to_gold": {
+    "marrakesh": 0.4803,
+    "delhi": 0.2984,
+    "hanoi": 0.2774,
+    "beijing": 0.2735,
+    "guangzhou": 0.0404,
+    "hiroshima": -0.1041,
+    "naples": -0.0571,
+    "stockholm": -0.1753
+   }
+  },
+  "pilot-capital_city-06": {
+   "item": "pilot-capital_city-06",
+   "gold": "washington",
+   "nearest": [
+    "miami",
+    "las_vegas",
+    "toronto",
+    "vancouver"
+   ],
+   "random": [
+    "barcelona",
+    "milan",
+    "st_petersburg",
+    "stockholm"
+   ],
+   "distractors": [
+    "miami",
+    "las_vegas",
+    "toronto",
+    "vancouver",
+    "barcelona",
+    "milan",
+    "st_petersburg",
+    "stockholm"
+   ],
+   "n_eligible": 60,
+   "cos_to_gold": {
+    "miami": 0.3727,
+    "las_vegas": 0.3532,
+    "toronto": 0.3399,
+    "vancouver": 0.2171,
+    "barcelona": -0.194,
+    "milan": -0.154,
+    "st_petersburg": -0.0708,
+    "stockholm": -0.2162
+   }
+  },
+  "pilot-capital_city-07": {
+   "item": "pilot-capital_city-07",
+   "gold": "moscow",
+   "nearest": [
+    "warsaw",
+    "reykjavik",
+    "stockholm",
+    "helsinki"
+   ],
+   "random": [
+    "amsterdam",
+    "los_angeles",
+    "seoul",
+    "toronto"
+   ],
+   "distractors": [
+    "warsaw",
+    "reykjavik",
+    "stockholm",
+    "helsinki",
+    "amsterdam",
+    "los_angeles",
+    "seoul",
+    "toronto"
+   ],
+   "n_eligible": 44,
+   "cos_to_gold": {
+    "warsaw": 0.309,
+    "reykjavik": 0.2401,
+    "stockholm": 0.2011,
+    "helsinki": 0.2005,
+    "amsterdam": 0.0216,
+    "los_angeles": -0.1369,
+    "seoul": 0.1189,
+    "toronto": -0.127
+   }
+  }
+ }
+}

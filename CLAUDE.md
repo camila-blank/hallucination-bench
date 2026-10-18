@@ -302,3 +302,46 @@ uv run python scripts/sibling_probe/viewer/build_viewer.py  # viewer incl. the l
 - Knowledge filter: Ali's best-category-word rule, plus the greedy continuation's first mention
   (multi-token names like " c|ello" are missing from the word list). Classes with fewer than 10
   known entities are dropped from the bank (tuba, oboe), so their units are probe n/a.
+
+## sibling_probe plan 0006 (user-modelling ladder v2, country)
+
+```bash
+S=scripts/sibling_probe/um_ladder.py            # inputs read from --src-root (default /workspace/hb-sibling-probes)
+uv run --no-sync python $S summarize            # missing J-lens summaries (token-hit cells only)
+uv run --no-sync python $S mentions             # -> outputs/sibling/um/{mentions,strata}.jsonl, counts.json
+uv run --no-sync python $S todo                 # dev 40 / gold 80 (+ dev2 60, see data README)
+uv run --no-sync python $S judge                # umcommit-v1.1 -> commit.jsonl; --ids <todo> for a subset
+uv run --no-sync python $S calib                # dev / dev2 / gold -> calib.json
+uv run --no-sync python $S concepts             # set C -> data/sibling_probe/um_country_concepts.json
+uv run --no-sync python $S probe-texts          # Opus (sibgen-v1 prompt) + checks -> um_country_probe_texts.jsonl
+uv run --no-sync python $S capture-rows         # ReadSpec plans -> outputs/sibling/um/plan_probe/
+#   then wsbench_public_plan.py prompts + wsbench_capture_modal.py (from the GW worktree) -> acts-um-country-probe
+uv run --no-sync python $S probe-inputs
+MODAL_PROFILE=safety-sahan-2 uvx --python 3.12 modal@latest run scripts/sibling_probe/um_probes_modal.py --phase fit
+uv run --no-sync python $S distractors          # refuses if Phase B scores exist
+MODAL_PROFILE=safety-sahan-2 uvx --python 3.12 modal@latest run scripts/sibling_probe/um_probes_modal.py --phase score
+uv run --no-sync python $S label && uv run --no-sync python $S figures
+```
+
+- Library: `evals/sibling_probe/um_ladder.py` (Set A lexicon patch over plan 0005's lexicon,
+  `FastMatcher` = `Matcher.find` on candidate patterns only, ~9x faster, identical hits; units;
+  `umcommit` prompt / parse / fail-closed; distractors; `ProbeContext` fire rule; labels;
+  bootstrap), `um_probe.py` (logistic probe, per-fold null z, implied validity, centroids;
+  copied into the Modal job with `probes.py`), `um_regions.py` (12 merged M49 regions).
+- `ladder_lex.py` and `data/sibling_probe/br_lexicons.json` are **verbatim copies** of plan
+  0005's (uncommitted there when copied); Set A changes live only in `SET_A_LEXICON_PATCH`. At
+  rebase take plan 0005's versions and re-run `tests/test_um_ladder.py`.
+- Lexicon traps the patch handles (each tested): "Korean" (missing from the copy), 朝鲜 (Korean
+  ethnicity, not North Korea), Soviet aliases (a `soviet` stratum on Ukraine / Belarus / Russia
+  golds, Russia elsewhere), capitals un-blocked as country aliases except Washington / Male
+  ("a male singer") / Victoria / Sofia / Kingston / Georgetown / Nassau, capitalised-only
+  aliases (pole, polish, turkey, china, every capital), regional phrases ("Latin American").
+- J-lens tokens must be decoded (`decode_token`) before matching; raw bags miss every CJK hit.
+- Judge prompt history: `umcommit-v1` (gold acc 0.85, committed precision 0.40) -> `v1.1` (the
+  one allowed revision, from dev2: a described hypothetical person is not the user unless the
+  sample says so). Prompt examples come from dev / dev2, so only the gold numbers are honest.
+- Leakage guard: distractors are chosen from Phase A (probe texts only); `distractors` refuses
+  to run once `outputs/sibling/um/probes/score/` exists and `label` refuses a distractor file
+  whose sha256 differs from the one Phase B recorded.
+- sklearn is not a project dependency: `uv run --with scikit-learn` for the logistic test
+  (skipped otherwise); the Modal image installs it.
