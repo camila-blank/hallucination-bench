@@ -1,8 +1,9 @@
 # Plan 0012: land the claim-map judge and the new eval families on `main`, production-ready
 
-Issue #14. Author: Camila Blank (planned with Claude), 2026-10-18. Revision 2. Critique 1 led to
+Issue #14. Author: Camila Blank (planned with Claude), 2026-10-18. Revision 3. Critique 1 led to
 four changes: PRs A–C land as merge commits, not squash; the country ladder's lexicon is pinned;
-CI dependencies are pinned down; the path rules are split by kind.
+CI dependencies are pinned down; the path rules are split by kind. Critique 2 made PR D's
+narrow test edits explicit (D4).
 
 ## Why
 
@@ -83,8 +84,8 @@ Merge `camila/sibling-probes`, then `camila/um-ladder-v2`.
   - A new test, `tests/test_um_lexicon_pin.py`, pins the file's sha256 and the Guinea behaviour.
   - The docs say that adopting the newer lexicon is a results change.
 
-The `um-ladder-v2` tip commit (`451b1e3`) adds WIP adjacent-layer (L±1) code paths, and its run
-was stopped. Keep the code, because it is opt-in (`um_run_adj.sh`). PR D's CLAUDE.md entry for it
+`um-ladder-v2`'s commit `451b1e3` (before its tip `653f0eb`) adds WIP adjacent-layer (L±1) code
+paths, and their run was stopped. Keep the code, because it is opt-in (`um_run_adj.sh`). PR D's CLAUDE.md entry for it
 says it is unvalidated and that no results depend on it.
 
 Close #6 as superseded by PR B.
@@ -165,6 +166,15 @@ Defaults stay identical, so nothing changes on the dev box.
 A test that needs local data skips with a reason naming the missing path and the environment
 variable. CI runs pytest with `-rs`, so the skip list is visible.
 
+This needs edits to three existing tests, and **these are the only test edits PR D may make**:
+`tests/test_sibling_probe.py`, `tests/test_v5c_frozen.py` and
+`tests/test_sibling_probe_recipes.py`. In them, only two things may change:
+- the hardcoded `/workspace/...` path constants, which become `paths.WSBENCH_PUB` (or the
+  matching `paths` name)
+- the skip-reason strings
+
+No assertion, test name or skip condition changes.
+
 #### D5. CI
 
 Add `.github/workflows/ci.yml`. It runs on push and on PRs, on ubuntu-latest with Python 3.12:
@@ -188,6 +198,8 @@ uv run --with scikit-learn pytest -rs
   doc.
 - The CLAUDE.md layout covers every landed module, including the unvalidated L±1 code paths
   (see PR B).
+- The `um_ladder.load_lexicon` docstring says the country domain uses the frozen
+  `br_lexicons_um_v1.json`, not plan 0005's lexicon.
 - `docs/results/README.md` indexes the results docs.
 
 ## Gates (every PR)
@@ -200,8 +212,8 @@ The ruff config must exclude only what the source branches already excluded. Als
 
 - **Tests are not edited to pass a merge or the refactor.** `git diff origin/main...HEAD -- tests/`
   is reviewed separately. Each changed assertion in a test that already exists on `main` or on a
-  source branch must be justified by this plan. No PR justifies any; PR B only *adds*
-  `tests/test_um_lexicon_pin.py`.
+  source branch must be justified by this plan. PRs A–C justify none; PR B only *adds*
+  `tests/test_um_lexicon_pin.py`. PR D justifies only the D4 edits listed there.
 - The sibling-gate check under §Scope prints nothing.
 - PR D only:
   - `hbench --help` and each subcommand's `--help` are diffed before and after the refactor and
