@@ -124,8 +124,11 @@ candidates); window identity; no duplicates.
 
 ## Plan 0006 (user-modelling ladder v2, country)
 
-- `br_lexicons.json` / `../../src/.../ladder_lex.py`: verbatim copies of plan 0005's files
-  (sha256 checked at copy time, 2026-10-12); the Set A patch is code (`um_ladder.SET_A_LEXICON_PATCH`).
+- `br_lexicons_um_v1.json`: the country ladder's base lexicon, a frozen copy of plan 0005's
+  `br_lexicons.json` as of 2026-10-12, before plan 0005's review fix added the bare-name aliases
+  Jordan / Georgia / Guinea / Luxembourg / Niger. Results 0006 were produced with it, and
+  `tests/test_um_lexicon_pin.py` pins its sha256. `ladder_lex.py` is shared with plan 0005
+  unchanged. The Set A patch is code (`um_ladder.SET_A_LEXICON_PATCH`).
 - `umcommit_dev.jsonl` (40, Fable, before any judge call), `umcommit_dev2.jsonl` (60, Fable,
   blind to the judge, used for the one prompt revision v1 -> v1.1), `umcommit_gold.jsonl` (80,
   fresh subagent from the plan's Step 3 text only, never used for tuning); the `*_todo.jsonl`

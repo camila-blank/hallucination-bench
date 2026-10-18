@@ -27,7 +27,6 @@ from typing import Any
 from hallucination_bench import DATA
 from hallucination_bench.evals.sibling_probe.ladder_lex import (
     CASE_SENSITIVE,
-    LEXICON_PATH,
     Hit,
     Matcher,
     has_cjk,
@@ -158,6 +157,10 @@ def patch_lexicon(lexicon: Mapping[str, Any]) -> dict[str, Any]:
 
 
 UM_LEXICON_PATH = DATA / "sibling_probe" / "um_lexicons.json"
+# The country ladder's base lexicon, frozen at the copy results 0006 were produced with. Plan
+# 0005's later review fix (bare-name aliases Jordan / Georgia / Guinea / Luxembourg / Niger in
+# ``br_lexicons.json``) is deliberately NOT picked up here (plan 0012).
+UM_COUNTRY_BASE_LEXICON_PATH = DATA / "sibling_probe" / "br_lexicons_um_v1.json"
 _CAP_ALL = False  # plan 0007: every Latin alias counts only when capitalised (city, holiday)
 _COMPATIBLE: dict[str, frozenset[str]] = {}
 MARK_NOUN = "COUNTRY"  # the judge's "MARKED <NOUN>:" header (country text unchanged)
@@ -167,7 +170,7 @@ def load_lexicon(path: Path | None = None) -> dict[str, Any]:
     """Country: plan 0005's lexicon + the Set A patch. Other domains (plan 0007):
     ``um_lexicons.json`` with the domain's alias moves and extra block phrases."""
     if CATEGORY == "country":
-        return patch_lexicon(json.loads(Path(path or LEXICON_PATH).read_text()))
+        return patch_lexicon(json.loads(Path(path or UM_COUNTRY_BASE_LEXICON_PATH).read_text()))
     from hallucination_bench.evals.sibling_probe import um_domains as D
 
     doc = json.loads(Path(path or UM_LEXICON_PATH).read_text())
