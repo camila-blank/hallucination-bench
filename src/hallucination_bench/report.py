@@ -231,6 +231,8 @@ def report(
             summarizer=a["summarizer"],
             classifier=a["classifier"],
             effort=a["effort"],
+            map_model=a.get("map_model"),
+            map_anchor=a.get("map_anchor", "v5c"),  # arms written before rev 13 were anchored
         )
         if rebuild:
             summaries[d.name] = rebuild_arm(d.name, Path(a["readouts"]), out_root, models)

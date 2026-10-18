@@ -186,9 +186,7 @@ def sha256_file(path: Path) -> str:
 
 _WS = re.compile(r"\s+")
 # normalising the typographic forms IS the point here
-_QUOTES = str.maketrans(
-    {"“": '"', "”": '"', "‘": "'", "’": "'", "«": '"', "»": '"'}
-)
+_QUOTES = str.maketrans({"“": '"', "”": '"', "‘": "'", "’": "'", "«": '"', "»": '"'})
 
 
 def normalize_ws(s: str) -> str:
