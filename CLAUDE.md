@@ -62,6 +62,12 @@ src/hallucination_bench/
   evals/sibling_probe/probe_io.py inputs.json for the Modal job, loaders / merge of its outputs, check vs sweep
   evals/sibling_probe/judge.py    prefilter, 5% coverage sample, claim map (claimmap_v2 + the
                   wsbench_chat cached_call), mention -> segment, sibscope-v1 / sibcover-v1 calls
+  evals/sibling_probe/br_bank.py  plan 0004 set B: WorkspaceBench basic_readout items as a
+                  second sibling bank (data/sibling_probe/basic_readout_bank.json)
+  evals/sibling_probe/claims.py   plan 0004: sibling / substitution claim units from judge cells,
+                  post hoc consensus
+  evals/sibling_probe/probe_lookup.py  plan 0004: probe verdicts for claim units, streaming the
+                  probe job's outputs
   evals/sibling_probe/{score,report}.py  M/U classes, gates, beta1/beta2/AUROC/Test 3, rates,
                   bootstrap, verdict table; report.md + plots/sibling_probe/
 data/wsbench_chat/   verbatim copies from wsbench-pub @ 92d763e (never edit)
@@ -105,10 +111,9 @@ scripts/run_am.sh    AM driver: step1 (tmux hbench-am-detect) | step2 (tmux hben
 - External paths come from `paths.py` (`HBENCH_*` env vars, dev-box defaults); never hardcode a
   `/workspace/...` path in `src/`, `scripts/*.py` or `tests/`. Shell drivers `cd` to the repo
   root from their own location and read `${HBENCH_X:-<default>}`.
-- CI (`.github/workflows/ci.yml`): a locked sync, ruff check + format, and `pytest -rs` with
-  `--with scikit-learn` and `HF_HUB_OFFLINE=1`. Run the same locally before pushing. Plan
-  numbers are unique: the next free one is 0013 (0009/0010 belong to the unlanded
-  resampling-gate branches).
+- CI is pending (plan 0012 D5, held back for a token scope): until it lands, run ruff check +
+  format and `pytest -rs` locally before pushing. Plan numbers are unique: the next free one is
+  0013 (0009/0010 belong to the unlanded resampling-gate branches).
 
 ## Run commands
 

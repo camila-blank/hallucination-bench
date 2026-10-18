@@ -25,7 +25,8 @@ External data is configured by environment variables, each defaulting to the dev
 `HBENCH_WSBENCH_PUB` (a workspace-bench checkout), `HBENCH_GLOBAL_WORKSPACE`,
 `HBENCH_SIBLING_SRC_ROOT`, `HBENCH_ALI_PROBE_ROOT`, `HBENCH_COMBOS_READOUTS`; the shell drivers
 also read `HBENCH_WSBENCH_PY`, `HBENCH_AM_GEN`, `HBENCH_AM_READOUTS`, `HBENCH_MLNLA_GEN`,
-`HBENCH_EXTRA_READOUTS`. Tests that need one of them skip and name the variable.
+`HBENCH_EXTRA_READOUTS`, `HBENCH_STORY_GEN`, `HBENCH_STORY_READOUTS`, `HBENCH_GW_CAPTURE`
+(a global-workspace checkout for the capture jobs). Tests that need one of them skip and name the variable.
 
 Per cell (arm × item × read site × layer) `wsbench_chat` runs up to five calls:
 

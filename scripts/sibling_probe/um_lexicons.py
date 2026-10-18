@@ -1,6 +1,6 @@
 """Plan 0011 step 1: comprehensive lexicons for occupation / emotion / capital_city / holiday.
 
-Seeded with the Set A inventory (`data/sibling_probe/concepts.json` of the plan 0003 worktree:
+Seeded with the Set A inventory (this repo's `data/sibling_probe/concepts.json`:
 concept ids, aliases, merges, exclusion phrases); `claude-opus-5-5` (prompt `umlex-v1`, cached in
 `outputs/sibling/um/lexicon_cache.jsonl`) adds the rest of the domain. Code then enforces:
 inventory concepts and aliases kept verbatim; no alias shared by two concepts (the inventory wins,
@@ -198,7 +198,7 @@ def main() -> None:
         if OUT.exists()
         else {
             "version": PROMPT_VERSION,
-            "provenance": f"{MODEL}, seeded with {SRC}",
+            "provenance": f"{MODEL}, seeded with {SRC.relative_to(REPO_ROOT)}",
             "categories": {},
             "capitalised_only": {},
             "checks": {},

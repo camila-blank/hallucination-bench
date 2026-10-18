@@ -22,7 +22,7 @@
 set -euo pipefail
 
 HB=$(cd "$(dirname "$0")/../.." && pwd)
-GW=${GW:-/workspace/gw-wrong-bridge}
+GW=${GW:-${HBENCH_GW_CAPTURE:-/workspace/gw-wrong-bridge}}
 WSB_SRC=${WSB_SRC:-${HBENCH_WSBENCH_PUB:-/workspace/root/wsbench-pub}/src}
 WB=$GW/scripts/olens_suite/workspace_bench
 export MODAL_PROFILE=${MODAL_PROFILE:-safety-sahan-2}   # default environment: camila-blank

@@ -4,7 +4,7 @@
 set -uo pipefail
 D=$1
 HB=$(cd "$(dirname "$0")/../.." && pwd); cd "$HB"
-GW=${GW:-/workspace/gw-wrong-bridge}; WB=$GW/scripts/olens_suite/workspace_bench
+GW=${GW:-${HBENCH_GW_CAPTURE:-/workspace/gw-wrong-bridge}}; WB=$GW/scripts/olens_suite/workspace_bench
 export MODAL_PROFILE=${MODAL_PROFILE:-safety-sahan-2}
 MODAL="uvx --python 3.12 modal@latest"
 DS=${D//_/-}
