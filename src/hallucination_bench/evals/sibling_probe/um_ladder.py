@@ -161,13 +161,14 @@ UM_LEXICON_PATH = DATA / "sibling_probe" / "um_lexicons.json"
 # 0005's later review fix (bare-name aliases Jordan / Georgia / Guinea / Luxembourg / Niger in
 # ``br_lexicons.json``) is deliberately NOT picked up here (plan 0012).
 UM_COUNTRY_BASE_LEXICON_PATH = DATA / "sibling_probe" / "br_lexicons_um_v1.json"
-_CAP_ALL = False  # plan 0007: every Latin alias counts only when capitalised (city, holiday)
+_CAP_ALL = False  # plan 0011: every Latin alias counts only when capitalised (city, holiday)
 _COMPATIBLE: dict[str, frozenset[str]] = {}
 MARK_NOUN = "COUNTRY"  # the judge's "MARKED <NOUN>:" header (country text unchanged)
 
 
 def load_lexicon(path: Path | None = None) -> dict[str, Any]:
-    """Country: the frozen ``br_lexicons_um_v1.json`` + the Set A patch. Other domains (plan 0007):
+    """Country: the frozen ``br_lexicons_um_v1.json`` (not plan 0005's ``br_lexicons.json``) + the
+    Set A patch. Other domains (plan 0011):
     ``um_lexicons.json`` with the domain's alias moves and extra block phrases."""
     if CATEGORY == "country":
         return patch_lexicon(json.loads(Path(path or UM_COUNTRY_BASE_LEXICON_PATH).read_text()))
@@ -189,7 +190,7 @@ def load_lexicon(path: Path | None = None) -> dict[str, Any]:
 
 
 def configure(domain: str) -> None:
-    """Switch the module to a plan 0007 domain (country is the default and unchanged)."""
+    """Switch the module to a plan 0011 domain (country is the default and unchanged)."""
     global CATEGORY, ATTRIBUTE_QUESTION, COMMIT_SYSTEM, COMMIT_PROMPT_VERSION, GOLD_MAP
     global GOLD_EQUIV, _CAP_ALL, _COMPATIBLE, MARK_NOUN
     if domain == "country":
@@ -384,7 +385,7 @@ def classify_hit(concept: str | None, alias: str, ctx: Mapping[str, Any]) -> str
     if c in ctx["equiv"] or c in ctx["user_concepts"]:
         return None
     if c in _COMPATIBLE.get(ctx["gold"], ()):
-        return "compatible"  # plan 0007: true together with the gold (a stratum, not a unit)
+        return "compatible"  # plan 0011: true together with the gold (a stratum, not a unit)
     if norm_alias(alias) in ctx["response_aliases"]:
         return "response_named"
     return "unit"

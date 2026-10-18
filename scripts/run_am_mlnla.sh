@@ -7,14 +7,14 @@
 #
 #   scripts/run_am_mlnla.sh <read-driver-log>     # monitor: tail -f logs/am_mlnla_<ts>.log
 set -uo pipefail
-cd /workspace/hb-am-halluc
+cd "$(cd "$(dirname "$0")/.." && pwd)"  # the repo root (plan 0012 D3)
 DRV=${1:?read driver log}
 SKIP_FETCH=${SKIP_FETCH:-0}  # 1: readouts already converted, start at Stage D
 ARM=mlnla-rl600-all11
 GEN=gen-am-mlnla-rl600-all11
 VOL=wsbench-gen-6
-GROOT=/workspace/hb-am-gen
-RROOT=/workspace/hb-readouts-am
+GROOT=${HBENCH_AM_GEN:-/workspace/hb-am-gen}
+RROOT=${HBENCH_AM_READOUTS:-/workspace/hb-readouts-am}
 LAYERS=(20,24,28 32,36,40 44,48,52 56,60)
 
 if [ "$SKIP_FETCH" != 1 ]; then
@@ -32,7 +32,7 @@ for d in $($M ls $VOL /$GEN); do
 done
 
 echo "=== $(date -Is) convert"
-(cd /workspace/root/wsbench-pub && /workspace/root/wsbench-venv/bin/python -m wsbench convert-gen-dir \
+(cd ${HBENCH_WSBENCH_PUB:-/workspace/root/wsbench-pub} && ${HBENCH_WSBENCH_PY:-/workspace/root/wsbench-venv/bin/python} -m wsbench convert-gen-dir \
   gen_dir="$GROOT/$GEN" out="$RROOT/$ARM/agentic_misalignment.jsonl" kind=prose | tail -1)
 python3 - "$RROOT/$ARM/agentic_misalignment.jsonl" data/agentic_misalignment/items.json <<'PY' || exit 1
 import json, sys

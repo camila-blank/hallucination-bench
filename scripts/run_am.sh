@@ -20,7 +20,7 @@ cd "$(dirname "$0")/.."
 
 STEP=${1:-}
 OUT=${OUT:-outputs}
-READOUTS_ROOT=${READOUTS_ROOT:-/workspace/wsbench-paper-data/readouts}
+READOUTS_ROOT=${READOUTS_ROOT:-${HBENCH_READOUTS_ROOT:-/workspace/wsbench-paper-data/readouts}}
 CONCURRENCY=${CONCURRENCY:-600}
 RPM_DETECT=${RPM_DETECT:-1200}
 RPM_MAP=${RPM_MAP:-450}

@@ -27,14 +27,14 @@ from collections.abc import Iterable, Mapping, Sequence
 from pathlib import Path
 from typing import Any
 
-from hallucination_bench import DATA
+from hallucination_bench import DATA, paths
 from hallucination_bench.evals.sibling_probe import SYSTEM_PROMPT
 from hallucination_bench.evals.sibling_probe.concepts import Category, Matcher
 
 BANK_DIR = DATA / "sibling_probe"
 ITEMS_PATH = BANK_DIR / "items.json"
 PROBE_TEXTS_PATH = BANK_DIR / "probe_texts.jsonl"
-WSBENCH_UM_ITEMS = Path("/workspace/root/wsbench-pub/evals/user_modeling/items.json")
+WSBENCH_UM_ITEMS = paths.WSBENCH_PUB / "evals" / "user_modeling" / "items.json"
 
 CAPTURE_LAYERS = (28, 36, 42, 44, 52)  # both captures (eval + probe)
 S3D_LAYERS = (28, 36, 44, 52)  # fanout_custom (O-lens)

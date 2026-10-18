@@ -17,15 +17,18 @@ import argparse
 import hashlib
 import json
 import subprocess
+import sys
 from pathlib import Path
 from typing import Any
 
 REPO = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(REPO / "src"))
+
+from hallucination_bench import paths  # noqa: E402
+
 OUT = REPO / "data" / "story"
-DEFAULT_SRC = Path(
-    "/workspace/global-workspace/evals/workspace-bench/hillclimbing_evals/hallucination/creative"
-)
 SRC_REL = "evals/workspace-bench/hillclimbing_evals/hallucination/creative"
+DEFAULT_SRC = paths.GLOBAL_WORKSPACE / SRC_REL
 MAX_SITES = 8
 N_ITEMS = 20
 SITE_KEYS = ("pos", "token", "kind", "char")

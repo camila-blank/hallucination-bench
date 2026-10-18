@@ -121,7 +121,7 @@ def pack_shard(shard: int, inputs: dict) -> dict:
         res = list(ex.map(one, labels))
     d = OUT_MOUNT / inputs["run"] / "pack"
     d.mkdir(parents=True, exist_ok=True)
-    # windows differ in length across request sentences (plan 0007): store flat + lengths
+    # windows differ in length across request sentences (plan 0011): store flat + lengths
     for k, L in enumerate(layers):
         np.save(d / f"L{L:02d}_s{shard:02d}.npy", np.concatenate([r[0][k] for r in res]))
     (d / f"s{shard:02d}.json").write_text(

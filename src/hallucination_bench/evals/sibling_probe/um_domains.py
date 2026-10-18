@@ -1,4 +1,4 @@
-"""Plan 0007: the non-country user-modelling domains of the sibling ladder.
+"""Plan 0011: the non-country user-modelling domains of the sibling ladder.
 
 Each domain supplies the judge's question, what "committed" means for it, domain examples, and
 matching rules. The judge prompt is the plan 0006 ``umcommit-v1.1`` structure (same forms, schema,
@@ -156,7 +156,7 @@ verbatim span of the sample, 3 to 20 words, that contains the marked word; the w
 it is shorter), quote_source ("text", "bag" or "summary"), why (one short sentence)."""
 
 
-# ------------------------------------------------------------------ matching (plan 0007 rev 2)
+# ------------------------------------------------------------------ matching (plan 0011 rev 2)
 
 # per gold: concepts that are TRUE together with the gold (narrower / broader / overlapping), a
 # `compatible` stratum like country's `soviet`, never units (critique 1, item 3)
@@ -266,7 +266,7 @@ EXTRA_BLOCK: dict[str, tuple[str, ...]] = {
 }
 # generic / ambiguous aliases dropped from the generated lexicons (they matched readout boilerplate:
 # "AI assistant", "the model", "content", "past tense", "server", "Roman numerals"; checked on the
-# plan 0007 mention counts before any judge call)
+# plan 0011 mention counts before any judge call)
 DROP_ALIASES: dict[str, tuple[str, ...]] = {
     "occupation": (
         "assistant",

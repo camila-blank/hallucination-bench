@@ -20,16 +20,15 @@ package matcher (word boundaries, CJK >= 2 chars). Output: ``outputs/sibling/sib
 
 import json
 from collections import Counter, defaultdict
-from pathlib import Path
 
-from hallucination_bench import REPO_ROOT
+from hallucination_bench import REPO_ROOT, paths
 from hallucination_bench.evals.sibling_probe.concepts import Category, Concept, Matcher, is_cjk
 from hallucination_bench.readouts import decode_token
 
 PILOT = REPO_ROOT / "data" / "sibling_probe" / "pilot"
 PILOT_READOUTS = REPO_ROOT / "outputs" / "sibling" / "pilot" / "s3d.jsonl"
-WSB_READOUTS = Path("/workspace/wsbench-paper-data/readouts")
-WSB_ITEMS = Path("/workspace/root/wsbench-pub/evals/user_modeling/items.json")
+WSB_READOUTS = paths.READOUTS_ROOT
+WSB_ITEMS = paths.WSBENCH_PUB / "evals" / "user_modeling" / "items.json"
 OUT = REPO_ROOT / "outputs" / "sibling" / "sibling_counts.json"
 GRID = {28, 36, 44, 52}
 

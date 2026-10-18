@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Plan 0007 stage 1 per domain: J-lens summaries -> mentions -> calibration sets.
+# Plan 0011 stage 1 per domain: J-lens summaries -> mentions -> calibration sets.
 set -euo pipefail
 HB=$(cd "$(dirname "$0")/../.." && pwd); cd "$HB"
 S="env -u ANTHROPIC_API_KEY HF_HUB_OFFLINE=1 PYTHONUNBUFFERED=1 .venv/bin/python scripts/sibling_probe/um_ladder.py"

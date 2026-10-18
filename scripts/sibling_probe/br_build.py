@@ -33,7 +33,7 @@ from collections import Counter, defaultdict
 from pathlib import Path
 from typing import Any
 
-from hallucination_bench import REPO_ROOT
+from hallucination_bench import REPO_ROOT, paths
 from hallucination_bench.cache import Cache, fingerprint
 from hallucination_bench.evals.sibling_probe import br_bank as BB
 from hallucination_bench.llm import LLM, Usage
@@ -41,8 +41,8 @@ from hallucination_bench.llm import LLM, Usage
 MODEL = "claude-opus-5-5"
 EFFORT = "low"
 BR = BB.BR
-PAPER = Path("/workspace/wsbench-paper-data/readouts")
-COMBOS = Path("/workspace/gw-wsb-combos/outputs/wsbench_combos/readouts")
+PAPER = paths.READOUTS_ROOT
+COMBOS = paths.COMBOS_READOUTS
 LAYERS11 = tuple(range(20, 61, 4))
 ARM_SOURCES: dict[str, list[Path]] = {
     "s3d-rl600": [PAPER / "s3d-rl600" / "basic_readout.jsonl"],

@@ -33,13 +33,14 @@ from typing import Any
 REPO = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO / "src"))
 
+from hallucination_bench import paths  # noqa: E402
 from hallucination_bench.readouts import decode_token  # noqa: E402
 
 OUT = REPO / "data" / "agentic_misalignment"
-WSBENCH_PUB = Path("/workspace/root/wsbench-pub")
+WSBENCH_PUB = paths.WSBENCH_PUB
 SRC_REL = "evals/agentic_misalignment/items.json"
 DEFAULT_ITEMS = WSBENCH_PUB / SRC_REL
-DEFAULT_READOUTS = Path("/workspace/wsbench-paper-data/readouts")
+DEFAULT_READOUTS = paths.READOUTS_ROOT
 READOUTS_FILE = "agentic_misalignment.jsonl"
 N_ITEMS = 32
 N_SITES = 50_452

@@ -13,8 +13,20 @@ hallucination eval is one of many evals here; see `plans/` for the design histor
 | `wsbench_chat` | WorkspaceBench's hallucination (chat) eval, ported verbatim (v5c span + verify stages), plus the taxonomy classifier | [0001](plans/0001-bootstrap-wsbench-chat-taxonomy.md) |
 | `wsbench_chat` claim map | taxonomy v2: every character of every readout in exactly one of 11 scoring leaves (7 groups), rolled up into 6 verdicts | [0002](plans/0002-claim-map-taxonomy-v2.md) |
 | `sibling_probe` | are same-category "sibling" mentions (user Korean, readout says China) hallucinations? One DiffMean probe per concept checks whether the mentioned sibling is in the activation; per-arm probe-verified hallucination rate (s3d O-lens, NLA, J-lens) | [0003](plans/0003-sibling-concept-probes.md) |
+| `sibling_probe` verdicts | the plan 0003 check at 11 layers with a second item set and a post-probe verdict judge | [0004](plans/0004-sibling-verdict-judge-11layer.md) |
+| `sibling_probe` mention ladder | basic-readout mentions: lexicon match -> commitment judge -> entity-bank probes -> cross-method check -> hallucination label (`scripts/sibling_probe/ladder.py`) | [0005](plans/0005-basic-readout-mention-ladder.md) |
+| `sibling_probe` user-modelling ladder | the plan 0005 ladder on user-modelling items (country; frozen lexicon `br_lexicons_um_v1.json`), with matched-null gates (`scripts/sibling_probe/um_ladder.py`) | [0006](plans/0006-user-modelling-country-ladder.md) |
+| `sibling_probe` user-modelling, 4 domains | the plan 0006 ladder on occupation / emotion / capital city / holiday (`um_ladder.py --category`) | [0011](plans/0011-user-modelling-ladder-4-domains.md) |
 | `story` | the claim map (taxonomy v2, Opus 5.5) on 20 "tell me a story" items (WorkspaceBench's old `hallucination_creative` bank, 8 sites each); `--eval story` | [0007](plans/0007-story-eval.md) |
 | `agentic_misalignment` | the claim map (v2.7) on lens **mentions of misalignment** (blackmail, leaking, letting someone die, ...) at every prompt position of WorkspaceBench's 32 AM items: a blind batched detector finds the mentions, the claim map judges them (marker in the prompt), and an intent call tiers each mention's kind against what the rollout actually does (realised / designed_only / scenario_set_up / unrelated); its own driver, `--eval agentic_misalignment` | [0008](plans/0008-agentic-misalignment-claim-map.md) |
+
+External data is configured by environment variables, each defaulting to the dev-box path
+(`src/hallucination_bench/paths.py`): `HBENCH_READOUTS_ROOT` (WorkspaceBench paper readouts),
+`HBENCH_WSBENCH_PUB` (a workspace-bench checkout), `HBENCH_GLOBAL_WORKSPACE`,
+`HBENCH_SIBLING_SRC_ROOT`, `HBENCH_ALI_PROBE_ROOT`, `HBENCH_COMBOS_READOUTS`; the shell drivers
+also read `HBENCH_WSBENCH_PY`, `HBENCH_AM_GEN`, `HBENCH_AM_READOUTS`, `HBENCH_MLNLA_GEN`,
+`HBENCH_EXTRA_READOUTS`, `HBENCH_STORY_GEN`, `HBENCH_STORY_READOUTS`, `HBENCH_GW_CAPTURE`
+(a global-workspace checkout for the capture jobs). Tests that need one of them skip and name the variable.
 
 Per cell (arm × item × read site × layer) `wsbench_chat` runs up to five calls:
 
@@ -104,7 +116,7 @@ uv sync                                   # Python >= 3.12; dev tools come with 
 uv run pytest && uv run ruff check && uv run ruff format --check
 
 # smoke: 5 cells each of three arms (keyless Anthropic auth via the `ant` CLI profile)
-R=/workspace/wsbench-paper-data/readouts
+R=${HBENCH_READOUTS_ROOT:-/workspace/wsbench-paper-data/readouts}
 uv run hbench run --out outputs/smoke --readouts-root $R --arms s3d-rl600,nla-rl-L42,jlens \
     --layers 42,44 --limit 5 --show-prompts 5
 uv run hbench report --out outputs/smoke
@@ -173,6 +185,8 @@ and `outputs/wsbench_chat/<judge model>/{report.md,report.json,audit_samples.md}
   is optimistic.
 
 ## Results
+
+Index of every results doc: [`docs/results/README.md`](docs/results/README.md).
 
 [`docs/results/0001_wsbench_chat_taxonomy.md`](docs/results/0001_wsbench_chat_taxonomy.md)
 (filled in after the full run); claim map:

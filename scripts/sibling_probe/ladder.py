@@ -35,7 +35,7 @@ from collections import Counter, defaultdict
 from pathlib import Path
 from typing import Any
 
-from hallucination_bench import DATA, REPO_ROOT
+from hallucination_bench import DATA, REPO_ROOT, paths
 from hallucination_bench.cache import Cache, fingerprint
 from hallucination_bench.evals.sibling_probe import br_bank as BB
 from hallucination_bench.evals.sibling_probe import ladder as LD
@@ -802,7 +802,7 @@ def stage_calib(args) -> None:
 
 BANK_VERSION = "brbank-v1"
 ENTITY_BANKS = SP / "br_entity_banks.json"
-ALI_BANK = Path("/workspace/gw-ali-probe/data/ali_probe/bank.json")
+ALI_BANK = paths.ALI_PROBE_ROOT / "data" / "ali_probe" / "bank.json"
 N_ENT = 50
 BANK_TEMPLATES = {
     "sport": [
@@ -1505,7 +1505,7 @@ def stage_probe_report(args) -> None:
 # ------------------------------------------------------------------ labels
 
 ABBR = {LD.L_NOT: "N", LD.L_PROBE: "P", LD.L_CROSS: "X", LD.L_HALL: "H"}
-ALI_README = Path("/workspace/gw-ali-probe/docs/project/experiments/ali_probe/README.md")
+ALI_README = paths.ALI_PROBE_ROOT / "docs" / "project" / "experiments" / "ali_probe" / "README.md"
 # the Ali case study's verdicts (README TL;DR), per extra sport
 ALI_VERDICTS = {
     "swimming": "not represented; lens generic-athlete prior -> hallucination",

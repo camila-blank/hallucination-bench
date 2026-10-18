@@ -28,10 +28,10 @@ from collections.abc import Mapping, Sequence
 from pathlib import Path
 from typing import Any
 
-from hallucination_bench import DATA, REPO_ROOT
+from hallucination_bench import DATA, REPO_ROOT, paths
 from hallucination_bench.llm import schema_block
 
-WSB_BR_ITEMS = Path("/workspace/root/wsbench-pub/evals/basic_readout/items.json")
+WSB_BR_ITEMS = paths.WSBENCH_PUB / "evals" / "basic_readout" / "items.json"
 BANK_PATH = DATA / "sibling_probe" / "basic_readout_bank.json"
 CONCEPTS_PATH = DATA / "sibling_probe" / "br_concepts.json"
 PROBE_TEXTS_PATH = DATA / "sibling_probe" / "br_probe_texts.jsonl"

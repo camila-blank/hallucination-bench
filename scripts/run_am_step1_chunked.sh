@@ -1,8 +1,9 @@
 #!/bin/bash
 # Memory-lean step 1 (plan 0008): the box is shared and other sessions can hold ~20 GB of the
 # 32 GB cgroup cap, so arms run alone and 11-layer arms in layer chunks (each resumes from cache).
-cd /workspace/hb-am-halluc
-A="--eval agentic_misalignment --readouts-root /workspace/wsbench-paper-data/readouts --out outputs --rpm 1200 --concurrency 200"
+cd "$(cd "$(dirname "$0")/.." && pwd)"  # the repo root (plan 0012 D3)
+R=${HBENCH_READOUTS_ROOT:-/workspace/wsbench-paper-data/readouts}
+A="--eval agentic_misalignment --readouts-root $R --out outputs --rpm 1200 --concurrency 200"
 hb() { for t in 1 2 3; do uv run --no-sync hbench run $A "$@"; rc=$?; [ $rc -ne 4 ] && break; done; echo "=== RC $rc for $*"; [ $rc -eq 0 ] || [ $rc -eq 4 ] || exit $rc; }
 hb --arms nla-rl-L42 --stages detect
 hb --arms s3d-rl600 --stages detect --layers 20,24,28
@@ -23,7 +24,7 @@ hb --arms s3d-rl600 --stages verify --layers 56,60
 hb --arms jlens --stages verify --layers 20,24,28,32
 hb --arms jlens --stages verify --layers 36,40,44,48
 hb --arms jlens --stages verify --layers 52,56,60
-AU="--out outputs --readouts-root /workspace/wsbench-paper-data/readouts"
+AU="--out outputs --readouts-root $R"
 # (when the other sheets are already labelled, run `am_audit.py sample-headline $AU` instead of
 # `sample`: it re-draws ONLY audit/headline.jsonl from the post-verification headline)
 uv run --no-sync python scripts/am_audit.py sample $AU; echo "=== sample $?"

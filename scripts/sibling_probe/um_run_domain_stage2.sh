@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
-# Plan 0007 stage 2 for ONE domain (after its judge): concept set -> probe texts -> capture ->
+# Plan 0011 stage 2 for ONE domain (after its judge): concept set -> probe texts -> capture ->
 # probe fit -> distractors -> score -> label -> simple plot.   usage: um_run_domain_stage2.sh <domain>
 set -uo pipefail
 D=$1
 HB=$(cd "$(dirname "$0")/../.." && pwd); cd "$HB"
-GW=${GW:-/workspace/gw-wrong-bridge}; WB=$GW/scripts/olens_suite/workspace_bench
+GW=${GW:-${HBENCH_GW_CAPTURE:-/workspace/gw-wrong-bridge}}; WB=$GW/scripts/olens_suite/workspace_bench
 export MODAL_PROFILE=${MODAL_PROFILE:-safety-sahan-2}
 MODAL="uvx --python 3.12 modal@latest"
 DS=${D//_/-}
@@ -18,7 +18,7 @@ echo "=== $D concepts $(date)"; $S concepts
 echo "=== $D probe texts $(date)"; $S probe-texts
 $S capture-rows
 $PY $WB/wsbench_public_plan.py prompts --plan-dir $O/plan_probe --out-dir $O/render_probe \
-  --wsbench-src /workspace/root/wsbench-pub/src
+  --wsbench-src ${HBENCH_WSBENCH_PUB:-/workspace/root/wsbench-pub}/src
 PJ=$(ls $O/render_probe/prompts/*.json | head -1)
 set +e
 echo "=== $D capture $(date)"

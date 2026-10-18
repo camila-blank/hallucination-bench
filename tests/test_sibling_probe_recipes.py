@@ -229,7 +229,10 @@ def test_pipeline_v2_matches_sweep_when_outputs_present():
     validity and transfer equal the sweep's, max abs diff < 1e-3."""
     dirs = PIO.recipe_dirs(PIO.PROBES_DIR)
     if "v2" not in dirs or not (PIO.SWEEP_DIR / "config.json").exists():
-        pytest.skip("no pipeline V2 outputs / sweep results")
+        pytest.skip(
+            f"no pipeline V2 outputs / sweep results under {PIO.PROBES_DIR} / {PIO.SWEEP_DIR} "
+            "(gitignored; produced by the Modal probe run)"
+        )
     for recipe in dirs:
         r = PIO.compare_with_sweep(PIO.PROBES_DIR, PIO.SWEEP_DIR, recipe)
         assert r["n"] > 400, json.dumps(r)

@@ -3,7 +3,7 @@
 # manifest check -> probe inputs -> Phase A probe fit (CPU, one container per layer).
 set -euo pipefail
 HB=$(cd "$(dirname "$0")/../.." && pwd)
-GW=${GW:-/workspace/gw-wrong-bridge}
+GW=${GW:-${HBENCH_GW_CAPTURE:-/workspace/gw-wrong-bridge}}
 WB=$GW/scripts/olens_suite/workspace_bench
 export MODAL_PROFILE=${MODAL_PROFILE:-safety-sahan-2}
 MODAL="uvx --python 3.12 modal@latest"

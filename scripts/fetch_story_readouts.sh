@@ -10,10 +10,10 @@ arm=$1; gen=$2; kind=$3; layers=$4; vol=${5:-wsbench-gen-3}
 [[ -n $arm && $arm != */* && -n $gen && $gen != */* && -n $layers ]] \
   || { echo "need non-empty <arm> <gen> (no slashes) and <layers>" >&2; exit 2; }
 HERE="$(cd "$(dirname "$0")/.." && pwd)"
-G=${STORY_GEN_ROOT:-/workspace/hb-story-gen}
-DST=${STORY_READOUTS_ROOT:-/workspace/hb-readouts-story}
-WSPUB=${WSBENCH_PUB:-/workspace/root/wsbench-pub}
-WSPY=${WSBENCH_PY:-/workspace/root/wsbench-venv/bin/python}
+G=${STORY_GEN_ROOT:-${HBENCH_STORY_GEN:-/workspace/hb-story-gen}}
+DST=${STORY_READOUTS_ROOT:-${HBENCH_STORY_READOUTS:-/workspace/hb-readouts-story}}
+WSPUB=${WSBENCH_PUB:-${HBENCH_WSBENCH_PUB:-/workspace/root/wsbench-pub}}
+WSPY=${WSBENCH_PY:-${HBENCH_WSBENCH_PY:-/workspace/root/wsbench-venv/bin/python}}
 mkdir -p "$G" "$DST/$arm"
 rm -rf "${G:?}/${gen:?}"  # volume get --force never deletes stale shard files
 cd "$G" && MODAL_RESOURCE_ENV=camila-blank uvx --python 3.12 modal@latest volume get "$vol" "/$gen" . --force >/dev/null
