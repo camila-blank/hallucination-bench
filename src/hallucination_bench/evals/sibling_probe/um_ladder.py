@@ -167,7 +167,7 @@ MARK_NOUN = "COUNTRY"  # the judge's "MARKED <NOUN>:" header (country text uncha
 
 
 def load_lexicon(path: Path | None = None) -> dict[str, Any]:
-    """Country: plan 0005's lexicon + the Set A patch. Other domains (plan 0007):
+    """Country: the frozen ``br_lexicons_um_v1.json`` + the Set A patch. Other domains (plan 0007):
     ``um_lexicons.json`` with the domain's alias moves and extra block phrases."""
     if CATEGORY == "country":
         return patch_lexicon(json.loads(Path(path or UM_COUNTRY_BASE_LEXICON_PATH).read_text()))
