@@ -12,6 +12,7 @@ hallucination eval is one of many evals here; see `plans/` for the design histor
 |---|---|---|
 | `wsbench_chat` | WorkspaceBench's hallucination (chat) eval, ported verbatim (v5c span + verify stages), plus the taxonomy classifier | [0001](plans/0001-bootstrap-wsbench-chat-taxonomy.md) |
 | `wsbench_chat` claim map | taxonomy v2: every character of every readout in exactly one of 11 scoring leaves (7 groups), rolled up into 6 verdicts | [0002](plans/0002-claim-map-taxonomy-v2.md) |
+| `sibling_probe` | are same-category "sibling" mentions (user Korean, readout says China) hallucinations? One DiffMean probe per concept checks whether the mentioned sibling is in the activation; per-arm probe-verified hallucination rate (s3d O-lens, NLA, J-lens) | [0003](plans/0003-sibling-concept-probes.md) |
 
 Per cell (arm × item × read site × layer) `wsbench_chat` runs up to five calls:
 
@@ -151,4 +152,5 @@ and `outputs/wsbench_chat/<judge model>/{report.md,report.json,audit_samples.md}
 
 [`docs/results/0001_wsbench_chat_taxonomy.md`](docs/results/0001_wsbench_chat_taxonomy.md)
 (filled in after the full run); claim map:
-[`docs/results/0002_claim_map.md`](docs/results/0002_claim_map.md).
+[`docs/results/0002_claim_map.md`](docs/results/0002_claim_map.md); sibling probes:
+[`docs/results/0003_sibling_probes.md`](docs/results/0003_sibling_probes.md) (whitened probes catch the gold 96%; s3d sibling mentions 81% probe-unverified, NLA 76%; small real signal; multi-lens agreement predicts probe support).

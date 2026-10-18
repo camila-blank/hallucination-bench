@@ -1,0 +1,8537 @@
+{
+ "version": "brinv-v1",
+ "categories": {
+  "berry": {
+   "templates": [
+    "What is your favorite kind of berry? Answer in one word."
+   ],
+   "items": [
+    "br-imp-kindofberry"
+   ],
+   "gold_of": {
+    "br-imp-kindofberry": "strawberry"
+   },
+   "concepts": [
+    {
+     "id": "strawberry",
+     "label": "Strawberry",
+     "aliases": [
+      "Strawberry",
+      "strawberries",
+      "strawberry",
+      "草莓"
+     ],
+     "gold": true,
+     "source": "opus",
+     "token_aliases": [
+      "Strawberry",
+      "strawberries",
+      "strawberry",
+      "草莓"
+     ]
+    },
+    {
+     "id": "blueberry",
+     "label": "Blueberry",
+     "aliases": [
+      "Blueberry",
+      "blueberries",
+      "blueberry",
+      "蓝莓"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "蓝莓"
+     ]
+    },
+    {
+     "id": "raspberry",
+     "label": "Raspberry",
+     "aliases": [
+      "Raspberry",
+      "raspberries",
+      "raspberry",
+      "red raspberry",
+      "树莓",
+      "覆盆子"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Raspberry",
+      "raspberry"
+     ]
+    },
+    {
+     "id": "blackberry",
+     "label": "Blackberry",
+     "aliases": [
+      "Blackberry",
+      "blackberries",
+      "blackberry",
+      "黑莓"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "cranberry",
+     "label": "Cranberry",
+     "aliases": [
+      "Cranberry",
+      "cranberries",
+      "cranberry",
+      "蔓越莓"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "gooseberry",
+     "label": "Gooseberry",
+     "aliases": [
+      "Gooseberry",
+      "gooseberries",
+      "gooseberry",
+      "醋栗"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "boysenberry",
+     "label": "Boysenberry",
+     "aliases": [
+      "Boysenberry",
+      "boysenberries",
+      "boysenberry",
+      "博伊森莓"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "elderberry",
+     "label": "Elderberry",
+     "aliases": [
+      "Elderberry",
+      "elderberries",
+      "elderberry",
+      "接骨木莓"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "mulberry",
+     "label": "Mulberry",
+     "aliases": [
+      "Mulberry",
+      "mulberries",
+      "mulberry",
+      "桑椹",
+      "桑葚"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "huckleberry",
+     "label": "Huckleberry",
+     "aliases": [
+      "Huckleberry",
+      "huckleberries",
+      "huckleberry",
+      "越橘"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "goji_berry",
+     "label": "Goji berry",
+     "aliases": [
+      "Goji berry",
+      "goji",
+      "goji berries",
+      "goji berry",
+      "wolfberry",
+      "枸杞"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "枸杞"
+     ]
+    },
+    {
+     "id": "acai_berry",
+     "label": "Açaí berry",
+     "aliases": [
+      "Açaí berry",
+      "acai",
+      "acai berry",
+      "açaí",
+      "açaí berry",
+      "巴西莓"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "lingonberry",
+     "label": "Lingonberry",
+     "aliases": [
+      "Lingonberry",
+      "cowberry",
+      "lingonberries",
+      "lingonberry",
+      "红越橘"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "cloudberry",
+     "label": "Cloudberry",
+     "aliases": [
+      "Cloudberry",
+      "cloudberries",
+      "cloudberry",
+      "云莓"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "currant",
+     "label": "Blackcurrant",
+     "aliases": [
+      "Blackcurrant",
+      "black currant",
+      "blackcurrant",
+      "blackcurrants",
+      "cassis",
+      "黑加仑",
+      "黑醋栗"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    }
+   ]
+  },
+  "bird": {
+   "templates": [
+    "What is your favorite type of bird? Answer in one word."
+   ],
+   "items": [
+    "br-imp-typeofbird"
+   ],
+   "gold_of": {
+    "br-imp-typeofbird": "owl"
+   },
+   "concepts": [
+    {
+     "id": "owl",
+     "label": "Owl",
+     "aliases": [
+      "Owl",
+      "owl",
+      "owls",
+      "猫头鹰"
+     ],
+     "gold": true,
+     "source": "opus",
+     "token_aliases": [
+      "Owl",
+      "owl"
+     ]
+    },
+    {
+     "id": "eagle",
+     "label": "Eagle",
+     "aliases": [
+      "Eagle",
+      "eagle",
+      "eagles",
+      "老鹰",
+      "鹰"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Eagle",
+      "Eagles",
+      "eagle",
+      "老鹰",
+      "鹰"
+     ]
+    },
+    {
+     "id": "hawk",
+     "label": "Hawk",
+     "aliases": [
+      "Hawk",
+      "hawk",
+      "hawks",
+      "隼鹰",
+      "鹞"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Hawk",
+      "Hawks",
+      "hawk",
+      "hawks"
+     ]
+    },
+    {
+     "id": "falcon",
+     "label": "Falcon",
+     "aliases": [
+      "Falcon",
+      "falcon",
+      "falcons",
+      "猎鹰"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Falcon",
+      "Falcons"
+     ]
+    },
+    {
+     "id": "robin",
+     "label": "Robin",
+     "aliases": [
+      "Robin",
+      "robin",
+      "robins",
+      "知更鸟"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Robin",
+      "robin"
+     ]
+    },
+    {
+     "id": "cardinal",
+     "label": "Cardinal",
+     "aliases": [
+      "Cardinal",
+      "cardinal",
+      "cardinals",
+      "北美红雀",
+      "红衣主教鸟"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Cardinal",
+      "Cardinals",
+      "cardinal"
+     ]
+    },
+    {
+     "id": "blue_jay",
+     "label": "Blue Jay",
+     "aliases": [
+      "Blue Jay",
+      "blue jay",
+      "blue jays",
+      "bluejay",
+      "冠蓝鸦"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "hummingbird",
+     "label": "Hummingbird",
+     "aliases": [
+      "Hummingbird",
+      "hummingbird",
+      "hummingbirds",
+      "蜂鸟"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "parrot",
+     "label": "Parrot",
+     "aliases": [
+      "Parrot",
+      "parrot",
+      "parrots",
+      "鹦鹉"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "鹦鹉"
+     ]
+    },
+    {
+     "id": "penguin",
+     "label": "Penguin",
+     "aliases": [
+      "Penguin",
+      "penguin",
+      "penguins",
+      "企鹅"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Penguin",
+      "Penguins",
+      "企鹅"
+     ]
+    },
+    {
+     "id": "crow",
+     "label": "Crow",
+     "aliases": [
+      "Crow",
+      "crow",
+      "crows",
+      "乌鸦"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Crow",
+      "crow",
+      "乌鸦"
+     ]
+    },
+    {
+     "id": "raven",
+     "label": "Raven",
+     "aliases": [
+      "Raven",
+      "raven",
+      "ravens",
+      "渡鸦"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Raven",
+      "Ravens",
+      "raven"
+     ]
+    },
+    {
+     "id": "peacock",
+     "label": "Peacock",
+     "aliases": [
+      "Peacock",
+      "peacock",
+      "peacocks",
+      "peafowl",
+      "孔雀"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "孔雀"
+     ]
+    },
+    {
+     "id": "flamingo",
+     "label": "Flamingo",
+     "aliases": [
+      "Flamingo",
+      "flamingo",
+      "flamingoes",
+      "flamingos",
+      "火烈鸟"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "sparrow",
+     "label": "Sparrow",
+     "aliases": [
+      "Sparrow",
+      "sparrow",
+      "sparrows",
+      "麻雀"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "麻雀"
+     ]
+    }
+   ]
+  },
+  "book_genre": {
+   "templates": [
+    "What is your favorite book genre? Answer in one word."
+   ],
+   "items": [
+    "br-imp-bookgenre"
+   ],
+   "gold_of": {
+    "br-imp-bookgenre": "science_fiction"
+   },
+   "concepts": [
+    {
+     "id": "science_fiction",
+     "label": "Science fiction",
+     "aliases": [
+      "SF",
+      "Science fiction",
+      "sci-fi",
+      "science fiction",
+      "scifi",
+      "科幻",
+      "科幻小说"
+     ],
+     "gold": true,
+     "source": "opus",
+     "token_aliases": [
+      "SF",
+      "Sf",
+      "sf",
+      "科幻",
+      "科幻小说"
+     ]
+    },
+    {
+     "id": "fantasy",
+     "label": "Fantasy",
+     "aliases": [
+      "Fantasy",
+      "fantasy",
+      "奇幻",
+      "奇幻小说"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Fantasy",
+      "fantasy",
+      "奇幻"
+     ]
+    },
+    {
+     "id": "mystery",
+     "label": "Mystery",
+     "aliases": [
+      "Mystery",
+      "detective fiction",
+      "mysteries",
+      "mystery",
+      "whodunit",
+      "悬疑小说",
+      "推理",
+      "推理小说"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Mystery",
+      "mysteries",
+      "mystery",
+      "推理"
+     ]
+    },
+    {
+     "id": "thriller",
+     "label": "Thriller",
+     "aliases": [
+      "Thriller",
+      "thriller",
+      "thrillers",
+      "惊悚",
+      "惊悚小说"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "thriller",
+      "惊悚"
+     ]
+    },
+    {
+     "id": "romance",
+     "label": "Romance",
+     "aliases": [
+      "Romance",
+      "romance",
+      "romance novels",
+      "爱情小说",
+      "言情",
+      "言情小说"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Romance",
+      "romance",
+      "言情",
+      "言情小说"
+     ]
+    },
+    {
+     "id": "horror",
+     "label": "Horror",
+     "aliases": [
+      "Horror",
+      "horror",
+      "恐怖",
+      "恐怖小说"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Horror",
+      "horror",
+      "恐怖"
+     ]
+    },
+    {
+     "id": "historical_fiction",
+     "label": "Historical fiction",
+     "aliases": [
+      "Historical fiction",
+      "historical fiction",
+      "历史小说"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "历史小说"
+     ]
+    },
+    {
+     "id": "biography",
+     "label": "Biography",
+     "aliases": [
+      "Biography",
+      "biographies",
+      "biography",
+      "传记"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Biography",
+      "biography",
+      "传记"
+     ]
+    },
+    {
+     "id": "nonfiction",
+     "label": "Nonfiction",
+     "aliases": [
+      "Nonfiction",
+      "non-fiction",
+      "nonfiction",
+      "纪实文学",
+      "非虚构"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "poetry",
+     "label": "Poetry",
+     "aliases": [
+      "Poetry",
+      "poems",
+      "poetry",
+      "诗歌"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Poetry",
+      "poems",
+      "poetry",
+      "诗歌"
+     ]
+    },
+    {
+     "id": "dystopian",
+     "label": "Dystopian",
+     "aliases": [
+      "Dystopian",
+      "dystopia",
+      "dystopian",
+      "dystopian fiction",
+      "反乌托邦",
+      "反乌托邦小说"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "literary_fiction",
+     "label": "Literary fiction",
+     "aliases": [
+      "Literary fiction",
+      "literary fiction",
+      "严肃文学",
+      "纯文学"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "adventure",
+     "label": "Adventure",
+     "aliases": [
+      "Adventure",
+      "adventure",
+      "adventure fiction",
+      "冒险",
+      "冒险小说"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Adventure",
+      "adventure",
+      "冒险"
+     ]
+    },
+    {
+     "id": "crime",
+     "label": "Crime",
+     "aliases": [
+      "Crime",
+      "crime",
+      "crime fiction",
+      "犯罪小说"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Crime",
+      "crime"
+     ]
+    },
+    {
+     "id": "memoir",
+     "label": "Memoir",
+     "aliases": [
+      "Memoir",
+      "memoir",
+      "memoirs",
+      "回忆录"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "memoir"
+     ]
+    }
+   ]
+  },
+  "candy": {
+   "templates": [
+    "What is your favorite kind of candy? Answer in one word."
+   ],
+   "items": [
+    "br-imp-kindofcandy"
+   ],
+   "gold_of": {
+    "br-imp-kindofcandy": "chocolate"
+   },
+   "concepts": [
+    {
+     "id": "chocolate",
+     "label": "Chocolate",
+     "aliases": [
+      "Chocolate",
+      "chocolate",
+      "chocolates",
+      "巧克力"
+     ],
+     "gold": true,
+     "source": "opus",
+     "token_aliases": [
+      "Chocolate",
+      "chocolate",
+      "chocolates",
+      "巧克力"
+     ]
+    },
+    {
+     "id": "gummy_bears",
+     "label": "Gummy Bears",
+     "aliases": [
+      "Gummy Bears",
+      "gummies",
+      "gummy",
+      "gummy bear",
+      "gummy bears",
+      "小熊软糖"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "licorice",
+     "label": "Licorice",
+     "aliases": [
+      "Licorice",
+      "licorice",
+      "liquorice",
+      "甘草糖"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "caramel",
+     "label": "Caramel",
+     "aliases": [
+      "Caramel",
+      "caramel",
+      "caramels",
+      "焦糖"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "caramel",
+      "焦糖"
+     ]
+    },
+    {
+     "id": "lollipop",
+     "label": "Lollipop",
+     "aliases": [
+      "Lollipop",
+      "lollies",
+      "lollipop",
+      "lollipops",
+      "sucker",
+      "棒棒糖"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "sucker"
+     ]
+    },
+    {
+     "id": "skittles",
+     "label": "Skittles",
+     "aliases": [
+      "Skittles",
+      "彩虹糖"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "reeses",
+     "label": "Reese's",
+     "aliases": [
+      "Reese's",
+      "Reese's Peanut Butter Cups",
+      "Reeses",
+      "peanut butter cups",
+      "锐滋"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "snickers",
+     "label": "Snickers",
+     "aliases": [
+      "Snickers",
+      "士力架"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "jelly_beans",
+     "label": "Jelly Beans",
+     "aliases": [
+      "Jelly Beans",
+      "jelly bean",
+      "jelly beans",
+      "jellybeans",
+      "糖豆"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "taffy",
+     "label": "Taffy",
+     "aliases": [
+      "Taffy",
+      "saltwater taffy",
+      "taffy",
+      "太妃糖"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "sour_patch_kids",
+     "label": "Sour Patch Kids",
+     "aliases": [
+      "Sour Patch",
+      "Sour Patch Kids",
+      "酸味软糖"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "mms",
+     "label": "M&M's",
+     "aliases": [
+      "M&M",
+      "M&M's",
+      "M&Ms",
+      "玛氏巧克力豆"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "twizzlers",
+     "label": "Twizzlers",
+     "aliases": [
+      "Twizzler",
+      "Twizzlers",
+      "扭扭糖"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "starburst",
+     "label": "Starburst",
+     "aliases": [
+      "Starburst",
+      "Starbursts",
+      "星爆糖"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "kit_kat",
+     "label": "Kit Kat",
+     "aliases": [
+      "Kit Kat",
+      "KitKat",
+      "奇巧"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    }
+   ]
+  },
+  "card_game": {
+   "templates": [
+    "What is your favorite card game? Answer in one word."
+   ],
+   "items": [
+    "br-imp-cardgame"
+   ],
+   "gold_of": {
+    "br-imp-cardgame": "poker"
+   },
+   "concepts": [
+    {
+     "id": "poker",
+     "label": "Poker",
+     "aliases": [
+      "Poker",
+      "Texas Hold'em",
+      "hold'em",
+      "poker",
+      "扑克"
+     ],
+     "gold": true,
+     "source": "opus",
+     "token_aliases": [
+      "Poker",
+      "poker",
+      "扑克"
+     ]
+    },
+    {
+     "id": "blackjack",
+     "label": "Blackjack",
+     "aliases": [
+      "21",
+      "Blackjack",
+      "blackjack",
+      "twenty-one",
+      "二十一点"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Blackjack",
+      "blackjack"
+     ]
+    },
+    {
+     "id": "bridge",
+     "label": "Bridge",
+     "aliases": [
+      "Bridge",
+      "bridge",
+      "contract bridge",
+      "桥牌"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Bridge",
+      "bridge"
+     ]
+    },
+    {
+     "id": "solitaire",
+     "label": "Solitaire",
+     "aliases": [
+      "Solitaire",
+      "klondike",
+      "patience",
+      "solitaire",
+      "纸牌接龙"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "patience"
+     ]
+    },
+    {
+     "id": "uno",
+     "label": "Uno",
+     "aliases": [
+      "UNO",
+      "Uno",
+      "uno",
+      "优诺"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Uno",
+      "uno"
+     ]
+    },
+    {
+     "id": "rummy",
+     "label": "Rummy",
+     "aliases": [
+      "Rummy",
+      "gin",
+      "gin rummy",
+      "rummy",
+      "拉米"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Gin",
+      "gin"
+     ]
+    },
+    {
+     "id": "hearts",
+     "label": "Hearts",
+     "aliases": [
+      "Hearts",
+      "hearts",
+      "红心大战"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Hearts",
+      "hearts"
+     ]
+    },
+    {
+     "id": "spades",
+     "label": "Spades",
+     "aliases": [
+      "Spades",
+      "spades",
+      "黑桃王"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "go_fish",
+     "label": "Go Fish",
+     "aliases": [
+      "Go Fish",
+      "go fish",
+      "钓鱼"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "钓鱼"
+     ]
+    },
+    {
+     "id": "war",
+     "label": "War",
+     "aliases": [
+      "War",
+      "war",
+      "比大小"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "War",
+      "war"
+     ]
+    },
+    {
+     "id": "euchre",
+     "label": "Euchre",
+     "aliases": [
+      "Euchre",
+      "euchre",
+      "尤克牌"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "cribbage",
+     "label": "Cribbage",
+     "aliases": [
+      "Cribbage",
+      "cribbage",
+      "克里比奇"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "canasta",
+     "label": "Canasta",
+     "aliases": [
+      "Canasta",
+      "canasta",
+      "卡纳斯塔"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "magic_the_gathering",
+     "label": "Magic: The Gathering",
+     "aliases": [
+      "MTG",
+      "Magic",
+      "Magic: The Gathering",
+      "万智牌"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Magic",
+      "magic"
+     ]
+    },
+    {
+     "id": "baccarat",
+     "label": "Baccarat",
+     "aliases": [
+      "Baccarat",
+      "baccarat",
+      "百家乐"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    }
+   ]
+  },
+  "cartoon_character": {
+   "templates": [
+    "What is your favorite cartoon character? Answer in one word."
+   ],
+   "items": [
+    "br-imp-cartoonchara"
+   ],
+   "gold_of": {
+    "br-imp-cartoonchara": "spongebob_squarepants"
+   },
+   "concepts": [
+    {
+     "id": "spongebob_squarepants",
+     "label": "SpongeBob SquarePants",
+     "aliases": [
+      "Sponge Bob",
+      "SpongeBob",
+      "SpongeBob SquarePants",
+      "Spongebob",
+      "海绵宝宝"
+     ],
+     "gold": true,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "mickey_mouse",
+     "label": "Mickey Mouse",
+     "aliases": [
+      "Mickey",
+      "Mickey Mouse",
+      "米奇",
+      "米老鼠"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Mickey"
+     ]
+    },
+    {
+     "id": "bugs_bunny",
+     "label": "Bugs Bunny",
+     "aliases": [
+      "Bugs",
+      "Bugs Bunny",
+      "兔八哥"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Bugs",
+      "bugs"
+     ]
+    },
+    {
+     "id": "homer_simpson",
+     "label": "Homer Simpson",
+     "aliases": [
+      "Homer",
+      "Homer Simpson",
+      "荷马·辛普森"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Homer",
+      "homer"
+     ]
+    },
+    {
+     "id": "bart_simpson",
+     "label": "Bart Simpson",
+     "aliases": [
+      "Bart",
+      "Bart Simpson",
+      "巴特·辛普森"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Bart",
+      "bart"
+     ]
+    },
+    {
+     "id": "scooby_doo",
+     "label": "Scooby-Doo",
+     "aliases": [
+      "Scooby",
+      "Scooby Doo",
+      "Scooby-Doo",
+      "史酷比"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "snoopy",
+     "label": "Snoopy",
+     "aliases": [
+      "Snoopy",
+      "史努比"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "donald_duck",
+     "label": "Donald Duck",
+     "aliases": [
+      "Donald",
+      "Donald Duck",
+      "唐老鸭"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Donald"
+     ]
+    },
+    {
+     "id": "pikachu",
+     "label": "Pikachu",
+     "aliases": [
+      "Pikachu",
+      "皮卡丘"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Pikachu"
+     ]
+    },
+    {
+     "id": "garfield",
+     "label": "Garfield",
+     "aliases": [
+      "Garfield",
+      "加菲猫"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "tom_cat",
+     "label": "Tom",
+     "aliases": [
+      "Tom",
+      "Tom the cat",
+      "汤姆猫"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Tom",
+      "tom"
+     ]
+    },
+    {
+     "id": "jerry_mouse",
+     "label": "Jerry",
+     "aliases": [
+      "Jerry",
+      "Jerry the mouse",
+      "杰瑞"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Jerry"
+     ]
+    },
+    {
+     "id": "patrick_star",
+     "label": "Patrick Star",
+     "aliases": [
+      "Patrick",
+      "Patrick Star",
+      "派大星"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Patrick",
+      "patrick"
+     ]
+    },
+    {
+     "id": "daffy_duck",
+     "label": "Daffy Duck",
+     "aliases": [
+      "Daffy",
+      "Daffy Duck",
+      "达菲鸭"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "winnie_the_pooh",
+     "label": "Winnie the Pooh",
+     "aliases": [
+      "Pooh",
+      "Pooh Bear",
+      "Winnie the Pooh",
+      "小熊维尼"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    }
+   ]
+  },
+  "chess_piece": {
+   "templates": [
+    "What is your favorite chess piece? Answer in one word."
+   ],
+   "items": [
+    "br-imp-chesspiece"
+   ],
+   "gold_of": {
+    "br-imp-chesspiece": "queen"
+   },
+   "concepts": [
+    {
+     "id": "queen",
+     "label": "Queen",
+     "aliases": [
+      "Queen",
+      "queen",
+      "queens",
+      "后",
+      "皇后"
+     ],
+     "gold": true,
+     "source": "opus",
+     "token_aliases": [
+      "Queen",
+      "Queens",
+      "queen",
+      "queens",
+      "后",
+      "皇后"
+     ]
+    },
+    {
+     "id": "king",
+     "label": "King",
+     "aliases": [
+      "King",
+      "king",
+      "kings",
+      "国王",
+      "王"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "King",
+      "Kings",
+      "king",
+      "kings",
+      "国王",
+      "王"
+     ]
+    },
+    {
+     "id": "knight",
+     "label": "Knight",
+     "aliases": [
+      "Knight",
+      "horse",
+      "knight",
+      "knights",
+      "马",
+      "骑士"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Horse",
+      "Knight",
+      "Knights",
+      "horse",
+      "knight",
+      "knights",
+      "马",
+      "骑士"
+     ]
+    },
+    {
+     "id": "bishop",
+     "label": "Bishop",
+     "aliases": [
+      "Bishop",
+      "bishop",
+      "bishops",
+      "主教",
+      "象"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Bishop",
+      "bishop",
+      "bishops",
+      "主教",
+      "象"
+     ]
+    },
+    {
+     "id": "rook",
+     "label": "Rook",
+     "aliases": [
+      "Rook",
+      "castle",
+      "rook",
+      "rooks",
+      "城堡",
+      "车"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Castle",
+      "castle",
+      "城堡",
+      "车"
+     ]
+    },
+    {
+     "id": "pawn",
+     "label": "Pawn",
+     "aliases": [
+      "Pawn",
+      "pawn",
+      "pawns",
+      "兵",
+      "卒"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Pawn",
+      "pawn",
+      "兵",
+      "卒"
+     ]
+    },
+    {
+     "id": "amazon",
+     "label": "Amazon",
+     "aliases": [
+      "Amazon",
+      "amazon",
+      "亚马逊棋子"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Amazon",
+      "amazon"
+     ]
+    },
+    {
+     "id": "chancellor",
+     "label": "Chancellor",
+     "aliases": [
+      "Chancellor",
+      "chancellor",
+      "marshal",
+      "大臣"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Chancellor",
+      "Marshal",
+      "chancellor",
+      "marshal",
+      "大臣"
+     ]
+    },
+    {
+     "id": "archbishop",
+     "label": "Archbishop",
+     "aliases": [
+      "Archbishop",
+      "archbishop",
+      "cardinal",
+      "princess",
+      "大主教"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Archbishop",
+      "Cardinal",
+      "Princess",
+      "cardinal",
+      "princess"
+     ]
+    },
+    {
+     "id": "xiangqi_cannon",
+     "label": "Cannon",
+     "aliases": [
+      "Cannon",
+      "cannon",
+      "炮"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Cannon",
+      "cannon",
+      "炮"
+     ]
+    },
+    {
+     "id": "xiangqi_elephant",
+     "label": "Elephant",
+     "aliases": [
+      "Elephant",
+      "elephant",
+      "相"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Elephant",
+      "elephant",
+      "相"
+     ]
+    },
+    {
+     "id": "xiangqi_advisor",
+     "label": "Advisor",
+     "aliases": [
+      "Advisor",
+      "advisor",
+      "guard",
+      "mandarin",
+      "仕",
+      "士"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Advisor",
+      "Guard",
+      "Mandarin",
+      "advisor",
+      "guard",
+      "仕",
+      "士"
+     ]
+    },
+    {
+     "id": "xiangqi_general",
+     "label": "General",
+     "aliases": [
+      "General",
+      "general",
+      "将",
+      "帅"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "General",
+      "general",
+      "将",
+      "帅"
+     ]
+    },
+    {
+     "id": "camel",
+     "label": "Camel",
+     "aliases": [
+      "Camel",
+      "camel",
+      "骆驼"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Camel",
+      "camel",
+      "骆驼"
+     ]
+    },
+    {
+     "id": "nightrider",
+     "label": "Nightrider",
+     "aliases": [
+      "Nightrider",
+      "nightrider",
+      "夜骑"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    }
+   ]
+  },
+  "color": {
+   "templates": [
+    "What is your favorite color? Answer in one word."
+   ],
+   "items": [
+    "br-imp-color"
+   ],
+   "gold_of": {
+    "br-imp-color": "blue"
+   },
+   "concepts": [
+    {
+     "id": "blue",
+     "label": "Blue",
+     "aliases": [
+      "Blue",
+      "blue",
+      "蓝",
+      "蓝色"
+     ],
+     "gold": true,
+     "source": "opus",
+     "token_aliases": [
+      "Blue",
+      "blue",
+      "蓝",
+      "蓝色"
+     ]
+    },
+    {
+     "id": "red",
+     "label": "Red",
+     "aliases": [
+      "Red",
+      "red",
+      "红",
+      "红色"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Red",
+      "red",
+      "红",
+      "红色"
+     ]
+    },
+    {
+     "id": "green",
+     "label": "Green",
+     "aliases": [
+      "Green",
+      "green",
+      "绿",
+      "绿色"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Green",
+      "green",
+      "绿",
+      "绿色"
+     ]
+    },
+    {
+     "id": "purple",
+     "label": "Purple",
+     "aliases": [
+      "Purple",
+      "purple",
+      "紫",
+      "紫色"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Purple",
+      "purple",
+      "紫",
+      "紫色"
+     ]
+    },
+    {
+     "id": "yellow",
+     "label": "Yellow",
+     "aliases": [
+      "Yellow",
+      "yellow",
+      "黄",
+      "黄色"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Yellow",
+      "yellow",
+      "黄",
+      "黄色"
+     ]
+    },
+    {
+     "id": "black",
+     "label": "Black",
+     "aliases": [
+      "Black",
+      "black",
+      "黑",
+      "黑色"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Black",
+      "black",
+      "黑",
+      "黑色"
+     ]
+    },
+    {
+     "id": "pink",
+     "label": "Pink",
+     "aliases": [
+      "Pink",
+      "pink",
+      "粉红色",
+      "粉色"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Pink",
+      "pink",
+      "粉红色",
+      "粉色"
+     ]
+    },
+    {
+     "id": "orange",
+     "label": "Orange",
+     "aliases": [
+      "Orange",
+      "orange",
+      "橘色",
+      "橙色"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Orange",
+      "orange",
+      "橙色"
+     ]
+    },
+    {
+     "id": "white",
+     "label": "White",
+     "aliases": [
+      "White",
+      "white",
+      "白",
+      "白色"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "White",
+      "white",
+      "白",
+      "白色"
+     ]
+    },
+    {
+     "id": "teal",
+     "label": "Teal",
+     "aliases": [
+      "Teal",
+      "teal",
+      "水鸭色",
+      "蓝绿色"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "teal"
+     ]
+    },
+    {
+     "id": "turquoise",
+     "label": "Turquoise",
+     "aliases": [
+      "Turquoise",
+      "turquoise",
+      "绿松石色"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "turquoise"
+     ]
+    },
+    {
+     "id": "gray",
+     "label": "Gray",
+     "aliases": [
+      "Gray",
+      "gray",
+      "grey",
+      "灰色"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Gray",
+      "Grey",
+      "gray",
+      "grey",
+      "灰色"
+     ]
+    },
+    {
+     "id": "brown",
+     "label": "Brown",
+     "aliases": [
+      "Brown",
+      "brown",
+      "棕色",
+      "褐色"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Brown",
+      "brown",
+      "棕色",
+      "褐色"
+     ]
+    },
+    {
+     "id": "navy",
+     "label": "Navy",
+     "aliases": [
+      "Navy",
+      "navy",
+      "navy blue",
+      "海军蓝",
+      "藏青色"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Navy",
+      "navy"
+     ]
+    },
+    {
+     "id": "gold",
+     "label": "Gold",
+     "aliases": [
+      "Gold",
+      "gold",
+      "golden",
+      "金色"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Gold",
+      "Golden",
+      "gold",
+      "golden",
+      "金色"
+     ]
+    }
+   ]
+  },
+  "constellation": {
+   "templates": [
+    "What is your favorite constellation? Answer in one word."
+   ],
+   "items": [
+    "br-imp-constellatio"
+   ],
+   "gold_of": {
+    "br-imp-constellatio": "orion"
+   },
+   "concepts": [
+    {
+     "id": "orion",
+     "label": "Orion",
+     "aliases": [
+      "Orion",
+      "the Hunter",
+      "猎户座"
+     ],
+     "gold": true,
+     "source": "opus",
+     "token_aliases": [
+      "Orion"
+     ]
+    },
+    {
+     "id": "ursa_major",
+     "label": "Ursa Major",
+     "aliases": [
+      "Great Bear",
+      "Ursa Major",
+      "the Great Bear",
+      "大熊座"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "ursa_minor",
+     "label": "Ursa Minor",
+     "aliases": [
+      "Little Bear",
+      "Ursa Minor",
+      "the Little Bear",
+      "小熊座"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "cassiopeia",
+     "label": "Cassiopeia",
+     "aliases": [
+      "Cassiopeia",
+      "仙后座"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "scorpius",
+     "label": "Scorpius",
+     "aliases": [
+      "Scorpio",
+      "Scorpius",
+      "the Scorpion",
+      "天蝎座"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "天蝎座"
+     ]
+    },
+    {
+     "id": "leo",
+     "label": "Leo",
+     "aliases": [
+      "Leo",
+      "the Lion",
+      "狮子座"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Leo",
+      "leo",
+      "狮子座"
+     ]
+    },
+    {
+     "id": "cygnus",
+     "label": "Cygnus",
+     "aliases": [
+      "Cygnus",
+      "Northern Cross",
+      "the Swan",
+      "天鹅座"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "draco",
+     "label": "Draco",
+     "aliases": [
+      "Draco",
+      "the Dragon",
+      "天龙座"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Draco"
+     ]
+    },
+    {
+     "id": "pegasus",
+     "label": "Pegasus",
+     "aliases": [
+      "Pegasus",
+      "飞马座"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "andromeda",
+     "label": "Andromeda",
+     "aliases": [
+      "Andromeda",
+      "仙女座"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "gemini",
+     "label": "Gemini",
+     "aliases": [
+      "Gemini",
+      "the Twins",
+      "双子座"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Gemini",
+      "双子座"
+     ]
+    },
+    {
+     "id": "taurus",
+     "label": "Taurus",
+     "aliases": [
+      "Taurus",
+      "the Bull",
+      "金牛座"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "金牛座"
+     ]
+    },
+    {
+     "id": "lyra",
+     "label": "Lyra",
+     "aliases": [
+      "Lyra",
+      "the Lyre",
+      "天琴座"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "crux",
+     "label": "Crux",
+     "aliases": [
+      "Crux",
+      "Southern Cross",
+      "the Southern Cross",
+      "南十字座"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "sagittarius",
+     "label": "Sagittarius",
+     "aliases": [
+      "Sagittarius",
+      "the Archer",
+      "人马座",
+      "射手座"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "射手座"
+     ]
+    }
+   ]
+  },
+  "cookie_type": {
+   "templates": [
+    "What is your favorite kind of cookie? Answer in one word."
+   ],
+   "items": [
+    "br-imp-kindofcookie"
+   ],
+   "gold_of": {
+    "br-imp-kindofcookie": "chocolate_chip"
+   },
+   "concepts": [
+    {
+     "id": "chocolate_chip",
+     "label": "Chocolate chip",
+     "aliases": [
+      "Chocolate chip",
+      "chocolate chip",
+      "chocolate chip cookie",
+      "chocolate-chip",
+      "chocolatechip",
+      "巧克力碎饼干",
+      "巧克力豆曲奇"
+     ],
+     "gold": true,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "oatmeal_raisin",
+     "label": "Oatmeal raisin",
+     "aliases": [
+      "Oatmeal raisin",
+      "oatmeal",
+      "oatmeal cookie",
+      "oatmeal raisin",
+      "oatmeal-raisin",
+      "燕麦葡萄干饼干",
+      "燕麦饼干"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "peanut_butter",
+     "label": "Peanut butter",
+     "aliases": [
+      "Peanut butter",
+      "peanut butter",
+      "peanut butter cookie",
+      "peanut-butter",
+      "花生酱饼干"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "sugar",
+     "label": "Sugar",
+     "aliases": [
+      "Sugar",
+      "sugar",
+      "sugar cookie",
+      "糖饼干"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Sugar",
+      "sugar"
+     ]
+    },
+    {
+     "id": "snickerdoodle",
+     "label": "Snickerdoodle",
+     "aliases": [
+      "Snickerdoodle",
+      "snickerdoodle",
+      "snickerdoodles",
+      "肉桂糖饼干"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "shortbread",
+     "label": "Shortbread",
+     "aliases": [
+      "Shortbread",
+      "shortbread",
+      "shortbread cookie",
+      "苏格兰酥饼",
+      "黄油酥饼"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "gingerbread",
+     "label": "Gingerbread",
+     "aliases": [
+      "Gingerbread",
+      "gingerbread",
+      "gingerbread cookie",
+      "姜饼"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "ginger_snap",
+     "label": "Gingersnap",
+     "aliases": [
+      "Gingersnap",
+      "ginger snap",
+      "gingersnap",
+      "gingersnaps",
+      "姜脆饼"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "macaron",
+     "label": "Macaron",
+     "aliases": [
+      "French macaron",
+      "Macaron",
+      "macaron",
+      "macarons",
+      "马卡龙"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "oreo",
+     "label": "Oreo",
+     "aliases": [
+      "Oreo",
+      "Oreos",
+      "奥利奥"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "double_chocolate",
+     "label": "Double chocolate",
+     "aliases": [
+      "Double chocolate",
+      "chocolate cookie",
+      "double chocolate",
+      "double chocolate chip",
+      "双重巧克力饼干"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "white_chocolate_macadamia",
+     "label": "White chocolate macadamia",
+     "aliases": [
+      "White chocolate macadamia",
+      "macadamia",
+      "macadamia nut",
+      "white chocolate macadamia",
+      "white chocolate macadamia nut",
+      "白巧克力夏威夷果饼干"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "biscotti",
+     "label": "Biscotti",
+     "aliases": [
+      "Biscotti",
+      "biscotti",
+      "biscotto",
+      "意式脆饼"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "fortune_cookie",
+     "label": "Fortune cookie",
+     "aliases": [
+      "Fortune cookie",
+      "fortune",
+      "fortune cookie",
+      "幸运饼干",
+      "签语饼"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Fortune",
+      "fortune"
+     ]
+    },
+    {
+     "id": "snowball",
+     "label": "Snowball",
+     "aliases": [
+      "Mexican wedding cookie",
+      "Russian tea cake",
+      "Snowball",
+      "snowball",
+      "snowball cookie",
+      "雪球饼干"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    }
+   ]
+  },
+  "country": {
+   "templates": [
+    "The city of NAME is the capital of",
+    "The NAME is located in the country of",
+    "What is your favorite country to visit? Answer in one word."
+   ],
+   "items": [
+    "br-ent-cap-athens",
+    "br-ent-cap-berlin",
+    "br-ent-cap-cairo",
+    "br-ent-cap-madrid",
+    "br-ent-cap-moscow",
+    "br-ent-cap-nairobi",
+    "br-ent-cap-ottawa",
+    "br-ent-cap-paris",
+    "br-ent-cap-rome",
+    "br-ent-cap-tokyo",
+    "br-ent-lmk-big",
+    "br-ent-lmk-christ",
+    "br-ent-lmk-colosseum",
+    "br-ent-lmk-eiffel",
+    "br-ent-lmk-great",
+    "br-ent-lmk-sydney",
+    "br-ent-lmk-taj",
+    "br-imp-countrytovis"
+   ],
+   "gold_of": {
+    "br-ent-cap-athens": "greece",
+    "br-ent-cap-berlin": "germany",
+    "br-ent-cap-cairo": "egypt",
+    "br-ent-cap-madrid": "spain",
+    "br-ent-cap-moscow": "russia",
+    "br-ent-cap-nairobi": "kenya",
+    "br-ent-cap-ottawa": "canada",
+    "br-ent-cap-paris": "france",
+    "br-ent-cap-rome": "italy",
+    "br-ent-cap-tokyo": "japan",
+    "br-ent-lmk-big": "england",
+    "br-ent-lmk-christ": "brazil",
+    "br-ent-lmk-colosseum": "italy",
+    "br-ent-lmk-eiffel": "france",
+    "br-ent-lmk-great": "egypt",
+    "br-ent-lmk-sydney": "australia",
+    "br-ent-lmk-taj": "india",
+    "br-imp-countrytovis": "japan"
+   },
+   "concepts": [
+    {
+     "id": "australia",
+     "label": "Australia",
+     "aliases": [
+      "Australia",
+      "Australian",
+      "Commonwealth of Australia",
+      "澳大利亚"
+     ],
+     "gold": true,
+     "source": "opus",
+     "token_aliases": [
+      "Australia",
+      "Australian",
+      "australia",
+      "澳大利亚"
+     ]
+    },
+    {
+     "id": "brazil",
+     "label": "Brazil",
+     "aliases": [
+      "Brasil",
+      "Brazil",
+      "Brazilian",
+      "Federative Republic of Brazil",
+      "巴西"
+     ],
+     "gold": true,
+     "source": "opus",
+     "token_aliases": [
+      "Brasil",
+      "Brazil",
+      "Brazilian",
+      "brasil",
+      "brazil",
+      "巴西"
+     ]
+    },
+    {
+     "id": "canada",
+     "label": "Canada",
+     "aliases": [
+      "Canada",
+      "Canadian",
+      "加拿大"
+     ],
+     "gold": true,
+     "source": "opus",
+     "token_aliases": [
+      "Canada",
+      "Canadian",
+      "canada",
+      "canadian"
+     ]
+    },
+    {
+     "id": "egypt",
+     "label": "Egypt",
+     "aliases": [
+      "Arab Republic of Egypt",
+      "Egypt",
+      "Egyptian",
+      "埃及"
+     ],
+     "gold": true,
+     "source": "opus",
+     "token_aliases": [
+      "Egypt",
+      "Egyptian",
+      "埃及"
+     ]
+    },
+    {
+     "id": "england",
+     "label": "England",
+     "aliases": [
+      "England",
+      "English",
+      "英格兰"
+     ],
+     "gold": true,
+     "source": "opus",
+     "token_aliases": [
+      "England",
+      "English",
+      "english",
+      "英格兰"
+     ]
+    },
+    {
+     "id": "france",
+     "label": "France",
+     "aliases": [
+      "France",
+      "French",
+      "French Republic",
+      "法国"
+     ],
+     "gold": true,
+     "source": "opus",
+     "token_aliases": [
+      "France",
+      "French",
+      "france",
+      "french",
+      "法国"
+     ]
+    },
+    {
+     "id": "germany",
+     "label": "Germany",
+     "aliases": [
+      "Deutschland",
+      "Federal Republic of Germany",
+      "German",
+      "Germany",
+      "德国"
+     ],
+     "gold": true,
+     "source": "opus",
+     "token_aliases": [
+      "Deutschland",
+      "German",
+      "Germany",
+      "deutschland",
+      "german",
+      "germany",
+      "德国"
+     ]
+    },
+    {
+     "id": "greece",
+     "label": "Greece",
+     "aliases": [
+      "Greece",
+      "Greek",
+      "Hellas",
+      "Hellenic Republic",
+      "希腊"
+     ],
+     "gold": true,
+     "source": "opus",
+     "token_aliases": [
+      "Greece",
+      "Greek",
+      "希腊"
+     ]
+    },
+    {
+     "id": "india",
+     "label": "India",
+     "aliases": [
+      "Bharat",
+      "India",
+      "Indian",
+      "Republic of India",
+      "印度"
+     ],
+     "gold": true,
+     "source": "opus",
+     "token_aliases": [
+      "India",
+      "Indian",
+      "india",
+      "indian",
+      "印度"
+     ]
+    },
+    {
+     "id": "italy",
+     "label": "Italy",
+     "aliases": [
+      "Italian",
+      "Italian Republic",
+      "Italy",
+      "意大利"
+     ],
+     "gold": true,
+     "source": "opus",
+     "token_aliases": [
+      "Italian",
+      "Italy",
+      "italian",
+      "意大利"
+     ]
+    },
+    {
+     "id": "japan",
+     "label": "Japan",
+     "aliases": [
+      "Japan",
+      "Japanese",
+      "Nippon",
+      "日本"
+     ],
+     "gold": true,
+     "source": "opus",
+     "token_aliases": [
+      "Japan",
+      "Japanese",
+      "japan",
+      "japanese",
+      "日本"
+     ]
+    },
+    {
+     "id": "kenya",
+     "label": "Kenya",
+     "aliases": [
+      "Kenya",
+      "Kenyan",
+      "Republic of Kenya",
+      "肯尼亚"
+     ],
+     "gold": true,
+     "source": "opus",
+     "token_aliases": [
+      "Kenya",
+      "肯尼亚"
+     ]
+    },
+    {
+     "id": "russia",
+     "label": "Russia",
+     "aliases": [
+      "Russia",
+      "Russian",
+      "Russian Federation",
+      "俄罗斯"
+     ],
+     "gold": true,
+     "source": "opus",
+     "token_aliases": [
+      "Russia",
+      "Russian",
+      "russian",
+      "俄罗斯"
+     ]
+    },
+    {
+     "id": "spain",
+     "label": "Spain",
+     "aliases": [
+      "España",
+      "Kingdom of Spain",
+      "Spain",
+      "Spanish",
+      "西班牙"
+     ],
+     "gold": true,
+     "source": "opus",
+     "token_aliases": [
+      "España",
+      "Spain",
+      "Spanish",
+      "spanish",
+      "西班牙"
+     ]
+    },
+    {
+     "id": "china",
+     "label": "China",
+     "aliases": [
+      "China",
+      "Chinese",
+      "PRC",
+      "People's Republic of China",
+      "中国"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "China",
+      "Chinese",
+      "china",
+      "chinese",
+      "中国"
+     ]
+    }
+   ]
+  },
+  "cuisine": {
+   "templates": [
+    "What is your favorite type of cuisine? Answer in one word."
+   ],
+   "items": [
+    "br-imp-typeofcuisin"
+   ],
+   "gold_of": {
+    "br-imp-typeofcuisin": "italian"
+   },
+   "concepts": [
+    {
+     "id": "italian",
+     "label": "Italian",
+     "aliases": [
+      "Italian",
+      "Italian cuisine",
+      "Italian food",
+      "意大利菜"
+     ],
+     "gold": true,
+     "source": "opus",
+     "token_aliases": [
+      "Italian",
+      "italian"
+     ]
+    },
+    {
+     "id": "japanese",
+     "label": "Japanese",
+     "aliases": [
+      "Japanese",
+      "Japanese cuisine",
+      "Japanese food",
+      "日本料理",
+      "日本菜"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Japanese",
+      "japanese"
+     ]
+    },
+    {
+     "id": "chinese",
+     "label": "Chinese",
+     "aliases": [
+      "Chinese",
+      "Chinese cuisine",
+      "Chinese food",
+      "中国菜",
+      "中餐"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Chinese",
+      "chinese",
+      "中餐"
+     ]
+    },
+    {
+     "id": "mexican",
+     "label": "Mexican",
+     "aliases": [
+      "Mexican",
+      "Mexican cuisine",
+      "Mexican food",
+      "墨西哥菜"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Mexican"
+     ]
+    },
+    {
+     "id": "indian",
+     "label": "Indian",
+     "aliases": [
+      "Indian",
+      "Indian cuisine",
+      "Indian food",
+      "印度菜"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Indian",
+      "indian"
+     ]
+    },
+    {
+     "id": "thai",
+     "label": "Thai",
+     "aliases": [
+      "Thai",
+      "Thai cuisine",
+      "Thai food",
+      "泰国菜"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Thai",
+      "thai"
+     ]
+    },
+    {
+     "id": "french",
+     "label": "French",
+     "aliases": [
+      "French",
+      "French cuisine",
+      "French food",
+      "法国菜",
+      "法餐"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "French",
+      "french"
+     ]
+    },
+    {
+     "id": "greek",
+     "label": "Greek",
+     "aliases": [
+      "Greek",
+      "Greek cuisine",
+      "Greek food",
+      "希腊菜"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Greek"
+     ]
+    },
+    {
+     "id": "korean",
+     "label": "Korean",
+     "aliases": [
+      "Korean",
+      "Korean cuisine",
+      "Korean food",
+      "韩国料理",
+      "韩国菜"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Korean"
+     ]
+    },
+    {
+     "id": "spanish",
+     "label": "Spanish",
+     "aliases": [
+      "Spanish",
+      "Spanish cuisine",
+      "Spanish food",
+      "西班牙菜"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Spanish",
+      "spanish"
+     ]
+    },
+    {
+     "id": "vietnamese",
+     "label": "Vietnamese",
+     "aliases": [
+      "Vietnamese",
+      "Vietnamese cuisine",
+      "Vietnamese food",
+      "越南菜"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Vietnamese"
+     ]
+    },
+    {
+     "id": "mediterranean",
+     "label": "Mediterranean",
+     "aliases": [
+      "Mediterranean",
+      "Mediterranean cuisine",
+      "Mediterranean food",
+      "地中海菜"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Mediterranean"
+     ]
+    },
+    {
+     "id": "american",
+     "label": "American",
+     "aliases": [
+      "American",
+      "American cuisine",
+      "American food",
+      "美国菜",
+      "美式料理"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "American",
+      "american"
+     ]
+    },
+    {
+     "id": "turkish",
+     "label": "Turkish",
+     "aliases": [
+      "Turkish",
+      "Turkish cuisine",
+      "Turkish food",
+      "土耳其菜"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Turkish"
+     ]
+    },
+    {
+     "id": "lebanese",
+     "label": "Lebanese",
+     "aliases": [
+      "Lebanese",
+      "Lebanese cuisine",
+      "Lebanese food",
+      "黎巴嫩菜"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Lebanese"
+     ]
+    }
+   ]
+  },
+  "dance_style": {
+   "templates": [
+    "What is your favorite type of dance? Answer in one word."
+   ],
+   "items": [
+    "br-imp-typeofdance"
+   ],
+   "gold_of": {
+    "br-imp-typeofdance": "salsa"
+   },
+   "concepts": [
+    {
+     "id": "salsa",
+     "label": "Salsa",
+     "aliases": [
+      "Salsa",
+      "salsa",
+      "salsa dancing",
+      "萨尔萨",
+      "萨尔萨舞"
+     ],
+     "gold": true,
+     "source": "opus",
+     "token_aliases": [
+      "salsa"
+     ]
+    },
+    {
+     "id": "ballet",
+     "label": "Ballet",
+     "aliases": [
+      "Ballet",
+      "ballet",
+      "classical ballet",
+      "芭蕾",
+      "芭蕾舞"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Ballet",
+      "ballet",
+      "芭蕾",
+      "芭蕾舞"
+     ]
+    },
+    {
+     "id": "tango",
+     "label": "Tango",
+     "aliases": [
+      "Argentine tango",
+      "Tango",
+      "tango",
+      "探戈",
+      "探戈舞"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Tango"
+     ]
+    },
+    {
+     "id": "hip_hop",
+     "label": "Hip-hop",
+     "aliases": [
+      "Hip-hop",
+      "hip hop",
+      "hip-hop",
+      "hip-hop dance",
+      "hiphop",
+      "嘻哈舞",
+      "街舞"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "街舞"
+     ]
+    },
+    {
+     "id": "waltz",
+     "label": "Waltz",
+     "aliases": [
+      "Viennese waltz",
+      "Waltz",
+      "waltz",
+      "华尔兹",
+      "圆舞曲"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "swing",
+     "label": "Swing",
+     "aliases": [
+      "Swing",
+      "swing",
+      "swing dance",
+      "swing dancing",
+      "摇摆舞"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Swing",
+      "swing"
+     ]
+    },
+    {
+     "id": "contemporary",
+     "label": "Contemporary",
+     "aliases": [
+      "Contemporary",
+      "contemporary",
+      "contemporary dance",
+      "当代舞",
+      "现代舞"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Contemporary",
+      "contemporary"
+     ]
+    },
+    {
+     "id": "jazz",
+     "label": "Jazz",
+     "aliases": [
+      "Jazz",
+      "jazz",
+      "jazz dance",
+      "爵士舞"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Jazz",
+      "jazz"
+     ]
+    },
+    {
+     "id": "tap",
+     "label": "Tap",
+     "aliases": [
+      "Tap",
+      "tap",
+      "tap dance",
+      "tap dancing",
+      "踢踏舞"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Tap",
+      "tap"
+     ]
+    },
+    {
+     "id": "breakdance",
+     "label": "Breakdance",
+     "aliases": [
+      "Breakdance",
+      "b-boying",
+      "breakdance",
+      "breakdancing",
+      "breaking",
+      "霹雳舞"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Breaking",
+      "breaking"
+     ]
+    },
+    {
+     "id": "flamenco",
+     "label": "Flamenco",
+     "aliases": [
+      "Flamenco",
+      "flamenco",
+      "弗拉明戈舞",
+      "弗拉门戈"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "bachata",
+     "label": "Bachata",
+     "aliases": [
+      "Bachata",
+      "bachata",
+      "巴恰塔",
+      "巴恰塔舞"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "belly_dance",
+     "label": "Belly dance",
+     "aliases": [
+      "Belly dance",
+      "belly dance",
+      "belly dancing",
+      "bellydance",
+      "肚皮舞"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "cha_cha",
+     "label": "Cha-cha",
+     "aliases": [
+      "Cha-cha",
+      "cha cha",
+      "cha-cha",
+      "cha-cha-cha",
+      "恰恰",
+      "恰恰舞"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "恰恰"
+     ]
+    },
+    {
+     "id": "foxtrot",
+     "label": "Foxtrot",
+     "aliases": [
+      "Foxtrot",
+      "fox-trot",
+      "foxtrot",
+      "狐步舞"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    }
+   ]
+  },
+  "day_of_week": {
+   "templates": [
+    "What is your favorite day of the week? Answer in one word."
+   ],
+   "items": [
+    "br-imp-dayoftheweek"
+   ],
+   "gold_of": {
+    "br-imp-dayoftheweek": "friday"
+   },
+   "concepts": [
+    {
+     "id": "monday",
+     "label": "Monday",
+     "aliases": [
+      "Mon",
+      "Monday",
+      "Mondays",
+      "周一",
+      "星期一"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Mon",
+      "Monday",
+      "Mondays",
+      "mon",
+      "monday",
+      "周一",
+      "星期一"
+     ]
+    },
+    {
+     "id": "tuesday",
+     "label": "Tuesday",
+     "aliases": [
+      "Tue",
+      "Tues",
+      "Tuesday",
+      "Tuesdays",
+      "周二",
+      "星期二"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Tue",
+      "Tues",
+      "Tuesday",
+      "tue",
+      "周二",
+      "星期二"
+     ]
+    },
+    {
+     "id": "wednesday",
+     "label": "Wednesday",
+     "aliases": [
+      "Wed",
+      "Wednesday",
+      "Wednesdays",
+      "hump day",
+      "周三",
+      "星期三"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Wed",
+      "Wednesday",
+      "wed",
+      "周三",
+      "星期三"
+     ]
+    },
+    {
+     "id": "thursday",
+     "label": "Thursday",
+     "aliases": [
+      "Thu",
+      "Thurs",
+      "Thursday",
+      "Thursdays",
+      "周四",
+      "星期四"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Thu",
+      "Thurs",
+      "Thursday",
+      "thu",
+      "周四",
+      "星期四"
+     ]
+    },
+    {
+     "id": "friday",
+     "label": "Friday",
+     "aliases": [
+      "Fri",
+      "Friday",
+      "Fridays",
+      "周五",
+      "星期五"
+     ],
+     "gold": true,
+     "source": "opus",
+     "token_aliases": [
+      "Fri",
+      "Friday",
+      "Fridays",
+      "fri",
+      "friday",
+      "周五",
+      "星期五"
+     ]
+    },
+    {
+     "id": "saturday",
+     "label": "Saturday",
+     "aliases": [
+      "Sat",
+      "Saturday",
+      "Saturdays",
+      "周六",
+      "星期六"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Sat",
+      "Saturday",
+      "Saturdays",
+      "sat",
+      "周六",
+      "星期六"
+     ]
+    },
+    {
+     "id": "sunday",
+     "label": "Sunday",
+     "aliases": [
+      "Sun",
+      "Sunday",
+      "Sundays",
+      "周日",
+      "星期天",
+      "星期日"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Sun",
+      "Sunday",
+      "Sundays",
+      "sun",
+      "sunday",
+      "周日",
+      "星期天",
+      "星期日"
+     ]
+    }
+   ]
+  },
+  "dessert": {
+   "templates": [
+    "What is your favorite dessert? Answer in one word."
+   ],
+   "items": [
+    "br-imp-dessert"
+   ],
+   "gold_of": {
+    "br-imp-dessert": "chocolate"
+   },
+   "concepts": [
+    {
+     "id": "chocolate",
+     "label": "Chocolate",
+     "aliases": [
+      "Chocolate",
+      "chocolate",
+      "chocolates",
+      "巧克力"
+     ],
+     "gold": true,
+     "source": "opus",
+     "token_aliases": [
+      "Chocolate",
+      "chocolate",
+      "chocolates",
+      "巧克力"
+     ]
+    },
+    {
+     "id": "ice_cream",
+     "label": "Ice cream",
+     "aliases": [
+      "Ice cream",
+      "ice cream",
+      "ice-cream",
+      "icecream",
+      "冰淇淋"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "冰淇淋"
+     ]
+    },
+    {
+     "id": "cheesecake",
+     "label": "Cheesecake",
+     "aliases": [
+      "Cheesecake",
+      "cheese cake",
+      "cheesecake",
+      "芝士蛋糕"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "tiramisu",
+     "label": "Tiramisu",
+     "aliases": [
+      "Tiramisu",
+      "tiramisu",
+      "tiramisù",
+      "提拉米苏"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "brownie",
+     "label": "Brownie",
+     "aliases": [
+      "Brownie",
+      "brownie",
+      "brownies",
+      "布朗尼"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "cake",
+     "label": "Cake",
+     "aliases": [
+      "Cake",
+      "cake",
+      "cakes",
+      "蛋糕"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Cake",
+      "cake",
+      "cakes",
+      "蛋糕"
+     ]
+    },
+    {
+     "id": "pie",
+     "label": "Pie",
+     "aliases": [
+      "Pie",
+      "pie",
+      "pies",
+      "派"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Pie",
+      "pie",
+      "pies",
+      "派"
+     ]
+    },
+    {
+     "id": "cookie",
+     "label": "Cookie",
+     "aliases": [
+      "Cookie",
+      "biscuit",
+      "cookie",
+      "cookies",
+      "曲奇"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Cookie",
+      "Cookies",
+      "cookie",
+      "cookies"
+     ]
+    },
+    {
+     "id": "pudding",
+     "label": "Pudding",
+     "aliases": [
+      "Pudding",
+      "pudding",
+      "puddings",
+      "布丁"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "pudding",
+      "布丁"
+     ]
+    },
+    {
+     "id": "gelato",
+     "label": "Gelato",
+     "aliases": [
+      "Gelato",
+      "gelato",
+      "意式冰淇淋"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "creme_brulee",
+     "label": "Crème brûlée",
+     "aliases": [
+      "Crème brûlée",
+      "creme brulee",
+      "crème brûlée",
+      "焦糖布丁"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "cupcake",
+     "label": "Cupcake",
+     "aliases": [
+      "Cupcake",
+      "cupcake",
+      "cupcakes",
+      "纸杯蛋糕"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "cupcakes"
+     ]
+    },
+    {
+     "id": "macaron",
+     "label": "Macaron",
+     "aliases": [
+      "Macaron",
+      "macaron",
+      "macarons",
+      "马卡龙"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "donut",
+     "label": "Donut",
+     "aliases": [
+      "Donut",
+      "donut",
+      "donuts",
+      "doughnut",
+      "doughnuts",
+      "甜甜圈"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "baklava",
+     "label": "Baklava",
+     "aliases": [
+      "Baklava",
+      "baklava",
+      "果仁蜜饼"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    }
+   ]
+  },
+  "flower": {
+   "templates": [
+    "What is your favorite flower? Answer in one word."
+   ],
+   "items": [
+    "br-imp-flower"
+   ],
+   "gold_of": {
+    "br-imp-flower": "rose"
+   },
+   "concepts": [
+    {
+     "id": "rose",
+     "label": "Rose",
+     "aliases": [
+      "Rose",
+      "rose",
+      "roses",
+      "玫瑰"
+     ],
+     "gold": true,
+     "source": "opus",
+     "token_aliases": [
+      "Rose",
+      "Roses",
+      "rose",
+      "roses",
+      "玫瑰"
+     ]
+    },
+    {
+     "id": "tulip",
+     "label": "Tulip",
+     "aliases": [
+      "Tulip",
+      "tulip",
+      "tulips",
+      "郁金香"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "郁金香"
+     ]
+    },
+    {
+     "id": "sunflower",
+     "label": "Sunflower",
+     "aliases": [
+      "Sunflower",
+      "sunflower",
+      "sunflowers",
+      "向日葵"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "向日葵"
+     ]
+    },
+    {
+     "id": "lily",
+     "label": "Lily",
+     "aliases": [
+      "Lily",
+      "lilies",
+      "lily",
+      "百合"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Lily",
+      "百合"
+     ]
+    },
+    {
+     "id": "daisy",
+     "label": "Daisy",
+     "aliases": [
+      "Daisy",
+      "daisies",
+      "daisy",
+      "雏菊"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Daisy"
+     ]
+    },
+    {
+     "id": "orchid",
+     "label": "Orchid",
+     "aliases": [
+      "Orchid",
+      "orchid",
+      "orchids",
+      "兰花"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "兰花"
+     ]
+    },
+    {
+     "id": "lavender",
+     "label": "Lavender",
+     "aliases": [
+      "Lavender",
+      "lavender",
+      "薰衣草"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "lavender",
+      "薰衣草"
+     ]
+    },
+    {
+     "id": "peony",
+     "label": "Peony",
+     "aliases": [
+      "Peony",
+      "peonies",
+      "peony",
+      "牡丹",
+      "芍药"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "牡丹"
+     ]
+    },
+    {
+     "id": "lotus",
+     "label": "Lotus",
+     "aliases": [
+      "Lotus",
+      "lotus",
+      "lotuses",
+      "荷花",
+      "莲花"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Lotus",
+      "荷花",
+      "莲花"
+     ]
+    },
+    {
+     "id": "cherry_blossom",
+     "label": "Cherry Blossom",
+     "aliases": [
+      "Cherry Blossom",
+      "cherry blossom",
+      "cherry blossoms",
+      "sakura",
+      "樱花"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Sakura",
+      "樱花"
+     ]
+    },
+    {
+     "id": "hydrangea",
+     "label": "Hydrangea",
+     "aliases": [
+      "Hydrangea",
+      "hydrangea",
+      "hydrangeas",
+      "绣球花"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "carnation",
+     "label": "Carnation",
+     "aliases": [
+      "Carnation",
+      "carnation",
+      "carnations",
+      "康乃馨"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "jasmine",
+     "label": "Jasmine",
+     "aliases": [
+      "Jasmine",
+      "jasmine",
+      "茉莉",
+      "茉莉花"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Jasmine",
+      "jasmine",
+      "茉莉"
+     ]
+    },
+    {
+     "id": "chrysanthemum",
+     "label": "Chrysanthemum",
+     "aliases": [
+      "Chrysanthemum",
+      "chrysanthemum",
+      "chrysanthemums",
+      "mum",
+      "mums",
+      "菊花"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Mum",
+      "mum",
+      "菊花"
+     ]
+    },
+    {
+     "id": "magnolia",
+     "label": "Magnolia",
+     "aliases": [
+      "Magnolia",
+      "magnolia",
+      "magnolias",
+      "木兰",
+      "玉兰"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "木兰",
+      "玉兰"
+     ]
+    }
+   ]
+  },
+  "fruit": {
+   "templates": [
+    "What is your favorite fruit? Answer in one word."
+   ],
+   "items": [
+    "br-imp-fruit"
+   ],
+   "gold_of": {
+    "br-imp-fruit": "apple"
+   },
+   "concepts": [
+    {
+     "id": "apple",
+     "label": "Apple",
+     "aliases": [
+      "Apple",
+      "apple",
+      "apples",
+      "苹果"
+     ],
+     "gold": true,
+     "source": "opus",
+     "token_aliases": [
+      "Apple",
+      "apple",
+      "apples",
+      "苹果"
+     ]
+    },
+    {
+     "id": "banana",
+     "label": "Banana",
+     "aliases": [
+      "Banana",
+      "banana",
+      "bananas",
+      "香蕉"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Banana",
+      "banana",
+      "bananas",
+      "香蕉"
+     ]
+    },
+    {
+     "id": "mango",
+     "label": "Mango",
+     "aliases": [
+      "Mango",
+      "mango",
+      "mangoes",
+      "mangos",
+      "芒果"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Mango",
+      "mango",
+      "芒果"
+     ]
+    },
+    {
+     "id": "strawberry",
+     "label": "Strawberry",
+     "aliases": [
+      "Strawberry",
+      "strawberries",
+      "strawberry",
+      "草莓"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Strawberry",
+      "strawberries",
+      "strawberry",
+      "草莓"
+     ]
+    },
+    {
+     "id": "orange",
+     "label": "Orange",
+     "aliases": [
+      "Orange",
+      "orange",
+      "oranges",
+      "橙",
+      "橙子"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Orange",
+      "orange",
+      "oranges",
+      "橙",
+      "橙子"
+     ]
+    },
+    {
+     "id": "grape",
+     "label": "Grape",
+     "aliases": [
+      "Grape",
+      "grape",
+      "grapes",
+      "葡萄"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Grape",
+      "grape",
+      "grapes",
+      "葡萄"
+     ]
+    },
+    {
+     "id": "pineapple",
+     "label": "Pineapple",
+     "aliases": [
+      "Pineapple",
+      "pineapple",
+      "pineapples",
+      "凤梨",
+      "菠萝"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "pineapple",
+      "菠萝"
+     ]
+    },
+    {
+     "id": "watermelon",
+     "label": "Watermelon",
+     "aliases": [
+      "Watermelon",
+      "watermelon",
+      "watermelons",
+      "西瓜"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "西瓜"
+     ]
+    },
+    {
+     "id": "peach",
+     "label": "Peach",
+     "aliases": [
+      "Peach",
+      "peach",
+      "peaches",
+      "桃",
+      "桃子"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Peach",
+      "peach",
+      "桃",
+      "桃子"
+     ]
+    },
+    {
+     "id": "cherry",
+     "label": "Cherry",
+     "aliases": [
+      "Cherry",
+      "cherries",
+      "cherry",
+      "樱桃",
+      "车厘子"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Cherry",
+      "cherry",
+      "樱桃"
+     ]
+    },
+    {
+     "id": "blueberry",
+     "label": "Blueberry",
+     "aliases": [
+      "Blueberry",
+      "blueberries",
+      "blueberry",
+      "蓝莓"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "蓝莓"
+     ]
+    },
+    {
+     "id": "kiwi",
+     "label": "Kiwi",
+     "aliases": [
+      "Kiwi",
+      "kiwi",
+      "kiwi fruit",
+      "kiwifruit",
+      "kiwis",
+      "奇异果",
+      "猕猴桃"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "猕猴桃"
+     ]
+    },
+    {
+     "id": "pear",
+     "label": "Pear",
+     "aliases": [
+      "Pear",
+      "pear",
+      "pears",
+      "梨",
+      "梨子"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Pear",
+      "pear",
+      "梨"
+     ]
+    },
+    {
+     "id": "raspberry",
+     "label": "Raspberry",
+     "aliases": [
+      "Raspberry",
+      "raspberries",
+      "raspberry",
+      "树莓",
+      "覆盆子"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Raspberry",
+      "raspberry"
+     ]
+    },
+    {
+     "id": "lychee",
+     "label": "Lychee",
+     "aliases": [
+      "Lychee",
+      "litchi",
+      "lychee",
+      "lychees",
+      "荔枝"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "荔枝"
+     ]
+    }
+   ]
+  },
+  "holiday": {
+   "templates": [
+    "What is your favorite holiday? Answer in one word."
+   ],
+   "items": [
+    "br-imp-holiday"
+   ],
+   "gold_of": {
+    "br-imp-holiday": "christmas"
+   },
+   "concepts": [
+    {
+     "id": "christmas",
+     "label": "Christmas",
+     "aliases": [
+      "Christmas",
+      "Christmas Day",
+      "Xmas",
+      "圣诞节"
+     ],
+     "gold": true,
+     "source": "opus",
+     "token_aliases": [
+      "Christmas",
+      "christmas",
+      "圣诞节"
+     ]
+    },
+    {
+     "id": "halloween",
+     "label": "Halloween",
+     "aliases": [
+      "Hallowe'en",
+      "Halloween",
+      "万圣节"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Halloween",
+      "万圣节"
+     ]
+    },
+    {
+     "id": "thanksgiving",
+     "label": "Thanksgiving",
+     "aliases": [
+      "Thanksgiving",
+      "Thanksgiving Day",
+      "感恩节"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Thanksgiving",
+      "感恩节"
+     ]
+    },
+    {
+     "id": "easter",
+     "label": "Easter",
+     "aliases": [
+      "Easter",
+      "Easter Sunday",
+      "复活节"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Easter"
+     ]
+    },
+    {
+     "id": "new_years",
+     "label": "New Year's",
+     "aliases": [
+      "New Year",
+      "New Year's",
+      "New Year's Day",
+      "New Year's Eve",
+      "元旦",
+      "新年"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "元旦",
+      "新年"
+     ]
+    },
+    {
+     "id": "valentines_day",
+     "label": "Valentine's Day",
+     "aliases": [
+      "Valentine's",
+      "Valentine's Day",
+      "Valentines",
+      "情人节"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "情人节"
+     ]
+    },
+    {
+     "id": "independence_day",
+     "label": "Independence Day",
+     "aliases": [
+      "Fourth of July",
+      "Independence Day",
+      "July 4th",
+      "独立日"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "diwali",
+     "label": "Diwali",
+     "aliases": [
+      "Deepavali",
+      "Diwali",
+      "排灯节"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "hanukkah",
+     "label": "Hanukkah",
+     "aliases": [
+      "Chanukah",
+      "Hanukkah",
+      "光明节"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "chinese_new_year",
+     "label": "Chinese New Year",
+     "aliases": [
+      "Chinese New Year",
+      "Lunar New Year",
+      "Spring Festival",
+      "春节"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "春节"
+     ]
+    },
+    {
+     "id": "st_patricks_day",
+     "label": "St. Patrick's Day",
+     "aliases": [
+      "Saint Patrick's Day",
+      "St. Paddy's Day",
+      "St. Patrick's Day",
+      "圣帕特里克节"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "eid",
+     "label": "Eid",
+     "aliases": [
+      "Eid",
+      "Eid al-Fitr",
+      "Eid ul-Fitr",
+      "开斋节"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Eid",
+      "eid"
+     ]
+    },
+    {
+     "id": "mothers_day",
+     "label": "Mother's Day",
+     "aliases": [
+      "Mother's Day",
+      "母亲节"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "母亲节"
+     ]
+    },
+    {
+     "id": "passover",
+     "label": "Passover",
+     "aliases": [
+      "Passover",
+      "Pesach",
+      "逾越节"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "mid_autumn_festival",
+     "label": "Mid-Autumn Festival",
+     "aliases": [
+      "Mid-Autumn Festival",
+      "Moon Festival",
+      "中秋节"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "中秋节"
+     ]
+    }
+   ]
+  },
+  "ice_cream_flavor": {
+   "templates": [
+    "What is your favorite ice cream flavor? Answer in one word."
+   ],
+   "items": [
+    "br-imp-icecreamflav"
+   ],
+   "gold_of": {
+    "br-imp-icecreamflav": "chocolate"
+   },
+   "concepts": [
+    {
+     "id": "chocolate",
+     "label": "Chocolate",
+     "aliases": [
+      "Chocolate",
+      "choc",
+      "chocolate",
+      "巧克力"
+     ],
+     "gold": true,
+     "source": "opus",
+     "token_aliases": [
+      "Chocolate",
+      "choc",
+      "chocolate",
+      "巧克力"
+     ]
+    },
+    {
+     "id": "vanilla",
+     "label": "Vanilla",
+     "aliases": [
+      "Vanilla",
+      "vanilla",
+      "香草"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Vanilla",
+      "vanilla",
+      "香草"
+     ]
+    },
+    {
+     "id": "strawberry",
+     "label": "Strawberry",
+     "aliases": [
+      "Strawberry",
+      "strawberry",
+      "草莓"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Strawberry",
+      "strawberry",
+      "草莓"
+     ]
+    },
+    {
+     "id": "mint_chocolate_chip",
+     "label": "Mint Chocolate Chip",
+     "aliases": [
+      "Mint Chocolate Chip",
+      "mint",
+      "mint chip",
+      "mint choc chip",
+      "mint chocolate chip",
+      "薄荷巧克力"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Mint",
+      "mint"
+     ]
+    },
+    {
+     "id": "cookies_and_cream",
+     "label": "Cookies and Cream",
+     "aliases": [
+      "Cookies and Cream",
+      "cookies & cream",
+      "cookies 'n cream",
+      "cookies and cream",
+      "oreo",
+      "曲奇奶油"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "pistachio",
+     "label": "Pistachio",
+     "aliases": [
+      "Pistachio",
+      "pistachio",
+      "开心果"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "cookie_dough",
+     "label": "Cookie Dough",
+     "aliases": [
+      "Cookie Dough",
+      "chocolate chip cookie dough",
+      "cookie dough",
+      "曲奇面团"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "rocky_road",
+     "label": "Rocky Road",
+     "aliases": [
+      "Rocky Road",
+      "rocky road",
+      "石板街"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "butter_pecan",
+     "label": "Butter Pecan",
+     "aliases": [
+      "Butter Pecan",
+      "butter pecan",
+      "黄油山核桃"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "coffee",
+     "label": "Coffee",
+     "aliases": [
+      "Coffee",
+      "coffee",
+      "咖啡"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Coffee",
+      "coffee",
+      "咖啡"
+     ]
+    },
+    {
+     "id": "salted_caramel",
+     "label": "Salted Caramel",
+     "aliases": [
+      "Salted Caramel",
+      "caramel",
+      "salted caramel",
+      "海盐焦糖",
+      "焦糖"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "caramel",
+      "焦糖"
+     ]
+    },
+    {
+     "id": "neapolitan",
+     "label": "Neapolitan",
+     "aliases": [
+      "Neapolitan",
+      "neapolitan",
+      "三色"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "三色"
+     ]
+    },
+    {
+     "id": "matcha",
+     "label": "Matcha",
+     "aliases": [
+      "Matcha",
+      "green tea",
+      "matcha",
+      "抹茶"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "抹茶"
+     ]
+    },
+    {
+     "id": "mango",
+     "label": "Mango",
+     "aliases": [
+      "Mango",
+      "mango",
+      "芒果"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Mango",
+      "mango",
+      "芒果"
+     ]
+    },
+    {
+     "id": "chocolate_chip",
+     "label": "Chocolate Chip",
+     "aliases": [
+      "Chocolate Chip",
+      "choc chip",
+      "chocolate chip",
+      "巧克力碎"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    }
+   ]
+  },
+  "movie_genre": {
+   "templates": [
+    "What is your favorite movie genre? Answer in one word."
+   ],
+   "items": [
+    "br-imp-moviegenre"
+   ],
+   "gold_of": {
+    "br-imp-moviegenre": "sci_fi"
+   },
+   "concepts": [
+    {
+     "id": "sci_fi",
+     "label": "Sci-Fi",
+     "aliases": [
+      "SF",
+      "Sci-Fi",
+      "sci fi",
+      "science fiction",
+      "scifi",
+      "科幻"
+     ],
+     "gold": true,
+     "source": "opus",
+     "token_aliases": [
+      "SF",
+      "Sf",
+      "sf",
+      "科幻"
+     ]
+    },
+    {
+     "id": "horror",
+     "label": "Horror",
+     "aliases": [
+      "Horror",
+      "horror films",
+      "horror movies",
+      "恐怖"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Horror",
+      "horror",
+      "恐怖"
+     ]
+    },
+    {
+     "id": "comedy",
+     "label": "Comedy",
+     "aliases": [
+      "Comedy",
+      "comedies",
+      "喜剧"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Comedy",
+      "comedy",
+      "喜剧"
+     ]
+    },
+    {
+     "id": "drama",
+     "label": "Drama",
+     "aliases": [
+      "Drama",
+      "dramas",
+      "剧情"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Drama",
+      "drama",
+      "dramas",
+      "剧情"
+     ]
+    },
+    {
+     "id": "action",
+     "label": "Action",
+     "aliases": [
+      "Action",
+      "action films",
+      "action movies",
+      "动作"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Action",
+      "action",
+      "动作"
+     ]
+    },
+    {
+     "id": "thriller",
+     "label": "Thriller",
+     "aliases": [
+      "Thriller",
+      "thrillers",
+      "惊悚"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "thriller",
+      "惊悚"
+     ]
+    },
+    {
+     "id": "romance",
+     "label": "Romance",
+     "aliases": [
+      "Romance",
+      "romance movies",
+      "romantic",
+      "爱情"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Romance",
+      "Romantic",
+      "romance",
+      "romantic",
+      "爱情"
+     ]
+    },
+    {
+     "id": "fantasy",
+     "label": "Fantasy",
+     "aliases": [
+      "Fantasy",
+      "fantasy films",
+      "奇幻"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Fantasy",
+      "fantasy",
+      "奇幻"
+     ]
+    },
+    {
+     "id": "animation",
+     "label": "Animation",
+     "aliases": [
+      "Animation",
+      "animated",
+      "animated films",
+      "动画"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Animated",
+      "Animation",
+      "animated",
+      "animation",
+      "动画"
+     ]
+    },
+    {
+     "id": "documentary",
+     "label": "Documentary",
+     "aliases": [
+      "Documentary",
+      "documentaries",
+      "纪录片"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Documentary",
+      "documentaries",
+      "documentary",
+      "纪录片"
+     ]
+    },
+    {
+     "id": "mystery",
+     "label": "Mystery",
+     "aliases": [
+      "Mystery",
+      "mysteries",
+      "悬疑"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Mystery",
+      "mysteries",
+      "mystery",
+      "悬疑"
+     ]
+    },
+    {
+     "id": "adventure",
+     "label": "Adventure",
+     "aliases": [
+      "Adventure",
+      "adventure films",
+      "冒险"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Adventure",
+      "adventure",
+      "冒险"
+     ]
+    },
+    {
+     "id": "western",
+     "label": "Western",
+     "aliases": [
+      "Western",
+      "westerns",
+      "西部片"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Western",
+      "western"
+     ]
+    },
+    {
+     "id": "musical",
+     "label": "Musical",
+     "aliases": [
+      "Musical",
+      "musicals",
+      "歌舞片"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Musical",
+      "musical"
+     ]
+    },
+    {
+     "id": "crime",
+     "label": "Crime",
+     "aliases": [
+      "Crime",
+      "crime films",
+      "犯罪"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Crime",
+      "crime",
+      "犯罪"
+     ]
+    }
+   ]
+  },
+  "music_genre": {
+   "templates": [
+    "What is your favorite type of music? Answer in one word."
+   ],
+   "items": [
+    "br-imp-typeofmusic"
+   ],
+   "gold_of": {
+    "br-imp-typeofmusic": "jazz"
+   },
+   "concepts": [
+    {
+     "id": "jazz",
+     "label": "Jazz",
+     "aliases": [
+      "Jazz",
+      "jazz",
+      "jazzy",
+      "爵士",
+      "爵士乐"
+     ],
+     "gold": true,
+     "source": "opus",
+     "token_aliases": [
+      "Jazz",
+      "jazz",
+      "爵士"
+     ]
+    },
+    {
+     "id": "rock",
+     "label": "Rock",
+     "aliases": [
+      "Rock",
+      "rock",
+      "rock 'n' roll",
+      "rock and roll",
+      "rock music",
+      "摇滚",
+      "摇滚乐"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Rock",
+      "rock",
+      "摇滚"
+     ]
+    },
+    {
+     "id": "pop",
+     "label": "Pop",
+     "aliases": [
+      "Pop",
+      "pop",
+      "pop music",
+      "流行",
+      "流行音乐"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Pop",
+      "pop",
+      "流行"
+     ]
+    },
+    {
+     "id": "classical",
+     "label": "Classical",
+     "aliases": [
+      "Classical",
+      "classical",
+      "classical music",
+      "古典",
+      "古典音乐"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Classical",
+      "classical",
+      "古典"
+     ]
+    },
+    {
+     "id": "hip_hop",
+     "label": "Hip-hop",
+     "aliases": [
+      "Hip-hop",
+      "hip hop",
+      "hip-hop",
+      "hiphop",
+      "嘻哈",
+      "嘻哈音乐"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "rap",
+     "label": "Rap",
+     "aliases": [
+      "Rap",
+      "rap",
+      "rap music",
+      "说唱"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Rap",
+      "rap"
+     ]
+    },
+    {
+     "id": "country",
+     "label": "Country",
+     "aliases": [
+      "Country",
+      "country",
+      "country music",
+      "乡村",
+      "乡村音乐"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Country",
+      "country",
+      "乡村"
+     ]
+    },
+    {
+     "id": "blues",
+     "label": "Blues",
+     "aliases": [
+      "Blues",
+      "blues",
+      "the blues",
+      "布鲁斯",
+      "蓝调"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Blues",
+      "blues"
+     ]
+    },
+    {
+     "id": "electronic",
+     "label": "Electronic",
+     "aliases": [
+      "EDM",
+      "Electronic",
+      "electronic",
+      "electronic music",
+      "electronica",
+      "电子",
+      "电子音乐"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "EDM",
+      "Electronic",
+      "edm",
+      "electronic",
+      "电子"
+     ]
+    },
+    {
+     "id": "metal",
+     "label": "Metal",
+     "aliases": [
+      "Metal",
+      "heavy metal",
+      "metal",
+      "重金属",
+      "金属乐"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Metal",
+      "metal",
+      "重金属"
+     ]
+    },
+    {
+     "id": "rnb",
+     "label": "R&B",
+     "aliases": [
+      "R&B",
+      "RnB",
+      "rhythm and blues",
+      "节奏布鲁斯"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "reggae",
+     "label": "Reggae",
+     "aliases": [
+      "Reggae",
+      "reggae",
+      "雷鬼",
+      "雷鬼乐"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "folk",
+     "label": "Folk",
+     "aliases": [
+      "Folk",
+      "folk",
+      "folk music",
+      "民谣",
+      "民谣音乐"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Folk",
+      "folk",
+      "民谣"
+     ]
+    },
+    {
+     "id": "indie",
+     "label": "Indie",
+     "aliases": [
+      "Indie",
+      "indie",
+      "indie music",
+      "独立音乐"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Indie",
+      "indie"
+     ]
+    },
+    {
+     "id": "soul",
+     "label": "Soul",
+     "aliases": [
+      "Soul",
+      "soul",
+      "soul music",
+      "灵魂乐"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Soul",
+      "soul"
+     ]
+    }
+   ]
+  },
+  "musical_instrument": {
+   "templates": [
+    "The musician NAME is famous for playing the"
+   ],
+   "items": [
+    "br-ent-mus-armstrong",
+    "br-ent-mus-beethoven",
+    "br-ent-mus-davis",
+    "br-ent-mus-hendrix",
+    "br-ent-mus-john",
+    "br-ent-mus-ma"
+   ],
+   "gold_of": {
+    "br-ent-mus-armstrong": "trumpet",
+    "br-ent-mus-beethoven": "piano",
+    "br-ent-mus-davis": "trumpet",
+    "br-ent-mus-hendrix": "guitar",
+    "br-ent-mus-john": "piano",
+    "br-ent-mus-ma": "cello"
+   },
+   "concepts": [
+    {
+     "id": "piano",
+     "label": "Piano",
+     "aliases": [
+      "Piano",
+      "grand piano",
+      "piano",
+      "pianoforte",
+      "钢琴"
+     ],
+     "gold": true,
+     "source": "opus",
+     "token_aliases": [
+      "Piano",
+      "piano",
+      "钢琴"
+     ]
+    },
+    {
+     "id": "guitar",
+     "label": "Guitar",
+     "aliases": [
+      "Guitar",
+      "acoustic guitar",
+      "electric guitar",
+      "guitar",
+      "吉他"
+     ],
+     "gold": true,
+     "source": "opus",
+     "token_aliases": [
+      "Guitar",
+      "guitar",
+      "吉他"
+     ]
+    },
+    {
+     "id": "trumpet",
+     "label": "Trumpet",
+     "aliases": [
+      "Trumpet",
+      "cornet",
+      "trumpet",
+      "小号"
+     ],
+     "gold": true,
+     "source": "opus",
+     "token_aliases": [
+      "trumpet",
+      "小号"
+     ]
+    },
+    {
+     "id": "cello",
+     "label": "Cello",
+     "aliases": [
+      "Cello",
+      "cello",
+      "violoncello",
+      "大提琴"
+     ],
+     "gold": true,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "violin",
+     "label": "Violin",
+     "aliases": [
+      "Violin",
+      "fiddle",
+      "violin",
+      "小提琴"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "violin",
+      "小提琴"
+     ]
+    },
+    {
+     "id": "saxophone",
+     "label": "Saxophone",
+     "aliases": [
+      "Saxophone",
+      "alto sax",
+      "sax",
+      "saxophone",
+      "tenor sax",
+      "萨克斯",
+      "萨克斯管"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Sax",
+      "sax"
+     ]
+    },
+    {
+     "id": "drums",
+     "label": "Drums",
+     "aliases": [
+      "Drums",
+      "drum kit",
+      "drum set",
+      "drums",
+      "架子鼓",
+      "鼓"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "drums",
+      "鼓"
+     ]
+    },
+    {
+     "id": "bass_guitar",
+     "label": "Bass Guitar",
+     "aliases": [
+      "Bass Guitar",
+      "bass",
+      "bass guitar",
+      "electric bass",
+      "贝斯"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Bass",
+      "bass"
+     ]
+    },
+    {
+     "id": "double_bass",
+     "label": "Double Bass",
+     "aliases": [
+      "Double Bass",
+      "contrabass",
+      "double bass",
+      "upright bass",
+      "低音提琴"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "flute",
+     "label": "Flute",
+     "aliases": [
+      "Flute",
+      "flute",
+      "长笛"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "flute"
+     ]
+    },
+    {
+     "id": "clarinet",
+     "label": "Clarinet",
+     "aliases": [
+      "Clarinet",
+      "clarinet",
+      "单簧管"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "trombone",
+     "label": "Trombone",
+     "aliases": [
+      "Trombone",
+      "trombone",
+      "长号"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "organ",
+     "label": "Organ",
+     "aliases": [
+      "Organ",
+      "organ",
+      "pipe organ",
+      "管风琴"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Organ",
+      "organ"
+     ]
+    },
+    {
+     "id": "harmonica",
+     "label": "Harmonica",
+     "aliases": [
+      "Harmonica",
+      "blues harp",
+      "harmonica",
+      "mouth organ",
+      "口琴"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "harpsichord",
+     "label": "Harpsichord",
+     "aliases": [
+      "Harpsichord",
+      "harpsichord",
+      "大键琴",
+      "羽管键琴"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    }
+   ]
+  },
+  "mythical_creature": {
+   "templates": [
+    "What is your favorite mythical creature? Answer in one word."
+   ],
+   "items": [
+    "br-imp-mythicalcrea"
+   ],
+   "gold_of": {
+    "br-imp-mythicalcrea": "dragon"
+   },
+   "concepts": [
+    {
+     "id": "dragon",
+     "label": "Dragon",
+     "aliases": [
+      "Dragon",
+      "draconic",
+      "dragon",
+      "dragons",
+      "龙"
+     ],
+     "gold": true,
+     "source": "opus",
+     "token_aliases": [
+      "Dragon",
+      "Dragons",
+      "dragon",
+      "dragons",
+      "龙"
+     ]
+    },
+    {
+     "id": "phoenix",
+     "label": "Phoenix",
+     "aliases": [
+      "Phoenix",
+      "phoenix",
+      "phoenixes",
+      "凤凰"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Phoenix",
+      "phoenix",
+      "凤凰"
+     ]
+    },
+    {
+     "id": "unicorn",
+     "label": "Unicorn",
+     "aliases": [
+      "Unicorn",
+      "unicorn",
+      "unicorns",
+      "独角兽"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Unicorn",
+      "unicorn",
+      "独角兽"
+     ]
+    },
+    {
+     "id": "griffin",
+     "label": "Griffin",
+     "aliases": [
+      "Griffin",
+      "griffin",
+      "griffins",
+      "griffon",
+      "gryphon",
+      "狮鹫"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Griffin"
+     ]
+    },
+    {
+     "id": "mermaid",
+     "label": "Mermaid",
+     "aliases": [
+      "Mermaid",
+      "mermaid",
+      "mermaids",
+      "merman",
+      "mermen",
+      "美人鱼"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "pegasus",
+     "label": "Pegasus",
+     "aliases": [
+      "Pegasus",
+      "pegasus",
+      "winged horse",
+      "飞马"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "kraken",
+     "label": "Kraken",
+     "aliases": [
+      "Kraken",
+      "kraken",
+      "克拉肯"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "centaur",
+     "label": "Centaur",
+     "aliases": [
+      "Centaur",
+      "centaur",
+      "centaurs",
+      "半人马"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "minotaur",
+     "label": "Minotaur",
+     "aliases": [
+      "Minotaur",
+      "minotaur",
+      "弥诺陶洛斯"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "hydra",
+     "label": "Hydra",
+     "aliases": [
+      "Hydra",
+      "hydra",
+      "九头蛇"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Hydra"
+     ]
+    },
+    {
+     "id": "sphinx",
+     "label": "Sphinx",
+     "aliases": [
+      "Sphinx",
+      "sphinx",
+      "斯芬克斯"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Sphinx"
+     ]
+    },
+    {
+     "id": "yeti",
+     "label": "Yeti",
+     "aliases": [
+      "Yeti",
+      "abominable snowman",
+      "yeti",
+      "雪人"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "yeti",
+      "雪人"
+     ]
+    },
+    {
+     "id": "basilisk",
+     "label": "Basilisk",
+     "aliases": [
+      "Basilisk",
+      "basilisk",
+      "蛇怪"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "chimera",
+     "label": "Chimera",
+     "aliases": [
+      "Chimera",
+      "chimaera",
+      "chimera",
+      "奇美拉"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "kitsune",
+     "label": "Kitsune",
+     "aliases": [
+      "Kitsune",
+      "kitsune",
+      "nine-tailed fox",
+      "九尾狐"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    }
+   ]
+  },
+  "pepper_variety": {
+   "templates": [
+    "What is your favorite kind of pepper? Answer in one word."
+   ],
+   "items": [
+    "br-imp-kindofpepper"
+   ],
+   "gold_of": {
+    "br-imp-kindofpepper": "bell_pepper"
+   },
+   "concepts": [
+    {
+     "id": "bell_pepper",
+     "label": "Bell pepper",
+     "aliases": [
+      "Bell pepper",
+      "bell",
+      "bell pepper",
+      "bell peppers",
+      "capsicum",
+      "sweet pepper",
+      "灯笼椒",
+      "甜椒"
+     ],
+     "gold": true,
+     "source": "opus",
+     "token_aliases": [
+      "Bell",
+      "bell"
+     ]
+    },
+    {
+     "id": "jalapeno",
+     "label": "Jalapeño",
+     "aliases": [
+      "Jalapeño",
+      "jalapeno",
+      "jalapenos",
+      "jalapeño",
+      "jalapeños",
+      "哈拉皮纽辣椒",
+      "墨西哥辣椒"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "habanero",
+     "label": "Habanero",
+     "aliases": [
+      "Habanero",
+      "habanero",
+      "habaneros",
+      "哈瓦那辣椒"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "serrano",
+     "label": "Serrano",
+     "aliases": [
+      "Serrano",
+      "serrano",
+      "serrano pepper",
+      "serranos",
+      "塞拉诺辣椒"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "cayenne",
+     "label": "Cayenne",
+     "aliases": [
+      "Cayenne",
+      "cayenne",
+      "cayenne pepper",
+      "卡宴辣椒"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "poblano",
+     "label": "Poblano",
+     "aliases": [
+      "Poblano",
+      "poblano",
+      "poblano pepper",
+      "poblanos",
+      "波布拉诺辣椒"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "ghost_pepper",
+     "label": "Ghost pepper",
+     "aliases": [
+      "Ghost pepper",
+      "bhut jolokia",
+      "ghost",
+      "ghost pepper",
+      "断魂椒",
+      "鬼椒"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Ghost",
+      "ghost"
+     ]
+    },
+    {
+     "id": "chipotle",
+     "label": "Chipotle",
+     "aliases": [
+      "Chipotle",
+      "chipotle",
+      "chipotles",
+      "烟熏辣椒"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "carolina_reaper",
+     "label": "Carolina Reaper",
+     "aliases": [
+      "Carolina Reaper",
+      "reaper",
+      "卡罗来纳死神辣椒"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Reaper"
+     ]
+    },
+    {
+     "id": "anaheim",
+     "label": "Anaheim",
+     "aliases": [
+      "Anaheim",
+      "Anaheim pepper",
+      "阿纳海姆辣椒"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Anaheim"
+     ]
+    },
+    {
+     "id": "banana_pepper",
+     "label": "Banana pepper",
+     "aliases": [
+      "Banana pepper",
+      "banana pepper",
+      "banana peppers",
+      "香蕉椒"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "scotch_bonnet",
+     "label": "Scotch bonnet",
+     "aliases": [
+      "Scotch bonnet",
+      "scotch bonnet",
+      "scotch bonnets",
+      "苏格兰帽辣椒"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "thai_chili",
+     "label": "Thai chili",
+     "aliases": [
+      "Thai chile",
+      "Thai chili",
+      "bird's eye",
+      "bird's eye chili",
+      "朝天椒",
+      "泰国辣椒"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "pepperoncini",
+     "label": "Pepperoncini",
+     "aliases": [
+      "Pepperoncini",
+      "pepperoncini",
+      "pepperoncino",
+      "意大利青椒"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "shishito",
+     "label": "Shishito",
+     "aliases": [
+      "Shishito",
+      "shishito",
+      "shishito pepper",
+      "shishitos",
+      "日本青椒",
+      "狮子唐辛子"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    }
+   ]
+  },
+  "pet": {
+   "templates": [
+    "What is your favorite pet? Answer in one word."
+   ],
+   "items": [
+    "br-imp-pet"
+   ],
+   "gold_of": {
+    "br-imp-pet": "dog"
+   },
+   "concepts": [
+    {
+     "id": "dog",
+     "label": "Dog",
+     "aliases": [
+      "Dog",
+      "canine",
+      "dog",
+      "dogs",
+      "puppies",
+      "puppy",
+      "狗"
+     ],
+     "gold": true,
+     "source": "opus",
+     "token_aliases": [
+      "Dog",
+      "Dogs",
+      "Puppy",
+      "canine",
+      "dog",
+      "dogs",
+      "puppies",
+      "puppy",
+      "狗"
+     ]
+    },
+    {
+     "id": "cat",
+     "label": "Cat",
+     "aliases": [
+      "Cat",
+      "cat",
+      "cats",
+      "feline",
+      "kitten",
+      "kittens",
+      "猫"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Cat",
+      "Cats",
+      "cat",
+      "cats",
+      "kitten",
+      "kittens",
+      "猫"
+     ]
+    },
+    {
+     "id": "fish",
+     "label": "Fish",
+     "aliases": [
+      "Fish",
+      "fish",
+      "fishes",
+      "goldfish",
+      "鱼"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Fish",
+      "fish",
+      "fishes",
+      "鱼"
+     ]
+    },
+    {
+     "id": "rabbit",
+     "label": "Rabbit",
+     "aliases": [
+      "Rabbit",
+      "bunnies",
+      "bunny",
+      "rabbit",
+      "rabbits",
+      "兔子"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Bunny",
+      "Rabbit",
+      "bunny",
+      "rabbit",
+      "rabbits",
+      "兔子"
+     ]
+    },
+    {
+     "id": "hamster",
+     "label": "Hamster",
+     "aliases": [
+      "Hamster",
+      "hamster",
+      "hamsters",
+      "仓鼠"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "hamster"
+     ]
+    },
+    {
+     "id": "bird",
+     "label": "Bird",
+     "aliases": [
+      "Bird",
+      "bird",
+      "birds",
+      "鸟"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Bird",
+      "Birds",
+      "bird",
+      "birds",
+      "鸟"
+     ]
+    },
+    {
+     "id": "parrot",
+     "label": "Parrot",
+     "aliases": [
+      "Parrot",
+      "parrot",
+      "parrots",
+      "鹦鹉"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "鹦鹉"
+     ]
+    },
+    {
+     "id": "guinea_pig",
+     "label": "Guinea pig",
+     "aliases": [
+      "Guinea pig",
+      "cavy",
+      "guinea pig",
+      "guinea pigs",
+      "豚鼠"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "turtle",
+     "label": "Turtle",
+     "aliases": [
+      "Turtle",
+      "tortoise",
+      "tortoises",
+      "turtle",
+      "turtles",
+      "乌龟"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Turtle",
+      "turtle",
+      "turtles",
+      "乌龟"
+     ]
+    },
+    {
+     "id": "snake",
+     "label": "Snake",
+     "aliases": [
+      "Snake",
+      "snake",
+      "snakes",
+      "蛇"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Snake",
+      "snake",
+      "snakes",
+      "蛇"
+     ]
+    },
+    {
+     "id": "lizard",
+     "label": "Lizard",
+     "aliases": [
+      "Lizard",
+      "gecko",
+      "lizard",
+      "lizards",
+      "蜥蜴"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Gecko",
+      "lizard"
+     ]
+    },
+    {
+     "id": "horse",
+     "label": "Horse",
+     "aliases": [
+      "Horse",
+      "horse",
+      "horses",
+      "pony",
+      "马"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Horse",
+      "Pony",
+      "horse",
+      "horses",
+      "pony",
+      "马"
+     ]
+    },
+    {
+     "id": "ferret",
+     "label": "Ferret",
+     "aliases": [
+      "Ferret",
+      "ferret",
+      "ferrets",
+      "雪貂"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "mouse",
+     "label": "Mouse",
+     "aliases": [
+      "Mouse",
+      "mice",
+      "mouse",
+      "老鼠"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Mouse",
+      "mice",
+      "mouse",
+      "老鼠"
+     ]
+    },
+    {
+     "id": "hedgehog",
+     "label": "Hedgehog",
+     "aliases": [
+      "Hedgehog",
+      "hedgehog",
+      "hedgehogs",
+      "刺猬"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "刺猬"
+     ]
+    }
+   ]
+  },
+  "pizza_topping": {
+   "templates": [
+    "What is your favorite pizza topping? Answer in one word."
+   ],
+   "items": [
+    "br-imp-pizzatopping"
+   ],
+   "gold_of": {
+    "br-imp-pizzatopping": "pepperoni"
+   },
+   "concepts": [
+    {
+     "id": "pepperoni",
+     "label": "Pepperoni",
+     "aliases": [
+      "Pepperoni",
+      "pepperoni",
+      "pepperonis",
+      "意大利辣香肠",
+      "辣香肠"
+     ],
+     "gold": true,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "mushroom",
+     "label": "Mushroom",
+     "aliases": [
+      "Mushroom",
+      "mushroom",
+      "mushrooms",
+      "蘑菇"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Mushroom",
+      "mushroom",
+      "mushrooms",
+      "蘑菇"
+     ]
+    },
+    {
+     "id": "sausage",
+     "label": "Sausage",
+     "aliases": [
+      "Italian sausage",
+      "Sausage",
+      "sausage",
+      "sausages",
+      "香肠"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "sausage",
+      "香肠"
+     ]
+    },
+    {
+     "id": "pineapple",
+     "label": "Pineapple",
+     "aliases": [
+      "Pineapple",
+      "pineapple",
+      "pineapples",
+      "菠萝"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "pineapple",
+      "菠萝"
+     ]
+    },
+    {
+     "id": "onion",
+     "label": "Onion",
+     "aliases": [
+      "Onion",
+      "onion",
+      "onions",
+      "洋葱"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Onion",
+      "onion",
+      "onions",
+      "洋葱"
+     ]
+    },
+    {
+     "id": "olive",
+     "label": "Olive",
+     "aliases": [
+      "Olive",
+      "black olives",
+      "olive",
+      "olives",
+      "橄榄"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Olive",
+      "olive",
+      "橄榄"
+     ]
+    },
+    {
+     "id": "bacon",
+     "label": "Bacon",
+     "aliases": [
+      "Bacon",
+      "bacon",
+      "培根"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Bacon",
+      "bacon",
+      "培根"
+     ]
+    },
+    {
+     "id": "ham",
+     "label": "Ham",
+     "aliases": [
+      "Ham",
+      "ham",
+      "火腿"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Ham",
+      "ham",
+      "火腿"
+     ]
+    },
+    {
+     "id": "cheese",
+     "label": "Cheese",
+     "aliases": [
+      "Cheese",
+      "cheese",
+      "extra cheese",
+      "奶酪",
+      "芝士"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Cheese",
+      "cheese",
+      "奶酪",
+      "芝士"
+     ]
+    },
+    {
+     "id": "green_pepper",
+     "label": "Green Pepper",
+     "aliases": [
+      "Green Pepper",
+      "bell pepper",
+      "bell peppers",
+      "green pepper",
+      "green peppers",
+      "青椒"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "青椒"
+     ]
+    },
+    {
+     "id": "jalapeno",
+     "label": "Jalapeño",
+     "aliases": [
+      "Jalapeño",
+      "jalapeno",
+      "jalapenos",
+      "jalapeño",
+      "jalapeños",
+      "墨西哥辣椒"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "chicken",
+     "label": "Chicken",
+     "aliases": [
+      "Chicken",
+      "chicken",
+      "鸡肉"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Chicken",
+      "chicken",
+      "鸡肉"
+     ]
+    },
+    {
+     "id": "spinach",
+     "label": "Spinach",
+     "aliases": [
+      "Spinach",
+      "spinach",
+      "菠菜"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "spinach",
+      "菠菜"
+     ]
+    },
+    {
+     "id": "anchovy",
+     "label": "Anchovy",
+     "aliases": [
+      "Anchovy",
+      "anchovies",
+      "anchovy",
+      "凤尾鱼"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "tomato",
+     "label": "Tomato",
+     "aliases": [
+      "Tomato",
+      "tomato",
+      "tomatoes",
+      "番茄",
+      "西红柿"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Tomato",
+      "tomato",
+      "tomatoes",
+      "番茄",
+      "西红柿"
+     ]
+    }
+   ]
+  },
+  "programming_language": {
+   "templates": [
+    "What is your favorite programming language? Answer in one word."
+   ],
+   "items": [
+    "br-imp-programmingl"
+   ],
+   "gold_of": {
+    "br-imp-programmingl": "python"
+   },
+   "concepts": [
+    {
+     "id": "python",
+     "label": "Python",
+     "aliases": [
+      "Py",
+      "Python",
+      "Python 3",
+      "Python语言"
+     ],
+     "gold": true,
+     "source": "opus",
+     "token_aliases": [
+      "Py",
+      "Python",
+      "py",
+      "python"
+     ]
+    },
+    {
+     "id": "javascript",
+     "label": "JavaScript",
+     "aliases": [
+      "ECMAScript",
+      "JS",
+      "JavaScript",
+      "Javascript"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "JS",
+      "JavaScript",
+      "Javascript",
+      "Js",
+      "javascript",
+      "js"
+     ]
+    },
+    {
+     "id": "java",
+     "label": "Java",
+     "aliases": [
+      "Java",
+      "Java语言"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Java",
+      "java"
+     ]
+    },
+    {
+     "id": "c",
+     "label": "C",
+     "aliases": [
+      "ANSI C",
+      "C",
+      "C language",
+      "C语言"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "C",
+      "c"
+     ]
+    },
+    {
+     "id": "cpp",
+     "label": "C++",
+     "aliases": [
+      "C plus plus",
+      "C++",
+      "CPP",
+      "Cplusplus"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "CPP",
+      "Cpp",
+      "cplusplus",
+      "cpp"
+     ]
+    },
+    {
+     "id": "csharp",
+     "label": "C#",
+     "aliases": [
+      "C Sharp",
+      "C#",
+      "CSharp"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "rust",
+     "label": "Rust",
+     "aliases": [
+      "Rust",
+      "Rustlang",
+      "Rust语言"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Rust",
+      "rust"
+     ]
+    },
+    {
+     "id": "go",
+     "label": "Go",
+     "aliases": [
+      "Go",
+      "Golang",
+      "Go语言"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Go",
+      "go"
+     ]
+    },
+    {
+     "id": "typescript",
+     "label": "TypeScript",
+     "aliases": [
+      "TS",
+      "TypeScript",
+      "Typescript"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "TS",
+      "Ts",
+      "TypeScript",
+      "ts",
+      "typescript"
+     ]
+    },
+    {
+     "id": "ruby",
+     "label": "Ruby",
+     "aliases": [
+      "Ruby",
+      "Ruby语言"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Ruby",
+      "ruby"
+     ]
+    },
+    {
+     "id": "php",
+     "label": "PHP",
+     "aliases": [
+      "PHP",
+      "PHP语言"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "PHP",
+      "Php",
+      "php"
+     ]
+    },
+    {
+     "id": "swift",
+     "label": "Swift",
+     "aliases": [
+      "Swift",
+      "Swift语言"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Swift",
+      "swift"
+     ]
+    },
+    {
+     "id": "kotlin",
+     "label": "Kotlin",
+     "aliases": [
+      "Kotlin",
+      "Kotlin语言"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Kotlin",
+      "kotlin"
+     ]
+    },
+    {
+     "id": "haskell",
+     "label": "Haskell",
+     "aliases": [
+      "Haskell",
+      "Haskell语言"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Haskell"
+     ]
+    },
+    {
+     "id": "lisp",
+     "label": "Lisp",
+     "aliases": [
+      "Common Lisp",
+      "LISP",
+      "Lisp",
+      "Lisp语言"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Lisp"
+     ]
+    }
+   ]
+  },
+  "sea_creature": {
+   "templates": [
+    "What is your favorite sea creature? Answer in one word."
+   ],
+   "items": [
+    "br-imp-seacreature"
+   ],
+   "gold_of": {
+    "br-imp-seacreature": "octopus"
+   },
+   "concepts": [
+    {
+     "id": "octopus",
+     "label": "Octopus",
+     "aliases": [
+      "Octopus",
+      "octopi",
+      "octopus",
+      "octopuses",
+      "章鱼"
+     ],
+     "gold": true,
+     "source": "opus",
+     "token_aliases": [
+      "章鱼"
+     ]
+    },
+    {
+     "id": "dolphin",
+     "label": "Dolphin",
+     "aliases": [
+      "Dolphin",
+      "dolphin",
+      "dolphins",
+      "海豚"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Dolphin",
+      "Dolphins",
+      "dolphin",
+      "dolphins",
+      "海豚"
+     ]
+    },
+    {
+     "id": "whale",
+     "label": "Whale",
+     "aliases": [
+      "Whale",
+      "whale",
+      "whales",
+      "鲸",
+      "鲸鱼"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Whale",
+      "whale",
+      "whales",
+      "鲸"
+     ]
+    },
+    {
+     "id": "shark",
+     "label": "Shark",
+     "aliases": [
+      "Shark",
+      "shark",
+      "sharks",
+      "鲨鱼"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Shark",
+      "Sharks",
+      "shark",
+      "sharks",
+      "鲨鱼"
+     ]
+    },
+    {
+     "id": "sea_turtle",
+     "label": "Sea Turtle",
+     "aliases": [
+      "Sea Turtle",
+      "sea turtle",
+      "sea turtles",
+      "turtle",
+      "turtles",
+      "海龟"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Turtle",
+      "turtle",
+      "turtles"
+     ]
+    },
+    {
+     "id": "jellyfish",
+     "label": "Jellyfish",
+     "aliases": [
+      "Jellyfish",
+      "jelly",
+      "jellyfish",
+      "jellyfishes",
+      "水母"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Jelly",
+      "jelly"
+     ]
+    },
+    {
+     "id": "seahorse",
+     "label": "Seahorse",
+     "aliases": [
+      "Seahorse",
+      "sea horse",
+      "seahorse",
+      "seahorses",
+      "海马"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "海马"
+     ]
+    },
+    {
+     "id": "starfish",
+     "label": "Starfish",
+     "aliases": [
+      "Starfish",
+      "sea star",
+      "sea stars",
+      "starfish",
+      "starfishes",
+      "海星"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "manta_ray",
+     "label": "Manta Ray",
+     "aliases": [
+      "Manta Ray",
+      "manta",
+      "manta ray",
+      "manta rays",
+      "ray",
+      "stingray",
+      "蝠鲼",
+      "魔鬼鱼"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Ray",
+      "ray"
+     ]
+    },
+    {
+     "id": "orca",
+     "label": "Orca",
+     "aliases": [
+      "Orca",
+      "killer whale",
+      "killer whales",
+      "orca",
+      "orcas",
+      "虎鲸"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "orca"
+     ]
+    },
+    {
+     "id": "squid",
+     "label": "Squid",
+     "aliases": [
+      "Squid",
+      "squid",
+      "squids",
+      "鱿鱼"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "squid",
+      "鱿鱼"
+     ]
+    },
+    {
+     "id": "crab",
+     "label": "Crab",
+     "aliases": [
+      "Crab",
+      "crab",
+      "crabs",
+      "螃蟹"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Crab",
+      "crab",
+      "螃蟹"
+     ]
+    },
+    {
+     "id": "clownfish",
+     "label": "Clownfish",
+     "aliases": [
+      "Clownfish",
+      "anemonefish",
+      "clown fish",
+      "clownfish",
+      "小丑鱼"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "sea_otter",
+     "label": "Sea Otter",
+     "aliases": [
+      "Sea Otter",
+      "otter",
+      "sea otter",
+      "sea otters",
+      "海獭"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "seal",
+     "label": "Seal",
+     "aliases": [
+      "Seal",
+      "seal",
+      "seals",
+      "海豹"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Seal",
+      "seal",
+      "seals"
+     ]
+    }
+   ]
+  },
+  "season": {
+   "templates": [
+    "What is your favorite season? Answer in one word."
+   ],
+   "items": [
+    "br-imp-season"
+   ],
+   "gold_of": {
+    "br-imp-season": "autumn"
+   },
+   "concepts": [
+    {
+     "id": "autumn",
+     "label": "Autumn",
+     "aliases": [
+      "Autumn",
+      "autumn",
+      "autumnal",
+      "fall",
+      "秋天",
+      "秋季"
+     ],
+     "gold": true,
+     "source": "opus",
+     "token_aliases": [
+      "Autumn",
+      "Fall",
+      "autumn",
+      "fall",
+      "秋天",
+      "秋季"
+     ]
+    },
+    {
+     "id": "summer",
+     "label": "Summer",
+     "aliases": [
+      "Summer",
+      "summer",
+      "summertime",
+      "summery",
+      "夏天",
+      "夏季"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Summer",
+      "summer",
+      "夏天",
+      "夏季"
+     ]
+    },
+    {
+     "id": "winter",
+     "label": "Winter",
+     "aliases": [
+      "Winter",
+      "winter",
+      "wintertime",
+      "wintry",
+      "冬天",
+      "冬季"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Winter",
+      "winter",
+      "冬天",
+      "冬季"
+     ]
+    },
+    {
+     "id": "spring",
+     "label": "Spring",
+     "aliases": [
+      "Spring",
+      "spring",
+      "springtime",
+      "春天",
+      "春季"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Spring",
+      "spring",
+      "春天",
+      "春季"
+     ]
+    },
+    {
+     "id": "monsoon",
+     "label": "Monsoon",
+     "aliases": [
+      "Monsoon",
+      "monsoon",
+      "monsoon season",
+      "季风季节"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "rainy_season",
+     "label": "Rainy season",
+     "aliases": [
+      "Rainy season",
+      "rainy season",
+      "wet season",
+      "雨季"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "雨季"
+     ]
+    },
+    {
+     "id": "dry_season",
+     "label": "Dry season",
+     "aliases": [
+      "Dry season",
+      "dry season",
+      "旱季"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "christmas_season",
+     "label": "Christmas season",
+     "aliases": [
+      "Christmas season",
+      "Christmastime",
+      "holiday season",
+      "圣诞季"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "harvest_season",
+     "label": "Harvest season",
+     "aliases": [
+      "Harvest season",
+      "harvest season",
+      "harvest time",
+      "收获季节"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "indian_summer",
+     "label": "Indian summer",
+     "aliases": [
+      "Indian summer",
+      "秋老虎"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "midsummer",
+     "label": "Midsummer",
+     "aliases": [
+      "Midsummer",
+      "midsummer",
+      "仲夏"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "midwinter",
+     "label": "Midwinter",
+     "aliases": [
+      "Midwinter",
+      "midwinter",
+      "仲冬"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "hurricane_season",
+     "label": "Hurricane season",
+     "aliases": [
+      "Hurricane season",
+      "hurricane season",
+      "飓风季节"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "cherry_blossom_season",
+     "label": "Cherry blossom season",
+     "aliases": [
+      "Cherry blossom season",
+      "cherry blossom season",
+      "sakura season",
+      "樱花季"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "plum_rain_season",
+     "label": "Plum rain season",
+     "aliases": [
+      "Plum rain season",
+      "meiyu",
+      "plum rain season",
+      "tsuyu",
+      "梅雨季"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    }
+   ]
+  },
+  "shoe_type": {
+   "templates": [
+    "What is your favorite kind of shoe? Answer in one word."
+   ],
+   "items": [
+    "br-imp-kindofshoe"
+   ],
+   "gold_of": {
+    "br-imp-kindofshoe": "sneakers"
+   },
+   "concepts": [
+    {
+     "id": "sneakers",
+     "label": "Sneakers",
+     "aliases": [
+      "Sneakers",
+      "running shoes",
+      "sneaker",
+      "sneakers",
+      "tennis shoes",
+      "trainer",
+      "trainers",
+      "运动鞋"
+     ],
+     "gold": true,
+     "source": "opus",
+     "token_aliases": [
+      "Trainer",
+      "sneakers",
+      "trainer",
+      "trainers",
+      "运动鞋"
+     ]
+    },
+    {
+     "id": "boots",
+     "label": "Boots",
+     "aliases": [
+      "Boots",
+      "boot",
+      "boots",
+      "靴子"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Boot",
+      "Boots",
+      "boot",
+      "boots"
+     ]
+    },
+    {
+     "id": "sandals",
+     "label": "Sandals",
+     "aliases": [
+      "Sandals",
+      "sandal",
+      "sandals",
+      "凉鞋"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "sandals",
+      "凉鞋"
+     ]
+    },
+    {
+     "id": "loafers",
+     "label": "Loafers",
+     "aliases": [
+      "Loafers",
+      "loafer",
+      "loafers",
+      "乐福鞋"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "heels",
+     "label": "Heels",
+     "aliases": [
+      "Heels",
+      "heels",
+      "high heels",
+      "high-heels",
+      "pumps",
+      "stilettos",
+      "高跟鞋"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "heels",
+      "pumps",
+      "高跟鞋"
+     ]
+    },
+    {
+     "id": "flip_flops",
+     "label": "Flip-flops",
+     "aliases": [
+      "Flip-flops",
+      "flip flops",
+      "flip-flops",
+      "flipflops",
+      "thongs",
+      "人字拖"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "slippers",
+     "label": "Slippers",
+     "aliases": [
+      "Slippers",
+      "slipper",
+      "slippers",
+      "拖鞋"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "拖鞋"
+     ]
+    },
+    {
+     "id": "oxfords",
+     "label": "Oxfords",
+     "aliases": [
+      "Oxfords",
+      "oxford",
+      "oxford shoes",
+      "oxfords",
+      "牛津鞋"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Oxford"
+     ]
+    },
+    {
+     "id": "flats",
+     "label": "Flats",
+     "aliases": [
+      "Flats",
+      "ballet flat",
+      "ballet flats",
+      "flats",
+      "平底鞋"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "flats"
+     ]
+    },
+    {
+     "id": "moccasins",
+     "label": "Moccasins",
+     "aliases": [
+      "Moccasins",
+      "moccasin",
+      "moccasins",
+      "莫卡辛鞋"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "clogs",
+     "label": "Clogs",
+     "aliases": [
+      "Clogs",
+      "clog",
+      "clogs",
+      "木屐"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "converse",
+     "label": "Converse",
+     "aliases": [
+      "Converse",
+      "chuck taylors",
+      "chucks",
+      "converse",
+      "匡威"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "converse"
+     ]
+    },
+    {
+     "id": "brogues",
+     "label": "Brogues",
+     "aliases": [
+      "Brogues",
+      "brogue",
+      "brogues",
+      "布洛克鞋"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "espadrilles",
+     "label": "Espadrilles",
+     "aliases": [
+      "Espadrilles",
+      "espadrille",
+      "espadrilles",
+      "草编鞋"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "crocs",
+     "label": "Crocs",
+     "aliases": [
+      "Crocs",
+      "crocs",
+      "洞洞鞋"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    }
+   ]
+  },
+  "soup": {
+   "templates": [
+    "What is your favorite type of soup? Answer in one word."
+   ],
+   "items": [
+    "br-imp-typeofsoup"
+   ],
+   "gold_of": {
+    "br-imp-typeofsoup": "tomato_soup"
+   },
+   "concepts": [
+    {
+     "id": "tomato_soup",
+     "label": "Tomato soup",
+     "aliases": [
+      "Tomato soup",
+      "cream of tomato",
+      "tomato",
+      "tomato soup",
+      "番茄汤"
+     ],
+     "gold": true,
+     "source": "opus",
+     "token_aliases": [
+      "Tomato",
+      "tomato"
+     ]
+    },
+    {
+     "id": "chicken_noodle_soup",
+     "label": "Chicken noodle soup",
+     "aliases": [
+      "Chicken noodle soup",
+      "chicken noodle",
+      "chicken noodle soup",
+      "chicken soup",
+      "鸡汤面"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "minestrone",
+     "label": "Minestrone",
+     "aliases": [
+      "Minestrone",
+      "minestrone",
+      "minestrone soup",
+      "意大利蔬菜汤"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "french_onion_soup",
+     "label": "French onion soup",
+     "aliases": [
+      "French onion soup",
+      "french onion",
+      "french onion soup",
+      "onion soup",
+      "法式洋葱汤"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "clam_chowder",
+     "label": "Clam chowder",
+     "aliases": [
+      "Clam chowder",
+      "chowder",
+      "clam chowder",
+      "new england clam chowder",
+      "蛤蜊浓汤"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "pho",
+     "label": "Pho",
+     "aliases": [
+      "Pho",
+      "pho",
+      "phở",
+      "越南河粉"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Pho"
+     ]
+    },
+    {
+     "id": "ramen",
+     "label": "Ramen",
+     "aliases": [
+      "Ramen",
+      "ramen",
+      "拉面"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "ramen",
+      "拉面"
+     ]
+    },
+    {
+     "id": "miso_soup",
+     "label": "Miso soup",
+     "aliases": [
+      "Miso soup",
+      "miso",
+      "miso soup",
+      "味噌汤"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "lentil_soup",
+     "label": "Lentil soup",
+     "aliases": [
+      "Lentil soup",
+      "lentil",
+      "lentil soup",
+      "扁豆汤"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "butternut_squash_soup",
+     "label": "Butternut squash soup",
+     "aliases": [
+      "Butternut squash soup",
+      "butternut squash",
+      "butternut squash soup",
+      "pumpkin soup",
+      "squash soup",
+      "南瓜汤"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "broccoli_cheddar_soup",
+     "label": "Broccoli cheddar soup",
+     "aliases": [
+      "Broccoli cheddar soup",
+      "broccoli cheddar",
+      "broccoli cheddar soup",
+      "broccoli cheese soup",
+      "西兰花奶酪汤"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "potato_leek_soup",
+     "label": "Potato leek soup",
+     "aliases": [
+      "Potato leek soup",
+      "potato leek",
+      "potato leek soup",
+      "potato soup",
+      "土豆韭葱汤"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "borscht",
+     "label": "Borscht",
+     "aliases": [
+      "Borscht",
+      "beet soup",
+      "borsch",
+      "borscht",
+      "罗宋汤"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "tom_yum",
+     "label": "Tom yum",
+     "aliases": [
+      "Tom yum",
+      "tom yum",
+      "tom yum goong",
+      "冬阴功汤"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "gazpacho",
+     "label": "Gazpacho",
+     "aliases": [
+      "Gazpacho",
+      "gazpacho",
+      "西班牙冷汤"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    }
+   ]
+  },
+  "sport": {
+   "templates": [
+    "The athlete NAME plays the sport of"
+   ],
+   "items": [
+    "br-ent-ath-ali",
+    "br-ent-ath-brady",
+    "br-ent-ath-federer",
+    "br-ent-ath-gretzky",
+    "br-ent-ath-james",
+    "br-ent-ath-jordan",
+    "br-ent-ath-messi",
+    "br-ent-ath-nadal",
+    "br-ent-ath-ronaldo",
+    "br-ent-ath-ruth",
+    "br-ent-ath-williams",
+    "br-ent-ath-woods"
+   ],
+   "gold_of": {
+    "br-ent-ath-ali": "boxing",
+    "br-ent-ath-brady": "american_football",
+    "br-ent-ath-federer": "tennis",
+    "br-ent-ath-gretzky": "ice_hockey",
+    "br-ent-ath-james": "basketball",
+    "br-ent-ath-jordan": "basketball",
+    "br-ent-ath-messi": "soccer",
+    "br-ent-ath-nadal": "tennis",
+    "br-ent-ath-ronaldo": "soccer",
+    "br-ent-ath-ruth": "baseball",
+    "br-ent-ath-williams": "tennis",
+    "br-ent-ath-woods": "golf"
+   },
+   "concepts": [
+    {
+     "id": "american_football",
+     "label": "American football",
+     "aliases": [
+      "American football",
+      "NFL football",
+      "football",
+      "gridiron football",
+      "美式橄榄球",
+      "美式足球"
+     ],
+     "gold": true,
+     "source": "opus",
+     "token_aliases": [
+      "Football",
+      "football"
+     ]
+    },
+    {
+     "id": "baseball",
+     "label": "Baseball",
+     "aliases": [
+      "Baseball",
+      "baseball",
+      "棒球"
+     ],
+     "gold": true,
+     "source": "opus",
+     "token_aliases": [
+      "Baseball",
+      "baseball",
+      "棒球"
+     ]
+    },
+    {
+     "id": "basketball",
+     "label": "Basketball",
+     "aliases": [
+      "Basketball",
+      "basketball",
+      "hoops",
+      "篮球"
+     ],
+     "gold": true,
+     "source": "opus",
+     "token_aliases": [
+      "Basketball",
+      "basketball",
+      "hoops",
+      "篮球"
+     ]
+    },
+    {
+     "id": "boxing",
+     "label": "Boxing",
+     "aliases": [
+      "Boxing",
+      "boxing",
+      "pugilism",
+      "拳击"
+     ],
+     "gold": true,
+     "source": "opus",
+     "token_aliases": [
+      "Boxing",
+      "boxing",
+      "拳击"
+     ]
+    },
+    {
+     "id": "golf",
+     "label": "Golf",
+     "aliases": [
+      "Golf",
+      "golf",
+      "高尔夫",
+      "高尔夫球"
+     ],
+     "gold": true,
+     "source": "opus",
+     "token_aliases": [
+      "Golf",
+      "golf",
+      "高尔夫"
+     ]
+    },
+    {
+     "id": "ice_hockey",
+     "label": "Ice hockey",
+     "aliases": [
+      "Ice hockey",
+      "hockey",
+      "ice hockey",
+      "冰球"
+     ],
+     "gold": true,
+     "source": "opus",
+     "token_aliases": [
+      "Hockey",
+      "hockey"
+     ]
+    },
+    {
+     "id": "soccer",
+     "label": "Soccer",
+     "aliases": [
+      "Soccer",
+      "association football",
+      "futbol",
+      "soccer",
+      "足球"
+     ],
+     "gold": true,
+     "source": "opus",
+     "token_aliases": [
+      "Futbol",
+      "Soccer",
+      "futbol",
+      "soccer",
+      "足球"
+     ]
+    },
+    {
+     "id": "tennis",
+     "label": "Tennis",
+     "aliases": [
+      "Tennis",
+      "lawn tennis",
+      "tennis",
+      "网球"
+     ],
+     "gold": true,
+     "source": "opus",
+     "token_aliases": [
+      "Tennis",
+      "tennis",
+      "网球"
+     ]
+    },
+    {
+     "id": "cricket",
+     "label": "Cricket",
+     "aliases": [
+      "Cricket",
+      "cricket",
+      "板球"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Cricket",
+      "cricket"
+     ]
+    },
+    {
+     "id": "track_and_field",
+     "label": "Track and field",
+     "aliases": [
+      "Track and field",
+      "athletics",
+      "sprinting",
+      "track",
+      "track and field",
+      "田径"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Athletics",
+      "Track",
+      "athletics",
+      "track",
+      "田径"
+     ]
+    },
+    {
+     "id": "swimming",
+     "label": "Swimming",
+     "aliases": [
+      "Swimming",
+      "swimming",
+      "游泳"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Swimming",
+      "swimming",
+      "游泳"
+     ]
+    },
+    {
+     "id": "rugby",
+     "label": "Rugby",
+     "aliases": [
+      "Rugby",
+      "rugby",
+      "rugby football",
+      "rugby union",
+      "橄榄球",
+      "英式橄榄球"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Rugby",
+      "rugby"
+     ]
+    },
+    {
+     "id": "mixed_martial_arts",
+     "label": "Mixed martial arts",
+     "aliases": [
+      "MMA",
+      "Mixed martial arts",
+      "mixed martial arts",
+      "综合格斗"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "MMA",
+      "mma"
+     ]
+    },
+    {
+     "id": "volleyball",
+     "label": "Volleyball",
+     "aliases": [
+      "Volleyball",
+      "volleyball",
+      "排球"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "volleyball",
+      "排球"
+     ]
+    },
+    {
+     "id": "cycling",
+     "label": "Cycling",
+     "aliases": [
+      "Cycling",
+      "bicycle racing",
+      "cycling",
+      "road cycling",
+      "自行车",
+      "自行车运动"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Cycling",
+      "cycling",
+      "自行车"
+     ]
+    }
+   ]
+  },
+  "tree": {
+   "templates": [
+    "What is your favorite tree? Answer in one word."
+   ],
+   "items": [
+    "br-imp-tree"
+   ],
+   "gold_of": {
+    "br-imp-tree": "oak"
+   },
+   "concepts": [
+    {
+     "id": "oak",
+     "label": "Oak",
+     "aliases": [
+      "Oak",
+      "oak",
+      "oak tree",
+      "oaks",
+      "橡树"
+     ],
+     "gold": true,
+     "source": "opus",
+     "token_aliases": [
+      "Oak",
+      "Oaks",
+      "oak"
+     ]
+    },
+    {
+     "id": "maple",
+     "label": "Maple",
+     "aliases": [
+      "Maple",
+      "maple",
+      "maple tree",
+      "maples",
+      "枫树"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Maple",
+      "maple"
+     ]
+    },
+    {
+     "id": "willow",
+     "label": "Willow",
+     "aliases": [
+      "Willow",
+      "weeping willow",
+      "willow",
+      "willow tree",
+      "willows",
+      "柳树"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Willow",
+      "柳树"
+     ]
+    },
+    {
+     "id": "pine",
+     "label": "Pine",
+     "aliases": [
+      "Pine",
+      "pine",
+      "pine tree",
+      "pines",
+      "松树"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Pine",
+      "pine",
+      "松树"
+     ]
+    },
+    {
+     "id": "birch",
+     "label": "Birch",
+     "aliases": [
+      "Birch",
+      "birch",
+      "birch tree",
+      "birches",
+      "桦树",
+      "白桦"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Birch"
+     ]
+    },
+    {
+     "id": "cherry",
+     "label": "Cherry",
+     "aliases": [
+      "Cherry",
+      "cherry",
+      "cherry blossom",
+      "cherry tree",
+      "樱桃树",
+      "樱花树"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Cherry",
+      "cherry"
+     ]
+    },
+    {
+     "id": "redwood",
+     "label": "Redwood",
+     "aliases": [
+      "Redwood",
+      "redwood",
+      "redwood tree",
+      "redwoods",
+      "红杉"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "sequoia",
+     "label": "Sequoia",
+     "aliases": [
+      "Sequoia",
+      "giant sequoia",
+      "sequoia",
+      "sequoias",
+      "巨杉"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "cedar",
+     "label": "Cedar",
+     "aliases": [
+      "Cedar",
+      "cedar",
+      "cedar tree",
+      "cedars",
+      "雪松"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Cedar",
+      "cedar"
+     ]
+    },
+    {
+     "id": "elm",
+     "label": "Elm",
+     "aliases": [
+      "Elm",
+      "elm",
+      "elm tree",
+      "elms",
+      "榆树"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Elm",
+      "elm"
+     ]
+    },
+    {
+     "id": "baobab",
+     "label": "Baobab",
+     "aliases": [
+      "Baobab",
+      "baobab",
+      "baobab tree",
+      "baobabs",
+      "猴面包树"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "magnolia",
+     "label": "Magnolia",
+     "aliases": [
+      "Magnolia",
+      "magnolia",
+      "magnolia tree",
+      "magnolias",
+      "木兰",
+      "玉兰"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "木兰",
+      "玉兰"
+     ]
+    },
+    {
+     "id": "palm",
+     "label": "Palm",
+     "aliases": [
+      "Palm",
+      "palm",
+      "palm tree",
+      "palms",
+      "棕榈树"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Palm",
+      "palm",
+      "palms"
+     ]
+    },
+    {
+     "id": "ginkgo",
+     "label": "Ginkgo",
+     "aliases": [
+      "Ginkgo",
+      "gingko",
+      "ginkgo",
+      "ginkgo biloba",
+      "ginkgo tree",
+      "银杏"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "银杏"
+     ]
+    },
+    {
+     "id": "aspen",
+     "label": "Aspen",
+     "aliases": [
+      "Aspen",
+      "aspen",
+      "aspen tree",
+      "aspens",
+      "山杨"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Aspen"
+     ]
+    }
+   ]
+  },
+  "weather_type": {
+   "templates": [
+    "What is your favorite kind of weather? Answer in one word."
+   ],
+   "items": [
+    "br-imp-kindofweathe"
+   ],
+   "gold_of": {
+    "br-imp-kindofweathe": "sunny"
+   },
+   "concepts": [
+    {
+     "id": "sunny",
+     "label": "Sunny",
+     "aliases": [
+      "Sunny",
+      "sun",
+      "sunny",
+      "sunshine",
+      "晴天",
+      "阳光"
+     ],
+     "gold": true,
+     "source": "opus",
+     "token_aliases": [
+      "Sun",
+      "Sunny",
+      "Sunshine",
+      "sun",
+      "sunny",
+      "sunshine",
+      "晴天",
+      "阳光"
+     ]
+    },
+    {
+     "id": "rainy",
+     "label": "Rainy",
+     "aliases": [
+      "Rainy",
+      "rain",
+      "rainfall",
+      "rainy",
+      "下雨",
+      "雨天"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Rain",
+      "rain",
+      "rainfall",
+      "rainy",
+      "下雨",
+      "雨天"
+     ]
+    },
+    {
+     "id": "snowy",
+     "label": "Snowy",
+     "aliases": [
+      "Snowy",
+      "snow",
+      "snowfall",
+      "snowy",
+      "下雪",
+      "雪天"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Snow",
+      "snow",
+      "snowy",
+      "下雪"
+     ]
+    },
+    {
+     "id": "cloudy",
+     "label": "Cloudy",
+     "aliases": [
+      "Cloudy",
+      "clouds",
+      "cloudy",
+      "多云"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "clouds",
+      "cloudy",
+      "多云"
+     ]
+    },
+    {
+     "id": "overcast",
+     "label": "Overcast",
+     "aliases": [
+      "Overcast",
+      "gray skies",
+      "overcast",
+      "阴天"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "阴天"
+     ]
+    },
+    {
+     "id": "windy",
+     "label": "Windy",
+     "aliases": [
+      "Windy",
+      "breeze",
+      "breezy",
+      "wind",
+      "windy",
+      "刮风",
+      "有风"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Wind",
+      "breeze",
+      "wind",
+      "windy"
+     ]
+    },
+    {
+     "id": "stormy",
+     "label": "Stormy",
+     "aliases": [
+      "Stormy",
+      "storm",
+      "storms",
+      "stormy",
+      "暴风雨"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Storm",
+      "storm",
+      "storms",
+      "暴风雨"
+     ]
+    },
+    {
+     "id": "thunderstorm",
+     "label": "Thunderstorm",
+     "aliases": [
+      "Thunderstorm",
+      "lightning",
+      "thunder",
+      "thunderstorm",
+      "thunderstorms",
+      "雷暴",
+      "雷雨"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Lightning",
+      "Thunder",
+      "lightning",
+      "thunder",
+      "雷雨"
+     ]
+    },
+    {
+     "id": "foggy",
+     "label": "Foggy",
+     "aliases": [
+      "Foggy",
+      "fog",
+      "foggy",
+      "mist",
+      "misty",
+      "有雾",
+      "雾天"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Fog",
+      "Mist",
+      "fog",
+      "mist"
+     ]
+    },
+    {
+     "id": "drizzle",
+     "label": "Drizzle",
+     "aliases": [
+      "Drizzle",
+      "drizzle",
+      "drizzly",
+      "毛毛雨"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": []
+    },
+    {
+     "id": "warm",
+     "label": "Warm",
+     "aliases": [
+      "Warm",
+      "warm",
+      "warmth",
+      "温暖"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Warm",
+      "warm",
+      "warmth",
+      "温暖"
+     ]
+    },
+    {
+     "id": "cool",
+     "label": "Cool",
+     "aliases": [
+      "Cool",
+      "cool",
+      "crisp",
+      "凉爽"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Cool",
+      "cool",
+      "crisp",
+      "凉爽"
+     ]
+    },
+    {
+     "id": "hot",
+     "label": "Hot",
+     "aliases": [
+      "Hot",
+      "heat",
+      "hot",
+      "炎热"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Heat",
+      "Hot",
+      "heat",
+      "hot",
+      "炎热"
+     ]
+    },
+    {
+     "id": "cold",
+     "label": "Cold",
+     "aliases": [
+      "Cold",
+      "chilly",
+      "cold",
+      "freezing",
+      "寒冷"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "Cold",
+      "chilly",
+      "cold",
+      "freezing",
+      "寒冷"
+     ]
+    },
+    {
+     "id": "humid",
+     "label": "Humid",
+     "aliases": [
+      "Humid",
+      "humid",
+      "humidity",
+      "muggy",
+      "潮湿"
+     ],
+     "gold": false,
+     "source": "opus",
+     "token_aliases": [
+      "humid",
+      "humidity",
+      "潮湿"
+     ]
+    }
+   ]
+  }
+ }
+}
