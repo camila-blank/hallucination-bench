@@ -1,0 +1,956 @@
+{
+ "version": "umconcepts-v1",
+ "rule": "golds + siblings with >= 3 committed units + 2 most-mentioned same-region countries per gold; cap 80 (pool trimmed first)",
+ "concepts": [
+  {
+   "id": "argentina",
+   "label": "Argentina",
+   "roles": [
+    "sibling"
+   ],
+   "region": "latin_america_caribbean",
+   "n_committed": 13,
+   "n_mentions": 48,
+   "informal": []
+  },
+  {
+   "id": "armenia",
+   "label": "Armenia",
+   "roles": [
+    "sibling"
+   ],
+   "region": "central_west_asia",
+   "n_committed": 7,
+   "n_mentions": 9,
+   "informal": []
+  },
+  {
+   "id": "australia",
+   "label": "Australia",
+   "roles": [
+    "gold"
+   ],
+   "region": "oceania",
+   "n_committed": 65,
+   "n_mentions": 177,
+   "informal": [
+    "Aussie",
+    "Aussies"
+   ]
+  },
+  {
+   "id": "austria",
+   "label": "Austria",
+   "roles": [
+    "pool:united_kingdom"
+   ],
+   "region": "western_southern_europe",
+   "n_committed": 2,
+   "n_mentions": 11,
+   "informal": []
+  },
+  {
+   "id": "belarus",
+   "label": "Belarus",
+   "roles": [
+    "gold"
+   ],
+   "region": "eastern_europe",
+   "n_committed": 8,
+   "n_mentions": 66,
+   "informal": []
+  },
+  {
+   "id": "brazil",
+   "label": "Brazil",
+   "roles": [
+    "sibling"
+   ],
+   "region": "latin_america_caribbean",
+   "n_committed": 11,
+   "n_mentions": 45,
+   "informal": []
+  },
+  {
+   "id": "bulgaria",
+   "label": "Bulgaria",
+   "roles": [
+    "sibling"
+   ],
+   "region": "eastern_europe",
+   "n_committed": 3,
+   "n_mentions": 7,
+   "informal": []
+  },
+  {
+   "id": "canada",
+   "label": "Canada",
+   "roles": [
+    "gold"
+   ],
+   "region": "northern_america",
+   "n_committed": 74,
+   "n_mentions": 298,
+   "informal": []
+  },
+  {
+   "id": "chile",
+   "label": "Chile",
+   "roles": [
+    "sibling"
+   ],
+   "region": "latin_america_caribbean",
+   "n_committed": 9,
+   "n_mentions": 22,
+   "informal": []
+  },
+  {
+   "id": "china",
+   "label": "China",
+   "roles": [
+    "gold"
+   ],
+   "region": "east_asia",
+   "n_committed": 97,
+   "n_mentions": 387,
+   "informal": []
+  },
+  {
+   "id": "colombia",
+   "label": "Colombia",
+   "roles": [
+    "sibling"
+   ],
+   "region": "latin_america_caribbean",
+   "n_committed": 3,
+   "n_mentions": 18,
+   "informal": []
+  },
+  {
+   "id": "costa_rica",
+   "label": "Costa Rica",
+   "roles": [
+    "gold"
+   ],
+   "region": "latin_america_caribbean",
+   "n_committed": 0,
+   "n_mentions": 2,
+   "informal": []
+  },
+  {
+   "id": "croatia",
+   "label": "Croatia",
+   "roles": [
+    "sibling"
+   ],
+   "region": "western_southern_europe",
+   "n_committed": 3,
+   "n_mentions": 8,
+   "informal": []
+  },
+  {
+   "id": "czechia",
+   "label": "Czechia",
+   "roles": [
+    "pool:belarus"
+   ],
+   "region": "eastern_europe",
+   "n_committed": 2,
+   "n_mentions": 37,
+   "informal": []
+  },
+  {
+   "id": "denmark",
+   "label": "Denmark",
+   "roles": [
+    "pool:ireland"
+   ],
+   "region": "northern_europe",
+   "n_committed": 0,
+   "n_mentions": 11,
+   "informal": []
+  },
+  {
+   "id": "egypt",
+   "label": "Egypt",
+   "roles": [
+    "sibling"
+   ],
+   "region": "north_africa",
+   "n_committed": 5,
+   "n_mentions": 11,
+   "informal": []
+  },
+  {
+   "id": "el_salvador",
+   "label": "El Salvador",
+   "roles": [
+    "pool:paraguay"
+   ],
+   "region": "latin_america_caribbean",
+   "n_committed": 1,
+   "n_mentions": 7,
+   "informal": []
+  },
+  {
+   "id": "estonia",
+   "label": "Estonia",
+   "roles": [
+    "sibling"
+   ],
+   "region": "northern_europe",
+   "n_committed": 7,
+   "n_mentions": 29,
+   "informal": []
+  },
+  {
+   "id": "ethiopia",
+   "label": "Ethiopia",
+   "roles": [
+    "pool:south_africa"
+   ],
+   "region": "sub_saharan_africa",
+   "n_committed": 2,
+   "n_mentions": 8,
+   "informal": []
+  },
+  {
+   "id": "finland",
+   "label": "Finland",
+   "roles": [
+    "sibling"
+   ],
+   "region": "northern_europe",
+   "n_committed": 9,
+   "n_mentions": 67,
+   "informal": []
+  },
+  {
+   "id": "france",
+   "label": "France",
+   "roles": [
+    "sibling"
+   ],
+   "region": "western_southern_europe",
+   "n_committed": 5,
+   "n_mentions": 87,
+   "informal": []
+  },
+  {
+   "id": "germany",
+   "label": "Germany",
+   "roles": [
+    "sibling"
+   ],
+   "region": "western_southern_europe",
+   "n_committed": 12,
+   "n_mentions": 76,
+   "informal": []
+  },
+  {
+   "id": "ghana",
+   "label": "Ghana",
+   "roles": [
+    "sibling"
+   ],
+   "region": "sub_saharan_africa",
+   "n_committed": 10,
+   "n_mentions": 22,
+   "informal": []
+  },
+  {
+   "id": "guatemala",
+   "label": "Guatemala",
+   "roles": [
+    "sibling"
+   ],
+   "region": "latin_america_caribbean",
+   "n_committed": 5,
+   "n_mentions": 14,
+   "informal": []
+  },
+  {
+   "id": "honduras",
+   "label": "Honduras",
+   "roles": [
+    "pool:costa_rica"
+   ],
+   "region": "latin_america_caribbean",
+   "n_committed": 1,
+   "n_mentions": 8,
+   "informal": []
+  },
+  {
+   "id": "hungary",
+   "label": "Hungary",
+   "roles": [
+    "pool:poland"
+   ],
+   "region": "eastern_europe",
+   "n_committed": 0,
+   "n_mentions": 18,
+   "informal": []
+  },
+  {
+   "id": "iceland",
+   "label": "Iceland",
+   "roles": [
+    "sibling"
+   ],
+   "region": "northern_europe",
+   "n_committed": 4,
+   "n_mentions": 12,
+   "informal": []
+  },
+  {
+   "id": "india",
+   "label": "India",
+   "roles": [
+    "sibling"
+   ],
+   "region": "south_asia",
+   "n_committed": 47,
+   "n_mentions": 112,
+   "informal": []
+  },
+  {
+   "id": "indonesia",
+   "label": "Indonesia",
+   "roles": [
+    "sibling"
+   ],
+   "region": "south_east_asia",
+   "n_committed": 6,
+   "n_mentions": 17,
+   "informal": []
+  },
+  {
+   "id": "iran",
+   "label": "Iran",
+   "roles": [
+    "sibling"
+   ],
+   "region": "south_asia",
+   "n_committed": 3,
+   "n_mentions": 10,
+   "informal": []
+  },
+  {
+   "id": "ireland",
+   "label": "Ireland",
+   "roles": [
+    "gold"
+   ],
+   "region": "northern_europe",
+   "n_committed": 19,
+   "n_mentions": 70,
+   "informal": []
+  },
+  {
+   "id": "israel",
+   "label": "Israel",
+   "roles": [
+    "pool:ukraine"
+   ],
+   "region": "central_west_asia",
+   "n_committed": 2,
+   "n_mentions": 8,
+   "informal": []
+  },
+  {
+   "id": "italy",
+   "label": "Italy",
+   "roles": [
+    "sibling"
+   ],
+   "region": "western_southern_europe",
+   "n_committed": 25,
+   "n_mentions": 68,
+   "informal": []
+  },
+  {
+   "id": "jamaica",
+   "label": "Jamaica",
+   "roles": [
+    "pool:united_states"
+   ],
+   "region": "latin_america_caribbean",
+   "n_committed": 1,
+   "n_mentions": 3,
+   "informal": []
+  },
+  {
+   "id": "japan",
+   "label": "Japan",
+   "roles": [
+    "sibling"
+   ],
+   "region": "east_asia",
+   "n_committed": 25,
+   "n_mentions": 122,
+   "informal": []
+  },
+  {
+   "id": "kazakhstan",
+   "label": "Kazakhstan",
+   "roles": [
+    "pool:russia"
+   ],
+   "region": "central_west_asia",
+   "n_committed": 0,
+   "n_mentions": 11,
+   "informal": []
+  },
+  {
+   "id": "kenya",
+   "label": "Kenya",
+   "roles": [
+    "sibling"
+   ],
+   "region": "sub_saharan_africa",
+   "n_committed": 10,
+   "n_mentions": 37,
+   "informal": []
+  },
+  {
+   "id": "latvia",
+   "label": "Latvia",
+   "roles": [
+    "sibling"
+   ],
+   "region": "northern_europe",
+   "n_committed": 9,
+   "n_mentions": 24,
+   "informal": []
+  },
+  {
+   "id": "lithuania",
+   "label": "Lithuania",
+   "roles": [
+    "sibling"
+   ],
+   "region": "northern_europe",
+   "n_committed": 15,
+   "n_mentions": 36,
+   "informal": []
+  },
+  {
+   "id": "malaysia",
+   "label": "Malaysia",
+   "roles": [
+    "sibling"
+   ],
+   "region": "south_east_asia",
+   "n_committed": 17,
+   "n_mentions": 43,
+   "informal": []
+  },
+  {
+   "id": "mexico",
+   "label": "Mexico",
+   "roles": [
+    "sibling"
+   ],
+   "region": "latin_america_caribbean",
+   "n_committed": 4,
+   "n_mentions": 18,
+   "informal": []
+  },
+  {
+   "id": "mongolia",
+   "label": "Mongolia",
+   "roles": [
+    "pool:china"
+   ],
+   "region": "east_asia",
+   "n_committed": 2,
+   "n_mentions": 3,
+   "informal": []
+  },
+  {
+   "id": "morocco",
+   "label": "Morocco",
+   "roles": [
+    "sibling"
+   ],
+   "region": "north_africa",
+   "n_committed": 3,
+   "n_mentions": 3,
+   "informal": []
+  },
+  {
+   "id": "myanmar",
+   "label": "Myanmar",
+   "roles": [
+    "pool:philippines"
+   ],
+   "region": "south_east_asia",
+   "n_committed": 1,
+   "n_mentions": 1,
+   "informal": []
+  },
+  {
+   "id": "netherlands",
+   "label": "Netherlands",
+   "roles": [
+    "sibling"
+   ],
+   "region": "western_southern_europe",
+   "n_committed": 10,
+   "n_mentions": 29,
+   "informal": []
+  },
+  {
+   "id": "new_zealand",
+   "label": "New Zealand",
+   "roles": [
+    "gold"
+   ],
+   "region": "oceania",
+   "n_committed": 7,
+   "n_mentions": 28,
+   "informal": [
+    "Kiwi",
+    "Kiwis"
+   ]
+  },
+  {
+   "id": "nicaragua",
+   "label": "Nicaragua",
+   "roles": [
+    "sibling"
+   ],
+   "region": "latin_america_caribbean",
+   "n_committed": 4,
+   "n_mentions": 26,
+   "informal": []
+  },
+  {
+   "id": "nigeria",
+   "label": "Nigeria",
+   "roles": [
+    "sibling"
+   ],
+   "region": "sub_saharan_africa",
+   "n_committed": 23,
+   "n_mentions": 57,
+   "informal": []
+  },
+  {
+   "id": "norway",
+   "label": "Norway",
+   "roles": [
+    "sibling"
+   ],
+   "region": "northern_europe",
+   "n_committed": 5,
+   "n_mentions": 20,
+   "informal": []
+  },
+  {
+   "id": "pakistan",
+   "label": "Pakistan",
+   "roles": [
+    "sibling"
+   ],
+   "region": "south_asia",
+   "n_committed": 15,
+   "n_mentions": 29,
+   "informal": []
+  },
+  {
+   "id": "panama",
+   "label": "Panama",
+   "roles": [
+    "pool:canada"
+   ],
+   "region": "latin_america_caribbean",
+   "n_committed": 0,
+   "n_mentions": 9,
+   "informal": []
+  },
+  {
+   "id": "paraguay",
+   "label": "Paraguay",
+   "roles": [
+    "gold"
+   ],
+   "region": "latin_america_caribbean",
+   "n_committed": 0,
+   "n_mentions": 0,
+   "informal": []
+  },
+  {
+   "id": "peru",
+   "label": "Peru",
+   "roles": [
+    "sibling"
+   ],
+   "region": "latin_america_caribbean",
+   "n_committed": 3,
+   "n_mentions": 10,
+   "informal": []
+  },
+  {
+   "id": "philippines",
+   "label": "Philippines",
+   "roles": [
+    "gold"
+   ],
+   "region": "south_east_asia",
+   "n_committed": 40,
+   "n_mentions": 102,
+   "informal": []
+  },
+  {
+   "id": "poland",
+   "label": "Poland",
+   "roles": [
+    "gold"
+   ],
+   "region": "eastern_europe",
+   "n_committed": 8,
+   "n_mentions": 67,
+   "informal": []
+  },
+  {
+   "id": "romania",
+   "label": "Romania",
+   "roles": [
+    "pool:belarus"
+   ],
+   "region": "eastern_europe",
+   "n_committed": 2,
+   "n_mentions": 22,
+   "informal": []
+  },
+  {
+   "id": "russia",
+   "label": "Russia",
+   "roles": [
+    "gold"
+   ],
+   "region": "eastern_europe",
+   "n_committed": 42,
+   "n_mentions": 192,
+   "informal": []
+  },
+  {
+   "id": "scotland",
+   "label": "Scotland",
+   "roles": [
+    "sibling"
+   ],
+   "region": "northern_europe",
+   "n_committed": 35,
+   "n_mentions": 112,
+   "informal": []
+  },
+  {
+   "id": "singapore",
+   "label": "Singapore",
+   "roles": [
+    "sibling"
+   ],
+   "region": "south_east_asia",
+   "n_committed": 43,
+   "n_mentions": 97,
+   "informal": []
+  },
+  {
+   "id": "slovakia",
+   "label": "Slovakia",
+   "roles": [
+    "pool:poland"
+   ],
+   "region": "eastern_europe",
+   "n_committed": 1,
+   "n_mentions": 16,
+   "informal": []
+  },
+  {
+   "id": "south_africa",
+   "label": "South Africa",
+   "roles": [
+    "gold"
+   ],
+   "region": "sub_saharan_africa",
+   "n_committed": 1,
+   "n_mentions": 6,
+   "informal": []
+  },
+  {
+   "id": "south_korea",
+   "label": "South Korea",
+   "roles": [
+    "gold"
+   ],
+   "region": "east_asia",
+   "n_committed": 16,
+   "n_mentions": 46,
+   "informal": []
+  },
+  {
+   "id": "spain",
+   "label": "Spain",
+   "roles": [
+    "sibling"
+   ],
+   "region": "western_southern_europe",
+   "n_committed": 4,
+   "n_mentions": 51,
+   "informal": []
+  },
+  {
+   "id": "sweden",
+   "label": "Sweden",
+   "roles": [
+    "sibling"
+   ],
+   "region": "northern_europe",
+   "n_committed": 7,
+   "n_mentions": 35,
+   "informal": []
+  },
+  {
+   "id": "switzerland",
+   "label": "Switzerland",
+   "roles": [
+    "sibling"
+   ],
+   "region": "western_southern_europe",
+   "n_committed": 6,
+   "n_mentions": 19,
+   "informal": []
+  },
+  {
+   "id": "taiwan",
+   "label": "Taiwan",
+   "roles": [
+    "sibling"
+   ],
+   "region": "east_asia",
+   "n_committed": 14,
+   "n_mentions": 24,
+   "informal": []
+  },
+  {
+   "id": "thailand",
+   "label": "Thailand",
+   "roles": [
+    "sibling"
+   ],
+   "region": "south_east_asia",
+   "n_committed": 9,
+   "n_mentions": 22,
+   "informal": []
+  },
+  {
+   "id": "timor_leste",
+   "label": "Timor-Leste",
+   "roles": [
+    "pool:south_korea"
+   ],
+   "region": "south_east_asia",
+   "n_committed": 0,
+   "n_mentions": 1,
+   "informal": []
+  },
+  {
+   "id": "tonga",
+   "label": "Tonga",
+   "roles": [
+    "pool:australia"
+   ],
+   "region": "oceania",
+   "n_committed": 0,
+   "n_mentions": 1,
+   "informal": []
+  },
+  {
+   "id": "trinidad_and_tobago",
+   "label": "Trinidad and Tobago",
+   "roles": [
+    "sibling"
+   ],
+   "region": "latin_america_caribbean",
+   "n_committed": 3,
+   "n_mentions": 4,
+   "informal": []
+  },
+  {
+   "id": "turkey",
+   "label": "Turkey",
+   "roles": [
+    "sibling"
+   ],
+   "region": "central_west_asia",
+   "n_committed": 4,
+   "n_mentions": 18,
+   "informal": []
+  },
+  {
+   "id": "ukraine",
+   "label": "Ukraine",
+   "roles": [
+    "gold"
+   ],
+   "region": "eastern_europe",
+   "n_committed": 17,
+   "n_mentions": 113,
+   "informal": []
+  },
+  {
+   "id": "united_arab_emirates",
+   "label": "United Arab Emirates",
+   "roles": [
+    "sibling"
+   ],
+   "region": "central_west_asia",
+   "n_committed": 3,
+   "n_mentions": 4,
+   "informal": []
+  },
+  {
+   "id": "united_kingdom",
+   "label": "United Kingdom",
+   "roles": [
+    "gold"
+   ],
+   "region": "northern_europe",
+   "n_committed": 196,
+   "n_mentions": 980,
+   "informal": [
+    "Brit",
+    "Brits"
+   ]
+  },
+  {
+   "id": "united_states",
+   "label": "United States",
+   "roles": [
+    "gold"
+   ],
+   "region": "northern_america",
+   "n_committed": 134,
+   "n_mentions": 757,
+   "informal": [
+    "Yank",
+    "Yanks"
+   ]
+  },
+  {
+   "id": "uruguay",
+   "label": "Uruguay",
+   "roles": [
+    "sibling"
+   ],
+   "region": "latin_america_caribbean",
+   "n_committed": 11,
+   "n_mentions": 53,
+   "informal": []
+  },
+  {
+   "id": "vanuatu",
+   "label": "Vanuatu",
+   "roles": [
+    "pool:new_zealand"
+   ],
+   "region": "oceania",
+   "n_committed": 0,
+   "n_mentions": 1,
+   "informal": []
+  },
+  {
+   "id": "venezuela",
+   "label": "Venezuela",
+   "roles": [
+    "sibling"
+   ],
+   "region": "latin_america_caribbean",
+   "n_committed": 5,
+   "n_mentions": 6,
+   "informal": []
+  },
+  {
+   "id": "vietnam",
+   "label": "Vietnam",
+   "roles": [
+    "sibling"
+   ],
+   "region": "south_east_asia",
+   "n_committed": 16,
+   "n_mentions": 47,
+   "informal": []
+  },
+  {
+   "id": "wales",
+   "label": "Wales",
+   "roles": [
+    "sibling"
+   ],
+   "region": "northern_europe",
+   "n_committed": 16,
+   "n_mentions": 48,
+   "informal": []
+  }
+ ],
+ "n_golds": 16,
+ "n_siblings": 46,
+ "n_pool": 18,
+ "trimmed_pool": [
+  "brunei",
+  "fiji",
+  "antigua_and_barbuda",
+  "laos",
+  "palau",
+  "north_korea",
+  "bolivia",
+  "moldova",
+  "uzbekistan",
+  "ecuador",
+  "northern_ireland",
+  "tanzania",
+  "cuba",
+  "greece"
+ ],
+ "trimmed_siblings": [],
+ "committed_not_in_C": [
+  "afghanistan",
+  "albania",
+  "azerbaijan",
+  "bangladesh",
+  "belgium",
+  "belize",
+  "bolivia",
+  "bosnia_and_herzegovina",
+  "cuba",
+  "dominican_republic",
+  "greece",
+  "iraq",
+  "laos",
+  "lebanon",
+  "madagascar",
+  "malawi",
+  "malta",
+  "mauritius",
+  "moldova",
+  "mozambique",
+  "nepal",
+  "northern_ireland",
+  "palestine",
+  "qatar",
+  "saudi_arabia",
+  "serbia",
+  "somalia",
+  "sri_lanka",
+  "sudan",
+  "tajikistan",
+  "tanzania",
+  "togo",
+  "tunisia",
+  "turkmenistan",
+  "uzbekistan",
+  "zimbabwe"
+ ]
+}

@@ -1,0 +1,933 @@
+{
+ "version": "umconcepts-v1",
+ "rule": "golds + siblings with >= 3 committed units + the 16 most-mentioned other concepts (not compatible with a gold); cap 80 (pool trimmed first)",
+ "concepts": [
+  {
+   "id": "actor",
+   "label": "Actor",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 21,
+   "n_mentions": 163,
+   "informal": []
+  },
+  {
+   "id": "anthropologist",
+   "label": "anthropologist",
+   "roles": [
+    "gold"
+   ],
+   "region": null,
+   "n_committed": 1,
+   "n_mentions": 1,
+   "informal": []
+  },
+  {
+   "id": "architect",
+   "label": "Architect",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 3,
+   "n_mentions": 9,
+   "informal": []
+  },
+  {
+   "id": "artist",
+   "label": "artist",
+   "roles": [
+    "gold"
+   ],
+   "region": null,
+   "n_committed": 34,
+   "n_mentions": 259,
+   "informal": []
+  },
+  {
+   "id": "astronaut",
+   "label": "Astronaut",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 6,
+   "n_mentions": 47,
+   "informal": []
+  },
+  {
+   "id": "astronomer",
+   "label": "Astronomer",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 15,
+   "n_mentions": 37,
+   "informal": []
+  },
+  {
+   "id": "athlete",
+   "label": "Athlete",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 13,
+   "n_mentions": 109,
+   "informal": []
+  },
+  {
+   "id": "barista",
+   "label": "Barista",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 3,
+   "n_mentions": 10,
+   "informal": []
+  },
+  {
+   "id": "biologist",
+   "label": "Biologist",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 3,
+   "n_mentions": 23,
+   "informal": []
+  },
+  {
+   "id": "blogger",
+   "label": "Blogger",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 26,
+   "n_mentions": 107,
+   "informal": []
+  },
+  {
+   "id": "carpenter",
+   "label": "Carpenter",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 4,
+   "n_mentions": 11,
+   "informal": []
+  },
+  {
+   "id": "chef",
+   "label": "Chef",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 15,
+   "n_mentions": 63,
+   "informal": []
+  },
+  {
+   "id": "clerk",
+   "label": "Clerk",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 8,
+   "n_mentions": 28,
+   "informal": []
+  },
+  {
+   "id": "coach",
+   "label": "Coach",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 3,
+   "n_mentions": 38,
+   "informal": []
+  },
+  {
+   "id": "comedian",
+   "label": "Comedian",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 20,
+   "n_mentions": 84,
+   "informal": []
+  },
+  {
+   "id": "consultant",
+   "label": "Consultant",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 11,
+   "n_mentions": 22,
+   "informal": []
+  },
+  {
+   "id": "courier",
+   "label": "Courier",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 4,
+   "n_mentions": 11,
+   "informal": []
+  },
+  {
+   "id": "data_scientist",
+   "label": "Data scientist",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 5,
+   "n_mentions": 15,
+   "informal": []
+  },
+  {
+   "id": "designer",
+   "label": "Designer",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 10,
+   "n_mentions": 28,
+   "informal": []
+  },
+  {
+   "id": "detective",
+   "label": "Detective",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 3,
+   "n_mentions": 34,
+   "informal": []
+  },
+  {
+   "id": "diplomat",
+   "label": "Diplomat",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 3,
+   "n_mentions": 49,
+   "informal": []
+  },
+  {
+   "id": "doctor",
+   "label": "Doctor",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 14,
+   "n_mentions": 65,
+   "informal": []
+  },
+  {
+   "id": "driver",
+   "label": "Driver",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 7,
+   "n_mentions": 39,
+   "informal": []
+  },
+  {
+   "id": "economist",
+   "label": "Economist",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 5,
+   "n_mentions": 11,
+   "informal": []
+  },
+  {
+   "id": "editor",
+   "label": "Editor",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 8,
+   "n_mentions": 64,
+   "informal": []
+  },
+  {
+   "id": "engineer",
+   "label": "Engineer",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 46,
+   "n_mentions": 104,
+   "informal": []
+  },
+  {
+   "id": "entrepreneur",
+   "label": "entrepreneur",
+   "roles": [
+    "gold"
+   ],
+   "region": null,
+   "n_committed": 33,
+   "n_mentions": 166,
+   "informal": []
+  },
+  {
+   "id": "executive",
+   "label": "Executive",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 17,
+   "n_mentions": 103,
+   "informal": []
+  },
+  {
+   "id": "farmer",
+   "label": "farmer",
+   "roles": [
+    "gold"
+   ],
+   "region": null,
+   "n_committed": 15,
+   "n_mentions": 26,
+   "informal": []
+  },
+  {
+   "id": "film_director",
+   "label": "Film director",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 13,
+   "n_mentions": 59,
+   "informal": []
+  },
+  {
+   "id": "fisherman",
+   "label": "fisherman",
+   "roles": [
+    "gold"
+   ],
+   "region": null,
+   "n_committed": 1,
+   "n_mentions": 4,
+   "informal": []
+  },
+  {
+   "id": "flight_attendant",
+   "label": "flight attendant",
+   "roles": [
+    "gold"
+   ],
+   "region": null,
+   "n_committed": 0,
+   "n_mentions": 2,
+   "informal": []
+  },
+  {
+   "id": "forester",
+   "label": "Forester",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 4,
+   "n_mentions": 11,
+   "informal": []
+  },
+  {
+   "id": "gardener",
+   "label": "Gardener",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 7,
+   "n_mentions": 9,
+   "informal": []
+  },
+  {
+   "id": "geologist",
+   "label": "Geologist",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 3,
+   "n_mentions": 4,
+   "informal": []
+  },
+  {
+   "id": "hacker",
+   "label": "hacker",
+   "roles": [
+    "gold"
+   ],
+   "region": null,
+   "n_committed": 31,
+   "n_mentions": 115,
+   "informal": []
+  },
+  {
+   "id": "historian",
+   "label": "historian",
+   "roles": [
+    "gold"
+   ],
+   "region": null,
+   "n_committed": 30,
+   "n_mentions": 83,
+   "informal": []
+  },
+  {
+   "id": "hunter",
+   "label": "Hunter",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 17,
+   "n_mentions": 24,
+   "informal": []
+  },
+  {
+   "id": "inventor",
+   "label": "Inventor",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 14,
+   "n_mentions": 47,
+   "informal": []
+  },
+  {
+   "id": "journalist",
+   "label": "Journalist",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 31,
+   "n_mentions": 106,
+   "informal": []
+  },
+  {
+   "id": "judge",
+   "label": "Judge",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 3,
+   "n_mentions": 13,
+   "informal": []
+  },
+  {
+   "id": "lawyer",
+   "label": "Lawyer",
+   "roles": [
+    "pool:*"
+   ],
+   "region": null,
+   "n_committed": 2,
+   "n_mentions": 42,
+   "informal": []
+  },
+  {
+   "id": "librarian",
+   "label": "Librarian",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 11,
+   "n_mentions": 31,
+   "informal": []
+  },
+  {
+   "id": "linguist",
+   "label": "Linguist",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 16,
+   "n_mentions": 37,
+   "informal": []
+  },
+  {
+   "id": "locksmith",
+   "label": "locksmith",
+   "roles": [
+    "gold"
+   ],
+   "region": null,
+   "n_committed": 0,
+   "n_mentions": 0,
+   "informal": []
+  },
+  {
+   "id": "manager",
+   "label": "Manager",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 17,
+   "n_mentions": 112,
+   "informal": []
+  },
+  {
+   "id": "mathematician",
+   "label": "Mathematician",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 17,
+   "n_mentions": 83,
+   "informal": []
+  },
+  {
+   "id": "mechanic",
+   "label": "Mechanic",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 9,
+   "n_mentions": 62,
+   "informal": []
+  },
+  {
+   "id": "merchant",
+   "label": "Merchant",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 4,
+   "n_mentions": 16,
+   "informal": []
+  },
+  {
+   "id": "miner",
+   "label": "Miner",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 4,
+   "n_mentions": 6,
+   "informal": []
+  },
+  {
+   "id": "musician",
+   "label": "musician",
+   "roles": [
+    "gold"
+   ],
+   "region": null,
+   "n_committed": 103,
+   "n_mentions": 678,
+   "informal": []
+  },
+  {
+   "id": "news_anchor",
+   "label": "News anchor",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 6,
+   "n_mentions": 31,
+   "informal": []
+  },
+  {
+   "id": "nurse",
+   "label": "Nurse",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 3,
+   "n_mentions": 11,
+   "informal": []
+  },
+  {
+   "id": "paramedic",
+   "label": "Paramedic",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 3,
+   "n_mentions": 4,
+   "informal": []
+  },
+  {
+   "id": "pharmacist",
+   "label": "Pharmacist",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 7,
+   "n_mentions": 15,
+   "informal": []
+  },
+  {
+   "id": "philosopher",
+   "label": "Philosopher",
+   "roles": [
+    "pool:*"
+   ],
+   "region": null,
+   "n_committed": 1,
+   "n_mentions": 16,
+   "informal": []
+  },
+  {
+   "id": "photographer",
+   "label": "Photographer",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 17,
+   "n_mentions": 42,
+   "informal": []
+  },
+  {
+   "id": "physicist",
+   "label": "Physicist",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 12,
+   "n_mentions": 88,
+   "informal": []
+  },
+  {
+   "id": "pilot",
+   "label": "Pilot",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 17,
+   "n_mentions": 60,
+   "informal": []
+  },
+  {
+   "id": "plumber",
+   "label": "Plumber",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 5,
+   "n_mentions": 9,
+   "informal": []
+  },
+  {
+   "id": "poet",
+   "label": "Poet",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 21,
+   "n_mentions": 83,
+   "informal": []
+  },
+  {
+   "id": "politician",
+   "label": "Politician",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 52,
+   "n_mentions": 494,
+   "informal": []
+  },
+  {
+   "id": "priest",
+   "label": "Priest",
+   "roles": [
+    "pool:*"
+   ],
+   "region": null,
+   "n_committed": 2,
+   "n_mentions": 39,
+   "informal": []
+  },
+  {
+   "id": "producer",
+   "label": "Producer",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 13,
+   "n_mentions": 61,
+   "informal": []
+  },
+  {
+   "id": "professor",
+   "label": "Professor",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 12,
+   "n_mentions": 52,
+   "informal": []
+  },
+  {
+   "id": "researcher",
+   "label": "researcher",
+   "roles": [
+    "gold"
+   ],
+   "region": null,
+   "n_committed": 58,
+   "n_mentions": 102,
+   "informal": []
+  },
+  {
+   "id": "sailor",
+   "label": "sailor",
+   "roles": [
+    "gold"
+   ],
+   "region": null,
+   "n_committed": 0,
+   "n_mentions": 1,
+   "informal": []
+  },
+  {
+   "id": "scientist",
+   "label": "scientist",
+   "roles": [
+    "gold"
+   ],
+   "region": null,
+   "n_committed": 26,
+   "n_mentions": 155,
+   "informal": []
+  },
+  {
+   "id": "secretary",
+   "label": "Secretary",
+   "roles": [
+    "pool:*"
+   ],
+   "region": null,
+   "n_committed": 2,
+   "n_mentions": 37,
+   "informal": []
+  },
+  {
+   "id": "singer",
+   "label": "Singer",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 6,
+   "n_mentions": 144,
+   "informal": []
+  },
+  {
+   "id": "software_engineer",
+   "label": "software engineer",
+   "roles": [
+    "gold"
+   ],
+   "region": null,
+   "n_committed": 103,
+   "n_mentions": 301,
+   "informal": []
+  },
+  {
+   "id": "soldier",
+   "label": "Soldier",
+   "roles": [
+    "pool:*"
+   ],
+   "region": null,
+   "n_committed": 2,
+   "n_mentions": 17,
+   "informal": []
+  },
+  {
+   "id": "spy",
+   "label": "Spy",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 3,
+   "n_mentions": 16,
+   "informal": []
+  },
+  {
+   "id": "statistician",
+   "label": "Statistician",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 3,
+   "n_mentions": 8,
+   "informal": []
+  },
+  {
+   "id": "stockbroker",
+   "label": "Stockbroker",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 3,
+   "n_mentions": 14,
+   "informal": []
+  },
+  {
+   "id": "student",
+   "label": "student",
+   "roles": [
+    "gold"
+   ],
+   "region": null,
+   "n_committed": 60,
+   "n_mentions": 281,
+   "informal": []
+  },
+  {
+   "id": "teacher",
+   "label": "Teacher",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 18,
+   "n_mentions": 79,
+   "informal": []
+  },
+  {
+   "id": "technician",
+   "label": "Technician",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 14,
+   "n_mentions": 49,
+   "informal": []
+  },
+  {
+   "id": "truck_driver",
+   "label": "Truck driver",
+   "roles": [
+    "sibling"
+   ],
+   "region": null,
+   "n_committed": 6,
+   "n_mentions": 13,
+   "informal": []
+  },
+  {
+   "id": "writer",
+   "label": "writer",
+   "roles": [
+    "gold"
+   ],
+   "region": null,
+   "n_committed": 167,
+   "n_mentions": 771,
+   "informal": []
+  }
+ ],
+ "n_golds": 16,
+ "n_siblings": 59,
+ "n_pool": 5,
+ "trimmed_pool": [
+  "baker",
+  "construction_worker",
+  "dancer",
+  "police_officer",
+  "psychologist",
+  "civil_servant",
+  "accountant",
+  "cleaner",
+  "tailor",
+  "therapist",
+  "security_guard"
+ ],
+ "trimmed_siblings": [],
+ "committed_not_in_C": [
+  "accountant",
+  "archaeologist",
+  "auditor",
+  "baker",
+  "blacksmith",
+  "botanist",
+  "cashier",
+  "chef_pastry",
+  "civil_engineer",
+  "civil_servant",
+  "cleaner",
+  "composer",
+  "ecologist",
+  "fashion_designer",
+  "firefighter",
+  "geographer",
+  "illustrator",
+  "marketer",
+  "psychologist",
+  "referee",
+  "salesperson",
+  "security_guard",
+  "shopkeeper",
+  "surgeon",
+  "system_administrator",
+  "taxi_driver",
+  "therapist",
+  "veterinarian"
+ ]
+}

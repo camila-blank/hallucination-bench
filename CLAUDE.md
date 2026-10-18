@@ -2,7 +2,9 @@
 
 Suite of evals for the **types and severities** of hallucination in activation-reading lenses.
 First eval: `wsbench_chat` (plan `plans/0001-bootstrap-wsbench-chat-taxonomy.md` is the spec);
-the claim map / taxonomy v2 is plan `plans/0002-claim-map-taxonomy-v2.md`.
+the claim map / taxonomy v2 is plan `plans/0002-claim-map-taxonomy-v2.md`; the sibling-concept
+probe eval is plan `plans/0003-sibling-concept-probes.md` (stage 1: inventory + bank; stage 2:
+probes, judge, score, report).
 
 ## Layout
 
@@ -31,11 +33,23 @@ src/hallucination_bench/
   report_v2.py    `report --view v2`, probe_candidates.jsonl, audit_samples_v2.md, pilot-dump-v2
   consistency_v2.py  `consistency-v2`: two fresh :M calls per sampled cell, κ / confusion / flags
   cli.py          hbench run|calibrate|report|consistency-v2|pilot-dump|pilot-dump-v2|units-v2
+  evals/sibling_probe/{concepts,bank}.py  plan 0003: inventory + alias matcher (text / token
+                  bags), leak / 8-gram / window-identity checks, coverage rule, ReadSpec writers
+  evals/sibling_probe/probes.py   cross-fit probes, recipes V2 (shrinkage-whitened DiffMean, primary) and V0
+                  (raw DiffMean) (pure numpy; copied into the Modal job)
+  evals/sibling_probe/probe_io.py inputs.json for the Modal job, loaders / merge of its outputs, check vs sweep
+  evals/sibling_probe/judge.py    prefilter, 5% coverage sample, claim map (claimmap_v2 + the
+                  wsbench_chat cached_call), mention -> segment, sibscope-v1 / sibcover-v1 calls
+  evals/sibling_probe/{score,report}.py  M/U classes, gates, beta1/beta2/AUROC/Test 3, rates,
+                  bootstrap, verdict table; report.md + plots/sibling_probe/
 data/wsbench_chat/   verbatim copies from wsbench-pub @ 92d763e (never edit)
 data/calibration/    dev.jsonl (implementer), heldout.jsonl (blind author only), README (schema + log)
                      dev_v2.jsonl (implementer), heldout_v2.jsonl (blind author only)
 scripts/run_all_arms.sh  tmux driver for the full run
 scripts/build_dev_v2.py  writes dev_v2.jsonl (labels live here; re-run if the splitter changes)
+data/sibling_probe/  concepts.json, items.json, probe_texts.jsonl, pilot/ (README = schema + provenance)
+scripts/sibling_probe/   count_siblings / build_concepts / gen_items / write_plans (local),
+                         qwen_gen_modal.py + run_modal.sh (GPU; gw scripts run from $GW, never edited)
 ```
 
 ## Conventions
@@ -152,3 +166,184 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
 - **In-run retries** (rev 14): an invalid `:M` (or calibration) answer is re-asked up to 2 times
   (`run.MAP_INVALID_RETRIES`) before it is cached as failed; meta records `n_invalid_attempts`
   and the summed usage.
+
+## sibling_probe (plan 0003)
+
+```bash
+uv run python scripts/sibling_probe/build_concepts.py        # concepts.json (tokenizer-checked)
+uv run python scripts/sibling_probe/gen_items.py candidates  # Opus cues (cached) -> implication_in
+scripts/sibling_probe/run_modal.sh qwen-implication          # then `candidates` again (top-up)
+uv run python scripts/sibling_probe/gen_items.py select      # items.json + responses_in
+scripts/sibling_probe/run_modal.sh qwen-responses            # merges responses into items.json
+uv run python scripts/sibling_probe/gen_items.py probes      # probe_texts.jsonl
+scripts/sibling_probe/run_modal.sh plans|smoke|capture|jlens|nla|s3d|fetch
+# stage 2
+scripts/sibling_probe/run_modal.sh probes        # prepare inputs + Modal probe job (both recipes) -> outputs/sibling/probes/{v2,v0}/
+uv run python scripts/sibling_probe/check_v2_vs_sweep.py   # pipeline V2/V0 == sweep (max abs diff < 1e-3)
+uv run python scripts/sibling_probe/arm_overlap.py         # -> outputs/sibling/overlap/{overlap.json,overlap.md}
+scripts/sibling_probe/run_modal.sh probes-smoke  # acts-sibling-smoke + synthetic probe texts
+uv run hbench sibling judge --arms s3d-rl600,nla-rl-L42,jlens   # one process; resumes from cache
+uv run hbench sibling judge --rebuild            # cells.jsonl / run.json from the cache, no calls
+uv run hbench sibling score                      # -> outputs/sibling/score/summary.json
+uv run hbench sibling report                     # -> outputs/sibling/score/report.md + plots/sibling_probe/
+```
+
+- The `sibling` dependency group (transformers + jinja2, no torch) gives the Qwen3.6-27B
+  tokenizer / chat template locally; it is a default uv group. Tokenizer tests skip without it.
+- **Read window**: every message is `[system, cue + " " + request]`; `from_last_sentence_start`
+  must start at the request sentence, so a cue ending in `."` (quote) breaks the window. The
+  window-identity check (`bank.WindowChecker`) runs in `gen_items` and `write_plans`;
+  `write_plans check-prompts` re-checks the `prompts` output and `check-manifest` the capture.
+- **Changing `concepts.json` aliases** changes the Opus prompts (alias lists are in them), so
+  the affected concepts' cached cues / probe texts are regenerated on the next run; re-run
+  `candidates` -> implication -> `select` -> responses -> `probes` in that order.
+- Opus 5.5 refuses every hacker-occupation prompt; `gen_items.MODEL_FOR` sends those to Sonnet 5.5.
+- Implication / response caches: `outputs/sibling/gen/{implication,responses}_out.jsonl`
+  (idempotent on key); Opus cache `outputs/sibling/gen/cache.jsonl`. Do not run two
+  `gen_items` processes at once (one cache file).
+- **Probe recipes (plan rev 11)**: `v2` = shrinkage-whitened DiffMean (primary, validity gate 0.85,
+  lambda by inner leave-one-fold-out CV; `probes.Whitener` / `cross_fit_whitened`, a port of the
+  sweep's V2) and `v0` = raw DiffMean (rev 10, gate 0.70). The job writes per-category pieces
+  (`outputs/sibling/probes/pieces/<recipe>/<cat>/`, one container per category) and
+  `hbench sibling probes --merge` merges them into `outputs/sibling/probes/{v2,v0}/`;
+  `outputs/sibling/probes_v2_rawdm/` is the rev-10 run (legacy single-recipe layout, still
+  loadable). `score` emits `recipes.{v2,v0}` + `recipe_sensitivity` (flag fires on different
+  verdicts or non-overlapping CIs of the sensitivity-normalised rate 1 - det(M)/ceiling / the
+  excess ratio, not on raw rates) + calibration + the wsbench-verbatim (`um-sd-`) transfer check.
+- **Probe job** (`probes_modal.py`, CPU, 16 cores / 48 GB per category container): reads every acts file ONCE (all
+  layers' eval positions, fp16): the `wsbench-acts` volume costs ~0.5 s per file open, so a
+  per-layer re-read of the 5,064 probe files is far slower. Outputs also land on the
+  `sibling-probes` volume (`/<run>/`); `hbench sibling probes --fetch --run <run>` re-gets them.
+- **Folds** are per category, seeded, balanced by (concept, ending, kind) (`probes.assign_folds`, salt = category; run `sibling-v2` on; `outputs/sibling/probes_v1/` = the old (concept, ending) folds); eval cells are
+  scored by all 4 fold models and indicators / z are averaged. `eval_scores.jsonl.gz` has one
+  row per (id, layer, pos, concept); `det_*` are fold-averaged shares (0, .25, ... 1).
+- **J-lens unmentioned** needs a summary, so `judge` summarises every J-lens cell by default
+  (`--no-summarize-all` to judge-only); cells without a summary are `no_summary` (excluded).
+- Judge outputs `outputs/sibling/judge/<arm>/{cache,cells}.jsonl` + `run.json` (claim-map
+  PROMPT_VERSION, taxonomy version, git sha, spend). Keys: `summ:{key}`, `{key}:M`,
+  `{key}:S:{readout}:{start}-{end}` (scope), `cover:{category}:{target}`.
+
+## sibling_probe plan 0004 (11 layers, set B, verdict judge)
+
+```bash
+# set A readouts at 11 layers (GPU jobs: /tmp/sib_all11*.sh; ML-NLA from /workspace/gw-mlnla, the
+# gw-wrong-bridge NLA reader lacks the mlnla lens); J-lens + ML-NLA gen dirs on wsbench-gen-sibling
+uv run python scripts/sibling_probe/judge_all11.py --arms s3d-rl600-all11,jlens-all11   # claim map, new cells
+uv run python scripts/sibling_probe/judge_all11.py --arms mlnla-rl600-all11
+# set B (basic_readout): bank, inventory, claim map, brnorm, probe texts, captures, probes
+uv run python scripts/sibling_probe/br_build.py bank-in|bank|inventory|judge|brnorm|probe-texts|capture-rows|probe-inputs
+# claim units -> probe verdicts -> consensus -> sibverdict-v1 -> categories / summary / figures / calibration
+uv run python scripts/sibling_probe/verdicts.py units|judge|label|figures|calib
+uv run python scripts/sibling_probe/viewer/build_viewer.py      # -> outputs/sibling/viewer/ (deploy: scripts/serve/sibling_viewer.py)
+```
+
+- Arms: set A `s3d-rl600-all11`, `jlens-all11`, `mlnla-rl600-all11` (judge dirs; the first two
+  seeded from the 4-layer caches) + `nla-rl-L42`; set B `br-<arm>` judge dirs, every non-empty
+  cell judged, scope / coverage calls off. Methods in units: `s3d`, `jlens`, `nla-rl-L42`
+  (primary), `mlnla-rl600` (side).
+- Set B: `data/sibling_probe/basic_readout_bank.json` (67 in-pipeline items: entity + implicit;
+  processing viewer-only), `br_concepts.json` (category-first: golds + 15 Opus members),
+  `br_probe_texts.jsonl` (only categories with >= 2 golds: sport, country, musical_instrument;
+  single-gold categories cannot pass the mandatory transfer gate). Opus caches per prompt version
+  `outputs/sibling/br/cache_{brcat,brinv,brnorm,brtext}-v1.jsonl`. Captures `acts-br-eval`,
+  `acts-br-probe` (12 layers incl. 42). Probes `outputs/sibling/br/probes/{v2,v0}`.
+- Probes: set A 20..60 from `outputs/sibling/probes_all11/` (run `sibling-all11`, eval capture
+  `acts-sibling-eval-all11`, probe capture `acts-sibling-probe-all11`); L42 from the plan-0003
+  `outputs/sibling/probes/`. Set-B gates: validity + transfer per concept, category-layer rule
+  over the category's GOLD concepts; never-gold concepts are `unvalidated_never_gold`.
+- Verdict outputs `outputs/sibling/verdict/`: `units.jsonl`, `units_labeled.jsonl`, `cache.jsonl`
+  (keys `v:<uid>` layer-visible, `b:<uid>` layer-blind), `blind_uids.json`, `gates*.json(l)`,
+  `summary.json`, `report.md`. Figures `plots/sibling_probe/fig{1,2}_*.png`.
+- Network on this box drops DNS intermittently: every Modal step in the drivers retries; check
+  `getent hosts api.modal.com` before blaming a script.
+
+## sibling_probe plan 0005 (basic-readout mention ladder)
+
+```bash
+S=scripts/sibling_probe/ladder.py
+uv run python $S lexicons      # brlex-v1 -> data/sibling_probe/br_lexicons.json (Opus once + code checks/forced equivalences)
+uv run python $S mentions      # units (method, item, layer, pos, concept) -> outputs/sibling/ladder/mentions.jsonl
+uv run python $S judge         # brcommit-v1, one call per (unit, sample) -> outputs/sibling/ladder/commit.jsonl
+uv run python $S todo          # data/sibling_probe/brcommit_{dev,gold}_todo.jsonl (dev 40 for Fable; gold 80 + all Ali units)
+uv run python $S calib         # vs data/sibling_probe/brcommit_gold.jsonl -> outputs/sibling/ladder/calib.json
+uv run python $S banks         # brbank-v1 -> data/sibling_probe/br_entity_banks.json (Ali bank seeds sport)
+uv run python $S capture-rows  # -> outputs/sibling/ladder/capture_rows.json (bank x 3 templates + the 35 items)
+MODAL_PROFILE=safety-sahan-2 uvx --python 3.12 modal@latest run --env camila-blank scripts/sibling_probe/ladder_capture_modal.py --run ladder1
+MODAL_PROFILE=safety-sahan-2 uvx --python 3.12 modal@latest volume get --env camila-blank sibling-probes ladder/ladder1 outputs/sibling/ladder/capture/
+uv run python $S topup && uv run python $S capture-rows --exclude-runs ladder1   # entity top-up (< 40 kept) -> capture run ladder2
+uv run --with scikit-learn python $S probes --run ladder1,ladder2 --modal   # filter, counts, probes on Modal CPU (~10 min) -> probes.json
+uv run --with scikit-learn python $S probe-report [--fire-pair logreg,dom]  # AUROC tables, fire pair, capital pilot -> probe_quality.{md,json}
+uv run python $S label         # -> outputs/sibling/ladder/ladder/{units.jsonl,summary.json,report.md}
+uv run python $S figures       # -> plots/sibling_probe/ladder_*.png
+uv run python scripts/sibling_probe/viewer/build_viewer.py  # viewer incl. the ladder panel + label filter
+```
+
+- Library: `evals/sibling_probe/ladder_lex.py` (lexicon matcher: word boundaries, longest match,
+  block phrases, "football" resolved by the item's gold / `FOOTBALL_DEFAULT`, upper-case
+  abbreviations case-sensitive), `ladder.py` (units, brcommit-v1 prompt / parse / fail-closed,
+  roll-up, cross-method, fire rule, labels), `ladder_probe.py` (logreg PCA-k / DiffMean /
+  whitened DiffMean, GroupKFold(5) by entity, inner-CV k and lambda). sklearn is NOT a project
+  dependency: run the probe stages with `uv run --with scikit-learn`.
+- Opus caches per prompt version: `outputs/sibling/ladder/cache_{brlex,brcommit,brbank}-v1.jsonl`.
+  Changing the lexicon changes judge user texts (marked spans), so the affected calls re-run.
+- Gold equivalences live in the lexicon (England / Britain / UK one concept; USSR = Russia;
+  piano = keyboard; track and field = athletics = sprinting = running); the bank gold `england`
+  maps to `united_kingdom` (`ladder.GOLD_MAP`).
+- The probe job is CPU-heavy; keep BLAS at 2 threads per worker (`threadpool_limits(2)`), 16
+  threads per fit is 4x slower than 2. 8 workers x 2 threads.
+- Capture: 1 GPU (B300) HF transformers, no flash-linear-attention (slow fallback is fine for
+  ~14k short prompts, ~1 h); items must tokenize to the bank `input_ids` or it aborts.
+- Probe fitting: use `--modal` (one CPU container per bank x layer, acts read from the
+  `sibling-probes` volume). Locally it is ~40 CPU-hours: lbfgs logreg (~300 iterations) dominates.
+  Never `pkill -f` a pattern that is in your own shell's command line; use `pkill -f "ladder.py pro[b]es"`.
+- Fire pair = logreg + raw DiffMean (the plan's probes). The whitened DiffMean (`wdm`) has the
+  best AUROC but whitens away the within-gold variation the fire rule tests (Ali track/basketball
+  stop firing); it is the `label_pair_alt` sensitivity row.
+- Knowledge filter: Ali's best-category-word rule, plus the greedy continuation's first mention
+  (multi-token names like " c|ello" are missing from the word list). Classes with fewer than 10
+  known entities are dropped from the bank (tuba, oboe), so their units are probe n/a.
+
+## sibling_probe plan 0006 (user-modelling ladder v2, country)
+
+```bash
+S=scripts/sibling_probe/um_ladder.py            # inputs read from --src-root (default /workspace/hb-sibling-probes)
+uv run --no-sync python $S summarize            # missing J-lens summaries (token-hit cells only)
+uv run --no-sync python $S mentions             # -> outputs/sibling/um/{mentions,strata}.jsonl, counts.json
+uv run --no-sync python $S todo                 # dev 40 / gold 80 (+ dev2 60, see data README)
+uv run --no-sync python $S judge                # umcommit-v1.1 -> commit.jsonl; --ids <todo> for a subset
+uv run --no-sync python $S calib                # dev / dev2 / gold -> calib.json
+uv run --no-sync python $S concepts             # set C -> data/sibling_probe/um_country_concepts.json
+uv run --no-sync python $S probe-texts          # Opus (sibgen-v1 prompt) + checks -> um_country_probe_texts.jsonl
+uv run --no-sync python $S capture-rows         # ReadSpec plans -> outputs/sibling/um/plan_probe/
+#   then wsbench_public_plan.py prompts + wsbench_capture_modal.py (from the GW worktree) -> acts-um-country-probe
+uv run --no-sync python $S probe-inputs
+MODAL_PROFILE=safety-sahan-2 uvx --python 3.12 modal@latest run scripts/sibling_probe/um_probes_modal.py --phase fit
+uv run --no-sync python $S distractors          # refuses if Phase B scores exist
+MODAL_PROFILE=safety-sahan-2 uvx --python 3.12 modal@latest run scripts/sibling_probe/um_probes_modal.py --phase score
+uv run --no-sync python $S label && uv run --no-sync python $S figures
+```
+
+- Library: `evals/sibling_probe/um_ladder.py` (Set A lexicon patch over plan 0005's lexicon,
+  `FastMatcher` = `Matcher.find` on candidate patterns only, ~9x faster, identical hits; units;
+  `umcommit` prompt / parse / fail-closed; distractors; `ProbeContext` fire rule; labels;
+  bootstrap), `um_probe.py` (logistic probe, per-fold null z, implied validity, centroids;
+  copied into the Modal job with `probes.py`), `um_regions.py` (12 merged M49 regions).
+- The country ladder reads `data/sibling_probe/br_lexicons_um_v1.json`, **not** plan 0005's
+  `br_lexicons.json`. It is a frozen copy taken before plan 0005's bare-name alias fix, and it is
+  what results 0006 used (sha256 pinned by `tests/test_um_lexicon_pin.py`). Set A changes live
+  only in `SET_A_LEXICON_PATCH`. Adopting the newer lexicon is a results change: re-run and
+  update `docs/results/0006`.
+- Lexicon traps the patch handles (each tested): "Korean" (missing from the copy), 朝鲜 (Korean
+  ethnicity, not North Korea), Soviet aliases (a `soviet` stratum on Ukraine / Belarus / Russia
+  golds, Russia elsewhere), capitals un-blocked as country aliases except Washington / Male
+  ("a male singer") / Victoria / Sofia / Kingston / Georgetown / Nassau, capitalised-only
+  aliases (pole, polish, turkey, china, every capital), regional phrases ("Latin American").
+- J-lens tokens must be decoded (`decode_token`) before matching; raw bags miss every CJK hit.
+- Judge prompt history: `umcommit-v1` (gold acc 0.85, committed precision 0.40) -> `v1.1` (the
+  one allowed revision, from dev2: a described hypothetical person is not the user unless the
+  sample says so). Prompt examples come from dev / dev2, so only the gold numbers are honest.
+- Leakage guard: distractors are chosen from Phase A (probe texts only); `distractors` refuses
+  to run once `outputs/sibling/um/probes/score/` exists and `label` refuses a distractor file
+  whose sha256 differs from the one Phase B recorded.
+- sklearn is not a project dependency: `uv run --with scikit-learn` for the logistic test
+  (skipped otherwise); the Modal image installs it.

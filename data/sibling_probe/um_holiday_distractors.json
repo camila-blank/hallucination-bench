@@ -1,0 +1,821 @@
+{
+ "version": "umdist-v1",
+ "layer": 44,
+ "rule": "4 nearest (grand-mean-centred implied centroids, cosine) + 4 seeded random among C, valid at L44 in both types, not gold / equivalent, not committed for the item",
+ "items": {
+  "gen-holiday-christmas-a0-00": {
+   "item": "gen-holiday-christmas-a0-00",
+   "gold": "christmas",
+   "nearest": [
+    "valentines",
+    "fathers_day",
+    "mothers_day",
+    "st_patricks_day"
+   ],
+   "random": [
+    "ghost_festival",
+    "kwanzaa",
+    "lunar_new_year",
+    "obon"
+   ],
+   "distractors": [
+    "valentines",
+    "fathers_day",
+    "mothers_day",
+    "st_patricks_day",
+    "ghost_festival",
+    "kwanzaa",
+    "lunar_new_year",
+    "obon"
+   ],
+   "n_eligible": 31,
+   "cos_to_gold": {
+    "valentines": 0.3482,
+    "fathers_day": 0.3357,
+    "mothers_day": 0.219,
+    "st_patricks_day": 0.1856,
+    "ghost_festival": -0.3669,
+    "kwanzaa": -0.255,
+    "lunar_new_year": -0.0824,
+    "obon": -0.3571
+   }
+  },
+  "gen-holiday-diwali-a0-00": {
+   "item": "gen-holiday-diwali-a0-00",
+   "gold": "diwali",
+   "nearest": [
+    "holi",
+    "ramadan",
+    "lunar_new_year",
+    "ghost_festival"
+   ],
+   "random": [
+    "australia_day",
+    "mardi_gras",
+    "obon",
+    "purim"
+   ],
+   "distractors": [
+    "holi",
+    "ramadan",
+    "lunar_new_year",
+    "ghost_festival",
+    "australia_day",
+    "mardi_gras",
+    "obon",
+    "purim"
+   ],
+   "n_eligible": 29,
+   "cos_to_gold": {
+    "holi": 0.4874,
+    "ramadan": 0.3364,
+    "lunar_new_year": 0.28,
+    "ghost_festival": 0.2765,
+    "australia_day": -0.0875,
+    "mardi_gras": -0.1898,
+    "obon": 0.248,
+    "purim": 0.0443
+   }
+  },
+  "gen-holiday-easter-a0-00": {
+   "item": "gen-holiday-easter-a0-00",
+   "gold": "easter",
+   "nearest": [
+    "valentines",
+    "st_patricks_day",
+    "fathers_day",
+    "earth_day"
+   ],
+   "random": [
+    "all_saints_day",
+    "april_fools",
+    "australia_day",
+    "purim"
+   ],
+   "distractors": [
+    "valentines",
+    "st_patricks_day",
+    "fathers_day",
+    "earth_day",
+    "all_saints_day",
+    "april_fools",
+    "australia_day",
+    "purim"
+   ],
+   "n_eligible": 30,
+   "cos_to_gold": {
+    "valentines": 0.284,
+    "st_patricks_day": 0.2447,
+    "fathers_day": 0.2414,
+    "earth_day": 0.2254,
+    "all_saints_day": 0.1605,
+    "april_fools": -0.0437,
+    "australia_day": -0.1561,
+    "purim": -0.1226
+   }
+  },
+  "gen-holiday-halloween-a0-00": {
+   "item": "gen-holiday-halloween-a0-00",
+   "gold": "halloween",
+   "nearest": [
+    "april_fools",
+    "st_patricks_day",
+    "mardi_gras",
+    "independence_day"
+   ],
+   "random": [
+    "bastille_day",
+    "easter",
+    "hanukkah",
+    "kwanzaa"
+   ],
+   "distractors": [
+    "april_fools",
+    "st_patricks_day",
+    "mardi_gras",
+    "independence_day",
+    "bastille_day",
+    "easter",
+    "hanukkah",
+    "kwanzaa"
+   ],
+   "n_eligible": 31,
+   "cos_to_gold": {
+    "april_fools": 0.4254,
+    "st_patricks_day": 0.4119,
+    "mardi_gras": 0.3296,
+    "independence_day": 0.2555,
+    "bastille_day": 0.0377,
+    "easter": 0.2019,
+    "hanukkah": -0.1243,
+    "kwanzaa": -0.2701
+   }
+  },
+  "gen-holiday-independence-day-a0-00": {
+   "item": "gen-holiday-independence-day-a0-00",
+   "gold": "independence_day",
+   "nearest": [
+    "canada_day",
+    "st_patricks_day",
+    "fathers_day",
+    "bastille_day"
+   ],
+   "random": [
+    "dragon_boat",
+    "ghost_festival",
+    "passover",
+    "yom_kippur"
+   ],
+   "distractors": [
+    "canada_day",
+    "st_patricks_day",
+    "fathers_day",
+    "bastille_day",
+    "dragon_boat",
+    "ghost_festival",
+    "passover",
+    "yom_kippur"
+   ],
+   "n_eligible": 28,
+   "cos_to_gold": {
+    "canada_day": 0.5284,
+    "st_patricks_day": 0.3642,
+    "fathers_day": 0.3432,
+    "bastille_day": 0.2769,
+    "dragon_boat": -0.2506,
+    "ghost_festival": -0.4392,
+    "passover": -0.1474,
+    "yom_kippur": -0.2778
+   }
+  },
+  "gen-holiday-lunar-new-year-a0-00": {
+   "item": "gen-holiday-lunar-new-year-a0-00",
+   "gold": "lunar_new_year",
+   "nearest": [
+    "winter_solstice",
+    "diwali",
+    "ghost_festival",
+    "national_day_china"
+   ],
+   "random": [
+    "navratri",
+    "obon",
+    "passover",
+    "purim"
+   ],
+   "distractors": [
+    "winter_solstice",
+    "diwali",
+    "ghost_festival",
+    "national_day_china",
+    "navratri",
+    "obon",
+    "passover",
+    "purim"
+   ],
+   "n_eligible": 26,
+   "cos_to_gold": {
+    "winter_solstice": 0.3579,
+    "diwali": 0.28,
+    "ghost_festival": 0.2794,
+    "national_day_china": 0.2421,
+    "navratri": 0.1831,
+    "obon": 0.1743,
+    "passover": -0.0294,
+    "purim": -0.0777
+   }
+  },
+  "gen-holiday-lunar-new-year-a0-01": {
+   "item": "gen-holiday-lunar-new-year-a0-01",
+   "gold": "lunar_new_year",
+   "nearest": [
+    "mid_autumn",
+    "dragon_boat",
+    "winter_solstice",
+    "diwali"
+   ],
+   "random": [
+    "holi",
+    "passover",
+    "ramadan",
+    "st_patricks_day"
+   ],
+   "distractors": [
+    "mid_autumn",
+    "dragon_boat",
+    "winter_solstice",
+    "diwali",
+    "holi",
+    "passover",
+    "ramadan",
+    "st_patricks_day"
+   ],
+   "n_eligible": 30,
+   "cos_to_gold": {
+    "mid_autumn": 0.4721,
+    "dragon_boat": 0.382,
+    "winter_solstice": 0.3579,
+    "diwali": 0.28,
+    "holi": 0.1835,
+    "passover": -0.0294,
+    "ramadan": 0.0104,
+    "st_patricks_day": -0.1724
+   }
+  },
+  "gen-holiday-mothers-day-a0-00": {
+   "item": "gen-holiday-mothers-day-a0-00",
+   "gold": "mothers_day",
+   "nearest": [
+    "teachers_day",
+    "labor_day",
+    "memorial_day",
+    "earth_day"
+   ],
+   "random": [
+    "independence_day",
+    "national_day_china",
+    "new_year",
+    "obon"
+   ],
+   "distractors": [
+    "teachers_day",
+    "labor_day",
+    "memorial_day",
+    "earth_day",
+    "independence_day",
+    "national_day_china",
+    "new_year",
+    "obon"
+   ],
+   "n_eligible": 30,
+   "cos_to_gold": {
+    "teachers_day": 0.5513,
+    "labor_day": 0.2949,
+    "memorial_day": 0.1773,
+    "earth_day": 0.1743,
+    "independence_day": 0.1276,
+    "national_day_china": -0.1303,
+    "new_year": 0.0169,
+    "obon": -0.3047
+   }
+  },
+  "gen-holiday-mothers-day-a0-01": {
+   "item": "gen-holiday-mothers-day-a0-01",
+   "gold": "mothers_day",
+   "nearest": [
+    "teachers_day",
+    "labor_day",
+    "memorial_day",
+    "earth_day"
+   ],
+   "random": [
+    "canada_day",
+    "national_day_china",
+    "st_patricks_day",
+    "yom_kippur"
+   ],
+   "distractors": [
+    "teachers_day",
+    "labor_day",
+    "memorial_day",
+    "earth_day",
+    "canada_day",
+    "national_day_china",
+    "st_patricks_day",
+    "yom_kippur"
+   ],
+   "n_eligible": 30,
+   "cos_to_gold": {
+    "teachers_day": 0.5513,
+    "labor_day": 0.2949,
+    "memorial_day": 0.1773,
+    "earth_day": 0.1743,
+    "canada_day": 0.0749,
+    "national_day_china": -0.1303,
+    "st_patricks_day": 0.0299,
+    "yom_kippur": -0.2475
+   }
+  },
+  "gen-holiday-new-year-a0-00": {
+   "item": "gen-holiday-new-year-a0-00",
+   "gold": "new_year",
+   "nearest": [
+    "april_fools",
+    "valentines",
+    "bastille_day",
+    "st_patricks_day"
+   ],
+   "random": [
+    "dragon_boat",
+    "ghost_festival",
+    "mid_autumn",
+    "navratri"
+   ],
+   "distractors": [
+    "april_fools",
+    "valentines",
+    "bastille_day",
+    "st_patricks_day",
+    "dragon_boat",
+    "ghost_festival",
+    "mid_autumn",
+    "navratri"
+   ],
+   "n_eligible": 28,
+   "cos_to_gold": {
+    "april_fools": 0.2307,
+    "valentines": 0.2295,
+    "bastille_day": 0.1941,
+    "st_patricks_day": 0.1822,
+    "dragon_boat": -0.2648,
+    "ghost_festival": -0.216,
+    "mid_autumn": -0.1996,
+    "navratri": -0.2142
+   }
+  },
+  "gen-holiday-passover-a0-00": {
+   "item": "gen-holiday-passover-a0-00",
+   "gold": "passover",
+   "nearest": [
+    "rosh_hashanah",
+    "ramadan",
+    "kwanzaa",
+    "diwali"
+   ],
+   "random": [
+    "fathers_day",
+    "labor_day",
+    "obon",
+    "teachers_day"
+   ],
+   "distractors": [
+    "rosh_hashanah",
+    "ramadan",
+    "kwanzaa",
+    "diwali",
+    "fathers_day",
+    "labor_day",
+    "obon",
+    "teachers_day"
+   ],
+   "n_eligible": 28,
+   "cos_to_gold": {
+    "rosh_hashanah": 0.6019,
+    "ramadan": 0.2151,
+    "kwanzaa": 0.142,
+    "diwali": 0.0435,
+    "fathers_day": -0.1733,
+    "labor_day": -0.2604,
+    "obon": 0.0267,
+    "teachers_day": -0.3405
+   }
+  },
+  "gen-holiday-passover-a0-01": {
+   "item": "gen-holiday-passover-a0-01",
+   "gold": "passover",
+   "nearest": [
+    "yom_kippur",
+    "purim",
+    "ramadan",
+    "kwanzaa"
+   ],
+   "random": [
+    "earth_day",
+    "mid_autumn",
+    "national_day_china",
+    "navratri"
+   ],
+   "distractors": [
+    "yom_kippur",
+    "purim",
+    "ramadan",
+    "kwanzaa",
+    "earth_day",
+    "mid_autumn",
+    "national_day_china",
+    "navratri"
+   ],
+   "n_eligible": 26,
+   "cos_to_gold": {
+    "yom_kippur": 0.5468,
+    "purim": 0.528,
+    "ramadan": 0.2151,
+    "kwanzaa": 0.142,
+    "earth_day": -0.3838,
+    "mid_autumn": -0.2029,
+    "national_day_china": -0.1152,
+    "navratri": -0.0025
+   }
+  },
+  "gen-holiday-thanksgiving-a0-00": {
+   "item": "gen-holiday-thanksgiving-a0-00",
+   "gold": "thanksgiving",
+   "nearest": [
+    "fathers_day",
+    "mardi_gras",
+    "new_year",
+    "passover"
+   ],
+   "random": [
+    "bastille_day",
+    "earth_day",
+    "st_patricks_day",
+    "yom_kippur"
+   ],
+   "distractors": [
+    "fathers_day",
+    "mardi_gras",
+    "new_year",
+    "passover",
+    "bastille_day",
+    "earth_day",
+    "st_patricks_day",
+    "yom_kippur"
+   ],
+   "n_eligible": 29,
+   "cos_to_gold": {
+    "fathers_day": 0.3126,
+    "mardi_gras": 0.2421,
+    "new_year": 0.2356,
+    "passover": 0.2223,
+    "bastille_day": 0.0704,
+    "earth_day": -0.1864,
+    "st_patricks_day": 0.0753,
+    "yom_kippur": 0.0584
+   }
+  },
+  "gen-holiday-valentines-a0-00": {
+   "item": "gen-holiday-valentines-a0-00",
+   "gold": "valentines",
+   "nearest": [
+    "mothers_day",
+    "st_patricks_day",
+    "april_fools",
+    "new_year"
+   ],
+   "random": [
+    "dragon_boat",
+    "earth_day",
+    "ghost_festival",
+    "purim"
+   ],
+   "distractors": [
+    "mothers_day",
+    "st_patricks_day",
+    "april_fools",
+    "new_year",
+    "dragon_boat",
+    "earth_day",
+    "ghost_festival",
+    "purim"
+   ],
+   "n_eligible": 30,
+   "cos_to_gold": {
+    "mothers_day": 0.4539,
+    "st_patricks_day": 0.3076,
+    "april_fools": 0.2876,
+    "new_year": 0.2295,
+    "dragon_boat": -0.2118,
+    "earth_day": 0.0924,
+    "ghost_festival": -0.3956,
+    "purim": -0.1595
+   }
+  },
+  "pilot-holiday-00": {
+   "item": "pilot-holiday-00",
+   "gold": "halloween",
+   "nearest": [
+    "april_fools",
+    "mardi_gras",
+    "fathers_day",
+    "easter"
+   ],
+   "random": [
+    "bastille_day",
+    "memorial_day",
+    "teachers_day",
+    "yom_kippur"
+   ],
+   "distractors": [
+    "april_fools",
+    "mardi_gras",
+    "fathers_day",
+    "easter",
+    "bastille_day",
+    "memorial_day",
+    "teachers_day",
+    "yom_kippur"
+   ],
+   "n_eligible": 29,
+   "cos_to_gold": {
+    "april_fools": 0.4254,
+    "mardi_gras": 0.3296,
+    "fathers_day": 0.2181,
+    "easter": 0.2019,
+    "bastille_day": 0.0377,
+    "memorial_day": -0.2015,
+    "teachers_day": -0.0895,
+    "yom_kippur": -0.2881
+   }
+  },
+  "pilot-holiday-01": {
+   "item": "pilot-holiday-01",
+   "gold": "thanksgiving",
+   "nearest": [
+    "fathers_day",
+    "mardi_gras",
+    "halloween",
+    "new_year"
+   ],
+   "random": [
+    "bastille_day",
+    "purim",
+    "rosh_hashanah",
+    "winter_solstice"
+   ],
+   "distractors": [
+    "fathers_day",
+    "mardi_gras",
+    "halloween",
+    "new_year",
+    "bastille_day",
+    "purim",
+    "rosh_hashanah",
+    "winter_solstice"
+   ],
+   "n_eligible": 30,
+   "cos_to_gold": {
+    "fathers_day": 0.3126,
+    "mardi_gras": 0.2421,
+    "halloween": 0.24,
+    "new_year": 0.2356,
+    "bastille_day": 0.0704,
+    "purim": -0.0986,
+    "rosh_hashanah": 0.0141,
+    "winter_solstice": -0.2849
+   }
+  },
+  "pilot-holiday-02": {
+   "item": "pilot-holiday-02",
+   "gold": "christmas",
+   "nearest": [
+    "st_patricks_day",
+    "mardi_gras",
+    "labor_day",
+    "canada_day"
+   ],
+   "random": [
+    "april_fools",
+    "dragon_boat",
+    "purim",
+    "rosh_hashanah"
+   ],
+   "distractors": [
+    "st_patricks_day",
+    "mardi_gras",
+    "labor_day",
+    "canada_day",
+    "april_fools",
+    "dragon_boat",
+    "purim",
+    "rosh_hashanah"
+   ],
+   "n_eligible": 27,
+   "cos_to_gold": {
+    "st_patricks_day": 0.1856,
+    "mardi_gras": 0.0943,
+    "labor_day": 0.0816,
+    "canada_day": 0.0713,
+    "april_fools": 0.0288,
+    "dragon_boat": -0.3756,
+    "purim": -0.1143,
+    "rosh_hashanah": -0.0724
+   }
+  },
+  "pilot-holiday-03": {
+   "item": "pilot-holiday-03",
+   "gold": "easter",
+   "nearest": [
+    "st_patricks_day",
+    "fathers_day",
+    "earth_day",
+    "labor_day"
+   ],
+   "random": [
+    "canada_day",
+    "diwali",
+    "kwanzaa",
+    "mardi_gras"
+   ],
+   "distractors": [
+    "st_patricks_day",
+    "fathers_day",
+    "earth_day",
+    "labor_day",
+    "canada_day",
+    "diwali",
+    "kwanzaa",
+    "mardi_gras"
+   ],
+   "n_eligible": 29,
+   "cos_to_gold": {
+    "st_patricks_day": 0.2447,
+    "fathers_day": 0.2414,
+    "earth_day": 0.2254,
+    "labor_day": 0.195,
+    "canada_day": 0.0241,
+    "diwali": -0.1627,
+    "kwanzaa": -0.0072,
+    "mardi_gras": 0.0242
+   }
+  },
+  "pilot-holiday-04": {
+   "item": "pilot-holiday-04",
+   "gold": "new_year",
+   "nearest": [
+    "april_fools",
+    "bastille_day",
+    "mardi_gras",
+    "canada_day"
+   ],
+   "random": [
+    "australia_day",
+    "earth_day",
+    "national_day_china",
+    "purim"
+   ],
+   "distractors": [
+    "april_fools",
+    "bastille_day",
+    "mardi_gras",
+    "canada_day",
+    "australia_day",
+    "earth_day",
+    "national_day_china",
+    "purim"
+   ],
+   "n_eligible": 27,
+   "cos_to_gold": {
+    "april_fools": 0.2307,
+    "bastille_day": 0.1941,
+    "mardi_gras": 0.1651,
+    "canada_day": 0.1447,
+    "australia_day": 0.089,
+    "earth_day": 0.031,
+    "national_day_china": -0.1002,
+    "purim": -0.1969
+   }
+  },
+  "pilot-holiday-05": {
+   "item": "pilot-holiday-05",
+   "gold": "valentines",
+   "nearest": [
+    "halloween",
+    "fathers_day",
+    "st_patricks_day",
+    "april_fools"
+   ],
+   "random": [
+    "australia_day",
+    "diwali",
+    "new_year",
+    "passover"
+   ],
+   "distractors": [
+    "halloween",
+    "fathers_day",
+    "st_patricks_day",
+    "april_fools",
+    "australia_day",
+    "diwali",
+    "new_year",
+    "passover"
+   ],
+   "n_eligible": 32,
+   "cos_to_gold": {
+    "halloween": 0.3835,
+    "fathers_day": 0.362,
+    "st_patricks_day": 0.3076,
+    "april_fools": 0.2876,
+    "australia_day": -0.1097,
+    "diwali": -0.2623,
+    "new_year": 0.2295,
+    "passover": -0.1888
+   }
+  },
+  "pilot-holiday-06": {
+   "item": "pilot-holiday-06",
+   "gold": "independence_day",
+   "nearest": [
+    "canada_day",
+    "fathers_day",
+    "bastille_day",
+    "mardi_gras"
+   ],
+   "random": [
+    "earth_day",
+    "kwanzaa",
+    "purim",
+    "teachers_day"
+   ],
+   "distractors": [
+    "canada_day",
+    "fathers_day",
+    "bastille_day",
+    "mardi_gras",
+    "earth_day",
+    "kwanzaa",
+    "purim",
+    "teachers_day"
+   ],
+   "n_eligible": 26,
+   "cos_to_gold": {
+    "canada_day": 0.5284,
+    "fathers_day": 0.3432,
+    "bastille_day": 0.2769,
+    "mardi_gras": 0.1817,
+    "earth_day": 0.1537,
+    "kwanzaa": -0.1734,
+    "purim": -0.2023,
+    "teachers_day": -0.0937
+   }
+  },
+  "pilot-holiday-07": {
+   "item": "pilot-holiday-07",
+   "gold": "diwali",
+   "nearest": [
+    "holi",
+    "ramadan",
+    "obon",
+    "hanukkah"
+   ],
+   "random": [
+    "all_saints_day",
+    "earth_day",
+    "memorial_day",
+    "yom_kippur"
+   ],
+   "distractors": [
+    "holi",
+    "ramadan",
+    "obon",
+    "hanukkah",
+    "all_saints_day",
+    "earth_day",
+    "memorial_day",
+    "yom_kippur"
+   ],
+   "n_eligible": 23,
+   "cos_to_gold": {
+    "holi": 0.4874,
+    "ramadan": 0.3364,
+    "obon": 0.248,
+    "hanukkah": 0.1882,
+    "all_saints_day": -0.0282,
+    "earth_day": -0.2395,
+    "memorial_day": -0.2062,
+    "yom_kippur": 0.1233
+   }
+  }
+ }
+}

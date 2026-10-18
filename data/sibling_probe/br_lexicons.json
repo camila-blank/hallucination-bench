@@ -1,0 +1,5143 @@
+{
+ "version": "brlex-v1",
+ "provenance": "claude-opus-5-5 effort low (brlex-v1, cache outputs/sibling/ladder/cache_brlex-v1.jsonl) + code-forced equivalences (scripts/sibling_probe/ladder.py FORCED / DROP_ALIASES / AMBIGUOUS)",
+ "categories": {
+  "sport": {
+   "concepts": {
+    "american_football": {
+     "label": "American football",
+     "en": [
+      "American football",
+      "gridiron football",
+      "quarterback",
+      "NFL",
+      "Super Bowl",
+      "college football",
+      "gridiron",
+      "running back"
+     ],
+     "cjk": [
+      "美式足球",
+      "美式橄榄球",
+      "橄榄球"
+     ],
+     "tokens": []
+    },
+    "baseball": {
+     "label": "Baseball",
+     "en": [
+      "baseball",
+      "baseball player",
+      "MLB",
+      "pitcher",
+      "World Series"
+     ],
+     "cjk": [
+      "棒球"
+     ],
+     "tokens": []
+    },
+    "basketball": {
+     "label": "Basketball",
+     "en": [
+      "basketball",
+      "basketball player",
+      "NBA",
+      "WNBA"
+     ],
+     "cjk": [
+      "篮球"
+     ],
+     "tokens": [
+      "Hoops"
+     ]
+    },
+    "boxing": {
+     "label": "Boxing",
+     "en": [
+      "boxing",
+      "boxer",
+      "prizefighting",
+      "prizefighter"
+     ],
+     "cjk": [
+      "拳击"
+     ],
+     "tokens": []
+    },
+    "cricket": {
+     "label": "Cricket",
+     "en": [
+      "cricket",
+      "cricketer",
+      "batsman",
+      "IPL",
+      "test cricket"
+     ],
+     "cjk": [
+      "板球"
+     ],
+     "tokens": []
+    },
+    "cycling": {
+     "label": "Cycling",
+     "en": [
+      "cycling",
+      "cyclist",
+      "road cycling",
+      "track cycling",
+      "Tour de France",
+      "bike racing"
+     ],
+     "cjk": [
+      "自行车",
+      "自行车运动",
+      "骑行"
+     ],
+     "tokens": []
+    },
+    "figure_skating": {
+     "label": "Figure skating",
+     "en": [
+      "figure skating",
+      "figure skater"
+     ],
+     "cjk": [
+      "花样滑冰",
+      "花滑"
+     ],
+     "tokens": []
+    },
+    "golf": {
+     "label": "Golf",
+     "en": [
+      "golf",
+      "golfer",
+      "PGA",
+      "LPGA"
+     ],
+     "cjk": [
+      "高尔夫",
+      "高尔夫球"
+     ],
+     "tokens": []
+    },
+    "gymnastics": {
+     "label": "Gymnastics",
+     "en": [
+      "gymnastics",
+      "gymnast",
+      "artistic gymnastics",
+      "rhythmic gymnastics"
+     ],
+     "cjk": [
+      "体操",
+      "艺术体操"
+     ],
+     "tokens": []
+    },
+    "ice_hockey": {
+     "label": "Ice hockey",
+     "en": [
+      "ice hockey",
+      "hockey",
+      "hockey player",
+      "NHL"
+     ],
+     "cjk": [
+      "冰球",
+      "冰上曲棍球"
+     ],
+     "tokens": []
+    },
+    "mma": {
+     "label": "Mixed martial arts",
+     "en": [
+      "mixed martial arts",
+      "MMA",
+      "UFC",
+      "MMA fighter",
+      "cage fighting"
+     ],
+     "cjk": [
+      "综合格斗",
+      "综合格斗技"
+     ],
+     "tokens": []
+    },
+    "motor_racing": {
+     "label": "Motor racing",
+     "en": [
+      "motor racing",
+      "motorsport",
+      "motorsports",
+      "auto racing",
+      "racing driver",
+      "race car driver",
+      "Formula One",
+      "Formula 1",
+      "F1",
+      "NASCAR",
+      "IndyCar"
+     ],
+     "cjk": [
+      "赛车",
+      "一级方程式",
+      "方程式赛车",
+      "赛车运动"
+     ],
+     "tokens": []
+    },
+    "pro_wrestling": {
+     "label": "Professional wrestling",
+     "en": [
+      "professional wrestling",
+      "pro wrestling",
+      "pro wrestler",
+      "professional wrestler",
+      "WWE"
+     ],
+     "cjk": [
+      "职业摔角",
+      "职业摔跤"
+     ],
+     "tokens": []
+    },
+    "skiing": {
+     "label": "Skiing",
+     "en": [
+      "skiing",
+      "skier",
+      "alpine skiing",
+      "cross-country skiing",
+      "downhill skiing",
+      "ski jumping"
+     ],
+     "cjk": [
+      "滑雪",
+      "高山滑雪",
+      "越野滑雪",
+      "跳台滑雪"
+     ],
+     "tokens": []
+    },
+    "soccer": {
+     "label": "Soccer",
+     "en": [
+      "soccer",
+      "association football",
+      "soccer player",
+      "FIFA",
+      "World Cup",
+      "Premier League"
+     ],
+     "cjk": [
+      "足球",
+      "英式足球"
+     ],
+     "tokens": []
+    },
+    "swimming": {
+     "label": "Swimming",
+     "en": [
+      "swimming",
+      "swimmer",
+      "freestyle swimming",
+      "breaststroke",
+      "butterfly stroke",
+      "backstroke"
+     ],
+     "cjk": [
+      "游泳"
+     ],
+     "tokens": [
+      "Swim"
+     ]
+    },
+    "tennis": {
+     "label": "Tennis",
+     "en": [
+      "tennis",
+      "tennis player",
+      "ATP",
+      "WTA",
+      "Wimbledon"
+     ],
+     "cjk": [
+      "网球"
+     ],
+     "tokens": []
+    },
+    "track_and_field": {
+     "label": "Track and field",
+     "en": [
+      "track and field",
+      "athletics",
+      "sprinting",
+      "sprinter",
+      "running",
+      "runner",
+      "marathon",
+      "marathoner",
+      "hurdles",
+      "hurdler",
+      "decathlon",
+      "heptathlon",
+      "long jump",
+      "high jump",
+      "triple jump",
+      "pole vault",
+      "shot put",
+      "javelin",
+      "discus",
+      "hammer throw",
+      "track & field",
+      "sprint",
+      "track athlete"
+     ],
+     "cjk": [
+      "田径",
+      "短跑",
+      "马拉松",
+      "跳远",
+      "跳高",
+      "铅球",
+      "标枪",
+      "跨栏",
+      "十项全能"
+     ],
+     "tokens": []
+    },
+    "wrestling": {
+     "label": "Wrestling",
+     "en": [
+      "wrestling",
+      "wrestler",
+      "freestyle wrestling",
+      "Greco-Roman wrestling",
+      "amateur wrestling"
+     ],
+     "cjk": [
+      "摔跤",
+      "摔角",
+      "古典式摔跤"
+     ],
+     "tokens": []
+    },
+    "rugby": {
+     "label": "Rugby",
+     "en": [
+      "rugby",
+      "rugby union",
+      "rugby league",
+      "rugby player"
+     ],
+     "cjk": [
+      "英式橄榄球",
+      "橄榄球联合会"
+     ],
+     "tokens": []
+    },
+    "australian_football": {
+     "label": "Australian rules football",
+     "en": [
+      "Australian rules football",
+      "Aussie rules",
+      "AFL"
+     ],
+     "cjk": [
+      "澳式足球",
+      "澳式橄榄球"
+     ],
+     "tokens": []
+    },
+    "volleyball": {
+     "label": "Volleyball",
+     "en": [
+      "volleyball",
+      "volleyball player"
+     ],
+     "cjk": [
+      "排球"
+     ],
+     "tokens": []
+    },
+    "beach_volleyball": {
+     "label": "Beach volleyball",
+     "en": [
+      "beach volleyball"
+     ],
+     "cjk": [
+      "沙滩排球"
+     ],
+     "tokens": []
+    },
+    "handball": {
+     "label": "Handball",
+     "en": [
+      "handball",
+      "team handball"
+     ],
+     "cjk": [
+      "手球"
+     ],
+     "tokens": []
+    },
+    "field_hockey": {
+     "label": "Field hockey",
+     "en": [
+      "field hockey"
+     ],
+     "cjk": [
+      "曲棍球"
+     ],
+     "tokens": []
+    },
+    "water_polo": {
+     "label": "Water polo",
+     "en": [
+      "water polo"
+     ],
+     "cjk": [
+      "水球"
+     ],
+     "tokens": []
+    },
+    "diving": {
+     "label": "Diving",
+     "en": [
+      "springboard diving",
+      "platform diving",
+      "competitive diving"
+     ],
+     "cjk": [
+      "跳水"
+     ],
+     "tokens": []
+    },
+    "table_tennis": {
+     "label": "Table tennis",
+     "en": [
+      "table tennis",
+      "ping pong",
+      "ping-pong"
+     ],
+     "cjk": [
+      "乒乓球"
+     ],
+     "tokens": []
+    },
+    "badminton": {
+     "label": "Badminton",
+     "en": [
+      "badminton",
+      "badminton player",
+      "shuttlecock"
+     ],
+     "cjk": [
+      "羽毛球"
+     ],
+     "tokens": []
+    },
+    "squash": {
+     "label": "Squash",
+     "en": [
+      "squash (sport)",
+      "squash player"
+     ],
+     "cjk": [
+      "壁球"
+     ],
+     "tokens": []
+    },
+    "fencing": {
+     "label": "Fencing",
+     "en": [
+      "fencing",
+      "fencer",
+      "épée",
+      "sabre fencing"
+     ],
+     "cjk": [
+      "击剑"
+     ],
+     "tokens": []
+    },
+    "judo": {
+     "label": "Judo",
+     "en": [
+      "judo",
+      "judoka"
+     ],
+     "cjk": [
+      "柔道"
+     ],
+     "tokens": []
+    },
+    "karate": {
+     "label": "Karate",
+     "en": [
+      "karate",
+      "karateka"
+     ],
+     "cjk": [
+      "空手道"
+     ],
+     "tokens": []
+    },
+    "taekwondo": {
+     "label": "Taekwondo",
+     "en": [
+      "taekwondo",
+      "tae kwon do"
+     ],
+     "cjk": [
+      "跆拳道"
+     ],
+     "tokens": []
+    },
+    "kickboxing": {
+     "label": "Kickboxing",
+     "en": [
+      "kickboxing",
+      "kickboxer"
+     ],
+     "cjk": [
+      "踢拳",
+      "自由搏击"
+     ],
+     "tokens": []
+    },
+    "muay_thai": {
+     "label": "Muay Thai",
+     "en": [
+      "Muay Thai",
+      "Thai boxing"
+     ],
+     "cjk": [
+      "泰拳"
+     ],
+     "tokens": []
+    },
+    "sumo": {
+     "label": "Sumo",
+     "en": [
+      "sumo",
+      "sumo wrestling",
+      "sumo wrestler",
+      "rikishi"
+     ],
+     "cjk": [
+      "相扑"
+     ],
+     "tokens": []
+    },
+    "wushu": {
+     "label": "Wushu",
+     "en": [
+      "wushu",
+      "kung fu"
+     ],
+     "cjk": [
+      "武术",
+      "功夫"
+     ],
+     "tokens": []
+    },
+    "weightlifting": {
+     "label": "Weightlifting",
+     "en": [
+      "weightlifting",
+      "weightlifter",
+      "Olympic weightlifting"
+     ],
+     "cjk": [
+      "举重"
+     ],
+     "tokens": []
+    },
+    "powerlifting": {
+     "label": "Powerlifting",
+     "en": [
+      "powerlifting",
+      "powerlifter"
+     ],
+     "cjk": [
+      "力量举"
+     ],
+     "tokens": []
+    },
+    "bodybuilding": {
+     "label": "Bodybuilding",
+     "en": [
+      "bodybuilding",
+      "bodybuilder"
+     ],
+     "cjk": [
+      "健美"
+     ],
+     "tokens": []
+    },
+    "rowing": {
+     "label": "Rowing",
+     "en": [
+      "rowing",
+      "rower",
+      "sculling",
+      "oarsman"
+     ],
+     "cjk": [
+      "赛艇"
+     ],
+     "tokens": []
+    },
+    "canoeing": {
+     "label": "Canoeing",
+     "en": [
+      "canoeing",
+      "kayaking",
+      "canoeist",
+      "kayaker",
+      "canoe sprint",
+      "canoe slalom"
+     ],
+     "cjk": [
+      "皮划艇",
+      "划艇"
+     ],
+     "tokens": []
+    },
+    "sailing": {
+     "label": "Sailing",
+     "en": [
+      "sailing",
+      "yachting",
+      "regatta"
+     ],
+     "cjk": [
+      "帆船",
+      "帆船运动"
+     ],
+     "tokens": []
+    },
+    "surfing": {
+     "label": "Surfing",
+     "en": [
+      "surfing",
+      "surfer"
+     ],
+     "cjk": [
+      "冲浪"
+     ],
+     "tokens": []
+    },
+    "triathlon": {
+     "label": "Triathlon",
+     "en": [
+      "triathlon",
+      "triathlete"
+     ],
+     "cjk": [
+      "铁人三项"
+     ],
+     "tokens": []
+    },
+    "modern_pentathlon": {
+     "label": "Modern pentathlon",
+     "en": [
+      "modern pentathlon",
+      "pentathlon",
+      "pentathlete"
+     ],
+     "cjk": [
+      "现代五项"
+     ],
+     "tokens": []
+    },
+    "archery": {
+     "label": "Archery",
+     "en": [
+      "archery"
+     ],
+     "cjk": [
+      "射箭"
+     ],
+     "tokens": []
+    },
+    "shooting": {
+     "label": "Shooting",
+     "en": [
+      "sport shooting",
+      "shooting sport",
+      "marksman",
+      "trap shooting",
+      "skeet shooting"
+     ],
+     "cjk": [
+      "射击运动",
+      "射击"
+     ],
+     "tokens": []
+    },
+    "equestrian": {
+     "label": "Equestrian",
+     "en": [
+      "equestrian",
+      "equestrianism",
+      "show jumping",
+      "dressage",
+      "eventing",
+      "equestrian sport"
+     ],
+     "cjk": [
+      "马术"
+     ],
+     "tokens": []
+    },
+    "horse_racing": {
+     "label": "Horse racing",
+     "en": [
+      "horse racing",
+      "jockey",
+      "thoroughbred racing",
+      "Kentucky Derby"
+     ],
+     "cjk": [
+      "赛马"
+     ],
+     "tokens": []
+    },
+    "polo": {
+     "label": "Polo",
+     "en": [
+      "polo (sport)",
+      "polo player"
+     ],
+     "cjk": [
+      "马球"
+     ],
+     "tokens": []
+    },
+    "speed_skating": {
+     "label": "Speed skating",
+     "en": [
+      "speed skating",
+      "speed skater",
+      "short track speed skating"
+     ],
+     "cjk": [
+      "速度滑冰",
+      "短道速滑"
+     ],
+     "tokens": []
+    },
+    "snowboarding": {
+     "label": "Snowboarding",
+     "en": [
+      "snowboarding",
+      "snowboarder"
+     ],
+     "cjk": [
+      "单板滑雪"
+     ],
+     "tokens": []
+    },
+    "biathlon": {
+     "label": "Biathlon",
+     "en": [
+      "biathlon",
+      "biathlete"
+     ],
+     "cjk": [
+      "冬季两项"
+     ],
+     "tokens": []
+    },
+    "bobsleigh": {
+     "label": "Bobsleigh",
+     "en": [
+      "bobsleigh",
+      "bobsled",
+      "bobsledding"
+     ],
+     "cjk": [
+      "雪车",
+      "有舵雪橇"
+     ],
+     "tokens": []
+    },
+    "luge": {
+     "label": "Luge",
+     "en": [
+      "luge"
+     ],
+     "cjk": [
+      "无舵雪橇",
+      "雪橇"
+     ],
+     "tokens": []
+    },
+    "skeleton": {
+     "label": "Skeleton",
+     "en": [
+      "skeleton racing",
+      "skeleton sled"
+     ],
+     "cjk": [
+      "钢架雪车"
+     ],
+     "tokens": []
+    },
+    "curling": {
+     "label": "Curling",
+     "en": [
+      "curling",
+      "curler"
+     ],
+     "cjk": [
+      "冰壶"
+     ],
+     "tokens": []
+    },
+    "skateboarding": {
+     "label": "Skateboarding",
+     "en": [
+      "skateboarding",
+      "skateboarder"
+     ],
+     "cjk": [
+      "滑板"
+     ],
+     "tokens": []
+    },
+    "sport_climbing": {
+     "label": "Sport climbing",
+     "en": [
+      "sport climbing",
+      "rock climbing",
+      "bouldering",
+      "climber"
+     ],
+     "cjk": [
+      "攀岩",
+      "运动攀岩"
+     ],
+     "tokens": []
+    },
+    "bmx": {
+     "label": "BMX",
+     "en": [
+      "BMX",
+      "BMX racing"
+     ],
+     "cjk": [
+      "小轮车"
+     ],
+     "tokens": []
+    },
+    "mountain_biking": {
+     "label": "Mountain biking",
+     "en": [
+      "mountain biking",
+      "mountain biker"
+     ],
+     "cjk": [
+      "山地自行车"
+     ],
+     "tokens": []
+    },
+    "softball": {
+     "label": "Softball",
+     "en": [
+      "softball"
+     ],
+     "cjk": [
+      "垒球"
+     ],
+     "tokens": []
+    },
+    "lacrosse": {
+     "label": "Lacrosse",
+     "en": [
+      "lacrosse"
+     ],
+     "cjk": [
+      "长曲棍球"
+     ],
+     "tokens": []
+    },
+    "netball": {
+     "label": "Netball",
+     "en": [
+      "netball"
+     ],
+     "cjk": [
+      "无挡板篮球",
+      "投球"
+     ],
+     "tokens": []
+    },
+    "futsal": {
+     "label": "Futsal",
+     "en": [
+      "futsal"
+     ],
+     "cjk": [
+      "五人制足球"
+     ],
+     "tokens": []
+    },
+    "gaelic_football": {
+     "label": "Gaelic football",
+     "en": [
+      "Gaelic football"
+     ],
+     "cjk": [
+      "盖尔式足球"
+     ],
+     "tokens": []
+    },
+    "hurling": {
+     "label": "Hurling",
+     "en": [
+      "hurling"
+     ],
+     "cjk": [
+      "爱尔兰式曲棍球"
+     ],
+     "tokens": []
+    },
+    "snooker": {
+     "label": "Snooker",
+     "en": [
+      "snooker",
+      "snooker player"
+     ],
+     "cjk": [
+      "斯诺克",
+      "台球"
+     ],
+     "tokens": []
+    },
+    "billiards": {
+     "label": "Billiards",
+     "en": [
+      "billiards",
+      "cue sports",
+      "eight-ball",
+      "nine-ball"
+     ],
+     "cjk": [
+      "桌球",
+      "撞球"
+     ],
+     "tokens": []
+    },
+    "darts": {
+     "label": "Darts",
+     "en": [
+      "darts",
+      "darts player"
+     ],
+     "cjk": [
+      "飞镖"
+     ],
+     "tokens": []
+    },
+    "bowling": {
+     "label": "Bowling",
+     "en": [
+      "ten-pin bowling",
+      "tenpin bowling",
+      "bowler (bowling)"
+     ],
+     "cjk": [
+      "保龄球"
+     ],
+     "tokens": []
+    },
+    "chess": {
+     "label": "Chess",
+     "en": [
+      "chess",
+      "chess player",
+      "grandmaster"
+     ],
+     "cjk": [
+      "国际象棋"
+     ],
+     "tokens": []
+    },
+    "go": {
+     "label": "Go",
+     "en": [
+      "Go (game)",
+      "baduk",
+      "weiqi"
+     ],
+     "cjk": [
+      "围棋"
+     ],
+     "tokens": []
+    },
+    "esports": {
+     "label": "Esports",
+     "en": [
+      "esports",
+      "e-sports",
+      "competitive gaming",
+      "pro gamer"
+     ],
+     "cjk": [
+      "电子竞技",
+      "电竞"
+     ],
+     "tokens": []
+    },
+    "motorcycle_racing": {
+     "label": "Motorcycle racing",
+     "en": [
+      "motorcycle racing",
+      "MotoGP",
+      "motorcycle racer",
+      "superbike racing"
+     ],
+     "cjk": [
+      "摩托车赛",
+      "摩托车运动"
+     ],
+     "tokens": []
+    },
+    "rally": {
+     "label": "Rallying",
+     "en": [
+      "rallying",
+      "rally racing",
+      "rally driver",
+      "WRC"
+     ],
+     "cjk": [
+      "拉力赛"
+     ],
+     "tokens": []
+    },
+    "mountaineering": {
+     "label": "Mountaineering",
+     "en": [
+      "mountaineering",
+      "mountaineer",
+      "alpinism"
+     ],
+     "cjk": [
+      "登山"
+     ],
+     "tokens": []
+    },
+    "artistic_swimming": {
+     "label": "Artistic swimming",
+     "en": [
+      "artistic swimming",
+      "synchronized swimming",
+      "synchronised swimming"
+     ],
+     "cjk": [
+      "花样游泳",
+      "艺术游泳"
+     ],
+     "tokens": []
+    },
+    "trampoline": {
+     "label": "Trampoline",
+     "en": [
+      "trampolining",
+      "trampoline gymnastics"
+     ],
+     "cjk": [
+      "蹦床"
+     ],
+     "tokens": []
+    },
+    "kabaddi": {
+     "label": "Kabaddi",
+     "en": [
+      "kabaddi"
+     ],
+     "cjk": [
+      "卡巴迪"
+     ],
+     "tokens": []
+    },
+    "sepak_takraw": {
+     "label": "Sepak takraw",
+     "en": [
+      "sepak takraw"
+     ],
+     "cjk": [
+      "藤球"
+     ],
+     "tokens": []
+    },
+    "dragon_boat": {
+     "label": "Dragon boat racing",
+     "en": [
+      "dragon boat racing",
+      "dragon boating"
+     ],
+     "cjk": [
+      "龙舟",
+      "赛龙舟"
+     ],
+     "tokens": []
+    }
+   },
+   "block": []
+  },
+  "country": {
+   "concepts": {
+    "afghanistan": {
+     "label": "Afghanistan",
+     "en": [
+      "Afghanistan",
+      "Afghan",
+      "Afghans",
+      "Afghani",
+      "Islamic Republic of Afghanistan",
+      "Islamic Emirate of Afghanistan"
+     ],
+     "cjk": [
+      "阿富汗"
+     ],
+     "tokens": []
+    },
+    "albania": {
+     "label": "Albania",
+     "en": [
+      "Albania",
+      "Albanian",
+      "Albanians",
+      "Republic of Albania"
+     ],
+     "cjk": [
+      "阿尔巴尼亚"
+     ],
+     "tokens": []
+    },
+    "algeria": {
+     "label": "Algeria",
+     "en": [
+      "Algeria",
+      "Algerian",
+      "Algerians",
+      "People's Democratic Republic of Algeria"
+     ],
+     "cjk": [
+      "阿尔及利亚"
+     ],
+     "tokens": []
+    },
+    "andorra": {
+     "label": "Andorra",
+     "en": [
+      "Andorra",
+      "Andorran",
+      "Andorrans",
+      "Principality of Andorra"
+     ],
+     "cjk": [
+      "安道尔"
+     ],
+     "tokens": []
+    },
+    "angola": {
+     "label": "Angola",
+     "en": [
+      "Angola",
+      "Angolan",
+      "Angolans",
+      "Republic of Angola"
+     ],
+     "cjk": [
+      "安哥拉"
+     ],
+     "tokens": []
+    },
+    "antigua_and_barbuda": {
+     "label": "Antigua and Barbuda",
+     "en": [
+      "Antigua and Barbuda",
+      "Antigua & Barbuda",
+      "Antiguan",
+      "Antiguans",
+      "Barbudan"
+     ],
+     "cjk": [
+      "安提瓜和巴布达",
+      "安提瓜"
+     ],
+     "tokens": []
+    },
+    "argentina": {
+     "label": "Argentina",
+     "en": [
+      "Argentina",
+      "Argentine Republic",
+      "Argentine",
+      "Argentinian",
+      "Argentinean",
+      "Argentines",
+      "Argentinians"
+     ],
+     "cjk": [
+      "阿根廷"
+     ],
+     "tokens": []
+    },
+    "armenia": {
+     "label": "Armenia",
+     "en": [
+      "Armenia",
+      "Armenian",
+      "Armenians",
+      "Republic of Armenia"
+     ],
+     "cjk": [
+      "亚美尼亚"
+     ],
+     "tokens": []
+    },
+    "australia": {
+     "label": "Australia",
+     "en": [
+      "Australia",
+      "Australian",
+      "Australians",
+      "Commonwealth of Australia"
+     ],
+     "cjk": [
+      "澳大利亚",
+      "澳洲"
+     ],
+     "tokens": []
+    },
+    "austria": {
+     "label": "Austria",
+     "en": [
+      "Austria",
+      "Austrian",
+      "Austrians",
+      "Republic of Austria"
+     ],
+     "cjk": [
+      "奥地利"
+     ],
+     "tokens": []
+    },
+    "azerbaijan": {
+     "label": "Azerbaijan",
+     "en": [
+      "Azerbaijan",
+      "Azerbaijani",
+      "Azerbaijanis",
+      "Azeri",
+      "Azeris",
+      "Republic of Azerbaijan"
+     ],
+     "cjk": [
+      "阿塞拜疆"
+     ],
+     "tokens": []
+    },
+    "bahamas": {
+     "label": "Bahamas",
+     "en": [
+      "Bahamas",
+      "The Bahamas",
+      "Bahamian",
+      "Bahamians",
+      "Commonwealth of The Bahamas"
+     ],
+     "cjk": [
+      "巴哈马"
+     ],
+     "tokens": []
+    },
+    "bahrain": {
+     "label": "Bahrain",
+     "en": [
+      "Bahrain",
+      "Bahraini",
+      "Bahrainis",
+      "Kingdom of Bahrain"
+     ],
+     "cjk": [
+      "巴林"
+     ],
+     "tokens": []
+    },
+    "bangladesh": {
+     "label": "Bangladesh",
+     "en": [
+      "Bangladesh",
+      "Bangladeshi",
+      "Bangladeshis",
+      "People's Republic of Bangladesh",
+      "East Pakistan"
+     ],
+     "cjk": [
+      "孟加拉国",
+      "孟加拉"
+     ],
+     "tokens": []
+    },
+    "barbados": {
+     "label": "Barbados",
+     "en": [
+      "Barbados",
+      "Barbadian",
+      "Barbadians",
+      "Bajan",
+      "Bajans"
+     ],
+     "cjk": [
+      "巴巴多斯"
+     ],
+     "tokens": []
+    },
+    "belarus": {
+     "label": "Belarus",
+     "en": [
+      "Belarus",
+      "Belarusian",
+      "Belarusians",
+      "Byelorussia",
+      "Belorussia",
+      "Byelorussian",
+      "Belorussian",
+      "Republic of Belarus"
+     ],
+     "cjk": [
+      "白俄罗斯"
+     ],
+     "tokens": []
+    },
+    "belgium": {
+     "label": "Belgium",
+     "en": [
+      "Belgium",
+      "Belgian",
+      "Belgians",
+      "Kingdom of Belgium"
+     ],
+     "cjk": [
+      "比利时"
+     ],
+     "tokens": []
+    },
+    "belize": {
+     "label": "Belize",
+     "en": [
+      "Belize",
+      "Belizean",
+      "Belizeans",
+      "British Honduras"
+     ],
+     "cjk": [
+      "伯利兹"
+     ],
+     "tokens": []
+    },
+    "benin": {
+     "label": "Benin",
+     "en": [
+      "Benin",
+      "Beninese",
+      "Republic of Benin",
+      "Dahomey"
+     ],
+     "cjk": [
+      "贝宁"
+     ],
+     "tokens": []
+    },
+    "bhutan": {
+     "label": "Bhutan",
+     "en": [
+      "Bhutan",
+      "Bhutanese",
+      "Kingdom of Bhutan"
+     ],
+     "cjk": [
+      "不丹"
+     ],
+     "tokens": []
+    },
+    "bolivia": {
+     "label": "Bolivia",
+     "en": [
+      "Bolivia",
+      "Bolivian",
+      "Bolivians",
+      "Plurinational State of Bolivia"
+     ],
+     "cjk": [
+      "玻利维亚"
+     ],
+     "tokens": []
+    },
+    "bosnia_and_herzegovina": {
+     "label": "Bosnia and Herzegovina",
+     "en": [
+      "Bosnia and Herzegovina",
+      "Bosnia & Herzegovina",
+      "Bosnia-Herzegovina",
+      "Bosnia",
+      "Bosnian",
+      "Bosnians",
+      "Herzegovina",
+      "BiH"
+     ],
+     "cjk": [
+      "波斯尼亚和黑塞哥维那",
+      "波黑",
+      "波斯尼亚"
+     ],
+     "tokens": []
+    },
+    "botswana": {
+     "label": "Botswana",
+     "en": [
+      "Botswana",
+      "Motswana",
+      "Batswana",
+      "Republic of Botswana",
+      "Bechuanaland"
+     ],
+     "cjk": [
+      "博茨瓦纳"
+     ],
+     "tokens": []
+    },
+    "brazil": {
+     "label": "Brazil",
+     "en": [
+      "Brazil",
+      "Brasil",
+      "Brazilian",
+      "Brazilians",
+      "Federative Republic of Brazil"
+     ],
+     "cjk": [
+      "巴西"
+     ],
+     "tokens": []
+    },
+    "brunei": {
+     "label": "Brunei",
+     "en": [
+      "Brunei",
+      "Brunei Darussalam",
+      "Bruneian",
+      "Bruneians"
+     ],
+     "cjk": [
+      "文莱"
+     ],
+     "tokens": []
+    },
+    "bulgaria": {
+     "label": "Bulgaria",
+     "en": [
+      "Bulgaria",
+      "Bulgarian",
+      "Bulgarians",
+      "Republic of Bulgaria"
+     ],
+     "cjk": [
+      "保加利亚"
+     ],
+     "tokens": []
+    },
+    "burkina_faso": {
+     "label": "Burkina Faso",
+     "en": [
+      "Burkina Faso",
+      "Burkina",
+      "Burkinabe",
+      "Burkinabé",
+      "Upper Volta"
+     ],
+     "cjk": [
+      "布基纳法索"
+     ],
+     "tokens": []
+    },
+    "burundi": {
+     "label": "Burundi",
+     "en": [
+      "Burundi",
+      "Burundian",
+      "Burundians",
+      "Republic of Burundi"
+     ],
+     "cjk": [
+      "布隆迪"
+     ],
+     "tokens": []
+    },
+    "cabo_verde": {
+     "label": "Cabo Verde",
+     "en": [
+      "Cabo Verde",
+      "Cape Verde",
+      "Cape Verdean",
+      "Cape Verdeans",
+      "Cabo Verdean"
+     ],
+     "cjk": [
+      "佛得角"
+     ],
+     "tokens": []
+    },
+    "cambodia": {
+     "label": "Cambodia",
+     "en": [
+      "Cambodia",
+      "Cambodian",
+      "Cambodians",
+      "Kingdom of Cambodia",
+      "Kampuchea"
+     ],
+     "cjk": [
+      "柬埔寨"
+     ],
+     "tokens": []
+    },
+    "cameroon": {
+     "label": "Cameroon",
+     "en": [
+      "Cameroon",
+      "Cameroonian",
+      "Cameroonians",
+      "Republic of Cameroon"
+     ],
+     "cjk": [
+      "喀麦隆"
+     ],
+     "tokens": []
+    },
+    "canada": {
+     "label": "Canada",
+     "en": [
+      "Canada",
+      "Canadian",
+      "Canadians"
+     ],
+     "cjk": [
+      "加拿大"
+     ],
+     "tokens": []
+    },
+    "central_african_republic": {
+     "label": "Central African Republic",
+     "en": [
+      "Central African Republic",
+      "CAR",
+      "Centrafrique"
+     ],
+     "cjk": [
+      "中非共和国",
+      "中非"
+     ],
+     "tokens": []
+    },
+    "chad": {
+     "label": "Chad",
+     "en": [
+      "Chad",
+      "Chadian",
+      "Chadians",
+      "Republic of Chad"
+     ],
+     "cjk": [
+      "乍得"
+     ],
+     "tokens": []
+    },
+    "chile": {
+     "label": "Chile",
+     "en": [
+      "Chile",
+      "Republic of Chile",
+      "Chilean",
+      "Chileans"
+     ],
+     "cjk": [
+      "智利"
+     ],
+     "tokens": []
+    },
+    "china": {
+     "label": "China",
+     "en": [
+      "China",
+      "People's Republic of China",
+      "PRC",
+      "P.R.C.",
+      "Chinese",
+      "Mainland China"
+     ],
+     "cjk": [
+      "中国",
+      "中华人民共和国",
+      "中國"
+     ],
+     "tokens": []
+    },
+    "colombia": {
+     "label": "Colombia",
+     "en": [
+      "Colombia",
+      "Republic of Colombia",
+      "Colombian",
+      "Colombians"
+     ],
+     "cjk": [
+      "哥伦比亚"
+     ],
+     "tokens": []
+    },
+    "comoros": {
+     "label": "Comoros",
+     "en": [
+      "Comoros",
+      "Union of the Comoros",
+      "Comorian",
+      "Comorians"
+     ],
+     "cjk": [
+      "科摩罗"
+     ],
+     "tokens": []
+    },
+    "republic_of_the_congo": {
+     "label": "Republic of the Congo",
+     "en": [
+      "Republic of the Congo",
+      "Congo-Brazzaville",
+      "Congo Republic",
+      "Republic of Congo"
+     ],
+     "cjk": [
+      "刚果共和国",
+      "刚果（布）",
+      "刚果布"
+     ],
+     "tokens": []
+    },
+    "costa_rica": {
+     "label": "Costa Rica",
+     "en": [
+      "Costa Rica",
+      "Republic of Costa Rica",
+      "Costa Rican",
+      "Costa Ricans"
+     ],
+     "cjk": [
+      "哥斯达黎加"
+     ],
+     "tokens": []
+    },
+    "ivory_coast": {
+     "label": "Cote d'Ivoire",
+     "en": [
+      "Cote d'Ivoire",
+      "Côte d'Ivoire",
+      "Ivory Coast",
+      "Ivorian",
+      "Ivorians"
+     ],
+     "cjk": [
+      "科特迪瓦",
+      "象牙海岸"
+     ],
+     "tokens": []
+    },
+    "croatia": {
+     "label": "Croatia",
+     "en": [
+      "Croatia",
+      "Republic of Croatia",
+      "Croatian",
+      "Croatians"
+     ],
+     "cjk": [
+      "克罗地亚"
+     ],
+     "tokens": []
+    },
+    "cuba": {
+     "label": "Cuba",
+     "en": [
+      "Cuba",
+      "Republic of Cuba",
+      "Cuban",
+      "Cubans"
+     ],
+     "cjk": [
+      "古巴"
+     ],
+     "tokens": []
+    },
+    "cyprus": {
+     "label": "Cyprus",
+     "en": [
+      "Cyprus",
+      "Republic of Cyprus",
+      "Cypriot",
+      "Cypriots"
+     ],
+     "cjk": [
+      "塞浦路斯"
+     ],
+     "tokens": []
+    },
+    "czechia": {
+     "label": "Czechia",
+     "en": [
+      "Czechia",
+      "Czech Republic",
+      "Czech",
+      "Czechs",
+      "Czechoslovakia",
+      "Czechoslovak"
+     ],
+     "cjk": [
+      "捷克",
+      "捷克共和国",
+      "捷克斯洛伐克"
+     ],
+     "tokens": []
+    },
+    "dr_congo": {
+     "label": "Democratic Republic of the Congo",
+     "en": [
+      "Democratic Republic of the Congo",
+      "Democratic Republic of Congo",
+      "DRC",
+      "D.R.C.",
+      "DR Congo",
+      "Congo-Kinshasa",
+      "Zaire",
+      "Congolese"
+     ],
+     "cjk": [
+      "刚果民主共和国",
+      "刚果（金）",
+      "刚果金",
+      "扎伊尔"
+     ],
+     "tokens": []
+    },
+    "denmark": {
+     "label": "Denmark",
+     "en": [
+      "Denmark",
+      "Kingdom of Denmark",
+      "Danish",
+      "Danes"
+     ],
+     "cjk": [
+      "丹麦"
+     ],
+     "tokens": []
+    },
+    "djibouti": {
+     "label": "Djibouti",
+     "en": [
+      "Djibouti",
+      "Republic of Djibouti",
+      "Djiboutian",
+      "Djiboutians"
+     ],
+     "cjk": [
+      "吉布提"
+     ],
+     "tokens": []
+    },
+    "dominica": {
+     "label": "Dominica",
+     "en": [
+      "Dominica",
+      "Commonwealth of Dominica"
+     ],
+     "cjk": [
+      "多米尼克"
+     ],
+     "tokens": []
+    },
+    "dominican_republic": {
+     "label": "Dominican Republic",
+     "en": [
+      "Dominican Republic"
+     ],
+     "cjk": [
+      "多米尼加共和国",
+      "多米尼加"
+     ],
+     "tokens": []
+    },
+    "ecuador": {
+     "label": "Ecuador",
+     "en": [
+      "Ecuador",
+      "Republic of Ecuador",
+      "Ecuadorian",
+      "Ecuadorians",
+      "Ecuadorean"
+     ],
+     "cjk": [
+      "厄瓜多尔"
+     ],
+     "tokens": []
+    },
+    "egypt": {
+     "label": "Egypt",
+     "en": [
+      "Egypt",
+      "Arab Republic of Egypt",
+      "Egyptian",
+      "Egyptians"
+     ],
+     "cjk": [
+      "埃及"
+     ],
+     "tokens": []
+    },
+    "el_salvador": {
+     "label": "El Salvador",
+     "en": [
+      "El Salvador",
+      "Republic of El Salvador",
+      "Salvadoran",
+      "Salvadorans",
+      "Salvadorean"
+     ],
+     "cjk": [
+      "萨尔瓦多"
+     ],
+     "tokens": []
+    },
+    "equatorial_guinea": {
+     "label": "Equatorial Guinea",
+     "en": [
+      "Equatorial Guinea",
+      "Republic of Equatorial Guinea",
+      "Equatoguinean",
+      "Equatorial Guinean"
+     ],
+     "cjk": [
+      "赤道几内亚"
+     ],
+     "tokens": []
+    },
+    "eritrea": {
+     "label": "Eritrea",
+     "en": [
+      "Eritrea",
+      "State of Eritrea",
+      "Eritrean",
+      "Eritreans"
+     ],
+     "cjk": [
+      "厄立特里亚"
+     ],
+     "tokens": []
+    },
+    "estonia": {
+     "label": "Estonia",
+     "en": [
+      "Estonia",
+      "Republic of Estonia",
+      "Estonian",
+      "Estonians"
+     ],
+     "cjk": [
+      "爱沙尼亚"
+     ],
+     "tokens": []
+    },
+    "eswatini": {
+     "label": "Eswatini",
+     "en": [
+      "Eswatini",
+      "Kingdom of Eswatini",
+      "Swaziland",
+      "Swazi",
+      "Swazis",
+      "Liswati"
+     ],
+     "cjk": [
+      "斯威士兰",
+      "埃斯瓦蒂尼"
+     ],
+     "tokens": []
+    },
+    "ethiopia": {
+     "label": "Ethiopia",
+     "en": [
+      "Ethiopia",
+      "Federal Democratic Republic of Ethiopia",
+      "Ethiopian",
+      "Ethiopians",
+      "Abyssinia"
+     ],
+     "cjk": [
+      "埃塞俄比亚"
+     ],
+     "tokens": []
+    },
+    "fiji": {
+     "label": "Fiji",
+     "en": [
+      "Fiji",
+      "Republic of Fiji",
+      "Fijian",
+      "Fijians"
+     ],
+     "cjk": [
+      "斐济"
+     ],
+     "tokens": []
+    },
+    "finland": {
+     "label": "Finland",
+     "en": [
+      "Finland",
+      "Republic of Finland",
+      "Finnish",
+      "Finns"
+     ],
+     "cjk": [
+      "芬兰"
+     ],
+     "tokens": []
+    },
+    "france": {
+     "label": "France",
+     "en": [
+      "France",
+      "French Republic",
+      "French"
+     ],
+     "cjk": [
+      "法国",
+      "法兰西"
+     ],
+     "tokens": []
+    },
+    "gabon": {
+     "label": "Gabon",
+     "en": [
+      "Gabon",
+      "Gabonese Republic",
+      "Gabonese"
+     ],
+     "cjk": [
+      "加蓬"
+     ],
+     "tokens": []
+    },
+    "gambia": {
+     "label": "Gambia",
+     "en": [
+      "Gambia",
+      "The Gambia",
+      "Republic of The Gambia",
+      "Gambian",
+      "Gambians"
+     ],
+     "cjk": [
+      "冈比亚"
+     ],
+     "tokens": []
+    },
+    "georgia": {
+     "label": "Georgia",
+     "en": [
+      "Republic of Georgia",
+      "Sakartvelo",
+      "Georgia"
+     ],
+     "cjk": [
+      "格鲁吉亚"
+     ],
+     "tokens": []
+    },
+    "germany": {
+     "label": "Germany",
+     "en": [
+      "Germany",
+      "Federal Republic of Germany",
+      "FRG",
+      "German",
+      "Germans",
+      "West Germany",
+      "East Germany",
+      "GDR"
+     ],
+     "cjk": [
+      "德国",
+      "德意志",
+      "德意志联邦共和国",
+      "西德",
+      "东德"
+     ],
+     "tokens": []
+    },
+    "ghana": {
+     "label": "Ghana",
+     "en": [
+      "Ghana",
+      "Republic of Ghana",
+      "Ghanaian",
+      "Ghanaians",
+      "Gold Coast"
+     ],
+     "cjk": [
+      "加纳"
+     ],
+     "tokens": []
+    },
+    "greece": {
+     "label": "Greece",
+     "en": [
+      "Greece",
+      "Hellenic Republic",
+      "Greek",
+      "Greeks",
+      "Hellas"
+     ],
+     "cjk": [
+      "希腊"
+     ],
+     "tokens": []
+    },
+    "grenada": {
+     "label": "Grenada",
+     "en": [
+      "Grenada",
+      "Grenadian",
+      "Grenadians"
+     ],
+     "cjk": [
+      "格林纳达"
+     ],
+     "tokens": []
+    },
+    "guatemala": {
+     "label": "Guatemala",
+     "en": [
+      "Guatemala",
+      "Republic of Guatemala",
+      "Guatemalan",
+      "Guatemalans"
+     ],
+     "cjk": [
+      "危地马拉",
+      "瓜地馬拉",
+      "危地馬拉"
+     ],
+     "tokens": []
+    },
+    "guinea": {
+     "label": "Guinea",
+     "en": [
+      "Republic of Guinea",
+      "Guinea-Conakry",
+      "Guinean",
+      "Guineans",
+      "Guinea"
+     ],
+     "cjk": [
+      "几内亚",
+      "幾內亞"
+     ],
+     "tokens": []
+    },
+    "guinea_bissau": {
+     "label": "Guinea-Bissau",
+     "en": [
+      "Guinea-Bissau",
+      "Guinea Bissau",
+      "Bissau-Guinean",
+      "Bissau-Guineans"
+     ],
+     "cjk": [
+      "几内亚比绍",
+      "幾內亞比索"
+     ],
+     "tokens": []
+    },
+    "guyana": {
+     "label": "Guyana",
+     "en": [
+      "Guyana",
+      "Co-operative Republic of Guyana",
+      "Guyanese",
+      "British Guiana"
+     ],
+     "cjk": [
+      "圭亚那",
+      "蓋亞那"
+     ],
+     "tokens": []
+    },
+    "haiti": {
+     "label": "Haiti",
+     "en": [
+      "Haiti",
+      "Republic of Haiti",
+      "Haitian",
+      "Haitians"
+     ],
+     "cjk": [
+      "海地"
+     ],
+     "tokens": []
+    },
+    "honduras": {
+     "label": "Honduras",
+     "en": [
+      "Honduras",
+      "Republic of Honduras",
+      "Honduran",
+      "Hondurans"
+     ],
+     "cjk": [
+      "洪都拉斯",
+      "宏都拉斯"
+     ],
+     "tokens": []
+    },
+    "hungary": {
+     "label": "Hungary",
+     "en": [
+      "Hungary",
+      "Hungarian",
+      "Hungarians"
+     ],
+     "cjk": [
+      "匈牙利"
+     ],
+     "tokens": []
+    },
+    "iceland": {
+     "label": "Iceland",
+     "en": [
+      "Iceland",
+      "Icelandic",
+      "Icelander",
+      "Icelanders"
+     ],
+     "cjk": [
+      "冰岛",
+      "冰島"
+     ],
+     "tokens": []
+    },
+    "india": {
+     "label": "India",
+     "en": [
+      "India",
+      "Republic of India",
+      "Bharat",
+      "Indian",
+      "Indians"
+     ],
+     "cjk": [
+      "印度"
+     ],
+     "tokens": []
+    },
+    "indonesia": {
+     "label": "Indonesia",
+     "en": [
+      "Indonesia",
+      "Republic of Indonesia",
+      "Indonesian",
+      "Indonesians"
+     ],
+     "cjk": [
+      "印度尼西亚",
+      "印尼",
+      "印度尼西亞"
+     ],
+     "tokens": []
+    },
+    "iran": {
+     "label": "Iran",
+     "en": [
+      "Iran",
+      "Islamic Republic of Iran",
+      "Persia",
+      "Iranian",
+      "Iranians"
+     ],
+     "cjk": [
+      "伊朗",
+      "波斯"
+     ],
+     "tokens": []
+    },
+    "iraq": {
+     "label": "Iraq",
+     "en": [
+      "Iraq",
+      "Republic of Iraq",
+      "Iraqi",
+      "Iraqis"
+     ],
+     "cjk": [
+      "伊拉克"
+     ],
+     "tokens": []
+    },
+    "ireland": {
+     "label": "Ireland",
+     "en": [
+      "Ireland",
+      "Republic of Ireland",
+      "Eire",
+      "Éire",
+      "Irish"
+     ],
+     "cjk": [
+      "爱尔兰",
+      "愛爾蘭"
+     ],
+     "tokens": []
+    },
+    "israel": {
+     "label": "Israel",
+     "en": [
+      "Israel",
+      "State of Israel",
+      "Israeli",
+      "Israelis"
+     ],
+     "cjk": [
+      "以色列"
+     ],
+     "tokens": []
+    },
+    "italy": {
+     "label": "Italy",
+     "en": [
+      "Italy",
+      "Italian Republic",
+      "Italian",
+      "Italians"
+     ],
+     "cjk": [
+      "意大利",
+      "義大利"
+     ],
+     "tokens": []
+    },
+    "jamaica": {
+     "label": "Jamaica",
+     "en": [
+      "Jamaica",
+      "Jamaican",
+      "Jamaicans"
+     ],
+     "cjk": [
+      "牙买加",
+      "牙買加"
+     ],
+     "tokens": []
+    },
+    "japan": {
+     "label": "Japan",
+     "en": [
+      "Japan",
+      "Nippon",
+      "Japanese"
+     ],
+     "cjk": [
+      "日本"
+     ],
+     "tokens": []
+    },
+    "jordan": {
+     "label": "Jordan",
+     "en": [
+      "Hashemite Kingdom of Jordan",
+      "Jordanian",
+      "Jordanians",
+      "Jordan"
+     ],
+     "cjk": [
+      "约旦",
+      "約旦"
+     ],
+     "tokens": []
+    },
+    "kazakhstan": {
+     "label": "Kazakhstan",
+     "en": [
+      "Kazakhstan",
+      "Republic of Kazakhstan",
+      "Kazakh",
+      "Kazakhstani",
+      "Kazakhs"
+     ],
+     "cjk": [
+      "哈萨克斯坦",
+      "哈薩克"
+     ],
+     "tokens": []
+    },
+    "kenya": {
+     "label": "Kenya",
+     "en": [
+      "Kenya",
+      "Republic of Kenya",
+      "Kenyan",
+      "Kenyans"
+     ],
+     "cjk": [
+      "肯尼亚",
+      "肯亞"
+     ],
+     "tokens": []
+    },
+    "kiribati": {
+     "label": "Kiribati",
+     "en": [
+      "Kiribati",
+      "Republic of Kiribati",
+      "I-Kiribati"
+     ],
+     "cjk": [
+      "基里巴斯",
+      "吉里巴斯"
+     ],
+     "tokens": []
+    },
+    "kuwait": {
+     "label": "Kuwait",
+     "en": [
+      "Kuwait",
+      "State of Kuwait",
+      "Kuwaiti",
+      "Kuwaitis"
+     ],
+     "cjk": [
+      "科威特"
+     ],
+     "tokens": []
+    },
+    "kyrgyzstan": {
+     "label": "Kyrgyzstan",
+     "en": [
+      "Kyrgyzstan",
+      "Kyrgyz Republic",
+      "Kirghizia",
+      "Kyrgyz",
+      "Kyrgyzstani"
+     ],
+     "cjk": [
+      "吉尔吉斯斯坦",
+      "吉爾吉斯"
+     ],
+     "tokens": []
+    },
+    "laos": {
+     "label": "Laos",
+     "en": [
+      "Laos",
+      "Lao PDR",
+      "Lao People's Democratic Republic",
+      "Laotian",
+      "Laotians"
+     ],
+     "cjk": [
+      "老挝",
+      "寮國"
+     ],
+     "tokens": []
+    },
+    "latvia": {
+     "label": "Latvia",
+     "en": [
+      "Latvia",
+      "Republic of Latvia",
+      "Latvian",
+      "Latvians"
+     ],
+     "cjk": [
+      "拉脱维亚",
+      "拉脫維亞"
+     ],
+     "tokens": []
+    },
+    "lebanon": {
+     "label": "Lebanon",
+     "en": [
+      "Lebanon",
+      "Lebanese Republic",
+      "Lebanese"
+     ],
+     "cjk": [
+      "黎巴嫩"
+     ],
+     "tokens": []
+    },
+    "lesotho": {
+     "label": "Lesotho",
+     "en": [
+      "Lesotho",
+      "Kingdom of Lesotho",
+      "Basotho",
+      "Basutoland"
+     ],
+     "cjk": [
+      "莱索托",
+      "賴索托"
+     ],
+     "tokens": []
+    },
+    "liberia": {
+     "label": "Liberia",
+     "en": [
+      "Liberia",
+      "Republic of Liberia",
+      "Liberian",
+      "Liberians"
+     ],
+     "cjk": [
+      "利比里亚",
+      "賴比瑞亞"
+     ],
+     "tokens": []
+    },
+    "libya": {
+     "label": "Libya",
+     "en": [
+      "Libya",
+      "State of Libya",
+      "Libyan",
+      "Libyans"
+     ],
+     "cjk": [
+      "利比亚",
+      "利比亞"
+     ],
+     "tokens": []
+    },
+    "liechtenstein": {
+     "label": "Liechtenstein",
+     "en": [
+      "Liechtenstein",
+      "Principality of Liechtenstein",
+      "Liechtensteiner",
+      "Liechtensteiners"
+     ],
+     "cjk": [
+      "列支敦士登",
+      "列支敦斯登"
+     ],
+     "tokens": []
+    },
+    "lithuania": {
+     "label": "Lithuania",
+     "en": [
+      "Lithuania",
+      "Republic of Lithuania",
+      "Lithuanian",
+      "Lithuanians"
+     ],
+     "cjk": [
+      "立陶宛"
+     ],
+     "tokens": []
+    },
+    "luxembourg": {
+     "label": "Luxembourg",
+     "en": [
+      "Grand Duchy of Luxembourg",
+      "Luxembourgish",
+      "Luxembourger",
+      "Luxembourgers",
+      "Luxembourg"
+     ],
+     "cjk": [
+      "卢森堡",
+      "盧森堡"
+     ],
+     "tokens": []
+    },
+    "madagascar": {
+     "label": "Madagascar",
+     "en": [
+      "Madagascar",
+      "Republic of Madagascar",
+      "Malagasy"
+     ],
+     "cjk": [
+      "马达加斯加",
+      "馬達加斯加"
+     ],
+     "tokens": []
+    },
+    "malawi": {
+     "label": "Malawi",
+     "en": [
+      "Malawi",
+      "Republic of Malawi",
+      "Malawian",
+      "Malawians",
+      "Nyasaland"
+     ],
+     "cjk": [
+      "马拉维",
+      "馬拉威"
+     ],
+     "tokens": []
+    },
+    "malaysia": {
+     "label": "Malaysia",
+     "en": [
+      "Malaysia",
+      "Malaysian",
+      "Malaysians"
+     ],
+     "cjk": [
+      "马来西亚",
+      "大马"
+     ],
+     "tokens": []
+    },
+    "maldives": {
+     "label": "Maldives",
+     "en": [
+      "Maldives",
+      "Maldivian",
+      "Maldivians",
+      "Republic of Maldives"
+     ],
+     "cjk": [
+      "马尔代夫"
+     ],
+     "tokens": []
+    },
+    "mali": {
+     "label": "Mali",
+     "en": [
+      "Mali",
+      "Malian",
+      "Malians",
+      "Republic of Mali"
+     ],
+     "cjk": [
+      "马里共和国"
+     ],
+     "tokens": []
+    },
+    "malta": {
+     "label": "Malta",
+     "en": [
+      "Malta",
+      "Maltese",
+      "Republic of Malta"
+     ],
+     "cjk": [
+      "马耳他"
+     ],
+     "tokens": []
+    },
+    "marshall_islands": {
+     "label": "Marshall Islands",
+     "en": [
+      "Marshall Islands",
+      "Marshallese",
+      "Republic of the Marshall Islands"
+     ],
+     "cjk": [
+      "马绍尔群岛"
+     ],
+     "tokens": []
+    },
+    "mauritania": {
+     "label": "Mauritania",
+     "en": [
+      "Mauritania",
+      "Mauritanian",
+      "Mauritanians"
+     ],
+     "cjk": [
+      "毛里塔尼亚"
+     ],
+     "tokens": []
+    },
+    "mauritius": {
+     "label": "Mauritius",
+     "en": [
+      "Mauritius",
+      "Mauritian",
+      "Mauritians"
+     ],
+     "cjk": [
+      "毛里求斯"
+     ],
+     "tokens": []
+    },
+    "mexico": {
+     "label": "Mexico",
+     "en": [
+      "Mexico",
+      "Mexican",
+      "Mexicans",
+      "United Mexican States"
+     ],
+     "cjk": [
+      "墨西哥"
+     ],
+     "tokens": []
+    },
+    "micronesia": {
+     "label": "Micronesia",
+     "en": [
+      "Federated States of Micronesia",
+      "Micronesia",
+      "Micronesian"
+     ],
+     "cjk": [
+      "密克罗尼西亚"
+     ],
+     "tokens": []
+    },
+    "moldova": {
+     "label": "Moldova",
+     "en": [
+      "Moldova",
+      "Moldovan",
+      "Moldovans",
+      "Republic of Moldova"
+     ],
+     "cjk": [
+      "摩尔多瓦"
+     ],
+     "tokens": []
+    },
+    "monaco": {
+     "label": "Monaco",
+     "en": [
+      "Monaco",
+      "Monegasque",
+      "Principality of Monaco"
+     ],
+     "cjk": [
+      "摩纳哥"
+     ],
+     "tokens": []
+    },
+    "mongolia": {
+     "label": "Mongolia",
+     "en": [
+      "Mongolia",
+      "Mongolian",
+      "Mongolians"
+     ],
+     "cjk": [
+      "蒙古国",
+      "蒙古"
+     ],
+     "tokens": []
+    },
+    "montenegro": {
+     "label": "Montenegro",
+     "en": [
+      "Montenegro",
+      "Montenegrin",
+      "Montenegrins"
+     ],
+     "cjk": [
+      "黑山"
+     ],
+     "tokens": []
+    },
+    "morocco": {
+     "label": "Morocco",
+     "en": [
+      "Morocco",
+      "Moroccan",
+      "Moroccans",
+      "Kingdom of Morocco"
+     ],
+     "cjk": [
+      "摩洛哥"
+     ],
+     "tokens": []
+    },
+    "mozambique": {
+     "label": "Mozambique",
+     "en": [
+      "Mozambique",
+      "Mozambican",
+      "Mozambicans"
+     ],
+     "cjk": [
+      "莫桑比克"
+     ],
+     "tokens": []
+    },
+    "myanmar": {
+     "label": "Myanmar",
+     "en": [
+      "Myanmar",
+      "Burma",
+      "Burmese"
+     ],
+     "cjk": [
+      "缅甸"
+     ],
+     "tokens": []
+    },
+    "namibia": {
+     "label": "Namibia",
+     "en": [
+      "Namibia",
+      "Namibian",
+      "Namibians"
+     ],
+     "cjk": [
+      "纳米比亚"
+     ],
+     "tokens": []
+    },
+    "nauru": {
+     "label": "Nauru",
+     "en": [
+      "Nauru",
+      "Nauruan",
+      "Nauruans"
+     ],
+     "cjk": [
+      "瑙鲁"
+     ],
+     "tokens": []
+    },
+    "nepal": {
+     "label": "Nepal",
+     "en": [
+      "Nepal",
+      "Nepalese",
+      "Nepali",
+      "Nepalis"
+     ],
+     "cjk": [
+      "尼泊尔"
+     ],
+     "tokens": []
+    },
+    "netherlands": {
+     "label": "Netherlands",
+     "en": [
+      "Netherlands",
+      "the Netherlands",
+      "Holland",
+      "Dutch",
+      "Kingdom of the Netherlands"
+     ],
+     "cjk": [
+      "荷兰"
+     ],
+     "tokens": []
+    },
+    "new_zealand": {
+     "label": "New Zealand",
+     "en": [
+      "New Zealand",
+      "New Zealander",
+      "New Zealanders",
+      "Aotearoa"
+     ],
+     "cjk": [
+      "新西兰",
+      "纽西兰"
+     ],
+     "tokens": []
+    },
+    "nicaragua": {
+     "label": "Nicaragua",
+     "en": [
+      "Nicaragua",
+      "Nicaraguan",
+      "Nicaraguans"
+     ],
+     "cjk": [
+      "尼加拉瓜"
+     ],
+     "tokens": []
+    },
+    "niger": {
+     "label": "Niger",
+     "en": [
+      "Republic of Niger",
+      "Nigerien",
+      "Nigeriens",
+      "Niger"
+     ],
+     "cjk": [
+      "尼日尔"
+     ],
+     "tokens": []
+    },
+    "nigeria": {
+     "label": "Nigeria",
+     "en": [
+      "Nigeria",
+      "Nigerian",
+      "Nigerians"
+     ],
+     "cjk": [
+      "尼日利亚"
+     ],
+     "tokens": []
+    },
+    "north_korea": {
+     "label": "North Korea",
+     "en": [
+      "North Korea",
+      "North Korean",
+      "North Koreans",
+      "DPRK",
+      "Democratic People's Republic of Korea"
+     ],
+     "cjk": [
+      "朝鲜",
+      "北韩"
+     ],
+     "tokens": []
+    },
+    "north_macedonia": {
+     "label": "North Macedonia",
+     "en": [
+      "North Macedonia",
+      "Macedonia",
+      "Macedonian",
+      "Macedonians"
+     ],
+     "cjk": [
+      "北马其顿",
+      "马其顿"
+     ],
+     "tokens": []
+    },
+    "norway": {
+     "label": "Norway",
+     "en": [
+      "Norway",
+      "Norwegian",
+      "Norwegians"
+     ],
+     "cjk": [
+      "挪威"
+     ],
+     "tokens": []
+    },
+    "oman": {
+     "label": "Oman",
+     "en": [
+      "Oman",
+      "Omani",
+      "Omanis",
+      "Sultanate of Oman"
+     ],
+     "cjk": [
+      "阿曼"
+     ],
+     "tokens": []
+    },
+    "pakistan": {
+     "label": "Pakistan",
+     "en": [
+      "Pakistan",
+      "Pakistani",
+      "Pakistanis"
+     ],
+     "cjk": [
+      "巴基斯坦"
+     ],
+     "tokens": []
+    },
+    "palau": {
+     "label": "Palau",
+     "en": [
+      "Palau",
+      "Palauan",
+      "Palauans"
+     ],
+     "cjk": [
+      "帕劳"
+     ],
+     "tokens": []
+    },
+    "panama": {
+     "label": "Panama",
+     "en": [
+      "Panama",
+      "Panamanian",
+      "Panamanians",
+      "Republic of Panama"
+     ],
+     "cjk": [
+      "巴拿马"
+     ],
+     "tokens": []
+    },
+    "papua_new_guinea": {
+     "label": "Papua New Guinea",
+     "en": [
+      "Papua New Guinea",
+      "PNG",
+      "Papua New Guinean",
+      "Papua New Guineans"
+     ],
+     "cjk": [
+      "巴布亚新几内亚"
+     ],
+     "tokens": []
+    },
+    "paraguay": {
+     "label": "Paraguay",
+     "en": [
+      "Paraguay",
+      "Paraguayan",
+      "Paraguayans"
+     ],
+     "cjk": [
+      "巴拉圭"
+     ],
+     "tokens": []
+    },
+    "peru": {
+     "label": "Peru",
+     "en": [
+      "Peru",
+      "Peruvian",
+      "Peruvians"
+     ],
+     "cjk": [
+      "秘鲁"
+     ],
+     "tokens": []
+    },
+    "philippines": {
+     "label": "Philippines",
+     "en": [
+      "Philippines",
+      "the Philippines",
+      "Republic of the Philippines",
+      "Filipino",
+      "Filipina",
+      "Filipinos",
+      "Philippine"
+     ],
+     "cjk": [
+      "菲律宾"
+     ],
+     "tokens": []
+    },
+    "poland": {
+     "label": "Poland",
+     "en": [
+      "Poland",
+      "Republic of Poland",
+      "Poles"
+     ],
+     "cjk": [
+      "波兰"
+     ],
+     "tokens": []
+    },
+    "portugal": {
+     "label": "Portugal",
+     "en": [
+      "Portugal",
+      "Portuguese Republic",
+      "Portuguese"
+     ],
+     "cjk": [
+      "葡萄牙"
+     ],
+     "tokens": []
+    },
+    "qatar": {
+     "label": "Qatar",
+     "en": [
+      "Qatar",
+      "State of Qatar",
+      "Qatari",
+      "Qataris"
+     ],
+     "cjk": [
+      "卡塔尔",
+      "卡达"
+     ],
+     "tokens": []
+    },
+    "romania": {
+     "label": "Romania",
+     "en": [
+      "Romania",
+      "Rumania",
+      "Romanian",
+      "Romanians"
+     ],
+     "cjk": [
+      "罗马尼亚"
+     ],
+     "tokens": []
+    },
+    "russia": {
+     "label": "Russia",
+     "en": [
+      "Russia",
+      "Russian Federation",
+      "Russian",
+      "Russians",
+      "USSR",
+      "U.S.S.R.",
+      "Soviet Union",
+      "Soviet",
+      "Soviets"
+     ],
+     "cjk": [
+      "俄罗斯",
+      "俄国",
+      "苏联",
+      "俄联邦"
+     ],
+     "tokens": []
+    },
+    "rwanda": {
+     "label": "Rwanda",
+     "en": [
+      "Rwanda",
+      "Republic of Rwanda",
+      "Rwandan",
+      "Rwandans"
+     ],
+     "cjk": [
+      "卢旺达"
+     ],
+     "tokens": []
+    },
+    "saint_kitts_and_nevis": {
+     "label": "Saint Kitts and Nevis",
+     "en": [
+      "Saint Kitts and Nevis",
+      "St. Kitts and Nevis",
+      "St Kitts and Nevis",
+      "Saint Christopher and Nevis",
+      "Kittitian",
+      "Nevisian"
+     ],
+     "cjk": [
+      "圣基茨和尼维斯",
+      "圣基茨与尼维斯"
+     ],
+     "tokens": []
+    },
+    "saint_lucia": {
+     "label": "Saint Lucia",
+     "en": [
+      "Saint Lucia",
+      "St. Lucia",
+      "St Lucia",
+      "Saint Lucian",
+      "St. Lucian"
+     ],
+     "cjk": [
+      "圣卢西亚"
+     ],
+     "tokens": []
+    },
+    "saint_vincent_and_the_grenadines": {
+     "label": "Saint Vincent and the Grenadines",
+     "en": [
+      "Saint Vincent and the Grenadines",
+      "St. Vincent and the Grenadines",
+      "St Vincent and the Grenadines",
+      "Vincentian"
+     ],
+     "cjk": [
+      "圣文森特和格林纳丁斯",
+      "圣文森特"
+     ],
+     "tokens": []
+    },
+    "samoa": {
+     "label": "Samoa",
+     "en": [
+      "Samoa",
+      "Independent State of Samoa",
+      "Western Samoa",
+      "Samoan",
+      "Samoans"
+     ],
+     "cjk": [
+      "萨摩亚"
+     ],
+     "tokens": []
+    },
+    "san_marino": {
+     "label": "San Marino",
+     "en": [
+      "San Marino",
+      "Republic of San Marino",
+      "Sammarinese"
+     ],
+     "cjk": [
+      "圣马力诺"
+     ],
+     "tokens": []
+    },
+    "sao_tome_and_principe": {
+     "label": "Sao Tome and Principe",
+     "en": [
+      "Sao Tome and Principe",
+      "São Tomé and Príncipe",
+      "São Tomé and Principe",
+      "Santomean"
+     ],
+     "cjk": [
+      "圣多美和普林西比"
+     ],
+     "tokens": []
+    },
+    "saudi_arabia": {
+     "label": "Saudi Arabia",
+     "en": [
+      "Saudi Arabia",
+      "Kingdom of Saudi Arabia",
+      "KSA",
+      "Saudi",
+      "Saudis",
+      "Saudi Arabian"
+     ],
+     "cjk": [
+      "沙特阿拉伯",
+      "沙特",
+      "沙地阿拉伯"
+     ],
+     "tokens": []
+    },
+    "senegal": {
+     "label": "Senegal",
+     "en": [
+      "Senegal",
+      "Republic of Senegal",
+      "Senegalese"
+     ],
+     "cjk": [
+      "塞内加尔"
+     ],
+     "tokens": []
+    },
+    "serbia": {
+     "label": "Serbia",
+     "en": [
+      "Serbia",
+      "Republic of Serbia",
+      "Serbian",
+      "Serbians",
+      "Serbs"
+     ],
+     "cjk": [
+      "塞尔维亚"
+     ],
+     "tokens": []
+    },
+    "seychelles": {
+     "label": "Seychelles",
+     "en": [
+      "Seychelles",
+      "Republic of Seychelles",
+      "Seychellois"
+     ],
+     "cjk": [
+      "塞舌尔"
+     ],
+     "tokens": []
+    },
+    "sierra_leone": {
+     "label": "Sierra Leone",
+     "en": [
+      "Sierra Leone",
+      "Republic of Sierra Leone",
+      "Sierra Leonean",
+      "Sierra Leoneans"
+     ],
+     "cjk": [
+      "塞拉利昂"
+     ],
+     "tokens": []
+    },
+    "singapore": {
+     "label": "Singapore",
+     "en": [
+      "Singapore",
+      "Republic of Singapore",
+      "Singaporean",
+      "Singaporeans"
+     ],
+     "cjk": [
+      "新加坡",
+      "星加坡"
+     ],
+     "tokens": []
+    },
+    "slovakia": {
+     "label": "Slovakia",
+     "en": [
+      "Slovakia",
+      "Slovak Republic",
+      "Slovak",
+      "Slovakian",
+      "Slovaks"
+     ],
+     "cjk": [
+      "斯洛伐克"
+     ],
+     "tokens": []
+    },
+    "slovenia": {
+     "label": "Slovenia",
+     "en": [
+      "Slovenia",
+      "Republic of Slovenia",
+      "Slovenian",
+      "Slovene",
+      "Slovenians",
+      "Slovenes"
+     ],
+     "cjk": [
+      "斯洛文尼亚"
+     ],
+     "tokens": []
+    },
+    "solomon_islands": {
+     "label": "Solomon Islands",
+     "en": [
+      "Solomon Islands",
+      "the Solomons",
+      "Solomon Islander",
+      "Solomon Islanders"
+     ],
+     "cjk": [
+      "所罗门群岛"
+     ],
+     "tokens": []
+    },
+    "somalia": {
+     "label": "Somalia",
+     "en": [
+      "Somalia",
+      "Federal Republic of Somalia",
+      "Somali",
+      "Somalis"
+     ],
+     "cjk": [
+      "索马里"
+     ],
+     "tokens": []
+    },
+    "south_africa": {
+     "label": "South Africa",
+     "en": [
+      "South Africa",
+      "Republic of South Africa",
+      "RSA",
+      "South African",
+      "South Africans"
+     ],
+     "cjk": [
+      "南非"
+     ],
+     "tokens": []
+    },
+    "south_korea": {
+     "label": "South Korea",
+     "en": [
+      "South Korea",
+      "Republic of Korea",
+      "ROK",
+      "South Korean",
+      "South Koreans"
+     ],
+     "cjk": [
+      "韩国",
+      "南韩",
+      "大韩民国"
+     ],
+     "tokens": []
+    },
+    "south_sudan": {
+     "label": "South Sudan",
+     "en": [
+      "South Sudan",
+      "Republic of South Sudan",
+      "South Sudanese"
+     ],
+     "cjk": [
+      "南苏丹"
+     ],
+     "tokens": []
+    },
+    "spain": {
+     "label": "Spain",
+     "en": [
+      "Spain",
+      "Kingdom of Spain",
+      "Spanish",
+      "Spaniard",
+      "Spaniards"
+     ],
+     "cjk": [
+      "西班牙"
+     ],
+     "tokens": []
+    },
+    "sri_lanka": {
+     "label": "Sri Lanka",
+     "en": [
+      "Sri Lanka",
+      "Democratic Socialist Republic of Sri Lanka",
+      "Ceylon",
+      "Sri Lankan",
+      "Sri Lankans"
+     ],
+     "cjk": [
+      "斯里兰卡",
+      "锡兰"
+     ],
+     "tokens": []
+    },
+    "sudan": {
+     "label": "Sudan",
+     "en": [
+      "Sudan",
+      "Republic of the Sudan",
+      "the Sudan",
+      "Sudanese"
+     ],
+     "cjk": [
+      "苏丹共和国"
+     ],
+     "tokens": []
+    },
+    "suriname": {
+     "label": "Suriname",
+     "en": [
+      "Suriname",
+      "Surinam",
+      "Republic of Suriname",
+      "Surinamese",
+      "Dutch Guiana"
+     ],
+     "cjk": [
+      "苏里南"
+     ],
+     "tokens": []
+    },
+    "sweden": {
+     "label": "Sweden",
+     "en": [
+      "Sweden",
+      "Kingdom of Sweden",
+      "Swedish",
+      "Swede",
+      "Swedes"
+     ],
+     "cjk": [
+      "瑞典"
+     ],
+     "tokens": []
+    },
+    "switzerland": {
+     "label": "Switzerland",
+     "en": [
+      "Switzerland",
+      "Swiss Confederation",
+      "Swiss"
+     ],
+     "cjk": [
+      "瑞士"
+     ],
+     "tokens": []
+    },
+    "syria": {
+     "label": "Syria",
+     "en": [
+      "Syria",
+      "Syrian Arab Republic",
+      "Syrian",
+      "Syrians"
+     ],
+     "cjk": [
+      "叙利亚"
+     ],
+     "tokens": []
+    },
+    "tajikistan": {
+     "label": "Tajikistan",
+     "en": [
+      "Tajikistan",
+      "Republic of Tajikistan",
+      "Tajik",
+      "Tajiks",
+      "Tajikistani"
+     ],
+     "cjk": [
+      "塔吉克斯坦"
+     ],
+     "tokens": []
+    },
+    "tanzania": {
+     "label": "Tanzania",
+     "en": [
+      "Tanzania",
+      "United Republic of Tanzania",
+      "Tanzanian",
+      "Tanzanians"
+     ],
+     "cjk": [
+      "坦桑尼亚",
+      "坦尚尼亚"
+     ],
+     "tokens": []
+    },
+    "thailand": {
+     "label": "Thailand",
+     "en": [
+      "Thailand",
+      "Kingdom of Thailand",
+      "Siam",
+      "Thai",
+      "Thais"
+     ],
+     "cjk": [
+      "泰国",
+      "暹罗"
+     ],
+     "tokens": []
+    },
+    "timor_leste": {
+     "label": "Timor-Leste",
+     "en": [
+      "Timor-Leste",
+      "East Timor",
+      "Timor Leste",
+      "East Timorese",
+      "Timorese"
+     ],
+     "cjk": [
+      "东帝汶"
+     ],
+     "tokens": []
+    },
+    "togo": {
+     "label": "Togo",
+     "en": [
+      "Togo",
+      "Togolese Republic",
+      "Togolese"
+     ],
+     "cjk": [
+      "多哥"
+     ],
+     "tokens": []
+    },
+    "tonga": {
+     "label": "Tonga",
+     "en": [
+      "Tonga",
+      "Kingdom of Tonga",
+      "Tongan",
+      "Tongans"
+     ],
+     "cjk": [
+      "汤加"
+     ],
+     "tokens": []
+    },
+    "trinidad_and_tobago": {
+     "label": "Trinidad and Tobago",
+     "en": [
+      "Trinidad and Tobago",
+      "Trinidad & Tobago",
+      "Trinidadian",
+      "Tobagonian",
+      "Trinidadians"
+     ],
+     "cjk": [
+      "特立尼达和多巴哥",
+      "千里达及托巴哥"
+     ],
+     "tokens": []
+    },
+    "tunisia": {
+     "label": "Tunisia",
+     "en": [
+      "Tunisia",
+      "Tunisian",
+      "Tunisians"
+     ],
+     "cjk": [
+      "突尼斯",
+      "突尼西亚"
+     ],
+     "tokens": []
+    },
+    "turkey": {
+     "label": "Turkey",
+     "en": [
+      "Türkiye",
+      "Turkiye",
+      "Republic of Turkey",
+      "Turkish",
+      "Turks",
+      "Turkey"
+     ],
+     "cjk": [
+      "土耳其"
+     ],
+     "tokens": []
+    },
+    "turkmenistan": {
+     "label": "Turkmenistan",
+     "en": [
+      "Turkmenistan",
+      "Turkmen",
+      "Turkmens"
+     ],
+     "cjk": [
+      "土库曼斯坦",
+      "土库曼"
+     ],
+     "tokens": []
+    },
+    "tuvalu": {
+     "label": "Tuvalu",
+     "en": [
+      "Tuvalu",
+      "Tuvaluan",
+      "Tuvaluans"
+     ],
+     "cjk": [
+      "图瓦卢",
+      "吐瓦鲁"
+     ],
+     "tokens": []
+    },
+    "uganda": {
+     "label": "Uganda",
+     "en": [
+      "Uganda",
+      "Ugandan",
+      "Ugandans"
+     ],
+     "cjk": [
+      "乌干达"
+     ],
+     "tokens": []
+    },
+    "ukraine": {
+     "label": "Ukraine",
+     "en": [
+      "Ukraine",
+      "the Ukraine",
+      "Ukrainian",
+      "Ukrainians"
+     ],
+     "cjk": [
+      "乌克兰"
+     ],
+     "tokens": []
+    },
+    "united_arab_emirates": {
+     "label": "United Arab Emirates",
+     "en": [
+      "United Arab Emirates",
+      "UAE",
+      "U.A.E.",
+      "the Emirates",
+      "Emirati",
+      "Emiratis"
+     ],
+     "cjk": [
+      "阿联酋",
+      "阿拉伯联合酋长国"
+     ],
+     "tokens": []
+    },
+    "united_kingdom": {
+     "label": "United Kingdom",
+     "en": [
+      "United Kingdom",
+      "UK",
+      "U.K.",
+      "Britain",
+      "Great Britain",
+      "British",
+      "Briton",
+      "Britons",
+      "Brits",
+      "England",
+      "English",
+      "United Kingdom of Great Britain and Northern Ireland"
+     ],
+     "cjk": [
+      "英国",
+      "英格兰",
+      "大不列颠",
+      "联合王国",
+      "不列颠"
+     ],
+     "tokens": []
+    },
+    "united_states": {
+     "label": "United States",
+     "en": [
+      "United States",
+      "United States of America",
+      "USA",
+      "U.S.A.",
+      "US",
+      "U.S.",
+      "America",
+      "American",
+      "Americans"
+     ],
+     "cjk": [
+      "美国",
+      "美利坚合众国",
+      "美利坚"
+     ],
+     "tokens": []
+    },
+    "uruguay": {
+     "label": "Uruguay",
+     "en": [
+      "Uruguay",
+      "Uruguayan",
+      "Uruguayans"
+     ],
+     "cjk": [
+      "乌拉圭"
+     ],
+     "tokens": []
+    },
+    "uzbekistan": {
+     "label": "Uzbekistan",
+     "en": [
+      "Uzbekistan",
+      "Uzbek",
+      "Uzbeks"
+     ],
+     "cjk": [
+      "乌兹别克斯坦",
+      "乌兹别克"
+     ],
+     "tokens": []
+    },
+    "vanuatu": {
+     "label": "Vanuatu",
+     "en": [
+      "Vanuatu",
+      "Ni-Vanuatu"
+     ],
+     "cjk": [
+      "瓦努阿图",
+      "万那杜"
+     ],
+     "tokens": []
+    },
+    "vatican_city": {
+     "label": "Vatican City",
+     "en": [
+      "Vatican City",
+      "Vatican",
+      "Holy See",
+      "Vatican City State"
+     ],
+     "cjk": [
+      "梵蒂冈",
+      "教廷"
+     ],
+     "tokens": []
+    },
+    "venezuela": {
+     "label": "Venezuela",
+     "en": [
+      "Venezuela",
+      "Venezuelan",
+      "Venezuelans"
+     ],
+     "cjk": [
+      "委内瑞拉"
+     ],
+     "tokens": []
+    },
+    "vietnam": {
+     "label": "Vietnam",
+     "en": [
+      "Vietnam",
+      "Viet Nam",
+      "Vietnamese"
+     ],
+     "cjk": [
+      "越南"
+     ],
+     "tokens": []
+    },
+    "yemen": {
+     "label": "Yemen",
+     "en": [
+      "Yemen",
+      "Yemeni",
+      "Yemenis"
+     ],
+     "cjk": [
+      "也门"
+     ],
+     "tokens": []
+    },
+    "zambia": {
+     "label": "Zambia",
+     "en": [
+      "Zambia",
+      "Zambian",
+      "Zambians"
+     ],
+     "cjk": [
+      "赞比亚",
+      "尚比亚"
+     ],
+     "tokens": []
+    },
+    "zimbabwe": {
+     "label": "Zimbabwe",
+     "en": [
+      "Zimbabwe",
+      "Zimbabwean",
+      "Zimbabweans",
+      "Rhodesia"
+     ],
+     "cjk": [
+      "津巴布韦",
+      "辛巴威"
+     ],
+     "tokens": []
+    },
+    "taiwan": {
+     "label": "Taiwan",
+     "en": [
+      "Taiwan",
+      "Republic of China",
+      "ROC",
+      "Taiwanese",
+      "Formosa"
+     ],
+     "cjk": [
+      "台湾",
+      "臺灣",
+      "中华民国",
+      "中華民國"
+     ],
+     "tokens": []
+    },
+    "palestine": {
+     "label": "Palestine",
+     "en": [
+      "Palestine",
+      "State of Palestine",
+      "Palestinian",
+      "Palestinians",
+      "Palestinian territories"
+     ],
+     "cjk": [
+      "巴勒斯坦"
+     ],
+     "tokens": []
+    },
+    "kosovo": {
+     "label": "Kosovo",
+     "en": [
+      "Kosovo",
+      "Kosovar",
+      "Kosovars",
+      "Kosovan"
+     ],
+     "cjk": [
+      "科索沃"
+     ],
+     "tokens": []
+    },
+    "scotland": {
+     "label": "Scotland",
+     "en": [
+      "Scotland",
+      "Scottish",
+      "Scots"
+     ],
+     "cjk": [
+      "苏格兰"
+     ],
+     "tokens": []
+    },
+    "wales": {
+     "label": "Wales",
+     "en": [
+      "Wales",
+      "Welsh"
+     ],
+     "cjk": [
+      "威尔士"
+     ],
+     "tokens": []
+    },
+    "northern_ireland": {
+     "label": "Northern Ireland",
+     "en": [
+      "Northern Ireland",
+      "Northern Irish",
+      "Ulster"
+     ],
+     "cjk": [
+      "北爱尔兰"
+     ],
+     "tokens": []
+    }
+   },
+   "block": [
+    "Abu Dhabi",
+    "Abuja",
+    "Accra",
+    "Addis Ababa",
+    "Algiers",
+    "Amman",
+    "Amsterdam",
+    "Andorra la Vella",
+    "Ankara",
+    "Antananarivo",
+    "Apia",
+    "Ashgabat",
+    "Asmara",
+    "Astana",
+    "Asuncion",
+    "Athens",
+    "Baghdad",
+    "Baku",
+    "Bamako",
+    "Bandar Seri Begawan",
+    "Bangkok",
+    "Bangui",
+    "Banjul",
+    "Basseterre",
+    "Beijing",
+    "Beirut",
+    "Belfast",
+    "Belgrade",
+    "Belmopan",
+    "Berlin",
+    "Bern",
+    "Bishkek",
+    "Bissau",
+    "Bogota",
+    "Brasília",
+    "Bratislava",
+    "Brazzaville",
+    "Bridgetown",
+    "Brussels",
+    "Bucharest",
+    "Budapest",
+    "Buenos Aires",
+    "Cairo",
+    "Canberra",
+    "Caracas",
+    "Cardiff",
+    "Castries",
+    "Chisinau",
+    "City of San Marino",
+    "Conakry",
+    "Copenhagen",
+    "Dakar",
+    "Damascus",
+    "Dhaka",
+    "Dili",
+    "Dodoma",
+    "Doha",
+    "Dublin",
+    "Dushanbe",
+    "Edinburgh",
+    "Freetown",
+    "Funafuti",
+    "Gaborone",
+    "Georgetown",
+    "Georgia Tech",
+    "Gitega",
+    "Guatemala City",
+    "Hanoi",
+    "Harare",
+    "Havana",
+    "Helsinki",
+    "Hong Kong",
+    "Honiara",
+    "Indian Express",
+    "Indian Ocean",
+    "Indianapolis",
+    "Islamabad",
+    "Jakarta",
+    "Jerusalem",
+    "Jordan River",
+    "Juba",
+    "Kabul",
+    "Kampala",
+    "Kathmandu",
+    "Khartoum",
+    "Kigali",
+    "Kingston",
+    "Kingstown",
+    "Kinshasa",
+    "Kuala Lumpur",
+    "Kuwait City",
+    "Kyiv",
+    "Libreville",
+    "Lilongwe",
+    "Lima",
+    "Lisbon",
+    "Ljubljana",
+    "Lomé",
+    "London",
+    "Luanda",
+    "Lusaka",
+    "Macau",
+    "Madrid",
+    "Majuro",
+    "Malabo",
+    "Male",
+    "Managua",
+    "Manama",
+    "Manila",
+    "Maputo",
+    "Maseru",
+    "Mbabane",
+    "Mexico City",
+    "Minsk",
+    "Mogadishu",
+    "Monrovia",
+    "Montevideo",
+    "Moroni",
+    "Moscow",
+    "Muscat",
+    "N'Djamena",
+    "Nairobi",
+    "Nassau",
+    "Naypyidaw",
+    "New Delhi",
+    "New Guinea",
+    "New Jersey",
+    "New Mexico",
+    "Ngerulmud",
+    "Niamey",
+    "Nicosia",
+    "Nouakchott",
+    "Nukuʻalofa",
+    "Oslo",
+    "Ottawa",
+    "Ouagadougou",
+    "Palikir",
+    "Panama City",
+    "Paramaribo",
+    "Paris",
+    "Phnom Penh",
+    "Podgorica",
+    "Port Louis",
+    "Port Moresby",
+    "Port Vila",
+    "Port of Spain",
+    "Port-au-Prince",
+    "Porto-Novo",
+    "Prague",
+    "Praia",
+    "Pretoria",
+    "Pristina",
+    "Pyongyang",
+    "Quito",
+    "Rabat",
+    "Ramallah",
+    "Reykjavik",
+    "Riga",
+    "Riyadh",
+    "Rome",
+    "Roseau",
+    "San Jose",
+    "San Salvador",
+    "Sanaa",
+    "Santiago",
+    "Santo Domingo",
+    "Sarajevo",
+    "Seoul",
+    "Skopje",
+    "Sofia",
+    "South Tarawa",
+    "Sri Jayawardenepura Kotte",
+    "St. George's",
+    "St. John's",
+    "Stockholm",
+    "Sucre",
+    "Suva",
+    "São Tomé",
+    "Taipei",
+    "Tallinn",
+    "Tashkent",
+    "Tbilisi",
+    "Tegucigalpa",
+    "Tehran",
+    "Thimphu",
+    "Tirana",
+    "Tokyo",
+    "Tripoli",
+    "Tunis",
+    "Ulaanbaatar",
+    "Vaduz",
+    "Valletta",
+    "Vatican City",
+    "Victoria",
+    "Vienna",
+    "Vientiane",
+    "Vilnius",
+    "Warsaw",
+    "Washington",
+    "Washington, D.C.",
+    "Wellington",
+    "Windhoek",
+    "Yamoussoukro",
+    "Yaoundé",
+    "Yaren",
+    "Yerevan",
+    "Zagreb",
+    "印度洋"
+   ]
+  },
+  "musical_instrument": {
+   "concepts": {
+    "banjo": {
+     "label": "Banjo",
+     "en": [
+      "banjo",
+      "banjos",
+      "banjoist",
+      "banjo player"
+     ],
+     "cjk": [
+      "班卓琴"
+     ],
+     "tokens": []
+    },
+    "bass_guitar": {
+     "label": "Bass Guitar",
+     "en": [
+      "bass guitar",
+      "bass guitars",
+      "bassist",
+      "bassists",
+      "electric bass",
+      "bass guitarist"
+     ],
+     "cjk": [
+      "贝斯",
+      "低音吉他",
+      "电贝斯"
+     ],
+     "tokens": []
+    },
+    "cello": {
+     "label": "Cello",
+     "en": [
+      "cello",
+      "cellos",
+      "cellist",
+      "cellists",
+      "violoncello"
+     ],
+     "cjk": [
+      "大提琴"
+     ],
+     "tokens": []
+    },
+    "clarinet": {
+     "label": "Clarinet",
+     "en": [
+      "clarinet",
+      "clarinets",
+      "clarinetist",
+      "clarinettist",
+      "bass clarinet"
+     ],
+     "cjk": [
+      "单簧管",
+      "黑管"
+     ],
+     "tokens": []
+    },
+    "double_bass": {
+     "label": "Double Bass",
+     "en": [
+      "double bass",
+      "double basses",
+      "upright bass",
+      "contrabass",
+      "string bass",
+      "contrabassist"
+     ],
+     "cjk": [
+      "低音提琴",
+      "倍大提琴"
+     ],
+     "tokens": []
+    },
+    "drums": {
+     "label": "Drums",
+     "en": [
+      "drums",
+      "drum set",
+      "drummer",
+      "drummers",
+      "drumkit",
+      "snare drum",
+      "bass drum"
+     ],
+     "cjk": [
+      "架子鼓",
+      "鼓手",
+      "爵士鼓",
+      "军鼓"
+     ],
+     "tokens": []
+    },
+    "flute": {
+     "label": "Flute",
+     "en": [
+      "flute",
+      "flutes",
+      "flutist",
+      "flautist"
+     ],
+     "cjk": [
+      "长笛"
+     ],
+     "tokens": []
+    },
+    "guitar": {
+     "label": "Guitar",
+     "en": [
+      "guitar",
+      "guitars",
+      "guitarist",
+      "guitarists",
+      "electric guitar",
+      "acoustic guitar",
+      "classical guitar"
+     ],
+     "cjk": [
+      "吉他",
+      "吉他手",
+      "电吉他",
+      "木吉他"
+     ],
+     "tokens": []
+    },
+    "harmonica": {
+     "label": "Harmonica",
+     "en": [
+      "harmonica",
+      "harmonicas",
+      "mouth organ",
+      "harmonica player"
+     ],
+     "cjk": [
+      "口琴"
+     ],
+     "tokens": []
+    },
+    "harp": {
+     "label": "Harp",
+     "en": [
+      "harp",
+      "harps",
+      "harpist",
+      "harpists"
+     ],
+     "cjk": [
+      "竖琴"
+     ],
+     "tokens": []
+    },
+    "organ": {
+     "label": "Organ",
+     "en": [
+      "pipe organ",
+      "organist",
+      "organists",
+      "church organ",
+      "Hammond organ"
+     ],
+     "cjk": [
+      "管风琴",
+      "风琴"
+     ],
+     "tokens": [
+      "organ"
+     ]
+    },
+    "piano": {
+     "label": "Piano",
+     "en": [
+      "piano",
+      "pianos",
+      "pianist",
+      "pianists",
+      "grand piano",
+      "keyboard",
+      "keyboards",
+      "upright piano",
+      "pianoforte",
+      "keyboardist"
+     ],
+     "cjk": [
+      "钢琴",
+      "钢琴家",
+      "键盘"
+     ],
+     "tokens": []
+    },
+    "saxophone": {
+     "label": "Saxophone",
+     "en": [
+      "saxophone",
+      "saxophones",
+      "saxophonist",
+      "sax",
+      "alto sax",
+      "tenor sax"
+     ],
+     "cjk": [
+      "萨克斯",
+      "萨克斯风",
+      "萨克斯管"
+     ],
+     "tokens": []
+    },
+    "trombone": {
+     "label": "Trombone",
+     "en": [
+      "trombone",
+      "trombones",
+      "trombonist"
+     ],
+     "cjk": [
+      "长号"
+     ],
+     "tokens": []
+    },
+    "trumpet": {
+     "label": "Trumpet",
+     "en": [
+      "trumpet",
+      "trumpets",
+      "trumpeter",
+      "trumpeters"
+     ],
+     "cjk": [
+      "小号"
+     ],
+     "tokens": []
+    },
+    "violin": {
+     "label": "Violin",
+     "en": [
+      "violin",
+      "violins",
+      "violinist",
+      "violinists",
+      "fiddle",
+      "fiddler"
+     ],
+     "cjk": [
+      "小提琴"
+     ],
+     "tokens": []
+    },
+    "viola": {
+     "label": "Viola",
+     "en": [
+      "viola",
+      "violas",
+      "violist"
+     ],
+     "cjk": [
+      "中提琴"
+     ],
+     "tokens": []
+    },
+    "oboe": {
+     "label": "Oboe",
+     "en": [
+      "oboe",
+      "oboes",
+      "oboist"
+     ],
+     "cjk": [
+      "双簧管"
+     ],
+     "tokens": []
+    },
+    "bassoon": {
+     "label": "Bassoon",
+     "en": [
+      "bassoon",
+      "bassoons",
+      "bassoonist",
+      "contrabassoon"
+     ],
+     "cjk": [
+      "巴松管",
+      "大管"
+     ],
+     "tokens": []
+    },
+    "piccolo": {
+     "label": "Piccolo",
+     "en": [
+      "piccolo",
+      "piccolos"
+     ],
+     "cjk": [
+      "短笛"
+     ],
+     "tokens": []
+    },
+    "french_horn": {
+     "label": "French Horn",
+     "en": [
+      "French horn",
+      "French horns",
+      "hornist"
+     ],
+     "cjk": [
+      "圆号",
+      "法国号"
+     ],
+     "tokens": []
+    },
+    "tuba": {
+     "label": "Tuba",
+     "en": [
+      "tuba",
+      "tubas",
+      "tubist",
+      "sousaphone"
+     ],
+     "cjk": [
+      "大号"
+     ],
+     "tokens": []
+    },
+    "euphonium": {
+     "label": "Euphonium",
+     "en": [
+      "euphonium",
+      "euphoniums"
+     ],
+     "cjk": [
+      "上低音号"
+     ],
+     "tokens": []
+    },
+    "cornet": {
+     "label": "Cornet",
+     "en": [
+      "cornet",
+      "cornets",
+      "cornetist"
+     ],
+     "cjk": [
+      "短号"
+     ],
+     "tokens": []
+    },
+    "timpani": {
+     "label": "Timpani",
+     "en": [
+      "timpani",
+      "kettledrum",
+      "kettledrums",
+      "timpanist"
+     ],
+     "cjk": [
+      "定音鼓"
+     ],
+     "tokens": []
+    },
+    "xylophone": {
+     "label": "Xylophone",
+     "en": [
+      "xylophone",
+      "xylophones",
+      "xylophonist"
+     ],
+     "cjk": [
+      "木琴"
+     ],
+     "tokens": []
+    },
+    "marimba": {
+     "label": "Marimba",
+     "en": [
+      "marimba",
+      "marimbas",
+      "marimbist"
+     ],
+     "cjk": [
+      "马林巴"
+     ],
+     "tokens": []
+    },
+    "vibraphone": {
+     "label": "Vibraphone",
+     "en": [
+      "vibraphone",
+      "vibraphones",
+      "vibraphonist"
+     ],
+     "cjk": [
+      "颤音琴"
+     ],
+     "tokens": []
+    },
+    "glockenspiel": {
+     "label": "Glockenspiel",
+     "en": [
+      "glockenspiel"
+     ],
+     "cjk": [
+      "钟琴"
+     ],
+     "tokens": []
+    },
+    "triangle_instrument": {
+     "label": "Triangle",
+     "en": [
+      "orchestral triangle"
+     ],
+     "cjk": [
+      "三角铁"
+     ],
+     "tokens": []
+    },
+    "cymbals": {
+     "label": "Cymbals",
+     "en": [
+      "cymbal",
+      "cymbals",
+      "hi-hat",
+      "crash cymbal"
+     ],
+     "cjk": [],
+     "tokens": []
+    },
+    "tambourine": {
+     "label": "Tambourine",
+     "en": [
+      "tambourine",
+      "tambourines"
+     ],
+     "cjk": [
+      "铃鼓"
+     ],
+     "tokens": []
+    },
+    "harpsichord": {
+     "label": "Harpsichord",
+     "en": [
+      "harpsichord",
+      "harpsichords",
+      "harpsichordist"
+     ],
+     "cjk": [
+      "羽管键琴",
+      "大键琴"
+     ],
+     "tokens": []
+    },
+    "accordion": {
+     "label": "Accordion",
+     "en": [
+      "accordion",
+      "accordions",
+      "accordionist"
+     ],
+     "cjk": [
+      "手风琴"
+     ],
+     "tokens": []
+    },
+    "ukulele": {
+     "label": "Ukulele",
+     "en": [
+      "ukulele",
+      "ukuleles",
+      "uke"
+     ],
+     "cjk": [
+      "尤克里里"
+     ],
+     "tokens": []
+    },
+    "mandolin": {
+     "label": "Mandolin",
+     "en": [
+      "mandolin",
+      "mandolins",
+      "mandolinist"
+     ],
+     "cjk": [
+      "曼陀林"
+     ],
+     "tokens": []
+    },
+    "lute": {
+     "label": "Lute",
+     "en": [
+      "lute",
+      "lutes",
+      "lutenist",
+      "lutanist"
+     ],
+     "cjk": [
+      "鲁特琴"
+     ],
+     "tokens": []
+    },
+    "sitar": {
+     "label": "Sitar",
+     "en": [
+      "sitar",
+      "sitars",
+      "sitarist"
+     ],
+     "cjk": [
+      "西塔琴",
+      "西塔尔琴"
+     ],
+     "tokens": []
+    },
+    "bagpipes": {
+     "label": "Bagpipes",
+     "en": [
+      "bagpipe",
+      "bagpipes",
+      "bagpiper"
+     ],
+     "cjk": [
+      "风笛"
+     ],
+     "tokens": []
+    },
+    "recorder": {
+     "label": "Recorder",
+     "en": [
+      "recorder flute",
+      "soprano recorder",
+      "alto recorder"
+     ],
+     "cjk": [
+      "竖笛"
+     ],
+     "tokens": []
+    },
+    "pan_flute": {
+     "label": "Pan Flute",
+     "en": [
+      "pan flute",
+      "panpipes",
+      "pan pipes",
+      "panpipe"
+     ],
+     "cjk": [
+      "排箫"
+     ],
+     "tokens": []
+    },
+    "didgeridoo": {
+     "label": "Didgeridoo",
+     "en": [
+      "didgeridoo",
+      "didgeridoos"
+     ],
+     "cjk": [
+      "迪吉里杜管"
+     ],
+     "tokens": []
+    },
+    "bongos": {
+     "label": "Bongos",
+     "en": [
+      "bongo",
+      "bongos",
+      "bongo drums"
+     ],
+     "cjk": [
+      "邦戈鼓"
+     ],
+     "tokens": []
+    },
+    "congas": {
+     "label": "Congas",
+     "en": [
+      "conga",
+      "congas",
+      "conga drum"
+     ],
+     "cjk": [
+      "康加鼓"
+     ],
+     "tokens": []
+    },
+    "djembe": {
+     "label": "Djembe",
+     "en": [
+      "djembe",
+      "djembes"
+     ],
+     "cjk": [
+      "非洲鼓",
+      "金贝鼓"
+     ],
+     "tokens": []
+    },
+    "tabla": {
+     "label": "Tabla",
+     "en": [
+      "tabla",
+      "tablas"
+     ],
+     "cjk": [
+      "塔布拉鼓"
+     ],
+     "tokens": []
+    },
+    "steel_drum": {
+     "label": "Steel Drum",
+     "en": [
+      "steel drum",
+      "steel drums",
+      "steelpan",
+      "steel pan"
+     ],
+     "cjk": [
+      "钢鼓"
+     ],
+     "tokens": []
+    },
+    "erhu": {
+     "label": "Erhu",
+     "en": [
+      "erhu",
+      "erhus"
+     ],
+     "cjk": [
+      "二胡"
+     ],
+     "tokens": []
+    },
+    "pipa": {
+     "label": "Pipa",
+     "en": [
+      "pipa"
+     ],
+     "cjk": [
+      "琵琶"
+     ],
+     "tokens": []
+    },
+    "guzheng": {
+     "label": "Guzheng",
+     "en": [
+      "guzheng",
+      "zheng"
+     ],
+     "cjk": [
+      "古筝"
+     ],
+     "tokens": []
+    },
+    "guqin": {
+     "label": "Guqin",
+     "en": [
+      "guqin"
+     ],
+     "cjk": [
+      "古琴",
+      "七弦琴"
+     ],
+     "tokens": []
+    },
+    "dizi": {
+     "label": "Dizi",
+     "en": [
+      "dizi",
+      "Chinese flute",
+      "bamboo flute"
+     ],
+     "cjk": [
+      "笛子",
+      "竹笛"
+     ],
+     "tokens": []
+    },
+    "suona": {
+     "label": "Suona",
+     "en": [
+      "suona"
+     ],
+     "cjk": [
+      "唢呐"
+     ],
+     "tokens": []
+    },
+    "koto": {
+     "label": "Koto",
+     "en": [
+      "koto",
+      "kotos"
+     ],
+     "cjk": [
+      "日本筝"
+     ],
+     "tokens": []
+    },
+    "shamisen": {
+     "label": "Shamisen",
+     "en": [
+      "shamisen"
+     ],
+     "cjk": [
+      "三味线"
+     ],
+     "tokens": []
+    },
+    "synthesizer": {
+     "label": "Synthesizer",
+     "en": [
+      "synthesizer",
+      "synthesizers",
+      "synthesiser",
+      "synth",
+      "synths",
+      "Moog"
+     ],
+     "cjk": [
+      "合成器"
+     ],
+     "tokens": []
+    },
+    "theremin": {
+     "label": "Theremin",
+     "en": [
+      "theremin",
+      "theremins"
+     ],
+     "cjk": [
+      "特雷门琴",
+      "特雷门"
+     ],
+     "tokens": []
+    },
+    "drum_machine": {
+     "label": "Drum Machine",
+     "en": [
+      "drum machine",
+      "drum machines",
+      "TR-808"
+     ],
+     "cjk": [
+      "鼓机"
+     ],
+     "tokens": []
+    },
+    "celesta": {
+     "label": "Celesta",
+     "en": [
+      "celesta"
+     ],
+     "cjk": [
+      "钢片琴"
+     ],
+     "tokens": []
+    },
+    "zither": {
+     "label": "Zither",
+     "en": [
+      "zither",
+      "zithers"
+     ],
+     "cjk": [
+      "齐特琴"
+     ],
+     "tokens": []
+    },
+    "kalimba": {
+     "label": "Kalimba",
+     "en": [
+      "kalimba",
+      "mbira",
+      "thumb piano"
+     ],
+     "cjk": [
+      "卡林巴",
+      "拇指琴"
+     ],
+     "tokens": []
+    }
+   },
+   "block": []
+  }
+ },
+ "ambiguous": {
+  "sport": {
+   "football": [
+    "american_football",
+    "soccer"
+   ],
+   "footballer": [
+    "american_football",
+    "soccer"
+   ],
+   "Football": [
+    "american_football",
+    "soccer"
+   ]
+  }
+ },
+ "capitals": {
+  "afghanistan": "Kabul",
+  "albania": "Tirana",
+  "algeria": "Algiers",
+  "andorra": "Andorra la Vella",
+  "angola": "Luanda",
+  "antigua_and_barbuda": "St. John's",
+  "argentina": "Buenos Aires",
+  "armenia": "Yerevan",
+  "australia": "Canberra",
+  "austria": "Vienna",
+  "azerbaijan": "Baku",
+  "bahamas": "Nassau",
+  "bahrain": "Manama",
+  "bangladesh": "Dhaka",
+  "barbados": "Bridgetown",
+  "belarus": "Minsk",
+  "belgium": "Brussels",
+  "belize": "Belmopan",
+  "benin": "Porto-Novo",
+  "bhutan": "Thimphu",
+  "bolivia": "Sucre",
+  "bosnia_and_herzegovina": "Sarajevo",
+  "botswana": "Gaborone",
+  "brazil": "Brasília",
+  "brunei": "Bandar Seri Begawan",
+  "bulgaria": "Sofia",
+  "burkina_faso": "Ouagadougou",
+  "burundi": "Gitega",
+  "cabo_verde": "Praia",
+  "cambodia": "Phnom Penh",
+  "cameroon": "Yaoundé",
+  "canada": "Ottawa",
+  "central_african_republic": "Bangui",
+  "chad": "N'Djamena",
+  "chile": "Santiago",
+  "china": "Beijing",
+  "colombia": "Bogota",
+  "comoros": "Moroni",
+  "republic_of_the_congo": "Brazzaville",
+  "costa_rica": "San Jose",
+  "ivory_coast": "Yamoussoukro",
+  "croatia": "Zagreb",
+  "cuba": "Havana",
+  "cyprus": "Nicosia",
+  "czechia": "Prague",
+  "dr_congo": "Kinshasa",
+  "denmark": "Copenhagen",
+  "djibouti": "Djibouti",
+  "dominica": "Roseau",
+  "dominican_republic": "Santo Domingo",
+  "ecuador": "Quito",
+  "egypt": "Cairo",
+  "el_salvador": "San Salvador",
+  "equatorial_guinea": "Malabo",
+  "eritrea": "Asmara",
+  "estonia": "Tallinn",
+  "eswatini": "Mbabane",
+  "ethiopia": "Addis Ababa",
+  "fiji": "Suva",
+  "finland": "Helsinki",
+  "france": "Paris",
+  "gabon": "Libreville",
+  "gambia": "Banjul",
+  "georgia": "Tbilisi",
+  "germany": "Berlin",
+  "ghana": "Accra",
+  "greece": "Athens",
+  "grenada": "St. George's",
+  "guatemala": "Guatemala City",
+  "guinea": "Conakry",
+  "guinea_bissau": "Bissau",
+  "guyana": "Georgetown",
+  "haiti": "Port-au-Prince",
+  "honduras": "Tegucigalpa",
+  "hungary": "Budapest",
+  "iceland": "Reykjavik",
+  "india": "New Delhi",
+  "indonesia": "Jakarta",
+  "iran": "Tehran",
+  "iraq": "Baghdad",
+  "ireland": "Dublin",
+  "israel": "Jerusalem",
+  "italy": "Rome",
+  "jamaica": "Kingston",
+  "japan": "Tokyo",
+  "jordan": "Amman",
+  "kazakhstan": "Astana",
+  "kenya": "Nairobi",
+  "kiribati": "South Tarawa",
+  "kuwait": "Kuwait City",
+  "kyrgyzstan": "Bishkek",
+  "laos": "Vientiane",
+  "latvia": "Riga",
+  "lebanon": "Beirut",
+  "lesotho": "Maseru",
+  "liberia": "Monrovia",
+  "libya": "Tripoli",
+  "liechtenstein": "Vaduz",
+  "lithuania": "Vilnius",
+  "luxembourg": "Luxembourg",
+  "madagascar": "Antananarivo",
+  "malawi": "Lilongwe",
+  "malaysia": "Kuala Lumpur",
+  "maldives": "Male",
+  "mali": "Bamako",
+  "malta": "Valletta",
+  "marshall_islands": "Majuro",
+  "mauritania": "Nouakchott",
+  "mauritius": "Port Louis",
+  "mexico": "Mexico City",
+  "micronesia": "Palikir",
+  "moldova": "Chisinau",
+  "monaco": "Monaco",
+  "mongolia": "Ulaanbaatar",
+  "montenegro": "Podgorica",
+  "morocco": "Rabat",
+  "mozambique": "Maputo",
+  "myanmar": "Naypyidaw",
+  "namibia": "Windhoek",
+  "nauru": "Yaren",
+  "nepal": "Kathmandu",
+  "netherlands": "Amsterdam",
+  "new_zealand": "Wellington",
+  "nicaragua": "Managua",
+  "niger": "Niamey",
+  "nigeria": "Abuja",
+  "north_korea": "Pyongyang",
+  "north_macedonia": "Skopje",
+  "norway": "Oslo",
+  "oman": "Muscat",
+  "pakistan": "Islamabad",
+  "palau": "Ngerulmud",
+  "panama": "Panama City",
+  "papua_new_guinea": "Port Moresby",
+  "paraguay": "Asuncion",
+  "peru": "Lima",
+  "philippines": "Manila",
+  "poland": "Warsaw",
+  "portugal": "Lisbon",
+  "qatar": "Doha",
+  "romania": "Bucharest",
+  "russia": "Moscow",
+  "rwanda": "Kigali",
+  "saint_kitts_and_nevis": "Basseterre",
+  "saint_lucia": "Castries",
+  "saint_vincent_and_the_grenadines": "Kingstown",
+  "samoa": "Apia",
+  "san_marino": "City of San Marino",
+  "sao_tome_and_principe": "São Tomé",
+  "saudi_arabia": "Riyadh",
+  "senegal": "Dakar",
+  "serbia": "Belgrade",
+  "seychelles": "Victoria",
+  "sierra_leone": "Freetown",
+  "singapore": "Singapore",
+  "slovakia": "Bratislava",
+  "slovenia": "Ljubljana",
+  "solomon_islands": "Honiara",
+  "somalia": "Mogadishu",
+  "south_africa": "Pretoria",
+  "south_korea": "Seoul",
+  "south_sudan": "Juba",
+  "spain": "Madrid",
+  "sri_lanka": "Sri Jayawardenepura Kotte",
+  "sudan": "Khartoum",
+  "suriname": "Paramaribo",
+  "sweden": "Stockholm",
+  "switzerland": "Bern",
+  "syria": "Damascus",
+  "tajikistan": "Dushanbe",
+  "tanzania": "Dodoma",
+  "thailand": "Bangkok",
+  "timor_leste": "Dili",
+  "togo": "Lomé",
+  "tonga": "Nukuʻalofa",
+  "trinidad_and_tobago": "Port of Spain",
+  "tunisia": "Tunis",
+  "turkey": "Ankara",
+  "turkmenistan": "Ashgabat",
+  "tuvalu": "Funafuti",
+  "uganda": "Kampala",
+  "ukraine": "Kyiv",
+  "united_arab_emirates": "Abu Dhabi",
+  "united_kingdom": "London",
+  "united_states": "Washington, D.C.",
+  "uruguay": "Montevideo",
+  "uzbekistan": "Tashkent",
+  "vanuatu": "Port Vila",
+  "vatican_city": "Vatican City",
+  "venezuela": "Caracas",
+  "vietnam": "Hanoi",
+  "yemen": "Sanaa",
+  "zambia": "Lusaka",
+  "zimbabwe": "Harare",
+  "taiwan": "Taipei",
+  "palestine": "Ramallah",
+  "kosovo": "Pristina",
+  "scotland": "Edinburgh",
+  "wales": "Cardiff",
+  "northern_ireland": "Belfast"
+ },
+ "removed_duplicate_aliases": {
+  "sport": [],
+  "country": [],
+  "musical_instrument": []
+ },
+ "checks": {
+  "sport": {
+   "n_concepts": 84,
+   "n_aliases": 409,
+   "duplicates": {},
+   "short_cjk": [],
+   "substring_pairs": [
+    "boxing<thai boxing",
+    "gymnastics<trampoline gymnastics",
+    "hockey<field hockey",
+    "running<running back",
+    "sprint<canoe sprint",
+    "swimming<artistic swimming",
+    "swimming<synchronised swimming",
+    "swimming<synchronized swimming",
+    "tennis<table tennis",
+    "volleyball<beach volleyball",
+    "wrestler<pro wrestler",
+    "wrestler<professional wrestler",
+    "wrestler<sumo wrestler",
+    "wrestling<pro wrestling",
+    "wrestling<professional wrestling",
+    "wrestling<sumo wrestling",
+    "曲棍球<冰上曲棍球",
+    "曲棍球<爱尔兰式曲棍球",
+    "曲棍球<长曲棍球",
+    "橄榄球<橄榄球联合会",
+    "橄榄球<澳式橄榄球",
+    "橄榄球<英式橄榄球",
+    "自行车<山地自行车"
+   ],
+   "n_substring_pairs": 23
+  },
+  "country": {
+   "n_concepts": 200,
+   "n_aliases": 1129,
+   "duplicates": {},
+   "short_cjk": [],
+   "substring_pairs": [
+    "british<british guiana",
+    "british<british honduras",
+    "china<republic of china",
+    "dutch<dutch guiana",
+    "guinea<equatorial guinea",
+    "guinea<guinea bissau",
+    "guinea<guinea-bissau",
+    "guinea<papua new guinea",
+    "guinea<republic of equatorial guinea",
+    "guinean<bissau-guinean",
+    "guinean<equatorial guinean",
+    "guinean<papua new guinean",
+    "guineans<bissau-guineans",
+    "guineans<papua new guineans",
+    "honduras<british honduras",
+    "ireland<northern ireland",
+    "ireland<united kingdom of great britain and northern ireland",
+    "irish<northern irish",
+    "northern ireland<united kingdom of great britain and northern ireland",
+    "pakistan<east pakistan",
+    "republic of china<people's republic of china",
+    "republic of congo<democratic republic of congo",
+    "republic of korea<democratic people's republic of korea",
+    "republic of the congo<democratic republic of the congo",
+    "sudan<republic of south sudan",
+    "sudan<south sudan",
+    "sudanese<south sudanese",
+    "俄罗斯<白俄罗斯",
+    "几内亚<几内亚比绍",
+    "几内亚<巴布亚新几内亚",
+    "几内亚<赤道几内亚",
+    "幾內亞<幾內亞比索",
+    "斯洛伐克<捷克斯洛伐克",
+    "爱尔兰<北爱尔兰"
+   ],
+   "n_substring_pairs": 34
+  },
+  "musical_instrument": {
+   "n_concepts": 61,
+   "n_aliases": 290,
+   "duplicates": {},
+   "short_cjk": [],
+   "substring_pairs": [
+    "drums<bongo drums",
+    "drums<steel drums",
+    "flute<bamboo flute",
+    "flute<chinese flute",
+    "flute<pan flute",
+    "flute<recorder flute",
+    "guitar<bass guitar",
+    "guitarist<bass guitarist",
+    "guitars<bass guitars",
+    "piano<thumb piano",
+    "大提琴<倍大提琴"
+   ],
+   "n_substring_pairs": 11
+  }
+ }
+}

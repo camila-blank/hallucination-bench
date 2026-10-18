@@ -1,0 +1,962 @@
+[
+ {
+  "family": "sibling_pilot",
+  "id": "pilot-emotion-00",
+  "render": "chat_context",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You are a helpful assistant."
+   },
+   {
+    "role": "user",
+    "content": "I tripped walking up to the stage at graduation and the whole auditorium laughed while my face turned bright red. Can you help me write a short message to my friend about it?"
+   }
+  ],
+  "positions": {
+   "kind": "from_last_sentence_start"
+  },
+  "layers": [
+   28,
+   36,
+   44,
+   52
+  ]
+ },
+ {
+  "family": "sibling_pilot",
+  "id": "pilot-emotion-01",
+  "render": "chat_context",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You are a helpful assistant."
+   },
+   {
+    "role": "user",
+    "content": "I accidentally sent a message complaining about my boss to the team group chat, and my boss replied with a thumbs up. Can you help me write a short message to my friend about it?"
+   }
+  ],
+  "positions": {
+   "kind": "from_last_sentence_start"
+  },
+  "layers": [
+   28,
+   36,
+   44,
+   52
+  ]
+ },
+ {
+  "family": "sibling_pilot",
+  "id": "pilot-emotion-02",
+  "render": "chat_context",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You are a helpful assistant."
+   },
+   {
+    "role": "user",
+    "content": "My landlord kept my entire security deposit for 'cleaning' even though I left the apartment spotless, and he won't return my calls. Can you help me write a short message to my friend about it?"
+   }
+  ],
+  "positions": {
+   "kind": "from_last_sentence_start"
+  },
+  "layers": [
+   28,
+   36,
+   44,
+   52
+  ]
+ },
+ {
+  "family": "sibling_pilot",
+  "id": "pilot-emotion-03",
+  "render": "chat_context",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You are a helpful assistant."
+   },
+   {
+    "role": "user",
+    "content": "Someone keyed my car in the parking lot and left a note saying 'learn to park', and I was parked perfectly. Can you help me write a short message to my friend about it?"
+   }
+  ],
+  "positions": {
+   "kind": "from_last_sentence_start"
+  },
+  "layers": [
+   28,
+   36,
+   44,
+   52
+  ]
+ },
+ {
+  "family": "sibling_pilot",
+  "id": "pilot-emotion-04",
+  "render": "chat_context",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You are a helpful assistant."
+   },
+   {
+    "role": "user",
+    "content": "My dog of fourteen years passed away last night and the house feels so quiet without her. Can you help me write a short message to my friend about it?"
+   }
+  ],
+  "positions": {
+   "kind": "from_last_sentence_start"
+  },
+  "layers": [
+   28,
+   36,
+   44,
+   52
+  ]
+ },
+ {
+  "family": "sibling_pilot",
+  "id": "pilot-emotion-05",
+  "render": "chat_context",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You are a helpful assistant."
+   },
+   {
+    "role": "user",
+    "content": "I have my first job interview in three years tomorrow morning and I keep rehearsing answers in the mirror. Can you help me write a short message to my friend about it?"
+   }
+  ],
+  "positions": {
+   "kind": "from_last_sentence_start"
+  },
+  "layers": [
+   28,
+   36,
+   44,
+   52
+  ]
+ },
+ {
+  "family": "sibling_pilot",
+  "id": "pilot-emotion-06",
+  "render": "chat_context",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You are a helpful assistant."
+   },
+   {
+    "role": "user",
+    "content": "My best friend just got the promotion I applied for, and everyone at the office keeps congratulating her right in front of me. Can you help me write a short message to my friend about it?"
+   }
+  ],
+  "positions": {
+   "kind": "from_last_sentence_start"
+  },
+  "layers": [
+   28,
+   36,
+   44,
+   52
+  ]
+ },
+ {
+  "family": "sibling_pilot",
+  "id": "pilot-emotion-07",
+  "render": "chat_context",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You are a helpful assistant."
+   },
+   {
+    "role": "user",
+    "content": "My daughter, who struggled with reading for years, just won her school's essay competition. Can you help me write a short message to my friend about it?"
+   }
+  ],
+  "positions": {
+   "kind": "from_last_sentence_start"
+  },
+  "layers": [
+   28,
+   36,
+   44,
+   52
+  ]
+ },
+ {
+  "family": "sibling_pilot",
+  "id": "pilot-farm_animal-00",
+  "render": "chat_context",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You are a helpful assistant."
+   },
+   {
+    "role": "user",
+    "content": "Every morning I collect the eggs from the coop and scatter some feed for the hens while the rooster crows. Write a short blog post about my day."
+   }
+  ],
+  "positions": {
+   "kind": "from_last_sentence_start"
+  },
+  "layers": [
+   28,
+   36,
+   44,
+   52
+  ]
+ },
+ {
+  "family": "sibling_pilot",
+  "id": "pilot-farm_animal-01",
+  "render": "chat_context",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You are a helpful assistant."
+   },
+   {
+    "role": "user",
+    "content": "Our flock of Rhode Island Reds has started laying again now that the days are getting longer. Write a short blog post about my day."
+   }
+  ],
+  "positions": {
+   "kind": "from_last_sentence_start"
+  },
+  "layers": [
+   28,
+   36,
+   44,
+   52
+  ]
+ },
+ {
+  "family": "sibling_pilot",
+  "id": "pilot-farm_animal-02",
+  "render": "chat_context",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You are a helpful assistant."
+   },
+   {
+    "role": "user",
+    "content": "I get up at 5 a.m. to milk the herd before hauling the milk cans down to the dairy truck. Write a short blog post about my day."
+   }
+  ],
+  "positions": {
+   "kind": "from_last_sentence_start"
+  },
+  "layers": [
+   28,
+   36,
+   44,
+   52
+  ]
+ },
+ {
+  "family": "sibling_pilot",
+  "id": "pilot-farm_animal-03",
+  "render": "chat_context",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You are a helpful assistant."
+   },
+   {
+    "role": "user",
+    "content": "Our sow just gave birth to eleven piglets and they're all rooting around in the straw. Write a short blog post about my day."
+   }
+  ],
+  "positions": {
+   "kind": "from_last_sentence_start"
+  },
+  "layers": [
+   28,
+   36,
+   44,
+   52
+  ]
+ },
+ {
+  "family": "sibling_pilot",
+  "id": "pilot-farm_animal-04",
+  "render": "chat_context",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You are a helpful assistant."
+   },
+   {
+    "role": "user",
+    "content": "Shearing season starts next week, so we're rounding up the flock and sharpening the clippers for all that wool. Write a short blog post about my day."
+   }
+  ],
+  "positions": {
+   "kind": "from_last_sentence_start"
+  },
+  "layers": [
+   28,
+   36,
+   44,
+   52
+  ]
+ },
+ {
+  "family": "sibling_pilot",
+  "id": "pilot-farm_animal-05",
+  "render": "chat_context",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You are a helpful assistant."
+   },
+   {
+    "role": "user",
+    "content": "Our nannies keep climbing onto the roof of the shed, and I've started making cheese from their milk. Write a short blog post about my day."
+   }
+  ],
+  "positions": {
+   "kind": "from_last_sentence_start"
+  },
+  "layers": [
+   28,
+   36,
+   44,
+   52
+  ]
+ },
+ {
+  "family": "sibling_pilot",
+  "id": "pilot-farm_animal-06",
+  "render": "chat_context",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You are a helpful assistant."
+   },
+   {
+    "role": "user",
+    "content": "I muck out the stalls every evening and brush down the mare before giving her a bucket of oats. Write a short blog post about my day."
+   }
+  ],
+  "positions": {
+   "kind": "from_last_sentence_start"
+  },
+  "layers": [
+   28,
+   36,
+   44,
+   52
+  ]
+ },
+ {
+  "family": "sibling_pilot",
+  "id": "pilot-farm_animal-07",
+  "render": "chat_context",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You are a helpful assistant."
+   },
+   {
+    "role": "user",
+    "content": "We dug a little pond so the drakes and hens can paddle around, and they waddle back to their house at dusk. Write a short blog post about my day."
+   }
+  ],
+  "positions": {
+   "kind": "from_last_sentence_start"
+  },
+  "layers": [
+   28,
+   36,
+   44,
+   52
+  ]
+ },
+ {
+  "family": "sibling_pilot",
+  "id": "pilot-capital_city-00",
+  "render": "chat_context",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You are a helpful assistant."
+   },
+   {
+    "role": "user",
+    "content": "I'm finally going to see the Eiffel Tower, stroll along the Seine, and visit the Louvre next month. Write a short packing list for my trip."
+   }
+  ],
+  "positions": {
+   "kind": "from_last_sentence_start"
+  },
+  "layers": [
+   28,
+   36,
+   44,
+   52
+  ]
+ },
+ {
+  "family": "sibling_pilot",
+  "id": "pilot-capital_city-01",
+  "render": "chat_context",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You are a helpful assistant."
+   },
+   {
+    "role": "user",
+    "content": "Next week I'm going to ride the Tube, see Big Ben, and watch the changing of the guard at Buckingham Palace. Write a short packing list for my trip."
+   }
+  ],
+  "positions": {
+   "kind": "from_last_sentence_start"
+  },
+  "layers": [
+   28,
+   36,
+   44,
+   52
+  ]
+ },
+ {
+  "family": "sibling_pilot",
+  "id": "pilot-capital_city-02",
+  "render": "chat_context",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You are a helpful assistant."
+   },
+   {
+    "role": "user",
+    "content": "I'm flying into Haneda to see the Shibuya crossing, eat at Tsukiji, and visit Senso-ji in Asakusa. Write a short packing list for my trip."
+   }
+  ],
+  "positions": {
+   "kind": "from_last_sentence_start"
+  },
+  "layers": [
+   28,
+   36,
+   44,
+   52
+  ]
+ },
+ {
+  "family": "sibling_pilot",
+  "id": "pilot-capital_city-03",
+  "render": "chat_context",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You are a helpful assistant."
+   },
+   {
+    "role": "user",
+    "content": "I can't wait to toss a coin in the Trevi Fountain, tour the Colosseum, and walk to the Vatican. Write a short packing list for my trip."
+   }
+  ],
+  "positions": {
+   "kind": "from_last_sentence_start"
+  },
+  "layers": [
+   28,
+   36,
+   44,
+   52
+  ]
+ },
+ {
+  "family": "sibling_pilot",
+  "id": "pilot-capital_city-04",
+  "render": "chat_context",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You are a helpful assistant."
+   },
+   {
+    "role": "user",
+    "content": "I'm heading to see the Brandenburg Gate, the remains of the Wall at East Side Gallery, and the Reichstag dome. Write a short packing list for my trip."
+   }
+  ],
+  "positions": {
+   "kind": "from_last_sentence_start"
+  },
+  "layers": [
+   28,
+   36,
+   44,
+   52
+  ]
+ },
+ {
+  "family": "sibling_pilot",
+  "id": "pilot-capital_city-05",
+  "render": "chat_context",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You are a helpful assistant."
+   },
+   {
+    "role": "user",
+    "content": "I'm going to see the pyramids at Giza, visit the Egyptian Museum, and take a felucca ride on the Nile downtown. Write a short packing list for my trip."
+   }
+  ],
+  "positions": {
+   "kind": "from_last_sentence_start"
+  },
+  "layers": [
+   28,
+   36,
+   44,
+   52
+  ]
+ },
+ {
+  "family": "sibling_pilot",
+  "id": "pilot-capital_city-06",
+  "render": "chat_context",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You are a helpful assistant."
+   },
+   {
+    "role": "user",
+    "content": "I'm planning to visit the Lincoln Memorial, the Smithsonian museums on the National Mall, and the Capitol building. Write a short packing list for my trip."
+   }
+  ],
+  "positions": {
+   "kind": "from_last_sentence_start"
+  },
+  "layers": [
+   28,
+   36,
+   44,
+   52
+  ]
+ },
+ {
+  "family": "sibling_pilot",
+  "id": "pilot-capital_city-07",
+  "render": "chat_context",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You are a helpful assistant."
+   },
+   {
+    "role": "user",
+    "content": "I'm going to walk across Red Square, see St. Basil's Cathedral, and tour the Kremlin. Write a short packing list for my trip."
+   }
+  ],
+  "positions": {
+   "kind": "from_last_sentence_start"
+  },
+  "layers": [
+   28,
+   36,
+   44,
+   52
+  ]
+ },
+ {
+  "family": "sibling_pilot",
+  "id": "pilot-tree-00",
+  "render": "chat_context",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You are a helpful assistant."
+   },
+   {
+    "role": "user",
+    "content": "Every spring we tap the big tree in our backyard and boil the sap down into syrup, and in fall its leaves turn brilliant red. Write a short poem about my yard."
+   }
+  ],
+  "positions": {
+   "kind": "from_last_sentence_start"
+  },
+  "layers": [
+   28,
+   36,
+   44,
+   52
+  ]
+ },
+ {
+  "family": "sibling_pilot",
+  "id": "pilot-tree-01",
+  "render": "chat_context",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You are a helpful assistant."
+   },
+   {
+    "role": "user",
+    "content": "The huge old tree in my yard drops so many acorns that the squirrels have a feast every autumn. Write a short poem about my yard."
+   }
+  ],
+  "positions": {
+   "kind": "from_last_sentence_start"
+  },
+  "layers": [
+   28,
+   36,
+   44,
+   52
+  ]
+ },
+ {
+  "family": "sibling_pilot",
+  "id": "pilot-tree-02",
+  "render": "chat_context",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You are a helpful assistant."
+   },
+   {
+    "role": "user",
+    "content": "Our backyard is full of tall evergreens that drop sticky cones and needles all over the patio. Write a short poem about my yard."
+   }
+  ],
+  "positions": {
+   "kind": "from_last_sentence_start"
+  },
+  "layers": [
+   28,
+   36,
+   44,
+   52
+  ]
+ },
+ {
+  "family": "sibling_pilot",
+  "id": "pilot-tree-03",
+  "render": "chat_context",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You are a helpful assistant."
+   },
+   {
+    "role": "user",
+    "content": "I love the papery white bark peeling off the trees along our driveway. Write a short poem about my yard."
+   }
+  ],
+  "positions": {
+   "kind": "from_last_sentence_start"
+  },
+  "layers": [
+   28,
+   36,
+   44,
+   52
+  ]
+ },
+ {
+  "family": "sibling_pilot",
+  "id": "pilot-tree-04",
+  "render": "chat_context",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You are a helpful assistant."
+   },
+   {
+    "role": "user",
+    "content": "The tree by our pond has long drooping branches that sweep the water when the wind blows. Write a short poem about my yard."
+   }
+  ],
+  "positions": {
+   "kind": "from_last_sentence_start"
+  },
+  "layers": [
+   28,
+   36,
+   44,
+   52
+  ]
+ },
+ {
+  "family": "sibling_pilot",
+  "id": "pilot-tree-05",
+  "render": "chat_context",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You are a helpful assistant."
+   },
+   {
+    "role": "user",
+    "content": "The tall tree in our front yard has big fronds and drops coconuts on the lawn. Write a short poem about my yard."
+   }
+  ],
+  "positions": {
+   "kind": "from_last_sentence_start"
+  },
+  "layers": [
+   28,
+   36,
+   44,
+   52
+  ]
+ },
+ {
+  "family": "sibling_pilot",
+  "id": "pilot-tree-06",
+  "render": "chat_context",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You are a helpful assistant."
+   },
+   {
+    "role": "user",
+    "content": "The tree in our garden bursts into pink blossoms every April and the petals cover the sidewalk. Write a short poem about my yard."
+   }
+  ],
+  "positions": {
+   "kind": "from_last_sentence_start"
+  },
+  "layers": [
+   28,
+   36,
+   44,
+   52
+  ]
+ },
+ {
+  "family": "sibling_pilot",
+  "id": "pilot-tree-07",
+  "render": "chat_context",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You are a helpful assistant."
+   },
+   {
+    "role": "user",
+    "content": "Every fall we pick bushels of fruit from the old tree in the orchard and press it into cider. Write a short poem about my yard."
+   }
+  ],
+  "positions": {
+   "kind": "from_last_sentence_start"
+  },
+  "layers": [
+   28,
+   36,
+   44,
+   52
+  ]
+ },
+ {
+  "family": "sibling_pilot",
+  "id": "pilot-holiday-00",
+  "render": "chat_context",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You are a helpful assistant."
+   },
+   {
+    "role": "user",
+    "content": "We're carving jack-o'-lanterns and finishing the kids' costumes before they go trick-or-treating. Write a short invitation for our celebration."
+   }
+  ],
+  "positions": {
+   "kind": "from_last_sentence_start"
+  },
+  "layers": [
+   28,
+   36,
+   44,
+   52
+  ]
+ },
+ {
+  "family": "sibling_pilot",
+  "id": "pilot-holiday-01",
+  "render": "chat_context",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You are a helpful assistant."
+   },
+   {
+    "role": "user",
+    "content": "I'm roasting the turkey, making cranberry sauce, and the whole family is coming over to say what we're grateful for. Write a short invitation for our celebration."
+   }
+  ],
+  "positions": {
+   "kind": "from_last_sentence_start"
+  },
+  "layers": [
+   28,
+   36,
+   44,
+   52
+  ]
+ },
+ {
+  "family": "sibling_pilot",
+  "id": "pilot-holiday-02",
+  "render": "chat_context",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You are a helpful assistant."
+   },
+   {
+    "role": "user",
+    "content": "We just finished decorating the tree, hanging stockings by the fireplace, and wrapping gifts for Santa to leave. Write a short invitation for our celebration."
+   }
+  ],
+  "positions": {
+   "kind": "from_last_sentence_start"
+  },
+  "layers": [
+   28,
+   36,
+   44,
+   52
+  ]
+ },
+ {
+  "family": "sibling_pilot",
+  "id": "pilot-holiday-03",
+  "render": "chat_context",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You are a helpful assistant."
+   },
+   {
+    "role": "user",
+    "content": "The kids are dyeing eggs and we're hiding baskets full of chocolate bunnies around the yard this Sunday. Write a short invitation for our celebration."
+   }
+  ],
+  "positions": {
+   "kind": "from_last_sentence_start"
+  },
+  "layers": [
+   28,
+   36,
+   44,
+   52
+  ]
+ },
+ {
+  "family": "sibling_pilot",
+  "id": "pilot-holiday-04",
+  "render": "chat_context",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You are a helpful assistant."
+   },
+   {
+    "role": "user",
+    "content": "We're getting champagne ready, and at midnight we'll count down and watch the ball drop. Write a short invitation for our celebration."
+   }
+  ],
+  "positions": {
+   "kind": "from_last_sentence_start"
+  },
+  "layers": [
+   28,
+   36,
+   44,
+   52
+  ]
+ },
+ {
+  "family": "sibling_pilot",
+  "id": "pilot-holiday-05",
+  "render": "chat_context",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You are a helpful assistant."
+   },
+   {
+    "role": "user",
+    "content": "I bought roses and a box of heart-shaped chocolates and reserved a table for two this Friday. Write a short invitation for our celebration."
+   }
+  ],
+  "positions": {
+   "kind": "from_last_sentence_start"
+  },
+  "layers": [
+   28,
+   36,
+   44,
+   52
+  ]
+ },
+ {
+  "family": "sibling_pilot",
+  "id": "pilot-holiday-06",
+  "render": "chat_context",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You are a helpful assistant."
+   },
+   {
+    "role": "user",
+    "content": "We're grilling hot dogs, hanging red, white and blue bunting, and watching the fireworks on the Fourth. Write a short invitation for our celebration."
+   }
+  ],
+  "positions": {
+   "kind": "from_last_sentence_start"
+  },
+  "layers": [
+   28,
+   36,
+   44,
+   52
+  ]
+ },
+ {
+  "family": "sibling_pilot",
+  "id": "pilot-holiday-07",
+  "render": "chat_context",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You are a helpful assistant."
+   },
+   {
+    "role": "user",
+    "content": "We're lighting diyas around the house, making rangoli at the doorway, and sharing sweets with neighbors. Write a short invitation for our celebration."
+   }
+  ],
+  "positions": {
+   "kind": "from_last_sentence_start"
+  },
+  "layers": [
+   28,
+   36,
+   44,
+   52
+  ]
+ }
+]
