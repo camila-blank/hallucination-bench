@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>HallucinationBench — readout viewer</title>
+<style>
+  :root {
+    --bg: #fafaf7; --card: #fff; --ink: #1d1d1b; --muted: #6b6b66; --line: #e4e2dc;
+    --hal: #d64545; --hal-bg: #fbe3e1; --co: #d9822b; --co-bg: #fcebd7;
+    --ok: #2f8a4f; --ok-bg: #dcf1e2; --sup: #24838f; --sup-bg: #d8eff1;
+    --thk: #5a6fb0; --thk-bg: #e3e8f6; --uns: #8a5bb0; --uns-bg: #efe4f7;
+    --junk: #9a9a93; --junk-bg: #f0efea;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 14px/1.5 -apple-system, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--ink); }
+  header { padding: 18px 28px 0; border-bottom: 1px solid var(--line); background: var(--card); position: sticky; top: 0; z-index: 5; }
+  h1 { font-size: 19px; margin: 0 0 10px; }
+  nav button { font: inherit; border: 0; background: none; padding: 8px 14px; cursor: pointer; color: var(--muted); border-bottom: 3px solid transparent; }
+  nav button.on { color: var(--ink); border-bottom-color: var(--ink); font-weight: 600; }
+  main { max-width: 1180px; margin: 0 auto; padding: 18px 28px 60px; }
+  .about { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 12px 16px; margin-bottom: 16px; }
+  .about p { margin: 4px 0; }
+  .legend { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+  .chip { display: inline-block; padding: 1px 8px; border-radius: 10px; font-size: 12px; white-space: nowrap; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px; margin-bottom: 16px; }
+  .card h2 { font-size: 14px; margin: 0 0 8px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  .meta { color: var(--muted); font-weight: 400; font-size: 12.5px; }
+  .label { font-size: 11px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); margin: 10px 0 3px; }
+  .ctx { white-space: pre-wrap; font-size: 13px; background: #f6f5f1; border-radius: 6px; padding: 8px 10px; max-height: 260px; overflow: auto; }
+  .ctx .after { color: #a3a29c; }
+  .marker { background: var(--ink); color: #fff; border-radius: 3px; padding: 0 4px; font-size: 11px; margin: 0 2px; }
+  .readout { white-space: pre-wrap; font-size: 13px; border-left: 3px solid var(--line); padding: 4px 10px; margin: 6px 0; }
+  .readout .rn { color: var(--muted); font-size: 11px; display: block; }
+  .seg { border-radius: 3px; padding: 0 1px; cursor: help; }
+  .seg.mention { outline: 2px solid var(--ink); outline-offset: 0; }
+  table { border-collapse: collapse; width: 100%; font-size: 12.5px; margin-top: 4px; }
+  th, td { text-align: left; padding: 4px 6px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: var(--muted); font-weight: 500; }
+  details summary { cursor: pointer; color: var(--muted); font-size: 12.5px; margin-top: 6px; }
+  .rationale { font-style: italic; color: #44443f; margin-top: 6px; }
+  .verdict { font-weight: 600; }
+  .hit { background: #ffe58a; border-radius: 2px; }
+  .toks { font-family: ui-monospace, monospace; font-size: 12px; color: var(--muted); }
+  #tip { position: fixed; pointer-events: none; background: #222; color: #fff; font-size: 12px; padding: 6px 9px; border-radius: 5px; max-width: 380px; z-index: 10; display: none; }
+</style>
+</head>
+<body>
+<header>
+  <h1>HallucinationBench readout viewer</h1>
+  <nav id="tabs"></nav>
+</header>
+<main id="main"></main>
+<div id="tip"></div>
+<script id="data" type="application/json">/*__DATA__*/null</script>
+<script>
+const DATA = JSON.parse(document.getElementById("data").textContent);
+
+const GROUP = {
+  false_claim: "hal", detail: "hal", substitution_category: "hal",
+  substitution_sibling: "co", correct: "ok", supplementary_true: "sup", supplementary_false: "sup",
+  model_state: "thk", unverifiable: "thk", ambiguous_topic: "uns", junk: "junk", failed: "junk",
+};
+const GROUP_TITLE = {
+  hal: "hallucination", co: "co-activation (sibling swap)", ok: "correct", sup: "supplementary world claim",
+  thk: "thinky / unverifiable", uns: "ambiguous topic", junk: "junk / non-claim",
+};
+const AM_VERDICT_GROUP = { hallucination: "hal", correct: "ok", unresolved: "thk", thinky: "thk", probe_candidate: "co", junk: "junk", failed: "junk" };
+const UM_LABEL_GROUP = (l) => l.startsWith("hallucination") ? "hal" : l.startsWith("probe-faithful") ? "ok" : l.startsWith("cross-method") ? "co" : "junk";
+
+const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const chip = (g, text) => `<span class="chip" style="background:var(--${g}-bg);color:var(--${g})">${esc(text)}</span>`;
+const legend = () => `<div class="legend">${Object.entries(GROUP_TITLE).map(([g, t]) => chip(g, t)).join("")}</div>`;
+
+const ABOUT = {
+  chat: `<p><b>Standard chat (wsbench_chat).</b> 149 ordinary assistant conversations (lmsys-chat-1m + dailydialog first turns, Qwen3.6-27B on-policy responses). Each lens reads the residual at a <i>summary site</i> (a punctuation/newline token in the response; marked <span class="marker">READ</span>) and writes free-text readouts (k=3 per cell for the prose lenses; J-lens top-10 tokens go through a blind "most specific reading" summariser, k=1).</p>
+    <p><b>Judge:</b> claim map <code>claimmap-v2.7</code> (Opus 5.5, effort low). Every readout is segmented into claim units and each gets a leaf, checked against the full conversation (prompt + the whole response, including the text after the marker). <b>Hallucination = false_claim + detail + substitution_category</b>; something the response just doesn't mention is <i>unverifiable</i>, not wrong. Hover a span for its leaf and the judge's reason.</p>`,
+  story: `<p><b>Story (plan 0007).</b> The 20 frozen <code>hallucination_creative</code> prompts ("Tell me a story.", "Write me a poem.", …), 8 summary sites each, read by the same four lenses at all 11 layers (NLA-RL at L42 only).</p>
+    <p><b>Judge:</b> the same claim map <code>claimmap-v2.7</code> as chat, against the model's own story only (no external facts). Stories roughly double the O-lens hallucination share vs chat, mostly through invented details. Hover a span for its leaf and reason.</p>`,
+  um: `<p><b>User modelling sibling ladder (plans 0006/0007).</b> The user's message implies a gold attribute (country, capital city, occupation, holiday) without naming it. The pipeline asks: when a lens names a <i>different</i> value (a "sibling"), is it a real activation or made up?</p>
+    <p><b>Ladder:</b> (1) a lexicon finds every non-gold mention in every readout sample → (2) commitment judge <code>umcommit-v1.1</code> (Opus 5.5): does the sample assert it <i>as the user's</i> attribute, rather than as an option/comparison/third party? → (3) probe test: the sibling's DiffMean probe must beat all the item's distractors at that layer and position (<b>probe-faithful</b>; ±4 layers = nearby) → (4) else, if another lens also entertains it within ±4 layers: <b>cross-method allowed</b> → otherwise <b>hallucination</b>. The mention is highlighted in yellow.</p>`,
+  am: `<p><b>Agentic misalignment (plan 0008).</b> The 32 frozen WorkspaceBench agentic-misalignment items (blackmail, leaking, murder, reward hacking, sabotage, …). Lenses read every <i>prompt</i> position, so the <span class="marker">READ</span> marker sits in the prompt; the model's pinned rollout is shown for reference.</p>
+    <p><b>Pipeline:</b> detector <code>amdetect-v2</code> finds every misalignment-related mention (kind, actor, stance) → claim map <code>claimmap-v2.7+am2</code> labels the whole readout → each mention takes its span's verdict. <b>tier</b> says whether the mention's kind matches what the rollout actually does (realised / designed_only / scenario_set_up / other_misconduct / unrelated); <b>headline</b> = the AI itself planning or doing it. Mentions are outlined in black; hover for details. AM is provisional (no calibration gate).</p>`,
+};
+
+let tipEl = document.getElementById("tip");
+document.addEventListener("mouseover", (e) => {
+  const t = e.target.closest("[data-tip]");
+  if (!t) { tipEl.style.display = "none"; return; }
+  tipEl.innerHTML = t.dataset.tip; tipEl.style.display = "block";
+});
+document.addEventListener("mousemove", (e) => {
+  tipEl.style.left = Math.min(e.clientX + 14, innerWidth - 400) + "px"; tipEl.style.top = (e.clientY + 14) + "px";
+});
+
+function segTip(s) {
+  const bits = [`<b>${esc(s.leaf)}</b>`];
+  if (s.why) bits.push(esc(s.why));
+  if (s.reason) bits.push(`reason: ${esc(s.reason)}`);
+  if (s.source) bits.push(`source: ${esc(s.source)}`);
+  if (s.contradicted_by) bits.push(`contradicted by: “${esc(s.contradicted_by)}”`);
+  if (s.supported_by) bits.push(`supported by: “${esc(s.supported_by)}”`);
+  return bits.join("<br>");
+}
+
+// Paint one readout: judged segments as coloured spans; optional mentions as outlined ranges.
+function paintReadout(r, mentions = []) {
+  const text = r.text, cuts = new Set([0, text.length]);
+  r.segs.forEach((s) => { cuts.add(s.s); cuts.add(s.e); });
+  mentions.forEach((m) => { cuts.add(m.start); cuts.add(m.end); });
+  const pts = [...cuts].filter((x) => x >= 0 && x <= text.length).sort((a, b) => a - b);
+  let html = "";
+  for (let i = 0; i < pts.length - 1; i++) {
+    const a = pts[i], b = pts[i + 1], piece = esc(text.slice(a, b));
+    const seg = r.segs.find((s) => s.s <= a && b <= s.e);
+    const men = mentions.filter((m) => m.start <= a && b <= m.end);
+    if (!seg && !men.length) { html += piece; continue; }
+    const g = seg ? GROUP[seg.leaf] || "junk" : "junk";
+    let tip = seg ? segTip(seg) : "";
+    men.forEach((m) => { tip += `<hr>mention: <b>${esc(m.kind)}</b> · verdict <b>${esc(m.verdict)}</b> · tier ${esc(m.tier)}${m.headline ? " · HEADLINE" : ""}`; });
+    const style = seg ? `background:var(--${g}-bg);color:${g === "junk" ? "var(--junk)" : "inherit"}` : "";
+    html += `<span class="seg${men.length ? " mention" : ""}" style="${style}" data-tip="${esc(tip)}">${piece}</span>`;
+  }
+  return html;
+}
+
+function leafCounts(readouts) {
+  const c = {};
+  readouts.forEach((r) => r.segs.forEach((s) => { c[s.leaf] = (c[s.leaf] || 0) + 1; }));
+  return Object.entries(c).sort((a, b) => b[1] - a[1]).map(([l, n]) => chip(GROUP[l] || "junk", `${l} ×${n}`)).join(" ");
+}
+
+function judgedTable(readouts) {
+  const rows = [];
+  readouts.forEach((r, i) => r.segs.forEach((s) => {
+    if (s.leaf === "junk") return;
+    rows.push(`<tr><td>R${i}</td><td>${chip(GROUP[s.leaf] || "junk", s.leaf)}</td><td>${esc(r.text.slice(s.s, s.e))}</td><td>${esc(s.why || "")}${s.contradicted_by ? `<br><span class="meta">contradicted by “${esc(s.contradicted_by)}”</span>` : ""}</td></tr>`);
+  }));
+  return rows.length ? `<details><summary>all non-junk judged units (${rows.length})</summary><table><tr><th></th><th>leaf</th><th>unit</th><th>judge's reason</th></tr>${rows.join("")}</table></details>` : "";
+}
+
+function contextWithMarker(text, at) {
+  if (at == null) return `<div class="ctx">${esc(text)}</div>`;
+  return `<div class="ctx">${esc(text.slice(0, at))}<span class="marker">READ</span><span class="after">${esc(text.slice(at))}</span></div>`;
+}
+
+function claimmapCard(ex, i) {
+  const nh = ex.readouts.some((r) => r.segs.some((s) => GROUP[s.leaf] === "hal"));
+  return `<div class="card">
+    <h2>#${i + 1} ${chip(nh ? "hal" : "ok", nh ? "contains hallucination" : "no hallucination")}
+      <span>${esc(ex.arm)}</span><span class="meta">${esc(ex.id)} · L${ex.layer} · pos ${ex.pos} · site “${esc(ex.site_token)}” (${esc(ex.site_kind)})</span></h2>
+    <div class="label">user prompt</div><div class="ctx">${esc(ex.prompt)}</div>
+    <div class="label">model response (grey = after the read site; the judge sees all of it)</div>${contextWithMarker(ex.response, ex.marker)}
+    ${ex.jlens_tokens ? `<div class="label">J-lens top-10 tokens (summarised blind into the readout below)</div><div class="toks">${esc(ex.jlens_tokens.join(" · "))}</div>` : ""}
+    <div class="label">readouts (${ex.readouts.length})</div>
+    ${ex.readouts.map((r, j) => `<div class="readout"><span class="rn">R${j}</span>${paintReadout(r)}</div>`).join("")}
+    <div class="label">judge</div><div>${leafCounts(ex.readouts)}</div>
+    ${ex.rationale ? `<div class="rationale">“${esc(ex.rationale)}”</div>` : ""}
+    ${judgedTable(ex.readouts)}
+  </div>`;
+}
+
+function amCard(ex, i) {
+  const ms = ex.mentions;
+  const mtab = ms.map((m) => `<tr><td>R${m.readout}</td><td>${esc(m.quote)}</td><td>${esc(m.kind)}${m.secondary_kind ? ` / ${esc(m.secondary_kind)}` : ""}</td><td>${esc(m.actor)}${m.actor_name ? ` (${esc(m.actor_name)})` : ""} · ${esc(m.stance)}</td><td>${esc(m.tier)}${m.headline ? " · <b>headline</b>" : ""}</td><td>${chip(AM_VERDICT_GROUP[m.verdict] || "junk", m.verdict)} <span class="meta">${esc(m.leaf)}</span><br><span class="meta">${esc(m.why || "")}</span></td></tr>`).join("");
+  return `<div class="card">
+    <h2>#${i + 1} ${chip(AM_VERDICT_GROUP[ex.wanted] || "junk", "has a " + ex.wanted + " mention")}
+      <span>${esc(ex.arm)}</span><span class="meta">${esc(ex.id)} (${esc(ex.category)}, ${esc(ex.item_arm)}) · L${ex.layer} · pos ${ex.pos} · token “${esc(ex.site_token)}”</span></h2>
+    <div class="label">prompt up to the read position${ex.window_cut ? " (last 700 chars)" : ""}</div>
+    <div class="ctx">${ex.window_cut ? "…" : ""}${esc(ex.window)}<span class="marker">READ</span></div>
+    <details><summary>full system prompt / user turn</summary><div class="label">system</div><div class="ctx">${esc(ex.system)}</div><div class="label">user</div><div class="ctx">${esc(ex.user)}</div></details>
+    <details><summary>the model's pinned rollout</summary><div class="ctx">${esc(ex.rollout)}</div></details>
+    <div class="label">readouts${ex.arm === "jlens" ? " (blind summary of the J-lens top-10 tokens)" : ""}</div>
+    ${ex.readouts.map((r, j) => `<div class="readout"><span class="rn">R${j}</span>${paintReadout(r, ms.filter((m) => m.readout === j))}</div>`).join("")}
+    <div class="label">misalignment mentions (detector) and their verdicts</div>
+    <table><tr><th></th><th>quote</th><th>kind</th><th>actor · stance</th><th>tier</th><th>verdict</th></tr>${mtab}</table>
+    <div class="label">claim map over the whole readout</div><div>${leafCounts(ex.readouts)}</div>
+    ${ex.rationale ? `<div class="rationale">“${esc(ex.rationale)}”</div>` : ""}
+    ${judgedTable(ex.readouts)}
+  </div>`;
+}
+
+function hitText(s) {
+  let html = "", at = 0;
+  [...s.hits].sort((a, b) => a.start - b.start).forEach((h) => {
+    if (h.start < at) return;
+    html += esc(s.text.slice(at, h.start)) + `<span class="hit">${esc(s.text.slice(h.start, h.end))}</span>`;
+    at = h.end;
+  });
+  return html + esc(s.text.slice(at));
+}
+
+function umCard(ex, i) {
+  const g = UM_LABEL_GROUP(ex.label), p = ex.probe || {};
+  const probe = p.adjudicable === false ? `n/a (${esc(p.na_reason)})`
+    : `${p.fire_L ? "<b>fires</b> at L" + ex.layer : "does not fire at L" + ex.layer}${(p.fire_nearby_layers || []).length ? ` · nearby fires: L${p.fire_nearby_layers.join(", L")}` : ""} · ${p.n_distractors} distractors`;
+  return `<div class="card">
+    <h2>#${i + 1} ${chip(g, ex.label)} <span>${esc(ex.method)}</span>
+      <span class="meta">${esc(ex.domain)} · ${esc(ex.id)} · L${ex.layer} · pos ${ex.pos} · gold <b>${esc(ex.gold)}</b> · mentioned <b>${esc(ex.concept)}</b></span></h2>
+    <div class="label">user message (implies the gold, never names it)</div><div class="ctx">${esc(ex.user)}</div>
+    ${ex.response ? `<details><summary>model response</summary><div class="ctx">${esc(ex.response)}</div></details>` : ""}
+    <div class="label">readout samples mentioning “${esc(ex.concept)}”${ex.via_summary ? " (J-lens summary)" : ""}</div>
+    ${ex.samples.map((s) => `<div class="readout"><span class="rn">sample ${s.si}</span>${hitText(s)}</div>
+      <div class="meta" style="margin:-2px 0 6px 13px">commitment judge: ${s.committed == null ? "—" : s.committed ? "<b>committed</b> (asserted as the user's)" : "not committed"}${s.form ? " · form " + esc(s.form) : ""}${s.hedged ? " · hedged" : ""}${s.why ? " — " + esc(s.why) : ""}</div>`).join("")}
+    <table>
+      <tr><th>step</th><th>result</th></tr>
+      <tr><td>1. lexicon mention</td><td>${esc(ex.concept)} (non-gold; gold = ${esc(ex.gold)})</td></tr>
+      <tr><td>2. commitment</td><td>${ex.committed ? "committed" : "not committed → stops here"}</td></tr>
+      ${ex.committed ? `<tr><td>3. probe test</td><td>${probe}</td></tr>
+      <tr><td>4. cross-method</td><td>${(ex.cross || []).length ? "within ±4 layers: " + ex.cross.map((c) => esc(typeof c === "string" ? c : JSON.stringify(c))).join(", ") : "none within ±4 layers"}${(ex.cross_any_layer || []).length ? ` <span class="meta">(any layer: ${esc(ex.cross_any_layer.join(", "))})</span>` : ""}</td></tr>` : ""}
+      <tr><td><b>label</b></td><td>${chip(g, ex.label)}</td></tr>
+    </table>
+  </div>`;
+}
+
+const TABS = [
+  ["chat", "Standard chat", claimmapCard], ["story", "Story", claimmapCard],
+  ["um", "User model", umCard], ["am", "Agentic misalignment", amCard],
+];
+function show(key) {
+  const [k, title, card] = TABS.find((t) => t[0] === key);
+  document.querySelectorAll("nav button").forEach((b) => b.classList.toggle("on", b.dataset.k === k));
+  const exs = DATA[k] || [];
+  document.getElementById("main").innerHTML =
+    `<div class="about">${ABOUT[k]}${k === "chat" || k === "story" || k === "am" ? legend() : ""}<p class="meta">${exs.length} examples · seed ${DATA.seed} · source ${esc(DATA.sources[k])}</p></div>` +
+    exs.map(card).join("");
+  history.replaceState(null, "", "#" + k);
+}
+document.getElementById("tabs").innerHTML = TABS.map(([k, t]) => `<button data-k="${k}">${t} (${(DATA[k] || []).length})</button>`).join("");
+document.querySelectorAll("nav button").forEach((b) => b.onclick = () => show(b.dataset.k));
+show((location.hash || "#chat").slice(1));
+</script>
+</body>
+</html>
