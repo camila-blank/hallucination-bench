@@ -401,9 +401,11 @@ uv run --no-sync python $S label && uv run --no-sync python $S figures
   `umcommit` prompt / parse / fail-closed; distractors; `ProbeContext` fire rule; labels;
   bootstrap), `um_probe.py` (logistic probe, per-fold null z, implied validity, centroids;
   copied into the Modal job with `probes.py`), `um_regions.py` (12 merged M49 regions).
-- `ladder_lex.py` and `data/sibling_probe/br_lexicons.json` are **verbatim copies** of plan
-  0005's (uncommitted there when copied); Set A changes live only in `SET_A_LEXICON_PATCH`. At
-  rebase take plan 0005's versions and re-run `tests/test_um_ladder.py`.
+- The country ladder reads `data/sibling_probe/br_lexicons_um_v1.json`, **not** plan 0005's
+  `br_lexicons.json`. It is a frozen copy taken before plan 0005's bare-name alias fix, and it is
+  what results 0006 used (sha256 pinned by `tests/test_um_lexicon_pin.py`). Set A changes live
+  only in `SET_A_LEXICON_PATCH`. Adopting the newer lexicon is a results change: re-run and
+  update `docs/results/0006`.
 - Lexicon traps the patch handles (each tested): "Korean" (missing from the copy), 朝鲜 (Korean
   ethnicity, not North Korea), Soviet aliases (a `soviet` stratum on Ukraine / Belarus / Russia
   golds, Russia elsewhere), capitals un-blocked as country aliases except Washington / Male
