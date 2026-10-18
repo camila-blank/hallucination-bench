@@ -11,9 +11,11 @@ import json
 import random
 from collections.abc import Iterator
 from pathlib import Path
+from types import ModuleType
 from typing import Any
 
-from hallucination_bench.evals.wsbench_chat import NAME, bank
+from hallucination_bench.evals import bank_for
+from hallucination_bench.evals.wsbench_chat import NAME, bank  # chat: pilot_dump stays chat-only
 from hallucination_bench.evals.wsbench_chat.run import STAGES, Models, model_slug, rebuild_arm
 from hallucination_bench.judges.v5c import SPECIFIC_CLASSES
 
@@ -39,8 +41,8 @@ STRICT_COLS: tuple[tuple[str, str], ...] = (
 )
 
 
-def model_root(out_root: Path, judge_model: str) -> Path:
-    return Path(out_root) / NAME / model_slug(judge_model)
+def model_root(out_root: Path, judge_model: str, eval_name: str = NAME) -> Path:
+    return Path(out_root) / eval_name / model_slug(judge_model)
 
 
 def arm_dirs(root: Path) -> list[Path]:
@@ -73,11 +75,13 @@ def _table(
     return [f"### {title}", "", head, sep, *(_row(n, b, cols) for n, b in rows), ""]
 
 
-def build(summaries: dict[str, dict[str, Any]], judge_model: str) -> tuple[str, dict[str, Any]]:
+def build(
+    summaries: dict[str, dict[str, Any]], judge_model: str, *, eval_name: str = NAME
+) -> tuple[str, dict[str, Any]]:
     prose = {a: s for a, s in summaries.items() if s["config"]["kind"] == "prose"}
     tokens = {a: s for a, s in summaries.items() if s["config"]["kind"] == "tokens"}
     md: list[str] = [
-        f"# wsbench_chat report — judge {judge_model}",
+        f"# {eval_name} report — judge {judge_model}",
         "",
         "Rates in %, item-bootstrap 95% CI in brackets (2,000 draws, seed 0). Readout-level "
         "rates over specific readouts; strict / lenient / unsupported / disputed over "
@@ -161,15 +165,17 @@ def iter_cells(d: Path) -> Iterator[dict[str, Any]]:
                 yield json.loads(line)
 
 
-def _context(rec: dict[str, Any], width: int = 400) -> tuple[str, str]:
-    item = next(it for it in bank.load_items() if it["id"] == rec["id"])
+def _context(rec: dict[str, Any], width: int = 400, bank_mod: ModuleType = bank) -> tuple[str, str]:
+    item = next(it for it in bank_mod.load_items() if it["id"] == rec["id"])
     site = next(s for s in item["sites"] if int(s["pos"]) == rec["pos"])
-    mr = bank.marked_response(item, site)
+    mr = bank_mod.marked_response(item, site)
     i = mr.index("⟦READ⟧")
     return item["prompt"], mr[max(0, i - width) : i + width]
 
 
-def audit_samples(dirs: list[Path], *, n: int = 15, seed: int = 0) -> str:
+def audit_samples(
+    dirs: list[Path], *, n: int = 15, seed: int = 0, bank_mod: ModuleType = bank
+) -> str:
     """``n`` random spans per (type x grounding) across arms (reservoir sampling, streaming)."""
     rng = random.Random(seed)
     strata: dict[tuple[str, str], list[tuple[str, dict, dict]]] = {}
@@ -195,7 +201,7 @@ def audit_samples(dirs: list[Path], *, n: int = 15, seed: int = 0) -> str:
     for (typ, g), rows in sorted(strata.items()):
         out += [f"## type={typ}, grounding={g} ({seen[(typ, g)]} spans in total)", ""]
         for arm, rec, sp in rows:
-            prompt, ctx = _context(rec)
+            prompt, ctx = _context(rec, bank_mod=bank_mod)
             readout = (rec.get("samples") or [""])[sp["readout_idx"]]
             out += [
                 f"### {arm} {rec['key']} {sp['span_id']}",
@@ -217,9 +223,15 @@ def load_arm_json(d: Path) -> dict[str, Any]:
 
 
 def report(
-    out_root: Path, judge_model: str, *, rebuild: bool = True, audit_n: int = 15, seed: int = 0
+    out_root: Path,
+    judge_model: str,
+    *,
+    rebuild: bool = True,
+    audit_n: int = 15,
+    seed: int = 0,
+    eval_name: str = NAME,
 ) -> Path:
-    root = model_root(out_root, judge_model)
+    root = model_root(out_root, judge_model, eval_name)
     dirs = arm_dirs(root)
     if not dirs:
         raise SystemExit(f"no arms under {root}")
@@ -233,15 +245,17 @@ def report(
             effort=a["effort"],
             map_model=a.get("map_model"),
             map_anchor=a.get("map_anchor", "v5c"),  # arms written before rev 13 were anchored
+            eval=eval_name,
         )
         if rebuild:
             summaries[d.name] = rebuild_arm(d.name, Path(a["readouts"]), out_root, models)
         else:
             summaries[d.name] = json.loads((d / "summary.json").read_text())
-    md, js = build(summaries, judge_model)
+    md, js = build(summaries, judge_model, eval_name=eval_name)
     (root / "report.md").write_text(md + "\n")
     (root / "report.json").write_text(json.dumps(js, indent=1) + "\n")
-    (root / "audit_samples.md").write_text(audit_samples(dirs, n=audit_n, seed=seed) + "\n")
+    audit = audit_samples(dirs, n=audit_n, seed=seed, bank_mod=bank_for(eval_name))
+    (root / "audit_samples.md").write_text(audit + "\n")
     return root
 
 

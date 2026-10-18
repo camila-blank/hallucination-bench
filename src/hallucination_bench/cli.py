@@ -9,6 +9,7 @@ from hallucination_bench.llm import DEFAULT_EFFORT, JudgeConfigError
 
 DEFAULT_MODEL = "claude-opus-5-5"
 READOUTS_FILE = "hallucination.jsonl"
+AM_EVAL = "agentic_misalignment"  # plan 0008: its own driver (dispatched first in run / report)
 
 
 def _layers(s: str | None) -> list[int] | None:
@@ -59,6 +60,7 @@ def _models(args: argparse.Namespace):
         effort=_effort(args.effort),
         map_model=getattr(args, "map_model", None),
         map_anchor=getattr(args, "anchor", None) or "none",
+        eval=getattr(args, "eval", None) or "wsbench_chat",
     )
 
 
@@ -80,7 +82,88 @@ def _stages(args: argparse.Namespace) -> list[str]:
     return sel
 
 
+def _items(s: str | None) -> list[str] | None:
+    return [x.strip() for x in s.split(",") if x.strip()] if s else None
+
+
+def _run_am(args: argparse.Namespace) -> int:
+    """``hbench run --eval agentic_misalignment`` (plan 0008): the AM driver, its own
+    ``--stages`` (detect,summ,verify,map,intent) and readouts file; exit 4 when failed calls
+    remain."""
+    from hallucination_bench.evals.agentic_misalignment import run as amrun
+
+    try:
+        stages = amrun.parse_stages(args.stages)
+    except ValueError as e:
+        raise SystemExit(str(e)) from None
+    arms = amrun.resolve_arms(args.arm, args.readouts_root, args.arms)
+    models = _models(args)
+    out = Path(args.out)
+    if args.rebuild:
+        summaries = {n: amrun.rebuild(n, p, out, models) for n, p in arms}
+        intent = amrun.intent_status(out, models)
+    else:
+        res = amrun.run_am(
+            arms,
+            out,
+            models,
+            layers=_layers(args.layers),
+            items=_items(args.items),
+            limit=args.limit,
+            rpm=args.rpm,
+            concurrency=args.concurrency,
+            stages=stages,
+            show_prompts=args.show_prompts,
+        )
+        summaries, intent = res["arms"], res["intent"]
+    for n, s in summaries.items():
+        _print_am_summary(n, s)
+    print(
+        f"[intent] ok={intent['n_ok']} failed={intent['n_failed']} pending={intent['n_pending']}"
+        + (f" failed_items={intent['failed']}" if intent["failed"] else ""),
+        flush=True,
+    )
+    if args.rebuild:
+        return 0
+    # intent failures count toward exit 4 only when the intent stage ran (a refused intent item is
+    # resolved by intent_overrides.json, and must not block the detector / map runs)
+    n_failed = sum(amrun.n_failed(s) for s in summaries.values())
+    if "intent" in stages:
+        n_failed += intent["n_failed"]
+    # Stage H failures likewise count only when the verify stage ran (plan 0008 rev 13)
+    if "verify" in stages:
+        n_failed += sum(amrun.n_failed_verify(s) for s in summaries.values())
+    if n_failed:
+        print(f"{n_failed} failed calls remain; re-run to retry them", file=sys.stderr)
+        return 4
+    return 0
+
+
+def _print_am_summary(name: str, s: dict) -> None:
+    h = s["health"]
+    det = s["overall"]["detection"]
+    v = s["overall"]["headline"]["verdict"]["rows"]
+
+    def f(x: float | None) -> str:
+        return "—" if x is None else f"{x:.3f}"
+
+    failed = {k.removeprefix("n_failed_"): h[k] for k in h if k.startswith("n_failed_")}
+    print(
+        f"[{name}] layers={s['config']['judged_layers']} detected={det['n_detected']}/"
+        f"{det['n_detect_ok']} rate={f(det['detected_rate'])} mentions={det['n_mentions']} "
+        f"pending_detect={h['n_pending_detect']} map_ok={h['n_map_ok']} "
+        f"pending_map={h['n_pending_map']} failed={failed} | headline spans="
+        f"{s['overall']['headline']['n_spans']} hallucination={f(v['hallucination']['pooled'])} "
+        f"thinky={f(v['thinky']['pooled'])} spend_total=${s['spend']['total_usd']:.2f}",
+        flush=True,
+    )
+
+
 def cmd_run(args: argparse.Namespace) -> int:
+    if getattr(args, "eval", None) == AM_EVAL:
+        return _run_am(args)
+    if getattr(args, "items", None):
+        raise SystemExit("--items is an agentic_misalignment option")
     from hallucination_bench.evals.wsbench_chat import run as wrun
 
     arms = resolve_arms(args)
@@ -184,6 +267,8 @@ def _calibrate_v2(args: argparse.Namespace) -> int:
 
 
 def cmd_report(args: argparse.Namespace) -> int:
+    if getattr(args, "eval", None) == AM_EVAL:
+        return _report_am(args)
     from hallucination_bench import report
 
     if args.view == "v2":
@@ -196,6 +281,7 @@ def cmd_report(args: argparse.Namespace) -> int:
             audit_n=args.audit_n if args.audit_n is not None else 10,
             seed=args.seed,
             verdict_n=args.audit_verdict_n,
+            eval_name=args.eval,
         )
         print(
             f"wrote {root / 'report_v2.md'}, {root / 'report_v2.json'}, "
@@ -209,8 +295,31 @@ def cmd_report(args: argparse.Namespace) -> int:
         rebuild=not args.no_rebuild,
         audit_n=args.audit_n if args.audit_n is not None else 15,
         seed=args.seed,
+        eval_name=args.eval,
     )
     print(f"wrote {root / 'report.md'}, {root / 'report.json'}, {root / 'audit_samples.md'}")
+    return 0
+
+
+def _report_am(args: argparse.Namespace) -> int:
+    """``hbench report --eval agentic_misalignment`` (plan 0008): rebuild every AM arm from its
+    readouts (default root: the paper readouts) plus the cache, then report.md / report.json."""
+    if args.view == "v2":
+        raise SystemExit(
+            "report --eval agentic_misalignment has no --view v2: its report is the claim map "
+            "already (drop --view)"
+        )
+    from hallucination_bench.evals.agentic_misalignment import report as amreport
+
+    root = amreport.report(
+        Path(args.out),
+        args.judge_model,
+        readouts_root=Path(args.readouts_root) if args.readouts_root else None,
+        rebuild=not args.no_rebuild,
+        audit_n=args.audit_n if args.audit_n is not None else 10,
+        seed=args.seed,
+    )
+    print(f"wrote {root / 'report.md'}, {root / 'report.json'}")
     return 0
 
 
@@ -421,6 +530,18 @@ def cmd_sibling(args: argparse.Namespace) -> int:
     raise SystemExit(f"unknown sibling command {args.sib}")
 
 
+def _eval(p: argparse.ArgumentParser) -> None:
+    from hallucination_bench.evals import EVALS
+
+    p.add_argument(
+        "--eval",
+        choices=sorted(EVALS),
+        default="wsbench_chat",
+        help="which bank / output root <out>/<eval>/ (story: plan 0007; agentic_misalignment: "
+        "plan 0008, its own driver; default wsbench_chat)",
+    )
+
+
 def _anchor(p: argparse.ArgumentParser) -> None:
     p.add_argument(
         "--anchor",
@@ -438,7 +559,11 @@ def build_parser() -> argparse.ArgumentParser:
     r = sub.add_parser("run", help="judge arms (summarise -> span -> verify -> map -> classify)")
     _common(r)
     r.add_argument("--arm", action="append", help="name=path/to/hallucination.jsonl (repeatable)")
-    r.add_argument("--readouts-root", help="DIR with <arm>/hallucination.jsonl subdirectories")
+    r.add_argument(
+        "--readouts-root",
+        help="DIR with <arm>/hallucination.jsonl subdirectories (agentic_misalignment: "
+        "<arm>/agentic_misalignment.jsonl, default /workspace/wsbench-paper-data/readouts)",
+    )
     r.add_argument("--arms", help="comma-separated arm names to keep")
     r.add_argument("--layers", help="comma-separated layers (each arm judges those it has)")
     r.add_argument(
@@ -447,17 +572,25 @@ def build_parser() -> argparse.ArgumentParser:
         default=None,
         help="judge only the first N non-empty cells per arm x layer (smoke)",
     )
+    r.add_argument(
+        "--items",
+        default=None,
+        help="agentic_misalignment only: comma-separated item ids to judge (pilot)",
+    )
     r.add_argument("--summarizer-model", default=None)
     r.add_argument("--classifier-model", default=None)
     r.add_argument("--map-model", default=None, help="claim-map (:M) judge (default: judge)")
     _anchor(r)
+    _eval(r)
     r.add_argument(
         "--stages",
         default=None,
         help="comma-separated stages that may call the API: summary,span,verify,classify,map "
         "(default: all; dependencies are added: map runs summary first if missing, and span "
         "only under --anchor v5c; single-call map also calls span on a seeded 10%% item "
-        "subsample for the v5c comparison)",
+        "subsample for the v5c comparison). agentic_misalignment: detect,summ,verify,map,intent "
+        "(verify = Stage H, the headline verifier; default all; no dependencies are added, "
+        "unselected stages are cache-only)",
     )
     r.add_argument("--allow-missing", action="store_true")
     r.add_argument(
@@ -506,6 +639,13 @@ def build_parser() -> argparse.ArgumentParser:
     rp.add_argument("--audit-n", type=int, default=None, help="per leaf; default 15 (v1) / 10 (v2)")
     rp.add_argument("--audit-verdict-n", type=int, default=20, help="v2: audit samples per verdict")
     rp.add_argument("--seed", type=int, default=0)
+    rp.add_argument(
+        "--readouts-root",
+        default=None,
+        help="agentic_misalignment only: DIR with <arm>/agentic_misalignment.jsonl (default "
+        "/workspace/wsbench-paper-data/readouts); ignored by the other evals",
+    )
+    _eval(rp)
     rp.set_defaults(fn=cmd_report)
 
     cs = sub.add_parser(

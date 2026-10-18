@@ -384,9 +384,19 @@ class LLM:
             if model in self._preflighted:
                 return
             schema = schema_block("t", {"a": {"type": "integer"}}, ["a"])
-            out = await self.call(
-                model=model, system="Reply JSON.", user='Return {"a":1}', schema=schema
-            )
+            # a transient failure (e.g. the org output-token rate limit is saturated by other
+            # runs) is retried with a backoff for up to ~30 min; a 401 still raises at once
+            for attempt in range(30):
+                out = await self.call(
+                    model=model, system="Reply JSON.", user='Return {"a":1}', schema=schema
+                )
+                if out.result == {"a": 1} or out.result is not None:
+                    break
+                print(
+                    f"  preflight {model}: no answer (attempt {attempt + 1}/30), retry in 60 s",
+                    flush=True,
+                )
+                await asyncio.sleep(60)
             if out.result != {"a": 1}:
                 raise JudgeConfigError(f"preflight failed for {model}: {out.result}")
             self._preflighted.add(model)

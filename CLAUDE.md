@@ -4,7 +4,10 @@ Suite of evals for the **types and severities** of hallucination in activation-r
 First eval: `wsbench_chat` (plan `plans/0001-bootstrap-wsbench-chat-taxonomy.md` is the spec);
 the claim map / taxonomy v2 is plan `plans/0002-claim-map-taxonomy-v2.md`; the sibling-concept
 probe eval is plan `plans/0003-sibling-concept-probes.md` (stage 1: inventory + bank; stage 2:
-probes, judge, score, report).
+probes, judge, score, report); the `story` eval (the claim map on 20 story items, `--eval story`)
+is plan `plans/0007-story-eval.md`; the `agentic_misalignment` eval (detector + claim map on lens
+mentions of misalignment, its own driver, `--eval agentic_misalignment`) is plan
+`plans/0008-agentic-misalignment-claim-map.md`.
 
 ## Layout
 
@@ -25,8 +28,22 @@ src/hallucination_bench/
   judges/v5c.py   verbatim v5c span + verify prompts/parsers; claim_lists (quotes, checked vs tally)
   judges/taxonomy_v1.py  classifier prompt, schema, validate, fail-closed parse
   judges/claimmap_v2.py  claim-map prompt, schema, validate, parse -> segments (forced/disputed)
-  evals/wsbench_chat/{bank,run,score}.py   bank + grid; pipeline; metrics + bootstrap
+  evals/__init__.py  EVALS registry + bank_for(name); Models.eval picks the bank and <out>/<eval>/
+  evals/_bank_common.py  sites / positions / marked response / expected grid (every bank)
+  evals/story/bank.py    the story bank (data/story); the pipeline is wsbench_chat's (plan 0007)
+  evals/wsbench_chat/{bank,run,score}.py   bank + grid; pipeline (shared); metrics + bootstrap
   evals/wsbench_chat/score_v2.py   claim-map metrics (char-weighted shares, rates, comparisons)
+  evals/agentic_misalignment/      plan 0008 (own driver; NOT the chat pipeline):
+    kinds.py      THE misconduct-kind table + actor/stance enums + design-kind map (rendered
+                  into the detector, screener and intent prompts)
+    bank.py       data/agentic_misalignment bank; marked_prompt (marker in the PROMPT)
+    detect.py     amdetect-v1 / amscreen-v1 prompts, schema, batch render, fail-closed parse
+    verify.py     amverify-v1 (Stage H, rev 13): blind headline verifier prompt, schema, per-mention parse
+    intent.py     amintent-v2 (research frame; rollout + scenario kinds, located quotes) + intent_overrides.json
+    run.py        run_am (D -> S -> H -> M + intent), Detector terminal rule, Verifier, rebuild
+    score.py      mention_verdict, regions, kind_match, set-up, counting spans, shares
+    report.py     `report --eval agentic_misalignment` (report.md / report.json)
+  judges/claimmap_am.py  claimmap-v2.7+am2: research frame + chat SYSTEM + tail verbatim, AM head (marker in prompt)
   calibrate.py    classifier vs gold cases, Wilson CIs, the held-out gate
   calibrate_v2.py claim map vs unit-level gold (dev_v2 / heldout_v2), the v2 gate
   report.py       cross-arm report, audit samples, pilot-dump
@@ -45,11 +62,19 @@ src/hallucination_bench/
 data/wsbench_chat/   verbatim copies from wsbench-pub @ 92d763e (never edit)
 data/calibration/    dev.jsonl (implementer), heldout.jsonl (blind author only), README (schema + log)
                      dev_v2.jsonl (implementer), heldout_v2.jsonl (blind author only)
+data/story/          20 story items x 8 sites + capture rows, built by scripts/build_story_bank.py
+data/agentic_misalignment/  32 AM items x every prompt position (50,452 sites), personas, built
+                     by scripts/build_am_bank.py; intent_overrides.json after the intent audit
 scripts/run_all_arms.sh  tmux driver for the full run
+scripts/build_story_bank.py  writes data/story/ from global-workspace's hallucination_creative bank
+scripts/fetch_story_readouts.sh  Modal story gen dir -> /workspace/hb-readouts-story/<arm>/ + grid check
 scripts/build_dev_v2.py  writes dev_v2.jsonl (labels live here; re-run if the splitter changes)
 data/sibling_probe/  concepts.json, items.json, probe_texts.jsonl, pilot/ (README = schema + provenance)
 scripts/sibling_probe/   count_siblings / build_concepts / gen_items / write_plans (local),
                          qwen_gen_modal.py + run_modal.sh (GPU; gw scripts run from $GW, never edited)
+scripts/build_am_bank.py  writes data/agentic_misalignment/ (streams the readouts; fails loudly)
+scripts/am_audit.py  AM audits: sample | sample-headline | screen | summ-only | sample-tiers | score
+scripts/run_am.sh    AM driver: step1 (tmux hbench-am-detect) | step2 (tmux hbench-am-map)
 ```
 
 ## Conventions
@@ -93,6 +118,54 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
 ```
 
 ## Gotchas
+
+- **`--eval story`** (plan 0007) exists on `run` and `report` only. Its outputs live under
+  `outputs/story/<model>/`, and its readouts are not in git:
+  `/workspace/hb-readouts-story/<arm>/hallucination.jsonl`, produced by the Modal reads of
+  `wsbench-acts:/acts-hallucination-story[-L42]`.
+  - Story is **always pre-gate**, because the held-out gate is chat gold. Its report has no
+    judge-noise numbers.
+  - Never run `consistency-v2` for story: it is chat-only, and its output file is the chat noise
+    source.
+  - `pilot-dump*`, `calibrate` and `units-v2` are chat-only.
+
+- **`--eval agentic_misalignment`** (plan 0008) is its own driver (`evals/agentic_misalignment/run.py`),
+  dispatched first in `cmd_run` / `cmd_report`; chat and story never touch it.
+  - **The readouts are prompt positions only** (every position up to `<|im_start|>assistant`,
+    no thinning), so the marker `⟦READ⟧` sits **in the prompt**, not the response; the claim map
+    uses `claimmap_am` (chat SYSTEM byte for byte, new head, chat tail). Never feed AM cells to
+    the chat pipeline.
+  - Readouts file `<arm>/agentic_misalignment.jsonl` (default root the paper readouts; default
+    arms s3d-rl600, nla-rl-L42, jlens). The loader checks the whole file (full 50,452-site grid
+    per layer, no unknown ids) before `--items` / `--layers` / `--limit` apply.
+  - `--stages detect,summ,verify,map,intent` add no dependencies: unselected stages are cache-only
+    (`--stages map` maps only cells whose detection is cached). Intent is per item, cached in
+    `<out>/agentic_misalignment/<model>/intent.jsonl`; any one `--arms` value triggers it.
+  - Detector cache is per cell (`{key}:D`, J-lens summaries `{key}:Dsum`), fingerprint over the
+    canonical readout lines (no batch label); usage only on `batchD:` rows (spend sums every
+    row). Failed cells retry as batches of 1 in the same run; 2 failed single-cell rows with a
+    partial parse -> accepted (`meta.accepted_partial`). `batchD:` / `audit:` keys are never
+    counted as cells.
+  - **Stage H** (`--stages verify`, `amverify-v1`, plan 0008 rev 13; exists because the O-lens
+    headline-membership gate failed at 0.70 under amdetect-v2) re-judges only headline candidates
+    and changes **only headline membership, never the map population** (map stays on every
+    detected cell; no `:D` / `:Dsum` / `:M` key or fingerprint changes). Rows
+    `{key}:H:{readout}:{start}-{end}` + usage-only `batchH:` rows (never counted as cells); a
+    candidate without a result keeps the old rule (`health.n_headline_unverified`); record
+    `actor` / `stance` are the verified ones (`stance_raw` / `actor_raw` = detector), `kind` stays
+    the detector's; H failures exit 4 only when `verify` is selected. After Stage H, re-draw the
+    membership sheet with `am_audit.py sample-headline` (rewrites ONLY `audit/headline.jsonl`).
+  - J-lens: the scored mentions are the **summary's** (`:Dsum`); `lost_in_summary` is an upper
+    bound until `am_audit.py sample`'s lost_in_summary sheet is read.
+  - Every headline number counts **spans** (overlapping mention spans of a readout merged);
+    the headline bootstrap resamples the 28 misaligned items. AM is always provisional (no gate).
+  - **API refusals** (pilot 2026-10-13): without the research frame (`claimmap_am.RESEARCH_FRAME`,
+    opening the AM user prompt and the intent prompt) Opus 5.5 hard-refused (stop_reason
+    `refusal`, 0 output tokens) ~73% of murder and ~29% of blackmail-replacement map calls.
+    Keep the frame in the USER prompt: in the system prompt it only halves refusals. Refusals are
+    cached as failed and re-queued; watch `usage.refusals` in the cache meta.
+  - Rebuilding an 11-layer arm loads ~555k cells (~1 GB for J-lens): fine under the 32 GB cap,
+    but do not run several AM rebuilds in parallel.
 
 - **Keyless Anthropic auth.** With `ANTHROPIC_API_KEY` unset, `AsyncAnthropic()` picks up the
   `ant` CLI OAuth profile (`ant auth status`). Never require the env var. If the profile's
