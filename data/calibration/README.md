@@ -135,3 +135,140 @@ Gold-label fixes: none.
     (`sampled: true`); the other spans are context and are not scored.
 - Caveat: the real-part gold labeller is the same model family as the classifier, so agreement
   on part (b) is optimistic.
+
+---
+
+# Claim-map (taxonomy v2) calibration cases (plan 0002)
+
+Files: `dev_v2.jsonl` (implementer), `heldout_v2.jsonl` (blind author only; never written or
+edited by the implementer). `hbench calibrate --taxonomy v2 --split dev|heldout` validates every
+case (`calibrate_v2.validate_case`) and refuses to run on an invalid file. The leaf definitions
+and rules live in `src/hallucination_bench/taxonomy_v2.py` (rendered into the judge prompt);
+label from that file, plan 0002 §Units, §The tree, §Precedence, §Detail rule and §Tags.
+
+## Workflow (gold uses the production unit split)
+
+1. Write the case without gold: `case_id`, `part`, `rules`, `kind`, `prompt`, `response` (with
+   `⟦READ⟧` exactly once), `readouts`, `established`.
+2. Run the production splitter over it:
+   `uv run hbench units-v2 --cases draft.jsonl --dest skeleton.jsonl`. This fills
+   `gold.units` with one entry per production unit (`id`, `text`, `established`, `leaf: null`).
+   Real cells come pre-split from `hbench pilot-dump-v2` (stratified by arm × v5c cell class;
+   it never shows claim-map output, so the labeller stays blind).
+3. Label exactly those units: set `leaf`, or, for a unit that carries more than one claim or
+   mixes claim and non-claim text, give `splits` (verbatim, in-order, non-overlapping sub-spans
+   of the unit text, each with a leaf) and `rest_leaf` (the leaf of the unquoted remainder;
+   required whenever the splits leave any non-whitespace text). Never edit `id` / `text`: the
+   loader re-runs the splitter and rejects a case whose units no longer match.
+
+## Schema (JSONL, one case per line)
+
+<!-- v2-example -->
+```json
+{"case_id": "dev2-xx-example", "part": "synthetic", "rules": ["sibling-subject-name", "split"], "kind": "prose", "prompt": "Who painted the Mona Lisa?", "response": "The Mona Lisa was painted by Leonardo da Vinci⟦READ⟧ in the early 1500s.", "readouts": ["<explanation>\nThe response attributes it to Picasso.\nThe user, Sarah, asks about a painting.\n</explanation>"], "established": [["The response attributes it to Picasso."]], "gold": {"units": [{"id": "R0.U1", "text": "<explanation>", "established": false, "leaf": "formatting", "splits": [], "rest_leaf": null}, {"id": "R0.U2", "text": "The response attributes it to Picasso.", "established": true, "leaf": "substitution_sibling", "splits": [], "rest_leaf": null}, {"id": "R0.U3", "text": "The user, Sarah, asks about a painting.", "established": false, "leaf": null, "splits": [{"text": "Sarah", "leaf": "detail"}], "rest_leaf": "restates_prefix"}, {"id": "R0.U4", "text": "</explanation>", "established": false, "leaf": "formatting", "splits": [], "rest_leaf": null}]}}
+```
+
+| field | type | rule |
+|---|---|---|
+| `case_id` | string | unique within the file |
+| `part` | `"synthetic"` \| `"real"` | `real` = a stored cell (`hbench pilot-dump-v2`); default `synthetic` |
+| `rules` | list of strings | optional tags naming the anchors / rules the case exercises |
+| `kind` | `"prose"` \| `"tokens"` | `tokens` = the readout is a summariser interpretation of a token bag (the prompt then says so); default `prose` |
+| `prompt` | string | the user prompt |
+| `response` | string | the full response with `⟦READ⟧` inserted **exactly once** |
+| `readouts` | list of 1–3 strings | what the judge sees (production: every non-empty readout of the cell) |
+| `established` | list (one per readout) of lists of strings | the v5c verified `wrong` spans of each readout (revoked or not); each must occur in its readout (`verify_quote` normalisation); overlapping ones are merged; each becomes its own unit. Optional (default none) |
+| `source` | object | optional (`{arm, key, v5c_cell_class}` for real cells) |
+| `gold.units[]` | list | **every** production unit, in order |
+| `gold.units[].id`, `.text`, `.established` | | copied from the splitter (`units-v2` / `pilot-dump-v2`); never edit |
+| `gold.units[].leaf` | one of the 12 leaves \| `null` | the unit's leaf when it is not split. `null` with no splits = unlabelled context (allowed on `real` cases only; not scored) |
+| `gold.units[].splits[]` | `{text, leaf}` | sub-spans, verbatim from the unit, left to right, non-overlapping |
+| `gold.units[].rest_leaf` | leaf \| `null` | required when `splits` leave a remainder |
+| `gold.units[].probe_target` | string | optional; on a probe-candidate unit, the expected probe target (reported next to the judge's, not gated) |
+| `gold.units[].dispute` | bool | optional; on an established unit whose correct leaf is **not** incorrect (the judge should dispute it). An established unit's gold must otherwise contain an incorrect leaf |
+
+Leaves (taxonomy v2, plan rev 16): `non_claim`, `correct`, `detail`, `false_claim`,
+`substitution_sibling`, `substitution_category`, `model_state`, `unverifiable`,
+`supplementary_true`, `supplementary_false`, `ambiguous_topic`, `off_topic`. Gold never uses the
+code-only `unknown_incorrect` / `failed`. Every leaf of revs 12–15 is merged on load
+(`taxonomy_v2.LEAF_RENAMES`; the carried tags go under `tags` / `rest_tags`, e.g.
+`stated_after` -> `correct` + `{source: after}`). Optional gold `tags` are informational.
+
+Single-call mode (the default since rev 13): established spans still make their own units (ids
+stay stable) but the flags are not shown to the judge; an established unit is scored against
+its gold leaf (for a disputed one, its non-incorrect gold leaf). The gate adds verdict accuracy
+(6 verdicts, unit level, ≥ 85%).
+
+Scoring (`calibrate_v2`): units are shared, so prediction and gold match one to one by unit.
+Recall rows, per-leaf recall and sibling-vs-category are per **gold segment** (the
+majority-character predicted leaf over that segment's characters); accuracies and the flip rate
+are per **unit** (each side's majority-character leaf); the claim/non-claim F1 and the
+character accuracies are per non-whitespace character. A predicted `unknown_incorrect` is
+scored by the judge's `alt_leaf` (disputed) or raw leaf (forced).
+
+## dev_v2.jsonl (synthetic, prompt iteration)
+
+45 cases, 187 gold units, written from scratch by the implementer (Claude, 2026-10-11) with
+`scripts/build_dev_v2.py` (the labels live there; re-run it if the splitter changes). Every
+case is invented. Coverage (asserted by `tests/test_calibrate_v2.py`): ≥ 3 gold segments for
+every leaf (min 3, e.g. 5 sibling and 4 category substitutions, 9 false_claim, 13 detail;
+segment counts skip pure-punctuation fragments), token-summary "The model is …" framing as
+`filler` (rev 11, `dev2-28/29`), 8
+established units (one should be disputed: `dev2-16`), and every decision anchor (asserted vs
+predicted invented event `dev2-04`; world-true `dev2-05/06/22`; possible_belief `dev2-05/24`;
+sibling vs category `dev2-21/22/23`; detail vs substitution for names `dev2-01/03/27`; numbers
+under the detail rule `dev2-03/06/07/18/23/27`; hedged hit and miss `dev2-08`; eval awareness
+`dev2-09/25`; token framing vs interpretation `dev2-11/12`; a claim that looks off-topic but is
+on topic `dev2-13`; rule 12 hedged `dev2-09/24` and flat `dev2-10`; the wrong bridge
+`dev2-20`). Rev 13: mechanical renames, dev2-24's "Brown eggs taste better" relabelled
+`supplementary_unsettled`, plus `dev2-33` (settlement, not subject: Guernica in a Blue Period
+answer; 2 unsettled) and `dev2-34` (2 unsettled; probe targets), and gold `probe_target` on
+`dev2-05/23/33/34` (4 anchors). Rev 14: every `unrealised_prediction` re-labelled
+(dev2-04, dev2-08 -> `unrealised_option`; dev2-07, dev2-17, dev2-34 -> `false_claim`; dev2-25
+-> `detail`, ship renamed "Rusty Anchor"), plus dev2-35 (option vs guide), dev2-36 (different
+answer), dev2-37 (我是 ChatGPT -> `substitution_sibling`), dev2-38 (Miss Wang for Miss Li ->
+`detail`); probe targets now on dev2-05/23/33/35/37 (dev2-34's decaf is no longer one). Rev 15 (incorrect only if obviously contradicted):
+uncontradicted invented content -> `unsupported_assertion` (dev2-04, 10, 27, 32); uncontradicted
+unrealised moves -> `unrealised_prediction` (dev2-07, 17, 34, 35); new anchors dev2-39
+(realised paraphrases), dev2-40 (paraphrase / alternative / contradicted continuation), dev2-41
+(contradicted details, unsupported "sister Maria"). dev2-35's option is no longer a probe target.
+Rev 16: gold merged mechanically (`scripts/build_dev_v2.py` keeps the fine labels and applies
+`remap_case`); dev2-36 reverted to `false_claim` (the rev-15 change was made after seeing judge
+output); new anchors dev2-42 (context word -> `detail`), dev2-43 (flood in a tobacco chat ->
+`false_claim`), dev2-44 (spill cleaned up, welcome to Oakville -> `unverifiable`), dev2-45
+("3. Baking soda" -> `unverifiable`, `same_slot_alternative`).
+
+Gold-labelling notes (judgement calls, following `taxonomy_v2.py` defaults):
+
+- `dev2-20`: the response says India's capital is Mumbai; the readout's "The capital will be
+  named as Mumbai" is `stated_after` (rule 6, tag `world_false`), and "The capital of India is
+  New Delhi" is contradicted by the conversation, so it is incorrect, and New Delhi in place of
+  Mumbai is `substitution_sibling`. This is the conversation-wins default (open decision 4).
+- Bare list markers left over when an established span starts mid-line (`-`) are `formatting`;
+  `- next:` style scaffolding is `filler`.
+- Token-summary lens framing ("The model is representing / anticipating / gearing up to") is
+  a `filler` split; what it attributes is judged as an ordinary claim or prediction, never
+  `model_state` (plan rev 11, rule 1).
+
+## heldout_v2.jsonl (gate only)
+
+Not written by the implementer. (a) ≥ 120 synthetic gold units by a fresh-context subagent that
+sees only plan 0002 §Units, §The tree, §Precedence, §Detail rule and §Tags, following the
+workflow above; (b) ≥ 120 real units from `hbench pilot-dump-v2` cells (arms s3d-rl600,
+nla-rl-L42, jlens, sae-l42, patchscopes; stratified by v5c class), hand-labelled blind and frozen
+before the first check. Minimums and the gate are in plan 0002 §Calibration. At most 3 held-out
+checks, each logged below.
+
+## Check log (v2)
+
+| date | split | prompt version | result | notes |
+|---|---|---|---|---|
+| 2026-10-11 | dev | claimmap-v2 | all dev rows pass except detail recall's Wilson bound (1.000, n = 5, lower 0.566) | group acc unit 0.954 / char 0.945, leaf acc 0.950, recall false_claim 1.00 / substitution 0.944 / correct 0.900, sib-vs-cat 1.00, claim F1 0.985, flip 0.031; 2 runs, $0.97; first dev run, no prompt edits |
+
+Gold-label fixes (v2): none.
+| 2026-10-11 | dev | claimmap-v2.1 (rev 11 framing rule; 32 cases, punctuation-only segments excluded) | all dev rows pass | group acc unit 0.966 / char 0.958, leaf acc 0.959, recall false_claim 1.00 / detail 0.923 (n 13) / substitution 1.00 / correct 0.910, sib-vs-cat 0.944, claim F1 0.992, flip 0.000; 2 runs, $2.06 |
+| 2026-10-11 | dev | claimmap-v2.3 (rev 13: supplementary branch, verdicts, probe targets; single-call, 34 cases) | all dev rows pass | group acc unit 0.940 / char 0.937, verdict acc 0.940, leaf acc 0.921, recall false_claim 1.00 / detail 0.923 / substitution 0.944 / correct 0.881, sib-vs-cat 0.819, claim F1 0.981, flip 0.044; 1 of 68 calls failed (dev2-32 r1); probe_target missing 0/25 per run; 2 runs, $1.42 |
+| 2026-10-11 | dev | claimmap-v2.4 (rev 14: narrow unrealised_option, name anchors, in-run retries; 38 cases) | all dev rows pass | group acc unit 0.955 / char 0.951, verdict acc 0.955, leaf acc 0.943, recall false_claim 0.964 / detail 0.900 / substitution 1.00 / correct 0.903, sib-vs-cat 0.900, claim F1 0.991, flip 0.006; 0 failed calls; unrealised_option recall 1.00 (n 3); 2 runs, $2.16 |
+| 2026-10-11 | dev | claimmap-v2.5 (rev 15: hallucination = obviously contradicted; unsupported_assertion; unrealised_prediction reinstated; 41 cases) | all dev rows pass | group acc unit 0.963 / char 0.956, verdict acc (7) 0.963, leaf acc (22) 0.935, recall false_claim 1.00 (n 6) / detail 0.964 / substitution 1.00 / correct 0.900, sib-vs-cat 0.900, claim F1 0.987, flip 0.006; unsupported_assertion 1.00 (n 9), unrealised_prediction 0.667 (n 6, misses go to unrealised_option); 2 runs, $3.73. Gold fix after the first scoring: dev2-36 "development environment" false_claim -> unrealised_prediction (rev 15 item 3; the judge read it as uncontradicted) |
+| 2026-10-11 | dev | claimmap-v2.6 (rev 16: 12 leaves + tags; 45 cases) | all dev rows pass | group acc unit 0.960 / char 0.955, verdict acc 0.960, leaf acc (12) 0.957, recall false_claim 1.00 / detail 1.00 / substitution 1.00 / correct 0.932, sib-vs-cat 0.950, claim F1 0.997, flip 0.016; unverifiable recall 0.875 (misses: dev2-04 curtains, dev2-07 corrected sentence, dev2-35 guide -> false_claim, i.e. contradiction by omission); 2 runs, $4.05 |
+| 2026-10-11 | dev | claimmap-v2.7 (rev 17: contradicted_by / supported_by, fail closed) | all dev rows pass | group acc unit 0.949 / char 0.944, verdict acc 0.949, leaf acc 0.947, recall false_claim 1.00 / detail 1.00 / substitution 0.950 / correct 0.912, sib-vs-cat 0.944, claim F1 0.993, flip 0.027; unquoted contradictions 0/34 and support 0/65-68 per run; 2 runs, $4.46 |
