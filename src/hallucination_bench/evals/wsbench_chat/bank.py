@@ -6,7 +6,9 @@ response, response_start, sites: [{pos, token, kind, char}]}]}``).
 """
 
 import json
+import os
 from functools import cache
+from pathlib import Path
 from typing import Any
 
 from hallucination_bench import DATA, WSBENCH_PUB_COMMIT
@@ -31,7 +33,9 @@ __all__ = [
 ]
 
 BANK_DIR = DATA / "wsbench_chat"
-ITEMS_PATH = BANK_DIR / "items.json"
+# HBENCH_WSBENCH_CHAT_ITEMS: another subject model's on-policy bank (same schema), e.g. the
+# DeepSeek-V4-Flash copy at <wsbench-pub-v4>/evals/hallucination/items.json
+ITEMS_PATH = Path(os.environ.get("HBENCH_WSBENCH_CHAT_ITEMS") or BANK_DIR / "items.json")
 BANK_SOURCE = f"camilablank/wsbench-pub@{WSBENCH_PUB_COMMIT}:evals/hallucination/items.json"
 BANK_COMMIT = WSBENCH_PUB_COMMIT
 

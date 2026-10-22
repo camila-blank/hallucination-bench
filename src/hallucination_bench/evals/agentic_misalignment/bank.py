@@ -9,8 +9,10 @@ marker goes into the prompt: :func:`marked_prompt`.
 """
 
 import json
+import os
 from collections.abc import Collection
 from functools import cache
+from pathlib import Path
 from typing import Any
 
 from hallucination_bench import DATA
@@ -34,9 +36,10 @@ __all__ = [
 ]
 
 BANK_DIR = DATA / "agentic_misalignment"
-ITEMS_PATH = BANK_DIR / "items.json"
+# HBENCH_AM_ITEMS: another subject model's bank (same schema, its own render and sites), e.g. the
+# DeepSeek-V4-Flash bank written by scripts/build_am_bank_v4.py
+ITEMS_PATH = Path(os.environ.get("HBENCH_AM_ITEMS") or BANK_DIR / "items.json")
 N_ITEMS = 32
-N_SITES = 50_452
 
 
 def render_prompt(system: str, text: str) -> str:
@@ -75,5 +78,6 @@ def conversation(item: dict[str, Any]) -> str:
 
 
 _META = load_bank()["meta"]
+N_SITES: int = _META["n_sites"]  # 50,452 for the Qwen bank
 BANK_COMMIT: str = _META["source_commit"]
 BANK_SOURCE = f"{_META['source_repo']}@{BANK_COMMIT[:7]}:{_META['source_path']}"

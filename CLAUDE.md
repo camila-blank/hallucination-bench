@@ -146,6 +146,13 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
   - Never run `consistency-v2` for story: it is chat-only, and its output file is the chat noise
     source.
   - `pilot-dump*`, `calibrate` and `units-v2` are chat-only.
+  - **DeepSeek-V4-Flash port** (2026-10-20): `HBENCH_STORY_ITEMS` points the story bank at
+    another subject's on-policy bank (V4: `outputs/v4/story_bank/items.json`, built by
+    gw-v4-flash-ar `scripts/v4_flash/story_v4_bank.py`; the producers read it as family
+    `hallucination_story` of the bench copy `/workspace/root/wsbench-pub-v4-story`).
+    `scripts/run_story_v4.sh <arm:volume>,...` fetches + grid-checks the readouts
+    (`outputs/v4/story_readouts/`) and judges into `outputs/v4/story/`;
+    `scripts/run_story_v4_rl600.sh` adds the RL600 arm once its adapter exists.
 
 - **`--eval agentic_misalignment`** (plan 0008) is its own driver (`evals/agentic_misalignment/run.py`),
   dispatched first in `cmd_run` / `cmd_report`; chat and story never touch it.

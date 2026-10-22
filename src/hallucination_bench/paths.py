@@ -16,6 +16,8 @@ def _env_path(var: str, default: str) -> Path:
 READOUTS_ROOT = _env_path("HBENCH_READOUTS_ROOT", "/workspace/wsbench-paper-data/readouts")
 # a workspace-bench (github.com/camilablank/workspace-bench) checkout: items, judge prompts
 WSBENCH_PUB = _env_path("HBENCH_WSBENCH_PUB", "/workspace/root/wsbench-pub")
+# the DeepSeek-V4-Flash copy of workspace-bench (V4 readouts under outputs/readouts/<arm>/)
+WSBENCH_PUB_V4 = _env_path("HBENCH_WSBENCH_PUB_V4", "/workspace/root/wsbench-pub-v4-opus")
 # a global-workspace checkout (hallucination_creative bank for the story eval)
 GLOBAL_WORKSPACE = _env_path("HBENCH_GLOBAL_WORKSPACE", "/workspace/global-workspace")
 # the checkout that ran plans 0003-0005 stage 1 (gitignored outputs/ the UM ladder reads)
@@ -34,4 +36,5 @@ __all__ = [
     "READOUTS_ROOT",
     "SIBLING_SRC_ROOT",
     "WSBENCH_PUB",
+    "WSBENCH_PUB_V4",
 ]
