@@ -114,7 +114,7 @@ scripts/run_am.sh    AM driver: step1 (tmux hbench-am-detect) | step2 (tmux hben
   root from their own location and read `${HBENCH_X:-<default>}`.
 - CI is pending (plan 0012 D5, held back for a token scope): until it lands, run ruff check +
   format and `pytest -rs` locally before pushing. Plan numbers are unique: the next free one is
-  0014 (0009/0010 belong to the unlanded resampling-gate branches).
+  0015 (0009/0010 belong to the unlanded resampling-gate branches).
 
 ## Run commands
 
@@ -153,6 +153,13 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
     `scripts/run_story_v4.sh <arm:volume>,...` fetches + grid-checks the readouts
     (`outputs/v4/story_readouts/`) and judges into `outputs/v4/story/`;
     `scripts/run_story_v4_rl600.sh` adds the RL600 arm once its adapter exists.
+    **On the index** (plan 0014): V4 arms (`v4-*`) are matched by name; pass the V4 roots
+    (`outputs/v4/{wsbench_chat,story,agentic_misalignment}/<judge>`, `outputs/v4/sibling/um`)
+    beside the Qwen ones. The sibling root is an export (`scripts/v4_um/export_index_root.py`)
+    of `outputs/v4/um`, renaming the ladder's `jlens` to `v4-jlens-std-n1000` (else it collides
+    with Qwen `jlens`). V4 AM is at layers 21/27/33 but chat/story at 15/24/30/36/39, so V4 has
+    no `full`/`matched` rows yet. The V4 chat bank's first 3 items are vLLM garbage (unpadded
+    `gen_vllm_modal.py` run; `docs/results/0013` §DeepSeek-V4-Flash).
 
 - **`--eval agentic_misalignment`** (plan 0008) is its own driver (`evals/agentic_misalignment/run.py`),
   dispatched first in `cmd_run` / `cmd_report`; chat and story never touch it.
