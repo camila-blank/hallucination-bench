@@ -245,7 +245,7 @@ def cmd_index(args: argparse.Namespace) -> int:
             sources[fam] = [Path(r) for r in roots]
     try:
         built = index.build_index(sources, index.load_methods(Path(args.methods)), args.workers)
-    except ValueError as e:
+    except (ValueError, OSError) as e:  # bad config (incl. JSONDecodeError) / unreadable file
         raise SystemExit(str(e)) from None
     dest = Path(args.dest) if args.dest else _index_dest(out, args.judge_model)
     js, md = index.write_index(built, dest)

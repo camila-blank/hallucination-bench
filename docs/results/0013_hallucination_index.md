@@ -24,7 +24,10 @@ uv run hbench index --dest outputs/index/claude-opus-5-5 \
   --um-root /workspace/hb-um-ladder/outputs/sibling/um
 ```
 
-## Table (the three methods with every family; every other arm has main-only rows)
+## Table (the macro3 methods)
+
+`mlnla64-rl600-all11` also has main / AM / story rows and so a `matched` value (see the generated
+`index.md`); every other arm has main-only rows.
 
 % of claims hallucinated per (method, layer), 95% CIs. Family weights main 9, agentic_misalignment 3, sibling 2, story 1; `matched` = main + agentic_misalignment + story. main leaf weights false_claim 1, substitution_category 0.5, substitution_sibling 0.5, detail 0.2; agentic_misalignment / story: unweighted false_claim + substitution_category + detail; sibling: 3-domain UM ladder.
 
