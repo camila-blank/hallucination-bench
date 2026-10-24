@@ -1,4 +1,4 @@
-"""Plan 0011 step 1: comprehensive lexicons for occupation / emotion / capital_city / holiday.
+"""Plan 0011 step 1: comprehensive lexicons for capital_city / holiday.
 
 Seeded with the Set A inventory (this repo's `data/sibling_probe/concepts.json`:
 concept ids, aliases, merges, exclusion phrases); `claude-opus-5-5` (prompt `umlex-v1`, cached in
@@ -29,22 +29,8 @@ OUT = REPO_ROOT / "data" / "sibling_probe" / "um_lexicons.json"
 CACHE = REPO_ROOT / "outputs" / "sibling" / "um" / "lexicon_cache.jsonl"
 MODEL = "claude-opus-5-5"
 PROMPT_VERSION = "umlex-v1"
-CATEGORIES = ("occupation", "emotion", "capital_city", "holiday")
+CATEGORIES = ("capital_city", "holiday")
 SPEC = {
-    "occupation": dict(
-        noun="occupation (job or profession)",
-        n="about 150",
-        extra="Include common jobs, trades, professions, academic and creative "
-        "roles, and 'student'. Merge pure synonyms into one concept "
-        "(author = writer = novelist; software engineer = programmer = developer).",
-    ),
-    "emotion": dict(
-        noun="emotion or feeling a person can have",
-        n="about 50",
-        extra="Each concept is a CLUSTER of near-synonyms (angry = furious = "
-        "frustrated = irritated = annoyed); list the members as aliases, with their "
-        "adjective and noun forms (angry, anger).",
-    ),
     "capital_city": dict(
         noun="city a traveller might visit (world capitals and major tourist cities)",
         n="about 150",
@@ -164,26 +150,10 @@ def build(cat: str, gen: dict[str, Any], inv: dict[str, Any]) -> tuple[dict[str,
 
 # generic / stock phrases that contain an instance word but name no instance
 BLOCK_EXTRA: dict[str, set[str]] = {
-    "emotion": {
-        "happy to help",
-        "happy to assist",
-        "glad to help",
-        "I'd be happy",
-        "I'm sorry",
-        "sorry to hear",
-        "excited to share",
-        "feel free",
-        "proud to present",
-        "grateful for your",
-        "thank you",
-        "hope this helps",
-        "I hope",
-    },
     "holiday": {"holiday season", "the holidays", "happy holidays"},
     "capital_city": {"George Washington", "Washington State", "Paris Hilton"},
-    "occupation": {"as an AI", "AI assistant", "your assistant"},
 }
-CAPITALISED_ONLY = {"capital_city": "all", "holiday": "all", "occupation": (), "emotion": ()}
+CAPITALISED_ONLY = {"capital_city": "all", "holiday": "all"}
 
 
 def main() -> None:

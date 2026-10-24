@@ -1,5 +1,9 @@
 # Plan 0011: the plan 0006 sibling ladder on 4 more user-modelling domains
 
+> **Status (plan 0013):** the final sibling eval is this ladder on 3 domains (country, capital_city,
+> holiday). The superseded predecessors (plans 0003–0005) and the occupation / emotion domains were
+> removed from the tree; they remain in git history.
+
 > Numbered 0007 until plan 0012 (D1) renumbered it: `plans/0007-story-eval.md` already held 0007.
 
 Branch `camila/um-ladder-v2` (stacked on plan 0006). Author: Camila Blank (planned with Claude),

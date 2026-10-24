@@ -8,13 +8,13 @@ country prompt itself stays the literal ``um_ladder.COMMIT_SYSTEM`` (its cache f
 
 from dataclasses import dataclass
 
-DOMAINS = ("country", "occupation", "emotion", "capital_city", "holiday")
+DOMAINS = ("country", "capital_city", "holiday")
 
 
 @dataclass(frozen=True)
 class Domain:
     name: str
-    noun: str  # "occupation"
+    noun: str  # "city"
     question: str
     committed: str  # what asserted_identity means here
     committed_examples: str
@@ -27,42 +27,6 @@ class Domain:
 
 
 SPECS: dict[str, Domain] = {
-    "occupation": Domain(
-        name="occupation",
-        noun="occupation",
-        question="What is the user's occupation (job or profession)?",
-        committed="the sample asserts or presupposes that the user (or the prompt's author) "
-        "works as the marked occupation, is training for it or did it as their career",
-        committed_examples='"a user who works as a locksmith", "occupation: fisherman", '
-        '"| occupation = Flight attendant", "as a nurse, you probably", "my years as a sailor"',
-        reconstructed_examples='"the prompt comes from a farmer describing their morning", "a '
-        'message from a software engineer about debugging", "Domain cues: historian persona"',
-        options_examples='"a farmer or a fisherman", "some trade such as plumber or electrician"',
-        comparison_examples='"as precise as a surgeon", "like a detective would", "a '
-        'chef-style recipe"',
-        other_examples='"a fictional detective named Sam", "the user\'s doctor", "a '
-        'customer", "a famous scientist", "[Occupation, e.g. Teacher]"',
-    ),
-    "emotion": Domain(
-        name="emotion",
-        noun="emotion",
-        question="How does the user feel (about what they describe)?",
-        committed="the sample asserts or presupposes that the user (or the prompt's author) "
-        "feels the marked emotion now, about the event they describe",
-        committed_examples='"the user is embarrassed about the slip", "feeling: anxious", "I '
-        'was so proud when", "a frustrated tone about the delay"',
-        reconstructed_examples='"the prompt is a jealous rant about a coworker", "a message '
-        'expressing grief over the loss"',
-        options_examples='"angry or hurt", "a mix of sadness and relief" (two or more '
-        "different emotions offered for the user)",
-        comparison_examples='"as happy as a kid at Christmas" (an idiom, not the user\'s state)',
-        other_examples='"an angry customer", "the friend was jealous", "a sad song", '
-        '"[Mood, e.g. happy]"',
-        extra_rule='A stock phrase that is not about the user\'s feeling ("happy to help", '
-        '"sorry to hear", "excited to share", "I hope this helps") is meta, not '
-        'committed. A desired future feeling ("I want to feel calm") is not the current '
-        "feeling: other_subject.",
-    ),
     "capital_city": Domain(
         name="capital_city",
         noun="city",
@@ -160,39 +124,7 @@ it is shorter), quote_source ("text", "bag" or "summary"), why (one short senten
 
 # per gold: concepts that are TRUE together with the gold (narrower / broader / overlapping), a
 # `compatible` stratum like country's `soviet`, never units (critique 1, item 3)
-_SCI = (
-    "biologist",
-    "chemist",
-    "physicist",
-    "astronomer",
-    "geologist",
-    "ecologist",
-    "botanist",
-    "data_scientist",
-    "mathematician",
-    "statistician",
-)
 COMPATIBLE: dict[str, dict[str, frozenset[str]]] = {
-    "occupation": {
-        "researcher": frozenset({"scientist", "professor", *_SCI}),
-        "scientist": frozenset({"researcher", "professor", *_SCI}),
-        "anthropologist": frozenset(
-            {"researcher", "scientist", "professor", "archaeologist", "sociologist"}
-        ),
-        "historian": frozenset({"researcher", "professor", "archaeologist"}),
-        "artist": frozenset({"illustrator", "sculptor", "potter", "designer"}),
-        "musician": frozenset({"singer", "composer", "conductor", "artist"}),
-        "writer": frozenset({"poet", "journalist", "editor", "blogger"}),
-        "fisherman": frozenset({"sailor", "ship_captain"}),
-        "sailor": frozenset({"fisherman", "ship_captain"}),
-        "hacker": frozenset({"software_engineer", "system_administrator"}),
-        "software_engineer": frozenset(
-            {"hacker", "system_administrator", "web_designer", "data_scientist", "engineer"}
-        ),
-        "farmer": frozenset({"rancher", "shepherd", "gardener"}),
-        "entrepreneur": frozenset({"executive", "manager", "merchant", "shopkeeper"}),
-    },
-    "emotion": {},  # co-occurring emotions are a definitional choice, flagged in the results
     "capital_city": {
         "kyoto": frozenset({"nara", "osaka"}),
         "osaka": frozenset({"kyoto", "nara"}),
@@ -221,31 +153,6 @@ EXTRA_BLOCK: dict[str, tuple[str, ...]] = {
         "Hong Kong-style",
         "Venice of",
     ),
-    "emotion": (
-        "hope this finds you",
-        "hope you're well",
-        "hope you are well",
-        "sorry to hear",
-        "proud of you",
-        "surprise party",
-        "hurt my",
-        "happy birthday",
-        "Happy New Year",
-        "happy holidays",
-        "content creator",
-        "table of contents",
-        "content warning",
-        "the content",
-        "your content",
-        "calm down",
-        "safe travels",
-        "love to",
-        "I'd love",
-        "would love",
-        "I love that",
-        "no worries",
-        "free to",
-    ),
     "holiday": (
         "Merry Christmas and a Happy New Year",
         "Merry Christmas and Happy New Year",
@@ -253,41 +160,10 @@ EXTRA_BLOCK: dict[str, tuple[str, ...]] = {
         "holiday season",
         "Happy Holidays",
     ),
-    "occupation": (
-        "as an AI",
-        "AI assistant",
-        "language model",
-        "the judge",
-        "judge only",
-        "the model",
-        "model answer",
-        "teaching moment",
-    ),
 }
-# generic / ambiguous aliases dropped from the generated lexicons (they matched readout boilerplate:
-# "AI assistant", "the model", "content", "past tense", "server", "Roman numerals"; checked on the
-# plan 0011 mention counts before any judge call)
+# generic / ambiguous aliases dropped from the generated lexicons (they matched readout boilerplate,
+# e.g. "Roman numerals"; checked on the plan 0011 mention counts before any judge call)
 DROP_ALIASES: dict[str, tuple[str, ...]] = {
-    "occupation": (
-        "assistant",
-        "assistants",
-        "smith",
-        "guide",
-        "guides",
-        "comic",
-        "comics",
-        "director",
-        "directors",
-        "host",
-        "hosts",
-        "anchor",
-        "anchors",
-        "server",
-        "servers",
-        "model",
-        "models",
-    ),
-    "emotion": ("content", "tense", "missing", "comfort", "comfortable"),
     "capital_city": ("Roman", "Romans"),
     "holiday": (),
 }

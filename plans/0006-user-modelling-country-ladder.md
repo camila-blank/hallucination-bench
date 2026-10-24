@@ -1,5 +1,9 @@
 # Plan 0006: user-modelling sibling ladder v2, country first (mention → commitment → distractor-rank probe → cross-method → label)
 
+> **Status (plan 0013):** the final sibling eval is this ladder on 3 domains (country, capital_city,
+> holiday). The superseded predecessors (plans 0003–0005) and the occupation / emotion domains were
+> removed from the tree; they remain in git history.
+
 Issue: to be opened by Camila (this box has no `gh`). Branch `camila/um-ladder-v2`, stacked on
 `camila/sibling-probes` @ 9eaeecb. Author: Camila Blank (planned with Claude), 2026-10-12.
 Revision 8 (amendment below, after the Phase A probe fit; no eval score had been computed).

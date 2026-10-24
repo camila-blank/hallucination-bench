@@ -1,4 +1,4 @@
-"""Plan 0005 step 1: category lexicons and the mention matcher (basic_readout entity items).
+"""Plan 0005 step 1: category lexicons and the mention matcher (used by the user-modelling ladder).
 
 ``data/sibling_probe/br_lexicons.json``::
 

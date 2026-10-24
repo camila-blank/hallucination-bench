@@ -7,7 +7,7 @@ Stages (each idempotent; every Opus call is cached in ``outputs/sibling/gen/cach
               format / leak / duplicate checks and have not failed the implication gate. Writes
               ``outputs/sibling/gen/candidates.jsonl`` and the implication-check input
               ``implication_in.jsonl`` (every candidate x every request sentence).
-  select      after ``qwen_gen_modal.py`` wrote ``implication_out.jsonl``: verbatim + pilot +
+  select      after a Qwen generation job wrote ``implication_out.jsonl``: verbatim + pilot +
               passing generated items per the coverage rule, request sentences balanced, window
               identity checked -> ``data/sibling_probe/items.json`` (no responses yet) and the
               response input ``responses_in.jsonl``.
@@ -15,13 +15,15 @@ Stages (each idempotent; every Opus call is cached in ``outputs/sibling/gen/cach
   probes      probe texts (48 per concept: 24 explicit + 24 implied, endings balanced) and 24
               neutral texts per category -> ``data/sibling_probe/probe_texts.jsonl``.
 
+``items.json`` / ``probe_texts.jsonl`` are frozen; the Qwen generation job
+(``qwen_gen_modal.py``) was removed in plan 0013 (see git history). The user-modelling ladder
+imports this module only for ``Gen`` and ``probe_prompt`` (``um_ladder.py probe-texts``).
+
     uv run python scripts/sibling_probe/gen_items.py candidates
-    (modal) qwen_gen_modal.py --inp outputs/sibling/gen/implication_in.jsonl \
-        --out outputs/sibling/gen/implication_out.jsonl
+    (Qwen generation: outputs/sibling/gen/implication_in.jsonl -> implication_out.jsonl)
     uv run python scripts/sibling_probe/gen_items.py candidates   # tops up implication failures
     uv run python scripts/sibling_probe/gen_items.py select
-    (modal) qwen_gen_modal.py --inp outputs/sibling/gen/responses_in.jsonl \
-        --out outputs/sibling/gen/responses_out.jsonl
+    (Qwen generation: outputs/sibling/gen/responses_in.jsonl -> responses_out.jsonl)
     uv run python scripts/sibling_probe/gen_items.py responses
     uv run python scripts/sibling_probe/gen_items.py probes
 """

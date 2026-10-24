@@ -107,8 +107,6 @@ def main() -> None:
     ax.set_ylabel("share of committed sibling mentions\nthe probe could test")
     title = {
         "country": "Country",
-        "occupation": "Occupation",
-        "emotion": "Emotion",
         "capital_city": "City (visiting)",
         "holiday": "Holiday",
     }.get(cat, cat)

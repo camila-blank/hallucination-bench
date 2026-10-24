@@ -1,7 +1,7 @@
 """DiffMean concept probes, cross-fit by category-level folds (plan 0003 §Phase E). Pure numpy.
 
-This module is imported by the Modal job (``scripts/sibling_probe/probes_modal.py``, copied into
-the container as a single file), so it imports nothing from the package.
+This module is imported by the Modal job (``scripts/sibling_probe/um_probes_modal.py``, copied
+into the container as a single file), so it imports nothing from the package.
 
 Vocabulary (one category, one layer L):
 
@@ -30,8 +30,8 @@ Vocabulary (one category, one layer L):
   (ending, offset) keys of the whole TextSet), ``lam`` chosen per outer fold by inner
   leave-one-training-fold-out CV (criterion: mean over concepts of position-level AUROC on the
   held-out inner fold). Centring and scaling (mu, sigma) are those of :func:`fit_fold`, with the
-  sigma recomputed on the whitened unit direction. Ported exactly from
-  ``scripts/sibling_probe/probe_sweep_modal.py`` (variant V2).
+  sigma recomputed on the whitened unit direction. Ported exactly from plan 0003's probe sweep
+  script (variant V2; removed in plan 0013, see git history).
 * **eval scoring** (:func:`score_eval`): each eval position is scored by every fold model k and
   thresholded against fold k's own thresholds; detection indicators and z are averaged over folds.
 """

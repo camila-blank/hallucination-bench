@@ -1,7 +1,7 @@
 """Macro average across user-modelling domains (plan 0011): the unweighted mean over domains of
-each label's share among committed, probe-testable sibling mentions (no nearby tier). Two panels:
-all four domains, and without occupation (its judge's committed precision is 0.50). Error bar:
-95% CI on the macro hallucination share, items resampled within each domain (1,000 draws)."""
+each label's share among committed, probe-testable sibling mentions (no nearby tier), over the
+three final domains (country, city visiting, holiday; plan 0013). Error bar: 95% CI on the
+macro hallucination share, items resampled within each domain (1,000 draws)."""
 
 import json
 import random
@@ -16,7 +16,7 @@ from hallucination_bench import REPO_ROOT
 
 UM = REPO_ROOT / "outputs" / "sibling" / "um"
 OUT = REPO_ROOT / "plots" / "sibling_probe" / "um_macro_simple.png"
-DOMAINS = ["country", "occupation", "capital_city", "holiday"]
+DOMAINS = ["country", "capital_city", "holiday"]
 METHODS = [("s3d", "s3d\nO-lens"), ("mlnla-rl600", "ML-NLA\nRL600"), ("nla-rl-L42", "NLA-RL\nL42")]
 CATS = [
     ("faithful", "faithful (probe fires)", "#2a78d6"),
@@ -77,11 +77,9 @@ def main() -> None:
             "ytick.color": "#52514e",
         }
     )
-    panels = [
-        ("All four domains", DOMAINS),
-        ("Without occupation", [d for d in DOMAINS if d != "occupation"]),
-    ]
-    fig, axes = plt.subplots(1, 2, figsize=(13, 6.6), sharey=True)
+    panels = [("Country, city (visiting), holiday", DOMAINS)]
+    fig, ax0 = plt.subplots(figsize=(8, 6.6))
+    axes = [ax0]
     for ax, (title, doms) in zip(axes, panels, strict=True):
         for x, (m, _n) in enumerate(METHODS):
             shares = {}
@@ -139,7 +137,7 @@ def main() -> None:
     fig.text(
         0.01,
         0.005,
-        "Domains: country, occupation, city (visiting), holiday; each weighted "
+        "Domains: country, city (visiting), holiday; each weighted "
         "equally. Probe-n/a excluded; faithful = probe fires at the mention's own layer. "
         "Error bar: 95% CI on the macro hallucination share (items resampled within domain).",
         fontsize=10,
