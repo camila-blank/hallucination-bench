@@ -56,8 +56,11 @@ if anything in the closure references it, it stays.
   `check_v2_vs_sweep.py`, `count_siblings.py`, `judge_all11.py`, `ladder.py`,
   `ladder_capture_modal.py`, `ladder_probes_modal.py`, `probe_sweep_modal.py`,
   `probe_sweep_summary.py`, `probes_modal.py`, `qwen_gen_modal.py`, `run_modal.sh`,
-  `verdict_report.py`, `verdicts.py`, `write_plans.py`, `viewer/`, `um_run_adj.sh` (the
-  never-validated adjacent-layer path); `scripts/serve/sibling_viewer.py`.
+  `verdict_report.py`, `verdicts.py`, `write_plans.py`, `viewer/`;
+  `scripts/serve/sibling_viewer.py`. **`um_run_adj.sh` stays**: the adjacent-layer path is part of
+  the final ladder (`PROBES_ADJ_DIR` in `um_ladder.py`, `um_probes_modal.py`), and plan 0012's
+  decision "keep the code, it is opt-in (`um_run_adj.sh`)" is retained, with its CLAUDE.md
+  "Unvalidated" gotcha.
   (`build_concepts.py` built `concepts.json`, which the ladder still reads; it stays as frozen
   data, its builder goes — note this in the data README. `gen_items.py` stays: see the rule.)
 - `data/sibling_probe/`: `basic_readout_bank.json`, `br_concepts.json`,
@@ -74,6 +77,9 @@ if anything in the closure references it, it stays.
   helper while any surviving test uses it.
   `test_sibling_verdict.py` goes whole. `test_um_ladder.py` / `test_um_lexicon_pin.py` stay;
   inside them only tests that exercise `occupation` / `emotion` specifically are deleted.
+  One named exception: `test_sibling_probe_recipes.py::test_recipe_gates_and_layout` asserts on kept
+  `probes` constants and on deleted `score` (`S.Gates(...).min_validity`); delete only that
+  `S.Gates` assertion line and keep the `probes` assertions unchanged.
   **These are the only sanctioned test edits: deletions of whole test functions (and their
   now-unused imports / fixtures). No assertion in a surviving test changes.**
 - `plots/sibling_probe/`: everything except the three-domain UM figures. Keep
@@ -111,6 +117,13 @@ if anything in the closure references it, it stays.
   delete the figures.
 - `um_run_domains_stage1.sh` default `DOMAINS` becomes `capital_city holiday`.
 
+### Stale references in kept files
+
+Docstrings / comments of kept files that describe deleted files are updated (e.g.
+`evals/sibling_probe/__init__.py`, `probes.py`, `ladder_lex.py`, `gen_items.py` docstrings).
+Provenance strings that are written into data (e.g. `gen_items.py`'s) are output, not docs: leave
+them; they are allowed grep hits.
+
 ### Docs
 
 - `README.md`: the eval table has one sibling row, "`sibling_probe` user-modelling ladder" (plans
@@ -127,9 +140,11 @@ if anything in the closure references it, it stays.
 
 ### Part A acceptance
 
-- `grep -rn` over `src scripts tests README.md CLAUDE.md docs/results/README.md` for the deleted
-  module names, `basic_readout`, `br_bank`, `verdict`, `occupation`, `emotion`, `hbench sibling`
-  finds nothing except intended mentions (and `occupation` / `emotion` entries in `um_domains.py`,
+- `grep -rn` for the deleted module names, `basic_readout`, `br_bank`, `verdict`, `occupation`,
+  `emotion`, `hbench sibling`, **scoped to** `src/hallucination_bench/evals/sibling_probe/`,
+  `scripts/sibling_probe/`, `tests/test_sibling_*`, `tests/test_um_*`, `README.md`, `CLAUDE.md`,
+  `docs/results/README.md` (`verdict` / `emotion` are legitimate elsewhere: taxonomy verdicts, AM
+  kinds — never edit unrelated code for this grep), finds nothing except intended mentions (and `occupation` / `emotion` entries in `um_domains.py`,
   `um_lexicons.py` are gone) (plan-0003 category names inside kept data / kept
   `CATEGORIES` constants are fine — the plan-0003 inventory has its own `occupation` / `emotion`
   categories; those are data, not the UM domains).
@@ -141,7 +156,10 @@ if anything in the closure references it, it stays.
   writes to the hardcoded `REPO_ROOT/outputs/sibling/um`) the inputs `label` reads into the
   worktree's `outputs/sibling/um/`; run `um_ladder.py --category X label` for the three domains;
   the outputs must be byte-identical to the snapshot, and the reference hashes must be unchanged
-  afterwards. If `label` needs inputs not on this box, say so instead.
+  afterwards. `label` reads `paths.SIBLING_SRC_ROOT/data/sibling_probe/items.json` (present at
+  `/workspace/hb-sibling-probes`) and `data/sibling_probe/um_<cat>_distractors.json`, whose sha is
+  checked against `probes/score/summary.json` — never touch those files. Inputs to copy:
+  `mentions.jsonl`, `commit.jsonl`, `probe_inputs.json`, `probes/{fit,score}` per domain (~100 MB).
 - Full test suite, ruff check, ruff format --check green.
 
 ## Part B — the hallucination index
@@ -179,7 +197,8 @@ Per **(method, layer)** — every (method, layer) is its own row; there is no al
   story at 9:3:1 (only when those three are present). CI: normal approximation, families
   independent: `se = sqrt(Σ (w_f · (hi_f − lo_f) / 3.92)²) / Σ w_f`, `v ± 1.96 se`.
 - **Method ↔ arm mapping**: a method's rows for a family come from an ordered list of arm
-  directory names; for each layer the first arm in the list that has that layer wins, and the row
+  directory names; for each layer the first arm in the list that has an emitted row for that layer (`n_claims > 0`;
+  UM: units in all three domains) wins, and the row
   records which arm it used. Default: identity (method `foo` = arm `foo` in every family; the UM
   ladder's method name = the arm name). Legacy names live in a checked-in config
   `data/index/methods.json`:
@@ -219,7 +238,7 @@ Per **(method, layer)** — every (method, layer) is its own row; there is no al
   `<out>/sibling/um/` (country at `label/`, others at `<domain>/label/`). Each is overridable and
   repeatable: `--main-root`, `--story-root`, `--am-root`, `--um-root`. An arm dir is any child
   with `cells.jsonl`. The same arm name under two roots of one family is an error.
-- `hbench index [--out] [--judge-model] [--*-root …] [--methods data/index/methods.json]
+- `hbench index [--out] [--judge-model] [--*-root …] [--methods <path>, default `hallucination_bench.DATA / "index" / "methods.json"`]
   [--dest <dir>]` writes `<dest>/index.json` + `<dest>/index.md` (default dest
   `<out>/index/<model>/`) and prints the table. Per row: method, layer, per-family value / CI /
   arm used / n (claims or units, items), main's fc / cat / sib / det components, `full` + CI,
@@ -227,7 +246,9 @@ Per **(method, layer)** — every (method, layer) is its own row; there is no al
   `index.json` also records `INDEX_VERSION`, weights, sources (resolved paths), and the git sha.
 - `hbench report` (every `--eval`) calls the index builder with default sources after its own
   report — `cmd_report` has several early returns (agentic_misalignment, `--view v2`), so wrap the
-  whole command (rename the body to `_cmd_report`, `cmd_report` calls it then the index) and prints where it wrote; a missing family is fine (partial rows), and an index failure
+  whole command (rename the body to `_cmd_report`, `cmd_report` calls it then the index). The index
+  runs **only after `_cmd_report` returns normally** (no `try/finally`; a `SystemExit` from
+  `_cmd_report` propagates without running it) and its guard is `except Exception` and prints where it wrote; a missing family is fine (partial rows), and an index failure
   prints a warning and never changes `report`'s exit code.
 - Streaming: chat cells files are large (J-lens ~1 GB under AM): read line by line, skip lines
   without `"segments"` before `json.loads` (as `hclaims.py`), keep only count vectors.
