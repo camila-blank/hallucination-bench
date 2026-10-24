@@ -1,14 +1,25 @@
-# data/sibling_probe — plan 0003 (sibling-concept probes)
+# data/sibling_probe — the user-modelling sibling ladder (plans 0006 + 0011)
 
-Spec: `plans/0003-sibling-concept-probes.md`. Code: `src/hallucination_bench/evals/sibling_probe/`
-and `scripts/sibling_probe/`.
+The final sibling eval is the 3-domain user-modelling ladder (country, capital_city = the city the
+user is visiting, holiday): plans `plans/0006-user-modelling-country-ladder.md` +
+`plans/0011-user-modelling-ladder-4-domains.md`. Code: `src/hallucination_bench/evals/sibling_probe/`
+and `scripts/sibling_probe/um_*`. Plan 0013 removed the superseded evals (plan 0003 claim-map
+sibling bank, plan 0004 verdicts, plan 0005 basic-readout ladder, the occupation / emotion UM
+domains) from the tree; their data and builders are in git history. This directory holds only
+what the ladder (and its tests) read.
 
 | file | what | written by |
 |---|---|---|
-| `pilot/` | Phase A pilot (40 prompts, gold meta, rough counter); readouts in `outputs/sibling/pilot/` | 2026-10-11 pilot |
-| `concepts.json` | concept inventory (7 categories, 11–16 concepts each) | `scripts/sibling_probe/build_concepts.py` |
-| `items.json` | eval bank, 204 items with Qwen responses | `scripts/sibling_probe/gen_items.py` + `qwen_gen_modal.py` |
-| `probe_texts.jsonl` | 5,064 probe-training + neutral texts | `scripts/sibling_probe/gen_items.py probes` |
+| `pilot/` | plan 0003 Phase A pilot (40 prompts, gold meta, rough counter); read by the `bank` / `concepts` tests | 2026-10-11 pilot |
+| `concepts.json` | plan 0003 concept inventory (7 categories, 11–16 concepts each); frozen input, seeds `um_lexicons.json` | plan 0003 (builder removed in plan 0013) |
+| `items.json` | plan 0003 eval bank, 204 items with Qwen responses; frozen input (`um_ladder.py probe-texts` leak / n-gram dedupe) | plan 0003 `gen_items.py` + Qwen job (job removed in plan 0013) |
+| `probe_texts.jsonl` | plan 0003 probe-training + neutral texts (5,064); frozen input, reused by `probe-texts` | plan 0003 `gen_items.py probes` |
+| `br_lexicons.json` | plan 0005 lexicon (`ladder_lex.LEXICON_PATH`); read by the lexicon-pin and `ladder_lex` tests | plan 0005 |
+| `br_lexicons_um_v1.json`, `umcommit_*`, `um_country_*` | the country ladder (plan 0006, below) | `um_ladder.py` / labellers |
+| `um_lexicons.json`, `umcommit_<domain>_*`, `um_<domain>_*` | the capital_city / holiday domains (plan 0011, below) | `um_lexicons.py` / `um_ladder.py --category` / labellers |
+
+The `concepts.json` / `items.json` / `probe_texts.jsonl` sections below describe how those frozen
+plan 0003 inputs were built; the scripts named there were removed in plan 0013.
 
 ## concepts.json
 
@@ -17,8 +28,7 @@ aliases, exclude, token_aliases, token_eligible}]}}}`.
 
 - **Concept choice.** Every gold of the wsbench verbatim / pilot items (`gold: true`) plus every
   sibling seen in >= 2 cells of the category's readouts, ranked by cell count, cap 16.
-  Counts: `scripts/sibling_probe/count_siblings.py` (broad candidate vocabulary, package matcher)
-  over the pilot s3d-rl600 readouts (new categories) and the wsbench `user_modeling`
+  Counts: a plan 0003 counting script (broad candidate vocabulary, package matcher) over the pilot s3d-rl600 readouts (new categories) and the wsbench `user_modeling`
   s3d-rl600 + jlens (L28/36/44/52) + nla-rl-L42 readouts of the selfdescribe Country /
   Occupation items -> `outputs/sibling/sibling_counts.json`. After generation every concept is
   the gold of >= 1 item, so `gold` only marks the original (pilot / wsbench) golds.
@@ -100,7 +110,7 @@ never shown to the judge. Checks: explicit texts name exactly their concept, imp
 name no concept of the category; no 8-gram (word) shared with any eval cue (all items and all
 candidates); window identity; no duplicates.
 
-## Plan 0005 (basic-readout mention ladder)
+## Plan 0005 lexicon
 
 - `br_lexicons.json` (`brlex-v1`): per category (`sport` 84, `country` 200 = 193 UN members +
   Taiwan, Palestine, Kosovo, Scotland, Wales, Northern Ireland + Vatican City, `musical_instrument`
@@ -108,27 +118,15 @@ candidates); window identity; no duplicates.
   Ocean", 印度洋, ...) match but name no concept; `ambiguous` ("football" -> the item's gold or
   `ladder_lex.FOOTBALL_DEFAULT`); `capitals`; `checks` (code: duplicates removed, short CJK,
   substring pairs resolved by longest match). Generated once by `claude-opus-5-5` (effort low),
-  then code-forced equivalences / drops (`scripts/sibling_probe/ladder.py` FORCED, DROP_ALIASES).
-- `brcommit_dev_todo.jsonl`: 40 units for Fable's dev labels (stratified by method x judge
-  verdict; the verdicts are not in the file). Fill `samples[].committed`, `samples[].form`,
-  `unit_committed`.
-- `brcommit_gold_todo.jsonl` / `brcommit_gold.jsonl`: 80 units (stratified by method x category,
-  disjoint from dev) + all 60 Ali units (`set: ali`), labelled blind by a fresh subagent from the
-  plan's definitions only (`brcommit_gold.jsonl`).
-- `br_entity_banks.json` (`brbank-v1`): banks `sport` (Ali bank t0 athletes + Opus top-ups to 50
-  per class), `country_capital` (non-capital cities), `country_landmark` (landmarks, no leading
-  "The"), `musical_instrument` (players); classes = every gold + every committed concept of the
-  bank's items (+ the Ali classes for sport) + 3 controls no method names; 3 templates each
-  (template 0 = the items' own wording). The 35 item entities, capitals (capital bank) and names
-  containing a category alias (country banks) are dropped by code.
+  then code-forced equivalences / drops (plan 0005's ladder script, removed in plan 0013).
 
 ## Plan 0006 (user-modelling ladder v2, country)
 
 - `br_lexicons_um_v1.json`: the country ladder's base lexicon, a frozen copy of plan 0005's
   `br_lexicons.json` as of 2026-10-12, before plan 0005's review fix added the bare-name aliases
   Jordan / Georgia / Guinea / Luxembourg / Niger. Results 0006 were produced with it, and
-  `tests/test_um_lexicon_pin.py` pins its sha256. `ladder_lex.py` is shared with plan 0005
-  unchanged. The Set A patch is code (`um_ladder.SET_A_LEXICON_PATCH`).
+  `tests/test_um_lexicon_pin.py` pins its sha256. `ladder_lex.py` (plan 0005's matcher) is
+  kept unchanged. The Set A patch is code (`um_ladder.SET_A_LEXICON_PATCH`).
 - `umcommit_dev.jsonl` (40, Fable, before any judge call), `umcommit_dev2.jsonl` (60, Fable,
   blind to the judge, used for the one prompt revision v1 -> v1.1), `umcommit_gold.jsonl` (80,
   fresh subagent from the plan's Step 3 text only, never used for tuning); the `*_todo.jsonl`
@@ -140,3 +138,13 @@ candidates); window identity; no duplicates.
   with the plan 0003 `sibgen-v1` prompt over C; drop counts by cause in
   `outputs/sibling/um/probe_texts_report.json`.
 - `um_country_distractors.json` (`umdist-v1`): D_i per item, chosen from Phase A only.
+
+## Plan 0011 (the capital_city / holiday domains)
+
+- `um_lexicons.json` (`umlex-v1`): per domain `{concepts, block}` + `capitalised_only` + `checks`,
+  built by `scripts/sibling_probe/um_lexicons.py` (seeded with `concepts.json`); `um_ladder`
+  applies `um_domains` alias moves / drops / extra block phrases on load. Plan 0013 removed the
+  occupation / emotion categories (no hash or fingerprint covers the whole file).
+- `umcommit_<domain>_{dev,gold}.jsonl` + `*_todo.jsonl`: commitment-judge calibration labels.
+- `um_<domain>_concepts.json`, `um_<domain>_probe_texts.jsonl`, `um_<domain>_distractors.json`:
+  as for country (the distractors' sha256 is checked against the probe score run).

@@ -42,7 +42,3 @@ extend-exclude = ["data/sibling_probe/pilot"]
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "B", "RUF"]
 ignore = ["RUF001", "RUF002", "RUF003"]
-
-[tool.ruff.lint.per-file-ignores]
-# plan 0003 one-off diagnostic sweep scripts, kept as run
-"scripts/sibling_probe/probe_sweep_*.py" = ["B023", "E501", "RUF046"]

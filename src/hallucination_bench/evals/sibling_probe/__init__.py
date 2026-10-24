@@ -1,10 +1,12 @@
 """sibling_probe: are same-category sibling mentions in lens readouts hallucinations?
 
-Plan ``plans/0003-sibling-concept-probes.md``. Stage 1: the concept inventory and alias matcher
-(``concepts``), the bank / ReadSpec writers /
-leak, 8-gram and window-identity checks (``bank``). Stage 2: cross-fit DiffMean probes
-(``probes``, run on Modal via ``probe_io`` + ``scripts/sibling_probe/probes_modal.py``), the
-judge (``judge``), scoring and the verdict (``score``), and the report (``report``).
+The final sibling eval is the user-modelling ladder (plans 0006 + 0011; three domains: country,
+capital_city = the city the user is visiting, holiday): ``um_ladder`` / ``um_domains`` /
+``um_probe`` / ``um_regions``, driven by ``scripts/sibling_probe/um_ladder.py``. Shared pieces it
+builds on, from the superseded plan 0003 / 0005 evals (removed from the tree in plan 0013): the
+concept inventory and alias matcher (``concepts``), the bank / ReadSpec writers / leak, 8-gram and
+window-identity checks (``bank``), cross-fit DiffMean probes (``probes``, run on Modal by
+``scripts/sibling_probe/um_probes_modal.py``) and the lexicon matcher (``ladder_lex``).
 """
 
 NAME = "sibling_probe"

@@ -1,4 +1,4 @@
-"""``hbench run|calibrate|report|consistency-v2|pilot-dump|pilot-dump-v2|units-v2|sibling``."""
+"""``hbench run|calibrate|report|consistency-v2|pilot-dump|pilot-dump-v2|units-v2``."""
 
 # The shared commands and helpers live here. An eval with its own subcommands keeps them in
 # ``evals/<eval>/cli.py`` (``register(sub)``, listed in EVAL_CLIS); an eval with its own driver
@@ -10,14 +10,15 @@ import json
 import sys
 from pathlib import Path
 
-from hallucination_bench import paths
+from hallucination_bench import DATA, paths
 from hallucination_bench.llm import DEFAULT_EFFORT, JudgeConfigError
 
 DEFAULT_MODEL = "claude-opus-5-5"
+INDEX_METHODS = DATA / "index" / "methods.json"  # plan 0013: method <-> arm mapping
 READOUTS_FILE = "hallucination.jsonl"
 AM_EVAL = "agentic_misalignment"  # plan 0008: its own driver (dispatched first in run / report)
 # modules exposing ``register(sub)``: their subcommands follow the shared ones, in this order
-EVAL_CLIS = ["hallucination_bench.evals.sibling_probe.cli"]
+EVAL_CLIS: list[str] = []
 
 
 def _layers(s: str | None) -> list[int] | None:
@@ -204,6 +205,56 @@ def _calibrate_v2(args: argparse.Namespace) -> int:
 
 
 def cmd_report(args: argparse.Namespace) -> int:
+    """The eval's own report, then the hallucination index from the default sources (plan 0013):
+    an index failure is a warning and never changes ``report``'s exit code."""
+    rc = _cmd_report(args)
+    try:
+        from hallucination_bench import index
+
+        out = Path(args.out)
+        built = index.build_index(
+            index.default_sources(out, args.judge_model), index.load_methods(INDEX_METHODS)
+        )
+        js, md = index.write_index(built, _index_dest(out, args.judge_model))
+        print(f"hallucination index: wrote {js}, {md} ({len(built['rows'])} rows)")
+    except Exception as e:  # the index must never fail the report
+        print(f"warning: hallucination index not built: {type(e).__name__}: {e}", file=sys.stderr)
+    return rc
+
+
+def _index_dest(out: Path, judge_model: str) -> Path:
+    from hallucination_bench.evals.wsbench_chat.run import model_slug
+
+    return out / "index" / model_slug(judge_model)
+
+
+def cmd_index(args: argparse.Namespace) -> int:
+    from hallucination_bench import index
+
+    out = Path(args.out)
+    sources = index.default_sources(out, args.judge_model)
+    for fam, flag, roots in (
+        (index.MAIN, "--main-root", args.main_root),
+        (index.AM, "--am-root", args.am_root),
+        (index.SIBLING, "--um-root", args.um_root),
+        (index.STORY, "--story-root", args.story_root),
+    ):
+        if roots:
+            if missing := [r for r in roots if not Path(r).is_dir()]:
+                raise SystemExit(f"{flag}: not a directory: {missing}")
+            sources[fam] = [Path(r) for r in roots]
+    try:
+        built = index.build_index(sources, index.load_methods(Path(args.methods)), args.workers)
+    except ValueError as e:
+        raise SystemExit(str(e)) from None
+    dest = Path(args.dest) if args.dest else _index_dest(out, args.judge_model)
+    js, md = index.write_index(built, dest)
+    print(index.render_md(built))
+    print(f"wrote {js}, {md}")
+    return 0
+
+
+def _cmd_report(args: argparse.Namespace) -> int:
     if getattr(args, "eval", None) == AM_EVAL:
         from hallucination_bench.evals.agentic_misalignment import cli as amcli
 
@@ -512,6 +563,23 @@ def build_parser() -> argparse.ArgumentParser:
     u2.add_argument("--cases", required=True)
     u2.add_argument("--dest", required=True)
     u2.set_defaults(fn=cmd_units_v2)
+
+    ix = sub.add_parser(
+        "index", help="the hallucination index v3: one row per (method, layer) (plan 0013)"
+    )
+    ix.add_argument("--out", default="outputs", help="output root of the default sources")
+    ix.add_argument("--judge-model", default=DEFAULT_MODEL)
+    for flag, default in (
+        ("--main-root", "<out>/wsbench_chat/<model>"),
+        ("--story-root", "<out>/story/<model>"),
+        ("--am-root", "<out>/agentic_misalignment/<model>"),
+        ("--um-root", "<out>/sibling/um (country at label/, others at <domain>/label/)"),
+    ):
+        ix.add_argument(flag, action="append", help=f"repeatable; replaces the default {default}")
+    ix.add_argument("--methods", default=str(INDEX_METHODS), help="method <-> arm mapping")
+    ix.add_argument("--dest", default=None, help="default <out>/index/<model>/")
+    ix.add_argument("--workers", type=int, default=8, help="processes over arm dirs")
+    ix.set_defaults(fn=cmd_index)
 
     for mod in EVAL_CLIS:
         importlib.import_module(mod).register(sub)

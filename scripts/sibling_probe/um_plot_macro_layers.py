@@ -7,7 +7,7 @@ the s3d O-lens and ML-NLA read 11 (L20..60), so the all-layer bars are not like 
 * um_macro_by_layer.png: the macro hallucination share at each layer for s3d / ML-NLA, with
   NLA-RL as one point at L42.
 
-Macro = the unweighted mean over country, occupation, city (visiting) and holiday of each label's
+Macro = the unweighted mean over country, city (visiting) and holiday of each label's
 share among committed, probe-testable sibling mentions (no nearby tier). CIs: items resampled
 within each domain.
 """
@@ -26,7 +26,7 @@ from hallucination_bench import REPO_ROOT
 
 UM = REPO_ROOT / "outputs" / "sibling" / "um"
 PLOTS = REPO_ROOT / "plots" / "sibling_probe"
-DOMAINS = ["country", "occupation", "capital_city", "holiday"]
+DOMAINS = ["country", "capital_city", "holiday"]
 METHODS = [("s3d", "s3d O-lens"), ("mlnla-rl600", "ML-NLA RL600"), ("nla-rl-L42", "NLA-RL")]
 GRID = (20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60)
 CATS = [
@@ -35,7 +35,7 @@ CATS = [
     ("hall", "hallucination", "#eb6834"),
 ]
 FOOT = (
-    "Macro over country, occupation, city (visiting), holiday (equal weight). Probe-n/a "
+    "Macro over country, city (visiting), holiday (equal weight). Probe-n/a "
     "excluded; faithful = probe fires at the mention's own layer. NLA-RL reads a single layer "
     "(L42). Error bar: 95% CI on the macro hallucination share (items resampled within domain)."
 )
@@ -217,7 +217,7 @@ def per_layer() -> None:
     ax.yaxis.set_major_formatter(matplotlib.ticker.PercentFormatter(1.0))
     ax.set_ylabel("macro hallucination share")
     ax.grid(axis="y", color="#e6e5e0", lw=1)
-    ax.set_title("Macro hallucination share by layer (4 domains)", loc="left", fontsize=16)
+    ax.set_title("Macro hallucination share by layer (3 domains)", loc="left", fontsize=16)
     ax.legend(loc="upper left", bbox_to_anchor=(1.0, 1.0), frameon=False, fontsize=12)
     fig.text(
         0.01,
@@ -256,12 +256,12 @@ def main() -> None:
     bars(
         (a.match_layer,),
         "um_macro_single_layer.png",
-        f"Single layer: s3d / ML-NLA at L{a.match_layer} vs NLA-RL at L42 (4 domains)",
+        f"Single layer: s3d / ML-NLA at L{a.match_layer} vs NLA-RL at L42 (3 domains)",
     )
     bars(
         GRID,
         "um_macro_all_layers.png",
-        "All 11 layers: s3d O-lens vs ML-NLA (4 domains)",
+        "All 11 layers: s3d O-lens vs ML-NLA (3 domains)",
         methods=METHODS[:2],  # NLA-RL (single layer) excluded from the all-layer plot
     )
     per_layer()

@@ -28,6 +28,7 @@ from typing import Any
 from hallucination_bench import REPO_ROOT, paths, summarizer
 from hallucination_bench.cache import Cache, fingerprint
 from hallucination_bench.evals.sibling_probe import um_ladder as U
+from hallucination_bench.evals.sibling_probe.um_domains import DOMAINS
 from hallucination_bench.llm import LLM, Usage
 from hallucination_bench.readouts import decode_token
 
@@ -1674,7 +1675,9 @@ def setup_domain(cat: str) -> None:
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawTextHelpFormatter)
     ap.add_argument("--src-root", type=Path, default=SRC_DEFAULT)
-    ap.add_argument("--category", default="country", help="plan 0011 domain (default country)")
+    ap.add_argument(
+        "--category", default="country", choices=DOMAINS, help="UM domain (default country)"
+    )
     sub = ap.add_subparsers(dest="cmd", required=True)
     s = sub.add_parser("summarize")
     s.add_argument("--dry-run", action="store_true")

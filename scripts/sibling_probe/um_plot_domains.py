@@ -1,5 +1,5 @@
-"""Combined simple plot across domains (plan 0011): the um_country_simple.png panel for each
-domain whose judge met the 85% gold target (emotion is excluded: 0.71). Same rules as
+"""Combined simple plot across the three final domains (plans 0011 + 0013): the
+um_country_simple.png panel for each domain. Same rules as
 um_plot_simple.py: committed mentions the probe can test at their own layer, no nearby tier.
 """
 
@@ -18,7 +18,6 @@ UM = REPO_ROOT / "outputs" / "sibling" / "um"
 OUT = REPO_ROOT / "plots" / "sibling_probe" / "um_domains_simple.png"
 DOMAINS = [
     ("country", "Country"),
-    ("occupation", "Occupation"),
     ("capital_city", "City (visiting)"),
     ("holiday", "Holiday"),
 ]
@@ -123,8 +122,7 @@ def main() -> None:
         0.005,
         "Probe-n/a mentions excluded; faithful = probe fires at the mention's "
         "own layer; error bar = 95% CI on the hallucination share (bootstrap by item). "
-        "J-lens omitted (too few testable units). Emotion omitted (judge below the 85% "
-        "target).",
+        "J-lens omitted (too few testable units).",
         fontsize=10,
         color="#52514e",
     )
