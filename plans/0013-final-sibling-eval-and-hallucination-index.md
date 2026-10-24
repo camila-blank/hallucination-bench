@@ -34,7 +34,12 @@ ladder imports (`bank.py`, `concepts.py`, `probes.py`, `ladder_lex.py`, `um_*.py
 refactor with no product value and risks behaviour changes). Data files the closure reads are
 kept even when they were built by an older plan; known cases: `data/sibling_probe/concepts.json`
 (read by `um_lexicons.py`), `items.json` + `probe_texts.jsonl` (read by `um_ladder.py
-probe-texts` for leak / n-gram dedupe), `br_lexicons_um_v1.json` (the frozen lexicon, sha-pinned).
+probe-texts` for leak / n-gram dedupe), `br_lexicons_um_v1.json` (the frozen lexicon, sha-pinned),
+`br_lexicons.json` (plan 0005's lexicon: `ladder_lex.LEXICON_PATH`, read by the lexicon-pin test and
+kept `ladder_lex` tests), `pilot/` (read by kept `bank` / `concepts` tests). Kept scripts include
+`scripts/sibling_probe/gen_items.py`: `um_ladder.py probe-texts` imports it lazily
+(`sys.path.insert` + `import gen_items as G`, `G.Gen()`, `G.probe_prompt`). Lazy imports and
+`sys.path` imports count as references.
 Before deleting any file, grep the closure for its name (and for the module name it defines);
 if anything in the closure references it, it stays.
 
@@ -48,15 +53,15 @@ if anything in the closure references it, it stays.
   sibling-only helper / help text in `cli.py` goes with it. **Keep** `_effort` / `DEFAULT_MODEL`
   (used elsewhere). The `hbench sibling …` commands disappear.
 - `scripts/sibling_probe/`: `arm_overlap.py`, `br_build.py`, `build_concepts.py`,
-  `check_v2_vs_sweep.py`, `count_siblings.py`, `gen_items.py`, `judge_all11.py`, `ladder.py`,
+  `check_v2_vs_sweep.py`, `count_siblings.py`, `judge_all11.py`, `ladder.py`,
   `ladder_capture_modal.py`, `ladder_probes_modal.py`, `probe_sweep_modal.py`,
   `probe_sweep_summary.py`, `probes_modal.py`, `qwen_gen_modal.py`, `run_modal.sh`,
   `verdict_report.py`, `verdicts.py`, `write_plans.py`, `viewer/`, `um_run_adj.sh` (the
   never-validated adjacent-layer path); `scripts/serve/sibling_viewer.py`.
-  (`build_concepts.py` / `gen_items.py` built the plan-0003 inputs that the ladder still reads;
-  those inputs stay as frozen data, their builders go — note this in the data README.)
-- `data/sibling_probe/`: `pilot/`, `basic_readout_bank.json`, `br_concepts.json`,
-  `br_entity_banks.json`, `br_lexicons.json`, `br_probe_texts.jsonl`, `brcommit_*`,
+  (`build_concepts.py` built `concepts.json`, which the ladder still reads; it stays as frozen
+  data, its builder goes — note this in the data README. `gen_items.py` stays: see the rule.)
+- `data/sibling_probe/`: `basic_readout_bank.json`, `br_concepts.json`,
+  `br_entity_banks.json`, `br_probe_texts.jsonl`, `brcommit_*`,
   `verdict_*`, and every `occupation` / `emotion` UM file (`um_occupation_*`, `um_emotion_*`,
   `umcommit_occupation_*`, `umcommit_emotion_*`).
 - `tests/`: `test_sibling_ladder.py` tests `ladder.py` / `ladder_probe.py` (deleted) **and**
@@ -64,7 +69,9 @@ if anything in the closure references it, it stays.
   `ladder_lex` test byte-identical (move them to `tests/test_ladder_lex.py` unchanged if the
   file would otherwise be mostly dead imports). Same for `test_sibling_probe.py` /
   `test_sibling_probe_stage2.py` / `test_sibling_probe_recipes.py` (keep tests of `bank`,
-  `concepts`, `probes`; drop tests of `judge`, `score`, `report`, `probe_io`).
+  `concepts`, `probes`; drop tests of `judge`, `score`, `report`, `probe_io`). Note
+  `test_sibling_probe_recipes.py` imports `synth_arm` from `test_sibling_probe_stage2.py`: keep a
+  helper while any surviving test uses it.
   `test_sibling_verdict.py` goes whole. `test_um_ladder.py` / `test_um_lexicon_pin.py` stay;
   inside them only tests that exercise `occupation` / `emotion` specifically are deleted.
   **These are the only sanctioned test edits: deletions of whole test functions (and their
@@ -79,14 +86,18 @@ if anything in the closure references it, it stays.
 - `plans/`: `0003-…`, `0004-…`, `0005-…` (history is in git). Plans 0006 / 0011 stay; add a
   status line under each title: "Superseded predecessors (plans 0003–0005) and the occupation /
   emotion domains were removed from the tree in plan 0013; final sibling eval = 3 domains."
-- `pyproject.toml`: drop the `probe_sweep_*` per-file-ignore and the `data/sibling_probe/pilot`
-  exclude once those files are gone. Keep the `sibling` dependency group (the ladder uses the
+- `pyproject.toml`: drop the `probe_sweep_*` per-file-ignore (keep the `pilot` exclude: `pilot/`
+  stays). Keep the `sibling` dependency group (the ladder uses the
   Qwen tokenizer).
 
 ### Occupation / emotion in kept code
 
 - `um_domains.py`: `DOMAINS = ("country", "capital_city", "holiday")`; delete the
-  `occupation` / `emotion` `Domain` entries. `um_ladder.py --category` choices follow `DOMAINS`.
+  `occupation` / `emotion` entries everywhere in the module: `SPECS`, `COMPATIBLE`,
+  `EXTRA_BLOCK`, `DROP_ALIASES`, and helpers only they use (e.g. `_SCI`). `configure()` reads only
+  the active domain, so kept domains' prompts / fingerprints do not change.
+  `um_ladder.py --category` choices follow `DOMAINS`. `scripts/sibling_probe/um_lexicons.py`:
+  same for its `CATEGORIES` and per-category dicts.
 - `data/sibling_probe/um_lexicons.json`: remove the occupation / emotion categories only if no
   hash / pin / fingerprint covers the whole file (grep for its name in src, scripts, tests). If the
   file feeds a judge prompt or cache fingerprint for the kept domains, leave it untouched and say
@@ -94,9 +105,10 @@ if anything in the closure references it, it stays.
 - Plot scripts: `DOMAINS = ["country", "capital_city", "holiday"]` in `um_plot_macro.py`,
   `um_plot_macro_layers.py`, `um_plot_domains.py`; drop the "all four / without occupation" panel
   pair in `um_plot_macro.py` (one panel, three domains); drop occupation / emotion display names in
-  `um_plot_simple.py`. Regenerate the macro / domains figures from
-  `/workspace/hb-um-ladder/outputs/sibling/um/` (symlink it to `outputs/sibling/um` in the worktree;
-  outputs are git-ignored) if the scripts run offline; otherwise delete the figures.
+  `um_plot_simple.py`. Regenerate the macro / domains figures from a **copy** of
+  `/workspace/hb-um-ladder/outputs/sibling/um/` (never a symlink: the scripts write under
+  `outputs/sibling/um`, and that tree is the reference data) if the scripts run offline; otherwise
+  delete the figures.
 - `um_run_domains_stage1.sh` default `DOMAINS` becomes `capital_city holiday`.
 
 ### Docs
@@ -117,15 +129,19 @@ if anything in the closure references it, it stays.
 
 - `grep -rn` over `src scripts tests README.md CLAUDE.md docs/results/README.md` for the deleted
   module names, `basic_readout`, `br_bank`, `verdict`, `occupation`, `emotion`, `hbench sibling`
-  finds nothing except intended mentions (plan-0003 category names inside kept data / kept
+  finds nothing except intended mentions (and `occupation` / `emotion` entries in `um_domains.py`,
+  `um_lexicons.py` are gone) (plan-0003 category names inside kept data / kept
   `CATEGORIES` constants are fine — the plan-0003 inventory has its own `occupation` / `emotion`
   categories; those are data, not the UM domains).
 - `python -c "import importlib; [importlib.import_module(m) for m in …]"` for every kept module,
   `uv run hbench --help`, and every kept `scripts/sibling_probe/*.py --help` run without error.
-- Offline replay is unchanged: `scripts/sibling_probe/um_ladder.py --category X label` on the
-  existing outputs (symlinked) yields `units_labeled.jsonl` byte-identical to the copy in
-  `/workspace/hb-um-ladder/outputs/sibling/um/` for all three domains (run into a scratch out dir
-  if the script supports it; if `label` needs inputs not on this box, say so instead).
+- `um_ladder.py probe-texts`' import path works: `cd scripts/sibling_probe && python -c "import gen_items"`.
+- Offline replay is unchanged: sha256 the three reference `units_labeled.jsonl` files in
+  `/workspace/hb-um-ladder/outputs/sibling/um/` first; **copy** (never symlink — `um_ladder.py`
+  writes to the hardcoded `REPO_ROOT/outputs/sibling/um`) the inputs `label` reads into the
+  worktree's `outputs/sibling/um/`; run `um_ladder.py --category X label` for the three domains;
+  the outputs must be byte-identical to the snapshot, and the reference hashes must be unchanged
+  afterwards. If `label` needs inputs not on this box, say so instead.
 - Full test suite, ruff check, ruff format --check green.
 
 ## Part B — the hallucination index
@@ -150,7 +166,14 @@ Per **(method, layer)** — every (method, layer) is its own row; there is no al
   (rows = per-item count vectors in item first-seen order), 2.5 / 97.5 percentiles of the ratio.
   Sibling: 1,000 draws, `random.Random(0)`, within-domain item resample, domains in order
   country, capital_city, holiday, CI = sorted sims `[24]`, `[974]`. Copy the exact RNG
-  consumption order from `hclaims.py` / `um3.py` — the acceptance test is equality.
+  consumption order from `hclaims.py` / `um3.py` — the acceptance test is equality. Explicitly:
+  a **fresh** `np.random.default_rng(0)` per (arm, layer) row and a **fresh** `random.Random(0)`
+  per (method, layer) sibling row; the bootstrap population is every item with at least one cell
+  whose segment list is non-empty (zero-claim items included; a cell with `segments == []` does
+  not register its item), in first-seen order; a layer with `n_claims == 0` is omitted (family
+  absent), never reported as 0. UM: a (method, layer) needs units in all three domains for a
+  sibling value (J-lens has 1 / 18 / 31 testable units across domains but no layer with all
+  three — that, not a config choice, is why it has no sibling score).
 - **Macros.** Family weights `main 9, agentic_misalignment 3, sibling 2, story 1`.
   `full` = weighted mean over all four (only when all four are present); `matched` = main + AM +
   story at 9:3:1 (only when those three are present). CI: normal approximation, families
@@ -167,22 +190,20 @@ Per **(method, layer)** — every (method, layer) is its own row; there is no al
       "s3d-rl600":   {"main": ["s3d-rl600", "s3d-rl600-all11"], "agentic_misalignment": ["s3d-rl600"],
                       "story": ["s3d-rl600-all11"], "sibling": ["s3d"]},
       "mlnla-rl600": {"main": ["mlnla-rl600-all11"], "agentic_misalignment": ["mlnla-rl600-all11"],
-                      "story": ["mlnla-rl600-all11"], "sibling": ["mlnla-rl600"]},
-      "jlens":       {"sibling": []}
+                      "story": ["mlnla-rl600-all11"], "sibling": ["mlnla-rl600"]}
     },
     "exclude": ["nla-rl-L42", "nla-sft-L42"],
     "notes": {"jlens.sibling": "...", "nla-rl-L42": "single-layer L42 NLA arms excluded (Camila 2026-10-20)"}
   }
   ```
 
-  A method listed in the config uses its lists for the families it names and identity for the
-  others (an empty list = family deliberately absent). Every arm directory found in any family
-  that is neither excluded nor claimed by a configured method's lists becomes an identity method.
-  `exclude` names arm directories / UM methods that never become their own method. Before
-  writing `jlens.sibling = []`, check *why* `macro3.py` gave J-lens no sibling score (it only
-  mapped s3d / mlnla UM methods) and write the reason in `notes`; if there is no recorded
-  reason, keep the empty list (reproduce macro3) and flag it in the PR body as a question for
-  Camila.
+  Semantics, per family: a configured method uses its list for each family it names and
+  `[<method name>]` for the others (an empty list = family deliberately absent). An arm name
+  appearing in any configured list of family F is *claimed in F*; a configured method's own
+  name is also claimed in every family. In each family, every arm dir (UM: every method name) that
+  is neither claimed nor in `exclude` becomes (or joins) the identity method of that name.
+  `exclude` is global. With this config J-lens is an identity method in all four families and gets
+  no sibling value because no layer has units in all three domains (the `notes` entry says so).
 
 ### Code
 
@@ -192,7 +213,8 @@ Per **(method, layer)** — every (method, layer) is its own row; there is no al
   `render_md(index) -> str`. Weights / leaf weights / family weights are module constants with a
   `INDEX_VERSION = "hindex-v3"` string written into every output.
 - **Sources.** Defaults derive from `--out` (default `outputs`) and `--judge-model` (default the
-  CLI's `DEFAULT_MODEL` dir name): main `<out>/wsbench_chat/<model>/`, story
+  CLI's `DEFAULT_MODEL`, directory name `model_slug(judge_model)` as in
+  `evals/wsbench_chat/run.py`): main `<out>/wsbench_chat/<model>/`, story
   `<out>/story/<model>/`, AM `<out>/agentic_misalignment/<model>/`, sibling
   `<out>/sibling/um/` (country at `label/`, others at `<domain>/label/`). Each is overridable and
   repeatable: `--main-root`, `--story-root`, `--am-root`, `--um-root`. An arm dir is any child
@@ -204,7 +226,8 @@ Per **(method, layer)** — every (method, layer) is its own row; there is no al
   `matched` + CI; rows with missing families still appear with the families they have.
   `index.json` also records `INDEX_VERSION`, weights, sources (resolved paths), and the git sha.
 - `hbench report` (every `--eval`) calls the index builder with default sources after its own
-  report and prints where it wrote; a missing family is fine (partial rows), and an index failure
+  report — `cmd_report` has several early returns (agentic_misalignment, `--view v2`), so wrap the
+  whole command (rename the body to `_cmd_report`, `cmd_report` calls it then the index) and prints where it wrote; a missing family is fine (partial rows), and an index failure
   prints a warning and never changes `report`'s exit code.
 - Streaming: chat cells files are large (J-lens ~1 GB under AM): read line by line, skip lines
   without `"segments"` before `json.loads` (as `hclaims.py`), keep only count vectors.
@@ -230,7 +253,11 @@ main `/workspace/hb-taxonomy-v2/outputs/wsbench_chat/claude-opus-5-5` +
 per-family `v` and `ci`, `full`, `matched` and their CIs, to `abs < 1e-12`; per-family values for
 identity methods must match `hclaims_main.json` (`weighted`, `ci_weighted`, components) and
 `hclaims.json` (`unweighted`, `ci_unweighted`) rows for the same (family, arm, layer); UM values
-must match `um3.json` (`macro`, `ci`, per-domain `hall`, `n`). Write the comparison script to
+must match `um3.json` (`macro`, `ci`, per-domain `hall`, `n`). Arms whose `cells.jsonl` is newer
+than the reference JSON (the `hb-rlrecon` arms and `mlnla64-*`, rewritten 2026-10-22..24) are
+expected drift: report them, never change `index.py` to match them. Arms with no reference row are
+skipped. The macro3 arms (jlens, s3d, mlnla) and the UM files are unchanged since, so their match
+is exact. Write the comparison script to
 `/tmp` (not committed) and paste its summary into the PR.
 
 ### Results doc
