@@ -80,7 +80,7 @@ if anything in the closure references it, it stays.
   One named exception: `test_sibling_probe_recipes.py::test_recipe_gates_and_layout` asserts on kept
   `probes` constants and on deleted `score` (`S.Gates(...).min_validity`); delete only that
   `S.Gates` assertion line and keep the `probes` assertions unchanged.
-  **These are the only sanctioned test edits: deletions of whole test functions (and their
+  **These are the only sanctioned test edits (plus the one named exception above): deletions of whole test functions (and their
   now-unused imports / fixtures). No assertion in a surviving test changes.**
 - `plots/sibling_probe/`: everything except the three-domain UM figures. Keep
   `um_country_{labels,layers,nulls,shared,simple,summary}.png`, `um_capital_city_simple.png`,
