@@ -230,7 +230,12 @@ def load_methods(path: Path) -> Methods:
         exclude=set(raw.get("exclude", [])),
         notes=dict(raw.get("notes", {})),
     )
+    owner: dict[tuple[str, str], str] = {}
     for name, fams in m.methods.items():
+        for f, arms in fams.items():
+            for a in arms:
+                if (prev := owner.setdefault((f, a), name)) != name:
+                    raise ValueError(f"{path}: {f} arm {a!r} listed by {prev!r} and {name!r}")
         if bad := set(fams) - set(FAMILIES):
             raise ValueError(f"{path}: method {name!r}: unknown families {sorted(bad)}")
         if hit := ({name} | {a for arms in fams.values() for a in arms}) & m.exclude:

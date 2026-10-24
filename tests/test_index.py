@@ -254,3 +254,14 @@ def test_report_builds_index_at_default_dest(tmp_path, monkeypatch):
     assert cli.main(["report", "--out", str(tmp_path)]) == 5  # report's own code is kept
     out = json.loads((tmp_path / "index" / cli.DEFAULT_MODEL / "index.json").read_text())
     assert [(r["method"], r["layer"]) for r in out["rows"]] == [("a", 20)]
+
+
+def test_arm_listed_by_two_methods_and_unreadable_config(tmp_path):
+    with pytest.raises(ValueError, match="listed by 'M' and 'N'"):
+        _methods(tmp_path, {"methods": {"M": {"main": ["a"]}, "N": {"main": ["b", "a"]}}})
+    _methods(tmp_path, {"methods": {"M": {"main": ["a"]}, "N": {"story": ["a"]}}})  # per family
+    with pytest.raises(SystemExit, match=r"missing\.json"):
+        cli.main(["index", "--out", str(tmp_path), "--methods", str(tmp_path / "missing.json")])
+    (tmp_path / "bad.json").write_text("{not json")
+    with pytest.raises(SystemExit):
+        cli.main(["index", "--out", str(tmp_path), "--methods", str(tmp_path / "bad.json")])
