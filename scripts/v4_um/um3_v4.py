@@ -47,10 +47,13 @@ def main() -> None:
         for d in DOMS:
             u = units.get((m, L, d), [])
             if u:
-                per[d] = {"n": len(u), "hall": sum(h for _, h, _ in u) / len(u),
-                          "faithful": sum(lb == "faithful" for *_, lb in u) / len(u),
-                          "cross": sum(lb == "cross" for *_, lb in u) / len(u),
-                          "n_items": len({i for i, *_ in u})}
+                per[d] = {
+                    "n": len(u),
+                    "hall": sum(h for _, h, _ in u) / len(u),
+                    "faithful": sum(lb == "faithful" for *_, lb in u) / len(u),
+                    "cross": sum(lb == "cross" for *_, lb in u) / len(u),
+                    "n_items": len({i for i, *_ in u}),
+                }
         rec = {"method": m, "layer": L, "per_domain": per}
         if len(per) == 3:
             rng = random.Random(0)
@@ -75,13 +78,19 @@ def main() -> None:
     print(f"-> {a.out}")
     for r in rows:
         if "macro" in r:
-            print(f"{r['method']:20s} L{r['layer']} n={r['n']:4d} macro={r['macro'] * 100:5.1f} "
-                  f"[{r['ci'][0] * 100:.1f},{r['ci'][1] * 100:.1f}] "
-                  + " ".join(f"{d[:4]}={r['per_domain'][d]['hall'] * 100:.0f}%(n{r['per_domain'][d]['n']})"
-                             for d in DOMS))
+            print(
+                f"{r['method']:20s} L{r['layer']} n={r['n']:4d} macro={r['macro'] * 100:5.1f} "
+                f"[{r['ci'][0] * 100:.1f},{r['ci'][1] * 100:.1f}] "
+                + " ".join(
+                    f"{d[:4]}={r['per_domain'][d]['hall'] * 100:.0f}%(n{r['per_domain'][d]['n']})"
+                    for d in DOMS
+                )
+            )
         else:
-            print(f"{r['method']:20s} L{r['layer']} missing domains",
-                  {d: v["n"] for d, v in r["per_domain"].items()})
+            print(
+                f"{r['method']:20s} L{r['layer']} missing domains",
+                {d: v["n"] for d, v in r["per_domain"].items()},
+            )
 
 
 if __name__ == "__main__":

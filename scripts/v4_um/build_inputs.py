@@ -1,15 +1,15 @@
 """V4 UM ladder inputs (local, no API / GPU).
 
-  items      Set A items of the 3 domains -> outputs/v4/um/modal_in/items_in.json (Modal ``items``)
-             + V4 window check of every item
-  src        V4 src root outputs/v4/um/src/: items.json with the V4 greedy responses (from
-             outputs/v4/um/modal_out/responses.jsonl), probe_texts.jsonl = plan 0003 texts + the
-             Qwen UM generated texts (ids prefixed ``q``), readouts split per domain from
-             outputs/v4/um/modal_out/readouts/<arm>/
-  probe-job  V4-window-checked probe texts of every domain -> modal_in/probe_<tag>.json
-             (``--only-new`` = texts not captured yet, per the pack metas in modal_out/pack/)
+items      Set A items of the 3 domains -> outputs/v4/um/modal_in/items_in.json (Modal ``items``)
+           + V4 window check of every item
+src        V4 src root outputs/v4/um/src/: items.json with the V4 greedy responses (from
+           outputs/v4/um/modal_out/responses.jsonl), probe_texts.jsonl = plan 0003 texts + the
+           Qwen UM generated texts (ids prefixed ``q``), readouts split per domain from
+           outputs/v4/um/modal_out/readouts/<arm>/
+probe-job  V4-window-checked probe texts of every domain -> modal_in/probe_<tag>.json
+           (``--only-new`` = texts not captured yet, per the pack metas in modal_out/pack/)
 
-    .venv/bin/python scripts/v4_um/build_inputs.py items
+  .venv/bin/python scripts/v4_um/build_inputs.py items
 """
 
 import argparse
@@ -28,8 +28,11 @@ SRC = V4UM / "src"
 DOMAINS = ("country", "capital_city", "holiday")
 DATA = HB / "data" / "sibling_probe"
 ARMS = ("v4-s3don-sft", "v4-s3don-rl600", "v4-jlens-std-n1000")
-METHOD_OF = {"v4-s3don-sft": "v4-s3don-sft", "v4-s3don-rl600": "v4-s3don-rl600",
-             "v4-jlens-std-n1000": "jlens"}
+METHOD_OF = {
+    "v4-s3don-sft": "v4-s3don-sft",
+    "v4-s3don-rl600": "v4-s3don-rl600",
+    "v4-jlens-std-n1000": "jlens",
+}
 
 
 def read_jsonl(p: Path) -> list[dict]:
@@ -49,11 +52,15 @@ def cmd_items(_a: argparse.Namespace) -> None:
     bad = [it["id"] for it in its if not v4.window_ok(it["messages"], it["request"])]
     n_win = Counter(len(v4.window(it["messages"])[0]) for it in its)
     MIN.mkdir(parents=True, exist_ok=True)
-    rows = [{"id": it["id"], "family": f"sibling_{it['category']}", "messages": it["messages"]}
-            for it in its]
+    rows = [
+        {"id": it["id"], "family": f"sibling_{it['category']}", "messages": it["messages"]}
+        for it in its
+    ]
     (MIN / "items_in.json").write_text(json.dumps(rows, ensure_ascii=False))
-    print(f"{len(rows)} items {Counter(it['category'] for it in its)}; window lengths {dict(n_win)};"
-          f" V4 window mismatches {bad}")
+    print(
+        f"{len(rows)} items {Counter(it['category'] for it in its)}; window lengths {dict(n_win)};"
+        f" V4 window mismatches {bad}"
+    )
 
 
 def cmd_pool(_a: argparse.Namespace) -> None:
@@ -90,8 +97,10 @@ def cmd_pool(_a: argparse.Namespace) -> None:
     with (d / "probe_texts.jsonl").open("w") as fh:
         for t in keep:
             fh.write(json.dumps(t, ensure_ascii=False) + "\n")
-    print(f"probe-text pool {len(old)} plan 0003 + {len(extra)} Qwen UM -> "
-          f"{len(keep)} in the 3 domains passing the V4 window check (dropped {dict(drop)})")
+    print(
+        f"probe-text pool {len(old)} plan 0003 + {len(extra)} Qwen UM -> "
+        f"{len(keep)} in the 3 domains passing the V4 window check (dropped {dict(drop)})"
+    )
 
 
 def cmd_src(_a: argparse.Namespace) -> None:
@@ -106,10 +115,19 @@ def cmd_src(_a: argparse.Namespace) -> None:
         its.append({**it, "response": resp[it["id"]], "response_qwen": it.get("response")})
     d = SRC / "data" / "sibling_probe"
     d.mkdir(parents=True, exist_ok=True)
-    (d / "items.json").write_text(json.dumps(
-        {**{k: v for k, v in bank.items() if k != "items"}, "items": its,
-         "v4_note": "responses = DeepSeek-V4-Flash greedy (chat, no thinking, 256 new tokens)"},
-        ensure_ascii=False, indent=1))
+    (d / "items.json").write_text(
+        json.dumps(
+            {
+                **{k: v for k, v in bank.items() if k != "items"},
+                "items": its,
+                "v4_note": (
+                    "responses = DeepSeek-V4-Flash greedy (chat, no thinking, 256 new tokens)"
+                ),
+            },
+            ensure_ascii=False,
+            indent=1,
+        )
+    )
     cmd_pool(_a)
     # readouts per domain
     cat = {it["id"]: it["category"] for it in its}
@@ -128,14 +146,16 @@ def cmd_src(_a: argparse.Namespace) -> None:
             with (od / f"sibling_{dom}.jsonl").open("w") as fh:
                 for r in sorted(rows, key=lambda r: (r["id"], r["layer"], r["pos"])):
                     fh.write(json.dumps(r, ensure_ascii=False) + "\n")
-        print(f"  {arm}: {sum(len(v) for v in by.values())} cells "
-              f"{ {k: len(v) for k, v in by.items()} } from {len(files)} files")
+        print(
+            f"  {arm}: {sum(len(v) for v in by.values())} cells "
+            f"{ {k: len(v) for k, v in by.items()} } from {len(files)} files"
+        )
 
 
 def cmd_probe_job(a: argparse.Namespace) -> None:
     import v4tok
 
-    v4 = v4tok.get()
+    v4tok.get()  # load the V4 tokenizer up front (fail fast)
     done: set[str] = set()
     if a.from_pool:
         pool = read_jsonl(SRC / "data" / "sibling_probe" / "probe_texts.jsonl")
@@ -151,8 +171,9 @@ def cmd_probe_job(a: argparse.Namespace) -> None:
             texts = read_jsonl(V4UM / sub / "data" / f"um_{dom}_probe_texts.jsonl")
         todo = [t for t in texts if t["id"] not in done]
         n = max(1, -(-len(todo) // a.per_shard)) if todo else 0
-        job[dom] = [[{"id": t["id"], "messages": t["messages"]} for t in todo[s::n]]
-                    for s in range(n)]
+        job[dom] = [
+            [{"id": t["id"], "messages": t["messages"]} for t in todo[s::n]] for s in range(n)
+        ]
         rep[dom] = {"texts": len(texts), "todo": len(todo), "shards": n}
     MIN.mkdir(parents=True, exist_ok=True)
     out = MIN / f"probe_{a.tag}.json"

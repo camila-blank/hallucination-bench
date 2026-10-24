@@ -14,7 +14,8 @@ Differences from ``scripts/sibling_probe/um_probes_modal.py`` (whose phase logic
   fitted; its validity is written as 0 and its z as NaN, so every type-(b) sensitivity row is n/a.
 
     MODAL_PROFILE=safety-sahan-2 uvx --python 3.12 modal@latest run \\
-        scripts/v4_um/um_probes_v4_modal.py --phase fit --inputs outputs/v4/um/holiday/probe_inputs.json \\
+        scripts/v4_um/um_probes_v4_modal.py --phase fit \\
+        --inputs outputs/v4/um/holiday/probe_inputs.json \\
         --out-dir outputs/v4/um/holiday/probes --domain holiday
 """
 
@@ -79,7 +80,6 @@ def _gpu_eig(self, folds):  # = probes.Whitener.eig, on the GPU in float64
 
 def _pack_windows(domain: str, layer: int, want: set[str]):
     """{label: (x [n, d] float32, offsets)} from every pack shard of the domain."""
-    import numpy as np
     from safetensors import safe_open
 
     d = UM / "pack" / domain
@@ -118,7 +118,11 @@ def _textset(inputs: dict, layer: int):
 
 
 @app.function(
-    image=image, volumes=volumes, gpu=["H100", "A100-80GB"], cpu=16, memory=160 * 1024,
+    image=image,
+    volumes=volumes,
+    gpu=["H100", "A100-80GB"],
+    cpu=16,
+    memory=160 * 1024,
     timeout=8 * 3600,
 )
 def fit_layer(layer: int, inputs: dict) -> dict:
@@ -131,7 +135,10 @@ def fit_layer(layer: int, inputs: dict) -> dict:
     um_vol.reload()
     C = len(inputs["concepts"])
     ts = _textset(inputs, layer)
-    print(f"[v4-probes {inputs['domain']} L{layer}] textset {ts.H.shape} in {time.time() - t0:.0f}s", flush=True)
+    print(
+        f"[v4-probes {inputs['domain']} L{layer}] textset {ts.H.shape} in {time.time() - t0:.0f}s",
+        flush=True,
+    )
     cfa, lams, _tab = P.cross_fit_whitened(ts, C)
     ta = time.time() - t0
     nsa = Q.null_stats(ts, cfa.oof, C)
@@ -180,18 +187,23 @@ def score_layer(layer: int, inputs: dict) -> bytes:
     from safetensors import safe_open
 
     um_vol.reload()
-    z = np.load(io.BytesIO((UM / "probes" / inputs["run"] / "fit" / f"L{layer:02d}.npz").read_bytes()))
+    z = np.load(
+        io.BytesIO((UM / "probes" / inputs["run"] / "fit" / f"L{layer:02d}.npz").read_bytes())
+    )
     nf = P.N_FOLDS
     ma = [
         P.FoldModel(
-            D=z[f"a{k}_U"], U=z[f"a{k}_U"],
+            D=z[f"a{k}_U"],
+            U=z[f"a{k}_U"],
             keys={(int(e), int(o)): i for i, (e, o) in enumerate(z[f"a{k}_keys"])},
-            muU=z[f"a{k}_muU"], sigma=z[f"a{k}_sigma"],
+            muU=z[f"a{k}_muU"],
+            sigma=z[f"a{k}_sigma"],
         )
         for k in range(nf)
     ]
-    ns = Q.NullStats(z["na_offsets"], [z[f"na{k}_m"] for k in range(nf)],
-                     [z[f"na{k}_sd"] for k in range(nf)])
+    ns = Q.NullStats(
+        z["na_offsets"], [z[f"na{k}_m"] for k in range(nf)], [z[f"na{k}_sd"] for k in range(nf)]
+    )
     man = json.loads((UM / "eval_acts" / "manifest.json").read_text())
     li = man["layers"].index(layer)
     ent = {p["label"]: p for p in man["prompts"]}
@@ -210,8 +222,13 @@ def score_layer(layer: int, inputs: dict) -> bytes:
         rows_pos += list(pos)
     za = np.concatenate(ZA).astype(np.float32)
     buf = io.BytesIO()
-    np.savez(buf, item=np.array(rows_item), pos=np.array(rows_pos, np.int64), za=za,
-             zb=np.full_like(za, np.nan))
+    np.savez(
+        buf,
+        item=np.array(rows_item),
+        pos=np.array(rows_pos, np.int64),
+        za=za,
+        zb=np.full_like(za, np.nan),
+    )
     sd = UM / "probes" / inputs["run"] / "score"
     sd.mkdir(parents=True, exist_ok=True)
     (sd / f"L{layer:02d}.npz").write_bytes(buf.getvalue())
@@ -220,8 +237,9 @@ def score_layer(layer: int, inputs: dict) -> bytes:
 
 
 @app.local_entrypoint()
-def main(phase: str, inputs: str, out_dir: str, domain: str, layers: str = "",
-         distractors: str = "") -> None:
+def main(
+    phase: str, inputs: str, out_dir: str, domain: str, layers: str = "", distractors: str = ""
+) -> None:
     inp = json.loads(Path(inputs).read_text())
     inp["domain"] = domain
     Ls = [int(x) for x in layers.split(",")] if layers else list(inp["layers"])
@@ -239,18 +257,32 @@ def main(phase: str, inputs: str, out_dir: str, domain: str, layers: str = "",
             (d / f"fit_L{res['layer']:02d}.json").write_text(json.dumps(res))
             meta.append({"layer": res["layer"], **res["timings"]})
             print(f"[v4-probes] fit L{res['layer']} {res['timings']}", flush=True)
-        (d / "summary.json").write_text(json.dumps({
-            "run": inp["run"], "inputs_sha256": hashlib.sha256(Path(inputs).read_bytes()).hexdigest(),
-            "concepts": inp["concepts"], "layers": Ls, "meta": meta, "types": ["a"],
-            "wall_s": round(time.time() - t0, 1)}, indent=1))
+        (d / "summary.json").write_text(
+            json.dumps(
+                {
+                    "run": inp["run"],
+                    "inputs_sha256": hashlib.sha256(Path(inputs).read_bytes()).hexdigest(),
+                    "concepts": inp["concepts"],
+                    "layers": Ls,
+                    "meta": meta,
+                    "types": ["a"],
+                    "wall_s": round(time.time() - t0, 1),
+                },
+                indent=1,
+            )
+        )
     elif phase == "score":
         dist = Path(distractors)
         if not dist.exists():
             raise SystemExit(f"{dist} missing: run `distractors` after the fit phase")
         d = out / "score"
         d.mkdir(parents=True, exist_ok=True)
-        summ = {"run": inp["run"], "distractors_sha256": hashlib.sha256(dist.read_bytes()).hexdigest(),
-                "layers": Ls, "started": time.time()}
+        summ = {
+            "run": inp["run"],
+            "distractors_sha256": hashlib.sha256(dist.read_bytes()).hexdigest(),
+            "layers": Ls,
+            "started": time.time(),
+        }
         (d / "summary.json").write_text(json.dumps(summ, indent=1))
         for L, data in zip(Ls, score_layer.map(Ls, kwargs={"inputs": inp}), strict=True):
             (d / f"L{L:02d}.npz").write_bytes(data)

@@ -1,5 +1,5 @@
-"""The plan 0006 / 0011 UM ladder driver (``scripts/sibling_probe/um_ladder.py``, unchanged) re-pointed
-at DeepSeek-V4-Flash. Every stage is the landed driver's own ``cmd_*``; this wrapper only
+"""The plan 0006 / 0011 UM ladder driver (``scripts/sibling_probe/um_ladder.py``, unchanged)
+re-pointed at DeepSeek-V4-Flash. Every stage is the landed driver's own ``cmd_*``; this wrapper only
 overrides module globals:
 
 * methods = the V4 arms (``v4-s3don-sft``, ``jlens`` = v4-jlens-std-n1000, ``v4-s3don-rl600`` when
@@ -37,7 +37,11 @@ ARM_FILES = {  # method id -> readout dir under src/outputs/sibling/readouts/
     "jlens": "v4-jlens-std-n1000",
     "v4-s3don-rl600": "v4-s3don-rl600",
 }
-LABELS = {"v4-s3don-sft": "V4 O-lens SFT", "jlens": "V4 J-lens", "v4-s3don-rl600": "V4 O-lens RL600"}
+LABELS = {
+    "v4-s3don-sft": "V4 O-lens SFT",
+    "jlens": "V4 J-lens",
+    "v4-s3don-rl600": "V4 O-lens RL600",
+}
 
 
 def configure_v4(cat: str, arms: list[str]) -> None:
@@ -107,8 +111,10 @@ def main() -> None:
 
     DRV.setup_domain = setup
     sys.argv = [sys.argv[0], *argv]
-    print(f"[v4] category {cat}; arms {arms}; out {V4UM if cat == 'country' else V4UM / cat}",
-          flush=True)
+    print(
+        f"[v4] category {cat}; arms {arms}; out {V4UM if cat == 'country' else V4UM / cat}",
+        flush=True,
+    )
     DRV.main()
 
 
