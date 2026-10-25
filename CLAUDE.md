@@ -114,7 +114,7 @@ scripts/run_am.sh    AM driver: step1 (tmux hbench-am-detect) | step2 (tmux hben
   root from their own location and read `${HBENCH_X:-<default>}`.
 - CI is pending (plan 0012 D5, held back for a token scope): until it lands, run ruff check +
   format and `pytest -rs` locally before pushing. Plan numbers are unique: the next free one is
-  0014 (0009/0010 belong to the unlanded resampling-gate branches).
+  0015 (0009/0010 belong to the unlanded resampling-gate branches).
 
 ## Run commands
 
@@ -146,6 +146,24 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
   - Never run `consistency-v2` for story: it is chat-only, and its output file is the chat noise
     source.
   - `pilot-dump*`, `calibrate` and `units-v2` are chat-only.
+  - **DeepSeek-V4-Flash port** (2026-10-20): `HBENCH_STORY_ITEMS` points the story bank at
+    another subject's on-policy bank (V4: `outputs/v4/story_bank/items.json`, built by
+    gw-v4-flash-ar `scripts/v4_flash/story_v4_bank.py`; the producers read it as family
+    `hallucination_story` of the bench copy `/workspace/root/wsbench-pub-v4-story`).
+    `scripts/run_story_v4.sh <arm:volume>,...` fetches + grid-checks the readouts
+    (`outputs/v4/story_readouts/`) and judges into `outputs/v4/story/`;
+    `scripts/run_story_v4_rl600.sh` adds the RL600 arm once its adapter exists.
+    **On the index** (plan 0014): V4 arms (`v4-*`) are matched by name; pass the V4 roots
+    beside the Qwen ones: main/story `outputs/v4r/{wsbench_chat,story}/<judge>`, AM
+    `outputs/v4/agentic_misalignment/<judge>`, sibling `outputs/v4/sibling/um` (command:
+    `docs/results/0013` §DeepSeek-V4-Flash). The sibling root is an export (`scripts/v4_um/export_index_root.py`)
+    of `outputs/v4/um`, renaming the ladder's `jlens` to `v4-jlens-std-n1000` (else it collides
+    with Qwen `jlens`). V4 AM is read at 21/27/33 only, so V4 `full`/`matched` exist there only;
+    chat/story at 21/27/33 come from the producers' jobs mode (`scripts/v4_index/`:
+    `readout_jobs.py` jobs/merge, `judge_v4r.sh`, outputs `outputs/v4r/`). The V4 chat bank's first
+    3 items were unpadded-vLLM garbage and are regenerated (`scripts/v4_index/regen_chat3.py`;
+    originals `*.corrupt` in the bench copies). Judging shares the org's 2M output-tok/min limit:
+    concurrency 128 draws 429s (retried); a 401 means the OAuth profile token rotated — retry.
 
 - **`--eval agentic_misalignment`** (plan 0008) is its own driver (`evals/agentic_misalignment/run.py`),
   dispatched first in `cmd_run` / `cmd_report`; chat and story never touch it.

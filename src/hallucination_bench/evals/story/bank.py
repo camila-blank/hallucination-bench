@@ -3,7 +3,9 @@ global-workspace's ``hallucination_creative`` bank (provenance in its ``meta``).
 and public API as ``wsbench_chat.bank``."""
 
 import json
+import os
 from functools import cache
+from pathlib import Path
 from typing import Any
 
 from hallucination_bench import DATA
@@ -28,7 +30,9 @@ __all__ = [
 ]
 
 BANK_DIR = DATA / "story"
-ITEMS_PATH = BANK_DIR / "items.json"
+# HBENCH_STORY_ITEMS: another subject model's on-policy story bank (same schema + meta keys),
+# e.g. the DeepSeek-V4-Flash bank (built by gw-v4-flash-ar's scripts/v4_flash/story_v4_bank.py)
+ITEMS_PATH = Path(os.environ.get("HBENCH_STORY_ITEMS") or BANK_DIR / "items.json")
 
 
 @cache

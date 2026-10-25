@@ -88,3 +88,115 @@ Excluded arms: nla-rl-L42, nla-sft-L42.
   `s3d` method (`data/index/methods.json`).
 - The sibling family covers 3 domains; occupation (judge committed precision 0.50) and emotion
   were dropped and removed from the repo in plan 0013.
+
+## DeepSeek-V4-Flash (plan 0014)
+
+Plan: [`plans/0014-v4-flash-on-the-index.md`](../../plans/0014-v4-flash-on-the-index.md). The V4
+arms are matched by name and their roots are passed beside the Qwen ones; the Qwen rows above
+are bit-for-bit unchanged in the combined index. V4 chat and story were re-read and re-judged at
+the AM layers 21/27/33 (and the chat bank's 3 corrupted responses regenerated), so **V4 has `full`
+and `matched` at layers 21, 27 and 33** — the only V4 layers where main, AM and story coincide.
+The V4 sibling root is exported from the V4 UM ladder (its `jlens` renamed
+`v4-jlens-std-n1000`):
+
+```bash
+V=/workspace/hb-v4/outputs/v4 W=/workspace/hb-v4/outputs/v4r   # V4 run outputs (dev box)
+python scripts/v4_um/export_index_root.py --um $V/um --dest $V/sibling/um
+hbench index --dest outputs/index/claude-opus-5-5 <the five Qwen roots above> \
+  --main-root $W/wsbench_chat/claude-opus-5-5 --story-root $W/story/claude-opus-5-5 \
+  --am-root $V/agentic_misalignment/claude-opus-5-5 --um-root $V/sibling/um
+```
+
+### V4 macros (the three plan arms; % of claims hallucinated, lower is better)
+
+| arm | layer | full | matched | main | agentic_misalignment | sibling | story |
+|---|---:|---|---|---|---|---|---|
+| v4-s3don-sft | 21 | 15.7 [13.9, 17.6] | 10.6 [9.8, 11.5] | 8.0 [6.9, 9.2] | 16.7 [15.8, 17.6] | 48.9 [36.6, 62.3] | 15.8 [11.9, 19.4] |
+| v4-s3don-sft | 27 | 14.5 [11.1, 17.8] | 9.8 [8.8, 10.7] | 6.7 [5.5, 8.1] | 18.4 [17.2, 19.8] | 45.0 [21.9, 70.7] | 10.9 [7.7, 14.2] |
+| v4-s3don-sft | 33 | 13.2 [10.9, 15.4] | 9.2 [8.4, 9.9] | 5.3 [4.4, 6.3] | 19.2 [18.1, 20.5] | 39.0 [19.4, 52.2] | 13.8 [10.4, 17.1] |
+| v4-s3don-rl600 | 21 | 19.9 [17.0, 22.8] | 14.8 [13.6, 15.9] | 11.3 [9.8, 12.9] | 23.0 [22.0, 24.0] | 53.2 [29.1, 69.8] | 21.3 [16.3, 25.7] |
+| v4-s3don-rl600 | 27 | 16.7 [14.8, 18.6] | 11.1 [10.2, 12.0] | 6.9 [5.8, 8.1] | 22.3 [21.0, 23.9] | 52.7 [40.4, 66.2] | 15.5 [11.7, 19.3] |
+| v4-s3don-rl600 | 33 | 15.8 [14.1, 17.4] | 10.5 [9.6, 11.4] | 6.2 [5.1, 7.4] | 22.4 [20.9, 24.1] | 50.0 [38.5, 60.3] | 13.4 [10.0, 16.6] |
+| v4-jlens-std-n1000 | 21 | — | 4.2 [3.4, 4.9] | 4.4 [3.4, 5.4] | 3.1 [2.3, 4.1] | — | 5.4 [3.1, 8.2] |
+| v4-jlens-std-n1000 | 27 | — | 3.3 [2.6, 3.9] | 2.9 [2.2, 3.7] | 3.6 [2.4, 4.9] | — | 5.3 [3.3, 7.5] |
+| v4-jlens-std-n1000 | 33 | — | 3.3 [2.6, 4.0] | 3.1 [2.3, 3.9] | 3.5 [2.0, 5.2] | — | 4.9 [2.7, 7.5] |
+
+Qwen3.6-27B at the depth-matched layers (V4 21/27/33 ≈ Qwen 32/42/48; Qwen has no layer 42, 44
+shown), from the table above:
+
+| method | layer | full | matched |
+|---|---:|---|---|
+| s3d-rl600 | 32 / 44 / 48 | 13.1 / 13.1 / 13.9 | 12.5 / 11.8 / 12.0 |
+| mlnla-rl600 | 32 / 44 / 48 | 28.3 / 26.7 / 27.1 | 27.7 / 26.4 / 26.8 |
+| jlens | 32 / 44 / 48 | — | 5.5 / 2.3 / 2.9 |
+
+### All V4 rows
+
+Every (arm, layer) of the three plan arms (generated `index.md` rows). `v4-s3don-sft14500` (an
+intermediate SFT checkpoint, chat only, read on the pre-fix bank and not re-run) is not passed to
+the index.
+
+| method | layer | full | matched | main | agentic_misalignment | sibling | story | main fc / cat / sib / det |
+|---|---:|---|---|---|---|---|---|---|
+| v4-jlens-std-n1000 | 15 | — | — | 4.9 [4.0, 5.9] | — | — | 8.4 [6.1, 10.8] | 4.7 / 0.0 / 0.2 / 0.3 |
+| v4-jlens-std-n1000 | 21 | — | 4.2 [3.4, 4.9] | 4.4 [3.4, 5.4] | 3.1 [2.3, 4.1] | — | 5.4 [3.1, 8.2] | 4.2 / 0.1 / 0.2 / 0.2 |
+| v4-jlens-std-n1000 | 24 | — | — | 3.9 [3.1, 4.7] | — | — | 5.7 [3.3, 8.3] | 3.6 / 0.2 / 0.1 / 0.5 |
+| v4-jlens-std-n1000 | 27 | — | 3.3 [2.6, 3.9] | 2.9 [2.2, 3.7] | 3.6 [2.4, 4.9] | — | 5.3 [3.3, 7.5] | 2.6 / 0.2 / 0.2 / 0.5 |
+| v4-jlens-std-n1000 | 30 | — | — | 2.8 [2.1, 3.5] | — | — | 5.3 [2.6, 8.4] | 2.6 / 0.1 / 0.1 / 0.2 |
+| v4-jlens-std-n1000 | 33 | — | 3.3 [2.6, 4.0] | 3.1 [2.3, 3.9] | 3.5 [2.0, 5.2] | — | 4.9 [2.7, 7.5] | 2.9 / 0.1 / 0.1 / 0.5 |
+| v4-jlens-std-n1000 | 36 | — | — | 3.0 [2.3, 3.8] | — | — | 4.6 [2.7, 6.5] | 2.9 / 0.0 / 0.1 / 0.5 |
+| v4-jlens-std-n1000 | 39 | — | — | 4.3 [3.5, 5.3] | — | — | 5.2 [3.0, 7.9] | 4.2 / 0.2 / 0.0 / 0.2 |
+| v4-s3don-rl600 | 15 | — | — | 9.9 [8.5, 11.3] | — | 67.9 [59.7, 83.2] | 22.0 [16.8, 27.0] | 5.6 / 2.3 / 4.8 / 3.7 |
+| v4-s3don-rl600 | 18 | — | — | — | — | 61.2 [51.8, 68.9] | — | — |
+| v4-s3don-rl600 | 21 | 19.9 [17.0, 22.8] | 14.8 [13.6, 15.9] | 11.3 [9.8, 12.9] | 23.0 [22.0, 24.0] | 53.2 [29.1, 69.8] | 21.3 [16.3, 25.7] | 6.0 / 3.1 / 6.0 / 3.7 |
+| v4-s3don-rl600 | 24 | — | — | 7.8 [6.6, 9.1] | — | 41.0 [28.0, 54.9] | 18.2 [13.3, 23.6] | 4.6 / 1.5 / 3.4 / 3.6 |
+| v4-s3don-rl600 | 27 | 16.7 [14.8, 18.6] | 11.1 [10.2, 12.0] | 6.9 [5.8, 8.1] | 22.3 [21.0, 23.9] | 52.7 [40.4, 66.2] | 15.5 [11.7, 19.3] | 4.6 / 0.8 / 2.2 / 4.2 |
+| v4-s3don-rl600 | 30 | — | — | 6.9 [5.8, 8.2] | — | 42.3 [29.9, 54.3] | 14.4 [10.8, 18.0] | 4.3 / 0.8 / 2.6 / 4.3 |
+| v4-s3don-rl600 | 33 | 15.8 [14.1, 17.4] | 10.5 [9.6, 11.4] | 6.2 [5.1, 7.4] | 22.4 [20.9, 24.1] | 50.0 [38.5, 60.3] | 13.4 [10.0, 16.6] | 4.2 / 0.9 / 1.6 / 3.9 |
+| v4-s3don-rl600 | 36 | — | — | 6.5 [5.3, 7.8] | — | 42.4 [28.5, 62.6] | 14.4 [10.8, 17.8] | 4.5 / 0.4 / 2.0 / 3.5 |
+| v4-s3don-rl600 | 39 | — | — | 5.9 [4.8, 7.0] | — | 38.7 [24.5, 51.6] | 13.5 [10.0, 17.1] | 3.8 / 0.5 / 2.0 / 4.0 |
+| v4-s3don-rl600 | 42 | — | — | — | — | 59.6 [33.7, 81.2] | — | — |
+| v4-s3don-sft | 15 | — | — | 8.1 [7.0, 9.3] | — | 47.6 [40.6, 56.9] | 18.9 [14.1, 23.8] | 5.5 / 2.3 / 1.9 / 2.6 |
+| v4-s3don-sft | 18 | — | — | — | — | 13.9 [5.6, 22.2] | — | — |
+| v4-s3don-sft | 21 | 15.7 [13.9, 17.6] | 10.6 [9.8, 11.5] | 8.0 [6.9, 9.2] | 16.7 [15.8, 17.6] | 48.9 [36.6, 62.3] | 15.8 [11.9, 19.4] | 4.6 / 2.5 / 3.2 / 2.9 |
+| v4-s3don-sft | 24 | — | — | 7.7 [6.6, 8.9] | — | 14.1 [3.0, 36.3] | 17.1 [13.0, 21.0] | 5.4 / 1.1 / 1.9 / 3.6 |
+| v4-s3don-sft | 27 | 14.5 [11.1, 17.8] | 9.8 [8.8, 10.7] | 6.7 [5.5, 8.1] | 18.4 [17.2, 19.8] | 45.0 [21.9, 70.7] | 10.9 [7.7, 14.2] | 5.2 / 0.5 / 1.3 / 3.2 |
+| v4-s3don-sft | 30 | — | — | 6.0 [5.1, 7.0] | — | 48.9 [25.2, 71.1] | 12.7 [9.2, 16.2] | 4.5 / 0.5 / 1.0 / 3.7 |
+| v4-s3don-sft | 33 | 13.2 [10.9, 15.4] | 9.2 [8.4, 9.9] | 5.3 [4.4, 6.3] | 19.2 [18.1, 20.5] | 39.0 [19.4, 52.2] | 13.8 [10.4, 17.1] | 3.7 / 0.6 / 1.1 / 3.7 |
+| v4-s3don-sft | 36 | — | — | 6.2 [5.1, 7.4] | — | 12.3 [4.0, 22.2] | 13.9 [10.5, 17.1] | 4.6 / 0.5 / 1.0 / 3.9 |
+| v4-s3don-sft | 39 | — | — | 6.0 [4.9, 7.2] | — | 55.7 [37.0, 69.1] | 16.4 [12.6, 20.1] | 4.3 / 0.5 / 1.4 / 3.8 |
+| v4-s3don-sft | 42 | — | — | — | — | 26.2 [15.7, 37.7] | — | — |
+
+### V4 deviations and caveats
+
+- **The banks were regenerated for V4.**
+  - chat: the V4 `hallucination` bank of `wsbench-pub-v4-opus` (149 prompts, V4 responses
+    generated with vLLM on 2026-10-12; 3 regenerated 2026-10-24, below).
+  - story: an on-policy V4 bank (`outputs/v4/story_bank/items.json`, 20 items, set with
+    `HBENCH_STORY_ITEMS`).
+  - AM: the same 32 pinned Qwen3.6-27B rollouts, re-tokenized for V4
+    (`scripts/build_am_bank_v4.py`). The read sites come from V4 J-lens columns.
+  - UM ladder: V4 responses (from HF `generate`) and V4 probes. The pool of cross-method
+    siblings contains only the three V4 arms.
+- **Each family uses different layers.** chat and story: 15/21/24/27/30/33/36/39. AM: 21/27/33.
+  sibling: every 3rd layer from 15 to 42. So `full` / `matched` exist only at 21/27/33.
+- **Chat and story at 21/27/33 come from the producers' jobs mode**
+  (`scripts/v4_index/readout_jobs.py`): the same capture and readout recipe as the bench
+  producer, which only reads the bench grid's 15/24/30/36/39. The J-lens jobs path reproduces
+  the bench producer's rows on 24 check cells (same tokens; scores within 1e-4). Re-judging used
+  the existing runs' caches, so every cell judged before is unchanged: the V4 story values at
+  15/24/30/36/39 equal the earlier run's exactly.
+- **Three chat responses were regenerated.** The original bank came from an unpadded vLLM call
+  (`gen_vllm_modal.py`), and its first three items (`chat-lmsys-0000..0002`) were garbage (the
+  head-of-call failure mode). They were re-asked with the same recipe (T 1.0, top-p 1.0, ≤ 512
+  tokens, seed 7) on the padded + canary runner (`gen_requests_modal.py`; canary passed), their
+  sites rebuilt (8 each; bank 1,045 → 1,051 sites), and read and judged at every layer. The
+  originals are kept as `items.json.corrupt` / `capture_rows.json.corrupt` in both V4 bench
+  copies. Main values at 15/24/30/36/39 move by ≤ 0.2 pt.
+  The other banks are clean: the story bank is coherent throughout (unpadded, but eager with one
+  sequence at a time, 20 requests); AM contains no V4-generated text; UM used HF `generate`.
+- `v4-s3don-sft` reads have empty cells at depth (all 4 samples empty; e.g. 39 of 1,051 at
+  layer 33, 78 at 36), in the original reads and the new ones alike. HB counts them as empty,
+  not as claims.
+- `v4-jlens-std-n1000` has no sibling score, for the same reason as Qwen `jlens`: it has no
+  committed, probe-testable country units at any layer. So J-lens is compared on `matched` only.
