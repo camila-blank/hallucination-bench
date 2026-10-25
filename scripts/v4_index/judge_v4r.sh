@@ -32,6 +32,7 @@ for a in 1 2 3 4 5 6; do
   [[ $rc -eq 3 ]] && sleep 120
   echo "=== $(date -Is) rc=$rc attempt $a; resuming"
 done
+[[ $rc -eq 0 ]] || { echo "hbench run still failing after retries (rc=$rc); no report" >&2; exit $rc; }
 EV=${ARGS[1]}
 env -u ANTHROPIC_API_KEY "$PY" -m hallucination_bench.cli report --eval "$EV" --out "$OUT"
 env -u ANTHROPIC_API_KEY "$PY" -m hallucination_bench.cli report --eval "$EV" --out "$OUT" --view v2

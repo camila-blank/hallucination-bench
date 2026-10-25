@@ -31,7 +31,7 @@ __all__ = [
 
 BANK_DIR = DATA / "story"
 # HBENCH_STORY_ITEMS: another subject model's on-policy story bank (same schema + meta keys),
-# e.g. the DeepSeek-V4-Flash bank built by scripts/build_story_bank_v4.py
+# e.g. the DeepSeek-V4-Flash bank (built by gw-v4-flash-ar's scripts/v4_flash/story_v4_bank.py)
 ITEMS_PATH = Path(os.environ.get("HBENCH_STORY_ITEMS") or BANK_DIR / "items.json")
 
 

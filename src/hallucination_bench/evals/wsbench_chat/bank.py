@@ -5,6 +5,7 @@
 response, response_start, sites: [{pos, token, kind, char}]}]}``).
 """
 
+import hashlib
 import json
 import os
 from functools import cache
@@ -35,9 +36,15 @@ __all__ = [
 BANK_DIR = DATA / "wsbench_chat"
 # HBENCH_WSBENCH_CHAT_ITEMS: another subject model's on-policy bank (same schema), e.g. the
 # DeepSeek-V4-Flash copy at <wsbench-pub-v4>/evals/hallucination/items.json
-ITEMS_PATH = Path(os.environ.get("HBENCH_WSBENCH_CHAT_ITEMS") or BANK_DIR / "items.json")
-BANK_SOURCE = f"camilablank/wsbench-pub@{WSBENCH_PUB_COMMIT}:evals/hallucination/items.json"
-BANK_COMMIT = WSBENCH_PUB_COMMIT
+_OVERRIDE = os.environ.get("HBENCH_WSBENCH_CHAT_ITEMS")
+ITEMS_PATH = Path(_OVERRIDE or BANK_DIR / "items.json")
+if _OVERRIDE:  # provenance of the overriding bank, never the Qwen default's
+    _SHA = hashlib.sha256(ITEMS_PATH.read_bytes()).hexdigest()[:16]
+    BANK_SOURCE = f"override:{ITEMS_PATH}"
+    BANK_COMMIT = f"sha256:{_SHA}"
+else:
+    BANK_SOURCE = f"camilablank/wsbench-pub@{WSBENCH_PUB_COMMIT}:evals/hallucination/items.json"
+    BANK_COMMIT = WSBENCH_PUB_COMMIT
 
 
 @cache

@@ -10,7 +10,8 @@ J-lens arm as ``jlens`` (the ladder code's fixed J-lens name), which collides wi
 to the same layout under ``<dest>`` with ``jlens`` renamed ``v4-jlens-std-n1000`` (in ``method``
 and in the ``cross`` / ``cross_any_layer`` method lists); every other field and line order is
 kept, so the index reads exactly the units ``um3_v4.py`` aggregates. Default paths follow the
-index's own ``--out`` layout (``<out>/sibling/um``), so ``hbench index --out outputs/v4`` finds it.
+index's own ``--out`` layout (``<out>/sibling/um``),
+so the documented ``hbench index`` command (``--dest`` + root flags) finds it.
 
     .venv/bin/python scripts/v4_um/export_index_root.py [--um outputs/v4/um]
         [--dest outputs/v4/sibling/um]
