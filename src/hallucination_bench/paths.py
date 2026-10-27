@@ -28,12 +28,15 @@ ALI_PROBE_ROOT = _env_path("HBENCH_ALI_PROBE_ROOT", "/workspace/gw-ali-probe")
 COMBOS_READOUTS = _env_path(
     "HBENCH_COMBOS_READOUTS", "/workspace/gw-wsb-combos/outputs/wsbench_combos/readouts"
 )
+# plan 0018 sad readouts: <root>/<arm>/sad.jsonl (converted from the hb-sad-* Modal gen dirs)
+SAD_READOUTS = _env_path("HBENCH_SAD_READOUTS", "/workspace/hb-readouts-sad")
 
 __all__ = [
     "ALI_PROBE_ROOT",
     "COMBOS_READOUTS",
     "GLOBAL_WORKSPACE",
     "READOUTS_ROOT",
+    "SAD_READOUTS",
     "SIBLING_SRC_ROOT",
     "WSBENCH_PUB",
     "WSBENCH_PUB_V4",

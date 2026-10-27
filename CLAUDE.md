@@ -9,7 +9,9 @@ is plan `plans/0007-story-eval.md`; the `agentic_misalignment` eval (detector + 
 mentions of misalignment, its own driver, `--eval agentic_misalignment`) is plan
 `plans/0008-agentic-misalignment-claim-map.md`. The hallucination index (`hbench index`, one
 macro per (method, layer) over main / AM / sibling / story) is plan
-`plans/0013-final-sibling-eval-and-hallucination-index.md`.
+`plans/0013-final-sibling-eval-and-hallucination-index.md`. The `sad` eval (eval-vs-deployment
+awareness on SAD stages-oversight, own CLI `hbench sad ...`, not on the index) is plan
+`plans/0018-sad-eval.md`.
 
 ## Layout
 
@@ -86,6 +88,13 @@ scripts/sibling_probe/   um_ladder.py (driver), um_probes_modal.py, um_lexicons.
                          um_run_*.sh; gen_items.py (imported by `um_ladder.py probe-texts`)
 scripts/build_am_bank.py  writes data/agentic_misalignment/ (streams the readouts; fails loudly)
 scripts/am_audit.py  AM audits: sample | sample-headline | screen | summ-only | sample-tiers | score
+evals/sad/          plan 0018 (own CLI `hbench sad`, via EVAL_CLIS; NOT in evals.EVALS):
+    bank.py  manifest / raw loader / plain_render;  gate.py  Qwen belief gate (10 samples)
+    select.py  mismatched-first selection + read sites;  detect.py  sadetect-v1;
+    verify.py  sadverify-v1 (Stage H);  run.py  driver + rebuild;  score.py;  report.py;  cli.py
+data/sad/           manifest.json, gate.json, selected.json (ids / counts / positions only), README;
+                    raw/ = the SAD texts, GITIGNORED (scripts/sad/fetch_sad.py)
+scripts/sad/        fetch_sad.py, qwen_gate_modal.py, capture.sh, reads.sh, fetch_readouts.sh
 scripts/run_am.sh    AM driver: step1 (tmux hbench-am-detect) | step2 (tmux hbench-am-map)
 ```
 
@@ -281,6 +290,20 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
 - **In-run retries** (rev 14): an invalid `:M` (or calibration) answer is re-asked up to 2 times
   (`run.MAP_INVALID_RETRIES`) before it is cached as failed; meta records `n_invalid_attempts`
   and the summed usage.
+
+## sad eval (plan 0018)
+
+- **Never commit a SAD text** (SAD's contamination rule; the repo is public): texts live in
+  gitignored `data/sad/raw/`, capture rows / readouts / caches under `outputs/` or
+  `/workspace/hb-readouts-sad`. Committed files hold ids, hashes, counts and positions only (a
+  test checks `selected.json` sites are `{pos, region}`); results docs paraphrase.
+- Ground truth is Qwen's own belief (`data/sad/gate.json`), not SAD provenance. The gate inserts
+  the text verbatim (SAD's template); the read strips it (Qwen's template trims content).
+- vLLM on Modal: `enforce_eager=True` (the compiled path hung after torch.compile, 2026-10-27).
+- The global-workspace readers write to `wsbench-gen-3` only because `reads.sh` exports
+  `WSBENCH_GEN_VOLUME`; their defaults differ. `--jobs-json` takes a FILE path.
+- Headline rates use only verified `situation` mentions; `format` ("a multiple-choice question")
+  is reported separately because benchmark formatting makes it surface-inferable.
 
 ## sibling eval: user-modelling ladder (plans 0006 + 0011)
 
