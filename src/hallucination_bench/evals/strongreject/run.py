@@ -120,6 +120,7 @@ async def grade_async(
     concurrency: int = 64,
     limit: int | None = None,
     call: bool = True,
+    llm: Any = None,
 ) -> dict[str, Any]:
     """Grade every (prompt, sample) not yet cached, then write ``outcomes.json``."""
     root = model_root(out, judge)
@@ -140,7 +141,7 @@ async def grade_async(
             if cache.get(grade_key(p["id"], k), fp) is None:
                 jobs.append((grade_key(p["id"], k), fp, system, user))
     if jobs and call:
-        llm = LLM(rpm=rpm, concurrency=concurrency, effort=judge.effort)
+        llm = llm or LLM(rpm=rpm, concurrency=concurrency, effort=judge.effort)
         await llm.preflight(judge.model)
         prog = _Progress("grade", len(jobs))
 
@@ -554,6 +555,7 @@ def run(
     rpm: float = 1500.0,
     concurrency: int = 64,
     allow_missing: bool = False,
+    llm: Any = None,
 ) -> dict[str, Any]:
     return asyncio.run(
         run_async(
@@ -566,6 +568,7 @@ def run(
             rpm=rpm,
             concurrency=concurrency,
             allow_missing=allow_missing,
+            llm=llm,
         )
     )
 
@@ -581,6 +584,7 @@ async def run_async(
     rpm: float = 1500.0,
     concurrency: int = 64,
     allow_missing: bool = False,
+    llm: Any = None,
 ) -> dict[str, Any]:
     stages = set(stages)
     if stages - set(STAGES):
@@ -597,7 +601,7 @@ async def run_async(
         cells_of[a.name] = cs
     sp = Usage()
     if stages:
-        llm = LLM(rpm=rpm, concurrency=concurrency, effort=judge.effort)
+        llm = llm or LLM(rpm=rpm, concurrency=concurrency, effort=judge.effort)
         try:
             await llm.preflight(judge.model)
             if "detect" in stages:

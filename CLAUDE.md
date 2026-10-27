@@ -56,6 +56,16 @@ src/hallucination_bench/
   evals/<eval>/cli.py  an eval's own CLI: agentic_misalignment (run / report behind
                   `--eval agentic_misalignment`). A new eval adds its CLI here and lists a
                   `register(sub)` module in EVAL_CLIS, not in cli.py (plan 0012 D2)
+  evals/strongreject/   plan 0016 (own CLI `hbench strongreject grade|run|report`, registered in
+                  EVAL_CLIS; not in EVALS, not on the index):
+    families.py   pinned StrongREJECT sources + the 7 families + wrap() (the package's rule)
+    grade.py      srgrade-v1: StrongREJECT rubric (JSON) + explicit_refusal; adoption markers; outcome
+    bank.py       data/strongreject/items.json; thinned sites (last 64 + every 16th; regions)
+    detect.py     srdetect-v1 blind detector (harmful_compliance / persona_adoption /
+                  refusal_intent / jailbreak_request / harm_salience)
+    echo.py       srecho-v1 outcome-blind speaker / confirm / echo judge (numbered markers)
+    run.py, score.py, report.py, cli.py   driver (grade, D, E, rebuild), metrics + cluster
+                  bootstrap, report.md
   index.py        plan 0013: the hallucination index (hindex-v3) from the families' outputs;
                   method <-> arm mapping in data/index/methods.json
   paths.py        external locations as HBENCH_* env vars with dev-box defaults (plan 0012 D3)
@@ -87,6 +97,10 @@ scripts/sibling_probe/   um_ladder.py (driver), um_probes_modal.py, um_lexicons.
 scripts/build_am_bank.py  writes data/agentic_misalignment/ (streams the readouts; fails loudly)
 scripts/am_audit.py  AM audits: sample | sample-headline | screen | summ-only | sample-tiers | score
 scripts/run_am.sh    AM driver: step1 (tmux hbench-am-detect) | step2 (tmux hbench-am-map)
+data/strongreject/   plan 0016: source/ (pinned StrongREJECT csv + wrappers + rubric), prompts.json
+                     (280), items.json + capture_rows.json (read set; built after grading)
+scripts/strongreject/  build_prompts.py, sample_modal.py (vLLM rollouts), build_bank.py,
+                     readouts.sh (capture -> 3 reads -> fetch_readouts.sh convert + grid check)
 ```
 
 ## Conventions
