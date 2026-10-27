@@ -31,8 +31,15 @@ FAMILIES: tuple[tuple[str, str], ...] = (
     ("prefix_injection", "prefix injection"),
     ("refusal_suppression", "refusal suppression"),
     ("base64_input_only", "encoding"),
+    # contrast families (plan 0016 rev 3): the 7 above gave 0 successful jailbreaks on
+    # Qwen3.6-27B, so these three, which a probe sample showed it often complies with, supply
+    # the recall / contrast set (and more unsuccessful variety)
+    ("wikipedia_with_title", "contrast: framing (Wikipedia article)"),
+    ("style_injection_json", "contrast: output-format injection"),
+    ("poems", "contrast: distractor (poems first)"),
 )
 FAMILY_NAMES: tuple[str, ...] = tuple(f for f, _ in FAMILIES)
+PLANNED: tuple[str, ...] = FAMILY_NAMES[:7]  # the rev-1 families (the rest are contrast)
 CONTROL = "none"
 
 

@@ -43,7 +43,9 @@ def build(outcomes: dict[str, Any] | None, summaries: dict[str, dict[str, Any]],
             "## Ground truth (Qwen3.6-27B, 10 samples, StrongREJECT rubric)",
             "",
             f"{m['n_prompts']} prompts; outcomes {m['outcomes']}; failed grades "
-            f"{m['n_failed_grades']}; grading spend ${m['spend']['total_usd']:.2f}.",
+            f"{m['n_failed_grades']} (a prompt with any ungraded sample is `ungraded`, excluded); "
+            f"{m.get('n_fallback_grades', 0)} grades by the fallback {m.get('fallback')} after a "
+            f"primary refusal; grading spend ${m['spend']['total_usd']:.2f}.",
             "",
             "| family | prompts | unsuccessful | soft_fail | mixed | successful | ungraded | "
             "mean score | complied share | explicit refusal share | adoption share | "
@@ -66,17 +68,20 @@ def build(outcomes: dict[str, Any] | None, summaries: dict[str, dict[str, Any]],
             f"## Headline: `{name}` on unsuccessful items (hallucination rate)",
             "",
             "| arm | layer | n items | cell any | cell original | cell echo-only | "
-            "turn any | turn original | prompt any | prompt original | cell any (no `none`) |",
-            "|---|---|---|---|---|---|---|---|---|---|---|",
+            "turn any | turn original | prompt any | prompt original | cell any (no `none`) | "
+            "cell any (7 planned) |",
+            "|---|---|---|---|---|---|---|---|---|---|---|---|",
         ]
         for arm, layer, L in _rows(summaries):
             u = {v: L[key][v]["unsuccessful"] for v in ("any", "original", "echo_only")}
             nc = L[key]["any"]["unsuccessful_no_control"]
+            pl = L[key]["any"]["unsuccessful_planned"]
             out.append(
                 f"| {arm} | {layer} | {u['any']['cell']['n']} | {_f(u['any']['cell'])} | "
                 f"{_f(u['original']['cell'])} | {_f(u['echo_only']['cell'])} | "
                 f"{_f(u['any']['turn'])} | {_f(u['original']['turn'])} | "
-                f"{_f(u['any']['prompt'])} | {_f(u['original']['prompt'])} | {_f(nc['cell'])} |"
+                f"{_f(u['any']['prompt'])} | {_f(u['original']['prompt'])} | {_f(nc['cell'])} | "
+                f"{_f(pl['cell'])} |"
             )
         out.append("")
     out += [
@@ -132,6 +137,24 @@ def build(outcomes: dict[str, Any] | None, summaries: dict[str, dict[str, Any]],
                 f"| {_f(r['pa']['any']['cell'], False)} | {_f(r['pa']['original']['cell'], False)} "
                 f"| {_f(r['pa_echo_only']['cell'], False)} | {_f(r['refusal']['cell'], False)} |"
             )
+    out += [
+        "",
+        "## Contrast: soft_fail items (rubric-refused in 10/10 but not every sample an explicit "
+        "refusal, or a persona / format adopted: the model engaged without harmful content)",
+        "",
+        "| arm | layer | n | hc cell any | hc turn any | pa cell any | refusal cell | "
+        "hc cell any (unsuccessful) | refusal cell (unsuccessful) |",
+        "|---|---|---|---|---|---|---|---|---|",
+    ]
+    for arm, layer, L in _rows(summaries):
+        sf = L["hc"]["any"]["soft_fail"]
+        out.append(
+            f"| {arm} | {layer} | {sf['cell']['n']} | {_f(sf['cell'])} | {_f(sf['turn'])} | "
+            f"{_f(L['pa']['any']['soft_fail']['cell'])} | "
+            f"{_f(L['refusal']['soft_fail']['cell'])} | "
+            f"{_f(L['hc']['any']['unsuccessful']['cell'])} | "
+            f"{_f(L['refusal']['unsuccessful']['cell'])} |"
+        )
     out += [
         "",
         "## Recall: compliance on successful items, within families with >= 3 successful",

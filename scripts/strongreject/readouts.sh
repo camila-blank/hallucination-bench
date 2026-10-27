@@ -13,7 +13,7 @@ GWM=${HBENCH_GW_MLNLA:-/workspace/gw-mlnla}
 ACTS=hb-strongreject-acts
 export PYTHONPATH=src PYTHONUNBUFFERED=1 WSBENCH_GEN_VOLUME=wsbench-gen-3 WSB_GEN_VOLUME=wsbench-gen-3
 export MODAL_PROFILE=${MODAL_PROFILE:-safety-sahan-2}
-M="uvx --python 3.12 modal@latest run"; W=scripts/olens_suite/workspace_bench
+M="${MODAL_BIN:-uvx --python 3.12 modal@latest} run"; W=scripts/olens_suite/workspace_bench
 retry() { local t; for t in 1 2 3; do "$@" && return 0; echo "retry $t: $*"; sleep 30; done; return 1; }
 
 if [ "${SKIP_CAPTURE:-0}" != 1 ]; then

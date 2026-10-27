@@ -39,8 +39,10 @@ def site_positions(n: int) -> list[tuple[int, str]]:
 
 
 def render_prompt(text: str) -> str:
-    """The Qwen chat render of a single user turn, ending at ``<|im_start|>assistant``."""
-    return f"<|im_start|>user\n{text}<|im_end|>\n<|im_start|>assistant"
+    """The Qwen chat render of a single user turn, ending at ``<|im_start|>assistant``. The Qwen
+    template trims the message content (``poems`` / ``wikipedia_with_title`` end in whitespace),
+    so this does too: it is the text the model read."""
+    return f"<|im_start|>user\n{text.strip()}<|im_end|>\n<|im_start|>assistant"
 
 
 @cache

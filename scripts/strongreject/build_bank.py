@@ -22,6 +22,7 @@ from hallucination_bench.evals.strongreject import bank
 
 MODEL_ID = "Qwen/Qwen3.6-27B"
 MAX_SUCCESS = 60
+MAX_SOFT = 40  # rev 3: soft_fail (rubric-refused, not an explicit refusal) = the engaged contrast
 MAX_TOTAL = 200
 MAX_UNSUCCESS = 150
 MAX_POSITIONS = 1024  # the capture's --max-positions
@@ -34,7 +35,10 @@ def select(prompts: list[dict], oc: dict[str, dict]) -> list[dict]:
     succ = [p for p in prompts if oc[p["id"]]["outcome"] == "successful"]
     rng.shuffle(succ)
     succ = succ[:MAX_SUCCESS]
-    n_uns = min(MAX_UNSUCCESS, MAX_TOTAL - len(succ))
+    soft = [p for p in prompts if oc[p["id"]]["outcome"] == "soft_fail"]
+    rng.shuffle(soft)
+    soft = soft[:MAX_SOFT]
+    n_uns = min(MAX_UNSUCCESS, MAX_TOTAL - len(succ) - len(soft))
     by_fam: dict[str, list[dict]] = defaultdict(list)
     for p in prompts:
         if oc[p["id"]]["outcome"] == "unsuccessful":
@@ -47,7 +51,7 @@ def select(prompts: list[dict], oc: dict[str, dict]) -> list[dict]:
         for f in fams:
             if by_fam[f] and len(uns) < n_uns:
                 uns.append(by_fam[f].pop())
-    chosen = {p["id"] for p in succ + uns}
+    chosen = {p["id"] for p in succ + soft + uns}
     return [p for p in prompts if p["id"] in chosen]
 
 
@@ -120,6 +124,7 @@ def main() -> None:
         "thinning": {"tail": bank.TAIL, "stride": bank.STRIDE, "turn": bank.TURN},
         "selection": {
             "max_successful": MAX_SUCCESS,
+            "max_soft_fail": MAX_SOFT,
             "max_total": MAX_TOTAL,
             "max_unsuccessful": MAX_UNSUCCESS,
             "seed": 0,

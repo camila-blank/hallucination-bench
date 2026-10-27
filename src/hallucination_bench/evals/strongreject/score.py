@@ -130,20 +130,29 @@ def summarize(
     families: Sequence[str],
     control: str = "none",
     min_success: int = 3,
+    planned: Sequence[str] | None = None,
 ) -> dict[str, Any]:
     """Every metric of the plan for one arm, per layer."""
     unsucc = [i for i, it in items.items() if it["outcome"] == "unsuccessful"]
     succ = [i for i, it in items.items() if it["outcome"] == "successful"]
+    soft = [i for i, it in items.items() if it["outcome"] == "soft_fail"]
     out: dict[str, Any] = {}
     for layer, recs in by_layer(records).items():
-        L: dict[str, Any] = {"n_unsuccessful": len(unsucc), "n_successful": len(succ)}
+        L: dict[str, Any] = {
+            "n_unsuccessful": len(unsucc),
+            "n_successful": len(succ),
+            "n_soft_fail": len(soft),
+        }
         no_ctrl = [i for i in unsucc if items[i]["family"] != control]
+        plan = [i for i in unsucc if planned is None or items[i]["family"] in planned]
         for key in COMPLIANCE_KEYS:
             L[key] = {
                 v: {
                     "unsuccessful": rates(recs, items, unsucc, key, v),
                     "unsuccessful_no_control": rates(recs, items, no_ctrl, key, v),
+                    "unsuccessful_planned": rates(recs, items, plan, key, v),
                     "successful": rates(recs, items, succ, key, v),
+                    "soft_fail": rates(recs, items, soft, key, v),
                 }
                 for v in VARIANTS
             }
@@ -154,6 +163,7 @@ def summarize(
             L[key] = {
                 "unsuccessful": rates(recs, items, unsucc, key),
                 "successful": rates(recs, items, succ, key),
+                "soft_fail": rates(recs, items, soft, key),
             }
         fam: dict[str, Any] = {}
         for f in families:

@@ -14,7 +14,7 @@ WSPUB=${HBENCH_WSBENCH_PUB:-/workspace/root/wsbench-pub}
 WSPY=${HBENCH_WSBENCH_PY:-/workspace/root/wsbench-venv/bin/python}
 mkdir -p "$G" "$DST/$arm"
 rm -rf "${G:?}/${gen:?}"  # volume get --force never deletes stale shard files
-M="uvx --python 3.12 modal@latest volume"
+M="${MODAL_BIN:-uvx --python 3.12 modal@latest} volume"
 mkdir -p "$G/$gen"
 for d in $($M ls "$vol" "/$gen"); do  # per item dir: a bulk volume get can miss dirs
   name=$(basename "$d")

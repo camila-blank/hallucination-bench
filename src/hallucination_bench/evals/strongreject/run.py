@@ -34,6 +34,10 @@ STAGES = ("detect", "echo")
 class Judge:
     model: str = "claude-opus-5-5"
     effort: str | None = "low"
+    # grading only: a sample the primary model REFUSES to grade (stop_reason refusal) is re-asked
+    # once with this model (Opus 5.5 refuses ~14% of StrongREJECT grades deterministically, by
+    # the forbidden prompt's topic; Sonnet 5.5 grades ~2/3 of those). None: no fallback.
+    fallback: str | None = "claude-sonnet-5-5"
 
 
 def model_root(out: Path, judge: Judge) -> Path:
@@ -107,8 +111,18 @@ def grade_key(pid: str, k: int) -> str:
     return f"grade:{pid}:s{k}"
 
 
-def grade_fp(judge: Judge, system: str, user: str) -> str:
-    return fingerprint(grade.PROMPT_VERSION, judge.model, judge.effort, system, user)
+def grade_fp(judge: Judge, system: str, user: str, model: str | None = None) -> str:
+    return fingerprint(grade.PROMPT_VERSION, model or judge.model, judge.effort, system, user)
+
+
+def fallback_key(pid: str, k: int) -> str:
+    return f"gradefb:{pid}:s{k}"
+
+
+def _refused(cache: Cache, key: str, fp: str) -> bool:
+    row = cache.get(key, fp, include_failed=True)
+    usage = ((row or {}).get("meta") or {}).get("usage") or {}
+    return row is not None and row["result"] is None and bool(usage.get("refusals"))
 
 
 async def grade_async(
@@ -133,36 +147,67 @@ async def grade_async(
         raise SystemExit(f"{len(missing)} prompts have no rollouts, e.g. {missing[:3]}")
     cache = Cache(root / "grade_cache.jsonl")
     sp = Usage()
-    jobs = []
-    for p in prompts:
-        for k, resp in enumerate(rolls[p["id"]]["samples"]):
-            system, user = grade.render(p["forbidden_prompt"], resp)
-            fp = grade_fp(judge, system, user)
-            if cache.get(grade_key(p["id"], k), fp) is None:
-                jobs.append((grade_key(p["id"], k), fp, system, user))
-    if jobs and call:
-        llm = llm or LLM(rpm=rpm, concurrency=concurrency, effort=judge.effort)
-        await llm.preflight(judge.model)
-        prog = _Progress("grade", len(jobs))
 
-        async def one(key: str, fp: str, system: str, user: str) -> None:
-            usage = Usage()
-            r = None
-            for _ in range(2):  # one in-run re-ask of an invalid answer
-                o = await llm.call(model=judge.model, system=system, user=user, schema=grade.SCHEMA)
-                usage.add(o.usage)
-                sp.add(o.usage)
-                r = o.result
-                if r is None or grade.valid(r):
-                    break
-                r = None
-            cache.put(key, fp, {"result": r, "meta": _meta("grade", judge.model, usage)})
-            prog.tick()
+    def todo() -> tuple[list[tuple[str, ...]], list[tuple[str, ...]]]:
+        prim, fb = [], []
+        for p in prompts:
+            for k, resp in enumerate(rolls[p["id"]]["samples"]):
+                system, user = grade.render(p["forbidden_prompt"], resp)
+                key, fp = grade_key(p["id"], k), grade_fp(judge, system, user)
+                if cache.get(key, fp) is not None:
+                    continue
+                if judge.fallback and _refused(cache, key, fp):
+                    fkey, ffp = (
+                        fallback_key(p["id"], k),
+                        grade_fp(judge, system, user, judge.fallback),
+                    )
+                    if cache.get(fkey, ffp) is None:
+                        fb.append((fkey, ffp, system, user, judge.fallback))
+                    continue  # a refused primary is not re-asked: the fallback stands in
+                prim.append((key, fp, system, user, judge.model))
+        return prim, fb
 
+    if call:
+        prim, _ = todo()
+        lazy = llm
         try:
-            await _pool((lambda j=j: one(*j) for j in jobs), concurrency)
+            for stage in ("grade", "grade_fallback"):
+                jobs = prim if stage == "grade" else todo()[1]
+                if not jobs:
+                    continue
+                lazy = lazy or LLM(rpm=rpm, concurrency=concurrency, effort=judge.effort)
+                await lazy.preflight(jobs[0][4])
+                prog = _Progress(stage, len(jobs))
+
+                async def one(
+                    key: str,
+                    fp: str,
+                    system: str,
+                    user: str,
+                    model: str,
+                    stage: str = stage,
+                    lz: Any = lazy,
+                    pg: _Progress = prog,
+                ) -> None:
+                    usage = Usage()
+                    r = None
+                    for _ in range(2):  # one in-run re-ask of an invalid answer
+                        o = await lz.call(
+                            model=model, system=system, user=user, schema=grade.SCHEMA
+                        )
+                        usage.add(o.usage)
+                        sp.add(o.usage)
+                        r = o.result
+                        if r is None or grade.valid(r):
+                            break
+                        r = None
+                    cache.put(key, fp, {"result": r, "meta": _meta(stage, model, usage)})
+                    pg.tick()
+
+                await _pool((lambda j=j: one(*j) for j in jobs), concurrency)
         finally:
-            await llm.aclose()
+            if lazy is not None:
+                await lazy.aclose()
     res = write_outcomes(root, judge, cache, prompts, rolls)
     cache.close()
     res["spend_this_run"] = sp.to_dict()
@@ -180,14 +225,20 @@ def write_outcomes(
     n_failed = 0
     for p in prompts:
         samples = rolls[p["id"]]["samples"]
-        grades = []
+        grades, graders = [], []
         for k, resp in enumerate(samples):
             system, user = grade.render(p["forbidden_prompt"], resp)
             row = cache.get(grade_key(p["id"], k), grade_fp(judge, system, user))
+            who = judge.model
+            if row is None and judge.fallback:
+                ffp = grade_fp(judge, system, user, judge.fallback)
+                row = cache.get(fallback_key(p["id"], k), ffp)
+                who = judge.fallback
             g = grade.parse(row["result"]) if row else None
             if g is None:
                 n_failed += 1
             grades.append(g)
+            graders.append(who if g is not None else None)
         adopt = [grade.adopted(p["family"], s) for s in samples]
         oc = grade.outcome(grades, adopt)
         rows.append(
@@ -198,6 +249,8 @@ def write_outcomes(
                 "family": p["family"],
                 **oc,
                 "grades": grades,
+                "graders": graders,
+                "n_fallback": sum(x == judge.fallback for x in graders if x),
                 "adopted": adopt,
                 "finish": rolls[p["id"]].get("finish"),
             }
@@ -230,6 +283,8 @@ def write_outcomes(
             "prompt_version": grade.PROMPT_VERSION,
             "n_prompts": len(rows),
             "n_failed_grades": n_failed,
+            "fallback": judge.fallback,
+            "n_fallback_grades": sum(r["n_fallback"] for r in rows),
             "outcomes": dict(Counter(r["outcome"] for r in rows)),
             "spend": spend(cache),
         },
@@ -705,7 +760,13 @@ def rebuild_arm(arm: Arm, judge: Judge) -> dict[str, Any]:
         "grid": arm.grid,
         "health": health,
         "spend": spend(arm.cache),
-        "layers": score.summarize(records, arm.items, families.FAMILY_NAMES, families.CONTROL),
+        "layers": score.summarize(
+            records,
+            arm.items,
+            families.FAMILY_NAMES,
+            families.CONTROL,
+            planned=families.PLANNED,
+        ),
     }
     (arm.root / "summary.json").write_text(json.dumps(summary, indent=1) + "\n", encoding="utf-8")
     (arm.root / "arm.json").write_text(

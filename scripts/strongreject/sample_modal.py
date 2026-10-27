@@ -69,8 +69,12 @@ def sample(prompts: list[dict]) -> list[dict]:
 
 
 @app.local_entrypoint()
-def main(limit: int = 0, out: str = "outputs/strongreject/rollouts.jsonl") -> None:
-    prompts = json.loads((REPO / "data/strongreject/prompts.json").read_text())["prompts"]
+def main(
+    limit: int = 0,
+    out: str = "outputs/strongreject/rollouts.jsonl",
+    prompts_json: str = "data/strongreject/prompts.json",
+) -> None:
+    prompts = json.loads((REPO / prompts_json).read_text())["prompts"]
     if limit:
         prompts = prompts[:limit]
     res = sample.remote(prompts)

@@ -29,8 +29,8 @@ def test_families_wrap_matches_package_rule():
 
 def test_prompts_json():
     d = bank.load_prompts()
-    assert d["meta"]["n_prompts"] == 280 == len(d["prompts"])
-    assert len({p["id"] for p in d["prompts"]}) == 280
+    assert d["meta"]["n_prompts"] == 400 == len(d["prompts"])
+    assert len({p["id"] for p in d["prompts"]}) == 400
     assert {p["family"] for p in d["prompts"]} == set(families.FAMILY_NAMES)
     assert len({p["forbidden_id"] for p in d["prompts"]}) == 40
     for p in d["prompts"]:
@@ -332,7 +332,7 @@ def test_items_json_sites():
         assert pos == sorted(pos) and pos[-1] == it["n_positions"] - 1
         assert it["sites"][-1]["token"] == "assistant"
         assert it["prompt_render"].endswith("<|im_start|>assistant")
-        assert it["outcome"] in ("unsuccessful", "successful")
+        assert it["outcome"] in ("unsuccessful", "successful", "soft_fail")
         for s in it["sites"]:
             if not s.get("split_char"):
                 assert it["prompt_render"][: s["char"]].endswith(s["token"])
@@ -471,3 +471,51 @@ def test_run_end_to_end(tmp_path, monkeypatch):
     md = (root / "report.md").read_text()
     assert "Headline: `harmful_compliance`" in md and "| toy | 36 |" in md
     bank.load_bank.cache_clear()
+
+
+def test_grade_fallback_on_refusal(tmp_path, monkeypatch):
+    """A primary refusal is re-asked once with the fallback model and never re-asked itself."""
+    from hallucination_bench.evals.strongreject import run as R
+    from hallucination_bench.llm import CallResult, Usage
+
+    prompts = bank.load_prompts()["prompts"][:1]
+    pid = prompts[0]["id"]
+    roll = tmp_path / "rollouts.jsonl"
+    roll.write_text(json.dumps({"id": pid, "samples": ["I cannot help."] * 10}) + "\n")
+    ok = {
+        "overall_reasoning": "r",
+        "refusal_reasoning": "r",
+        "refusal": 1,
+        "convincing_reasoning": "r",
+        "convincingness": 1,
+        "specific_reasoning": "r",
+        "specificity": 1,
+        "explicit_refusal": True,
+    }
+
+    class Fake:
+        def __init__(self):
+            self.models: list[str] = []
+
+        async def call(self, *, model, system, user, schema):
+            self.models.append(model)
+            if model == "claude-opus-5-5":
+                return CallResult(None, Usage(calls=1, refusals=1))
+            return CallResult(ok, Usage(calls=1))
+
+        async def preflight(self, model):
+            pass
+
+        async def aclose(self):
+            pass
+
+    import asyncio
+
+    f = Fake()
+    res = asyncio.run(R.grade_async(tmp_path, R.Judge(), roll, limit=1, llm=f))
+    assert f.models.count("claude-opus-5-5") == 10 and f.models.count("claude-sonnet-5-5") == 10
+    assert res["n_failed"] == 0 and res["meta"]["n_fallback_grades"] == 10
+    assert res["meta"]["outcomes"] == {"unsuccessful": 1}
+    f2 = Fake()
+    asyncio.run(R.grade_async(tmp_path, R.Judge(), roll, limit=1, llm=f2))
+    assert f2.models == []
