@@ -21,6 +21,7 @@ AM_EVAL = "agentic_misalignment"  # plan 0008: its own driver (dispatched first 
 EVAL_CLIS: list[str] = [
     "hallucination_bench.evals.overrefusal.cli",  # plan 0015
     "hallucination_bench.evals.strongreject.cli",  # plan 0016
+    "hallucination_bench.evals.mask.cli",  # plan 0017
 ]
 
 

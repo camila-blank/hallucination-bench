@@ -23,6 +23,7 @@ hallucination eval is one of many evals here; see `plans/` for the design histor
 HB score = verified false-refusal-claim rate on 160 never-refused OR-Bench prompts (tail sites headline; frozen set `data/overrefusal/MANIFEST.sha256`; results `docs/results/0015_overrefusal_pilot.md`). Refusal probe for reuse: `data/overrefusal/probes/refusal_probe_v2.{npz,json}`.
 
 ![overrefusal HB rate](plots/overrefusal_hb_rate.png)
+| `mask` (pilot) | MASK (lies vs honest-but-wrong): on-policy Qwen3.6-27B ground truth (MASK's judge prompts and belief / honesty aggregation), then how often a lens **claims the model is lying when it was honest** (blind detector -> prompt-aware verifier), at prompt sites (prediction) and response sites (detection), beside the same rate on lie items, also on the subset where Qwen itself says it lied / was honest (self-knowledge gate), with deception probes checking whether the lie is represented at the read sites; its own CLI `hbench mask gt|run|report`; not on the index | [0017](plans/0017-mask-eval.md) |
 
 ## Hallucination index
 
@@ -177,6 +178,22 @@ uv run --no-sync hbench overrefusal bank                # populations, items.jso
 scripts/overrefusal/reads.sh all                        # Modal capture + 3 reads + convert + grid check
 uv run --no-sync hbench overrefusal run --arms s3d-rl600,mlnla-rl600-all11,jlens   # detector + verifier
 uv run --no-sync hbench overrefusal report              # outputs/overrefusal/<model>/report.md
+# mask (plan 0017): scripts/mask/ builds + generates (Modal), hbench mask judges; readouts at
+# $HBENCH_MASK_READOUTS/<arm>/mask.jsonl (default /workspace/hb-readouts-mask)
+uv run --no-sync --with pyarrow python scripts/mask/build_items.py     # data/mask/items.json + requests
+uvx --python 3.12 modal@latest run scripts/mask/gen_modal.py --requests outputs/mask/gen/requests.jsonl \
+    --out outputs/mask/gen/rollouts.jsonl --n-shards 8                # (and requests_x.jsonl -> rollouts_x.jsonl)
+uv run hbench mask gt                                    # MASK labels -> data/mask/labels.json
+HF_HUB_OFFLINE=1 uv run --no-sync python scripts/mask/build_capture.py   # read set, sites, capture rows
+scripts/mask/fetch_readouts.sh jlens gen-hb-mask-jlens tokens       # after capture + reads (plan 0017)
+uv run hbench mask run --arms s3d-rl600,mlnla-rl600-all11,jlens --concurrency 32
+uv run --no-sync python scripts/mask/gate.py requests    # rev 3 gate (then gen_modal.py on gate_requests.jsonl)
+uv run --no-sync python scripts/mask/gate.py parse       # -> data/mask/gate.json
+HF_HUB_OFFLINE=1 uv run --no-sync python scripts/mask/probe_build.py   # rev 4 probes: capture rows (then capture)
+uvx --python 3.12 modal@latest run scripts/mask/probe_modal.py        # -> data/mask/probe_scores.json
+scripts/mask/run_rev5.sh s3d-rl600 16                     # rev 5: detect + verify one layer at a time
+uv run hbench mask report                                # outputs/mask/<model>/report.md (+ gated + probe tables)
+uv run --no-sync python scripts/mask/plot_hb.py && uv run --no-sync python scripts/mask/freeze.py
 ```
 
 Other commands: `hbench run --rebuild` (regenerate `cells.jsonl` / `summary.json` from the cache,
@@ -214,6 +231,8 @@ and `outputs/wsbench_chat/<judge model>/{report.md,report.json,audit_samples.md}
 ## Results
 
 Index of every results doc: [`docs/results/README.md`](docs/results/README.md).
+
+[`docs/results/0017_mask_pilot.md`](docs/results/0017_mask_pilot.md): mask (rev 5, final frozen set): the HB score is the verified lie-claim readout rate on 155 gated honest_resisted items at every prompt / response position (the O-lens claims a lie on 0.6-1.6% of prompt readouts, so 40-77% of honest items get at least one claim; NLA 0.4-0.5%; J-lens ~0). Figure `plots/0017_mask_hb_score.png`.
 
 [`docs/results/0001_wsbench_chat_taxonomy.md`](docs/results/0001_wsbench_chat_taxonomy.md)
 (filled in after the full run); claim map:

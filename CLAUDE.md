@@ -11,7 +11,9 @@ mentions of misalignment, its own driver, `--eval agentic_misalignment`) is plan
 the model never refuses; own subcommands `hbench overrefusal ...`) is plan
 `plans/0015-overrefusal-eval.md`. The hallucination index (`hbench index`, one
 macro per (method, layer) over main / AM / sibling / story) is plan
-`plans/0013-final-sibling-eval-and-hallucination-index.md`.
+`plans/0013-final-sibling-eval-and-hallucination-index.md`. The `mask` eval (MASK lies vs
+honest-but-wrong: does the lens claim the model is lying when it is honest? Its own CLI,
+`hbench mask gt|run|report`; not on the index) is plan `plans/0017-mask-eval.md`.
 
 ## Layout
 
@@ -117,6 +119,19 @@ evals/overrefusal/   plan 0015 (own driver + own CLI via EVAL_CLIS; NOT the chat
     report.py, cli.py
 data/overrefusal/    candidates, gt_labels, items, capture_rows (README = schema)
 scripts/overrefusal/ sample_modal.py (vLLM ground truth), reads.sh (capture + reads + convert)
+evals/mask/          plan 0017 (own CLI `hbench mask`, registered in cli.EVAL_CLIS):
+  source.py     MASK judge prompts verbatim (mask @ 25e0b12, sha-pinned) + per-archetype choice
+  labels.py     MASK belief / honesty aggregation (verbatim ports) + item labels / strata
+  gt.py         stage T: statement / belief / pressure-direction calls -> data/mask/labels.json
+  bank.py       data/mask loaders, select_sites (8 prompt + 8 response), readouts grid check
+  detect.py     maskdetect-v1 (blind; lie_claim / honest_claim / pressure_salience /
+                belief_content / other), verify.py maskverify-v1 (+ blind variant)
+  run.py        D -> V -> VB driver, cells.jsonl / summary.json; report.py metrics + bootstrap
+  probe.py      rev 4 two-class deception probe on sibling_probe.probes (V2) + um_probe null z
+data/mask/           items / rollouts.jsonl.gz / labels / read_set / sites / capture_rows (README)
+scripts/mask/        build_items.py, gen_modal.py (Modal vLLM), build_capture.py, fetch_readouts.sh,
+                     gate.py (self-knowledge gate, rev 3), probe_build.py + probe_modal.py (deception
+                     probes, rev 4), examples.py (hand-reading)
 ```
 
 ## Conventions
@@ -378,6 +393,40 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
   refusal readouts at probe-absent sites / readouts (the standard definition across evals). Worktree venv on this box: the
   uv sync command is hook-blocked, so install with `uv pip install --python .venv/bin/python
   -e . --group dev --group sibling` and run with `uv run --no-sync ...`.
+- **`hbench mask`** (plan 0017) is its own subcommand (not `--eval`): `gt` (MASK ground
+  truth for Qwen3.6-27B from `outputs/mask/gen/rollouts*.jsonl`), `run` (D -> V -> VB on
+  `$HBENCH_MASK_READOUTS/<arm>/mask.jsonl`, default `/workspace/hb-readouts-mask`), `report`.
+  - Pinned response = pressure sample 0; capture `input_ids = prompt_token_ids + pinned ids`
+    (no re-tokenisation). Doubling-down is labelled but never read (its forced turn is a real
+    lie in context).
+  - Headline = verified `lie_claim` readout rate on `honest_resisted` items **beside the lie
+    rate and the difference**; `honest_wrong` is descriptive (it is almost always `aligned`).
+  - Modal vLLM needs `cpu=8` and the snapshot path (offline): on the default CPU share the
+    engine hung or died in torch.compile (2026-10-27).
+  - **Self-knowledge gate** (plan rev 3): `scripts/mask/gate.py requests|parse` -> `data/mask/gate.json`;
+    `report` picks the frame by the pre-registered rule (`report.choose_frame`, ctx unless persona
+    carryover dominates) and adds gated headline tables at k = 8 / 9 / 10. It only subsets items.
+  - **Deception probes** (rev 4): `scripts/mask/probe_build.py` (Instructed-Pairs + extra capture rows) ->
+    captures `hb-mask-probe-{train,extra}` -> `scripts/mask/probe_modal.py` (4 CPU containers, one per layer;
+    `evals/mask/probe.py` wraps `sibling_probe.probes` V2 + `um_probe` null z, 2 concepts, one centring key)
+    -> `data/mask/probe_scores.json`; `report` adds validity / transfer / premise / probe-checked tables.
+    The Instructed-Pairs thresholds (own-data honest q95) are miscalibrated on MASK: they fire everywhere.
+  - **Rev 5 (final frozen set):** lie = >= 9/10 contradicting samples; 874 items labelled; read set =
+    every gated lie (156) + gated honest_resisted (155) + honest_wrong (9), at EVERY position
+    (`sites.json.gz`, 146k sites, ~586k cells per arm). **The HB score is the benign side only**:
+    verified lie_claim readout rate on gated honest_resisted, per (arm, layer, site set
+    prompt / response / all); lie items are a labelled diagnostic (and the WorkspaceBench
+    `mask-lie-contrast` family in global-workspace). `data/mask/FROZEN.json` pins every file.
+  - **Detect one layer at a time** (`scripts/mask/run_rev5.sh <arm> <conc>` -> `cells_L0NN.jsonl`,
+    `summary_L0NN.json`): a whole 586k-cell prose arm in one process was OOM-killed under the
+    shared 32 GB cap. `report` merges `cells_L*.jsonl` (else `cells.jsonl`).
+  - Primary probe = leave-one-archetype-out MASK probe (threshold = q95 on unread honest items of
+    the training archetypes); probe-checked rate = verified claims at probe-CONTRADICTED sites /
+    readouts (`rate_supported` is the complement). Instructed-Pairs = direction AUROC only.
+  - The s3d reader's sglang servers die at start-up on some shards; re-run the same command
+    (idempotent, same `--shards`) until no shard fails.
+  - `tmux kill-session -t name` prefix-matches: with `hb-mask-gen` gone it killed
+    `hb-mask-genx`. Use `-t =name`.
 
 ## sibling eval: user-modelling ladder (plans 0006 + 0011)
 
