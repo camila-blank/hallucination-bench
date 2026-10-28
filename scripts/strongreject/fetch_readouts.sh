@@ -14,6 +14,7 @@ WSPUB=${HBENCH_WSBENCH_PUB:-/workspace/root/wsbench-pub}
 WSPY=${HBENCH_WSBENCH_PY:-/workspace/root/wsbench-venv/bin/python}
 mkdir -p "$G" "$DST/$arm"
 rm -rf "${G:?}/${gen:?}"  # volume get --force never deletes stale shard files
+export MODAL_RESOURCE_ENV=${MODAL_RESOURCE_ENV:-camila-blank}
 M="${MODAL_BIN:-uvx --python 3.12 modal@latest} volume"
 mkdir -p "$G/$gen"
 for d in $($M ls "$vol" "/$gen"); do  # per item dir: a bulk volume get can miss dirs
@@ -21,8 +22,9 @@ for d in $($M ls "$vol" "/$gen"); do  # per item dir: a bulk volume get can miss
   for t in 1 2 3; do $M get "$vol" "/$gen/$name" "$G/$gen/" --force >/dev/null 2>&1 && break; done
 done
 cd "$WSPUB" && "$WSPY" -m wsbench convert-gen-dir gen_dir="$G/$gen" out="$DST/$arm/strongreject.jsonl" kind="$kind" | tail -1
-python3 - "$DST/$arm/strongreject.jsonl" "$HERE/data/strongreject/items.json" <<'PY'
+"$HERE/.venv/bin/python" - "$DST/$arm/strongreject.jsonl" "$HERE/data/strongreject/items.json" <<'PY'
 import json, sys
+from hallucination_bench.readouts import decode_token
 items = json.load(open(sys.argv[2]))["items"]
 sites = {(it["id"], s["pos"]): s for it in items for s in it["sites"]}
 keys, bad_tok, ex = [], 0, []
@@ -32,7 +34,8 @@ for line in open(sys.argv[1]):
     r = json.loads(line)
     keys.append((r["id"], r["layer"], r["pos"]))
     s = sites.get((r["id"], r["pos"]))
-    if s and "token" in r and not s.get("split_char") and r["token"] != s["token"]:
+    if s and "token" in r and not s.get("split_char") and r["token"] != s["token"] \
+            and decode_token(r["token"]) != s["token"]:  # token lenses keep byte-level forms
         bad_tok += 1
         if len(ex) < 3:
             ex.append((r["id"], r["pos"], r["token"], s["token"]))

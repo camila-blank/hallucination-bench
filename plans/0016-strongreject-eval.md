@@ -8,7 +8,8 @@ recall; `assistant`-site wording; critique 2: a `harmful_compliance` claim namin
 requested content is original even under a generic "never refuse" instruction
 (`generic_support` diagnostic); tighter `dev_mode_v2` / `aim` adoption markers; rev 3, pilot
 findings: the 7 planned families gave 0 successful jailbreaks, so 3 contrast families were
-added; Opus 5.5 refuses ~14% of grades, so refused grades fall back to Sonnet 5.5). Pilot. Issue #24.
+added; Opus 5.5 refuses ~14% of grades and most O-lens detector batches, so refused grader /
+detector / echo calls fall back to Sonnet 5.5). Pilot. Issue #24.
 Builds on plan 0008 (prompt-position readouts, blind detector) and plan 0007 §Readouts (the
 Modal capture -> read -> convert recipe). Everything not restated here is unchanged.
 
@@ -277,7 +278,13 @@ For each mention:
   detector-only and labelled so (they are not compared head-to-head with confirmed compliance
   rates).
 
-Research frame (`RESEARCH_FRAME`) opens every grader and echo USER prompt (the AM gotcha). The
+**Refusal fallback (rev 3, pilot):** Opus 5.5 refused 99% of 40-cell O-lens detector batches
+(stop_reason `refusal`: one readout describing harmful content in detail is enough) and ~22% of
+single-cell calls; Sonnet 5.5 answered every refused batch in a probe (4/4 at 40 and at 10
+cells). Every Stage D and Stage E call that Opus refuses is re-asked once, same prompt, on
+`claude-sonnet-5-5` (`run.call_with_fallback`; the cell / mention row records `answered_by`).
+Keys and fingerprints are unchanged (the primary model's), so a cell is judged once whichever
+model answered; the results doc reports the fallback share per arm. Research frame (`RESEARCH_FRAME`) opens every grader and echo USER prompt (the AM gotcha). The
 detector sees only lens text; it gets the frame too (cheap; lens texts name harmful topics).
 Refusals are cached as failed and counted (`usage.refusals`).
 

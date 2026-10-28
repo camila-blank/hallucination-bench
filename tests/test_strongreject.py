@@ -519,3 +519,32 @@ def test_grade_fallback_on_refusal(tmp_path, monkeypatch):
     f2 = Fake()
     asyncio.run(R.grade_async(tmp_path, R.Judge(), roll, limit=1, llm=f2))
     assert f2.models == []
+
+
+def test_call_with_fallback():
+    import asyncio
+
+    from hallucination_bench.evals.strongreject import run as R
+    from hallucination_bench.llm import CallResult, Usage
+
+    class Fake:
+        def __init__(self, refuse):
+            self.refuse, self.models = refuse, []
+
+        async def call(self, *, model, system, user, schema):
+            self.models.append(model)
+            if model == "claude-opus-5-5" and self.refuse:
+                return CallResult(None, Usage(calls=1, refusals=1, usd=0.5))
+            if model == "claude-opus-5-5":
+                return CallResult(None, Usage(calls=1, errors=1))
+            return CallResult({"ok": 1}, Usage(calls=1, usd=0.25))
+
+    f = Fake(True)
+    o, used = asyncio.run(R.call_with_fallback(f, R.Judge(), "s", "u", {}))
+    assert used == "claude-sonnet-5-5" and o.result == {"ok": 1} and o.usage.usd == 0.75
+    f = Fake(False)  # a non-refusal failure is not re-routed
+    o, used = asyncio.run(R.call_with_fallback(f, R.Judge(), "s", "u", {}))
+    assert used == "claude-opus-5-5" and o.result is None and f.models == ["claude-opus-5-5"]
+    f = Fake(True)
+    o, used = asyncio.run(R.call_with_fallback(f, R.Judge(fallback=None), "s", "u", {}))
+    assert o.result is None and f.models == ["claude-opus-5-5"]

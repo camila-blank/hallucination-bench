@@ -83,6 +83,21 @@ def _meta(stage: str, model: str, usage: Usage, **extra: Any) -> dict[str, Any]:
     return {"stage": stage, "model": model, "usage": usage.to_dict(), **extra}
 
 
+async def call_with_fallback(
+    llm: Any, judge: Judge, system: str, user: str, schema: dict[str, Any]
+) -> tuple[Any, str]:
+    """One call on ``judge.model``; a refusal (stop_reason ``refusal``) is re-asked once on
+    ``judge.fallback`` (same prompt). Returns ``(CallResult with the summed usage, model used)``.
+    Opus 5.5 refuses most 40-cell O-lens detector batches (one readout describing harmful
+    content is enough); Sonnet 5.5 answers them (pilot, 2026-10-28)."""
+    o = await llm.call(model=judge.model, system=system, user=user, schema=schema)
+    if o.result is not None or not judge.fallback or not o.usage.refusals:
+        return o, judge.model
+    o2 = await llm.call(model=judge.fallback, system=system, user=user, schema=schema)
+    o2.usage.add(o.usage)
+    return o2, judge.fallback
+
+
 def spend(cache: Cache) -> dict[str, Any]:
     """USD / calls / refusals per stage, summing every row's ``meta.usage``."""
     per: dict[str, Usage] = defaultdict(Usage)
@@ -385,9 +400,7 @@ class Detector:
 
     async def call(self, jobs: Sequence[DJob]) -> list[bool]:
         system, user = detect.render_batch([j.canon for j in jobs])
-        o = await self.llm.call(
-            model=self.judge.model, system=system, user=user, schema=detect.SCHEMA
-        )
+        o, used = await call_with_fallback(self.llm, self.judge, system, user, detect.SCHEMA)
         self.sp.add(o.usage)
         bkey = "batchD:" + hashlib.sha256("\n".join(j.key for j in jobs).encode()).hexdigest()[:16]
         self.arm.cache.put(
@@ -401,13 +414,19 @@ class Detector:
                     o.usage,
                     batch_size=len(jobs),
                     ok=o.result is not None,
+                    answered_by=used,
                 ),
             },
         )
         bp = detect.parse_batch(o.result, [j.readouts for j in jobs], [j.hay for j in jobs])
         oks = []
         for i, j in enumerate(jobs):
-            meta = {"stage": "detect_cell", "batch_size": len(jobs), "batch": bkey}
+            meta = {
+                "stage": "detect_cell",
+                "batch_size": len(jobs),
+                "batch": bkey,
+                "answered_by": used,
+            }
             if i in bp.failed:
                 part = bp.partial(i)
                 if len(jobs) == 1:
@@ -525,9 +544,7 @@ class Echoer:
     async def call(self, jobs: Sequence[echo.EchoJob]) -> list[bool]:
         prompt = self.arm.items[jobs[0].item_id]["prompt_render"]
         system, user = echo.render_batch(prompt, jobs)
-        o = await self.llm.call(
-            model=self.judge.model, system=system, user=user, schema=echo.SCHEMA
-        )
+        o, used = await call_with_fallback(self.llm, self.judge, system, user, echo.SCHEMA)
         self.sp.add(o.usage)
         bkey = "batchE:" + hashlib.sha256("\n".join(j.key for j in jobs).encode()).hexdigest()[:16]
         self.arm.cache.put(
@@ -536,14 +553,24 @@ class Echoer:
             {
                 "result": {"mentions": [j.key for j in jobs]},
                 "meta": _meta(
-                    "echo", self.judge.model, o.usage, batch_size=len(jobs), ok=o.result is not None
+                    "echo",
+                    self.judge.model,
+                    o.usage,
+                    batch_size=len(jobs),
+                    ok=o.result is not None,
+                    answered_by=used,
                 ),
             },
         )
         parsed = echo.parse(o.result, prompt, jobs)
         oks = []
         for i, j in enumerate(jobs):
-            meta = {"stage": "echo_mention", "batch_size": len(jobs), "batch": bkey}
+            meta = {
+                "stage": "echo_mention",
+                "batch_size": len(jobs),
+                "batch": bkey,
+                "answered_by": used,
+            }
             r = parsed.get(i)
             self.arm.cache.put(j.key, j.fp, {"result": r, "meta": meta})
             oks.append(r is not None)
