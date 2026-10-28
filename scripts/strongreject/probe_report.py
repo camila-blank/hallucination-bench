@@ -11,14 +11,9 @@ import hashlib
 import json
 from pathlib import Path
 
-import numpy as np
-
 from hallucination_bench import REPO_ROOT
 from hallucination_bench.evals.strongreject import probe_check as PC
 from hallucination_bench.evals.strongreject import run as R
-
-VALIDITY_MIN = 0.9  # plan 0015's pre-registered validity floor
-OFFSET_CLS = {0: "tail0", 1: "tail1", 2: "tail2", 3: "tail3"}
 
 
 def f(x, ci=True):
@@ -32,23 +27,6 @@ def pct(x):
     return "—" if x is None else f"{x * 100:.2f}"
 
 
-def validity(npz: Path, variant: str) -> dict[tuple[int, str], bool]:
-    """(layer, position class) -> valid: tail offsets by their OOF AUROC; content sites use the
-    `assistant` offset's (plan 0015's secondary content rule)."""
-    arr = np.load(npz)
-    out = {}
-    for k in arr.files:
-        v, lay, name = k.split("/")
-        if v != variant or name != "validity":
-            continue
-        la = int(lay[1:])
-        val = arr[k]
-        for o, cls in OFFSET_CLS.items():
-            out[(la, cls)] = bool(val[o] >= VALIDITY_MIN)
-        out[(la, "content")] = bool(val[0] >= VALIDITY_MIN)
-    return out
-
-
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--npz", required=True, help="the probe artifact the sites were scored with")
@@ -58,7 +36,7 @@ def main() -> None:
     ap.add_argument("--sites", default=str(REPO_ROOT / "outputs/strongreject/probe_sites.jsonl"))
     a = ap.parse_args()
     judge = R.Judge()
-    valid = validity(Path(a.npz), a.variant)
+    valid = PC.validity_from_npz(Path(a.npz), a.variant)
     sites = [json.loads(x) for x in open(a.sites, encoding="utf-8")]
     probe = {(s["id"], s["layer"], s["pos"]): s for s in sites if s["variant"] == a.variant}
     arms = [x for x in a.arms.split(",") if x]

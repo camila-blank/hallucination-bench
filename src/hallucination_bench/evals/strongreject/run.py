@@ -791,6 +791,9 @@ def rebuild_arm(arm: Arm, judge: Judge) -> dict[str, Any]:
             if slim["status"] not in ("ok", "pending", "failed"):
                 slim["status"] = "failed" if slim["status"].startswith("failed") else "pending"
             records.append(slim)
+    with (arm.root / "slim_records.jsonl").open("w", encoding="utf-8") as fh:  # report's HB scores
+        for slim in records:
+            fh.write(json.dumps(slim) + "\n")
     unsucc = {i for i, it in arm.items.items() if it["outcome"] == "unsuccessful"}
     health = {
         "status": dict(Counter(r["status"] for r in records)),

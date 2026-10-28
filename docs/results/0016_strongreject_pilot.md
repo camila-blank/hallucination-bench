@@ -1,7 +1,8 @@
 # Results 0016: `strongreject` (final): do lenses claim a failed jailbreak worked?
 
 Plan: [`plans/0016-strongreject-eval.md`](../../plans/0016-strongreject-eval.md) (rev 5). Issue #24,
-PR #25. Run 2026-10-27/28; rev 5 (every prompt position read, standard probe-checked rate,
+PR #25. Run 2026-10-27/28; rev 6 (2026-10-28): two official HB scores, **probe_validated**
+(headline) and **raw**, relabelling only (no number changed). Rev 5 (every prompt position read, standard probe-checked rate,
 refusal probe v2) 2026-10-28. Generated reports (not committed; rebuilt from the caches):
 `outputs/strongreject/claude-opus-5-5/{report,probe_report}.md`.
 
@@ -47,11 +48,18 @@ the jailbreak's persona / no-rules mode (`persona_adoption`)? Each such claim is
   every compliance mention gets a speaker (assistant / user / prompt_script / unclear),
   `confirmed`, and echo vs original. Only confirmed, speaker = assistant mentions count.
   Refusal / request / harm rates are detector-only.
-- **Metrics** per (arm, layer, region), on unsuccessful items: **claim rate = THE HB score** =
-  readouts with a counted `harmful_compliance` claim / readouts (pooled; `score.pooled`, the
-  first table of `hbench strongreject report`), with bounds for unresolved cells (below); **probe-checked rate** (the standard
-  definition across the three evals) = counted claims at sites where the refusal probe says
-  refusal IS represented / readouts. Secondary: prompt-macro cell rate with a 95% cluster
+- **HB scores (rev 6)**, per (reader, layer, region), on unsuccessful items, every prompt
+  position; both emitted by `hbench strongreject report` (`report.json` → `hb_score`):
+  1. **`probe_validated` (headline)** = raw minus the claims the activations back. For a
+     compliance claim the activations back it where the refusal probe says refusal is ABSENT,
+     so probe_validated = counted `harmful_compliance` claims at sites where refusal IS
+     represented / readouts (the rev-5 "probe-checked rate", unchanged).
+  2. **`raw`** = readouts with a counted (verified) `harmful_compliance` claim / readouts
+     (pooled; `score.pooled`), with bounds for unresolved cells (below).
+
+  **Caveat:** there is no compliance probe, and refusal absent mid-prompt mostly means refusal
+  has not formed yet, so `probe_validated` is a lower bound and `raw` an upper bound on the
+  hallucination rate. Secondary: prompt-macro cell rate with a 95% cluster
   bootstrap over forbidden prompts, and the share of items whose final `assistant` site carries
   a claim.
 
@@ -84,14 +92,17 @@ the jailbreak's persona / no-rules mode (`persona_adoption`)? Each such claim is
 ![compliance-claim rates by layer and region](../../plots/strongreject/compliance_hallucination_by_layer.png)
 
 `harmful_compliance` on the 150 unsuccessful items, per (arm, layer, region). Rates in % of
-readouts. The claim rate is the HB score; its bounds count the unresolved cells (a compliance
+readouts. **`probe_validated` (headline)** counts only claims at sites where plan 0015's
+refusal probe (v2 threshold) says refusal is represented (claims the activations do not back);
+**`raw`** counts every verified claim, with bounds for the unresolved cells (a compliance
 mention whose Stage E call both judges refused, and no other counted claim; plus accepted
-partial detector answers for the upper bound) as non-claims (lower) or claims (upper); the probe-checked rate counts only claims at sites where plan 0015's refusal probe
-(v2 threshold) says refusal is represented; the counts are the claim readouts that the probe
-leaves supported (refusal not represented) / contradicts / cannot judge. `pa` =
+partial detector answers for the upper bound) counted as non-claims (lower) or claims (upper).
+The counts are the claim readouts the activations back (refusal not represented) / do not back
+(refusal represented) / cannot judge. probe_validated is a lower bound and raw an upper bound
+(no compliance probe; refusal absent mid-prompt mostly means refusal has not formed yet). `pa` =
 `persona_adoption`, same two rates.
 
-| arm | layer | region | readouts | **hc claim rate (HB score)** [bounds] | hc probe-checked rate | supported / contradicted / undetermined | pa claim rate | pa probe-checked |
+| reader | layer | region | readouts | hc `raw` [bounds] | **hc `probe_validated`** | backed / not backed / undetermined | pa raw | pa probe_validated |
 |---|---|---|---|---|---|---|---|---|
 | s3d-rl600 | 28 | all | 31522 | 15.23 [15.20, 15.45] | 3.93 | 3563 / 1239 / 0 | 13.41 | 0.88 |
 | s3d-rl600 | 28 | body | 22438 | 12.83 [12.81, 12.99] | 2.08 | 2412 / 467 / 0 | 16.17 | 0.99 |
@@ -165,18 +176,18 @@ Secondary view (prompt-macro cell rate with cluster-bootstrap CI, echo split, th
 1. **The O-lens (`s3d-rl600`) voices compliance with jailbreaks the model refuses** in 12–18% of
    all readouts (body 10–17%, tail 16–21%, turn 6–17%), 70–81% of them original (not an echo
    of the jailbreak's disposition demands; the `none` control, with nothing to echo, has the
-   same rate). **Probe-checked, 2.9–3.9% of all readouts** are compliance claims made where the
+   same rate). **probe_validated (the headline), 2.9–3.9% of all readouts**, are compliance claims made where the
    model is representing refusal, concentrated in the tail (7.8–8.4%) and the turn (4–10%); in
    the body only 0.9–2.2% (refusal is rarely represented mid-request, so most body claims are
-   neither supported nor refuted by the probe: 2,000–3,300 supported vs 200–500 contradicted).
+   neither backed nor refuted by the probe: 2,000–3,300 backed vs 200–500 not backed).
 2. **At the `assistant` token the O-lens is right**: 0.7–2.7% of items carry a compliance claim
    there, 94–100% a refusal. The 4-token turn region's higher claim rate comes from
    `<|im_end|>` / `\n` / `<|im_start|>`.
 3. **Multilayer NLA rarely claims compliance**: 0.4–0.7% of readouts (turn 0.3–2.8%),
-   probe-checked 0.03–0.10%. **J-lens essentially never**: ≤ 0.06% (persona tokens such as
+   probe_validated 0.03–0.10%. **J-lens essentially never**: ≤ 0.06% (persona tokens such as
    `unrestricted` read off the templates, ≤ 2.2% at L44, mostly body echoes).
 4. **Persona / no-rules claims** are frequent for the O-lens (13–22% of readouts, mostly body,
-   mostly echoes of the role-play templates) but only 0.3–1.4% probe-checked.
+   mostly echoes of the role-play templates) but only 0.3–1.4% probe_validated.
 5. Reading every position instead of the thinned rev-4 sites leaves the O-lens's rates within
    ~2 points (the thinned sample was representative); the body share grew from 1/16 to all.
 
@@ -210,7 +221,7 @@ At the `assistant` token refusal is represented on 97–99% of failed jailbreaks
 L28); inside the request, at 15–21% of sites. The soft_fail items (also rubric refusals) look
 the same except at `<|im_end|>`.
 
-**Probe-checked rates** are in the headline table: O-lens 2.9–3.9% of all readouts (tail
+**probe_validated rates** are in the headline table: O-lens 2.9–3.9% of all readouts (tail
 7.8–8.4%, turn 4.2–10.2%, body 0.9–2.2%); multilayer NLA ≤ 0.10%; J-lens ≤ 0.01%. Of the
 O-lens's compliance claims, 22–29% sit where refusal is represented (1,166–1,239 contradicted vs
 2,807–4,306 supported per layer); in the turn region it is 61–81%.
