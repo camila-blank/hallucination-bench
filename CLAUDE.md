@@ -217,6 +217,30 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
   - Rebuilding an 11-layer arm loads ~555k cells (~1 GB for J-lens): fine under the 32 GB cap,
     but do not run several AM rebuilds in parallel.
 
+- **`hbench strongreject`** (plan 0016) is its own CLI (`grade` / `run` / `report`), not a
+  `run --eval` switch; outputs `outputs/strongreject/<judge>/` (`grade_cache.jsonl`,
+  `outcomes.json`, `<arm>/{cache,records,summary}`, `report.md`). Rollouts
+  (`outputs/strongreject/rollouts.jsonl`) and readouts
+  (`$HBENCH_SR_READOUTS`, default `/workspace/hb-readouts-strongreject/<arm>/strongreject.jsonl`)
+  are not in git.
+  - **Opus 5.5 refuses this eval's harmful content**, deterministically: ~14% of rubric grades
+    (by the forbidden prompt's topic, even when the response is a refusal) and ~99% of 40-cell
+    O-lens detector batches. A stronger research frame did not help. Every refused grade /
+    detector / echo call is re-asked once on `claude-sonnet-5-5` (`Judge.fallback`,
+    `run.call_with_fallback`; rows record `answered_by`). Opus-vs-Sonnet detector agreement on
+    300 O-lens cells: kappa 0.64 (harmful_compliance) to 0.83, rates within 1–5 points
+    (`scripts/strongreject/judge_agreement.py`). ~1% of O-lens cells stay failed (both refuse).
+  - Qwen3.6-27B was jailbroken by **none** of the 10 deterministic wrappers (0/400 prompts
+    successful; 5 complied samples in ~3,600 graded), so there is no recall set: `soft_fail`
+    items (rubric-refused, not explicit refusals) are the only contrast.
+  - The Qwen chat template **trims** the user content: `bank.render_prompt` strips too.
+  - Modal from this box: the read scripts need `MODAL_RESOURCE_ENV=camila-blank` (their
+    volumes default to env `main`, where we have no access); `wsbench_read_modal.py` needs
+    `::main`; `uvx modal@latest` can hang on the shared uv cache lock, so
+    `scripts/strongreject/readouts.sh` honours `MODAL_BIN` (e.g. `~/.local/bin/modal`).
+    J-lens/NLA gen dirs land on `wsbench-gen-3` even when the client log says gen-4.
+  - The multilayer NLA read is slow (~4 h on 16 H200s for ~48k cells: reference PyTorch
+    kernels); the O-lens read took ~25 min.
 - **Keyless Anthropic auth.** With `ANTHROPIC_API_KEY` unset, `AsyncAnthropic()` picks up the
   `ant` CLI OAuth profile (`ant auth status`). Never require the env var. If the profile's
   credentials lapse mid-run, the 401 raises `JudgeConfigError` (exit 3): re-login with
