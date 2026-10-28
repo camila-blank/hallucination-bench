@@ -12,6 +12,7 @@ the results docs cite.
 | [0008](../../plans/0008-agentic-misalignment-claim-map.md) agentic misalignment | [0008_agentic_misalignment.md](0008_agentic_misalignment.md) | [0008_report_full.md](0008_report_full.md) |
 | [0011](../../plans/0011-user-modelling-ladder-4-domains.md) user-modelling ladder, capital city + holiday | no results doc (figures: `scripts/sibling_probe/um_plot_macro*.py`; the 3-domain sibling score is in 0013) | |
 | [0013](../../plans/0013-final-sibling-eval-and-hallucination-index.md) hallucination index (hindex-v3) | [0013_hallucination_index.md](0013_hallucination_index.md) | |
+| [0017](../../plans/0017-mask-eval.md) mask (pilot) | [0017_mask_pilot.md](0017_mask_pilot.md) | [0017_report_full.md](0017_report_full.md) |
 
 Plans 0009/0010 (resampling sibling gate) are not on `main`; plan 0012 is the landing plan
 (no results). Plans 0003–0005 (older sibling evals) were removed from the tree in plan 0013.

@@ -9,7 +9,9 @@ is plan `plans/0007-story-eval.md`; the `agentic_misalignment` eval (detector + 
 mentions of misalignment, its own driver, `--eval agentic_misalignment`) is plan
 `plans/0008-agentic-misalignment-claim-map.md`. The hallucination index (`hbench index`, one
 macro per (method, layer) over main / AM / sibling / story) is plan
-`plans/0013-final-sibling-eval-and-hallucination-index.md`.
+`plans/0013-final-sibling-eval-and-hallucination-index.md`. The `mask` eval (MASK lies vs
+honest-but-wrong: does the lens claim the model is lying when it is honest? Its own CLI,
+`hbench mask gt|run|report`; not on the index) is plan `plans/0017-mask-eval.md`.
 
 ## Layout
 
@@ -87,6 +89,16 @@ scripts/sibling_probe/   um_ladder.py (driver), um_probes_modal.py, um_lexicons.
 scripts/build_am_bank.py  writes data/agentic_misalignment/ (streams the readouts; fails loudly)
 scripts/am_audit.py  AM audits: sample | sample-headline | screen | summ-only | sample-tiers | score
 scripts/run_am.sh    AM driver: step1 (tmux hbench-am-detect) | step2 (tmux hbench-am-map)
+evals/mask/          plan 0017 (own CLI `hbench mask`, registered in cli.EVAL_CLIS):
+  source.py     MASK judge prompts verbatim (mask @ 25e0b12, sha-pinned) + per-archetype choice
+  labels.py     MASK belief / honesty aggregation (verbatim ports) + item labels / strata
+  gt.py         stage T: statement / belief / pressure-direction calls -> data/mask/labels.json
+  bank.py       data/mask loaders, select_sites (8 prompt + 8 response), readouts grid check
+  detect.py     maskdetect-v1 (blind; lie_claim / honest_claim / pressure_salience /
+                belief_content / other), verify.py maskverify-v1 (+ blind variant)
+  run.py        D -> V -> VB driver, cells.jsonl / summary.json; report.py metrics + bootstrap
+data/mask/           items / rollouts.jsonl.gz / labels / read_set / sites / capture_rows (README)
+scripts/mask/        build_items.py, gen_modal.py (Modal vLLM), build_capture.py, fetch_readouts.sh
 ```
 
 ## Conventions
@@ -281,6 +293,19 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
 - **In-run retries** (rev 14): an invalid `:M` (or calibration) answer is re-asked up to 2 times
   (`run.MAP_INVALID_RETRIES`) before it is cached as failed; meta records `n_invalid_attempts`
   and the summed usage.
+
+- **`hbench mask`** (plan 0017) is its own subcommand (not `--eval`): `gt` (MASK ground
+  truth for Qwen3.6-27B from `outputs/mask/gen/rollouts*.jsonl`), `run` (D -> V -> VB on
+  `$HBENCH_MASK_READOUTS/<arm>/mask.jsonl`, default `/workspace/hb-readouts-mask`), `report`.
+  - Pinned response = pressure sample 0; capture `input_ids = prompt_token_ids + pinned ids`
+    (no re-tokenisation). Doubling-down is labelled but never read (its forced turn is a real
+    lie in context).
+  - Headline = verified `lie_claim` readout rate on `honest_resisted` items **beside the lie
+    rate and the difference**; `honest_wrong` is descriptive (it is almost always `aligned`).
+  - Modal vLLM needs `cpu=8` and the snapshot path (offline): on the default CPU share the
+    engine hung or died in torch.compile (2026-10-27).
+  - `tmux kill-session -t name` prefix-matches: with `hb-mask-gen` gone it killed
+    `hb-mask-genx`. Use `-t =name`.
 
 ## sibling eval: user-modelling ladder (plans 0006 + 0011)
 

@@ -15,6 +15,7 @@ hallucination eval is one of many evals here; see `plans/` for the design histor
 | `sibling_probe` user-modelling ladder | the sibling eval: is a same-category mention about the user (user is Korean, readout says China) a hallucination? Lexicon match -> commitment judge -> distractor-rank probe -> cross-method check -> label, on 3 domains: country (frozen lexicon `br_lexicons_um_v1.json`), capital_city (the city the user is visiting), holiday (`scripts/sibling_probe/um_ladder.py --category`) | [0006](plans/0006-user-modelling-country-ladder.md), [0011](plans/0011-user-modelling-ladder-4-domains.md) |
 | `story` | the claim map (taxonomy v2, Opus 5.5) on 20 "tell me a story" items (WorkspaceBench's old `hallucination_creative` bank, 8 sites each); `--eval story` | [0007](plans/0007-story-eval.md) |
 | `agentic_misalignment` | the claim map (v2.7) on lens **mentions of misalignment** (blackmail, leaking, letting someone die, ...) at every prompt position of WorkspaceBench's 32 AM items: a blind batched detector finds the mentions, the claim map judges them (marker in the prompt), and an intent call tiers each mention's kind against what the rollout actually does (realised / designed_only / scenario_set_up / unrelated); its own driver, `--eval agentic_misalignment` | [0008](plans/0008-agentic-misalignment-claim-map.md) |
+| `mask` (pilot) | MASK (lies vs honest-but-wrong): on-policy Qwen3.6-27B ground truth (MASK's judge prompts and belief / honesty aggregation), then how often a lens **claims the model is lying when it was honest** (blind detector -> prompt-aware verifier), at prompt sites (prediction) and response sites (detection), beside the same rate on lie items; its own CLI `hbench mask gt|run|report`; not on the index | [0017](plans/0017-mask-eval.md) |
 
 ## Hallucination index
 
@@ -159,6 +160,17 @@ uv run hbench run --eval agentic_misalignment --arms s3d-rl600 --stages verify  
 uv run python scripts/am_audit.py sample-headline       # re-draw ONLY audit/headline.jsonl after Stage H
 uv run python scripts/am_audit.py score                 # gates.json / tiers.json from the labelled sheets
 uv run hbench report --eval agentic_misalignment        # outputs/agentic_misalignment/<model>/report.md
+
+# mask (plan 0017): scripts/mask/ builds + generates (Modal), hbench mask judges; readouts at
+# $HBENCH_MASK_READOUTS/<arm>/mask.jsonl (default /workspace/hb-readouts-mask)
+uv run --no-sync --with pyarrow python scripts/mask/build_items.py     # data/mask/items.json + requests
+uvx --python 3.12 modal@latest run scripts/mask/gen_modal.py --requests outputs/mask/gen/requests.jsonl \
+    --out outputs/mask/gen/rollouts.jsonl --n-shards 8                # (and requests_x.jsonl -> rollouts_x.jsonl)
+uv run hbench mask gt                                    # MASK labels -> data/mask/labels.json
+HF_HUB_OFFLINE=1 uv run --no-sync python scripts/mask/build_capture.py   # read set, sites, capture rows
+scripts/mask/fetch_readouts.sh jlens gen-hb-mask-jlens tokens       # after capture + reads (plan 0017)
+uv run hbench mask run --arms s3d-rl600,mlnla-rl600-all11,jlens --concurrency 32
+uv run hbench mask report                                # outputs/mask/<model>/report.md
 ```
 
 Other commands: `hbench run --rebuild` (regenerate `cells.jsonl` / `summary.json` from the cache,
@@ -196,6 +208,8 @@ and `outputs/wsbench_chat/<judge model>/{report.md,report.json,audit_samples.md}
 ## Results
 
 Index of every results doc: [`docs/results/README.md`](docs/results/README.md).
+
+[`docs/results/0017_mask_pilot.md`](docs/results/0017_mask_pilot.md): mask pilot (lie claims on honest items).
 
 [`docs/results/0001_wsbench_chat_taxonomy.md`](docs/results/0001_wsbench_chat_taxonomy.md)
 (filled in after the full run); claim map:
