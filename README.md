@@ -16,6 +16,13 @@ hallucination eval is one of many evals here; see `plans/` for the design histor
 | `story` | the claim map (taxonomy v2, Opus 5.5) on 20 "tell me a story" items (WorkspaceBench's old `hallucination_creative` bank, 8 sites each); `--eval story` | [0007](plans/0007-story-eval.md) |
 | `agentic_misalignment` | the claim map (v2.7) on lens **mentions of misalignment** (blackmail, leaking, letting someone die, ...) at every prompt position of WorkspaceBench's 32 AM items: a blind batched detector finds the mentions, the claim map judges them (marker in the prompt), and an intent call tiers each mention's kind against what the rollout actually does (realised / designed_only / scenario_set_up / unrelated); its own driver, `--eval agentic_misalignment` | [0008](plans/0008-agentic-misalignment-claim-map.md) |
 | `strongreject` | **unsuccessful jailbreaks**: on StrongREJECT forbidden prompts x 6 jailbreak wrappers (+ bare control) that Qwen3.6-27B explicitly refuses in 10/10 on-policy samples, how often does a lens read at prompt positions claim the model will comply (`harmful_compliance`) or has adopted the jailbreak persona (`persona_adoption`)? Blind detector + outcome-blind echo/confirm judge on every prompt position; echo (restates the jailbreak's own demand) vs original; probe-checked rate with plan 0015's refusal probe; frozen final set (`data/strongreject/MANIFEST.sha256`); its own CLI `hbench strongreject {grade,run,report}`; not on the index | [0016](plans/0016-strongreject-eval.md) |
+| `overrefusal` (pilot) | on OR-Bench-hard prompts Qwen3.6-27B **never refuses** (0/10 on-policy + greedy complies), how often do readouts at prompt positions claim the model will refuse? A blind batched detector (`refusal_intent` / `harm_salience` / `comply_intent` / `other`) + blind verifier; contrasts: hard prompts it refuses >= 8/10 and toxic prompts refused 10/10; own CLI `hbench overrefusal ...`; not on the index | [0015](plans/0015-overrefusal-eval.md) |
+
+## overrefusal (plan 0015)
+
+HB score = verified false-refusal-claim rate on 160 never-refused OR-Bench prompts (tail sites headline; frozen set `data/overrefusal/MANIFEST.sha256`; results `docs/results/0015_overrefusal_pilot.md`). Refusal probe for reuse: `data/overrefusal/probes/refusal_probe_v2.{npz,json}`.
+
+![overrefusal HB rate](plots/overrefusal_hb_rate.png)
 
 ## Hallucination index
 
@@ -160,6 +167,16 @@ uv run hbench run --eval agentic_misalignment --arms s3d-rl600 --stages verify  
 uv run python scripts/am_audit.py sample-headline       # re-draw ONLY audit/headline.jsonl after Stage H
 uv run python scripts/am_audit.py score                 # gates.json / tiers.json from the labelled sheets
 uv run hbench report --eval agentic_misalignment        # outputs/agentic_misalignment/<model>/report.md
+
+# overrefusal (plan 0015, pilot): own subcommands
+uv run --no-sync hbench overrefusal candidates          # pinned OR-Bench -> data/overrefusal/candidates.jsonl
+uvx --python 3.12 modal@latest run scripts/overrefusal/sample_modal.py --shards 4   # 10 samples/prompt
+uvx --python 3.12 modal@latest run scripts/overrefusal/sample_modal.py --greedy --ids <hard ids>
+uv run --no-sync hbench overrefusal judge-gt            # orgt-v1 refusal labels -> gt_labels.jsonl
+uv run --no-sync hbench overrefusal bank                # populations, items.json, capture_rows.json
+scripts/overrefusal/reads.sh all                        # Modal capture + 3 reads + convert + grid check
+uv run --no-sync hbench overrefusal run --arms s3d-rl600,mlnla-rl600-all11,jlens   # detector + verifier
+uv run --no-sync hbench overrefusal report              # outputs/overrefusal/<model>/report.md
 ```
 
 Other commands: `hbench run --rebuild` (regenerate `cells.jsonl` / `summary.json` from the cache,
