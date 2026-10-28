@@ -15,6 +15,7 @@ hallucination eval is one of many evals here; see `plans/` for the design histor
 | `sibling_probe` user-modelling ladder | the sibling eval: is a same-category mention about the user (user is Korean, readout says China) a hallucination? Lexicon match -> commitment judge -> distractor-rank probe -> cross-method check -> label, on 3 domains: country (frozen lexicon `br_lexicons_um_v1.json`), capital_city (the city the user is visiting), holiday (`scripts/sibling_probe/um_ladder.py --category`) | [0006](plans/0006-user-modelling-country-ladder.md), [0011](plans/0011-user-modelling-ladder-4-domains.md) |
 | `story` | the claim map (taxonomy v2, Opus 5.5) on 20 "tell me a story" items (WorkspaceBench's old `hallucination_creative` bank, 8 sites each); `--eval story` | [0007](plans/0007-story-eval.md) |
 | `agentic_misalignment` | the claim map (v2.7) on lens **mentions of misalignment** (blackmail, leaking, letting someone die, ...) at every prompt position of WorkspaceBench's 32 AM items: a blind batched detector finds the mentions, the claim map judges them (marker in the prompt), and an intent call tiers each mention's kind against what the rollout actually does (realised / designed_only / scenario_set_up / unrelated); its own driver, `--eval agentic_misalignment` | [0008](plans/0008-agentic-misalignment-claim-map.md) |
+| `overrefusal` (pilot) | on OR-Bench-hard prompts Qwen3.6-27B **never refuses** (0/10 on-policy + greedy complies), how often do readouts at prompt positions claim the model will refuse? A blind batched detector (`refusal_intent` / `harm_salience` / `comply_intent` / `other`) + blind verifier; contrasts: hard prompts it refuses >= 8/10 and toxic prompts refused 10/10; own CLI `hbench overrefusal ...`; not on the index | [0015](plans/0015-overrefusal-eval.md) |
 
 ## Hallucination index
 
@@ -159,6 +160,16 @@ uv run hbench run --eval agentic_misalignment --arms s3d-rl600 --stages verify  
 uv run python scripts/am_audit.py sample-headline       # re-draw ONLY audit/headline.jsonl after Stage H
 uv run python scripts/am_audit.py score                 # gates.json / tiers.json from the labelled sheets
 uv run hbench report --eval agentic_misalignment        # outputs/agentic_misalignment/<model>/report.md
+
+# overrefusal (plan 0015, pilot): own subcommands
+uv run --no-sync hbench overrefusal candidates          # pinned OR-Bench -> data/overrefusal/candidates.jsonl
+uvx --python 3.12 modal@latest run scripts/overrefusal/sample_modal.py --shards 4   # 10 samples/prompt
+uvx --python 3.12 modal@latest run scripts/overrefusal/sample_modal.py --greedy --ids <hard ids>
+uv run --no-sync hbench overrefusal judge-gt            # orgt-v1 refusal labels -> gt_labels.jsonl
+uv run --no-sync hbench overrefusal bank                # populations, items.json, capture_rows.json
+scripts/overrefusal/reads.sh all                        # Modal capture + 3 reads + convert + grid check
+uv run --no-sync hbench overrefusal run --arms s3d-rl600,mlnla-rl600-all11,jlens   # detector + verifier
+uv run --no-sync hbench overrefusal report              # outputs/overrefusal/<model>/report.md
 ```
 
 Other commands: `hbench run --rebuild` (regenerate `cells.jsonl` / `summary.json` from the cache,

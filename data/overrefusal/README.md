@@ -1,0 +1,19 @@
+# data/overrefusal (plan 0015)
+
+Built by `hbench overrefusal candidates|judge-gt|bank`; never hand-edited.
+
+| file | what | built by |
+|---|---|---|
+| `meta.json` | OR-Bench repo + pinned revision `e36d8b80…`, CSV sha256s, seed, candidate counts | `candidates` |
+| `candidates.jsonl` | `id, config (hard/toxic), row (0-based CSV row), category, prompt` — a seeded prefix of a seeded permutation of each config (prefix-stable: more candidates never change earlier ids) | `candidates` |
+| `gt_labels.jsonl` | per candidate: `n_valid, n_refuse, n_full, n_partial, greedy_label, labels[10], reasons[10], heads[10]` (first 300 chars of each sampled reply), `greedy_reason/greedy_head` (hard only); judge `orgt-v1` (Opus 5.5) | `judge-gt` |
+| `items.json` | `meta` (eligible / selected counts) + `items`: `id, population, config, category, prompt, about_refusal, n_refuse, prompt_render, sites[{pos, token, kind}]` | `bank` |
+| `capture_rows.json` | one `render: "plain"` row per item for global-workspace `wsbench_capture_modal.py` (no `eval_*` key = every position) | `bank` |
+
+Populations: `never_refused` (hard, 0/10 sampled refusals at T = 1 and a complying greedy
+reply), `hard_refused` (hard, >= 8/10 and a non-complying greedy reply; relaxed to >= 5 below 25
+prompts, flagged in `items.json` meta), `always_refused` (toxic, 10/10). refuse =
+`partial_refusal` or `full_refusal`.
+
+The full on-policy samples (`outputs/overrefusal/samples*.jsonl`, vLLM 0.25.1, n=10, T=1.0,
+top_p=0.95, max_tokens=512, seed=0; greedy n=1, T=0) are not in git.
