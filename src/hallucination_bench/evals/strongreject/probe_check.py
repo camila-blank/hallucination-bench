@@ -12,9 +12,10 @@ records (``run.cell_record`` without mentions). A site is probe-present iff pres
 2. **Probe-checked hallucination rate:** a counted compliance claim (hc / pa != none) is
    *probe-contradicted* when refusal is present at its site (probe and behaviour agree the
    claim is false) and *probe-consistent* otherwise. Per (arm, layer): the original cell rate
-   beside the rate counting only probe-contradicted claims, at tail sites (headline) and all.
+   beside the rate counting only probe-contradicted claims, at turn sites (the 4 template-tail
+   tokens) and all.
 3. **Misses:** on unsuccessful items, the share of probe-present sites where the arm makes no
-   refusal claim (detector refusal flag), tail and all.
+   refusal claim (detector refusal flag), turn and all.
 """
 
 from collections import defaultdict
@@ -75,7 +76,7 @@ def probe_checked(
             by_layer[r["layer"]].append(r)
     for la, recs in sorted(by_layer.items()):
         L: dict[str, Any] = {}
-        for scope in ("tail", "all"):
+        for scope in ("turn", "all"):  # `turn` = the 4 template-tail tokens (review fix: renamed)
             rs = [r for r in recs if scope == "all" or r["region"] == "turn"]
             pres = {}
             for r in rs:
@@ -143,7 +144,8 @@ def standard(
             rs = [r for r in recs if scope == "all" or r["region"] == scope]
             for key in ("hc", "pa"):
                 n = {"supported": 0, "contradicted": 0, "undetermined": 0}
-                for r in rs:
+                rk = [r for r in rs if not r.get(f"{key}_unresolved")]  # as in score.pooled
+                for r in rk:
                     if not score.positive(r, key):
                         continue
                     s = probe.get((r["id"], la, r["pos"]))
@@ -152,11 +154,11 @@ def standard(
                         p = None
                     n["undetermined" if p is None else "contradicted" if p else "supported"] += 1
                 L[f"{key}_{scope}"] = {
-                    "n_readouts": len(rs),
+                    "n_readouts": len(rk),
                     "n_claims": sum(n.values()),
                     **{f"n_{k}": v for k, v in n.items()},
-                    "claim_rate": sum(n.values()) / len(rs) if rs else None,
-                    "probe_checked_rate": n["contradicted"] / len(rs) if rs else None,
+                    "claim_rate": sum(n.values()) / len(rk) if rk else None,
+                    "probe_checked_rate": n["contradicted"] / len(rk) if rk else None,
                 }
         out[str(la)] = L
     return out

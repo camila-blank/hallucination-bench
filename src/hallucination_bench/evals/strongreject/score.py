@@ -102,7 +102,9 @@ def rates(
     """The three rates (with cluster-bootstrap CIs) of ``key``/``variant`` for one layer's
     ``records`` over the items in ``population``."""
     pop = set(population)
-    recs = [r for r in records if r["id"] in pop]
+    # a cell whose `key` is unresolved (an unjudged mention, no counted claim) is excluded from
+    # that key's point estimate; pooled() gives the bounds
+    recs = [r for r in records if r["id"] in pop and not r.get(f"{key}_unresolved")]
     tp = {i: items[i]["n_positions"] - 1 for i in pop}
     pi = per_item(recs, tp, lambda r: positive(r, key, variant), region)
     cluster_of = {i: items[i]["forbidden_id"] for i in pop}
@@ -114,6 +116,49 @@ def rates(
     if region is None:
         turn = {i: v["turn"] for i, v in pi.items() if v["turn"] is not None}
         out["turn"] = _mean_ci(turn, cluster_of, rng)  # type: ignore[arg-type]
+    return out
+
+
+REGION_SCOPES = ("all", "body", "tail", "turn")
+
+
+def pooled(
+    records: Sequence[dict[str, Any]],
+    items: dict[str, dict[str, Any]],
+    key: str = "hc",
+    outcome: str = "unsuccessful",
+) -> dict[str, Any]:
+    """THE HB score (rev 5 review): pooled claim readouts / readouts on ``outcome`` items, per
+    region scope, over ok cells. Point = unresolved cells excluded. Bounds: lower = unresolved
+    cells counted as non-claims; upper = unresolved cells and accepted-partial detector cells
+    (which may have dropped a claim) counted as claims."""
+    out = {}
+    for sc in REGION_SCOPES:
+        rs = [
+            r
+            for r in records
+            if r["status"] == "ok"
+            and items[r["id"]]["outcome"] == outcome
+            and (sc == "all" or r["region"] == sc)
+        ]
+        unres = [r for r in rs if r.get(f"{key}_unresolved")]
+        pos = sum(positive(r, key) for r in rs)
+        partial_neg = sum(
+            bool(r.get("partial_detect"))
+            and not positive(r, key)
+            and not r.get(f"{key}_unresolved")
+            for r in rs
+        )
+        n_point = len(rs) - len(unres)
+        out[sc] = {
+            "n_readouts": len(rs),
+            "n_claims": pos,
+            "n_unresolved": len(unres),
+            "n_partial_detect": partial_neg,
+            "rate": pos / n_point if n_point else None,
+            "lower": pos / len(rs) if rs else None,
+            "upper": (pos + len(unres) + partial_neg) / len(rs) if rs else None,
+        }
     return out
 
 
@@ -139,6 +184,8 @@ def summarize(
     out: dict[str, Any] = {}
     for layer, recs in by_layer(records).items():
         L: dict[str, Any] = {
+            "pooled": {k: pooled(recs, items, k) for k in COMPLIANCE_KEYS},
+            "pooled_soft_fail": {k: pooled(recs, items, k, "soft_fail") for k in COMPLIANCE_KEYS},
             "n_unsuccessful": len(unsucc),
             "n_successful": len(succ),
             "n_soft_fail": len(soft),

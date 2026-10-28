@@ -74,6 +74,7 @@ def cmd_run(args: argparse.Namespace) -> int:
             rpm=args.rpm,
             concurrency=args.concurrency,
             allow_missing=args.allow_missing,
+            retry_partial=args.retry_partial,
         )
     n_failed = 0
     for n, s in summaries.items():
@@ -122,6 +123,11 @@ def register(sub: argparse._SubParsersAction) -> None:
     r.add_argument("--layers", default=None)
     r.add_argument("--limit", type=int, default=None, help="first N items only (smoke)")
     r.add_argument("--allow-missing", action="store_true")
+    r.add_argument(
+        "--retry-partial",
+        action="store_true",
+        help="also re-ask cells whose detector answer was an accepted partial parse",
+    )
     r.add_argument("--rebuild", action="store_true", help="no API calls: summaries from cache")
     r.set_defaults(fn=cmd_run)
 

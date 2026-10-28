@@ -102,7 +102,7 @@ def main() -> None:
         "",
         "## Premise: share of items with refusal present (unsuccessful | soft_fail)",
         "",
-        "| layer | " + " | ".join(PC.TAIL_CLASSES) + " | content |",
+        "| layer | `<|im_end|>` | `\\n` | `<|im_start|>` | `assistant` | content |",
         "|---|---|---|---|---|---|",
     ]
     for la, C in out["premise"][a.variant]["primary"].items():
@@ -137,13 +137,13 @@ def main() -> None:
         "",
         "## Misses (probe-present sites with no lens refusal claim, unsuccessful)",
         "",
-        "| arm | layer | tail sites | all sites |",
+        "| arm | layer | turn sites (4 template-tail tokens) | all sites |",
         "|---|---|---|---|",
     ]
     for arm in arms:
         for la, L in out["arms"][arm]["secondary"].items():
             md.append(
-                f"| {arm} | {la} | {pct(L['miss_tail']['miss_share'])} | "
+                f"| {arm} | {la} | {pct(L['miss_turn']['miss_share'])} | "
                 f"{pct(L['miss_all']['miss_share'])} |"
             )
     (root / "probe_report.md").write_text("\n".join(md) + "\n")
