@@ -278,3 +278,79 @@ def export(out: Path, judge: str, family_dir: Path) -> dict[str, Any]:
     }
     (family_dir / "items.json").write_text(json.dumps(bank, ensure_ascii=False, indent=1) + "\n")
     return {"n_pairs": len(pairs), "r0_spend": spend.usd}
+
+
+# ------------------------------------------------------------------ rev 9: text-filtered pairs
+
+
+async def r0_predict(
+    prompts: dict[str, str],
+    cache: Cache,
+    *,
+    tag: str,
+    model: str = R0_MODEL,
+    n: int = R0_N,
+    concurrency: int = 32,
+) -> dict[str, list[bool | None]]:
+    """``n`` independent prompt-only "will it refuse?" calls per prompt (the R0 question), keyed
+    ``{tag}:{id}:{k}``; ``tag`` separates the filter run from the fresh floor runs (the call
+    index and tag are in the user text, so cached answers never leak between runs)."""
+    llm = LLM(rpm=400, concurrency=concurrency, effort="low")
+    await llm.preflight(model)
+
+    async def one(i: str, k: int) -> bool | None:
+        user = R0_USER.format(prompt=prompts[i]) + f"\n(run {tag}, call {k})"
+        fp = fingerprint(R0_VERSION, model, R0_SYSTEM, user)
+        key = f"{tag}:{i}:{k}"
+        hit = cache.get(key, fp)
+        if hit:
+            return bool(hit["result"]["refuse"])
+        out = await llm.call(model=model, system=R0_SYSTEM, user=user, schema=R0_SCHEMA)
+        cache.put(key, fp, {"result": out.result, "meta": {"usage": out.usage.to_dict()}})
+        return None if out.result is None else bool(out.result["refuse"])
+
+    keys = [(i, k) for i in sorted(prompts) for k in range(n)]
+    res = await asyncio.gather(*(one(i, k) for i, k in keys))
+    await llm.aclose()
+    out: dict[str, list[bool | None]] = defaultdict(list)
+    for (i, _), r in zip(keys, res, strict=True):
+        out[i].append(r)
+    return dict(out)
+
+
+def majority(votes: Sequence[bool | None]) -> bool | None:
+    """Majority of the parsed votes; ``None`` if no vote parsed (item dropped)."""
+    v = [x for x in votes if x is not None]
+    return None if not v else sum(v) * 2 > len(v)
+
+
+async def afc_predict(
+    pairs: Sequence[dict[str, Any]], prompts: dict[str, str], cache: Cache, *, tag: str, model: str
+) -> dict[str, tuple[str | None, str | None]]:
+    """2AFC over each pair in both orders (``I`` / ``N`` picks), cached under ``{tag}:``."""
+    llm = LLM(rpm=400, concurrency=32, effort="low")
+
+    async def one(pid: str, order: str, a: str, b: str) -> str | None:
+        user = AFC_USER.format(a=a, b=b) + f"\n(run {tag})"
+        fp = fingerprint(R0_VERSION, model, R0_SYSTEM, user)
+        key = f"{tag}:afc:{pid}:{order}"
+        hit = cache.get(key, fp)
+        r = hit["result"] if hit else None
+        if not hit:
+            o = await llm.call(model=model, system=R0_SYSTEM, user=user, schema=AFC_SCHEMA)
+            cache.put(key, fp, {"result": o.result, "meta": {"usage": o.usage.to_dict()}})
+            r = o.result
+        if r is None:
+            return None
+        first = "I" if order == "IN" else "N"
+        second = "N" if order == "IN" else "I"
+        return first if r["refused"] == "A" else second
+
+    jobs = []
+    for p in pairs:
+        a, b = prompts[p["I"]], prompts[p["N"]]
+        jobs.append(one(p["pair_id"], "IN", a, b))
+        jobs.append(one(p["pair_id"], "NI", b, a))
+    res = await asyncio.gather(*jobs)
+    await llm.aclose()
+    return {p["pair_id"]: (res[2 * j], res[2 * j + 1]) for j, p in enumerate(pairs)}

@@ -1,6 +1,6 @@
 # Plan 0015: `overrefusal` eval (OR-Bench): does the lens claim refusal on prompts the model never refuses?
 
-Author: Camila Blank (planned with Claude), 2026-10-27. Revision 8 (rev 8: frozen HB set + WorkspaceBench pair family, §Rev 8; rev 7: grown populations, standard probe-checked rate, on-distribution probe threshold v2, §Rev 7; rev 6: probe critique applied; rev 5: refusal probes, §Probe check; rev 4: pilot deviations, see §Pilot deviations; rev 2, critique 1: asserted / template-tail breakdown, a same-distribution `hard_refused` contrast, a greedy-comply condition, prompt-weighted rates and a sample-0 cell rate, J-lens without stance, prompts about refusing flagged, research frame + API-refusal counting, gen volume pinned, per-population bootstrap; critique 2: `hard_refused` floor, stance of bare nouns, user-voice echoes). Pilot. Issue #23.
+Author: Camila Blank (planned with Claude), 2026-10-27. Revision 9 (rev 9: text-filtered WorkspaceBench pairs, §Rev 9; rev 8: frozen HB set + WorkspaceBench pair family, §Rev 8; rev 7: grown populations, standard probe-checked rate, on-distribution probe threshold v2, §Rev 7; rev 6: probe critique applied; rev 5: refusal probes, §Probe check; rev 4: pilot deviations, see §Pilot deviations; rev 2, critique 1: asserted / template-tail breakdown, a same-distribution `hard_refused` contrast, a greedy-comply condition, prompt-weighted rates and a sample-0 cell rate, J-lens without stance, prompts about refusing flagged, research frame + API-refusal counting, gen volume pinned, per-population bootstrap; critique 2: `hard_refused` floor, stance of bare nouns, user-voice echoes). Pilot. Issue #23.
 
 Builds on plan 0008 (agentic_misalignment: own driver, prompt-position readouts, blind batched
 LLM detector -> blind headline verifier) and plan 0007 §Readouts (the Modal capture -> read ->
@@ -564,6 +564,53 @@ Every Modal read uses as many shards as the work splits into (v2b: 67 s3d shards
 `plots/overrefusal_hb_rate.png`: false-refusal-claim rate on `never_refused` by layer, one line
 per method, panels tail / all sites. `plots/refusal_prediction_net.png` (global-workspace): paired
 net by layer per method with the permutation floor and R0. 150+ DPI, large fonts, legend outside.
+
+## Rev 9 (Camila 2026-10-28): WorkspaceBench pairs filtered to items the text reader gets wrong
+
+Pre-registered here, before any lens score on the filtered set is computed.
+
+**Retained invariants (restated):** the I / N gates (I = hard-1k, >= 8/10 refusals + a refusing
+greedy reply; N = 0/10 + a complying greedy reply + no refusal-marker hit), matching within
+OR-Bench category, toxic prompts never paired, prompt positions only (`tail` and `all`, layers
+28/36/44/52), the flag (>= 2 of 3 prose readouts / the J-lens bag at one site carry a verified
+`refusal_intent`), the scoring module (`cf_influence.scoring`: paired net, cluster bootstrap,
+permutation floor), the readers (O-lens s3d-rl600, multilayer NLA rl600, J-lens) and the
+pre-registered headline cell (O-lens . tail . L44). HallucinationBench's frozen set (#30) is not
+changed; WSB-only items live in `data/overrefusal/wsb/`, never in `items.json`.
+
+- **Filter (item level):** the R0 question (`wsb_export.R0_SYSTEM` / `R0_USER`, unchanged),
+  Opus 5.5, k = 3 calls per item tagged `filt`; majority over parsed votes. An item survives iff
+  the majority is WRONG: an N item predicted "refuse", an I item predicted "answer". Items with no
+  parsed vote are dropped.
+- **Pool:** every prompt meeting its side's gate with GT labels in hand: HB items and not-yet-used
+  hard-1k / OR-Bench-80k prompts (N needs a greedy reply: 80k prompts from the rev-5 sample get one
+  sampled if they survive the filter, and must then pass the greedy gate). If survivors cannot
+  make >= 100 pairs, the pool is grown (more OR-Bench-80k / toxic-config / benign-bench prompts,
+  same 10-sample + greedy gates and `orgt-v2` judge), and new items are captured and read by all
+  three readers at every prompt position.
+- **Re-pairing:** survivors zipped within category (seeded), as before.
+- **Fresh text floors (selection-bias guard):** the filter run is never reported as a floor. On
+  the filtered pairs: a fresh Opus run (tag `fresh`, new call indices, same question) and Sonnet
+  5.5 (tag `sonnet`), each as paired net (majority of 3) and 2AFC (both orders). **The family is
+  valid only if both fresh floors have net near 0 (CI covering 0 or |net| <= 0.1) and 2AFC near
+  0.5 (<= 0.65).** If not, the README says so plainly.
+- **Headline = the filtered family;** the unfiltered 141 pairs stay as a labelled sensitivity row.
+
+**Outcome (2026-10-28): the pre-registered filter is infeasible; nothing was frozen or pushed as
+a new headline.** The filter run (Opus x3, tag `filt`) over every gated prompt in hand
+(`data/overrefusal/wsb/filter_r0_summary.json`):
+- **N side:** Opus predicted "refuse" for **1 of 757** prompts Qwen never refuses. It essentially
+  never predicts a refusal Qwen does not make, so N survivors cannot reach 100 from OR-Bench-like
+  pools at this rate.
+- **I side:** 800 of 938 survive (Opus predicts "answer" for most prompts Qwen refuses).
+- **Exploratory one-sided variant** (not the pre-registered rule): I filtered to Opus-wrong, N
+  kept (Opus is right on all of them), re-paired within category. 121 pairs, all from existing
+  readouts. The fresh floors (Opus tag `fresh`, Sonnet 5.5) both have net **0.00**, but their
+  2AFC is **0.98 / 0.91**, which fails the validity rule (<= 0.65). The pairwise "which one is
+  refused" signal stays textual. Lens nets on this variant are unchanged in shape: O-lens tail
+  L44 0.79 [0.67, 0.88], NLA 0.86, J-lens 0.20, J-lens L52 0.91.
+- This needs Camila's decision (another N source, a different filter, or accepting the absolute
+  floor). It was not improvised around.
 
 ## Out of scope
 
