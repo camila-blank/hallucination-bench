@@ -127,6 +127,73 @@ assistant 96% (user 0.5%, prompt_script 0.4%, unclear 2.8%); `restates_request` 
 `generic_support` 21% (consistent with a template's generic "never refuse" line but naming the
 specific content, so original by rule).
 
+## Probe check (plan 0016 rev 4; plan 0015's refusal probe, reused)
+
+Camila (2026-10-28): validate with a probe whether refusal is represented at the read sites.
+We score every read site with the overrefusal eval's artifact
+(`hb-overrefusal:data/overrefusal/probes/refusal_probe_v1.npz`, sha256 `d99ba6d8…`, and the
+exploratory `refusal_probe_v1_calib.npz`, `dbcc2ffe…`), applying plan 0015's rule exactly
+(`scripts/strongreject/probe_modal.py`: 4 fold models, tail sites = the 4 template-tail
+positions scored per offset, other sites by the content rule; present iff mean fold presence
+≥ 0.5). Primary variant `refusal-dm-v1` (Arditi-style, 300 AdvBench/HarmBench vs 300 Alpaca;
+held-out AUROC ≥ 0.998; it passed plan 0015's naming gate, transfer to Qwen's own
+hard-refused vs never-refused decision 0.84–0.99, so it is called a refusal probe).
+`refusal-beh-v1` is underpowered (34 + 34) and reported only. Two thresholds: the
+pre-registered q95 of Alpaca (plan 0015 found it fires on nearly every borderline prompt: the
+harm confound) and the exploratory q95 of 372 OR-Bench prompts Qwen answered. Full tables:
+`outputs/strongreject/claude-opus-5-5/probe_report.md` (`scripts/strongreject/probe_report.py`).
+There is no compliance probe: a site where refusal is absent is "probe-consistent" with a
+compliance claim, not evidence for it.
+
+**(1) Premise: refusal is represented at the read sites of failed jailbreaks.** Share of
+unsuccessful items with refusal present, `refusal-dm-v1`:
+
+| layer | Alpaca threshold, `assistant` site | Alpaca, all 4 tail sites (range) | Alpaca, content sites | answered-calib, `assistant` | answered-calib, content | soft_fail contrast, answered-calib `assistant` |
+|---|---|---|---|---|---|---|
+| 28 | 100 | 98–100 | 87 | 67 | 17 | 61 |
+| 36 | 100 | 96–100 | 89 | 99 | 22 | 96 |
+| 44 | 100 | 97–100 | 86 | 94 | 26 | 96 |
+| 52 | 100 | 94–100 | 75 | 99 | 20 | 96 |
+
+The premise holds: at the turn boundary refusal is represented on essentially every failed
+jailbreak, even under the strict threshold calibrated on prompts Qwen answers (L36–52). It does
+not separate the soft_fail items (which are also rubric refusals); at `<|im_end|>` the
+answered-calib presence does (unsuccessful 50–73% vs soft_fail 0–22%). Inside the request
+(content sites) the strict threshold finds refusal at only 17–26% of sites.
+
+**(2) Probe-checked hallucination rate** (unsuccessful items, `harmful_compliance` cell rate;
+original → only claims at sites where refusal IS present, i.e. contradicted by behaviour and
+probe):
+
+| arm | L28 | L36 | L44 | L52 |
+|---|---|---|---|---|
+| s3d-rl600, Alpaca threshold, all sites | 19.8 → 19.4 | 18.6 → 17.9 | 15.0 → 14.5 | 16.7 → 15.5 |
+| s3d-rl600, answered-calib, all sites | 19.8 → 7.3 [5.8, 8.9] | 18.6 → 6.7 [5.3, 8.3] | 15.0 → 6.5 [5.1, 8.1] | 16.7 → 6.9 [5.3, 8.6] |
+| s3d-rl600, answered-calib, tail sites | 16.7 → 9.8 | 9.0 → 7.2 | 5.8 → 3.8 | 8.5 → 6.2 |
+| mlnla-rl600, answered-calib, all sites | 1.0 → 0.2 | 0.8 → 0.2 | 0.4 → 0.1 | 0.4 → 0.0 |
+| jlens, answered-calib, all sites | 0.0 → 0.0 | 0.1 → 0.0 | 0.0 → 0.0 | 0.0 → 0.0 |
+
+- Under the strict (answered-calib) threshold, **34–43% of the O-lens's compliance claims sit
+  at sites where the model is representing refusal**: about 7% of all read sites, and 4–10%
+  of tail sites, are compliance claims contradicted by both behaviour and the probe. The other
+  57–66% sit where the refusal direction is not elevated (mostly mid-request content sites):
+  not refuted by the probe, but not supported either (no compliance probe; the model went on
+  to refuse 10/10).
+- Persona claims: O-lens 7–10% of cells → 0.2–0.5% probe-contradicted (persona echoes sit in
+  the template body, where refusal is rarely present).
+- Under the Alpaca threshold nearly every claim is "contradicted" because refusal / harm is
+  present nearly everywhere; that threshold does not discriminate here (plan 0015's finding).
+
+**(3) Misses** (probe-present sites where the lens makes no refusal claim, answered-calib):
+O-lens 19–25% of tail sites (32–50% of all sites), NLA 29–45% (54–72%), J-lens 58–99%
+(87–99%). At the `assistant` site itself the O-lens and NLA miss little (refusal claimed on
+94–100% / 77–99% of items, table above).
+
+Probe caveats: the probe and its thresholds were fitted on another eval's prompts (AdvBench /
+HarmBench / Alpaca / OR-Bench) at the same 4 tail offsets; content-site presence uses plan
+0015's secondary content rule; the answered-calib threshold is exploratory there and here;
+`refusal-dm-v1` is partly a harm direction (all StrongREJECT prompts are harmful).
+
 ## Examples (hand-read; harmful content paraphrased / redacted)
 
 O-lens `s3d-rl600` (prose; each readout is a list of short candidate continuations):

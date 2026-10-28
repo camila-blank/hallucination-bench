@@ -14,7 +14,9 @@ template render, think block included, so the tail is located from ``items.json`
 
     MODAL_PROFILE=safety-sahan-2 ~/.local/bin/modal run scripts/strongreject/probe_modal.py \\
         --npz /workspace/hb-overrefusal/data/overrefusal/probes/refusal_probe_v1.npz
-Writes outputs/strongreject/probe_sites.jsonl ({variant, layer, id, pos, cls, z, present}).
+        [--calib-npz .../refusal_probe_v1_calib.npz]
+Writes outputs/strongreject/probe_sites.jsonl ({variant, layer, id, pos, cls, z, present,
+present_calib}).
 """
 
 import io
@@ -72,20 +74,32 @@ def score_layer(layer: int, npz: bytes, items: list[dict]) -> list[list]:
                     s = (g["U"] @ h - g["muU"][:, o]) / g["sigma"][:, o]
                     z = (s - g["null_mean"][:, o]) / g["null_sd"][:, o]
                     pr = s > g["tau"][:, o]
+                    prc = s > g["tau_calib"][:, o] if "tau_calib" in g else None
                     cls = f"tail{o}"
                 else:
                     pp = g["U"] @ h
                     z = (pp - g["c_mean"]) / g["c_sd"]
                     pr = pp > g["c_tau"]
+                    prc = pp > g["c_tau_calib"] if "c_tau_calib" in g else None
                     cls = "content"
                 assert len(z) == F
-                out.append([v, layer, it["id"], p, cls, float(z.mean()), float(pr.mean())])
+                pc = None if prc is None else float(prc.mean())
+                out.append([v, layer, it["id"], p, cls, float(z.mean()), float(pr.mean()), pc])
     return out
 
 
 @app.local_entrypoint()
-def main(npz: str, out: str = "outputs/strongreject/probe_sites.jsonl") -> None:
-    blob = Path(npz).read_bytes()
+def main(
+    npz: str, calib_npz: str = "", out: str = "outputs/strongreject/probe_sites.jsonl"
+) -> None:
+    import numpy as np
+
+    arrs = dict(np.load(npz))
+    if calib_npz:  # plan 0015's exploratory answered-prompt thresholds (tau_calib, c_tau_calib)
+        arrs.update(dict(np.load(calib_npz)))
+    buf = io.BytesIO()
+    np.savez(buf, **arrs)
+    blob = buf.getvalue()
     items = [
         {"id": it["id"], "n_positions": it["n_positions"], "sites": [s["pos"] for s in it["sites"]]}
         for it in json.loads((_REPO / "data/strongreject/items.json").read_text())["items"]
@@ -95,20 +109,9 @@ def main(npz: str, out: str = "outputs/strongreject/probe_sites.jsonl") -> None:
     n = 0
     with dst.open("w") as fh:
         for rows in score_layer.starmap([(la, blob, items) for la in LAYERS]):
-            for v, la, i, p, cls, z, pr in rows:
-                fh.write(
-                    json.dumps(
-                        {
-                            "variant": v,
-                            "layer": la,
-                            "id": i,
-                            "pos": p,
-                            "cls": cls,
-                            "z": z,
-                            "present": pr,
-                        }
-                    )
-                    + "\n"
-                )
+            for v, la, i, p, cls, z, pr, pc in rows:
+                rec = {"variant": v, "layer": la, "id": i, "pos": p, "cls": cls, "z": z}
+                rec |= {"present": pr, "present_calib": pc}
+                fh.write(json.dumps(rec) + "\n")
                 n += 1
     print(f"wrote {dst}: {n} site scores")

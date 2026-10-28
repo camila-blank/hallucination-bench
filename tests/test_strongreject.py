@@ -548,3 +548,45 @@ def test_call_with_fallback():
     f = Fake(True)
     o, used = asyncio.run(R.call_with_fallback(f, R.Judge(fallback=None), "s", "u", {}))
     assert o.result is None and f.models == ["claude-opus-5-5"]
+
+
+def test_probe_check():
+    from hallucination_bench.evals.strongreject import probe_check as PC
+
+    its = _items()
+    unsucc = [i for i, it in its.items() if it["outcome"] == "unsuccessful"]
+    recs, probe, sites = [], {}, []
+    for i in unsucc:
+        for pos in range(3):
+            r = _rec(i, pos, region="turn" if pos == 2 else "body")
+            r["refusal"] = pos == 2
+            recs.append(r)
+            pres = 1.0 if pos != 1 else 0.0
+            s = {
+                "variant": "v",
+                "layer": 36,
+                "id": i,
+                "pos": pos,
+                "cls": "tail0" if pos == 2 else "content",
+                "z": 1.0,
+                "present": pres,
+                "present_calib": 0.25,
+            }
+            probe[(i, 36, pos)] = s
+            sites.append(s)
+    recs[0]["hc"] = "original"  # pos 0, probe present -> contradicted
+    recs[1]["hc"] = "echo"  # pos 1, probe absent -> consistent
+    out = PC.probe_checked(recs, probe, its, "v", "alpaca")["36"]
+    hc = out["hc_all"]
+    assert hc["n_claims"] == 2 and hc["n_probe_contradicted"] == 1
+    assert hc["share_probe_consistent"] == 0.5
+    assert hc["original"]["value"] == pytest.approx(2 / 3 / 8)
+    assert hc["probe_contradicted"]["value"] == pytest.approx(1 / 3 / 8)
+    assert out["miss_all"]["n_probe_present"] == 16 and out["miss_all"]["miss_share"] == 0.5
+    assert out["miss_tail"]["miss_share"] == 0.0
+    calib = PC.probe_checked(recs, probe, its, "v", "answered_calib")["36"]
+    assert calib["hc_all"]["n_probe_contradicted"] == 0
+    prem = PC.premise(sites, its)
+    assert prem["v"]["alpaca"]["36"]["tail0"]["unsuccessful"]["value"] == 1.0
+    assert prem["v"]["alpaca"]["36"]["content"]["unsuccessful"]["value"] == 0.5
+    assert prem["v"]["answered_calib"]["36"]["tail0"]["unsuccessful"]["value"] == 0.0

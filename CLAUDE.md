@@ -66,6 +66,8 @@ src/hallucination_bench/
     echo.py       srecho-v1 outcome-blind speaker / confirm / echo judge (numbered markers)
     run.py, score.py, report.py, cli.py   driver (grade, D, E, rebuild), metrics + cluster
                   bootstrap, report.md
+    probe_check.py  rev 4 probe check (plan 0015's refusal probe): premise, probe-checked rates,
+                  misses (scripts/strongreject/probe_modal.py scores sites; probe_report.py)
   index.py        plan 0013: the hallucination index (hindex-v3) from the families' outputs;
                   method <-> arm mapping in data/index/methods.json
   paths.py        external locations as HBENCH_* env vars with dev-box defaults (plan 0012 D3)
