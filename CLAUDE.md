@@ -97,9 +97,11 @@ evals/mask/          plan 0017 (own CLI `hbench mask`, registered in cli.EVAL_CL
   detect.py     maskdetect-v1 (blind; lie_claim / honest_claim / pressure_salience /
                 belief_content / other), verify.py maskverify-v1 (+ blind variant)
   run.py        D -> V -> VB driver, cells.jsonl / summary.json; report.py metrics + bootstrap
+  probe.py      rev 4 two-class deception probe on sibling_probe.probes (V2) + um_probe null z
 data/mask/           items / rollouts.jsonl.gz / labels / read_set / sites / capture_rows (README)
 scripts/mask/        build_items.py, gen_modal.py (Modal vLLM), build_capture.py, fetch_readouts.sh,
-                     gate.py (self-knowledge gate, rev 3), examples.py (hand-reading)
+                     gate.py (self-knowledge gate, rev 3), probe_build.py + probe_modal.py (deception
+                     probes, rev 4), examples.py (hand-reading)
 ```
 
 ## Conventions
@@ -308,6 +310,11 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
   - **Self-knowledge gate** (plan rev 3): `scripts/mask/gate.py requests|parse` -> `data/mask/gate.json`;
     `report` picks the frame by the pre-registered rule (`report.choose_frame`, ctx unless persona
     carryover dominates) and adds gated headline tables at k = 8 / 9 / 10. It only subsets items.
+  - **Deception probes** (rev 4): `scripts/mask/probe_build.py` (Instructed-Pairs + extra capture rows) ->
+    captures `hb-mask-probe-{train,extra}` -> `scripts/mask/probe_modal.py` (4 CPU containers, one per layer;
+    `evals/mask/probe.py` wraps `sibling_probe.probes` V2 + `um_probe` null z, 2 concepts, one centring key)
+    -> `data/mask/probe_scores.json`; `report` adds validity / transfer / premise / probe-checked tables.
+    The Instructed-Pairs thresholds (own-data honest q95) are miscalibrated on MASK: they fire everywhere.
   - `tmux kill-session -t name` prefix-matches: with `hb-mask-gen` gone it killed
     `hb-mask-genx`. Use `-t =name`.
 

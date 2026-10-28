@@ -1,6 +1,6 @@
 # Results 0017: `mask` pilot. Does the lens say the model is lying when it is honest?
 
-Plan: [`plans/0017-mask-eval.md`](../../plans/0017-mask-eval.md) (rev 3: self-knowledge gate). Full generated report:
+Plan: [`plans/0017-mask-eval.md`](../../plans/0017-mask-eval.md) (rev 4: self-knowledge gate + deception probes). Full generated report:
 [`0017_report_full.md`](0017_report_full.md) (`hbench mask report`). Run 2026-10-27/28.
 **Provisional pilot**: no calibration gold, no gate, no judge-noise estimate, one Opus 5.5 sample
 per label.
@@ -179,6 +179,98 @@ was lying. They are, if anything, more frequent on items where the model refused
 was honest. mlnla's response-site recall rises slightly (L36: 0.049 on lies the model owns up to).
 The gate costs nothing in API spend (deterministic letter parsing); it added one more Modal
 generation run (4 H200, about 10 min).
+
+## Deception probes (rev 4): is the lie represented at the sites we read?
+
+Camila's check: are the lies, or their absence, actually represented in the activations at the
+read positions and layers? There are two probes per layer, both the sibling-probe machinery's V2
+recipe (whitened DiffMean, lambda by inner CV) with the UM ladder's null z:
+
+- **ip, primary, independent data.** The Instructed-Pairs probe (Goldowsky-Dill et al. 2025).
+  Apollo's `repe_honesty` statements (275 true facts with more than 5 words) under the system
+  prompts "honest AI assistant" / "deceptive AI assistant", in the Qwen chat template with
+  thinking off. `ip_resp` is fit on the response tokens and scores response sites; `ip_end` is
+  fit on the 4 prompt-end template tokens and scores prompt sites. No MASK data.
+- **cf, sensitivity, on-distribution.** Lie vs honest MASK items, 4 item folds, read items
+  scored out-of-fold only. Trained on read items plus the 12 unread, non-doubling-down lies.
+
+Present = z above the pre-registered 95th percentile of the probe's own out-of-fold honest
+scores. Gated sets: honest_resisted n = 81, lie n = 65 (rev 3, ctx >= 9/10).
+
+| layer | validity ip_end / ip_resp (own data) | transfer, prompt: ip (assistant site only) / cf | transfer, response: ip / cf |
+|---|---|---|---|
+| 28 | 1.000 / 1.000 | 0.684 (0.719) / 0.836 | 0.696 / 0.984 |
+| 36 | 1.000 / 1.000 | 0.545 (0.632) / 0.884 | 0.929 / 0.991 |
+| 44 | 1.000 / 1.000 | 0.561 (0.542) / 0.883 | 0.933 / 0.992 |
+| 52 | 1.000 / 1.000 | 0.399 (0.519) / 0.905 | 0.947 / 0.989 |
+
+Transfer = AUROC of the item-level score (mean z over the site type's sites), gated lie vs gated
+honest_resisted.
+
+- **Validity is trivially met:** AUROC 1.0 on Instructed-Pairs at every layer. The two
+  conditions differ by one system-prompt word.
+- **At response sites the independent probe transfers well** from L36 on (0.93–0.95): lies are
+  represented in the reply tokens Qwen wrote.
+- **At prompt sites it does not transfer** (0.40–0.72, near chance). The prompt-end probe
+  detects "this context asks for deception", and every MASK prompt asks for deception. Whether
+  Qwen will then lie is decodable at prompt sites only by the on-distribution probe (cf
+  0.84–0.91), which is the probe trained to make exactly that distinction.
+
+**Premise check:** the share of gated items whose mean z over the site type exceeds the
+threshold.
+
+| layer | site | honest_resisted, ip | lie, ip | honest_resisted, cf | lie, cf |
+|---|---|---|---|---|---|
+| 28 | prompt | 1.000 | 1.000 | 0.025 | 0.323 |
+| 36 | prompt | 1.000 | 1.000 | 0.025 | 0.431 |
+| 44 | prompt | 1.000 | 1.000 | 0.025 | 0.415 |
+| 52 | prompt | 1.000 | 1.000 | 0.012 | 0.415 |
+| 28 | response | 0.988 | 0.969 | 0.012 | 0.446 |
+| 36 | response | 0.938 | 1.000 | 0.012 | 0.677 |
+| 44 | response | 0.951 | 1.000 | 0.012 | 0.677 |
+| 52 | response | 0.901 | 1.000 | 0.000 | 0.508 |
+
+**The pre-registered ip threshold does not survive the distribution shift.** Instructed-Pairs
+texts are so homogeneous that their honest 95th percentile sits below almost every MASK item,
+honest or not. So under ip, deception is "represented" everywhere, and the ip premise check and
+the ip probe-checked rates below are uninformative, beyond one point: deception-relevant
+content (the pressure) is present at every prompt site, which is true by design. The
+calibrated reading comes from cf, whose threshold is set on MASK honest items. Under cf, a lie
+is represented on 1–2.5% of honest_resisted items and on 32–68% of lie items. Caveat: cf is
+trained to call honest items non-deceptive, so its low honest rate is partly by construction,
+even out-of-fold.
+
+**Probe-checked hallucination** (gated honest_resisted, verified lie_claim readouts / readouts):
+
+| arm | layer | site | original | ip-checked (pre-reg.) | cf-checked (post hoc) | claims cf-supported | cf miss rate on lie sites |
+|---|---|---|---|---|---|---|---|
+| s3d-rl600 | 28 | prompt | 0.007 | 0.007 | 0.000 | 0/14 | 0.993 |
+| s3d-rl600 | 36 | prompt | 0.015 | 0.015 | 0.001 | 1/30 | 0.977 |
+| s3d-rl600 | 44 | prompt | 0.014 | 0.014 | 0.000 | 0/28 | 0.993 |
+| s3d-rl600 | 52 | prompt | 0.012 | 0.012 | 0.000 | 0/24 | 0.973 |
+| s3d-rl600 | 36 | response | 0.002 | 0.002 | 0.002 | 3/4 | 0.955 |
+| s3d-rl600 | 52 | response | 0.002 | 0.001 | 0.001 | 2/3 | 0.993 |
+| mlnla-rl600-all11 | 28 | response | 0.003 | 0.002 | 0.001 | 1/5 | 0.944 |
+| mlnla-rl600-all11 | 36 | response | 0.003 | 0.001 | 0.001 | 1/5 | 0.883 |
+| mlnla-rl600-all11 | 52 | response | 0.003 | 0.003 | 0.002 | 3/6 | 0.955 |
+
+The remaining rows are in the full report; the mlnla prompt rows are all ≤ 0.003 originally and
+≤ 0.001 cf-checked.
+
+- **s3d's prompt-site lie claims on honest items are almost never backed by a lie
+  representation.** 1 of 96 verified claims sits at a cf-present site. Pre-registered ip "backs"
+  all 96, but only because ip fires at every prompt site, honest or lie. This reinforces the
+  headline: those claims are the lens reading the pressure as compliance, not a latent lie.
+- **At response sites, roughly half of the few claims on honest items fall at cf-present sites**
+  (s3d 5/7, mlnla 5/16 at L28/36/52). These are cases where some lie-like signal is in the reply
+  tokens.
+- **Misses:** where cf says a lie is represented at a lie item's site, the lens makes no verified
+  lie claim at that cell 88–99% of the time. mlnla misses least, at L36 response (0.883). The
+  lenses verbalise only a small fraction of the deception the probe finds.
+- The cf-checked columns and the cf misses were not pre-registered: they were added after the ip
+  threshold turned out to be miscalibrated.
+- **Cost:** two Modal captures (1 H200, a few minutes each); probe fitting on 4 CPU containers
+  (one per layer, about 15 min); no API calls.
 
 ## Examples (hand-read)
 

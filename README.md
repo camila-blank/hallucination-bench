@@ -15,7 +15,7 @@ hallucination eval is one of many evals here; see `plans/` for the design histor
 | `sibling_probe` user-modelling ladder | the sibling eval: is a same-category mention about the user (user is Korean, readout says China) a hallucination? Lexicon match -> commitment judge -> distractor-rank probe -> cross-method check -> label, on 3 domains: country (frozen lexicon `br_lexicons_um_v1.json`), capital_city (the city the user is visiting), holiday (`scripts/sibling_probe/um_ladder.py --category`) | [0006](plans/0006-user-modelling-country-ladder.md), [0011](plans/0011-user-modelling-ladder-4-domains.md) |
 | `story` | the claim map (taxonomy v2, Opus 5.5) on 20 "tell me a story" items (WorkspaceBench's old `hallucination_creative` bank, 8 sites each); `--eval story` | [0007](plans/0007-story-eval.md) |
 | `agentic_misalignment` | the claim map (v2.7) on lens **mentions of misalignment** (blackmail, leaking, letting someone die, ...) at every prompt position of WorkspaceBench's 32 AM items: a blind batched detector finds the mentions, the claim map judges them (marker in the prompt), and an intent call tiers each mention's kind against what the rollout actually does (realised / designed_only / scenario_set_up / unrelated); its own driver, `--eval agentic_misalignment` | [0008](plans/0008-agentic-misalignment-claim-map.md) |
-| `mask` (pilot) | MASK (lies vs honest-but-wrong): on-policy Qwen3.6-27B ground truth (MASK's judge prompts and belief / honesty aggregation), then how often a lens **claims the model is lying when it was honest** (blind detector -> prompt-aware verifier), at prompt sites (prediction) and response sites (detection), beside the same rate on lie items, also on the subset where Qwen itself says it lied / was honest (self-knowledge gate); its own CLI `hbench mask gt|run|report`; not on the index | [0017](plans/0017-mask-eval.md) |
+| `mask` (pilot) | MASK (lies vs honest-but-wrong): on-policy Qwen3.6-27B ground truth (MASK's judge prompts and belief / honesty aggregation), then how often a lens **claims the model is lying when it was honest** (blind detector -> prompt-aware verifier), at prompt sites (prediction) and response sites (detection), beside the same rate on lie items, also on the subset where Qwen itself says it lied / was honest (self-knowledge gate), with deception probes checking whether the lie is represented at the read sites; its own CLI `hbench mask gt|run|report`; not on the index | [0017](plans/0017-mask-eval.md) |
 
 ## Hallucination index
 
@@ -172,7 +172,9 @@ scripts/mask/fetch_readouts.sh jlens gen-hb-mask-jlens tokens       # after capt
 uv run hbench mask run --arms s3d-rl600,mlnla-rl600-all11,jlens --concurrency 32
 uv run --no-sync python scripts/mask/gate.py requests    # rev 3 gate (then gen_modal.py on gate_requests.jsonl)
 uv run --no-sync python scripts/mask/gate.py parse       # -> data/mask/gate.json
-uv run hbench mask report                                # outputs/mask/<model>/report.md (+ gated tables)
+HF_HUB_OFFLINE=1 uv run --no-sync python scripts/mask/probe_build.py   # rev 4 probes: capture rows (then capture)
+uvx --python 3.12 modal@latest run scripts/mask/probe_modal.py        # -> data/mask/probe_scores.json
+uv run hbench mask report                                # outputs/mask/<model>/report.md (+ gated + probe tables)
 ```
 
 Other commands: `hbench run --rebuild` (regenerate `cells.jsonl` / `summary.json` from the cache,
