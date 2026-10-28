@@ -15,6 +15,7 @@ the results docs cite.
 | [0013](../../plans/0013-final-sibling-eval-and-hallucination-index.md) hallucination index (hindex-v3) | [0013_hallucination_index.md](0013_hallucination_index.md) | |
 | [0015](../../plans/0015-overrefusal-eval.md) overrefusal (OR-Bench) pilot | [0015_overrefusal_pilot.md](0015_overrefusal_pilot.md) | (generated: `outputs/overrefusal/claude-sonnet-5-5/report.md`) |
 | [0017](../../plans/0017-mask-eval.md) mask (pilot) | [0017_mask_pilot.md](0017_mask_pilot.md) | [0017_report_full.md](0017_report_full.md) |
+| [0015](../../plans/0015-overrefusal-eval.md)–[0017](../../plans/0017-mask-eval.md) safety evals, combined summary | [safety_evals_summary.md](safety_evals_summary.md) | |
 
 Plans 0009/0010 (resampling sibling gate) are not on `main`; plan 0012 is the landing plan
 (no results). Plans 0003–0005 (older sibling evals) were removed from the tree in plan 0013.

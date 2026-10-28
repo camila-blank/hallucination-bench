@@ -28,12 +28,25 @@ ALI_PROBE_ROOT = _env_path("HBENCH_ALI_PROBE_ROOT", "/workspace/gw-ali-probe")
 COMBOS_READOUTS = _env_path(
     "HBENCH_COMBOS_READOUTS", "/workspace/gw-wsb-combos/outputs/wsbench_combos/readouts"
 )
+# report outputs of the safety evals (plans 0015-0017), read by scripts/plot_safety_summary.py
+SAFETY_OR_OUT = _env_path(
+    "HBENCH_SAFETY_OR_OUT", "/workspace/hb-overrefusal/outputs/overrefusal/claude-sonnet-5-5"
+)
+SAFETY_SR_OUT = _env_path(
+    "HBENCH_SAFETY_SR_OUT", "/workspace/hb-strongreject/outputs/strongreject/claude-opus-5-5"
+)
+SAFETY_MASK_OUT = _env_path(
+    "HBENCH_SAFETY_MASK_OUT", "/workspace/hb-mask/outputs/mask/claude-opus-5-5"
+)
 
 __all__ = [
     "ALI_PROBE_ROOT",
     "COMBOS_READOUTS",
     "GLOBAL_WORKSPACE",
     "READOUTS_ROOT",
+    "SAFETY_MASK_OUT",
+    "SAFETY_OR_OUT",
+    "SAFETY_SR_OUT",
     "SIBLING_SRC_ROOT",
     "WSBENCH_PUB",
     "WSBENCH_PUB_V4",
