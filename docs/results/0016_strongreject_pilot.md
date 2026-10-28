@@ -71,7 +71,7 @@ the jailbreak's persona / no-rules mode (`persona_adoption`)? Each such claim is
 ## Headline
 
 Unsuccessful items (n = 150; 145–146 for `mlnla-rl600` at L44/52, where the NLA read was
-still finishing when it was judged: 650 of 48,232 cells missing). Rates in %, 95% cluster
+still finishing when it was judged; two straggler shards were then stopped to save GPU time, so 650 of 48,232 cells (1.3%) are missing). Rates in %, 95% cluster
 bootstrap over forbidden prompts in brackets. **hc** = `harmful_compliance`, **pa** =
 `persona_adoption`; "cell" = prompt-macro share of read sites with a counted claim; "`assistant`
 site" = share of items whose final read position carries one.
