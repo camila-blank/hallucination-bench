@@ -646,3 +646,135 @@ def test_hb_scores_frozen_numbers():
             assert d["tail"]["probe_validated"]["mean"] <= d["tail"]["raw"]["mean"] + 1e-12
     md = "\n".join(report.render_hb(hb))
     assert "probe_validated (HEADLINE)" in md and "lower bound" in md
+
+
+# ------------------------------------------------------------------ plan 0019: index export
+
+
+def _x_item(i: str, n: int = 9) -> dict:
+    return {"id": i, "population": "never_refused", "sites": [{"pos": p} for p in range(n)]}
+
+
+def test_index_counts_claims_units_and_probe_split(tmp_path):
+    from hallucination_bench.evals.overrefusal import index_export as X
+
+    jd = run.Judge()
+    cache = Cache(tmp_path / "c.jsonl")
+    items = [_x_item("a"), _x_item("b")]
+
+    def put(cell, mentions, verdicts=None):
+        texts = detect.readout_texts(cell)
+        cache.put(
+            f"{cell.key}:D", run._dfp(jd, texts), {"result": {"mentions": mentions}, "meta": {}}
+        )
+        for m, v in (verdicts or {}).items():
+            cache.put(
+                run._vkey(cell, m),
+                run._vfp(jd, texts[m["readout"]], m["quote"]),
+                {"result": v, "meta": {}},
+            )
+
+    tail = Cell("a", 44, 8, ("I will refuse. I refuse.", "I can help."), None, None)
+    m1 = {"readout": 0, "quote": "I will refuse", "label": "refusal_intent", "stance": "asserted"}
+    m1b = {"readout": 0, "quote": "I  will refuse", "label": "refusal_intent", "stance": "asserted"}
+    m2 = {"readout": 1, "quote": "I can help", "label": "comply_intent", "stance": "na"}
+    put(tail, [m1, m1b, m2], {})  # duplicate quote (whitespace) is one claim; unverified kept
+    lead = Cell("a", 44, 1, ("refuse now",), None, None)
+    m3 = {"readout": 0, "quote": "refuse now", "label": "refusal_intent", "stance": "asserted"}
+    put(lead, [m3], {})
+    rej = Cell("a", 44, 4, ("decline maybe",), None, None)
+    m4 = {"readout": 0, "quote": "decline maybe", "label": "refusal_intent", "stance": "considered"}
+    put(rej, [m4])
+    texts = detect.readout_texts(rej)
+    cache.put(
+        run._vkey(rej, m4),
+        run._vfp(jd, texts[0], m4["quote"]),
+        {"result": {"label": "other", "stance": "na"}, "meta": {}},
+    )
+    probe = {(44, "a", 8): 0.0, (44, "a", 4): 1.0}  # tail: absent -> contradicted
+    gates = {44: {"tail0": True, "content": True}}
+    rows = X.count_rows("arm", [tail, lead, rej], cache, jd, items, probe, gates)
+    by = {r["item"]: r for r in rows}
+    a = by["a"]
+    assert a["n_claims"] == 3  # tail refusal (deduped) + comply + lead refusal; rejected dropped
+    assert a["n_false"] == 2 and a["n_contradicted"] == 1 and a["n_unprobed"] == 1
+    assert a["n_units"] == 4 and a["n_false_units"] == 2  # rejected readout has no ref flag
+    assert a["n_contradicted_units"] == 1 and a["n_unprobed_units"] == 1
+    assert a["n_supported_units"] == 0
+    assert by["b"]["n_claims"] == 0 and by["b"]["n_units"] == 0  # zero row present
+    with pytest.raises(KeyError):
+        X.count_rows("arm", [tail], cache, jd, items, {}, gates)
+    # a failed gate makes the claim unprobed, never a fallback
+    r2 = X.count_rows("arm", [tail], cache, jd, items, probe, {44: {"tail0": False}})
+    assert r2[0]["n_unprobed"] == 1 and r2[0]["n_contradicted"] == 0
+    X.write(rows, tmp_path / "ic.jsonl")
+    got = [json.loads(x) for x in (tmp_path / "ic.jsonl").read_text().splitlines()]
+    assert [r["item"] for r in got] == ["a", "b"] and list(got[0]) == list(X.COLUMNS)
+
+
+def _or_root():
+    from hallucination_bench import paths
+
+    root = paths.OR_OUT / "overrefusal" / "claude-sonnet-5-5"
+    if not (root / "index_counts.jsonl").exists():
+        pytest.skip(f"no overrefusal index_counts under {root} (set HBENCH_OR_OUT)")
+    return root
+
+
+def test_index_counts_reconcile_with_the_reports_at_the_old_layers():
+    """Plan 0019: at 28/36/44/52, sum(n_units) / sum(n_false_units) = the merged report's pooled
+    readout denominator / numerator (all sites, its status filter), and the probe split in
+    units = probe_report's all_but_lead claim counts (lead claims are unprobed)."""
+    from hallucination_bench.evals.overrefusal import index_export as X
+
+    root = _or_root()
+    ic = data.read_jsonl(root / "index_counts.jsonl")
+    items = data.load_items()
+    pop = {it["id"]: it for it in X.population(items)}
+    pr = json.loads((root / "probe_report.json").read_text())
+    for arm in X.READERS:
+        recs = data.read_jsonl(root / arm / "cells.jsonl")
+        for la in (28, 36, 44, 52):
+            rows = [r for r in ic if r["arm"] == arm and r["layer"] == la]
+            assert len(rows) == len(pop)
+            sel = [
+                r for r in recs if r["layer"] == la and r["id"] in pop and r["status"] in X.JUDGED
+            ]
+            n_units = sum(len(r["ro"]) for r in sel)
+            n_false = sum(f["ref"] for r in sel for f in r["ro"])
+            assert sum(r["n_units"] for r in rows) == n_units
+            assert sum(r["n_false_units"] for r in rows) == n_false
+            n = pr["tagging"][arm][f"refusal-dm-v2/L{la}"]["all_but_lead"]["n_claims"]
+            lead = sum(
+                f["ref"]
+                for r in sel
+                if X.site_class(pop[r["id"]], r["pos"]) == "lead"
+                for f in r["ro"]
+            )
+            assert sum(r["n_supported_units"] for r in rows) == n["supported"]
+            assert sum(r["n_contradicted_units"] for r in rows) == n["contradicted"]
+            assert sum(r["n_unprobed_units"] for r in rows) == n["ungated"] + lead
+
+
+def test_old_layer_cache_rows_unchanged_and_11_layer_grid():
+    from hallucination_bench import paths
+    from hallucination_bench.evals.overrefusal import index_export as X
+
+    root = _or_root()
+    before = json.loads((data.DATA_DIR / "l11" / "old_layer_cache_rows_before.json").read_text())
+    for arm in X.READERS:
+        cnt = dict.fromkeys(("028", "036", "044", "052"), 0)
+        for line in (root / arm / "cache.jsonl").read_text().splitlines():
+            k = json.loads(line)["key"]
+            for la in cnt:
+                cnt[la] += f"__L{la}__" in k
+        assert cnt == before[arm], arm
+    ic = data.read_jsonl(root / "index_counts.jsonl")
+    for arm in X.READERS:
+        assert sorted({r["layer"] for r in ic if r["arm"] == arm}) == list(range(20, 61, 4))
+    if paths.OR_READOUTS_V3.exists():
+        items = data.load_items()
+        for arm in X.READERS:
+            cells = X.load(arm, paths.OR_READOUTS_V3, items, None)
+            want = sum(len(it["sites"]) for it in X.population(items)) * 11
+            assert len(cells) == want

@@ -6,7 +6,7 @@ from collections.abc import Sequence
 from pathlib import Path
 from typing import Any
 
-from . import data, run, score
+from . import data, index_export, run, score
 
 
 def _pct(s: dict[str, Any] | None) -> str:
@@ -66,6 +66,9 @@ def examples(
     return out
 
 
+OLD_LAYERS = (28, 36, 44, 52)  # the published (frozen) layers; plan 0019 adds 7 more
+
+
 def report(out: Path, model: str, readouts_root: Path, arms: Sequence[str] | None = None) -> Path:
     judge = run.Judge(model=model)
     items = data.load_items()
@@ -79,7 +82,12 @@ def report(out: Path, model: str, readouts_root: Path, arms: Sequence[str] | Non
     all_ex: list[dict[str, Any]] = []
     for name, path in run.resolve_arms(readouts_root, arms):
         summ = run.rebuild(name, path, out, judge, items)
-        recs = data.read_jsonl(root / name / "cells.jsonl")
+        recs_all = data.read_jsonl(root / name / "cells.jsonl")
+        # plan 0019: the published 4 layers are computed exactly as merged (same records, same
+        # single RNG stream); every NEW layer gets its own score_arm call (a fresh
+        # default_rng(0)), so adding layers never moves an old-layer number
+        recs = [r for r in recs_all if r["layer"] in OLD_LAYERS]
+        new_layers = sorted({r["layer"] for r in recs_all} - set(OLD_LAYERS))
         res["arms"][name] = {
             "summary": summ,
             "scores": score.score_arm(recs, items, populations=pops),
@@ -87,9 +95,21 @@ def report(out: Path, model: str, readouts_root: Path, arms: Sequence[str] | Non
                 recs, items, populations=pops, exclude=lambda it: it["about_refusal"]
             ),
         }
+        if new_layers:
+            res["arms"][name]["scores_new_layers"] = {
+                str(la): score.score_arm(
+                    [r for r in recs_all if r["layer"] == la], items, populations=pops
+                )
+                for la in new_layers
+            }
+            res["arms"][name]["union_11"] = score.score_arm(recs_all, items, populations=pops)[
+                "union"
+            ]
         all_ex.extend(examples(name, recs, items_by, path))
     root.mkdir(parents=True, exist_ok=True)
     res["hb_scores"] = hb_scores(res, out, model, list(res["arms"]))
+    if res["hb_scores"] is not None and res["hb_scores"].get("gates"):
+        index_export.export(out, model, readouts_root, res["hb_scores"]["gates"])
     if res["hb_scores"] is not None:
         data.HB_SCORES.write_text(json.dumps(res["hb_scores"], indent=1) + "\n")
     (root / "report.json").write_text(json.dumps(res, indent=1) + "\n")
@@ -135,12 +155,18 @@ def hb_scores(
         "fpr_holdout": pr["fpr_holdout"],
         "arms": {},
     }
+    hb["gates"] = pr["gates"]
     for arm in arms:
         sc = res["arms"][arm]["scores"]
+        per_layer = dict(sc["per_layer"])  # the frozen 4 layers first, then the new layers
+        for la, sn in res["arms"][arm].get("scores_new_layers", {}).items():
+            per_layer[la] = sn["per_layer"][la]
         hb["arms"][arm] = {}
-        for la in sc["layers"]:
-            nev = sc["per_layer"][str(la)]["never_refused"]["refusal"]
-            tag = pr["tagging"][arm][f"{PROBE_KEY}/L{la}"]
+        for la in per_layer:
+            nev = per_layer[str(la)]["never_refused"]["refusal"]
+            tag = pr["tagging"][arm].get(f"{PROBE_KEY}/L{la}")
+            if tag is None:
+                continue  # no probe sites at this layer yet
             hb["arms"][arm][str(la)] = {
                 "tail": {
                     "raw": nev["tail"]["readout"],
@@ -333,4 +359,37 @@ def render_md(res: dict[str, Any]) -> str:
         U = r["scores"]["union"]
         rows.append([a] + [f"{_pct(U[p]['tail'])} / {_pct(U[p]['all'])}" for p in pops])
     L += _table(["arm"] + [f"{p} (tail / all)" for p in pops], rows)
+    L += render_new_layers(res, pops)
     return "\n".join(L) + "\n"
+
+
+def render_new_layers(res: dict[str, Any], pops: Sequence[str]) -> list[str]:
+    """Plan 0019: the 7 new layers, each scored by its own ``score_arm`` call (fresh RNG); the
+    tables above (the 4 published layers) are unchanged."""
+    if not any("scores_new_layers" in r for r in res["arms"].values()):
+        return []
+    L = [
+        "## 11-layer extension (plan 0019): new layers 20/24/32/40/48/56/60",
+        "",
+        "Each new layer is scored by its own call (fresh `default_rng(0)`); the 4 published "
+        "layers above are frozen. Readout-level refusal claims, %.",
+        "",
+    ]
+    rows = []
+    for a, r in res["arms"].items():
+        for la, sn in r.get("scores_new_layers", {}).items():
+            P = sn["per_layer"][la]
+            rows.append(
+                [a, la]
+                + [_pct(P[p]["refusal"]["tail"]["readout"]) for p in pops]
+                + [_pct(P[p]["refusal"]["all"]["readout"]) for p in pops]
+            )
+    L += _table(["arm", "layer"] + [f"{p} tail" for p in pops] + [f"{p} all" for p in pops], rows)
+    L += ["### 11-layer prompt-level union (separate row; the union above stays 4-layer)", ""]
+    rows = []
+    for a, r in res["arms"].items():
+        U = r.get("union_11")
+        if U:
+            rows.append([a] + [f"{_pct(U[p]['tail'])} / {_pct(U[p]['all'])}" for p in pops])
+    L += _table(["arm"] + [f"{p} (tail / all)" for p in pops], rows)
+    return L
