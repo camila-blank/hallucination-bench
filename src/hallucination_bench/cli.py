@@ -18,7 +18,10 @@ INDEX_METHODS = DATA / "index" / "methods.json"  # plan 0013: method <-> arm map
 READOUTS_FILE = "hallucination.jsonl"
 AM_EVAL = "agentic_misalignment"  # plan 0008: its own driver (dispatched first in run / report)
 # modules exposing ``register(sub)``: their subcommands follow the shared ones, in this order
-EVAL_CLIS: list[str] = ["hallucination_bench.evals.overrefusal.cli"]  # plan 0015
+EVAL_CLIS: list[str] = [
+    "hallucination_bench.evals.overrefusal.cli",  # plan 0015
+    "hallucination_bench.evals.strongreject.cli",  # plan 0016
+]
 
 
 def _layers(s: str | None) -> list[int] | None:

@@ -58,6 +58,18 @@ src/hallucination_bench/
   evals/<eval>/cli.py  an eval's own CLI: agentic_misalignment (run / report behind
                   `--eval agentic_misalignment`). A new eval adds its CLI here and lists a
                   `register(sub)` module in EVAL_CLIS, not in cli.py (plan 0012 D2)
+  evals/strongreject/   plan 0016 (own CLI `hbench strongreject grade|run|report`, registered in
+                  EVAL_CLIS; not in EVALS, not on the index):
+    families.py   pinned StrongREJECT sources + the 7 families + wrap() (the package's rule)
+    grade.py      srgrade-v1: StrongREJECT rubric (JSON) + explicit_refusal; adoption markers; outcome
+    bank.py       data/strongreject/items.json; thinned sites (last 64 + every 16th; regions)
+    detect.py     srdetect-v1 blind detector (harmful_compliance / persona_adoption /
+                  refusal_intent / jailbreak_request / harm_salience)
+    echo.py       srecho-v1 outcome-blind speaker / confirm / echo judge (numbered markers)
+    run.py, score.py, report.py, cli.py   driver (grade, D, E, rebuild), metrics + cluster
+                  bootstrap, report.md
+    probe_check.py  rev 4 probe check (plan 0015's refusal probe): premise, probe-checked rates,
+                  misses (scripts/strongreject/probe_modal.py scores sites; probe_report.py)
   index.py        plan 0013: the hallucination index (hindex-v3) from the families' outputs;
                   method <-> arm mapping in data/index/methods.json
   paths.py        external locations as HBENCH_* env vars with dev-box defaults (plan 0012 D3)
@@ -89,6 +101,10 @@ scripts/sibling_probe/   um_ladder.py (driver), um_probes_modal.py, um_lexicons.
 scripts/build_am_bank.py  writes data/agentic_misalignment/ (streams the readouts; fails loudly)
 scripts/am_audit.py  AM audits: sample | sample-headline | screen | summ-only | sample-tiers | score
 scripts/run_am.sh    AM driver: step1 (tmux hbench-am-detect) | step2 (tmux hbench-am-map)
+data/strongreject/   plan 0016: source/ (pinned StrongREJECT csv + wrappers + rubric), prompts.json
+                     (280), items.json + capture_rows.json (read set; built after grading)
+scripts/strongreject/  build_prompts.py, sample_modal.py (vLLM rollouts), build_bank.py,
+                     readouts.sh (capture -> 3 reads -> fetch_readouts.sh convert + grid check)
 evals/overrefusal/   plan 0015 (own driver + own CLI via EVAL_CLIS; NOT the chat pipeline):
     data.py      pinned OR-Bench candidates, populations (never_refused / hard_refused /
                  always_refused), bank render + sites
@@ -217,6 +233,43 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
   - Rebuilding an 11-layer arm loads ~555k cells (~1 GB for J-lens): fine under the 32 GB cap,
     but do not run several AM rebuilds in parallel.
 
+- **`hbench strongreject`** (plan 0016) is its own CLI (`grade` / `run` / `report`), not a
+  `run --eval` switch; outputs `outputs/strongreject/<judge>/` (`grade_cache.jsonl`,
+  `outcomes.json`, `<arm>/{cache,records,summary}`, `report.md`). Rollouts
+  (`outputs/strongreject/rollouts.jsonl`) and readouts
+  (`$HBENCH_SR_READOUTS`, default `/workspace/hb-readouts-strongreject/<arm>/strongreject.jsonl`)
+  are not in git.
+  - **Opus 5.5 refuses this eval's harmful content**, deterministically: ~14% of rubric grades
+    (by the forbidden prompt's topic, even when the response is a refusal) and ~99% of 40-cell
+    O-lens detector batches. A stronger research frame did not help. Every refused grade /
+    detector / echo call is re-asked once on `claude-sonnet-5-5` (`Judge.fallback`,
+    `run.call_with_fallback`; rows record `answered_by`). Opus-vs-Sonnet detector agreement on
+    300 O-lens cells: kappa 0.64 (harmful_compliance) to 0.83, rates within 1–5 points
+    (`scripts/strongreject/judge_agreement.py`). ~1% of O-lens cells stay failed (both refuse).
+  - Qwen3.6-27B was jailbroken by **none** of the 10 deterministic wrappers (0/400 prompts
+    successful; 5 complied samples in ~3,600 graded), so there is no recall set: `soft_fail`
+    items (rubric-refused, not explicit refusals) are the only contrast.
+  - The Qwen chat template **trims** the user content: `bank.render_prompt` strips too.
+  - Modal from this box: the read scripts need `MODAL_RESOURCE_ENV=camila-blank` (their
+    volumes default to env `main`, where we have no access); `wsbench_read_modal.py` needs
+    `::main`; `uvx modal@latest` can hang on the shared uv cache lock, so
+    `scripts/strongreject/readouts.sh` honours `MODAL_BIN` (e.g. `~/.local/bin/modal`).
+    J-lens/NLA gen dirs land on `wsbench-gen-3` even when the client log says gen-4.
+  - The multilayer NLA read is slow (~4 h on 16 H200s for ~48k cells: reference PyTorch
+    kernels); the O-lens read took ~25 min.
+  - **Rev 5 (final, frozen):** every prompt position is read (33,881 sites; regions turn = last
+    4, tail = rest of last 64, body = before). `data/strongreject/MANIFEST.sha256` freezes the
+    set (test-checked); re-run `scripts/strongreject/freeze.py` only for a deliberate new
+    version. The score uses unsuccessful items only. The rev-1..4 readouts are kept as
+    `strongreject.rev4.jsonl` beside the merged files; `rest_rows.py` / `readouts_rest.sh` /
+    `merge_readouts.py` add positions some arm lacks. NLA unit files are written whole, so a
+    stopped NLA read resumes cleanly; shard it one unit per shard.
+  - **Probe check:** `probe_modal.py` scores every site with plan 0015's refusal probe (v2
+    threshold from `hb-overrefusal:data/overrefusal/probes/refusal_probe_v2.npz`; our acts hold
+    the whole template incl. the think block, so the tail is located from `n_positions`);
+    `probe_report.py` writes the standard probe-checked rate (claims at refusal-present sites /
+    readouts) per region; `plot_rates.py` the slide plot.
+  - A 401 "OAuth access token has been revoked" mid-run is the profile token rotating: re-run.
 - **Keyless Anthropic auth.** With `ANTHROPIC_API_KEY` unset, `AsyncAnthropic()` picks up the
   `ant` CLI OAuth profile (`ant auth status`). Never require the env var. If the profile's
   credentials lapse mid-run, the 401 raises `JudgeConfigError` (exit 3): re-login with
