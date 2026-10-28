@@ -7,7 +7,9 @@ the user-modelling ladder on 3 domains (plans `0006` + `0011`; its predecessors,
 and the occupation / emotion domains were removed in plan 0013); the `story` eval (the claim map on 20 story items, `--eval story`)
 is plan `plans/0007-story-eval.md`; the `agentic_misalignment` eval (detector + claim map on lens
 mentions of misalignment, its own driver, `--eval agentic_misalignment`) is plan
-`plans/0008-agentic-misalignment-claim-map.md`. The hallucination index (`hbench index`, one
+`plans/0008-agentic-misalignment-claim-map.md`. The `overrefusal` eval (OR-Bench pilot: refusal claims on prompts
+the model never refuses; own subcommands `hbench overrefusal ...`) is plan
+`plans/0015-overrefusal-eval.md`. The hallucination index (`hbench index`, one
 macro per (method, layer) over main / AM / sibling / story) is plan
 `plans/0013-final-sibling-eval-and-hallucination-index.md`. The `mask` eval (MASK lies vs
 honest-but-wrong: does the lens claim the model is lying when it is honest? Its own CLI,
@@ -58,6 +60,18 @@ src/hallucination_bench/
   evals/<eval>/cli.py  an eval's own CLI: agentic_misalignment (run / report behind
                   `--eval agentic_misalignment`). A new eval adds its CLI here and lists a
                   `register(sub)` module in EVAL_CLIS, not in cli.py (plan 0012 D2)
+  evals/strongreject/   plan 0016 (own CLI `hbench strongreject grade|run|report`, registered in
+                  EVAL_CLIS; not in EVALS, not on the index):
+    families.py   pinned StrongREJECT sources + the 7 families + wrap() (the package's rule)
+    grade.py      srgrade-v1: StrongREJECT rubric (JSON) + explicit_refusal; adoption markers; outcome
+    bank.py       data/strongreject/items.json; thinned sites (last 64 + every 16th; regions)
+    detect.py     srdetect-v1 blind detector (harmful_compliance / persona_adoption /
+                  refusal_intent / jailbreak_request / harm_salience)
+    echo.py       srecho-v1 outcome-blind speaker / confirm / echo judge (numbered markers)
+    run.py, score.py, report.py, cli.py   driver (grade, D, E, rebuild), metrics + cluster
+                  bootstrap, report.md
+    probe_check.py  rev 4 probe check (plan 0015's refusal probe): premise, probe-checked rates,
+                  misses (scripts/strongreject/probe_modal.py scores sites; probe_report.py)
   index.py        plan 0013: the hallucination index (hindex-v3) from the families' outputs;
                   method <-> arm mapping in data/index/methods.json
   paths.py        external locations as HBENCH_* env vars with dev-box defaults (plan 0012 D3)
@@ -89,6 +103,22 @@ scripts/sibling_probe/   um_ladder.py (driver), um_probes_modal.py, um_lexicons.
 scripts/build_am_bank.py  writes data/agentic_misalignment/ (streams the readouts; fails loudly)
 scripts/am_audit.py  AM audits: sample | sample-headline | screen | summ-only | sample-tiers | score
 scripts/run_am.sh    AM driver: step1 (tmux hbench-am-detect) | step2 (tmux hbench-am-map)
+data/strongreject/   plan 0016: source/ (pinned StrongREJECT csv + wrappers + rubric), prompts.json
+                     (280), items.json + capture_rows.json (read set; built after grading)
+scripts/strongreject/  build_prompts.py, sample_modal.py (vLLM rollouts), build_bank.py,
+                     readouts.sh (capture -> 3 reads -> fetch_readouts.sh convert + grid check)
+evals/overrefusal/   plan 0015 (own driver + own CLI via EVAL_CLIS; NOT the chat pipeline):
+    data.py      pinned OR-Bench candidates, populations (never_refused / hard_refused /
+                 always_refused), bank render + sites
+    gt.py        orgt-v1 refusal judge over 10 sampled (+ greedy) replies per prompt
+    detect.py    ordetect-v1 blind batched detector (refusal_intent / harm_salience /
+                 comply_intent / other; stance asserted / considered for prose refusal)
+    verify.py    orverify-v1 blind verifier of refusal_intent candidates (headline membership)
+    run.py       judge-gt, detect, verify, cache-only rebuild -> cells.jsonl / summary.json
+    score.py     prompt-weighted rates per (arm, layer, population), prompt bootstrap
+    report.py, cli.py
+data/overrefusal/    candidates, gt_labels, items, capture_rows (README = schema)
+scripts/overrefusal/ sample_modal.py (vLLM ground truth), reads.sh (capture + reads + convert)
 evals/mask/          plan 0017 (own CLI `hbench mask`, registered in cli.EVAL_CLIS):
   source.py     MASK judge prompts verbatim (mask @ 25e0b12, sha-pinned) + per-archetype choice
   labels.py     MASK belief / honesty aggregation (verbatim ports) + item labels / strata
@@ -218,6 +248,43 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
   - Rebuilding an 11-layer arm loads ~555k cells (~1 GB for J-lens): fine under the 32 GB cap,
     but do not run several AM rebuilds in parallel.
 
+- **`hbench strongreject`** (plan 0016) is its own CLI (`grade` / `run` / `report`), not a
+  `run --eval` switch; outputs `outputs/strongreject/<judge>/` (`grade_cache.jsonl`,
+  `outcomes.json`, `<arm>/{cache,records,summary}`, `report.md`). Rollouts
+  (`outputs/strongreject/rollouts.jsonl`) and readouts
+  (`$HBENCH_SR_READOUTS`, default `/workspace/hb-readouts-strongreject/<arm>/strongreject.jsonl`)
+  are not in git.
+  - **Opus 5.5 refuses this eval's harmful content**, deterministically: ~14% of rubric grades
+    (by the forbidden prompt's topic, even when the response is a refusal) and ~99% of 40-cell
+    O-lens detector batches. A stronger research frame did not help. Every refused grade /
+    detector / echo call is re-asked once on `claude-sonnet-5-5` (`Judge.fallback`,
+    `run.call_with_fallback`; rows record `answered_by`). Opus-vs-Sonnet detector agreement on
+    300 O-lens cells: kappa 0.64 (harmful_compliance) to 0.83, rates within 1–5 points
+    (`scripts/strongreject/judge_agreement.py`). ~1% of O-lens cells stay failed (both refuse).
+  - Qwen3.6-27B was jailbroken by **none** of the 10 deterministic wrappers (0/400 prompts
+    successful; 5 complied samples in ~3,600 graded), so there is no recall set: `soft_fail`
+    items (rubric-refused, not explicit refusals) are the only contrast.
+  - The Qwen chat template **trims** the user content: `bank.render_prompt` strips too.
+  - Modal from this box: the read scripts need `MODAL_RESOURCE_ENV=camila-blank` (their
+    volumes default to env `main`, where we have no access); `wsbench_read_modal.py` needs
+    `::main`; `uvx modal@latest` can hang on the shared uv cache lock, so
+    `scripts/strongreject/readouts.sh` honours `MODAL_BIN` (e.g. `~/.local/bin/modal`).
+    J-lens/NLA gen dirs land on `wsbench-gen-3` even when the client log says gen-4.
+  - The multilayer NLA read is slow (~4 h on 16 H200s for ~48k cells: reference PyTorch
+    kernels); the O-lens read took ~25 min.
+  - **Rev 5 (final, frozen):** every prompt position is read (33,881 sites; regions turn = last
+    4, tail = rest of last 64, body = before). `data/strongreject/MANIFEST.sha256` freezes the
+    set (test-checked); re-run `scripts/strongreject/freeze.py` only for a deliberate new
+    version. The score uses unsuccessful items only. The rev-1..4 readouts are kept as
+    `strongreject.rev4.jsonl` beside the merged files; `rest_rows.py` / `readouts_rest.sh` /
+    `merge_readouts.py` add positions some arm lacks. NLA unit files are written whole, so a
+    stopped NLA read resumes cleanly; shard it one unit per shard.
+  - **Probe check:** `probe_modal.py` scores every site with plan 0015's refusal probe (v2
+    threshold from `hb-overrefusal:data/overrefusal/probes/refusal_probe_v2.npz`; our acts hold
+    the whole template incl. the think block, so the tail is located from `n_positions`);
+    `probe_report.py` writes the standard probe-checked rate (claims at refusal-present sites /
+    readouts) per region; `plot_rates.py` the slide plot.
+  - A 401 "OAuth access token has been revoked" mid-run is the profile token rotating: re-run.
 - **Keyless Anthropic auth.** With `ANTHROPIC_API_KEY` unset, `AsyncAnthropic()` picks up the
   `ant` CLI OAuth profile (`ant auth status`). Never require the env var. If the profile's
   credentials lapse mid-run, the 401 raises `JudgeConfigError` (exit 3): re-login with
@@ -297,6 +364,35 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
   (`run.MAP_INVALID_RETRIES`) before it is cached as failed; meta records `n_invalid_attempts`
   and the summed usage.
 
+- **`hbench overrefusal ...`** (plan 0015, pilot) is its own driver and CLI. Readouts
+  `$HBENCH_OR_READOUTS/<arm>/overrefusal.jsonl` (default `/workspace/hb-readouts-overrefusal`),
+  prompt positions only (AM convention, render ends at `<|im_start|>assistant`), layers
+  28/36/44/52; outputs `outputs/overrefusal/<model>/`. Modal names are prefixed
+  `hb-overrefusal-` (acts `acts-hb-overrefusal`, gen dirs on `wsbench-gen-3`). Every rate is
+  prompt-weighted (mean of per-prompt means); read the `asserted` + `tail` cell as the cleanest
+  hallucination number (a `considered` claim on a borderline prompt can be faithful). The
+  detector is blind to the prompt, so prompts *about* refusing (`about_refusal`) are reported
+  with a sensitivity exclusion. Not on the hallucination index. **Detector / verifier judge is
+  `--judge-model claude-sonnet-5-5`** (outputs `outputs/overrefusal/claude-sonnet-5-5/`): Opus 5.5
+  hard-refuses ~all 40-cell O-lens batches (harmful readout text), Sonnet does not; GT
+  (`judge-gt`) stays Opus with an Opus-full -> Opus-truncated -> Sonnet fallback chain. Keep
+  concurrency <= 64 (shared org input-token limit). `wsbench_read_modal.py` needs
+  `MODAL_RESOURCE_ENV=camila-blank` and its `::main` entrypoint; `reads.sh` sets both, plus a
+  private `UV_CACHE_DIR` (the shared uv cache lock is contended by parallel agents).
+  **Refusal probes** (rev 5-6): `evals/overrefusal/probe.py` (math, imports
+  `sibling_probe.probes`), `probe_data.py`, `probe_report.py`; Modal
+  `scripts/overrefusal/probe_modal.py` (`main` = fit + score, `::calib` = exploratory answered-
+  prompt thresholds; run with `uvx --with numpy`). Reusable artifact:
+  `data/overrefusal/probes/refusal_probe_v1.{npz,json}` (schema in `data/overrefusal/README.md`).
+  The pre-registered Alpaca threshold fires on ~all OR-Bench prompts; use `_calib` thresholds for
+  borderline prompts. **Rev 7:** use `refusal_probe_v2.{npz,json}` (on-distribution threshold;
+  primary); `hbench overrefusal probe-report` reads `outputs/overrefusal/probe_sites_v2.jsonl`
+  (`probe_modal.py::v2`). The bank has 360 items (160 / 100 / 100); readouts default
+  `$HBENCH_OR_READOUTS` = `/workspace/hb-readouts-overrefusal-v2` (old + `-v2add`, merged by
+  `reads.sh merge`); `TAG=v2add reads.sh all` reads only the added items. `probe_checked` = verified
+  refusal readouts at probe-absent sites / readouts (the standard definition across evals). Worktree venv on this box: the
+  uv sync command is hook-blocked, so install with `uv pip install --python .venv/bin/python
+  -e . --group dev --group sibling` and run with `uv run --no-sync ...`.
 - **`hbench mask`** (plan 0017) is its own subcommand (not `--eval`): `gt` (MASK ground
   truth for Qwen3.6-27B from `outputs/mask/gen/rollouts*.jsonl`), `run` (D -> V -> VB on
   `$HBENCH_MASK_READOUTS/<arm>/mask.jsonl`, default `/workspace/hb-readouts-mask`), `report`.

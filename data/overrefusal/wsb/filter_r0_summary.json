@@ -1,0 +1,17 @@
+{
+ "rule": "plan 0015 rev 9: survive iff Opus x3 prompt-only majority is wrong",
+ "counts": {
+  "N|pred_refuse=False": 755,
+  "N|pred_refuse=None": 3,
+  "N|pred_refuse=True": 1,
+  "I|pred_refuse=False": 800,
+  "I|pred_refuse=True": 138,
+  "I|pred_refuse=None": 63
+ },
+ "survivors": {
+  "N": [
+   "or8-54529"
+  ],
+  "I_count": 800
+ }
+}
