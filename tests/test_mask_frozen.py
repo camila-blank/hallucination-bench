@@ -5,6 +5,7 @@ import json
 
 import pytest
 
+from hallucination_bench import REPO_ROOT
 from hallucination_bench.evals.mask import bank
 
 MANIFEST = bank.DATA_DIR / "FROZEN.json"
@@ -16,6 +17,16 @@ def test_frozen_files_match_manifest():
     for name, sha in m["files_sha256"].items():
         got = hashlib.sha256((bank.DATA_DIR / name).read_bytes()).hexdigest()
         assert got == sha, name
+
+
+@pytest.mark.skipif(not MANIFEST.exists(), reason="no FROZEN.json yet")
+def test_frozen_external_files_match_manifest_when_present():
+    m = json.loads(MANIFEST.read_text())
+    for rel, sha in m.get("external_sha256", {}).items():
+        p = REPO_ROOT / rel
+        if not p.exists():  # outputs/ is not in git; probe_modal.py regenerates it
+            continue
+        assert hashlib.sha256(p.read_bytes()).hexdigest() == sha, rel
 
 
 @pytest.mark.skipif(not MANIFEST.exists(), reason="no FROZEN.json yet")

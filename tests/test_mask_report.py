@@ -141,7 +141,7 @@ def test_probe_tables_toy(monkeypatch):
     gate = [_g("honest_correct", "resisted", 10, 0), _g("lie", None, 0, 10)]
     gate[0]["task_id"], gate[1]["task_id"] = "h", "l"
     labels = {"h": {"archetype": "known_facts"}, "l": {"archetype": "known_facts"}}
-    t1 = {"tau": 1.0}
+    t1 = {"tau": 1.0, "tau_pos": -0.5}
     summary = {
         "layers": {
             "36": {
@@ -191,3 +191,22 @@ def test_probe_tables_toy(monkeypatch):
     # cf: the honest site is present -> supported; the lie site is not present -> no miss counted
     assert d["cf_hr_supported"] == 1 and d["cf_rate_probe_checked"] == 0.0
     assert d["loao_miss_rate"] == 1.0 and d["cf_miss_rate"] is None
+    # OOF-threshold sensitivity (tau_pos = -0.5): the honest site (score 0.0) is now present
+    assert d["loao_oof_hr_supported"] == 1 and d["loao_oof_rate_probe_checked"] == 0.0
+
+
+def test_failed_bounds():
+    gate = [_g("honest_correct", "resisted", 10, 0)]
+    gate[0]["task_id"] = "h"
+    claim = {"readout": 0, "category": "lie_claim", "verify": {"real": True}, "verify_blind": None}
+    cells = [
+        cell("h", "honest_correct", "resisted", [claim]),
+        cell("h", "honest_correct", "resisted", [], status="failed"),
+    ]
+    b = R.failed_bounds(cells, gate, "ctx")["L036:prompt"]
+    assert (
+        b["rate"] == 1 / 3
+        and b["lower"] == 1 / 6
+        and b["upper"] == 4 / 6
+        and b["n_failed_cells"] == 1
+    )

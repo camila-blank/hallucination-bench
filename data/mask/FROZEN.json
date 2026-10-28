@@ -52,6 +52,12 @@
   "capture_rows.json": "85e4258e59de5e300787560af7ad93ae901000d32111e2f8e206cfe02562bc75",
   "capture_rows_neg.json": "4d38c53fb21fa72f18b6b86036e6cbfd0c8522f668bb38a7d93396b696702521",
   "rollouts.jsonl.gz": "60af45b06964a382347be8e85d6b1562c6d3740822fa1a542af6914d800ebcd1",
-  "probe_summary_v5.json": "70514a3e48281ce26437a61ff1c00150d53e15ac98a060ea0286de8b071445ee"
+  "probe_summary_v5.json": "70514a3e48281ce26437a61ff1c00150d53e15ac98a060ea0286de8b071445ee",
+  "probe_manifest.json": "4e2e7262c86444520a39d1fca9428b999c8704f0445fdf358f75cbe5885bf366",
+  "probe_capture_train.json": "6999b7568d6782d1ceaf2871442a3d7019ce82e327dabb5e78a5fbb2b357e11c",
+  "probe_true_false_facts.csv": "924709159b40a30d5b51488e9ccd7fd886456a89f0e0f5849eacefba6ff55312"
+ },
+ "external_sha256": {
+  "outputs/mask/probe_scores_v5.json.gz": "58d99a53477e87b2baf046c1c941e2ac8852fe8d56c8ed01f5006d9ebd9d7f50"
  }
 }

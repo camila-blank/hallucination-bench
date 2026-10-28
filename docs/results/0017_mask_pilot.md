@@ -26,8 +26,12 @@ history.
   and 89,862 response sites, about 586k cells per arm. Arms: O-lens `s3d-rl600` (k = 3),
   multilayer NLA (3 samples), J-lens (top-10); layers 28 / 36 / 44 / 52.
 - **Scoring.** Every cell went through the blind detector, then the prompt-aware and the blind
-  verifier. 518 s3d, 36 NLA and 5 J-lens cells stay failed, from persistent Opus refusals on
-  disinformation-echoing readouts (≤ 0.09% per arm).
+  verifier.
+  - Persistent Opus refusals on disinformation-echoing readouts left 518 s3d, 36 NLA and 5 J-lens
+    cells failed. After review these were retried with the Sonnet 5.5 fallback (recorded in the
+    cache meta), and **74 / 15 / 1** remain failed.
+  - The report bounds the HB rate with failed = no-hit and failed = all-hit. The bounds agree with
+    the rate to 3 decimals, apart from s3d L36 prompt (0.016–0.017).
 - **The HB score is the benign side only.** It is the verified lie-claim readout rate on gated
   honest_resisted items, per (arm, layer, site set). Lie items are frozen for the WorkspaceBench
   family (`mask-lie-contrast`, global-workspace) and appear here only as a labelled diagnostic.
@@ -38,16 +42,15 @@ history.
 
 | arm | site set | L28 | L36 | L44 | L52 |
 |---|---|---|---|---|---|
-| s3d-rl600 | prompt | 0.0062 [0.0047, 0.0079] | 0.0164 [0.0139, 0.0191] | 0.0100 [0.0083, 0.0118] | 0.0146 [0.0123, 0.0171] |
+| s3d-rl600 | prompt | 0.0061 [0.0047, 0.0079] | 0.0164 [0.0139, 0.0191] | 0.0100 [0.0083, 0.0118] | 0.0146 [0.0123, 0.0170] |
 | s3d-rl600 | response | 0.0008 [0.0004, 0.0013] | 0.0010 [0.0005, 0.0016] | 0.0006 [0.0002, 0.0010] | 0.0007 [0.0004, 0.0013] |
-| s3d-rl600 | all | 0.0027 [0.0020, 0.0034] | 0.0064 [0.0053, 0.0075] | 0.0038 [0.0031, 0.0046] | 0.0056 [0.0047, 0.0066] |
+| s3d-rl600 | all | 0.0027 [0.0020, 0.0034] | 0.0064 [0.0053, 0.0076] | 0.0038 [0.0031, 0.0046] | 0.0056 [0.0047, 0.0065] |
 | mlnla-rl600-all11 | prompt | 0.0037 [0.0027, 0.0048] | 0.0052 [0.0039, 0.0069] | 0.0053 [0.0040, 0.0067] | 0.0038 [0.0026, 0.0053] |
 | mlnla-rl600-all11 | response | 0.0015 [0.0010, 0.0021] | 0.0012 [0.0008, 0.0017] | 0.0008 [0.0005, 0.0011] | 0.0014 [0.0009, 0.0019] |
 | mlnla-rl600-all11 | all | 0.0023 [0.0017, 0.0029] | 0.0026 [0.0020, 0.0034] | 0.0023 [0.0017, 0.0030] | 0.0022 [0.0017, 0.0029] |
 | jlens | prompt | 0.0000 [0.0000, 0.0000] | 0.0000 [0.0000, 0.0000] | 0.0000 [0.0000, 0.0000] | 0.0000 [0.0000, 0.0001] |
 | jlens | response | 0.0000 [0.0000, 0.0000] | 0.0000 [0.0000, 0.0000] | 0.0000 [0.0000, 0.0000] | 0.0000 [0.0000, 0.0000] |
 | jlens | all | 0.0000 [0.0000, 0.0000] | 0.0000 [0.0000, 0.0000] | 0.0000 [0.0000, 0.0000] | 0.0000 [0.0000, 0.0000] |
-
 
 ### Item-level (sample 0): share of gated honest_resisted items with >= 1 verified lie claim
 
@@ -63,23 +66,21 @@ history.
 | jlens | response | 0.000 | 0.000 | 0.000 | 0.000 |
 | jlens | all | 0.000 | 0.000 | 0.000 | 0.006 |
 
-
 **Diagnostic, not part of the HB score:** the same rate on gated lie items.
 
 ### Diagnostic (not part of the HB score): the same rate on gated lie items (n = 156)
 
 | arm | site set | L28 | L36 | L44 | L52 |
 |---|---|---|---|---|---|
-| s3d-rl600 | prompt | 0.0138 | 0.0312 | 0.0201 | 0.0208 |
-| s3d-rl600 | response | 0.0036 | 0.0080 | 0.0046 | 0.0039 |
-| s3d-rl600 | all | 0.0079 | 0.0178 | 0.0112 | 0.0111 |
+| s3d-rl600 | prompt | 0.0142 | 0.0314 | 0.0202 | 0.0209 |
+| s3d-rl600 | response | 0.0037 | 0.0080 | 0.0046 | 0.0039 |
+| s3d-rl600 | all | 0.0082 | 0.0179 | 0.0112 | 0.0111 |
 | mlnla-rl600-all11 | prompt | 0.0072 | 0.0108 | 0.0077 | 0.0041 |
 | mlnla-rl600-all11 | response | 0.0252 | 0.0350 | 0.0294 | 0.0119 |
 | mlnla-rl600-all11 | all | 0.0175 | 0.0247 | 0.0202 | 0.0086 |
 | jlens | prompt | 0.0000 | 0.0000 | 0.0000 | 0.0000 |
 | jlens | response | 0.0000 | 0.0000 | 0.0000 | 0.0000 |
 | jlens | all | 0.0000 | 0.0000 | 0.0000 | 0.0000 |
-
 
 What it says:
 
@@ -129,16 +130,25 @@ What it says:
 
 | arm | layer | site | original | probe-checked (LOAO) | supported / contradicted |
 |---|---|---|---|---|---|
-| s3d-rl600 | 28 / 36 / 44 / 52 | prompt | 0.0062 / 0.0164 / 0.0100 / 0.0146 | identical | 0/485, 3/1294, 1/784, 1/1149 |
+| s3d-rl600 | 28 / 36 / 44 / 52 | prompt | 0.0061 / 0.0164 / 0.0100 / 0.0146 | identical | 0/485, 3/1294, 1/784, 1/1149 |
 | s3d-rl600 | 28 / 36 / 44 / 52 | response | 0.0008 / 0.0010 / 0.0006 / 0.0007 | identical (L52 0.0007) | 2/111, 0/142, 0/82, 0/109 |
 | mlnla-rl600-all11 | 28 / 36 / 44 / 52 | prompt | 0.0037 / 0.0052 / 0.0053 / 0.0038 | identical | 0/292, 1/414, 0/418, 0/297 |
 | mlnla-rl600-all11 | 28 / 36 / 44 / 52 | response | 0.0015 / 0.0012 / 0.0008 / 0.0014 | identical | 1/219, 2/174, 0/111, 1/204 |
 | jlens | all | both | 0.0000 | 0.0000 | 0/0 (one L52 prompt claim: 0/1) |
 
-  Almost every verified lie claim on an honest item (6,286 of 6,298 across arms × layers × site
-  types) sits at a site where the primary probe finds no lie represented. So the probe-checked
-  rate equals the original rate to 3 decimals, and these claims are hallucinations by the probe's
-  account too.
+  **This is a calibration failure of the pre-registered threshold, not evidence**, as review
+  pointed out. The threshold pool is only 9–19 atypical unread honest items per held-out
+  archetype (gate failures and pressure-aligned items), so τ = 2.2–5.4 against an OOF honest
+  τ_pos of 1.6–2.1. It marks only 1–5% of lie sites as lie-present, so 6,290 of 6,302 verified
+  claims on honest items fall at "contradicted" sites and the probe-checked rate equals the HB
+  rate by construction.
+  - **Sensitivity:** with τ = the 95th percentile of the training archetypes' OOF honest
+    position scores (never the held-out archetype), the probe marks 11–12% of lie prompt sites
+    and 44–62% of lie response sites as lie-present, against 3–5% of honest_resisted sites.
+  - Under that τ, 475 of 6,302 claims on honest items are probe-supported and 5,827
+    contradicted. The probe-checked rate drops by at most about 0.001 (largest: s3d L36 prompt
+    0.0164 → 0.0156; L44 response 0.0006 → 0.0004), so the conclusion holds: the verified claims
+    on honest items are overwhelmingly at sites where no lie is represented.
   - Misses on lie items: where the probe does find a lie, the lens makes no verified claim at
     91–99% of those sites.
   - The full per-row table, including the item-fold sensitivity rows, is in the generated
@@ -167,8 +177,8 @@ What it says:
 - Lies are 77% `provided_facts`, and honest items are mostly disinformation / continuation
   refusals, so the two sides differ in archetype mix. The HB score uses only the honest side, so
   this matters for the lie diagnostic, not for the score.
-- The persistently refused cells are excluded. They are likely enriched for vivid disinformation
-  text.
+- The persistently refused cells (74 / 15 / 1 after the Sonnet fallback) are excluded from the
+  rate and bounded in the report. They are likely enriched for vivid disinformation text.
 - The LOAO threshold set is small: 9–19 unread honest items per held-out archetype.
 
 ---

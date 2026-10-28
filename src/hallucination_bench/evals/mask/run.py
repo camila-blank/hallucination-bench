@@ -31,6 +31,7 @@ from .gt import pressure_messages_text
 
 STAGES = ("detect", "verify", "verify_blind")
 SINGLE_ATTEMPTS = 2
+FALLBACK_MODEL = "claude-sonnet-5-5"  # detector cells Opus keeps refusing (review fix)
 RETRY_CHUNK = 8  # rev 5: failed detector cells are re-batched in 8s before singles
 resolve_arms = bank.resolve_arms
 
@@ -84,22 +85,21 @@ async def _detect(
     batches = [todo[i : i + batch] for i in range(0, len(todo), batch)]
     failed: list[DJob] = []
 
-    async def one(bs: list[DJob]) -> list[DJob]:
+    async def one(bs: list[DJob], use: str = model) -> list[DJob]:
         system, user = D.render_batch([j.canon for j in bs])
-        out = await llm.call(model=model, system=system, user=user, schema=D.SCHEMA)
-        _usage_row(cache, "batchD", user, out.usage, {"n_cells": len(bs)})
+        out = await llm.call(model=use, system=system, user=user, schema=D.SCHEMA)
+        _usage_row(cache, "batchD", user, out.usage, {"n_cells": len(bs), "model": use})
+        meta: dict[str, Any] = {"model": use}
+        if use != model:
+            meta.update(fallback_from=model, fallback_reason="opus failed / refused")
         bad = []
         for j, p in zip(bs, D.parse_batch(out.result, [j.readouts for j in bs]), strict=True):
             if p.ok:
-                cache.put(
-                    j.key, j.fp, {"result": {"mentions": p.mentions}, "meta": {"model": model}}
-                )
+                cache.put(j.key, j.fp, {"result": {"mentions": p.mentions}, "meta": meta})
             else:
                 bad.append(j)
                 if len(bs) == 1:
-                    cache.put(
-                        j.key, j.fp, {"result": None, "meta": {"model": model, "error": p.error}}
-                    )
+                    cache.put(j.key, j.fp, {"result": None, "meta": {**meta, "error": p.error}})
         return bad
 
     print(f"  [D] {len(todo)} cells to detect in {len(batches)} batches", flush=True)
@@ -114,6 +114,11 @@ async def _detect(
         if not failed:
             break
         res = await asyncio.gather(*(one([j]) for j in failed))
+        failed = [j for r in res for j in r]
+    # review fix (PR #29): cells Opus still refuses / fails go to the Sonnet fallback, one by one
+    # (recorded in the cell's cache meta); the rest stay failed and are bounded in the report
+    if failed and FALLBACK_MODEL != model:
+        res = await asyncio.gather(*(one([j], FALLBACK_MODEL) for j in failed))
         failed = [j for r in res for j in r]
     return len(failed)
 

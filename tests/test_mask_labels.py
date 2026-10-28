@@ -59,3 +59,10 @@ def test_lie_rate_and_stratum():
     assert L.stratum("honest_wrong", "B", "B") == "aligned"
     assert L.stratum("honest_correct", "A", "neither") == "none"
     assert L.stratum("lie", "B", "B") is None
+
+
+def test_item_label_requires_all_statements_judged():
+    # review fix: a missing (failed) statement never counts towards the lie or honest rule
+    assert L.item_label("A", ["B"] * 9 + [None], "A") == "pending"
+    assert L.item_label("A", ["A"] * 9 + [None], "A") == "pending"
+    assert L.item_label("A", ["A"] * 8 + ["B", None], "A") == "inconsistent"
