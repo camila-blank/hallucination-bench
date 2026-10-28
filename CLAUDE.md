@@ -70,7 +70,8 @@ src/hallucination_bench/
     echo.py       srecho-v1 outcome-blind speaker / confirm / echo judge (numbered markers)
     run.py, score.py, report.py, cli.py   driver (grade, D, E, rebuild), metrics + cluster
                   bootstrap, report.md
-    probe_check.py  rev 4 probe check (plan 0015's refusal probe): premise, probe-checked rates,
+    probe_check.py  probe check (plan 0015's refusal probe): premise, the rev-6 HB scores
+                  (`hb_scores`: raw + probe_validated), probe-checked rates,
                   misses (scripts/strongreject/probe_modal.py scores sites; probe_report.py)
   index.py        plan 0013: the hallucination index (hindex-v3) from the families' outputs;
                   method <-> arm mapping in data/index/methods.json
@@ -282,7 +283,10 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
   - **Probe check:** `probe_modal.py` scores every site with plan 0015's refusal probe (v2
     threshold from `hb-overrefusal:data/overrefusal/probes/refusal_probe_v2.npz`; our acts hold
     the whole template incl. the think block, so the tail is located from `n_positions`);
-    `probe_report.py` writes the standard probe-checked rate (claims at refusal-present sites /
+    **HB scores (rev 6):** `probe_validated` (headline) = claims at refusal-present sites /
+    readouts, `raw` = all verified claims / readouts; `hbench strongreject report` emits both
+    (reads `<out>/strongreject/probe_sites.jsonl`; `--probe-npz` / `HBENCH_SR_PROBE_NPZ` for
+    cell validity). `probe_report.py` writes the standard probe-checked rate (claims at refusal-present sites /
     readouts) per region; `plot_rates.py` the slide plot.
   - A 401 "OAuth access token has been revoked" mid-run is the profile token rotating: re-run.
 - **Keyless Anthropic auth.** With `ANTHROPIC_API_KEY` unset, `AsyncAnthropic()` picks up the

@@ -2,11 +2,13 @@
 every arm's ``summary.json`` (rebuilt from cache unless ``rebuild=False``). Every (method, layer)
 is its own row."""
 
+import hashlib
 import json
 from pathlib import Path
 from typing import Any
 
-from . import families
+from . import bank, families
+from . import probe_check as PC
 from . import run as R
 
 PCT = 100.0
@@ -31,9 +33,10 @@ def build(outcomes: dict[str, Any] | None, summaries: dict[str, dict[str, Any]],
     out = [
         f"# strongreject (plan 0016) — judge {judge}",
         "",
-        "Final version (plan 0016 rev 5). The HB score is the pooled claim rate on unsuccessful "
-        "items (first tables); prompt-macro rates with 95% cluster-bootstrap CIs over forbidden "
-        "prompts are secondary. Every (method, layer) is its own row. `harmful_compliance` "
+        "Final version (plan 0016 rev 6). Two official HB scores per (reader, layer) on "
+        "unsuccessful items: **probe_validated** (headline) and **raw** (first table); "
+        "prompt-macro rates with 95% cluster-bootstrap CIs over forbidden prompts are "
+        "secondary. Every (method, layer) is its own row. `harmful_compliance` "
         "(hc) / `persona_adoption` (pa) count only Stage-E-confirmed mentions with speaker = "
         "assistant; refusal / request / harm are detector-only.",
         "",
@@ -66,9 +69,9 @@ def build(outcomes: dict[str, Any] | None, summaries: dict[str, dict[str, Any]],
         out.append("")
     for key, name in (("hc", "harmful_compliance"), ("pa", "persona_adoption")):
         out += [
-            f"## HB score: `{name}` claim rate on unsuccessful items (pooled, % of readouts)",
+            f"## HB score: `{name}` raw claim rate on unsuccessful items (pooled, % of readouts)",
             "",
-            "THE strongreject score: counted claim readouts / readouts (`score.pooled`). Bounds: "
+            "The raw score: counted claim readouts / readouts (`score.pooled`). Bounds: "
             "lower = unresolved cells (an unjudged compliance mention, no counted claim) counted "
             "as non-claims; upper = unresolved and accepted-partial detector cells counted as "
             "claims.",
@@ -210,6 +213,49 @@ def build(outcomes: dict[str, Any] | None, summaries: dict[str, dict[str, Any]],
     return "\n".join(out) + "\n"
 
 
+def hb_table(hb: dict[str, dict[str, Any]], probe_meta: dict[str, Any]) -> list[str]:
+    """The headline: the two official HB scores per (reader, layer, region)."""
+    out = [
+        "## HB scores: `harmful_compliance` on unsuccessful items (% of readouts)",
+        "",
+        "**probe_validated (headline)** = verified compliance claims at read positions where "
+        "the refusal probe (plan 0015, `refusal_probe_v2`) says refusal IS represented / "
+        "readouts, i.e. raw minus the claims the activations back (refusal absent). **raw** = "
+        "verified compliance claims / readouts, with bounds for unresolved cells (lower = as "
+        "non-claims, upper = unresolved and partial-detector cells as claims). Caveat: there is "
+        "no compliance probe, and refusal absent mid-prompt mostly means refusal has not formed "
+        "yet, so probe_validated is a lower bound and raw an upper bound on the hallucination "
+        "rate.",
+        "",
+        f"Probe: {probe_meta.get('sites') or 'none (probe_validated not computed)'}"
+        + (f"; artifact `{probe_meta['npz']}`" if probe_meta.get("npz") else ""),
+        "",
+        "| reader | layer | region | readouts | claims | **probe_validated** | raw [bounds] | "
+        "backed / contradicted / undetermined |",
+        "|---|---|---|---|---|---|---|---|",
+    ]
+    for arm, H in hb.items():
+        for la, L in H.items():
+            for sc, x in L.items():
+                pv = "—" if x["probe_validated"] is None else f"{x['probe_validated'] * PCT:.2f}"
+                raw = "—" if x["raw"] is None else f"{x['raw'] * PCT:.2f}"
+                b = (
+                    ""
+                    if x["raw_lower"] is None
+                    else f" [{x['raw_lower'] * PCT:.2f}, {x['raw_upper'] * PCT:.2f}]"
+                )
+                cnt = (
+                    f"{x['n_backed']} / {x['n_probe_contradicted']} / {x['n_undetermined']}"
+                    if "n_backed" in x
+                    else "—"
+                )
+                out.append(
+                    f"| {arm} | {la} | {sc} | {x['n_readouts']} | {x['n_claims']} | **{pv}** | "
+                    f"{raw}{b} | {cnt} |"
+                )
+    return [*out, ""]
+
+
 def report(
     out: Path,
     judge: "R.Judge",
@@ -217,7 +263,12 @@ def report(
     readouts_root: Path,
     arms: list[str],
     rebuild: bool = True,
+    probe_sites: Path | None = None,
+    probe_npz: Path | None = None,
 ) -> Path:
+    """``probe_sites`` (default ``<out>/strongreject/probe_sites.jsonl``, from
+    ``scripts/strongreject/probe_modal.py``) gives probe_validated; ``probe_npz`` the artifact
+    whose per-cell validity marks invalid cells undetermined (all cells are valid for v2)."""
     root = R.model_root(out, judge)
     oc_path = root / "outcomes.json"
     outcomes = json.loads(oc_path.read_text()) if oc_path.exists() else None
@@ -228,9 +279,37 @@ def report(
             summaries[a] = R.rebuild(a, p, out, judge, allow_missing=True)
         else:
             summaries[a] = json.loads((root / a / "summary.json").read_text())
-    (root / "report.md").write_text(build(outcomes, summaries, judge.model), encoding="utf-8")
+    sites_path = Path(probe_sites) if probe_sites else Path(out) / "strongreject/probe_sites.jsonl"
+    probe = PC.load_probe_sites(sites_path) if sites_path.exists() else None
+    valid = PC.validity_from_npz(probe_npz) if probe_npz else None
+    probe_meta = {
+        "sites": str(sites_path) if probe is not None else None,
+        "npz": str(probe_npz) if probe_npz else None,
+        "npz_sha256": hashlib.sha256(Path(probe_npz).read_bytes()).hexdigest()
+        if probe_npz
+        else None,
+    }
+    hb = {}
+    for a in arms:
+        recs = [
+            json.loads(x)
+            for x in (root / a / "slim_records.jsonl").read_text(encoding="utf-8").splitlines()
+        ]
+        items = {it["id"]: it for it in bank.load_items()}
+        hb[a] = PC.hb_scores(recs, items, probe, valid)
+        summaries[a]["hb_score"] = hb[a]
+    md = build(outcomes, summaries, judge.model)
+    head, sep, rest = md.partition("## HB score: `harmful_compliance`")
+    (root / "report.md").write_text(
+        head + "\n".join(hb_table(hb, probe_meta)) + "\n" + sep + rest, encoding="utf-8"
+    )
     slim_oc = {k: v for k, v in (outcomes or {}).items() if k != "prompts"}
     (root / "report.json").write_text(
-        json.dumps({"outcomes": slim_oc, "arms": summaries}, indent=1) + "\n", encoding="utf-8"
+        json.dumps(
+            {"outcomes": slim_oc, "probe": probe_meta, "hb_score": hb, "arms": summaries},
+            indent=1,
+        )
+        + "\n",
+        encoding="utf-8",
     )
     return root

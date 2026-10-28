@@ -99,6 +99,8 @@ def cmd_report(args: argparse.Namespace) -> int:
         readouts_root=Path(args.readouts_root),
         arms=[a for a in args.arms.split(",") if a],
         rebuild=not args.no_rebuild,
+        probe_sites=Path(args.probe_sites) if args.probe_sites else None,
+        probe_npz=Path(args.probe_npz) if args.probe_npz else None,
     )
     print(f"wrote {root / 'report.md'}, {root / 'report.json'}")
     return 0
@@ -136,4 +138,15 @@ def register(sub: argparse._SubParsersAction) -> None:
     rp.add_argument("--readouts-root", default=DEFAULT_READOUTS)
     rp.add_argument("--arms", default=DEFAULT_ARMS)
     rp.add_argument("--no-rebuild", action="store_true", help="read the existing summary.json")
+    rp.add_argument(
+        "--probe-sites",
+        default=None,
+        help="per-site refusal-probe scores (default <out>/strongreject/probe_sites.jsonl)",
+    )
+    rp.add_argument(
+        "--probe-npz",
+        default=os.environ.get("HBENCH_SR_PROBE_NPZ") or None,
+        help="the probe artifact (refusal_probe_v2.npz) for per-cell validity; env "
+        "HBENCH_SR_PROBE_NPZ",
+    )
     rp.set_defaults(fn=cmd_report)

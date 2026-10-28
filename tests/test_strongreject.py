@@ -709,3 +709,63 @@ def test_cell_record_counted_claim_survives_failed_echo(tmp_path, monkeypatch):
     assert L["pooled"]["hc"]["all"]["n_claims"] == 1  # the pos-0 claim survived
     assert L["pooled"]["pa"]["all"]["n_unresolved"] == 2
     bank.load_bank.cache_clear()
+
+
+def test_hb_scores_relabel_only():
+    """Plan 0016 rev 6: raw = score.pooled's rate; probe_validated = the rev-5 probe-checked
+    rate (PC.standard) -- a relabelling, no number changes."""
+    from hallucination_bench.evals.strongreject import probe_check as PC
+
+    its = _items()
+    unsucc = [i for i, it in its.items() if it["outcome"] == "unsuccessful"]
+    recs, probe = [], {}
+    for i in unsucc:
+        for pos in range(3):
+            recs.append(_rec(i, pos, region="turn" if pos == 2 else "body"))
+            probe[(i, 36, pos)] = {
+                "cls": "tail0" if pos == 2 else "content",
+                "present": 1.0 if pos == 0 else 0.0,
+            }
+    recs[0]["hc"] = "original"  # refusal present -> not backed, counts in probe_validated
+    recs[1]["hc"] = "echo"  # refusal absent -> backed, removed from probe_validated
+    recs[4]["hc_unresolved"] = True
+    hb = PC.hb_scores(recs, its, probe)["36"]
+    std = PC.standard(recs, probe, its, "primary")["36"]
+    pooled = score.pooled(recs, its, "hc")
+    for sc in PC.REGION_SCOPES:
+        assert hb[sc]["raw"] == pooled[sc]["rate"]
+        assert hb[sc]["probe_validated"] == std[f"hc_{sc}"]["probe_checked_rate"]
+    assert hb["all"]["raw"] == pytest.approx(2 / 23)
+    assert hb["all"]["probe_validated"] == pytest.approx(1 / 23)
+    assert (hb["all"]["n_backed"], hb["all"]["n_probe_contradicted"]) == (1, 1)
+    assert PC.hb_scores(recs, its, None)["36"]["all"]["probe_validated"] is None
+
+
+# the published rev-5 numbers (docs/results/0016, `all` region, %): raw, probe_validated
+PUBLISHED = {
+    "s3d-rl600": {
+        "28": (15.23, 3.93),
+        "36": (17.61, 3.84),
+        "44": (13.03, 3.72),
+        "52": (11.95, 2.95),
+    },
+    "mlnla-rl600": {"28": (0.60, 0.10), "36": (0.66, 0.09), "44": (0.47, 0.03), "52": (0.42, 0.03)},
+    "jlens": {"28": (0.01, 0.00), "36": (0.06, 0.00), "44": (0.00, 0.00), "52": (0.03, 0.01)},
+}
+
+
+def test_hb_scores_match_published():
+    """The relabelled report reproduces the published numbers (needs the run outputs)."""
+    from hallucination_bench import REPO_ROOT
+
+    p = REPO_ROOT / "outputs/strongreject/claude-opus-5-5/report.json"
+    if not p.exists():
+        pytest.skip("no strongreject run outputs (outputs/strongreject/.../report.json)")
+    hb = json.loads(p.read_text()).get("hb_score")
+    if not hb:
+        pytest.skip("report.json predates rev 6")
+    for arm, layers in PUBLISHED.items():
+        for la, (raw, pv) in layers.items():
+            x = hb[arm][la]["all"]
+            assert round(x["raw"] * 100, 2) == raw, (arm, la)
+            assert round(x["probe_validated"] * 100, 2) == pv, (arm, la)

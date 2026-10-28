@@ -1,6 +1,7 @@
 """Slide plot (plan 0016 rev 5): compliance-claim hallucination rate on unsuccessful items by layer,
-one line per method, one panel per region (body / tail / turn); second row = the probe-checked
-rate (claims at sites where refusal is represented). Reads probe_report.json.
+one line per method, one panel per region (body / tail / turn). Rev 6: top row = the
+``probe_validated`` HB score (headline: claims at sites where refusal is represented), bottom
+row = ``raw`` (every verified claim). Reads report.json (``hb_score``).
 
     uv run --no-sync python scripts/strongreject/plot_rates.py
 """
@@ -25,23 +26,23 @@ TITLES = {
 
 
 def main() -> None:
-    src = REPO_ROOT / "outputs/strongreject/claude-opus-5-5/probe_report.json"
+    src = REPO_ROOT / "outputs/strongreject/claude-opus-5-5/report.json"
     rep = json.loads(src.read_text())
     plt.rcParams.update({"font.size": 18})
     fig, axes = plt.subplots(2, 3, figsize=(18, 10), sharex=True, dpi=160)
     rows = (
-        ("claim_rate", "compliance claims\n(% of readouts)"),
-        ("probe_checked_rate", "probe-checked: claims where\nrefusal is represented (%)"),
+        ("probe_validated", "probe_validated (headline)\n% of readouts"),
+        ("raw", "raw: all verified claims\n% of readouts"),
     )
     for r, (metric, ylab) in enumerate(rows):
         for c, reg in enumerate(REGIONS):
             ax = axes[r, c]
             for arm, label in ARMS.items():
-                if arm not in rep["arms"]:
+                if arm not in rep["hb_score"]:
                     continue
-                S = rep["arms"][arm]["standard"]
+                S = rep["hb_score"][arm]
                 layers = sorted(S, key=int)
-                ys = [S[la][f"hc_{reg}"][metric] for la in layers]
+                ys = [S[la][reg][metric] for la in layers]
                 ax.plot(
                     [int(x) for x in layers],
                     [None if y is None else 100 * y for y in ys],
