@@ -1,6 +1,6 @@
 # Plan 0018: `sad` eval — do lenses read eval-vs-deployment beliefs the model does not hold?
 
-Author: Camila Blank (planned with Claude), 2026-10-27. Revision 3 (post-gate: mismatched cap at half the quota). Revision 2 (critique 1: J-lens jobs file, strict deploy_belief vs restated personas, mismatched-first selection, site-count-robust headline rates, stratified verifier sampling, gap bootstrap, render-length assert, gate whitespace note, recall lower bound, one gen volume). Pilot scale.
+Author: Camila Blank (planned with Claude), 2026-10-27. Revision 4 (pilot: research frame, WMDP small batches, coverage rule). Revision 3 (post-gate: mismatched cap at half the quota). Revision 2 (critique 1: J-lens jobs file, strict deploy_belief vs restated personas, mismatched-first selection, site-count-robust headline rates, stratified verifier sampling, gap bootstrap, render-length assert, gate whitespace note, recall lower bound, one gen volume). Pilot scale.
 Self-contained eval: its own package `src/hallucination_bench/evals/sad/`, its own CLI
 (`hbench sad ...`, registered via `cli.EVAL_CLIS`, plan 0012 D2), data under `data/sad/`. It shares
 no module with the chat / story / AM pipelines and is **not** on the hallucination index.
@@ -177,6 +177,19 @@ Capture rows `outputs/sad/capture_rows.json` (gitignored: they hold texts) are
 - **Cache:** `outputs/sad/<judge>/<arm>/cache.jsonl`, per cell `{key}:D` (fingerprint: prompt
   version, model, effort, system, canonical cell text without the batch label), usage on
   `batchD:` rows. Re-runs resume.
+
+### Pilot revisions (rev 4)
+
+- **Research frame** (`sadetect-v1.1` / `sadverify-v1.1`): without it Opus 5.5 hard-refused many
+  batches (O-lens readouts continue the text: WMDP hazard questions, explicit WildChat requests).
+  As in plan 0008, a short AI-safety-research frame opens the USER prompt; the versions were
+  bumped so every cell was re-judged under it.
+- **WMDP small batches:** cells of WMDP items go in batches of 4 (batching only; still blind), so
+  a refusal does not fail 39 other cells. Single-cell refusals persist on most WMDP O-lens cells
+  and on some J-lens cells; they stay unjudged and are reported.
+- **Coverage rule:** an item enters a (method, layer) only if >= 80% of its cells there were
+  judged (`score.MIN_COVERAGE`); otherwise its judged cells would be the benign subset. The
+  excluded items are listed per arm and layer (`excluded_low_coverage`).
 
 ## Verifier (`sadverify-v1`, Stage H, on headline candidates)
 

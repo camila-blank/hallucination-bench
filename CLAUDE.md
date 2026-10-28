@@ -90,11 +90,11 @@ scripts/build_am_bank.py  writes data/agentic_misalignment/ (streams the readout
 scripts/am_audit.py  AM audits: sample | sample-headline | screen | summ-only | sample-tiers | score
 evals/sad/          plan 0018 (own CLI `hbench sad`, via EVAL_CLIS; NOT in evals.EVALS):
     bank.py  manifest / raw loader / plain_render;  gate.py  Qwen belief gate (10 samples)
-    select.py  mismatched-first selection + read sites;  detect.py  sadetect-v1;
-    verify.py  sadverify-v1 (Stage H);  run.py  driver + rebuild;  score.py;  report.py;  cli.py
+    select.py  mismatched-first selection + read sites;  detect.py  sadetect-v1.1;
+    verify.py  sadverify-v1.1 (Stage H);  run.py  driver + rebuild;  score.py;  report.py;  cli.py
 data/sad/           manifest.json, gate.json, selected.json (ids / counts / positions only), README;
                     raw/ = the SAD texts, GITIGNORED (scripts/sad/fetch_sad.py)
-scripts/sad/        fetch_sad.py, qwen_gate_modal.py, capture.sh, reads.sh, fetch_readouts.sh
+scripts/sad/        fetch_sad.py, qwen_gate_modal.py, capture.sh, reads.sh, fetch_readouts.sh, judge.sh
 scripts/run_am.sh    AM driver: step1 (tmux hbench-am-detect) | step2 (tmux hbench-am-map)
 ```
 
@@ -302,6 +302,17 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
 - vLLM on Modal: `enforce_eager=True` (the compiled path hung after torch.compile, 2026-10-27).
 - The global-workspace readers write to `wsbench-gen-3` only because `reads.sh` exports
   `WSBENCH_GEN_VOLUME`; their defaults differ. `--jobs-json` takes a FILE path.
+- **Opus refuses WMDP-continuation readouts** even with `detect.RESEARCH_FRAME` (in the USER
+  prompt): WMDP cells go in batches of 4 and stay unjudged after retries (~1k O-lens cells);
+  `score.MIN_COVERAGE` (0.8) drops items whose cells are mostly unjudged. Don't loop retries on
+  them (`judge.sh` 4 attempts recover ~10 cells): one pass + one retry is enough.
+- uv / uvx commands here can hang 300 s on the shared uv cache lockfile (sibling agents): the
+  scripts set a private `UV_CACHE_DIR` (`HBENCH_SAD_UV_CACHE`), and `judge.sh` calls
+  `.venv/bin/hbench`. Modal volumes for these runs live in env `camila-blank`: the
+  global-workspace read app needs `MODAL_RESOURCE_ENV=camila-blank` (its default `main` lacks
+  access); `wsbench_read_modal.py` needs `::main`.
+- Results: `docs/results/0018_sad_pilot.md`; full report `outputs/sad/<judge>/report.md` is not
+  committed (it quotes readouts that can echo SAD texts).
 - Headline rates use only verified `situation` mentions; `format` ("a multiple-choice question")
   is reported separately because benchmark formatting makes it surface-inferable.
 

@@ -11,6 +11,7 @@ the results docs cite.
 | [0007](../../plans/0007-story-eval.md) story eval | [0007_story.md](0007_story.md) | [0007_report_story_v2.7.md](0007_report_story_v2.7.md) |
 | [0008](../../plans/0008-agentic-misalignment-claim-map.md) agentic misalignment | [0008_agentic_misalignment.md](0008_agentic_misalignment.md) | [0008_report_full.md](0008_report_full.md) |
 | [0011](../../plans/0011-user-modelling-ladder-4-domains.md) user-modelling ladder, capital city + holiday | no results doc (figures: `scripts/sibling_probe/um_plot_macro*.py`; the 3-domain sibling score is in 0013) | |
+| [0018](../../plans/0018-sad-eval.md) sad (SAD stages-oversight, pilot) | [0018_sad_pilot.md](0018_sad_pilot.md) | `outputs/sad/claude-opus-5-5/report.md` (not committed: shows readouts) |
 | [0013](../../plans/0013-final-sibling-eval-and-hallucination-index.md) hallucination index (hindex-v3) | [0013_hallucination_index.md](0013_hallucination_index.md) | |
 
 Plans 0009/0010 (resampling sibling gate) are not on `main`; plan 0012 is the landing plan

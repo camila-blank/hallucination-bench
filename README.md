@@ -211,6 +211,10 @@ and `outputs/wsbench_chat/<judge model>/{report.md,report.json,audit_samples.md}
 
 Index of every results doc: [`docs/results/README.md`](docs/results/README.md).
 
+[`docs/results/0018_sad_pilot.md`](docs/results/0018_sad_pilot.md) (sad pilot): lenses almost never
+claim the wrong situation (deploy-on-eval ≤ 0.16% of readouts, 0 at the final site); their rare
+eval readings track benchmark *format*, not Qwen's own belief.
+
 [`docs/results/0001_wsbench_chat_taxonomy.md`](docs/results/0001_wsbench_chat_taxonomy.md)
 (filled in after the full run); claim map:
 [`docs/results/0002_claim_map.md`](docs/results/0002_claim_map.md); user-modelling ladder (country):
