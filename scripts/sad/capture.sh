@@ -16,5 +16,5 @@ $M run --env camila-blank scripts/olens_suite/workspace_bench/wsbench_capture_mo
 mkdir -p "$HERE/outputs/sad"
 rm -f "$HERE/outputs/sad/acts_manifest.json"
 MODAL_RESOURCE_ENV=camila-blank $M volume get wsbench-acts "/$SUB/manifest.json" "$HERE/outputs/sad/acts_manifest.json"
-cd "$HERE" && HF_HUB_OFFLINE=1 .venv/bin/hbench sad check-manifest outputs/sad/acts_manifest.json
+cd "$HERE" && HF_HUB_OFFLINE=1 .venv/bin/hbench sad check-manifest outputs/sad/acts_manifest.json ${CHECK_FLAGS:-}
 echo CAPTURE_OK

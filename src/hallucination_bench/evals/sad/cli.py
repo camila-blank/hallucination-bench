@@ -97,6 +97,26 @@ def cmd_select(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_top_up(args: argparse.Namespace) -> int:
+    """Rev 5: keep the rev-4 selection, fill each belief to --n-per-belief; capture rows for the
+    NEW items only (they go to a second acts subdir)."""
+    from . import bank, select
+
+    g = json.loads(bank.GATE_JSON.read_text())["items"]
+    prev = json.loads(bank.SELECTED_JSON.read_text())
+    raw = bank.load_raw()
+    sel, new = select.top_up(prev, g, raw, _tokenizer(), TOKENIZER, args.n_per_belief)
+    bank.SELECTED_JSON.write_text(json.dumps(sel, indent=1) + "\n")
+    sub = {"meta": sel["meta"], "items": [it for it in sel["items"] if it["id"] in set(new)]}
+    rows = select.capture_rows(sub, raw)
+    out = Path(args.capture_rows)
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(json.dumps(rows, ensure_ascii=False) + "\n")
+    print(json.dumps(sel["meta"], indent=1))
+    print(f"wrote {bank.SELECTED_JSON} and {out} ({len(rows)} NEW capture rows; gitignored)")
+    return 0
+
+
 def cmd_check_manifest(args: argparse.Namespace) -> int:
     """The capture's token grid must equal the local tokenisation at every read site."""
     from . import bank, select
@@ -107,7 +127,8 @@ def cmd_check_manifest(args: argparse.Namespace) -> int:
     tok = _tokenizer()
     by_label = {p["label"]: p for p in man["prompts"]}
     bad = 0
-    for it in sel["items"]:
+    want_items = [it for it in sel["items"] if not args.new_only or it.get("batch") == "rev5"]
+    for it in want_items:
         p = by_label.get(it["id"])
         if p is None:
             print(f"{it['id']}: not in the manifest")
@@ -124,7 +145,7 @@ def cmd_check_manifest(args: argparse.Namespace) -> int:
         if evp != sorted(s["pos"] for s in it["sites"]):
             print(f"{it['id']}: eval_positions differ from selected sites")
             bad += 1
-    print(f"check-manifest: {len(sel['items']) - bad}/{len(sel['items'])} items ok")
+    print(f"check-manifest: {len(want_items) - bad}/{len(want_items)} items ok")
     return 1 if bad else 0
 
 
@@ -156,7 +177,7 @@ def cmd_run(args: argparse.Namespace) -> int:
         n_failed += h.get("n_failed_detect", 0) + h.get("n_unverified_in_sample", 0)
         print(
             f"[{arm}] layers={s['layers']} cells={s['n_cells']} health={h} "
-            f"situation_mentions={s['n_situation_mentions']} verify_sample={s['n_verify_sample']} "
+            f"mentions={s['n_mentions']} verify_sample={s['n_verify_sample']} "
             f"spend=${s['spend']['total_usd']:.2f} run={s.get('run_stats')}",
             flush=True,
         )
@@ -197,8 +218,14 @@ def register(sub: argparse._SubParsersAction) -> None:
     q.add_argument("--capture-rows", default="outputs/sad/capture_rows.json")
     q.set_defaults(fn=cmd_select)
 
+    q = s.add_parser("top-up", help="rev 5: keep the selection, fill each belief group")
+    q.add_argument("--n-per-belief", type=int, default=100)
+    q.add_argument("--capture-rows", default="outputs/sad/capture_rows_rev5.json")
+    q.set_defaults(fn=cmd_top_up)
+
     q = s.add_parser("check-manifest", help="capture manifest vs local tokenisation")
     q.add_argument("manifest")
+    q.add_argument("--new-only", action="store_true", help="only the rev-5 top-up items")
     q.set_defaults(fn=cmd_check_manifest)
 
     for name, fn in (("run", cmd_run), ("report", cmd_report)):

@@ -22,7 +22,7 @@ from . import bank, detect, score, verify
 
 READOUTS_FILE = "sad.jsonl"
 SEED = 0
-VERIFY_ALL_MAX = 5000  # plan: verify every situation mention up to this many per arm
+VERIFY_ALL_MAX = 5000  # plan: verify every mention up to this many per arm
 VERIFY_PER_STRATUM = 150
 SMALL_BATCH = 4
 SMALL_BATCH_SOURCES = ("test_wmdp",)
@@ -152,11 +152,10 @@ async def _detect(
 # ---------------------------------------------------------------- Stage H
 
 
-def situation_mentions(
+def all_mentions(
     cache: Cache, cells: list[Cell], model: str, effort: str | None
 ) -> list[dict[str, Any]]:
-    """Every detector mention with ``about = situation``: ``{cell, readout, start, end, label,
-    quote, text}``."""
+    """Every detector mention: ``{cell, readout, start, end, label, quote, text}``."""
     out = []
     for c in cells:
         ro = detect.readouts_of(c)
@@ -166,8 +165,7 @@ def situation_mentions(
         if row is None:
             continue
         for m in row["result"]["mentions"]:
-            if m["about"] == "situation":
-                out.append({"cell": c, **m, "text": ro[m["readout"]]})
+            out.append({"cell": c, **m, "text": ro[m["readout"]]})
     return out
 
 
@@ -196,7 +194,7 @@ async def _verify(
 ) -> dict[str, int]:
     todo = []
     for m in mentions:
-        canon = verify.canonical(m["text"], m["quote"])
+        canon = verify.canonical(m["text"], m["quote"], m["label"])
         if cache.get(mention_key(m), _ver_fp(model, effort, canon)) is None:
             todo.append((m, canon))
     random.Random(SEED).shuffle(todo)
@@ -250,7 +248,7 @@ def rebuild(
     region = {(it["id"], s["pos"]): s["region"] for it in selected["items"] for s in it["sites"]}
     final_pos = {it["id"]: it["sites"][-1]["pos"] for it in selected["items"]}
     belief = {i: it["belief"] for i, it in items.items()}
-    sit = situation_mentions(cache, cells, judge, effort)
+    sit = all_mentions(cache, cells, judge, effort)
     sampled = {mention_key(m) for m in verify_sample(sit, belief)}
     health: Counter = Counter()
     records = []
@@ -287,15 +285,14 @@ def rebuild(
             health["n_accepted_partial"] += 1
         for m in res["mentions"]:
             mm = dict(m)
-            if m["about"] == "situation":
-                mk = f"{c.key}:H:{m['readout']}:{m['start']}-{m['end']}"
-                canon = verify.canonical(ro[m["readout"]], m["quote"])
-                vrow = cache.get(mk, _ver_fp(judge, effort, canon))
-                mm["verify"] = vrow["result"] if vrow else None
-                mm["verified"] = verify.confirmed(m["label"], vrow["result"] if vrow else None)
-                mm["in_verify_sample"] = mk in sampled
-                if mk in sampled and vrow is None:
-                    health["n_unverified_in_sample"] += 1
+            mk = f"{c.key}:H:{m['readout']}:{m['start']}-{m['end']}"
+            canon = verify.canonical(ro[m["readout"]], m["quote"], m["label"])
+            vrow = cache.get(mk, _ver_fp(judge, effort, canon))
+            mm["verify"] = vrow["result"] if vrow else None
+            mm["verified"] = verify.confirmed(m["label"], vrow["result"] if vrow else None)
+            mm["in_verify_sample"] = mk in sampled
+            if mk in sampled and vrow is None:
+                health["n_unverified_in_sample"] += 1
             rec["mentions"].append(mm)
         health["n_detect_ok"] += 1
         records.append(rec)
@@ -318,7 +315,7 @@ def rebuild(
         "layers": sorted({c.layer for c in cells}),
         "kind": cells[0].kind if cells else None,
         "n_cells": len(records),
-        "n_situation_mentions": len(sit),
+        "n_mentions": len(sit),
         "n_verify_sample": len(sampled),
         "verify_sampled": len(sampled) < len(sit),
         "health": dict(health),
@@ -368,7 +365,7 @@ def run_arm(
                     )
                     stats["detect"] = await _detect(llm, cache, cells, judge, effort, small)
                 if "verify" in stages:
-                    sit = situation_mentions(cache, cells, judge, effort)
+                    sit = all_mentions(cache, cells, judge, effort)
                     stats["verify"] = await _verify(
                         llm, cache, verify_sample(sit, belief), judge, effort
                     )

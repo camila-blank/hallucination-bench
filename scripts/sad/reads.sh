@@ -11,13 +11,15 @@ HERE="$(cd "$(dirname "$0")/../.." && pwd)"
 GW=${HBENCH_GLOBAL_WORKSPACE:-/workspace/global-workspace}
 L=$HERE/logs; M="uvx --python 3.12 modal@latest run --env camila-blank"; W=scripts/olens_suite/workspace_bench
 SUB=${SAD_ACTS_SUBDIR:-hb-sad-acts}; LAYERS=28,36,44,52
-echo "[{\"acts\": \"$SUB\", \"out\": \"gen-hb-sad-jlens\", \"layers\": [28, 36, 44, 52]}]" > "$L/sad_jlens_jobs.json"
+SFX=${SAD_RUN_SUFFIX:-}  # rev 5: "-rev5" for the top-up items (acts hb-sad-acts2)
+SHARDS=${SAD_SHARDS:-16}
+echo "[{\"acts\": \"$SUB\", \"out\": \"gen-hb-sad-jlens$SFX\", \"layers\": [28, 36, 44, 52]}]" > "$L/sad_jlens_jobs$SFX.json"
 cd "$GW"
 ( $M $W/wsbench_read_modal.py::main --ckpt agu18dec/local-workspace:ckpts/ao/rl/s3d.ddp600.s0/iter_000600 \
-    --merged-name s3d-rl600 --run hb-sad-s3d-rl600 --acts-subdir "$SUB" --layers $LAYERS --k 3 \
-    --shards 16 > "$L/read_s3d_$TS.log" 2>&1; echo "EXIT=$?" >> "$L/read_s3d_$TS.log" ) &
-( $M $W/wsbench_nla_modal.py --lens mlnla-rl600 --run hb-sad-mlnla-rl600 --acts-subdirs "$SUB" \
-    --layers $LAYERS --n-samples 3 --shards 16 > "$L/read_mlnla_$TS.log" 2>&1; echo "EXIT=$?" >> "$L/read_mlnla_$TS.log" ) &
-( $M $W/wsbench_tokenlens_modal.py --lens jlens --jobs-json "$L/sad_jlens_jobs.json" \
+    --merged-name s3d-rl600 --run hb-sad-s3d-rl600$SFX --acts-subdir "$SUB" --layers $LAYERS --k 3 \
+    --shards $SHARDS > "$L/read_s3d_$TS.log" 2>&1; echo "EXIT=$?" >> "$L/read_s3d_$TS.log" ) &
+( $M $W/wsbench_nla_modal.py --lens mlnla-rl600 --run hb-sad-mlnla-rl600$SFX --acts-subdirs "$SUB" \
+    --layers $LAYERS --n-samples 3 --shards $SHARDS > "$L/read_mlnla_$TS.log" 2>&1; echo "EXIT=$?" >> "$L/read_mlnla_$TS.log" ) &
+( $M $W/wsbench_tokenlens_modal.py --lens jlens --jobs-json "$L/sad_jlens_jobs$SFX.json" \
     > "$L/read_jlens_$TS.log" 2>&1; echo "EXIT=$?" >> "$L/read_jlens_$TS.log" ) &
 wait; echo ALL_READS_DONE

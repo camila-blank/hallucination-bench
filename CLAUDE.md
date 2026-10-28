@@ -90,11 +90,11 @@ scripts/build_am_bank.py  writes data/agentic_misalignment/ (streams the readout
 scripts/am_audit.py  AM audits: sample | sample-headline | screen | summ-only | sample-tiers | score
 evals/sad/          plan 0018 (own CLI `hbench sad`, via EVAL_CLIS; NOT in evals.EVALS):
     bank.py  manifest / raw loader / plain_render;  gate.py  Qwen belief gate (10 samples)
-    select.py  mismatched-first selection + read sites;  detect.py  sadetect-v1.1;
-    verify.py  sadverify-v1.1 (Stage H);  run.py  driver + rebuild;  score.py;  report.py;  cli.py
-data/sad/           manifest.json, gate.json, selected.json (ids / counts / positions only), README;
+    select.py  mismatched-first selection + read sites;  detect.py  sadetect-v2 (literal claims);
+    verify.py  sadverify-v2 (yes/no);  run.py  driver + rebuild;  score.py;  report.py;  cli.py
+data/sad/           manifest.json, manifest_wildchat.json, gate.json, selected.json (ids / counts / positions only), README;
                     raw/ = the SAD texts, GITIGNORED (scripts/sad/fetch_sad.py)
-scripts/sad/        fetch_sad.py, qwen_gate_modal.py, capture.sh, reads.sh, fetch_readouts.sh, judge.sh
+scripts/sad/        fetch_sad.py, fetch_wildchat.py, qwen_gate_modal.py, capture.sh, reads.sh, fetch_readouts.sh, judge.sh
 scripts/run_am.sh    AM driver: step1 (tmux hbench-am-detect) | step2 (tmux hbench-am-map)
 ```
 
@@ -313,8 +313,13 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
   access); `wsbench_read_modal.py` needs `::main`.
 - Results: `docs/results/0018_sad_pilot.md`; full report `outputs/sad/<judge>/report.md` is not
   committed (it quotes readouts that can echo SAD texts).
-- Headline rates use only verified `situation` mentions; `format` ("a multiple-choice question")
-  is reported separately because benchmark formatting makes it surface-inferable.
+- Rev 5 (Camila): the judge counts only LITERAL statements ("I am being tested", "this is a real
+  user"); genre / format descriptions never count. Headline = verifier-confirmed mentions.
+- Rev 5 selection = rev-4 items + a top-up (`hbench sad top-up`, items tagged `batch: rev5`):
+  captured to `hb-sad-acts2`, read into `gen-hb-sad-*-rev5`, appended by
+  `fetch_readouts.sh <arm> <gen> <kind> wsbench-gen-3 rev5` (keeps `sad_rev4.jsonl`).
+- Modal sometimes boots a container with a corrupt baked `.pyc` ("bad marshal data"): the gate
+  image sets `PYTHONPYCACHEPREFIX`; for the global-workspace readers just re-run (they resume).
 
 ## sibling eval: user-modelling ladder (plans 0006 + 0011)
 

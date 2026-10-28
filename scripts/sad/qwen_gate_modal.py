@@ -28,7 +28,9 @@ app = modal.App("hb-sad-gate")
 image = (
     modal.Image.from_registry("nvidia/cuda:13.0.3-devel-ubuntu24.04", add_python="3.12")
     .uv_pip_install("vllm==0.25.1", "hf_transfer", "huggingface_hub")
-    .env({"HF_HOME": HF_PATH, "HF_HUB_ENABLE_HF_TRANSFER": "1"})
+    # PYTHONPYCACHEPREFIX: ignore the image's baked .pyc files (one shard died on a corrupt triton
+    # .pyc, "bad marshal data", 2026-10-28)
+    .env({"HF_HOME": HF_PATH, "HF_HUB_ENABLE_HF_TRANSFER": "1", "PYTHONPYCACHEPREFIX": "/tmp/pyc"})
 )
 hf_cache = modal.Volume.from_name("iolens-hf-cache", create_if_missing=True)
 secrets = [modal.Secret.from_name("huggingface"), modal.Secret.from_name("iolens-hf")]
@@ -90,7 +92,7 @@ def run(rows: list[dict]) -> list[dict]:
 
 
 @app.local_entrypoint()
-def main(inp: str, out: str, limit: int = 0) -> None:
+def main(inp: str, out: str, limit: int = 0, shards: int = 1) -> None:
     rows = [json.loads(x) for x in Path(inp).read_text().splitlines() if x.strip()]
     outp = Path(out)
     done = set()
@@ -102,9 +104,17 @@ def main(inp: str, out: str, limit: int = 0) -> None:
     print(f"[gate] {len(rows)} rows, {len(done)} done, {len(todo)} to run (gpu {GPU})", flush=True)
     if not todo:
         return
-    res = run.remote(todo)
+    # fan out: one GPU per shard, whole items per shard (an item's 10 samples stay together)
+    n = max(1, min(shards, len(todo)))
+    chunks: list[list[dict]] = [[] for _ in range(n)]
+    for r in todo:
+        chunks[hash(r["key"].rsplit("#s", 1)[0]) % n].append(r)
     outp.parent.mkdir(parents=True, exist_ok=True)
-    with outp.open("a", encoding="utf-8") as fh:
-        for r in res:
-            fh.write(json.dumps(r, ensure_ascii=False) + "\n")
-    print(f"[gate] +{len(res)} rows -> {outp}", flush=True)
+    for res in run.map([c for c in chunks if c], return_exceptions=True):
+        if isinstance(res, BaseException):
+            print(f"[gate] shard failed: {type(res).__name__}: {res}", flush=True)
+            continue
+        with outp.open("a", encoding="utf-8") as fh:
+            for r in res:
+                fh.write(json.dumps(r, ensure_ascii=False) + "\n")
+        print(f"[gate] +{len(res)} rows -> {outp}", flush=True)

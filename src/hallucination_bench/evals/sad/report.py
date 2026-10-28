@@ -31,7 +31,7 @@ def examples(arm_root: Path, items: dict[str, Any], n: int, seed: int = 0) -> li
         for line in fh:
             r = json.loads(line)
             for m in r["mentions"]:
-                if m.get("about") != "situation" or m.get("verified") is not True:
+                if m.get("verified") is not True:
                     continue
                 b = items[r["id"]]["belief"]
                 ex = {
@@ -46,7 +46,7 @@ def examples(arm_root: Path, items: dict[str, Any], n: int, seed: int = 0) -> li
                     "readout": m["readout"],
                     "key": r["key"],
                 }
-                (wrong if m["label"] != f"{b}_belief" else right).append(ex)
+                (wrong if m["label"] != f"{b}_claim" else right).append(ex)
     rng = random.Random(seed)
     rng.shuffle(wrong)
     rng.shuffle(right)
@@ -79,7 +79,7 @@ def report(out: Path, judge: str, *, readouts_root: Path, n_examples: int = 10) 
         f"{m['agree_with_provenance']:.3f} {m['belief_x_provenance']}"
     )
     L += ["", f"Selection: {selected['meta']}", ""]
-    for variant in ("headline", "detector", "with_format"):
+    for variant in ("headline", "detector"):
         L += [f"## Rates — variant `{variant}`", ""]
         L += [
             "| arm | layer | deploy_on_eval readout | deploy_on_eval final | eval_on_deploy "
@@ -126,13 +126,13 @@ def report(out: Path, judge: str, *, readouts_root: Path, n_examples: int = 10) 
     L += ["", "## Health and spend", ""]
     for arm, s in summaries.items():
         L.append(
-            f"- {arm}: cells {s['n_cells']}, health {s['health']}, situation mentions "
-            f"{s['n_situation_mentions']}, verify sample {s['n_verify_sample']} "
+            f"- {arm}: cells {s['n_cells']}, health {s['health']}, mentions "
+            f"{s['n_mentions']}, verify sample {s['n_verify_sample']} "
             f"(sampled={s['verify_sampled']}), spend ${s['spend']['total_usd']:.2f}, items "
             f"excluded for coverage < 0.8: "
             f"{ {k: len(v) for k, v in s['scores']['excluded_low_coverage'].items()} }"
         )
-    L += ["", "## Examples (verified situation mentions; wrong direction first)", ""]
+    L += ["", "## Examples (verified literal mentions; wrong direction first)", ""]
     for arm in arms:
         L.append(f"### {arm}")
         for ex in examples(root / arm, items, n_examples):

@@ -146,3 +146,63 @@ def capture_rows(selected: dict[str, Any], raw: dict[str, dict[str, Any]]) -> li
         }
         for it in selected["items"]
     ]
+
+
+def top_up(
+    prev: dict[str, Any],
+    gate: dict[str, dict[str, Any]],
+    raw: dict[str, dict[str, Any]],
+    tok: Any,
+    tokenizer_id: str,
+    n_per_belief: int = 100,
+) -> tuple[dict[str, Any], list[str]]:
+    """Rev 5: keep every rev-4 item (already read) and fill each belief group up to
+    ``n_per_belief`` with a seeded sample (``random.Random(SEED)`` over sorted ids) of the
+    survivors not yet selected. Returns ``(selected, new ids)``; only the new ids need reads."""
+    rng = random.Random(SEED)
+    kept = {it["id"] for it in prev["items"]}
+    items = list(prev["items"])
+    new: list[str] = []
+    for b in ("eval", "deploy"):
+        have = sum(it["belief"] == b for it in items)
+        pool = sorted(i for i, g in gate.items() if g["belief"] == b and i not in kept)
+        rng.shuffle(pool)
+        new += sorted(pool[: max(0, n_per_belief - have)])
+    max_full = prev["meta"].get("max_full_render_tokens", 0)
+    for iid in new:
+        r, g = raw[iid], gate[iid]
+        s = sites(r["text"], tok)
+        full = bank.plain_render(r["text"]) + GEN_SUFFIX
+        max_full = max(max_full, len(tok(full, add_special_tokens=False)["input_ids"]))
+        items.append(
+            {
+                "id": iid,
+                "belief": g["belief"],
+                "provenance": r["provenance"],
+                "source": r["source"],
+                "agree": g["agree"],
+                "n_tokens": len(tokenize(bank.plain_render(r["text"]), tok)[0]),
+                "sites": [{"pos": x["pos"], "region": x["region"]} for x in s],
+                "batch": "rev5",
+            }
+        )
+    if max_full > MAX_POSITIONS:
+        raise ValueError(f"longest full render {max_full} > capture max_positions {MAX_POSITIONS}")
+    meta = dict(prev["meta"])
+    meta.update(
+        {
+            "revision": "rev5 top-up: rev-4 items kept, each belief filled to n_per_belief",
+            "n_per_belief": n_per_belief,
+            "max_full_render_tokens": max_full,
+            "tokenizer": tokenizer_id,
+            "n_items": len(items),
+            "n_new": len(new),
+            "by_belief": dict(Counter(it["belief"] for it in items)),
+            "belief_x_provenance": dict(
+                Counter(f"{it['belief']}|{it['provenance']}" for it in items)
+            ),
+            "by_source": dict(Counter(it["source"] for it in items)),
+            "n_sites": sum(len(it["sites"]) for it in items),
+        }
+    )
+    return {"meta": meta, "items": items}, new

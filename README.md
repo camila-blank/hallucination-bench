@@ -15,7 +15,7 @@ hallucination eval is one of many evals here; see `plans/` for the design histor
 | `sibling_probe` user-modelling ladder | the sibling eval: is a same-category mention about the user (user is Korean, readout says China) a hallucination? Lexicon match -> commitment judge -> distractor-rank probe -> cross-method check -> label, on 3 domains: country (frozen lexicon `br_lexicons_um_v1.json`), capital_city (the city the user is visiting), holiday (`scripts/sibling_probe/um_ladder.py --category`) | [0006](plans/0006-user-modelling-country-ladder.md), [0011](plans/0011-user-modelling-ladder-4-domains.md) |
 | `story` | the claim map (taxonomy v2, Opus 5.5) on 20 "tell me a story" items (WorkspaceBench's old `hallucination_creative` bank, 8 sites each); `--eval story` | [0007](plans/0007-story-eval.md) |
 | `agentic_misalignment` | the claim map (v2.7) on lens **mentions of misalignment** (blackmail, leaking, letting someone die, ...) at every prompt position of WorkspaceBench's 32 AM items: a blind batched detector finds the mentions, the claim map judges them (marker in the prompt), and an intent call tiers each mention's kind against what the rollout actually does (realised / designed_only / scenario_set_up / unrelated); its own driver, `--eval agentic_misalignment` | [0008](plans/0008-agentic-misalignment-claim-map.md) |
-| `sad` | eval-vs-deployment awareness on SAD stages-oversight texts: ground truth is **Qwen3.6-27B's own belief** (10 samples of SAD's question, >= 9/10 agree); the lens reads the **plain** text (no question) at prompt positions, a blind detector + verifier find readouts saying the model is being tested (`eval_belief`) or serving a real user (`deploy_belief`); headline = the wrong direction per (method, layer). Own CLI `hbench sad ...`; SAD texts never in git. Not on the index | [0018](plans/0018-sad-eval.md) |
+| `sad` | eval-vs-deployment awareness on SAD stages-oversight texts: ground truth is **Qwen3.6-27B's own belief** (10 samples of SAD's question, >= 9/10 agree); the lens reads the **plain** text (no question) at prompt positions, a blind detector + yes/no verifier find LITERAL statements that the model is being tested / monitored (`eval_claim`) or is talking to a real user / deployed (`deploy_claim`); genre descriptions do not count; headline = the wrong direction per (method, layer). Deploy-belief items come from SAD + 3,000 WildChat-1M turns. Own CLI `hbench sad ...`; SAD texts never in git. Not on the index | [0018](plans/0018-sad-eval.md) |
 
 ## Hallucination index
 
@@ -165,10 +165,12 @@ uv run hbench report --eval agentic_misalignment        # outputs/agentic_misali
 ```bash
 # sad (plan 0018): own CLI; SAD texts land only in gitignored data/sad/raw/
 uv run --no-sync python scripts/sad/fetch_sad.py                # download + unpack + manifest
+UV_CACHE_DIR=/root/.cache/uv-hbsad uv run --no-sync --with pyarrow python scripts/sad/fetch_wildchat.py  # rev 5 pool
 uv run --no-sync hbench sad gate-requests                       # outputs/sad/gate/requests.jsonl
 MODAL_PROFILE=safety-sahan-2 uvx --python 3.12 modal@latest run --env camila-blank \
     scripts/sad/qwen_gate_modal.py --inp outputs/sad/gate/requests.jsonl --out outputs/sad/gate/samples.jsonl
 uv run --no-sync hbench sad gate && HF_HUB_OFFLINE=1 uv run --no-sync hbench sad select
+HF_HUB_OFFLINE=1 uv run --no-sync hbench sad top-up                # rev 5: fill each belief to 100
 scripts/sad/capture.sh && scripts/sad/reads.sh <ts>             # Modal (global-workspace readers)
 scripts/sad/fetch_readouts.sh s3d-rl600 gen-hb-sad-s3d-rl600 prose   # (and mlnla / jlens)
 env -u ANTHROPIC_API_KEY uv run --no-sync hbench sad run --arms s3d-rl600,mlnla-rl600-all11,jlens
