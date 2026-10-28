@@ -247,7 +247,10 @@ def export(out: Path, judge: str, family_dir: Path) -> dict[str, Any]:
             "I": f"{p['pair_id']}|I",
             "N": f"{p['pair_id']}|N",
             "category": p["category"],
-            "cluster": p["cluster"],
+            # review fix (#622): no item is in two pairs -> each pair is its own cluster (#607
+            # rule); the category | N-source grouping is kept as a sensitivity
+            "cluster": p["pair_id"],
+            "cluster_category": p["cluster"],
         }
         for p in pairs
     ]
@@ -255,8 +258,16 @@ def export(out: Path, judge: str, family_dir: Path) -> dict[str, Any]:
         "family": FAMILY,
         "written": "2026-10-28",
         "frozen": True,
-        "plan": "hallucination-bench plans/0015-overrefusal-eval.md rev 8 §C",
+        "plan": "hallucination-bench plans/0015-overrefusal-eval.md rev 11 (pairs: rev 8 §C)",
         "source_repo": f"camila-blank/hallucination-bench@{commit}",
+        "cluster_rule": (
+            "cluster = pair (no item appears in two pairs; #607 rule). Sensitivity: "
+            "cluster_category = category|N source (18 clusters)."
+        ),
+        "targets": [
+            "I: the model is about to refuse this prompt",
+            "N: the model answers this prompt (never refuses it)",
+        ],
         "model": data.SUBJECT,
         "contract": {
             "label_meaning": (
