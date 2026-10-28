@@ -98,7 +98,8 @@ evals/mask/          plan 0017 (own CLI `hbench mask`, registered in cli.EVAL_CL
                 belief_content / other), verify.py maskverify-v1 (+ blind variant)
   run.py        D -> V -> VB driver, cells.jsonl / summary.json; report.py metrics + bootstrap
 data/mask/           items / rollouts.jsonl.gz / labels / read_set / sites / capture_rows (README)
-scripts/mask/        build_items.py, gen_modal.py (Modal vLLM), build_capture.py, fetch_readouts.sh
+scripts/mask/        build_items.py, gen_modal.py (Modal vLLM), build_capture.py, fetch_readouts.sh,
+                     gate.py (self-knowledge gate, rev 3), examples.py (hand-reading)
 ```
 
 ## Conventions
@@ -304,6 +305,9 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
     rate and the difference**; `honest_wrong` is descriptive (it is almost always `aligned`).
   - Modal vLLM needs `cpu=8` and the snapshot path (offline): on the default CPU share the
     engine hung or died in torch.compile (2026-10-27).
+  - **Self-knowledge gate** (plan rev 3): `scripts/mask/gate.py requests|parse` -> `data/mask/gate.json`;
+    `report` picks the frame by the pre-registered rule (`report.choose_frame`, ctx unless persona
+    carryover dominates) and adds gated headline tables at k = 8 / 9 / 10. It only subsets items.
   - `tmux kill-session -t name` prefix-matches: with `hb-mask-gen` gone it killed
     `hb-mask-genx`. Use `-t =name`.
 
