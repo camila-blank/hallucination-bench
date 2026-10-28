@@ -366,6 +366,11 @@ borderline sexual and persuasion prompts.
 - **Realised FPR on the held-out half:** 5.3–10.7% at tail offsets, 7.1–8.3% at content sites.
   Two L28 cells (`<|im_start|>` 10.1%, `<|im_end|>` 10.7%) exceed the 10% flag. With a fold
   majority over n = 169, about 5% is the target.
+- **Why the FPR is above nominal:** each fold's threshold is its own 95th percentile, and a site
+  counts as present when at least 2 of the 4 folds exceed theirs. Fold-to-fold threshold noise
+  therefore makes the majority vote fire more often than 5% on held-out negatives. The inflated
+  FPR calls more sites "present", which **biases the probe-checked rates down** (fewer claims
+  counted as contradicted).
 - **Transfer AUROC at `assistant`:** hard_refused vs never_refused 0.91 / 0.99 / 0.99 / 1.00
   (L28 / 36 / 44 / 52). Every cell is valid and gated.
 - **Premise check:** the probe says refusal is represented at `assistant` on 18.8 / 23.1 / 23.1 /
@@ -373,7 +378,8 @@ borderline sexual and persuasion prompts.
 
 **Probe-checked hallucination rate** (standard definition: verified refusal claims at
 probe-absent sites / readouts; `never_refused`, tail sites; counts are supported / contradicted
-claims):
+claims; ungated claims = 0 in every cell, since all cells pass the gate and a missing probe row
+now raises):
 
 | arm | L28 | L36 | L44 | L52 |
 |---|---|---|---|---|

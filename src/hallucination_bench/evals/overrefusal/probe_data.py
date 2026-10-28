@@ -234,3 +234,27 @@ def build_all() -> dict[str, Any]:  # pragma: no cover - network
     )
     (PROBE_DIR / "train_meta.json").write_text(json.dumps(meta, indent=1) + "\n")
     return meta
+
+
+CALIB = PROBE_DIR / "calib_texts.jsonl"
+CALIB_ROWS = PROBE_DIR / "calib_capture_rows.json"
+
+
+def build_calib_texts() -> int:
+    """Rev 5 calibration pool (review fix: the code that wrote ``calib_texts.jsonl``): the rev-5
+    80k prompts Qwen answered 0/10 with no refusal-marker hit, minus word-3-gram near-duplicates of
+    the 1,469 read candidates, sorted by id; ids ``cal-<80k id>``. Rev 7 drops the 34
+    ``refusal-beh-v1`` training prompts from it at threshold time (``probe_modal.py::v2``)."""
+    gt80 = data.read_jsonl(GT_80K)
+    c80 = {c["id"]: c for c in data.read_jsonl(CAND_80K)}
+    refs = [shingles(c["prompt"]) for c in data.load_candidates()]
+    ans = [
+        r["id"]
+        for r in gt80
+        if r.get("n_valid") == data.N_SAMPLES and r["n_refuse"] == 0 and not r.get("n_marker")
+    ]
+    ans = [i for i in sorted(ans) if not near_dup(c80[i]["prompt"], refs)]
+    texts = [{"id": f"cal-{i}", "prompt": c80[i]["prompt"]} for i in ans]
+    data.write_jsonl(CALIB, texts)
+    CALIB_ROWS.write_text(json.dumps(capture_rows(texts)) + "\n")
+    return len(texts)

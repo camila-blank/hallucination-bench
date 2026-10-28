@@ -18,6 +18,7 @@ SITES = Path("overrefusal") / "probe_sites.jsonl"
 ARTIFACT_JSON = PROBE_DIR / "refusal_probe_v1.json"
 TAIL = ("tail3", "tail2", "tail1", "tail0")  # <|im_end|>, \n, <|im_start|>, assistant
 POPS = data.POPULATIONS
+ALL_BUT_LEAD = "all_but_lead"  # every prompt position except the 3 lead template tokens (0-2)
 CALIB_TAG = "refusal-dm-v1+answered-calib"  # exploratory threshold (rev 6 addendum)
 
 
@@ -172,7 +173,7 @@ def _tag(by, S, gate, by_pop, la) -> dict[str, Any]:
     into probe-supported / probe-contradicted (``probe_checked``, the standard definition) /
     ungated; plus the claim counts."""
     out: dict[str, Any] = {}
-    for scope in ("tail", "all"):
+    for scope in ("tail", ALL_BUT_LEAD):
         cols = {k: [] for k in ("original", "probe_checked", "supported", "ungated")}
         n_claims = {"supported": 0, "contradicted": 0, "ungated": 0}
         for it in by_pop["never_refused"]:
@@ -184,8 +185,10 @@ def _tag(by, S, gate, by_pop, la) -> dict[str, Any]:
                 if r["status"] not in ("ok", "accepted_partial", "empty"):
                     continue
                 s = S.get((it["id"], r["pos"]))
-                g = bool(s) and gate[cls]
-                present = bool(s) and s["present"] >= 0.5
+                if s is None:  # review fix: never let a missing probe row fall into `ungated`
+                    raise KeyError(f"no probe_sites row for {it['id']} pos {r['pos']} L{la}")
+                g = gate[cls]
+                present = s["present"] >= 0.5
                 for f in r["ro"]:
                     c = f["ref"]
                     acc["original"].append(c)
@@ -213,7 +216,7 @@ def _tag(by, S, gate, by_pop, la) -> dict[str, Any]:
 def _misses(by, S, gate, its, la) -> dict[str, Any]:
     """always_refused: share of gated probe-present sites with no refusal claim in any readout."""
     out: dict[str, Any] = {}
-    for scope in ("tail", "all"):
+    for scope in ("tail", ALL_BUT_LEAD):
         n_present = n_miss = 0
         for it in its:
             for r in by.get((it["id"], la), []):
@@ -221,7 +224,9 @@ def _misses(by, S, gate, its, la) -> dict[str, Any]:
                 if cls == "lead" or (scope == "tail" and not cls.startswith("tail")):
                     continue
                 s = S.get((it["id"], r["pos"]))
-                if not s or not gate[cls] or s["present"] < 0.5:
+                if s is None:
+                    raise KeyError(f"no probe_sites row for {it['id']} pos {r['pos']} L{la}")
+                if not gate[cls] or s["present"] < 0.5:
                     continue
                 if r["status"] not in ("ok", "accepted_partial", "empty"):
                     continue
@@ -321,7 +326,8 @@ def render_md(res: dict[str, Any]) -> str:
             _p(r["original"]),
             _p(r["probe_checked"]),
             _p(r["supported"]),
-            f"{r['n_claims']['supported']} / {r['n_claims']['contradicted']}",
+            f"{r['n_claims']['supported']} / {r['n_claims']['contradicted']} / "
+            f"{r['n_claims']['ungated']}",
             _p(r["ungated"]),
         ]
         for arm, T in res["tagging"].items()
@@ -329,14 +335,23 @@ def render_md(res: dict[str, Any]) -> str:
         for scope, r in sc.items()
     ]
     head = ["arm", "probe/layer", "scope", "original", "probe_checked (contradicted)"]
-    L += _table([*head, "supported", "claims supported / contradicted", "ungated"], rows)
+    L += _table(
+        [*head, "supported", "claims supported / contradicted / ungated", "ungated rate"], rows
+    )
+    L += [
+        "Scope `all_but_lead` = every prompt position except the 3 lead template tokens "
+        "(`<|im_start|>`, `user`, `\\n`): NOT the same quantity as `report.md`'s all-sites "
+        "column, which includes them.",
+        "",
+    ]
     L += ["## Misses on always_refused (probe-present gated sites, no lens claim)", ""]
     rows = [
-        [arm, key, _miss(m["tail"]), _miss(m["all"])]
+        [arm, key, _miss(m["tail"]), _miss(m[ALL_BUT_LEAD])]
         for arm, T in res["misses"].items()
         for key, m in T.items()
     ]
-    L += _table(["arm", "probe/layer", "tail: n present, miss %", "all: n present, miss %"], rows)
+    head = ["arm", "probe/layer", "tail: n present, miss %"]
+    L += _table([*head, "all except lead (pos >= 3): n present, miss %"], rows)
     return "\n".join(L) + "\n"
 
 

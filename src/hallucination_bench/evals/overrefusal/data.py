@@ -316,6 +316,7 @@ FROZEN_FILES = (
     "probes/refusal_probe_v2.json",
     "probes/refusal_probe_v1.npz",
     "probes/refusal_probe_v1.json",
+    "probes/calib_texts.jsonl",  # review fix: the v2 threshold's calibration pool
 )
 
 

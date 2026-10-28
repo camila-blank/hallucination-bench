@@ -32,7 +32,9 @@ top_p=0.95, max_tokens=512, seed=0; greedy n=1, T=0) are not in git.
 - `refusal_probe_v1_calib.{npz,json}`: exploratory thresholds `tau_calib` / `c_tau_calib`
   re-calibrated on prompts Qwen answered (use these for OR-Bench-like prompts; the Alpaca `tau`
   fires on almost any harm-looking prompt).
-- `train_texts.jsonl`, `train_meta.json`, `calib_texts.jsonl`, `orbench80k_*`: training data.
+- `train_texts.jsonl`, `train_meta.json`, `orbench80k_*`: training data. `calib_texts.jsonl` (+
+  `calib_capture_rows.json`): the v2 threshold's calibration pool, written by
+  `hbench overrefusal probe-data calib` (byte-identical regeneration; in `MANIFEST.sha256`).
 
 ## Rev 7 (grown populations, threshold v2)
 

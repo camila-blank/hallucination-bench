@@ -126,7 +126,12 @@ def cmd_report(args: argparse.Namespace) -> int:
 def cmd_probe_data(args: argparse.Namespace) -> int:
     from . import probe_data
 
-    res = probe_data.build_80k_candidates() if args.step == "80k" else probe_data.build_all()
+    if args.step == "80k":
+        res: object = probe_data.build_80k_candidates()
+    elif args.step == "calib":
+        res = {"n_calib_texts": probe_data.build_calib_texts()}
+    else:
+        res = probe_data.build_all()
     print(json.dumps(res, indent=1, default=str))
     return 0
 
@@ -239,7 +244,7 @@ def register(sub: argparse._SubParsersAction) -> None:
     fz.set_defaults(fn=cmd_freeze)
 
     pd = osub.add_parser("probe-data", help="rev 5: probe training data (80k sample | texts)")
-    pd.add_argument("step", choices=["80k", "texts"])
+    pd.add_argument("step", choices=["80k", "texts", "calib"])
     pd.set_defaults(fn=cmd_probe_data)
 
     pr = osub.add_parser("probe-report", help="rev 5: probe validity, premise, tagging, misses")
