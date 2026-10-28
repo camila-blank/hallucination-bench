@@ -12,7 +12,7 @@ from typing import Any
 import numpy as np
 
 from . import data, probe, run
-from .probe_data import PROBE_DIR, VARIANTS
+from .probe_data import PROBE_DIR
 
 SITES = Path("overrefusal") / "probe_sites.jsonl"
 ARTIFACT_JSON = PROBE_DIR / "refusal_probe_v1.json"
@@ -63,29 +63,53 @@ def gates(prov: dict[str, Any], transfer: dict[str, Any]) -> dict[str, dict[str,
     return g
 
 
+V2_SITES = Path("overrefusal") / "probe_sites_v2.jsonl"
+V2_JSON = PROBE_DIR / "refusal_probe_v2.json"
+PRIMARY = "refusal-dm-v2"  # rev 7: v1 directions, on-distribution answered-prompt threshold
+SENS = "refusal-dm-v1-alpaca"  # rev 7 sensitivity: the Alpaca threshold
+REPORT_KEYS = (PRIMARY, SENS)
+
+
+def load_sites_v2(path: Path) -> dict[tuple[str, int], dict[tuple[str, int], dict[str, Any]]]:
+    out: dict[tuple[str, int], dict[tuple[str, int], dict[str, Any]]] = defaultdict(dict)
+    for line in Path(path).read_text().splitlines():
+        if not line.strip():
+            continue
+        r = json.loads(line)
+        k = (r["id"], r["pos"])
+        out[(PRIMARY, r["layer"])][k] = {**r, "present": r["present"]}
+        out[(SENS, r["layer"])][k] = {**r, "present": r["present_alpaca"]}
+    return out
+
+
 def build(out: Path, judge: str, arms: Sequence[str]) -> dict[str, Any]:
+    """Rev 7: primary = threshold v2 (``refusal_probe_v2``), sensitivity = Alpaca threshold;
+    same refusal-dm-v1 directions and z (v2 calibration null) for both."""
     items = data.load_items()
     by_pop = {p: [it for it in items if it["population"] == p] for p in POPS}
     pop_of = {it["id"]: it["population"] for it in items}
-    sites = load_sites(Path(out) / SITES)
-    prov = json.loads(ARTIFACT_JSON.read_text())
+    sites = load_sites_v2(Path(out) / V2_SITES)
+    v2 = json.loads(V2_JSON.read_text())
     res: dict[str, Any] = {
         "validity": {},
+        "fpr_holdout": v2["cells"],
         "transfer": {},
         "premise": {},
         "tagging": {},
         "misses": {},
     }
+    prov: dict[str, Any] = {"cells": {}}
     for (v, la), S in sorted(sites.items()):
         key = f"{v}/L{la}"
-        res["validity"][key] = prov["cells"][key]
-        # transfer (site z; tail offsets)
+        cell = v2["validity"][f"refusal-dm-v1/L{la}"]
+        prov["cells"][key] = cell
+        res["validity"][key] = cell
         T: dict[str, Any] = {}
         for cls in TAIL:
             z = {p: [] for p in POPS}
             pid = {p: [] for p in POPS}
             for (i, _), r in S.items():
-                if r["cls"] == cls:
+                if r["cls"] == cls and i in pop_of:
                     z[pop_of[i]].append(r["z"])
                     pid[pop_of[i]].append(i)
             T[cls] = {
@@ -100,44 +124,32 @@ def build(out: Path, judge: str, arms: Sequence[str]) -> dict[str, Any]:
         res["transfer"][key] = T
     G = gates(prov, res["transfer"])
     res["gates"] = G
-    # exploratory (not pre-registered): dm-v1 with the threshold re-calibrated on prompts Qwen
-    # answered (80k 0/10); same directions, same gate, presence column swapped
-    cal_path = Path(out) / "overrefusal" / "probe_sites_calib.jsonl"
-    if cal_path.exists():
-        for line in cal_path.read_text().splitlines():
-            if not line.strip():
-                continue
-            r = json.loads(line)
-            base = sites.get((r["variant"], r["layer"]), {}).get((r["id"], r["pos"]))
-            if base is None:
-                continue
-            ck = (CALIB_TAG, r["layer"])
-            sites.setdefault(ck, {})[(r["id"], r["pos"])] = {**base, "present": r["present_calib"]}
-        for la in {k[1] for k in sites if k[0] == CALIB_TAG}:
-            G[f"{CALIB_TAG}/L{la}"] = G[f"refusal-dm-v1/L{la}"]
     for (v, la), S in sorted(sites.items()):
         key = f"{v}/L{la}"
-        P: dict[str, Any] = {}
-        for cls in (*TAIL, "content"):
-            P[cls] = {}
-            for p, its in by_pop.items():
-                vals = []
-                for it in its:
-                    pres = [
-                        r["present"] >= 0.5
-                        for (i, _), r in S.items()
-                        if i == it["id"] and r["cls"] == cls
-                    ]
-                    if pres:
-                        vals.append(float(any(pres)))
-                P[cls][p] = _ci(np.array(vals))
-        res["premise"][key] = P
+        pres_by: dict[tuple[str, str], list[bool]] = defaultdict(list)
+        for (i, _), r in S.items():
+            pres_by[(i, r["cls"])].append(r["present"] >= 0.5)
+        res["premise"][key] = {
+            cls: {
+                p: _ci(
+                    np.array(
+                        [
+                            float(any(pres_by[(it["id"], cls)]))
+                            for it in its
+                            if pres_by[(it["id"], cls)]
+                        ]
+                    )
+                )
+                for p, its in by_pop.items()
+            }
+            for cls in (*TAIL, "content")
+        }
     for arm in arms:
         recs = data.read_jsonl(run.eval_root(out, judge) / arm / "cells.jsonl")
         by = defaultdict(list)
         for r in recs:
             by[(r["id"], r["layer"])].append(r)
-        for v in (*VARIANTS, CALIB_TAG):
+        for v in REPORT_KEYS:
             for la in sorted({r["layer"] for r in recs}):
                 key = f"{v}/L{la}"
                 S = sites.get((v, la))
@@ -157,11 +169,12 @@ def _site_info(it: dict[str, Any], pos: int) -> str:
 
 def _tag(by, S, gate, by_pop, la) -> dict[str, Any]:
     """never_refused, per scope (tail; all): prompt-weighted readout-level rates of claims, split
-    into probe-supported / unsupported / ungated; plus the supported share of claims."""
+    into probe-supported / probe-contradicted (``probe_checked``, the standard definition) /
+    ungated; plus the claim counts."""
     out: dict[str, Any] = {}
     for scope in ("tail", "all"):
-        cols = {k: [] for k in ("original", "unsupported", "supported", "ungated")}
-        n_claims = {"supported": 0, "unsupported": 0, "ungated": 0}
+        cols = {k: [] for k in ("original", "probe_checked", "supported", "ungated")}
+        n_claims = {"supported": 0, "contradicted": 0, "ungated": 0}
         for it in by_pop["never_refused"]:
             acc = {k: [] for k in cols}
             for r in by.get((it["id"], la), []):
@@ -176,18 +189,18 @@ def _tag(by, S, gate, by_pop, la) -> dict[str, Any]:
                 for f in r["ro"]:
                     c = f["ref"]
                     acc["original"].append(c)
-                    acc["unsupported"].append(c and g and not present)
+                    acc["probe_checked"].append(c and g and not present)
                     acc["supported"].append(c and g and present)
                     acc["ungated"].append(c and not g)
                     if c:
                         n_claims[
-                            "ungated" if not g else ("supported" if present else "unsupported")
+                            "ungated" if not g else ("supported" if present else "contradicted")
                         ] += 1
             if acc["original"]:
                 for k in cols:
                     cols[k].append(float(np.mean(acc[k])))
         tot = sum(n_claims.values())
-        gated = n_claims["supported"] + n_claims["unsupported"]
+        gated = n_claims["supported"] + n_claims["contradicted"]
         out[scope] = {
             **{k: _ci(np.array(v)) for k, v in cols.items()},
             "n_claims": n_claims,
@@ -237,7 +250,7 @@ def _miss(x: dict[str, Any]) -> str:
 
 def _share(r: dict[str, Any]) -> str:
     sh = r["supported_share_of_gated"]
-    n = r["n_claims"]["supported"] + r["n_claims"]["unsupported"]
+    n = r["n_claims"]["supported"] + r["n_claims"]["contradicted"]
     return "—" if sh is None else f"{100 * sh:.0f}% of {n}"
 
 
@@ -251,7 +264,26 @@ def _table(head: Sequence[str], rows: Sequence[Sequence[str]]) -> list[str]:
 
 
 def render_md(res: dict[str, Any]) -> str:
-    L = ["# overrefusal probe report (plan 0015 rev 5-6)", ""]
+    L = ["# overrefusal probe report (plan 0015 rev 7)", ""]
+    L += [
+        f"Primary `{PRIMARY}` = refusal-dm-v1 directions + on-distribution threshold v2 "
+        f"(`refusal_probe_v2`); `{SENS}` = the Alpaca threshold (sensitivity). "
+        "`probe_checked` = verified refusal_intent readouts at probe-absent sites / readouts.",
+        "",
+        "## Realised false-positive rate on the held-out calibration half (target ~5%)",
+        "",
+    ]
+    L += _table(
+        ["probe/layer", "tail0", "tail1", "tail2", "tail3", "content"],
+        [
+            [
+                k,
+                *(f"{100 * x:.1f}" for x in c["fpr_holdout"]),
+                f"{100 * c['fpr_holdout_content']:.1f}",
+            ]
+            for k, c in res["fpr_holdout"].items()
+        ],
+    )
     L += ["## Validity (OOF AUROC; tail0 = assistant) and transfer (site AUROC vs never)", ""]
     rows = []
     for key, c in res["validity"].items():
@@ -287,17 +319,17 @@ def render_md(res: dict[str, Any]) -> str:
             key,
             scope,
             _p(r["original"]),
-            _p(r["unsupported"]),
+            _p(r["probe_checked"]),
             _p(r["supported"]),
+            f"{r['n_claims']['supported']} / {r['n_claims']['contradicted']}",
             _p(r["ungated"]),
-            _share(r),
         ]
         for arm, T in res["tagging"].items()
         for key, sc in T.items()
         for scope, r in sc.items()
     ]
-    head = ["arm", "probe/layer", "scope", "original", "unsupported (probe absent)", "supported"]
-    L += _table([*head, "ungated", "supported share of gated claims"], rows)
+    head = ["arm", "probe/layer", "scope", "original", "probe_checked (contradicted)"]
+    L += _table([*head, "supported", "claims supported / contradicted", "ungated"], rows)
     L += ["## Misses on always_refused (probe-present gated sites, no lens claim)", ""]
     rows = [
         [arm, key, _miss(m["tail"]), _miss(m["all"])]

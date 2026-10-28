@@ -201,6 +201,169 @@ def calib() -> None:
     print(f"wrote {out}")
 
 
+READ_ACTS_V2 = (READ_ACTS, "acts-hb-overrefusal-v2add")
+
+
+@app.function(image=image, volumes=volumes, cpu=8, memory=49152, timeout=3600)
+def score_v2(layer: int, arrays: bytes, calib_ids: list[str], hold_ids: list[str]) -> dict:
+    """Plan rev 7: refusal-dm-v1 fold models, threshold v2 = per (fold, tail offset) q95 of the
+    score over the calibration half of the on-distribution answered pool (content: q95 of
+    h.U_k over their content positions); realised FPR on the held-out half; every read site
+    (old + v2add acts) scored with z_v2 / present_v2 and the Alpaca (v1 tau) presence."""
+    import numpy as np
+
+    from hallucination_bench.evals.sibling_probe import probes
+
+    A = dict(np.load(io.BytesIO(arrays)))
+    pre = f"refusal-dm-v1/L{layer}"
+    U, muU, sg, tau1 = (A[f"{pre}/{k}"].astype(np.float64) for k in ("U", "muU", "sigma", "tau"))
+    ctau1 = A[f"{pre}/c_tau"].astype(np.float64)
+    F = U.shape[0]
+    cal = _layer_acts(CALIB_ACTS, layer)
+
+    def tail_scores(ids: list[str], f: int, o: int) -> np.ndarray:
+        h = np.stack([cal[i][cal[i].shape[0] - 1 - o] for i in ids]).astype(np.float64)
+        return (h @ U[f] - muU[f, o]) / sg[f, o]
+
+    def content_proj(ids: list[str], f: int) -> np.ndarray:
+        c = [cal[i][3:-4] for i in ids if cal[i].shape[0] > 7]
+        return np.concatenate(c).astype(np.float64) @ U[f]
+
+    tau = np.zeros((F, 4))
+    mu = np.zeros((F, 4))
+    sd = np.zeros((F, 4))
+    ctau, cmu, csd = np.zeros(F), np.zeros(F), np.zeros(F)
+    for f in range(F):
+        for o in range(4):
+            x = tail_scores(calib_ids, f, o)
+            tau[f, o], mu[f, o], sd[f, o] = probes.q95(x), x.mean(), x.std(ddof=1)
+        x = content_proj(calib_ids, f)
+        ctau[f], cmu[f], csd[f] = probes.q95(x), x.mean(), x.std(ddof=1)
+    fpr = []
+    for o in range(4):
+        pres = np.mean([tail_scores(hold_ids, f, o) > tau[f, o] for f in range(F)], axis=0)
+        fpr.append(float(np.mean(pres >= 0.5)))
+    cpres = np.mean([content_proj(hold_ids, f) > ctau[f] for f in range(F)], axis=0)
+    fpr_content = float(np.mean(cpres >= 0.5))
+    sites = []
+    for sub in READ_ACTS_V2:
+        rd = _layer_acts(sub, layer)
+        for i, H in rd.items():
+            H = H.astype(np.float64)
+            n = H.shape[0]
+            for p in range(3, n):
+                o = n - 1 - p
+                if o < 4:
+                    s = np.array([(H[p] @ U[f] - muU[f, o]) / sg[f, o] for f in range(F)])
+                    z = float(np.mean((s - mu[:, o]) / sd[:, o]))
+                    pv2 = float(np.mean(s > tau[:, o]))
+                    pa = float(np.mean(s > tau1[:, o]))
+                    cls = f"tail{o}"
+                else:
+                    q = np.array([H[p] @ U[f] for f in range(F)])
+                    z = float(np.mean((q - cmu) / csd))
+                    pv2 = float(np.mean(q > ctau))
+                    pa = float(np.mean(q > ctau1))
+                    cls = "content"
+                sites.append([i, p, cls, z, pv2, pa])
+        del rd
+    return {
+        "layer": layer,
+        "tau_v2": tau.tolist(),
+        "mu_v2": mu.tolist(),
+        "sd_v2": sd.tolist(),
+        "c_tau_v2": ctau.tolist(),
+        "c_mu_v2": cmu.tolist(),
+        "c_sd_v2": csd.tolist(),
+        "fpr_holdout": fpr,
+        "fpr_holdout_content": fpr_content,
+        "sites": sites,
+    }
+
+
+@app.local_entrypoint()
+def v2() -> None:
+    import random
+
+    import numpy as np
+
+    pdir = _REPO / "data/overrefusal/probes"
+    raw = (pdir / "refusal_probe_v1.npz").read_bytes()
+    beh = {
+        json.loads(x)["id"].removeprefix("beh-")
+        for x in (pdir / "train_texts.jsonl").read_text().splitlines()
+        if x.strip() and json.loads(x)["variant"] == "refusal-beh-v1"
+    }
+    pool = sorted(
+        json.loads(x)["id"]
+        for x in (pdir / "calib_texts.jsonl").read_text().splitlines()
+        if x.strip() and json.loads(x)["id"].removeprefix("cal-") not in beh
+    )
+    random.Random(15).shuffle(pool)
+    half = len(pool) // 2
+    calib_ids, hold_ids = sorted(pool[:half]), sorted(pool[half:])
+    out = _REPO / "outputs/overrefusal/probe_sites_v2.jsonl"
+    arrays: dict[str, np.ndarray] = {
+        k: v for k, v in np.load(io.BytesIO(raw)).items() if k.startswith("refusal-dm-v1/")
+    }
+    meta: dict = {"cells": {}}
+    with out.open("w") as fh:
+        for r in score_v2.starmap([(la, raw, calib_ids, hold_ids) for la in LAYERS]):
+            key = f"refusal-dm-v1/L{r['layer']}"
+            for k in ("tau_v2", "mu_v2", "sd_v2", "c_tau_v2", "c_mu_v2", "c_sd_v2"):
+                arrays[f"{key}/{k}"] = np.asarray(r[k], np.float32)
+            meta["cells"][key] = {
+                "fpr_holdout": r["fpr_holdout"],
+                "fpr_holdout_content": r["fpr_holdout_content"],
+            }
+            for s in r["sites"]:
+                fh.write(
+                    json.dumps(
+                        {
+                            "layer": r["layer"],
+                            "id": s[0],
+                            "pos": s[1],
+                            "cls": s[2],
+                            "z": s[3],
+                            "present": s[4],
+                            "present_alpaca": s[5],
+                        }
+                    )
+                    + "\n"
+                )
+            print(
+                f"L{r['layer']} fpr_holdout={r['fpr_holdout']} content={r['fpr_holdout_content']}"
+            )
+    np.savez_compressed(pdir / "refusal_probe_v2.npz", **arrays)
+    v1 = json.loads((pdir / "refusal_probe_v1.json").read_text())
+    meta.update(
+        {
+            "version": "refusal-probe-v2",
+            "directions": "refusal-dm-v1 fold models (refusal_probe_v1.npz), unchanged",
+            "validity": {k: v for k, v in v1["cells"].items() if k.startswith("refusal-dm-v1")},
+            "threshold_rule": "tau_v2[f,o] = q95 of fold-f score s=(h.U[f]-muU[f,o])/sigma[f,o] "
+            "over the calibration half of on-distribution negatives (OR-Bench-80k prompts Qwen "
+            "answered 0/10, not in the read set, minus refusal-beh-v1 training prompts); "
+            "present iff mean over folds of s>tau_v2 >= 0.5; z=(s-mu_v2)/sd_v2 averaged; "
+            "content sites: p=h.U[f] vs c_tau_v2 / c_mu_v2 / c_sd_v2",
+            "calib_acts": f"wsbench-acts:/{CALIB_ACTS}",
+            "calib_ids": calib_ids,
+            "holdout_ids": hold_ids,
+            "split_seed": 15,
+            "alpaca_tau": "refusal_probe_v1.npz {key}/tau (sensitivity only)",
+            "subject": "Qwen/Qwen3.6-27B",
+            "layers": list(LAYERS),
+            "tail_offsets": v1["tail_offsets"],
+            "render": v1["render"],
+            "git_commit": subprocess.run(
+                ["git", "rev-parse", "HEAD"], capture_output=True, text=True, cwd=_REPO
+            ).stdout.strip(),
+        }
+    )
+    (pdir / "refusal_probe_v2.json").write_text(json.dumps(meta, indent=1) + "\n")
+    print(f"wrote {pdir / 'refusal_probe_v2.npz'}, {out}")
+
+
 @app.local_entrypoint()
 def main() -> None:
     import numpy as np

@@ -33,3 +33,19 @@ top_p=0.95, max_tokens=512, seed=0; greedy n=1, T=0) are not in git.
   re-calibrated on prompts Qwen answered (use these for OR-Bench-like prompts; the Alpaca `tau`
   fires on almost any harm-looking prompt).
 - `train_texts.jsonl`, `train_meta.json`, `calib_texts.jsonl`, `orbench80k_*`: training data.
+
+## Rev 7 (grown populations, threshold v2)
+
+- `grow/orbench80k2_candidates.jsonl` (450, 45 per OR-Bench category, `or-bench-80k` at the
+  pinned revision, excluding by exact + near-duplicate match every prompt used before),
+  `grow/orbench80k2_gt_labels.jsonl` (10 samples + greedy, `orgt-v2`), `grow/capture_rows_v2add.json`
+  (the 213 added items). `items.json` now holds 360 items (never_refused 160, hard_refused 100,
+  always_refused 100); the 147 rev-3 items are unchanged; every item has a `source`; the
+  category / source mix is in `items.json` `meta.rev7`.
+- **`probes/refusal_probe_v2.{npz,json}` (use this one):** the `refusal-dm-v1` fold arrays
+  (`U, muU, sigma, ...` as in v1) plus `tau_v2, mu_v2, sd_v2` `[fold, offset]` and
+  `c_tau_v2, c_mu_v2, c_sd_v2` `[fold]`, the primary threshold: q95 over the calibration half
+  of on-distribution negatives (OR-Bench-80k prompts Qwen answered 0/10, not in the read set).
+  Present at a tail offset o iff the mean over folds of `s > tau_v2[f,o]` is >= 0.5, with
+  `s = (h.U[f] - muU[f,o]) / sigma[f,o]`; z = `(s - mu_v2) / sd_v2`, averaged. The JSON has the
+  held-out-half realised FPR per (layer, offset), the split ids and provenance.

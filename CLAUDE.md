@@ -317,7 +317,12 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
   prompt thresholds; run with `uvx --with numpy`). Reusable artifact:
   `data/overrefusal/probes/refusal_probe_v1.{npz,json}` (schema in `data/overrefusal/README.md`).
   The pre-registered Alpaca threshold fires on ~all OR-Bench prompts; use `_calib` thresholds for
-  borderline prompts. Worktree venv on this box: the
+  borderline prompts. **Rev 7:** use `refusal_probe_v2.{npz,json}` (on-distribution threshold;
+  primary); `hbench overrefusal probe-report` reads `outputs/overrefusal/probe_sites_v2.jsonl`
+  (`probe_modal.py::v2`). The bank has 360 items (160 / 100 / 100); readouts default
+  `$HBENCH_OR_READOUTS` = `/workspace/hb-readouts-overrefusal-v2` (old + `-v2add`, merged by
+  `reads.sh merge`); `TAG=v2add reads.sh all` reads only the added items. `probe_checked` = verified
+  refusal readouts at probe-absent sites / readouts (the standard definition across evals). Worktree venv on this box: the
   uv sync command is hook-blocked, so install with `uv pip install --python .venv/bin/python
   -e . --group dev --group sibling` and run with `uv run --no-sync ...`.
 

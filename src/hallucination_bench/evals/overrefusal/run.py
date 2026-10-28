@@ -26,6 +26,7 @@ from . import data, detect, gt, verify
 
 READOUTS_FILE = "overrefusal.jsonl"
 STAGES = ("detect", "verify")
+GREEDY_CONFIGS = ("hard", "80k2")  # rev 7: the new never_refused source also needs a greedy reply
 
 
 @dataclass(frozen=True)
@@ -68,8 +69,9 @@ def gt_jobs(
         ss = sorted(by.get(c["id"], []), key=lambda s: s["sample"])
         if [s["sample"] for s in ss] != list(range(data.N_SAMPLES)):
             continue
-        gr = g.get(c["id"]) if c["config"] == "hard" else None
-        if c["config"] == "hard" and gr is None:
+        needs_greedy = c["config"] in GREEDY_CONFIGS
+        gr = g.get(c["id"]) if needs_greedy else None
+        if needs_greedy and gr is None:
             continue
         jobs.append((c, ss, gr))
     return jobs

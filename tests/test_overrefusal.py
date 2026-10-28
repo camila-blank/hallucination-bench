@@ -555,3 +555,39 @@ def test_probe_naming_gate():
     }
     g = probe_report.gates(prov, tr)["v/L28"]
     assert g == {"tail0": True, "tail1": False, "tail2": False, "tail3": True, "content": True}
+
+
+def test_grow_pick_capped_and_extend_keeps_items():
+    from hallucination_bench.evals.overrefusal import grow
+
+    have = [{"id": f"h{i}", "category": "sexual", "population": "never_refused"} for i in range(28)]
+    pool = [
+        {"id": f"p{c}{i}", "category": c} for c in ("sexual", "hate", "privacy") for i in range(40)
+    ]
+    got = grow.pick_capped(pool, have, target=60, cap=0.5, seed=0)
+    from collections import Counter
+
+    cnt = Counter(r["category"] for r in [*have, *got])
+    assert len(have) + len(got) == 60 and cnt["sexual"] <= 30
+    items = [
+        {"id": "orh-1", "population": "never_refused", "category": "x"},
+        {"id": "ort-1", "population": "always_refused", "category": "y"},
+    ]
+    gt_rows = [
+        {"id": "orh-1", "config": "hard", "n_valid": 10, "n_refuse": 0, "greedy_label": "comply"},
+        {"id": "or9-1", "config": "80k2", "n_valid": 10, "n_refuse": 0, "greedy_label": "comply"},
+        {
+            "id": "or9-2",
+            "config": "80k2",
+            "n_valid": 10,
+            "n_refuse": 0,
+            "greedy_label": "full_refusal",
+        },
+        {"id": "ort-2", "config": "toxic", "n_valid": 10, "n_refuse": 10},
+    ]
+    cands = {r["id"]: {"category": "c"} for r in gt_rows}
+    new, _meta = grow.extend_population(
+        items, gt_rows, cands, {"never_refused": 5, "hard_refused": 0, "always_refused": 2}
+    )
+    assert [r["id"] for r in new["never_refused"]] == ["or9-1"]  # kept item never re-drawn
+    assert [r["id"] for r in new["always_refused"]] == ["ort-2"]

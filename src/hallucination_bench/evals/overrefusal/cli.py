@@ -14,7 +14,7 @@ def _readouts_root(args: argparse.Namespace) -> Path:
     return Path(
         args.readouts_root
         or os.environ.get("HBENCH_OR_READOUTS")
-        or "/workspace/hb-readouts-overrefusal"
+        or "/workspace/hb-readouts-overrefusal-v2"  # rev 7: old + v2add readouts
     )
 
 
@@ -33,7 +33,9 @@ def cmd_judge_gt(args: argparse.Namespace) -> int:
         out,
         run.Judge(model=args.judge_model),
         samples_path=Path(args.samples) if args.samples else out / "overrefusal" / "samples.jsonl",
-        greedy_path=out / "overrefusal" / "samples_greedy.jsonl",
+        greedy_path=Path(args.greedy)
+        if args.greedy
+        else out / "overrefusal" / "samples_greedy.jsonl",
         candidates_path=Path(args.candidates) if args.candidates else None,
         labels_out=Path(args.labels_out) if args.labels_out else None,
         rpm=args.rpm,
@@ -138,6 +140,21 @@ def cmd_probe_report(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_grow(args: argparse.Namespace) -> int:
+    from . import grow
+
+    if args.step == "candidates":
+        res = grow.build_80k2_candidates()
+    else:
+        from transformers import AutoTokenizer
+
+        from . import data
+
+        res = grow.grow_bank(AutoTokenizer.from_pretrained(data.SUBJECT))
+    print(json.dumps(res, indent=1, default=str))
+    return 0
+
+
 def register(sub: argparse._SubParsersAction) -> None:
     p = sub.add_parser("overrefusal", help="plan 0015: OR-Bench over-refusal eval")
     osub = p.add_subparsers(dest="or_cmd", required=True)
@@ -162,6 +179,7 @@ def register(sub: argparse._SubParsersAction) -> None:
     g.add_argument("--candidates", default="", help="rev 5: another candidates file (80k sample)")
     g.add_argument("--samples", default="", help="rev 5: its samples file")
     g.add_argument("--labels-out", default="", help="rev 5: where its labels go")
+    g.add_argument("--greedy", default="", help="rev 7: its greedy samples file")
     g.set_defaults(fn=cmd_judge_gt)
 
     b = osub.add_parser("bank", help="Stage 3: populations + items.json + capture_rows.json")
@@ -177,6 +195,10 @@ def register(sub: argparse._SubParsersAction) -> None:
     r.add_argument("--layers", default="")
     r.add_argument("--stages", default="detect,verify")
     r.set_defaults(fn=cmd_run)
+
+    gw = osub.add_parser("grow", help="rev 7: 80k2 candidates | append new items to the bank")
+    gw.add_argument("step", choices=["candidates", "bank"])
+    gw.set_defaults(fn=cmd_grow)
 
     pd = osub.add_parser("probe-data", help="rev 5: probe training data (80k sample | texts)")
     pd.add_argument("step", choices=["80k", "texts"])
