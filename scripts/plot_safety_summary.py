@@ -31,6 +31,8 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
+from hallucination_bench import paths
+
 LAYERS = [28, 36, 44, 52]
 METHODS = [  # (key, label, colour, marker)
     ("olens", "O-lens (s3d-rl600)", "#2a78d6", "o"),
@@ -163,16 +165,14 @@ def main() -> None:
     ap.add_argument(
         "--or-dir",
         type=Path,
-        default=Path("/workspace/hb-overrefusal/outputs/overrefusal/claude-sonnet-5-5"),
+        default=paths.SAFETY_OR_OUT,
     )
     ap.add_argument(
         "--sr-dir",
         type=Path,
-        default=Path("/workspace/hb-strongreject/outputs/strongreject/claude-opus-5-5"),
+        default=paths.SAFETY_SR_OUT,
     )
-    ap.add_argument(
-        "--mask-dir", type=Path, default=Path("/workspace/hb-mask/outputs/mask/claude-opus-5-5")
-    )
+    ap.add_argument("--mask-dir", type=Path, default=paths.SAFETY_MASK_OUT)
     ap.add_argument("--out", type=Path, default=Path("plots/safety_evals_hb_summary.png"))
     args = ap.parse_args()
 
