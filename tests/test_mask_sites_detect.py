@@ -122,3 +122,12 @@ def test_verify_render_and_parse():
     assert out[0]["real"] and out[0]["recategory"] == "lie_claim"
     assert out[1]["recategory"] == "other"  # real=false cannot keep lie_claim
     assert out[2] is None
+
+
+def test_select_sites_all_positions():
+    prompt = SYS + USR + GEN
+    toks = [*prompt, "No", ".", "<|im_end|>"]
+    sel = bank.select_sites(toks, len(prompt), all_positions=True)
+    a = len(SYS) + len(USR) + 1
+    assert [p for p, st in sel if st == "prompt"] == list(range(a + 1))
+    assert [p for p, st in sel if st == "response"] == [len(prompt), len(prompt) + 1]

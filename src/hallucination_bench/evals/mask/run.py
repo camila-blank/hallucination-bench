@@ -31,6 +31,7 @@ from .gt import pressure_messages_text
 
 STAGES = ("detect", "verify", "verify_blind")
 SINGLE_ATTEMPTS = 2
+RETRY_CHUNK = 8  # rev 5: failed detector cells are re-batched in 8s before singles
 resolve_arms = bank.resolve_arms
 
 
@@ -104,6 +105,11 @@ async def _detect(
     print(f"  [D] {len(todo)} cells to detect in {len(batches)} batches", flush=True)
     for res in await asyncio.gather(*(one(b) for b in batches)):
         failed += res
+    # rev 5: a refused 40-cell batch is first re-asked as batches of RETRY_CHUNK (only the chunk
+    # holding the offending readout refuses again), then cell by cell
+    if failed and RETRY_CHUNK > 1:
+        chunks = [failed[i : i + RETRY_CHUNK] for i in range(0, len(failed), RETRY_CHUNK)]
+        failed = [j for r in await asyncio.gather(*(one(c) for c in chunks)) for j in r]
     for _ in range(SINGLE_ATTEMPTS):
         if not failed:
             break
@@ -204,8 +210,11 @@ def rebuild(
     model: str,
     effort: str | None,
     out_dir: Path,
+    suffix: str = "",
 ) -> dict[str, Any]:
-    """``cells.jsonl`` + ``summary.json`` from the cache only (no API calls)."""
+    """``cells{suffix}.jsonl`` + ``summary{suffix}.json`` from the cache only (no API calls).
+    Rev 5: a run restricted with ``--layers`` writes ``cells_L028.jsonl`` etc. (an arm is
+    processed one layer at a time to bound memory); readers merge every ``cells*.jsonl``."""
     site_of = {(t, s["pos"]): s for t, ss in sites.items() for s in ss}
     vj = {
         blind: {
@@ -216,7 +225,7 @@ def rebuild(
     status = Counter()
     n_mentions = Counter()
     out_dir.mkdir(parents=True, exist_ok=True)
-    tmp = out_dir / "cells.jsonl.tmp"
+    tmp = out_dir / f"cells{suffix}.jsonl.tmp"
     with tmp.open("w", encoding="utf-8") as fh:
         for c in sorted(cells, key=lambda c: (c.id, c.layer, c.pos)):
             lab = labels[c.id]
@@ -257,7 +266,7 @@ def rebuild(
                     rec["mentions"] = ms
             status[rec["status"]] += 1
             fh.write(json.dumps(rec, ensure_ascii=False) + "\n")
-    tmp.rename(out_dir / "cells.jsonl")
+    tmp.rename(out_dir / f"cells{suffix}.jsonl")
     spend: dict[str, float] = defaultdict(float)
     for r in cache.rows():
         usd = float(((r.get("meta") or {}).get("usage") or {}).get("usd") or 0.0)
@@ -279,7 +288,7 @@ def rebuild(
         "spend_total_usd": round(sum(spend.values()), 4),
         "versions": [D.PROMPT_VERSION, V.PROMPT_VERSION, V.BLIND_VERSION],
     }
-    (out_dir / "summary.json").write_text(json.dumps(summary, indent=1) + "\n")
+    (out_dir / f"summary{suffix}.json").write_text(json.dumps(summary, indent=1) + "\n")
     print(f"[{name}] {json.dumps(summary)}", flush=True)
     return summary
 
@@ -324,7 +333,10 @@ async def run_mask_async(
                 if st in stages:
                     vjobs = verify_jobs(cells, cache, djobs, items, model, effort, blind)
                     n_failed += await _verify(llm, cache, vjobs, items, model, blind)
-            rebuild(name, cells, cache, djobs, sites, labels, items, model, effort, out / name)
+            suffix = "".join(f"_L{la:03d}" for la in got_layers) if layers else ""
+            rebuild(
+                name, cells, cache, djobs, sites, labels, items, model, effort, out / name, suffix
+            )
             cache.close()
     finally:
         await llm.aclose()

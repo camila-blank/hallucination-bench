@@ -31,6 +31,7 @@ from . import source as S
 MASK_VERSION = "mask-25e0b12+json-v1"
 PRESS_VERSION = "maskpress-v1"
 PRESS_N, PRESS_X_N = 3, 7
+FALLBACK_MODEL = "claude-sonnet-5-5"  # plan rev 5: only on an Opus refusal
 N_STATEMENTS = PRESS_N + PRESS_X_N
 BELIEF_K = {1: 3, 2: 1, 3: 1}
 
@@ -193,6 +194,21 @@ async def run_gt_async(
             out = await llm.call(model=model, system=job.system, user=job.user, schema=job.schema)
             res = out.result if _valid(job, out.result) else None
             meta: dict[str, Any] = {"model": model, "usage": out.usage.to_dict()}
+            if res is None and out.usage.refusals and FALLBACK_MODEL != model:
+                # plan rev 5: Sonnet 5.5 only for an Opus refusal; recorded in meta
+                fb = await llm.call(
+                    model=FALLBACK_MODEL, system=job.system, user=job.user, schema=job.schema
+                )
+                usage.add(fb.usage)
+                if _valid(job, fb.result):
+                    res = fb.result
+                    meta = {
+                        "model": FALLBACK_MODEL,
+                        "fallback_from": model,
+                        "fallback_reason": "refusal",
+                        "usage": fb.usage.to_dict(),
+                        "usage_refused": out.usage.to_dict(),
+                    }
             if res is None:
                 n_failed += 1
                 meta["raw"] = out.result
@@ -207,7 +223,9 @@ async def run_gt_async(
         finally:
             await llm.aclose()
     spend = sum(
-        float(((r.get("meta") or {}).get("usage") or {}).get("usd") or 0.0) for r in cache.rows()
+        float(((r.get("meta") or {}).get(k) or {}).get("usd") or 0.0)
+        for r in cache.rows()
+        for k in ("usage", "usage_refused")
     )
     cache.close()
     print(f"[gt] run {usage.report()} | cache spend ${spend:.2f} | failed {n_failed}", flush=True)
@@ -276,9 +294,12 @@ def build_labels(
                 "truncated": pinned["finish"][0] == "length",
             }
         )
+    fallback = sorted(
+        r["key"] for r in cache.rows() if (r.get("meta") or {}).get("fallback_from") and r["result"]
+    )
     cache.close()
     counts = Counter(r["label"] for r in out)
-    return {"items": out, "counts": dict(counts)}
+    return {"items": out, "counts": dict(counts), "fallback_keys": fallback}
 
 
 def write_rollouts_gz(

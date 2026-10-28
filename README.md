@@ -174,7 +174,9 @@ uv run --no-sync python scripts/mask/gate.py requests    # rev 3 gate (then gen_
 uv run --no-sync python scripts/mask/gate.py parse       # -> data/mask/gate.json
 HF_HUB_OFFLINE=1 uv run --no-sync python scripts/mask/probe_build.py   # rev 4 probes: capture rows (then capture)
 uvx --python 3.12 modal@latest run scripts/mask/probe_modal.py        # -> data/mask/probe_scores.json
+scripts/mask/run_rev5.sh s3d-rl600 16                     # rev 5: detect + verify one layer at a time
 uv run hbench mask report                                # outputs/mask/<model>/report.md (+ gated + probe tables)
+uv run --no-sync python scripts/mask/plot_hb.py && uv run --no-sync python scripts/mask/freeze.py
 ```
 
 Other commands: `hbench run --rebuild` (regenerate `cells.jsonl` / `summary.json` from the cache,
@@ -213,7 +215,7 @@ and `outputs/wsbench_chat/<judge model>/{report.md,report.json,audit_samples.md}
 
 Index of every results doc: [`docs/results/README.md`](docs/results/README.md).
 
-[`docs/results/0017_mask_pilot.md`](docs/results/0017_mask_pilot.md): mask pilot (lie claims on honest items).
+[`docs/results/0017_mask_pilot.md`](docs/results/0017_mask_pilot.md): mask (rev 5, final frozen set): the HB score is the verified lie-claim readout rate on 155 gated honest_resisted items at every prompt / response position (the O-lens claims a lie on 0.6-1.6% of prompt readouts, so 40-77% of honest items get at least one claim; NLA 0.4-0.5%; J-lens ~0). Figure `plots/0017_mask_hb_score.png`.
 
 [`docs/results/0001_wsbench_chat_taxonomy.md`](docs/results/0001_wsbench_chat_taxonomy.md)
 (filled in after the full run); claim map:

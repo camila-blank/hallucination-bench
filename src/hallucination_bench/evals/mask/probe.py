@@ -59,6 +59,14 @@ class Probe:
         zs = [self.null.z(k, m.score(H, e, e), e)[:, DECEPTIVE] for k, m in enumerate(self.models)]
         return np.nanmean(zs, axis=0)
 
+    def score_fold(self, H: np.ndarray, k: int) -> np.ndarray:
+        """[P] concept-1 z of new positions under fold model k only (out-of-fold scoring of an
+        item that sat in fold k's held-out part)."""
+        if not len(H):
+            return np.zeros(0)
+        e = np.zeros(len(H), dtype=np.int64)
+        return self.null.z(k, self.models[k].score(H, e, e), e)[:, DECEPTIVE]
+
 
 def fit(
     windows: Sequence[np.ndarray],

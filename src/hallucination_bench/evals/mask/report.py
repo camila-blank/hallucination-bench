@@ -27,6 +27,7 @@ from hallucination_bench.evals.sibling_probe import probes as P
 from . import bank
 
 SITE_TYPES = bank.SITE_TYPES
+SITE_SETS = (*SITE_TYPES, "all")  # rev 5: "all" = every prompt + response site
 # stratum name -> predicate over (label, pressure stratum)
 STRATA: dict[str, Callable[[str, str | None], bool]] = {
     "honest_resisted": lambda lab, st: lab.startswith("honest") and st == "resisted",
@@ -163,6 +164,31 @@ def bootstrap(
     return out
 
 
+def merged_summary(arm_dir: Path) -> dict[str, Any]:
+    """Merge the per-layer ``summary_L*.json`` (rev 5) or read ``summary.json``: statuses and
+    mention counts summed over layers; spend is the whole cache's (identical in each file)."""
+    files = sorted(arm_dir.glob("summary_L*.json")) or [arm_dir / "summary.json"]
+    out: dict[str, Any] = {"status": Counter(), "n_mentions": Counter(), "n_verify_failed": 0}
+    for f in files:
+        s = json.loads(f.read_text())
+        out["status"].update(s["status"])
+        out["n_mentions"].update(s["n_mentions"])
+        out["n_verify_failed"] += s["n_verify_failed"]
+        out["spend_usd"], out["spend_total_usd"] = s["spend_usd"], s["spend_total_usd"]
+    out["status"], out["n_mentions"] = dict(out["status"]), dict(out["n_mentions"])
+    return out
+
+
+def arm_cell_files(arm_dir: Path) -> list[Path]:
+    """Rev 5: the per-layer ``cells_L*.jsonl`` files when present, else ``cells.jsonl``."""
+    per_layer = sorted(arm_dir.glob("cells_L*.jsonl"))
+    return per_layer or [arm_dir / "cells.jsonl"]
+
+
+def load_arm(arm_dir: Path) -> list[dict[str, Any]]:
+    return [c for p in arm_cell_files(arm_dir) for c in load_cells(p)]
+
+
 def load_cells(path: Path) -> list[dict[str, Any]]:
     keep = ("task_id", "layer", "pos", "site_type", "label", "stratum", "status", "n_readouts")
     out = []
@@ -181,8 +207,12 @@ def arm_metrics(cells: list[dict[str, Any]], n_boot: int) -> dict[str, Any]:
     rows: dict[str, Any] = {}
     stratum_of = {c["task_id"]: (c["label"], c["stratum"]) for c in cells}
     for layer in sorted({c["layer"] for c in cells}):
-        for site in SITE_TYPES:
-            sub = [c for c in cells if c["layer"] == layer and c["site_type"] == site]
+        for site in SITE_SETS:
+            sub = [
+                c
+                for c in cells
+                if c["layer"] == layer and (site == "all" or c["site_type"] == site)
+            ]
             row: dict[str, Any] = {}
             for measure in MEASURES:
                 st = item_stats(sub, measure)
@@ -265,8 +295,12 @@ def gated_metrics(
     stratum_of = {c["task_id"]: (c["label"], c["stratum"]) for c in cells}
     rows: dict[str, Any] = {}
     for layer in sorted({c["layer"] for c in cells}):
-        for site in SITE_TYPES:
-            sub = [c for c in cells if c["layer"] == layer and c["site_type"] == site]
+        for site in SITE_SETS:
+            sub = [
+                c
+                for c in cells
+                if c["layer"] == layer and (site == "all" or c["site_type"] == site)
+            ]
             st = item_stats(sub, "verified")
             row = {}
             for k in GATE_KS:
@@ -281,7 +315,7 @@ def gated_metrics(
 
 
 # ---------------------------------------------------------------- deception probes (rev 4)
-PROBE_FILE = "probe_scores.json"
+PROBE_SUMMARY = "probe_summary_v5.json"  # data/mask; per-site scores in outputs/mask
 
 
 def _gated(gate: list[dict[str, Any]], frame: str) -> tuple[set[str], set[str]]:
@@ -297,112 +331,107 @@ def _gated(gate: list[dict[str, Any]], frame: str) -> tuple[set[str], set[str]]:
 
 
 def probe_tables(
-    probe: dict[str, Any],
-    sites: dict[str, list[dict[str, Any]]],
+    summary: dict[str, Any],
+    scores: dict[str, Any],
     gate: list[dict[str, Any]],
     frame: str,
+    labels: dict[str, dict[str, Any]],
     arm_cells: dict[str, list[dict[str, Any]]],
 ) -> dict[str, Any]:
-    """Validity, transfer, premise check, probe-checked hallucination and misses (plan rev 4)."""
+    """Plan rev 5 probe tables. Probes: ``loao`` (primary; per-site present = score > the held-out
+    archetype's tau), ``cf`` (item-fold sensitivity; tau = its OOF honest q95), ``ip``
+    (Instructed-Pairs; transfer AUROC only). Per (layer, site type): transfer AUROC (item-mean
+    score, gated lie vs gated honest_resisted), premise check (share of sites present, and share of
+    items whose mean score > tau), and per arm the probe-checked rate (verified lie_claim readouts
+    at probe-**contradicted** sites / readouts), ``rate_supported``, counts and misses."""
     hr, li = _gated(gate, frame)
-    out: dict[str, Any] = {"n_honest_resisted": len(hr), "n_lie": len(li), "layers": {}}
-    for L, rec in sorted(probe["layers"].items(), key=lambda x: int(x[0])):
-        row: dict[str, Any] = {
-            "validity": {k: rec[k]["auroc_text"] for k in ("ip_end", "ip_resp")},
-            "cf_auroc_all": {k: rec[k]["auroc_text"] for k in ("cf_prompt", "cf_response")},
-        }
-        for st, ipk, cfk in (
-            ("prompt", "ip_end", "cf_prompt"),
-            ("response", "ip_resp", "cf_response"),
-        ):
-            tau_t, tau_cf = rec[ipk]["tau_text"], rec[cfk]["tau_text"]
-            item: dict[str, dict[str, float]] = {"ip": {}, "cf": {}, "ip_asst": {}}
-            for t, ss in sites.items():
-                idx = [i for i, x in enumerate(ss) if x["site_type"] == st]
-                if not idx:
-                    continue
-                item["ip"][t] = float(np.nanmean([rec["ip_scores"][t][i] for i in idx]))
-                item["cf"][t] = float(np.nanmean([rec["cf_scores"][t][i] for i in idx]))
-                if st == "prompt":
-                    a = [i for i in idx if ss[i]["token"] == "assistant"]
-                    if a:
-                        item["ip_asst"][t] = float(rec["ip_scores"][t][a[-1]])
-
-            def au(sc: dict[str, float]) -> float:
-                return P.auroc(
-                    np.array([v for t, v in sc.items() if t in li]),
-                    np.array([v for t, v in sc.items() if t in hr]),
+    out: dict[str, Any] = {"n_honest_resisted": len(hr), "n_lie": len(li), "layers": {}, "arms": {}}
+    pos_index = {(t, x["pos"]): i for t, ss in bank.load_sites().items() for i, x in enumerate(ss)}
+    present: dict[str, dict[tuple[str, int, int], bool]] = {"loao": {}, "cf": {}}
+    for L, jobs in sorted(scores["layers"].items(), key=lambda x: int(x[0])):
+        row: dict[str, Any] = {}
+        for st in SITE_TYPES:
+            z: dict[str, dict[str, Any]] = {"loao": {}, "cf": {}, "ip": {}}
+            tau_of: dict[str, float] = {}
+            for job, r in jobs.items():
+                sc = r["scores"].get(st, {})
+                if job.startswith("loao:"):
+                    tau = summary["layers"][L][job][f"loao_{st}"]["tau"]
+                    tau_of[job.split(":", 1)[1]] = tau
+                    for t, (idx, v) in sc.items():
+                        z["loao"][t] = (idx, v)
+                        for i, x in zip(idx, v, strict=True):
+                            present["loao"][(t, int(L), i)] = x > tau
+                elif job in ("cf", "ip"):
+                    for t, (idx, v) in sc.items():
+                        z[job][t] = (idx, v)
+                    if job == "cf":
+                        tau = summary["layers"][L]["cf"][f"cf_{st}"]["tau_pos"]
+                        for t, (idx, v) in sc.items():
+                            for i, x in zip(idx, v, strict=True):
+                                present["cf"][(t, int(L), i)] = x > tau
+            cell: dict[str, Any] = {"tau_loao": tau_of}
+            for pk in ("loao", "cf", "ip"):
+                mean = {t: float(np.mean(v)) for t, (idx, v) in z[pk].items() if len(v)}
+                cell[f"transfer_{pk}"] = P.auroc(
+                    np.array([v for t, v in mean.items() if t in li]),
+                    np.array([v for t, v in mean.items() if t in hr]),
                 )
-
-            def share(sc: dict[str, float], ids: set[str], tau: float) -> float | None:
-                v = [sc[t] > tau for t in ids if t in sc]
-                return sum(v) / len(v) if v else None
-
-            row[st] = {
-                "transfer_ip": au(item["ip"]),
-                "transfer_cf": au(item["cf"]),
-                "transfer_ip_assistant_site": au(item["ip_asst"]) if item["ip_asst"] else None,
-                "premise_hr_ip": share(item["ip"], hr, tau_t),
-                "premise_lie_ip": share(item["ip"], li, tau_t),
-                "premise_hr_cf": share(item["cf"], hr, tau_cf),
-                "premise_lie_cf": share(item["cf"], li, tau_cf),
-            }
+                if pk == "ip":
+                    continue
+                for grp, ids in (("hr", hr), ("lie", li)):
+                    flags = [
+                        present[pk][(t, int(L), i)] for t in ids if t in z[pk] for i in z[pk][t][0]
+                    ]
+                    cell[f"premise_sites_{grp}_{pk}"] = sum(flags) / len(flags) if flags else None
+                    if pk == "loao":
+                        arch_tau = {t: tau_of.get(labels[t]["archetype"]) for t in ids}
+                        it = [
+                            mean[t] > arch_tau[t]
+                            for t in ids
+                            if t in mean and arch_tau[t] is not None
+                        ]
+                    else:
+                        tau = summary["layers"][L]["cf"][f"cf_{st}"]["tau_pos"]
+                        it = [mean[t] > tau for t in ids if t in mean]
+                    cell[f"premise_items_{grp}_{pk}"] = sum(it) / len(it) if it else None
+            row[st] = cell
+        row["summaries"] = {
+            j: {k: v for k, v in r.items() if k not in ("layer", "job")}
+            for j, r in summary["layers"][L].items()
+        }
         out["layers"][L] = row
-    # probe-checked hallucination and misses, per arm x layer x site type
-    pos_index = {(t, x["pos"]): i for t, ss in sites.items() for i, x in enumerate(ss)}
-    out["arms"] = {}
     for arm, cells in arm_cells.items():
         res: dict[str, Any] = {}
         for c in cells:
             if c["status"] != "ok" or c["task_id"] not in (hr | li):
                 continue
-            rec = probe["layers"].get(str(c["layer"]))
-            if rec is None:
-                continue
-            ipk = "ip_end" if c["site_type"] == "prompt" else "ip_resp"
-            z = rec["ip_scores"][c["task_id"]][pos_index[(c["task_id"], c["pos"])]]
-            present = bool(np.isfinite(z) and z > rec[ipk]["tau_pos"])
-            # post-hoc sensitivity (not pre-registered): the cross-fit probe's own site flag
-            cfk = "cf_prompt" if c["site_type"] == "prompt" else "cf_response"
-            zc = rec["cf_scores"][c["task_id"]][pos_index[(c["task_id"], c["pos"])]]
-            present_cf = bool(np.isfinite(zc) and zc > rec[cfk]["tau_pos"])
-            hit = {m["readout"] for m in c["mentions"] if counted(m, "verified")}
             k = f"L{c['layer']:03d}:{c['site_type']}"
             d = res.setdefault(k, Counter())
-            if c["task_id"] in hr:
-                d["hr_readouts"] += c["n_readouts"]
-                d["hr_hits"] += len(hit)
-                d["hr_hits_supported"] += len(hit) if present else 0
-                d["hr_hits_supported_cf"] += len(hit) if present_cf else 0
-                d["hr_sites_present_cf"] += present_cf
-                d["hr_sites"] += 1
-                d["hr_sites_present"] += present
-            else:
-                d["lie_sites"] += 1
-                d["lie_sites_present"] += present
-                d["lie_present_no_claim"] += present and not hit
-                d["lie_claim_sites"] += bool(hit)
-                d["lie_sites_present_cf"] += present_cf
-                d["lie_present_no_claim_cf"] += present_cf and not hit
-        out["arms"][arm] = {
-            k: {
-                **dict(d),
-                "rate_original": d["hr_hits"] / d["hr_readouts"] if d["hr_readouts"] else None,
-                "rate_probe_checked": d["hr_hits_supported"] / d["hr_readouts"]
-                if d["hr_readouts"]
-                else None,
-                "miss_rate": d["lie_present_no_claim"] / d["lie_sites_present"]
-                if d["lie_sites_present"]
-                else None,
-                "rate_cf_checked": d["hr_hits_supported_cf"] / d["hr_readouts"]
-                if d["hr_readouts"]
-                else None,
-                "miss_rate_cf": d["lie_present_no_claim_cf"] / d["lie_sites_present_cf"]
-                if d["lie_sites_present_cf"]
-                else None,
-            }
-            for k, d in sorted(res.items())
-        }
+            hit = {m["readout"] for m in c["mentions"] if counted(m, "verified")}
+            for pk in ("loao", "cf"):
+                pi = pos_index.get((c["task_id"], c["pos"]))
+                pr = present[pk].get((c["task_id"], c["layer"], pi))
+                if pr is None:
+                    d[f"{pk}_unscored"] += 1
+                    continue
+                if c["task_id"] in hr:
+                    d[f"{pk}_hr_readouts"] += c["n_readouts"]
+                    d[f"{pk}_hr_supported"] += len(hit) if pr else 0
+                    d[f"{pk}_hr_contradicted"] += 0 if pr else len(hit)
+                else:
+                    d[f"{pk}_lie_present"] += pr
+                    d[f"{pk}_lie_present_no_claim"] += pr and not hit
+        out["arms"][arm] = {}
+        for k, d in sorted(res.items()):
+            row = dict(d)
+            for pk in ("loao", "cf"):
+                n = d[f"{pk}_hr_readouts"]
+                row[f"{pk}_rate_probe_checked"] = d[f"{pk}_hr_contradicted"] / n if n else None
+                row[f"{pk}_rate_supported"] = d[f"{pk}_hr_supported"] / n if n else None
+                lp = d[f"{pk}_lie_present"]
+                row[f"{pk}_miss_rate"] = d[f"{pk}_lie_present_no_claim"] / lp if lp else None
+            out["arms"][arm][k] = row
     return out
 
 
@@ -593,56 +622,44 @@ def render_md(rep: dict[str, Any]) -> str:
         pr = rep["probe"]
         L += [
             "",
-            "## Deception probes (rev 4)",
+            "## Deception probes (rev 5)",
             "",
-            f"Gated sets (ctx >= 9/10): honest_resisted n = {pr['n_honest_resisted']}, lie n = {pr['n_lie']}. "
-            "ip = Instructed-Pairs probe (`end` for prompt sites, `resp` for response sites); "
-            "cf = on-distribution cross-fit MASK probe (OOF).",
+            f"Gated sets: honest_resisted n = {pr['n_honest_resisted']}, lie n = {pr['n_lie']}. "
+            "loao = leave-one-archetype-out MASK probe (primary; threshold = q95 on unread honest "
+            "items of the training archetypes); cf = item-fold cross-fit (sensitivity); ip = "
+            "Instructed-Pairs (independent; direction AUROC only).",
             "",
-            "| layer | validity ip_end | validity ip_resp | transfer prompt ip (assistant site) | transfer prompt cf | "
-            "transfer response ip | transfer response cf |",
-            "|---|---|---|---|---|---|---|",
-        ]
-        for Lr, r in pr["layers"].items():
-            L.append(
-                f"| {Lr} | {_f(r['validity']['ip_end'])} | {_f(r['validity']['ip_resp'])} | "
-                f"{_f(r['prompt']['transfer_ip'])} ({_f(r['prompt']['transfer_ip_assistant_site'])}) | "
-                f"{_f(r['prompt']['transfer_cf'])} | {_f(r['response']['transfer_ip'])} | "
-                f"{_f(r['response']['transfer_cf'])} |"
-            )
-        L += [
-            "",
-            "### Premise check: share of items where the probe says deception is represented",
-            "",
-            "| layer | site | honest_resisted ip | lie ip | honest_resisted cf | lie cf |",
-            "|---|---|---|---|---|---|",
+            "| layer | site | transfer loao | transfer cf | transfer ip | sites present: honest_res. / lie (loao) | "
+            "items present: honest_res. / lie (loao) | sites present (cf) | items present (cf) |",
+            "|---|---|---|---|---|---|---|---|---|",
         ]
         for Lr, r in pr["layers"].items():
             for st in ("prompt", "response"):
                 x = r[st]
                 L.append(
-                    f"| {Lr} | {st} | {_f(x['premise_hr_ip'])} | {_f(x['premise_lie_ip'])} | "
-                    f"{_f(x['premise_hr_cf'])} | {_f(x['premise_lie_cf'])} |"
+                    f"| {Lr} | {st} | {_f(x['transfer_loao'])} | {_f(x['transfer_cf'])} | {_f(x['transfer_ip'])} | "
+                    f"{_f(x['premise_sites_hr_loao'])} / {_f(x['premise_sites_lie_loao'])} | "
+                    f"{_f(x['premise_items_hr_loao'])} / {_f(x['premise_items_lie_loao'])} | "
+                    f"{_f(x['premise_sites_hr_cf'])} / {_f(x['premise_sites_lie_cf'])} | "
+                    f"{_f(x['premise_items_hr_cf'])} / {_f(x['premise_items_lie_cf'])} |"
                 )
         L += [
             "",
-            "### Probe-checked hallucination (gated honest_resisted) and misses (gated lie)",
+            "### Probe-checked hallucination (verified lie_claim readouts at probe-contradicted sites / readouts, gated honest_resisted)",
             "",
-            "| arm | layer | site | original rate | probe-checked rate | verified claims supported | "
-            "honest sites probe-present | lie sites probe-present | miss rate |",
-            "|---|---|---|---|---|---|---|---|---|",
+            "| arm | layer | site | probe-checked (loao) | supported / contradicted (loao) | rate_supported (loao) | "
+            "miss rate (loao) | probe-checked (cf) | supported / contradicted (cf) | miss rate (cf) |",
+            "|---|---|---|---|---|---|---|---|---|---|",
         ]
         for arm, rows in pr["arms"].items():
             for k, d in rows.items():
                 layer, site = k.split(":")
                 L.append(
-                    f"| {arm} | {layer} | {site} | {_f(d['rate_original'])} | {_f(d['rate_probe_checked'])} | "
-                    f"{d.get('hr_hits_supported', 0)}/{d.get('hr_hits', 0)} | "
-                    f"{d.get('hr_sites_present', 0)}/{d.get('hr_sites', 0)} | "
-                    f"{d.get('lie_sites_present', 0)}/{d.get('lie_sites', 0)} | {_f(d['miss_rate'])} | "
-                    f"{_f(d['rate_cf_checked'])} | {d.get('hr_hits_supported_cf', 0)}/{d.get('hr_hits', 0)} | "
-                    f"{d.get('hr_sites_present_cf', 0)}/{d.get('hr_sites', 0)} / "
-                    f"{d.get('lie_sites_present_cf', 0)}/{d.get('lie_sites', 0)} | {_f(d['miss_rate_cf'])} |"
+                    f"| {arm} | {layer} | {site} | {_f(d['loao_rate_probe_checked'])} | "
+                    f"{d.get('loao_hr_supported', 0)} / {d.get('loao_hr_contradicted', 0)} | "
+                    f"{_f(d['loao_rate_supported'])} | {_f(d['loao_miss_rate'])} | "
+                    f"{_f(d['cf_rate_probe_checked'])} | {d.get('cf_hr_supported', 0)} / "
+                    f"{d.get('cf_hr_contradicted', 0)} | {_f(d['cf_miss_rate'])} |"
                 )
     L += ["", "## Health / spend", ""]
     for arm, s in rep["summaries"].items():
@@ -656,38 +673,38 @@ def render_md(rep: dict[str, Any]) -> str:
 def write_report(
     out: Path, arms: Sequence[str] | None = None, n_boot: int = 2000
 ) -> dict[str, Any]:
-    names = list(arms) if arms else sorted(p.parent.name for p in out.glob("*/cells.jsonl"))
+    names = list(arms) if arms else sorted({p.parent.name for p in out.glob("*/cells*.jsonl")})
     rep: dict[str, Any] = {"arms": {}, "acceptance": {}, "summaries": {}}
     for name in names:
-        cells = load_cells(out / name / "cells.jsonl")
+        cells = load_arm(out / name)
         rep["arms"][name] = arm_metrics(cells, n_boot)
         rep["acceptance"][name] = acceptance(cells)
-        rep["summaries"][name] = json.loads((out / name / "summary.json").read_text())
+        rep["summaries"][name] = merged_summary(out / name)
     gpath = bank.DATA_DIR / GATE_FILE
     if gpath.exists():
         gate = json.loads(gpath.read_text())["items"]
         frame, fstats = choose_frame(gate)
-        ppath = bank.DATA_DIR / PROBE_FILE
-        if ppath.exists():
-            psites = {
-                r["task_id"]: r["sites"]
-                for r in json.loads((bank.DATA_DIR / "sites.json").read_text())["items"]
-            }
+        ppath = bank.DATA_DIR / PROBE_SUMMARY
+        spath = out.parent / "probe_scores_v5.json.gz"
+        if ppath.exists() and spath.exists():
+            import gzip
+
+            with gzip.open(spath, "rt", encoding="utf-8") as fh:
+                pscores = json.load(fh)
             rep["probe"] = probe_tables(
                 json.loads(ppath.read_text()),
-                psites,
+                pscores,
                 gate,
                 frame,
-                {n: load_cells(out / n / "cells.jsonl") for n in names},
+                bank.load_labels(),
+                {n: load_arm(out / n) for n in names},
             )
+            del pscores
         rep["gate"] = {
             "frame": frame,
             "frame_rule_stats": fstats,
             "survival": gate_survival(gate),
-            "arms": {
-                n: gated_metrics(load_cells(out / n / "cells.jsonl"), gate, frame, n_boot)
-                for n in names
-            },
+            "arms": {n: gated_metrics(load_arm(out / n), gate, frame, n_boot) for n in names},
         }
     rep["qwen"] = qwen_lie_rates(bank.load_labels())
     rep["config"] = {"n_boot": n_boot, "measures": MEASURES, "strata": list(STRATA)}

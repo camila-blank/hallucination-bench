@@ -2,7 +2,7 @@
 # fetch_readouts.sh <arm> <gen-dir-name> <prose|tokens> [volume]   (plan 0017 §Readouts)
 # Fetch a MASK gen dir from Modal, convert it to the readout contract (wsbench-pub
 # convert-gen-dir) and write $HBENCH_MASK_READOUTS/<arm>/mask.jsonl, then check it is exactly the
-# read-set grid (data/mask/sites.json x the file's layers): no missing, off-grid or duplicate rows.
+# read-set grid (data/mask/sites.json.gz x the file's layers): no missing, off-grid or duplicate rows.
 set -euo pipefail
 arm=$1; gen=$2; kind=$3; vol=${4:-wsbench-gen-3}
 [[ -n $arm && $arm != */* && -n $gen && $gen != */* ]] || { echo "need <arm> <gen> (no slashes)" >&2; exit 2; }
@@ -15,9 +15,9 @@ mkdir -p "$G" "$DST/$arm"
 rm -rf "${G:?}/${gen:?}"  # volume get --force never deletes stale shard files
 cd "$G" && MODAL_RESOURCE_ENV=camila-blank UV_CACHE_DIR=${HBENCH_UV_CACHE:-$HOME/.cache/uv-hbmask} uvx --python 3.12 modal@latest volume get "$vol" "/$gen" . --force >/dev/null
 cd "$WSPUB" && "$WSPY" -m wsbench convert-gen-dir gen_dir="$G/$gen" out="$DST/$arm/mask.jsonl" kind="$kind" | tail -1
-python3 - "$DST/$arm/mask.jsonl" "$HERE/data/mask/sites.json" <<'PY'
-import json, sys
-want_pos = {(it["task_id"], s["pos"]) for it in json.load(open(sys.argv[2]))["items"] for s in it["sites"]}
+python3 - "$DST/$arm/mask.jsonl" "$HERE/data/mask/sites.json.gz" <<'PY'
+import gzip, json, sys
+want_pos = {(it["task_id"], s["pos"]) for it in json.load(gzip.open(sys.argv[2], "rt"))["items"] for s in it["sites"]}
 keys = []
 with open(sys.argv[1]) as fh:
     for line in fh:

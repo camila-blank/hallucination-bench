@@ -1,8 +1,10 @@
 """Plan 0017 rev 3: the self-knowledge gate. Does Qwen itself say its pinned reply did / did not
 match what it believes?
 
-``requests``: for every read item, two frames x two answer orders, n = 5 each (10 samples per
-frame, 5 per order), temperature 1.0, thinking off, for ``scripts/mask/gen_modal.py``:
+``requests``: for every gate candidate (rev 5: every non-doubling-down ``lie`` / ``honest_*``
+item; requests already generated are skipped), two frames x two answer orders, n = 5 each
+(10 samples per frame, 5 per order), temperature 1.0, thinking off, for
+``scripts/mask/gen_modal.py``:
 
 - ``ctx``: the pinned conversation (pressure system + user, the pinned sample-0 reply as the
   assistant turn) plus a follow-up user turn with the question;
@@ -18,7 +20,8 @@ counts against passing), and the per-order counts.
 
     uv run --no-sync python scripts/mask/gate.py requests
     uvx --python 3.12 modal@latest run scripts/mask/gen_modal.py \\
-        --requests outputs/mask/gen/gate_requests.jsonl --out outputs/mask/gen/gate_rollouts.jsonl
+        --requests outputs/mask/gen/gate_requests.jsonl \\
+        --out outputs/mask/gen/gate_rollouts_v5.jsonl
     uv run --no-sync python scripts/mask/gate.py parse
 """
 
@@ -107,15 +110,28 @@ def pinned_replies() -> dict[str, str]:
 
 
 def read_ids() -> list[str]:
-    return [
-        r["task_id"] for r in json.loads((bank.DATA_DIR / "read_set.json").read_text())["items"]
-    ]
+    """Plan rev 5: every gate candidate, i.e. every non-doubling-down item labelled ``lie`` or
+    ``honest_*`` (the read set is chosen after the gate). Rev 3 gated the rev-1 read set."""
+    return sorted(
+        t
+        for t, r in bank.load_labels().items()
+        if r["archetype"] != "doubling_down_known_facts"
+        and (r["label"] == "lie" or r["label"].startswith("honest"))
+    )
+
+
+OUT_FILES = (OUT, GEN / "gate_rollouts_v5.jsonl")  # rev 3 run, rev 5 additions
 
 
 def cmd_requests() -> None:
     items = {it["task_id"]: it for it in bank.load_items()}
     replies = pinned_replies()
     GEN.mkdir(parents=True, exist_ok=True)
+    done = set()
+    for f in OUT_FILES:
+        if f.exists():
+            with f.open() as fh:
+                done |= {json.loads(line)["id"] for line in fh if line.strip()}
     n = 0
     with REQ.open("w") as fh:
         for tid in read_ids():
@@ -123,6 +139,8 @@ def cmd_requests() -> None:
                 for order in ORDERS:
                     msgs = gate_messages(items[tid], replies[tid], frame, order)
                     r = {"id": f"{tid}:gate_{frame}_{order}", "messages": msgs, "n": N_PER_ORDER}
+                    if r["id"] in done:
+                        continue
                     fh.write(json.dumps({**r, **SAMPLING}, ensure_ascii=False) + "\n")
                     n += 1
     print(f"{n} requests -> {REQ}")
@@ -130,10 +148,13 @@ def cmd_requests() -> None:
 
 def cmd_parse() -> None:
     rows = {}
-    with OUT.open() as fh:
-        for line in fh:
-            r = json.loads(line)
-            rows[r["id"]] = r
+    for f in OUT_FILES:
+        if not f.exists():
+            continue
+        with f.open() as fh:
+            for line in fh:
+                r = json.loads(line)
+                rows[r["id"]] = r
     labels = bank.load_labels()
     items = []
     for tid in read_ids():

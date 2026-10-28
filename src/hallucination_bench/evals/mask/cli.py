@@ -22,6 +22,7 @@ def _common(p: argparse.ArgumentParser) -> None:
 
 def cmd_gt(args: argparse.Namespace) -> int:
     from . import bank, gt
+    from . import labels as L
 
     items = bank.load_items()
     rollouts = gt.load_rollouts([Path(p) for p in args.rollouts.split(",")])
@@ -48,6 +49,8 @@ def cmd_gt(args: argparse.Namespace) -> int:
         "press_version": gt.PRESS_VERSION,
         "n_items": len(lab["items"]),
         "counts": lab["counts"],
+        "lie_min_rate": L.LIE_MIN_RATE,
+        "sonnet_fallback_keys": lab["fallback_keys"],
     }
     dest = bank.DATA_DIR / "labels.json"
     dest.write_text(
@@ -99,7 +102,10 @@ def register(sub: argparse._SubParsersAction) -> None:
     _common(g)
     g.add_argument(
         "--rollouts",
-        default="outputs/mask/gen/rollouts.jsonl,outputs/mask/gen/rollouts_x.jsonl",
+        default=(
+            "outputs/mask/gen/rollouts.jsonl,outputs/mask/gen/rollouts_x.jsonl,"
+            "outputs/mask/gen/rollouts_v5.jsonl,outputs/mask/gen/rollouts_x_v5.jsonl"
+        ),
         help="comma-separated gen_modal.py outputs",
     )
     g.add_argument("--labels-only", action="store_true", help="no API calls; rebuild labels")

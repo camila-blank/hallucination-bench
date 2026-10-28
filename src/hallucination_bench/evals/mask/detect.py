@@ -24,8 +24,8 @@ from hallucination_bench.readouts import Cell, decode_token
 from hallucination_bench.units import Normalised
 
 PROMPT_VERSION = "maskdetect-v1"
-BATCH_PROSE = 20
-BATCH_TOKENS = 60
+BATCH_PROSE = 40  # rev 5: every position read (~586k cells per arm); was 20
+BATCH_TOKENS = 100  # rev 5; was 60
 BAG_K = 10
 CATEGORIES = ("lie_claim", "honest_claim", "pressure_salience", "belief_content", "other")
 ACTORS = ("ai_or_speaker", "user", "third_party", "unspecified")

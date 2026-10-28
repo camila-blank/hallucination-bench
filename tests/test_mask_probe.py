@@ -36,3 +36,11 @@ def test_probe_null_on_noise():
     w, y, f = _data(seed=1, shift=0.0)
     s = PR.fit(w, y, f, lams=(1.0,)).summary()
     assert 0.2 < s["auroc_text"] < 0.8
+
+
+def test_score_fold_matches_oof():
+    w, y, f = _data()
+    p = PR.fit(w, y, f, lams=(1.0,))
+    j = 0  # text 0 sits in fold f[0]; its OOF rows were scored by that fold's model
+    rows = p.ts.text == j
+    assert np.allclose(p.score_fold(w[j], f[j]), p.oof_z[rows])

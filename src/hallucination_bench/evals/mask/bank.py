@@ -9,6 +9,7 @@ kept local so this eval touches no shared module): ``HBENCH_MASK_READOUTS`` (rea
 ``<root>/<arm>/mask.jsonl``).
 """
 
+import gzip
 import json
 import os
 from collections.abc import Sequence
@@ -40,7 +41,12 @@ def load_labels() -> dict[str, dict[str, Any]]:
 
 
 def load_sites() -> dict[str, list[dict[str, Any]]]:
-    """``{task_id: [{pos, token, site_type, char}, ...]}`` of the read set."""
+    """``{task_id: [{pos, token, site_type, char}, ...]}`` of the read set (rev 5:
+    ``sites.json.gz``, every position; rev 1-4: ``sites.json``)."""
+    gz = DATA_DIR / "sites.json.gz"
+    if gz.exists():
+        with gzip.open(gz, "rt", encoding="utf-8") as fh:
+            return {r["task_id"]: r["sites"] for r in json.load(fh)["items"]}
     return {r["task_id"]: r["sites"] for r in _load("sites.json")["items"]}
 
 
@@ -50,7 +56,9 @@ def _linspace_int(lo: int, hi: int, n: int) -> list[int]:
     return sorted({round(lo + (hi - lo) * i / (n - 1)) for i in range(n)})
 
 
-def select_sites(tokens: Sequence[str], n_prompt_ids: int) -> list[tuple[int, str]]:
+def select_sites(
+    tokens: Sequence[str], n_prompt_ids: int, all_positions: bool = False
+) -> list[tuple[int, str]]:
     """``[(pos, site_type)]`` over a decoded token stream ``prompt + pinned response``.
 
     ``tokens`` are the decoded strings of the capture ``input_ids``; ``n_prompt_ids`` is the
@@ -58,7 +66,8 @@ def select_sites(tokens: Sequence[str], n_prompt_ids: int) -> list[tuple[int, st
     from the first system-content token to the ``assistant`` token of the last ``<|im_start|>``
     ``assistant`` pair (always included); the ``\\n<think>\\n\\n</think>\\n\\n`` suffix is never
     read. Response sites: 8 evenly spaced over the pinned tokens, a trailing ``<|im_end|>``
-    excluded."""
+    excluded. ``all_positions`` (plan rev 5): every prompt token ``0 .. a`` and every pinned
+    token, no thinning."""
     if len(tokens) < 3 or tokens[0] != IM_START or tokens[1] != "system":
         raise ValueError("render does not start with <|im_start|>system")
     s = next(i for i in range(2, n_prompt_ids) if "\n" in tokens[i]) + 1
@@ -67,10 +76,13 @@ def select_sites(tokens: Sequence[str], n_prompt_ids: int) -> list[tuple[int, st
     )
     if not s <= a:
         raise ValueError(f"empty prompt span ({s}, {a})")
-    out = [(p, "prompt") for p in _linspace_int(s, a, N_PROMPT_SITES)]
     r0, r1 = n_prompt_ids, len(tokens) - 1
     while r1 >= r0 and tokens[r1] == IM_END:
         r1 -= 1
+    if all_positions:
+        out = [(p, "prompt") for p in range(0, a + 1)]
+        return out + [(p, "response") for p in range(r0, r1 + 1)]
+    out = [(p, "prompt") for p in _linspace_int(s, a, N_PROMPT_SITES)]
     if r1 >= r0:
         out += [(p, "response") for p in _linspace_int(r0, r1, N_RESPONSE_SITES)]
     return out
@@ -95,8 +107,10 @@ def load_arm_cells(
     """Every cell of the read-set grid at the file's layers (or ``layers``); a missing,
     off-grid or duplicate row is fatal (the whole file is checked before ``layers`` applies)."""
     positions = {tid: [s["pos"] for s in ss] for tid, ss in sites.items()}
-    cells, rep = load_readouts(path)
-    bad = {k: v for k, v in rep.skipped.items() if v}
+    # rev 5: with ``layers`` only those layers are loaded (memory); the grid is then checked on
+    # them (scripts/mask/fetch_readouts.sh checks the whole file when it is written)
+    cells, rep = load_readouts(path, layers=layers)
+    bad = {k: v for k, v in rep.skipped.items() if v and k != "layer_not_selected"}
     if bad:
         raise SystemExit(f"{path}: skipped rows {bad}")
     have = {(c.id, c.layer, c.pos) for c in cells}

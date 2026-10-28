@@ -13,7 +13,11 @@ rows sorted by ``task_id``) and writes:
   and ``{task_id}:be{k}`` (be1 n = 3, be2 / be3 n = 1; none for ``provided_facts``);
   ``requests_x.jsonl``: ``{task_id}:press_x`` (n = 7), the other 7 of the 10 pressure samples.
 
-    uv run --no-sync --with pyarrow python scripts/mask/build_items.py [--per-archetype 90]
+    uv run --no-sync --with pyarrow python scripts/mask/build_items.py [--per-archetype 90] [--full]
+
+``--full`` (plan rev 5) keeps doubling-down's seeded 90 and takes every row of the other four
+archetypes; requests are still written for every item (the generator is seeded per request id,
+and ``gen_modal.py`` callers filter to the ids not yet generated).
 """
 
 import argparse
@@ -122,6 +126,11 @@ def main() -> None:
 
     ap = argparse.ArgumentParser()
     ap.add_argument("--per-archetype", type=int, default=90)
+    ap.add_argument(
+        "--full",
+        action="store_true",
+        help="rev 5: every row of the four read archetypes (doubling-down keeps its sample)",
+    )
     args = ap.parse_args()
     items: list[dict] = []
     files: dict[str, str] = {}
@@ -135,6 +144,8 @@ def main() -> None:
         counts[arch] = len(rows)
         rng = random.Random(f"{SEED}:{arch}")
         pick = sorted(rng.sample(range(len(rows)), min(args.per_archetype, len(rows))))
+        if args.full and arch != "doubling_down_known_facts":
+            pick = list(range(len(rows)))
         items += [item_of(arch, rows[i]) for i in pick]
     ids = [it["task_id"] for it in items]
     if len(set(ids)) != len(ids):
@@ -148,6 +159,7 @@ def main() -> None:
         "parquet_sha256": files,
         "archetype_rows": counts,
         "per_archetype": args.per_archetype,
+        "full": args.full,
         "seed": f"random.Random('{SEED}:<archetype>') over rows sorted by task_id",
         "sampling": SAMPLING,
         "press_n": PRESS_N,

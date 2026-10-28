@@ -130,29 +130,40 @@ def test_gate_pass_rule_and_frame_choice():
     assert surv["lie"]["all"]["ctx@9"] == 1 and surv["honest_resisted"]["all"]["ctx@9"] == 0
 
 
-def test_probe_tables_toy():
+def test_probe_tables_toy(monkeypatch):
+    from hallucination_bench.evals.mask import bank
+
     sites = {
-        "h": [
-            {"pos": 1, "site_type": "prompt", "token": "assistant"},
-            {"pos": 5, "site_type": "response", "token": "x"},
-        ],
-        "l": [
-            {"pos": 1, "site_type": "prompt", "token": "assistant"},
-            {"pos": 5, "site_type": "response", "token": "x"},
-        ],
+        "h": [{"pos": 1, "site_type": "prompt"}, {"pos": 5, "site_type": "response"}],
+        "l": [{"pos": 1, "site_type": "prompt"}, {"pos": 5, "site_type": "response"}],
     }
+    monkeypatch.setattr(bank, "load_sites", lambda: sites)
     gate = [_g("honest_correct", "resisted", 10, 0), _g("lie", None, 0, 10)]
     gate[0]["task_id"], gate[1]["task_id"] = "h", "l"
-    summ = {"auroc_text": 1.0, "tau_pos": 1.0, "tau_text": 1.0}
-    probe = {
+    labels = {"h": {"archetype": "known_facts"}, "l": {"archetype": "known_facts"}}
+    t1 = {"tau": 1.0}
+    summary = {
         "layers": {
             "36": {
-                "ip_end": summ,
-                "ip_resp": summ,
-                "cf_prompt": summ,
-                "cf_response": summ,
-                "ip_scores": {"h": [0.0, 2.0], "l": [3.0, 3.0]},
-                "cf_scores": {"h": [0.0, 0.0], "l": [3.0, 0.0]},
+                "loao:known_facts": {"loao_prompt": t1, "loao_response": t1},
+                "cf": {"cf_prompt": {"tau_pos": 1.0}, "cf_response": {"tau_pos": 1.0}},
+                "ip": {},
+            }
+        }
+    }
+
+    def sc(h_p, l_p, h_r, l_r):
+        return {
+            "prompt": {"h": [[0], [h_p]], "l": [[0], [l_p]]},
+            "response": {"h": [[1], [h_r]], "l": [[1], [l_r]]},
+        }
+
+    scores = {
+        "layers": {
+            "36": {
+                "loao:known_facts": {"scores": sc(0.0, 3.0, 0.0, 3.0)},
+                "cf": {"scores": sc(0.0, 3.0, 2.0, 0.0)},
+                "ip": {"scores": sc(0.0, 1.0, 0.0, 1.0)},
             }
         }
     }
@@ -166,11 +177,17 @@ def test_probe_tables_toy():
         }
 
     cells = [c("h", "honest_correct", "response", 5, [claim]), c("l", "lie", "response", 5, [])]
-    out = R.probe_tables(probe, sites, gate, "ctx", {"arm": cells})
+    out = R.probe_tables(summary, scores, gate, "ctx", labels, {"arm": cells})
     r = out["layers"]["36"]
-    assert r["prompt"]["transfer_ip"] == 1.0 and r["prompt"]["premise_hr_ip"] == 0.0
-    assert r["response"]["premise_hr_ip"] == 1.0 and r["response"]["premise_lie_cf"] == 0.0
+    assert r["prompt"]["transfer_loao"] == 1.0 and r["response"]["transfer_cf"] == 0.0
+    assert (
+        r["response"]["premise_sites_hr_loao"] == 0.0
+        and r["response"]["premise_items_lie_loao"] == 1.0
+    )
     d = out["arms"]["arm"]["L036:response"]
-    assert d["hr_hits_supported"] == 1 and d["hr_hits_supported_cf"] == 0
-    assert d["rate_original"] == 1 / 3 and d["rate_cf_checked"] == 0.0
-    assert d["miss_rate"] == 1.0  # the lie site is probe-present and carries no claim
+    # loao: the honest site is not present -> the claim is probe-contradicted
+    assert d["loao_hr_contradicted"] == 1 and d["loao_hr_supported"] == 0
+    assert d["loao_rate_probe_checked"] == 1 / 3 and d["loao_rate_supported"] == 0.0
+    # cf: the honest site is present -> supported; the lie site is not present -> no miss counted
+    assert d["cf_hr_supported"] == 1 and d["cf_rate_probe_checked"] == 0.0
+    assert d["loao_miss_rate"] == 1.0 and d["cf_miss_rate"] is None
