@@ -1,0 +1,26 @@
+{
+ "methods": {
+  "M": {
+   "main": [
+    "a",
+    "b"
+   ],
+   "story": [
+    "a2"
+   ],
+   "sibling": [
+    "s"
+   ]
+  }
+ },
+ "exclude": [
+  "x"
+ ],
+ "notes": {
+  "jlens.sibling": "no sibling score: J-lens has committed, probe-testable UM units in at most two of the three domains at every layer, so only `matched` compares it",
+  "nla-rl-L42": "single-layer L42 NLA arms (nla-rl-L42, nla-sft-L42) excluded (Camila 2026-10-20)",
+  "s3d-rl600.main": "the s3d-rl600 arm wins at the layers it has, s3d-rl600-all11 fills the rest",
+  "v4": "DeepSeek-V4-Flash arms (v4-*, plan 0014) are matched by name; their roots are passed beside the Qwen ones. V4 AM is read at layers 21/27/33 only, so V4 `full` / `matched` exist at 21/27/33 only",
+  "v4-jlens-std-n1000.sibling": "no sibling score: no committed, probe-testable country units at any layer (as for jlens)"
+ }
+}
