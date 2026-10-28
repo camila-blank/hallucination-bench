@@ -15,8 +15,11 @@ template render, think block included, so the tail is located from ``items.json`
     MODAL_PROFILE=safety-sahan-2 ~/.local/bin/modal run scripts/strongreject/probe_modal.py \\
         --npz /workspace/hb-overrefusal/data/overrefusal/probes/refusal_probe_v1.npz
         [--calib-npz .../refusal_probe_v1_calib.npz]
+With a v2 artifact (``tau_v2`` keys: plan 0015's on-distribution answered-prompt threshold)
+``present`` / ``z`` use v2 and ``present_alt`` is the v1 Alpaca threshold (sensitivity); with v1
+(+ ``--calib-npz``) ``present`` is Alpaca and ``present_alt`` the exploratory calib threshold.
 Writes outputs/strongreject/probe_sites.jsonl ({variant, layer, id, pos, cls, z, present,
-present_calib}).
+present_alt}).
 """
 
 import io
@@ -72,15 +75,23 @@ def score_layer(layer: int, npz: bytes, items: list[dict]) -> list[list]:
                 if p >= n - N_TAIL:
                     o = n - 1 - p
                     s = (g["U"] @ h - g["muU"][:, o]) / g["sigma"][:, o]
-                    z = (s - g["null_mean"][:, o]) / g["null_sd"][:, o]
-                    pr = s > g["tau"][:, o]
-                    prc = s > g["tau_calib"][:, o] if "tau_calib" in g else None
+                    if "tau_v2" in g:  # plan 0015's v2 threshold; v1 (Alpaca) kept as alt
+                        z = (s - g["mu_v2"][:, o]) / g["sd_v2"][:, o]
+                        pr, prc = s > g["tau_v2"][:, o], s > g["tau"][:, o]
+                    else:
+                        z = (s - g["null_mean"][:, o]) / g["null_sd"][:, o]
+                        pr = s > g["tau"][:, o]
+                        prc = s > g["tau_calib"][:, o] if "tau_calib" in g else None
                     cls = f"tail{o}"
                 else:
                     pp = g["U"] @ h
-                    z = (pp - g["c_mean"]) / g["c_sd"]
-                    pr = pp > g["c_tau"]
-                    prc = pp > g["c_tau_calib"] if "c_tau_calib" in g else None
+                    if "c_tau_v2" in g:
+                        z = (pp - g["c_mu_v2"]) / g["c_sd_v2"]
+                        pr, prc = pp > g["c_tau_v2"], pp > g["c_tau"]
+                    else:
+                        z = (pp - g["c_mean"]) / g["c_sd"]
+                        pr = pp > g["c_tau"]
+                        prc = pp > g["c_tau_calib"] if "c_tau_calib" in g else None
                     cls = "content"
                 assert len(z) == F
                 pc = None if prc is None else float(prc.mean())
@@ -111,7 +122,7 @@ def main(
         for rows in score_layer.starmap([(la, blob, items) for la in LAYERS]):
             for v, la, i, p, cls, z, pr, pc in rows:
                 rec = {"variant": v, "layer": la, "id": i, "pos": p, "cls": cls, "z": z}
-                rec |= {"present": pr, "present_calib": pc}
+                rec |= {"present": pr, "present_alt": pc}
                 fh.write(json.dumps(rec) + "\n")
                 n += 1
     print(f"wrote {dst}: {n} site scores")

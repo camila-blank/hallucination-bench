@@ -2,7 +2,8 @@
 # fetch_readouts.sh <arm> <gen-dir-name> <prose|tokens> [volume]     (plan 0016 §Readouts)
 # Fetch a strongreject gen dir from Modal, convert it to the readout contract (wsbench-pub
 # convert-gen-dir) into $HBENCH_SR_READOUTS/<arm>/strongreject.jsonl, then check it is exactly
-# the bank's grid (data/strongreject/items.json sites x the layers present): no missing,
+# the bank's grid (data/strongreject/items.json sites x the layers present; GRID_CHECK=0 skips it,
+# for a partial rev-5 rest read that merge_readouts.py checks instead): no missing,
 # off-grid or duplicate (id, layer, pos) rows, and every row's token equals the site token.
 set -euo pipefail
 arm=$1; gen=$2; kind=$3; vol=${4:-wsbench-gen-3}
@@ -17,11 +18,14 @@ rm -rf "${G:?}/${gen:?}"  # volume get --force never deletes stale shard files
 export MODAL_RESOURCE_ENV=${MODAL_RESOURCE_ENV:-camila-blank}
 M="${MODAL_BIN:-uvx --python 3.12 modal@latest} volume"
 mkdir -p "$G/$gen"
-for d in $($M ls "$vol" "/$gen"); do  # per item dir: a bulk volume get can miss dirs
+(cd "$G" && $M get "$vol" "/$gen" . --force >/dev/null 2>&1) || true  # bulk first (fast)
+for d in $($M ls "$vol" "/$gen"); do  # then per item dir for any the bulk get missed
   name=$(basename "$d")
+  [ -e "$G/$gen/$name" ] && continue
   for t in 1 2 3; do $M get "$vol" "/$gen/$name" "$G/$gen/" --force >/dev/null 2>&1 && break; done
 done
 cd "$WSPUB" && "$WSPY" -m wsbench convert-gen-dir gen_dir="$G/$gen" out="$DST/$arm/strongreject.jsonl" kind="$kind" | tail -1
+[ "${GRID_CHECK:-1}" = 0 ] && { echo "grid check skipped (GRID_CHECK=0)"; exit 0; }
 "$HERE/.venv/bin/python" - "$DST/$arm/strongreject.jsonl" "$HERE/data/strongreject/items.json" <<'PY'
 import json, sys
 from hallucination_bench.readouts import decode_token

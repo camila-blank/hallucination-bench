@@ -110,7 +110,7 @@ def test_site_positions():
     assert pos == sorted(pos) and pos[-1] == 199
     assert [p for p, r in s if r == "turn"] == [196, 197, 198, 199]
     assert len([1 for _, r in s if r == "tail"]) == 60
-    assert [p for p, r in s if r == "body"] == list(range(0, 136, 16))
+    assert [p for p, r in s if r == "body"] == list(range(136))  # rev 5: every position
     short = bank.site_positions(30)
     assert [p for p, _ in short] == list(range(30))
 
@@ -570,13 +570,13 @@ def test_probe_check():
                 "cls": "tail0" if pos == 2 else "content",
                 "z": 1.0,
                 "present": pres,
-                "present_calib": 0.25,
+                "present_alt": 0.25,
             }
             probe[(i, 36, pos)] = s
             sites.append(s)
     recs[0]["hc"] = "original"  # pos 0, probe present -> contradicted
     recs[1]["hc"] = "echo"  # pos 1, probe absent -> consistent
-    out = PC.probe_checked(recs, probe, its, "v", "alpaca")["36"]
+    out = PC.probe_checked(recs, probe, its, "v", "primary")["36"]
     hc = out["hc_all"]
     assert hc["n_claims"] == 2 and hc["n_probe_contradicted"] == 1
     assert hc["share_probe_consistent"] == 0.5
@@ -584,9 +584,61 @@ def test_probe_check():
     assert hc["probe_contradicted"]["value"] == pytest.approx(1 / 3 / 8)
     assert out["miss_all"]["n_probe_present"] == 16 and out["miss_all"]["miss_share"] == 0.5
     assert out["miss_tail"]["miss_share"] == 0.0
-    calib = PC.probe_checked(recs, probe, its, "v", "answered_calib")["36"]
+    calib = PC.probe_checked(recs, probe, its, "v", "alt")["36"]
     assert calib["hc_all"]["n_probe_contradicted"] == 0
     prem = PC.premise(sites, its)
-    assert prem["v"]["alpaca"]["36"]["tail0"]["unsuccessful"]["value"] == 1.0
-    assert prem["v"]["alpaca"]["36"]["content"]["unsuccessful"]["value"] == 0.5
-    assert prem["v"]["answered_calib"]["36"]["tail0"]["unsuccessful"]["value"] == 0.0
+    assert prem["v"]["primary"]["36"]["tail0"]["unsuccessful"]["value"] == 1.0
+    assert prem["v"]["primary"]["36"]["content"]["unsuccessful"]["value"] == 0.5
+    assert prem["v"]["alt"]["36"]["tail0"]["unsuccessful"]["value"] == 0.0
+
+
+def test_probe_check_standard():
+    from hallucination_bench.evals.strongreject import probe_check as PC
+
+    its = _items()
+    unsucc = [i for i, it in its.items() if it["outcome"] == "unsuccessful"]
+    recs, probe = [], {}
+    for i in unsucc:
+        for pos in range(3):
+            recs.append(_rec(i, pos, region="turn" if pos == 2 else "body"))
+            probe[(i, 36, pos)] = {
+                "cls": "tail0" if pos == 2 else "content",
+                "present": 1.0 if pos == 0 else 0.0,
+            }
+    recs[0]["hc"] = "original"  # pos 0: refusal present -> contradicted
+    recs[1]["hc"] = "echo"  # pos 1: absent -> supported
+    recs[5]["hc"] = (
+        "original"  # pos 2 (turn) of item 2: content valid? tail0 invalid -> undetermined
+    )
+    del probe[(recs[3]["id"], 36, 0)]
+    recs[3]["hc"] = "original"  # no probe score -> undetermined
+    valid = {(36, "content"): True, (36, "tail0"): False}
+    L = PC.standard(recs, probe, its, "primary", valid)["36"]
+    a = L["hc_all"]
+    assert a["n_readouts"] == 24 and a["n_claims"] == 4
+    assert (a["n_contradicted"], a["n_supported"], a["n_undetermined"]) == (1, 1, 2)
+    assert a["probe_checked_rate"] == pytest.approx(1 / 24)
+    assert L["hc_turn"]["n_readouts"] == 8 and L["hc_turn"]["n_undetermined"] == 1
+    assert L["hc_tail"]["n_readouts"] == 0 and L["hc_tail"]["probe_checked_rate"] is None
+
+
+def test_frozen_manifest():
+    """Rev 5: the final set is frozen; every file the eval reads matches MANIFEST.sha256."""
+    import hashlib
+
+    d = bank.BANK_DIR
+    man = d / "MANIFEST.sha256"
+    assert man.exists()
+    for line in man.read_text().splitlines():
+        digest, name = line.split("  ", 1)
+        assert hashlib.sha256((d / name).read_bytes()).hexdigest() == digest, name
+    oc = json.loads((d / "outcomes.json").read_text())
+    items = {it["id"]: it for it in json.loads((d / "items.json").read_text())["items"]}
+    by = {r["id"]: r for r in oc["prompts"]}
+    assert len(by) == 400
+    for i, it in items.items():
+        assert by[i]["outcome"] == it["outcome"]
+    unsucc = [r for r in oc["prompts"] if r["outcome"] == "unsuccessful"]
+    assert all(
+        r["n_refused"] == r["n_explicit_refusal"] == 10 and r["n_adopted"] == 0 for r in unsucc
+    )

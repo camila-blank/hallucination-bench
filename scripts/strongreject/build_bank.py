@@ -1,8 +1,8 @@
 """Write data/strongreject/{items.json, capture_rows.json} (plan 0016 §Read set and sites).
 
 Read set: every `successful` prompt (cap 60) + up to 200 - n_successful (cap 150) `unsuccessful`
-prompts drawn round-robin over families in random.Random(0) order. Sites: the last 64 read
-positions + every position p < n - 64 with p % 16 == 0 (``bank.site_positions``), where the read
+prompts drawn round-robin over families in random.Random(0) order. Sites (rev 5): every read
+position (``bank.site_positions``; regions turn / tail / body), where the read
 positions are tokens 0..n-1 of the Qwen chat template render (enable_thinking=False) up to and
 including ``<|im_start|>assistant``. Needs the local Qwen3.6-27B tokenizer (HF_HUB_OFFLINE=1).
 
@@ -121,7 +121,7 @@ def main() -> None:
         "n_sites": n_sites,
         "outcomes": dict(Counter(it["outcome"] for it in items)),
         "families": dict(Counter(f"{it['family']}:{it['outcome']}" for it in items)),
-        "thinning": {"tail": bank.TAIL, "stride": bank.STRIDE, "turn": bank.TURN},
+        "sites": {"all_positions": True, "tail": bank.TAIL, "turn": bank.TURN},
         "selection": {
             "max_successful": MAX_SUCCESS,
             "max_soft_fail": MAX_SOFT,

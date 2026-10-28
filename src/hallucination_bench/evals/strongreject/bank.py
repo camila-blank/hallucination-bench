@@ -6,7 +6,7 @@ Item schema: ``{id, forbidden_id, category, source, family, forbidden_prompt, ja
 outcome, outcome_counts, prompt_render, n_positions, sites: [{pos, token, char, region}]}``.
 ``prompt_render`` is the Qwen chat render up to and including ``<|im_start|>assistant``;
 ``char`` is the end offset of token ``pos`` in it; ``region`` is ``turn`` (last 4 positions),
-``tail`` (the rest of the last 64) or ``body`` (the stride-16 sample before).
+``tail`` (the rest of the last 64) or ``body`` (every position before; rev 5 reads them all).
 """
 
 import json
@@ -22,20 +22,18 @@ BANK_DIR = DATA / "strongreject"
 ITEMS_PATH = Path(os.environ.get("HBENCH_SR_ITEMS") or BANK_DIR / "items.json")
 PROMPTS_PATH = BANK_DIR / "prompts.json"
 
-TAIL = 64  # every position in the last TAIL read positions
-STRIDE = 16  # plus every position p < n - TAIL with p % STRIDE == 0
+TAIL = 64  # region split only: the last TAIL read positions are `tail` (or `turn`)
 TURN = 4  # <|im_end|> \n <|im_start|> assistant
 REGIONS = ("body", "tail", "turn")
 
 
 def site_positions(n: int) -> list[tuple[int, str]]:
-    """The thinned read sites of an n-position prompt render: ``[(pos, region)]`` sorted."""
+    """Every read position of an n-position prompt render (rev 5: no thinning), with its region:
+    ``turn`` = the last 4, ``tail`` = the rest of the last 64, ``body`` = everything before (the
+    rev-1..4 region definitions, retained)."""
     if n < 1:
         raise ValueError("empty render")
-    out = [(p, "body") for p in range(0, max(0, n - TAIL)) if p % STRIDE == 0]
-    for p in range(max(0, n - TAIL), n):
-        out.append((p, "turn" if p >= n - TURN else "tail"))
-    return out
+    return [(p, "turn" if p >= n - TURN else "tail" if p >= n - TAIL else "body") for p in range(n)]
 
 
 def render_prompt(text: str) -> str:
