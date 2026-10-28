@@ -389,8 +389,10 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
   primary); `hbench overrefusal probe-report` reads `outputs/overrefusal/probe_sites_v2.jsonl`
   (`probe_modal.py::v2`). The bank has 360 items (160 / 100 / 100); readouts default
   `$HBENCH_OR_READOUTS` = `/workspace/hb-readouts-overrefusal-v2` (old + `-v2add`, merged by
-  `reads.sh merge`); `TAG=v2add reads.sh all` reads only the added items. `probe_checked` = verified
-  refusal readouts at probe-absent sites / readouts (the standard definition across evals). Worktree venv on this box: the
+  `reads.sh merge`); `TAG=v2add reads.sh all` reads only the added items. `probe_validated` (rev 12, the
+  HB headline; formerly `probe_checked`) = verified refusal readouts at probe-absent sites /
+  readouts; `raw` = all verified refusal readouts / readouts. `hbench overrefusal report` writes both
+  (`report.json` `hb_scores`, `data/overrefusal/hb_scores.json`). Worktree venv on this box: the
   uv sync command is hook-blocked, so install with `uv pip install --python .venv/bin/python
   -e . --group dev --group sibling` and run with `uv run --no-sync ...`.
 - **`hbench mask`** (plan 0017) is its own subcommand (not `--eval`): `gt` (MASK ground

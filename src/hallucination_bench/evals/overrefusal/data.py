@@ -302,6 +302,7 @@ def positions(items: Sequence[dict[str, Any]]) -> dict[str, list[int]]:
 # ------------------------------------------------------------------ rev 8: frozen set
 
 MANIFEST = DATA_DIR / "MANIFEST.sha256"
+HB_SCORES = DATA_DIR / "hb_scores.json"  # rev 12: the two official HB scores, written by report
 FROZEN_FILES = (
     "items.json",
     "candidates.jsonl",

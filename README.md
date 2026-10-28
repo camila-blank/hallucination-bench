@@ -20,7 +20,7 @@ hallucination eval is one of many evals here; see `plans/` for the design histor
 
 ## overrefusal (plan 0015)
 
-HB score = verified false-refusal-claim rate on 160 never-refused OR-Bench prompts (tail sites headline; frozen set `data/overrefusal/MANIFEST.sha256`; results `docs/results/0015_overrefusal_pilot.md`). Refusal probe for reuse: `data/overrefusal/probes/refusal_probe_v2.{npz,json}`.
+Two official HB scores on 160 never-refused OR-Bench prompts (tail sites headline): **probe_validated** (HEADLINE: verified refusal claims at sites where `refusal_probe_v2` says refusal is not represented / readouts; a lower bound) and **raw** (all verified refusal claims / readouts; an upper bound), frozen in `data/overrefusal/hb_scores.json` (frozen set `data/overrefusal/MANIFEST.sha256`; results `docs/results/0015_overrefusal_pilot.md`). Refusal probe for reuse: `data/overrefusal/probes/refusal_probe_v2.{npz,json}`.
 
 ![overrefusal HB rate](plots/overrefusal_hb_rate.png)
 | `mask` (pilot) | MASK (lies vs honest-but-wrong): on-policy Qwen3.6-27B ground truth (MASK's judge prompts and belief / honesty aggregation), then how often a lens **claims the model is lying when it was honest** (blind detector -> prompt-aware verifier), at prompt sites (prediction) and response sites (detection), beside the same rate on lie items, also on the subset where Qwen itself says it lied / was honest (self-knowledge gate), with deception probes checking whether the lie is represented at the read sites; its own CLI `hbench mask gt|run|report`; not on the index | [0017](plans/0017-mask-eval.md) |

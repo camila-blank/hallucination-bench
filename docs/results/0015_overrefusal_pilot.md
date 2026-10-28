@@ -342,8 +342,9 @@ claims at probe-absent sites):
 - 9,521 + 1,804 sites in total, every prompt position, all three arms at L28/36/44/52.
 - GT on the 80k sample: 446 of 450 labelled. Opus handled most, with a recorded Sonnet fallback.
 
-**HB score = the verified false-refusal-claim rate on `never_refused`** (readouts with a
-`refusal_intent` claim / readouts, prompt-weighted, 95% CI):
+**Raw HB score = the verified false-refusal-claim rate on `never_refused`** (readouts with a
+`refusal_intent` claim / readouts, prompt-weighted, 95% CI). Since rev 12 the **headline is the
+probe-validated score** (below):
 
 | arm | L28 tail | L36 tail | L44 tail | L52 tail | L28 all | L36 all | L44 all | L52 all |
 |---|---|---|---|---|---|---|---|---|
@@ -369,26 +370,26 @@ borderline sexual and persuasion prompts.
 - **Why the FPR is above nominal:** each fold's threshold is its own 95th percentile, and a site
   counts as present when at least 2 of the 4 folds exceed theirs. Fold-to-fold threshold noise
   therefore makes the majority vote fire more often than 5% on held-out negatives. The inflated
-  FPR calls more sites "present", which **biases the probe-checked rates down** (fewer claims
+  FPR calls more sites "present", which **biases the probe-validated rates down** (fewer claims
   counted as contradicted).
 - **Transfer AUROC at `assistant`:** hard_refused vs never_refused 0.91 / 0.99 / 0.99 / 1.00
   (L28 / 36 / 44 / 52). Every cell is valid and gated.
 - **Premise check:** the probe says refusal is represented at `assistant` on 18.8 / 23.1 / 23.1 /
   15.6% of `never_refused` prompts (L28 / 36 / 44 / 52), against 84–100% of `hard_refused`.
 
-**Probe-checked hallucination rate** (standard definition: verified refusal claims at
+**Probe-validated HB score (HEADLINE, rev 12; formerly `probe_checked`)** (verified refusal claims at
 probe-absent sites / readouts; `never_refused`, tail sites; counts are supported / contradicted
 claims; ungated claims = 0 in every cell, since all cells pass the gate and a missing probe row
 now raises):
 
 | arm | L28 | L36 | L44 | L52 |
 |---|---|---|---|---|
-| O-lens: original → probe-checked | 17.1 → **12.6** (88 / 241) | 4.4 → **1.9** (47 / 37) | 5.3 → **2.0** (62 / 39) | 0.9 → **0.4** (11 / 7) |
+| O-lens: raw → probe-validated | 17.1 → **12.6** (88 / 241) | 4.4 → **1.9** (47 / 37) | 5.3 → **2.0** (62 / 39) | 0.9 → **0.4** (11 / 7) |
 | multilayer NLA | 4.2 → **1.5** (52 / 29) | 1.9 → **0.3** (32 / 5) | 1.5 → **0.3** (22 / 6) | 0.7 → **0.0** (13 / 0) |
 | J-lens | 0 | 0 | 0 | 1.7 → **0.3** (9 / 2) |
 
 - The Alpaca threshold, as a sensitivity check, calls nearly every claim supported
-  (probe-checked ≤ 0.5%).
+  (probe-validated ≤ 0.5%).
 - **Misses on toxic prompts** (probe-present tail sites with no lens claim): O-lens 35–42%,
   multilayer NLA 28–39%, J-lens 45–100%.
 
@@ -414,3 +415,24 @@ refused / never-refused pairs, prompt positions only).
   - mlnla reads: about 60 h; the HF reference kernels are slow.
   - J-lens: about 0.3 h.
   - Probe CPU: about 2 container-hours.
+
+## Rev 12: official HB scores (2026-10-28)
+
+Relabelling only; the numbers are unchanged. The two official scores are frozen in
+`data/overrefusal/hb_scores.json`, with full CIs in `report.md`.
+
+**Probe-validated (HEADLINE)** / raw, `never_refused`, tail sites, % readouts:
+
+| reader | L28 | L36 | L44 | L52 |
+|---|---|---|---|---|
+| O-lens s3d-rl600 | **12.6** / 17.1 | **1.9** / 4.4 | **2.0** / 5.3 | **0.4** / 0.9 |
+| multilayer NLA | **1.5** / 4.2 | **0.3** / 1.9 | **0.3** / 1.5 | **0.0** / 0.7 |
+| J-lens | **0.0** / 0.0 | **0.0** / 0.0 | **0.0** / 0.0 | **0.3** / 1.7 |
+
+- **probe_validated** = verified refusal claims at sites where `refusal_probe_v2` says refusal
+  is NOT represented / readouts.
+- **raw** = all verified refusal claims / readouts.
+- The probe's held-out false-positive rate is 5–11%, so some "supported" claims are supported
+  only by probe false positives. Probe-validated is a **lower bound** and raw an **upper bound**.
+- All-position versions are in `report.md`: raw over every position, probe-validated over every
+  position except the 3 lead tokens.

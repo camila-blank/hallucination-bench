@@ -627,3 +627,22 @@ def test_wsb_pairs_and_flags():
     assert not f["n1"]["all"]["44"]["flag"]  # 1 of 3 is below the quorum
     ft = w.item_flags(cells, by, "tokens")
     assert ft["n1"]["all"]["44"]["flag"] and not ft["n1"]["tail"]["44"]["flag"]
+
+
+def test_hb_scores_frozen_numbers():
+    """Rev 12: the two official HB scores (tail, never_refused) as published; relabelling only."""
+    from hallucination_bench.evals.overrefusal import report
+
+    hb = json.loads(data.HB_SCORES.read_text())
+    o = hb["arms"]["s3d-rl600"]
+    raw = [round(100 * o[la]["tail"]["raw"]["mean"], 1) for la in ("28", "36", "44", "52")]
+    val = [
+        round(100 * o[la]["tail"]["probe_validated"]["mean"], 1) for la in ("28", "36", "44", "52")
+    ]
+    assert raw == [17.1, 4.4, 5.3, 0.9]
+    assert val == [12.6, 1.9, 2.0, 0.4]
+    for by in hb["arms"].values():
+        for d in by.values():  # validated <= raw everywhere (it only subtracts supported claims)
+            assert d["tail"]["probe_validated"]["mean"] <= d["tail"]["raw"]["mean"] + 1e-12
+    md = "\n".join(report.render_hb(hb))
+    assert "probe_validated (HEADLINE)" in md and "lower bound" in md

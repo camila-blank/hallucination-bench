@@ -170,11 +170,11 @@ def _site_info(it: dict[str, Any], pos: int) -> str:
 
 def _tag(by, S, gate, by_pop, la) -> dict[str, Any]:
     """never_refused, per scope (tail; all): prompt-weighted readout-level rates of claims, split
-    into probe-supported / probe-contradicted (``probe_checked``, the standard definition) /
-    ungated; plus the claim counts."""
+    into probe-supported / probe-contradicted (``probe_validated``, the HB headline; rev 12) /
+    ungated; plus the claim counts. ``raw`` = every verified claim (the raw HB score)."""
     out: dict[str, Any] = {}
     for scope in ("tail", ALL_BUT_LEAD):
-        cols = {k: [] for k in ("original", "probe_checked", "supported", "ungated")}
+        cols = {k: [] for k in ("raw", "probe_validated", "supported", "ungated")}
         n_claims = {"supported": 0, "contradicted": 0, "ungated": 0}
         for it in by_pop["never_refused"]:
             acc = {k: [] for k in cols}
@@ -191,21 +191,25 @@ def _tag(by, S, gate, by_pop, la) -> dict[str, Any]:
                 present = s["present"] >= 0.5
                 for f in r["ro"]:
                     c = f["ref"]
-                    acc["original"].append(c)
-                    acc["probe_checked"].append(c and g and not present)
+                    acc["raw"].append(c)
+                    acc["probe_validated"].append(c and g and not present)
                     acc["supported"].append(c and g and present)
                     acc["ungated"].append(c and not g)
                     if c:
                         n_claims[
                             "ungated" if not g else ("supported" if present else "contradicted")
                         ] += 1
-            if acc["original"]:
+            if acc["raw"]:
                 for k in cols:
                     cols[k].append(float(np.mean(acc[k])))
         tot = sum(n_claims.values())
         gated = n_claims["supported"] + n_claims["contradicted"]
+        stats = {k: _ci(np.array(v)) for k, v in cols.items()}
         out[scope] = {
-            **{k: _ci(np.array(v)) for k, v in cols.items()},
+            **stats,
+            # aliases kept for readers of the pre-rev-12 keys (scripts/plot_safety_summary.py)
+            "original": stats["raw"],
+            "probe_checked": stats["probe_validated"],
             "n_claims": n_claims,
             "supported_share_of_gated": (n_claims["supported"] / gated) if gated else None,
             "n_claims_total": tot,
@@ -273,7 +277,8 @@ def render_md(res: dict[str, Any]) -> str:
     L += [
         f"Primary `{PRIMARY}` = refusal-dm-v1 directions + on-distribution threshold v2 "
         f"(`refusal_probe_v2`); `{SENS}` = the Alpaca threshold (sensitivity). "
-        "`probe_checked` = verified refusal_intent readouts at probe-absent sites / readouts.",
+        "`probe_validated` (HB headline) = verified refusal_intent readouts at probe-absent sites "
+        "/ readouts; `raw` = all verified refusal_intent readouts / readouts.",
         "",
         "## Realised false-positive rate on the held-out calibration half (target ~5%)",
         "",
@@ -323,8 +328,8 @@ def render_md(res: dict[str, Any]) -> str:
             arm,
             key,
             scope,
-            _p(r["original"]),
-            _p(r["probe_checked"]),
+            _p(r["raw"]),
+            _p(r["probe_validated"]),
             _p(r["supported"]),
             f"{r['n_claims']['supported']} / {r['n_claims']['contradicted']} / "
             f"{r['n_claims']['ungated']}",
@@ -334,7 +339,7 @@ def render_md(res: dict[str, Any]) -> str:
         for key, sc in T.items()
         for scope, r in sc.items()
     ]
-    head = ["arm", "probe/layer", "scope", "original", "probe_checked (contradicted)"]
+    head = ["arm", "probe/layer", "scope", "raw", "probe_validated (headline)"]
     L += _table(
         [*head, "supported", "claims supported / contradicted / ungated", "ungated rate"], rows
     )

@@ -120,6 +120,16 @@ def cmd_report(args: argparse.Namespace) -> int:
         args.arms.split(",") if args.arms else None,
     )
     print(f"wrote {root / 'report.md'}, {root / 'report.json'}, {root / 'examples.jsonl'}")
+    hb = json.loads((root / "report.json").read_text()).get("hb_scores")
+    if hb:
+        print("HB score (never_refused, tail): probe_validated [headline] / raw, % readouts")
+        for arm, by in hb["arms"].items():
+            cells = [
+                f"L{la} {100 * d['tail']['probe_validated']['mean']:.1f} / "
+                f"{100 * d['tail']['raw']['mean']:.1f}"
+                for la, d in by.items()
+            ]
+            print(f"  {arm}: " + "  ".join(cells))
     return 0
 
 
