@@ -1,0 +1,24 @@
+{
+ "repo": "bench-llm/or-bench",
+ "revision": "e36d8b80e81837c8a8f264bbb2a49f1b32c7e272",
+ "files": {
+  "or-bench-hard-1k": {
+   "sha256": "a6e2f1166416efe5901f3bb05c47dc92ab3aca3acfe143693d38b8057d841e6d",
+   "n_rows": 1319
+  },
+  "or-bench-toxic": {
+   "sha256": "3be45901faae3b4b2b51bf7f8a2784c1650a1cc8c631dbc8b171d5312d4e0057",
+   "n_rows": 655
+  }
+ },
+ "n_eligible": {
+  "hard": 1319,
+  "toxic": 655
+ },
+ "seed": 0,
+ "n_candidates": {
+  "hard": 1319,
+  "toxic": 150
+ },
+ "max_prompt_chars": 600
+}

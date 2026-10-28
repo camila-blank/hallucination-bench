@@ -7,7 +7,9 @@ the user-modelling ladder on 3 domains (plans `0006` + `0011`; its predecessors,
 and the occupation / emotion domains were removed in plan 0013); the `story` eval (the claim map on 20 story items, `--eval story`)
 is plan `plans/0007-story-eval.md`; the `agentic_misalignment` eval (detector + claim map on lens
 mentions of misalignment, its own driver, `--eval agentic_misalignment`) is plan
-`plans/0008-agentic-misalignment-claim-map.md`. The hallucination index (`hbench index`, one
+`plans/0008-agentic-misalignment-claim-map.md`. The `overrefusal` eval (OR-Bench pilot: refusal claims on prompts
+the model never refuses; own subcommands `hbench overrefusal ...`) is plan
+`plans/0015-overrefusal-eval.md`. The hallucination index (`hbench index`, one
 macro per (method, layer) over main / AM / sibling / story) is plan
 `plans/0013-final-sibling-eval-and-hallucination-index.md`.
 
@@ -87,6 +89,18 @@ scripts/sibling_probe/   um_ladder.py (driver), um_probes_modal.py, um_lexicons.
 scripts/build_am_bank.py  writes data/agentic_misalignment/ (streams the readouts; fails loudly)
 scripts/am_audit.py  AM audits: sample | sample-headline | screen | summ-only | sample-tiers | score
 scripts/run_am.sh    AM driver: step1 (tmux hbench-am-detect) | step2 (tmux hbench-am-map)
+evals/overrefusal/   plan 0015 (own driver + own CLI via EVAL_CLIS; NOT the chat pipeline):
+    data.py      pinned OR-Bench candidates, populations (never_refused / hard_refused /
+                 always_refused), bank render + sites
+    gt.py        orgt-v1 refusal judge over 10 sampled (+ greedy) replies per prompt
+    detect.py    ordetect-v1 blind batched detector (refusal_intent / harm_salience /
+                 comply_intent / other; stance asserted / considered for prose refusal)
+    verify.py    orverify-v1 blind verifier of refusal_intent candidates (headline membership)
+    run.py       judge-gt, detect, verify, cache-only rebuild -> cells.jsonl / summary.json
+    score.py     prompt-weighted rates per (arm, layer, population), prompt bootstrap
+    report.py, cli.py
+data/overrefusal/    candidates, gt_labels, items, capture_rows (README = schema)
+scripts/overrefusal/ sample_modal.py (vLLM ground truth), reads.sh (capture + reads + convert)
 ```
 
 ## Conventions
@@ -281,6 +295,36 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
 - **In-run retries** (rev 14): an invalid `:M` (or calibration) answer is re-asked up to 2 times
   (`run.MAP_INVALID_RETRIES`) before it is cached as failed; meta records `n_invalid_attempts`
   and the summed usage.
+
+- **`hbench overrefusal ...`** (plan 0015, pilot) is its own driver and CLI. Readouts
+  `$HBENCH_OR_READOUTS/<arm>/overrefusal.jsonl` (default `/workspace/hb-readouts-overrefusal`),
+  prompt positions only (AM convention, render ends at `<|im_start|>assistant`), layers
+  28/36/44/52; outputs `outputs/overrefusal/<model>/`. Modal names are prefixed
+  `hb-overrefusal-` (acts `acts-hb-overrefusal`, gen dirs on `wsbench-gen-3`). Every rate is
+  prompt-weighted (mean of per-prompt means); read the `asserted` + `tail` cell as the cleanest
+  hallucination number (a `considered` claim on a borderline prompt can be faithful). The
+  detector is blind to the prompt, so prompts *about* refusing (`about_refusal`) are reported
+  with a sensitivity exclusion. Not on the hallucination index. **Detector / verifier judge is
+  `--judge-model claude-sonnet-5-5`** (outputs `outputs/overrefusal/claude-sonnet-5-5/`): Opus 5.5
+  hard-refuses ~all 40-cell O-lens batches (harmful readout text), Sonnet does not; GT
+  (`judge-gt`) stays Opus with an Opus-full -> Opus-truncated -> Sonnet fallback chain. Keep
+  concurrency <= 64 (shared org input-token limit). `wsbench_read_modal.py` needs
+  `MODAL_RESOURCE_ENV=camila-blank` and its `::main` entrypoint; `reads.sh` sets both, plus a
+  private `UV_CACHE_DIR` (the shared uv cache lock is contended by parallel agents).
+  **Refusal probes** (rev 5-6): `evals/overrefusal/probe.py` (math, imports
+  `sibling_probe.probes`), `probe_data.py`, `probe_report.py`; Modal
+  `scripts/overrefusal/probe_modal.py` (`main` = fit + score, `::calib` = exploratory answered-
+  prompt thresholds; run with `uvx --with numpy`). Reusable artifact:
+  `data/overrefusal/probes/refusal_probe_v1.{npz,json}` (schema in `data/overrefusal/README.md`).
+  The pre-registered Alpaca threshold fires on ~all OR-Bench prompts; use `_calib` thresholds for
+  borderline prompts. **Rev 7:** use `refusal_probe_v2.{npz,json}` (on-distribution threshold;
+  primary); `hbench overrefusal probe-report` reads `outputs/overrefusal/probe_sites_v2.jsonl`
+  (`probe_modal.py::v2`). The bank has 360 items (160 / 100 / 100); readouts default
+  `$HBENCH_OR_READOUTS` = `/workspace/hb-readouts-overrefusal-v2` (old + `-v2add`, merged by
+  `reads.sh merge`); `TAG=v2add reads.sh all` reads only the added items. `probe_checked` = verified
+  refusal readouts at probe-absent sites / readouts (the standard definition across evals). Worktree venv on this box: the
+  uv sync command is hook-blocked, so install with `uv pip install --python .venv/bin/python
+  -e . --group dev --group sibling` and run with `uv run --no-sync ...`.
 
 ## sibling eval: user-modelling ladder (plans 0006 + 0011)
 
