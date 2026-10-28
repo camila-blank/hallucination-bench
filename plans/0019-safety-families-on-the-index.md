@@ -1,6 +1,6 @@
 # Plan 0019: the safety families on the hallucination index (hindex-v4), all 11 layers
 
-Author: Camila Blank (planned with Claude), 2026-10-29. Revision 3 (rev 3, critique 2: v3 test
+Author: Camila Blank (planned with Claude), 2026-10-29. Revision 4 (rev 4, critique 3: probe split reconciled in report units, v3 md golden, pinned dev-box golden, status filters, mask gate wording; rev 3, critique 2: v3 test
 edits sanctioned for full/matched keys, safety roots opt-in, golden comparison excludes
 volatile fields, per-eval reconciliation units, no-probed-false-claims → absent, strongreject
 `counted` rule, one verifier-rejection rule, mask capture set / gate statistic; rev 2, critique 1: numerator =
@@ -84,8 +84,8 @@ listed in `index.json` (`absent_reason`). Absent families keep `full` / `matched
   gated by the artifact's validity entries, content rule as merged.
 - **mask:** the leave-one-archetype-out probe with the **sensitivity threshold** (τ = 95th pct of
   the out-of-fold honest scores of the training archetypes), prompt sites only. Gate (new; mask
-  had none): the report's `transfer_loao` statistic (lie vs honest_resisted, raw probe scores
-  averaged per item over prompt sites) ≥ 0.7 at that layer.
+  had none): `transfer_loao` as computed by `report.probe_tables` (lie vs honest_resisted, prompt
+  sites) ≥ 0.7 at that layer.
 - A (layer, site class) that fails its gate makes its claims **unprobed** (rule above), never a
   silent fallback to raw.
 
@@ -124,10 +124,14 @@ Per eval, with every retained invariant of its merged plan:
 5. **Index export:** each eval's `report` writes `outputs/<eval>/<judge>/index_counts.jsonl`, one
    row per (arm, layer, item) for **every** population item (zero rows included), sorted by
    (arm, layer, item): `{arm, layer, item, cluster, n_claims, n_false, n_contradicted,
-   n_unprobed, n_unresolved, n_failed_cells, n_units, n_false_units}`, where `n_units` /
+   n_unprobed, n_unresolved, n_failed_cells, n_units, n_false_units, n_contradicted_units,
+   n_supported_units, n_unprobed_units}`, where `n_units` /
    `n_false_units` are the merged report's own counting unit and its false count (overrefusal:
    readouts / readouts with the `ref` flag; strongreject: cells / cells with a counted `hc`;
-   mask: prompt-site readouts / readouts with a verified `lie_claim`), for reconciliation; `cluster` = the bootstrap unit (strongreject:
+   mask: prompt-site readouts / readouts with a verified `lie_claim`), and the probe split in that
+   same unit, for reconciliation. `index_counts` follows each report's status filter exactly
+   (overrefusal: its `accepted_partial` handling; strongreject: `status == "ok"`, unresolved
+   excluded; mask: verified cells); `cluster` = the bootstrap unit (strongreject:
    `forbidden_id`; overrefusal / mask: the item id). Plus `index_meta.json`: prompt versions,
    probe artifact sha256s, per-(layer, site class) gate results, population, n items.
 6. **HB reports at 11 layers:** the existing 4 layers' published numbers (rates and CIs) are
@@ -170,18 +174,24 @@ Per eval, with every retained invariant of its merged plan:
 - **v3 golden tests:** (a) before touching `index.py`, run the current code on a small synthetic
   fixture (claim cells + UM units in `tmp_path`-style fixtures committed under `tests/fixtures/`)
   and commit its `index.json` as the golden; the new code with `--version v3` must reproduce it
-  exactly, comparing everything except `git_sha` and `sources` (checkout-specific); v3 resolves
+  exactly — both `index.json` (everything except `git_sha` and `sources`, which are
+  checkout-specific) and `index.md`; v3 resolves
   methods over `FAMILIES_V3` only, and the v3 `notes` are frozen in the v3 code path (the
   methods.json notes may change for v4); (b) a dev-box golden: the current `hbench index` output on the real sources (0013's
-  command + 0014's V4 roots) saved to `tests/fixtures/index_v3_devbox.json`; test skipped when the
-  sources are absent, else must match exactly under the same exclusions.
+  command + 0014's V4 roots) saved to `tests/fixtures/index_v3_devbox.{json,md}` with the exact source
+  roots and arm list it was built from; the test rebuilds from those pinned roots / arms only (arms
+  added later are ignored), is skipped when the sources are absent, else must match exactly under
+  the same exclusions.
 - v4: hand-computed share on a tiny `index_counts.jsonl` (contradicted / unprobed / unresolved
   columns); absent family on `n_claims == 0` and on all-unprobed false claims; `full` absent when any of 7 is missing; `matched`
   excludes sibling; weights; cluster bootstrap resamples clusters; reader allowlist (a
   `textreader-x` dir is ignored).
 - Each eval: at the old 4 layers, Σ `n_units` and Σ `n_false_units` from `index_counts` equal the
   merged report's pooled denominator and numerator in its own unit (named per eval above), and
-  the unprobed + contradicted + supported split equals its probe report's; old-layer cache rows and pinned files
+  Σ of the `*_units` probe-split columns equals its probe report's split, against named rows:
+  overrefusal — the `all` site set, raw, lead excluded for the split (not the `tail` headline);
+  strongreject — `probe_check.standard`, scope `all`, `status == "ok"`, unresolved excluded;
+  mask — site type `prompt` (not the published `all`); old-layer cache rows and pinned files
   unchanged (hash asserts); 11-layer grid completeness.
 
 ## Run, deliverables, cost
