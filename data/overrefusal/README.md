@@ -17,3 +17,19 @@ prompts, flagged in `items.json` meta), `always_refused` (toxic, 10/10). refuse 
 
 The full on-policy samples (`outputs/overrefusal/samples*.jsonl`, vLLM 0.25.1, n=10, T=1.0,
 top_p=0.95, max_tokens=512, seed=0; greedy n=1, T=0) are not in git.
+
+## probes/ (plan 0015 rev 5-6): refusal probe artifacts, reusable by other evals
+
+- `refusal_probe_v1.npz`: keys `{variant}/L{layer}/{U, muU, sigma, null_mean, null_sd, tau,
+  c_mean, c_sd, c_tau, validity}`; arrays `[fold=4, offset=4]` (offset 0 = `assistant`, 1 =
+  `<|im_start|>`, 2 = `\n`, 3 = `<|im_end|>`), `U` `[4, 5120]`. Score a residual `h` (Qwen3.6-27B,
+  layer L, a tail offset o of the render `<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant`):
+  per fold `s = (h.U[f] - muU[f,o]) / sigma[f,o]`, `z = (s - null_mean) / null_sd`, present if
+  `s > tau[f,o]`; average over folds. Variants `refusal-dm-v1` (primary, validated) and
+  `refusal-beh-v1` (underpowered, reported only).
+- `refusal_probe_v1.json`: provenance (datasets + pinned sources, counts, validity, lams, acts
+  subdirs, scoring rule, git commit).
+- `refusal_probe_v1_calib.{npz,json}`: exploratory thresholds `tau_calib` / `c_tau_calib`
+  re-calibrated on prompts Qwen answered (use these for OR-Bench-like prompts; the Alpaca `tau`
+  fires on almost any harm-looking prompt).
+- `train_texts.jsonl`, `train_meta.json`, `calib_texts.jsonl`, `orbench80k_*`: training data.

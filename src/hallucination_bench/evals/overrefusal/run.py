@@ -147,8 +147,10 @@ def run_gt(
     concurrency: int = 64,
     limit: int | None = None,
     write: bool = True,
+    candidates_path: Path | None = None,
+    labels_out: Path | None = None,
 ) -> dict[str, Any]:
-    cands = data.load_candidates()
+    cands = data.load_candidates(candidates_path)
     samples = data.read_jsonl(samples_path)
     greedy = data.read_jsonl(greedy_path) if Path(greedy_path).exists() else []
     jobs = gt_jobs(cands, samples, greedy)
@@ -179,7 +181,7 @@ def run_gt(
         row["judge_route"] = hit["result"].get("route", "opus_full")
         rows.append(row)
     if write:
-        data.write_jsonl(data.GT_LABELS, rows)
+        data.write_jsonl(labels_out or data.GT_LABELS, rows)
     u = spend(cache)
     cache.close()
     return {

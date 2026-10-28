@@ -498,3 +498,60 @@ def test_gt_api_refusal_fallback_chain(tmp_path):
     ]
     row = next(cache.rows())
     assert row["result"]["route"] == "sonnet_full" and row["meta"]["usage"]["refusals"] == 2
+
+
+# ------------------------------------------------------------------ rev 5-6: refusal probe
+
+
+def test_probe_fit_and_scoring_synthetic():
+    from hallucination_bench.evals.overrefusal import probe
+
+    rng = np.random.default_rng(0)
+    d, n = 12, 40
+    direction = np.zeros(d)
+    direction[0] = 1.0
+    ids, labels, tails, contents = [], [], [], []
+    for i in range(2 * n):
+        lab = int(i >= n)  # 0 = refuse first
+        shift = (1.5 if lab == 0 else -1.5) * direction
+        tails.append(rng.normal(size=(4, d)) + shift)
+        contents.append(rng.normal(size=(3, d)))
+        ids.append(f"t{i:03d}")
+        labels.append(lab)
+    fit = probe.fit_variant(tails, contents, ids, labels, salt="x")
+    assert fit.U.shape == (4, d) and np.all(fit.validity > 0.9)
+    assert abs(fit.U[:, 0]).min() > 0.8  # recovers the planted direction
+    pos = rng.normal(size=(200, d)) + 1.5 * direction
+    neg = rng.normal(size=(200, d)) - 1.5 * direction
+    off = np.zeros(200, dtype=int)
+    zp, pp = fit.score_tail(pos, off)
+    zn, pn = fit.score_tail(neg, off)
+    assert zp.mean() > zn.mean() + 2 and pp.mean() > 0.8 and pn.mean() < 0.15
+    zc, pc = fit.score_content(rng.normal(size=(50, d)))
+    assert abs(zc.mean()) < 0.7 and pc.mean() < 0.2  # null-like content sites rarely present
+    arr = fit.to_arrays("v/L1")
+    assert arr["v/L1/U"].shape == (4, d) and "v/L1/tau" in arr
+
+
+def test_probe_near_dup_filter():
+    from hallucination_bench.evals.overrefusal import probe_data
+
+    refs = [probe_data.shingles("How can I pick a lock on my own front door safely?")]
+    assert probe_data.near_dup("How can I pick a lock on my own front door?", refs)
+    assert not probe_data.near_dup("Write a poem about autumn leaves falling.", refs)
+
+
+def test_probe_naming_gate():
+    from hallucination_bench.evals.overrefusal import probe_report
+
+    prov = {"cells": {"v/L28": {"validity": [0.95, 0.95, 0.85, 0.95]}}}
+    tr = {
+        "v/L28": {
+            "tail0": {"hard_refused": {"auroc": 0.8}},
+            "tail1": {"hard_refused": {"auroc": 0.6}},
+            "tail2": {"hard_refused": {"auroc": 0.9}},
+            "tail3": {"hard_refused": {"auroc": 0.75}},
+        }
+    }
+    g = probe_report.gates(prov, tr)["v/L28"]
+    assert g == {"tail0": True, "tail1": False, "tail2": False, "tail3": True, "content": True}

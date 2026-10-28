@@ -232,3 +232,96 @@ detector-only rates.
   - mlnla read: 16 × about 110 min, about 29 GPU-h. The HF backend falls back to slow
     reference kernels (`causal_conv1d` / `flash-linear-attention` absent).
   - J-lens: H100, minutes.
+
+## Addendum: refusal probes (plan rev 5–6, 2026-10-28)
+
+**Question.** Is refusal actually represented at the exact (prompt, position, layer) sites
+we read? Full tables are in `outputs/overrefusal/claude-sonnet-5-5/probe_report.md`
+(`hbench overrefusal probe-report`). The artifact is
+`data/overrefusal/probes/refusal_probe_v1.{npz,json}`.
+
+**Probes.** Both are shrinkage-whitened DiffMean (`sibling_probe.probes.cross_fit_whitened`,
+4 folds), fit on the 4 tail positions at L28/36/44/52. The same render as the read set is used
+throughout.
+- **`refusal-dm-v1`** (primary, Arditi-style): 300 harmful prompts (AdvBench + HarmBench
+  standard, from the GitHub CSVs, because the HF mirrors are gated) vs 300 harmless (Alpaca).
+  OR-Bench exact matches and n-gram near-duplicates are excluded.
+- **`refusal-beh-v1`** (behaviour-labelled): only 35 of 481 judged `or-bench-80k` prompts were
+  refused ≥ 9/10, so this variant is 34 vs 34. It is **underpowered (< 60), reported only, and
+  not used for tagging**, per the pre-registration.
+
+**Validity and transfer.**
+- `refusal-dm-v1` validity (held-out AUROC) is ≥ 0.998 at every layer and offset.
+- Transfer AUROC at `assistant`, site z, prompt-bootstrap CI:
+
+  | layer | hard_refused vs never_refused | toxic vs never_refused |
+  |---|---|---|
+  | L28 | 0.84 [0.77, 0.92] | 0.97 |
+  | L36 | 0.97 | 0.996 |
+  | L44 | 0.97 | 0.99 |
+  | L52 | 0.99 | 1.00 |
+
+- Every cell passes the naming gate (valid, and hard_refused-vs-never transfer ≥ 0.7).
+- `refusal-beh-v1` validity at `assistant` is 0.93–1.00, but only 0.56–0.84 at
+  `\n` / `<|im_start|>`. Its transfer at `assistant` is 0.94–0.99.
+
+**Premise check** (% of `never_refused` prompts where the probe says refusal is present, at
+`assistant`; chance is 5% per site):
+
+| layer | dm-v1, pre-registered threshold (q95 of Alpaca) | dm-v1, exploratory threshold (q95 of 80k prompts Qwen answered) | hard_refused (exploratory) | toxic (exploratory) |
+|---|---|---|---|---|
+| L28 | 100 | 48.9 [34, 62] | 86 | 96 |
+| L36 | 100 | 46.8 [32, 60] | 100 | 100 |
+| L44 | 100 | 48.9 [36, 62] | 100 | 100 |
+| L52 | 93.6 | 31.9 [19, 45] | 100 | 100 |
+
+- **Pre-registered result:** the Alpaca-calibrated threshold sits far below any OR-Bench prompt,
+  so the probe calls refusal "present" on essentially every borderline prompt (critique 1's
+  harm-confound risk, realised).
+- **The probe still *ranks* by decision** (transfer 0.84–0.99). Recalibrated on 372 OR-Bench
+  prompts that Qwen answered (exploratory, not pre-registered), it says the refusal direction is
+  elevated on roughly half of the never-refused prompts at `assistant`. That supports the
+  premise worry: **the model often represents refusal-like state and still complies.**
+
+**Probe-checked hallucination rate** (`never_refused`, tail sites, readout-level %; original →
+claims at probe-absent sites):
+
+| arm | L28 | L36 | L44 | L52 |
+|---|---|---|---|---|
+| s3d-rl600, pre-registered threshold | 23.3 → 0.0 | 11.4 → 0.0 | 12.6 → 0.0 | 2.8 → 0.0 |
+| s3d-rl600, exploratory threshold | 23.3 → 10.5 | 11.4 → 6.0 | 12.6 → 3.9 | 2.8 → 0.9 |
+| mlnla, exploratory threshold | 9.4 → 2.7 | 6.0 → 1.8 | 4.3 → 0.9 | 2.3 → 0.0 |
+| jlens, exploratory threshold | 0 | 0 | 0 | 4.8 → 0.5 |
+
+- Under the exploratory threshold, 47–69% of s3d's tail refusal claims, and 71–100% of
+  mlnla's, sit at probe-present sites.
+- At all sites (content included, secondary), only 28–45% of s3d's claims are supported.
+
+**Misses on `always_refused`** (probe-present tail sites with no lens refusal claim):
+
+| arm | pre-registered threshold | exploratory threshold |
+|---|---|---|
+| s3d-rl600 | 40–48% | 27–38% |
+| mlnla | 36–48% | |
+| jlens | 56–100% | |
+
+**Takeaways.**
+1. A refusal probe trained Arditi-style transfers strongly to Qwen's own refusal decision on
+   OR-Bench.
+2. Its absolute threshold is not portable from Alpaca.
+3. With a behaviour-calibrated threshold, about half of the O-lens's "I cannot provide…"
+   claims on never-refused prompts coincide with an elevated refusal direction. Those are
+   faithful readings of a represented-but-overridden refusal rather than pure confabulation.
+   The rest, about 4–10% of tail readouts at L28–L44, remain unsupported hallucinations.
+
+**Caveats.**
+- The exploratory threshold was chosen after seeing the pre-registered result.
+- The calibration prompts are `or-bench-80k`, an easier slice than hard-1k, so they are not
+  matched to never_refused.
+- Probe "present" is a site-level call averaged over 4 folds (present iff ≥ 2 of 4 folds).
+- Content-site calls rest on the `assistant` direction plus a content null (secondary).
+
+**Spend (probe).**
+- API: $20.9 (Opus GT on the 80k sample).
+- Modal: about 1.5 H200-hours (80k sampling plus 2 captures) and about 2 CPU container-hours
+  (probe fits). About $10.

@@ -32,8 +32,10 @@ def cmd_judge_gt(args: argparse.Namespace) -> int:
     res = run.run_gt(
         out,
         run.Judge(model=args.judge_model),
-        samples_path=out / "overrefusal" / "samples.jsonl",
+        samples_path=Path(args.samples) if args.samples else out / "overrefusal" / "samples.jsonl",
         greedy_path=out / "overrefusal" / "samples_greedy.jsonl",
+        candidates_path=Path(args.candidates) if args.candidates else None,
+        labels_out=Path(args.labels_out) if args.labels_out else None,
         rpm=args.rpm,
         concurrency=args.concurrency,
         limit=args.limit,
@@ -119,6 +121,23 @@ def cmd_report(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_probe_data(args: argparse.Namespace) -> int:
+    from . import probe_data
+
+    res = probe_data.build_80k_candidates() if args.step == "80k" else probe_data.build_all()
+    print(json.dumps(res, indent=1, default=str))
+    return 0
+
+
+def cmd_probe_report(args: argparse.Namespace) -> int:
+    from . import probe_report
+
+    arms = args.arms.split(",") if args.arms else ["s3d-rl600", "mlnla-rl600-all11", "jlens"]
+    root = probe_report.report(Path(args.out), args.judge_model, arms)
+    print(f"wrote {root / 'probe_report.md'}, {root / 'probe_report.json'}")
+    return 0
+
+
 def register(sub: argparse._SubParsersAction) -> None:
     p = sub.add_parser("overrefusal", help="plan 0015: OR-Bench over-refusal eval")
     osub = p.add_subparsers(dest="or_cmd", required=True)
@@ -140,6 +159,9 @@ def register(sub: argparse._SubParsersAction) -> None:
 
     g = osub.add_parser("judge-gt", help="Stage 2: refusal labels (orgt-v1) -> gt_labels.jsonl")
     common(g)
+    g.add_argument("--candidates", default="", help="rev 5: another candidates file (80k sample)")
+    g.add_argument("--samples", default="", help="rev 5: its samples file")
+    g.add_argument("--labels-out", default="", help="rev 5: where its labels go")
     g.set_defaults(fn=cmd_judge_gt)
 
     b = osub.add_parser("bank", help="Stage 3: populations + items.json + capture_rows.json")
@@ -155,6 +177,16 @@ def register(sub: argparse._SubParsersAction) -> None:
     r.add_argument("--layers", default="")
     r.add_argument("--stages", default="detect,verify")
     r.set_defaults(fn=cmd_run)
+
+    pd = osub.add_parser("probe-data", help="rev 5: probe training data (80k sample | texts)")
+    pd.add_argument("step", choices=["80k", "texts"])
+    pd.set_defaults(fn=cmd_probe_data)
+
+    pr = osub.add_parser("probe-report", help="rev 5: probe validity, premise, tagging, misses")
+    pr.add_argument("--out", default="outputs")
+    pr.add_argument("--judge-model", default="claude-sonnet-5-5")
+    pr.add_argument("--arms", default="")
+    pr.set_defaults(fn=cmd_probe_report)
 
     rp = osub.add_parser("report", help="Stage 7: report.md / report.json / examples.jsonl")
     rp.add_argument("--out", default="outputs")

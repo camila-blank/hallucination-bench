@@ -310,7 +310,14 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
   (`judge-gt`) stays Opus with an Opus-full -> Opus-truncated -> Sonnet fallback chain. Keep
   concurrency <= 64 (shared org input-token limit). `wsbench_read_modal.py` needs
   `MODAL_RESOURCE_ENV=camila-blank` and its `::main` entrypoint; `reads.sh` sets both, plus a
-  private `UV_CACHE_DIR` (the shared uv cache lock is contended by parallel agents). Worktree venv on this box: the
+  private `UV_CACHE_DIR` (the shared uv cache lock is contended by parallel agents).
+  **Refusal probes** (rev 5-6): `evals/overrefusal/probe.py` (math, imports
+  `sibling_probe.probes`), `probe_data.py`, `probe_report.py`; Modal
+  `scripts/overrefusal/probe_modal.py` (`main` = fit + score, `::calib` = exploratory answered-
+  prompt thresholds; run with `uvx --with numpy`). Reusable artifact:
+  `data/overrefusal/probes/refusal_probe_v1.{npz,json}` (schema in `data/overrefusal/README.md`).
+  The pre-registered Alpaca threshold fires on ~all OR-Bench prompts; use `_calib` thresholds for
+  borderline prompts. Worktree venv on this box: the
   uv sync command is hook-blocked, so install with `uv pip install --python .venv/bin/python
   -e . --group dev --group sibling` and run with `uv run --no-sync ...`.
 

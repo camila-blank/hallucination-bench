@@ -82,13 +82,18 @@ def sample_shard(rows: list[dict], greedy: bool = False) -> list[dict]:
 
 
 @app.local_entrypoint()
-def main(shards: int = 4, ids: str = "", skip_done: bool = False, greedy: bool = False) -> None:
-    cands = [
-        json.loads(x)
-        for x in (_REPO / "data/overrefusal/candidates.jsonl").read_text().splitlines()
-        if x.strip()
-    ]
-    name = "samples_greedy" if greedy else "samples"
+def main(
+    shards: int = 4,
+    ids: str = "",
+    skip_done: bool = False,
+    greedy: bool = False,
+    candidates: str = "data/overrefusal/candidates.jsonl",
+    out_name: str = "",
+) -> None:
+    """``--candidates`` / ``--out-name`` (plan 0015 rev 5: the probe's 80k sample) default to
+    the eval's own candidates and ``samples[_greedy].jsonl``."""
+    cands = [json.loads(x) for x in (_REPO / candidates).read_text().splitlines() if x.strip()]
+    name = out_name or ("samples_greedy" if greedy else "samples")
     out = _REPO / f"outputs/overrefusal/{name}.jsonl"
     out.parent.mkdir(parents=True, exist_ok=True)
     if ids:
