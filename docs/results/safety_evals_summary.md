@@ -16,7 +16,7 @@ is averaged across layers.
 
 ![Safety evals HB summary](../../plots/safety_evals_hb_summary.png)
 
-Top row: the HB score. Bottom row: the **probe-checked** rate, which counts only claims that the
+Top row: the raw HB rate. Bottom row: the **probe-validated** rate (the headline HB score since #32/#33; the top row is the raw rate), which counts only claims that the
 eval's probe contradicts. In overrefusal these are refusal claims where the refusal probe (v2)
 says refusal is absent. In StrongREJECT they are compliance claims where the probe says refusal
 is present. In MASK they are lie claims where the deception probe says no lie is represented.
@@ -28,7 +28,7 @@ independent: the rates differ by about 30× between evals. Plot:
 
 ## Overrefusal (plan 0015): false refusal claims, % of readouts
 
-n = 160 never-refused prompts, tail sites, prompt-weighted, 95% CI. The probe-checked rate uses
+n = 160 never-refused prompts, tail sites, prompt-weighted, 95% CI. The probe-validated rate uses
 the refusal probe v2 threshold.
 
 | method | L28 | L36 | L44 | L52 |
@@ -36,9 +36,9 @@ the refusal probe v2 threshold.
 | O-lens | **17.1** [15.6, 18.7] | 4.4 [3.1, 5.6] | 5.3 [4.0, 6.7] | 0.9 [0.4, 1.6] |
 | multilayer NLA | 4.2 [2.9, 5.5] | 1.9 [1.1, 2.8] | 1.5 [0.7, 2.3] | 0.7 [0.2, 1.2] |
 | J-lens | 0.0 | 0.0 | 0.0 | 1.7 [0.8, 2.8] |
-| *probe-checked:* O-lens | 12.6 | 1.9 | 2.0 | 0.4 |
-| *probe-checked:* multilayer NLA | 1.5 | 0.3 | 0.3 | 0.0 |
-| *probe-checked:* J-lens | 0 | 0 | 0 | 0.3 |
+| *probe-validated:* O-lens | 12.6 | 1.9 | 2.0 | 0.4 |
+| *probe-validated:* multilayer NLA | 1.5 | 0.3 | 0.3 | 0.0 |
+| *probe-validated:* J-lens | 0 | 0 | 0 | 0.3 |
 
 ## StrongREJECT (plan 0016): false compliance claims, % of readouts
 
@@ -50,9 +50,9 @@ per cell).
 | O-lens | 15.23 | **17.61** | 13.03 | 11.95 |
 | multilayer NLA | 0.60 | 0.66 | 0.47 | 0.42 |
 | J-lens | 0.01 | 0.06 | 0.00 | 0.03 |
-| *probe-checked:* O-lens | 3.93 | 3.84 | 3.72 | 2.95 |
-| *probe-checked:* multilayer NLA | 0.10 | 0.09 | 0.03 | 0.03 |
-| *probe-checked:* J-lens | 0.00 | 0.00 | 0.00 | 0.01 |
+| *probe-validated:* O-lens | 3.93 | 3.84 | 3.72 | 2.95 |
+| *probe-validated:* multilayer NLA | 0.10 | 0.09 | 0.03 | 0.03 |
+| *probe-validated:* J-lens | 0.00 | 0.00 | 0.00 | 0.01 |
 
 ## MASK (plan 0017): false lie claims, % of readouts
 
@@ -64,12 +64,12 @@ fractions; they are multiplied by 100 here.
 | O-lens | 0.27 [0.20, 0.34] | **0.64** [0.53, 0.76] | 0.38 [0.31, 0.46] | 0.56 [0.47, 0.65] |
 | multilayer NLA | 0.23 [0.17, 0.29] | 0.26 [0.20, 0.34] | 0.23 [0.17, 0.30] | 0.22 [0.17, 0.29] |
 | J-lens | 0.00 | 0.00 | 0.00 | 0.00 |
-| *probe-checked (sensitivity τ):* O-lens | 0.26 | 0.60 | 0.36 | 0.53 |
-| *probe-checked (sensitivity τ):* multilayer NLA | 0.21 | 0.22 | 0.20 | 0.21 |
-| *probe-checked (sensitivity τ):* J-lens | 0.00 | 0.00 | 0.00 | 0.00 |
+| *probe-validated (sensitivity τ):* O-lens | 0.26 | 0.60 | 0.36 | 0.53 |
+| *probe-validated (sensitivity τ):* multilayer NLA | 0.21 | 0.22 | 0.20 | 0.21 |
+| *probe-validated (sensitivity τ):* J-lens | 0.00 | 0.00 | 0.00 | 0.00 |
 
 The pre-registered LOAO threshold is degenerate: it marks only 1–5% of lie sites as lie-present,
-so its probe-checked rate equals the HB rate by construction. The rows above use the sensitivity
+so its probe-validated rate equals the HB rate by construction. The rows above use the sensitivity
 threshold that 0017 presents: the 95th percentile of the training archetypes' out-of-fold honest
 scores. The 0017 doc gives this rate only per site set (prompt, response). The `all` value here
 pools the prompt and response readouts, and that pooling reproduces the `all` HB rate exactly.

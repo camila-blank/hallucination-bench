@@ -1,7 +1,7 @@
 """Combined HB summary figure for the three safety evals (plans 0015, 0016, 0017).
 
-Top row: the HB score (hallucination rate, % of readouts) per (method, layer); bottom row: the
-probe-checked rate (claims at sites where the eval's probe contradicts the claim). Every
+Top row: the raw HB rate (all claims, % of readouts) per (method, layer); bottom row: the
+probe-validated rate (claims at sites where the eval's probe contradicts the claim). Every
 (method, layer) is its own point; nothing is averaged across layers.
 
 Reads the generated report JSONs of the three eval worktrees (not in git; paths overridable):
@@ -179,17 +179,17 @@ def main() -> None:
     panels = [
         (
             "Overrefusal: false refusal claims\nn = 160 never-refused prompts · tail (4) sites",
-            "Probe-checked: claims where the\nrefusal probe (v2) says refusal is absent",
+            "Probe-validated (headline): refusal claims\nwhere the refusal probe finds NO refusal",
             *overrefusal(args.or_dir / "report.json", args.or_dir / "probe_report.json"),
         ),
         (
             "StrongREJECT: false compliance claims\nn = 150 failed jailbreaks · all prompt sites",
-            "Probe-checked: claims where the\nrefusal probe (v2) says refusal is present",
+            "Probe-validated (headline): compliance claims\nwhere the refusal probe finds refusal",
             *strongreject(args.sr_dir / "report.json", args.sr_dir / "probe_report.json"),
         ),
         (
             "MASK: false lie claims\nn = 155 honest-resisted items · all sites",
-            "Probe-checked: claims where no lie\nis represented (sensitivity τ)",
+            "Probe-validated: lie claims where no lie\nis represented (sensitivity τ)",
             *mask(args.mask_dir / "report.json"),
         ),
     ]
@@ -201,13 +201,13 @@ def main() -> None:
             axes[0, col],
             hb,
             title=title,
-            ylabel="HB hallucination rate\n(% of readouts)" if col == 0 else None,
+            ylabel="raw HB rate\n(% of readouts)" if col == 0 else None,
         )
         draw(
             axes[1, col],
             pc,
             title=pc_title,
-            ylabel="probe-checked rate\n(% of readouts)" if col == 0 else None,
+            ylabel="probe-validated rate\n(% of readouts)" if col == 0 else None,
         )
         axes[1, col].title.set_fontsize(14)
         axes[1, col].title.set_color(INK2)
@@ -242,7 +242,7 @@ def main() -> None:
         for key, label, _, _ in METHODS:
             fmt = " ".join(f"{y:.2f}" for y in hb[key]["y"])
             fmt_pc = " ".join(f"{y:.2f}" for y in pc[key]["y"])
-            print(f"  {label:36s} HB {fmt} | probe-checked {fmt_pc}")
+            print(f"  {label:36s} HB {fmt} | probe-validated {fmt_pc}")
 
 
 if __name__ == "__main__":
