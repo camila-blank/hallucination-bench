@@ -89,15 +89,108 @@ def report(out: Path, model: str, readouts_root: Path, arms: Sequence[str] | Non
         }
         all_ex.extend(examples(name, recs, items_by, path))
     root.mkdir(parents=True, exist_ok=True)
+    res["hb_scores"] = hb_scores(res, out, model, list(res["arms"]))
+    if res["hb_scores"] is not None:
+        data.HB_SCORES.write_text(json.dumps(res["hb_scores"], indent=1) + "\n")
     (root / "report.json").write_text(json.dumps(res, indent=1) + "\n")
     data.write_jsonl(root / "examples.jsonl", all_ex)
     (root / "report.md").write_text(render_md(res))
     return root
 
 
+PROBE_KEY = "refusal-dm-v2"  # refusal_probe_v2: v1 directions + the on-distribution threshold
+
+
+def hb_scores(
+    res: dict[str, Any], out: Path, model: str, arms: Sequence[str]
+) -> dict[str, Any] | None:
+    """Rev 12: the two official HB scores per (reader, layer) on ``never_refused``.
+
+    * ``raw`` = verified ``refusal_intent`` readouts / readouts (the §Stage 7 readout rate);
+    * ``probe_validated`` (HEADLINE) = the claims at sites where ``refusal_probe_v2`` says refusal
+      is NOT represented / readouts (the claims where it says present are subtracted).
+
+    Site sets: ``tail`` (headline) for both; all positions for ``raw`` and all positions except
+    the 3 lead template tokens for ``probe_validated`` (the probe scores no lead site). ``None``
+    if the probe sites file (``probe_modal.py::v2``) is not available. Read-only: nothing is
+    re-judged or re-scored."""
+    from . import probe_report
+
+    if not (Path(out) / probe_report.V2_SITES).exists():
+        return None
+    pr = probe_report.build(out, model, arms)
+    hb: dict[str, Any] = {
+        "definition": {
+            "raw": "verified refusal_intent readouts on never_refused / readouts",
+            "probe_validated": (
+                "verified refusal_intent readouts on never_refused at sites where "
+                "refusal_probe_v2 says refusal is NOT represented / readouts (HEADLINE)"
+            ),
+            "noise": (
+                "probe FPR on held-out answered prompts is 5-11%, so some 'supported' claims are "
+                "supported only by probe false positives: probe_validated is a lower bound and "
+                "raw an upper bound on the hallucination rate"
+            ),
+        },
+        "fpr_holdout": pr["fpr_holdout"],
+        "arms": {},
+    }
+    for arm in arms:
+        sc = res["arms"][arm]["scores"]
+        hb["arms"][arm] = {}
+        for la in sc["layers"]:
+            nev = sc["per_layer"][str(la)]["never_refused"]["refusal"]
+            tag = pr["tagging"][arm][f"{PROBE_KEY}/L{la}"]
+            hb["arms"][arm][str(la)] = {
+                "tail": {
+                    "raw": nev["tail"]["readout"],
+                    "probe_validated": tag["tail"]["probe_validated"],
+                    "n_claims": tag["tail"]["n_claims"],
+                },
+                "all": {
+                    "raw": nev["all"]["readout"],
+                    "probe_validated_all_but_lead": tag["all_but_lead"]["probe_validated"],
+                    "n_claims_all_but_lead": tag["all_but_lead"]["n_claims"],
+                },
+            }
+    return hb
+
+
+def render_hb(hb: dict[str, Any] | None) -> list[str]:
+    if hb is None:
+        return [
+            "## HB scores",
+            "",
+            "(probe sites file missing: only the raw score is available, tables below)",
+            "",
+        ]
+    L = [
+        "## HB scores (never_refused; % readouts, 95% prompt-bootstrap CI)",
+        "",
+        "**probe_validated (HEADLINE)** = verified refusal claims at sites where refusal_probe_v2 "
+        "says refusal is NOT represented / readouts. **raw** = all verified refusal claims / "
+        "readouts. Noise: the probe's held-out false-positive rate is 5–11%, so part of the "
+        "'supported' claims are supported only by probe false positives. probe_validated is a "
+        "lower bound and raw an upper bound.",
+        "",
+        "| reader | layer | probe_validated, tail (headline) | raw, tail | claims supported / "
+        "contradicted (tail) | probe_validated, all except lead | raw, all positions |",
+        "|---|---|---|---|---|---|---|",
+    ]
+    for arm, by in hb["arms"].items():
+        for la, d in by.items():
+            n = d["tail"]["n_claims"]
+            L.append(
+                f"| {arm} | {la} | **{_pct(d['tail']['probe_validated'])}** | "
+                f"{_pct(d['tail']['raw'])} | {n['supported']} / {n['contradicted']} | "
+                f"{_pct(d['all']['probe_validated_all_but_lead'])} | {_pct(d['all']['raw'])} |"
+            )
+    return [*L, ""]
+
+
 def render_md(res: dict[str, Any]) -> str:
     pops = list(res["populations"])
-    L: list[str] = ["# overrefusal report (plan 0015)", ""]
+    L: list[str] = ["# overrefusal report (plan 0015)", "", *render_hb(res.get("hb_scores"))]
     L.append("Populations: " + ", ".join(f"`{p}` n={n}" for p, n in res["populations"].items()))
     L += [
         "",
