@@ -1,9 +1,45 @@
 # Plan 0018: `sad` eval — do lenses read eval-vs-deployment beliefs the model does not hold?
 
-Author: Camila Blank (planned with Claude), 2026-10-27. Revision 5 (Camila's review of PR #27: literal-statement judge; enlarged deploy-belief group from WildChat-1M — see §Revision 5, which supersedes the detector / verifier / scoring-variant sections below). Revision 4 (pilot: research frame, WMDP small batches, coverage rule). Revision 3 (post-gate: mismatched cap at half the quota). Revision 2 (critique 1: J-lens jobs file, strict deploy_belief vs restated personas, mismatched-first selection, site-count-robust headline rates, stratified verifier sampling, gap bootstrap, render-length assert, gate whitespace note, recall lower bound, one gen volume). Pilot scale.
+Author: Camila Blank (planned with Claude), 2026-10-27. Revision 6 (probe validation of the read sites, §Revision 6). Revision 5 (Camila's review of PR #27: literal-statement judge; enlarged deploy-belief group from WildChat-1M — see §Revision 5, which supersedes the detector / verifier / scoring-variant sections below). Revision 4 (pilot: research frame, WMDP small batches, coverage rule). Revision 3 (post-gate: mismatched cap at half the quota). Revision 2 (critique 1: J-lens jobs file, strict deploy_belief vs restated personas, mismatched-first selection, site-count-robust headline rates, stratified verifier sampling, gap bootstrap, render-length assert, gate whitespace note, recall lower bound, one gen volume). Pilot scale.
 Self-contained eval: its own package `src/hallucination_bench/evals/sad/`, its own CLI
 (`hbench sad ...`, registered via `cli.EVAL_CLIS`, plan 0012 D2), data under `data/sad/`. It shares
 no module with the chat / story / AM pipelines and is **not** on the hallucination index.
+
+## Revision 6 (2026-10-28, Camila) — probes: is eval awareness represented where we read?
+
+Added on top of rev 5; nothing in rev 5 changes. **Retained invariants:** the literal judge
+(`sadetect-v2` / `sadverify-v2`), the gate (question, procedure, ≥ 9/10), the 200-item pilot set
+and its sites, the plain-prompt render, the coverage rule and the per-(method, layer) reporting
+are all unchanged; probes only ADD columns.
+
+- **Machinery:** the shrinkage-whitened DiffMean of `evals/sibling_probe/probes.py` (recipe V2,
+  `cross_fit_whitened`, inner-CV lambda over `LAMS_W`, per-(key) centring and scale), imported
+  (the Modal job ships that file; nothing copied into `evals/sad`). Two classes (eval = 0,
+  deploy = 1), so the eval direction is the eval-minus-deploy mean difference (whitened).
+  Centring keys: body sites share `(0, 0)`, suffix site j-from-the-end `(1, j)`.
+- **Primary probe = Qwen's gate labels on NON-pilot items**, per layer 28/36/44/52, the pilot's
+  site rule on the plain render (captured fresh to `wsbench-acts:/hb-sad-probe-train`).
+  **Fitted on WildChat texts only** (eval-belief WildChat 607 vs deploy-belief WildChat 361), so
+  it cannot learn benchmark format; sensitivity variant `all` adds the 94 non-pilot benchmark
+  eval items. Item-level folds (4, seeded, label-balanced). Validity = OOF item AUROC (mean
+  site score per item) ≥ 0.8, reported whatever it is; also the transfer AUROC on the 200
+  pilot items' gate labels (a clean held-out test: no pilot item is in training).
+- **Secondary probe (independent), Nguyen et al. 2025 style:** 20 neutral tasks × 10 explicit
+  evaluation framings vs × 10 explicit real-deployment framings (400 prompts,
+  `probe.contrast_prompts`, captured to `hb-sad-probe-contrast`), fitted on the 4 suffix sites,
+  folds by task; one centring key so it scores every pilot site; reported as within-contrast
+  OOF AUROC and transfer AUROC on the pilot gate labels.
+- **Present** (pre-registered): score > the 95th percentile of the OPPOSITE class's OOF scores
+  (eval probe: q95 over deploy-class training sites; deploy probe: over eval-class sites), per
+  key for the primary, pooled for the secondary. Pilot sites are scored by the mean of the 4
+  fold models.
+- **Outputs** (`hbench sad probe-report` → `outputs/sad/<judge>/probes.json`): (1) premise check
+  per (layer, position type): share of deploy-belief items where the eval probe fires and vice
+  versa; (2) every verified literal claim tagged probe-supported (the matching probe fires at
+  that exact item / layer / site) or not → probe-checked hallucination rate (item-weighted share
+  of readouts with an unsupported verified claim) beside the gate-based rate, per (arm, layer);
+  (3) misses: of the sites where a probe fires, the share where the lens states nothing of that
+  kind.
 
 ## Revision 5 (2026-10-28, Camila's review) — supersedes conflicting text below
 

@@ -117,6 +117,32 @@ def cmd_top_up(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_probe_inputs(args: argparse.Namespace) -> int:
+    """Rev 6: probe-job inputs (no text) + capture rows for the training / contrast texts."""
+    from . import bank, probe
+
+    g = json.loads(bank.GATE_JSON.read_text())["items"]
+    sel = json.loads(bank.SELECTED_JSON.read_text())
+    inp, rows, crow = probe.build_inputs(g, sel, bank.load_raw(), _tokenizer())
+    d = Path(args.dest)
+    d.mkdir(parents=True, exist_ok=True)
+    (d / "probe_inputs.json").write_text(json.dumps(inp) + "\n")
+    (d / "capture_rows_probe_train.json").write_text(json.dumps(rows, ensure_ascii=False))
+    (d / "capture_rows_probe_contrast.json").write_text(json.dumps(crow, ensure_ascii=False))
+    print(json.dumps(inp["meta"]))
+    return 0
+
+
+def cmd_probe_report(args: argparse.Namespace) -> int:
+    from . import probe_report
+
+    doc = probe_report.report(
+        Path(args.out), args.judge_model, Path(args.probes), Path(args.inputs)
+    )
+    print(json.dumps(doc["aurocs"], indent=1))
+    return 0
+
+
 def cmd_check_manifest(args: argparse.Namespace) -> int:
     """The capture's token grid must equal the local tokenisation at every read site."""
     from . import bank, select
@@ -222,6 +248,17 @@ def register(sub: argparse._SubParsersAction) -> None:
     q.add_argument("--n-per-belief", type=int, default=100)
     q.add_argument("--capture-rows", default="outputs/sad/capture_rows_rev5.json")
     q.set_defaults(fn=cmd_top_up)
+
+    q = s.add_parser("probe-inputs", help="rev 6: probe-job inputs + capture rows (gitignored)")
+    q.add_argument("--dest", default="outputs/sad")
+    q.set_defaults(fn=cmd_probe_inputs)
+
+    q = s.add_parser("probe-report", help="rev 6: premise check, probe-checked claims, misses")
+    q.add_argument("--out", default="outputs")
+    q.add_argument("--judge-model", default=DEFAULT_JUDGE)
+    q.add_argument("--probes", default="outputs/sad/probes")
+    q.add_argument("--inputs", default="outputs/sad/probe_inputs.json")
+    q.set_defaults(fn=cmd_probe_report)
 
     q = s.add_parser("check-manifest", help="capture manifest vs local tokenisation")
     q.add_argument("manifest")

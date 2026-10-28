@@ -91,10 +91,10 @@ scripts/am_audit.py  AM audits: sample | sample-headline | screen | summ-only | 
 evals/sad/          plan 0018 (own CLI `hbench sad`, via EVAL_CLIS; NOT in evals.EVALS):
     bank.py  manifest / raw loader / plain_render;  gate.py  Qwen belief gate (10 samples)
     select.py  mismatched-first selection + read sites;  detect.py  sadetect-v2 (literal claims);
-    verify.py  sadverify-v2 (yes/no);  run.py  driver + rebuild;  score.py;  report.py;  cli.py
+    verify.py  sadverify-v2 (yes/no);  probe.py / probe_report.py  rev-6 probes;  run.py  driver + rebuild;  score.py;  report.py;  cli.py
 data/sad/           manifest.json, manifest_wildchat.json, gate.json, selected.json (ids / counts / positions only), README;
                     raw/ = the SAD texts, GITIGNORED (scripts/sad/fetch_sad.py)
-scripts/sad/        fetch_sad.py, fetch_wildchat.py, qwen_gate_modal.py, capture.sh, reads.sh, fetch_readouts.sh, judge.sh
+scripts/sad/        fetch_sad.py, fetch_wildchat.py, sad_probes_modal.py, qwen_gate_modal.py, capture.sh, reads.sh, fetch_readouts.sh, judge.sh
 scripts/run_am.sh    AM driver: step1 (tmux hbench-am-detect) | step2 (tmux hbench-am-map)
 ```
 
@@ -318,6 +318,11 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
 - Rev 5 selection = rev-4 items + a top-up (`hbench sad top-up`, items tagged `batch: rev5`):
   captured to `hb-sad-acts2`, read into `gen-hb-sad-*-rev5`, appended by
   `fetch_readouts.sh <arm> <gen> <kind> wsbench-gen-3 rev5` (keeps `sad_rev4.jsonl`).
+- Rev 6 probes import `evals/sibling_probe/probes.py` (V2 whitened DiffMean; the Modal job ships
+  the file) — never copy it. Training texts = non-pilot gated items (`hb-sad-probe-train`) and
+  `probe.contrast_prompts()` (`hb-sad-probe-contrast`); the pilot is scored from the existing
+  `hb-sad-acts{,2}`. Gate belief tracks text length (AUROC 0.91 alone on WildChat): read the
+  length-stratified and contrastive-probe rows before trusting the primary's ~1.0.
 - Modal sometimes boots a container with a corrupt baked `.pyc` ("bad marshal data"): the gate
   image sets `PYTHONPYCACHEPREFIX`; for the global-workspace readers just re-run (they resume).
 

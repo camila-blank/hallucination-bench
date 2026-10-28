@@ -481,3 +481,50 @@ def test_top_up_keeps_previous_and_fills(qwen_tok):
     assert sum(it["belief"] == "deploy" for it in sel["items"]) == 3
     assert all(it.get("batch") == "rev5" for it in sel["items"][1:])
     assert sel == select.top_up(prev, gate, raw, qwen_tok, "tok", n_per_belief=3)[0]
+
+
+def test_probe_contrast_and_keys():
+    from hallucination_bench.evals.sad import probe
+
+    cp = probe.contrast_prompts()
+    assert len(cp) == len(probe.TASKS) * (len(probe.EVAL_FRAMES) + len(probe.DEPLOY_FRAMES))
+    assert {c["label"] for c in cp} == {0, 1} and len({c["id"] for c in cp}) == len(cp)
+    sites = [{"region": "body"}] * 3 + [{"region": "suffix"}] * 4
+    assert probe.site_keys(sites) == [(0, 0)] * 3 + [(1, 3), (1, 2), (1, 1), (1, 0)]
+    f = probe.fold_of([f"a{i}" for i in range(8)], [0, 1] * 4, "x")
+    assert sorted(f.values()) == [0, 0, 1, 1, 2, 2, 3, 3]
+    assert f == probe.fold_of([f"a{i}" for i in range(8)], [0, 1] * 4, "x")
+
+
+def test_probe_report_claims_and_misses(tmp_path):
+    from hallucination_bench.evals.sad import probe_report
+
+    inputs = {
+        "pilot": [
+            {"id": "e1", "label": 0, "pos": [5, 9], "keys": [[0, 0], [1, 0]]},
+            {"id": "d1", "label": 1, "pos": [5, 9], "keys": [[0, 0], [1, 0]]},
+        ]
+    }
+    sites = [
+        {"i": 0, "j": 0, "eval": True, "deploy": False},
+        {"i": 0, "j": 1, "eval": False, "deploy": False},
+        {"i": 1, "j": 0, "eval": True, "deploy": False},
+        {"i": 1, "j": 1, "eval": False, "deploy": True},
+    ]
+    probes = {28: {p: {"pilot_sites": sites} for p in probe_report.PROBES}}
+    cells = [
+        _rec("e1", 28, 5, "body", False, [_m(0, "eval_claim")]),  # supported
+        _rec("e1", 28, 9, "suffix", True, []),
+        _rec("d1", 28, 5, "body", False, []),  # eval fires, lens silent -> miss
+        _rec("d1", 28, 9, "suffix", True, [_m(1, "eval_claim")]),  # unsupported + gate-wrong
+    ]
+    cp = tmp_path / "cells.jsonl"
+    cp.write_text("".join(json.dumps(c) + "\n" for c in cells))
+    out = probe_report.claims_and_misses(probes, inputs, cp, "primary_wildchat")["28"]
+    assert out["n_verified_claims"] == 2 and out["n_supported"] == 1
+    assert out["probe_checked_rate"] == pytest.approx((0 + 1 / 6) / 2)
+    assert out["gate_rate"] == pytest.approx((0 + 1 / 6) / 2)
+    assert out["n_sites_eval_fires"] == 2 and out["miss_eval"] == pytest.approx(0.5)
+    assert out["miss_deploy"] == pytest.approx(1.0)
+    pr = probe_report.premise(probes, inputs, "primary_wildchat")["28"]
+    assert pr["body|eval_fires_on_deploy"] == 1.0 and pr["assistant|deploy_fires_on_eval"] == 0.0

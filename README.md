@@ -171,6 +171,11 @@ MODAL_PROFILE=safety-sahan-2 uvx --python 3.12 modal@latest run --env camila-bla
     scripts/sad/qwen_gate_modal.py --inp outputs/sad/gate/requests.jsonl --out outputs/sad/gate/samples.jsonl
 uv run --no-sync hbench sad gate && HF_HUB_OFFLINE=1 uv run --no-sync hbench sad select
 HF_HUB_OFFLINE=1 uv run --no-sync hbench sad top-up                # rev 5: fill each belief to 100
+HF_HUB_OFFLINE=1 uv run --no-sync hbench sad probe-inputs          # rev 6: probe inputs + capture rows
+#   capture outputs/sad/capture_rows_probe_{train,contrast}.json -> wsbench-acts:/hb-sad-probe-{train,contrast}
+uvx --python 3.12 modal@latest run --env camila-blank scripts/sad/sad_probes_modal.py \
+    --inputs outputs/sad/probe_inputs.json --out outputs/sad/probes   # 4 layers in parallel
+uv run --no-sync hbench sad probe-report                           # outputs/sad/<judge>/probes.json
 scripts/sad/capture.sh && scripts/sad/reads.sh <ts>             # Modal (global-workspace readers)
 scripts/sad/fetch_readouts.sh s3d-rl600 gen-hb-sad-s3d-rl600 prose   # (and mlnla / jlens)
 env -u ANTHROPIC_API_KEY uv run --no-sync hbench sad run --arms s3d-rl600,mlnla-rl600-all11,jlens
@@ -213,9 +218,10 @@ and `outputs/wsbench_chat/<judge model>/{report.md,report.json,audit_samples.md}
 
 Index of every results doc: [`docs/results/README.md`](docs/results/README.md).
 
-[`docs/results/0018_sad_pilot.md`](docs/results/0018_sad_pilot.md) (sad pilot, rev 5: literal
-statements, 100 eval- + 100 deploy-belief items): lenses almost never state the model's situation
-literally; wrong-direction claims ≤ 0.13% of readouts (0 at the final site, NLA's from one item).
+[`docs/results/0018_sad_pilot.md`](docs/results/0018_sad_pilot.md) (sad pilot, rev 6): Qwen's
+eval/deploy belief is linearly decodable at the read sites (probe AUROC ≈ 1.0; independent
+contrastive probe 0.96–0.99 at `assistant`), yet lenses state it literally almost never — misses
+99.3–100%; wrong-direction literal claims ≤ 0.13% of readouts.
 
 [`docs/results/0001_wsbench_chat_taxonomy.md`](docs/results/0001_wsbench_chat_taxonomy.md)
 (filled in after the full run); claim map:
