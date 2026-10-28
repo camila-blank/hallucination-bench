@@ -1,4 +1,4 @@
-"""The hallucination index v3 (plan 0013, Part B): one row per (method, layer).
+"""The hallucination index (plans 0013 + 0019): one row per (method, layer).
 
 Families (each reads another eval's outputs; nothing is re-judged):
 
@@ -7,20 +7,30 @@ Families (each reads another eval's outputs; nothing is re-judged):
 * ``agentic_misalignment``, ``story``: unweighted share
   ``(false_claim + substitution_category + detail) / n_claims``;
 * ``sibling``: the 3-domain user-modelling ladder, unweighted mean over domains of the share of
-  committed, probe-testable units labelled hallucination (defined only with units in all three).
+  committed, probe-testable units labelled hallucination (defined only with units in all three);
+* ``overrefusal``, ``strongreject``, ``mask`` (hindex-v4, plan 0019): the probe-validated share of
+  disposition claims, ``Σ n_contradicted / Σ n_claims`` over the eval's ``index_counts.jsonl``
+  (one row per (arm, layer, item), written by the eval's report); readers restricted to
+  :data:`SAFETY_READERS`.
 
 A claim is one claim-map segment whose scoring leaf is a claim (``taxonomy_v2.is_claim``), pooled
 over every segment of every mapped cell of the (arm, layer). Claim-family CIs: 2,000-draw item
 bootstrap (a fresh ``default_rng(0)`` per row); sibling: 1,000 draws, a fresh ``Random(0)`` per
-row, items resampled within domain. ``full`` / ``matched`` are family-weighted means
-(:data:`FAMILY_WEIGHTS`) with a normal-approximation CI (families independent).
+row, items resampled within domain; safety families: 2,000-draw cluster bootstrap (clusters in
+sorted order, a fresh ``default_rng(0)`` per (family, arm, layer)). ``full`` / ``matched`` are
+family-weighted means (:data:`FAMILY_WEIGHTS`) with a normal-approximation CI (families
+independent).
 
-The definition reproduces the exploratory ``hclaims*.py`` / ``um3.py`` / ``macro3.py`` exactly,
-down to the RNG consumption order: change it only with a new :data:`INDEX_VERSION`.
+``version="v3"`` emits exactly hindex-v3 (families :data:`FAMILIES_V3`, frozen notes
+:data:`NOTES_V3`); v4 adds the safety families and always emits ``full_v3`` / ``matched_v3`` (the
+v3 macros) beside its own ``full`` (all seven) / ``matched`` (all but sibling). The v3 definition
+reproduces the exploratory ``hclaims*.py`` / ``um3.py`` / ``macro3.py`` exactly, down to the RNG
+consumption order: change a definition only with a new :data:`INDEX_VERSION`.
 """
 
 import json
 import math
+import os
 import random
 import subprocess
 from collections import defaultdict
@@ -35,12 +45,19 @@ import numpy as np
 from hallucination_bench import REPO_ROOT
 from hallucination_bench import taxonomy_v2 as tx
 
-INDEX_VERSION = "hindex-v3"
+INDEX_VERSION = "hindex-v4"
+INDEX_VERSION_V3 = "hindex-v3"
+VERSIONS: dict[str, str] = {"v3": INDEX_VERSION_V3, "v4": INDEX_VERSION}
 MAIN, AM, SIBLING, STORY = "main", "agentic_misalignment", "sibling", "story"
-FAMILIES: tuple[str, ...] = (MAIN, AM, SIBLING, STORY)
+OVERREFUSAL, STRONGREJECT, MASK = "overrefusal", "strongreject", "mask"
+FAMILIES_V3: tuple[str, ...] = (MAIN, AM, SIBLING, STORY)
+MATCHED_V3: tuple[str, ...] = (MAIN, AM, STORY)  # comparable for methods without a sibling score
+FAMILY_WEIGHTS_V3: dict[str, float] = {MAIN: 9.0, AM: 3.0, SIBLING: 2.0, STORY: 1.0}
 CLAIM_FAMILIES: tuple[str, ...] = (MAIN, AM, STORY)
-FAMILY_WEIGHTS: dict[str, float] = {MAIN: 9.0, AM: 3.0, SIBLING: 2.0, STORY: 1.0}
-MATCHED: tuple[str, ...] = (MAIN, AM, STORY)  # comparable for methods without a sibling score
+SAFETY_FAMILIES: tuple[str, ...] = (OVERREFUSAL, STRONGREJECT, MASK)
+FAMILIES: tuple[str, ...] = FAMILIES_V3 + SAFETY_FAMILIES
+MATCHED: tuple[str, ...] = tuple(f for f in FAMILIES if f != SIBLING)
+FAMILY_WEIGHTS: dict[str, float] = {**FAMILY_WEIGHTS_V3, **dict.fromkeys(SAFETY_FAMILIES, 1.0)}
 # main: every other leaf weighs 0 (cruxy is ignored)
 MAIN_LEAF_WEIGHTS: dict[str, float] = {
     "false_claim": 1.0,
@@ -52,8 +69,52 @@ UNWEIGHTED_LEAVES: tuple[str, ...] = ("false_claim", "substitution_category", "d
 UM_DOMAINS: tuple[str, ...] = ("country", "capital_city", "holiday")
 N_BOOT_CLAIMS = 2000
 N_BOOT_SIBLING = 1000
+N_BOOT_SAFETY = 2000
 CELLS = "cells.jsonl"
 UNITS = "units_labeled.jsonl"
+SAFETY_COUNTS = "index_counts.jsonl"
+SAFETY_META = "index_meta.json"
+# plan 0019's reader allowlist (the export's arm names): rows of any other arm are ignored
+SAFETY_READERS: dict[str, frozenset[str]] = {
+    OVERREFUSAL: frozenset({"s3d-rl600", "mlnla-rl600-all11", "jlens"}),
+    STRONGREJECT: frozenset({"s3d-rl600", "mlnla-rl600", "jlens"}),
+    MASK: frozenset({"s3d-rl600", "mlnla-rl600-all11", "jlens"}),
+}
+# opt-in roots: read only when passed explicitly or when the variable is set (never its default)
+SAFETY_ENV: dict[str, str] = {
+    OVERREFUSAL: "HBENCH_SAFETY_OR_OUT",
+    STRONGREJECT: "HBENCH_SAFETY_SR_OUT",
+    MASK: "HBENCH_SAFETY_MASK_OUT",
+}
+SAFETY_INT_COLS: tuple[str, ...] = (
+    "n_claims",
+    "n_false",
+    "n_contradicted",
+    "n_unprobed",
+    "n_unresolved",
+    "n_failed_cells",
+    "n_units",
+    "n_false_units",
+    "n_contradicted_units",
+    "n_supported_units",
+    "n_unprobed_units",
+)
+SAFETY_COLS: tuple[str, ...] = ("arm", "layer", "item", "cluster", *SAFETY_INT_COLS)
+ABSENT_NO_CLAIMS = "no_claims"
+ABSENT_ALL_UNPROBED = "no_probed_false_claims"
+# hindex-v3's methods.json notes, frozen in the v3 code path (methods.json may change for v4)
+NOTES_V3: dict[str, str] = {
+    "jlens.sibling": "no sibling score: J-lens has committed, probe-testable UM units in at most "
+    "two of the three domains at every layer, so only `matched` compares it",
+    "nla-rl-L42": "single-layer L42 NLA arms (nla-rl-L42, nla-sft-L42) excluded "
+    "(Camila 2026-10-20)",
+    "s3d-rl600.main": "the s3d-rl600 arm wins at the layers it has, s3d-rl600-all11 fills the rest",
+    "v4": "DeepSeek-V4-Flash arms (v4-*, plan 0014) are matched by name; their roots are passed "
+    "beside the Qwen ones. V4 AM is read at layers 21/27/33 only, so V4 `full` / `matched` exist "
+    "at 21/27/33 only",
+    "v4-jlens-std-n1000.sibling": "no sibling score: no committed, probe-testable country units "
+    "at any layer (as for jlens)",
+}
 
 # per-item count vector columns
 C_CLAIMS, C_FC, C_CAT, C_DET, C_SIB, C_WEIGHTED, C_READOUTS, C_SEGMENTS = range(8)
@@ -135,6 +196,51 @@ def um_rows(um_root: Path) -> UmUnits:
     return dict(units)
 
 
+SafetyRows = dict[str, dict[int, list[dict[str, Any]]]]  # arm -> layer -> index_counts rows
+
+
+def safety_rows(root: Path, family: str) -> tuple[SafetyRows, set[str]]:
+    """One safety root's ``index_counts.jsonl`` as arm -> layer -> rows, for the arms of
+    :data:`SAFETY_READERS` only; also the ignored arm names. A root without the file is empty."""
+    if family not in SAFETY_FAMILIES:
+        raise ValueError(f"not a safety family: {family!r}")
+    out: SafetyRows = defaultdict(lambda: defaultdict(list))
+    ignored: set[str] = set()
+    path = Path(root) / SAFETY_COUNTS
+    if not path.is_file():
+        return {}, ignored
+    with open(path, encoding="utf-8") as fh:
+        for n, line in enumerate(fh, 1):
+            if not line.strip():
+                continue
+            r = json.loads(line)
+            if missing := [c for c in SAFETY_COLS if c not in r]:
+                raise ValueError(f"{path}:{n}: missing columns {missing}")
+            if r["arm"] not in SAFETY_READERS[family]:
+                ignored.add(r["arm"])
+                continue
+            out[r["arm"]][int(r["layer"])].append(r)
+    return {a: dict(by) for a, by in out.items()}, ignored
+
+
+def safety_meta(root: Path) -> dict[str, Any] | None:
+    """A safety root's ``index_meta.json`` (prompt versions, probe sha256s, gates, population)."""
+    p = Path(root) / SAFETY_META
+    return json.loads(p.read_text(encoding="utf-8")) if p.is_file() else None
+
+
+def layer_gates(meta: Mapping[str, Any] | None, layer: int) -> Any:
+    """The gate results of one layer from ``index_meta.json``'s ``gates``: a mapping keyed by
+    layer (``{"20": {site class: ...}}``) or a list of entries carrying ``"layer"``."""
+    g = (meta or {}).get("gates")
+    if isinstance(g, Mapping):
+        return g.get(str(layer), g.get(layer))
+    if isinstance(g, list):
+        hit = [e for e in g if isinstance(e, Mapping) and e.get("layer") == layer]
+        return hit or None
+    return None
+
+
 # ---------------------------------------------------------------- metrics
 
 
@@ -197,6 +303,45 @@ def sibling_metric(per_domain: Mapping[str, list[tuple[str, str]]]) -> dict[str,
     }
 
 
+def safety_metric(rows: list[dict[str, Any]]) -> tuple[dict[str, Any] | None, dict[str, Any]]:
+    """Probe-validated share ``Σ n_contradicted / Σ n_claims`` of one (family, arm, layer) and its
+    cluster-bootstrap CI (clusters in sorted order, a fresh ``default_rng(0)``; percentiles over
+    the draws with claims), or ``None`` with the counts and an ``absent_reason``: no claims, or
+    false claims none of which is probed."""
+    tot = {c: int(sum(int(r[c]) for r in rows)) for c in SAFETY_INT_COLS}
+    counts: dict[str, Any] = {"n_items": len({r["item"] for r in rows}), **tot}
+    if tot["n_claims"] == 0:
+        return None, {**counts, "absent_reason": ABSENT_NO_CLAIMS}
+    if tot["n_false"] > 0 and tot["n_false"] == tot["n_unprobed"]:
+        return None, {**counts, "absent_reason": ABSENT_ALL_UNPROBED}
+    by: dict[str, np.ndarray] = defaultdict(lambda: np.zeros(2))
+    for r in rows:
+        by[str(r["cluster"])] += (int(r["n_contradicted"]), int(r["n_claims"]))
+    mat = np.array([by[k] for k in sorted(by)])
+    idx = np.random.default_rng(0).integers(0, len(mat), size=(N_BOOT_SAFETY, len(mat)))
+    bs = mat[idx].sum(1)
+    with np.errstate(divide="ignore", invalid="ignore"):
+        ratio = bs[:, 0] / bs[:, 1]
+    # draws of zero-claim clusters only (0/0) carry no share: the CI is over the defined draws
+    ci = np.nanpercentile(ratio, [2.5, 97.5]).tolist()
+    n = tot["n_claims"]
+    out: dict[str, Any] = {
+        "v": tot["n_contradicted"] / n,
+        "ci": ci,
+        "n": n,
+        "n_items": counts["n_items"],
+        "n_clusters": len(mat),
+        "raw": tot["n_false"] / n,
+        "n_claims": n,
+        "n_false": tot["n_false"],
+        "n_contradicted": tot["n_contradicted"],
+        "n_unprobed": tot["n_unprobed"],
+        "health": {k: tot[k] for k in ("n_unprobed", "n_unresolved", "n_failed_cells")},
+        "units": {k: tot[k] for k in SAFETY_INT_COLS if k.endswith("_units")},
+    }
+    return out, counts
+
+
 def weighted_macro(per: Mapping[str, Mapping[str, Any]], fams: Iterable[str]) -> dict[str, Any]:
     """Family-weighted mean; CI ``v ± 1.96 se``, ``se`` from each family's CI width / 3.92."""
     fams = list(fams)
@@ -243,18 +388,22 @@ def load_methods(path: Path) -> Methods:
     return m
 
 
-def resolve_methods(methods: Methods, arms: Mapping[str, Iterable[str]]) -> dict[str, dict]:
-    """Method -> family -> ordered arm list. A configured method uses its list where it names
-    the family, else ``[name]``; every arm neither claimed in its family (listed there, or the
-    name of a configured method) nor excluded becomes the identity method of that name."""
+def resolve_methods(
+    methods: Methods, arms: Mapping[str, Iterable[str]], families: Iterable[str] = FAMILIES
+) -> dict[str, dict]:
+    """Method -> family -> ordered arm list over ``families``. A configured method uses its list
+    where it names the family, else ``[name]``; every arm neither claimed in its family (listed
+    there, or the name of a configured method) nor excluded becomes the identity method of that
+    name."""
+    families = tuple(families)
     out: dict[str, dict[str, list[str]]] = {
-        name: {f: list(fams.get(f, [name])) for f in FAMILIES}
+        name: {f: list(fams.get(f, [name])) for f in families}
         for name, fams in methods.methods.items()
     }
-    for f in FAMILIES:
+    for f in families:
         claimed = set(methods.methods) | {a for m in out.values() for a in m[f]}
         for a in sorted(set(arms.get(f, ())) - claimed - methods.exclude):
-            out.setdefault(a, {g: [] for g in FAMILIES})[f] = [a]
+            out.setdefault(a, {g: [] for g in families})[f] = [a]
     return out
 
 
@@ -265,12 +414,17 @@ def default_sources(out: Path, judge_model: str) -> dict[str, list[Path]]:
     from hallucination_bench.evals.wsbench_chat.run import model_slug
 
     m = model_slug(judge_model)
-    return {
+    src = {
         MAIN: [out / "wsbench_chat" / m],
         AM: [out / "agentic_misalignment" / m],
         SIBLING: [out / "sibling" / "um"],
         STORY: [out / "story" / m],
     }
+    # safety roots are opt-in: only an explicitly set HBENCH_SAFETY_* (never the dev-box default)
+    for f, var in SAFETY_ENV.items():
+        if v := os.environ.get(var):
+            src[f] = [Path(v)]
+    return src
 
 
 def _arm_dirs(family: str, roots: list[Path]) -> dict[str, Path]:
@@ -306,15 +460,49 @@ def _claim_job(job: tuple[str, str, Path]) -> tuple[str, str, dict[int, dict[str
     return family, arm, {L: r for L, r in rows.items() if r is not None}
 
 
+def _safety_arms(
+    family: str, roots: list[Path]
+) -> tuple[SafetyRows, dict[str, dict[str, Any] | None], set[str], list[dict[str, Any]]]:
+    rows: SafetyRows = {}
+    meta: dict[str, dict[str, Any] | None] = {}
+    seen: dict[str, Path] = {}
+    ignored: set[str] = set()
+    metas = []
+    for root in roots:
+        part, ign = safety_rows(root, family)
+        ignored |= ign
+        m = safety_meta(root)
+        metas.append({"root": str(Path(root).resolve()), "meta": m})
+        for arm in sorted(part):
+            if arm in seen:
+                raise ValueError(f"{family}: arm {arm!r} under two roots: {seen[arm]}, {root}")
+            seen[arm] = Path(root)
+            rows[arm] = part[arm]
+            meta[arm] = m
+    return rows, meta, ignored, metas
+
+
 def build_index(
-    sources: Mapping[str, list[Path]], methods: Methods, workers: int = 1
+    sources: Mapping[str, list[Path]],
+    methods: Methods,
+    workers: int = 1,
+    version: str = "v4",
 ) -> dict[str, Any]:
-    """Every (method, layer) row with the families it has; ``full`` needs all four families,
-    ``matched`` needs :data:`MATCHED`. Missing roots mean an absent family, not an error."""
+    """Every (method, layer) row with the families it has. v4: ``full`` needs all seven families,
+    ``matched`` all but sibling, and ``full_v3`` / ``matched_v3`` are the v3 macros; v3
+    (``version="v3"``): exactly hindex-v3 (``full`` = four families, ``matched`` =
+    :data:`MATCHED_V3`). Missing roots mean an absent family, not an error."""
+    if version not in VERSIONS:
+        raise ValueError(f"unknown index version {version!r}: one of {sorted(VERSIONS)}")
+    v3 = version == "v3"
+    families = FAMILIES_V3 if v3 else FAMILIES
+    safety_fams = () if v3 else SAFETY_FAMILIES
     arm_dirs = {f: _arm_dirs(f, list(sources.get(f, []))) for f in CLAIM_FAMILIES}
     units = _um_units(list(sources.get(SIBLING, [])))
+    safety = {f: _safety_arms(f, list(sources.get(f, []))) for f in safety_fams}
     arms = {**{f: list(arm_dirs[f]) for f in CLAIM_FAMILIES}, SIBLING: [k[0] for k in units]}
-    resolved = resolve_methods(methods, arms)
+    arms |= {f: list(safety[f][0]) for f in safety_fams}
+    resolved = resolve_methods(methods, arms, families)
 
     used = {(f, a) for m in resolved.values() for f in CLAIM_FAMILIES for a in m[f]}
     jobs = [(f, a, d) for f in CLAIM_FAMILIES for a, d in arm_dirs[f].items() if (f, a) in used]
@@ -332,36 +520,84 @@ def build_index(
         if (r := sibling_metric(per)) is not None:
             by_arm.setdefault((SIBLING, name), {})[layer] = r
 
+    absent: dict[tuple[str, str], dict[int, dict[str, Any]]] = {}
+    for f in safety_fams:
+        rows_f, meta_f, _, _ = safety[f]
+        for a in sorted(rows_f):
+            for layer, rs in sorted(rows_f[a].items()):
+                r, counts = safety_metric(rs)
+                if r is None:
+                    absent.setdefault((f, a), {})[layer] = counts
+                    continue
+                gates = layer_gates(meta_f[a], layer)
+                by_arm.setdefault((f, a), {})[layer] = {**r, "gates": gates}
+
     rows = []
     for method in sorted(resolved):
         fam_arms = resolved[method]
-        layers = sorted({L for f in FAMILIES for a in fam_arms[f] for L in by_arm.get((f, a), {})})
+        layers = sorted({L for f in families for a in fam_arms[f] for L in by_arm.get((f, a), {})})
         for layer in layers:
             per: dict[str, dict[str, Any]] = {}
-            for f in FAMILIES:
+            gone: dict[str, dict[str, Any]] = {}
+            for f in families:
                 for a in fam_arms[f]:
                     if (r := by_arm.get((f, a), {}).get(layer)) is not None:
                         per[f] = {"arm": a, **r}
                         break
+                if f in safety_fams and f not in per:
+                    for a in fam_arms[f]:
+                        if (c := absent.get((f, a), {}).get(layer)) is not None:
+                            gone[f] = {"arm": a, "absent_reason": c["absent_reason"]}
+                            break
             row: dict[str, Any] = {"method": method, "layer": layer, "families": per}
-            if all(f in per for f in FAMILIES):
-                row["full"] = weighted_macro(per, FAMILIES)
-            if all(f in per for f in MATCHED):
-                row["matched"] = weighted_macro(per, MATCHED)
+            if v3:
+                if all(f in per for f in FAMILIES_V3):
+                    row["full"] = weighted_macro(per, FAMILIES_V3)
+                if all(f in per for f in MATCHED_V3):
+                    row["matched"] = weighted_macro(per, MATCHED_V3)
+            else:
+                for key, fams in (
+                    ("full", FAMILIES),
+                    ("matched", MATCHED),
+                    ("full_v3", FAMILIES_V3),
+                    ("matched_v3", MATCHED_V3),
+                ):
+                    if all(f in per for f in fams):
+                        row[key] = weighted_macro(per, fams)
+                if gone:
+                    row["absent"] = gone
             rows.append(row)
-    return {
-        "version": INDEX_VERSION,
-        "weights": {
-            "family": FAMILY_WEIGHTS,
-            "main_leaf": MAIN_LEAF_WEIGHTS,
-            "unweighted_leaves": list(UNWEIGHTED_LEAVES),
-        },
-        "sources": {f: [str(Path(p).resolve()) for p in sources.get(f, [])] for f in FAMILIES},
+    weights: dict[str, Any] = {
+        "family": FAMILY_WEIGHTS_V3 if v3 else FAMILY_WEIGHTS,
+        "main_leaf": MAIN_LEAF_WEIGHTS,
+        "unweighted_leaves": list(UNWEIGHTED_LEAVES),
+    }
+    out: dict[str, Any] = {
+        "version": VERSIONS[version],
+        "weights": weights,
+        "sources": {f: [str(Path(p).resolve()) for p in sources.get(f, [])] for f in families},
         "methods": resolved,
         "exclude": sorted(methods.exclude),
-        "notes": methods.notes,
+        "notes": NOTES_V3 if v3 else methods.notes,
         "rows": rows,
     }
+    if not v3:
+        out["safety"] = {
+            f: {
+                "share": "n_contradicted / n_claims (probe-validated); raw = n_false / n_claims",
+                "readers": sorted(SAFETY_READERS[f]),
+                "ignored_arms": sorted(safety[f][2]),
+                "meta": safety[f][3],
+                "absent": [
+                    {"arm": a, "layer": layer, **c}
+                    for (g, a), by in sorted(absent.items())
+                    if g == f
+                    for layer, c in sorted(by.items())
+                ],
+            }
+            for f in SAFETY_FAMILIES
+        }
+    return out
 
 
 # ---------------------------------------------------------------- output
@@ -373,7 +609,8 @@ def _pct(r: Mapping[str, Any] | None) -> str:
     return f"{100 * r['v']:.1f} [{100 * r['ci'][0]:.1f}, {100 * r['ci'][1]:.1f}]"
 
 
-def render_md(index: Mapping[str, Any]) -> str:
+def _render_md_v3(index: Mapping[str, Any]) -> str:
+    """hindex-v3's table, verbatim."""
     fw = index["weights"]["family"]
     lw = index["weights"]["main_leaf"]
     L = [
@@ -398,8 +635,14 @@ def render_md(index: Mapping[str, Any]) -> str:
             " / ".join(f"{100 * main[k]:.1f}" for k in ("fc", "cat", "sib", "det")) if main else "—"
         )
         cells = [r["method"], str(r["layer"]), _pct(r.get("full")), _pct(r.get("matched"))]
-        cells += [_pct(p.get(f)) for f in FAMILIES] + [comp]
+        cells += [_pct(p.get(f)) for f in FAMILIES_V3] + [comp]
         L.append("| " + " | ".join(cells) + " |")
+    L += _md_footer(index)
+    return "\n".join(L) + "\n"
+
+
+def _md_footer(index: Mapping[str, Any]) -> list[str]:
+    L: list[str] = []
     arms = sorted(
         {
             f"{r['method']}.{f} = {a['arm']}"
@@ -414,6 +657,49 @@ def render_md(index: Mapping[str, Any]) -> str:
         L += ["", "Excluded arms: " + ", ".join(index["exclude"]) + "."]
     if index["notes"]:
         L += ["", *(f"- {k}: {v}" for k, v in sorted(index["notes"].items()))]
+    return L
+
+
+def render_md(index: Mapping[str, Any]) -> str:
+    if index["version"] == INDEX_VERSION_V3:
+        return _render_md_v3(index)
+    fw = index["weights"]["family"]
+    lw = index["weights"]["main_leaf"]
+    L = [
+        f"# Hallucination index ({index['version']})",
+        "",
+        "% of claims hallucinated per (method, layer), 95% CIs. Family weights "
+        + ", ".join(f"{f} {w:g}" for f, w in fw.items())
+        + "; `full` = all seven families, `matched` = all but sibling, `full_v3` = hindex-v3's "
+        "`full` (main + agentic_misalignment + sibling + story). main leaf weights "
+        + ", ".join(f"{k} {w:g}" for k, w in lw.items())
+        + "; agentic_misalignment / story: unweighted "
+        + " + ".join(index["weights"]["unweighted_leaves"])
+        + "; sibling: 3-domain UM ladder; overrefusal / strongreject / mask: probe-validated "
+        "share of disposition claims (false claims the eval's probe contradicts / claims).",
+        "",
+        "| method | layer | full | matched | full_v3 | " + " | ".join(FAMILIES) + " "
+        "| main fc / cat / sib / det |",
+        "|---|---:|" + "---|" * (3 + len(FAMILIES) + 1),
+    ]
+    for r in index["rows"]:
+        p = r["families"]
+        main = p.get(MAIN)
+        comp = (
+            " / ".join(f"{100 * main[k]:.1f}" for k in ("fc", "cat", "sib", "det")) if main else "—"
+        )
+        cells = [r["method"], str(r["layer"])]
+        cells += [_pct(r.get(k)) for k in ("full", "matched", "full_v3")]
+        cells += [_pct(p.get(f)) for f in FAMILIES] + [comp]
+        L.append("| " + " | ".join(cells) + " |")
+    gone = sorted(
+        f"{r['method']}.{f}@{r['layer']} ({a['absent_reason']})"
+        for r in index["rows"]
+        for f, a in r.get("absent", {}).items()
+    )
+    if gone:
+        L += ["", "Safety families absent (not 0): " + "; ".join(gone) + "."]
+    L += _md_footer(index)
     return "\n".join(L) + "\n"
 
 

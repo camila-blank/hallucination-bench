@@ -10,10 +10,11 @@ mentions of misalignment, its own driver, `--eval agentic_misalignment`) is plan
 `plans/0008-agentic-misalignment-claim-map.md`. The `overrefusal` eval (OR-Bench pilot: refusal claims on prompts
 the model never refuses; own subcommands `hbench overrefusal ...`) is plan
 `plans/0015-overrefusal-eval.md`. The hallucination index (`hbench index`, one
-macro per (method, layer) over main / AM / sibling / story) is plan
-`plans/0013-final-sibling-eval-and-hallucination-index.md`. The `mask` eval (MASK lies vs
+macro per (method, layer)) is plan `plans/0013-final-sibling-eval-and-hallucination-index.md`
+(hindex-v3: main / AM / sibling / story) + `plans/0019-safety-families-on-the-index.md`
+(hindex-v4: + overrefusal / strongreject / mask). The `mask` eval (MASK lies vs
 honest-but-wrong: does the lens claim the model is lying when it is honest? Its own CLI,
-`hbench mask gt|run|report`; not on the index) is plan `plans/0017-mask-eval.md`.
+`hbench mask gt|run|report`; on the index since hindex-v4, plan 0019) is plan `plans/0017-mask-eval.md`.
 
 ## Layout
 
@@ -61,7 +62,7 @@ src/hallucination_bench/
                   `--eval agentic_misalignment`). A new eval adds its CLI here and lists a
                   `register(sub)` module in EVAL_CLIS, not in cli.py (plan 0012 D2)
   evals/strongreject/   plan 0016 (own CLI `hbench strongreject grade|run|report`, registered in
-                  EVAL_CLIS; not in EVALS, not on the index):
+                  EVAL_CLIS; not in EVALS; on the index via index_counts.jsonl, plan 0019):
     families.py   pinned StrongREJECT sources + the 7 families + wrap() (the package's rule)
     grade.py      srgrade-v1: StrongREJECT rubric (JSON) + explicit_refusal; adoption markers; outcome
     bank.py       data/strongreject/items.json; thinned sites (last 64 + every 16th; regions)
@@ -73,8 +74,10 @@ src/hallucination_bench/
     probe_check.py  probe check (plan 0015's refusal probe): premise, the rev-6 HB scores
                   (`hb_scores`: raw + probe_validated), probe-checked rates,
                   misses (scripts/strongreject/probe_modal.py scores sites; probe_report.py)
-  index.py        plan 0013: the hallucination index (hindex-v3) from the families' outputs;
-                  method <-> arm mapping in data/index/methods.json
+  index.py        plans 0013 + 0019: the hallucination index (hindex-v4; `--version v3` =
+                  hindex-v3 exactly) from the families' outputs; safety families from each
+                  eval's index_counts.jsonl / index_meta.json; method <-> arm mapping in
+                  data/index/methods.json
   paths.py        external locations as HBENCH_* env vars with dev-box defaults (plan 0012 D3)
   evals/sibling_probe/  the user-modelling (UM) sibling ladder (plans 0006 + 0011):
     um_ladder.py   lexicon patch, FastMatcher, units, umcommit prompt / parse, distractors,
@@ -364,6 +367,18 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
   numbers bit for bit (fresh `default_rng(0)` / `Random(0)` per row): any change to weights, claim
   definition or bootstrap bumps `index.INDEX_VERSION`. A new arm is matched by name across
   families; only legacy names / exclusions go in `data/index/methods.json`.
+  **hindex-v4** (plan 0019) adds overrefusal / strongreject / mask (weight 1 each; share =
+  Σ `n_contradicted` / Σ `n_claims` from each eval's `index_counts.jsonl`, raw share and health
+  beside it; absent with an `absent_reason` on no claims or all-unprobed false claims; cluster
+  bootstrap, fresh `default_rng(0)` per (family, arm, layer), clusters sorted, percentiles over
+  draws with claims). `full` = 7 families, `matched` = all but sibling, `full_v3` / `matched_v3`
+  always emitted. Reader allowlist `index.SAFETY_READERS` is enforced in the index too. Safety
+  roots are opt-in (`--*-root` or a set `HBENCH_SAFETY_*`; never the paths.py default) so tests
+  that build from `tmp_path` stay isolated. The hindex-v3 outputs are pinned by goldens built by
+  the v3 code (`tests/fixtures/index_v3/`, `tests/fixtures/index_v3_devbox.{json,md}`; the
+  dev-box one skips off the dev box): `--version v3` must reproduce both exactly (minus
+  `git_sha` / `sources`), and its notes are frozen in `index.NOTES_V3`. Never regenerate a
+  golden (`scripts/index/build_v3_fixture.py` is provenance, not a refresh tool).
 - **In-run retries** (rev 14): an invalid `:M` (or calibration) answer is re-asked up to 2 times
   (`run.MAP_INVALID_RETRIES`) before it is cached as failed; meta records `n_invalid_attempts`
   and the summed usage.
@@ -376,7 +391,7 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
   prompt-weighted (mean of per-prompt means); read the `asserted` + `tail` cell as the cleanest
   hallucination number (a `considered` claim on a borderline prompt can be faithful). The
   detector is blind to the prompt, so prompts *about* refusing (`about_refusal`) are reported
-  with a sensitivity exclusion. Not on the hallucination index. **Detector / verifier judge is
+  with a sensitivity exclusion. On the hallucination index since hindex-v4 (plan 0019). **Detector / verifier judge is
   `--judge-model claude-sonnet-5-5`** (outputs `outputs/overrefusal/claude-sonnet-5-5/`): Opus 5.5
   hard-refuses ~all 40-cell O-lens batches (harmful readout text), Sonnet does not; GT
   (`judge-gt`) stays Opus with an Opus-full -> Opus-truncated -> Sonnet fallback chain. Keep
