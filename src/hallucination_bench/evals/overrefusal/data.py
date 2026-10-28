@@ -297,3 +297,32 @@ def build_bank(
 
 def positions(items: Sequence[dict[str, Any]]) -> dict[str, list[int]]:
     return {it["id"]: [s["pos"] for s in it["sites"]] for it in items}
+
+
+# ------------------------------------------------------------------ rev 8: frozen set
+
+MANIFEST = DATA_DIR / "MANIFEST.sha256"
+FROZEN_FILES = (
+    "items.json",
+    "candidates.jsonl",
+    "gt_labels.jsonl",
+    "meta.json",
+    "capture_rows.json",
+    "grow/orbench80k2_candidates.jsonl",
+    "grow/orbench80k2_gt_labels.jsonl",
+    "grow/capture_rows_v2add.json",
+    "grow/capture_rows_v2b.json",
+    "probes/refusal_probe_v2.npz",
+    "probes/refusal_probe_v2.json",
+    "probes/refusal_probe_v1.npz",
+    "probes/refusal_probe_v1.json",
+)
+
+
+def manifest_lines() -> list[str]:
+    return [f"{_sha256(DATA_DIR / f)}  {f}" for f in FROZEN_FILES]
+
+
+def write_manifest() -> Path:
+    MANIFEST.write_text("\n".join(manifest_lines()) + "\n")
+    return MANIFEST

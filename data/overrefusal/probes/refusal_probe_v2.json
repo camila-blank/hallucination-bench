@@ -460,5 +460,5 @@
  ],
  "tail_offsets": "0=assistant, 1=<|im_start|>, 2=\\n, 3=<|im_end|>",
  "render": "<|im_start|>user\\n{prompt}<|im_end|>\\n<|im_start|>assistant (no system)",
- "git_commit": "817c5447adb5e5d8365863adb41a5213252148f8"
+ "git_commit": "23bebd9b0223d9a373b44460ea71a6972305f266"
 }

@@ -197,3 +197,57 @@ def grow_bank(tokenizer: Any) -> dict[str, Any]:  # pragma: no cover - needs the
     data.ITEMS.write_text(json.dumps(doc, ensure_ascii=False, indent=1) + "\n")
     ADD_ROWS.write_text(json.dumps(bank["capture_rows"], ensure_ascii=False) + "\n")
     return doc["meta"]
+
+
+ADD_ROWS_B = CAND_80K2.parent / "capture_rows_v2b.json"
+
+
+def grow_pair_controls(tokenizer: Any, seed: int = 17) -> dict[str, Any]:  # pragma: no cover
+    """Rev 8 (WorkspaceBench pairs): add hard_refused items (same gate) so every category has
+    as many refused prompts as never_refused ones, up to the eligible pool. Existing items are
+    unchanged; new ids get ``meta.rev8`` and capture rows ``capture_rows_v2b.json``."""
+    import json
+
+    doc = json.loads(data.ITEMS.read_text())
+    items = doc["items"]
+    if "rev8" in doc["meta"]:
+        raise SystemExit("rev-8 pair controls already added")
+    cands = {c["id"]: c for c in data.load_candidates()}
+    have_ids = {it["id"] for it in items}
+    nev = Counter(it["category"] for it in items if it["population"] == "never_refused")
+    hr = Counter(it["category"] for it in items if it["population"] == "hard_refused")
+    pool: dict[str, list[dict[str, Any]]] = {}
+    for r in sorted(data.read_jsonl(data.GT_LABELS), key=lambda r: r["id"]):
+        if (
+            r["config"] == "hard"
+            and r["id"] not in have_ids
+            and r.get("n_valid") == data.N_SAMPLES
+            and r["n_refuse"] >= data.HARD_REFUSED_MIN
+            and r.get("greedy_label") not in (None, "comply")
+        ):
+            pool.setdefault(cands[r["id"]]["category"], []).append(r)
+    rng = random.Random(seed)
+    picks: list[dict[str, Any]] = []
+    for cat in sorted(nev):
+        need = max(0, nev[cat] - hr[cat])
+        got = pool.get(cat, [])
+        picks += rng.sample(got, min(need, len(got)))
+    bank = data.build_bank(
+        {"never_refused": [], "hard_refused": picks, "always_refused": []},
+        list(cands.values()),
+        tokenizer,
+    )
+    for it in bank["items"]:
+        it["source"] = SOURCE[it["config"]]
+    doc["items"] = [*items, *bank["items"]]
+    doc["meta"]["rev8"] = {
+        "added_hard_refused": len(picks),
+        "by_category": dict(Counter(cands[p["id"]]["category"] for p in picks)),
+    }
+    doc["meta"]["selected"] = {
+        p: sum(it["population"] == p for it in doc["items"]) for p in data.POPULATIONS
+    }
+    doc["meta"]["n_sites"] = sum(len(it["sites"]) for it in doc["items"])
+    data.ITEMS.write_text(json.dumps(doc, ensure_ascii=False, indent=1) + "\n")
+    ADD_ROWS_B.write_text(json.dumps(bank["capture_rows"], ensure_ascii=False) + "\n")
+    return doc["meta"]["rev8"]

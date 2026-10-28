@@ -1,6 +1,6 @@
 # Plan 0015: `overrefusal` eval (OR-Bench): does the lens claim refusal on prompts the model never refuses?
 
-Author: Camila Blank (planned with Claude), 2026-10-27. Revision 7 (rev 7: grown populations, standard probe-checked rate, on-distribution probe threshold v2, §Rev 7; rev 6: probe critique applied; rev 5: refusal probes, §Probe check; rev 4: pilot deviations, see §Pilot deviations; rev 2, critique 1: asserted / template-tail breakdown, a same-distribution `hard_refused` contrast, a greedy-comply condition, prompt-weighted rates and a sample-0 cell rate, J-lens without stance, prompts about refusing flagged, research frame + API-refusal counting, gen volume pinned, per-population bootstrap; critique 2: `hard_refused` floor, stance of bare nouns, user-voice echoes). Pilot. Issue #23.
+Author: Camila Blank (planned with Claude), 2026-10-27. Revision 8 (rev 8: frozen HB set + WorkspaceBench pair family, §Rev 8; rev 7: grown populations, standard probe-checked rate, on-distribution probe threshold v2, §Rev 7; rev 6: probe critique applied; rev 5: refusal probes, §Probe check; rev 4: pilot deviations, see §Pilot deviations; rev 2, critique 1: asserted / template-tail breakdown, a same-distribution `hard_refused` contrast, a greedy-comply condition, prompt-weighted rates and a sample-0 cell rate, J-lens without stance, prompts about refusing flagged, research frame + API-refusal counting, gen volume pinned, per-population bootstrap; critique 2: `hard_refused` floor, stance of bare nouns, user-voice echoes). Pilot. Issue #23.
 
 Builds on plan 0008 (agentic_misalignment: own driver, prompt-position readouts, blind batched
 LLM detector -> blind headline verifier) and plan 0007 §Readouts (the Modal capture -> read ->
@@ -516,6 +516,54 @@ secondary.
 - **Artifact:** `data/overrefusal/probes/refusal_probe_v2.{npz,json}`: v1 directions /
   centring / scale plus `tau_v2`, `c_tau_v2`, calibration mean / sd, held-out FPR, the split's
   ids, provenance. This is the artifact other evals (strongreject) use.
+
+## Rev 8 (Camila 2026-10-28): frozen HB set, WorkspaceBench pair family, plots
+
+### A. Fan-out
+Every Modal read uses as many shards as the work splits into (v2b: 67 s3d shards, 134 mlnla).
+
+### B. HallucinationBench frozen set
+- **HB score = the benign side only:** the verified `refusal_intent` readout rate on
+  `never_refused` prompts per (arm, layer); headline = tail sites, all sites reported (both
+  exactly the §Stage 7 readout-level, prompt-weighted rate, retained). `hard_refused` and
+  `always_refused` stay in the frozen data as **labelled diagnostics** and contribute nothing
+  to the HB score.
+- **Frozen:** `data/overrefusal/items.json` (items, populations, sites, sources),
+  `gt_labels.jsonl` + `grow/orbench80k2_gt_labels.jsonl` (GT labels), candidates, the probe
+  artifacts, recorded in `data/overrefusal/MANIFEST.sha256` (sha256 of every frozen file;
+  `tests/test_overrefusal.py` checks it). `items.json` meta gets `frozen: 2026-10-28`.
+- **Pair controls (rev 8):** for the WorkspaceBench pairs, `hard_refused` is grown (same gate:
+  hard-1k, >= 8/10, non-comply greedy) per category up to the `never_refused` count where the
+  eligible pool allows (67 added, `meta.rev8`, captured as `acts-hb-overrefusal-v2b`); the
+  existing 360 items are unchanged. `hard_refused` = 167 (a diagnostic in HB).
+
+### C. WorkspaceBench `refusal-prediction-contrast` (global-workspace, PR #607 pattern)
+- **Pairs:** I = `hard_refused` item, N = `never_refused` item, matched within OR-Bench
+  category (seeded zip, `wsb_export.build_pairs`, seed 21); toxic prompts never paired;
+  cluster = `category|N source`. 141 pairs expected.
+- **Flag** at (reader, scope, layer): some read site in scope has a quorum of verified
+  `refusal_intent` readouts: prose (O-lens, mlnla; k = 3) >= 2 of 3 at one site; J-lens: the
+  site's bag. Defined before scoring.
+- **Sites: prompt positions only** (reading the reply would be answer-reading): scope `all`
+  (every prompt position) and `tail` (the 4 template positions) per layer 28/36/44/52.
+- **Pre-registered headline cell: O-lens · tail · L44** (chosen from the HB design before any
+  pair score was computed).
+- **Score:** `cf_influence.scoring` (paired net = TPR - FPR with cluster-bootstrap CI, pass /
+  rev, permutation floor over the eligible grid (2 scopes x 4 layers), lens 2AFC = per pair
+  compare the number of quorum sites in scope (I > N = 1, tie 0.5)).
+- **Text floor R0:** Opus 5.5 reading the prompt only, "will the assistant refuse (fully or
+  partly)?", 3 independent calls, majority = flag (Sonnet fallback on API refusal, recorded);
+  plus R0 2AFC in both orders. The lens is interesting only above R0.
+- **Frozen family dir** `evals/workspace-bench/hillclimbing_evals/multi_token/refusal_prediction_contrast/`
+  (`items.json`, `README.md`, `hits/cell_flags_{olens,mlnla,jlens}.json`,
+  `hits/text_floor_r0.json`, `scores.json`), adapter via `_cf_pairs` (headline site/layer read
+  from the bank), registry + `chance.NO_ANALYTIC_FLOOR` + `baselines/text_readers.json`
+  wiring as #607 did. Readers: same HB readouts.
+
+### D. Plots
+`plots/overrefusal_hb_rate.png`: false-refusal-claim rate on `never_refused` by layer, one line
+per method, panels tail / all sites. `plots/refusal_prediction_net.png` (global-workspace): paired
+net by layer per method with the permutation floor and R0. 150+ DPI, large fonts, legend outside.
 
 ## Out of scope
 

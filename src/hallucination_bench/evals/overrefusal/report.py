@@ -107,6 +107,10 @@ def render_md(res: dict[str, Any]) -> str:
         "sites (`<|im_end|>`, `\\n`, `<|im_start|>`, `assistant`). On `never_refused`, `asserted` "
         "claims are the hallucination; `considered` claims are not necessarily one.",
         "",
+        "**HB score (rev 8) = the `never_refused` column only** (tail sites headline, all sites "
+        "reported). `hard_refused` / `always_refused` are labelled diagnostics and contribute "
+        "nothing to the HB score.",
+        "",
         "## Health",
         "",
     ]

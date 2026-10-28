@@ -201,7 +201,7 @@ def calib() -> None:
     print(f"wrote {out}")
 
 
-READ_ACTS_V2 = (READ_ACTS, "acts-hb-overrefusal-v2add")
+READ_ACTS_V2 = (READ_ACTS, "acts-hb-overrefusal-v2add", "acts-hb-overrefusal-v2b")
 
 
 @app.function(image=image, volumes=volumes, cpu=8, memory=49152, timeout=3600)

@@ -111,7 +111,11 @@ merge() {  # rev 7: old readouts + the v2add batch -> $HBENCH_OR_READOUTS_V2/<ar
   for spec in "${ARMS[@]}"; do
     read -r arm _ _ <<< "$spec"
     mkdir -p "$v2/$arm"
-    cat "$base/$arm/overrefusal.jsonl" "$base-v2add/$arm/overrefusal.jsonl" > "$v2/$arm/overrefusal.jsonl"
+    local parts=("$base/$arm/overrefusal.jsonl")
+    for t in v2add v2b; do  # rev 7 additions, rev 8 pair controls
+      [[ -s "$base-$t/$arm/overrefusal.jsonl" ]] && parts+=("$base-$t/$arm/overrefusal.jsonl")
+    done
+    cat "${parts[@]}" > "$v2/$arm/overrefusal.jsonl"
     echo "merged $arm: $(wc -l < "$v2/$arm/overrefusal.jsonl") rows"
   done
 }

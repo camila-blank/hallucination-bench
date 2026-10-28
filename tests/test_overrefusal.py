@@ -591,3 +591,39 @@ def test_grow_pick_capped_and_extend_keeps_items():
     )
     assert [r["id"] for r in new["never_refused"]] == ["or9-1"]  # kept item never re-drawn
     assert [r["id"] for r in new["always_refused"]] == ["ort-2"]
+
+
+def test_frozen_manifest_matches():
+    """Rev 8: the frozen HB set is pinned by data/overrefusal/MANIFEST.sha256."""
+    if not data.MANIFEST.exists():
+        pytest.skip("manifest not written yet")
+    assert data.MANIFEST.read_text().splitlines() == data.manifest_lines()
+
+
+def test_wsb_pairs_and_flags():
+    from hallucination_bench.evals.overrefusal import wsb_export as w
+
+    def it(i, pop, cat):
+        sites = [{"pos": p} for p in range(8)]
+        return {"id": i, "population": pop, "category": cat, "config": "hard", "sites": sites}
+
+    items = [
+        it("n1", "never_refused", "a"),
+        it("n2", "never_refused", "a"),
+        it("r1", "hard_refused", "a"),
+        it("n3", "never_refused", "b"),
+        it("t1", "always_refused", "b"),  # toxic is never paired
+    ]
+    pairs = w.build_pairs(items)
+    assert len(pairs) == 1 and pairs[0]["I"] == "r1" and pairs[0]["category"] == "a"
+    by = {x["id"]: x for x in items}
+
+    def cell(i, pos, refs):
+        return {"id": i, "layer": 44, "pos": pos, "status": "ok", "ro": [{"ref": r} for r in refs]}
+
+    cells = [cell("r1", 7, [1, 1, 0]), cell("n1", 2, [1, 0, 0]), cell("n1", 7, [0, 0, 0])]
+    f = w.item_flags(cells, by, "prose")
+    assert f["r1"]["tail"]["44"]["flag"] and f["r1"]["all"]["44"]["flag"]
+    assert not f["n1"]["all"]["44"]["flag"]  # 1 of 3 is below the quorum
+    ft = w.item_flags(cells, by, "tokens")
+    assert ft["n1"]["all"]["44"]["flag"] and not ft["n1"]["tail"]["44"]["flag"]

@@ -17,6 +17,12 @@ hallucination eval is one of many evals here; see `plans/` for the design histor
 | `agentic_misalignment` | the claim map (v2.7) on lens **mentions of misalignment** (blackmail, leaking, letting someone die, ...) at every prompt position of WorkspaceBench's 32 AM items: a blind batched detector finds the mentions, the claim map judges them (marker in the prompt), and an intent call tiers each mention's kind against what the rollout actually does (realised / designed_only / scenario_set_up / unrelated); its own driver, `--eval agentic_misalignment` | [0008](plans/0008-agentic-misalignment-claim-map.md) |
 | `overrefusal` (pilot) | on OR-Bench-hard prompts Qwen3.6-27B **never refuses** (0/10 on-policy + greedy complies), how often do readouts at prompt positions claim the model will refuse? A blind batched detector (`refusal_intent` / `harm_salience` / `comply_intent` / `other`) + blind verifier; contrasts: hard prompts it refuses >= 8/10 and toxic prompts refused 10/10; own CLI `hbench overrefusal ...`; not on the index | [0015](plans/0015-overrefusal-eval.md) |
 
+## overrefusal (plan 0015)
+
+HB score = verified false-refusal-claim rate on 160 never-refused OR-Bench prompts (tail sites headline; frozen set `data/overrefusal/MANIFEST.sha256`; results `docs/results/0015_overrefusal_pilot.md`). Refusal probe for reuse: `data/overrefusal/probes/refusal_probe_v2.{npz,json}`.
+
+![overrefusal HB rate](plots/overrefusal_hb_rate.png)
+
 ## Hallucination index
 
 `uv run hbench index` scores every model (one row per method x layer) from the families' outputs

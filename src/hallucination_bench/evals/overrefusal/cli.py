@@ -145,6 +145,12 @@ def cmd_grow(args: argparse.Namespace) -> int:
 
     if args.step == "candidates":
         res = grow.build_80k2_candidates()
+    elif args.step == "pairs":
+        from transformers import AutoTokenizer
+
+        from . import data
+
+        res = grow.grow_pair_controls(AutoTokenizer.from_pretrained(data.SUBJECT))
     else:
         from transformers import AutoTokenizer
 
@@ -152,6 +158,28 @@ def cmd_grow(args: argparse.Namespace) -> int:
 
         res = grow.grow_bank(AutoTokenizer.from_pretrained(data.SUBJECT))
     print(json.dumps(res, indent=1, default=str))
+    return 0
+
+
+def cmd_freeze(args: argparse.Namespace) -> int:
+    from . import data
+
+    doc = json.loads(data.ITEMS.read_text())
+    doc["meta"]["frozen"] = args.date
+    doc["meta"]["hb_score"] = (
+        "verified refusal_intent readout rate on never_refused (tail sites headline, all sites "
+        "reported); hard_refused / always_refused are diagnostics only"
+    )
+    data.ITEMS.write_text(json.dumps(doc, ensure_ascii=False, indent=1) + "\n")
+    print(f"wrote {data.write_manifest()}")
+    return 0
+
+
+def cmd_wsb_export(args: argparse.Namespace) -> int:
+    from . import wsb_export
+
+    res = wsb_export.export(Path(args.out), args.judge_model, Path(args.family_dir))
+    print(json.dumps(res, indent=1))
     return 0
 
 
@@ -197,8 +225,18 @@ def register(sub: argparse._SubParsersAction) -> None:
     r.set_defaults(fn=cmd_run)
 
     gw = osub.add_parser("grow", help="rev 7: 80k2 candidates | append new items to the bank")
-    gw.add_argument("step", choices=["candidates", "bank"])
+    gw.add_argument("step", choices=["candidates", "bank", "pairs"])
     gw.set_defaults(fn=cmd_grow)
+
+    wx = osub.add_parser("wsb-export", help="rev 8: WorkspaceBench refusal-prediction family")
+    wx.add_argument("--family-dir", required=True)
+    wx.add_argument("--out", default="outputs")
+    wx.add_argument("--judge-model", default="claude-sonnet-5-5")
+    wx.set_defaults(fn=cmd_wsb_export)
+
+    fz = osub.add_parser("freeze", help="rev 8: mark items.json frozen + MANIFEST.sha256")
+    fz.add_argument("--date", default="2026-10-28")
+    fz.set_defaults(fn=cmd_freeze)
 
     pd = osub.add_parser("probe-data", help="rev 5: probe training data (80k sample | texts)")
     pd.add_argument("step", choices=["80k", "texts"])

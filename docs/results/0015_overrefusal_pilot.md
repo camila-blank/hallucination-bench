@@ -325,3 +325,86 @@ claims at probe-absent sites):
 - API: $20.9 (Opus GT on the 80k sample).
 - Modal: about 1.5 H200-hours (80k sampling plus 2 captures) and about 2 CPU container-hours
   (probe fits). About $10.
+
+## Rev 7–8: grown frozen set, threshold v2, final HB score (2026-10-28)
+
+**This section supersedes the headline numbers above** (n = 47). The frozen set is
+`data/overrefusal/items.json`, pinned by `data/overrefusal/MANIFEST.sha256`.
+
+**Populations.**
+- **`never_refused` = 160.** 47 from hard-1k plus 113 from a fresh category-stratified
+  `or-bench-80k` sample. Gate unchanged: 0/10 at T = 1, complying greedy reply, no
+  refusal-marker hit.
+- **Category mix of `never_refused`:** sexual 39 (24%, cap 30%), unethical 17, deception 15,
+  harassment 14, hate 14, illegal 14, self-harm 12, violence 12, harmful 12, privacy 11.
+- **Diagnostics** (not part of the HB score): `hard_refused` = 167 (100 + 67 category-matched
+  pair controls) and `always_refused` = 100.
+- 9,521 + 1,804 sites in total, every prompt position, all three arms at L28/36/44/52.
+- GT on the 80k sample: 446 of 450 labelled. Opus handled most, with a recorded Sonnet fallback.
+
+**HB score = the verified false-refusal-claim rate on `never_refused`** (readouts with a
+`refusal_intent` claim / readouts, prompt-weighted, 95% CI):
+
+| arm | L28 tail | L36 tail | L44 tail | L52 tail | L28 all | L36 all | L44 all | L52 all |
+|---|---|---|---|---|---|---|---|---|
+| O-lens s3d-rl600 | **17.1** [15.6, 18.7] | 4.4 [3.1, 5.6] | 5.3 [4.0, 6.7] | 0.9 [0.4, 1.6] | 4.0 | 3.5 | 3.3 | 2.3 |
+| multilayer NLA | 4.2 [2.9, 5.5] | 1.9 [1.1, 2.8] | 1.5 [0.7, 2.3] | 0.7 [0.2, 1.2] | 0.7 | 0.5 | 0.5 | 0.2 |
+| J-lens | 0.0 | 0.0 | 0.0 | 1.7 [0.8, 2.8] | 0.0 | 0.1 | 0.1 | 0.3 |
+
+![HB rate](../../plots/overrefusal_hb_rate.png)
+
+For comparison, the diagnostic tail-site rates are 29–37% on `hard_refused` and 43–53% on
+toxic prompts (O-lens). With the larger and more diverse `never_refused` set, the O-lens
+false-claim rate fell at L36/L44, from 11–13% to 4–5%. The rev-3 set was dominated by
+borderline sexual and persuasion prompts.
+
+**Refusal probe v2 (primary threshold).** The artifact is
+`data/overrefusal/probes/refusal_probe_v2.{npz,json}`.
+- **Threshold:** the `refusal-dm-v1` directions with a threshold at the 95th percentile of the
+  calibration half of 338 OR-Bench-80k prompts that Qwen answered 0/10. None of these is in the
+  read set.
+- **Realised FPR on the held-out half:** 5.3–10.7% at tail offsets, 7.1–8.3% at content sites.
+  Two L28 cells (`<|im_start|>` 10.1%, `<|im_end|>` 10.7%) exceed the 10% flag. With a fold
+  majority over n = 169, about 5% is the target.
+- **Transfer AUROC at `assistant`:** hard_refused vs never_refused 0.91 / 0.99 / 0.99 / 1.00
+  (L28 / 36 / 44 / 52). Every cell is valid and gated.
+- **Premise check:** the probe says refusal is represented at `assistant` on 18.8 / 23.1 / 23.1 /
+  15.6% of `never_refused` prompts (L28 / 36 / 44 / 52), against 84–100% of `hard_refused`.
+
+**Probe-checked hallucination rate** (standard definition: verified refusal claims at
+probe-absent sites / readouts; `never_refused`, tail sites; counts are supported / contradicted
+claims):
+
+| arm | L28 | L36 | L44 | L52 |
+|---|---|---|---|---|
+| O-lens: original → probe-checked | 17.1 → **12.6** (88 / 241) | 4.4 → **1.9** (47 / 37) | 5.3 → **2.0** (62 / 39) | 0.9 → **0.4** (11 / 7) |
+| multilayer NLA | 4.2 → **1.5** (52 / 29) | 1.9 → **0.3** (32 / 5) | 1.5 → **0.3** (22 / 6) | 0.7 → **0.0** (13 / 0) |
+| J-lens | 0 | 0 | 0 | 1.7 → **0.3** (9 / 2) |
+
+- The Alpaca threshold, as a sensitivity check, calls nearly every claim supported
+  (probe-checked ≤ 0.5%).
+- **Misses on toxic prompts** (probe-present tail sites with no lens claim): O-lens 35–42%,
+  multilayer NLA 28–39%, J-lens 45–100%.
+
+**WorkspaceBench version** (global-workspace `refusal-prediction-contrast`, 141 category-matched
+refused / never-refused pairs, prompt positions only).
+- Paired net at the pre-registered cell (O-lens · tail · L44):
+  - O-lens 0.82 [0.72, 0.90]
+  - multilayer NLA 0.87
+  - J-lens 0.21
+- The R0 text floor (Opus, prompt only) has a net of 0.15. But Opus 2AFC is 0.96, about the
+  same as the lens 2AFC (0.94–0.95). So the relative signal is largely textual, and the lens
+  adds absolute calibration.
+
+**Spend (rev 7–8).**
+- API:
+  - GT (80k2): $20.8.
+  - Sonnet detection and verification of the grown bank: J-lens $16, O-lens $65, mlnla $69.
+  - R0: $2.6.
+- Modal: about 70 H200-hours, about $320.
+  - Sampling: about 1.5 h.
+  - Captures: about 0.3 h.
+  - s3d reads: about 8 h.
+  - mlnla reads: about 60 h; the HF reference kernels are slow.
+  - J-lens: about 0.3 h.
+  - Probe CPU: about 2 container-hours.
