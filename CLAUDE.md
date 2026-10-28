@@ -243,6 +243,19 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
     J-lens/NLA gen dirs land on `wsbench-gen-3` even when the client log says gen-4.
   - The multilayer NLA read is slow (~4 h on 16 H200s for ~48k cells: reference PyTorch
     kernels); the O-lens read took ~25 min.
+  - **Rev 5 (final, frozen):** every prompt position is read (33,881 sites; regions turn = last
+    4, tail = rest of last 64, body = before). `data/strongreject/MANIFEST.sha256` freezes the
+    set (test-checked); re-run `scripts/strongreject/freeze.py` only for a deliberate new
+    version. The score uses unsuccessful items only. The rev-1..4 readouts are kept as
+    `strongreject.rev4.jsonl` beside the merged files; `rest_rows.py` / `readouts_rest.sh` /
+    `merge_readouts.py` add positions some arm lacks. NLA unit files are written whole, so a
+    stopped NLA read resumes cleanly; shard it one unit per shard.
+  - **Probe check:** `probe_modal.py` scores every site with plan 0015's refusal probe (v2
+    threshold from `hb-overrefusal:data/overrefusal/probes/refusal_probe_v2.npz`; our acts hold
+    the whole template incl. the think block, so the tail is located from `n_positions`);
+    `probe_report.py` writes the standard probe-checked rate (claims at refusal-present sites /
+    readouts) per region; `plot_rates.py` the slide plot.
+  - A 401 "OAuth access token has been revoked" mid-run is the profile token rotating: re-run.
 - **Keyless Anthropic auth.** With `ANTHROPIC_API_KEY` unset, `AsyncAnthropic()` picks up the
   `ant` CLI OAuth profile (`ant auth status`). Never require the env var. If the profile's
   credentials lapse mid-run, the 401 raises `JudgeConfigError` (exit 3): re-login with
