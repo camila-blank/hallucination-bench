@@ -3,6 +3,7 @@
 # wsbench-acts:/hb-sad-acts with the global-workspace capture app (1 H200), then fetch the manifest
 # and check its token grid against the local tokenisation. Run in tmux; log to logs/.
 set -euo pipefail
+export UV_CACHE_DIR=${HBENCH_SAD_UV_CACHE:-/root/.cache/uv-hbsad}  # never the shared cache
 HERE="$(cd "$(dirname "$0")/../.." && pwd)"
 GW=${HBENCH_GLOBAL_WORKSPACE:-/workspace/global-workspace}
 ROWS=${SAD_CAPTURE_ROWS:-$HERE/outputs/sad/capture_rows.json}

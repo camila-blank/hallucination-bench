@@ -24,6 +24,8 @@ READOUTS_FILE = "sad.jsonl"
 SEED = 0
 VERIFY_ALL_MAX = 5000  # plan: verify every situation mention up to this many per arm
 VERIFY_PER_STRATUM = 150
+SMALL_BATCH = 4
+SMALL_BATCH_SOURCES = ("test_wmdp",)
 
 
 def load_selected(path: Path | None = None) -> dict[str, Any]:
@@ -74,7 +76,12 @@ def _batch_key(prefix: str, keys: list[str]) -> str:
 
 
 async def _detect(
-    llm: LLM, cache: Cache, cells: list[Cell], model: str, effort: str | None
+    llm: LLM,
+    cache: Cache,
+    cells: list[Cell],
+    model: str,
+    effort: str | None,
+    small_batch_ids: frozenset[str] = frozenset(),
 ) -> dict[str, int]:
     todo = []
     for c in cells:
@@ -122,8 +129,17 @@ async def _detect(
                 stats["ok"] += 1
         return retry
 
-    batches = [todo[i : i + detect.BATCH_SIZE] for i in range(0, len(todo), detect.BATCH_SIZE)]
-    print(f"[sad] detect: {len(todo)} cells in {len(batches)} batches", flush=True)
+    # WMDP-item cells (hazard-domain continuations) draw most API refusals: they go in batches of
+    # SMALL_BATCH so a refusal does not take 39 other cells with it. Batching only; the detector
+    # still sees no item, provenance or belief.
+    small = [x for x in todo if x[0].id in small_batch_ids]
+    big = [x for x in todo if x[0].id not in small_batch_ids]
+    batches = [big[i : i + detect.BATCH_SIZE] for i in range(0, len(big), detect.BATCH_SIZE)]
+    batches += [small[i : i + SMALL_BATCH] for i in range(0, len(small), SMALL_BATCH)]
+    print(
+        f"[sad] detect: {len(todo)} cells in {len(batches)} batches ({len(small)} small-batch)",
+        flush=True,
+    )
     retry = [x for r in await asyncio.gather(*(one(b) for b in batches)) for x in r]
     for _ in range(detect.SINGLE_ATTEMPTS):
         if not retry:
@@ -345,7 +361,12 @@ def run_arm(
             await llm.preflight(judge)
             with Cache(d / "cache.jsonl") as cache:
                 if "detect" in stages:
-                    stats["detect"] = await _detect(llm, cache, cells, judge, effort)
+                    small = frozenset(
+                        it["id"]
+                        for it in selected["items"]
+                        if it.get("source") in SMALL_BATCH_SOURCES
+                    )
+                    stats["detect"] = await _detect(llm, cache, cells, judge, effort, small)
                 if "verify" in stages:
                     sit = situation_mentions(cache, cells, judge, effort)
                     stats["verify"] = await _verify(

@@ -3,6 +3,7 @@
 # Modal gen dir -> wsbench convert-gen-dir -> $HBENCH_SAD_READOUTS/<arm>/sad.jsonl, then a grid
 # check against data/sad/selected.json x layers 28,36,44,52 (no missing / off-grid / duplicate).
 set -euo pipefail
+export UV_CACHE_DIR=${HBENCH_SAD_UV_CACHE:-/root/.cache/uv-hbsad}  # never the shared cache
 arm=$1; gen=$2; kind=$3; vol=${4:-wsbench-gen-3}
 [[ -n $arm && $arm != */* && -n $gen && $gen != */* ]] || { echo "bad args" >&2; exit 2; }
 HERE="$(cd "$(dirname "$0")/../.." && pwd)"

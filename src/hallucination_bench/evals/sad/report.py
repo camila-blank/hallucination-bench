@@ -89,6 +89,8 @@ def report(out: Path, judge: str, *, readouts_root: Path, n_examples: int = 10) 
         ]
         for arm, s in summaries.items():
             for layer, row in s["scores"][variant].items():
+                if layer == "excluded_low_coverage":
+                    continue
                 L.append(
                     f"| {arm} | {layer} | {_f(row['deploy_on_eval']['readout'])} | "
                     f"{_f(row['deploy_on_eval']['final'])} | "
@@ -103,6 +105,8 @@ def report(out: Path, judge: str, *, readouts_root: Path, n_examples: int = 10) 
     L += ["| arm | layer | direction | prov=eval | prov=deploy |", "|---|---|---|---|---|"]
     for arm, s in summaries.items():
         for layer, row in s["scores"]["headline"].items():
+            if layer == "excluded_low_coverage":
+                continue
             for d in (*HEAD_DIRS, *CTX_DIRS):
                 pe, pd = row[f"{d}|prov=eval"]["readout"], row[f"{d}|prov=deploy"]["readout"]
                 L.append(
@@ -111,6 +115,8 @@ def report(out: Path, judge: str, *, readouts_root: Path, n_examples: int = 10) 
     L += ["", "## Suffix item rate (headline; compare within an arm only)", ""]
     for arm, s in summaries.items():
         for layer, row in s["scores"]["headline"].items():
+            if layer == "excluded_low_coverage":
+                continue
             L.append(
                 f"- {arm} L{layer}: "
                 + ", ".join(
@@ -122,7 +128,9 @@ def report(out: Path, judge: str, *, readouts_root: Path, n_examples: int = 10) 
         L.append(
             f"- {arm}: cells {s['n_cells']}, health {s['health']}, situation mentions "
             f"{s['n_situation_mentions']}, verify sample {s['n_verify_sample']} "
-            f"(sampled={s['verify_sampled']}), spend ${s['spend']['total_usd']:.2f}"
+            f"(sampled={s['verify_sampled']}), spend ${s['spend']['total_usd']:.2f}, items "
+            f"excluded for coverage < 0.8: "
+            f"{ {k: len(v) for k, v in s['scores']['excluded_low_coverage'].items()} }"
         )
     L += ["", "## Examples (verified situation mentions; wrong direction first)", ""]
     for arm in arms:

@@ -424,3 +424,17 @@ def test_cli_registers_sad():
         ap.parse_args(["sad", "bogus"])
     assert asyncio  # keep import used
     assert Path  # keep import used
+
+
+def test_low_coverage_items_are_left_out():
+    items = {
+        "e1": {"belief": "eval", "provenance": "eval"},
+        "e2": {"belief": "eval", "provenance": "eval"},
+    }
+    recs = [_rec("e1", 28, p, "body", p == 9, [_m(0, "deploy_belief")]) for p in range(10)]
+    bad = [_rec("e2", 28, p, "body", p == 9, []) for p in range(10)]
+    for r in bad[:3]:
+        r["status"] = "failed"  # 70% judged < 80%
+    out = score.score_arm(recs + bad, items)
+    assert out["excluded_low_coverage"] == {"28": ["e2"]}
+    assert out["headline"]["28"]["deploy_on_eval"]["readout"]["n"] == 1
