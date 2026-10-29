@@ -235,6 +235,68 @@ Probe caveats: the probe and its threshold were fitted on another eval's prompts
 is partly a harm direction (every StrongREJECT prompt is harmful), which the v2 on-distribution
 threshold is meant to absorb.
 
+## 11-layer extension for the hallucination index (plan 0019)
+
+Plan [`0019`](../../plans/0019-safety-families-on-the-index.md) (on `camila/index-v4-safety`),
+issue #35. Layers 20 / 24 / 32 / 40 / 48 / 56 / 60 added for all three readers, every prompt
+position of the same 173 items (150 unsuccessful + 23 soft_fail): capture
+`wsbench-acts:/hb-strongreject-L11-acts`, reads with the same settings (O-lens 128 shards, NLA one
+shard per (item, layer) unit = 1,211, J-lens 1 job), merged into the readouts files (the 4-layer
+rows kept byte for byte: the pre-merge files `strongreject.rev5.jsonl` hash-match the pre-run
+hashes and are the merged files' exact prefix), Stage D + E with `srdetect-v1` / `srecho-v1`,
+Opus 5.5 → Sonnet 5.5 fallback, #25's failed-echo rule, one fallback retry pass (+ the accepted
+partial-detector retry). The published layers (28 / 36 / 44 / 52) are untouched: their cache
+row counts, HB numbers (`test_hb_scores_match_published`) and the counts in the HB table above
+(`test_index_counts_match_merged_doc`, against this git-tracked doc) are asserted.
+
+**Probe.** Overrefusal's `refusal_probe_v2_l11.{npz,json}` (sha256 `ed880cb6…`; the
+refusal_probe_v2 recipe at the 7 new layers) scores every new site
+(`outputs/strongreject/probe_sites_l11.jsonl`); validity ≥ 0.9 at every (layer, offset), so all
+55 (layer, site class) gates pass and no claim is unprobed.
+
+**Step 0 (dry run, published layers, before any GPU work)** — claims (counted
+`harmful_compliance` + `refusal_intent`, de-duplicated per readout) / false claims: O-lens
+16,753 / 6,748 (L28), 19,806 / 8,247 (L36), 16,555 / 5,803 (L44), 14,921 / 5,288 (L52); NLA
+1,474 / 202, 2,669 / 218, 3,156 / 155, 2,715 / 140; J-lens 863 / 2, 1,305 / 22, 3,449 / 0,
+3,076 / 11. J-lens has claims at every layer (mostly `refusal_intent`), so it is never absent.
+
+**Index family value** (`index_counts.jsonl`, the plan-0019 unit: % of claims on unsuccessful
+items), **probe-validated / raw**:
+
+| reader | L20 | L24 | L28 | L32 | L36 | L40 | L44 | L48 | L52 | L56 | L60 |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| s3d-rl600 | 17.36 / 56.7 | 11.91 / 44.8 | 11.55 / 40.3 | 12.39 / 39.7 | 9.10 / 41.6 | 7.46 / 36.5 | 10.13 / 35.1 | 8.99 / 34.5 | 9.01 / 35.4 | 7.48 / 31.0 | 6.25 / 29.3 |
+| mlnla-rl600 | 8.42 / 40.2 | 4.62 / 33.0 | 2.17 / 13.7 | 3.07 / 9.8 | 1.16 / 8.2 | 1.42 / 8.0 | 0.35 / 4.9 | 0.46 / 5.3 | 0.33 / 5.2 | 0.42 / 5.2 | 0.29 / 4.8 |
+| jlens | 0.36 / 3.6 | 0.00 / 0.0 | 0.00 / 0.2 | 0.15 / 1.6 | 0.00 / 1.7 | 0.00 / 0.2 | 0.00 / 0.0 | 0.00 / 0.0 | 0.13 / 0.4 | 0.27 / 0.4 | 0.19 / 0.2 |
+
+Claims per (reader, layer) (unresolved-echo cells / failed cells, excluded and counted in
+health):
+
+| reader | L20 | L24 | L28 | L32 | L36 | L40 | L44 | L48 | L52 | L56 | L60 |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| s3d-rl600 | 9797 (35/5) | 11401 (27/2) | 16753 (70/5) | 17564 (92/30) | 19806 (196/15) | 18407 (172/19) | 16555 (195/11) | 14565 (200/21) | 14921 (236/24) | 14446 (187/29) | 13976 (101/20) |
+| mlnla-rl600 | 665 (2/1) | 845 (0/4) | 1474 (1/1) | 1987 (1/5) | 2669 (0/1) | 2675 (1/5) | 3156 (2/6) | 2838 (1/2) | 2715 (3/5) | 2392 (0/2) | 2437 (1/0) |
+| jlens | 276 (0/0) | 679 (0/0) | 863 (0/0) | 685 (0/0) | 1305 (0/0) | 2974 (0/0) | 3449 (0/0) | 2710 (0/0) | 3076 (0/0) | 3675 (0/0) | 2147 (0/0) |
+
+
+These are % of *claims* (the index unit: false claims / all disposition claims, refusal
+mentions included), not the HB report's % of *readouts*; the HB report's 11-layer section
+(`report.md`, "11-layer extension") gives the per-readout numbers with the same functions.
+Asymmetry: `refusal_intent` mentions are never verified (the eval has no refusal verifier).
+
+**Operational notes.** Judging a subset of layers used to rebuild only those layers, so the L11
+judge runs briefly overwrote the shared outputs' `records.jsonl` / `slim_records.jsonl` /
+`summary.json` with the new layers only. Fixed (`run` now always rebuilds every layer of the
+readouts file, cache-only; tested) and restored by a cache-only rebuild of all 11 layers (no
+API calls); the old-layer numbers are unchanged (tests above). A bulk `modal volume get` that
+fails can leave empty item dirs: `fetch_readouts.sh` now refetches every dir then and fails on
+any empty one. One NLA readout contained a raw U+2028, which `str.splitlines` cut; the merge
+re-encodes such rows ASCII-escaped (1 row).
+
+**Spend (plan 0019, strongreject):** API ≈ $1,579 (O-lens $831, NLA $563, J-lens $185); Modal ≈
+270 H200-hours (estimate; mostly the NLA read and three O-lens read passes with sglang startup
+failures).
+
 ## Examples (hand-read; harmful content paraphrased / redacted)
 
 O-lens `s3d-rl600` (prose; each readout is a list of short candidate continuations):

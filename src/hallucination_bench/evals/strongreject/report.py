@@ -7,7 +7,8 @@ import json
 from pathlib import Path
 from typing import Any
 
-from . import bank, families
+from . import bank, detect, echo, families
+from . import index_export as X
 from . import probe_check as PC
 from . import run as R
 
@@ -256,6 +257,16 @@ def hb_table(hb: dict[str, dict[str, Any]], probe_meta: dict[str, Any]) -> list[
     return [*out, ""]
 
 
+OLD_LAYERS = ("28", "36", "44", "52")  # the published rev 1-6 layers (frozen, plan 0019)
+
+
+def _only(summaries: dict[str, dict[str, Any]], keep) -> dict[str, dict[str, Any]]:
+    return {
+        a: {**s, "layers": {la: L for la, L in s["layers"].items() if keep(la)}}
+        for a, s in summaries.items()
+    }
+
+
 def report(
     out: Path,
     judge: "R.Judge",
@@ -263,12 +274,18 @@ def report(
     readouts_root: Path,
     arms: list[str],
     rebuild: bool = True,
-    probe_sites: Path | None = None,
-    probe_npz: Path | None = None,
+    probe_sites: list[Path] | Path | None = None,
+    probe_npz: list[Path] | Path | None = None,
 ) -> Path:
-    """``probe_sites`` (default ``<out>/strongreject/probe_sites.jsonl``, from
-    ``scripts/strongreject/probe_modal.py``) gives probe_validated; ``probe_npz`` the artifact
-    whose per-cell validity marks invalid cells undetermined (all cells are valid for v2)."""
+    """``probe_sites`` (default: ``<out>/strongreject/probe_sites.jsonl`` and, when present,
+    ``probe_sites_l11.jsonl``, from ``scripts/strongreject/probe_modal.py``) gives
+    probe_validated; ``probe_npz`` the artifact(s) (refusal_probe_v2 and, plan 0019,
+    refusal_probe_v2_l11) whose per-cell validity marks invalid cells undetermined / unprobed.
+
+    Plan 0019: the published layers (28 / 36 / 44 / 52) are rendered exactly as before; any other
+    layer goes into an added "11-layer extension" section (every rate there comes from the same
+    functions, each call with its own fresh ``default_rng(0)``, so old-layer numbers cannot
+    move). Also writes ``index_counts.jsonl`` + ``index_meta.json`` (``index_export``)."""
     root = R.model_root(out, judge)
     oc_path = root / "outcomes.json"
     outcomes = json.loads(oc_path.read_text()) if oc_path.exists() else None
@@ -279,30 +296,49 @@ def report(
             summaries[a] = R.rebuild(a, p, out, judge, allow_missing=True)
         else:
             summaries[a] = json.loads((root / a / "summary.json").read_text())
-    sites_path = Path(probe_sites) if probe_sites else Path(out) / "strongreject/probe_sites.jsonl"
-    probe = PC.load_probe_sites(sites_path) if sites_path.exists() else None
-    valid = PC.validity_from_npz(probe_npz) if probe_npz else None
-    probe_meta = {
-        "sites": str(sites_path) if probe is not None else None,
-        "npz": str(probe_npz) if probe_npz else None,
-        "npz_sha256": hashlib.sha256(Path(probe_npz).read_bytes()).hexdigest()
-        if probe_npz
-        else None,
-    }
-    hb = {}
-    for a in arms:
-        recs = [
-            json.loads(x)
-            for x in (root / a / "slim_records.jsonl").read_text(encoding="utf-8").splitlines()
-        ]
-        items = {it["id"]: it for it in bank.load_items()}
-        hb[a] = PC.hb_scores(recs, items, probe, valid)
-        summaries[a]["hb_score"] = hb[a]
-    md = build(outcomes, summaries, judge.model)
-    head, sep, rest = md.partition("## HB score: `harmful_compliance`")
-    (root / "report.md").write_text(
-        head + "\n".join(hb_table(hb, probe_meta)) + "\n" + sep + rest, encoding="utf-8"
+    if probe_sites is None:
+        base = Path(out) / "strongreject"
+        probe_sites = [base / "probe_sites.jsonl", base / "probe_sites_l11.jsonl"]
+    elif isinstance(probe_sites, str | Path):
+        probe_sites = [Path(probe_sites)]
+    sites_paths = [Path(x) for x in probe_sites if Path(x).exists()]
+    probe = None
+    for sp in sites_paths:
+        probe = {**(probe or {}), **PC.load_probe_sites(sp)}
+    npzs = (
+        [] if probe_npz is None else [probe_npz] if isinstance(probe_npz, str | Path) else probe_npz
     )
+    valid = None
+    for n in npzs:
+        valid = {**(valid or {}), **PC.validity_from_npz(n)}
+    probe_meta = {
+        "sites": [str(x) for x in sites_paths] or None,
+        "npz": [str(n) for n in npzs] or None,
+        "npz_sha256": [hashlib.sha256(Path(n).read_bytes()).hexdigest() for n in npzs] or None,
+    }
+    items = {it["id"]: it for it in bank.load_items()}
+    hb, slim = {}, {}
+    for a in arms:
+        slim[a] = X.load_slim(root / a / "slim_records.jsonl")
+        hb[a] = PC.hb_scores(slim[a], items, probe, valid)
+        summaries[a]["hb_score"] = hb[a]
+    old = _only(summaries, lambda la: la in OLD_LAYERS)
+    new = _only(summaries, lambda la: la not in OLD_LAYERS)
+    hb_old = {a: {la: v for la, v in H.items() if la in OLD_LAYERS} for a, H in hb.items()}
+    hb_new = {a: {la: v for la, v in H.items() if la not in OLD_LAYERS} for a, H in hb.items()}
+    md = build(outcomes, old, judge.model)
+    head, sep, rest = md.partition("## HB score: `harmful_compliance`")
+    md = head + "\n".join(hb_table(hb_old, probe_meta)) + "\n" + sep + rest
+    if any(s["layers"] for s in new.values()):
+        ext = build(None, new, judge.model)
+        ext = ext[ext.index("## HB score: `harmful_compliance`") :]
+        md += (
+            "\n# 11-layer extension (plan 0019): layers 20 / 24 / 32 / 40 / 48 / 56 / 60\n\n"
+            "Same population, sites, judges and functions as above; the published layers' "
+            "numbers above are unchanged. Every rate below comes from its own fresh "
+            "`default_rng(0)`.\n\n" + "\n".join(hb_table(hb_new, probe_meta)) + "\n" + ext
+        )
+    (root / "report.md").write_text(md, encoding="utf-8")
     slim_oc = {k: v for k, v in (outcomes or {}).items() if k != "prompts"}
     (root / "report.json").write_text(
         json.dumps(
@@ -312,4 +348,54 @@ def report(
         + "\n",
         encoding="utf-8",
     )
+    write_index(root, slim, items, probe, valid, probe_meta)
     return root
+
+
+def write_index(
+    root: Path,
+    slim: dict[str, list[dict[str, Any]]],
+    items: dict[str, dict[str, Any]],
+    probe: dict[tuple[str, int, int], Any] | None,
+    valid: dict[tuple[int, str], bool] | None,
+    probe_meta: dict[str, Any],
+) -> None:
+    """Plan 0019 step 5: ``index_counts.jsonl`` (allowlisted readers only) + ``index_meta.json``."""
+    rows = []
+    exported = [a for a in sorted(slim) if a in X.READERS]
+    for la in sorted({r["layer"] for a in exported for r in slim[a]}):
+        # plan 0019 review: every exported layer must have its probe gate entries (a missing
+        # new-layer probe file must fail loudly, never silently export all-unprobed claims)
+        if probe is None or valid is None or not any(k[0] == la for k in valid):
+            raise SystemExit(
+                f"index export: no probe gate entry for layer {la} (pass --probe-npz for "
+                "refusal_probe_v2 and refusal_probe_v2_l11)"
+            )
+    for a in exported:
+        full = X.load_full(root / a / "records.jsonl")
+        rows += X.counts(a, slim[a], full, items, probe, valid)
+    rows.sort(key=lambda r: (r["arm"], r["layer"], r["item"]))
+    with (root / "index_counts.jsonl").open("w", encoding="utf-8") as fh:
+        for r in rows:
+            fh.write(json.dumps({k: r[k] for k in X.COLUMNS}) + "\n")
+    unsucc = [i for i, it in items.items() if it["outcome"] == "unsuccessful"]
+    meta = {
+        "eval": "strongreject",
+        "plan": "0019",
+        "population": "unsuccessful (10/10 rubric-refused, 10/10 explicit refusals, 0 adopted)",
+        "n_items": len(unsucc),
+        "cluster": "forbidden_id",
+        "readers": [a for a in X.READERS if a in slim],
+        "layers": sorted({r["layer"] for r in rows}),
+        "claim_unit": "detector mention de-duplicated per readout by (readout, label, "
+        "readouts.normalize_ws(quote))",
+        "dedup": "normalize_ws",
+        "false_label": "harmful_compliance passing echo.counted (confirmed, speaker = assistant)",
+        "other_label": "refusal_intent (detector-only)",
+        "status_filter": 'status == "ok"; hc_unresolved cells excluded (n_unresolved)',
+        "contradicted": "refusal present at a site with a valid probe cell",
+        "prompt_versions": {"detect": detect.PROMPT_VERSION, "echo": echo.PROMPT_VERSION},
+        "probe": probe_meta,
+        "gates": {f"L{la}/{c}": v for (la, c), v in sorted((valid or {}).items())},
+    }
+    (root / "index_meta.json").write_text(json.dumps(meta, indent=1) + "\n", encoding="utf-8")

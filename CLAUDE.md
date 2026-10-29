@@ -289,6 +289,15 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
     cell validity). `probe_report.py` writes the standard probe-checked rate (claims at refusal-present sites /
     readouts) per region; `plot_rates.py` the slide plot.
   - A 401 "OAuth access token has been revoked" mid-run is the profile token rotating: re-run.
+  - **Plan 0019 (11 layers, index export):** layers 20/24/32/40/48/56/60 come from
+    `wsbench-acts:/hb-strongreject-L11-acts` (`scripts/strongreject/readouts_l11.sh`; merged with
+    `merge_readouts.py --layers <11> --backup strongreject.rev5.jsonl`). `hbench strongreject
+    report --probe-npz <refusal_probe_v2.npz>,<refusal_probe_v2_l11.npz>` writes
+    `index_counts.jsonl` + `index_meta.json` (`evals/strongreject/index_export.py`; readers
+    allowlisted; it fails if any exported layer lacks probe gate entries) and an "11-layer
+    extension" section after the frozen published layers. `run --layers` judges a subset but
+    always rebuilds every layer (it once dropped the other layers' records). The O-lens
+    sglang read loses many shards at startup at 128 shards: rerun until it exits 0.
 - **Keyless Anthropic auth.** With `ANTHROPIC_API_KEY` unset, `AsyncAnthropic()` picks up the
   `ant` CLI OAuth profile (`ant auth status`). Never require the env var. If the profile's
   credentials lapse mid-run, the 401 raises `JudgeConfigError` (exit 3): re-login with

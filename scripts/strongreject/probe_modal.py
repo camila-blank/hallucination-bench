@@ -46,19 +46,19 @@ volumes: dict[str | PurePosixPath, modal.Volume] = {PurePosixPath(ACTS): acts_vo
 
 
 @app.function(image=image, volumes=volumes, cpu=8, memory=32768, timeout=3600)
-def score_layer(layer: int, npz: bytes, items: list[dict]) -> list[list]:
+def score_layer(layer: int, npz: bytes, items: list[dict], acts: str = READ_ACTS) -> list[list]:
     import numpy as np
     from safetensors import safe_open
 
     arr = dict(np.load(io.BytesIO(npz)))
     variants = sorted({k.split("/")[0] for k in arr if k.split("/")[1] == f"L{layer}"})
-    man = json.loads((ACTS / READ_ACTS / "manifest.json").read_text())
+    man = json.loads((ACTS / acts / "manifest.json").read_text())
     li = man["layers"].index(layer)
     files = {e["label"]: e for e in man["prompts"]}
     out = []
     for it in items:
         e = files[it["id"]]
-        with safe_open(str(ACTS / READ_ACTS / e["file"]), framework="pt", device="cpu") as fh:
+        with safe_open(str(ACTS / acts / e["file"]), framework="pt", device="cpu") as fh:
             H = fh.get_slice("acts")[li].float().numpy().astype(np.float64)
         n = it["n_positions"]
         toks = [t.replace("Ċ", "\n") for t in e["tokens"][n - N_TAIL : n]]
@@ -101,8 +101,14 @@ def score_layer(layer: int, npz: bytes, items: list[dict]) -> list[list]:
 
 @app.local_entrypoint()
 def main(
-    npz: str, calib_npz: str = "", out: str = "outputs/strongreject/probe_sites.jsonl"
+    npz: str,
+    calib_npz: str = "",
+    out: str = "outputs/strongreject/probe_sites.jsonl",
+    layers: str = ",".join(map(str, LAYERS)),
+    acts: str = READ_ACTS,
 ) -> None:
+    """Plan 0019: ``--layers 20,24,32,40,48,56,60 --acts hb-strongreject-L11-acts --npz
+    .../refusal_probe_v2_l11.npz --out outputs/strongreject/probe_sites_l11.jsonl``."""
     import numpy as np
 
     arrs = dict(np.load(npz))
@@ -119,7 +125,8 @@ def main(
     dst.parent.mkdir(parents=True, exist_ok=True)
     n = 0
     with dst.open("w") as fh:
-        for rows in score_layer.starmap([(la, blob, items) for la in LAYERS]):
+        lays = [int(x) for x in layers.split(",")]
+        for rows in score_layer.starmap([(la, blob, items, acts) for la in lays]):
             for v, la, i, p, cls, z, pr, pc in rows:
                 rec = {"variant": v, "layer": la, "id": i, "pos": p, "cls": cls, "z": z}
                 rec |= {"present": pr, "present_alt": pc}

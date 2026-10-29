@@ -2,6 +2,7 @@
 
 import base64
 import json
+from pathlib import Path
 
 import pytest
 
@@ -769,3 +770,199 @@ def test_hb_scores_match_published():
             x = hb[arm][la]["all"]
             assert round(x["raw"] * 100, 2) == raw, (arm, la)
             assert round(x["probe_validated"] * 100, 2) == pv, (arm, la)
+
+
+# ---------------------------------------------------------------- plan 0019: index export
+
+
+def test_index_export_counts():
+    from hallucination_bench.evals.strongreject import index_export as X
+
+    its = _items()
+    unsucc = sorted(i for i, it in its.items() if it["outcome"] == "unsuccessful")
+    a, b = unsucc[0], unsucc[1]
+    hc_ok = {"speaker": "assistant", "confirmed": True, "echo": False}
+    hc_no = {"speaker": "user", "confirmed": True, "echo": False}
+    m = lambda q, lab, e=None, r=0: {"readout": r, "label": lab, "quote": q, "echo": e}  # noqa: E731
+    full = {
+        # two counted hc claims (one duplicated up to whitespace) + a refusal + noise labels
+        (a, 36, 0): [
+            m("I will  help", "harmful_compliance", hc_ok),
+            m("I will help", "harmful_compliance", hc_ok),
+            m("Here is", "harmful_compliance", hc_ok),
+            m("I cannot", "refusal_intent"),
+            m("DAN", "persona_adoption", hc_ok),
+            m("bomb", "harm_salience"),
+        ],
+        (a, 36, 1): [m("sure", "harmful_compliance", hc_no), m("no", "refusal_intent")],
+        (b, 36, 0): [m("ok", "harmful_compliance", hc_ok)],
+    }
+    slim = [
+        {**_rec(a, 0), "hc": "original"},
+        _rec(a, 1),
+        {**_rec(a, 2), "hc_unresolved": True},
+        _rec(a, 2, status="failed"),
+        {**_rec(b, 0), "hc": "original"},
+    ]
+    probe = {
+        (a, 36, 0): {"cls": "content", "present": 1.0},
+        (b, 36, 0): {"cls": "tail0", "present": 1.0},
+    }
+    valid = {(36, "content"): True, (36, "tail0"): False}
+    rows = X.counts("s3d-rl600", slim, full, its, probe, valid)
+    assert [r["item"] for r in rows] == unsucc  # every population item, zero rows included
+    ra = next(r for r in rows if r["item"] == a)
+    assert (ra["n_claims"], ra["n_false"], ra["n_contradicted"], ra["n_unprobed"]) == (4, 2, 2, 0)
+    assert (ra["n_unresolved"], ra["n_failed_cells"], ra["n_units"]) == (1, 1, 2)
+    assert (ra["n_false_units"], ra["n_contradicted_units"], ra["n_supported_units"]) == (1, 1, 0)
+    assert ra["cluster"] == its[a]["forbidden_id"]
+    rb = next(r for r in rows if r["item"] == b)
+    assert (rb["n_false"], rb["n_unprobed"], rb["n_unprobed_units"]) == (1, 1, 1)  # invalid gate
+    assert all(r["n_claims"] == 0 for r in rows if r["item"] not in (a, b))
+    assert X.READERS == ("s3d-rl600", "mlnla-rl600", "jlens")
+
+
+# the cache rows at the published layers before plan 0019 (logs/L11_cache_rows_before.json)
+CACHE_ROWS_OLD = {
+    "s3d-rl600": {"28": 66487, "36": 76242, "44": 70728, "52": 71656},
+    "mlnla-rl600": {"28": 36608, "36": 37154, "44": 36634, "52": 36465},
+    "jlens": {"28": 35350, "36": 35921, "44": 37109, "52": 36991},
+}
+
+
+def _run_root():
+    from hallucination_bench import REPO_ROOT
+
+    root = REPO_ROOT / "outputs/strongreject/claude-opus-5-5"
+    if not (root / "index_counts.jsonl").exists():
+        pytest.skip("no strongreject run outputs with index_counts.jsonl")
+    return root
+
+
+def test_index_counts_reconcile_with_report():
+    """Plan 0019: at every layer, sums of index_counts' unit columns equal the report's own
+    pooled numbers (`probe_check.standard` scope `all`, status ok, unresolved excluded)."""
+    from hallucination_bench.evals.strongreject import index_export as X
+
+    root = _run_root()
+    rows = [json.loads(x) for x in (root / "index_counts.jsonl").read_text().splitlines()]
+    assert rows == sorted(rows, key=lambda r: (r["arm"], r["layer"], r["item"]))
+    assert {r["arm"] for r in rows} <= set(X.READERS)
+    hb = json.loads((root / "report.json").read_text())["hb_score"]
+    for (arm, la), t in X.totals(rows).items():
+        x = hb[arm][str(la)]["all"]
+        assert t["n_units"] == x["n_readouts"], (arm, la)
+        assert t["n_false_units"] == x["n_claims"], (arm, la)
+        assert t["n_unresolved"] == x["n_unresolved"], (arm, la)
+        if "n_backed" in x:
+            assert t["n_contradicted_units"] == x["n_probe_contradicted"], (arm, la)
+            assert t["n_supported_units"] == x["n_backed"], (arm, la)
+            assert t["n_unprobed_units"] == x["n_undetermined"], (arm, la)
+
+
+def _published_rows():
+    """The merged (git-tracked) results doc's HB table rows: (reader, layer, region) ->
+    (readouts, backed, not backed, undetermined)."""
+    import re
+
+    from hallucination_bench import REPO_ROOT
+
+    doc = (REPO_ROOT / "docs/results/0016_strongreject_pilot.md").read_text()
+    out = {}
+    pat = re.compile(
+        r"^\| (s3d-rl600|mlnla-rl600|jlens) \| (\d+) \| (all|body|tail|turn) \| (\d+) \|"
+        r".*?\| (\d+) / (\d+) / (\d+) \|",
+        re.M,
+    )
+    for m in pat.finditer(doc):
+        out[(m[1], m[2], m[3])] = tuple(int(m[i]) for i in (4, 5, 6, 7))
+    return out
+
+
+def test_index_counts_match_merged_doc():
+    """Plan 0019 review: at the published layers, index_counts reproduces the merged results
+    doc's numbers (readouts, and the backed / not-backed / undetermined claim split)."""
+    from hallucination_bench.evals.strongreject import index_export as X
+
+    pub = _published_rows()
+    assert len(pub) == 48  # 3 readers x 4 layers x 4 regions
+    root = _run_root()
+    rows = [json.loads(x) for x in (root / "index_counts.jsonl").read_text().splitlines()]
+    tot = X.totals(rows)
+    for (arm, la, sc), (n, backed, contra, undet) in pub.items():
+        if sc != "all":
+            continue
+        t = tot[(arm, int(la))]
+        assert (t["n_units"], t["n_supported_units"], t["n_contradicted_units"]) == (
+            n,
+            backed,
+            contra,
+        ), (arm, la)
+        assert t["n_unprobed_units"] == undet
+        assert t["n_false_units"] == backed + contra + undet
+
+
+def test_l11_grid_and_frozen_cache_rows():
+    """Plan 0019: 11 layers, full grid per reader; the published layers' cache rows unchanged."""
+    import re
+    from collections import Counter
+
+    root = _run_root()
+    for arm, old in CACHE_ROWS_OLD.items():
+        s = json.loads((root / arm / "summary.json").read_text())
+        if len(s["config"]["layers"]) != 11:
+            pytest.skip("11-layer run not complete")
+        assert s["config"]["layers"] == [20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60]
+        assert s["grid"]["n_missing"] == 0 and s["grid"]["n_cells"] == s["grid"]["n_expected"]
+        # unique (item, pos, layer) keys of the readouts file cover the full 11-layer grid
+        ro = Path(s["config"]["readouts"])
+        keys = set()
+        pat = re.compile(r'"id": "([^"]+)", "layer": (\d+), "pos": (\d+)')
+        for line in ro.open(encoding="utf-8"):
+            m = pat.search(line[:200])
+            assert m, line[:120]
+            keys.add((m[1], int(m[3]), int(m[2])))
+        items = bank.load_items()
+        want = {
+            (it["id"], st["pos"], la)
+            for it in items
+            for st in it["sites"]
+            for la in s["config"]["layers"]
+        }
+        assert keys == want, arm
+        c = Counter()
+        for line in (root / arm / "cache.jsonl").open(encoding="utf-8"):
+            k = re.match(r'\{"key": "([^"]+)"', line)
+            m = re.search(r"__L(\d{3})__", k[1]) if k else None
+            if m and int(m.group(1)) in (28, 36, 44, 52):
+                c[str(int(m.group(1)))] += 1
+        assert dict(c) == old, arm
+        layers_in_records = set()
+        for line in (root / arm / "records.jsonl").open(encoding="utf-8"):
+            layers_in_records.add(json.loads(line)["layer"])
+        assert layers_in_records == set(s["config"]["layers"]), arm  # no layer dropped
+
+
+def test_run_layer_subset_keeps_other_layers(tmp_path, monkeypatch):
+    """Plan 0019 fix: judging a subset of layers rebuilds every layer of the readouts file
+    (cache-only), so the other layers' records and summary are never dropped."""
+    from hallucination_bench.evals.strongreject import run as R
+
+    items = _toy_bank(tmp_path, monkeypatch)
+    rows = [
+        {"id": it["id"], "layer": la, "pos": s["pos"], "samples": ["I will explain it."]}
+        for la in (36, 44)
+        for it in items
+        for s in it["sites"]
+    ]
+    rdir = tmp_path / "ro" / "toy"
+    rdir.mkdir(parents=True)
+    (rdir / R.READOUTS_FILE).write_text("".join(json.dumps(r) + "\n" for r in rows))
+    arms = R.resolve_arms(tmp_path / "ro", ["toy"])
+    out = tmp_path / "out"
+    R.run(arms, out, R.Judge(), llm=_SRFake(), layers=[36])
+    s = R.run(arms, out, R.Judge(), llm=_SRFake(), layers=[44])["toy"]
+    assert sorted(s["layers"]) == ["36", "44"]
+    recs = (out / "strongreject/claude-opus-5-5/toy/records.jsonl").read_text().splitlines()
+    assert {json.loads(x)["layer"] for x in recs} == {36, 44}
+    bank.load_bank.cache_clear()

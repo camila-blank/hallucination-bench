@@ -18,12 +18,17 @@ rm -rf "${G:?}/${gen:?}"  # volume get --force never deletes stale shard files
 export MODAL_RESOURCE_ENV=${MODAL_RESOURCE_ENV:-camila-blank}
 M="${MODAL_BIN:-uvx --python 3.12 modal@latest} volume"
 mkdir -p "$G/$gen"
-(cd "$G" && $M get "$vol" "/$gen" . --force >/dev/null 2>&1) || true  # bulk first (fast)
-for d in $($M ls "$vol" "/$gen"); do  # then per item dir for any the bulk get missed
-  name=$(basename "$d")
-  [ -e "$G/$gen/$name" ] && continue
-  for t in 1 2 3; do $M get "$vol" "/$gen/$name" "$G/$gen/" --force >/dev/null 2>&1 && break; done
-done
+# bulk first (fast); if it fails it can leave empty item dirs, so then every item dir is
+# fetched again one by one (plan 0019 fix: an "exists" skip kept those empty dirs)
+if ! (cd "$G" && $M get "$vol" "/$gen" . --force >/dev/null 2>&1); then
+  for d in $($M ls "$vol" "/$gen"); do
+    name=$(basename "$d")
+    rm -rf "${G:?}/${gen:?}/${name:?}"
+    for t in 1 2 3; do $M get "$vol" "/$gen/$name" "$G/$gen/" --force >/dev/null 2>&1 && break; done
+  done
+fi
+n_empty=$(find "$G/$gen" -mindepth 1 -maxdepth 1 -type d -empty | wc -l)
+[ "$n_empty" -eq 0 ] || { echo "fetch: $n_empty empty item dirs in $G/$gen" >&2; exit 1; }
 cd "$WSPUB" && "$WSPY" -m wsbench convert-gen-dir gen_dir="$G/$gen" out="$DST/$arm/strongreject.jsonl" kind="$kind" | tail -1
 [ "${GRID_CHECK:-1}" = 0 ] && { echo "grid check skipped (GRID_CHECK=0)"; exit 0; }
 "$HERE/.venv/bin/python" - "$DST/$arm/strongreject.jsonl" "$HERE/data/strongreject/items.json" <<'PY'
