@@ -1,6 +1,6 @@
 # Plan 0019: the safety families on the hallucination index (hindex-v4), all 11 layers
 
-Author: Camila Blank (planned with Claude), 2026-10-29. Revision 4 (rev 4, critique 3: probe split reconciled in report units, v3 md golden, pinned dev-box golden, status filters, mask gate wording; rev 3, critique 2: v3 test
+Author: Camila Blank (planned with Claude), 2026-10-29. Revision 5 (rev 5, Camila 2026-10-29: **mask is dropped from the index** — its prompt-position lie claims on honest items are unverifiable (possible real considered-then-rejected thoughts; no state-level ground truth), so mask's HB number becomes a labelled diagnostic and its 11-layer extension was stopped; everything below about mask is retained only as the record of the design; rev 4, critique 3: probe split reconciled in report units, v3 md golden, pinned dev-box golden, status filters, mask gate wording; rev 3, critique 2: v3 test
 edits sanctioned for full/matched keys, safety roots opt-in, golden comparison excludes
 volatile fields, per-eval reconciliation units, no-probed-false-claims → absent, strongreject
 `counted` rule, one verifier-rejection rule, mask capture set / gate statistic; rev 2, critique 1: numerator =
@@ -17,6 +17,15 @@ The three safety evals (overrefusal, strongreject, mask) are frozen and merged, 
 the hallucination index, and they were read at 4 layers (28 / 36 / 44 / 52) while every index
 family has all 11 (20:61:4). Camila (2026-10-29): put them on the index, at all 11 layers for all
 three methods.
+
+## Rev 5 amendment (Camila, 2026-10-29) — supersedes every mask item below
+
+The index adds **two** families, `overrefusal` and `strongreject` (weight 1 each). `mask` is not
+an index family: `FAMILIES` = V3 + `overrefusal, strongreject`; `full` = all 6; `matched` = all
+except sibling; `--mask-root`, mask's `methods.json` entries and mask's `index_counts` export are
+not built. Mask's HB report is relabelled a diagnostic (plan 0017). The mask rows of the tables
+below, the mask gate, and the mask capture/probe steps are retained only as the record of the
+design.
 
 ## Decisions (Camila, 2026-10-29)
 
