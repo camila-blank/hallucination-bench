@@ -13,7 +13,8 @@ the model never refuses; own subcommands `hbench overrefusal ...`) is plan
 macro per (method, layer) over main / AM / sibling / story) is plan
 `plans/0013-final-sibling-eval-and-hallucination-index.md`. The `mask` eval (MASK lies vs
 honest-but-wrong: does the lens claim the model is lying when it is honest? Its own CLI,
-`hbench mask gt|run|report`; not on the index) is plan `plans/0017-mask-eval.md`.
+`hbench mask gt|run|report`; ARCHIVED 2026-10-29: a diagnostic, not part of HallucinationBench or
+the index, not a hallucination score; HB's safety evals are overrefusal only) is plan `plans/0017-mask-eval.md`.
 
 ## Layout
 
@@ -423,7 +424,7 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
     The Instructed-Pairs thresholds (own-data honest q95) are miscalibrated on MASK: they fire everywhere.
   - **Rev 5 (final frozen set):** lie = >= 9/10 contradicting samples; 874 items labelled; read set =
     every gated lie (156) + gated honest_resisted (155) + honest_wrong (9), at EVERY position
-    (`sites.json.gz`, 146k sites, ~586k cells per arm). **The HB score is the benign side only**:
+    (`sites.json.gz`, 146k sites, ~586k cells per arm). **The diagnostic rate (formerly "HB score"; not a hallucination score since 2026-10-29) is the benign side only**:
     verified lie_claim readout rate on gated honest_resisted, per (arm, layer, site set
     prompt / response / all); lie items are a labelled diagnostic (and the WorkspaceBench
     `mask-lie-contrast` family in global-workspace). `data/mask/FROZEN.json` pins every file.
@@ -435,6 +436,22 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
     readouts (`rate_supported` is the complement). Instructed-Pairs = direction AUROC only.
   - The s3d reader's sglang servers die at start-up on some shards; re-run the same command
     (idempotent, same `--shards`) until no shard fails.
+  - **MASK is an archived diagnostic, not part of HallucinationBench (Camila, 2026-10-29)**: prompt-position lie
+    claims on honest items are unverifiable (they may be real considered-then-rejected thoughts).
+    No `index_counts.jsonl` / `index_meta.json` is produced; `evals/mask/claims.py` keeps only the
+    claim unit for `scripts/mask/strict_pilot.py` (strict lie-claim judge `maskstrict-v1`, own
+    cache `outputs/mask/<model>/strict/`).
+  - **Plan 0019 (11 layers), STOPPED 2026-10-29 (archival).** The new layers 20 / 24 / 32 / 40 / 48 / 56 / 60 are
+    read on PROMPT sites of the 155 gated honest_resisted items only (`data/mask/l11/`,
+    readouts `mask_l11.jsonl`).
+    - Detect with `scripts/mask/run_l11.sh <arm> <conc>` (`--sites-file` / `--readouts-file`).
+    - Probes: `probe_modal.py --l11` (LOAO only), writing `*_v5_l11`. `report` merges them.
+    - Gate per layer: `transfer_loao` (prompt sites) ≥ 0.7.
+    - Detected when stopped: J-lens and ML-NLA all 7 layers, s3d L20 / 24 / 32 / 40 only (L48
+      partial in the cache). `report` adds an archival prompt-only new-layer table.
+    - The merged layers' numbers are frozen (`l11/report_4layer_snapshot.json`, tested).
+    - J-lens' merged layers stay in `cells.jsonl` and its new layers in `cells_L0NN.jsonl`. The
+      report reads both.
   - `tmux kill-session -t name` prefix-matches: with `hb-mask-gen` gone it killed
     `hb-mask-genx`. Use `-t =name`.
 

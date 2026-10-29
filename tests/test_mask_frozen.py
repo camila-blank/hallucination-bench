@@ -39,3 +39,15 @@ def test_frozen_read_set_is_gated_and_excludes_doubling_down():
         assert lab["label"] in ("lie", "honest_correct", "honest_wrong")
         if lab["label"] == "lie":
             assert lab["lie_rate"] >= 0.9
+
+
+@pytest.mark.skipif(not MANIFEST.exists(), reason="no FROZEN.json yet")
+def test_frozen_l11_files_match_manifest():
+    """Plan 0019: the 11-layer artifacts are pinned under new keys (rev-5 pins untouched)."""
+    m = json.loads(MANIFEST.read_text())
+    for name, sha in m.get("files_sha256_l11", {}).items():
+        assert hashlib.sha256((bank.DATA_DIR / name).read_bytes()).hexdigest() == sha, name
+    for rel, sha in m.get("external_sha256_l11", {}).items():
+        p = REPO_ROOT / rel
+        if p.exists():
+            assert hashlib.sha256(p.read_bytes()).hexdigest() == sha, rel

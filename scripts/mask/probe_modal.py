@@ -53,20 +53,22 @@ acts_vol = modal.Volume.from_name("wsbench-acts")
 
 
 def _load(subdir: str, wanted: dict[str, list[int]], layer: int) -> dict:
-    """{label: [len(positions), d] float16} at ``layer``."""
+    """{label: [len(positions), d] float16} at ``layer``; ``subdir`` may list several acts
+    dirs, comma-separated (plan 0019: the L11 read set is split over two captures)."""
     import numpy as np
     from safetensors import safe_open
 
-    root = Path("/acts") / subdir
-    man = json.loads((root / "manifest.json").read_text())
-    li = list(man["layers"]).index(layer)
     out = {}
-    for e in man["prompts"]:
-        if e["label"] not in wanted:
-            continue
-        with safe_open(str(root / e["file"]), framework="pt", device="cpu") as f:
-            a = f.get_slice("acts")[li : li + 1][0]
-        out[e["label"]] = a[wanted[e["label"]]].float().numpy().astype(np.float16)
+    for sd in subdir.split(","):
+        root = Path("/acts") / sd
+        man = json.loads((root / "manifest.json").read_text())
+        li = list(man["layers"]).index(layer)
+        for e in man["prompts"]:
+            if e["label"] not in wanted or e["label"] in out:
+                continue
+            with safe_open(str(root / e["file"]), framework="pt", device="cpu") as f:
+                a = f.get_slice("acts")[li : li + 1][0]
+            out[e["label"]] = a[wanted[e["label"]]].float().numpy().astype(np.float16)
     missing = set(wanted) - set(out)
     assert not missing, f"{subdir}: missing {sorted(missing)[:3]}"
     return out
@@ -111,7 +113,16 @@ def _score_all(fn, sites: dict, acts: dict, ids, st: str, chunk: int = 512) -> d
 
 @app.function(image=image, volumes={"/acts": acts_vol}, cpu=16, memory=131072, timeout=6 * 3600)
 def run_job(
-    layer: int, job: str, sites: dict, neg_sites: dict, labels: dict, read: list, manifest: dict
+    layer: int,
+    job: str,
+    sites: dict,
+    neg_sites: dict,
+    labels: dict,
+    read: list,
+    manifest: dict,
+    acts_read: str = "hb-mask-v5",
+    acts_neg: str = "hb-mask-v5-neg",
+    site_types: tuple = ("prompt", "response"),
 ) -> dict:
     import numpy as np
 
@@ -139,19 +150,19 @@ def run_job(
             )
             res[f"ip_{kind}"] = probes[kind].summary()
         del acts
-        racts = _load("hb-mask-v5", {t: [s["pos"] for s in sites[t]] for t in read}, layer)
+        racts = _load(acts_read, {t: [s["pos"] for s in sites[t]] for t in read}, layer)
         for kind, st in (("end", "prompt"), ("resp", "response")):
             sc = _score_all(probes[kind].score, sites, racts, read, st)
             res["scores"][st] = {
                 t: [v[0], [round(float(x), 4) for x in v[1]]] for t, v in sc.items()
             }
         return res
-    racts = _load("hb-mask-v5", {t: [s["pos"] for s in sites[t]] for t in read}, layer)
+    racts = _load(acts_read, {t: [s["pos"] for s in sites[t]] for t in read}, layer)
     negs = sorted(neg_sites)
-    nacts = _load("hb-mask-v5-neg", {t: [s["pos"] for s in neg_sites[t]] for t in negs}, layer)
+    nacts = _load(acts_neg, {t: [s["pos"] for s in neg_sites[t]] for t in negs}, layer)
     acts = {**racts, **nacts}
     if job == "cf":
-        for st in ("prompt", "response"):
+        for st in site_types:
             ids, win, y = _items(all_sites, acts, labels, sorted(all_sites), st)
             folds = [zlib.crc32(t.encode()) % 4 for t in ids]
             p = PR.fit(win, y, folds, ids=ids)
@@ -170,7 +181,7 @@ def run_job(
     assert job.startswith("loao:")
     held = job.split(":", 1)[1]
     readset = set(read)
-    for st in ("prompt", "response"):
+    for st in site_types:
         others = [t for t in sorted(all_sites) if labels[t]["archetype"] != held]
         thresh = [t for t in others if t not in readset and labels[t]["label"].startswith("honest")]
         train = [t for t in others if t not in set(thresh)]
@@ -199,8 +210,13 @@ def run_job(
     return res
 
 
+L11_LAYERS = (20, 24, 32, 40, 48, 56, 60)
+
+
 @app.local_entrypoint()
-def main() -> None:
+def main(l11: bool = False) -> None:
+    """``--l11`` (plan 0019): the LOAO jobs only, at the 7 new layers, prompt sites only, from the
+    L11 captures, to NEW files (``*_v5_l11``); the pinned v5 files are never rewritten."""
     d = REPO / "data" / "mask"
 
     def gz(name):
@@ -222,6 +238,20 @@ def main() -> None:
     read = sorted(sites)
     manifest = json.loads((d / "probe_manifest.json").read_text())
     jobs = [(L, j) for L in LAYERS for j in ("ip", "cf", *[f"loao:{a}" for a in ARCHS])]
+    extra: dict = {}
+    suffix, plan = "", "0017 rev 5"
+    if l11:
+        sites = {t: [x for x in ss if x["site_type"] == "prompt"] for t, ss in sites.items()}
+        neg_sites = {
+            t: [x for x in ss if x["site_type"] == "prompt"] for t, ss in neg_sites.items()
+        }
+        jobs = [(L, f"loao:{a}") for L in L11_LAYERS for a in ARCHS]
+        extra = {
+            "acts_read": "hb-mask-L11-hr,hb-mask-L11-rest",
+            "acts_neg": "hb-mask-L11-neg",
+            "site_types": ("prompt",),
+        }
+        suffix, plan = "_l11", "0019 (mask L11)"
     out: dict = {}
     for r in run_job.starmap(
         jobs,
@@ -231,6 +261,7 @@ def main() -> None:
             "labels": labels,
             "read": read,
             "manifest": manifest,
+            **extra,
         },
     ):
         out.setdefault(str(r["layer"]), {})[r["job"]] = r
@@ -239,11 +270,11 @@ def main() -> None:
         L: {j: {k: v for k, v in r.items() if k != "scores"} for j, r in js.items()}
         for L, js in out.items()
     }
-    (d / "probe_summary_v5.json").write_text(
-        json.dumps({"meta": {"plan": "0017 rev 5"}, "layers": summ}, indent=1) + "\n"
+    (d / f"probe_summary_v5{suffix}.json").write_text(
+        json.dumps({"meta": {"plan": plan}, "layers": summ}, indent=1) + "\n"
     )
-    dest = REPO / "outputs" / "mask" / "probe_scores_v5.json.gz"
+    dest = REPO / "outputs" / "mask" / f"probe_scores_v5{suffix}.json.gz"
     dest.parent.mkdir(parents=True, exist_ok=True)
     with gzip.open(dest, "wt", encoding="utf-8") as fh:
         json.dump({"layers": out}, fh)
-    print(f"[probe] wrote {dest} and {d / 'probe_summary_v5.json'}", flush=True)
+    print(f"[probe] wrote {dest} and {d / f'probe_summary_v5{suffix}.json'}", flush=True)

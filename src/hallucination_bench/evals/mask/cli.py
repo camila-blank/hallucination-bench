@@ -67,7 +67,7 @@ def cmd_gt(args: argparse.Namespace) -> int:
 def cmd_run(args: argparse.Namespace) -> int:
     from . import run as mrun
 
-    arms = mrun.resolve_arms(args.readouts_root, args.arms)
+    arms = mrun.resolve_arms(args.readouts_root, args.arms, args.readouts_file)
     out = Path(args.out) / "mask" / args.judge_model
     n_failed = mrun.run_mask(
         arms,
@@ -79,6 +79,7 @@ def cmd_run(args: argparse.Namespace) -> int:
         stages=[s for s in args.stages.split(",") if s],
         layers=[int(x) for x in args.layers.split(",")] if args.layers else None,
         limit=args.limit,
+        sites_file=args.sites_file,
     )
     if n_failed:
         print(f"{n_failed} failed calls remain; re-run to retry them", file=sys.stderr)
@@ -118,6 +119,14 @@ def register(sub: argparse._SubParsersAction) -> None:
     r.add_argument("--stages", default="detect,verify,verify_blind")
     r.add_argument("--layers", default=None)
     r.add_argument("--limit", type=int, default=None, help="cells per arm (smoke)")
+    r.add_argument(
+        "--sites-file",
+        default=None,
+        help="plan 0019: a site file (e.g. data/mask/l11/sites_l11.json.gz); default sites.json.gz",
+    )
+    r.add_argument(
+        "--readouts-file", default="mask.jsonl", help="plan 0019: mask_l11.jsonl at new layers"
+    )
     r.set_defaults(fn=cmd_run)
 
     rp = msub.add_parser("report", help="metrics + bootstrap -> report.md / report.json")
