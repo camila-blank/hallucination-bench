@@ -40,6 +40,12 @@ def load_labels() -> dict[str, dict[str, Any]]:
     return {r["task_id"]: r for r in _load("labels.json")["items"]}
 
 
+def load_sites_file(path: Path) -> dict[str, list[dict[str, Any]]]:
+    """A site file in the ``sites.json.gz`` schema (plan 0019: ``l11/sites_l11.json.gz``)."""
+    with gzip.open(path, "rt", encoding="utf-8") as fh:
+        return {r["task_id"]: r["sites"] for r in json.load(fh)["items"]}
+
+
 def load_sites() -> dict[str, list[dict[str, Any]]]:
     """``{task_id: [{pos, token, site_type, char}, ...]}`` of the read set (rev 5:
     ``sites.json.gz``, every position; rev 1-4: ``sites.json``)."""
@@ -88,11 +94,13 @@ def select_sites(
     return out
 
 
-def resolve_arms(root: str | None, arms: str) -> list[tuple[str, Path]]:
+def resolve_arms(
+    root: str | None, arms: str, readouts_file: str = READOUTS_FILE
+) -> list[tuple[str, Path]]:
     base = Path(root) if root else READOUTS_ROOT
     out = []
     for name in [a for a in arms.split(",") if a]:
-        p = base / name / READOUTS_FILE
+        p = base / name / readouts_file
         if not p.exists():
             raise SystemExit(f"[{name}] readouts file not found: {p}")
         out.append((name, p))

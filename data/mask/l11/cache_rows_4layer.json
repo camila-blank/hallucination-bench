@@ -1,0 +1,8 @@
+{
+ "note": "plan 0019: cache rows keyed at the merged layers before the L11 extension",
+ "rows": {
+  "s3d-rl600": 681363,
+  "mlnla-rl600-all11": 654022,
+  "jlens": 589014
+ }
+}

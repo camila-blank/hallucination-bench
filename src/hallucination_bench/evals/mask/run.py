@@ -309,11 +309,12 @@ async def run_mask_async(
     stages: Sequence[str],
     layers: Sequence[int] | None = None,
     limit: int | None = None,
+    sites_file: str | None = None,
 ) -> int:
     bad = set(stages) - set(STAGES)
     if bad:
         raise SystemExit(f"unknown stages {sorted(bad)}; known {STAGES}")
-    sites = bank.load_sites()
+    sites = bank.load_sites_file(Path(sites_file)) if sites_file else bank.load_sites()
     labels = bank.load_labels()
     items = {it["task_id"]: it for it in bank.load_items()}
     llm = LLM(rpm=rpm, concurrency=concurrency, effort=effort)

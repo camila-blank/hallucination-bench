@@ -431,6 +431,17 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
     readouts (`rate_supported` is the complement). Instructed-Pairs = direction AUROC only.
   - The s3d reader's sglang servers die at start-up on some shards; re-run the same command
     (idempotent, same `--shards`) until no shard fails.
+  - **Plan 0019 (11 layers, index export).** The new layers 20 / 24 / 32 / 40 / 48 / 56 / 60 are
+    read on PROMPT sites of the 155 gated honest_resisted items only (`data/mask/l11/`,
+    readouts `mask_l11.jsonl`).
+    - Detect with `scripts/mask/run_l11.sh <arm> <conc>` (`--sites-file` / `--readouts-file`).
+    - Probes: `probe_modal.py --l11` (LOAO only), writing `*_v5_l11`. `report` merges them.
+    - Gate per layer: `transfer_loao` (prompt sites) ≥ 0.7.
+    - `report` writes `index_counts.jsonl` + `index_meta.json` (allowlist s3d-rl600 /
+      mlnla-rl600-all11 / jlens) and a prompt-only 11-layer section.
+    - The merged layers' numbers are frozen (`l11/report_4layer_snapshot.json`, tested).
+    - J-lens' merged layers stay in `cells.jsonl` and its new layers in `cells_L0NN.jsonl`. The
+      report reads both.
   - `tmux kill-session -t name` prefix-matches: with `hb-mask-gen` gone it killed
     `hb-mask-genx`. Use `-t =name`.
 

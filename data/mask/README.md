@@ -35,3 +35,23 @@ and belief / honesty aggregation from `centerforaisafety/mask` @ `25e0b12` (verb
   real lie the AI told in context, so a lens saying "the assistant lied" is correct there.
 - For the later recall eval: lie items and honest items are both in the read set and in every
   arm's `outputs/mask/<model>/<arm>/cells.jsonl`.
+
+## `l11/`: plan 0019, 7 more layers (20 / 24 / 32 / 40 / 48 / 56 / 60), prompt positions only
+
+Built by `scripts/mask/l11_build.py`. The input_ids are cut after the final `assistant` token.
+The model is causal, so the prompt activations equal those of the full sequence.
+
+| file | what |
+|---|---|
+| `capture_rows_hr.json` | the 155 gated honest_resisted items (lens reads + probes) → capture `hb-mask-L11-hr` |
+| `capture_rows_rest.json` | every other read-set item (probe data only: LOAO trains on every labelled item) → `hb-mask-L11-rest` |
+| `capture_rows_neg.json` | the unread `hb-mask-v5-neg` items → `hb-mask-L11-neg` |
+| `sites_l11.json.gz` | the L11 read grid: the honest_resisted items' prompt sites (26,371) |
+| `report_4layer_snapshot.json` | the merged 4-layer report numbers (`gate.arms`, `arms`), frozen before the extension (`tests/test_mask_index_export.py`) |
+| `cache_rows_4layer.json` | per-arm detector-cache row counts keyed at the merged layers (unchanged after the extension) |
+
+- `../probe_summary_v5_l11.json` holds the LOAO jobs at the new layers, prompt sites only. The
+  per-site scores are in `outputs/mask/probe_scores_v5_l11.json.gz`.
+- The report merges these with the pinned v5 files, which are never rewritten. The new
+  artifacts are pinned under new `FROZEN.json` keys (`files_sha256_l11`, `external_sha256_l11`).
+

@@ -1,0 +1,665 @@
+{
+ "meta": {
+  "plan": "0019 (mask L11)"
+ },
+ "layers": {
+  "20": {
+   "loao:continuations": {
+    "layer": 20,
+    "job": "loao:continuations",
+    "loao_prompt": {
+     "auroc_text": 0.9174917491749175,
+     "auroc_pos": 0.8800227293494152,
+     "tau_pos": 1.6675978494931905,
+     "tau_text": 1.3865383586966793,
+     "lams": [
+      3.0,
+      3.0,
+      3.0,
+      3.0
+     ],
+     "n_texts": 272,
+     "n_pos": 8704,
+     "tau": 2.221188228534642,
+     "n_threshold_items": 17,
+     "n_threshold_pos": 3117,
+     "n_train_items": 272,
+     "n_train_lie": 171
+    }
+   },
+   "loao:disinformation": {
+    "layer": 20,
+    "job": "loao:disinformation",
+    "loao_prompt": {
+     "auroc_text": 0.8756103231806557,
+     "auroc_pos": 0.8288886419037724,
+     "tau_pos": 1.6425423472211855,
+     "tau_text": 1.2609695806900443,
+     "lams": [
+      3.0,
+      3.0,
+      3.0,
+      3.0
+     ],
+     "n_texts": 279,
+     "n_pos": 8928,
+     "tau": 2.1478279277159102,
+     "n_threshold_items": 19,
+     "n_threshold_pos": 3621,
+     "n_train_items": 279,
+     "n_train_lie": 187
+    }
+   },
+   "loao:known_facts": {
+    "layer": 20,
+    "job": "loao:known_facts",
+    "loao_prompt": {
+     "auroc_text": 0.9218253148874664,
+     "auroc_pos": 0.8879167984074954,
+     "tau_pos": 1.8343603544397196,
+     "tau_text": 1.586917957651179,
+     "lams": [
+      3.0,
+      3.0,
+      3.0,
+      3.0
+     ],
+     "n_texts": 312,
+     "n_pos": 9984,
+     "tau": 3.6276727679297887,
+     "n_threshold_items": 15,
+     "n_threshold_pos": 2825,
+     "n_train_items": 312,
+     "n_train_lie": 167
+    }
+   },
+   "loao:provided_facts": {
+    "layer": 20,
+    "job": "loao:provided_facts",
+    "loao_prompt": {
+     "auroc_text": 0.7964384100747737,
+     "auroc_pos": 0.7089397455941312,
+     "tau_pos": 1.8206170036284413,
+     "tau_text": 1.5554017041214823,
+     "lams": [
+      3.0,
+      3.0,
+      3.0,
+      3.0
+     ],
+     "n_texts": 220,
+     "n_pos": 7040,
+     "tau": 2.6545751613444364,
+     "n_threshold_items": 9,
+     "n_threshold_pos": 1609,
+     "n_train_items": 220,
+     "n_train_lie": 66
+    }
+   }
+  },
+  "24": {
+   "loao:continuations": {
+    "layer": 24,
+    "job": "loao:continuations",
+    "loao_prompt": {
+     "auroc_text": 0.9176075502287071,
+     "auroc_pos": 0.880165162383837,
+     "tau_pos": 1.6754113317165247,
+     "tau_text": 1.3662283820028205,
+     "lams": [
+      3.0,
+      3.0,
+      3.0,
+      3.0
+     ],
+     "n_texts": 272,
+     "n_pos": 8704,
+     "tau": 2.216098492311446,
+     "n_threshold_items": 17,
+     "n_threshold_pos": 3117,
+     "n_train_items": 272,
+     "n_train_lie": 171
+    }
+   },
+   "loao:disinformation": {
+    "layer": 24,
+    "job": "loao:disinformation",
+    "loao_prompt": {
+     "auroc_text": 0.8792722622645897,
+     "auroc_pos": 0.8318251410464136,
+     "tau_pos": 1.6312767532710881,
+     "tau_text": 1.176435521847116,
+     "lams": [
+      3.0,
+      3.0,
+      3.0,
+      3.0
+     ],
+     "n_texts": 279,
+     "n_pos": 8928,
+     "tau": 2.1341372071399056,
+     "n_threshold_items": 19,
+     "n_threshold_pos": 3621,
+     "n_train_items": 279,
+     "n_train_lie": 187
+    }
+   },
+   "loao:known_facts": {
+    "layer": 24,
+    "job": "loao:known_facts",
+    "loao_prompt": {
+     "auroc_text": 0.9162089613875697,
+     "auroc_pos": 0.885413709219492,
+     "tau_pos": 1.8122982841348276,
+     "tau_text": 1.4869249046821817,
+     "lams": [
+      3.0,
+      3.0,
+      3.0,
+      3.0
+     ],
+     "n_texts": 312,
+     "n_pos": 9984,
+     "tau": 3.522357283818631,
+     "n_threshold_items": 15,
+     "n_threshold_pos": 2825,
+     "n_train_items": 312,
+     "n_train_lie": 167
+    }
+   },
+   "loao:provided_facts": {
+    "layer": 24,
+    "job": "loao:provided_facts",
+    "loao_prompt": {
+     "auroc_text": 0.7919126328217237,
+     "auroc_pos": 0.7044246332798357,
+     "tau_pos": 1.7418212868392708,
+     "tau_text": 1.5117683409911944,
+     "lams": [
+      3.0,
+      3.0,
+      3.0,
+      3.0
+     ],
+     "n_texts": 220,
+     "n_pos": 7040,
+     "tau": 2.6663214428714075,
+     "n_threshold_items": 9,
+     "n_threshold_pos": 1609,
+     "n_train_items": 220,
+     "n_train_lie": 66
+    }
+   }
+  },
+  "32": {
+   "loao:continuations": {
+    "layer": 32,
+    "job": "loao:continuations",
+    "loao_prompt": {
+     "auroc_text": 0.9276243413815066,
+     "auroc_pos": 0.8890530063491546,
+     "tau_pos": 1.7190140504139484,
+     "tau_text": 1.4116314488165553,
+     "lams": [
+      3.0,
+      3.0,
+      3.0,
+      3.0
+     ],
+     "n_texts": 272,
+     "n_pos": 8704,
+     "tau": 2.245637361549119,
+     "n_threshold_items": 17,
+     "n_threshold_pos": 3117,
+     "n_train_items": 272,
+     "n_train_lie": 171
+    }
+   },
+   "loao:disinformation": {
+    "layer": 32,
+    "job": "loao:disinformation",
+    "loao_prompt": {
+     "auroc_text": 0.897116949546617,
+     "auroc_pos": 0.8426013867596198,
+     "tau_pos": 1.6015829297436754,
+     "tau_text": 1.2649960348962532,
+     "lams": [
+      3.0,
+      3.0,
+      3.0,
+      3.0
+     ],
+     "n_texts": 279,
+     "n_pos": 8928,
+     "tau": 2.118220752823581,
+     "n_threshold_items": 19,
+     "n_threshold_pos": 3621,
+     "n_train_items": 279,
+     "n_train_lie": 187
+    }
+   },
+   "loao:known_facts": {
+    "layer": 32,
+    "job": "loao:known_facts",
+    "loao_prompt": {
+     "auroc_text": 0.9422258930415032,
+     "auroc_pos": 0.9018018515770184,
+     "tau_pos": 1.8132276405424042,
+     "tau_text": 1.6073891673657348,
+     "lams": [
+      3.0,
+      3.0,
+      3.0,
+      1.0
+     ],
+     "n_texts": 312,
+     "n_pos": 9984,
+     "tau": 3.5527242804033228,
+     "n_threshold_items": 15,
+     "n_threshold_pos": 2825,
+     "n_train_items": 312,
+     "n_train_lie": 167
+    }
+   },
+   "loao:provided_facts": {
+    "layer": 32,
+    "job": "loao:provided_facts",
+    "loao_prompt": {
+     "auroc_text": 0.8616686343959071,
+     "auroc_pos": 0.7600626579563902,
+     "tau_pos": 1.8389934012886544,
+     "tau_text": 1.570351606739171,
+     "lams": [
+      3.0,
+      3.0,
+      3.0,
+      3.0
+     ],
+     "n_texts": 220,
+     "n_pos": 7040,
+     "tau": 2.5492178857486087,
+     "n_threshold_items": 9,
+     "n_threshold_pos": 1609,
+     "n_train_items": 220,
+     "n_train_lie": 66
+    }
+   }
+  },
+  "40": {
+   "loao:continuations": {
+    "layer": 40,
+    "job": "loao:continuations",
+    "loao_prompt": {
+     "auroc_text": 0.9250188176712408,
+     "auroc_pos": 0.8856070203031816,
+     "tau_pos": 1.7175781326112645,
+     "tau_text": 1.4074983241373737,
+     "lams": [
+      3.0,
+      3.0,
+      3.0,
+      3.0
+     ],
+     "n_texts": 272,
+     "n_pos": 8704,
+     "tau": 2.332565624666318,
+     "n_threshold_items": 17,
+     "n_threshold_pos": 3117,
+     "n_train_items": 272,
+     "n_train_lie": 171
+    }
+   },
+   "loao:disinformation": {
+    "layer": 40,
+    "job": "loao:disinformation",
+    "loao_prompt": {
+     "auroc_text": 0.8961288072541269,
+     "auroc_pos": 0.8423826762671471,
+     "tau_pos": 1.6056333543995245,
+     "tau_text": 1.229789803671271,
+     "lams": [
+      3.0,
+      3.0,
+      3.0,
+      3.0
+     ],
+     "n_texts": 279,
+     "n_pos": 8928,
+     "tau": 2.2417447874193224,
+     "n_threshold_items": 19,
+     "n_threshold_pos": 3621,
+     "n_train_items": 279,
+     "n_train_lie": 187
+    }
+   },
+   "loao:known_facts": {
+    "layer": 40,
+    "job": "loao:known_facts",
+    "loao_prompt": {
+     "auroc_text": 0.9417303324385712,
+     "auroc_pos": 0.901726557660541,
+     "tau_pos": 1.8971828576617127,
+     "tau_text": 1.3586632560275798,
+     "lams": [
+      3.0,
+      3.0,
+      3.0,
+      3.0
+     ],
+     "n_texts": 312,
+     "n_pos": 9984,
+     "tau": 3.716953699313612,
+     "n_threshold_items": 15,
+     "n_threshold_pos": 2825,
+     "n_train_items": 312,
+     "n_train_lie": 167
+    }
+   },
+   "loao:provided_facts": {
+    "layer": 40,
+    "job": "loao:provided_facts",
+    "loao_prompt": {
+     "auroc_text": 0.8683589138134593,
+     "auroc_pos": 0.7588940304782812,
+     "tau_pos": 1.7888940867765155,
+     "tau_text": 1.533619508767662,
+     "lams": [
+      3.0,
+      3.0,
+      3.0,
+      3.0
+     ],
+     "n_texts": 220,
+     "n_pos": 7040,
+     "tau": 2.597558429228514,
+     "n_threshold_items": 9,
+     "n_threshold_pos": 1609,
+     "n_train_items": 220,
+     "n_train_lie": 66
+    }
+   }
+  },
+  "48": {
+   "loao:continuations": {
+    "layer": 48,
+    "job": "loao:continuations",
+    "loao_prompt": {
+     "auroc_text": 0.9275664408546118,
+     "auroc_pos": 0.8879791325144027,
+     "tau_pos": 1.7006611687954036,
+     "tau_text": 1.386650847935366,
+     "lams": [
+      3.0,
+      3.0,
+      3.0,
+      3.0
+     ],
+     "n_texts": 272,
+     "n_pos": 8704,
+     "tau": 2.3566382721274204,
+     "n_threshold_items": 17,
+     "n_threshold_pos": 3117,
+     "n_train_items": 272,
+     "n_train_lie": 171
+    }
+   },
+   "loao:disinformation": {
+    "layer": 48,
+    "job": "loao:disinformation",
+    "loao_prompt": {
+     "auroc_text": 0.9024645431295047,
+     "auroc_pos": 0.8453784934644559,
+     "tau_pos": 1.5920056922142243,
+     "tau_text": 1.2069317179008916,
+     "lams": [
+      3.0,
+      3.0,
+      3.0,
+      3.0
+     ],
+     "n_texts": 279,
+     "n_pos": 8928,
+     "tau": 2.23067267043773,
+     "n_threshold_items": 19,
+     "n_threshold_pos": 3621,
+     "n_train_items": 279,
+     "n_train_lie": 187
+    }
+   },
+   "loao:known_facts": {
+    "layer": 48,
+    "job": "loao:known_facts",
+    "loao_prompt": {
+     "auroc_text": 0.9445798059054306,
+     "auroc_pos": 0.9011199314732604,
+     "tau_pos": 1.9308413214156448,
+     "tau_text": 1.519147114186447,
+     "lams": [
+      3.0,
+      3.0,
+      3.0,
+      1.0
+     ],
+     "n_texts": 312,
+     "n_pos": 9984,
+     "tau": 3.687030936128452,
+     "n_threshold_items": 15,
+     "n_threshold_pos": 2825,
+     "n_train_items": 312,
+     "n_train_lie": 167
+    }
+   },
+   "loao:provided_facts": {
+    "layer": 48,
+    "job": "loao:provided_facts",
+    "loao_prompt": {
+     "auroc_text": 0.8776072412436049,
+     "auroc_pos": 0.7665976712385626,
+     "tau_pos": 1.7682018338716794,
+     "tau_text": 1.526031986942563,
+     "lams": [
+      3.0,
+      3.0,
+      3.0,
+      3.0
+     ],
+     "n_texts": 220,
+     "n_pos": 7040,
+     "tau": 2.6008467777282207,
+     "n_threshold_items": 9,
+     "n_threshold_pos": 1609,
+     "n_train_items": 220,
+     "n_train_lie": 66
+    }
+   }
+  },
+  "56": {
+   "loao:continuations": {
+    "layer": 56,
+    "job": "loao:continuations",
+    "loao_prompt": {
+     "auroc_text": 0.9177233512824967,
+     "auroc_pos": 0.8740750334285073,
+     "tau_pos": 1.7239375685853429,
+     "tau_text": 1.4254959443945694,
+     "lams": [
+      3.0,
+      3.0,
+      3.0,
+      3.0
+     ],
+     "n_texts": 272,
+     "n_pos": 8704,
+     "tau": 2.3693409555568894,
+     "n_threshold_items": 17,
+     "n_threshold_pos": 3117,
+     "n_train_items": 272,
+     "n_train_lie": 171
+    }
+   },
+   "loao:disinformation": {
+    "layer": 56,
+    "job": "loao:disinformation",
+    "loao_prompt": {
+     "auroc_text": 0.8864217623808417,
+     "auroc_pos": 0.8354806658335271,
+     "tau_pos": 1.6498693057855536,
+     "tau_text": 1.2245398255919409,
+     "lams": [
+      3.0,
+      3.0,
+      3.0,
+      3.0
+     ],
+     "n_texts": 279,
+     "n_pos": 8928,
+     "tau": 2.2955722339801437,
+     "n_threshold_items": 19,
+     "n_threshold_pos": 3621,
+     "n_train_items": 279,
+     "n_train_lie": 187
+    }
+   },
+   "loao:known_facts": {
+    "layer": 56,
+    "job": "loao:known_facts",
+    "loao_prompt": {
+     "auroc_text": 0.9325211645674168,
+     "auroc_pos": 0.8928795426388602,
+     "tau_pos": 1.8826209539341932,
+     "tau_text": 1.3880957754533072,
+     "lams": [
+      3.0,
+      3.0,
+      3.0,
+      1.0
+     ],
+     "n_texts": 312,
+     "n_pos": 9984,
+     "tau": 3.835923008811583,
+     "n_threshold_items": 15,
+     "n_threshold_pos": 2825,
+     "n_train_items": 312,
+     "n_train_lie": 167
+    }
+   },
+   "loao:provided_facts": {
+    "layer": 56,
+    "job": "loao:provided_facts",
+    "loao_prompt": {
+     "auroc_text": 0.8483864620228256,
+     "auroc_pos": 0.7395781930250147,
+     "tau_pos": 1.8435849424546082,
+     "tau_text": 1.4679245090971658,
+     "lams": [
+      3.0,
+      3.0,
+      3.0,
+      3.0
+     ],
+     "n_texts": 220,
+     "n_pos": 7040,
+     "tau": 2.717464582724587,
+     "n_threshold_items": 9,
+     "n_threshold_pos": 1609,
+     "n_train_items": 220,
+     "n_train_lie": 66
+    }
+   }
+  },
+  "60": {
+   "loao:continuations": {
+    "layer": 60,
+    "job": "loao:continuations",
+    "loao_prompt": {
+     "auroc_text": 0.9139019165074402,
+     "auroc_pos": 0.8708405765535435,
+     "tau_pos": 1.7234617619109969,
+     "tau_text": 1.3606129930732744,
+     "lams": [
+      3.0,
+      3.0,
+      3.0,
+      3.0
+     ],
+     "n_texts": 272,
+     "n_pos": 8704,
+     "tau": 2.3147532787128977,
+     "n_threshold_items": 17,
+     "n_threshold_pos": 3117,
+     "n_train_items": 272,
+     "n_train_lie": 171
+    }
+   },
+   "loao:disinformation": {
+    "layer": 60,
+    "job": "loao:disinformation",
+    "loao_prompt": {
+     "auroc_text": 0.883399209486166,
+     "auroc_pos": 0.8322429785587654,
+     "tau_pos": 1.6406418566558083,
+     "tau_text": 1.2069060427156055,
+     "lams": [
+      3.0,
+      3.0,
+      3.0,
+      3.0
+     ],
+     "n_texts": 279,
+     "n_pos": 8928,
+     "tau": 2.203507697926349,
+     "n_threshold_items": 19,
+     "n_threshold_pos": 3621,
+     "n_train_items": 279,
+     "n_train_lie": 187
+    }
+   },
+   "loao:known_facts": {
+    "layer": 60,
+    "job": "loao:known_facts",
+    "loao_prompt": {
+     "auroc_text": 0.9305389221556887,
+     "auroc_pos": 0.8913070007614082,
+     "tau_pos": 1.8087504081458181,
+     "tau_text": 1.4114968622047293,
+     "lams": [
+      3.0,
+      3.0,
+      3.0,
+      3.0
+     ],
+     "n_texts": 312,
+     "n_pos": 9984,
+     "tau": 3.7818259814280304,
+     "n_threshold_items": 15,
+     "n_threshold_pos": 2825,
+     "n_train_items": 312,
+     "n_train_lie": 167
+    }
+   },
+   "loao:provided_facts": {
+    "layer": 60,
+    "job": "loao:provided_facts",
+    "loao_prompt": {
+     "auroc_text": 0.8372687918142464,
+     "auroc_pos": 0.7259469600889168,
+     "tau_pos": 1.7856120995442575,
+     "tau_text": 1.4843394920490416,
+     "lams": [
+      3.0,
+      3.0,
+      3.0,
+      3.0
+     ],
+     "n_texts": 220,
+     "n_pos": 7040,
+     "tau": 2.6589669822791033,
+     "n_threshold_items": 9,
+     "n_threshold_pos": 1609,
+     "n_train_items": 220,
+     "n_train_lie": 66
+    }
+   }
+  }
+ }
+}
