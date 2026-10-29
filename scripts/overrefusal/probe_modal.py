@@ -212,14 +212,28 @@ def score_v2(layer: int, arrays: bytes, calib_ids: list[str], hold_ids: list[str
     (old + v2add acts) scored with z_v2 / present_v2 and the Alpaca (v1 tau) presence."""
     import numpy as np
 
+    A = dict(np.load(io.BytesIO(arrays)))
+    return _v2_core(layer, A, CALIB_ACTS, READ_ACTS_V2, calib_ids, hold_ids)
+
+
+def _v2_core(
+    layer: int,
+    A: dict,
+    calib_sub: str,
+    read_subs: tuple[str, ...],
+    calib_ids: list[str],
+    hold_ids: list[str],
+) -> dict:
+    """The v2 threshold + scoring body of ``score_v2`` (plan 0019: shared with ``l11_layer``)."""
+    import numpy as np
+
     from hallucination_bench.evals.sibling_probe import probes
 
-    A = dict(np.load(io.BytesIO(arrays)))
     pre = f"refusal-dm-v1/L{layer}"
     U, muU, sg, tau1 = (A[f"{pre}/{k}"].astype(np.float64) for k in ("U", "muU", "sigma", "tau"))
     ctau1 = A[f"{pre}/c_tau"].astype(np.float64)
     F = U.shape[0]
-    cal = _layer_acts(CALIB_ACTS, layer)
+    cal = _layer_acts(calib_sub, layer)
 
     def tail_scores(ids: list[str], f: int, o: int) -> np.ndarray:
         h = np.stack([cal[i][cal[i].shape[0] - 1 - o] for i in ids]).astype(np.float64)
@@ -246,7 +260,7 @@ def score_v2(layer: int, arrays: bytes, calib_ids: list[str], hold_ids: list[str
     cpres = np.mean([content_proj(hold_ids, f) > ctau[f] for f in range(F)], axis=0)
     fpr_content = float(np.mean(cpres >= 0.5))
     sites = []
-    for sub in READ_ACTS_V2:
+    for sub in read_subs:
         rd = _layer_acts(sub, layer)
         for i, H in rd.items():
             H = H.astype(np.float64)
@@ -279,6 +293,113 @@ def score_v2(layer: int, arrays: bytes, calib_ids: list[str], hold_ids: list[str
         "fpr_holdout_content": fpr_content,
         "sites": sites,
     }
+
+
+L11_LAYERS = (20, 24, 32, 40, 48, 56, 60)  # plan 0019: the 7 new layers
+TRAIN_L11 = "hb-overrefusal-L11-probe-train"
+CALIB_L11 = "hb-overrefusal-L11-probe-calib"
+READ_L11 = "hb-overrefusal-L11-read"
+
+
+@app.function(image=image, volumes=volumes, cpu=16, memory=65536, timeout=4 * 3600)
+def l11_layer(layer: int, texts: list[dict], calib_ids: list[str], hold_ids: list[str]) -> dict:
+    """Plan 0019 step 4: the refusal_probe_v2 recipe at one NEW layer: fit refusal-dm-v1 (same
+    texts, folds, lam grid) on the L11 train capture, then the v2 threshold on the same
+    calibration / held-out split, scoring every read site of the L11 read capture."""
+    import numpy as np
+
+    from hallucination_bench.evals.overrefusal import probe
+
+    texts = [t for t in texts if t["variant"] == "refusal-dm-v1"]
+    tr = _layer_acts(TRAIN_L11, layer)
+    fit = probe.fit_variant(
+        [tr[t["id"]][-probe.N_TAIL :] for t in texts],
+        [tr[t["id"]][3 : -probe.N_TAIL] for t in texts],
+        [t["id"] for t in texts],
+        [t["label"] for t in texts],
+        salt="refusal-dm-v1",
+    )
+    del tr
+    A = {k: v.astype(np.float64) for k, v in fit.to_arrays(f"refusal-dm-v1/L{layer}").items()}
+    res = _v2_core(layer, A, CALIB_L11, (READ_L11,), calib_ids, hold_ids)
+    buf = io.BytesIO()
+    np.savez(buf, **fit.to_arrays(f"refusal-dm-v1/L{layer}"))
+    res.update(
+        arrays=buf.getvalue(),
+        validity=fit.validity.tolist(),
+        lams=fit.lams,
+        n_pos=fit.n_pos,
+        n_neg=fit.n_neg,
+    )
+    return res
+
+
+@app.local_entrypoint()
+def l11() -> None:
+    """Plan 0019: writes data/overrefusal/probes/refusal_probe_v2_l11.{npz,json} (the 7 new
+    layers; the pinned v1 / v2 files are never touched) and
+    outputs/overrefusal/probe_sites_v2_l11.jsonl."""
+    import numpy as np
+
+    pdir = _REPO / "data/overrefusal/probes"
+    v2meta = json.loads((pdir / "refusal_probe_v2.json").read_text())
+    calib_ids, hold_ids = v2meta["calib_ids"], v2meta["holdout_ids"]
+    texts = [json.loads(x) for x in (pdir / "train_texts.jsonl").read_text().splitlines() if x]
+    arrays: dict = {}
+    meta: dict = {"cells": {}, "validity": {}}
+    out = _REPO / "outputs/overrefusal/probe_sites_v2_l11.jsonl"
+    out.parent.mkdir(parents=True, exist_ok=True)
+    with out.open("w") as fh:
+        for r in l11_layer.starmap([(la, texts, calib_ids, hold_ids) for la in L11_LAYERS]):
+            key = f"refusal-dm-v1/L{r['layer']}"
+            arrays.update(dict(np.load(io.BytesIO(r["arrays"]))))
+            for k in ("tau_v2", "mu_v2", "sd_v2", "c_tau_v2", "c_mu_v2", "c_sd_v2"):
+                arrays[f"{key}/{k}"] = np.asarray(r[k], np.float32)
+            meta["cells"][key] = {
+                "fpr_holdout": r["fpr_holdout"],
+                "fpr_holdout_content": r["fpr_holdout_content"],
+            }
+            meta["validity"][key] = {k: r[k] for k in ("validity", "lams", "n_pos", "n_neg")}
+            for s in r["sites"]:
+                fh.write(
+                    json.dumps(
+                        {
+                            "layer": r["layer"],
+                            "id": s[0],
+                            "pos": s[1],
+                            "cls": s[2],
+                            "z": s[3],
+                            "present": s[4],
+                            "present_alpaca": s[5],
+                        }
+                    )
+                    + "\n"
+                )
+            print(f"L{r['layer']} validity={r['validity']} fpr={r['fpr_holdout']}", flush=True)
+    np.savez_compressed(pdir / "refusal_probe_v2_l11.npz", **arrays)
+    meta.update(
+        {
+            "version": "refusal-probe-v2-l11",
+            "extends": "refusal_probe_v2.{npz,json} (layers 28/36/44/52, unchanged)",
+            "layers": list(L11_LAYERS),
+            "recipe": "refusal_probe_v1 refusal-dm-v1 fit (same texts / folds / lam grid) + "
+            "refusal_probe_v2 threshold rule on the same calibration / held-out split",
+            "threshold_rule": v2meta["threshold_rule"],
+            "train_acts": f"wsbench-acts:/{TRAIN_L11}",
+            "calib_acts": f"wsbench-acts:/{CALIB_L11}",
+            "read_acts": f"wsbench-acts:/{READ_L11}",
+            "calib_ids": calib_ids,
+            "holdout_ids": hold_ids,
+            "tail_offsets": v2meta["tail_offsets"],
+            "render": v2meta["render"],
+            "subject": v2meta["subject"],
+            "git_commit": subprocess.run(
+                ["git", "rev-parse", "HEAD"], capture_output=True, text=True, cwd=_REPO
+            ).stdout.strip(),
+        }
+    )
+    (pdir / "refusal_probe_v2_l11.json").write_text(json.dumps(meta, indent=1) + "\n")
+    print(f"wrote {pdir / 'refusal_probe_v2_l11.npz'}, {out}")
 
 
 @app.local_entrypoint()

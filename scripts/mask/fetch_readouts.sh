@@ -9,13 +9,15 @@ arm=$1; gen=$2; kind=$3; vol=${4:-wsbench-gen-3}
 HERE="$(cd "$(dirname "$0")/../.." && pwd)"
 G=${HBENCH_MASK_GEN:-/workspace/hb-mask-gen}
 DST=${HBENCH_MASK_READOUTS:-/workspace/hb-readouts-mask}
+OUTF=${HBENCH_MASK_READOUTS_FILE:-mask.jsonl}              # plan 0019: mask_l11.jsonl
+SITES=${HBENCH_MASK_SITES:-$HERE/data/mask/sites.json.gz}  # plan 0019: data/mask/l11/sites_l11.json.gz
 WSPUB=${HBENCH_WSBENCH_PUB:-/workspace/root/wsbench-pub}
 WSPY=${HBENCH_WSBENCH_PY:-/workspace/root/wsbench-venv/bin/python}
 mkdir -p "$G" "$DST/$arm"
 rm -rf "${G:?}/${gen:?}"  # volume get --force never deletes stale shard files
-cd "$G" && MODAL_RESOURCE_ENV=camila-blank UV_CACHE_DIR=${HBENCH_UV_CACHE:-$HOME/.cache/uv-hbmask} uvx --python 3.12 modal@latest volume get "$vol" "/$gen" . --force >/dev/null
-cd "$WSPUB" && "$WSPY" -m wsbench convert-gen-dir gen_dir="$G/$gen" out="$DST/$arm/mask.jsonl" kind="$kind" | tail -1
-python3 - "$DST/$arm/mask.jsonl" "$HERE/data/mask/sites.json.gz" <<'PY'
+cd "$G" && MODAL_RESOURCE_ENV=camila-blank UV_CACHE_DIR=${HBENCH_UV_CACHE:-/workspace/.cache/uv-hbmask} uvx --python 3.12 modal@latest volume get "$vol" "/$gen" . --force >/dev/null
+cd "$WSPUB" && "$WSPY" -m wsbench convert-gen-dir gen_dir="$G/$gen" out="$DST/$arm/$OUTF" kind="$kind" | tail -1
+python3 - "$DST/$arm/$OUTF" "$SITES" <<'PY'
 import gzip, json, sys
 want_pos = {(it["task_id"], s["pos"]) for it in json.load(gzip.open(sys.argv[2], "rt"))["items"] for s in it["sites"]}
 keys = []

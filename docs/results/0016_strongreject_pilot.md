@@ -1,4 +1,8 @@
-# Results 0016: `strongreject` (final): do lenses claim a failed jailbreak worked?
+# Results 0016: `strongreject` (archived diagnostic): do lenses claim a failed jailbreak worked?
+
+> **Archived diagnostic, not part of HallucinationBench (2026-10-29).** Camila (2026-10-29): StrongREJECT is removed from HallucinationBench. On clear jailbreaks the model plausibly wavers before refusing, so a lens claim that it will comply is not a verifiable hallucination. Everything
+> below is kept as recorded; read "HB score" / "HallucinationBench version" below as this
+> diagnostic's own scores, not HallucinationBench's. Frozen files are unchanged.
 
 Plan: [`plans/0016-strongreject-eval.md`](../../plans/0016-strongreject-eval.md) (rev 5). Issue #24,
 PR #25. Run 2026-10-27/28; rev 6 (2026-10-28): two official HB scores, **probe_validated**

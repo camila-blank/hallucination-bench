@@ -318,6 +318,8 @@ FROZEN_FILES = (
     "probes/refusal_probe_v1.npz",
     "probes/refusal_probe_v1.json",
     "probes/calib_texts.jsonl",  # review fix: the v2 threshold's calibration pool
+    "probes/refusal_probe_v2_l11.npz",  # plan 0019: the 7 new layers
+    "probes/refusal_probe_v2_l11.json",
 )
 
 

@@ -41,10 +41,17 @@ SAFETY_MASK_OUT = _env_path(
     "HBENCH_SAFETY_MASK_OUT", "/workspace/hb-mask/outputs/mask/claude-opus-5-5"
 )
 
+# plan 0019: the overrefusal outputs root (caches, cells, reports, index_counts) and the 11-layer
+# readouts root (4-layer v2 + the 7 new layers)
+OR_OUT = _env_path("HBENCH_OR_OUT", "/workspace/hb-overrefusal/outputs")
+OR_READOUTS_V3 = _env_path("HBENCH_OR_READOUTS_V3", "/workspace/hb-readouts-overrefusal-v3")
+
 __all__ = [
     "ALI_PROBE_ROOT",
     "COMBOS_READOUTS",
     "GLOBAL_WORKSPACE",
+    "OR_OUT",
+    "OR_READOUTS_V3",
     "READOUTS_ROOT",
     "SAFETY_MASK_OUT",
     "SAFETY_OR_OUT",

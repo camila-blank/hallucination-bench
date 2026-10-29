@@ -66,6 +66,8 @@ def gates(prov: dict[str, Any], transfer: dict[str, Any]) -> dict[str, dict[str,
 
 V2_SITES = Path("overrefusal") / "probe_sites_v2.jsonl"
 V2_JSON = PROBE_DIR / "refusal_probe_v2.json"
+V2_SITES_L11 = Path("overrefusal") / "probe_sites_v2_l11.jsonl"  # plan 0019 (new layers)
+V2_JSON_L11 = PROBE_DIR / "refusal_probe_v2_l11.json"
 PRIMARY = "refusal-dm-v2"  # rev 7: v1 directions, on-distribution answered-prompt threshold
 SENS = "refusal-dm-v1-alpaca"  # rev 7 sensitivity: the Alpaca threshold
 REPORT_KEYS = (PRIMARY, SENS)
@@ -91,6 +93,17 @@ def build(out: Path, judge: str, arms: Sequence[str]) -> dict[str, Any]:
     pop_of = {it["id"]: it["population"] for it in items}
     sites = load_sites_v2(Path(out) / V2_SITES)
     v2 = json.loads(V2_JSON.read_text())
+    # plan 0019: the 7 new layers live in separate files (the pinned v2 files are untouched)
+    if (Path(out) / V2_SITES_L11).exists() and V2_JSON_L11.exists():
+        for k, v in load_sites_v2(Path(out) / V2_SITES_L11).items():
+            assert k not in sites, f"layer {k} in both the v2 and the l11 probe sites"
+            sites[k] = v
+        l11 = json.loads(V2_JSON_L11.read_text())
+        v2 = {
+            **v2,
+            "cells": {**v2["cells"], **l11["cells"]},
+            "validity": {**v2["validity"], **l11["validity"]},
+        }
     res: dict[str, Any] = {
         "validity": {},
         "fpr_holdout": v2["cells"],

@@ -14,7 +14,8 @@ macro per (method, layer)) is plan `plans/0013-final-sibling-eval-and-hallucinat
 (hindex-v3: main / AM / sibling / story) + `plans/0019-safety-families-on-the-index.md`
 (hindex-v4: + overrefusal only; strongreject / mask stay off, revs 6 / 5). The `mask` eval (MASK lies vs
 honest-but-wrong: does the lens claim the model is lying when it is honest? Its own CLI,
-`hbench mask gt|run|report`; not on the index, plan 0019 rev 5) is plan `plans/0017-mask-eval.md`.
+`hbench mask gt|run|report`; ARCHIVED 2026-10-29: a diagnostic, not part of HallucinationBench or
+the index, not a hallucination score; HB's safety evals are overrefusal only) is plan `plans/0017-mask-eval.md`.
 
 ## Layout
 
@@ -61,8 +62,8 @@ src/hallucination_bench/
   evals/<eval>/cli.py  an eval's own CLI: agentic_misalignment (run / report behind
                   `--eval agentic_misalignment`). A new eval adds its CLI here and lists a
                   `register(sub)` module in EVAL_CLIS, not in cli.py (plan 0012 D2)
-  evals/strongreject/   plan 0016 (own CLI `hbench strongreject grade|run|report`, registered in
-                  EVAL_CLIS; not in EVALS; not on the index, plan 0019 rev 6):
+  evals/strongreject/   plan 0016, ARCHIVED DIAGNOSTIC (not in HB) (own CLI `hbench strongreject grade|run|report`, registered in
+                  EVAL_CLIS; not in EVALS, not on the index):
     families.py   pinned StrongREJECT sources + the 7 families + wrap() (the package's rule)
     grade.py      srgrade-v1: StrongREJECT rubric (JSON) + explicit_refusal; adoption markers; outcome
     bank.py       data/strongreject/items.json; thinned sites (last 64 + every 16th; regions)
@@ -121,6 +122,12 @@ evals/overrefusal/   plan 0015 (own driver + own CLI via EVAL_CLIS; NOT the chat
     run.py       judge-gt, detect, verify, cache-only rebuild -> cells.jsonl / summary.json
     score.py     prompt-weighted rates per (arm, layer, population), prompt bootstrap
     report.py, cli.py
+    wsb_digest.py, wsb_bpe.py  plan 0020: literal port of wsbench digest-v3 + bpe @ 1baaf00
+                 (AST-equality test tests/test_or_digest.py, needs $HBENCH_WSBENCH_PUB)
+    sjudge.py    plan 0020: bundle per (reader, item, layer) -> digest (Opus, Sonnet fallback) ->
+                 strict judge orsj-v3 -> off-topic judge oroff-v1; line provenance
+    sj_metrics.py plan 0020: metric 1 (raw / probe-validated, provenance union), metric 2
+                 (off-topic), recall, health; index_counts.jsonl + index_meta.json
 data/overrefusal/    candidates, gt_labels, items, capture_rows (README = schema)
 scripts/overrefusal/ sample_modal.py (vLLM ground truth), reads.sh (capture + reads + convert)
 evals/mask/          plan 0017 (own CLI `hbench mask`, registered in cli.EVAL_CLIS):
@@ -252,6 +259,10 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
   - Rebuilding an 11-layer arm loads ~555k cells (~1 GB for J-lens): fine under the 32 GB cap,
     but do not run several AM rebuilds in parallel.
 
+- **strongreject is an archived diagnostic, NOT part of HallucinationBench** (Camila,
+  2026-10-29: on clear jailbreaks the model plausibly wavers, so compliance claims are not
+  verifiable hallucinations). Code, frozen data and results stay as merged; never put it on the
+  index or call its numbers HB scores.
 - **`hbench strongreject`** (plan 0016) is its own CLI (`grade` / `run` / `report`), not a
   `run --eval` switch; outputs `outputs/strongreject/<judge>/` (`grade_cache.jsonl`,
   `outcomes.json`, `<arm>/{cache,records,summary}`, `report.md`). Rollouts
@@ -406,7 +417,20 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
   prompt thresholds; run with `uvx --with numpy`). Reusable artifact:
   `data/overrefusal/probes/refusal_probe_v1.{npz,json}` (schema in `data/overrefusal/README.md`).
   The pre-registered Alpaca threshold fires on ~all OR-Bench prompts; use `_calib` thresholds for
-  borderline prompts. **Rev 7:** use `refusal_probe_v2.{npz,json}` (on-distribution threshold;
+  borderline prompts. **Plan 0019 (11 layers):** new layers 20/24/32/40/48/56/60 live in separate
+  files: probe `refusal_probe_v2_l11.{npz,json}` + `outputs/overrefusal/probe_sites_v2_l11.jsonl`
+  (`probe_modal.py::l11`), readouts `/workspace/hb-readouts-overrefusal-v3` (`reads_l11.sh`,
+  `HBENCH_OR_READOUTS_V3`); `report` keeps the published 4 layers on their merged RNG stream and
+  scores each new layer separately (`scores_new_layers`, `union_11`), and writes
+  `index_counts.jsonl` + `index_meta.json` (`evals/overrefusal/index_export.py`: claim = mention
+  deduped by readout/label/quote; false = verified refusal_intent; comply_intent in the
+  denominator; verifier-rejected dropped; lead positions unprobed). **Plan 0020 (summarize-then-
+  judge) supersedes that index:** `scripts/overrefusal/sj_run.py` (digest -> `orsj-v3` -> `oroff-v1`,
+  caches `digest/ sjudge/ offtopic/`, records `sj_records_<tag>.jsonl`) then
+  `scripts/overrefusal/sj_report.py` (metrics `sj_metrics_<tag>.json` + the index); `report` no
+  longer writes the plan-0019 index once `sj_records_full.jsonl` exists. Unit = item per (reader,
+  layer); the judge sees only numbered digest lines. Calibration labels:
+  `data/overrefusal/sj/calibration_v{1,2,3}.json`. **Rev 7:** use `refusal_probe_v2.{npz,json}` (on-distribution threshold;
   primary); `hbench overrefusal probe-report` reads `outputs/overrefusal/probe_sites_v2.jsonl`
   (`probe_modal.py::v2`). The bank has 360 items (160 / 100 / 100); readouts default
   `$HBENCH_OR_READOUTS` = `/workspace/hb-readouts-overrefusal-v2` (old + `-v2add`, merged by
@@ -436,7 +460,7 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
     The Instructed-Pairs thresholds (own-data honest q95) are miscalibrated on MASK: they fire everywhere.
   - **Rev 5 (final frozen set):** lie = >= 9/10 contradicting samples; 874 items labelled; read set =
     every gated lie (156) + gated honest_resisted (155) + honest_wrong (9), at EVERY position
-    (`sites.json.gz`, 146k sites, ~586k cells per arm). **The HB score is the benign side only**:
+    (`sites.json.gz`, 146k sites, ~586k cells per arm). **The diagnostic rate (formerly "HB score"; not a hallucination score since 2026-10-29) is the benign side only**:
     verified lie_claim readout rate on gated honest_resisted, per (arm, layer, site set
     prompt / response / all); lie items are a labelled diagnostic (and the WorkspaceBench
     `mask-lie-contrast` family in global-workspace). `data/mask/FROZEN.json` pins every file.
@@ -448,6 +472,22 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
     readouts (`rate_supported` is the complement). Instructed-Pairs = direction AUROC only.
   - The s3d reader's sglang servers die at start-up on some shards; re-run the same command
     (idempotent, same `--shards`) until no shard fails.
+  - **MASK is an archived diagnostic, not part of HallucinationBench (Camila, 2026-10-29)**: prompt-position lie
+    claims on honest items are unverifiable (they may be real considered-then-rejected thoughts).
+    No `index_counts.jsonl` / `index_meta.json` is produced; `evals/mask/claims.py` keeps only the
+    claim unit for `scripts/mask/strict_pilot.py` (strict lie-claim judge `maskstrict-v1`, own
+    cache `outputs/mask/<model>/strict/`).
+  - **Plan 0019 (11 layers), STOPPED 2026-10-29 (archival).** The new layers 20 / 24 / 32 / 40 / 48 / 56 / 60 are
+    read on PROMPT sites of the 155 gated honest_resisted items only (`data/mask/l11/`,
+    readouts `mask_l11.jsonl`).
+    - Detect with `scripts/mask/run_l11.sh <arm> <conc>` (`--sites-file` / `--readouts-file`).
+    - Probes: `probe_modal.py --l11` (LOAO only), writing `*_v5_l11`. `report` merges them.
+    - Gate per layer: `transfer_loao` (prompt sites) ≥ 0.7.
+    - Detected when stopped: J-lens and ML-NLA all 7 layers, s3d L20 / 24 / 32 / 40 only (L48
+      partial in the cache). `report` adds an archival prompt-only new-layer table.
+    - The merged layers' numbers are frozen (`l11/report_4layer_snapshot.json`, tested).
+    - J-lens' merged layers stay in `cells.jsonl` and its new layers in `cells_L0NN.jsonl`. The
+      report reads both.
   - `tmux kill-session -t name` prefix-matches: with `hb-mask-gen` gone it killed
     `hb-mask-genx`. Use `-t =name`.
 

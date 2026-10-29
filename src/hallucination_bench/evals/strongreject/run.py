@@ -719,8 +719,15 @@ async def run_async(
             await llm.aclose()
     summaries = {}
     for a in opened:
-        summaries[a.name] = rebuild_arm(a, judge)
         a.cache.close()
+        # the rebuild always covers EVERY layer of the readouts file (cache-only), so judging a
+        # subset of layers (--layers) never drops the other layers' records / summary / slim
+        # records (the bug was found on the plan-0019 branch, #40)
+        full = open_arm(a.name, a.path, out, judge, allow_missing=allow_missing, readonly=True)
+        try:
+            summaries[a.name] = rebuild_arm(full, judge)
+        finally:
+            full.cache.close()
     print(f"[spend this run] {sp.report()}", flush=True)
     return summaries
 
