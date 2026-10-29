@@ -720,6 +720,19 @@ Health (never_refused, all layers):
 - 4,400 of 14,091 digests were served by the Sonnet fallback
 - no truncation, no missing cells
 
+**Caveats:**
+- **Unjudged digests are not missing at random.** 680 digest calls failed because both Opus and
+  Sonnet refused them, plus 1 grounding failure. They skew towards the most refusal-looking
+  items:
+  - 471 of the 681 units are hard_refused, which is 69% of the unjudged units vs 39% of the bank.
+  - 140 are always_refused.
+  - 70 are never_refused (reader, layer, item) units on 15 items: 38 O-lens, 17 NLA, 15 J-lens.
+  - Dropping them from the denominators therefore likely understates metric 1 slightly, most of
+    all for the O-lens.
+- **Digest model mix per reader.** The Sonnet 5.5 fallback served 39.8% of O-lens digests, 39.9%
+  of NLA digests and 19.4% of J-lens digests (the rest are Opus 5.5). Metrics pool both summarizer
+  models.
+
 Spend for plan 0020:
 - calibration v1: $56
 - calibration v2: $55

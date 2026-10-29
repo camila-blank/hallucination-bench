@@ -108,10 +108,9 @@ def report(out: Path, model: str, readouts_root: Path, arms: Sequence[str] | Non
         all_ex.extend(examples(name, recs, items_by, path))
     root.mkdir(parents=True, exist_ok=True)
     res["hb_scores"] = hb_scores(res, out, model, list(res["arms"]))
-    # plan 0020: once the summarize-then-judge full run exists, its index (sj_report.py) replaces
-    # the plan-0019 per-cell export at the same path, so do not overwrite it here
-    sj_full = (root / "sj_records_full.jsonl").exists()
-    if res["hb_scores"] is not None and res["hb_scores"].get("gates") and not sj_full:
+    # plan 0020: its index (sj_report.py, index_meta unit == "items") replaces the plan-0019
+    # per-cell export; index_export.export refuses to overwrite it wherever it would write
+    if res["hb_scores"] is not None and res["hb_scores"].get("gates"):
         index_export.export(out, model, readouts_root, res["hb_scores"]["gates"])
     if res["hb_scores"] is not None:
         data.HB_SCORES.write_text(json.dumps(res["hb_scores"], indent=1) + "\n")

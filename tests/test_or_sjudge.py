@@ -150,5 +150,22 @@ def test_export_index_writes_rows_and_meta(tmp_path: Any) -> None:
     meta = json.loads((tmp_path / "index_meta.json").read_text())
     assert meta["unit"] == "items" and meta["versions"]["strict_judge"] == sjudge.SJ_VERSION
     assert meta["versions"]["wsbench_sha"] == "1baaf00" and meta["probe"]["gates"]["44"]
+    assert meta["gates"] == meta["probe"]["gates"]  # the index reads the top-level key
     with pytest.raises(ValueError):
         sj_metrics.export_index([r], items, tmp_path, {})
+
+
+def test_plan0019_export_never_overwrites_plan0020(tmp_path: Any, monkeypatch: Any) -> None:
+    import json
+
+    from hallucination_bench.evals.overrefusal import index_export, run
+
+    root = run.eval_root(tmp_path, "m")
+    root.mkdir(parents=True)
+    (root / "index_meta.json").write_text(json.dumps({"unit": "items"}))
+    (root / "index_counts.jsonl").write_text("keep\n")
+    assert index_export.is_plan0020_export(root)
+    index_export.export(tmp_path, "m", tmp_path, {})
+    assert (root / "index_counts.jsonl").read_text() == "keep\n"
+    (root / "index_meta.json").write_text(json.dumps({"unit": "claims"}))
+    assert not index_export.is_plan0020_export(root)

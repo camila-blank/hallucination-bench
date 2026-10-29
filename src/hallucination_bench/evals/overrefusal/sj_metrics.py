@@ -208,6 +208,8 @@ def export_index(
             "(provenance-union probe rule), n_unprobed, n_failed_cells = unjudged (0/1), "
             "n_unresolved = 0, unit columns 0"
         ),
+        # top-level copy: the index reads meta["gates"] (index.layer_gates)
+        "gates": {str(k): v for k, v in sorted(gates.items())},
         "probe": {
             "artifacts": {
                 f.name: sha(f)

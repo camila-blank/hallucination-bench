@@ -190,14 +190,27 @@ def probe_presence(out: Path) -> dict[tuple[int, str, int], float]:
     return pres
 
 
+def is_plan0020_export(root: Path) -> bool:
+    """``root/index_meta.json`` is the plan-0020 item-level export (``unit == "items"``)."""
+    p = Path(root) / "index_meta.json"
+    try:
+        return bool(json.loads(p.read_text()).get("unit") == "items")
+    except (OSError, ValueError):
+        return False
+
+
 def export(
     out: Path, model: str, readouts_root: Path, gates_by_key: dict[str, dict[str, bool]]
 ) -> Path:
-    """Write ``<out>/overrefusal/<model>/index_counts.jsonl`` and ``index_meta.json``."""
+    """Write ``<out>/overrefusal/<model>/index_counts.jsonl`` and ``index_meta.json`` -- unless a
+    plan-0020 (summarize-then-judge) export already lives there, which this never overwrites."""
     import hashlib
 
     from . import detect, probe_report, verify
 
+    if is_plan0020_export(run.eval_root(out, model)):
+        print("index_export: plan-0020 index_meta.json (unit=items) present; not overwriting")
+        return run.eval_root(out, model)
     judge = run.Judge(model=model)
     items = data.load_items()
     pop = population(items)
@@ -233,6 +246,8 @@ def export(
         "layers": sorted({r["layer"] for r in rows}),
         "prompt_versions": {"detector": detect.PROMPT_VERSION, "verifier": verify.PROMPT_VERSION},
         "judge_model": model,
+        # top-level copy: the index reads meta["gates"] (index.layer_gates)
+        "gates": {str(la): g for la, g in sorted(gates.items())},
         "probe": {
             "threshold": "refusal_probe_v2 (fold-majority presence, q95 of the calibration half)",
             "artifacts": {

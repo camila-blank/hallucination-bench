@@ -74,6 +74,21 @@ def _pinned(rel: str) -> str:
     return r.stdout
 
 
+def _assigns(src: str) -> dict[str, str]:
+    """Top-level ``NAME = ...`` / ``NAME: T = ...`` statements, by name, as ast dumps."""
+    out = {}
+    for n in ast.parse(src).body:
+        if isinstance(n, ast.Assign) and len(n.targets) == 1 and isinstance(n.targets[0], ast.Name):
+            out[n.targets[0].id] = ast.dump(n.value)
+        elif isinstance(n, ast.AnnAssign) and isinstance(n.target, ast.Name) and n.value:
+            out[n.target.id] = ast.dump(n.value)
+    return out
+
+
+TABLES = ("_ASCII_WORD", "_NUMBER_KEY", "_D", "_CJK_NUMERALS", "_CJK_DIGIT", "_CJK_UNIT")
+TABLES += ("_RARE_CLAUSE", "_RARE_CLAUSE_ABS")
+
+
 def _defs(src: str) -> dict[str, str]:
     tree = ast.parse(src)
     return {n.name: ast.dump(n) for n in tree.body if isinstance(n, ast.FunctionDef | ast.ClassDef)}
@@ -102,12 +117,24 @@ def test_digest_functions_and_literals_equal_the_pinned_source():
     assert wsb_digest.render_system() == want
 
 
+def test_digest_tables_and_fold_equal_the_pinned_source():
+    here = Path(wsb_digest.__file__).read_text()
+    pinned, ported = _assigns(_pinned("src/wsbench/digest.py")), _assigns(here)
+    for name in TABLES:
+        assert ported[name] == pinned[name], name
+    fam = _pinned("src/wsbench/family.py")  # _fold / _ESCAPE are imported from family.py there
+    assert _defs(here)["_fold"] == _defs(fam)["_fold"]
+    assert ported["_ESCAPE"] == _assigns(fam)["_ESCAPE"]
+
+
 def test_bpe_equals_the_pinned_source():
     src = _pinned("src/wsbench/bpe.py")
     pinned, ported = _defs(src), _defs(Path(wsb_bpe.__file__).read_text())
     assert set(pinned) == set(ported)
     for name in pinned:
         assert ported[name] == pinned[name], name
+    consts = _assigns(src)  # module constants (none at 1baaf00; the sets must still match)
+    assert _assigns(Path(wsb_bpe.__file__).read_text()) == consts
 
 
 def test_bpe_decodes():
