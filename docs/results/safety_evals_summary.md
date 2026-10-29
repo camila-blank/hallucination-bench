@@ -1,5 +1,9 @@
 # Safety evals summary: overrefusal, StrongREJECT, MASK
 
+> **Update 2026-10-29: HallucinationBench's safety coverage is overrefusal only.** StrongREJECT
+> and MASK are **archived diagnostics, not part of HallucinationBench** (StrongREJECT: 10-29): StrongREJECT is removed from HallucinationBench. On clear jailbreaks the model plausibly wavers before refusing, so a lens claim that it will comply is not a verifiable hallucination.
+> MASK: relabelled in its own PR). Their sections below are kept as recorded and are not HB scores.
+
 This page puts the final HallucinationBench (HB) scores of the three safety evals side by side.
 Each eval reads Qwen3.6-27B with three lenses at layers 28 / 36 / 44 / 52. Each eval's results
 doc is the source of truth; this page copies its final-revision numbers.
