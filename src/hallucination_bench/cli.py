@@ -244,7 +244,6 @@ def cmd_index(args: argparse.Namespace) -> int:
         (index.STORY, "--story-root", args.story_root),
         (index.OVERREFUSAL, "--overrefusal-root", args.overrefusal_root),
         (index.STRONGREJECT, "--strongreject-root", args.strongreject_root),
-        (index.MASK, "--mask-root", args.mask_root),
     ):
         if roots and args.version == "v3" and fam in index.SAFETY_FAMILIES:
             raise SystemExit(f"{flag}: the safety families are hindex-v4 only (--version v4)")
@@ -591,7 +590,6 @@ def build_parser() -> argparse.ArgumentParser:
     for flag, var in (
         ("--overrefusal-root", "HBENCH_SAFETY_OR_OUT"),
         ("--strongreject-root", "HBENCH_SAFETY_SR_OUT"),
-        ("--mask-root", "HBENCH_SAFETY_MASK_OUT"),
     ):
         ix.add_argument(
             flag,
@@ -603,7 +601,7 @@ def build_parser() -> argparse.ArgumentParser:
         "--version",
         choices=("v3", "v4"),
         default="v4",
-        help="v4 (default): hindex-v4 (+ overrefusal / strongreject / mask, full_v3 / "
+        help="v4 (default): hindex-v4 (+ overrefusal / strongreject, full_v3 / "
         "matched_v3); v3: exactly the hindex-v3 output",
     )
     ix.add_argument("--methods", default=str(INDEX_METHODS), help="method <-> arm mapping")

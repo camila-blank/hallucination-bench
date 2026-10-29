@@ -169,7 +169,7 @@ def test_safety_reader_allowlist_and_columns(tmp_path):
         tmp_path / "sr",
         [
             _row("mlnla-rl600", 20, "i1", n_claims=1),
-            _row("mlnla-rl600-all11", 20, "i1", n_claims=1),  # overrefusal / mask's name only
+            _row("mlnla-rl600-all11", 20, "i1", n_claims=1),  # overrefusal's name only
             _row("textreader-x", 20, "i1", n_claims=1),
         ],
     )
@@ -177,12 +177,12 @@ def test_safety_reader_allowlist_and_columns(tmp_path):
     assert set(rows) == {"mlnla-rl600"} and ignored == {"mlnla-rl600-all11", "textreader-x"}
     rows, ignored = ix.safety_rows(root, ix.OVERREFUSAL)
     assert set(rows) == {"mlnla-rl600-all11"} and ignored == {"mlnla-rl600", "textreader-x"}
-    assert ix.safety_rows(tmp_path / "empty", ix.MASK) == ({}, set())
+    assert ix.safety_rows(tmp_path / "empty", ix.OVERREFUSAL) == ({}, set())
     bad = tmp_path / "bad"
     bad.mkdir()
     (bad / ix.SAFETY_COUNTS).write_text(json.dumps({"arm": "jlens", "layer": 20}) + "\n")
     with pytest.raises(ValueError, match="missing columns"):
-        ix.safety_rows(bad, ix.MASK)
+        ix.safety_rows(bad, ix.OVERREFUSAL)
     with pytest.raises(ValueError, match="not a safety family"):
         ix.safety_rows(root, ix.MAIN)
 
@@ -196,7 +196,7 @@ def test_textreader_never_becomes_a_method(tmp_path):
     assert out["safety"][ix.OVERREFUSAL]["ignored_arms"] == ["textreader-x"]
 
 
-# a 7-family (method, layer): claim cells, UM units and safety rows all named "jlens"
+# a 6-family (method, layer): claim cells, UM units and safety rows all named "jlens"
 
 
 def _cells(root: Path, arm: str, cells: list[dict]) -> None:
@@ -210,7 +210,7 @@ def _chat(item: str, leaves: list[str], am: bool = False) -> dict[str, Any]:
     return {"id": item, "layer": 20, "map": segs, **st}
 
 
-def _sources(tmp: Path, sibling: bool = True, mask_rows: list[dict] | None = None) -> dict:
+def _sources(tmp: Path, sibling: bool = True, sr_rows: list[dict] | None = None) -> dict:
     _cells(tmp / "main", "jlens", [_chat("i1", ["false_claim", "correct"])])  # 1/2
     _cells(tmp / "am", "jlens", [_chat("i1", ["detail", "correct", "correct", "correct"], True)])
     _cells(tmp / "story", "jlens", [_chat("i1", ["correct"])])  # 0
@@ -241,17 +241,12 @@ def _sources(tmp: Path, sibling: bool = True, mask_rows: list[dict] | None = Non
             tmp / "or", [_row("jlens", 20, "o1", n_claims=4, n_false=2, n_contradicted=1)], meta
         )
     ]
-    src[ix.STRONGREJECT] = [
-        _write_safety(
-            tmp / "sr", [_row("jlens", 20, "s1", "f1", n_claims=5, n_false=5, n_contradicted=5)]
-        )
-    ]
-    mrows = mask_rows if mask_rows is not None else [_row("jlens", 20, "m1", n_claims=2)]
-    src[ix.MASK] = [_write_safety(tmp / "mask", mrows)]
+    srows = sr_rows or [_row("jlens", 20, "s1", "f1", n_claims=5, n_false=5, n_contradicted=5)]
+    src[ix.STRONGREJECT] = [_write_safety(tmp / "sr", srows)]
     return src
 
 
-def test_full_and_matched_over_seven_families(tmp_path):
+def test_full_and_matched_over_six_families(tmp_path):
     (row,) = ix.build_index(_sources(tmp_path), ix.Methods())["rows"]
     per = row["families"]
     assert set(per) == set(ix.FAMILIES)
@@ -262,19 +257,18 @@ def test_full_and_matched_over_seven_families(tmp_path):
         ix.STORY: 0.0,
         ix.OVERREFUSAL: 0.25,
         ix.STRONGREJECT: 1.0,
-        ix.MASK: 0.0,
     }
     assert {f: per[f]["v"] for f in ix.FAMILIES} == pytest.approx(vals)
-    w = {**ix.FAMILY_WEIGHTS_V3, ix.OVERREFUSAL: 1.0, ix.STRONGREJECT: 1.0, ix.MASK: 1.0}
+    w = {**ix.FAMILY_WEIGHTS_V3, ix.OVERREFUSAL: 1.0, ix.STRONGREJECT: 1.0}
     assert w == ix.FAMILY_WEIGHTS
 
     def mean(fams: tuple[str, ...]) -> float:
         return sum(w[f] * vals[f] for f in fams) / sum(w[f] for f in fams)
 
-    assert row["full"]["v"] == pytest.approx(mean(ix.FAMILIES))  # (4.5+.75+1+0+.25+1+0) / 18
-    assert row["full"]["v"] == pytest.approx(7.5 / 18)
-    assert row["matched"]["v"] == pytest.approx(6.5 / 16)  # sibling excluded
-    assert ix.SIBLING not in ix.MATCHED and len(ix.MATCHED) == 6
+    assert row["full"]["v"] == pytest.approx(mean(ix.FAMILIES))  # (4.5+.75+1+0+.25+1) / 17
+    assert row["full"]["v"] == pytest.approx(7.5 / 17)
+    assert row["matched"]["v"] == pytest.approx(6.5 / 15)  # sibling excluded
+    assert ix.SIBLING not in ix.MATCHED and len(ix.MATCHED) == 5
     assert row["full_v3"]["v"] == pytest.approx(mean(ix.FAMILIES_V3))
     assert row["matched_v3"]["v"] == pytest.approx(mean(ix.MATCHED_V3))
     # safety extras: raw share, counts, gates from index_meta.json
@@ -288,7 +282,8 @@ def test_full_and_matched_over_seven_families(tmp_path):
     assert m["meta"]["population"] == "never_refused"
     md = ix.render_md(out)
     assert "| method | layer | full | matched | full_v3 | main |" in md
-    assert "| overrefusal | strongreject | mask |" in md
+    assert "| overrefusal | strongreject | main fc" in md
+    assert "mask" not in md and ix.FAMILIES == (*ix.FAMILIES_V3, ix.OVERREFUSAL, ix.STRONGREJECT)
 
 
 def test_missing_family_drops_full_but_matched_survives_sibling(tmp_path):
@@ -298,28 +293,29 @@ def test_missing_family_drops_full_but_matched_survives_sibling(tmp_path):
 
 
 def test_absent_safety_family_listed_and_drops_macros(tmp_path):
-    unprobed = [_row("jlens", 20, "m1", n_claims=3, n_false=1, n_unprobed=1)]
-    out = ix.build_index(_sources(tmp_path, mask_rows=unprobed), ix.Methods())
+    unprobed = [_row("jlens", 20, "s1", n_claims=3, n_false=1, n_unprobed=1)]
+    out = ix.build_index(_sources(tmp_path, sr_rows=unprobed), ix.Methods())
     (row,) = out["rows"]
-    assert ix.MASK not in row["families"]
-    assert row["absent"] == {ix.MASK: {"arm": "jlens", "absent_reason": ix.ABSENT_ALL_UNPROBED}}
+    assert ix.STRONGREJECT not in row["families"]
+    gone = {"arm": "jlens", "absent_reason": ix.ABSENT_ALL_UNPROBED}
+    assert row["absent"] == {ix.STRONGREJECT: gone}
     assert "full" not in row and "matched" not in row
     assert "full_v3" in row and "matched_v3" in row  # the v3 macros don't need safety families
-    (a,) = out["safety"][ix.MASK]["absent"]
+    (a,) = out["safety"][ix.STRONGREJECT]["absent"]
     assert (a["arm"], a["layer"], a["absent_reason"], a["n_claims"]) == (
         "jlens",
         20,
         ix.ABSENT_ALL_UNPROBED,
         3,
     )
-    assert "jlens.mask@20 (no_probed_false_claims)" in ix.render_md(out)
+    assert "jlens.strongreject@20 (no_probed_false_claims)" in ix.render_md(out)
 
 
 def test_safety_arm_under_two_roots(tmp_path):
     a = _write_safety(tmp_path / "a", [_row("jlens", 20, "i1", n_claims=1)])
     b = _write_safety(tmp_path / "b", [_row("jlens", 24, "i1", n_claims=1)])
     with pytest.raises(ValueError, match="under two roots"):
-        ix.build_index({ix.MASK: [a, b]}, ix.Methods())
+        ix.build_index({ix.OVERREFUSAL: [a, b]}, ix.Methods())
 
 
 def test_methods_json_maps_safety_arms():
@@ -327,14 +323,12 @@ def test_methods_json_maps_safety_arms():
     arms = {
         ix.OVERREFUSAL: ["s3d-rl600", "mlnla-rl600-all11", "jlens"],
         ix.STRONGREJECT: ["s3d-rl600", "mlnla-rl600", "jlens"],
-        ix.MASK: ["s3d-rl600", "mlnla-rl600-all11", "jlens"],
     }
     res = ix.resolve_methods(m, arms)
     for f in ix.SAFETY_FAMILIES:
         assert res["s3d-rl600"][f] == ["s3d-rl600"]
         assert res["jlens"][f] == ["jlens"]
     assert res["mlnla-rl600"][ix.OVERREFUSAL] == ["mlnla-rl600-all11"]
-    assert res["mlnla-rl600"][ix.MASK] == ["mlnla-rl600-all11"]
     assert res["mlnla-rl600"][ix.STRONGREJECT] == ["mlnla-rl600"]
     assert "mlnla-rl600-all11" not in res  # no stray identity method
     assert set(ix.resolve_methods(m, arms, ix.FAMILIES_V3)["s3d-rl600"]) == set(ix.FAMILIES_V3)
@@ -347,7 +341,7 @@ def test_safety_roots_are_opt_in(tmp_path, monkeypatch):
     assert set(src) == set(ix.FAMILIES_V3)  # the dev-box defaults are never used
     monkeypatch.setenv("HBENCH_SAFETY_SR_OUT", str(tmp_path / "sr"))
     src = ix.default_sources(tmp_path, cli.DEFAULT_MODEL)
-    assert src[ix.STRONGREJECT] == [tmp_path / "sr"] and ix.MASK not in src
+    assert src[ix.STRONGREJECT] == [tmp_path / "sr"] and ix.OVERREFUSAL not in src
 
 
 def test_cli_version_and_safety_roots(tmp_path, monkeypatch):
@@ -367,4 +361,6 @@ def test_cli_version_and_safety_roots(tmp_path, monkeypatch):
     with pytest.raises(SystemExit, match="hindex-v4 only"):
         cli.main([*base, "--version", "v3", "--overrefusal-root", str(root)])
     with pytest.raises(SystemExit, match="not a directory"):
-        cli.main([*base, "--mask-root", str(tmp_path / "missing")])
+        cli.main([*base, "--strongreject-root", str(tmp_path / "missing")])
+    with pytest.raises(SystemExit):  # mask is not on the index (plan 0019 rev 5)
+        cli.main([*base, "--mask-root", str(root)])

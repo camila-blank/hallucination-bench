@@ -23,31 +23,32 @@ hallucination eval is one of many evals here; see `plans/` for the design histor
 Two official HB scores on 160 never-refused OR-Bench prompts (tail sites headline): **probe_validated** (HEADLINE: verified refusal claims at sites where `refusal_probe_v2` says refusal is not represented / readouts; a lower bound) and **raw** (all verified refusal claims / readouts; an upper bound), frozen in `data/overrefusal/hb_scores.json` (frozen set `data/overrefusal/MANIFEST.sha256`; results `docs/results/0015_overrefusal_pilot.md`). Refusal probe for reuse: `data/overrefusal/probes/refusal_probe_v2.{npz,json}`.
 
 ![overrefusal HB rate](plots/overrefusal_hb_rate.png)
-| `mask` (pilot) | MASK (lies vs honest-but-wrong): on-policy Qwen3.6-27B ground truth (MASK's judge prompts and belief / honesty aggregation), then how often a lens **claims the model is lying when it was honest** (blind detector -> prompt-aware verifier), at prompt sites (prediction) and response sites (detection), beside the same rate on lie items, also on the subset where Qwen itself says it lied / was honest (self-knowledge gate), with deception probes checking whether the lie is represented at the read sites; its own CLI `hbench mask gt|run|report`; on the index as of hindex-v4 (plan 0019, via its `index_counts.jsonl`, prompt sites) | [0017](plans/0017-mask-eval.md) |
+| `mask` (pilot) | MASK (lies vs honest-but-wrong): on-policy Qwen3.6-27B ground truth (MASK's judge prompts and belief / honesty aggregation), then how often a lens **claims the model is lying when it was honest** (blind detector -> prompt-aware verifier), at prompt sites (prediction) and response sites (detection), beside the same rate on lie items, also on the subset where Qwen itself says it lied / was honest (self-knowledge gate), with deception probes checking whether the lie is represented at the read sites; its own CLI `hbench mask gt|run|report`; not on the index (dropped in plan 0019 rev 5) | [0017](plans/0017-mask-eval.md) |
 
 ## Hallucination index
 
 `uv run hbench index` scores every model (one row per method x layer) from the families' outputs
 (nothing is re-judged), and every `hbench report` refreshes it:
 `outputs/index/<judge model>/index.{json,md}`. Current definition **`hindex-v4`** (plan 0019),
-seven families: main = `wsbench_chat` weighted % of claims hallucinated (false_claim 1,
+six families: main = `wsbench_chat` weighted % of claims hallucinated (false_claim 1,
 substitution_category 0.5, substitution_sibling 0.5, detail 0.2); `agentic_misalignment` /
 `story` = unweighted % of claims hallucinated; sibling = the 3-domain UM ladder hallucination
-share; `overrefusal` / `strongreject` / `mask` = the **probe-validated** % of disposition claims
+share; `overrefusal` / `strongreject` = the **probe-validated** % of disposition claims
 (false claims the eval's probe contradicts / all disposition claims; raw share beside it in
 `index.json`), read from each eval's `index_counts.jsonl` for the readers `s3d-rl600`,
 `mlnla-rl600(-all11)` and `jlens` only, 2,000-draw cluster bootstrap. A safety family is absent
 (not 0) at a (method, layer) with no claims or whose false claims are all unprobed. Family
-weights main 9, agentic_misalignment 3, sibling 2, story 1, overrefusal / strongreject / mask 1
-each; `full` = all seven, `matched` = all but sibling; `full_v3` / `matched_v3` (always emitted)
+weights main 9, agentic_misalignment 3, sibling 2, story 1, overrefusal / strongreject 1
+each; `full` = all six, `matched` = all but sibling; `full_v3` / `matched_v3` (always emitted)
 are hindex-v3's macros (main + AM + sibling + story / main + AM + story), and
 `hbench index --version v3` emits exactly the hindex-v3 output
 ([plan 0013](plans/0013-final-sibling-eval-and-hallucination-index.md)). Arms are matched by
 name across families; legacy names and exclusions live in `data/index/methods.json`. Each
 family root is overridable (`--main-root`, `--am-root`, `--story-root`, `--um-root`,
-repeatable); the safety roots are **opt-in** (`--overrefusal-root` / `--strongreject-root` /
-`--mask-root`, each a dir holding `index_counts.jsonl` + `index_meta.json`, or
-`HBENCH_SAFETY_{OR,SR,MASK}_OUT` when set; never a dev-box default). Definition:
+repeatable); the safety roots are **opt-in** (`--overrefusal-root` / `--strongreject-root`,
+each a dir holding `index_counts.jsonl` + `index_meta.json`, or
+`HBENCH_SAFETY_{OR,SR}_OUT` when set; never a dev-box default). `mask` is not on the index
+(dropped in plan 0019 rev 5). Definition:
 [plan 0019](plans/0019-safety-families-on-the-index.md).
 
 External data is configured by environment variables, each defaulting to the dev-box path

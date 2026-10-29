@@ -12,9 +12,9 @@ the model never refuses; own subcommands `hbench overrefusal ...`) is plan
 `plans/0015-overrefusal-eval.md`. The hallucination index (`hbench index`, one
 macro per (method, layer)) is plan `plans/0013-final-sibling-eval-and-hallucination-index.md`
 (hindex-v3: main / AM / sibling / story) + `plans/0019-safety-families-on-the-index.md`
-(hindex-v4: + overrefusal / strongreject / mask). The `mask` eval (MASK lies vs
+(hindex-v4: + overrefusal / strongreject; mask stays off, rev 5). The `mask` eval (MASK lies vs
 honest-but-wrong: does the lens claim the model is lying when it is honest? Its own CLI,
-`hbench mask gt|run|report`; on the index since hindex-v4, plan 0019) is plan `plans/0017-mask-eval.md`.
+`hbench mask gt|run|report`; not on the index, plan 0019 rev 5) is plan `plans/0017-mask-eval.md`.
 
 ## Layout
 
@@ -367,11 +367,11 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
   numbers bit for bit (fresh `default_rng(0)` / `Random(0)` per row): any change to weights, claim
   definition or bootstrap bumps `index.INDEX_VERSION`. A new arm is matched by name across
   families; only legacy names / exclusions go in `data/index/methods.json`.
-  **hindex-v4** (plan 0019) adds overrefusal / strongreject / mask (weight 1 each; share =
+  **hindex-v4** (plan 0019) adds overrefusal / strongreject (weight 1 each; mask dropped in rev 5; share =
   Σ `n_contradicted` / Σ `n_claims` from each eval's `index_counts.jsonl`, raw share and health
   beside it; absent with an `absent_reason` on no claims or all-unprobed false claims; cluster
   bootstrap, fresh `default_rng(0)` per (family, arm, layer), clusters sorted, percentiles over
-  draws with claims). `full` = 7 families, `matched` = all but sibling, `full_v3` / `matched_v3`
+  draws with claims). `full` = 6 families, `matched` = all but sibling, `full_v3` / `matched_v3`
   always emitted. Reader allowlist `index.SAFETY_READERS` is enforced in the index too. Safety
   roots are opt-in (`--*-root` or a set `HBENCH_SAFETY_*`; never the paths.py default) so tests
   that build from `tmp_path` stay isolated. The hindex-v3 outputs are pinned by goldens built by

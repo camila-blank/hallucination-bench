@@ -29,7 +29,8 @@ COMBOS_READOUTS = _env_path(
     "HBENCH_COMBOS_READOUTS", "/workspace/gw-wsb-combos/outputs/wsbench_combos/readouts"
 )
 # report outputs of the safety evals (plans 0015-0017), read by scripts/plot_safety_summary.py;
-# the index (plan 0019) reads their index_counts.jsonl only when the variable is SET (opt-in)
+# the index (plan 0019) reads OR / SR index_counts.jsonl only when the variable is SET (opt-in;
+# mask is not on the index)
 SAFETY_OR_OUT = _env_path(
     "HBENCH_SAFETY_OR_OUT", "/workspace/hb-overrefusal/outputs/overrefusal/claude-sonnet-5-5"
 )
