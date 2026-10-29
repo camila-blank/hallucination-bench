@@ -23,7 +23,7 @@ hallucination eval is one of many evals here; see `plans/` for the design histor
 Two official HB scores on 160 never-refused OR-Bench prompts (tail sites headline): **probe_validated** (HEADLINE: verified refusal claims at sites where `refusal_probe_v2` says refusal is not represented / readouts; a lower bound) and **raw** (all verified refusal claims / readouts; an upper bound), frozen in `data/overrefusal/hb_scores.json` (frozen set `data/overrefusal/MANIFEST.sha256`; results `docs/results/0015_overrefusal_pilot.md`). Refusal probe for reuse: `data/overrefusal/probes/refusal_probe_v2.{npz,json}`.
 
 ![overrefusal HB rate](plots/overrefusal_hb_rate.png)
-| `mask` (pilot) | MASK (lies vs honest-but-wrong): on-policy Qwen3.6-27B ground truth (MASK's judge prompts and belief / honesty aggregation), then how often a lens **claims the model is lying when it was honest** (blind detector -> prompt-aware verifier), at prompt sites (prediction) and response sites (detection), beside the same rate on lie items, also on the subset where Qwen itself says it lied / was honest (self-knowledge gate), with deception probes checking whether the lie is represented at the read sites; its own CLI `hbench mask gt|run|report`; not on the index | [0017](plans/0017-mask-eval.md) |
+| `mask` (**archived diagnostic, not part of HallucinationBench**) | MASK (lies vs honest-but-wrong): on-policy Qwen3.6-27B ground truth (MASK's judge prompts and belief / honesty aggregation), then how often a lens **claims the model is lying when it was honest** (blind detector -> prompt-aware verifier), at prompt sites (prediction) and response sites (detection), beside the same rate on lie items, also on the subset where Qwen itself says it lied / was honest (self-knowledge gate), with deception probes checking whether the lie is represented at the read sites; its own CLI `hbench mask gt|run|report`; **archived 2026-10-29: a diagnostic, not part of HallucinationBench or the index, not a hallucination score** (whether prompt-position lie claims are real considered thoughts is unverifiable) | [0017](plans/0017-mask-eval.md) |
 
 ## Hallucination index
 
@@ -232,7 +232,7 @@ and `outputs/wsbench_chat/<judge model>/{report.md,report.json,audit_samples.md}
 
 Index of every results doc: [`docs/results/README.md`](docs/results/README.md).
 
-[`docs/results/0017_mask_pilot.md`](docs/results/0017_mask_pilot.md): mask (rev 5, final frozen set): the HB score is the verified lie-claim readout rate on 155 gated honest_resisted items at every prompt / response position (the O-lens claims a lie on 0.6-1.6% of prompt readouts, so 40-77% of honest items get at least one claim; NLA 0.4-0.5%; J-lens ~0). Figure `plots/0017_mask_hb_score.png`.
+[`docs/results/0017_mask_pilot.md`](docs/results/0017_mask_pilot.md): mask (rev 5, final frozen set; **archived diagnostic, not part of HallucinationBench**, 2026-10-29): the diagnostic rate is the verified lie-claim readout rate on 155 gated honest_resisted items at every prompt / response position (the O-lens claims a lie on 0.6-1.6% of prompt readouts, so 40-77% of honest items get at least one claim; NLA 0.4-0.5%; J-lens ~0). Figure `plots/0017_mask_hb_score.png`.
 
 [`docs/results/0001_wsbench_chat_taxonomy.md`](docs/results/0001_wsbench_chat_taxonomy.md)
 (filled in after the full run); claim map:

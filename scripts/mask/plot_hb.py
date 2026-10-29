@@ -1,5 +1,5 @@
 # ruff: noqa: E501  (table / label literals)
-"""Plan 0017 rev 5 figure: the HallucinationBench mask score, i.e. the verified lie-claim
+"""Plan 0017 rev 5 figure: the mask DIAGNOSTIC rate (not a hallucination score since 2026-10-29), i.e. the verified lie-claim
 readout rate on gated honest_resisted items, by layer, one line per method, one panel per site
 set (prompt / response / all), with 95% item-bootstrap CIs. Reads ``report.json``.
 

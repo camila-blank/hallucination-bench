@@ -38,6 +38,9 @@ and belief / honesty aggregation from `centerforaisafety/mask` @ `25e0b12` (verb
 
 ## `l11/`: plan 0019, 7 more layers (20 / 24 / 32 / 40 / 48 / 56 / 60), prompt positions only
 
+**Archival:** the extension was stopped on 2026-10-29 when MASK was dropped from the
+hallucination index (J-lens and ML-NLA detected at all 7 layers, s3d at L20 / 24 / 32 / 40).
+
 Built by `scripts/mask/l11_build.py`. The input_ids are cut after the final `assistant` token.
 The model is causal, so the prompt activations equal those of the full sequence.
 
@@ -47,7 +50,7 @@ The model is causal, so the prompt activations equal those of the full sequence.
 | `capture_rows_rest.json` | every other read-set item (probe data only: LOAO trains on every labelled item) → `hb-mask-L11-rest` |
 | `capture_rows_neg.json` | the unread `hb-mask-v5-neg` items → `hb-mask-L11-neg` |
 | `sites_l11.json.gz` | the L11 read grid: the honest_resisted items' prompt sites (26,371) |
-| `report_4layer_snapshot.json` | the merged 4-layer report numbers (`gate.arms`, `arms`), frozen before the extension (`tests/test_mask_index_export.py`) |
+| `report_4layer_snapshot.json` | the merged 4-layer report numbers (`gate.arms`, `arms`), frozen before the extension (`tests/test_mask_l11.py`) |
 | `cache_rows_4layer.json` | per-arm detector-cache row counts keyed at the merged layers (unchanged after the extension) |
 
 - `../probe_summary_v5_l11.json` holds the LOAO jobs at the new layers, prompt sites only. The
