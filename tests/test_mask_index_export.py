@@ -27,6 +27,8 @@ def test_claims_dedup_and_label_rules():
         "mentions": [
             m(0, "lie_claim", "will lie", True),
             m(0, "lie_claim", " will   lie ", True),  # same (readout, label, normalised quote)
+            m(0, "lie_claim", "Will \u201clie\u201d", True),  # normalize_ws: case, quote marks
+            m(0, "lie_claim", 'will "lie"', True),
             m(1, "lie_claim", "will lie", True),  # another readout: a separate claim
             m(0, "lie_claim", "deny it", False),  # verifier-rejected: dropped, not relabelled
             m(0, "lie_claim", "unverified"),  # unverified candidate: not a lie, dropped
@@ -35,7 +37,21 @@ def test_claims_dedup_and_label_rules():
             m(0, "other", "x"),
         ]
     }
-    assert X.claims(cell) == (3, 2)
+    assert X.claims(cell) == (4, 3)
+
+
+def test_layer_gates_fail_loudly_on_a_missing_layer():
+    full = {str(la): {"prompt": {"transfer_loao": 0.8}} for la in X.LAYERS}
+    g = X.layer_gates(full)
+    assert sorted(g) == list(X.LAYERS) and all(v["pass"] for v in g.values())
+    full["48"] = {"prompt": {"transfer_loao": 0.69}}
+    assert not X.layer_gates(full)[48]["pass"]
+    del full["60"]
+    with pytest.raises(RuntimeError, match=r"\[60\]"):
+        X.layer_gates(full)
+    full["60"] = {"prompt": {"transfer_loao": None}}  # a job absent from the new-layer file
+    with pytest.raises(RuntimeError):
+        X.layer_gates(full)
 
 
 def _cell(t, layer, pos, mentions, status="ok", n=3):
@@ -107,6 +123,49 @@ def test_old_layers_reconcile_with_the_merged_report():
     assert set(n_items.values()) == {155}  # every population item, zero rows included
 
 
+DOC = REPO_ROOT / "docs" / "results" / "0017_mask_pilot.md"
+OLD = (28, 36, 44, 52)
+
+
+def _published() -> tuple[dict[str, list[float]], dict[int, float]]:
+    """The merged (origin/main, PR #29) rev-5 numbers from the git-tracked results doc: HB prompt
+    rates per arm at L28/36/44/52 and the LOAO prompt transfer AUROC per layer."""
+    text = DOC.read_text()
+    sec = text[text.index("### HB score: verified lie-claim") : text.index("### Item-level")]
+    hb = {}
+    for line in sec.splitlines():
+        cells = [c.strip() for c in line.strip("|").split("|")]
+        if len(cells) == 6 and cells[1] == "prompt":
+            hb[cells[0]] = [float(c.split()[0]) for c in cells[2:]]
+    sec = text[text.index("### Probes: transfer AUROC") : text.index("- The **primary LOAO")]
+    loao = {}
+    for line in sec.splitlines():
+        cells = [c.strip() for c in line.strip("|").split("|")]
+        if len(cells) == 5 and cells[1] == "prompt":
+            loao[int(cells[0])] = float(cells[2])
+    assert set(hb) == set(X.READERS) and sorted(loao) == list(OLD)
+    return hb, loao
+
+
+@pytest.mark.skipif(not (OUT / "index_counts.jsonl").exists(), reason="no index export on this box")
+def test_old_layers_reconcile_with_the_git_tracked_published_numbers():
+    hb, loao = _published()
+    agg: dict = collections.defaultdict(collections.Counter)
+    for line in (OUT / "index_counts.jsonl").read_text().splitlines():
+        r = json.loads(line)
+        agg[(r["arm"], r["layer"])].update({k: v for k, v in r.items() if k.startswith("n_")})
+    for arm, rates in hb.items():
+        for layer, want in zip(OLD, rates, strict=True):
+            a = agg[(arm, layer)]
+            assert round(a["n_false_units"] / a["n_units"], 4) == want, (arm, layer)
+    meta = json.loads((OUT / "index_meta.json").read_text())
+    assert meta["dedup"] == X.DEDUP == "normalize_ws"
+    gates = {int(k): v for k, v in meta["gate"]["per_layer"].items()}
+    assert sorted(gates) == list(X.LAYERS)
+    for layer, want in loao.items():
+        assert round(gates[layer]["transfer_loao"], 3) == want, layer
+
+
 @pytest.mark.skipif(not (OUT / "report.json").exists(), reason="no report on this box")
 def test_old_layer_published_numbers_are_frozen():
     rep = json.loads((OUT / "report.json").read_text())
@@ -140,11 +199,21 @@ def test_l11_grid_complete_when_readouts_present():
         p = Path(bank.READOUTS_ROOT) / arm / "mask_l11.jsonl"
         if not p.exists():
             continue
-        got: dict[int, set] = collections.defaultdict(set)
+        new = (20, 24, 32, 40, 48, 56, 60)
+        uniq: set[tuple[str, int, int]] = set()  # count unique (item, pos, layer), not rows
         with p.open() as fh:
             for line in fh:
                 r = json.loads(line)
-                got[r["layer"]].add((r["id"], r["pos"]))
-        assert sorted(got) == [20, 24, 32, 40, 48, 56, 60], arm
-        for layer, have in got.items():
-            assert have == want, (arm, layer)
+                uniq.add((r["id"], r["pos"], r["layer"]))
+        assert uniq == {(t, pos, la) for (t, pos) in want for la in new}, arm
+        cells: set[tuple[str, int, int]] = set()
+        for la in new:
+            f = OUT / arm / f"cells_L{la:03d}.jsonl"
+            if not f.exists():
+                continue
+            with f.open() as fh:
+                for line in fh:
+                    c = json.loads(line)
+                    if c["site_type"] == "prompt" and c["task_id"] in sites:
+                        cells.add((c["task_id"], c["pos"], c["layer"]))
+            assert {(t, pos) for (t, pos, x) in cells if x == la} == want, (arm, la)

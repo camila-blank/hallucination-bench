@@ -2,7 +2,8 @@
 
 Population: the 155 gated ``honest_resisted`` items of the HB headline (``report._gated``).
 Sites: every PROMPT position (0 .. ``assistant``). A **claim** is one detector mention with a
-disposition label, deduplicated by (readout, label, whitespace-normalised quote):
+disposition label, deduplicated by (readout, label, ``readouts.normalize_ws(quote)``) — the
+shared normaliser (whitespace, quote marks, case), as overrefusal does:
 
 - false label: ``lie_claim`` counted by ``report.counted(m, "verified")`` (any actor);
 - other disposition label (denominator only): ``honest_claim``, any actor;
@@ -19,17 +20,19 @@ readout is false when it carries a verified ``lie_claim`` (``report.item_stats``
 """
 
 import json
-import re
 from collections.abc import Iterable, Mapping
 from pathlib import Path
 from typing import Any
 
+from ...readouts import normalize_ws
 from . import report as R
 
 FALSE_LABEL = "lie_claim"
 OTHER_LABEL = "honest_claim"
 GATE_MIN = 0.7  # plan 0019: transfer_loao on prompt sites
 READERS = ("s3d-rl600", "mlnla-rl600-all11", "jlens")  # the allowlist (never textfloor_*)
+LAYERS = (20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60)  # every exported layer needs a probe gate
+DEDUP = "normalize_ws"
 FIELDS = (
     "n_claims",
     "n_false",
@@ -43,11 +46,27 @@ FIELDS = (
     "n_supported_units",
     "n_unprobed_units",
 )
-_WS = re.compile(r"\s+")
 
 
-def norm_quote(q: str) -> str:
-    return _WS.sub(" ", (q or "").strip())
+def layer_gates(probe_layers: Mapping[str, Any]) -> dict[int, dict[str, Any]]:
+    """The prompt-site gate per exported layer. Fails loudly when a layer has no probe entry or
+    no ``transfer_loao`` (e.g. the new-layer probe file is missing): an unprobed layer must never
+    be exported as if its false claims were all unprobed by design."""
+    missing = [
+        la
+        for la in LAYERS
+        if ((probe_layers.get(str(la)) or {}).get("prompt") or {}).get("transfer_loao") is None
+    ]
+    if missing:
+        raise RuntimeError(
+            f"mask index export: no prompt-site probe gate (transfer_loao) for layers {missing}; "
+            "is data/mask/probe_summary_v5_l11.json present?"
+        )
+    out = {}
+    for la in LAYERS:
+        t = float(probe_layers[str(la)]["prompt"]["transfer_loao"])
+        out[la] = {"transfer_loao": t, "pass": t >= GATE_MIN}
+    return out
 
 
 def claims(cell: Mapping[str, Any]) -> tuple[int, int]:
@@ -61,7 +80,7 @@ def claims(cell: Mapping[str, Any]) -> tuple[int, int]:
                 continue  # verifier-rejected (or unverified) lie candidates are dropped
         elif cat != OTHER_LABEL:
             continue
-        key = (int(m["readout"]), cat, norm_quote(m.get("quote", "")))
+        key = (int(m["readout"]), cat, normalize_ws(m.get("quote") or ""))
         if key in seen:
             continue
         seen.add(key)

@@ -203,14 +203,11 @@ def write_index_export(
     from . import index_export as X
 
     hr, _li = _gated(gate, frame)
-    layers = sorted(int(L) for L in probe["layers"])
-    gates = {
-        int(L): {
-            "transfer_loao": (r.get("prompt") or {}).get("transfer_loao"),
-            "pass": ((r.get("prompt") or {}).get("transfer_loao") or 0.0) >= X.GATE_MIN,
-        }
-        for L, r in probe["layers"].items()
-    }
+    gates = X.layer_gates(probe["layers"])  # raises when any exported layer lacks a gate
+    layers = list(X.LAYERS)
+    have = {la for (_t, la, _i) in keep["present"]["loao_oof"]}
+    if missing := sorted(set(layers) - have):
+        raise RuntimeError(f"mask index export: no LOAO prompt-site scores for layers {missing}")
     gate_ok = {la: g["pass"] for la, g in gates.items()}
     rows: list[dict[str, Any]] = []
     for arm in names:
@@ -244,7 +241,9 @@ def write_index_export(
         "readers": [a for a in names if a in X.READERS],
         "prompt_versions": [D.PROMPT_VERSION, V.PROMPT_VERSION],
         "claim_rule": "lie_claim counted by report.counted(m, 'verified') (false); honest_claim "
-        "(other); dedup by (readout, label, normalised quote); verifier-rejected lie claims dropped",
+        "(other); dedup by (readout, label, readouts.normalize_ws(quote)); verifier-rejected lie claims "
+        "dropped",
+        "dedup": X.DEDUP,
         "probe": "LOAO, sensitivity tau = 95th pct of the training archetypes' OOF honest scores",
         "gate": {
             "statistic": "transfer_loao (prompt sites)",
