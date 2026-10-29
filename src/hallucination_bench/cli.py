@@ -250,6 +250,12 @@ def cmd_index(args: argparse.Namespace) -> int:
             if missing := [r for r in roots if not Path(r).is_dir()]:
                 raise SystemExit(f"{flag}: not a directory: {missing}")
             sources[fam] = [Path(r) for r in roots]
+    if args.version != "v3":  # an opted-in safety root must hold its counts, else the family
+        for fam in index.SAFETY_FAMILIES:  # (and full / matched everywhere) silently vanishes
+            if gone := [
+                str(r) for r in sources.get(fam, []) if not (r / index.SAFETY_COUNTS).is_file()
+            ]:
+                raise SystemExit(f"{fam}: no {index.SAFETY_COUNTS} in {gone}")
     try:
         built = index.build_index(
             sources, index.load_methods(Path(args.methods)), args.workers, version=args.version

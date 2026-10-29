@@ -181,6 +181,9 @@ def test_safety_reader_allowlist_and_columns(tmp_path):
     (bad / ix.SAFETY_COUNTS).write_text(json.dumps({"arm": "jlens", "layer": 20}) + "\n")
     with pytest.raises(ValueError, match="missing columns"):
         ix.safety_rows(bad, ix.OVERREFUSAL)
+    dup = _write_safety(tmp_path / "dup", [_row("jlens", 20, "i1"), _row("jlens", 20, "i1")])
+    with pytest.raises(ValueError, match="duplicate"):
+        ix.safety_rows(dup, ix.OVERREFUSAL)
     with pytest.raises(ValueError, match="not a safety family"):
         ix.safety_rows(root, ix.MAIN)
 
@@ -367,6 +370,14 @@ def test_cli_version_and_safety_roots(tmp_path, monkeypatch):
         cli.main([*base, "--version", "v3", "--overrefusal-root", str(root)])
     with pytest.raises(SystemExit, match="not a directory"):
         cli.main([*base, "--overrefusal-root", str(tmp_path / "missing")])
+    (tmp_path / "empty").mkdir()  # an opted-in root without index_counts.jsonl is an error
+    with pytest.raises(SystemExit, match=r"no index_counts\.jsonl"):
+        cli.main([*base, "--overrefusal-root", str(tmp_path / "empty")])
+    monkeypatch.setenv("HBENCH_SAFETY_OR_OUT", str(tmp_path / "empty"))
+    with pytest.raises(SystemExit, match=r"no index_counts\.jsonl"):
+        cli.main(base)
+    assert cli.main([*base, "--version", "v3", "--dest", str(tmp_path / "d3b")]) == 0
+    monkeypatch.delenv("HBENCH_SAFETY_OR_OUT")
     for flag in ("--strongreject-root", "--mask-root"):  # not on the index (revs 6 / 5)
         with pytest.raises(SystemExit):
             cli.main([*base, flag, str(root)])

@@ -173,6 +173,7 @@ def test_build_index_mapping_exclusion_and_partial_rows(tmp_path):
     d = rows[("d", 20)]  # no story, no sibling: partial row, neither macro
     assert set(d["families"]) == {ix.MAIN, ix.AM}
     assert "full_v3" not in d and "matched_v3" not in d
+    assert "full" not in d and "matched" not in d
     assert out["version"] == ix.INDEX_VERSION
     md = ix.render_md(out)
     assert "| c | 20 |" in md and "Excluded arms: x." in md

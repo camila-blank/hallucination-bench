@@ -199,11 +199,14 @@ SafetyRows = dict[str, dict[int, list[dict[str, Any]]]]  # arm -> layer -> index
 
 def safety_rows(root: Path, family: str) -> tuple[SafetyRows, set[str]]:
     """One safety root's ``index_counts.jsonl`` as arm -> layer -> rows, for the arms of
-    :data:`SAFETY_READERS` only; also the ignored arm names. A root without the file is empty."""
+    :data:`SAFETY_READERS` only; also the ignored arm names. A root without the file is empty
+    (``hbench index`` refuses an opted-in root without it); a repeated (arm, layer, item) is an
+    error."""
     if family not in SAFETY_FAMILIES:
         raise ValueError(f"not a safety family: {family!r}")
     out: SafetyRows = defaultdict(lambda: defaultdict(list))
     ignored: set[str] = set()
+    seen: set[tuple[str, int, str]] = set()
     path = Path(root) / SAFETY_COUNTS
     if not path.is_file():
         return {}, ignored
@@ -214,6 +217,10 @@ def safety_rows(root: Path, family: str) -> tuple[SafetyRows, set[str]]:
             r = json.loads(line)
             if missing := [c for c in SAFETY_COLS if c not in r]:
                 raise ValueError(f"{path}:{n}: missing columns {missing}")
+            key = (str(r["arm"]), int(r["layer"]), str(r["item"]))
+            if key in seen:
+                raise ValueError(f"{path}:{n}: duplicate (arm, layer, item) row {key}")
+            seen.add(key)
             if r["arm"] not in SAFETY_READERS[family]:
                 ignored.add(r["arm"])
                 continue
