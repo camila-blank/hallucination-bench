@@ -1,0 +1,42 @@
+{"method": "c", "item": "country-0", "layer": 20, "committed": true, "probe": {"na_reason": null, "fire_L": true}, "cross": ["x"]}
+{"method": "c", "item": "country-1", "layer": 20, "committed": false, "probe": {"na_reason": null, "fire_L": false}, "cross": []}
+{"method": "c", "item": "country-2", "layer": 20, "committed": true, "probe": {"na_reason": null, "fire_L": false}, "cross": []}
+{"method": "c", "item": "country-3", "layer": 20, "committed": true, "probe": {"na_reason": "invalid probe at L", "fire_L": false}, "cross": []}
+{"method": "c", "item": "country-0", "layer": 20, "committed": true, "probe": {"na_reason": null, "fire_L": false}, "cross": []}
+{"method": "c", "item": "country-1", "layer": 20, "committed": true, "probe": {"na_reason": null, "fire_L": true}, "cross": []}
+{"method": "c", "item": "country-2", "layer": 20, "committed": true, "probe": {"na_reason": null, "fire_L": true}, "cross": []}
+{"method": "c", "item": "country-0", "layer": 24, "committed": true, "probe": {"na_reason": null, "fire_L": true}, "cross": ["x"]}
+{"method": "c", "item": "country-1", "layer": 24, "committed": false, "probe": {"na_reason": null, "fire_L": true}, "cross": []}
+{"method": "c", "item": "country-2", "layer": 24, "committed": true, "probe": {"na_reason": null, "fire_L": false}, "cross": []}
+{"method": "c", "item": "country-3", "layer": 24, "committed": true, "probe": {"na_reason": null, "fire_L": false}, "cross": []}
+{"method": "c", "item": "country-0", "layer": 24, "committed": true, "probe": {"na_reason": null, "fire_L": true}, "cross": []}
+{"method": "c", "item": "country-1", "layer": 24, "committed": true, "probe": {"na_reason": "invalid probe at L", "fire_L": true}, "cross": ["x"]}
+{"method": "c", "item": "country-2", "layer": 24, "committed": false, "probe": {"na_reason": null, "fire_L": true}, "cross": []}
+{"method": "c", "item": "country-3", "layer": 24, "committed": true, "probe": {"na_reason": null, "fire_L": false}, "cross": ["x"]}
+{"method": "c", "item": "country-0", "layer": 28, "committed": true, "probe": {"na_reason": null, "fire_L": false}, "cross": []}
+{"method": "c", "item": "country-1", "layer": 28, "committed": true, "probe": {"na_reason": null, "fire_L": true}, "cross": []}
+{"method": "c", "item": "country-2", "layer": 28, "committed": true, "probe": {"na_reason": null, "fire_L": false}, "cross": ["x"]}
+{"method": "c", "item": "country-3", "layer": 28, "committed": true, "probe": {"na_reason": null, "fire_L": true}, "cross": []}
+{"method": "c", "item": "country-0", "layer": 28, "committed": false, "probe": {"na_reason": null, "fire_L": false}, "cross": []}
+{"method": "c", "item": "country-1", "layer": 28, "committed": true, "probe": {"na_reason": null, "fire_L": true}, "cross": ["x"]}
+{"method": "c", "item": "country-2", "layer": 28, "committed": true, "probe": {"na_reason": null, "fire_L": true}, "cross": []}
+{"method": "c", "item": "country-3", "layer": 28, "committed": true, "probe": {"na_reason": null, "fire_L": false}, "cross": []}
+{"method": "s", "item": "country-0", "layer": 20, "committed": true, "probe": {"na_reason": null, "fire_L": true}, "cross": ["x"]}
+{"method": "s", "item": "country-1", "layer": 20, "committed": false, "probe": {"na_reason": null, "fire_L": true}, "cross": []}
+{"method": "s", "item": "country-2", "layer": 20, "committed": false, "probe": {"na_reason": null, "fire_L": true}, "cross": ["x"]}
+{"method": "s", "item": "country-3", "layer": 20, "committed": true, "probe": {"na_reason": null, "fire_L": false}, "cross": []}
+{"method": "s", "item": "country-0", "layer": 20, "committed": true, "probe": {"na_reason": null, "fire_L": false}, "cross": []}
+{"method": "s", "item": "country-1", "layer": 20, "committed": false, "probe": {"na_reason": "invalid probe at L", "fire_L": false}, "cross": []}
+{"method": "s", "item": "country-2", "layer": 20, "committed": true, "probe": {"na_reason": null, "fire_L": true}, "cross": []}
+{"method": "s", "item": "country-3", "layer": 20, "committed": false, "probe": {"na_reason": null, "fire_L": false}, "cross": []}
+{"method": "s", "item": "country-0", "layer": 24, "committed": false, "probe": {"na_reason": null, "fire_L": true}, "cross": []}
+{"method": "s", "item": "country-1", "layer": 24, "committed": true, "probe": {"na_reason": null, "fire_L": true}, "cross": []}
+{"method": "s", "item": "country-2", "layer": 24, "committed": true, "probe": {"na_reason": "invalid probe at L", "fire_L": true}, "cross": []}
+{"method": "s", "item": "country-0", "layer": 28, "committed": true, "probe": {"na_reason": "invalid probe at L", "fire_L": false}, "cross": []}
+{"method": "s", "item": "country-1", "layer": 28, "committed": true, "probe": {"na_reason": null, "fire_L": true}, "cross": ["x"]}
+{"method": "s", "item": "country-2", "layer": 28, "committed": true, "probe": {"na_reason": null, "fire_L": true}, "cross": []}
+{"method": "s", "item": "country-3", "layer": 28, "committed": false, "probe": {"na_reason": null, "fire_L": false}, "cross": []}
+{"method": "s", "item": "country-0", "layer": 28, "committed": true, "probe": {"na_reason": null, "fire_L": true}, "cross": ["x"]}
+{"method": "s", "item": "country-1", "layer": 28, "committed": true, "probe": {"na_reason": null, "fire_L": true}, "cross": ["x"]}
+{"method": "s", "item": "country-2", "layer": 28, "committed": true, "probe": {"na_reason": "invalid probe at L", "fire_L": true}, "cross": ["x"]}
+{"method": "s", "item": "country-3", "layer": 28, "committed": true, "probe": {"na_reason": null, "fire_L": true}, "cross": []}

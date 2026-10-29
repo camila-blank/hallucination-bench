@@ -4,19 +4,22 @@
       "main": ["s3d-rl600", "s3d-rl600-all11"],
       "agentic_misalignment": ["s3d-rl600"],
       "story": ["s3d-rl600-all11"],
-      "sibling": ["s3d"]
+      "sibling": ["s3d"],
+      "overrefusal": ["s3d-rl600"]
     },
     "mlnla-rl600": {
       "main": ["mlnla-rl600-all11"],
       "agentic_misalignment": ["mlnla-rl600-all11"],
       "story": ["mlnla-rl600-all11"],
-      "sibling": ["mlnla-rl600"]
+      "sibling": ["mlnla-rl600"],
+      "overrefusal": ["mlnla-rl600-all11"]
     }
   },
   "exclude": ["nla-rl-L42", "nla-sft-L42"],
   "notes": {
     "jlens.sibling": "no sibling score: J-lens has committed, probe-testable UM units in at most two of the three domains at every layer, so only `matched` compares it",
     "nla-rl-L42": "single-layer L42 NLA arms (nla-rl-L42, nla-sft-L42) excluded (Camila 2026-10-20)",
+    "mlnla-rl600.safety": "overrefusal reads the mlnla-rl600-all11 arm (plan 0019); it uses the allowlisted readers s3d-rl600, mlnla-rl600-all11 and jlens only",
     "s3d-rl600.main": "the s3d-rl600 arm wins at the layers it has, s3d-rl600-all11 fills the rest",
     "v4": "DeepSeek-V4-Flash arms (v4-*, plan 0014) are matched by name; their roots are passed beside the Qwen ones. V4 AM is read at layers 21/27/33 only, so V4 `full` / `matched` exist at 21/27/33 only",
     "v4-jlens-std-n1000.sibling": "no sibling score: no committed, probe-testable country units at any layer (as for jlens)"

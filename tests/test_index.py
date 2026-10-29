@@ -128,11 +128,11 @@ def test_weighted_macro_hand_computed():
         ix.SIBLING: {"v": 0.3, "ci": [0.2, 0.4]},
         ix.STORY: {"v": 0.4, "ci": [0.3, 0.5]},
     }
-    full = ix.weighted_macro(per, ix.FAMILIES)
+    full = ix.weighted_macro(per, ix.FAMILIES_V3)
     assert full["v"] == pytest.approx(2.5 / 15)  # 0.9 + 0.6 + 0.6 + 0.4 over 9 + 3 + 2 + 1
     se = math.sqrt(0.36**2 + 0.6**2 + 0.4**2 + 0.2**2) / 3.92 / 15  # w_f * CI width
     assert full["ci"] == pytest.approx([2.5 / 15 - 1.96 * se, 2.5 / 15 + 1.96 * se])
-    assert ix.weighted_macro(per, ix.MATCHED)["v"] == pytest.approx(1.9 / 13)
+    assert ix.weighted_macro(per, ix.MATCHED_V3)["v"] == pytest.approx(1.9 / 13)
 
 
 def _methods(tmp_path: Path, cfg: dict[str, Any]) -> ix.Methods:
@@ -164,14 +164,15 @@ def test_build_index_mapping_exclusion_and_partial_rows(tmp_path):
     assert rows[("M", 24)]["families"][ix.MAIN]["arm"] == "b"  # falls through a's empty L24
     assert rows[("M", 24)]["families"][ix.MAIN]["v"] == pytest.approx(0.2)
     c = rows[("c", 20)]
-    assert set(c["families"]) == set(ix.FAMILIES)
+    assert set(c["families"]) == set(ix.FAMILIES_V3)
     assert c["families"][ix.AM]["v"] == pytest.approx(0.25)
     assert c["families"][ix.STORY]["v"] == 0.0
     # (9 * 0.5 + 3 * 0.25 + 2 * 13/36 + 1 * 0) / 15 and (4.5 + 0.75 + 0) / 13
-    assert c["full"]["v"] == pytest.approx((4.5 + 0.75 + 26 / 36) / 15)
-    assert c["matched"]["v"] == pytest.approx(5.25 / 13)
+    assert c["full_v3"]["v"] == pytest.approx((4.5 + 0.75 + 26 / 36) / 15)
+    assert c["matched_v3"]["v"] == pytest.approx(5.25 / 13)
     d = rows[("d", 20)]  # no story, no sibling: partial row, neither macro
     assert set(d["families"]) == {ix.MAIN, ix.AM}
+    assert "full_v3" not in d and "matched_v3" not in d
     assert "full" not in d and "matched" not in d
     assert out["version"] == ix.INDEX_VERSION
     md = ix.render_md(out)
@@ -184,7 +185,7 @@ def test_missing_sibling_keeps_matched(tmp_path):
         _write_arm(root / fam, "c", [(_am if fam == "am" else _chat)("i1", 20, ["detail"])])
     sources = {f: [root / n] for f, n in ((ix.MAIN, "main"), (ix.AM, "am"), (ix.STORY, "story"))}
     (row,) = ix.build_index(sources, ix.Methods())["rows"]
-    assert "full" not in row and row["matched"]["v"] == pytest.approx((9 * 0.2 + 3 + 1) / 13)
+    assert "full_v3" not in row and row["matched_v3"]["v"] == pytest.approx((9 * 0.2 + 3 + 1) / 13)
 
 
 def test_duplicate_arm_and_bad_config(tmp_path):

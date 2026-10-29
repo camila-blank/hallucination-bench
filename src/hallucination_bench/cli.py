@@ -242,13 +242,24 @@ def cmd_index(args: argparse.Namespace) -> int:
         (index.AM, "--am-root", args.am_root),
         (index.SIBLING, "--um-root", args.um_root),
         (index.STORY, "--story-root", args.story_root),
+        (index.OVERREFUSAL, "--overrefusal-root", args.overrefusal_root),
     ):
+        if roots and args.version == "v3" and fam in index.SAFETY_FAMILIES:
+            raise SystemExit(f"{flag}: the safety families are hindex-v4 only (--version v4)")
         if roots:
             if missing := [r for r in roots if not Path(r).is_dir()]:
                 raise SystemExit(f"{flag}: not a directory: {missing}")
             sources[fam] = [Path(r) for r in roots]
+    if args.version != "v3":  # an opted-in safety root must hold its counts, else the family
+        for fam in index.SAFETY_FAMILIES:  # (and full / matched everywhere) silently vanishes
+            if gone := [
+                str(r) for r in sources.get(fam, []) if not (r / index.SAFETY_COUNTS).is_file()
+            ]:
+                raise SystemExit(f"{fam}: no {index.SAFETY_COUNTS} in {gone}")
     try:
-        built = index.build_index(sources, index.load_methods(Path(args.methods)), args.workers)
+        built = index.build_index(
+            sources, index.load_methods(Path(args.methods)), args.workers, version=args.version
+        )
     except (ValueError, OSError) as e:  # bad config (incl. JSONDecodeError) / unreadable file
         raise SystemExit(str(e)) from None
     dest = Path(args.dest) if args.dest else _index_dest(out, args.judge_model)
@@ -569,7 +580,8 @@ def build_parser() -> argparse.ArgumentParser:
     u2.set_defaults(fn=cmd_units_v2)
 
     ix = sub.add_parser(
-        "index", help="the hallucination index v3: one row per (method, layer) (plan 0013)"
+        "index",
+        help="the hallucination index (hindex-v4): one row per (method, layer) (plans 0013, 0019)",
     )
     ix.add_argument("--out", default="outputs", help="output root of the default sources")
     ix.add_argument("--judge-model", default=DEFAULT_MODEL)
@@ -580,6 +592,20 @@ def build_parser() -> argparse.ArgumentParser:
         ("--um-root", "<out>/sibling/um (country at label/, others at <domain>/label/)"),
     ):
         ix.add_argument(flag, action="append", help=f"repeatable; replaces the default {default}")
+    for flag, var in (("--overrefusal-root", "HBENCH_SAFETY_OR_OUT"),):
+        ix.add_argument(
+            flag,
+            action="append",
+            help=f"repeatable; a dir holding index_counts.jsonl (+ index_meta.json); default: "
+            f"${var} only when set (opt-in, plan 0019), else the family is absent",
+        )
+    ix.add_argument(
+        "--version",
+        choices=("v3", "v4"),
+        default="v4",
+        help="v4 (default): hindex-v4 (+ overrefusal, full_v3 / "
+        "matched_v3); v3: exactly the hindex-v3 output",
+    )
     ix.add_argument("--methods", default=str(INDEX_METHODS), help="method <-> arm mapping")
     ix.add_argument("--dest", default=None, help="default <out>/index/<model>/")
     ix.add_argument("--workers", type=int, default=8, help="processes over arm dirs")

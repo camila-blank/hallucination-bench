@@ -1,0 +1,675 @@
+{
+ "version": "hindex-v3",
+ "weights": {
+  "family": {
+   "main": 9.0,
+   "agentic_misalignment": 3.0,
+   "sibling": 2.0,
+   "story": 1.0
+  },
+  "main_leaf": {
+   "false_claim": 1.0,
+   "substitution_category": 0.5,
+   "substitution_sibling": 0.5,
+   "detail": 0.2
+  },
+  "unweighted_leaves": [
+   "false_claim",
+   "substitution_category",
+   "detail"
+  ]
+ },
+ "methods": {
+  "M": {
+   "main": [
+    "a",
+    "b"
+   ],
+   "agentic_misalignment": [
+    "M"
+   ],
+   "sibling": [
+    "s"
+   ],
+   "story": [
+    "a2"
+   ]
+  },
+  "c": {
+   "main": [
+    "c"
+   ],
+   "agentic_misalignment": [
+    "c"
+   ],
+   "sibling": [
+    "c"
+   ],
+   "story": [
+    "c"
+   ]
+  },
+  "d": {
+   "main": [
+    "d"
+   ],
+   "agentic_misalignment": [
+    "d"
+   ],
+   "sibling": [
+    "d"
+   ],
+   "story": []
+  },
+  "e": {
+   "main": [],
+   "agentic_misalignment": [
+    "e"
+   ],
+   "sibling": [],
+   "story": [
+    "e"
+   ]
+  }
+ },
+ "exclude": [
+  "x"
+ ],
+ "notes": {
+  "jlens.sibling": "no sibling score: J-lens has committed, probe-testable UM units in at most two of the three domains at every layer, so only `matched` compares it",
+  "nla-rl-L42": "single-layer L42 NLA arms (nla-rl-L42, nla-sft-L42) excluded (Camila 2026-10-20)",
+  "s3d-rl600.main": "the s3d-rl600 arm wins at the layers it has, s3d-rl600-all11 fills the rest",
+  "v4": "DeepSeek-V4-Flash arms (v4-*, plan 0014) are matched by name; their roots are passed beside the Qwen ones. V4 AM is read at layers 21/27/33 only, so V4 `full` / `matched` exist at 21/27/33 only",
+  "v4-jlens-std-n1000.sibling": "no sibling score: no committed, probe-testable country units at any layer (as for jlens)"
+ },
+ "rows": [
+  {
+   "method": "M",
+   "layer": 20,
+   "families": {
+    "main": {
+     "arm": "a",
+     "v": 0.45,
+     "ci": [
+      0.375,
+      0.5769230769230769
+     ],
+     "n": 16,
+     "n_items": 6,
+     "fc": 0.25,
+     "cat": 0.25,
+     "sib": 0.125,
+     "det": 0.0625
+    },
+    "sibling": {
+     "arm": "s",
+     "v": 0.3611111111111111,
+     "ci": [
+      0.125,
+      0.5773809523809524
+     ],
+     "n": 18,
+     "n_items": 11,
+     "per_domain": {
+      "country": {
+       "n": 4,
+       "n_items": 3,
+       "faithful": 0.5,
+       "cross": 0.0,
+       "hall": 0.5
+      },
+      "capital_city": {
+       "n": 6,
+       "n_items": 4,
+       "faithful": 0.6666666666666666,
+       "cross": 0.0,
+       "hall": 0.3333333333333333
+      },
+      "holiday": {
+       "n": 8,
+       "n_items": 4,
+       "faithful": 0.625,
+       "cross": 0.125,
+       "hall": 0.25
+      }
+     }
+    },
+    "story": {
+     "arm": "a2",
+     "v": 0.3333333333333333,
+     "ci": [
+      0.25,
+      0.6666666666666666
+     ],
+     "n": 15,
+     "n_items": 3
+    }
+   }
+  },
+  {
+   "method": "M",
+   "layer": 24,
+   "families": {
+    "main": {
+     "arm": "a",
+     "v": 0.385,
+     "ci": [
+      0.25,
+      0.75
+     ],
+     "n": 20,
+     "n_items": 5,
+     "fc": 0.25,
+     "cat": 0.15,
+     "sib": 0.1,
+     "det": 0.05
+    },
+    "sibling": {
+     "arm": "s",
+     "v": 0.13333333333333333,
+     "ci": [
+      0.0,
+      0.3333333333333333
+     ],
+     "n": 11,
+     "n_items": 9,
+     "per_domain": {
+      "country": {
+       "n": 1,
+       "n_items": 1,
+       "faithful": 1.0,
+       "cross": 0.0,
+       "hall": 0.0
+      },
+      "capital_city": {
+       "n": 5,
+       "n_items": 4,
+       "faithful": 1.0,
+       "cross": 0.0,
+       "hall": 0.0
+      },
+      "holiday": {
+       "n": 5,
+       "n_items": 4,
+       "faithful": 0.6,
+       "cross": 0.0,
+       "hall": 0.4
+      }
+     }
+    },
+    "story": {
+     "arm": "a2",
+     "v": 0.0,
+     "ci": [
+      0.0,
+      0.0
+     ],
+     "n": 2,
+     "n_items": 2
+    }
+   }
+  },
+  {
+   "method": "M",
+   "layer": 28,
+   "families": {
+    "main": {
+     "arm": "a",
+     "v": 0.3,
+     "ci": [
+      0.21875,
+      0.41875
+     ],
+     "n": 16,
+     "n_items": 5,
+     "fc": 0.0,
+     "cat": 0.1875,
+     "sib": 0.3125,
+     "det": 0.25
+    },
+    "sibling": {
+     "arm": "s",
+     "v": 0.08333333333333333,
+     "ci": [
+      0.0,
+      0.3333333333333333
+     ],
+     "n": 12,
+     "n_items": 10,
+     "per_domain": {
+      "country": {
+       "n": 5,
+       "n_items": 4,
+       "faithful": 1.0,
+       "cross": 0.0,
+       "hall": 0.0
+      },
+      "capital_city": {
+       "n": 3,
+       "n_items": 3,
+       "faithful": 1.0,
+       "cross": 0.0,
+       "hall": 0.0
+      },
+      "holiday": {
+       "n": 4,
+       "n_items": 3,
+       "faithful": 0.25,
+       "cross": 0.5,
+       "hall": 0.25
+      }
+     }
+    },
+    "story": {
+     "arm": "a2",
+     "v": 0.4,
+     "ci": [
+      NaN,
+      NaN
+     ],
+     "n": 5,
+     "n_items": 3
+    }
+   }
+  },
+  {
+   "method": "c",
+   "layer": 20,
+   "families": {
+    "main": {
+     "arm": "c",
+     "v": 0.32272727272727275,
+     "ci": [
+      0.2599814814814815,
+      0.4
+     ],
+     "n": 22,
+     "n_items": 7,
+     "fc": 0.13636363636363635,
+     "cat": 0.09090909090909091,
+     "sib": 0.22727272727272727,
+     "det": 0.13636363636363635
+    },
+    "agentic_misalignment": {
+     "arm": "c",
+     "v": 0.5,
+     "ci": [
+      0.36666666666666664,
+      0.6333333333333333
+     ],
+     "n": 30,
+     "n_items": 5
+    },
+    "sibling": {
+     "arm": "c",
+     "v": 0.26666666666666666,
+     "ci": [
+      0.08333333333333333,
+      0.3833333333333333
+     ],
+     "n": 16,
+     "n_items": 10,
+     "per_domain": {
+      "country": {
+       "n": 5,
+       "n_items": 3,
+       "faithful": 0.6,
+       "cross": 0.0,
+       "hall": 0.4
+      },
+      "capital_city": {
+       "n": 6,
+       "n_items": 3,
+       "faithful": 0.8333333333333334,
+       "cross": 0.16666666666666666,
+       "hall": 0.0
+      },
+      "holiday": {
+       "n": 5,
+       "n_items": 4,
+       "faithful": 0.4,
+       "cross": 0.2,
+       "hall": 0.4
+      }
+     }
+    },
+    "story": {
+     "arm": "c",
+     "v": 0.6,
+     "ci": [
+      0.35714285714285715,
+      0.8571428571428571
+     ],
+     "n": 15,
+     "n_items": 4
+    }
+   },
+   "full": {
+    "v": 0.3691919191919192,
+    "ci": [
+     0.3130371724075221,
+     0.42534666597631626
+    ]
+   },
+   "matched": {
+    "v": 0.384965034965035,
+    "ci": [
+     0.3244199269854221,
+     0.44551014294464786
+    ]
+   }
+  },
+  {
+   "method": "c",
+   "layer": 24,
+   "families": {
+    "main": {
+     "arm": "c",
+     "v": 0.29310344827586204,
+     "ci": [
+      0.19189189189189187,
+      0.4000000000000001
+     ],
+     "n": 29,
+     "n_items": 7,
+     "fc": 0.13793103448275862,
+     "cat": 0.20689655172413793,
+     "sib": 0.034482758620689655,
+     "det": 0.1724137931034483
+    },
+    "agentic_misalignment": {
+     "arm": "c",
+     "v": 0.47058823529411764,
+     "ci": [
+      0.2857142857142857,
+      0.6
+     ],
+     "n": 17,
+     "n_items": 4
+    },
+    "sibling": {
+     "arm": "c",
+     "v": 0.13333333333333333,
+     "ci": [
+      0.0,
+      0.3333333333333333
+     ],
+     "n": 14,
+     "n_items": 10,
+     "per_domain": {
+      "country": {
+       "n": 5,
+       "n_items": 3,
+       "faithful": 0.4,
+       "cross": 0.2,
+       "hall": 0.4
+      },
+      "capital_city": {
+       "n": 5,
+       "n_items": 4,
+       "faithful": 0.4,
+       "cross": 0.6,
+       "hall": 0.0
+      },
+      "holiday": {
+       "n": 4,
+       "n_items": 3,
+       "faithful": 0.75,
+       "cross": 0.25,
+       "hall": 0.0
+      }
+     }
+    },
+    "story": {
+     "arm": "c",
+     "v": 0.6,
+     "ci": [
+      NaN,
+      NaN
+     ],
+     "n": 10,
+     "n_items": 4
+    }
+   },
+   "full": {
+    "v": 0.3277574938021185,
+    "ci": [
+     NaN,
+     NaN
+    ]
+   },
+   "matched": {
+    "v": 0.35766890310500854,
+    "ci": [
+     NaN,
+     NaN
+    ]
+   }
+  },
+  {
+   "method": "c",
+   "layer": 28,
+   "families": {
+    "main": {
+     "arm": "c",
+     "v": 0.2,
+     "ci": [
+      0.1125,
+      0.28
+     ],
+     "n": 25,
+     "n_items": 7,
+     "fc": 0.08,
+     "cat": 0.04,
+     "sib": 0.12,
+     "det": 0.2
+    },
+    "agentic_misalignment": {
+     "arm": "c",
+     "v": 0.5,
+     "ci": [
+      0.2,
+      0.7
+     ],
+     "n": 14,
+     "n_items": 4
+    },
+    "sibling": {
+     "arm": "c",
+     "v": 0.20634920634920637,
+     "ci": [
+      0.041666666666666664,
+      0.4444444444444444
+     ],
+     "n": 12,
+     "n_items": 9,
+     "per_domain": {
+      "country": {
+       "n": 7,
+       "n_items": 4,
+       "faithful": 0.5714285714285714,
+       "cross": 0.14285714285714285,
+       "hall": 0.2857142857142857
+      },
+      "capital_city": {
+       "n": 3,
+       "n_items": 3,
+       "faithful": 0.3333333333333333,
+       "cross": 0.3333333333333333,
+       "hall": 0.3333333333333333
+      },
+      "holiday": {
+       "n": 2,
+       "n_items": 2,
+       "faithful": 0.5,
+       "cross": 0.5,
+       "hall": 0.0
+      }
+     }
+    },
+    "story": {
+     "arm": "c",
+     "v": 0.3,
+     "ci": [
+      0.0,
+      0.3333333333333333
+     ],
+     "n": 10,
+     "n_items": 3
+    }
+   },
+   "full": {
+    "v": 0.26751322751322754,
+    "ci": [
+     0.19090029624182103,
+     0.34412615878463404
+    ]
+   },
+   "matched": {
+    "v": 0.27692307692307694,
+    "ci": [
+     0.19413094253558483,
+     0.35971521131056905
+    ]
+   }
+  },
+  {
+   "method": "d",
+   "layer": 20,
+   "families": {
+    "main": {
+     "arm": "d",
+     "v": 0.25,
+     "ci": [
+      NaN,
+      NaN
+     ],
+     "n": 2,
+     "n_items": 3,
+     "fc": 0.0,
+     "cat": 0.5,
+     "sib": 0.0,
+     "det": 0.0
+    },
+    "agentic_misalignment": {
+     "arm": "d",
+     "v": 0.5,
+     "ci": [
+      0.3793103448275862,
+      0.5897435897435898
+     ],
+     "n": 36,
+     "n_items": 6
+    }
+   }
+  },
+  {
+   "method": "d",
+   "layer": 24,
+   "families": {
+    "main": {
+     "arm": "d",
+     "v": 0.3277777777777778,
+     "ci": [
+      0.22000000000000003,
+      0.4625
+     ],
+     "n": 18,
+     "n_items": 4,
+     "fc": 0.2222222222222222,
+     "cat": 0.1111111111111111,
+     "sib": 0.05555555555555555,
+     "det": 0.1111111111111111
+    },
+    "agentic_misalignment": {
+     "arm": "d",
+     "v": 0.4375,
+     "ci": [
+      0.2857142857142857,
+      0.5263157894736842
+     ],
+     "n": 32,
+     "n_items": 6
+    }
+   }
+  },
+  {
+   "method": "e",
+   "layer": 20,
+   "families": {
+    "agentic_misalignment": {
+     "arm": "e",
+     "v": 0.7,
+     "ci": [
+      0.18181818181818182,
+      1.0
+     ],
+     "n": 10,
+     "n_items": 4
+    },
+    "story": {
+     "arm": "e",
+     "v": 0.3684210526315789,
+     "ci": [
+      0.16666666666666666,
+      0.4166666666666667
+     ],
+     "n": 19,
+     "n_items": 5
+    }
+   }
+  },
+  {
+   "method": "e",
+   "layer": 24,
+   "families": {
+    "agentic_misalignment": {
+     "arm": "e",
+     "v": 0.34782608695652173,
+     "ci": [
+      0.1111111111111111,
+      0.5714285714285714
+     ],
+     "n": 23,
+     "n_items": 4
+    },
+    "story": {
+     "arm": "e",
+     "v": 0.0,
+     "ci": [
+      0.0,
+      0.0
+     ],
+     "n": 7,
+     "n_items": 3
+    }
+   }
+  },
+  {
+   "method": "e",
+   "layer": 28,
+   "families": {
+    "agentic_misalignment": {
+     "arm": "e",
+     "v": 0.47368421052631576,
+     "ci": [
+      0.36363636363636365,
+      0.625
+     ],
+     "n": 19,
+     "n_items": 4
+    },
+    "story": {
+     "arm": "e",
+     "v": 0.4375,
+     "ci": [
+      0.3125,
+      0.8333333333333334
+     ],
+     "n": 16,
+     "n_items": 5
+    }
+   }
+  }
+ ]
+}
