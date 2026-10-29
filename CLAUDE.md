@@ -119,6 +119,12 @@ evals/overrefusal/   plan 0015 (own driver + own CLI via EVAL_CLIS; NOT the chat
     run.py       judge-gt, detect, verify, cache-only rebuild -> cells.jsonl / summary.json
     score.py     prompt-weighted rates per (arm, layer, population), prompt bootstrap
     report.py, cli.py
+    wsb_digest.py, wsb_bpe.py  plan 0020: literal port of wsbench digest-v3 + bpe @ 1baaf00
+                 (AST-equality test tests/test_or_digest.py, needs $HBENCH_WSBENCH_PUB)
+    sjudge.py    plan 0020: bundle per (reader, item, layer) -> digest (Opus, Sonnet fallback) ->
+                 strict judge orsj-v3 -> off-topic judge oroff-v1; line provenance
+    sj_metrics.py plan 0020: metric 1 (raw / probe-validated, provenance union), metric 2
+                 (off-topic), recall, health; index_counts.jsonl + index_meta.json
 data/overrefusal/    candidates, gt_labels, items, capture_rows (README = schema)
 scripts/overrefusal/ sample_modal.py (vLLM ground truth), reads.sh (capture + reads + convert)
 evals/mask/          plan 0017 (own CLI `hbench mask`, registered in cli.EVAL_CLIS):
@@ -394,7 +400,20 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
   prompt thresholds; run with `uvx --with numpy`). Reusable artifact:
   `data/overrefusal/probes/refusal_probe_v1.{npz,json}` (schema in `data/overrefusal/README.md`).
   The pre-registered Alpaca threshold fires on ~all OR-Bench prompts; use `_calib` thresholds for
-  borderline prompts. **Rev 7:** use `refusal_probe_v2.{npz,json}` (on-distribution threshold;
+  borderline prompts. **Plan 0019 (11 layers):** new layers 20/24/32/40/48/56/60 live in separate
+  files: probe `refusal_probe_v2_l11.{npz,json}` + `outputs/overrefusal/probe_sites_v2_l11.jsonl`
+  (`probe_modal.py::l11`), readouts `/workspace/hb-readouts-overrefusal-v3` (`reads_l11.sh`,
+  `HBENCH_OR_READOUTS_V3`); `report` keeps the published 4 layers on their merged RNG stream and
+  scores each new layer separately (`scores_new_layers`, `union_11`), and writes
+  `index_counts.jsonl` + `index_meta.json` (`evals/overrefusal/index_export.py`: claim = mention
+  deduped by readout/label/quote; false = verified refusal_intent; comply_intent in the
+  denominator; verifier-rejected dropped; lead positions unprobed). **Plan 0020 (summarize-then-
+  judge) supersedes that index:** `scripts/overrefusal/sj_run.py` (digest -> `orsj-v3` -> `oroff-v1`,
+  caches `digest/ sjudge/ offtopic/`, records `sj_records_<tag>.jsonl`) then
+  `scripts/overrefusal/sj_report.py` (metrics `sj_metrics_<tag>.json` + the index); `report` no
+  longer writes the plan-0019 index once `sj_records_full.jsonl` exists. Unit = item per (reader,
+  layer); the judge sees only numbered digest lines. Calibration labels:
+  `data/overrefusal/sj/calibration_v{1,2,3}.json`. **Rev 7:** use `refusal_probe_v2.{npz,json}` (on-distribution threshold;
   primary); `hbench overrefusal probe-report` reads `outputs/overrefusal/probe_sites_v2.jsonl`
   (`probe_modal.py::v2`). The bank has 360 items (160 / 100 / 100); readouts default
   `$HBENCH_OR_READOUTS` = `/workspace/hb-readouts-overrefusal-v2` (old + `-v2add`, merged by

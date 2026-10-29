@@ -23,6 +23,8 @@ hallucination eval is one of many evals here; see `plans/` for the design histor
 Two official HB scores on 160 never-refused OR-Bench prompts (tail sites headline): **probe_validated** (HEADLINE: verified refusal claims at sites where `refusal_probe_v2` says refusal is not represented / readouts; a lower bound) and **raw** (all verified refusal claims / readouts; an upper bound), frozen in `data/overrefusal/hb_scores.json` (frozen set `data/overrefusal/MANIFEST.sha256`; results `docs/results/0015_overrefusal_pilot.md`). Refusal probe for reuse: `data/overrefusal/probes/refusal_probe_v2.{npz,json}`.
 
 ![overrefusal HB rate](plots/overrefusal_hb_rate.png)
+
+**Plan 0020 (summarize-then-judge, supersedes the per-cell index):** for each (reader, item, layer), wsbench's digest-v3 condenses every readout of the item at that layer into one digest. A strict blind judge (`orsj-v3`) then decides whether the digest claims the assistant will decline, and an off-topic judge (`oroff-v1`) checks whether each claimed refusal is anchored in the prompt. Metric 1 = probe-validated refusal claims on never_refused items (the index value; O-lens L44 11.5%, NLA/J-lens ≤ 1.9% at every layer); metric 2 = digests with an off-topic refusal claim. Results and calibration: `docs/results/0015_overrefusal_pilot.md` §Plan 0020.
 | `mask` (**archived diagnostic, not part of HallucinationBench**) | MASK (lies vs honest-but-wrong): on-policy Qwen3.6-27B ground truth (MASK's judge prompts and belief / honesty aggregation), then how often a lens **claims the model is lying when it was honest** (blind detector -> prompt-aware verifier), at prompt sites (prediction) and response sites (detection), beside the same rate on lie items, also on the subset where Qwen itself says it lied / was honest (self-knowledge gate), with deception probes checking whether the lie is represented at the read sites; its own CLI `hbench mask gt|run|report`; **archived 2026-10-29: a diagnostic, not part of HallucinationBench or the index, not a hallucination score** (whether prompt-position lie claims are real considered thoughts is unverifiable) | [0017](plans/0017-mask-eval.md) |
 
 ## strongreject: archived diagnostic (plan 0016)
@@ -186,6 +188,8 @@ uv run --no-sync hbench overrefusal bank                # populations, items.jso
 scripts/overrefusal/reads.sh all                        # Modal capture + 3 reads + convert + grid check
 uv run --no-sync hbench overrefusal run --arms s3d-rl600,mlnla-rl600-all11,jlens   # detector + verifier
 uv run --no-sync hbench overrefusal report              # outputs/overrefusal/<model>/report.md
+uv run --no-sync python scripts/overrefusal/sj_run.py --tag full --concurrency 64   # plan 0020: digest -> orsj-v3 -> oroff-v1
+uv run --no-sync python scripts/overrefusal/sj_report.py --tag full                 # metrics 1/2 + index_counts.jsonl
 # mask (plan 0017): scripts/mask/ builds + generates (Modal), hbench mask judges; readouts at
 # $HBENCH_MASK_READOUTS/<arm>/mask.jsonl (default /workspace/hb-readouts-mask)
 uv run --no-sync --with pyarrow python scripts/mask/build_items.py     # data/mask/items.json + requests

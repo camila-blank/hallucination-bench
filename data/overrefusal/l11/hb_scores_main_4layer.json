@@ -1,0 +1,533 @@
+{
+ "definition": {
+  "raw": "verified refusal_intent readouts on never_refused / readouts",
+  "probe_validated": "verified refusal_intent readouts on never_refused at sites where refusal_probe_v2 says refusal is NOT represented / readouts (HEADLINE)",
+  "noise": "probe FPR on held-out answered prompts is 5-11%, so some 'supported' claims are supported only by probe false positives: probe_validated is a lower bound and raw an upper bound on the hallucination rate"
+ },
+ "fpr_holdout": {
+  "refusal-dm-v1/L28": {
+   "fpr_holdout": [
+    0.07100591715976332,
+    0.10059171597633136,
+    0.05917159763313609,
+    0.10650887573964497
+   ],
+   "fpr_holdout_content": 0.07138904261206419
+  },
+  "refusal-dm-v1/L36": {
+   "fpr_holdout": [
+    0.07100591715976332,
+    0.08284023668639054,
+    0.05325443786982249,
+    0.08875739644970414
+   ],
+   "fpr_holdout_content": 0.07194244604316546
+  },
+  "refusal-dm-v1/L44": {
+   "fpr_holdout": [
+    0.07692307692307693,
+    0.07692307692307693,
+    0.05917159763313609,
+    0.09467455621301775
+   ],
+   "fpr_holdout_content": 0.07360265633646929
+  },
+  "refusal-dm-v1/L52": {
+   "fpr_holdout": [
+    0.05917159763313609,
+    0.0650887573964497,
+    0.08284023668639054,
+    0.08284023668639054
+   ],
+   "fpr_holdout_content": 0.08328721638074156
+  }
+ },
+ "arms": {
+  "jlens": {
+   "28": {
+    "tail": {
+     "raw": {
+      "n": 160,
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "probe_validated": {
+      "n": 160,
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "n_claims": {
+      "supported": 0,
+      "contradicted": 0,
+      "ungated": 0
+     }
+    },
+    "all": {
+     "raw": {
+      "n": 160,
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "probe_validated_all_but_lead": {
+      "n": 160,
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "n_claims_all_but_lead": {
+      "supported": 0,
+      "contradicted": 0,
+      "ungated": 0
+     }
+    }
+   },
+   "36": {
+    "tail": {
+     "raw": {
+      "n": 160,
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "probe_validated": {
+      "n": 160,
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "n_claims": {
+      "supported": 0,
+      "contradicted": 0,
+      "ungated": 0
+     }
+    },
+    "all": {
+     "raw": {
+      "n": 160,
+      "mean": 0.0011083743842364533,
+      "lo": 0.0,
+      "hi": 0.0031096059113300493
+     },
+     "probe_validated_all_but_lead": {
+      "n": 160,
+      "mean": 0.001282051282051282,
+      "lo": 0.0,
+      "hi": 0.0036057692307692305
+     },
+     "n_claims_all_but_lead": {
+      "supported": 0,
+      "contradicted": 4,
+      "ungated": 0
+     }
+    }
+   },
+   "44": {
+    "tail": {
+     "raw": {
+      "n": 160,
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "probe_validated": {
+      "n": 160,
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "n_claims": {
+      "supported": 0,
+      "contradicted": 0,
+      "ungated": 0
+     }
+    },
+    "all": {
+     "raw": {
+      "n": 160,
+      "mean": 0.0005952380952380952,
+      "lo": 0.0,
+      "hi": 0.0017857142857142857
+     },
+     "probe_validated_all_but_lead": {
+      "n": 160,
+      "mean": 0.0006944444444444444,
+      "lo": 0.0,
+      "hi": 0.0020833333333333333
+     },
+     "n_claims_all_but_lead": {
+      "supported": 0,
+      "contradicted": 2,
+      "ungated": 0
+     }
+    }
+   },
+   "52": {
+    "tail": {
+     "raw": {
+      "n": 160,
+      "mean": 0.0171875,
+      "lo": 0.0078125,
+      "hi": 0.028125
+     },
+     "probe_validated": {
+      "n": 160,
+      "mean": 0.003125,
+      "lo": 0.0,
+      "hi": 0.0078125
+     },
+     "n_claims": {
+      "supported": 9,
+      "contradicted": 2,
+      "ungated": 0
+     }
+    },
+    "all": {
+     "raw": {
+      "n": 160,
+      "mean": 0.002940566209949843,
+      "lo": 0.0014396222606018621,
+      "hi": 0.004711487324612256
+     },
+     "probe_validated_all_but_lead": {
+      "n": 160,
+      "mean": 0.0007720494111623144,
+      "lo": 0.0,
+      "hi": 0.0017889144905273934
+     },
+     "n_claims_all_but_lead": {
+      "supported": 9,
+      "contradicted": 3,
+      "ungated": 0
+     }
+    }
+   }
+  },
+  "mlnla-rl600-all11": {
+   "28": {
+    "tail": {
+     "raw": {
+      "n": 160,
+      "mean": 0.042187499999999996,
+      "lo": 0.029166666666666664,
+      "hi": 0.055221354166666584
+     },
+     "probe_validated": {
+      "n": 160,
+      "mean": 0.015104166666666665,
+      "lo": 0.008333333333333335,
+      "hi": 0.022916666666666665
+     },
+     "n_claims": {
+      "supported": 52,
+      "contradicted": 29,
+      "ungated": 0
+     }
+    },
+    "all": {
+     "raw": {
+      "n": 160,
+      "mean": 0.007260831775397635,
+      "lo": 0.004971880241455422,
+      "hi": 0.009655084472584511
+     },
+     "probe_validated_all_but_lead": {
+      "n": 160,
+      "mean": 0.003390148254104386,
+      "lo": 0.0020871417677774725,
+      "hi": 0.004903026898082087
+     },
+     "n_claims_all_but_lead": {
+      "supported": 54,
+      "contradicted": 40,
+      "ungated": 0
+     }
+    }
+   },
+   "36": {
+    "tail": {
+     "raw": {
+      "n": 160,
+      "mean": 0.01927083333333333,
+      "lo": 0.01145833333333333,
+      "hi": 0.028125
+     },
+     "probe_validated": {
+      "n": 160,
+      "mean": 0.0026041666666666665,
+      "lo": 0.0005208333333333333,
+      "hi": 0.005729166666666665
+     },
+     "n_claims": {
+      "supported": 32,
+      "contradicted": 5,
+      "ungated": 0
+     }
+    },
+    "all": {
+     "raw": {
+      "n": 160,
+      "mean": 0.0053113573175463365,
+      "lo": 0.003579405128676545,
+      "hi": 0.007094849930729392
+     },
+     "probe_validated_all_but_lead": {
+      "n": 160,
+      "mean": 0.0027349492960005474,
+      "lo": 0.001675667167599062,
+      "hi": 0.0039194979390325055
+     },
+     "n_claims_all_but_lead": {
+      "supported": 37,
+      "contradicted": 33,
+      "ungated": 0
+     }
+    }
+   },
+   "44": {
+    "tail": {
+     "raw": {
+      "n": 160,
+      "mean": 0.014583333333333334,
+      "lo": 0.007278645833333333,
+      "hi": 0.022916666666666665
+     },
+     "probe_validated": {
+      "n": 160,
+      "mean": 0.003125,
+      "lo": 0.0005208333333333333,
+      "hi": 0.006770833333333333
+     },
+     "n_claims": {
+      "supported": 22,
+      "contradicted": 6,
+      "ungated": 0
+     }
+    },
+    "all": {
+     "raw": {
+      "n": 160,
+      "mean": 0.005167267364858874,
+      "lo": 0.003167342319696589,
+      "hi": 0.0074889781337587795
+     },
+     "probe_validated_all_but_lead": {
+      "n": 160,
+      "mean": 0.0033048235716863,
+      "lo": 0.0020722729749957473,
+      "hi": 0.00474444580549451
+     },
+     "n_claims_all_but_lead": {
+      "supported": 28,
+      "contradicted": 40,
+      "ungated": 0
+     }
+    }
+   },
+   "52": {
+    "tail": {
+     "raw": {
+      "n": 160,
+      "mean": 0.006770833333333334,
+      "lo": 0.0020833333333333333,
+      "hi": 0.01199218749999993
+     },
+     "probe_validated": {
+      "n": 160,
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "n_claims": {
+      "supported": 13,
+      "contradicted": 0,
+      "ungated": 0
+     }
+    },
+    "all": {
+     "raw": {
+      "n": 160,
+      "mean": 0.0023341061094094948,
+      "lo": 0.0010453940595270895,
+      "hi": 0.0038668557741997835
+     },
+     "probe_validated_all_but_lead": {
+      "n": 160,
+      "mean": 0.0007984484542730913,
+      "lo": 0.00027517895628078817,
+      "hi": 0.0013938855995379639
+     },
+     "n_claims_all_but_lead": {
+      "supported": 22,
+      "contradicted": 9,
+      "ungated": 0
+     }
+    }
+   }
+  },
+  "s3d-rl600": {
+   "28": {
+    "tail": {
+     "raw": {
+      "n": 160,
+      "mean": 0.17149621212121213,
+      "lo": 0.15571969696969695,
+      "hi": 0.18697916666666664
+     },
+     "probe_validated": {
+      "n": 160,
+      "mean": 0.1255681818181818,
+      "lo": 0.10951704545454546,
+      "hi": 0.14166666666666666
+     },
+     "n_claims": {
+      "supported": 88,
+      "contradicted": 241,
+      "ungated": 0
+     }
+    },
+    "all": {
+     "raw": {
+      "n": 160,
+      "mean": 0.03983866986160413,
+      "lo": 0.03499566674841124,
+      "hi": 0.04541490679020788
+     },
+     "probe_validated_all_but_lead": {
+      "n": 160,
+      "mean": 0.032198334505275344,
+      "lo": 0.027873611124033675,
+      "hi": 0.036981533048106995
+     },
+     "n_claims_all_but_lead": {
+      "supported": 141,
+      "contradicted": 388,
+      "ungated": 0
+     }
+    }
+   },
+   "36": {
+    "tail": {
+     "raw": {
+      "n": 160,
+      "mean": 0.04375,
+      "lo": 0.03125,
+      "hi": 0.05625
+     },
+     "probe_validated": {
+      "n": 160,
+      "mean": 0.01927083333333333,
+      "lo": 0.011458333333333333,
+      "hi": 0.028125
+     },
+     "n_claims": {
+      "supported": 47,
+      "contradicted": 37,
+      "ungated": 0
+     }
+    },
+    "all": {
+     "raw": {
+      "n": 160,
+      "mean": 0.0347955353275519,
+      "lo": 0.02783449461469319,
+      "hi": 0.0415738027999045
+     },
+     "probe_validated_all_but_lead": {
+      "n": 160,
+      "mean": 0.02712073153354271,
+      "lo": 0.021464216276038298,
+      "hi": 0.033384670628399477
+     },
+     "n_claims_all_but_lead": {
+      "supported": 144,
+      "contradicted": 326,
+      "ungated": 0
+     }
+    }
+   },
+   "44": {
+    "tail": {
+     "raw": {
+      "n": 160,
+      "mean": 0.05260416666666666,
+      "lo": 0.04010416666666666,
+      "hi": 0.06718749999999998
+     },
+     "probe_validated": {
+      "n": 160,
+      "mean": 0.0203125,
+      "lo": 0.011979166666666666,
+      "hi": 0.029166666666666664
+     },
+     "n_claims": {
+      "supported": 62,
+      "contradicted": 39,
+      "ungated": 0
+     }
+    },
+    "all": {
+     "raw": {
+      "n": 160,
+      "mean": 0.03330988177480755,
+      "lo": 0.02750725630120692,
+      "hi": 0.03951383706088951
+     },
+     "probe_validated_all_but_lead": {
+      "n": 160,
+      "mean": 0.022041495661685277,
+      "lo": 0.017698444788114973,
+      "hi": 0.026680049801322964
+     },
+     "n_claims_all_but_lead": {
+      "supported": 182,
+      "contradicted": 259,
+      "ungated": 0
+     }
+    }
+   },
+   "52": {
+    "tail": {
+     "raw": {
+      "n": 160,
+      "mean": 0.009374999999999998,
+      "lo": 0.0036458333333333334,
+      "hi": 0.015625
+     },
+     "probe_validated": {
+      "n": 160,
+      "mean": 0.0036458333333333334,
+      "lo": 0.0005208333333333333,
+      "hi": 0.007291666666666666
+     },
+     "n_claims": {
+      "supported": 11,
+      "contradicted": 7,
+      "ungated": 0
+     }
+    },
+    "all": {
+     "raw": {
+      "n": 160,
+      "mean": 0.02312350079531799,
+      "lo": 0.018659637041635636,
+      "hi": 0.027618903221990974
+     },
+     "probe_validated_all_but_lead": {
+      "n": 160,
+      "mean": 0.01722571695206781,
+      "lo": 0.01371110039484602,
+      "hi": 0.020902071041677506
+     },
+     "n_claims_all_but_lead": {
+      "supported": 114,
+      "contradicted": 204,
+      "ungated": 0
+     }
+    }
+   }
+  }
+ }
+}
