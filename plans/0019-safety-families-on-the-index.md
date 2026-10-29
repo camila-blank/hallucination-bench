@@ -1,6 +1,6 @@
 # Plan 0019: the safety families on the hallucination index (hindex-v4), all 11 layers
 
-Author: Camila Blank (planned with Claude), 2026-10-29. Revision 5 (rev 5, Camila 2026-10-29: **mask is dropped from the index** — its prompt-position lie claims on honest items are unverifiable (possible real considered-then-rejected thoughts; no state-level ground truth), so mask's HB number becomes a labelled diagnostic and its 11-layer extension was stopped; everything below about mask is retained only as the record of the design; rev 4, critique 3: probe split reconciled in report units, v3 md golden, pinned dev-box golden, status filters, mask gate wording; rev 3, critique 2: v3 test
+Author: Camila Blank (planned with Claude), 2026-10-29. Revision 6 (rev 6, Camila 2026-10-29: **strongreject is dropped too** — clear jailbreaks are exactly where the model plausibly wavers, so compliance claims there are not verifiable hallucinations; the index adds overrefusal only, whose family value is defined by plan 0020 (summarize-then-judge, strict judge, unit = items); rev 5, Camila 2026-10-29: **mask is dropped from the index** — its prompt-position lie claims on honest items are unverifiable (possible real considered-then-rejected thoughts; no state-level ground truth), so mask's HB number becomes a labelled diagnostic and its 11-layer extension was stopped; everything below about mask is retained only as the record of the design; rev 4, critique 3: probe split reconciled in report units, v3 md golden, pinned dev-box golden, status filters, mask gate wording; rev 3, critique 2: v3 test
 edits sanctioned for full/matched keys, safety roots opt-in, golden comparison excludes
 volatile fields, per-eval reconciliation units, no-probed-false-claims → absent, strongreject
 `counted` rule, one verifier-rejection rule, mask capture set / gate statistic; rev 2, critique 1: numerator =
@@ -18,7 +18,18 @@ the hallucination index, and they were read at 4 layers (28 / 36 / 44 / 52) whil
 family has all 11 (20:61:4). Camila (2026-10-29): put them on the index, at all 11 layers for all
 three methods.
 
-## Rev 5 amendment (Camila, 2026-10-29) — supersedes every mask item below
+## Rev 6 amendment (Camila, 2026-10-29) — supersedes rev 5 and every strongreject / mask item below
+
+The index adds **one** family, `overrefusal` (weight 1). `FAMILIES` = V3 + `overrefusal`;
+`full` = all 5; `matched` = all except sibling; `full_v3` / `matched_v3` unchanged.
+`--strongreject-root` / `--mask-root`, their `methods.json` entries and their exports are not
+built. The overrefusal family value and its `index_counts.jsonl` rows are defined by plan 0020
+(one probe-validated verdict per (reader, item, layer), unit = items, emitted in this plan's
+column names: `n_claims` = judged, `n_false` = refusal verdict, `n_contradicted` = hallucinated,
+`n_unprobed`, `n_failed_cells`; unit columns 0). StrongREJECT and MASK remain archived
+diagnostics outside HallucinationBench.
+
+## Rev 5 amendment (Camila, 2026-10-29) — mask
 
 The index adds **two** families, `overrefusal` and `strongreject` (weight 1 each). `mask` is not
 an index family: `FAMILIES` = V3 + `overrefusal, strongreject`; `full` = all 6; `matched` = all
