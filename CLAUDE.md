@@ -12,7 +12,7 @@ the model never refuses; own subcommands `hbench overrefusal ...`) is plan
 `plans/0015-overrefusal-eval.md`. The hallucination index (`hbench index`, one
 macro per (method, layer)) is plan `plans/0013-final-sibling-eval-and-hallucination-index.md`
 (hindex-v3: main / AM / sibling / story) + `plans/0019-safety-families-on-the-index.md`
-(hindex-v4: + overrefusal / strongreject; mask stays off, rev 5). The `mask` eval (MASK lies vs
+(hindex-v4: + overrefusal only; strongreject / mask stay off, revs 6 / 5). The `mask` eval (MASK lies vs
 honest-but-wrong: does the lens claim the model is lying when it is honest? Its own CLI,
 `hbench mask gt|run|report`; not on the index, plan 0019 rev 5) is plan `plans/0017-mask-eval.md`.
 
@@ -62,7 +62,7 @@ src/hallucination_bench/
                   `--eval agentic_misalignment`). A new eval adds its CLI here and lists a
                   `register(sub)` module in EVAL_CLIS, not in cli.py (plan 0012 D2)
   evals/strongreject/   plan 0016 (own CLI `hbench strongreject grade|run|report`, registered in
-                  EVAL_CLIS; not in EVALS; on the index via index_counts.jsonl, plan 0019):
+                  EVAL_CLIS; not in EVALS; not on the index, plan 0019 rev 6):
     families.py   pinned StrongREJECT sources + the 7 families + wrap() (the package's rule)
     grade.py      srgrade-v1: StrongREJECT rubric (JSON) + explicit_refusal; adoption markers; outcome
     bank.py       data/strongreject/items.json; thinned sites (last 64 + every 16th; regions)
@@ -367,13 +367,15 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
   numbers bit for bit (fresh `default_rng(0)` / `Random(0)` per row): any change to weights, claim
   definition or bootstrap bumps `index.INDEX_VERSION`. A new arm is matched by name across
   families; only legacy names / exclusions go in `data/index/methods.json`.
-  **hindex-v4** (plan 0019) adds overrefusal / strongreject (weight 1 each; mask dropped in rev 5; share =
-  Σ `n_contradicted` / Σ `n_claims` from each eval's `index_counts.jsonl`, raw share and health
-  beside it; absent with an `absent_reason` on no claims or all-unprobed false claims; cluster
-  bootstrap, fresh `default_rng(0)` per (family, arm, layer), clusters sorted, percentiles over
-  draws with claims). `full` = 6 families, `matched` = all but sibling, `full_v3` / `matched_v3`
-  always emitted. Reader allowlist `index.SAFETY_READERS` is enforced in the index too. Safety
-  roots are opt-in (`--*-root` or a set `HBENCH_SAFETY_*`; never the paths.py default) so tests
+  **hindex-v4** (plan 0019 rev 6) adds overrefusal only (weight 1; strongreject / mask dropped;
+  share = Σ `n_contradicted` / Σ `n_claims` from its `index_counts.jsonl`, whose rows plan 0020
+  emits as one verdict per item (`n_claims` = judged, unit columns 0, `unit: "items"` in
+  `index_meta.json`); raw share and health beside it; absent with an `absent_reason` on nothing
+  judged or all-unprobed false claims; cluster bootstrap, fresh `default_rng(0)` per (family,
+  arm, layer), clusters sorted, percentiles over draws with claims). `full` = 5 families,
+  `matched` = all but sibling, `full_v3` / `matched_v3` always emitted. Reader allowlist
+  `index.SAFETY_READERS` is enforced in the index too. The overrefusal root is opt-in
+  (`--overrefusal-root` or a set `HBENCH_SAFETY_OR_OUT`; never the paths.py default) so tests
   that build from `tmp_path` stay isolated. The hindex-v3 outputs are pinned by goldens built by
   the v3 code (`tests/fixtures/index_v3/`, `tests/fixtures/index_v3_devbox.{json,md}`; the
   dev-box one skips off the dev box): `--version v3` must reproduce both exactly (minus

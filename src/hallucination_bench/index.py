@@ -8,10 +8,11 @@ Families (each reads another eval's outputs; nothing is re-judged):
   ``(false_claim + substitution_category + detail) / n_claims``;
 * ``sibling``: the 3-domain user-modelling ladder, unweighted mean over domains of the share of
   committed, probe-testable units labelled hallucination (defined only with units in all three);
-* ``overrefusal``, ``strongreject`` (hindex-v4, plan 0019 rev 5; mask is not on the index): the
-  probe-validated share of disposition claims, ``Σ n_contradicted / Σ n_claims`` over the
-  eval's ``index_counts.jsonl`` (one row per (arm, layer, item), written by the eval's report);
-  readers restricted to :data:`SAFETY_READERS`.
+* ``overrefusal`` (hindex-v4, plan 0019 rev 6; strongreject and mask are not on the index): the
+  probe-validated share ``Σ n_contradicted / Σ n_claims`` over the eval's ``index_counts.jsonl``
+  (one row per (arm, layer, item), written by the eval's report; plan 0020: one verdict per
+  item, so ``n_claims`` = judged items, ``unit: "items"`` in ``index_meta.json``); readers
+  restricted to :data:`SAFETY_READERS`.
 
 A claim is one claim-map segment whose scoring leaf is a claim (``taxonomy_v2.is_claim``), pooled
 over every segment of every mapped cell of the (arm, layer). Claim-family CIs: 2,000-draw item
@@ -23,7 +24,7 @@ independent).
 
 ``version="v3"`` emits exactly hindex-v3 (families :data:`FAMILIES_V3`, frozen notes
 :data:`NOTES_V3`); v4 adds the safety families and always emits ``full_v3`` / ``matched_v3`` (the
-v3 macros) beside its own ``full`` (all six) / ``matched`` (all but sibling). The v3 definition
+v3 macros) beside its own ``full`` (all five) / ``matched`` (all but sibling). The v3 definition
 reproduces the exploratory ``hclaims*.py`` / ``um3.py`` / ``macro3.py`` exactly, down to the RNG
 consumption order: change a definition only with a new :data:`INDEX_VERSION`.
 """
@@ -49,12 +50,13 @@ INDEX_VERSION = "hindex-v4"
 INDEX_VERSION_V3 = "hindex-v3"
 VERSIONS: dict[str, str] = {"v3": INDEX_VERSION_V3, "v4": INDEX_VERSION}
 MAIN, AM, SIBLING, STORY = "main", "agentic_misalignment", "sibling", "story"
-OVERREFUSAL, STRONGREJECT = "overrefusal", "strongreject"
+OVERREFUSAL = "overrefusal"
 FAMILIES_V3: tuple[str, ...] = (MAIN, AM, SIBLING, STORY)
 MATCHED_V3: tuple[str, ...] = (MAIN, AM, STORY)  # comparable for methods without a sibling score
 FAMILY_WEIGHTS_V3: dict[str, float] = {MAIN: 9.0, AM: 3.0, SIBLING: 2.0, STORY: 1.0}
 CLAIM_FAMILIES: tuple[str, ...] = (MAIN, AM, STORY)
-SAFETY_FAMILIES: tuple[str, ...] = (OVERREFUSAL, STRONGREJECT)  # mask dropped (plan 0019 rev 5)
+# strongreject and mask were dropped from the index (plan 0019 revs 6 / 5)
+SAFETY_FAMILIES: tuple[str, ...] = (OVERREFUSAL,)
 FAMILIES: tuple[str, ...] = FAMILIES_V3 + SAFETY_FAMILIES
 MATCHED: tuple[str, ...] = tuple(f for f in FAMILIES if f != SIBLING)
 FAMILY_WEIGHTS: dict[str, float] = {**FAMILY_WEIGHTS_V3, **dict.fromkeys(SAFETY_FAMILIES, 1.0)}
@@ -77,12 +79,10 @@ SAFETY_META = "index_meta.json"
 # plan 0019's reader allowlist (the export's arm names): rows of any other arm are ignored
 SAFETY_READERS: dict[str, frozenset[str]] = {
     OVERREFUSAL: frozenset({"s3d-rl600", "mlnla-rl600-all11", "jlens"}),
-    STRONGREJECT: frozenset({"s3d-rl600", "mlnla-rl600", "jlens"}),
 }
 # opt-in roots: read only when passed explicitly or when the variable is set (never its default)
 SAFETY_ENV: dict[str, str] = {
     OVERREFUSAL: "HBENCH_SAFETY_OR_OUT",
-    STRONGREJECT: "HBENCH_SAFETY_SR_OUT",
 }
 SAFETY_INT_COLS: tuple[str, ...] = (
     "n_claims",
@@ -486,7 +486,7 @@ def build_index(
     workers: int = 1,
     version: str = "v4",
 ) -> dict[str, Any]:
-    """Every (method, layer) row with the families it has. v4: ``full`` needs all six families,
+    """Every (method, layer) row with the families it has. v4: ``full`` needs all five families,
     ``matched`` all but sibling, and ``full_v3`` / ``matched_v3`` are the v3 macros; v3
     (``version="v3"``): exactly hindex-v3 (``full`` = four families, ``matched`` =
     :data:`MATCHED_V3`). Missing roots mean an absent family, not an error."""
@@ -584,6 +584,9 @@ def build_index(
             f: {
                 "share": "n_contradicted / n_claims (probe-validated); raw = n_false / n_claims",
                 "readers": sorted(SAFETY_READERS[f]),
+                "unit": sorted(
+                    {str(m["meta"].get("unit")) for m in safety[f][3] if m["meta"] is not None}
+                ),
                 "ignored_arms": sorted(safety[f][2]),
                 "meta": safety[f][3],
                 "absent": [
@@ -668,13 +671,13 @@ def render_md(index: Mapping[str, Any]) -> str:
         "",
         "% of claims hallucinated per (method, layer), 95% CIs. Family weights "
         + ", ".join(f"{f} {w:g}" for f, w in fw.items())
-        + "; `full` = all six families, `matched` = all but sibling, `full_v3` = hindex-v3's "
+        + "; `full` = all five families, `matched` = all but sibling, `full_v3` = hindex-v3's "
         "`full` (main + agentic_misalignment + sibling + story). main leaf weights "
         + ", ".join(f"{k} {w:g}" for k, w in lw.items())
         + "; agentic_misalignment / story: unweighted "
         + " + ".join(index["weights"]["unweighted_leaves"])
-        + "; sibling: 3-domain UM ladder; overrefusal / strongreject: probe-validated "
-        "share of disposition claims (false claims the eval's probe contradicts / claims).",
+        + "; sibling: 3-domain UM ladder; overrefusal: probe-validated share (plan 0020: "
+        "items with a false refusal claim the refusal probe contradicts / judged items).",
         "",
         "| method | layer | full | matched | full_v3 | " + " | ".join(FAMILIES) + " "
         "| main fc / cat / sib / det |",
