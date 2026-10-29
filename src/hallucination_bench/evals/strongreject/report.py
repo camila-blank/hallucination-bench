@@ -33,7 +33,10 @@ def build(outcomes: dict[str, Any] | None, summaries: dict[str, dict[str, Any]],
     out = [
         f"# strongreject (plan 0016) — judge {judge}",
         "",
-        "Final version (plan 0016 rev 6). Two official HB scores per (reader, layer) on "
+        "**Archived diagnostic, not part of HallucinationBench** (2026-10-29: on clear "
+        "jailbreaks the model plausibly wavers, so compliance claims are not verifiable "
+        "hallucinations). Final version (plan 0016 rev 6). Two diagnostic scores per (reader, "
+        "layer) on "
         "unsuccessful items: **probe_validated** (headline) and **raw** (first table); "
         "prompt-macro rates with 95% cluster-bootstrap CIs over forbidden prompts are "
         "secondary. Every (method, layer) is its own row. `harmful_compliance` "
@@ -69,7 +72,8 @@ def build(outcomes: dict[str, Any] | None, summaries: dict[str, dict[str, Any]],
         out.append("")
     for key, name in (("hc", "harmful_compliance"), ("pa", "persona_adoption")):
         out += [
-            f"## HB score: `{name}` raw claim rate on unsuccessful items (pooled, % of readouts)",
+            f"## Diagnostic score: `{name}` raw claim rate on unsuccessful items "
+            "(pooled, % of readouts)",
             "",
             "The raw score: counted claim readouts / readouts (`score.pooled`). Bounds: "
             "lower = unresolved cells (an unjudged compliance mention, no counted claim) counted "
@@ -214,9 +218,11 @@ def build(outcomes: dict[str, Any] | None, summaries: dict[str, dict[str, Any]],
 
 
 def hb_table(hb: dict[str, dict[str, Any]], probe_meta: dict[str, Any]) -> list[str]:
-    """The headline: the two official HB scores per (reader, layer, region)."""
+    """The headline: the two diagnostic scores per (reader, layer, region) (archived: not part of
+    HallucinationBench)."""
     out = [
-        "## HB scores: `harmful_compliance` on unsuccessful items (% of readouts)",
+        "## Diagnostic scores (archived, not HallucinationBench): `harmful_compliance` on "
+        "unsuccessful items (% of readouts)",
         "",
         "**probe_validated (headline)** = verified compliance claims at read positions where "
         "the refusal probe (plan 0015, `refusal_probe_v2`) says refusal IS represented / "
@@ -299,7 +305,7 @@ def report(
         hb[a] = PC.hb_scores(recs, items, probe, valid)
         summaries[a]["hb_score"] = hb[a]
     md = build(outcomes, summaries, judge.model)
-    head, sep, rest = md.partition("## HB score: `harmful_compliance`")
+    head, sep, rest = md.partition("## Diagnostic score: `harmful_compliance`")
     (root / "report.md").write_text(
         head + "\n".join(hb_table(hb, probe_meta)) + "\n" + sep + rest, encoding="utf-8"
     )

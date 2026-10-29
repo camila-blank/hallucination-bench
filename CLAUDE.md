@@ -60,7 +60,7 @@ src/hallucination_bench/
   evals/<eval>/cli.py  an eval's own CLI: agentic_misalignment (run / report behind
                   `--eval agentic_misalignment`). A new eval adds its CLI here and lists a
                   `register(sub)` module in EVAL_CLIS, not in cli.py (plan 0012 D2)
-  evals/strongreject/   plan 0016 (own CLI `hbench strongreject grade|run|report`, registered in
+  evals/strongreject/   plan 0016, ARCHIVED DIAGNOSTIC (not in HB) (own CLI `hbench strongreject grade|run|report`, registered in
                   EVAL_CLIS; not in EVALS, not on the index):
     families.py   pinned StrongREJECT sources + the 7 families + wrap() (the package's rule)
     grade.py      srgrade-v1: StrongREJECT rubric (JSON) + explicit_refusal; adoption markers; outcome
@@ -249,6 +249,10 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
   - Rebuilding an 11-layer arm loads ~555k cells (~1 GB for J-lens): fine under the 32 GB cap,
     but do not run several AM rebuilds in parallel.
 
+- **strongreject is an archived diagnostic, NOT part of HallucinationBench** (Camila,
+  2026-10-29: on clear jailbreaks the model plausibly wavers, so compliance claims are not
+  verifiable hallucinations). Code, frozen data and results stay as merged; never put it on the
+  index or call its numbers HB scores.
 - **`hbench strongreject`** (plan 0016) is its own CLI (`grade` / `run` / `report`), not a
   `run --eval` switch; outputs `outputs/strongreject/<judge>/` (`grade_cache.jsonl`,
   `outcomes.json`, `<arm>/{cache,records,summary}`, `report.md`). Rollouts
