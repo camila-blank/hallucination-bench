@@ -436,3 +436,79 @@ Relabelling only; the numbers are unchanged. The two official scores are frozen 
   only by probe false positives. Probe-validated is a **lower bound** and raw an **upper bound**.
 - All-position versions are in `report.md`: raw over every position, probe-validated over every
   position except the 3 lead tokens.
+
+## Plan 0019: 11 layers and the index export (2026-10-29)
+
+The bank, readers, detector and verifier (`ordetect-v2` / `orverify-v3`, Sonnet 5.5) and the
+probe recipe are unchanged. The published layers 28/36/44/52 are byte-identical: `report.json`
+scores, `hb_scores.json` entries and old-layer cache row counts were all checked before and
+after. The 7 new layers each get their own RNG stream.
+
+**Step 0 dry run** (index claims on `never_refused`, old 4 layers, L28/L36/L44/L52):
+
+| reader | claims | false |
+|---|---|---|
+| O-lens | 1537 / 1673 / 1742 / 1429 | 702 / 579 / 513 / 372 |
+| multilayer NLA | 162 / 139 / 126 / 60 | 112 / 77 / 73 / 34 |
+| J-lens | **0** / 4 / 4 / 18 | 0 / 4 / 3 / 14 |
+
+J-lens has no claims at L28, so its family value is absent there.
+
+**New layers.**
+- 427 items, every prompt position, captured as `hb-overrefusal-L11-read`; 79,275 cells per
+  reader at the new layers; the 11-layer grid is complete.
+- Probe extension: `data/overrefusal/probes/refusal_probe_v2_l11.{npz,json}` (pinned v1 / v2
+  files untouched; both new files in `MANIFEST.sha256`).
+
+**Gates at the new layers** (all pass):
+
+| layer | OOF AUROC | transfer at `assistant` (hard_refused vs never) | worst tail offset | held-out FPR range |
+|---|---|---|---|---|
+| L20 | ≥ 0.996 | 0.87 | 0.82 | 9.5–14.2% |
+| L24 | ≥ 0.996 | 0.86 | 0.83 | 6.5–9.5% |
+| L32 | ≥ 0.996 | 0.97 | 0.88 | 5.3–10.7% |
+| L40 | ≥ 0.996 | 0.99 | 0.81 | 5.3–9.5% |
+| L48 | ≥ 0.996 | 0.99 | 0.84 | 6.5–10.1% |
+| L56 | ≥ 0.996 | 1.00 | 0.77 | 3.0–8.9% |
+| L60 | ≥ 0.996 | 1.00 | 0.79 | 5.3–7.7% |
+
+The FPR at L20 is above nominal, which biases the probe-validated value down there.
+
+**Index family value** = probe-contradicted claims / claims, % (probe-validated / raw = false /
+claims), with `n_claims` in brackets. — = absent.
+
+| reader | L20 | L24 | L28 | L32 | L36 | L40 | L44 | L48 | L52 | L56 | L60 |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| O-lens | 13.9 / 24.5 (1114) | 18.2 / 30.4 (934) | 31.0 / 45.7 (1537) | 26.1 / 40.7 (1599) | 23.5 / 34.6 (1673) | 22.9 / 37.0 (2000) | 16.6 / 29.4 (1742) | 16.5 / 30.1 (1525) | 15.7 / 26.0 (1429) | 13.2 / 28.4 (1401) | 17.2 / 33.5 (1453) |
+| multilayer NLA | 12.7 / 30.9 (55) | 27.6 / 48.0 (123) | 27.8 / 69.1 (162) | 17.9 / 43.6 (117) | 25.2 / 55.4 (139) | 26.0 / 58.3 (127) | 32.5 / 57.9 (126) | 16.1 / 50.5 (93) | 16.7 / 56.7 (60) | 19.0 / 50.8 (63) | 21.4 / 52.9 (70) |
+| J-lens | — (0) | 0.0 / 0.0 (1) | — (0) | 66.7 / 66.7 (3) | 100 / 100 (4) | 100 / 100 (3) | 75.0 / 75.0 (4) | 0.0 / 50.0 (6) | 16.7 / 77.8 (18) | 32.4 / 51.4 (37) | 0.0 / 25.0 (4) |
+
+- J-lens values rest on 1–37 claims, so they are not meaningful at most layers.
+- Unprobed false claims (lead positions only, since every gate passes): O-lens 0–9 per layer,
+  NLA 0–1, J-lens 0.
+
+**HB scores at the new layers** (`never_refused`, tail, % readouts, probe-validated / raw; the
+published layers are unchanged):
+
+| reader | L20 | L24 | L32 | L40 | L48 | L56 | L60 |
+|---|---|---|---|---|---|---|---|
+| O-lens | 3.4 / 5.8 | 4.0 / 5.7 | 7.8 / 11.6 | 2.1 / 5.3 | 1.9 / 4.7 | 0.4 / 0.7 | 0.7 / 1.5 |
+| multilayer NLA | 0.1 / 0.6 | 1.2 / 2.2 | 0.1 / 0.7 | 0.1 / 1.7 | 0.1 / 1.1 | 0.1 / 0.5 | 0.0 / 0.5 |
+| J-lens | 0.0 / 0.0 | 0.0 / 0.0 | 0.0 / 0.0 | 0.0 / 0.0 | 0.0 / 0.0 | 0.2 / 0.6 | 0.0 / 0.2 |
+
+**Health.**
+- Failed (API-refused) cells, all 11 layers: O-lens 241, NLA 74, J-lens 0.
+- Unverified refusal candidates: O-lens 60, NLA 40. They keep the detector label (merged rule).
+- On `never_refused`, failed cells per (arm, layer) are 0–10 (in `index_counts` `n_failed_cells`).
+
+**Exports.**
+- `outputs/overrefusal/claude-sonnet-5-5/index_counts.jsonl`: 3 readers × 11 layers × 160 items
+  = 5,280 rows.
+- `index_meta.json`: prompt versions, probe sha256s, gates per (layer, site class).
+- Reconciliation with the merged report and probe report at the old layers is test-asserted.
+
+**Spend (plan 0019, overrefusal).**
+- API (Sonnet detection + verification at 7 new layers): J-lens $38.8, O-lens $166.3, NLA $177.3,
+  about $382 in total.
+- Modal: 3 captures (about 0.5 H200-h); reads: s3d 150 shards (about 6 H200-h), NLA 300 shards
+  (about 45 H200-h), J-lens H100 (about 0.3 h); probe fits 7 CPU containers. About $230 in total.

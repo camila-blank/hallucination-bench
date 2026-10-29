@@ -389,7 +389,14 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
   prompt thresholds; run with `uvx --with numpy`). Reusable artifact:
   `data/overrefusal/probes/refusal_probe_v1.{npz,json}` (schema in `data/overrefusal/README.md`).
   The pre-registered Alpaca threshold fires on ~all OR-Bench prompts; use `_calib` thresholds for
-  borderline prompts. **Rev 7:** use `refusal_probe_v2.{npz,json}` (on-distribution threshold;
+  borderline prompts. **Plan 0019 (11 layers):** new layers 20/24/32/40/48/56/60 live in separate
+  files: probe `refusal_probe_v2_l11.{npz,json}` + `outputs/overrefusal/probe_sites_v2_l11.jsonl`
+  (`probe_modal.py::l11`), readouts `/workspace/hb-readouts-overrefusal-v3` (`reads_l11.sh`,
+  `HBENCH_OR_READOUTS_V3`); `report` keeps the published 4 layers on their merged RNG stream and
+  scores each new layer separately (`scores_new_layers`, `union_11`), and writes
+  `index_counts.jsonl` + `index_meta.json` (`evals/overrefusal/index_export.py`: claim = mention
+  deduped by readout/label/quote; false = verified refusal_intent; comply_intent in the
+  denominator; verifier-rejected dropped; lead positions unprobed). **Rev 7:** use `refusal_probe_v2.{npz,json}` (on-distribution threshold;
   primary); `hbench overrefusal probe-report` reads `outputs/overrefusal/probe_sites_v2.jsonl`
   (`probe_modal.py::v2`). The bank has 360 items (160 / 100 / 100); readouts default
   `$HBENCH_OR_READOUTS` = `/workspace/hb-readouts-overrefusal-v2` (old + `-v2add`, merged by
