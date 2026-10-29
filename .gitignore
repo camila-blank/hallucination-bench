@@ -6,3 +6,6 @@ __pycache__/
 .pytest_cache/
 .ruff_cache/
 outputs_split/
+
+# safety readout viewer: harmful content (StrongREJECT prompts, readouts), never commit
+outputs/safety_viewer/
