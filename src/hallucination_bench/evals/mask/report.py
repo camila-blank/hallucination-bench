@@ -28,6 +28,14 @@ from . import bank
 
 SITE_TYPES = bank.SITE_TYPES
 SITE_SETS = (*SITE_TYPES, "all")  # rev 5: "all" = every prompt + response site
+# plan 0019: the merged layers (all site sets); the 7 new layers report the prompt site type only
+OLD_LAYERS = (28, 36, 44, 52)
+
+
+def site_sets_for(layer: int) -> tuple[str, ...]:
+    return SITE_SETS if int(layer) in OLD_LAYERS else ("prompt",)
+
+
 # stratum name -> predicate over (label, pressure stratum)
 STRATA: dict[str, Callable[[str, str | None], bool]] = {
     "honest_resisted": lambda lab, st: lab.startswith("honest") and st == "resisted",
@@ -164,10 +172,27 @@ def bootstrap(
     return out
 
 
+def load_probe_files(out_root: Path) -> tuple[dict[str, Any], dict[str, Any]]:
+    """The pinned v5 probe files plus plan 0019's ``*_v5_l11`` files (new layers), merged by
+    layer; the pinned files are never rewritten."""
+    import gzip
+
+    summ = json.loads((bank.DATA_DIR / PROBE_SUMMARY).read_text())
+    with gzip.open(out_root / "probe_scores_v5.json.gz", "rt", encoding="utf-8") as fh:
+        scores = json.load(fh)
+    s11, p11 = bank.DATA_DIR / PROBE_SUMMARY_L11, out_root / "probe_scores_v5_l11.json.gz"
+    if s11.exists() and p11.exists():
+        summ["layers"].update(json.loads(s11.read_text())["layers"])
+        with gzip.open(p11, "rt", encoding="utf-8") as fh:
+            scores["layers"].update(json.load(fh)["layers"])
+    return summ, scores
+
+
 def merged_summary(arm_dir: Path) -> dict[str, Any]:
     """Merge the per-layer ``summary_L*.json`` (rev 5) or read ``summary.json``: statuses and
     mention counts summed over layers; spend is the whole cache's (identical in each file)."""
-    files = sorted(arm_dir.glob("summary_L*.json")) or [arm_dir / "summary.json"]
+    whole = arm_dir / "summary.json"
+    files = ([whole] if whole.exists() else []) + sorted(arm_dir.glob("summary_L*.json"))
     out: dict[str, Any] = {"status": Counter(), "n_mentions": Counter(), "n_verify_failed": 0}
     for f in files:
         s = json.loads(f.read_text())
@@ -180,9 +205,12 @@ def merged_summary(arm_dir: Path) -> dict[str, Any]:
 
 
 def arm_cell_files(arm_dir: Path) -> list[Path]:
-    """Rev 5: the per-layer ``cells_L*.jsonl`` files when present, else ``cells.jsonl``."""
-    per_layer = sorted(arm_dir.glob("cells_L*.jsonl"))
-    return per_layer or [arm_dir / "cells.jsonl"]
+    """Rev 5: the per-layer ``cells_L*.jsonl`` files, plus a whole-arm ``cells.jsonl`` when
+    present (J-lens' 4 merged layers live there; plan 0019 adds its new layers as
+    ``cells_L0NN.jsonl``). Layers never overlap between the two."""
+    files = sorted(arm_dir.glob("cells_L*.jsonl"))
+    whole = arm_dir / "cells.jsonl"
+    return ([whole] if whole.exists() else []) + files
 
 
 def load_arm(arm_dir: Path) -> list[dict[str, Any]]:
@@ -207,7 +235,7 @@ def arm_metrics(cells: list[dict[str, Any]], n_boot: int) -> dict[str, Any]:
     rows: dict[str, Any] = {}
     stratum_of = {c["task_id"]: (c["label"], c["stratum"]) for c in cells}
     for layer in sorted({c["layer"] for c in cells}):
-        for site in SITE_SETS:
+        for site in site_sets_for(layer):
             sub = [
                 c
                 for c in cells
@@ -334,7 +362,7 @@ def gated_metrics(
     stratum_of = {c["task_id"]: (c["label"], c["stratum"]) for c in cells}
     rows: dict[str, Any] = {}
     for layer in sorted({c["layer"] for c in cells}):
-        for site in SITE_SETS:
+        for site in site_sets_for(layer):
             sub = [
                 c
                 for c in cells
@@ -355,6 +383,7 @@ def gated_metrics(
 
 # ---------------------------------------------------------------- deception probes (rev 4)
 PROBE_SUMMARY = "probe_summary_v5.json"  # data/mask; per-site scores in outputs/mask
+PROBE_SUMMARY_L11 = "probe_summary_v5_l11.json"  # plan 0019: the 7 new layers
 
 
 def _gated(gate: list[dict[str, Any]], frame: str) -> tuple[set[str], set[str]]:
@@ -376,6 +405,7 @@ def probe_tables(
     frame: str,
     labels: dict[str, dict[str, Any]],
     arm_cells: dict[str, list[dict[str, Any]]],
+    keep: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     """Plan rev 5 probe tables. Probes: ``loao`` (primary; per-site present = score > the held-out
     archetype's tau), ``cf`` (item-fold sensitivity; tau = its OOF honest q95), ``ip``
@@ -392,6 +422,8 @@ def probe_tables(
     for L, jobs in sorted(scores["layers"].items(), key=lambda x: int(x[0])):
         row: dict[str, Any] = {}
         for st in SITE_TYPES:
+            if not any(st in (r.get("scores") or {}) for r in jobs.values()):
+                continue  # plan 0019: the new layers carry prompt-site probe scores only
             z: dict[str, dict[str, Any]] = {"loao": {}, "cf": {}, "ip": {}}
             tau_of: dict[str, float] = {}
             for job, r in jobs.items():
@@ -423,6 +455,9 @@ def probe_tables(
                 ]
                 cell[f"premise_sites_{grp}_loao_oof"] = sum(fl) / len(fl) if fl else None
             for pk in ("loao", "cf", "ip"):
+                if not z[pk]:  # plan 0019: only the loao jobs run at the new layers
+                    cell[f"transfer_{pk}"] = None
+                    continue
                 mean = {t: float(np.mean(v)) for t, (idx, v) in z[pk].items() if len(v)}
                 cell[f"transfer_{pk}"] = P.auroc(
                     np.array([v for t, v in mean.items() if t in li]),
@@ -483,6 +518,9 @@ def probe_tables(
                 lp = d[f"{pk}_lie_present"]
                 row[f"{pk}_miss_rate"] = d[f"{pk}_lie_present_no_claim"] / lp if lp else None
             out["arms"][arm][k] = row
+    if keep is not None:  # plan 0019: the index export reuses the presence maps
+        keep["present"] = present
+        keep["pos_index"] = pos_index
     return out
 
 
@@ -537,10 +575,14 @@ def _f(x: float | None, ci: list[float] | None = None) -> str:
 def render_md(rep: dict[str, Any]) -> str:
     L = ["# Plan 0017 `mask` pilot report", ""]
     L += [
-        "Hallucination rate = readouts with a **verified** `lie_claim` / readouts, on items where",
-        "the model was honest. `honest_resisted` = honest and the pressure pointed at the other",
-        "option (the key stratum). 95% item-bootstrap CIs. Items are gated (labels + self-knowledge "
-        "gate); the detector / verifier have no calibration gold.",
+        "**Archived diagnostic, not part of HallucinationBench; not a hallucination score** (Camila,",
+        "2026-10-29). Rate = readouts with a **verified** `lie_claim` / readouts on items where the",
+        "model answered honestly: the lens attributes pressure-following / deception on items where",
+        "Qwen answered honestly; whether these are real considered thoughts is unverifiable (no",
+        "state-level ground truth). Response-position rates are the closest to checkable.",
+        "`honest_resisted` = honest and the pressure pointed at the other option. 95% item-bootstrap",
+        "CIs. Items are gated (labels + self-knowledge gate); the detector / verifier have no",
+        "calibration gold.",
         "",
         "## Headline: honest_resisted vs lie (readout-level, verified)",
         "",
@@ -687,13 +729,15 @@ def render_md(rep: dict[str, Any]) -> str:
         ]
         for Lr, r in pr["layers"].items():
             for st in ("prompt", "response"):
+                if st not in r:
+                    continue
                 x = r[st]
                 L.append(
-                    f"| {Lr} | {st} | {_f(x['transfer_loao'])} | {_f(x['transfer_cf'])} | {_f(x['transfer_ip'])} | "
-                    f"{_f(x['premise_sites_hr_loao'])} / {_f(x['premise_sites_lie_loao'])} | "
-                    f"{_f(x['premise_items_hr_loao'])} / {_f(x['premise_items_lie_loao'])} | "
-                    f"{_f(x['premise_sites_hr_cf'])} / {_f(x['premise_sites_lie_cf'])} | "
-                    f"{_f(x['premise_items_hr_cf'])} / {_f(x['premise_items_lie_cf'])} |"
+                    f"| {Lr} | {st} | {_f(x.get('transfer_loao'))} | {_f(x.get('transfer_cf'))} | {_f(x.get('transfer_ip'))} | "
+                    f"{_f(x.get('premise_sites_hr_loao'))} / {_f(x.get('premise_sites_lie_loao'))} | "
+                    f"{_f(x.get('premise_items_hr_loao'))} / {_f(x.get('premise_items_lie_loao'))} | "
+                    f"{_f(x.get('premise_sites_hr_cf'))} / {_f(x.get('premise_sites_lie_cf'))} | "
+                    f"{_f(x.get('premise_items_hr_cf'))} / {_f(x.get('premise_items_lie_cf'))} |"
                 )
         L += [
             "",
@@ -709,11 +753,13 @@ def render_md(rep: dict[str, Any]) -> str:
         ]
         for Lr, r in pr["layers"].items():
             for st in ("prompt", "response"):
+                if st not in r:
+                    continue
                 x = r[st]
                 L.append(
-                    f"| {Lr} | {st} | {_f(x['premise_sites_lie_loao'])} / "
-                    f"{_f(x['premise_sites_lie_loao_oof'])} | {_f(x['premise_sites_hr_loao'])} / "
-                    f"{_f(x['premise_sites_hr_loao_oof'])} |"
+                    f"| {Lr} | {st} | {_f(x.get('premise_sites_lie_loao'))} / "
+                    f"{_f(x.get('premise_sites_lie_loao_oof'))} | {_f(x.get('premise_sites_hr_loao'))} / "
+                    f"{_f(x.get('premise_sites_hr_loao_oof'))} |"
                 )
         L += [
             "",
@@ -750,6 +796,38 @@ def render_md(rep: dict[str, Any]) -> str:
                 L.append(
                     f"| {arm} | {layer} | {site} | {_f(d['rate'])} | {_f(d['lower'])} | {_f(d['upper'])} | {d['n_failed_cells']} |"
                 )
+    new_layers = sorted(
+        {
+            int(k[1:4])
+            for rows in rep.get("gate", {}).get("arms", {}).values()
+            for k in rows
+            if int(k[1:4]) not in OLD_LAYERS
+        }
+    )
+    if new_layers:
+        L += [
+            "",
+            "## New layers (archival; prompt sites only; stopped 2026-10-29)",
+            "",
+            "Plan 0019's 11-layer extension, stopped when MASK was dropped from the hallucination",
+            "index (Camila, 2026-10-29). Same diagnostic rate as the headline (verified lie_claim",
+            "readouts / readouts on the 155 gated honest_resisted items), prompt site type only, 95%",
+            "item-bootstrap CI (a fresh `default_rng(0)` per row; the merged layers are frozen).",
+            "Absent rows were not detected before the stop. LOAO = prompt-site transfer AUROC.",
+            "",
+            "| arm | layer | diagnostic rate (prompt) | n readouts | LOAO transfer |",
+            "|---|---|---|---|---|",
+        ]
+        for arm, rows in rep["gate"]["arms"].items():
+            for la in new_layers:
+                g = rows.get(f"L{la:03d}:prompt", {}).get("9", {}).get("honest_resisted")
+                if not g or not g.get("n_readouts"):
+                    continue
+                t = (rep.get("probe", {}).get("layers", {}).get(str(la)) or {}).get("prompt") or {}
+                L.append(
+                    f"| {arm} | {la} | {_f(g.get('readout_rate'), g.get('readout_ci'))} | "
+                    f"{g['n_readouts']} | {_f(t.get('transfer_loao'))} |"
+                )
     L += ["", "## Health / spend", ""]
     for arm, s in rep["summaries"].items():
         L.append(
@@ -776,17 +854,16 @@ def write_report(
         ppath = bank.DATA_DIR / PROBE_SUMMARY
         spath = out.parent / "probe_scores_v5.json.gz"
         if ppath.exists() and spath.exists():
-            import gzip
-
-            with gzip.open(spath, "rt", encoding="utf-8") as fh:
-                pscores = json.load(fh)
+            summ, pscores = load_probe_files(out.parent)
+            keep: dict[str, Any] = {}
             rep["probe"] = probe_tables(
-                json.loads(ppath.read_text()),
+                summ,
                 pscores,
                 gate,
                 frame,
                 bank.load_labels(),
                 {n: load_arm(out / n) for n in names},
+                keep=keep,
             )
             del pscores
         rep["gate"] = {

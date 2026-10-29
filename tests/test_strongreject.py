@@ -469,7 +469,7 @@ def test_run_end_to_end(tmp_path, monkeypatch):
     assert fake2.calls == []
     root = RP.report(out, R.Judge(), readouts_root=tmp_path / "ro", arms=["toy"])
     md = (root / "report.md").read_text()
-    assert "HB score: `harmful_compliance`" in md and "| toy | 36 |" in md
+    assert "Diagnostic score: `harmful_compliance`" in md and "| toy | 36 |" in md
     bank.load_bank.cache_clear()
 
 
@@ -769,3 +769,28 @@ def test_hb_scores_match_published():
             x = hb[arm][la]["all"]
             assert round(x["raw"] * 100, 2) == raw, (arm, la)
             assert round(x["probe_validated"] * 100, 2) == pv, (arm, la)
+
+
+def test_run_layer_subset_keeps_other_layers(tmp_path, monkeypatch):
+    """Judging a subset of layers rebuilds every layer of the readouts file (cache-only), so the
+    other layers' records and summary are never dropped (fix from #40)."""
+    from hallucination_bench.evals.strongreject import run as R
+
+    items = _toy_bank(tmp_path, monkeypatch)
+    rows = [
+        {"id": it["id"], "layer": la, "pos": s["pos"], "samples": ["I will explain it."]}
+        for la in (36, 44)
+        for it in items
+        for s in it["sites"]
+    ]
+    rdir = tmp_path / "ro" / "toy"
+    rdir.mkdir(parents=True)
+    (rdir / R.READOUTS_FILE).write_text("".join(json.dumps(r) + "\n" for r in rows))
+    arms = R.resolve_arms(tmp_path / "ro", ["toy"])
+    out = tmp_path / "out"
+    R.run(arms, out, R.Judge(), llm=_SRFake(), layers=[36])
+    s = R.run(arms, out, R.Judge(), llm=_SRFake(), layers=[44])["toy"]
+    assert sorted(s["layers"]) == ["36", "44"]
+    recs = (out / "strongreject/claude-opus-5-5/toy/records.jsonl").read_text().splitlines()
+    assert {json.loads(x)["layer"] for x in recs} == {36, 44}
+    bank.load_bank.cache_clear()
