@@ -501,6 +501,10 @@ published layers are unchanged):
 - Unverified refusal candidates: O-lens 60, NLA 40. They keep the detector label (merged rule).
 - On `never_refused`, failed cells per (arm, layer) are 0–10 (in `index_counts` `n_failed_cells`).
 
+**Claim dedup.** Claims are deduplicated by (readout, label, `readouts.normalize_ws(quote)`).
+That function collapses whitespace, lowercases and maps typographic quotes. `index_meta.json`
+records it as `"dedup": "normalize_ws"`.
+
 **Exports.**
 - `outputs/overrefusal/claude-sonnet-5-5/index_counts.jsonl`: 3 readers × 11 layers × 160 items
   = 5,280 rows.

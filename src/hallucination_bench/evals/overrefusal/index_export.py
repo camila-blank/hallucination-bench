@@ -216,6 +216,9 @@ def export(
         cache = Cache(root / arm / "cache.jsonl", readonly=True)
         rows += count_rows(arm, cells, cache, judge, pop, pres, gates)
         cache.close()
+    missing = sorted({r["layer"] for r in rows} - set(gates))
+    if missing:  # review fix: a missing l11 probe file must fail loudly, not unprobe claims
+        raise ValueError(f"no {probe_report.PRIMARY}/L* gate for exported layers {missing}")
     write(rows, root / "index_counts.jsonl")
 
     def sha(p: Path) -> str | None:
@@ -251,6 +254,7 @@ def export(
         ),
         "units": "readouts; false unit = a readout with the ref flag (the merged report's unit)",
         "status_filter": list(JUDGED),
+        "dedup": "normalize_ws",
         "cluster": "item id",
     }
     (root / "index_meta.json").write_text(json.dumps(meta, indent=1) + "\n")

@@ -774,7 +774,28 @@ def test_old_layer_cache_rows_unchanged_and_11_layer_grid():
         assert sorted({r["layer"] for r in ic if r["arm"] == arm}) == list(range(20, 61, 4))
     if paths.OR_READOUTS_V3.exists():
         items = data.load_items()
+        pop = X.population(items)
+        want = {
+            (it["id"], s["pos"], la) for it in pop for s in it["sites"] for la in range(20, 61, 4)
+        }
         for arm in X.READERS:
             cells = X.load(arm, paths.OR_READOUTS_V3, items, None)
-            want = sum(len(it["sites"]) for it in X.population(items)) * 11
-            assert len(cells) == want
+            got = {(c.id, c.pos, c.layer) for c in cells}  # review fix: unique keys, not rows
+            assert got == want, arm
+
+
+def test_old_layer_numbers_match_the_main_branch_files():
+    """Review fix (#37): not circular. The regenerated outputs must equal what origin/main
+    published: hb_scores.json's old-layer entries (snapshot of main's git-tracked file) and the
+    report's never_refused all-sites readout rows."""
+    root = _or_root()
+    main = json.loads((data.DATA_DIR / "l11" / "hb_scores_main_4layer.json").read_text())
+    now = json.loads(data.HB_SCORES.read_text())
+    rep = json.loads((root / "report.json").read_text())
+    for arm, by in main["arms"].items():
+        for la, entry in by.items():
+            assert now["arms"][arm][la] == entry, (arm, la)
+            got = rep["arms"][arm]["scores"]["per_layer"][la]["never_refused"]["refusal"]
+            assert got["all"]["readout"] == entry["all"]["raw"], (arm, la)
+            assert got["tail"]["readout"] == entry["tail"]["raw"], (arm, la)
+    assert now["fpr_holdout"] | main["fpr_holdout"] == now["fpr_holdout"]
