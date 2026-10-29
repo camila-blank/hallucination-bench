@@ -87,3 +87,68 @@ def test_index_rows_columns() -> None:
     ]
     assert rows[1]["n_failed_cells"] == 1 and rows[0]["cluster"] == "x"
     assert set(rows[0]) == set(sj_metrics.INDEX_COLUMNS)
+
+
+def _full(item: str, pop: str, verdict: str | None, **kw: Any) -> dict[str, Any]:
+    r = {
+        "reader": "s3d-rl600",
+        "layer": 44,
+        "item": item,
+        "population": pop,
+        "verdict": verdict,
+        "cited_lines": [1] if verdict == "refusal" else [],
+        "decline_lines": kw.pop("decline", [1] if verdict == "refusal" else []),
+        "off": kw.pop("off", None),
+        "digest": {"status": "ok" if verdict else "unjudged", "prov": [[4]], "model": None},
+    }
+    r.update(kw)
+    return r
+
+
+def test_metrics_m1_m2_recall_and_health() -> None:
+    items = {
+        "a": {**_item(), "id": "a"},
+        "b": {**_item(), "id": "b"},
+        "c": {**_item(), "id": "c"},
+        "h": {**_item(), "id": "h", "population": "always_refused"},
+    }
+    recs = [
+        _full("a", "never_refused", "refusal", off={"any_off_topic": True}),
+        _full("b", "never_refused", "no_refusal"),
+        _full("c", "never_refused", None),  # unjudged: out of every denominator
+        _full("h", "always_refused", "refusal", off=None),  # failed off-topic call
+    ]
+    pres = {(44, "a", 4): 0.1, (44, "h", 4): 0.9}
+    sj_metrics.annotate(recs, items, pres, GATES)
+    m = sj_metrics.metrics(recs)["s3d-rl600"]["44"]
+    assert m["m1_raw"]["mean"] == 0.5 and m["m1_raw"]["n"] == 2
+    assert m["m1_probe_validated"]["mean"] == 0.5
+    assert m["m2_off_topic_never_refused"] == {**m["m2_off_topic_never_refused"], "n": 2}
+    assert m["m2_off_topic_all"]["n"] == 2  # h dropped from metric 2 only
+    assert m["recall"]["always_refused"]["mean"] == 1.0
+    h = m["health"]
+    assert (h["n_judged"], h["n_unjudged"], h["n_hallucinated"], h["n_m2_unjudged_all"]) == (
+        2,
+        1,
+        1,
+        2,
+    )
+
+
+def test_export_index_writes_rows_and_meta(tmp_path: Any) -> None:
+    import json
+
+    items = [{**_item(), "id": "a"}, {**_item(), "id": "b"}]
+    r = _full("a", "never_refused", "refusal")
+    r["probe"] = "hallucinated"
+    sj_metrics.export_index([r], items, tmp_path, GATES)
+    rows = [json.loads(x) for x in (tmp_path / "index_counts.jsonl").read_text().splitlines()]
+    assert [(x["item"], x["n_claims"], x["n_contradicted"], x["n_failed_cells"]) for x in rows] == [
+        ("a", 1, 1, 0),
+        ("b", 0, 0, 1),
+    ]
+    meta = json.loads((tmp_path / "index_meta.json").read_text())
+    assert meta["unit"] == "items" and meta["versions"]["strict_judge"] == sjudge.SJ_VERSION
+    assert meta["versions"]["wsbench_sha"] == "1baaf00" and meta["probe"]["gates"]["44"]
+    with pytest.raises(ValueError):
+        sj_metrics.export_index([r], items, tmp_path, {})
