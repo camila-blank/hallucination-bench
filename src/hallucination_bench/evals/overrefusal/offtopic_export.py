@@ -80,7 +80,7 @@ def index_rows(
     0019's columns + ``population``; and the failure tallies. A missing or repeated record, or a
     record of an unknown item, is an error."""
     by_item = {it["id"]: it for it in items}
-    keep = set(index_export.READERS if readers is None else readers)  # plan 0019's allowlist
+    keep = set(index_export.EXPORT_READERS if readers is None else readers)  # plan 0019 + 0024
     got: dict[tuple[str, int, str], Mapping[str, Any]] = {}
     for r in recs:
         if r["reader"] not in keep:

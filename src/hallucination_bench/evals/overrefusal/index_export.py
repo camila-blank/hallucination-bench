@@ -30,6 +30,9 @@ from hallucination_bench.readouts import Cell, load_readouts, normalize_ws
 from . import data, detect, run
 
 READERS = ("s3d-rl600", "mlnla-rl600-all11", "jlens")  # plan 0019 allowlist
+# plan 0024: the readers the plan-0020 / plan-0022 index exports keep = the allowlist + the final
+# O-lens campaign arm (its records live only in its own root, so every earlier export is unchanged)
+EXPORT_READERS = (*READERS, "final-olens-rl600-x4")
 JUDGED = ("ok", "accepted_partial", "empty")
 COLUMNS = (
     "arm",

@@ -158,7 +158,7 @@ def index_rows(recs: Sequence[dict[str, Any]], items: Sequence[dict[str, Any]]) 
     layers = sorted({r["layer"] for r in recs})
     rows = []
     for a in arms:
-        if a not in index_export.READERS:
+        if a not in index_export.EXPORT_READERS:
             continue
         for la in layers:
             for it in pop:
