@@ -39,6 +39,32 @@ def ci(vals: Sequence[float]) -> dict[str, Any]:
     }
 
 
+def cells_status(
+    cells: Sequence[int] | set[int],
+    item: dict[str, Any],
+    layer: int,
+    pres: dict[tuple[int, str, int], float],
+    gates: dict[int, dict[str, bool]],
+) -> str:
+    """``hallucinated`` | ``backed`` | ``unprobed`` for a set of provenance cells: hallucinated iff
+    >= 1 valid probe-absent cell and no valid probe-present cell."""
+    absent = present = False
+    for pos in cells:
+        cls = index_export.site_class(item, pos)
+        if cls == "lead" or not gates.get(layer, {}).get(cls, False):
+            continue
+        p = pres.get((layer, item["id"], pos))
+        if p is None:
+            raise KeyError(f"no probe site row for {item['id']} pos {pos} L{layer}")
+        if p >= 0.5:
+            present = True
+        else:
+            absent = True
+    if present:
+        return "backed"
+    return "hallucinated" if absent else "unprobed"
+
+
 def probe_status(
     rec: dict[str, Any],
     item: dict[str, Any],
@@ -49,21 +75,7 @@ def probe_status(
     cells: set[int] = set()
     for k in rec.get("cited_lines") or []:
         cells.update(rec["digest"]["prov"][k - 1])
-    absent = present = False
-    for pos in cells:
-        cls = index_export.site_class(item, pos)
-        if cls == "lead" or not gates.get(rec["layer"], {}).get(cls, False):
-            continue
-        p = pres.get((rec["layer"], item["id"], pos))
-        if p is None:
-            raise KeyError(f"no probe site row for {item['id']} pos {pos} L{rec['layer']}")
-        if p >= 0.5:
-            present = True
-        else:
-            absent = True
-    if present:
-        return "backed"
-    return "hallucinated" if absent else "unprobed"
+    return cells_status(cells, item, rec["layer"], pres, gates)
 
 
 def off_judged(rec: dict[str, Any]) -> bool | None:

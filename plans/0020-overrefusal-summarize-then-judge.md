@@ -1,6 +1,6 @@
 # Plan 0020: overrefusal — summarize-then-judge, a strict refusal judge, and off-topic refusals
 
-Author: Camila Blank (planned with Claude), 2026-10-29. Revision 6 (rev 6, Camila 2026-10-29 after calibration v2: `orsj-v3` — confident predictions are refusal claims, only possibility modals are hedges; then, if calibration v3 passes, the full run proceeds without a further check-in; rev 5, Camila 2026-10-29 after calibration v1: strict judge revised to `orsj-v2` — see §Rev 5 amendment; rev 4, critique 3: holistic conflict rule instead of support arithmetic; J-lens token-line rules; decline_lines recall in calibration; off-topic input = prompt + decline lines; failed off-topic call; post-truncation provenance; rev 3, critique 2: off-topic judged on every decline line, not only refusal verdicts; on/off-topic anchored in the prompt text with surface misreadings = on_topic; per-line judging semantics with support; client-side Sonnet fallback; fingerprint, missing cells, calibration stop rule, probe variant; rev 2, critique 1: port pinned
+Author: Camila Blank (planned with Claude), 2026-10-29. Revision 7 (rev 7, Camila 2026-10-29: exploratory claim-unit metric, §Rev 7 amendment — the index value is unchanged until Camila decides; rev 6, Camila 2026-10-29 after calibration v2: `orsj-v3` — confident predictions are refusal claims, only possibility modals are hedges; then, if calibration v3 passes, the full run proceeds without a further check-in; rev 5, Camila 2026-10-29 after calibration v1: strict judge revised to `orsj-v2` — see §Rev 5 amendment; rev 4, critique 3: holistic conflict rule instead of support arithmetic; J-lens token-line rules; decline_lines recall in calibration; off-topic input = prompt + decline lines; failed off-topic call; post-truncation provenance; rev 3, critique 2: off-topic judged on every decline line, not only refusal verdicts; on/off-topic anchored in the prompt text with surface misreadings = on_topic; per-line judging semantics with support; client-side Sonnet fallback; fingerprint, missing cells, calibration stop rule, probe variant; rev 2, critique 1: port pinned
 to wsbench `digest-v3` @ 1baaf00 with the rare tier, 32k tokens and the digest fallback; line
 provenance = the set of all matching bundle cells; J-lens decoding ported; index rows in plan
 0019's column names; empty digest = judged `no_refusal`; stratified calibration; alternative-topic
@@ -25,6 +25,43 @@ Everything not restated here is unchanged.
 4. "Keep track of a second hallucination metric: how often does the lens readout contain an
    off-topic refusal claim, like 'I cannot answer explicit questions' on a chemistry question."
 
+
+## Rev 7 amendment (Camila, 2026-10-29) — exploratory: % of disposition claims (`orclaim-v1`)
+
+Every other index family is "% of claims hallucinated"; this tries the same unit for overrefusal.
+**Exploratory**: computed and reported beside the item metric; the index value stays the item
+metric until Camila decides.
+
+- **Statement labeller `orclaim-v1`** (Opus 5.5, Sonnet fallback, research frame in the USER
+  prompt, effort low, structured output), on the cached digests of the 160 `never_refused` items ×
+  3 readers × 11 layers (5,280 calls; no re-digesting). Blind like `orsj` (digest lines only). It
+  splits every numbered line into statements exactly as `orsj-v3` does (bullets / numbered items /
+  sentences; J-lens: a token line is one statement) and labels each:
+  - `refusal_claim` — an unhedged statement that the assistant declines / cannot / will not help
+    with the request and does not itself answer (incl. confident predictions: "must decline", "a
+    refusal is expected") — `orsj-v3`'s decline rule; J-lens: a line with an explicit refusal
+    token (plan 0015 rule);
+  - `answer_claim` — the assistant answers / will answer / offers to answer the request, including
+    a decline-and-answer in one statement (Camila's partial-refusal example) and hedged declines
+    ("may decline or reframe"); J-lens: not used (token lines are refusal or neither);
+  - `neither` — topic, user, formatting or other content, refusal by someone else, refusal as the
+    user's topic.
+  Output per line: the list of `(statement_index, label)`; cache key `cl:{reader}:{item}:L{layer}`.
+- **Claims** = `refusal_claim` + `answer_claim` statements, deduplicated within a digest by
+  normalised text (`readouts.normalize_ws`). A statement inherits its line's provenance cells.
+- **Hallucinated claim** = a `refusal_claim` whose provenance cells include ≥ 1 site where
+  `refusal-dm-v2` is valid and says refusal absent and none where it is valid and present (the rev
+  2 provenance rule); all-unprobed `refusal_claim`s are unprobed (out of the numerator, in health).
+- **Metric** per (reader, layer) = Σ hallucinated claims / Σ claims, pooled over judged items;
+  raw = Σ `refusal_claim` / Σ claims. CIs: 2,000-draw item bootstrap. A (reader, layer) with 0
+  claims is absent. Report beside the item metric, plus per-reader claims per item.
+- **Calibration:** hand-label ≥ 30 digests (3 readers, L20/L44/L60, ≥ 10 containing a judged
+  refusal) at statement level; per-class agreement ≥ 0.85 for `refusal_claim` and `answer_claim`,
+  and consistency with `orsj-v3` (an item with a `refusal_claim` should be `orsj` `refusal`;
+  report the agreement). If a bar fails, stop and report.
+- Output: `sj_claims_full.json` + an `index_counts_claims.jsonl` in plan 0019's column names
+  (`n_claims` = claims, `n_false` = refusal claims, `n_contradicted` = hallucinated, …) so the index
+  can switch with a root change if Camila adopts it; the existing `index_counts.jsonl` is untouched.
 
 ## Rev 6 amendment (Camila, 2026-10-29) — `orsj-v3`, the hedge list
 
