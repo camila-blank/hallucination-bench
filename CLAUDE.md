@@ -130,6 +130,8 @@ evals/overrefusal/   plan 0015 (own driver + own CLI via EVAL_CLIS; NOT the chat
                  strict judge orsj-v3 -> off-topic judge oroff-v1; line provenance
     sj_metrics.py plan 0020: metric 1 (raw / probe-validated, provenance union), metric 2
                  (off-topic), recall, health; index_counts.jsonl + index_meta.json
+    sclaim.py    plan 0020 rev 7 (exploratory): orclaim-v1 statement labeller + claim-unit metric
+                 (scripts/overrefusal/sj_claims.py -> sj_claims_full.json, index_counts_claims.jsonl)
 data/overrefusal/    candidates, gt_labels, items, capture_rows (README = schema)
 scripts/overrefusal/ sample_modal.py (vLLM ground truth), reads.sh (capture + reads + convert)
 evals/mask/          plan 0017 (own CLI `hbench mask`, registered in cli.EVAL_CLIS):
