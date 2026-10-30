@@ -1,6 +1,6 @@
 # Plan 0021: hindex-v5 — agentic misalignment on candidate claims
 
-Author: Camila Blank (planned with Claude), 2026-10-30. Revision 1. Builds on plan 0008 (AM claim
+Author: Camila Blank (planned with Claude), 2026-10-30. Revision 2 (rev 2, critique 1: library default stays v4 and v5 is the CLI default, so exactly one pre-existing CLI call gains `--version v4`; v4 notes/md frozen in code; dev-box v4 golden with a safety-root mirror; #43 cross-check without the version assert; `n_all_claims`; absent entry). Builds on plan 0008 (AM claim
 map), plan 0013 (`hbench index`), plan 0019 rev 6 (hindex-v4) and the exploratory re-scoring in
 PR #43 (`docs/results/am_candidate_claims_exploratory.md`, `scripts/index/am_candidate_claims.py`).
 Everything not restated here is unchanged.
@@ -33,11 +33,17 @@ J-lens; it stays a documented sensitivity check).
   layer; items with 0 candidate claims stay in as zero rows). Absent iff Σ candidate claims = 0.
   CIs: the existing 2,000-draw item bootstrap, fresh `default_rng(0)` per (family, arm, layer).
 - Readout / segment health columns as in `claim_rows` (unchanged). Report `n` (candidate claims)
-  and the all-claims `n` beside it.
+  and **`n_all_claims`** (v5 AM rows only; a separate tally in the same pass). A v5 AM value that
+  is absent (0 candidate claims) gets a `row["absent"]["agentic_misalignment"]` entry
+  (`"0 candidate claims"`), as safety families do.
 
 ## Index versions
 
-- `INDEX_VERSION = "hindex-v5"`; `VERSIONS = {"v3", "v4", "v5"}`; **v5 is the default**. v5 =
+- `INDEX_VERSION_V5 = "hindex-v5"`; `INDEX_VERSION` keeps meaning `"hindex-v4"` (pre-existing
+  tests assert it); `VERSIONS = {"v3", "v4", "v5"}`. **v5 is the default of the `hbench index`
+  CLI**; `build_index(..., version=...)` keeps **`"v4"` as its library default**, so every
+  pre-existing library-level test keeps exercising v4 unchanged (the synthetic AM fixtures have no
+  `mentions` / segment offsets and would make AM absent under v5). v5 =
   v4 (families main, AM, sibling, story, overrefusal; weights 9/3/2/1/1; `full`, `matched`,
   `full_v3`, `matched_v3`) with AM replaced by the candidate-claim value everywhere it is used,
   **including `full_v3` / `matched_v3`** (they keep meaning "the v3 family set", computed with v5
@@ -47,6 +53,13 @@ J-lens; it stays a documented sensitivity check).
 - Implementation: `claim_rows(cells_path, family, *, am_candidates: bool = False)`, one streaming
   pass (the 11-layer arms are ~555k cells; never materialise all cells), candidate filtering only
   when `family == AM and am_candidates`. `build_index` passes `am_candidates = (version == "v5")`.
+- **v4 notes and md frozen in code**: v4 `notes` today come live from `methods.json` and
+  `render_md` branches only for v3. Add frozen v4 notes (the exact strings the #42 run emitted)
+  and a `version == "hindex-v4"` md branch byte-identical to today's v4 header, mirroring the v3
+  freeze. The v5 note lives **in code**, merged only for v5 — `methods.json` is not edited. The v5
+  header must not call `full_v3` "hindex-v3's `full`": it says "the v3 family set, with v5 family
+  definitions". The CLI's v3 + `--overrefusal-root` error keeps the substring `hindex-v4 only`
+  (a pre-existing test matches it).
 - Notes / md: the v5 header note states AM's unit ("candidate claims: claims overlapping a
   detected misalignment-mention span"), overrefusal's (items) and the others' (all claims).
 
@@ -55,17 +68,26 @@ J-lens; it stays a documented sensitivity check).
 - **v4 golden**: generate `tests/fixtures/index_v4/golden/{index.json,index.md}` from the
   **pre-change** code (origin/main @ the merge base) on the existing synthetic fixture set plus a
   synthetic overrefusal root, and a dev-box v4 golden (`index_v4_devbox.{json,md}`) from the
-  official #42 run; assert `--version v4` reproduces both (VOLATILE keys excluded, as the v3
-  goldens). The v3 goldens stay untouched and must still pass.
+  official #42 run (`index.py` / `methods.json` unchanged since it); assert `version="v4"`
+  reproduces both (VOLATILE keys excluded, as the v3 goldens). The dev-box test needs a
+  **safety-root mirror** (the overrefusal `index_counts.jsonl` filtered to the pinned arms +
+  `index_meta.json`); a **new** v4 helper builds `arms` over v4's families (the existing
+  `_pinned_roots` covers `FAMILIES_V3` only and stays unchanged). The v3 goldens stay untouched
+  and must still pass. A v5 synthetic fixture set (AM cells with `mentions` and segment
+  `start`/`end`) for the v5 tests.
 - Synthetic unit tests for the candidate rule: overlap by 1 char counts; touching (`end == a`)
   does not; a segment in another readout of the same cell does not; overlapping mentions merge;
   non-claim leaves excluded; an item with mentions but no overlapping claims is a zero row; an
   arm-layer with 0 candidates is absent.
 - **Cross-check against #43**: a test (skipped when the AM outputs are absent) that v5 AM values,
-  CIs and `n` equal `am_candidate_claims.py` variant (a) for every arm × layer.
-- No pre-existing test assertion changes except `ix.INDEX_VERSION` repoints that the version bump
-  forces (`tests/test_index.py:177,214` — the asserted constant changes, the assertion does not).
-  Any other change to a pre-existing test is a red flag.
+  CIs and `n` equal the variant-(a) matrices from `am_candidate_claims.arm_rows` (imported, not the
+  script's `main`, whose `index["version"] == ix.INDEX_VERSION` assert is relaxed to
+  `"hindex-v4"`) for every arm × layer.
+- **Exactly one sanctioned change to a pre-existing test:** `tests/test_index_v4.py` (the CLI test
+  near line 362) — the default-version `cli.main([... "--overrefusal-root", ...])` call gains
+  `"--version", "v4"` so it keeps testing v4; its assertions (`"hindex-v4"`, overrefusal 0.5) are
+  unchanged. A new test asserts the CLI default is v5. Any other change to a pre-existing test
+  (including any assertion) is a red flag.
 
 ## Deliverables / run
 
