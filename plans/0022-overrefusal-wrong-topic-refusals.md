@@ -1,6 +1,6 @@
 # Plan 0022: hindex-v6 — overrefusal scored as wrong-topic refusals
 
-Author: Camila Blank (planned with Claude), 2026-10-30. Revision 2 (rev 2, critique 1: read the fingerprint-resolved `sj_records_full.jsonl`, not the raw caches; explicit failure rules; unit guard tolerant of meta-less test roots; sanctioned edits to `test_versions` / `test_cli_default_is_v5`; v6 wherever v5 is checked; J-lens note; `hbench report` guard). Builds on plan 0020 rev 7
+Author: Camila Blank (planned with Claude), 2026-10-30. Revision 3 (rev 3, critique 2: int/str key comparison, `r.get("off")`, failed rows zeroed; rev 2, critique 1: read the fingerprint-resolved `sj_records_full.jsonl`, not the raw caches; explicit failure rules; unit guard tolerant of meta-less test roots; sanctioned edits to `test_versions` / `test_cli_default_is_v5`; v6 wherever v5 is checked; J-lens note; `hbench report` guard). Builds on plan 0020 rev 7
 (overrefusal digests, `orsj-v3` strict judge with `decline_lines`, `oroff-v1` off-topic judge,
 claim-unit sensitivity check), plan 0019 rev 6 (safety-family index rows) and plan 0021
 (hindex-v5). Everything not restated here is unchanged. **No new judging**: every number comes
@@ -38,12 +38,15 @@ items** (all populations).
   keys under older fingerprints (older digests), and a key join disagrees on ~165 records.
 - **Failure rules** (each such item-layer is excluded, `n_failed_cells` = 1):
   unjudged = `digest.status != "ok"` (681 in the cache); strict judge failed = status ok and
-  `verdict is None` (38); off-topic failed = non-empty `decline_lines` and `off is None` (21). An
+  `verdict is None` (38); off-topic failed = non-empty `decline_lines` and `r.get("off") is None` (21). An
   off-topic call exists only when `decline_lines` is non-empty (`sjudge.py:459`); empty
   `decline_lines` with status ok and a verdict = a judged zero row.
-- **Key alignment**: assert that every `off.topics` key equals a `decline_lines` entry of the same
-  record and every decline line has a topic (fail loudly; the critique counted 0 mismatches in
-  `sj_records_full.jsonl`).
+- **Key alignment**: `decline_lines` entries are ints, `off.topics` keys are JSON strings; assert
+  `set(r["off"]["topics"]) == {str(k) for k in r["decline_lines"]}` for every record with a
+  non-null `off` (fail loudly; 0 mismatches in `sj_records_full.jsonl`). Records with empty
+  `decline_lines` have **no `off` key** — always read it as `r.get("off")`.
+- Failed item-layers (the three rules above) are rows with `n_claims = n_false = n_contradicted
+  = 0` and `n_failed_cells = 1` — including the 21 off-topic failures that do have decline lines.
 - **Secondary (not on the index)**: (i) the same share on the 160 `never_refused` items only;
   (ii) off-topic decline lines / disposition claims (`orclaim-v1` refusal + answer claims,
   never_refused, the plan-0020 rev 7 claims rows); (iii) the plan-0020 item metric (the hindex-v4/v5
