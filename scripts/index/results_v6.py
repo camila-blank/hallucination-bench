@@ -100,7 +100,7 @@ def secondary_table(sec: dict[str, Any]) -> str:
             return f"— ({c.get('absent_reason')})"
         return f"{100 * c['v']:.1f} [{100 * c['ci'][0]:.1f}, {100 * c['ci'][1]:.1f}]"
 
-    for meth, rd in READER.items():
+    for rd in READER.values():
         for la, c in sorted(sec[rd].items(), key=lambda kv: int(kv[0])):
             ix, nv, dc, it = (
                 c[k] for k in ("index", "never_refused", "per_disposition_claim", "item_metric")

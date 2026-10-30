@@ -2,8 +2,9 @@
 
 Plan: [`plans/0022-overrefusal-wrong-topic-refusals.md`](../../plans/0022-overrefusal-wrong-topic-refusals.md)
 (rev 3). The index was built by `hbench index` (default `--version v6`) on branch
-`camila/index-v6-offtopic-refusals` (code as committed with this doc; working tree `8c38ba9` plus
-the uncommitted v6 change). **Nothing was re-judged**: the overrefusal rows come from the cached
+`camila/index-v6-offtopic-refusals` (the run's `git_sha` reads `8c38ba9`, the working tree before the v6 commit;
+an independent review rebuilt the index from the committed code and got byte-identical
+`index.json` / `index.md`, `git_sha` aside). **Nothing was re-judged**: the overrefusal rows come from the cached
 plan-0020 records `sj_records_full.jsonl` via `hbench overrefusal offtopic-export`. The full
 generated table (all 331 rows) is [`0022_index_v6_full.md`](0022_index_v6_full.md), a copy of
 `outputs/index/claude-opus-5-5/index.md`.
