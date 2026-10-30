@@ -63,9 +63,9 @@ def test_bank_is_verbatim_copy() -> None:
 
 
 def test_header_provenance_and_hb_only_file() -> None:
-    assert ITEMS["version"] == 1 and ITEMS["wsb_sha"] == wsb.WSB_SHA
+    assert ITEMS["version"] == 1 and ITEMS["wsb_sha"] == wsb.BANK_WSB_SHA
     assert ITEMS["source_bank"] == (
-        f"workspace-bench@{wsb.WSB_SHA}:evals/jailbreak_recognition/items_v2.json"
+        f"workspace-bench@{wsb.BANK_WSB_SHA}:evals/jailbreak_recognition/items_v2.json"
     )
     hb = json.loads(bank.HB_ONLY_BANK.read_text())
     assert hb["source_bank"] == ITEMS["source_bank"] and hb["family"] == "jailbreak_recognition"
