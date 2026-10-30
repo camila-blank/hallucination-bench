@@ -742,6 +742,8 @@ Spend for plan 0020:
 
 ## Plan 0020 rev 7 (exploratory): claim-unit metric, `orclaim-v1` (2026-10-29)
 
+Sensitivity check — not the index value (Camila, 2026-10-30: overrefusal stays item-unit).
+
 Every other index family is "% of claims hallucinated", so this tries the same unit for
 overrefusal. Coverage: never_refused × 3 readers × 11 layers, on the cached digests
 (`scripts/overrefusal/sj_claims.py`, `evals/overrefusal/sclaim.py`).
@@ -757,29 +759,32 @@ overrefusal. Coverage: never_refused × 3 readers × 11 layers, on the cached di
 
 **Calibration** (31 digests; labels in
 [`data/overrefusal/sj/calibration_claims_v1.json`](../../data/overrefusal/sj/calibration_claims_v1.json)):
-- `refusal_claim` agreement: 15/17 = 0.88. Recall was 15/19; 3 of the 4 misses are truncated or
-  "refusal-plus-pivot" declines.
-- `answer_claim` agreement: 57/60 sampled = 0.95.
-- Consistency with `orsj-v3`: 28/31. On the full run, 4,992/5,188 = 96.2% of judged digests agree:
-  - 562 digests have both a refusal_claim and an orsj refusal; 4,430 have neither.
+- The rev-7 bar is **per-class agreement**: among the statements the labeller put in a class, the
+  share whose label matches my hand label.
+- `refusal_claim` agreement: 15/17 = 0.88 (every refusal_claim checked).
+- ⚠ **Flagged weakness:** `refusal_claim` recall is 15/19 = 0.79, which would fail 0.85 if the bar
+  were read as recall. 3 of the 4 misses are truncated or "refusal-plus-pivot" declines.
+- `answer_claim` agreement: 57/60 = 0.95, checked on 60 sampled statements (seeded, of 474).
+- Consistency with `orsj-v3`: 28/31. On the full run, 4,999/5,197 = 96.2% of judged digests agree:
+  - 565 digests have both a refusal_claim and an orsj refusal; 4,434 have neither.
   - 121 have a refusal_claim but no orsj refusal.
-  - 75 are orsj refusals with no refusal_claim.
+  - 77 are orsj refusals with no refusal_claim.
 
 **Claim-unit vs item metric (never_refused, %), validated / raw:**
 
 | L | O-lens claim | O-lens item | O-lens claims/item | NLA claim | NLA item | J-lens claim | J-lens item |
 |---|---|---|---|---|---|---|---|
-| 20 | 1.1 / 2.2 | 17.0 / 32.1 | 29.6 | 0.0 / 0.2 | 0.0 / 0.6 | — | 0.0 / 0.0 |
+| 20 | 1.1 / 2.2 | 17.0 / 32.1 | 29.4 | 0.0 / 0.2 | 0.0 / 0.6 | — | 0.0 / 0.0 |
 | 24 | 1.3 / 2.2 | 18.1 / 32.9 | 31.4 | 0.0 / 0.0 | 0.0 / 0.0 | — | 0.0 / 0.0 |
 | 28 | 2.6 / 4.1 | 43.9 / 63.1 | 37.8 | 0.5 / 1.6 | 0.6 / 3.8 | — | 0.0 / 0.0 |
-| 32 | 1.7 / 2.9 | 35.7 / 54.5 | 38.4 | 0.0 / 0.0 | 0.0 / 0.0 | — | 0.0 / 0.0 |
-| 36 | 1.2 / 2.0 | 21.0 / 36.3 | 37.7 | 0.0 / 1.3 | 0.0 / 1.3 | 100 / 100 (2) | 0.6 / 0.6 |
-| 40 | 1.4 / 2.6 | 18.1 / 41.9 | 36.7 | 1.3 / 2.2 | 0.6 / 2.5 | 100 / 100 (2) | 0.6 / 0.6 |
+| 32 | 1.7 / 2.9 | 35.7 / 54.5 | 38.5 | 0.0 / 0.0 | 0.0 / 0.0 | — | 0.0 / 0.0 |
+| 36 | 1.2 / 2.0 | 21.0 / 36.3 | 37.8 | 0.0 / 1.3 | 0.0 / 1.3 | 100 / 100 (2) | 0.6 / 0.6 |
+| 40 | 1.4 / 2.6 | 18.1 / 41.9 | 36.5 | 1.3 / 2.2 | 0.6 / 2.5 | 100 / 100 (2) | 0.6 / 0.6 |
 | 44 | 0.8 / 1.7 | 11.5 / 30.1 | 37.5 | 0.0 / 0.7 | 0.0 / 1.3 | 100 / 100 (3) | 0.6 / 0.6 |
 | 48 | 1.0 / 1.8 | 14.8 / 26.5 | 37.0 | 0.0 / 0.8 | 0.0 / 0.6 | 75 / 100 (4) | 0.0 / 0.6 |
 | 52 | 0.6 / 1.3 | 14.0 / 23.6 | 35.5 | 0.0 / 2.2 | 0.0 / 1.3 | 38 / 100 (8) | 1.3 / 4.5 |
 | 56 | 0.5 / 1.1 | 12.9 / 21.3 | 37.9 | 0.9 / 0.9 | 0.0 / 0.0 | 40 / 100 (5) | 1.9 / 3.8 |
-| 60 | 0.6 / 1.6 | 11.8 / 27.5 | 35.2 | 0.0 / 0.0 | 0.0 / 0.6 | 50 / 100 (2) | 0.6 / 1.3 |
+| 60 | 0.6 / 1.6 | 11.8 / 27.5 | 35.4 | 0.0 / 0.0 | 0.0 / 0.6 | 50 / 100 (2) | 0.6 / 1.3 |
 
 O-lens L44 claim-validated: 0.8% [0.5, 1.1]. NLA: 0.6–2.8 claims per item. J-lens: 0–0.1 claims
 per item; the number in brackets is its claim count.
@@ -795,7 +800,13 @@ per item; the number in brackets is its claim count.
 - Not adopted; it is Camila's call.
 
 **Health:**
-- 14 labeller parse failures; 672 labels came from the Sonnet fallback.
+- 4 labeller parse failures remain. The first pass had 14; the 2026-10-30 regeneration re-asked
+  them, which moved some O-lens claims/item values by 0.1–0.2 and the consistency counts. No
+  rounded rate changed.
+- Sonnet fallback: 670 judged rows are labelled by Sonnet. The earlier "672" was 661 judged rows
+  plus 11 on unjudged rows.
+- `claim_validated` uses the index's absent rule (absent if there are no claims, or if every
+  refusal claim is unprobed). No (reader, layer) is absent under the second clause.
 - Unjudged items per (reader, layer): ≤ 8, including the digests already unjudged.
 
-**Spend:** $240 (5,214 labeller calls).
+**Spend:** $241 (5,228 labeller calls, including the re-asked failures).

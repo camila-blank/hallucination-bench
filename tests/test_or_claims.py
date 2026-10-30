@@ -77,6 +77,9 @@ def test_metrics_pooled_ratio_and_absent_layer() -> None:
     assert m["claim_validated"]["mean"] == 0.1 and m["claim_raw"]["mean"] == 0.2
     assert m["claims_per_item"] == 5.0 and m["health"]["n_unjudged"] == 1
     assert sclaim.ratio_ci([0], [0])["mean"] is None  # 0 claims -> absent
+    unp = {**_row("d", 4, 2, 0), "n_unprobed": 2, "n_backed": 0}  # every refusal claim unprobed
+    v = sclaim.metrics([unp])["s3d-rl600"]["44"]["claim_validated"]
+    assert v["mean"] is None and v["absent_reason"] == "no_probed_false_claims"
     assert sclaim.consistency(rows) == {
         "claim_and_refusal": 1,
         "claim_only": 0,

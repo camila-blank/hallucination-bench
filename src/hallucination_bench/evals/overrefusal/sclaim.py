@@ -274,8 +274,15 @@ def metrics(rows: Sequence[dict[str, Any]]) -> dict[str, Any]:
     for (rd, la), rr in sorted(by.items()):
         j = [r for r in rr if r.get("claims") is not None]
         den = [r["n_claims"] for r in j]
+        val = ratio_ci([r["n_hallucinated"] for r in j], den)
+        n_ref, n_unp = sum(r["n_refusal"] for r in j), sum(r["n_unprobed"] for r in j)
+        if val["mean"] is None:
+            val["absent_reason"] = "no_claims"
+        elif n_ref > 0 and n_ref == n_unp:  # the index's rule: every false claim unprobed
+            val = {**val, "mean": None, "lo": None, "hi": None}
+            val["absent_reason"] = "no_probed_false_claims"
         out[rd][str(la)] = {
-            "claim_validated": ratio_ci([r["n_hallucinated"] for r in j], den),
+            "claim_validated": val,
             "claim_raw": ratio_ci([r["n_refusal"] for r in j], den),
             "claims_per_item": float(np.mean(den)) if den else None,
             "health": {
