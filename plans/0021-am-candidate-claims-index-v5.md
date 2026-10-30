@@ -1,6 +1,6 @@
 # Plan 0021: hindex-v5 — agentic misalignment on candidate claims
 
-Author: Camila Blank (planned with Claude), 2026-10-30. Revision 2 (rev 2, critique 1: library default stays v4 and v5 is the CLI default, so exactly one pre-existing CLI call gains `--version v4`; v4 notes/md frozen in code; dev-box v4 golden with a safety-root mirror; #43 cross-check without the version assert; `n_all_claims`; absent entry). Builds on plan 0008 (AM claim
+Author: Camila Blank (planned with Claude), 2026-10-30. Revision 3 (rev 3, critique 2: two sanctioned CLI-call changes, argparse choices, `cmd_report` default; rev 2, critique 1: library default stays v4 and v5 is the CLI default, so exactly one pre-existing CLI call gains `--version v4`; v4 notes/md frozen in code; dev-box v4 golden with a safety-root mirror; #43 cross-check without the version assert; `n_all_claims`; absent entry). Builds on plan 0008 (AM claim
 map), plan 0013 (`hbench index`), plan 0019 rev 6 (hindex-v4) and the exploratory re-scoring in
 PR #43 (`docs/results/am_candidate_claims_exploratory.md`, `scripts/index/am_candidate_claims.py`).
 Everything not restated here is unchanged.
@@ -50,6 +50,9 @@ J-lens; it stays a documented sensitivity check).
   family definitions; v5 adds nothing else).
 - **`--version v4` reproduces hindex-v4 exactly** and **`--version v3` reproduces hindex-v3
   exactly** (frozen notes, keys, md). AM's all-claims reader stays in the code for v3 / v4.
+- `cli.py`: `--version` choices `("v3", "v4", "v5")`, default `"v5"`, help text updated; the
+  safety-root checks stay keyed on `version != "v3"`. `hbench report` (`cmd_report`) keeps calling
+  `build_index` with the library default (v4) — intended; noted in the README.
 - Implementation: `claim_rows(cells_path, family, *, am_candidates: bool = False)`, one streaming
   pass (the 11-layer arms are ~555k cells; never materialise all cells), candidate filtering only
   when `family == AM and am_candidates`. `build_index` passes `am_candidates = (version == "v5")`.
@@ -83,10 +86,11 @@ J-lens; it stays a documented sensitivity check).
   CIs and `n` equal the variant-(a) matrices from `am_candidate_claims.arm_rows` (imported, not the
   script's `main`, whose `index["version"] == ix.INDEX_VERSION` assert is relaxed to
   `"hindex-v4"`) for every arm × layer.
-- **Exactly one sanctioned change to a pre-existing test:** `tests/test_index_v4.py` (the CLI test
-  near line 362) — the default-version `cli.main([... "--overrefusal-root", ...])` call gains
-  `"--version", "v4"` so it keeps testing v4; its assertions (`"hindex-v4"`, overrefusal 0.5) are
-  unchanged. A new test asserts the CLI default is v5. Any other change to a pre-existing test
+- **Exactly two sanctioned changes to pre-existing tests**, both adding `"--version", "v4"` to a
+  default-version CLI call so it keeps testing v4, assertions unchanged:
+  (1) `tests/test_index.py::test_cli_index_writes_json_and_md` (line ~214, asserts
+  `ix.INDEX_VERSION`); (2) `tests/test_index_v4.py::test_cli_version_and_safety_roots` (line ~362,
+  the `--overrefusal-root` call; asserts `"hindex-v4"`, overrefusal 0.5). A new test asserts the CLI default is v5. Any other change to a pre-existing test
   (including any assertion) is a red flag.
 
 ## Deliverables / run
