@@ -448,6 +448,14 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
   JSON strings vs int `decline_lines`: the export asserts the sets match; records with empty
   `decline_lines` have no `off` key (`r.get("off")`). v5 dev-box golden:
   `tests/fixtures/index_v5_devbox.{json,md}` (the #45 run, `tests/test_index_v6.py`).
+  **Adding an arm** (plan 0024, the final O-lens `final-olens-rl600-x4`): claim families match
+  the arm by name; the overrefusal allowlist is versioned (`index.SAFETY_READERS` = frozen v4 /
+  v5 set; `SAFETY_READERS_V6_ADDED` joins it under v6 only, `index.safety_readers`), and the
+  overrefusal exports keep `index_export.EXPORT_READERS` (`READERS` stays the plan-0019 set the
+  dev-box reconcile tests iterate). The UM ladder takes a new arm only through
+  `scripts/final_olens/um_ladder_arm.py` in a COPY of the official um root (frozen C / probes /
+  distractors) + `export_um_arm.py` (only the arm's units; the frozen arms keep their root).
+  benign_roleplay: `wsb.CAMPAIGN_NESTED` arms reuse `<campaign>/<arm>/{all,L<k>}`.
 - **In-run retries** (rev 14): an invalid `:M` (or calibration) answer is re-asked up to 2 times
   (`run.MAP_INVALID_RETRIES`) before it is cached as failed; meta records `n_invalid_attempts`
   and the summed usage.

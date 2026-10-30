@@ -12,7 +12,8 @@ Families (each reads another eval's outputs; nothing is re-judged):
   probe-validated share ``Σ n_contradicted / Σ n_claims`` over the eval's ``index_counts.jsonl``
   (one row per (arm, layer, item), written by the eval's report; plan 0020: one verdict per
   item, so ``n_claims`` = judged items, ``unit: "items"`` in ``index_meta.json``); readers
-  restricted to :data:`SAFETY_READERS`.
+  restricted to :func:`safety_readers` (:data:`SAFETY_READERS`, plus
+  :data:`SAFETY_READERS_V6_ADDED` under hindex-v6, plan 0024).
 
 A claim is one claim-map segment whose scoring leaf is a claim (``taxonomy_v2.is_claim``), pooled
 over every segment of every mapped cell of the (arm, layer). Claim-family CIs: 2,000-draw item
@@ -102,6 +103,11 @@ UNIT_REFUSAL_CLAIMS = "refusal_claims"
 # plan 0019's reader allowlist (the export's arm names): rows of any other arm are ignored
 SAFETY_READERS: dict[str, frozenset[str]] = {
     OVERREFUSAL: frozenset({"s3d-rl600", "mlnla-rl600-all11", "jlens"}),
+}
+# plan 0024: readers allowlisted from hindex-v6 on only, so every v4 / v5 output (and its
+# goldens) stays bit-identical; v6 reads them beside SAFETY_READERS
+SAFETY_READERS_V6_ADDED: dict[str, frozenset[str]] = {
+    OVERREFUSAL: frozenset({"final-olens-rl600-x4"}),
 }
 # opt-in roots: read only when passed explicitly or when the variable is set (never its default)
 SAFETY_ENV: dict[str, str] = {
@@ -290,11 +296,17 @@ def um_rows(um_root: Path) -> UmUnits:
 SafetyRows = dict[str, dict[int, list[dict[str, Any]]]]  # arm -> layer -> index_counts rows
 
 
-def safety_rows(root: Path, family: str) -> tuple[SafetyRows, set[str]]:
+def safety_readers(family: str, version: str = "v4") -> frozenset[str]:
+    """The reader allowlist of a safety family under an index version (plan 0024)."""
+    extra = SAFETY_READERS_V6_ADDED.get(family, frozenset()) if version == "v6" else frozenset()
+    return SAFETY_READERS[family] | extra
+
+
+def safety_rows(root: Path, family: str, version: str = "v4") -> tuple[SafetyRows, set[str]]:
     """One safety root's ``index_counts.jsonl`` as arm -> layer -> rows, for the arms of
-    :data:`SAFETY_READERS` only; also the ignored arm names. A root without the file is empty
-    (``hbench index`` refuses an opted-in root without it); a repeated (arm, layer, item) is an
-    error."""
+    ``safety_readers(family, version)`` only (plan 0024: v6 adds readers); also the ignored arm
+    names. A root without the file is empty (``hbench index`` refuses an opted-in root without
+    it); a repeated (arm, layer, item) is an error."""
     if family not in SAFETY_FAMILIES:
         raise ValueError(f"not a safety family: {family!r}")
     out: SafetyRows = defaultdict(lambda: defaultdict(list))
@@ -303,6 +315,7 @@ def safety_rows(root: Path, family: str) -> tuple[SafetyRows, set[str]]:
     path = Path(root) / SAFETY_COUNTS
     if not path.is_file():
         return {}, ignored
+    readers = safety_readers(family, version)
     with open(path, encoding="utf-8") as fh:
         for n, line in enumerate(fh, 1):
             if not line.strip():
@@ -314,7 +327,7 @@ def safety_rows(root: Path, family: str) -> tuple[SafetyRows, set[str]]:
             if key in seen:
                 raise ValueError(f"{path}:{n}: duplicate (arm, layer, item) row {key}")
             seen.add(key)
-            if r["arm"] not in SAFETY_READERS[family]:
+            if r["arm"] not in readers:
                 ignored.add(r["arm"])
                 continue
             out[r["arm"]][int(r["layer"])].append(r)
@@ -602,7 +615,7 @@ def _claim_job(job: ClaimJob) -> ClaimDone:
 
 
 def _safety_arms(
-    family: str, roots: list[Path]
+    family: str, roots: list[Path], version: str = "v4"
 ) -> tuple[SafetyRows, dict[str, dict[str, Any] | None], set[str], list[dict[str, Any]]]:
     rows: SafetyRows = {}
     meta: dict[str, dict[str, Any] | None] = {}
@@ -610,7 +623,7 @@ def _safety_arms(
     ignored: set[str] = set()
     metas = []
     for root in roots:
-        part, ign = safety_rows(root, family)
+        part, ign = safety_rows(root, family, version)
         ignored |= ign
         m = safety_meta(root)
         metas.append({"root": str(Path(root).resolve()), "meta": m})
@@ -646,7 +659,7 @@ def build_index(
     safety_fams = () if v3 else SAFETY_FAMILIES
     arm_dirs = {f: _arm_dirs(f, list(sources.get(f, []))) for f in CLAIM_FAMILIES}
     units = _um_units(list(sources.get(SIBLING, [])))
-    safety = {f: _safety_arms(f, list(sources.get(f, []))) for f in safety_fams}
+    safety = {f: _safety_arms(f, list(sources.get(f, [])), version) for f in safety_fams}
     arms = {**{f: list(arm_dirs[f]) for f in CLAIM_FAMILIES}, SIBLING: [k[0] for k in units]}
     arms |= {f: list(safety[f][0]) for f in safety_fams}
     resolved = resolve_methods(methods, arms, families)
@@ -752,7 +765,7 @@ def build_index(
         out["safety"] = {
             f: {
                 "share": SHARE_V6 if version == "v6" else SHARE_V4,
-                "readers": sorted(SAFETY_READERS[f]),
+                "readers": sorted(safety_readers(f, version)),
                 "unit": sorted(
                     {str(m["meta"].get("unit")) for m in safety[f][3] if m["meta"] is not None}
                 ),

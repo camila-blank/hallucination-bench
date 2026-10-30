@@ -22,9 +22,9 @@ def _layers(s: str | None) -> list[int] | None:
 
 def _arms(s: str) -> list[str]:
     arms = [a for a in s.split(",") if a]
-    bad = set(arms) - set(wsb.ARMS)
+    bad = set(arms) - set(wsb.KNOWN_ARMS)
     if bad:
-        raise wsb.WsbError(f"unknown arms {sorted(bad)}; known {list(wsb.ARMS)}")
+        raise wsb.WsbError(f"unknown arms {sorted(bad)}; known {list(wsb.KNOWN_ARMS)}")
     return arms
 
 
