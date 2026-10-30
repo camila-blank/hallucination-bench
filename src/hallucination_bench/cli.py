@@ -220,11 +220,28 @@ def cmd_report(args: argparse.Namespace) -> int:
         built = index.build_index(
             index.default_sources(out, args.judge_model), index.load_methods(INDEX_METHODS)
         )
-        js, md = index.write_index(built, _index_dest(out, args.judge_model))
+        dest = _index_dest(out, args.judge_model)
+        if (prev := _index_version(dest / "index.json")) not in (None, built["version"]):
+            # never clobber an index of another version (e.g. `hbench index`'s hindex-v5)
+            print(
+                f"hallucination index: not written: {dest / 'index.json'} holds {prev}, this "
+                f"refresh builds {built['version']} (rebuild it with `hbench index`)"
+            )
+            return rc
+        js, md = index.write_index(built, dest)
         print(f"hallucination index: wrote {js}, {md} ({len(built['rows'])} rows)")
     except Exception as e:  # the index must never fail the report
         print(f"warning: hallucination index not built: {type(e).__name__}: {e}", file=sys.stderr)
     return rc
+
+
+def _index_version(path: Path) -> str | None:
+    """The ``version`` of an existing ``index.json`` (None when absent or unreadable)."""
+    try:
+        v = json.loads(path.read_text(encoding="utf-8")).get("version")
+    except (OSError, ValueError, AttributeError):
+        return None
+    return str(v) if v is not None else None
 
 
 def _index_dest(out: Path, judge_model: str) -> Path:

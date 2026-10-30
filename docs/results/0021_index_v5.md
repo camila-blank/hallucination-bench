@@ -43,8 +43,9 @@ the uncommitted v5 change). Nothing was re-judged. The full generated table (all
   On s3d-rl600, AM moves −2.3 to +2.3 pt and `full` / `matched` move by at most 0.5 pt. The
   V4 O-lens arms (v4-s3don-*) drop by 0.9 to 3.1 pt on AM. So the s3d vs mlnla gap widens by
   up to ~2 pt of `full`.
-- **J-lens is essentially unchanged.** Its AM moves −0.2 to +0.8 pt at every layer except L20
-  (+3.8, on only 69 candidates), and `matched` moves at most +0.8 pt. J-lens segments and
+- **J-lens is essentially unchanged.** Its AM moves −0.2 to +0.8 pt at every layer except two:
+  L20 (+3.8, on only 69 candidates) and L32 (+1.8 pt, 5.8 vs 4.0). Its `matched` moves at most
+  +0.8 pt. J-lens segments and
   mentions both index the summary text, so its candidates are not like-for-like with the prose
   arms'.
 - **What share of AM claims are candidates:** 15–17 % for mlnla-rl600 (14–17 % for mlnla64),
@@ -220,8 +221,6 @@ score).
 | v4-s3don-sft | 21 | 16.7 [15.8, 17.6] | 15.7 [14.4, 17.2] | -1.0 | 15.7 [13.9, 17.6] | 15.5 [13.7, 17.4] | -0.2 | 10.6 [9.8, 11.5] | 10.4 [9.5, 11.3] | -0.2 |
 | v4-s3don-sft | 27 | 18.4 [17.2, 19.8] | 16.3 [14.5, 18.2] | -2.1 | 14.5 [11.1, 17.8] | 14.0 [10.7, 17.4] | -0.4 | 9.8 [8.8, 10.7] | 9.3 [8.2, 10.3] | -0.5 |
 | v4-s3don-sft | 33 | 19.2 [18.1, 20.5] | 16.1 [14.8, 17.8] | -3.1 | 13.2 [10.9, 15.4] | 12.5 [10.2, 14.8] | -0.6 | 9.2 [8.4, 9.9] | 8.5 [7.7, 9.2] | -0.7 |
-
-wrote plots/0021_index_v5.png
 
 ## Caveats
 

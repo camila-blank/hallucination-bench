@@ -416,3 +416,29 @@ def test_v5_am_matches_pr43_variant_a(tmp_path):
             }
             n += 1
     assert n > 0
+
+
+def test_report_never_overwrites_an_index_of_another_version(tmp_path, monkeypatch, capsys):
+    """`hbench report` refreshes a v4 index; it must not clobber `hbench index`'s v5 one."""
+    for var in ix.SAFETY_ENV.values():
+        monkeypatch.delenv(var, raising=False)
+    monkeypatch.setattr(cli, "_cmd_report", lambda args: 3)
+    chat = {"id": "i1", "layer": 20, "stages": {"map": "ok"}}
+    chat["map"] = {"segments": [{"readout": 0, "leaf": "detail"}]}
+    _write_cells(tmp_path / "wsbench_chat" / cli.DEFAULT_MODEL, "a", [chat])
+    dest = tmp_path / "index" / cli.DEFAULT_MODEL
+    dest.mkdir(parents=True)
+    v5 = {"version": "hindex-v5", "rows": []}
+    (dest / "index.json").write_text(json.dumps(v5))
+    (dest / "index.md").write_text("v5 md\n")
+    assert cli.main(["report", "--out", str(tmp_path)]) == 3  # report's own code is kept
+    assert json.loads((dest / "index.json").read_text()) == v5
+    assert (dest / "index.md").read_text() == "v5 md\n"
+    assert "not written" in capsys.readouterr().out
+    # an index of the same version (v4) is refreshed as before
+    (dest / "index.json").write_text(json.dumps({"version": "hindex-v4", "rows": []}))
+    assert cli.main(["report", "--out", str(tmp_path)]) == 3
+    out = json.loads((dest / "index.json").read_text())
+    assert out["version"] == "hindex-v4" and [(r["method"], r["layer"]) for r in out["rows"]] == [
+        ("a", 20)
+    ]
