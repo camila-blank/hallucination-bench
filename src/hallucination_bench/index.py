@@ -12,7 +12,8 @@ Families (each reads another eval's outputs; nothing is re-judged):
   probe-validated share ``Σ n_contradicted / Σ n_claims`` over the eval's ``index_counts.jsonl``
   (one row per (arm, layer, item), written by the eval's report; plan 0020: one verdict per
   item, so ``n_claims`` = judged items, ``unit: "items"`` in ``index_meta.json``); readers
-  restricted to :data:`SAFETY_READERS`.
+  restricted to :func:`safety_readers` (:data:`SAFETY_READERS`, plus
+  :data:`SAFETY_READERS_V6_ADDED` under hindex-v6, plan 0024).
 
 A claim is one claim-map segment whose scoring leaf is a claim (``taxonomy_v2.is_claim``), pooled
 over every segment of every mapped cell of the (arm, layer). Claim-family CIs: 2,000-draw item
@@ -303,9 +304,9 @@ def safety_readers(family: str, version: str = "v4") -> frozenset[str]:
 
 def safety_rows(root: Path, family: str, version: str = "v4") -> tuple[SafetyRows, set[str]]:
     """One safety root's ``index_counts.jsonl`` as arm -> layer -> rows, for the arms of
-    :data:`SAFETY_READERS` only; also the ignored arm names. A root without the file is empty
-    (``hbench index`` refuses an opted-in root without it); a repeated (arm, layer, item) is an
-    error."""
+    ``safety_readers(family, version)`` only (plan 0024: v6 adds readers); also the ignored arm
+    names. A root without the file is empty (``hbench index`` refuses an opted-in root without
+    it); a repeated (arm, layer, item) is an error."""
     if family not in SAFETY_FAMILIES:
         raise ValueError(f"not a safety family: {family!r}")
     out: SafetyRows = defaultdict(lambda: defaultdict(list))

@@ -32,9 +32,12 @@ for s3d).
    new `index.SAFETY_READERS_V6_ADDED = {overrefusal: {final-olens-rl600-x4}}` and
    `index.safety_readers(family, version)`: v6 reads the allowlist plus the added readers, v4 / v5
    read exactly `SAFETY_READERS` (so the v4 / v5 goldens and `index.json` `safety.readers` stay
-   bit-identical; under v5 the arm's overrefusal rows are listed in `ignored_arms`, and the arm has
-   no v5 overrefusal value: the v4 / v5 unit is the probe-validated item metric, not exported for
-   it). `index_export.READERS` (plan 0019) is unchanged and still drives the dev-box reconcile
+   bit-identical; under v5 the arm's overrefusal rows are listed in `ignored_arms`, so the arm has
+   no v4 / v5 overrefusal value, `full` or `matched`). `sj_report.py` does write the arm's
+   plan-0020 item rows (probe-validated; the refusal-probe site files
+   `overrefusal/probe_sites_v2{,_l11}.jsonl` are copied into the arm's root, since probe presence is
+   a property of Qwen's activations, not of the lens), because `offtopic-export` needs that root's
+   `index_meta.json`; they are secondary numbers, never on the v6 index. `index_export.READERS` (plan 0019) is unchanged and still drives the dev-box reconcile
    tests; new `index_export.EXPORT_READERS = READERS + (final-olens-rl600-x4,)` is the reader set
    of the plan-0020 (`sj_metrics.index_rows`) and plan-0022 (`offtopic_export.index_rows`)
    exports. The arm's records live in their own `$HBENCH_OR_OUT` root, so no earlier export
@@ -52,7 +55,12 @@ for s3d).
    other untestable unit. Per domain: `mentions -> judge -> label`. Adding a method relabels the
    frozen arms' units in the copy (cross-method support), so only the arm's units are exported
    (`scripts/final_olens/export_um_arm.py`) into a separate sibling root; the frozen arms keep
-   their official root. Check run before labelling: relabelling the copy with the frozen four only
+   their official root. The asymmetry is inherent to adding an arm to frozen units: the arm's
+   `cross` support counts the frozen four, the frozen arms' official `cross` does not count the
+   arm. The arm's 4 samples are split on "- " bullets into one sample list (`si` runs over all
+   bullets of all 4 samples), as for s3d. The wrapper runs only `summarize`, `mentions`, `judge`
+   and `label` (every other stage writes the repo's frozen `data/` or `plots/`) and refuses a
+   `UM_ROOT` inside the repo's `outputs/` / `data/` or one that is not a um-root copy. Check run before labelling: relabelling the copy with the frozen four only
    reproduces the official `units_labeled.jsonl` in every index-relevant field (committed,
    `probe.na_reason`, `probe.fire_L`, `cross`) in all 3 domains; capital_city and holiday are
    byte-identical, country differs only in the nearby-layer fields (the copy has no `probes_adj`
@@ -68,6 +76,18 @@ intent cache copied from the official root); overrefusal: `scripts/overrefusal/s
 full` (digest -> orsj-v3 -> oroff-v1) -> `sj_report.py` -> `hbench overrefusal offtopic-export`;
 sibling: the wrapper above; benign_roleplay: `hbench benign-roleplay run --arms
 final-olens-rl600-x4` (WSB's pinned jailbreak judge at `wsb.WSB_SHA`).
+
+Overrefusal must run in the arm's OWN root, for the arm only (the script defaults judge the frozen
+three readers, whose records in a second root would make `hbench index` refuse "arm under two
+roots"):
+
+```bash
+export HBENCH_OR_OUT=<arm root> HBENCH_OR_READOUTS_V3=<arm readouts root>   # <root>/<arm>/overrefusal.jsonl
+cp <official outputs>/overrefusal/probe_sites_v2{,_l11}.jsonl $HBENCH_OR_OUT/overrefusal/
+python scripts/overrefusal/sj_run.py --tag full --readers final-olens-rl600-x4   # rerun until no failures
+python scripts/overrefusal/sj_report.py --tag full
+hbench overrefusal offtopic-export --out $HBENCH_OR_OUT   # -> overrefusal/claude-opus-5-5/offtopic_index
+```
 
 ## Index
 

@@ -31,10 +31,37 @@ import um_ladder as DRV  # noqa: E402  (the landed driver)
 
 from hallucination_bench.evals.sibling_probe import um_ladder as U  # noqa: E402
 
+# the only stages this wrapper runs: every other driver stage writes the repo's frozen data/
+# (todo, concepts, probe-texts, distractors) or plots/ (figures), or reads probe inputs that must
+# stay the official run's (capture-rows, probe-inputs, calib)
+ALLOWED = ("summarize", "mentions", "judge", "label")
 ARM = os.environ["UM_ARM"]
 ROOT = Path(os.environ["UM_ROOT"]).resolve()
-if ROOT == (HB / "outputs" / "sibling" / "um").resolve():
-    sys.exit("UM_ROOT must be a copy of the official um root, not the repo's own outputs")
+REQUIRED = ("probe_inputs.json", "commit.jsonl", "mentions.jsonl", "probes/score/summary.json")
+
+
+def check_root(root: Path) -> None:
+    """``root`` must be a copy of the official um root outside the repo's outputs/ and data/."""
+    for d in (HB / "outputs", HB / "data"):
+        if root == d.resolve() or d.resolve() in root.parents:
+            sys.exit(f"UM_ROOT {root} is inside {d}: use a copy of the um root outside the repo")
+    for dom in ("", "capital_city", "holiday"):
+        miss = [f for f in REQUIRED if not (root / dom / f).exists()]
+        if miss:
+            sys.exit(f"UM_ROOT {root} is not a copy of the official um root: {dom or 'country'} "
+                     f"lacks {miss}")  # fmt: skip
+
+
+def check_stage(argv: list[str]) -> None:
+    stage = next((a for a in argv[1:] if not a.startswith("-") and a in DRV_STAGES), None)
+    if stage not in ALLOWED:
+        sys.exit(f"um_ladder_arm runs only {ALLOWED}, not {stage!r}")
+
+
+DRV_STAGES = (
+    *ALLOWED, "todo", "calib", "concepts", "probe-texts", "capture-rows", "probe-inputs",
+    "distractors", "figures",
+)  # fmt: skip
 if ARM in U.METHODS:
     sys.exit(f"{ARM} is already a ladder method")
 
@@ -63,4 +90,6 @@ def setup_domain(cat: str) -> None:
 DRV.setup_domain = setup_domain
 
 if __name__ == "__main__":
+    check_stage(sys.argv)
+    check_root(ROOT)
     DRV.main()

@@ -22,15 +22,23 @@ def main() -> None:
     ap.add_argument("--um", required=True, help="the labelled copy of the um root")
     ap.add_argument("--dest", required=True)
     a = ap.parse_args()
+    if Path(a.dest).resolve() == Path(a.um).resolve():
+        raise SystemExit("--dest must not be the labelled copy itself")
     src, dest = index.um_paths(Path(a.um)), index.um_paths(Path(a.dest))
-    for d in index.UM_DOMAINS:
-        keep = [x for x in src[d].read_text(encoding="utf-8").splitlines() if x.strip()
-                and json.loads(x)["method"] == a.arm]  # fmt: skip
-        if not keep:
-            raise SystemExit(f"{d}: no {a.arm} units in {src[d]}")
+    keep = {}
+    for d in index.UM_DOMAINS:  # read and check every domain before writing any
+        keep[d] = [x for x in src[d].read_text(encoding="utf-8").splitlines() if x.strip()
+                   and json.loads(x)["method"] == a.arm]  # fmt: skip
+        if not keep[d]:
+            print(f"WARNING {d}: no {a.arm} units in {src[d]} (the domain is left out)")
+    if not any(keep.values()):
+        raise SystemExit(f"no {a.arm} units in any domain of {a.um}")
+    for d, rows in keep.items():
+        if not rows:
+            continue
         dest[d].parent.mkdir(parents=True, exist_ok=True)
-        dest[d].write_text("\n".join(keep) + "\n", encoding="utf-8")
-        print(f"{d}: {len(keep)} {a.arm} units -> {dest[d]}")
+        dest[d].write_text("\n".join(rows) + "\n", encoding="utf-8")
+        print(f"{d}: {len(rows)} {a.arm} units -> {dest[d]}")
 
 
 if __name__ == "__main__":
