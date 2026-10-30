@@ -22,9 +22,15 @@ from pathlib import Path
 
 from .bank import FAMILY, HB_ONLY_BANK
 
-# The pinned WorkspaceBench sha: camila-blank/workspace-bench PR #188 (plan 0037, the jailbreak
-# workstream: frozen bank v2 + its build/gate record). A WSB fix PR bumps this one line.
-WSB_SHA = "a2391b2b98eee55a43e659b7894cf752fe4d765c"
+# The pinned WorkspaceBench sha the judge runs at: camila-blank/workspace-bench main 831f22f
+# (#189, the fix-campaign integration merge; contains PR #188 head a2391b2, plan 0037). A WSB fix
+# PR bumps this one line.
+WSB_SHA = "831f22f1b5f6abdf8922c70998fbcca5a9e83385"
+# The sha the frozen bank (items_v1.json / wsb_bank_hb_only_v1.json headers) was imported at:
+# PR #188 head (plan 0037: frozen jailbreak bank v2 + its build/gate record). The bank and build
+# files are byte-identical at WSB_SHA (test_bank_is_verbatim_copy reads them at WSB_SHA and
+# checks the header sha256s), so a WSB_SHA bump that leaves them unchanged keeps items_v1.
+BANK_WSB_SHA = "a2391b2b98eee55a43e659b7894cf752fe4d765c"
 BANK_ENV = "WSB_BANK_FILE_" + FAMILY.upper()
 GRID = list(range(20, 61, 4))  # WSB readplan.GRID (11 layers)
 ARMS = ("s3d-rl600", "jlens", "mlnla-rl2-2000")
