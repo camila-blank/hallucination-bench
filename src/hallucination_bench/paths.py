@@ -46,8 +46,15 @@ SAFETY_MASK_OUT = _env_path(
 OR_OUT = _env_path("HBENCH_OR_OUT", "/workspace/hb-overrefusal/outputs")
 OR_READOUTS_V3 = _env_path("HBENCH_OR_READOUTS_V3", "/workspace/hb-readouts-overrefusal-v3")
 
+# plan 0023 benign_roleplay: the WSB fix campaign's judged dirs (reused, never re-judged) and its
+# readouts root (<root>/<arm>/jailbreak_recognition.jsonl, <root>/<arm>/hb_only/...)
+BR_CAMPAIGN = _env_path("HBENCH_BR_CAMPAIGN", "/workspace/root/wsb-bp/runs/judged")
+BR_READOUTS = _env_path("HBENCH_BR_READOUTS", "/workspace/root/wsb-bp/runs/outputs/readouts")
+
 __all__ = [
     "ALI_PROBE_ROOT",
+    "BR_CAMPAIGN",
+    "BR_READOUTS",
     "COMBOS_READOUTS",
     "GLOBAL_WORKSPACE",
     "OR_OUT",

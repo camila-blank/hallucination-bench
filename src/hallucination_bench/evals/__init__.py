@@ -13,7 +13,12 @@ agentic_misalignment`` dispatch to it.
 
 ``overrefusal`` (plan 0015) also has its own driver and its own subcommands (``hbench
 overrefusal ...``, registered through ``cli.EVAL_CLIS``); it has no ``bank`` submodule, so
-:func:`bank_for` does not apply to it."""
+:func:`bank_for` does not apply to it.
+
+``benign_roleplay`` (plan 0023) runs WorkspaceBench's pinned ``jailbreak_recognition`` family
+on gated harmless role-play prompts (``hbench benign-roleplay import|run|report``); its
+``bank`` module is not a chat-style bank, so :func:`bank_for` does not apply to it either. It is
+NOT an index family."""
 
 import importlib
 from types import ModuleType
@@ -23,6 +28,7 @@ EVALS: dict[str, str] = {
     "story": "hallucination_bench.evals.story",
     "agentic_misalignment": "hallucination_bench.evals.agentic_misalignment",
     "overrefusal": "hallucination_bench.evals.overrefusal",
+    "benign_roleplay": "hallucination_bench.evals.benign_roleplay",
 }
 
 

@@ -18,7 +18,10 @@ macro per (method, layer)) is plan `plans/0013-final-sibling-eval-and-hallucinat
 wrong-topic refusal claims). The `mask` eval (MASK lies vs
 honest-but-wrong: does the lens claim the model is lying when it is honest? Its own CLI,
 `hbench mask gt|run|report`; ARCHIVED 2026-10-29: a diagnostic, not part of HallucinationBench or
-the index, not a hallucination score; HB's safety evals are overrefusal only) is plan `plans/0017-mask-eval.md`.
+the index, not a hallucination score; HB's safety evals are overrefusal only) is plan `plans/0017-mask-eval.md`. The `benign_roleplay` eval (false jailbreak recognition on gated
+harmless role-play prompts; items = WorkspaceBench's jailbreak negative controls + `hb_only`
+gated role-play candidates; judged by running WSB's own pinned `jailbreak_recognition` family;
+`hbench benign-roleplay import|run|report`; NOT on the index) is plan `plans/0023-benign-roleplay.md`.
 
 ## Layout
 
@@ -138,6 +141,16 @@ evals/overrefusal/   plan 0015 (own driver + own CLI via EVAL_CLIS; NOT the chat
                  offtopic_index/{index_counts.jsonl,index_meta.json} (unit refusal_claims, the
                  hindex-v6 overrefusal root) + sj_offtopic_full.json (value + 3 secondary numbers)
 data/overrefusal/    candidates, gt_labels, items, capture_rows (README = schema)
+evals/benign_roleplay/  plan 0023 (own CLI via EVAL_CLIS; in EVALS; NOT on the index):
+    bank.py      import + fail-closed gate check (gate_sha re-hashed from build_v2 labels),
+                 template_id (WSB J1.1 formula), MANIFEST
+    wsb.py       WSB_SHA pin check + `uv run --no-sync wsbench run ...` subprocess calls; the
+                 ONLY code touching WSB; ports nothing (test_no_wsb_logic_in_hb). Reuses the
+                 campaign's judged dirs ($HBENCH_BR_CAMPAIGN) for the shared ids
+    metrics.py   refusal conditions, flagged share + template_id cluster bootstrap, shared-subset
+                 == WSB FPR check (exit 2), po-opus-v1 floor, summary.{json,md}
+data/benign_roleplay/  items_v1.json (150: 86 WSB-shared + 64 hb_only), wsb_bank_hb_only_v1.json
+                 (WSB_BANK_FILE_JAILBREAK_RECOGNITION), gt_labels.jsonl, MANIFEST (README)
 scripts/overrefusal/ sample_modal.py (vLLM ground truth), reads.sh (capture + reads + convert)
 evals/mask/          plan 0017 (own CLI `hbench mask`, registered in cli.EVAL_CLIS):
   source.py     MASK judge prompts verbatim (mask @ 25e0b12, sha-pinned) + per-archetype choice
@@ -179,7 +192,7 @@ scripts/mask/        build_items.py, gen_modal.py (Modal vLLM), build_capture.py
   root from their own location and read `${HBENCH_X:-<default>}`.
 - CI is pending (plan 0012 D5, held back for a token scope): until it lands, run ruff check +
   format and `pytest -rs` locally before pushing. Plan numbers are unique: the next free one is
-  0015 (0009/0010 belong to the unlanded resampling-gate branches).
+  0024 (0009/0010 belong to the unlanded resampling-gate branches).
 
 ## Run commands
 
