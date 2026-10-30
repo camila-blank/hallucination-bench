@@ -5,16 +5,18 @@ import ast
 import json
 import random
 import re
+import subprocess
 from collections import Counter
 from typing import Any
 
 import pytest
 
-from hallucination_bench import DATA, paths
+from hallucination_bench import DATA, WSBENCH_PUB_COMMIT, paths
 from hallucination_bench.evals.wsbench_chat import bank
 from hallucination_bench.judges import v5c
 
-SOURCE = paths.WSBENCH_PUB / "src" / "wsbench" / "evals" / "hallucination" / "prompts.py"
+# plan 0023 (W1.6): read the pinned source with ``git show`` (WSB deletes its hallucination family)
+SOURCE_REL = "src/wsbench/evals/hallucination/prompts.py"
 README = DATA / "wsbench_chat" / "README.md"
 _FENCE = re.compile(r"(`{3,})[^\n]*\n(.*?)\1", re.DOTALL)
 
@@ -70,8 +72,19 @@ def test_every_prompt_literal_is_verbatim_in_the_readme() -> None:
     assert v5c.PROMPT_VERSION in readme and v5c.VERIFY_PROMPT_VERSION in readme
 
 
+def _pinned_source() -> str | None:
+    r = subprocess.run(
+        ["git", "-C", str(paths.WSBENCH_PUB), "show", f"{WSBENCH_PUB_COMMIT}:{SOURCE_REL}"],
+        capture_output=True,
+        text=True,
+    )
+    return None if r.returncode else r.stdout
+
+
 def _source_literals() -> dict[str, str]:
-    tree = ast.parse(SOURCE.read_text(encoding="utf-8"))
+    src = _pinned_source()
+    assert src is not None
+    tree = ast.parse(src)
     out = {}
     for node in tree.body:
         target = None
@@ -89,8 +102,8 @@ def _source_literals() -> dict[str, str]:
 
 
 @pytest.mark.skipif(
-    not SOURCE.exists(),
-    reason=f"wsbench-pub clone not present at {SOURCE} (set HBENCH_WSBENCH_PUB)",
+    _pinned_source() is None,
+    reason=f"no workspace-bench clone with {WSBENCH_PUB_COMMIT} (set HBENCH_WSBENCH_PUB)",
 )
 def test_literals_equal_the_wsbench_pub_source() -> None:
     src = _source_literals()
