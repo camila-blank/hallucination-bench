@@ -216,13 +216,14 @@ def cmd_report(args: argparse.Namespace) -> int:
         from hallucination_bench import index
 
         out = Path(args.out)
-        # the library default version (hindex-v4), not the `hbench index` CLI's v5 (plan 0021)
+        # the library default version (hindex-v4), not the `hbench index` CLI's v6 (plans 0021,
+        # 0022); build_index's unit guard refuses a v6 `refusal_claims` overrefusal root here
         built = index.build_index(
             index.default_sources(out, args.judge_model), index.load_methods(INDEX_METHODS)
         )
         dest = _index_dest(out, args.judge_model)
         if (prev := _index_version(dest / "index.json")) not in (None, built["version"]):
-            # never clobber an index of another version (e.g. `hbench index`'s hindex-v5)
+            # never clobber an index of another version (e.g. `hbench index`'s hindex-v5 / v6)
             print(
                 f"hallucination index: not written: {dest / 'index.json'} holds {prev}, this "
                 f"refresh builds {built['version']} (rebuild it with `hbench index`)"
@@ -263,7 +264,9 @@ def cmd_index(args: argparse.Namespace) -> int:
         (index.OVERREFUSAL, "--overrefusal-root", args.overrefusal_root),
     ):
         if roots and args.version == "v3" and fam in index.SAFETY_FAMILIES:
-            raise SystemExit(f"{flag}: the safety families are hindex-v4 only (and v5), not v3")
+            raise SystemExit(
+                f"{flag}: the safety families are hindex-v4 only (and v5 / v6), not v3"
+            )
         if roots:
             if missing := [r for r in roots if not Path(r).is_dir()]:
                 raise SystemExit(f"{flag}: not a directory: {missing}")
@@ -274,6 +277,10 @@ def cmd_index(args: argparse.Namespace) -> int:
                 str(r) for r in sources.get(fam, []) if not (r / index.SAFETY_COUNTS).is_file()
             ]:
                 raise SystemExit(f"{fam}: no {index.SAFETY_COUNTS} in {gone}")
+    try:  # plan 0022's unit guard, after the checks above (build_index repeats it)
+        index.check_safety_units(sources, args.version)
+    except ValueError as e:
+        raise SystemExit(str(e)) from None
     try:
         built = index.build_index(
             sources, index.load_methods(Path(args.methods)), args.workers, version=args.version
@@ -599,8 +606,8 @@ def build_parser() -> argparse.ArgumentParser:
 
     ix = sub.add_parser(
         "index",
-        help="the hallucination index (hindex-v5 by default): one row per (method, layer) "
-        "(plans 0013, 0019, 0021)",
+        help="the hallucination index (hindex-v6 by default): one row per (method, layer) "
+        "(plans 0013, 0019, 0021, 0022)",
     )
     ix.add_argument("--out", default="outputs", help="output root of the default sources")
     ix.add_argument("--judge-model", default=DEFAULT_MODEL)
@@ -620,9 +627,11 @@ def build_parser() -> argparse.ArgumentParser:
         )
     ix.add_argument(
         "--version",
-        choices=("v3", "v4", "v5"),
-        default="v5",
-        help="v5 (default): hindex-v5 (agentic_misalignment on candidate claims, plan 0021); "
+        choices=("v3", "v4", "v5", "v6"),
+        default="v6",
+        help="v6 (default): hindex-v6 (v5 + overrefusal on wrong-topic refusal claims: needs a "
+        "`refusal_claims` --overrefusal-root, i.e. offtopic_index/, plan 0022); "
+        "v5: hindex-v5 (agentic_misalignment on candidate claims, plan 0021); "
         "v4: exactly the hindex-v4 output (+ overrefusal, full_v3 / matched_v3); v3: exactly "
         "the hindex-v3 output",
     )

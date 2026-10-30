@@ -135,9 +135,14 @@ def test_v4_notes_frozen():
 def test_versions():
     assert ix.INDEX_VERSION == "hindex-v4"
     assert ix.INDEX_VERSION_V5 == "hindex-v5"
-    assert ix.VERSIONS == {"v3": "hindex-v3", "v4": "hindex-v4", "v5": "hindex-v5"}
+    assert ix.VERSIONS == {
+        "v3": "hindex-v3",
+        "v4": "hindex-v4",
+        "v5": "hindex-v5",
+        "v6": "hindex-v6",
+    }
     with pytest.raises(ValueError, match="unknown index version"):
-        ix.build_index({}, ix.Methods(), version="v6")
+        ix.build_index({}, ix.Methods(), version="v7")
 
 
 # ---------------------------------------------------------------- the candidate rule
@@ -350,7 +355,7 @@ def test_cli_default_is_v5(tmp_path, monkeypatch):
         (ix.OVERREFUSAL, "--overrefusal-root"),
     ):
         argv += [flag, str(src[fam][0])]
-    assert cli.main([*argv, "--dest", str(tmp_path / "d")]) == 0
+    assert cli.main([*argv, "--version", "v5", "--dest", str(tmp_path / "d")]) == 0
     out = json.loads((tmp_path / "d" / "index.json").read_text())
     assert out["version"] == "hindex-v5"
     assert out["rows"][0]["families"][ix.AM]["v"] == 0.5

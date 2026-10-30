@@ -13,7 +13,9 @@ the model never refuses; own subcommands `hbench overrefusal ...`) is plan
 macro per (method, layer)) is plan `plans/0013-final-sibling-eval-and-hallucination-index.md`
 (hindex-v3: main / AM / sibling / story) + `plans/0019-safety-families-on-the-index.md`
 (hindex-v4: + overrefusal only; strongreject / mask stay off, revs 6 / 5) +
-`plans/0021-am-candidate-claims-index-v5.md` (hindex-v5, the CLI default: AM on candidate claims). The `mask` eval (MASK lies vs
+`plans/0021-am-candidate-claims-index-v5.md` (hindex-v5: AM on candidate claims) +
+`plans/0022-overrefusal-wrong-topic-refusals.md` (hindex-v6, the CLI default: overrefusal as
+wrong-topic refusal claims). The `mask` eval (MASK lies vs
 honest-but-wrong: does the lens claim the model is lying when it is honest? Its own CLI,
 `hbench mask gt|run|report`; ARCHIVED 2026-10-29: a diagnostic, not part of HallucinationBench or
 the index, not a hallucination score; HB's safety evals are overrefusal only) is plan `plans/0017-mask-eval.md`.
@@ -76,8 +78,8 @@ src/hallucination_bench/
     probe_check.py  probe check (plan 0015's refusal probe): premise, the rev-6 HB scores
                   (`hb_scores`: raw + probe_validated), probe-checked rates,
                   misses (scripts/strongreject/probe_modal.py scores sites; probe_report.py)
-  index.py        plans 0013 + 0019 + 0021: the hallucination index (CLI default hindex-v5;
-                  `--version v4` / `v3` = hindex-v4 / v3 exactly; library default v4) from the
+  index.py        plans 0013 + 0019 + 0021 + 0022: the hallucination index (CLI default
+                  hindex-v6; `--version v5` / `v4` / `v3` = those exactly; library default v4) from the
                   families' outputs; safety families from each
                   eval's index_counts.jsonl / index_meta.json; method <-> arm mapping in
                   data/index/methods.json
@@ -132,6 +134,9 @@ evals/overrefusal/   plan 0015 (own driver + own CLI via EVAL_CLIS; NOT the chat
                  (off-topic), recall, health; index_counts.jsonl + index_meta.json
     sclaim.py    plan 0020 rev 7 (exploratory): orclaim-v1 statement labeller + claim-unit metric
                  (scripts/overrefusal/sj_claims.py -> sj_claims_full.json, index_counts_claims.jsonl)
+    offtopic_export.py plan 0022: `hbench overrefusal offtopic-export`: sj_records_full.jsonl ->
+                 offtopic_index/{index_counts.jsonl,index_meta.json} (unit refusal_claims, the
+                 hindex-v6 overrefusal root) + sj_offtopic_full.json (value + 3 secondary numbers)
 data/overrefusal/    candidates, gt_labels, items, capture_rows (README = schema)
 scripts/overrefusal/ sample_modal.py (vLLM ground truth), reads.sh (capture + reads + convert)
 evals/mask/          plan 0017 (own CLI `hbench mask`, registered in cli.EVAL_CLIS):
@@ -413,6 +418,23 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
   `tests/fixtures/index_v4_devbox.{json,md}` (the #42 run; a filtered safety-root mirror).
   `tests/test_index_v5.py` also cross-checks v5 AM against PR #43's
   `scripts/index/am_candidate_claims.arm_rows` variant (a) (skips off the dev box).
+  **hindex-v6** (plan 0022; `index.INDEX_VERSION_V6`, **the `hbench index` CLI default**;
+  `build_index` still defaults to v4): v5 (AM on candidate claims: `index.AM_CANDIDATE_VERSIONS`)
+  with overrefusal read from a root whose `index_meta.json` has `unit == "refusal_claims"`
+  (`offtopic_export.py`; per item `n_claims` = decline lines, `n_false` = `n_contradicted` =
+  off-topic decline lines, `n_failed_cells` = 1 for an unjudged / strict-judge-failed /
+  off-topic-failed item-layer, all 427 items, `gates: {}`); share formula unchanged; main / AM /
+  story / sibling bit-identical to v5. **Unit guard** `index.check_safety_units` (called in
+  `build_index`, and in `hbench index` after the not-a-directory / no-`index_counts.jsonl`
+  checks): v6 needs `refusal_claims`; v4 / v5 refuse it (`items` or a meta-less synthetic root is
+  fine) — so `hbench report`'s v4 refresh refuses a v6 root from `HBENCH_SAFETY_OR_OUT`. v6 note in
+  code (`index.NOTES_V6`, merged for v6 only; NOTES_V5 is not merged under v6); v6 md header in
+  `_render_md_v6`; safety `share` text `index.SHARE_V6`. The export reads ONLY
+  `sj_records_full.jsonl` (fingerprint-resolved) — never key-join the raw `sjudge/` / `offtopic/`
+  caches (repeated keys under older fingerprints; ~165 records disagree). `off.topics` keys are
+  JSON strings vs int `decline_lines`: the export asserts the sets match; records with empty
+  `decline_lines` have no `off` key (`r.get("off")`). v5 dev-box golden:
+  `tests/fixtures/index_v5_devbox.{json,md}` (the #45 run, `tests/test_index_v6.py`).
 - **In-run retries** (rev 14): an invalid `:M` (or calibration) answer is re-asked up to 2 times
   (`run.MAP_INVALID_RETRIES`) before it is cached as failed; meta records `n_invalid_attempts`
   and the summed usage.

@@ -15,6 +15,7 @@ the results docs cite.
 | [0013](../../plans/0013-final-sibling-eval-and-hallucination-index.md) hallucination index (hindex-v3) | [0013_hallucination_index.md](0013_hallucination_index.md) | |
 | [0019](../../plans/0019-safety-families-on-the-index.md) hallucination index hindex-v4 (+ overrefusal) | [0019_index_v4.md](0019_index_v4.md) | [0019_index_v4_full.md](0019_index_v4_full.md) |
 | [0021](../../plans/0021-am-candidate-claims-index-v5.md) hallucination index hindex-v5 (AM on candidate claims) | [0021_index_v5.md](0021_index_v5.md) | [0021_index_v5_full.md](0021_index_v5_full.md) |
+| [0022](../../plans/0022-overrefusal-wrong-topic-refusals.md) hallucination index hindex-v6 (overrefusal as wrong-topic refusal claims) | [0022_index_v6.md](0022_index_v6.md) | [0022_index_v6_full.md](0022_index_v6_full.md) |
 | (exploratory, no plan) AM family on candidate claims only | [am_candidate_claims_exploratory.md](am_candidate_claims_exploratory.md) | |
 | [0015](../../plans/0015-overrefusal-eval.md) overrefusal (OR-Bench) pilot | [0015_overrefusal_pilot.md](0015_overrefusal_pilot.md) | (generated: `outputs/overrefusal/claude-sonnet-5-5/report.md`) |
 | [0017](../../plans/0017-mask-eval.md) mask (pilot) | [0017_mask_pilot.md](0017_mask_pilot.md) | [0017_report_full.md](0017_report_full.md) |
