@@ -216,14 +216,32 @@ def cmd_report(args: argparse.Namespace) -> int:
         from hallucination_bench import index
 
         out = Path(args.out)
+        # the library default version (hindex-v4), not the `hbench index` CLI's v5 (plan 0021)
         built = index.build_index(
             index.default_sources(out, args.judge_model), index.load_methods(INDEX_METHODS)
         )
-        js, md = index.write_index(built, _index_dest(out, args.judge_model))
+        dest = _index_dest(out, args.judge_model)
+        if (prev := _index_version(dest / "index.json")) not in (None, built["version"]):
+            # never clobber an index of another version (e.g. `hbench index`'s hindex-v5)
+            print(
+                f"hallucination index: not written: {dest / 'index.json'} holds {prev}, this "
+                f"refresh builds {built['version']} (rebuild it with `hbench index`)"
+            )
+            return rc
+        js, md = index.write_index(built, dest)
         print(f"hallucination index: wrote {js}, {md} ({len(built['rows'])} rows)")
     except Exception as e:  # the index must never fail the report
         print(f"warning: hallucination index not built: {type(e).__name__}: {e}", file=sys.stderr)
     return rc
+
+
+def _index_version(path: Path) -> str | None:
+    """The ``version`` of an existing ``index.json`` (None when absent or unreadable)."""
+    try:
+        v = json.loads(path.read_text(encoding="utf-8")).get("version")
+    except (OSError, ValueError, AttributeError):
+        return None
+    return str(v) if v is not None else None
 
 
 def _index_dest(out: Path, judge_model: str) -> Path:
@@ -245,7 +263,7 @@ def cmd_index(args: argparse.Namespace) -> int:
         (index.OVERREFUSAL, "--overrefusal-root", args.overrefusal_root),
     ):
         if roots and args.version == "v3" and fam in index.SAFETY_FAMILIES:
-            raise SystemExit(f"{flag}: the safety families are hindex-v4 only (--version v4)")
+            raise SystemExit(f"{flag}: the safety families are hindex-v4 only (and v5), not v3")
         if roots:
             if missing := [r for r in roots if not Path(r).is_dir()]:
                 raise SystemExit(f"{flag}: not a directory: {missing}")
@@ -581,7 +599,8 @@ def build_parser() -> argparse.ArgumentParser:
 
     ix = sub.add_parser(
         "index",
-        help="the hallucination index (hindex-v4): one row per (method, layer) (plans 0013, 0019)",
+        help="the hallucination index (hindex-v5 by default): one row per (method, layer) "
+        "(plans 0013, 0019, 0021)",
     )
     ix.add_argument("--out", default="outputs", help="output root of the default sources")
     ix.add_argument("--judge-model", default=DEFAULT_MODEL)
@@ -601,10 +620,11 @@ def build_parser() -> argparse.ArgumentParser:
         )
     ix.add_argument(
         "--version",
-        choices=("v3", "v4"),
-        default="v4",
-        help="v4 (default): hindex-v4 (+ overrefusal, full_v3 / "
-        "matched_v3); v3: exactly the hindex-v3 output",
+        choices=("v3", "v4", "v5"),
+        default="v5",
+        help="v5 (default): hindex-v5 (agentic_misalignment on candidate claims, plan 0021); "
+        "v4: exactly the hindex-v4 output (+ overrefusal, full_v3 / matched_v3); v3: exactly "
+        "the hindex-v3 output",
     )
     ix.add_argument("--methods", default=str(INDEX_METHODS), help="method <-> arm mapping")
     ix.add_argument("--dest", default=None, help="default <out>/index/<model>/")
