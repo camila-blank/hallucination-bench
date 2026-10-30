@@ -360,7 +360,8 @@ def test_cli_version_and_safety_roots(tmp_path, monkeypatch):
         tmp_path / "or", [_row("jlens", 20, "i1", n_claims=2, n_false=1, n_contradicted=1)]
     )
     base = ["index", "--out", str(tmp_path / "none"), "--methods", str(tmp_path / "methods.json")]
-    assert cli.main([*base, "--overrefusal-root", str(root), "--dest", str(tmp_path / "d4")]) == 0
+    d4 = ["--version", "v4", "--overrefusal-root", str(root), "--dest", str(tmp_path / "d4")]
+    assert cli.main([*base, *d4]) == 0
     out = json.loads((tmp_path / "d4" / "index.json").read_text())
     assert out["version"] == "hindex-v4"
     assert out["rows"][0]["families"][ix.OVERREFUSAL]["v"] == 0.5

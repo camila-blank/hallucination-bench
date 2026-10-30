@@ -216,6 +216,7 @@ def cmd_report(args: argparse.Namespace) -> int:
         from hallucination_bench import index
 
         out = Path(args.out)
+        # the library default version (hindex-v4), not the `hbench index` CLI's v5 (plan 0021)
         built = index.build_index(
             index.default_sources(out, args.judge_model), index.load_methods(INDEX_METHODS)
         )
@@ -245,7 +246,7 @@ def cmd_index(args: argparse.Namespace) -> int:
         (index.OVERREFUSAL, "--overrefusal-root", args.overrefusal_root),
     ):
         if roots and args.version == "v3" and fam in index.SAFETY_FAMILIES:
-            raise SystemExit(f"{flag}: the safety families are hindex-v4 only (--version v4)")
+            raise SystemExit(f"{flag}: the safety families are hindex-v4 only (and v5), not v3")
         if roots:
             if missing := [r for r in roots if not Path(r).is_dir()]:
                 raise SystemExit(f"{flag}: not a directory: {missing}")
@@ -581,7 +582,8 @@ def build_parser() -> argparse.ArgumentParser:
 
     ix = sub.add_parser(
         "index",
-        help="the hallucination index (hindex-v4): one row per (method, layer) (plans 0013, 0019)",
+        help="the hallucination index (hindex-v5 by default): one row per (method, layer) "
+        "(plans 0013, 0019, 0021)",
     )
     ix.add_argument("--out", default="outputs", help="output root of the default sources")
     ix.add_argument("--judge-model", default=DEFAULT_MODEL)
@@ -601,10 +603,11 @@ def build_parser() -> argparse.ArgumentParser:
         )
     ix.add_argument(
         "--version",
-        choices=("v3", "v4"),
-        default="v4",
-        help="v4 (default): hindex-v4 (+ overrefusal, full_v3 / "
-        "matched_v3); v3: exactly the hindex-v3 output",
+        choices=("v3", "v4", "v5"),
+        default="v5",
+        help="v5 (default): hindex-v5 (agentic_misalignment on candidate claims, plan 0021); "
+        "v4: exactly the hindex-v4 output (+ overrefusal, full_v3 / matched_v3); v3: exactly "
+        "the hindex-v3 output",
     )
     ix.add_argument("--methods", default=str(INDEX_METHODS), help="method <-> arm mapping")
     ix.add_argument("--dest", default=None, help="default <out>/index/<model>/")

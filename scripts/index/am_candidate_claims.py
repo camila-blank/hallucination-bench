@@ -128,7 +128,7 @@ def main() -> None:
         print_md(json.loads(a.out.read_text(encoding="utf-8"))["rows"])
         return
     index = json.loads(a.index.read_text(encoding="utf-8"))
-    assert index["version"] == ix.INDEX_VERSION, index["version"]
+    assert index["version"] == "hindex-v4", index["version"]
     roots = [Path(r) for r in index["sources"][AM]]
     dirs = ix._arm_dirs(AM, roots)
     used = sorted({r["families"][AM]["arm"] for r in index["rows"] if AM in r["families"]})

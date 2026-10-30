@@ -39,10 +39,14 @@ safety coverage is overrefusal (plan 0015).
 
 `uv run hbench index` scores every model (one row per method x layer) from the families' outputs
 (nothing is re-judged), and every `hbench report` refreshes it:
-`outputs/index/<judge model>/index.{json,md}`. Current definition **`hindex-v4`** (plan 0019),
-five families: main = `wsbench_chat` weighted % of claims hallucinated (false_claim 1,
-substitution_category 0.5, substitution_sibling 0.5, detail 0.2); `agentic_misalignment` /
-`story` = unweighted % of claims hallucinated; sibling = the 3-domain UM ladder hallucination
+`outputs/index/<judge model>/index.{json,md}`. Current definition **`hindex-v5`** (plan 0021,
+the `hbench index` default): hindex-v4 (plan 0019) with `agentic_misalignment` scored on
+**candidate claims** only — claim segments overlapping (by >= 1 character) a merged
+detector-located misalignment-mention span of the same readout of the same cell (an AM value
+with 0 candidate claims is absent, not 0; `n_all_claims` beside `n`). Five families: main =
+`wsbench_chat` weighted % of claims hallucinated (false_claim 1, substitution_category 0.5,
+substitution_sibling 0.5, detail 0.2); `agentic_misalignment` = unweighted % of candidate claims
+hallucinated; `story` = unweighted % of claims hallucinated; sibling = the 3-domain UM ladder hallucination
 share; `overrefusal` = the **probe-validated** share defined by plan 0020 (one verdict per
 (reader, item, layer): items with a false refusal claim the refusal probe contradicts / judged
 items; raw share beside it in `index.json`), read from the eval's `index_counts.jsonl` for the
@@ -50,15 +54,21 @@ readers `s3d-rl600`, `mlnla-rl600-all11` and `jlens` only, 2,000-draw cluster bo
 absent (not 0) at a (method, layer) with nothing judged or whose false claims are all unprobed.
 Family weights main 9, agentic_misalignment 3, sibling 2, story 1, overrefusal 1; `full` = all
 five, `matched` = all but sibling; `full_v3` / `matched_v3` (always emitted) are hindex-v3's
-macros (main + AM + sibling + story / main + AM + story), and `hbench index --version v3` emits
-exactly the hindex-v3 output ([plan 0013](plans/0013-final-sibling-eval-and-hallucination-index.md)).
+macros (main + AM + sibling + story / main + AM + story, with the version's own family
+definitions). `hbench index --version v4` emits exactly the hindex-v4 output (AM on every claim of
+a mapped cell) and `--version v3` exactly the hindex-v3 output
+([plan 0013](plans/0013-final-sibling-eval-and-hallucination-index.md)). `hbench report`'s
+index refresh and the library `index.build_index` default to v4. Units differ across families:
+main / story all claims, AM candidate claims, sibling UM units, overrefusal items.
 Arms are matched by name across families; legacy names and exclusions live in
 `data/index/methods.json`. Each family root is overridable (`--main-root`, `--am-root`,
 `--story-root`, `--um-root`, repeatable); the overrefusal root is **opt-in**
 (`--overrefusal-root`, a dir holding `index_counts.jsonl` + `index_meta.json`, or
 `HBENCH_SAFETY_OR_OUT` when set; never a dev-box default). `strongreject` and `mask` are not on
-the index (dropped in plan 0019 revs 6 / 5). Definition:
-[plan 0019](plans/0019-safety-families-on-the-index.md).
+the index (dropped in plan 0019 revs 6 / 5). Definitions:
+[plan 0019](plans/0019-safety-families-on-the-index.md) (v4),
+[plan 0021](plans/0021-am-candidate-claims-index-v5.md) (v5; results
+`docs/results/0021_index_v5.md`).
 
 External data is configured by environment variables, each defaulting to the dev-box path
 (`src/hallucination_bench/paths.py`): `HBENCH_READOUTS_ROOT` (WorkspaceBench paper readouts),

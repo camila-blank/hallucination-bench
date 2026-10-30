@@ -1,0 +1,13 @@
+{
+ "gates": {
+  "20": {
+   "tail0": true,
+   "content": false
+  },
+  "24": {
+   "tail0": true
+  }
+ },
+ "population": "never_refused",
+ "unit": "items"
+}

@@ -209,6 +209,7 @@ def test_cli_index_writes_json_and_md(tmp_path, capsys):
     dest = tmp_path / "dest"
     argv = ["index", "--out", str(tmp_path / "none"), "--main-root", str(tmp_path / "main")]
     argv += ["--dest", str(dest), "--methods", str(tmp_path / "methods.json")]
+    argv += ["--version", "v4"]
     assert cli.main(argv) == 0
     out = json.loads((dest / "index.json").read_text())
     assert out["version"] == ix.INDEX_VERSION and "git_sha" in out
