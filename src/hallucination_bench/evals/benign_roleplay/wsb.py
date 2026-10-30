@@ -97,7 +97,9 @@ def plan_calls(
     hb_bank: Path = HB_ONLY_BANK,
 ) -> list[Call]:
     """The ``wsbench run`` calls HB issues (exit 2 if a reused campaign config is missing)."""
-    lay = list(layers) if layers else list(GRID)
+    lay = sorted(set(layers)) if layers else list(GRID)
+    if set(lay) - set(GRID):
+        raise WsbError(f"layers {sorted(set(lay) - set(GRID))} are not in readplan.GRID {GRID}")
     units = ["all", *[f"L{k}" for k in lay]] if not layers or lay == GRID else []
     units = units or [f"L{k}" for k in lay]
     for arm in arms:
@@ -139,7 +141,9 @@ def run_calls(root: Path, calls: Sequence[Call], *, dry_run: bool = False) -> in
         print(f"[benign_roleplay] {pre} {' '.join(c.argv)}".strip(), flush=True)
         if dry_run:
             continue
-        r = subprocess.run(c.argv, cwd=root, env={**os.environ, **c.env})
+        # a caller's WSB_BANK_FILE_* (e.g. the runbook's $HBENV) never leaks into a shared call
+        base = {k: v for k, v in os.environ.items() if not k.startswith("WSB_BANK_FILE_")}
+        r = subprocess.run(c.argv, cwd=root, env={**base, **c.env})
         code = max(code, r.returncode)
     return code
 

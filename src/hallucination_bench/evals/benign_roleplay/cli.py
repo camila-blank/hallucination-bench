@@ -94,7 +94,7 @@ def _wrap(fn):  # type: ignore[no-untyped-def]
     def inner(args: argparse.Namespace) -> int:
         try:
             return int(fn(args))
-        except wsb.WsbError as e:
+        except (wsb.WsbError, ValueError) as e:  # ValueError: bank.build's fail-closed gate
             print(f"benign-roleplay: {e}", file=sys.stderr)
             return 2
 

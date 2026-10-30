@@ -45,7 +45,13 @@ hindex-v6 (#46) before this landed, so this is 0023).
    the `po-opus-v1` prompt-only floor (> 20% refused → `not_measurable`; another instrument →
    "no floor"), diagnostics. Inputs refused (exit 2) when incomplete, not `reads=full`, not
    sidecar-checked, sampling not declared, wrong `layers_judged`, or mixed PV / judge in an arm.
-   A layer subset (`--layers`) marks the summary `complete=False` (C3).
+   A layer subset (`--layers`, must be within `readplan.GRID`) is judged as one `layers=<k>`
+   call per layer (so each result has `layers_judged == [k]`, which validation requires) rather
+   than one `layers=<csv>` call, and marks the summary `complete=False` (C3). Because WSB marks a
+   result incomplete whenever a cell is unjudged and HB refuses incomplete inputs, a real
+   judging gap exits 2 (re-run `wsbench`, which resumes from its caches); the
+   unjudged-counts-as-flagged rule is the backstop for ids absent from an otherwise complete
+   result. Refused (prompt-only) ids leave every denominator, as in WSB.
 5. **Shared-file edits.** `cli.EVAL_CLIS`, `evals.EVALS`, `paths.py` (`HBENCH_BR_CAMPAIGN`,
    `HBENCH_BR_READOUTS`), README (+ §Credits), CLAUDE.md. **Sanctioned pre-existing test edit
    (W1.6):** `tests/test_v5c_frozen.py` reads the wsbench `hallucination/prompts.py` source with

@@ -22,6 +22,16 @@ N_BOOT = 2000
 NOT_FLAGGED_STATES = ("judged", "empty", "refused")
 FLOOR_MAX_REFUSED = 0.20  # D8: a prompt-only floor with > 20% refused ids is not measurable
 LITE_STAMP = "+reads-lite"
+SUMMARIZER_IGNORED = ("concurrency", "timeout")  # throughput-only (WSB prompt_only.summarizer_key)
+
+
+def summarizer_key(config: Mapping[str, Any]) -> dict[str, Any] | None:
+    """The digest settings a floor must share with its row, minus the throughput-only keys (the
+    same rule as WSB's ``prompt_only.summarizer_key``, which ``summary_floor_applies`` uses)."""
+    summ = config.get("summarizer")
+    if not isinstance(summ, dict):
+        return None
+    return {k: v for k, v in summ.items() if k not in SUMMARIZER_IGNORED}
 
 
 def read_result(path: Path) -> dict[str, Any]:
@@ -109,6 +119,7 @@ def score_unit(
     for res in sources:
         for i, r in item_rows(res).items():
             rows.setdefault(i, r)
+    ids = [i for i in ids if (rows.get(i) or {}).get("state") != "refused"]  # as WSB / floor
     flags = {i: is_flagged(rows.get(i)) for i in ids}
     unjudged = [
         i for i in ids if rows.get(i) is None or rows[i].get("state") not in (NOT_FLAGGED_STATES)
@@ -162,9 +173,10 @@ def floor(
         return s[: -len(LITE_STAMP)] if s.endswith(LITE_STAMP) else s
 
     same = (
-        strip(cfg.get("prompt_version")) == strip(ref_config.get("prompt_version"))
+        cfg.get("aggregate") == ref_config.get("aggregate")
+        and strip(cfg.get("prompt_version")) == strip(ref_config.get("prompt_version"))
         and cfg.get("judge_model") == ref_config.get("judge_model")
-        and cfg.get("summarizer") == ref_config.get("summarizer")
+        and summarizer_key(cfg) == summarizer_key(ref_config)
     )
     if not same:
         return {"status": "no floor (instrument changed after R6)"}
@@ -243,6 +255,7 @@ def summarize(
                     "control"
                 ),
                 "n_api_failed": ex.get("n_api_failed"),
+                "spend_usd": [(r.get("counts") or {}).get("spend_usd") for r in srcs],
             }
             u["sources"] = [str(sp)] + ([str(hp)] if hb_ids else [])
             if unit == "all":

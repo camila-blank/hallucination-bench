@@ -383,6 +383,16 @@ def test_reuses_campaign_dirs(tmp_path: Path) -> None:
             assert "layers=each" in c.argv and c.env == {wsb.BANK_ENV: str(bank.HB_ONLY_BANK)}
         else:
             assert c.env == {}
+    (wsb.result_path(camp / "jlens-all-full")).unlink()
+    with pytest.raises(wsb.WsbError, match="campaign config missing"):
+        wsb.plan_calls(campaign=camp, readouts=tmp_path / "ro", out=tmp_path / "hb")
+    _campaign(camp, {"c1": ("control", False, "judged")})
+    shuffled = wsb.plan_calls(
+        campaign=camp, readouts=tmp_path / "ro", out=tmp_path / "hb", layers=GRID[::-1]
+    )
+    assert [c.argv for c in shuffled] == [c.argv for c in calls]  # full grid in any order
+    with pytest.raises(wsb.WsbError, match=r"not in readplan\.GRID"):
+        wsb.plan_calls(campaign=camp, readouts=tmp_path / "ro", out=tmp_path / "hb", layers=[42])
     (wsb.result_path(camp / "s3d-44")).unlink()
     with pytest.raises(wsb.WsbError, match="campaign config missing"):
         wsb.plan_calls(campaign=camp, readouts=tmp_path / "ro", out=tmp_path / "hb")
@@ -487,6 +497,13 @@ def test_floor_not_measurable_above_20pct_refused() -> None:
     assert metrics.floor(po(3), ids, ref)["status"] == "not_measurable"
     ok = metrics.floor(po(2), ids, ref)
     assert ok["status"] == "ok" and ok["n"] == 8 and ok["false_recognition_rate"] == 1 / 8
+    summ = {"model": "claude-opus-5-5", "concurrency": 256, "timeout": 60}
+    ref_s = _result({}, summarizer=summ, aggregate="summary")["config"]
+    po_s = po(0)
+    po_s["config"].update(summarizer={**summ, "concurrency": 8, "timeout": 5}, aggregate="summary")
+    assert metrics.floor(po_s, ids, ref_s)["status"] == "ok"  # throughput keys ignored
+    po_s["config"]["summarizer"]["model"] = "claude-sonnet-5"
+    assert metrics.floor(po_s, ids, ref_s)["status"].startswith("no floor")
     other = _result({}, prompt_version="jb-v3")["config"]
     assert metrics.floor(po(0), ids, other)["status"].startswith("no floor")
     assert metrics.floor(None, ids, ref)["status"] == "absent"
@@ -582,3 +599,13 @@ def test_cli_registered() -> None:
     assert "benign_roleplay" in EVALS
     a = build_parser().parse_args(["benign-roleplay", "report", "--layers", "44"])
     assert a.layers == "44" and a.judge == "claude-sonnet-5"
+
+
+def test_caller_bank_override_never_reaches_shared_calls(monkeypatch: pytest.MonkeyPatch) -> None:
+    called: list[Any] = []
+    monkeypatch.setattr(wsb, "check_pin", lambda root, sha=wsb.WSB_SHA: None)
+    monkeypatch.setattr(wsb.subprocess, "run", _spy(called))
+    monkeypatch.setenv(wsb.BANK_ENV, "/elsewhere.json")
+    wsb.run_calls(Path("."), [wsb.Call(["wsbench"]), wsb.Call(["wsbench"], {wsb.BANK_ENV: "hb"})])
+    assert wsb.BANK_ENV not in called[0][1]["env"]
+    assert called[1][1]["env"][wsb.BANK_ENV] == "hb"

@@ -59,10 +59,11 @@ def sha_obj(obj: Any) -> str:
     return sha256_bytes(json.dumps(obj, sort_keys=True, ensure_ascii=False).encode())
 
 
-def template_id(first_user_turn: str) -> str:
+def template_id(user_turn: str) -> str:
     """WSB J1.1's cluster id (scripts/build_jailbreak_v2.py ``template_id``): sha of the first
-    200 whitespace-normalised lower-cased chars. Checked against every shared roleplay row."""
-    head = re.sub(r"\s+", " ", first_user_turn.lower()).strip()[:200]
+    200 whitespace-normalised lower-cased chars. WSB passes a role-play control's LAST user turn
+    (every control is single-turn); checked against every shared roleplay row."""
+    head = re.sub(r"\s+", " ", user_turn.lower()).strip()[:200]
     return "t-" + hashlib.sha256(head.encode()).hexdigest()[:10]
 
 
