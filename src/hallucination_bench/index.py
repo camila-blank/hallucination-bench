@@ -32,6 +32,12 @@ cell (:func:`claim_rows` with ``am_candidates=True``), everywhere AM is used (``
 ``matched_v3`` included: the v3 family set with v5 family definitions). The v3 definition
 reproduces the exploratory ``hclaims*.py`` / ``um3.py`` / ``macro3.py`` exactly, down to the RNG
 consumption order: change a definition only with a new :data:`INDEX_VERSION`.
+
+v6 (hindex-v6, plan 0022; the ``hbench index`` CLI default since, ``build_index``'s library default
+still ``"v4"``) is v5 with the overrefusal family read from a root whose ``index_meta.json`` has
+``unit == "refusal_claims"`` (``hbench overrefusal offtopic-export``: per item, ``n_claims`` =
+decline lines, ``n_contradicted`` = off-topic decline lines, all 427 items, no probe); the share
+formula and every other family are v5's. :func:`check_safety_units` enforces the unit both ways.
 """
 
 import json
@@ -54,7 +60,15 @@ from hallucination_bench import taxonomy_v2 as tx
 INDEX_VERSION = "hindex-v4"
 INDEX_VERSION_V3 = "hindex-v3"
 INDEX_VERSION_V5 = "hindex-v5"
-VERSIONS: dict[str, str] = {"v3": INDEX_VERSION_V3, "v4": INDEX_VERSION, "v5": INDEX_VERSION_V5}
+INDEX_VERSION_V6 = "hindex-v6"
+VERSIONS: dict[str, str] = {
+    "v3": INDEX_VERSION_V3,
+    "v4": INDEX_VERSION,
+    "v5": INDEX_VERSION_V5,
+    "v6": INDEX_VERSION_V6,
+}
+# the versions scoring agentic_misalignment on candidate claims (plan 0021; v6 = v5 + plan 0022)
+AM_CANDIDATE_VERSIONS: frozenset[str] = frozenset({"v5", "v6"})
 MAIN, AM, SIBLING, STORY = "main", "agentic_misalignment", "sibling", "story"
 OVERREFUSAL = "overrefusal"
 FAMILIES_V3: tuple[str, ...] = (MAIN, AM, SIBLING, STORY)
@@ -82,6 +96,9 @@ CELLS = "cells.jsonl"
 UNITS = "units_labeled.jsonl"
 SAFETY_COUNTS = "index_counts.jsonl"
 SAFETY_META = "index_meta.json"
+# plan 0022: the overrefusal root's ``index_meta.json`` unit under hindex-v6 (decline lines);
+# hindex-v4 / v5 read the plan-0020 item root (unit "items", or a meta-less root)
+UNIT_REFUSAL_CLAIMS = "refusal_claims"
 # plan 0019's reader allowlist (the export's arm names): rows of any other arm are ignored
 SAFETY_READERS: dict[str, frozenset[str]] = {
     OVERREFUSAL: frozenset({"s3d-rl600", "mlnla-rl600-all11", "jlens"}),
@@ -141,6 +158,19 @@ NOTES_V5: dict[str, str] = {
     "AM value is not like-for-like with the prose arms. Units differ across families: "
     "agentic_misalignment counts candidate claims, overrefusal counts items (one verdict per "
     "item), main / story count all claims, sibling counts committed probe-testable units",
+}
+# hindex-v6's own note (plan 0022), merged over methods.json's notes for v6 only (it restates the
+# v5 AM rule, so the v5 note -- whose units sentence v6 changes -- is not merged)
+NOTES_V6: dict[str, str] = {
+    "hindex-v6": "overrefusal = % of refusal claims (decline lines) about a topic the prompt does "
+    "not contain (oroff-v1 off_topic / orsj-v3 decline lines, plan 0022), all 427 items, not "
+    "probe-validated; J-lens token lines rarely state a reason, so nearly all its refusals are "
+    "scored on-topic (2 of 921 J-lens decline lines are off-topic). agentic_misalignment is "
+    "scored on candidate claims as in hindex-v5 (plan 0021, variant (a)); J-lens segments and "
+    "mentions both index its summary text, so its AM value is not like-for-like with the prose "
+    "arms. Units differ across families: agentic_misalignment counts candidate claims, "
+    "overrefusal counts refusal claims (decline lines), main / story count all claims, sibling "
+    "counts committed probe-testable units",
 }
 
 # per-item count vector columns
@@ -477,6 +507,34 @@ def resolve_methods(
 
 # ---------------------------------------------------------------- build
 
+SHARE_V4 = "n_contradicted / n_claims (probe-validated); raw = n_false / n_claims"
+SHARE_V6 = (
+    "n_contradicted / n_claims = off-topic decline lines / decline lines (refusal claims, not "
+    "probe-validated; plan 0022); raw = n_false / n_claims (the same)"
+)
+
+
+def check_safety_units(sources: Mapping[str, Iterable[Path]], version: str) -> None:
+    """Plan 0022's unit guard on the overrefusal roots: under v6 each root's ``index_meta.json``
+    must have ``unit == "refusal_claims"``; under v4 / v5 a ``refusal_claims`` root is refused
+    (``items`` or a missing meta is accepted). v3 reads no safety family. ``ValueError``."""
+    if version == "v3":
+        return
+    for root in sources.get(OVERREFUSAL, []):
+        meta = safety_meta(Path(root))
+        unit = None if meta is None else meta.get("unit")
+        if version == "v6" and unit != UNIT_REFUSAL_CLAIMS:
+            raise ValueError(
+                f"{OVERREFUSAL}: hindex-v6 needs a {UNIT_REFUSAL_CLAIMS!r} root (`hbench "
+                f"overrefusal offtopic-export` -> .../offtopic_index), but {root} has unit "
+                f"{unit!r}{'' if meta is not None else ' (no ' + SAFETY_META + ')'}"
+            )
+        if version != "v6" and unit == UNIT_REFUSAL_CLAIMS:
+            raise ValueError(
+                f"{OVERREFUSAL}: {root} has unit {UNIT_REFUSAL_CLAIMS!r} (the hindex-v6 "
+                f"wrong-topic root); hindex-{version} reads the plan-0020 item root (unit 'items')"
+            )
+
 
 def default_sources(out: Path, judge_model: str) -> dict[str, list[Path]]:
     from hallucination_bench.evals.wsbench_chat.run import model_slug
@@ -575,12 +633,15 @@ def build_index(
     ``matched`` all but sibling, and ``full_v3`` / ``matched_v3`` are the v3 macros; v3
     (``version="v3"``): exactly hindex-v3 (``full`` = four families, ``matched`` =
     :data:`MATCHED_V3`); v5: v4 with AM on candidate claims (an AM (arm, layer) with mapped cells
-    but 0 candidate claims is absent, listed under the row's ``absent``). Missing roots mean an
-    absent family, not an error. The library default stays ``"v4"`` (the CLI's is ``"v5"``)."""
+    but 0 candidate claims is absent, listed under the row's ``absent``); v6: v5 with overrefusal
+    on wrong-topic refusal claims (a ``refusal_claims`` root, :func:`check_safety_units`). Missing
+    roots mean an absent family, not an error. The library default stays ``"v4"`` (the CLI's is
+    ``"v6"``)."""
     if version not in VERSIONS:
         raise ValueError(f"unknown index version {version!r}: one of {sorted(VERSIONS)}")
+    check_safety_units(sources, version)
     v3 = version == "v3"
-    am_candidates = version == "v5"
+    am_candidates = version in AM_CANDIDATE_VERSIONS
     families = FAMILIES_V3 if v3 else FAMILIES
     safety_fams = () if v3 else SAFETY_FAMILIES
     arm_dirs = {f: _arm_dirs(f, list(sources.get(f, []))) for f in CLAIM_FAMILIES}
@@ -672,6 +733,8 @@ def build_index(
     }
     if v3:
         notes = NOTES_V3
+    elif version == "v6":
+        notes = {**methods.notes, **NOTES_V6}  # the v6 note lives in code, not methods.json
     elif am_candidates:
         notes = {**methods.notes, **NOTES_V5}  # the v5 note lives in code, not methods.json
     else:
@@ -688,7 +751,7 @@ def build_index(
     if not v3:
         out["safety"] = {
             f: {
-                "share": "n_contradicted / n_claims (probe-validated); raw = n_false / n_claims",
+                "share": SHARE_V6 if version == "v6" else SHARE_V4,
                 "readers": sorted(SAFETY_READERS[f]),
                 "unit": sorted(
                     {str(m["meta"].get("unit")) for m in safety[f][3] if m["meta"] is not None}
@@ -774,6 +837,8 @@ def render_md(index: Mapping[str, Any]) -> str:
         return _render_md_v4(index)
     if index["version"] == INDEX_VERSION_V5:
         return _render_md_v5(index)
+    if index["version"] == INDEX_VERSION_V6:
+        return _render_md_v6(index)
     raise ValueError(f"unknown index version {index['version']!r}")
 
 
@@ -820,6 +885,39 @@ def _render_md_v5(index: Mapping[str, Any]) -> str:
         + " + ".join(index["weights"]["unweighted_leaves"])
         + "; sibling: 3-domain UM ladder; overrefusal: probe-validated share (plan 0020: "
         "items with a false refusal claim the refusal probe contradicts / judged items).",
+        "",
+        "| method | layer | full | matched | full_v3 | " + " | ".join(FAMILIES) + " "
+        "| main fc / cat / sib / det |",
+        "|---|---:|" + "---|" * (3 + len(FAMILIES) + 1),
+        *_md_rows(index),
+    ]
+    if gone := _md_absent(index):
+        L += ["", "Families absent (not 0): " + "; ".join(gone) + "."]
+    L += _md_footer(index)
+    return "\n".join(L) + "\n"
+
+
+def _render_md_v6(index: Mapping[str, Any]) -> str:
+    """hindex-v6's table: v5's columns, overrefusal on wrong-topic refusal claims (plan 0022)."""
+    fw = index["weights"]["family"]
+    lw = index["weights"]["main_leaf"]
+    L = [
+        f"# Hallucination index ({index['version']})",
+        "",
+        "% hallucinated per (method, layer), 95% CIs. Family weights "
+        + ", ".join(f"{f} {w:g}" for f, w in fw.items())
+        + "; `full` = all five families, `matched` = all but sibling, `full_v3` = the v3 family "
+        "set (main + agentic_misalignment + sibling + story), with v6 family definitions. Units: "
+        "main / story count all claims; agentic_misalignment counts **candidate claims** (claims "
+        "overlapping a detected misalignment-mention span of the same readout, plan 0021); "
+        "sibling counts committed, probe-testable UM units; overrefusal counts **refusal claims** "
+        "(decline lines, plan 0022). main leaf weights "
+        + ", ".join(f"{k} {w:g}" for k, w in lw.items())
+        + "; agentic_misalignment / story: unweighted "
+        + " + ".join(index["weights"]["unweighted_leaves"])
+        + "; sibling: 3-domain UM ladder; overrefusal: wrong-topic share (decline lines whose "
+        "declined topic has no anchor in the prompt / decline lines, all 427 items, not "
+        "probe-validated).",
         "",
         "| method | layer | full | matched | full_v3 | " + " | ".join(FAMILIES) + " "
         "| main fc / cat / sib / det |",

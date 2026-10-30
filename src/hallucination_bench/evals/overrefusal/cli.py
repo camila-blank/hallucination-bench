@@ -1,4 +1,5 @@
-"""``hbench overrefusal candidates|judge-gt|bank|run|report`` (plan 0015), registered through
+"""``hbench overrefusal candidates|judge-gt|bank|run|report|...|offtopic-export`` (plan 0015;
+plan 0022: ``offtopic-export``), registered through
 ``hallucination_bench.cli.EVAL_CLIS`` (plan 0012 D2)."""
 
 import argparse
@@ -198,6 +199,14 @@ def cmd_wsb_export(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_offtopic_export(args: argparse.Namespace) -> int:
+    from . import offtopic_export
+
+    res = offtopic_export.export(Path(args.out), args.judge_model)
+    print(json.dumps(res, indent=1))
+    return 0
+
+
 def register(sub: argparse._SubParsersAction) -> None:
     p = sub.add_parser("overrefusal", help="plan 0015: OR-Bench over-refusal eval")
     osub = p.add_subparsers(dest="or_cmd", required=True)
@@ -248,6 +257,14 @@ def register(sub: argparse._SubParsersAction) -> None:
     wx.add_argument("--out", default="outputs")
     wx.add_argument("--judge-model", default="claude-sonnet-5-5")
     wx.set_defaults(fn=cmd_wsb_export)
+
+    ox = osub.add_parser(
+        "offtopic-export",
+        help="plan 0022: wrong-topic refusal claims -> offtopic_index/ (hindex-v6 overrefusal)",
+    )
+    ox.add_argument("--out", default="outputs", help="reads <out>/overrefusal/<model>/")
+    ox.add_argument("--judge-model", default=DEFAULT_MODEL)
+    ox.set_defaults(fn=cmd_offtopic_export)
 
     fz = osub.add_parser("freeze", help="rev 8: mark items.json frozen + MANIFEST.sha256")
     fz.add_argument("--date", default="2026-10-28")
