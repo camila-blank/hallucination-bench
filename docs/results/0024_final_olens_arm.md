@@ -86,22 +86,45 @@ Every read cell's read-site token equals the bank's token (main, overrefusal, AM
 
 ## benign_roleplay (not on the index)
 
-**Preliminary.** These are per-layer units only. Two things are still missing:
-- the all-layer unit, both the campaign's config and HB's `hb_only` all-layer run, which are still being judged;
-- complete campaign results at L32 and L44, which each have 1 unjudged cell (`complete: false`).
+`hbench benign-roleplay report --arms final-olens-rl600-x4 --accept-refused-as-flagged` (#52), at
+the `wsb.WSB_SHA` pin `0b18789` (#53 moved it to e8615c4, then #54 to 0b18789). The judge is WSB `jailbreak_recognition`, jb-v3+digest-v5-task-extractive+sj-v10,
+on Sonnet 5: the post-audit instrument the WSB fix campaign re-judged at (workspace-bench #194–#199).
 
-Until both are in, `hbench benign-roleplay report` refuses the inputs. The numbers below come from `metrics.summarize`, with only the completeness check relaxed for those two layers.
+The rate is the share of the 150 gated harmless role-play prompts whose readouts contain a jailbreak recognition (lower is
+better). The 86 WSB-shared ids come from the campaign's judged dirs, and the 64 `hb_only` ids from HB's own run at the same
+instrument. n = 150 at every unit. The summary is `complete=True`.
 
-The rate is the share of 150 gated harmless role-play prompts whose readouts contain a jailbreak recognition (lower is better). Judge: WSB `jailbreak_recognition` at the `wsb.WSB_SHA` pin 65951dc (jb-v2+digest-v4-task-extractive+sj-v9, Sonnet 5). The 86 WSB-shared ids come from the campaign's judged dirs, and the 64 `hb_only` ids from HB's own run. n = 150 at every layer.
+| unit | all | L20 | L24 | L28 | L32 | L36 | L40 | L44 | L48 | L52 | L56 | L60 |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| rate % [CI] | **17.3 [11.4, 23.5]** | 3.3 [0.7, 6.5] | 4.7 [1.9, 8.6] | 6.0 [2.6, 10.1] | 8.7 [4.5, 13.4] | 8.7 [4.6, 13.4] | 6.0 [2.6, 10.1] | 4.0 [1.3, 7.3] | 2.7 [0.6, 5.4] | 3.3 [0.7, 6.6] | 2.0 [0.0, 4.6] | 3.3 [0.7, 6.5] |
 
-| layer | L20 | L24 | L28 | L32 | L36 | L40 | L44 | L48 | L52 | L56 | L60 |
-|---|---|---|---|---|---|---|---|---|---|---|---|
-| rate % [CI] | 6.7 [2.7, 11.0] | 4.0 [1.3, 7.5] | 8.7 [4.1, 13.7] | 12.7 [7.7, 17.9] | 11.3 [6.7, 16.4] | 10.0 [5.3, 15.1] | 7.3 [3.3, 12.0] | 6.7 [2.7, 10.7] | 4.0 [1.3, 7.4] | 5.3 [2.0, 9.3] | 6.0 [2.6, 10.2] |
-
-The unweighted 11-layer mean is 7.5%. The final numbers will replace this section once `hbench benign-roleplay report --arms final-olens-rl600-x4` runs.
+- **all-layer unit: 17.3%** [11.4, 23.5] (26/150 flagged).
+  The unweighted 11-layer mean of the single-layer units is 4.8%. The all-layer
+  digest sees every layer's readouts at once, so a recognition read at any one layer counts.
+- **The WSB-shared subset at the all-layer unit** is 14.0%, equal to WSB's own `false_recognition_rate`
+  (14.0%). The po-opus-v1 floor is `not_measurable`.
+- **Unjudged cell.** One jailbreak positive (`as-wildchat-52502410`) in the campaign's all-layer results was left
+  unjudged: the judge call returned no result, which WSB counts as `n_api_failed=1`. That makes the input file
+  `complete=False`. The item is not one of the 150 gated controls, so it cannot affect the rate. Under Fable's
+  2026-10-31 decision, `--accept-refused-as-flagged` admits such an input, and the 26/150 is the same either way.
+  `summary.md` shows the admitted count in its "refused, counted flagged" column: 1 at the `all` unit, outside the 150.
+- **Earlier preliminary numbers.** The per-layer numbers previously shown here were judged at the old pin 65951dc
+  (jb-v2+digest-v4, L32/L44 incomplete, no all-layer unit), with an 11-layer mean of 7.5%. They are superseded
+  by this re-judge at the current instrument.
+- **Pin history.** At e8615c4, digest-v5 all-layer digests overflowed the readout judge's 16k output budget: 51 of 64
+  `hb_only` all-layer items were unjudged (51 `stop_reason=max_tokens` errors in the e8615c4 run's log). workspace-bench #199
+  (64k / 900 s, no prompt change) fixed this. Most single-layer units were judged at e8615c4; campaign L32 / L40
+  were judged at 0b18789's budget. The prompt version (instrument) is identical everywhere.
 
 ## Reproduce
 
 Plan 0024 §Judging gives the commands. The dev-box driver scripts live in `$W/scripts/`:
 `build_plans.py`, `merge_hbidx.py`, `am_filter.py`, `run_um.sh`, `run_or.sh`, `run_am_lane.sh` and
 `build_index.sh`. AM was judged one layer per process, because the box's 30 GB cgroup is shared.
+
+benign_roleplay: the hb_only rows were judged by the same `wsbench judge family=jailbreak_recognition reads=full`
+calls `hbench benign-roleplay run` issues (bank override `WSB_BANK_FILE_JAILBREAK_RECOGNITION=data/benign_roleplay/wsb_bank_hb_only_v1.json`,
+the `layers=each` layout `<out>/final-olens-rl600-x4/hb_only/jailbreak_recognition/<all|L<k>>`), run as one process
+per unit for memory, then
+`HBENCH_BR_CAMPAIGN=/workspace/root/wsb-bp/judged hbench benign-roleplay report --arms final-olens-rl600-x4
+--out $W/br_out_e8615c4 --floor <po-opus-v1 jailbreak_recognition results.json> --accept-refused-as-flagged`.
