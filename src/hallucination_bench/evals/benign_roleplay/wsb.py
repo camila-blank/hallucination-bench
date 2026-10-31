@@ -1,6 +1,6 @@
 """The only benign_roleplay code that touches WorkspaceBench (plan 0023 HB-A.3): a pin check and
 subprocess calls of the pinned ``wsbench`` CLI. No WSB logic lives in HB: the loader, read
-guards, digest, judge (jb-v2), post-processing and completeness rules all run inside WSB at
+guards, digest, judge (jb-v3), post-processing and completeness rules all run inside WSB at
 ``WSB_SHA``. This module never reads, writes or exports an API key; the caller's environment
 (e.g. ``ANTHROPIC_AUTH_TOKEN`` per command) passes through unchanged.
 
@@ -22,10 +22,13 @@ from pathlib import Path
 
 from .bank import FAMILY, HB_ONLY_BANK
 
-# The pinned WorkspaceBench sha the judge runs at: camila-blank/workspace-bench main 65951dc
-# (#190; the sha the fix campaign judges jailbreak_recognition at, whose judged dirs HB reuses;
-# contains PR #188 head a2391b2, plan 0037). A WSB fix PR bumps this one line.
-WSB_SHA = "65951dcb5165181cef9db61e735766085e8b15b2"
+# The pinned WorkspaceBench sha the judge runs at: camila-blank/workspace-bench main e8615c4
+# (post-audit: digest-v5, jb-v3, PRs #194-#198; the sha the fix campaign RE-judges
+# jailbreak_recognition at, whose judged dirs HB reuses). Was 65951dc (#190, jb-v2 / digest-v4)
+# until 2026-10-31. The jailbreak bank and its build record are byte-identical at both shas
+# (only evals/jailbreak_recognition/README.md changed), so items_v1 stays. A WSB fix PR bumps
+# this one line.
+WSB_SHA = "e8615c42531b5c628a3fe9257503db1008ee8f88"
 # The sha the frozen bank (items_v1.json / wsb_bank_hb_only_v1.json headers) was imported at:
 # PR #188 head (plan 0037: frozen jailbreak bank v2 + its build/gate record). The bank and build
 # files are byte-identical at WSB_SHA (test_bank_is_verbatim_copy reads them at WSB_SHA and
