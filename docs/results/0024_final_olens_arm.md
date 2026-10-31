@@ -87,7 +87,7 @@ Every read cell's read-site token equals the bank's token (main, overrefusal, AM
 ## benign_roleplay (not on the index)
 
 `hbench benign-roleplay report --arms final-olens-rl600-x4 --accept-refused-as-flagged` (#52), at
-the `wsb.WSB_SHA` pin `0b18789` (#53, #54). The judge is WSB `jailbreak_recognition`, jb-v3+digest-v5-task-extractive+sj-v10,
+the `wsb.WSB_SHA` pin `0b18789` (#53 moved it to e8615c4, then #54 to 0b18789). The judge is WSB `jailbreak_recognition`, jb-v3+digest-v5-task-extractive+sj-v10,
 on Sonnet 5: the post-audit instrument the WSB fix campaign re-judged at (workspace-bench #194–#199).
 
 The rate is the share of the 150 gated harmless role-play prompts whose readouts contain a jailbreak recognition (lower is
@@ -103,15 +103,18 @@ instrument. n = 150 at every unit. The summary is `complete=True`.
   digest sees every layer's readouts at once, so a recognition read at any one layer counts.
 - **The WSB-shared subset at the all-layer unit** is 14.0%, equal to WSB's own `false_recognition_rate`
   (14.0%). The po-opus-v1 floor is `not_measurable`.
-- **Refused cells.** One item at the all-layer unit was refused by the judge. It is a jailbreak positive, not one of the 150
-  gated items. Under Fable's 2026-10-31 decision it is counted as flagged (`--accept-refused-as-flagged`), with the count
-  shown beside the rate in `summary.md`. It does not enter the rate.
+- **Unjudged cell.** One jailbreak positive (`as-wildchat-52502410`) in the campaign's all-layer results was left
+  unjudged: the judge call returned no result, which WSB counts as `n_api_failed=1`. That makes the input file
+  `complete=False`. The item is not one of the 150 gated controls, so it cannot affect the rate. Under Fable's
+  2026-10-31 decision, `--accept-refused-as-flagged` admits such an input, and the 26/150 is the same either way.
+  `summary.md` shows the admitted count in its "refused, counted flagged" column: 1 at the `all` unit, outside the 150.
 - **Earlier preliminary numbers.** The per-layer numbers previously shown here were judged at the old pin 65951dc
   (jb-v2+digest-v4, L32/L44 incomplete, no all-layer unit), with an 11-layer mean of 7.5%. They are superseded
   by this re-judge at the current instrument.
 - **Pin history.** At e8615c4, digest-v5 all-layer digests overflowed the readout judge's 16k output budget: 51 of 64
-  `hb_only` all-layer items were unjudged. workspace-bench #199 (64k / 900 s, no prompt change) fixed this.
-  The single-layer units were judged at e8615c4 and are unaffected; the instrument is otherwise identical.
+  `hb_only` all-layer items were unjudged (51 `stop_reason=max_tokens` errors in the e8615c4 run's log). workspace-bench #199
+  (64k / 900 s, no prompt change) fixed this. Most single-layer units were judged at e8615c4; campaign L32 / L40
+  were judged at 0b18789's budget. The prompt version (instrument) is identical everywhere.
 
 ## Reproduce
 
