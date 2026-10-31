@@ -609,3 +609,35 @@ def test_caller_bank_override_never_reaches_shared_calls(monkeypatch: pytest.Mon
     wsb.run_calls(Path("."), [wsb.Call(["wsbench"]), wsb.Call(["wsbench"], {wsb.BANK_ENV: "hb"})])
     assert wsb.BANK_ENV not in called[0][1]["env"]
     assert called[1][1]["env"][wsb.BANK_ENV] == "hb"
+
+
+def test_accept_refused_as_flagged_admits_only_refusal_incompleteness() -> None:
+    """--accept-refused-as-flagged admits a result whose ONLY defect is judge-refused (unjudged)
+    cells, never a missing cell, an unpinned judge or any other refusal condition; off by
+    default."""
+    ids = {"c1": ("control", False, "judged")}
+    refused = {
+        **_result(ids),
+        "complete": False,
+        "pinned_instrument": True,
+        "counts": {"n_missing_cells": 0, "n_unjudged_cells": 1},
+    }
+    with pytest.raises(wsb.WsbError, match="complete is False"):
+        metrics.validate(refused, "all")  # default: still refused
+    assert metrics.validate(refused, "all", accept_refused=True) == 1
+    for bad in (
+        {**refused, "counts": {"n_missing_cells": 3, "n_unjudged_cells": 1}},
+        {**refused, "pinned_instrument": False},
+        {**refused, "counts": {"n_missing_cells": 0, "n_unjudged_cells": 0}},
+        {**refused, "config": {**refused["config"], "reads": "lite"}},
+    ):
+        with pytest.raises(wsb.WsbError):
+            metrics.validate(bad, "all", accept_refused=True)
+    assert metrics.validate(_result(ids), "all", accept_refused=True) == 0
+
+
+def test_refused_item_without_row_counts_as_flagged() -> None:
+    """The item a refused judge call left without a row is flagged and counted unjudged."""
+    res = _result({"c1": ("control", False, "judged")})
+    u = metrics.score_unit([res], ["c1", "c2"], {})
+    assert u["n_flagged"] == 1 and u["n_unjudged"] == 1 and u["flagged_ids"] == ["c2"]

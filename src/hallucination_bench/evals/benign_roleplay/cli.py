@@ -76,6 +76,7 @@ def cmd_report(args: argparse.Namespace) -> int:
         arms=_arms(args.arms),
         layers=_layers(args.layers),
         floor_res=floor_res,
+        accept_refused_as_flagged=args.accept_refused_as_flagged,
     )
     for arm, a in s["rates"].items():
         if a["instrument"].get("judge_model") != args.judge:
@@ -129,4 +130,10 @@ def register(sub: argparse._SubParsersAction) -> None:  # type: ignore[type-arg]
     rp = bsub.add_parser("report", help="summary.{json,md} from the judged results")
     common(rp)
     rp.add_argument("--floor", default=None, help="po-opus-v1 jailbreak_recognition results.json")
+    rp.add_argument(
+        "--accept-refused-as-flagged",
+        action="store_true",
+        help="admit WSB results incomplete ONLY through judge-refused (unjudged) cells; those "
+        "items count as flagged (conservative) and the count is shown beside the rate",
+    )
     rp.set_defaults(fn=_wrap(cmd_report))
