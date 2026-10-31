@@ -192,7 +192,7 @@ scripts/mask/        build_items.py, gen_modal.py (Modal vLLM), build_capture.py
   root from their own location and read `${HBENCH_X:-<default>}`.
 - CI is pending (plan 0012 D5, held back for a token scope): until it lands, run ruff check +
   format and `pytest -rs` locally before pushing. Plan numbers are unique: the next free one is
-  0024 (0009/0010 belong to the unlanded resampling-gate branches).
+  0025 (0009/0010 belong to the unlanded resampling-gate branches).
 
 ## Run commands
 

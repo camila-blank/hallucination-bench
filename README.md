@@ -108,7 +108,8 @@ the index (dropped in plan 0019 revs 6 / 5). Definitions:
 [plan 0021](plans/0021-am-candidate-claims-index-v5.md) (v5; results
 `docs/results/0021_index_v5.md`),
 [plan 0022](plans/0022-overrefusal-wrong-topic-refusals.md) (v6; results
-`docs/results/0022_index_v6.md`).
+`docs/results/0022_index_v6.md`; the final O-lens campaign arm `final-olens-rl600-x4`, plan 0024:
+[`docs/results/0024_final_olens_arm.md`](docs/results/0024_final_olens_arm.md)).
 
 External data is configured by environment variables, each defaulting to the dev-box path
 (`src/hallucination_bench/paths.py`): `HBENCH_READOUTS_ROOT` (WorkspaceBench paper readouts),
