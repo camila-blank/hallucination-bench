@@ -22,10 +22,10 @@ from pathlib import Path
 
 from .bank import FAMILY, HB_ONLY_BANK
 
-# The pinned WorkspaceBench sha the judge runs at: camila-blank/workspace-bench main 831f22f
-# (#189, the fix-campaign integration merge; contains PR #188 head a2391b2, plan 0037). A WSB fix
-# PR bumps this one line.
-WSB_SHA = "831f22f1b5f6abdf8922c70998fbcca5a9e83385"
+# The pinned WorkspaceBench sha the judge runs at: camila-blank/workspace-bench main 65951dc
+# (#190; the sha the fix campaign judges jailbreak_recognition at, whose judged dirs HB reuses;
+# contains PR #188 head a2391b2, plan 0037). A WSB fix PR bumps this one line.
+WSB_SHA = "65951dcb5165181cef9db61e735766085e8b15b2"
 # The sha the frozen bank (items_v1.json / wsb_bank_hb_only_v1.json headers) was imported at:
 # PR #188 head (plan 0037: frozen jailbreak bank v2 + its build/gate record). The bank and build
 # files are byte-identical at WSB_SHA (test_bank_is_verbatim_copy reads them at WSB_SHA and
