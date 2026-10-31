@@ -611,33 +611,112 @@ def test_caller_bank_override_never_reaches_shared_calls(monkeypatch: pytest.Mon
     assert called[1][1]["env"][wsb.BANK_ENV] == "hb"
 
 
-def test_accept_refused_as_flagged_admits_only_refusal_incompleteness() -> None:
-    """--accept-refused-as-flagged admits a result whose ONLY defect is judge-refused (unjudged)
-    cells, never a missing cell, an unpinned judge or any other refusal condition; off by
-    default."""
-    ids = {"c1": ("control", False, "judged")}
-    refused = {
-        **_result(ids),
+def _refused(res: dict[str, Any], n_unjudged: int = 1) -> dict[str, Any]:
+    """``res`` as WSB writes a summary-mode result whose only defect is judge-refused items."""
+    cfg = {
+        **res["config"],
+        "aggregate": "summary",
+        "items": None,
+        "limit": 0,
+        "dry_run": False,
+        "read": "span",
+        "allow_missing": False,
+    }
+    ex = {
+        **res["numbers"]["extras"],
+        "n_items_no_readouts": 0,
+        "summary": {"summary_complete": True},
+    }
+    return {
+        **res,
         "complete": False,
         "pinned_instrument": True,
-        "counts": {"n_missing_cells": 0, "n_unjudged_cells": 1},
+        "n_items": 100,
+        "config": cfg,
+        "counts": {"n_missing_cells": 0, "n_unjudged_cells": n_unjudged, "n_empty_cells": 0},
+        "numbers": {**res["numbers"], "extras": ex},
     }
+
+
+def test_accept_refused_as_flagged_admits_only_refusal_incompleteness() -> None:
+    """--accept-refused-as-flagged admits a result whose ONLY defect is judge-refused items
+    (WSB's completeness rule minus the unjudged term, failing closed); off by default."""
+    ids = {"c1": ("control", False, "judged")}
+    refused = _refused(_result(ids))
     with pytest.raises(wsb.WsbError, match="complete is False"):
         metrics.validate(refused, "all")  # default: still refused
     assert metrics.validate(refused, "all", accept_refused=True) == 1
-    for bad in (
-        {**refused, "counts": {"n_missing_cells": 3, "n_unjudged_cells": 1}},
+    assert metrics.validate(_result(ids), "all", accept_refused=True) == 0  # complete: nothing
+    cfg, cnt = refused["config"], refused["counts"]
+    ex = refused["numbers"]["extras"]
+
+    def with_ex(**kw: Any) -> dict[str, Any]:
+        return {**refused, "numbers": {**refused["numbers"], "extras": {**ex, **kw}}}
+
+    bad = [
+        {**refused, "counts": {**cnt, "n_missing_cells": 3}},
+        {**refused, "counts": {**cnt, "n_unjudged_cells": 0}},
+        {**refused, "counts": {**cnt, "n_empty_cells": 6}},  # > 5% of 100 items
         {**refused, "pinned_instrument": False},
-        {**refused, "counts": {"n_missing_cells": 0, "n_unjudged_cells": 0}},
-        {**refused, "config": {**refused["config"], "reads": "lite"}},
-    ):
+        {**refused, "config": {**cfg, "aggregate": "native"}},  # per-cell calls: not per item
+        {**refused, "config": {**cfg, "limit": 5}},
+        {**refused, "config": {**cfg, "items": ["c1"]}},
+        {**refused, "config": {**cfg, "dry_run": True}},
+        {**refused, "config": {**cfg, "read": "punct"}},
+        {**refused, "config": {**cfg, "allow_missing": True}},
+        {**refused, "config": {**cfg, "reads": "lite"}},
+        with_ex(layers_missing=[30]),
+        with_ex(partial_ids=["c1"]),
+        with_ex(n_items_no_readouts=3),
+        with_ex(summary={"summary_complete": False}),
+        {k: v for k, v in refused.items() if k != "counts"},  # missing key: fail closed
+    ]
+    for b in bad:
         with pytest.raises(wsb.WsbError):
-            metrics.validate(bad, "all", accept_refused=True)
-    assert metrics.validate(_result(ids), "all", accept_refused=True) == 0
+            metrics.validate(b, "all", accept_refused=True)
 
 
-def test_refused_item_without_row_counts_as_flagged() -> None:
-    """The item a refused judge call left without a row is flagged and counted unjudged."""
-    res = _result({"c1": ("control", False, "judged")})
+def test_refused_item_counts_as_flagged_and_matches_wsb_fpr() -> None:
+    """WSB writes a refused item's row with state ``unjudged``: HB flags it, and check_fpr agrees
+    with a WSB-style FPR computed from the same rows (unjudged counts as flagged on both sides)."""
+    res = _refused(
+        _result({"c1": ("control", False, "judged"), "c2": ("control", False, "unjudged")})
+    )
     u = metrics.score_unit([res], ["c1", "c2"], {})
     assert u["n_flagged"] == 1 and u["n_unjudged"] == 1 and u["flagged_ids"] == ["c2"]
+    assert metrics.check_fpr(res, ["c1", "c2"], "x") == 0.5
+
+
+def test_summary_with_accepted_refusals(tmp_path: Path) -> None:
+    """End to end: a refused item in one campaign unit blocks the report unless the flag is on;
+    with it, the item is flagged, counted beside the rate, and the summary stays incomplete."""
+    shared = {
+        "c1": ("control", True, "judged"),
+        "c2": ("control", False, "unjudged"),
+        "j1": ("jailbreak", True, "judged"),
+    }
+    _tree(tmp_path, ITEMS_MINI, None)  # writes a complete tree; overwrite one campaign unit
+    camp = tmp_path / "judged"
+    _write(wsb.result_path(camp / "s3d-44"), _refused(_result(shared, "L44")))
+    kw = {"out": tmp_path / "hb", "campaign": camp, "arms": list(wsb.ARMS), "layers": None}
+    with pytest.raises(wsb.WsbError, match="complete is False"):
+        metrics.summarize(ITEMS_MINI, **kw)
+    s = metrics.summarize(ITEMS_MINI, **kw, accept_refused_as_flagged=True)
+    u = s["rates"]["s3d-rl600"]["units"]["L44"]
+    assert u["n_refused_accepted_as_flagged"] == 1 and u["n_unjudged"] == 1
+    assert u["false_recognition_rate"] == 2 / 3  # c1 + refused c2 of {c1, c2, h1}
+    assert not s["complete"] and s["accept_refused_as_flagged"] is True
+    md = metrics.render_md(s)
+    assert "| s3d-rl600 | L44 | 66.7% |" in md and "--accept-refused-as-flagged" in md
+
+
+def test_cli_passes_accept_refused_flag() -> None:
+    import argparse
+
+    from hallucination_bench.evals.benign_roleplay import cli as brcli
+
+    p = argparse.ArgumentParser()
+    brcli.register(p.add_subparsers(dest="cmd"))
+    a = p.parse_args(["benign-roleplay", "report", "--accept-refused-as-flagged"])
+    assert a.accept_refused_as_flagged is True
+    assert p.parse_args(["benign-roleplay", "report"]).accept_refused_as_flagged is False

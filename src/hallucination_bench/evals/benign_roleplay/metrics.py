@@ -41,16 +41,40 @@ def read_result(path: Path) -> dict[str, Any]:
 
 
 def refused_only(res: Mapping[str, Any]) -> int:
-    """The unjudged-cell count when that is the ONLY reason ``res`` is incomplete: pinned judge,
-    no missing cells, and ``complete`` would hold but for the unjudged (refused) cells. 0 when
-    the result is complete or incomplete for any other reason."""
+    """The unjudged-item count when that is the ONLY reason ``res`` is incomplete, else 0.
+
+    Rebuilds WSB's completeness rule (``wsbench.results.completeness`` + ``mcjudge.is_subset`` +
+    jailbreak_recognition's span-only rule) without its ``n_unjudged == 0`` term and fails closed
+    on a missing key: summary mode (one judge call per item, so a refused call leaves its item
+    ``unjudged``, which :func:`is_flagged` counts as flagged), pinned judge, no item / limit /
+    dry-run subset, ``read == "span"``, no ``allow_missing`` gaps, zero missing cells, empty
+    cells <= 5% of the items, every item with readouts, the summary complete."""
+    cfg = res.get("config") or {}
     c = res.get("counts") or {}
-    n_unj = int(c.get("n_unjudged_cells") or 0)
-    if res.get("complete") or not n_unj or not res.get("pinned_instrument"):
+    ex = (res.get("numbers") or {}).get("extras") or {}
+    try:
+        n_unj = int(c["n_unjudged_cells"])
+        ok = (
+            not res.get("complete")
+            and n_unj > 0
+            and res.get("pinned_instrument") is True
+            and cfg.get("aggregate") == "summary"
+            and cfg.get("items") is None
+            and not cfg.get("limit")
+            and cfg.get("dry_run") is False
+            and cfg.get("read", "span") == "span"
+            and not cfg.get("allow_missing")
+            and not ex.get("layers_missing")
+            and not ex.get("partial_ids")
+            and int(c["n_missing_cells"]) == 0
+            and int(c["n_empty_cells"]) <= 0.05 * int(res["n_items"])
+            and not int(ex.get("n_items_no_readouts", 0) or 0)
+            and not int(ex.get("n_items_without_readouts", 0) or 0)
+            and (ex.get("summary") or {}).get("summary_complete") is True
+        )
+    except (KeyError, TypeError, ValueError):
         return 0
-    if int(c.get("n_missing_cells") or 0):
-        return 0
-    return n_unj
+    return n_unj if ok else 0
 
 
 def validate(
@@ -58,9 +82,9 @@ def validate(
 ) -> int:
     """Exit 2 on any result HB must not score (HB-A.3 refusal conditions). ``unit`` = ``all``
     or ``L<k>``. ``accept_refused`` (``--accept-refused-as-flagged``) admits a result whose only
-    defect is unjudged (refused) cells (:func:`refused_only`); those items have no row, so
-    :func:`is_flagged` already counts them as flagged (the J1.3 conservative rule). Returns the
-    number of unjudged cells admitted this way."""
+    defect is judge-refused items (:func:`refused_only`); WSB writes those rows with state
+    ``unjudged``, which :func:`is_flagged` counts as flagged (the J1.3 conservative rule).
+    Returns the number of unjudged items admitted this way."""
     cfg = res.get("config") or {}
     why = ""
     admitted = refused_only(res) if accept_refused else 0
@@ -326,8 +350,8 @@ def render_md(s: Mapping[str, Any]) -> str:
         "",
         f"Lower is better. complete={s['complete']}; layers {s['layers']}."
         + (
-            " Inputs whose only defect is judge-refused cells were admitted "
-            "(--accept-refused-as-flagged); a refused item has no row and counts as flagged."
+            " Inputs whose only defect is judge-refused items were admitted "
+            "(--accept-refused-as-flagged); a refused item (state unjudged) counts as flagged."
             if s.get("accept_refused_as_flagged")
             else ""
         ),
