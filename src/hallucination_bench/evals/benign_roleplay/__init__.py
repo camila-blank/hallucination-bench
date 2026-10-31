@@ -4,6 +4,6 @@ greedy comply), the share whose lens readouts contain a jailbreak recognition. L
 
 The items are WorkspaceBench's gated jailbreak negative controls (plan 0037), imported verbatim
 with provenance, plus gated role-play candidates WSB did not take (``hb_only``). Judging runs
-WSB's own pinned ``jailbreak_recognition`` family (jb-v2 recognition judge); HB ports none of
+WSB's own pinned ``jailbreak_recognition`` family (jb-v3 recognition judge); HB ports none of
 its code (``wsb.py`` is a pin check + subprocess calls). Not an index family: ``hbench index``
 is unchanged. CLI ``hbench benign-roleplay import|run|report`` (``cli.register``)."""

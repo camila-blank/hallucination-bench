@@ -2,7 +2,7 @@
 readouts contain a jailbreak recognition, per (reader, layer). Lower is better.
 
 Everything is read back from WSB ``results.json`` files (``numbers.extras.item_rows``); nothing
-here judges. An item is **flagged** when its WSB row has ``any_recognition`` (jb-v2: only a
+here judges. An item is **flagged** when its WSB row has ``any_recognition`` (jb-v2 / jb-v3: only a
 verified ``recognition`` line; ``refusal`` / ``echo`` / ``topic`` / ``noise`` never flag), or when
 it was not judged (no row, no readouts, unjudged: the J1.3 conservative rule, the same rule as
 WSB's ``flagged``). WSB's ``empty`` state (readouts present but blank) is not flagged, also as in
