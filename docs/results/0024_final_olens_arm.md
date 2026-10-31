@@ -18,14 +18,15 @@ for bit; the build adds 11 `final-olens-rl600-x4` rows, all with `full`.
 13.8, L36 14.3 / 13.3, L40 16.0 / 12.5, **L44 16.6 [15.1, 18.2] / 13.2 [12.0, 14.4]**, L48 16.9 / 14.1,
 L52 14.7 / 13.3, L56 12.9 / 12.9, L60 13.3 / 13.6. Unweighted 11-layer mean: **16.4** vs 14.1.
 
-- **main** is a little higher than s3d-rl600 at every layer (L44 9.2 vs 7.3), on about half as many
+- **main** is higher than s3d-rl600 at every layer except L52 / L56 (0.1 lower there; L44 9.2 vs 7.3), on about half as many
   claims per layer (the claim map reads the first `HAL_K = 3` of the arm's 4 samples; s3d-rl600's 3
   samples each carry 4 bullets).
-- **agentic_misalignment** is the largest gap (L44 27.0 vs 20.8), see the refusal caveat below.
+- **agentic_misalignment** is higher at every layer (by 2.7-6.7 points; L44 27.0 vs 20.8) and is the largest
+  weighted contributor to the `full` gap (1.0 of the 2.3-point 11-layer mean gap); see the refusal caveat below.
 - **overrefusal** (wrong-topic decline lines) is higher at L20-L48 (L28 42.0 vs 37.2, L44 25.2 vs
   18.4), close from L52 on.
-- **sibling** and **story** are within or near the CIs of s3d-rl600 at most layers (story a few points
-  higher).
+- **sibling** is within the CIs of s3d-rl600 at most layers; **story** is higher at 10 of 11 layers, 5-8
+  points at L20-L32 (CIs overlap at every layer).
 
 ## Per-layer table (% hallucinated, 95% CI, n)
 
@@ -60,10 +61,10 @@ L52 14.7 / 13.3, L56 12.9 / 12.9, L60 13.3 / 13.6. Unweighted 11-layer mean: **1
 
 | family | cells read | judged | failures left |
 |---|---|---|---|
-| main | 149 items x 1,123 sites x 11 layers = 12,353 (6 all-empty) | claim map on all 12,347 non-empty | 1 map (refusal) |
+| main | 149 items x 1,123 sites x 11 layers = 12,353 (6 all-empty) | claim map on all 12,347 non-empty | 1 map (invalid output after 3 attempts; not a refusal) |
 | story | 20 x 8 x 11 = 1,760 | claim map, all | 0 |
-| sibling | 86 items, 18,205 (same grid as s3d-rl600) | 4,068 / 4,301 / 430 units (country / capital_city / holiday); 4,534 committed, 3,973 probe-testable | 7 fail-closed samples (country) |
-| agentic_misalignment | campaign readouts (bank v2 holds the 32 HB items with identical text), filtered to 50,452 sites x 11 = 554,972 | 53,292 detected cells; 44,984 mapped | **8,308 maps refused by Opus (15.6% of detected cells)**, 515 detect, 49 verify |
+| sibling | 86 items, 18,205 (same grid as s3d-rl600) | 4,068 / 4,301 / 430 units (country / capital_city / holiday); 4,534 committed, 3,973 probe-testable | 187 fail-closed judge samples (country 100, capital_city 85, holiday 2; s3d-rl600: 1 / 9 / 1): 133 units committed only via fail-closed samples, 85 of them probe-testable (2.1% of 3,973) |
+| agentic_misalignment | campaign readouts (bank v2 holds the 32 HB items with identical text), filtered to 50,452 sites x 11 = 554,972 | 53,292 detected cells; 44,984 mapped | **8,308 maps failed, 8,307 of them Opus refusals (15.6% of detected cells)**, 515 detect, 49 verify |
 | overrefusal | 427 items x every site x 11 = 124,575 | 4,697 (item, layer) digests; 11,834 decline lines, 3,342 off-topic | 195 item-layers (190 unjudged digests, 5 strict-judge) |
 
 Every read cell's read-site token equals the bank's token (main, overrefusal, AM: 0 mismatches).
@@ -73,6 +74,9 @@ Every read cell's read-site token equals the bank's token (main, overrefusal, AM
 - **AM map refusals.** Opus 5.5 refuses the AM claim map on 15.6% of the arm's detected cells (s3d-rl600:
   2.5%); refused cells contribute no claims. If the refused cells hallucinate at a different rate, the AM
   value is biased in an unknown direction.
+- **Sibling fail-closed commits.** A UM judge answer that is invalid or missing counts as committed
+  (`parse_commit`, fail-closed); 85 of the arm's 3,973 probe-testable units are committed only that way
+  (s3d-rl600: a handful).
 - **Sibling asymmetry** (plan 0024 §3): the arm's `cross` support counts the four frozen arms; their
   official `cross` does not count it. Frozen concept set C, probes and distractors: an arm commit outside C
   is untestable.
