@@ -25,9 +25,10 @@ REPO = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(REPO / "src"))
 
 from hallucination_bench import paths  # noqa: E402
+from hallucination_bench.readouts import decode_token  # noqa: E402
 
 LAYERS = tuple(range(20, 61, 4))
-# arm -> (reader dir under the new tag root, old file root)
+# arm -> reader dir under <new root>/<tag>/ (the old file is $HBENCH_EXTRA_READOUTS/<arm>)
 ARMS = {
     "s3d-rl600": "s3d5",  # its own read at its 5 layers (independent samples, as the old files)
     "s3d-rl600-all11": "s3d",
@@ -80,7 +81,7 @@ def _norm_cfg(d: dict) -> dict:
         if k in IGNORE_CFG:
             continue
         if k == "scales":  # per-layer: compare the set of values, not the layer keys
-            out[k] = sorted(set(v.values()))
+            out[k] = sorted(set(v.values() if isinstance(v, dict) else v))
             continue
         out[k] = _norm_cfg(v) if isinstance(v, dict) else v
     return out
@@ -128,7 +129,12 @@ def cmd_merge(a: argparse.Namespace) -> None:
         want = {(i, la, p) for (i, p) in cells for la in layers}
         merged = old + new
         tok_of = {(i["id"], int(s["pos"])): s["token"] for i in items for s in i["sites"]}
-        bad_tok = [r for r in merged if tok_of.get((r["id"], int(r["pos"]))) != r["token"]]
+        # readout tokens are byte-level BPE display strings ("ĊĊ"): compare decoded
+        bad_tok = [
+            r
+            for r in merged
+            if tok_of.get((r["id"], int(r["pos"]))) not in (r["token"], decode_token(r["token"]))
+        ]
         if bad_tok:
             raise SystemExit(f"{arm}: {len(bad_tok)} rows whose token is not the site token")
         stats = check(merged, want, f"{arm} merged", kind)

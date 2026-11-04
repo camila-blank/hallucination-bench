@@ -148,6 +148,9 @@ def test_x3_new_items_are_distinct_and_balanced(x3_items):
         vals = [it[field] for it in x3_items]
         assert len(vals) == len(set(vals)), field
     assert {it["source"] for it in new} <= {"lmsys", "dailydialog"}
+    n = {s: sum(it["source"] == s for it in new) for s in ("lmsys", "dailydialog")}
+    if n["lmsys"]:  # balance once both halves are built (lmsys is a later batch)
+        assert abs(n["lmsys"] - n["dailydialog"]) <= 5, n
 
 
 @x3

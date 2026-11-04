@@ -38,7 +38,9 @@ def main() -> None:
                 continue
             r = json.loads(line)
             k = r["key"]
-            if not k.startswith("summ:") or r.get("result") is None:
+            res = r.get("result")
+            ok = isinstance(res, dict) and bool(res.get("interpretation"))
+            if not k.startswith("summ:") or not ok:
                 continue
             id_, _lay, pos = k[5:].split("__")
             if (id_, int(pos[1:])) in wsb:

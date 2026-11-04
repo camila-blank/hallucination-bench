@@ -52,6 +52,7 @@ def generate(
 ) -> dict:
     import torch
     import transformers
+    from huggingface_hub import snapshot_download
     from transformers import AutoModelForCausalLM, AutoTokenizer
 
     torch.manual_seed(seed)
@@ -131,7 +132,8 @@ def generate(
             "transformers": str(transformers.__version__),
         },
         "template_guard": guard,
-        "snapshot": str(getattr(model.config, "_commit_hash", None)),
+        "snapshot": Path(snapshot_download(MODEL_ID, local_files_only=True)).name,
+        "generation_config": model.generation_config.to_dict(),
     }
 
 
