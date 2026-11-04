@@ -232,3 +232,38 @@ judge = S calls per method (one per site, with all 11 layers). Final numbers are
 3. Build the bank, then capture, read, fetch, merge, summaries and bundle. A batch `TAG` lets the
    lmsys half be captured and read later with no change to the done half.
 4. Freeze: a manifest, rsync to /workspace, and push the data in a follow-up PR once complete.
+
+## Status (2026-11-04, end of first session)
+
+**Batch a is done, and its outputs are local and rsynced to `/workspace/hb-readouts-x3/`.**
+
+- **Bank:** 299 items: 149 WSB (74 lmsys + 75 dailydialog) plus 150 new dailydialog. It has 3,868
+  sites, of which 1,123 are WSB sites; no rollout was empty and no item was dropped.
+- **Tests:** `tests/test_main_x3.py` passes on the bank (409 tests). Every site is
+  punctuation/whitespace-only and checked against the token ids, and the WSB items are
+  byte-identical.
+- **Seeds:** the WSB dailydialog draw was re-derived 75/75, and `non_nfc_excluded` = 0.
+- **Generation:** the template guard passed 149/149. Snapshot `6a9e13bd`.
+- **Reads:** all four readers (s3d, s3d5, mlnla, jlens) match their old main reads' configs exactly,
+  at GW `f8998ae`, and every grid is exact.
+- **Merged readouts:** `$HBENCH_X3_READOUTS` = `/root/tmp/hb28-readouts`:
+  - `s3d-rl600`: 19,340 rows (5 layers);
+  - `s3d-rl600-all11`, `mlnla-rl600-all11` and `jlens`: 42,548 rows each (11 layers).
+- **J-lens summaries:** 30,204 new interp-v1 calls, 0 errors, $140.57. 12,344 WSB rows were copied.
+- **Joint bundles:** `/root/tmp/hb28-out/joint/{s3d-rl600,mlnla-rl600,jlens}.jsonl` plus `index.json`,
+  3,868 sites each, with 0 missing and 0 unsummarised cells.
+
+**Batch b (≈149 new lmsys items) is blocked on LMSYS access.** The box's default HF token is not
+on the `lmsys/lmsys-chat-1m` gate list. Once access exists, the runbook is:
+
+1. `build_seeds.py --sources lmsys --out <seeds.json>` appends lmsys to the existing seeds file.
+2. `gen_modal.py --sources lmsys` generates the rollouts.
+3. `build_bank.py --rollouts rollouts_dailydialog.json,rollouts_lmsys.json` rebuilds the bank. It
+   must reproduce `capture_new_a.json` exactly, and it writes `capture_new_b.json`.
+4. `TAG=b reads.sh capture|read-s3d|read-s3d5|read-mlnla|read-jlens|fetch` captures and reads
+   batch b.
+5. `merge_readouts.py merge --tags a,b` merges, and the J-lens `--stages summary` run produces the
+   summaries.
+6. `joint_bundle.py` rebuilds the bundles, then freeze.
+
+The English question (the ASCII screen keeps about 10% non-English lmsys) is open for Camila.
