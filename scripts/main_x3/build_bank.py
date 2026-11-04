@@ -6,8 +6,9 @@ WSB sites (the 8-thin), else the build fails. New items (``rollouts_*.json`` fro
 ``gen_modal.py``) follow in label order; items with no read site are dropped (as WSB did).
 Sites = ``thin(response_sites(...), 16)`` (``expand.item_sites``).
 
-Writes items.json, capture_rows.json (every site), capture_new.json (only the cells to read:
-every site of a new item, the non-``wsb`` sites of a WSB item).
+Writes items.json, capture_rows.json (every site) and capture_new_<tag>.json (only the cells to
+read: every site of a new item, the non-``wsb`` sites of a WSB item; tag a = WSB items + new
+dailydialog, tag b = new lmsys; an existing tag file must be reproduced exactly).
 
     uv run --no-sync python scripts/main_x3/build_bank.py --rollouts a.json,b.json --out DIR
 """
@@ -129,6 +130,8 @@ def build(rollout_files: list[Path], tok) -> dict:
             r["label"], r["source"], r["source_id"], r["input_ids"], r["prompt_len"], "x3new"
         ):
             dropped.append(r["label"])
+        elif items[-1]["seed_key"] != r["seed_key"]:
+            raise AssertionError(f"{r['label']}: decoded prompt's seed_key != the rollout's")
 
     ids_seen = Counter(i["id"] for i in items)
     keys_seen = Counter(i["seed_key"] for i in items)
@@ -188,8 +191,22 @@ def main() -> None:
         keep = [p for p in r["eval_positions"] if p not in wsb_pos.get(r["label"], set())]
         if keep:
             new_rows.append({**r, "eval_positions": keep})
-    (args.out / "capture_new.json").write_text(json.dumps(new_rows))
-    meta["n_cells_new_per_layer"] = sum(len(r["eval_positions"]) for r in new_rows)
+    # read batches (plan 0028): tag a = the WSB items' new sites + new dailydialog items,
+    # tag b = new lmsys items. A batch file that already exists must be reproduced exactly
+    # (its cells may already be read); a missing one is written.
+    batches = {
+        "a": [r for r in new_rows if r["subset"] == "wsb149" or r["source"] == "dailydialog"],
+        "b": [r for r in new_rows if r["subset"] == "x3new" and r["source"] == "lmsys"],
+    }
+    assert sum(len(v) for v in batches.values()) == len(new_rows)
+    for tag, brows in batches.items():
+        f = args.out / f"capture_new_{tag}.json"
+        if f.exists():
+            if json.loads(f.read_text()) != brows:
+                raise SystemExit(f"{f} differs from this build: its cells may be read already")
+        elif brows:
+            f.write_text(json.dumps(brows))
+        meta[f"n_cells_new_per_layer_{tag}"] = sum(len(r["eval_positions"]) for r in brows)
     keys = [k for k in meta if k.startswith("n_") or k == "dropped_no_sites"]
     print(json.dumps({k: meta[k] for k in keys}, indent=1))
 

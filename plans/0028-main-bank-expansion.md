@@ -40,8 +40,13 @@ The WSB chat bank is the chat half of global-workspace's J-lens P/R items. The r
 - **dailydialog:** `ConvLab/dailydialog` train split, streaming. The seed is the first turn if its
   speaker is `user`, and `source_id` is the `dialogue_id`.
 - **Screen:** 20 to 2,000 characters after stripping; no ```` ``` ````, no `http(s)://`, no
-  `NAME_\d+`; at least 98% ASCII characters. The ASCII rule is the English filter: the original
-  builder used no language-ID field. Seeds are deduplicated by `seed_key = chat:<source>:<blake2b-16>`.
+  `NAME_\d+`; at least 98% ASCII characters. That ASCII rule is the only language screen the
+  original builder had. **It is not an English filter.** At least 8 of the 75 WSB lmsys seeds are
+  German, Portuguese or French (critique, 2026-11-04). "English" and "the same filters" conflict
+  here. This plan keeps the **identical rule** (option a), so about 10% of new lmsys items may be
+  non-English, as in WSB. That is an open question for Camila. Option (b) would be a
+  `language == "English"` screen on new lmsys seeds only, using lmsys-chat-1m's own column, with
+  the WSB re-derivation unchanged. DailyDialog is English. Seeds are deduplicated by `seed_key = chat:<source>:<blake2b-16>`.
   There is no `used_seeds` exclusion; the WSB build recorded `guard.asserted: false`.
 - **WSB pool rule:** the first `4 * n_per_source` unique screened seeds of each source,
   shuffled with one `random.Random(7)` shared across sources (lmsys first), keeping the first 75.
@@ -65,7 +70,9 @@ these settings:
 - left-padded batches of 16;
 - `do_sample`, T=1.0, top-p 1.0, top-k 0 (full vocabulary);
 - max 512 new tokens;
-- chat template with `enable_thinking=False` (an empty think block);
+- chat template with `enable_thinking=False` (an empty think block). A guard in the container
+  re-renders the 149 WSB prompts and fails unless they equal their captured prompt ids. The guard
+  passed on 2026-11-04, and the run records the snapshot revision and library versions;
 - output cut at the first stop id (EOS not kept);
 - empty rollouts dropped.
 
@@ -87,8 +94,16 @@ per-token decodes for sites and whole-span decodes for `char`, as `chat_bank.py`
   WSB sites. New items follow in label order. Sites are `thin(response_sites(...), 16)`.
 - **`capture_rows.json`:** one row per item (`label, family, source, source_id, input_ids,
   prompt_len, eval_positions` = all ≤16 sites, `targets: [], look_for: "", render: plain`).
-- **`capture_new.json`:** the same rows restricted to the cells to read. These are every site of a
-  new item and only the non-`wsb` sites of a WSB item. Items with nothing to read are omitted.
+- **`capture_new_<tag>.json`:** the same rows restricted to the cells to read. These are every
+  site of a new item and only the non-`wsb` sites of a WSB item. Items with nothing to read are
+  omitted. There are two batches:
+  - **tag `a`:** all 905 new sites of the 149 WSB items (WSB lmsys items included) plus every new
+    dailydialog item. This batch needs no LMSYS access.
+  - **tag `b`:** every new lmsys item.
+
+  A rebuild must reproduce an existing tag file exactly, or it fails, because those cells may
+  already have been read. Each rollout's `seed_key` must equal the key recomputed from the
+  decoded prompt.
 - **`seeds.json`, `rollouts_*.json`:** the provenance (screen counts, the `verify_wsb` result,
   generation settings, library versions).
 - **`MANIFEST.sha256`:** written at freeze.
@@ -96,14 +111,15 @@ per-token decodes for sites and whole-span decodes for `char`, as `chat_bank.py`
 The bank loads through the existing override `HBENCH_WSBENCH_CHAT_ITEMS=<x3>/items.json`, so the
 `wsbench_chat` pipeline runs on it unchanged, with the same schema and extra keys ignored. There
 is no new eval name and no CLI change. Data, readouts and bundles stay **local (not pushed) until
-frozen**. Code, tests, the plan and the data README are pushed.
+frozen**. `.gitignore` covers `data/wsbench_chat_x3/*` except its README, so a stray `git add`
+cannot commit them. Code, tests, the plan and the data README are pushed.
 
 ## Readouts (Modal, the HB pattern of `scripts/overrefusal/reads.sh`)
 
 `scripts/main_x3/reads.sh [capture|read-s3d|read-mlnla|read-jlens|fetch|merge]` runs from a local
 GW main clone (`HBENCH_GW_CAPTURE`) with `/root/.local/bin/modal`:
 
-- **capture:** `wsbench_capture_modal.py --prompts-json capture_new.json --acts-subdir
+- **capture:** `wsbench_capture_modal.py --prompts-json capture_new_<TAG>.json --acts-subdir
   acts-hb28-main-x3<TAG> --layers 20:61:4 --max-positions 2048`.
 - **s3d:** `wsbench_read_modal.py::main --ckpt
   agu18dec/local-workspace:ckpts/ao/rl/s3d.ddp600.s0/iter_000600 --merged-name s3d-rl600 --k 3
@@ -116,7 +132,16 @@ GW main clone (`HBENCH_GW_CAPTURE`) with `/root/.local/bin/modal`:
 - **final-olens-rl600-x4:** dropped by Camila (2026-11-04). Its producer is also a different path:
   the campaign's plan-file fanout, not these readers.
 - **fetch:** `wsbench convert-gen-dir` (wsbench-pub @ 92d763e), then a grid check that the rows
-  are exactly `capture_new` × layers.
+  are exactly `capture_new_<tag>` × layers.
+- **Reader drift check (fail closed):** the new gen dir's `run_config.json` must equal the old main
+  read's, ignoring layers, acts and positions. The references are:
+  - mlnla: `gen-hal-chat-mlnla-rl600-all11`;
+  - jlens: `gen-hal-chat-jlens-x6`;
+  - s3d: `gen-hal-story-s3d-rl600-all11`, the HB story read with the same reader command. The WSB
+    paper's own main s3d gen dir is not on the gen volumes, so this reference is a stand-in. It is
+    identical to the overrefusal s3d read's config, which is a caveat stated in the PR.
+
+  The result is written to `config_check.txt` per reader, and the GW commit used is recorded.
 - **merge:** the old arm file (the WSB cells, unchanged) plus the new rows go to
   `$HBENCH_X3_READOUTS/<arm>/hallucination.jsonl`. This is followed by a full-grid check against
   the x3 bank at the arm's layers: no missing, off-grid or duplicate rows.
@@ -154,16 +179,35 @@ readout file. No judging is done.
 
 ## Tests (new files only; no pre-existing test is edited)
 
-`tests/test_main_x3.py`:
+`tests/test_main_x3.py`. The tokenizer is loaded with `AutoTokenizer.from_pretrained`, as in
+`tests/test_overrefusal.py`, and those tests are skipped when it is unavailable.
 
-1. On the WSB copy (always runs): every one of the 1,123 sites is punctuation/whitespace-only and
-   not special. The port reproduces the WSB 8 sites from `capture_rows` ids, and the 16-thin keeps
-   them. A tokenizer is needed, so this part is skipped without `HBENCH_QWEN_TOKENIZER`.
+1. On the WSB copy:
+   - every one of the 1,123 sites is punctuation/whitespace-only and not special (always runs);
+   - the port reproduces the WSB 8 sites from `capture_rows` ids, and the 16-thin keeps them
+     (needs the tokenizer).
 2. Pure unit tests: the subset property of `thin` for n = 1 to 400, the screen rules, and `site_kind`.
 3. On the x3 bank (skipped when absent): every site is punctuation/whitespace-only and not special,
-   no `<|im_end|>`, ≤16 per item, in position order. For each WSB item, the item fields equal the
+   no `<|im_end|>`, ≤16 per item, in position order. **Checked against token ids** using the bank's
+   `capture_rows.json` and the tokenizer:
+   - `ids[pos]` is not special and decodes to the stored token;
+   - `eval_positions` equals the site positions;
+   - the last id is not special;
+   - the subset and source counts match.
+
+   The x3 tests skip in CI, because the data is local. The PR reports their local run. For each WSB item, the item fields equal the
    WSB copy and its `wsb` sites equal the WSB sites. There are no duplicate seed keys or prompts,
    and the subset counts are as stated.
+
+## Spend and size
+
+- **J-lens summaries:** at about $0.0046 per interp-v1 call (the official cache: 12,388 calls,
+  $57), the ≈55k new cells cost about $250 for the full 3x, or about $150 for batch a. Run with the
+  defaults: judge `claude-opus-5-5`, effort `low`. These match the official `jlens/arm.json`, so
+  the copied fingerprints hit. Use `--allow-missing` while batch b is unread.
+- **Capture size:** `capture_acts.py` stores every position of each row (eval_positions are only
+  the manifest's read list). That is about 67 MB per row (~600 tokens × 11 layers × 5,120 × bf16),
+  ≈20 GB for batch a and ≈10 GB for batch b, on `wsbench-acts`.
 
 ## Estimated claim-map spend (for planning; nothing judged here)
 

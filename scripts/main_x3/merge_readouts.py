@@ -69,6 +69,28 @@ def cmd_check_new(a: argparse.Namespace) -> None:
     check(_rows(Path(a.readouts)), want, str(a.readouts), a.kind)
 
 
+IGNORE_CFG = {"layers", "acts_dir", "acts_subdir", "n_prompts", "scales", "positions"}
+
+
+def _norm_cfg(d: dict) -> dict:
+    out = {}
+    for k, v in d.items():
+        if k in IGNORE_CFG:
+            continue
+        out[k] = _norm_cfg(v) if isinstance(v, dict) else v
+    return out
+
+
+def cmd_check_config(a: argparse.Namespace) -> None:
+    """The new read's run_config.json equals the old main read's (reader instrument drift)."""
+    new = _norm_cfg(json.loads(Path(a.new).read_text()))
+    ref = _norm_cfg(json.loads(Path(a.ref).read_text()))
+    diff = {k: (ref.get(k), new.get(k)) for k in set(new) | set(ref) if new.get(k) != ref.get(k)}
+    print(f"{a.new} vs {a.ref}: {'IDENTICAL' if not diff else diff}")
+    if diff:
+        raise SystemExit("reader config drift")
+
+
 def cmd_merge(a: argparse.Namespace) -> None:
     items = json.loads(Path(a.bank).read_text())["items"]
     new_root = Path(a.new_root)
@@ -134,9 +156,12 @@ def main() -> None:
     m.add_argument("--bank", required=True)
     m.add_argument("--tags", required=True)
     m.add_argument("--arms", default="")
-    m.add_argument("--new-root", default="/root/tmp/hb28-readouts-new")
+    m.add_argument("--new-root", default=str(paths.X3_NEW_READOUTS))
+    k = sub.add_parser("check-config")
+    k.add_argument("--new", required=True)
+    k.add_argument("--ref", required=True)
     a = ap.parse_args()
-    {"check-new": cmd_check_new, "merge": cmd_merge}[a.cmd](a)
+    {"check-new": cmd_check_new, "merge": cmd_merge, "check-config": cmd_check_config}[a.cmd](a)
 
 
 if __name__ == "__main__":

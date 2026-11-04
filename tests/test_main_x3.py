@@ -148,3 +148,36 @@ def test_x3_new_items_are_distinct_and_balanced(x3_items):
         vals = [it[field] for it in x3_items]
         assert len(vals) == len(set(vals)), field
     assert {it["source"] for it in new} <= {"lmsys", "dailydialog"}
+
+
+@x3
+def test_x3_sites_checked_against_token_ids(x3_items, tok):
+    """Each site's pos points at a non-special token whose decode is the stored token; the
+    capture rows read exactly the sites; no rollout ends in a special token (no <|im_end|>)."""
+    raw = tok.backend_tokenizer
+    special = set(tok.all_special_ids) | {
+        i for t, i in tok.get_vocab().items() if t.startswith("<|") and t.endswith("|>")
+    }
+    rows = {r["label"]: r for r in json.loads((X3_ITEMS.parent / "capture_rows.json").read_text())}
+    assert set(rows) == {it["id"] for it in x3_items}
+    for it in x3_items:
+        r = rows[it["id"]]
+        ids = r["input_ids"]
+        assert r["prompt_len"] == it["response_start"]
+        assert r["eval_positions"] == [s["pos"] for s in it["sites"]], it["id"]
+        assert ids[-1] not in special, it["id"]
+        for s in it["sites"]:
+            assert it["response_start"] <= s["pos"] < len(ids), (it["id"], s)
+            assert ids[s["pos"]] not in special, (it["id"], s)
+            assert raw.decode([ids[s["pos"]]], skip_special_tokens=False) == s["token"]
+
+
+@x3
+def test_x3_subset_counts(x3_items):
+    by = {}
+    for it in x3_items:
+        by[(it["subset"], it["source"])] = by.get((it["subset"], it["source"]), 0) + 1
+    assert by[("wsb149", "lmsys")] == 74 and by[("wsb149", "dailydialog")] == 75
+    meta = json.loads(X3_ITEMS.read_text())["meta"]
+    assert meta["n_items"] == len(x3_items)
+    assert meta["n_sites"] == sum(len(it["sites"]) for it in x3_items)

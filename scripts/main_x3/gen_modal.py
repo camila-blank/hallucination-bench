@@ -43,7 +43,13 @@ hf_cache = modal.Volume.from_name("jlens-hf-cache")
 
 
 @app.function(image=image, volumes={HF_PATH: hf_cache}, gpu="H200", timeout=6 * 3600, memory=65536)
-def generate(seeds: list[dict], max_new: int = 512, seed: int = 7, batch_size: int = 16) -> dict:
+def generate(
+    seeds: list[dict],
+    wsb_prompts: list[dict],
+    max_new: int = 512,
+    seed: int = 7,
+    batch_size: int = 16,
+) -> dict:
     import torch
     import transformers
     from transformers import AutoModelForCausalLM, AutoTokenizer
@@ -65,6 +71,12 @@ def generate(seeds: list[dict], max_new: int = 512, seed: int = 7, batch_size: i
         )
         ids = enc["input_ids"] if hasattr(enc, "keys") else enc
         return [int(t) for t in ids]
+
+    # template guard: the chat template must re-render every WSB prompt to its captured ids
+    bad = [w["id"] for w in wsb_prompts if prompt_ids(w["prompt"]) != w["prompt_ids"]]
+    if bad:
+        raise RuntimeError(f"chat template drift: {len(bad)} WSB prompts differ, e.g. {bad[:3]}")
+    guard = {"wsb_prompts_rerendered": len(wsb_prompts), "mismatches": 0}
 
     gc_eos = model.generation_config.eos_token_id
     stop_ids = {int(tok.eos_token_id)}
@@ -114,7 +126,12 @@ def generate(seeds: list[dict], max_new: int = 512, seed: int = 7, batch_size: i
         "rows": rows,
         "empty": empty,
         "stop_ids": sorted(stop_ids),
-        "versions": {"torch": torch.__version__, "transformers": transformers.__version__},
+        "versions": {
+            "torch": str(torch.__version__),
+            "transformers": str(transformers.__version__),
+        },
+        "template_guard": guard,
+        "snapshot": str(getattr(model.config, "_commit_hash", None)),
     }
 
 
@@ -123,7 +140,17 @@ def main(seeds: str, sources: str, out: str, max_new: int = 512, seed: int = 7) 
     doc = json.loads(Path(seeds).read_text())
     want = sources.split(",")
     todo = [s for s in doc["seeds"] if s["source"] in want]  # seeded order kept
-    res = generate.remote(todo, max_new=max_new, seed=seed)
+    repo = Path(__file__).resolve().parents[2] / "data" / "wsbench_chat"
+    wsb_rows = {r["id"]: r for r in json.loads((repo / "capture_rows.json").read_text())}
+    wsb = [
+        {
+            "id": it["id"],
+            "prompt": it["prompt"],
+            "prompt_ids": wsb_rows[it["id"]]["input_ids"][: wsb_rows[it["id"]]["prompt_len"]],
+        }
+        for it in json.loads((repo / "items.json").read_text())["items"]
+    ]
+    res = generate.remote(todo, wsb, max_new=max_new, seed=seed)
     idx = {s: FIRST_INDEX for s in want}
     for r in res["rows"]:  # labels in seeded order, empty rollouts skipped (as the WSB run did)
         r["label"] = f"chat-{r['source']}-{idx[r['source']]:04d}"

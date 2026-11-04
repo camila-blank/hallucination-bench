@@ -5,8 +5,8 @@
 #
 # TAG names one batch of new cells (acts-hb28-main-x3-$TAG, gen-hb28-main-x3-$TAG-<arm>), so the
 # lmsys half can be captured and read later without touching a done batch. Rows to capture:
-# $ROWS (default <bank>/capture_new_$TAG.json: build_bank.py's capture_new.json, possibly
-# filtered to the batch's items). Runs the global-workspace launchers from $HBENCH_GW_CAPTURE
+# $ROWS (default <bank>/capture_new_$TAG.json from build_bank.py: tag a = WSB items + new
+# dailydialog, tag b = new lmsys). Runs the global-workspace launchers from $HBENCH_GW_CAPTURE
 # (a LOCAL clone of GW main: /workspace imports hang). Merge: scripts/main_x3/merge_readouts.py.
 set -uo pipefail
 HERE="$(cd "$(dirname "$0")/../.." && pwd)"
@@ -32,6 +32,11 @@ LAYER_LIST=20,24,28,32,36,40,44,48,52,56,60
 G=gen-hb28-main-x3-$TAG
 # reader  gen-dir  kind   (s3d feeds both s3d arms: merge_readouts.py)
 ARMS=("s3d $G-s3d-rl600 prose" "mlnla-rl600-all11 $G-mlnla-rl600 prose" "jlens $G-jlens tokens")
+# the old main reads' run configs (fetched into $GEN_ROOT/old/): the new reads must match them.
+# s3d's own main gen dir (the WSB paper read) is not on the gen volumes; the HB story s3d read
+# (same reader command) stands in.
+declare -A REF=([s3d]=gen-hal-story-s3d-rl600-all11 [mlnla-rl600-all11]=gen-hal-chat-mlnla-rl600-all11
+                [jlens]=gen-hal-chat-jlens-x6)
 
 retry3() { for t in 1 2 3; do "$@" && return 0; echo "retry $t: $*" >&2; sleep 60; done; return 1; }
 
@@ -67,6 +72,15 @@ case "$STEP" in
       (cd "$GEN_ROOT" && retry3 $M volume get "$vol" "/$gen" . --force >/dev/null) || exit 1
       (cd "$WSPUB" && "$WSPY" -m wsbench convert-gen-dir gen_dir="$GEN_ROOT/$gen" \
           out="$NEW/$arm/hallucination.jsonl" kind="$kind" | tail -1) || exit 1
+      ref=$GEN_ROOT/old/${REF[$arm]}.run_config.json
+      if [[ ! -s $ref ]]; then
+        mkdir -p "$GEN_ROOT/old"
+        (cd "$GEN_ROOT/old" && retry3 $M volume get wsbench-gen-3 "/${REF[$arm]}/run_config.json" \
+            "${REF[$arm]}.run_config.json" --force >/dev/null) || exit 1
+      fi
+      "$HERE/.venv/bin/python" scripts/main_x3/merge_readouts.py check-config \
+          --new "$GEN_ROOT/$gen/run_config.json" --ref "$ref" | tee "$NEW/$arm/config_check.txt" \
+          || exit 1
       "$HERE/.venv/bin/python" scripts/main_x3/merge_readouts.py check-new \
           --rows "$ROWS" --readouts "$NEW/$arm/hallucination.jsonl" --kind "$kind" || exit 1
     done ;;

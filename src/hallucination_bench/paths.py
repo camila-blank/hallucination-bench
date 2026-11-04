@@ -64,6 +64,8 @@ MAIN_OUT = _env_path(
 )
 # plan 0028: the 3x bank's merged readouts (local until frozen)
 X3_READOUTS = _env_path("HBENCH_X3_READOUTS", "/root/tmp/hb28-readouts")
+# plan 0028: per-batch converted new readouts (<root>/<tag>/<reader>/hallucination.jsonl)
+X3_NEW_READOUTS = _env_path("HBENCH_X3_NEW_READOUTS", "/root/tmp/hb28-readouts-new")
 
 __all__ = [
     "ALI_PROBE_ROOT",
@@ -83,5 +85,6 @@ __all__ = [
     "SIBLING_SRC_ROOT",
     "WSBENCH_PUB",
     "WSBENCH_PUB_V4",
+    "X3_NEW_READOUTS",
     "X3_READOUTS",
 ]
