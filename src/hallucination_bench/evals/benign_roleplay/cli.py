@@ -62,6 +62,7 @@ def cmd_run(args: argparse.Namespace) -> int:
         out=_out(args),
         layers=_layers(args.layers),
         arms=_arms(args.arms),
+        nested=args.layout == "nested",
     )
     return wsb.run_calls(Path(args.wsb), calls, dry_run=args.dry_run)
 
@@ -77,6 +78,7 @@ def cmd_report(args: argparse.Namespace) -> int:
         layers=_layers(args.layers),
         floor_res=floor_res,
         accept_refused_as_flagged=args.accept_refused_as_flagged,
+        nested=args.layout == "nested",
     )
     for arm, a in s["rates"].items():
         if a["instrument"].get("judge_model") != args.judge:
@@ -88,6 +90,23 @@ def cmd_report(args: argparse.Namespace) -> int:
     (out / "summary.md").write_text(metrics.render_md(s), encoding="utf-8")
     print(metrics.render_md(s), end="")
     print(f"wrote {out / 'summary.json'} and {out / 'summary.md'}")
+    return 0
+
+
+def cmd_index_export(args: argparse.Namespace) -> int:
+    from . import index_export
+
+    pairs = [kv for kv in args.arm_map.split(",") if kv]
+    if bad := [kv for kv in pairs if kv.count("=") != 1 or not all(kv.split("="))]:
+        raise wsb.WsbError(f"--arm-map entries must be from=to: {bad}")
+    arm_map = dict(kv.split("=") for kv in pairs)
+    meta = index_export.export(
+        [Path(p) for p in args.summary], Path(args.dest), bank.load_items(), arm_map=arm_map
+    )
+    print(
+        f"[index-export] {meta['n_rows']} rows, arms {meta['arms']}, layers {meta['layers']} "
+        f"-> {args.dest}"
+    )
     return 0
 
 
@@ -112,6 +131,13 @@ def register(sub: argparse._SubParsersAction) -> None:  # type: ignore[type-arg]
         q.add_argument("--campaign", default=str(paths.BR_CAMPAIGN), help="campaign judged dir")
         q.add_argument("--arms", default=",".join(wsb.ARMS))
         q.add_argument("--layers", default=None, help="csv subset of readplan.GRID (C3)")
+        q.add_argument(
+            "--layout",
+            choices=("flat", "nested"),
+            default="flat",
+            help="flat (default): plan 0023's campaign dirs; nested: every arm's shared ids at "
+            "<campaign>/<arm>/{all,L<k>} (plan 0027, the index arms)",
+        )
 
     im = bsub.add_parser("import", help="copy the gated controls from a pinned WSB checkout")
     im.add_argument("--wsb", default=str(paths.WSBENCH_PUB))
@@ -137,3 +163,16 @@ def register(sub: argparse._SubParsersAction) -> None:  # type: ignore[type-arg]
         "items count as flagged (conservative) and the count is shown beside the rate",
     )
     rp.set_defaults(fn=_wrap(cmd_report))
+
+    ie = bsub.add_parser(
+        "index-export",
+        help="plan 0027: summary.json -> index_counts.jsonl + index_meta.json (hindex-v7 root)",
+    )
+    ie.add_argument("--summary", action="append", required=True, help="repeatable summary.json")
+    ie.add_argument("--dest", required=True, help="the --benign-roleplay-root to write")
+    ie.add_argument(
+        "--arm-map",
+        default="",
+        help="from=to,... : rename an eval arm to an index reader name (no-op when they match)",
+    )
+    ie.set_defaults(fn=_wrap(cmd_index_export))

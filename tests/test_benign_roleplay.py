@@ -568,18 +568,20 @@ def test_layer_subset_marks_incomplete(tmp_path: Path) -> None:
     assert len(hb) == 6 and all(any(a in c.argv for a in ("layers=44", "layers=48")) for c in hb)
 
 
-# ------------------------------------------------------------------ not on the index, docs
+# ------------------------------------------------------------------ the index (plan 0027), docs
 
 
-def test_not_an_index_family() -> None:
+def test_on_the_index_from_v7_only() -> None:
+    """Plan 0027 reverses plan 0023 Q6: benign_roleplay is an index family from hindex-v7 on
+    only (sanctioned edit of test_not_an_index_family)."""
     from hallucination_bench import index
 
-    src = Path(index.__file__).read_text()
-    assert "benign_roleplay" not in src and "benign-roleplay" not in src
-    for f in (DATA / "index").rglob("*"):
-        if f.is_file():
-            assert "benign_roleplay" not in f.read_text(errors="ignore"), f
+    assert index.BENIGN_ROLEPLAY == "benign_roleplay"
+    assert index.BENIGN_ROLEPLAY in index.safety_families("v7")
+    for v in ("v3", "v4", "v5", "v6"):
+        assert index.BENIGN_ROLEPLAY not in index.safety_families(v)
     assert "benign_roleplay" not in json.dumps(sorted(index.SAFETY_READERS, key=str))
+    assert index.BENIGN_ROLEPLAY in index.SAFETY_READERS_V7_ADDED
 
 
 def test_readme_states_why() -> None:
@@ -588,7 +590,7 @@ def test_readme_states_why() -> None:
     entry = readme[i : readme.index("\n## ", i + 3)]
     assert "a lens “recognition” is therefore a claim with no behavioural support" in entry
     assert bank.GATE_RULE in entry
-    assert "not on the index" in entry.lower()
+    assert "on the index from hindex-v7 (plan 0027)" in entry.lower()
 
 
 def test_cli_registered() -> None:

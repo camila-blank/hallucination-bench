@@ -5,14 +5,16 @@
       "agentic_misalignment": ["s3d-rl600"],
       "story": ["s3d-rl600-all11"],
       "sibling": ["s3d"],
-      "overrefusal": ["s3d-rl600"]
+      "overrefusal": ["s3d-rl600"],
+      "benign_roleplay": ["s3d-rl600"]
     },
     "mlnla-rl600": {
       "main": ["mlnla-rl600-all11"],
       "agentic_misalignment": ["mlnla-rl600-all11"],
       "story": ["mlnla-rl600-all11"],
       "sibling": ["mlnla-rl600"],
-      "overrefusal": ["mlnla-rl600-all11"]
+      "overrefusal": ["mlnla-rl600-all11"],
+      "benign_roleplay": ["mlnla-rl600-all11"]
     }
   },
   "exclude": ["nla-rl-L42", "nla-sft-L42"],

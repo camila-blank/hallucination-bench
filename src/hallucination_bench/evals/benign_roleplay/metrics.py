@@ -178,6 +178,9 @@ def score_unit(
         "n_unjudged": len(unjudged),
         "complete": not unjudged,
         "flagged_ids": sorted(i for i, f in flags.items() if f),
+        # plan 0027 (additive): the scored denominator and the unjudged ids, for the index export
+        "scored_ids": sorted(ids),
+        "unjudged_ids": sorted(unjudged),
         "share_best_echo_or_refusal": (
             sum(b in ("echo", "refusal") for b in best) / len(ids) if ids else None
         ),
@@ -246,10 +249,10 @@ def _hb_only_path(out: Path, arm: str, unit: str) -> Path:
     return each if each.exists() or unit == "all" else result_path(out / arm / "hb_only" / unit)
 
 
-def _shared_path(out: Path, campaign: Path, arm: str, unit: str) -> Path:
+def _shared_path(out: Path, campaign: Path, arm: str, unit: str, nested: bool = False) -> Path:
     from .wsb import campaign_dir, result_path
 
-    d = campaign_dir(campaign, arm, unit)
+    d = campaign_dir(campaign, arm, unit, nested)
     return result_path(d) if d is not None else result_path(out / arm / "shared" / unit)
 
 
@@ -262,6 +265,7 @@ def summarize(
     layers: Sequence[int] | None = None,
     floor_res: Mapping[str, Any] | None = None,
     accept_refused_as_flagged: bool = False,
+    nested: bool = False,
 ) -> dict[str, Any]:
     """The E1/E2 summary: per arm, per unit (``all`` + ``L<k>``), the headline rate over every
     gated item (shared rows + hb_only rows), the WSB-shared subset at ``all`` (checked equal to
@@ -280,7 +284,8 @@ def summarize(
         inputs: list[tuple[str, Mapping[str, Any]]] = []
         arm_rates: dict[str, Any] = {}
         for unit in units:
-            sp, hp = _shared_path(out, campaign, arm, unit), _hb_only_path(out, arm, unit)
+            sp = _shared_path(out, campaign, arm, unit, nested)
+            hp = _hb_only_path(out, arm, unit)
             sres = read_result(sp)
             admitted = validate(sres, unit, where=str(sp), accept_refused=accept_refused_as_flagged)
             check_fpr(sres, shared, str(sp))
@@ -323,6 +328,7 @@ def summarize(
         "higher_is_better": False,
         "complete": complete,
         "accept_refused_as_flagged": accept_refused_as_flagged,
+        "layout": "nested" if nested else "flat",
         "layers": lay,
         "bank": {
             "source_bank": items_doc.get("source_bank"),

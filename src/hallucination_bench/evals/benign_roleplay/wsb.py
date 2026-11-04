@@ -47,7 +47,8 @@ CAMPAIGN_ALL = {
 # arms whose campaign judged dirs are nested per arm (``<campaign>/<arm>/all``,
 # ``<campaign>/<arm>/L<k>``: the final O-lens campaign run, gw PR #646); every config is judged
 # there, so HB reuses all of them. Opt-in (``--arms``), not in the default ARMS.
-CAMPAIGN_NESTED = ("final-olens-rl600-x4",)
+# plan 0027: mlnla-rl600-all11 (the index's NLA arm) is judged only in this layout; opt-in
+CAMPAIGN_NESTED = ("final-olens-rl600-x4", "mlnla-rl600-all11")
 KNOWN_ARMS = (*ARMS, *CAMPAIGN_NESTED)
 
 
@@ -80,10 +81,11 @@ def check_pin(root: Path, sha: str = WSB_SHA) -> None:
         raise WsbError(f"WorkspaceBench at {root} has a dirty tree; pin needs a clean checkout")
 
 
-def campaign_dir(campaign: Path, arm: str, unit: str) -> Path | None:
+def campaign_dir(campaign: Path, arm: str, unit: str, nested: bool = False) -> Path | None:
     """The reused campaign judged dir for (arm, unit) (``unit`` = ``all`` or ``L<k>``), or None
-    when the campaign does not judge that config (HB judges it itself)."""
-    if arm in CAMPAIGN_NESTED:
+    when the campaign does not judge that config (HB judges it itself). ``nested`` (plan 0027,
+    ``--layout nested``) treats every arm as nested: ``<campaign>/<arm>/<unit>``."""
+    if nested or arm in CAMPAIGN_NESTED:
         return campaign / arm / unit
     if unit == "all":
         return campaign / CAMPAIGN_ALL[arm]
@@ -112,6 +114,7 @@ def plan_calls(
     layers: Sequence[int] | None = None,
     arms: Sequence[str] = ARMS,
     hb_bank: Path = HB_ONLY_BANK,
+    nested: bool = False,
 ) -> list[Call]:
     """The ``wsbench run`` calls HB issues (exit 2 if a reused campaign config is missing)."""
     lay = sorted(set(layers)) if layers else list(GRID)
@@ -121,14 +124,14 @@ def plan_calls(
     units = units or [f"L{k}" for k in lay]
     for arm in arms:
         for unit in units:
-            d = campaign_dir(campaign, arm, unit)
+            d = campaign_dir(campaign, arm, unit, nested)
             if d is not None and not result_path(d).exists():
                 raise WsbError(f"campaign config missing for {arm} {unit}: {result_path(d)}")
     base = ["uv", "run", "--no-sync", "wsbench", "run", f"families={FAMILY}", "reads=full"]
     calls: list[Call] = []
     for arm in arms:
         for k in lay:
-            if campaign_dir(campaign, arm, f"L{k}") is None:
+            if campaign_dir(campaign, arm, f"L{k}", nested) is None:
                 o = out / arm / "shared" / f"L{k}"
                 calls.append(
                     Call(

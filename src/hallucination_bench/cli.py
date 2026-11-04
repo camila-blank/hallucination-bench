@@ -256,14 +256,17 @@ def cmd_index(args: argparse.Namespace) -> int:
     from hallucination_bench import index
 
     out = Path(args.out)
-    sources = index.default_sources(out, args.judge_model)
+    sources = index.default_sources(out, args.judge_model, args.version)
     for fam, flag, roots in (
         (index.MAIN, "--main-root", args.main_root),
         (index.AM, "--am-root", args.am_root),
         (index.SIBLING, "--um-root", args.um_root),
         (index.STORY, "--story-root", args.story_root),
         (index.OVERREFUSAL, "--overrefusal-root", args.overrefusal_root),
+        (index.BENIGN_ROLEPLAY, "--benign-roleplay-root", args.benign_roleplay_root),
     ):
+        if roots and fam == index.BENIGN_ROLEPLAY and args.version != "v7":
+            raise SystemExit(f"{flag}: benign_roleplay is on the index from hindex-v7 only")
         if roots and args.version == "v3" and fam in index.SAFETY_FAMILIES:
             raise SystemExit(
                 f"{flag}: the safety families are hindex-v4 only (and v5 / v6), not v3"
@@ -273,11 +276,17 @@ def cmd_index(args: argparse.Namespace) -> int:
                 raise SystemExit(f"{flag}: not a directory: {missing}")
             sources[fam] = [Path(r) for r in roots]
     if args.version != "v3":  # an opted-in safety root must hold its counts, else the family
-        for fam in index.SAFETY_FAMILIES:  # (and full / matched everywhere) silently vanishes
+        for fam in index.safety_families(args.version):  # (and full / matched) silently vanishes
             if gone := [
                 str(r) for r in sources.get(fam, []) if not (r / index.SAFETY_COUNTS).is_file()
             ]:
                 raise SystemExit(f"{fam}: no {index.SAFETY_COUNTS} in {gone}")
+    if args.version == "v7" and not sources.get(index.BENIGN_ROLEPLAY):
+        print(
+            "warning: hindex-v7 without a benign_roleplay root (--benign-roleplay-root or "
+            "$HBENCH_SAFETY_BR_OUT): the family, and so full / matched, are absent",
+            file=sys.stderr,
+        )
     try:  # plan 0022's unit guard, after the checks above (build_index repeats it)
         index.check_safety_units(sources, args.version)
     except ValueError as e:
@@ -619,7 +628,10 @@ def build_parser() -> argparse.ArgumentParser:
         ("--um-root", "<out>/sibling/um (country at label/, others at <domain>/label/)"),
     ):
         ix.add_argument(flag, action="append", help=f"repeatable; replaces the default {default}")
-    for flag, var in (("--overrefusal-root", "HBENCH_SAFETY_OR_OUT"),):
+    for flag, var in (
+        ("--overrefusal-root", "HBENCH_SAFETY_OR_OUT"),
+        ("--benign-roleplay-root", "HBENCH_SAFETY_BR_OUT (hindex-v7 only, plan 0027)"),
+    ):
         ix.add_argument(
             flag,
             action="append",
@@ -628,9 +640,11 @@ def build_parser() -> argparse.ArgumentParser:
         )
     ix.add_argument(
         "--version",
-        choices=("v3", "v4", "v5", "v6"),
+        choices=("v3", "v4", "v5", "v6", "v7"),
         default="v6",
-        help="v6 (default): hindex-v6 (v5 + overrefusal on wrong-topic refusal claims: needs a "
+        help="v7: hindex-v7 (v6 + benign_roleplay, weight 2; sibling weight 1; needs a "
+        "`prompts` --benign-roleplay-root from `hbench benign-roleplay index-export`, plan "
+        "0027); v6 (default): hindex-v6 (v5 + overrefusal on wrong-topic refusal claims: needs a "
         "`refusal_claims` --overrefusal-root, i.e. offtopic_index/, plan 0022); "
         "v5: hindex-v5 (agentic_misalignment on candidate claims, plan 0021); "
         "v4: exactly the hindex-v4 output (+ overrefusal, full_v3 / matched_v3); v3: exactly "
