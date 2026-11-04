@@ -214,6 +214,65 @@ def validate_case(c: dict[str, Any], *, require_gold: bool = True) -> list[str]:
     return errs
 
 
+# Plan 0029 fix (Camila, 2026-11-04): under claimmap-v2.8 every date or time is `detail`,
+# including dates of real-world events ("14 April 1911" for the Titanic). The gold files are
+# shared with v2.7 and keep its labels; these version-aware overrides apply only when a v2.8
+# prompt is calibrated. Key: (case_id, unit id, split text or None for the unit leaf) -> leaf.
+GOLD_OVERRIDES_V28: dict[tuple[str, str, str | None], str] = {
+    ("dev2-06-titanic", "R0.U3", "14 April 1911"): "detail",  # real-event-date
+    ("dev2-23-penicillin", "R0.U3", None): "detail",  # real-event-date ("in 1938" for 1928)
+}
+
+
+def gold_overrides(prompt: str | None) -> dict[tuple[str, str, str | None], str]:
+    """The gold overrides of a claim-map prompt version (none for v2.7)."""
+    return dict(GOLD_OVERRIDES_V28) if cm.is_v28(prompt) else {}
+
+
+def apply_gold_overrides(
+    cases: Sequence[dict[str, Any]], prompt: str | None
+) -> list[dict[str, Any]]:
+    """``cases`` with ``prompt``'s gold overrides applied (new dicts; the inputs are unchanged).
+    Overrides of cases absent from ``cases`` (another split) are skipped; an override whose
+    case is present but whose unit or split is not fails loudly (the gold moved)."""
+    ov = gold_overrides(prompt)
+    if not ov:
+        return list(cases)
+    by_case: dict[str, dict[tuple[str, str | None], str]] = {}
+    for (cid, uid, sp), leaf in ov.items():
+        by_case.setdefault(cid, {})[(uid, sp)] = leaf
+    out: list[dict[str, Any]] = []
+    for c in cases:
+        todo = by_case.get(c["case_id"])
+        if not todo:
+            out.append(c)
+            continue
+        hit: set[tuple[str, str | None]] = set()
+        units = []
+        for g in c["gold"]["units"]:
+            g = {**g}
+            if (g["id"], None) in todo:
+                g["leaf"] = todo[(g["id"], None)]
+                hit.add((g["id"], None))
+            if g.get("splits"):
+                splits = []
+                for sp in g["splits"]:
+                    k = (g["id"], sp.get("text"))
+                    if k in todo:
+                        sp = {**sp, "leaf": todo[k]}
+                        hit.add(k)
+                    splits.append(sp)
+                g["splits"] = splits
+            units.append(g)
+        if missing := set(todo) - hit:
+            raise ValueError(f"{c['case_id']}: gold override targets not found: {missing}")
+        new = {**c, "gold": {**c["gold"], "units": units}}
+        if errs := validate_case(new):
+            raise ValueError(f"{c['case_id']}: invalid after gold overrides: {errs}")
+        out.append(new)
+    return out
+
+
 def load_cases(split: str, path: Path | None = None) -> list[dict[str, Any]]:
     p = path or cases_path(split)
     fallbacks: Counter = Counter()
@@ -767,7 +826,7 @@ def run(
 
     cm.check_anchor(anchor)
     prompt = cm.spec(prompt).version
-    cases = load_cases(split, cases_file)
+    cases = apply_gold_overrides(load_cases(split, cases_file), prompt)
     d = Path(out_root) / "calibration" / model_slug(model)
     usage = Usage()
 
@@ -793,6 +852,13 @@ def run(
     preds = asyncio.run(go())
     res = score(cases, preds, split, anchor, prompt)
     res["coverage"] = coverage(cases)
+    if ov := gold_overrides(prompt):  # v2.8 only: v2.7 results keep their keys
+        present = {c["case_id"] for c in cases}
+        res["gold_overrides"] = [
+            {"case_id": cid, "unit": uid, "split": sp, "leaf": leaf}
+            for (cid, uid, sp), leaf in sorted(ov.items(), key=lambda kv: str(kv[0]))
+            if cid in present
+        ]
     res["spend_this_run"] = usage.to_dict()
     res["model"] = model
     res["effort"] = effort

@@ -80,7 +80,8 @@ judged with another prompt is refused, exit 3) into separate roots (`--out outpu
 an incorrect segment the judge tags `continuation_text` (written as the text's own next words),
 whose leaf is a small change (`detail` / `substitution_sibling`) and whose quoted contradiction is
 after the read point scores `continuation_miss` (weight 0, still a claim); a wrong role or title is
-a substitution; dates and quantities of the conversation's own events are `detail`. Families and
+a substitution; every date or time (real-world events too) and quantities of the conversation's
+own events are `detail`. The main family runs on plan 0028's 3x bank (`--bank x3`). Families and
 weights: main 9, `am_claims` 3 (the AM claim map on candidate claims, `claimmap-v2.8+am3` on
 Sonnet with a scenario card), `am_situation` 3 (`amsit-v1`: readouts that misrepresent the
 agentic scenario as a whole, `--stages situation`), sibling 1, story 1 (only `detail`
@@ -146,7 +147,9 @@ the index (dropped in plan 0019 revs 6 / 5). Definitions:
 External data is configured by environment variables, each defaulting to the dev-box path
 (`src/hallucination_bench/paths.py`): `HBENCH_READOUTS_ROOT` (WorkspaceBench paper readouts),
 `HBENCH_WSBENCH_PUB` (a workspace-bench checkout), `HBENCH_GLOBAL_WORKSPACE`,
-`HBENCH_SIBLING_SRC_ROOT`, `HBENCH_ALI_PROBE_ROOT`, `HBENCH_COMBOS_READOUTS`; the shell drivers
+`HBENCH_SIBLING_SRC_ROOT`, `HBENCH_ALI_PROBE_ROOT`, `HBENCH_COMBOS_READOUTS`, `HBENCH_X3_READOUTS`
+(plan 0028's 3x-bank readouts, the `--bank x3` default; the bank dir is `HBENCH_X3_BANK`, default
+`data/wsbench_chat_x3`); the shell drivers
 also read `HBENCH_WSBENCH_PY`, `HBENCH_AM_GEN`, `HBENCH_AM_READOUTS`, `HBENCH_MLNLA_GEN`,
 `HBENCH_EXTRA_READOUTS`, `HBENCH_STORY_GEN`, `HBENCH_STORY_READOUTS`, `HBENCH_GW_CAPTURE`
 (a global-workspace checkout for the capture jobs). Tests that need one of them skip and name the variable.
@@ -275,8 +278,8 @@ uv run python scripts/am_audit.py score                 # gates.json / tiers.jso
 uv run hbench report --eval agentic_misalignment        # outputs/agentic_misalignment/<model>/report.md
 
 # hindex-v8 (plan 0029): v2.8 claim maps in separate roots; joint cells; amsit-v1; final plots
-uv run hbench run --out outputs/v8 --map-prompt claimmap-v2.8 --stages map --arms s3d-rl600,...
-uv run hbench run --out outputs/v8 --map-prompt claimmap-v2.8 --joint --arms s3d-rl600-all11 \
+uv run hbench run --out outputs/v8 --bank x3 --map-prompt claimmap-v2.8 --stages map --arms s3d-rl600,...
+uv run hbench run --out outputs/v8 --bank x3 --map-prompt claimmap-v2.8 --joint --arms s3d-rl600-all11 \
     --joint-from s3d-rl600,s3d-rl600-all11     # one judge call per site over all 11 layers
 uv run --no-sync python scripts/v8/seed_am_root.py --src outputs/agentic_misalignment/claude-opus-5-5 \
     --dest outputs/v8/agentic_misalignment/claude-opus-5-5 --arms s3d-rl600,mlnla-rl600-all11,jlens

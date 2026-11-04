@@ -536,6 +536,7 @@ def _check_quotes(s: "Segment", conv: Normalised, c: dict[str, int]) -> None:
             c["n_unquoted_contradictions"] += 1
             s.judge_leaf, s.leaf, s.raw_leaf = s.raw_leaf, "unverifiable", "unverifiable"
             s.unquoted_contradiction = True
+            s.continuation_text = False  # plan 0029: an incorrect-leaf tag (explicit here)
     elif s.raw_leaf == "correct" and s.source != "entailed":
         c["n_support_quotes_checked"] += 1
         q = s.supported_by
@@ -798,6 +799,7 @@ def _remap_hedged(s: "Segment", c: dict[str, int]) -> None:
             c["n_missing_probe_targets"] -= 1
     c["n_hedged_remapped"] += 1
     s.leaf = "unverifiable"
+    s.continuation_text = False  # plan 0029: an incorrect-leaf tag; no longer incorrect
     s.same_slot_alternative = True
     s.cruxy = False
     s.probe_target = None

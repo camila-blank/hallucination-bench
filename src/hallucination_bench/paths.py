@@ -55,6 +55,17 @@ BR_FINAL_OLENS_SUMMARY = _env_path(
     "HBENCH_BR_FINAL_OLENS_SUMMARY",
     "/workspace/root/wsb-bp/hb/br_out_e8615c4/benign_roleplay/claude-sonnet-5/summary.json",
 )
+# plan 0028: the main bank's old 11-layer readouts (<root>/<arm>/hallucination.jsonl; the
+# official main arms s3d-rl600, s3d-rl600-all11, mlnla-rl600-all11, jlens) and the official
+# J-lens main output root (interp-v1 summaries in <root>/jlens/cache.jsonl)
+EXTRA_READOUTS = _env_path("HBENCH_EXTRA_READOUTS", "/workspace/hb-readouts")
+MAIN_OUT = _env_path(
+    "HBENCH_MAIN_OUT", "/workspace/hb-taxonomy-v2/outputs/wsbench_chat/claude-opus-5-5"
+)
+# plan 0028: the 3x bank's merged readouts (local until frozen)
+X3_READOUTS = _env_path("HBENCH_X3_READOUTS", "/root/tmp/hb28-readouts")
+# plan 0028: per-batch converted new readouts (<root>/<tag>/<reader>/hallucination.jsonl)
+X3_NEW_READOUTS = _env_path("HBENCH_X3_NEW_READOUTS", "/root/tmp/hb28-readouts-new")
 
 __all__ = [
     "ALI_PROBE_ROOT",
@@ -62,7 +73,9 @@ __all__ = [
     "BR_FINAL_OLENS_SUMMARY",
     "BR_READOUTS",
     "COMBOS_READOUTS",
+    "EXTRA_READOUTS",
     "GLOBAL_WORKSPACE",
+    "MAIN_OUT",
     "OR_OUT",
     "OR_READOUTS_V3",
     "READOUTS_ROOT",
@@ -72,4 +85,6 @@ __all__ = [
     "SIBLING_SRC_ROOT",
     "WSBENCH_PUB",
     "WSBENCH_PUB_V4",
+    "X3_NEW_READOUTS",
+    "X3_READOUTS",
 ]

@@ -895,6 +895,48 @@ def select(
     return out
 
 
+def mappable(cs: CellState) -> bool:
+    """Stage M's population: a settled-ok detection with a scoring mention (and its samples)."""
+    return cs.status == "ok" and bool(cs.mentions) and bool(cs.samples)
+
+
+async def map_select(
+    arm: AMArm,
+    models: Models,
+    item_ids: Sequence[str] | None,
+    limit: int,
+    sample_seed: int | None = None,
+) -> list[Cell]:
+    """``--limit N`` with the ``map`` stage: per layer, N cells drawn among the **mappable** ones
+    (cache-only detection state, :func:`mappable`), so each layer maps ``min(N, positives)``
+    cells; :func:`select`'s pre-detection draw would leave a variable, often tiny, number (J-lens
+    detects ~1.6% of cells). Seeded (``sample_seed``): a shuffle of the layer's non-empty cells
+    walked until N positives (a uniform N-subset of the positives), kept in file order;
+    unseeded: the first N positives in file order. Cells whose detection is not cached are not
+    positives: run ``detect`` (and J-lens ``summ``) first."""
+    pool = select(arm, item_ids, None)
+    out: list[Cell] = []
+    for la in arm.layers:
+        cl = [c for c in pool if c.layer == la]
+        idx = list(range(len(cl)))
+        if sample_seed is not None:
+            random.Random(f"pilot:{sample_seed}:{arm.name}:{la}:map").shuffle(idx)
+        got: list[int] = []
+        for i in idx:
+            if mappable(await cell_state(arm, cl[i], models)):
+                got.append(i)
+                if len(got) >= limit:
+                    break
+        if len(got) < limit:
+            print(
+                f"[{arm.name}] L{la}: map --limit {limit}: only {len(got)} mappable cells "
+                "(detection positives cached)",
+                flush=True,
+            )
+        out += [cl[i] for i in sorted(got)]
+    return out
+
+
 def _write_arm_json(arm: AMArm, models: Models) -> None:
     (arm.dir / "arm.json").write_text(
         json.dumps(
@@ -1012,7 +1054,15 @@ async def run_am_async(
                 for a in opened:
                     a.cards = cards
             if "map" in sel and opened:
-                await map_stage(opened, sels, llm, models, workers, show_prompts)
+                map_sels = sels
+                if limit:  # count mapped cells, not pre-detection cells (after detect / summ)
+                    map_sels = {
+                        a.name: await map_select(a, models, items, limit, sample_seed)
+                        for a in opened
+                    }
+                    for a in opened:
+                        print(f"[{a.name}] map cells_selected={len(map_sels[a.name])}", flush=True)
+                await map_stage(opened, map_sels, llm, models, workers, show_prompts)
             if "situation" in sel and opened:
                 await situation_stage(
                     opened, llm, models, workers, items, limit=limit, sample_seed=sample_seed
@@ -1142,7 +1192,7 @@ async def map_stage(
     for a in ordered:
         for c in sels[a.name]:
             cs = await cell_state(a, c, models)
-            if cs.status == "ok" and cs.mentions and cs.samples:
+            if mappable(cs):
                 work.append((a, c, cs.samples))
     if not work:
         return

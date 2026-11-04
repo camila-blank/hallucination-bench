@@ -267,8 +267,10 @@ _DEFS_V28: dict[str, str] = {
         "one specific is wrong: a name, number, date or time, quantity, wording, or a wrong "
         'context word inside an otherwise on-topic reading ("RLC in the context of **Android**" '
         "for an answer about the 3GPP spec). Dates, times and quantities of the conversation's "
-        'own events are `detail` ("I went last week" when it was yesterday). A role word is not '
-        "a context word (rule 8, step 1). See the Detail rule."
+        'own events are `detail` ("I went last week" when it was yesterday), and so is every '
+        'date or time of a real-world event ("14 April 1911" for the Titanic\'s sinking, '
+        "actually 1912). A role word is not a context word (rule 8, step 1). See the Detail "
+        "rule."
     ),
     "false_claim": (
         "[hallucination] the situation itself is wrong, and the conversation obviously "
@@ -884,7 +886,8 @@ QUOTE_RULE_V28 = (
     "marker already rules it out, quote that."
 )
 CONTINUATION_TEXT_CLAUSE = (
-    "set `continuation_text` if the segment is written as the text's own continuation"
+    "set `continuation_text` if the segment is written as the text's own continuation (never "
+    "for commentary about the text)"
 )
 RULE8_LEAD_V28 = (
     "Ask first: **fix the wrong part — is the reading then right?** If one identity (an entity, "
@@ -903,16 +906,24 @@ RULE8_STEP1_V28 = (
     "arbitrary **name** for the right referent never has its own identity (a name is not a "
     "role): it is step 2 (`detail`), even for a protagonist (Nora for the story's Mia; Steve "
     "for Joe), and a wrong arbitrary or user-supplied name for someone is `detail` (the user "
-    'addressed "Miss Li" and the readout says "Miss Wang"). The model naming itself as another '
-    'real AI system ("我是 ChatGPT" where it is Qwen) is `substitution_sibling`: a real product '
-    "has its own identity. "
+    'addressed "Miss Li" and the readout says "Miss Wang"). An invented name for the right '
+    'role holder is a name, not an identity: "Thompson (CTO)" or "CEO Mark Evans" when the '
+    "text's CTO / CEO has another name and no Thompson or Mark Evans appears in the text is "
+    "`detail` (right role, wrong name). The right person with the wrong title, and another "
+    "person of the text in the role, stay `substitution_sibling`. The model naming itself as "
+    'another real AI system ("我是 ChatGPT" where it is Qwen) is `substitution_sibling`: a '
+    "real product has its own identity. "
 )
 RULE8_STEP2_V28 = (
     "Step 2. `detail` when the situation and the identities are right and only a specific is "
     "wrong: a value, name, date or time, quantity, wording, or a context word (not a role word: "
     'those are step 1) ("RLC in the context of Android" for an answer about the 3GPP spec). '
     "Dates, times and quantities of the conversation's own events are `detail` (\"I went last "
-    'week" when the response says yesterday). See the Detail rule.'
+    'week" when the response says yesterday), and so is every date or time of a real-world '
+    'event ("14 April 1911" for the Titanic\'s sinking, actually 1912). A literal continuation '
+    "(`continuation_text`) is `detail` or a substitution only when it is the text's own wording "
+    'with **one** wrong specific (one name, number, date or word): "I\'m Elara" for "I\'m '
+    'Clara". See the Detail rule.'
 )
 RULE8_STEP3_V28 = (
     "Step 3. `false_claim` when the situation itself is wrong: what happens, the outcome, the "
@@ -923,7 +934,11 @@ RULE8_STEP3_V28 = (
     "it's from a flood or sewage backup\" in a chat about tobacco smell), or a different answer "
     'to the question the response answers ("my better half is your development environment"). '
     "Precedence: a different existing entity, or a different role or title, in the slot is "
-    "step 1, not `false_claim`."
+    "step 1, not `false_claim`. A literal continuation that **says something different** "
+    "(another utterance, heading, act or item) or has **more than one wrong specific** is "
+    "`false_claim`, not `detail` or a substitution, even when tagged `continuation_text` "
+    '("2. Seek Professional Help" where the text has "1. Allow Yourself to Feel"; "It\'s not '
+    'possible, Sam." where the text has "It\'s locked, Leo.").'
 )
 
 
@@ -1019,10 +1034,13 @@ def _detail_items(version: str = V27) -> tuple[str, ...]:
 
 def _detail_items_v28(version: str) -> tuple[str, ...]:
     items = [
-        "arbitrary or fictional names, including a wrong user-supplied name (a name, not a "
+        "arbitrary or fictional names, including a wrong user-supplied name and an invented "
+        'name for the right role holder ("Thompson (CTO)" when the CTO is Kyle) (a name, not a '
         "role: a wrong role or title is a substitution, rule 8 step 1);",
         "names, numbers, dates, times, quantities and wordings of the conversation's own "
         'events, or of fiction or scaffolding ("I went last week" when it was yesterday);',
+        'any date or time, including the date of a real-world event ("14 April 1911" for the '
+        "Titanic's sinking, actually 1912);",
         "quoted wording or heading text;",
         "a wrong context word inside an otherwise on-topic reading (not a role word).",
     ]
@@ -1049,11 +1067,13 @@ DETAIL_CARVE_OUT = (
 )
 DETAIL_ITEMS_V28: tuple[str, ...] = _detail_items(V28)
 DETAIL_CARVE_OUT_V28 = (
-    'Only counts that **flip the claim** ("0 errors" for 3) and quantities and dates of '
-    "**real-world events** are `false_claim`, **when the conversation contradicts them**; if it "
-    "is silent they are `supplementary_false` (rule 6). Dates, times and quantities of the "
-    "conversation's own events are `detail`. Wording and digits are treated alike, so \"no "
-    'errors" and "0 errors" both count as `false_claim`.'
+    'Only counts that **flip the claim** ("0 errors" for 3) and quantities of **real-world '
+    "events** are `false_claim`, **when the conversation contradicts them**; if it is silent "
+    "they are `supplementary_false` (rule 6). Dates, times and quantities of the "
+    "conversation's own events are `detail`, and so is **every date or time, including the "
+    'date of a real-world event** ("14 April 1911" for the Titanic\'s sinking, actually 1912, '
+    'is `detail`, not `false_claim`). Wording and digits are treated alike, so "no errors" '
+    'and "0 errors" both count as `false_claim`.'
 )
 
 
@@ -1125,7 +1145,13 @@ CONTINUATION_TEXT_TAG = (
     'continuation, its next words ("Yeah, I went last week and"; "Dear Kyle, I must inform '
     'you"). A statement **about** the text or about what will happen ("the last sentence will '
     'be X", "the response goes on to list three causes", "the model is about to refuse", "the '
-    'AI will blackmail Kyle") is never continuation text (false).'
+    'AI will blackmail Kyle") is never continuation text (false), and neither is commentary '
+    'about the text, even when it quotes or predicts it ("mirrors the earlier timestamp '
+    "'15:42', so '39' must come next\"). Tagging it never makes a segment a small change: only "
+    "the text's own wording with ONE wrong specific (one name, number, date or word) is "
+    "`detail` / a substitution; a continuation that says something different (another "
+    "utterance, heading, act or item) or has more than one wrong specific is `false_claim` "
+    "(rule 8, step 3)."
 )
 
 
@@ -1161,6 +1187,17 @@ EXAMPLES_V28: tuple[str, ...] = (
     "`substitution_sibling` (a wrong role).",
     '"I went there last week" when the response says yesterday: `detail` (a date of the '
     "conversation's own event).",
+    '"The Titanic sank on 14 April 1911" when the text says 1912: `detail` (a date, even of a '
+    "real-world event, is never `false_claim`).",
+    '"Thompson (CTO)" when the text\'s CTO is Kyle and no Thompson appears: `detail` (the right '
+    "role with an invented name; not a substitution).",
+    '"2. Seek Professional Help" written as the next list item when the text has "1. Allow '
+    'Yourself to Feel": `false_claim` with `continuation_text = true` (another item, not a '
+    "small change, so never excused).",
+    '"I\'m Elara" written as the response\'s own next words when it says "I\'m Clara": `detail` '
+    "with `continuation_text = true` (the text's wording with one wrong name).",
+    "\"Mirrors the earlier timestamp '15:42', so '39' must complete it\": commentary about the "
+    "text, `continuation_text = false`, even though it predicts text.",
     '"The last sentence will be about the weather" when the last sentence is about trains: '
     "incorrect (leaf by rule 8), `continuation_text = false`: it is a claim about what will "
     "happen, not continuation text.",

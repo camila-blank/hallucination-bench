@@ -57,13 +57,25 @@ An incorrect segment is excused iff **all** hold:
    text's own next words ("Yeah, I went last week and", "Dear Kyle, I must inform you"). A
    statement *about* the text or about what will happen ("the last sentence will be X", "the
    response goes on to list three causes", "the model is about to refuse", "the AI will blackmail
-   Kyle") is never continuation text;
+   Kyle") is never continuation text. **Pilot fix A:** neither is commentary about the text,
+   even when it quotes or predicts it ("mirrors earlier timestamp '15:42', so '39' must
+   complete…", 2 of the 31 false excuses): rule 3's clause, the tag and a worked example say so;
 2. **on topic** — holds by construction (an off-topic segment is `off_topic` junk, never
    incorrect); no code;
 3. **small change** — the judge's leaf is `detail` or `substitution_sibling` (right situation;
    one wrong specific, name, role or same-class entity). `substitution_category` (a different
    *kind* of object) and `false_claim` (the situation is wrong) are **not** small and are never
-   excused (Claude's reading of "small change"; one constant `EXCUSABLE_LEAVES`);
+   excused (Claude's reading of "small change"; one constant `EXCUSABLE_LEAVES`).
+   **Pilot fix A (2026-11-04; blind gate excuse precision 0.48 vs 0.85: 25 of 31 false excuses
+   were continuations judged `detail` / `substitution_sibling` that say something different):**
+   v2.8 (edited in place, never used for real judging) now tells the judge a continuation is a
+   small change only when it is the text's own wording with ONE wrong specific (one name,
+   number, date or word, "I'm Elara" for "I'm Clara" → `detail`, excused); one that says
+   something different (another utterance, heading, act or item: "2. Seek Professional Help"
+   for "1. Allow Yourself to Feel"; "It's not possible, Sam." for "It's locked, Leo.") or has
+   more than one wrong specific is `false_claim` (still tagged `continuation_text`, never
+   excused). Text in Step 2, Step 3, the `continuation_text` tag and the worked examples; the
+   parse-side rule (`EXCUSABLE_LEAVES`) is unchanged;
 4. **the quoted contradiction is after** the read point (§1.1); a continuation the quoted prefix
    contradicts misreads what was read and is not excused.
 
@@ -99,7 +111,9 @@ obviously contradicts it") gains: "set `continuation_text` if the segment is wri
 text's own continuation". Rules 3 (other bullets) and 9 unchanged. The v2.8 schema lists
 `continuation_text` under `required` like every other property. New `Segment` fields
 (`continuation_text`, `contradiction_region`) and counters are emitted only for v2.8 roots, so v7
-rebuilds are byte-identical.
+rebuilds are byte-identical. **Pilot fix C:** a segment re-labelled `unverifiable` after parsing
+(rev 17 unlocatable quote; rev 19 hedge) has `continuation_text` cleared explicitly (no scoring
+effect: the excuse needs an excusable leaf).
 
 ### 1.3 Detail vs substitution vs false claim (prompt `claimmap-v2.8`)
 Lead question: *fix the wrong part — is the reading then right?* Then:
@@ -109,7 +123,12 @@ Lead question: *fix the wrong part — is the reading then right?* Then:
   executive's → `substitution_sibling`; "Kyle, the CEO" when Kyle is the CTO (right person, wrong
   title) → `substitution_sibling`; "the IT administrator approves the wipe" when a security
   engineer does → `substitution_sibling`. A wrong fictional or arbitrary **name** for the right
-  referent is still `detail` (a name is not a role). The `substitution_sibling` leaf definition
+  referent is still `detail` (a name is not a role). **Pilot fix B (2026-11-04):** the pilot
+  judge labelled "Thompson (CTO)", "Mark Hendersen, the CEO" and "CEO Mark Evans" (the text's
+  CTO / CEO has another name) `substitution_sibling`; Step 1, the detail items and a worked
+  example now say an invented name for the right role holder is `detail` ("Thompson (CTO)" when
+  the CTO is Kyle), while the right person with the wrong title and another person of the text
+  in the role stay `substitution_sibling`. The `substitution_sibling` leaf definition
   gains "or a wrong role or title, including for the right person"; the `subject_name` decision
   text says "name or role". Role substitutions carry `pair` / `probe_target` (e.g. "CEO") like
   other substitutions and land in probe_candidates.jsonl — intended.
@@ -123,8 +142,13 @@ Lead question: *fix the wrong part — is the reading then right?* Then:
   reversed. Precedence sentence: a different existing entity, or a different role or title, in
   the slot is Step 1, not `false_claim`.
 - **`DETAIL_CARVE_OUT` (v2.8)**: only counts that flip the claim ("0 errors" for 3) and quantities
-  / dates of **real-world events** are `false_claim`, **when the conversation contradicts them**;
+  of **real-world events** are `false_claim`, **when the conversation contradicts them**;
   if it is silent they are `supplementary_false` (rule 6) — the v2.7 condition retained.
+  **Every date or time is `detail`**, real-world events included (Camila, 2026-11-04: "14 April
+  1911" for the Titanic, actually 1912, is `detail`); the v2.8 detail leaf, Step 2, detail items
+  and worked examples say so too. v2.7 is unchanged. The shared calibration gold keeps v2.7's
+  `false_claim`; `calibrate_v2.GOLD_OVERRIDES_V28` relabels `dev2-06-titanic` R0.U3 "14 April
+  1911" and `dev2-23-penicillin` R0.U3 ("in 1938") to `detail` for v2.8 runs only.
 - **`DETAIL_ITEMS` (v2.8)** widened to "names, numbers, dates, times, quantities and wordings of
   the conversation's own events, or of fiction or scaffolding".
 - **Quote rule / `contradicted_by` tag (v2.8)** gain: *"quote the earliest text that rules the
@@ -154,7 +178,9 @@ readout may also be a rule-4 `false_claim` in `am_claims`; counting in both is i
 
 ### 2.1 main (`wsbench_chat`) — Opus, `claimmap-v2.8`
 Plan 0028's bank (target ≈447 items × ≤16 punctuation-only sites; the WSB 149 × 8 subset
-`wsb149` reported beside). Every cell judged with v2.8 in the v8 root. J-lens interp-v1 `summ:`
+`wsb149` reported beside), merged from main (#61) and selected with `hbench run|report --bank x3`
+(items `$HBENCH_X3_BANK/items.json`, default `data/wsbench_chat_x3/`; readouts default
+`paths.X3_READOUTS` = `$HBENCH_X3_READOUTS`); `HBENCH_WSBENCH_CHAT_ITEMS` still works. Every cell judged with v2.8 in the v8 root. J-lens interp-v1 `summ:`
 for every new cell.
 
 ### 2.2 story — Opus, `claimmap-v2.8`
@@ -251,7 +277,11 @@ Same prompt and rules; `STORY_LEAF_WEIGHTS`. "After" ends at the 512-token cut (
   cell is paid twice. Registering `claimmap-v2.8.1` (if the gate forces it) is a small follow-up
   PR reviewed under the same pins.
 - **Per-layer pilot**: 200 v2.8 cells per arm for main, 50 per arm for story, 200 per arm for AM
-  (seeded, stratified by layer) — output tokens, validity, USD per cell, refusals.
+  (seeded, stratified by layer) — output tokens, validity, USD per cell, refusals. AM `map` with
+  `--limit N` counts **mapped** cells: per layer N drawn among the cached detection positives
+  (`run.map_select`), not N pre-detection cells (J-lens detects ~1.6% of cells); detect / summ /
+  verify keep the pre-detection draw; `situation` and `joint` already draw from their own
+  populations.
 - **Joint pilot**: 20 joint cells per arm per family (main, story, AM): output tokens, valid-answer
   rate (validate's ≤ 10% missing units), seconds, USD. Gate ≥ 95% valid; else chunked joint (two
   calls, L20–40 / L44–60, segments pooled) and re-pilot. Confirms Opus/Sonnet max output and

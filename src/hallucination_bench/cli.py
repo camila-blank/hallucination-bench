@@ -102,7 +102,24 @@ def _items(s: str | None) -> list[str] | None:
     return [x.strip() for x in s.split(",") if x.strip()] if s else None
 
 
+def _apply_bank(args: argparse.Namespace, *, readouts: bool = False) -> None:
+    """``--bank`` (plans 0028 / 0029): point the wsbench_chat bank at a named bank; with
+    ``readouts`` (``run``), ``--bank x3`` and neither ``--arm`` nor ``--readouts-root``, the
+    readouts default to ``paths.X3_READOUTS`` ($HBENCH_X3_READOUTS)."""
+    name = getattr(args, "bank", None)
+    if not name:
+        return
+    if (getattr(args, "eval", None) or "wsbench_chat") != "wsbench_chat":
+        raise SystemExit("--bank is a wsbench_chat (main eval) option")
+    from hallucination_bench.evals.wsbench_chat import bank
+
+    bank.use_bank(name)
+    if readouts and name == "x3" and not args.readouts_root and not args.arm:
+        args.readouts_root = str(paths.X3_READOUTS)
+
+
 def cmd_run(args: argparse.Namespace) -> int:
+    _apply_bank(args, readouts=True)
     if getattr(args, "eval", None) == AM_EVAL:
         from hallucination_bench.evals.agentic_misalignment import cli as amcli
 
@@ -369,6 +386,7 @@ def cmd_index(args: argparse.Namespace) -> int:
 
 
 def _cmd_report(args: argparse.Namespace) -> int:
+    _apply_bank(args)
     if getattr(args, "eval", None) == AM_EVAL:
         from hallucination_bench.evals.agentic_misalignment import cli as amcli
 
@@ -521,6 +539,18 @@ def _eval(p: argparse.ArgumentParser) -> None:
     )
 
 
+def _bank(p: argparse.ArgumentParser) -> None:
+    p.add_argument(
+        "--bank",
+        choices=("wsb", "x3"),
+        default=None,
+        help="wsbench_chat only: wsb = the WSB 149 x 8 bank; x3 = plan 0028's 3x bank "
+        "($HBENCH_X3_BANK/items.json, default data/wsbench_chat_x3; run: readouts default "
+        f"{paths.X3_READOUTS} = $HBENCH_X3_READOUTS). Default: the WSB bank, or "
+        "$HBENCH_WSBENCH_CHAT_ITEMS when set",
+    )
+
+
 def _prompt_choices() -> list[str]:
     from hallucination_bench.judges.claimmap_v2 import VERSIONS
 
@@ -566,7 +596,9 @@ def build_parser() -> argparse.ArgumentParser:
         "--limit",
         type=int,
         default=None,
-        help="judge only the first N non-empty cells per arm x layer (smoke)",
+        help="judge only the first N non-empty cells per arm x layer (smoke); "
+        "agentic_misalignment map: N mapped cells per layer, drawn among the detection "
+        "positives",
     )
     r.add_argument(
         "--sample-seed",
@@ -604,6 +636,7 @@ def build_parser() -> argparse.ArgumentParser:
     )
     _anchor(r)
     _eval(r)
+    _bank(r)
     r.add_argument(
         "--stages",
         default=None,
@@ -674,6 +707,7 @@ def build_parser() -> argparse.ArgumentParser:
         f"{paths.READOUTS_ROOT}); ignored by the other evals",
     )
     _eval(rp)
+    _bank(rp)
     rp.set_defaults(fn=cmd_report)
 
     cs = sub.add_parser(

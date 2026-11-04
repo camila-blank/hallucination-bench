@@ -58,6 +58,7 @@ src/hallucination_bench/
   evals/story/bank.py    the story bank (data/story); the pipeline is wsbench_chat's (plan 0007)
   evals/wsbench_chat/{bank,run,score}.py   bank + grid; pipeline (shared); metrics + bootstrap
   evals/wsbench_chat/score_v2.py   claim-map metrics (char-weighted shares, rates, comparisons)
+  evals/wsbench_chat/expand.py     plan 0028: literal ports of the WSB seed screen, read sites, thinning
   evals/agentic_misalignment/      plan 0008 (own driver; NOT the chat pipeline):
     kinds.py      THE misconduct-kind table + actor/stance enums + design-kind map (rendered
                   into the detector, screener and intent prompts)
@@ -113,6 +114,16 @@ src/hallucination_bench/
     {concepts,bank}.py  plan-0003 inventory / alias matcher, WindowChecker, ReadSpec writers (kept:
                    the ladder's probe-text and capture-plan steps use them)
 data/wsbench_chat/   verbatim copies from wsbench-pub @ 92d763e (never edit)
+data/wsbench_chat_x3/  plan 0028: the main bank at 3x prompts / <=16 sites (WSB 149 = subset
+                     `wsb149`, sites `wsb: true` = the WSB 1,123); LOCAL until frozen (gitignored
+                     except README); `hbench run|report --bank x3` (plan 0029; dir $HBENCH_X3_BANK,
+                     readouts default $HBENCH_X3_READOUTS) or HBENCH_WSBENCH_CHAT_ITEMS=<it>/items.json
+scripts/main_x3/     plan 0028: build_seeds.py (re-derives the WSB draw, then the seeded expansion),
+                     gen_modal.py (WSB generation settings + template guard), build_bank.py
+                     (tag a/b capture batches), reads.sh (capture / read-s3d / read-s3d5 /
+                     read-mlnla / read-jlens / fetch + reader-config drift check),
+                     merge_readouts.py (old WSB cells + new -> $HBENCH_X3_READOUTS), seed_summaries.py,
+                     joint_bundle.py (one record per site, all 11 layers, per index method)
 data/calibration/    dev.jsonl (implementer), heldout.jsonl (blind author only), README (schema + log)
                      dev_v2.jsonl (implementer), heldout_v2.jsonl (blind author only)
 data/story/          20 story items x 8 sites + capture rows, built by scripts/build_story_bank.py
@@ -214,7 +225,7 @@ scripts/mask/        build_items.py, gen_modal.py (Modal vLLM), build_capture.py
   format and `pytest -rs` locally before pushing. Plan numbers are unique: the next free one is
   0030 (0009/0010 belong to the unlanded resampling-gate branches; 0025/0026 to the local,
   unmerged cheating eval -- its index plan 0026 is superseded by 0029 (hindex-v8); 0028 is the
-  main-bank expansion (3x prompts x 2x punctuation-only sites, separate branch); 0029 is
+  main-bank expansion (3x prompts x 2x punctuation-only sites, merged from main); 0029 is
   hindex-v8).
 
 ## Run commands
@@ -490,7 +501,22 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
     flag differs from an existing `arm.json` exits 3, rebuild / report replay the recorded one.
     In a v2.8 root the same holds for `--map-model` / `--situation-model`: omitted = the recorded
     one (never rewritten), a different one exits 3. `--limit N` on `--joint` / AM `joint` /
-    `situation` is a seeded draw (`--sample-seed`, default 0), never the first N.
+    `situation` is a seeded draw (`--sample-seed`, default 0), never the first N. AM `map` with
+    `--limit N` draws N cells per layer **among the cached detection positives**
+    (`run.map_select`: each layer maps min(N, positives)); detect / summ / verify keep the
+    pre-detection per-layer draw (`run.select`), so run detect (J-lens: summ) first.
+  - **Dates are always `detail` in claimmap-v2.8** (Camila 2026-11-04, real-world events too:
+    "14 April 1911" for the Titanic). The shared calibration gold keeps v2.7's `false_claim`;
+    `calibrate_v2.GOLD_OVERRIDES_V28` relabels those splits for v2.8 runs only.
+  - **v2.8 pilot fixes** (edited in place before any real judging): a literal continuation is
+    excusable only as the text's own wording with ONE wrong specific; one that says something
+    different (another utterance / heading / act / item) or has several wrong specifics is
+    `false_claim`; commentary about the text is never `continuation_text`; an invented name for
+    the right role holder ("Thompson (CTO)" when the CTO is Kyle) is `detail`. Any v2.8 `:M`
+    rows cached before these edits (pilot roots) carry the old fingerprint and re-queue.
+  - **Main bank for v8** = plan 0028's x3 bank: `hbench run|report --bank x3` (items
+    `$HBENCH_X3_BANK/items.json`, default `data/wsbench_chat_x3/`; readouts default
+    `paths.X3_READOUTS`); `--bank` conflicts with a `HBENCH_WSBENCH_CHAT_ITEMS` naming another file.
     v8 roots live under `outputs/v8/` (pilots `outputs/v8-pilot/`); never point a v2.8 run at a v7
     root. `scripts/v8/seed_am_root.py` copies the v7 AM detections (`:D`, `:Dsum`, `summ:`,
     `batchD:`, `:H`) + `intent.jsonl` into a v8 / pilot AM root (`--with-map --append` copies a
