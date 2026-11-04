@@ -40,7 +40,7 @@ import random
 import re
 import time
 from collections.abc import Awaitable, Callable, Iterable, Sequence
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, replace
 from pathlib import Path
 from typing import Any
 
@@ -949,6 +949,13 @@ async def run_am_async(
                 check_map_prompt(arm_dir(out_root, models, n), models)
             # v2.8 roots: never rewrite arm.json to another map / situation model
             models = reconcile_all([arm_dir(out_root, models, n) for n, _p in arms], models)
+            if (
+                "situation" in sel
+                and models.situation_model is None
+                and cm.is_v28(models.map_prompt)
+            ):
+                # record the default so a later explicit --situation-model is guarded too
+                models = replace(models, situation_model=situation.DEFAULT_MODEL)
             for n, p in arms:
                 a = open_arm(n, p, out_root, models, layers=layers)
                 if not a.layers:

@@ -270,7 +270,7 @@ fingerprint ⇒ `:M` re-queue) and one re-check.
 §1.2 (the `continuation_text` tag; rule 3's second bullet), §1.3 (rule 8 Step 1 identity incl.
 roles; **Step 2** "context word (not a role word: those are Step 1)"; **Step 3** "an act
 attributed to an agent who does not appear in the text, or actor and target reversed" replacing
-"a wrong agent or relation", plus the precedence sentence; leaf definitions of `detail` /
+"a wrong agent or relation" — and, per the PR #59 review, keeps "or a wrong relation or cause between the right entities" so Step 3 matches the leaf definition — plus the precedence sentence; leaf definitions of `detail` /
 `false_claim` / `substitution_sibling`; `DETAIL_CARVE_OUT`; `DETAIL_ITEMS`; quote rule;
 `contradicted_by` tag; examples). The `subject_name` "name or role" text lives in
 `OPEN_DECISIONS_V28` (a parallel copy; v2.7 decision text untouched). The joint sentence ("the

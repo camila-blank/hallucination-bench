@@ -481,17 +481,16 @@ def test_v8_map_and_situation_models_are_guarded_and_replayed(tmp_path, monkeypa
     opus = Models(eval="agentic_misalignment", map_prompt=V28, map_model="claude-opus-5-5")
     with pytest.raises(JudgeConfigError, match="map-model"):
         amrun.run_am([("toy", f)], out, opus, llm=AM8Fake(), items=[MIS], stages="situation")
-    # the situation model: recorded once set, then guarded and replayed the same way
+    # the situation model: a defaulted one is recorded on the first situation run (re-review
+    # minor 1), then guarded and replayed like the map model
+    assert json.loads((d / "arm.json").read_text())["situation_model"] == situation.DEFAULT_MODEL
     sit = Models(eval="agentic_misalignment", map_prompt=V28, situation_model="claude-opus-5-5")
-    amrun.run_am([("toy", f)], out, sit, llm=AM8Fake(), items=[MIS], stages="situation")
-    assert json.loads((d / "arm.json").read_text())["situation_model"] == "claude-opus-5-5"
+    with pytest.raises(JudgeConfigError, match="situation-model"):
+        amrun.run_am([("toy", f)], out, sit, llm=AM8Fake(), items=[MIS], stages="situation")
     amrun.run_am([("toy", f)], out, omit, llm=AM8Fake(), items=[MIS], stages="situation")
     rec = json.loads((d / "arm.json").read_text())
-    assert rec["situation_model"] == "claude-opus-5-5"
+    assert rec["situation_model"] == situation.DEFAULT_MODEL
     assert rec["map_model"] == "claude-sonnet-5-5"
-    other = Models(eval="agentic_misalignment", map_prompt=V28, situation_model="claude-x")
-    with pytest.raises(JudgeConfigError, match="situation-model"):
-        amrun.run_am([("toy", f)], out, other, llm=AM8Fake(), items=[MIS], stages="situation")
     # v2.7 roots are never reconciled (no map_prompt in arm.json)
     out7 = tmp_path / "out7"
     amrun.run_am([("toy", f)], out7, M7, llm=AMFake(), items=[MIS], stages="detect")
