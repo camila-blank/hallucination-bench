@@ -56,6 +56,10 @@ The WSB chat bank is the chat half of global-workspace's J-lens P/R items. The r
 - **Expansion draw:** the pool is the first `4 * 3 * 75 = 900` unique screened seeds per source.
   The WSB pool of 300 is its prefix. Remove the 75 WSB picks by key, shuffle the rest with
   `random.Random("hb0028:<source>")`, and keep the first **150 per source** in that seeded order.
+  New seeds must be NFC-normalized. The Qwen tokenizer NFC-normalizes, so a non-NFC seed would not
+  round-trip through decode, and `build_bank.py` fails on a seed-key mismatch. Non-NFC seeds are
+  dropped from the expansion candidates only, and their count is recorded as `non_nfc_excluded`.
+  The WSB re-derivation is untouched. For dailydialog, 0 of 150 chosen seeds were non-NFC.
   This gives 300 new seeds. Empty rollouts and items with no sites are dropped, as WSB did, which
   should leave ≈298 new items and ≈447 in total. The balance stays 1:1 lmsys/dailydialog. Dedup
   against the WSB 149 holds by construction: the WSB keys are removed, and keys are unique within
@@ -116,17 +120,20 @@ cannot commit them. Code, tests, the plan and the data README are pushed.
 
 ## Readouts (Modal, the HB pattern of `scripts/overrefusal/reads.sh`)
 
-`scripts/main_x3/reads.sh [capture|read-s3d|read-mlnla|read-jlens|fetch|merge]` runs from a local
+`scripts/main_x3/reads.sh [capture|read-s3d|read-s3d5|read-mlnla|read-jlens|fetch]` runs from a local
 GW main clone (`HBENCH_GW_CAPTURE`) with `/root/.local/bin/modal`:
 
 - **capture:** `wsbench_capture_modal.py --prompts-json capture_new_<TAG>.json --acts-subdir
   acts-hb28-main-x3<TAG> --layers 20:61:4 --max-positions 2048`.
 - **s3d:** `wsbench_read_modal.py::main --ckpt
   agu18dec/local-workspace:ckpts/ao/rl/s3d.ddp600.s0/iter_000600 --merged-name s3d-rl600 --k 3
-  --prompt-kind concepts_raw --transform unit`, at all 11 layers. This is one read. The new cells
-  feed **both** s3d arms: `s3d-rl600` at its 5 layers (20/36/44/48/60) and `s3d-rl600-all11` at
-  all 11. methods.json picks `s3d-rl600` at its layers and `-all11` for the rest, so the index
-  never sees the same new readout twice.
+  --prompt-kind concepts_raw --transform unit`. There are **two independent reads**, as the old
+  files are (0 of 5,615 shared old cells have identical samples):
+  - `read-s3d`, at all 11 layers, feeds `s3d-rl600-all11`;
+  - `read-s3d5`, at 20/36/44/48/60, feeds `s3d-rl600`.
+
+  methods.json picks `s3d-rl600` at its layers and `-all11` for the rest. The plots that show both
+  arms side by side still compare independent samples.
 - **mlnla:** `wsbench_nla_modal.py --lens mlnla-rl600 --n-samples 3` at all 11 layers.
 - **jlens:** `wsbench_tokenlens_modal.py --lens jlens` (top-10) at all 11 layers.
 - **final-olens-rl600-x4:** dropped by Camila (2026-11-04). Its producer is also a different path:
@@ -142,7 +149,7 @@ GW main clone (`HBENCH_GW_CAPTURE`) with `/root/.local/bin/modal`:
     identical to the overrefusal s3d read's config, which is a caveat stated in the PR.
 
   The result is written to `config_check.txt` per reader, and the GW commit used is recorded.
-- **merge:** the old arm file (the WSB cells, unchanged) plus the new rows go to
+- **merge** (`merge_readouts.py merge`; it is not a reads.sh step): the old arm file (the WSB cells, unchanged) plus the new rows go to
   `$HBENCH_X3_READOUTS/<arm>/hallucination.jsonl`. This is followed by a full-grid check against
   the x3 bank at the arm's layers: no missing, off-grid or duplicate rows.
 
@@ -158,8 +165,9 @@ Old readout sources:
 Outputs are written to `/root/tmp`, then rsynced to `/workspace/hb-readouts-x3/` when finished.
 
 **J-lens interp-v1 summaries** (k=1) are the J-lens readout text that a judge reads, so they are
-produced here. The command is `hbench run --stages summary --arms jlens` with the bank override,
-into the x3 output root. The old cells' `summ:` rows are first copied from the official jlens cache
+produced here. The command is `HBENCH_WSBENCH_CHAT_ITEMS=<x3>/items.json hbench run --stages summary
+--arms jlens --readouts-root $HBENCH_X3_READOUTS --out <x3 out> --allow-missing`, with judge
+`claude-opus-5-5` and effort `low`. `--allow-missing` is needed only while batch b is unread. The old cells' `summ:` rows are first copied from the official jlens cache
 (`hb-taxonomy-v2/outputs/wsbench_chat/claude-opus-5-5/jlens/cache.jsonl`), so only new cells call
 the API. No span, verify, classify or map stage runs.
 

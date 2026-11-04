@@ -5,10 +5,11 @@ check-new  --rows capture_new_<TAG>.json --readouts <new>/<arm>/hallucination.js
 merge      --bank <x3>/items.json --tags a[,b]
            For each official main arm, writes $HBENCH_X3_READOUTS/<arm>/hallucination.jsonl =
            the old file's rows (the WSB cells, unchanged and in their order) + every tag's new
-           rows, then checks the FULL x3 grid at the arm's layers. The one s3d read (reader
-           ``s3d``) feeds both s3d arms: ``s3d-rl600`` at its old file's layers (20/36/44/48/60)
-           and ``s3d-rl600-all11`` at all 11; methods.json uses ``s3d-rl600`` at its layers and
-           ``-all11`` elsewhere, so a new readout enters the index once.
+           rows, then checks the x3 grid at the arm's layers (WSB cells + the tags' cells; the
+           report says whether that is the whole bank) and that every row's ``token`` is the bank
+           site's token. The two s3d arms keep independent samples, as the old files do:
+           ``s3d-rl600`` takes reader ``s3d5`` (its own read at 20/36/44/48/60) and
+           ``s3d-rl600-all11`` reader ``s3d`` (all 11 layers).
 """
 
 from __future__ import annotations
@@ -28,7 +29,7 @@ from hallucination_bench import paths  # noqa: E402
 LAYERS = tuple(range(20, 61, 4))
 # arm -> (reader dir under the new tag root, old file root)
 ARMS = {
-    "s3d-rl600": "s3d",
+    "s3d-rl600": "s3d5",  # its own read at its 5 layers (independent samples, as the old files)
     "s3d-rl600-all11": "s3d",
     "mlnla-rl600-all11": "mlnla-rl600-all11",
     "jlens": "jlens",
@@ -69,13 +70,16 @@ def cmd_check_new(a: argparse.Namespace) -> None:
     check(_rows(Path(a.readouts)), want, str(a.readouts), a.kind)
 
 
-IGNORE_CFG = {"layers", "acts_dir", "acts_subdir", "n_prompts", "scales", "positions"}
+IGNORE_CFG = {"layers", "acts_dir", "acts_subdir", "n_prompts", "positions"}
 
 
 def _norm_cfg(d: dict) -> dict:
     out = {}
     for k, v in d.items():
         if k in IGNORE_CFG:
+            continue
+        if k == "scales":  # per-layer: compare the set of values, not the layer keys
+            out[k] = sorted(set(v.values()))
             continue
         out[k] = _norm_cfg(v) if isinstance(v, dict) else v
     return out
@@ -122,6 +126,10 @@ def cmd_merge(a: argparse.Namespace) -> None:
             raise SystemExit(f"{arm}: capture rows off the bank's sites")
         want = {(i, la, p) for (i, p) in cells for la in layers}
         merged = old + new
+        tok_of = {(i["id"], int(s["pos"])): s["token"] for i in items for s in i["sites"]}
+        bad_tok = [r for r in merged if tok_of.get((r["id"], int(r["pos"]))) != r["token"]]
+        if bad_tok:
+            raise SystemExit(f"{arm}: {len(bad_tok)} rows whose token is not the site token")
         stats = check(merged, want, f"{arm} merged", kind)
         dst = paths.X3_READOUTS / arm / "hallucination.jsonl"
         dst.parent.mkdir(parents=True, exist_ok=True)

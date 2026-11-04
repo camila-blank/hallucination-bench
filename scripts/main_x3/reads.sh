@@ -15,7 +15,7 @@ STEP=${1:?step}
 TAG=${TAG:?set TAG}
 GW=${HBENCH_GW_CAPTURE:-/root/tmp/hb28-gw}
 BANK=${HBENCH_X3_BANK:-$HERE/data/wsbench_chat_x3}
-ROWS=${ROWS:-$BANK/capture_new_$TAG.json}
+ROWS=$(realpath "${ROWS:-$BANK/capture_new_$TAG.json}")
 GEN_ROOT=${HBENCH_X3_GEN:-/root/tmp/hb28-gen}
 NEW=${HBENCH_X3_NEW_READOUTS:-/root/tmp/hb28-readouts-new}/$TAG
 WSPUB=${HBENCH_WSBENCH_PUB:-/workspace/root/wsbench-pub}
@@ -30,12 +30,14 @@ ACTS=acts-hb28-main-x3-$TAG
 LAYERS=20:61:4
 LAYER_LIST=20,24,28,32,36,40,44,48,52,56,60
 G=gen-hb28-main-x3-$TAG
-# reader  gen-dir  kind   (s3d feeds both s3d arms: merge_readouts.py)
-ARMS=("s3d $G-s3d-rl600 prose" "mlnla-rl600-all11 $G-mlnla-rl600 prose" "jlens $G-jlens tokens")
+# reader  gen-dir  kind   (s3d -> s3d-rl600-all11, s3d5 -> s3d-rl600: merge_readouts.py)
+ARMS=("s3d $G-s3d-rl600 prose" "s3d5 $G-s3d-rl600-5L prose"
+      "mlnla-rl600-all11 $G-mlnla-rl600 prose" "jlens $G-jlens tokens")
 # the old main reads' run configs (fetched into $GEN_ROOT/old/): the new reads must match them.
 # s3d's own main gen dir (the WSB paper read) is not on the gen volumes; the HB story s3d read
 # (same reader command) stands in.
-declare -A REF=([s3d]=gen-hal-story-s3d-rl600-all11 [mlnla-rl600-all11]=gen-hal-chat-mlnla-rl600-all11
+declare -A REF=([s3d]=gen-hal-story-s3d-rl600-all11 [s3d5]=gen-hal-story-s3d-rl600-all11
+                [mlnla-rl600-all11]=gen-hal-chat-mlnla-rl600-all11
                 [jlens]=gen-hal-chat-jlens-x6)
 
 retry3() { for t in 1 2 3; do "$@" && return 0; echo "retry $t: $*" >&2; sleep 60; done; return 1; }
@@ -48,6 +50,11 @@ case "$STEP" in
     cd "$GW" && retry3 $M run $W/wsbench_read_modal.py::main \
       --ckpt agu18dec/local-workspace:ckpts/ao/rl/s3d.ddp600.s0/iter_000600 --merged-name s3d-rl600 \
       --run hb28-main-x3-$TAG-s3d-rl600 --acts-subdir $ACTS --layers $LAYERS --k 3 \
+      --shards ${S3D_SHARDS:-16} --prompt-kind concepts_raw --transform unit ;;
+  read-s3d5)  # s3d-rl600's own read at its 5 layers (the old arms are independent reads)
+    cd "$GW" && retry3 $M run $W/wsbench_read_modal.py::main \
+      --ckpt agu18dec/local-workspace:ckpts/ao/rl/s3d.ddp600.s0/iter_000600 --merged-name s3d-rl600 \
+      --run hb28-main-x3-$TAG-s3d-rl600-5L --acts-subdir $ACTS --layers 20,36,44,48,60 --k 3 \
       --shards ${S3D_SHARDS:-16} --prompt-kind concepts_raw --transform unit ;;
   read-mlnla)
     cd "$GW" && retry3 $M run $W/wsbench_nla_modal.py --lens mlnla-rl600 \
@@ -78,8 +85,9 @@ case "$STEP" in
         (cd "$GEN_ROOT/old" && retry3 $M volume get wsbench-gen-3 "/${REF[$arm]}/run_config.json" \
             "${REF[$arm]}.run_config.json" --force >/dev/null) || exit 1
       fi
-      "$HERE/.venv/bin/python" scripts/main_x3/merge_readouts.py check-config \
-          --new "$GEN_ROOT/$gen/run_config.json" --ref "$ref" | tee "$NEW/$arm/config_check.txt" \
+      { echo "GW commit: $(git -C "$GW" rev-parse HEAD)"
+        "$HERE/.venv/bin/python" scripts/main_x3/merge_readouts.py check-config \
+          --new "$GEN_ROOT/$gen/run_config.json" --ref "$ref"; } | tee "$NEW/$arm/config_check.txt" \
           || exit 1
       "$HERE/.venv/bin/python" scripts/main_x3/merge_readouts.py check-new \
           --rows "$ROWS" --readouts "$NEW/$arm/hallucination.jsonl" --kind "$kind" || exit 1

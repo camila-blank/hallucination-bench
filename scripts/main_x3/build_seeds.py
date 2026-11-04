@@ -25,6 +25,7 @@ import argparse
 import json
 import random
 import sys
+import unicodedata
 from collections.abc import Iterator
 from pathlib import Path
 
@@ -135,12 +136,21 @@ def main() -> None:
         if not ok:
             raise SystemExit(f"{source}: WSB draw not reproduced: {doc['verify_wsb'][source]}")
         rest = [s for s in big if s["key"] not in picked]
+        # the Qwen tokenizer NFC-normalises, so a non-NFC seed's decoded prompt (and its key)
+        # would not round-trip: new seeds must be NFC (the WSB draw above is untouched)
+        n_non_nfc = sum(unicodedata.normalize("NFC", s["text"]) != s["text"] for s in rest)
+        rest = [s for s in rest if unicodedata.normalize("NFC", s["text"]) == s["text"]]
         random.Random(f"hb0028:{source}").shuffle(rest)
         new = rest[: args.n_new]
         if len(new) < args.n_new:
             raise SystemExit(f"{source}: only {len(new)} new seeds")
         doc["seeds"] = [s for s in doc["seeds"] if s["source"] != source] + new
-        doc["counts"][source] = {**c, "wsb_excluded": len(picked), "new": len(new)}
+        doc["counts"][source] = {
+            **c,
+            "wsb_excluded": len(picked),
+            "non_nfc_excluded": n_non_nfc,
+            "new": len(new),
+        }
         print(f"[seeds] {source}: {doc['counts'][source]} verify {doc['verify_wsb'][source]}")
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(json.dumps(doc, indent=1, ensure_ascii=False))

@@ -177,9 +177,6 @@ def main() -> None:
         "empty_rollouts": [k for g in gen for k in g.get("empty", [])],
     }
     args.out.mkdir(parents=True, exist_ok=True)
-    (args.out / "items.json").write_text(
-        json.dumps({"meta": meta, "items": items}, ensure_ascii=False, indent=1)
-    )
     (args.out / "capture_rows.json").write_text(json.dumps(rows))
     wsb_pos = {
         i["id"]: {s["pos"] for s in i["sites"] if s["wsb"]}
@@ -207,6 +204,10 @@ def main() -> None:
         elif brows:
             f.write_text(json.dumps(brows))
         meta[f"n_cells_new_per_layer_{tag}"] = sum(len(r["eval_positions"]) for r in brows)
+    args.out.mkdir(parents=True, exist_ok=True)
+    (args.out / "items.json").write_text(
+        json.dumps({"meta": meta, "items": items}, ensure_ascii=False, indent=1)
+    )
     keys = [k for k in meta if k.startswith("n_") or k == "dropped_no_sites"]
     print(json.dumps({k: meta[k] for k in keys}, indent=1))
 

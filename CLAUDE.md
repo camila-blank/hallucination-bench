@@ -100,6 +100,16 @@ src/hallucination_bench/
     {concepts,bank}.py  plan-0003 inventory / alias matcher, WindowChecker, ReadSpec writers (kept:
                    the ladder's probe-text and capture-plan steps use them)
 data/wsbench_chat/   verbatim copies from wsbench-pub @ 92d763e (never edit)
+data/wsbench_chat_x3/  plan 0028: the main bank at 3x prompts / <=16 sites (WSB 149 = subset
+                     `wsb149`, sites `wsb: true` = the WSB 1,123); LOCAL until frozen (gitignored
+                     except README); loads via HBENCH_WSBENCH_CHAT_ITEMS=<it>/items.json
+evals/wsbench_chat/expand.py  plan 0028: literal ports of the WSB seed screen, read sites, thinning
+scripts/main_x3/     plan 0028: build_seeds.py (re-derives the WSB draw, then the seeded expansion),
+                     gen_modal.py (WSB generation settings + template guard), build_bank.py
+                     (tag a/b capture batches), reads.sh (capture / read-s3d / read-s3d5 /
+                     read-mlnla / read-jlens / fetch + reader-config drift check),
+                     merge_readouts.py (old WSB cells + new -> $HBENCH_X3_READOUTS), seed_summaries.py,
+                     joint_bundle.py (one record per site, all 11 layers, per index method)
 data/calibration/    dev.jsonl (implementer), heldout.jsonl (blind author only), README (schema + log)
                      dev_v2.jsonl (implementer), heldout_v2.jsonl (blind author only)
 data/story/          20 story items x 8 sites + capture rows, built by scripts/build_story_bank.py
@@ -199,8 +209,9 @@ scripts/mask/        build_items.py, gen_modal.py (Modal vLLM), build_capture.py
   root from their own location and read `${HBENCH_X:-<default>}`.
 - CI is pending (plan 0012 D5, held back for a token scope): until it lands, run ruff check +
   format and `pytest -rs` locally before pushing. Plan numbers are unique: the next free one is
-  0028 (0009/0010 belong to the unlanded resampling-gate branches; 0025/0026 to the local,
-  unmerged cheating eval, whose index plan 0026 becomes hindex-v8 on top of v7).
+  0030 (0009/0010 belong to the unlanded resampling-gate branches; 0025/0026 to the local,
+  unmerged cheating eval, whose index plan 0026 becomes hindex-v8 on top of v7; 0028 is the main
+  bank expansion; 0029 is reserved for hindex-v8).
 
 ## Run commands
 
