@@ -84,7 +84,7 @@ def build(rollout_files: list[Path], tok) -> dict:
                 "response_start": pl,
                 "subset": subset,
                 "seed_key": seed_key("chat", source, prompt),
-                "sites": [{**s, "wsb": s["pos"] in keep8} for s in sites16],
+                "sites": [{**s, "wsb": subset == "wsb149" and s["pos"] in keep8} for s in sites16],
             }
         )
         rows.append(

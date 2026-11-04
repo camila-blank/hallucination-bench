@@ -66,7 +66,8 @@ def check(rows: list[dict], want: set[tuple[str, int, int]], label: str, kind: s
 
 def cmd_check_new(a: argparse.Namespace) -> None:
     rows = json.loads(Path(a.rows).read_text())
-    want = {(r["label"], la, int(p)) for r in rows for la in LAYERS for p in r["eval_positions"]}
+    layers = [int(x) for x in a.layers.split(",")] if a.layers else list(LAYERS)
+    want = {(r["label"], la, int(p)) for r in rows for la in layers for p in r["eval_positions"]}
     check(_rows(Path(a.readouts)), want, str(a.readouts), a.kind)
 
 
@@ -160,6 +161,7 @@ def main() -> None:
     c.add_argument("--rows", required=True)
     c.add_argument("--readouts", required=True)
     c.add_argument("--kind", choices=["prose", "tokens"], required=True)
+    c.add_argument("--layers", default="", help="comma list (default: the 11-layer grid)")
     m = sub.add_parser("merge")
     m.add_argument("--bank", required=True)
     m.add_argument("--tags", required=True)

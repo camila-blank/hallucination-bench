@@ -29,6 +29,7 @@ W=scripts/olens_suite/workspace_bench
 ACTS=acts-hb28-main-x3-$TAG
 LAYERS=20:61:4
 LAYER_LIST=20,24,28,32,36,40,44,48,52,56,60
+S3D5_LAYERS=20,36,44,48,60  # the old s3d-rl600 main file's layers
 G=gen-hb28-main-x3-$TAG
 # reader  gen-dir  kind   (s3d -> s3d-rl600-all11, s3d5 -> s3d-rl600: merge_readouts.py)
 ARMS=("s3d $G-s3d-rl600 prose" "s3d5 $G-s3d-rl600-5L prose"
@@ -54,7 +55,7 @@ case "$STEP" in
   read-s3d5)  # s3d-rl600's own read at its 5 layers (the old arms are independent reads)
     cd "$GW" && retry3 $M run $W/wsbench_read_modal.py::main \
       --ckpt agu18dec/local-workspace:ckpts/ao/rl/s3d.ddp600.s0/iter_000600 --merged-name s3d-rl600 \
-      --run hb28-main-x3-$TAG-s3d-rl600-5L --acts-subdir $ACTS --layers 20,36,44,48,60 --k 3 \
+      --run hb28-main-x3-$TAG-s3d-rl600-5L --acts-subdir $ACTS --layers $S3D5_LAYERS --k 3 \
       --shards ${S3D_SHARDS:-16} --prompt-kind concepts_raw --transform unit ;;
   read-mlnla)
     cd "$GW" && retry3 $M run $W/wsbench_nla_modal.py --lens mlnla-rl600 \
@@ -90,7 +91,8 @@ case "$STEP" in
           --new "$GEN_ROOT/$gen/run_config.json" --ref "$ref"; } | tee "$NEW/$arm/config_check.txt" \
           || exit 1
       "$HERE/.venv/bin/python" scripts/main_x3/merge_readouts.py check-new \
-          --rows "$ROWS" --readouts "$NEW/$arm/hallucination.jsonl" --kind "$kind" || exit 1
+          --rows "$ROWS" --readouts "$NEW/$arm/hallucination.jsonl" --kind "$kind" \
+          --layers "$([[ $arm == s3d5 ]] && echo $S3D5_LAYERS || echo $LAYER_LIST)" || exit 1
     done ;;
   *) echo "unknown step $STEP" >&2; exit 2 ;;
 esac
