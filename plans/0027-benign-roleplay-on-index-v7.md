@@ -82,11 +82,16 @@ every `L<k>` unit, writes the rows above from `flagged_ids` and the scored ids:
   the bank's ids only if `n == len(items)`, and refuses otherwise (exit 2).
 
 It writes `index_meta.json`: `{"unit": "prompts", "eval": "benign_roleplay", "plan": "0027",
-"summary": <path>, "summary_sha256", "instrument": <per arm, from summary>, "gates": {}}`. It
-refuses (exit 2) when:
-- the summary's arms are on different instruments (`rates[arm].instrument` differ);
+"summaries": [{"summary": <path>, "sha256"}], "instrument": <the one shared instrument>,
+"instrument_by_arm", "arm_map", "arms", "skipped_arms", "layers", "n_rows", "gates": {}}`
+(post-review: several summaries, one shared `instrument` for `check_safety_units`). Arms that
+are not index readers (e.g. plan 0023's `mlnla-rl2-2000`) are skipped and listed under
+`skipped_arms`. It refuses (exit 2) when:
+- the arms are on different instruments (`rates[arm].instrument` differ, within or across
+  summaries);
 - a unit is incomplete without `accept_refused_as_flagged`;
-- `--arm-map` targets a name outside the allowlist.
+- an `--arm-map` target is outside the allowlist, a key is in no summary, or an entry is not
+  `from=to`.
 
 ## Files
 
@@ -147,7 +152,7 @@ README.md, CLAUDE.md                               v7 described; plan numbers (0
    `scored_ids`, a bank-count mismatch, `flagged_ids ⊄ scored_ids`, an incomplete unit, and an
    unknown `--arm-map` target. `build_index` refuses BR roots on mixed instruments.
 7. **Env handling:** a set `HBENCH_SAFETY_BR_OUT` leaves v4 / v6 `default_sources` unchanged,
-   and an explicit BR root under v6 exits 2.
+   and an explicit BR root under v6 is refused (`SystemExit(<message>)`, exit 1, as item 6).
 6. `methods.json` resolves `mlnla-rl600` → `mlnla-rl600-all11` for BR under v7 only.
 
 ## Caveats (recorded in NOTES_V7)

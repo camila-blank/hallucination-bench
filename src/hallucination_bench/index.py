@@ -224,7 +224,8 @@ NOTES_V7: dict[str, str] = {
     "across families: agentic_misalignment counts candidate claims, overrefusal counts refusal "
     "claims (decline lines), benign_roleplay counts prompts, main / story count all claims, "
     "sibling counts committed probe-testable units. full_v6 / matched_v6 = hindex-v6's macros "
-    "(v6 weights, v6 families)",
+    "(v6 weights, v6 families). The methods note mlnla-rl600.safety describes overrefusal's "
+    "readers only (frozen since hindex-v4)",
 }
 
 # per-item count vector columns
@@ -374,7 +375,7 @@ def safety_rows(root: Path, family: str, version: str = "v4") -> tuple[SafetyRow
     ``safety_readers(family, version)`` only (plan 0024: v6 adds readers); also the ignored arm
     names. A root without the file is empty (``hbench index`` refuses an opted-in root without
     it); a repeated (arm, layer, item) is an error."""
-    if family not in safety_families(version):
+    if family not in SAFETY_FAMILIES_V7:  # any version's safety family (the allowlist filters)
         raise ValueError(f"not a safety family: {family!r}")
     out: SafetyRows = defaultdict(lambda: defaultdict(list))
     ignored: set[str] = set()

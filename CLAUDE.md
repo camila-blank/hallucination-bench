@@ -83,8 +83,9 @@ src/hallucination_bench/
     probe_check.py  probe check (plan 0015's refusal probe): premise, the rev-6 HB scores
                   (`hb_scores`: raw + probe_validated), probe-checked rates,
                   misses (scripts/strongreject/probe_modal.py scores sites; probe_report.py)
-  index.py        plans 0013 + 0019 + 0021 + 0022: the hallucination index (CLI default
-                  hindex-v6; `--version v5` / `v4` / `v3` = those exactly; library default v4) from the
+  index.py        plans 0013 + 0019 + 0021 + 0022 + 0027: the hallucination index (CLI default
+                  hindex-v6; `--version v7` = + benign_roleplay; `--version v5` / `v4` / `v3` = those
+                  exactly; library default v4) from the
                   families' outputs; safety families from each
                   eval's index_counts.jsonl / index_meta.json; method <-> arm mapping in
                   data/index/methods.json

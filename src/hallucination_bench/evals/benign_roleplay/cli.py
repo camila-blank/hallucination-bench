@@ -96,7 +96,10 @@ def cmd_report(args: argparse.Namespace) -> int:
 def cmd_index_export(args: argparse.Namespace) -> int:
     from . import index_export
 
-    arm_map = dict(kv.split("=", 1) for kv in args.arm_map.split(",") if kv)
+    pairs = [kv for kv in args.arm_map.split(",") if kv]
+    if bad := [kv for kv in pairs if kv.count("=") != 1 or not all(kv.split("="))]:
+        raise wsb.WsbError(f"--arm-map entries must be from=to: {bad}")
+    arm_map = dict(kv.split("=") for kv in pairs)
     meta = index_export.export(
         [Path(p) for p in args.summary], Path(args.dest), bank.load_items(), arm_map=arm_map
     )

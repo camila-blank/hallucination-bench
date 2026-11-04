@@ -131,10 +131,22 @@ def test_export_refusals(tmp_path):
         bx.export([sp, sp], tmp_path / "x", ITEMS)
     with pytest.raises(WsbError, match="bank counts"):
         bx.export([sp], tmp_path / "x", _items(n=13))
-    with pytest.raises(WsbError, match="not an index reader"):
-        bx.export(
-            [_summary(tmp_path / "c.json", ITEMS, {"mlnla11-rl600": FLAGS})], tmp_path / "x", ITEMS
-        )
+    # a non-reader arm (e.g. plan 0023's mlnla-rl2-2000) is skipped and recorded, not refused
+    meta0 = bx.export(
+        [_summary(tmp_path / "c.json", ITEMS, {"mlnla11-rl600": FLAGS, "jlens": FLAGS})],
+        tmp_path / "x0",
+        ITEMS,
+    )
+    assert (meta0["arms"], meta0["skipped_arms"]) == (["jlens"], ["mlnla11-rl600"])
+    with pytest.raises(WsbError, match="not arms of any summary"):
+        bx.export([sp], tmp_path / "x", ITEMS, arm_map={"mlnla11-rl60": "mlnla-rl600-all11"})
+    # mixed instruments within one summary
+    two = _summary(tmp_path / "t.json", ITEMS, {"jlens": FLAGS, "s3d-rl600": FLAGS})
+    s2 = json.loads(two.read_text())
+    s2["rates"]["s3d-rl600"]["instrument"]["judge_model"] = "claude-opus-5-5"
+    two.write_text(json.dumps(s2))
+    with pytest.raises(WsbError, match="different instruments"):
+        bx.export([two], tmp_path / "x", ITEMS)
     # --arm-map renames an eval arm to an index reader name
     meta = bx.export(
         [_summary(tmp_path / "d.json", ITEMS, {"mlnla11-rl600": FLAGS})],
@@ -359,3 +371,15 @@ def test_devbox_final_olens_export_equals_eval(tmp_path):
         u = s["rates"]["final-olens-rl600-x4"]["units"][f"L{L}"]
         assert got["v"] == pytest.approx(u["false_recognition_rate"], abs=0, rel=0)
         assert got["ci"] == u["ci95"]
+
+
+def test_v7_methods_json_maps_nla_br_arm_end_to_end(tmp_path):
+    """Method mlnla-rl600 picks up its BR value from arm mlnla-rl600-all11 (methods.json)."""
+    br = _br_root(tmp_path / "br", arm="mlnla-rl600-all11")
+    built = ix.build_index(
+        {ix.BENIGN_ROLEPLAY: [br]}, ix.load_methods(cli.INDEX_METHODS), version="v7"
+    )
+    rows = {(r["method"], r["layer"]): r for r in built["rows"]}
+    got = rows[("mlnla-rl600", 20)]["families"][ix.BENIGN_ROLEPLAY]
+    assert got["arm"] == "mlnla-rl600-all11"
+    assert ("mlnla-rl600-all11", 20) not in rows  # claimed by the method, no identity row

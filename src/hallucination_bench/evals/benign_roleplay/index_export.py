@@ -86,7 +86,9 @@ def export(
 ) -> dict[str, Any]:
     """Write ``dest/index_counts.jsonl`` + ``dest/index_meta.json``; exit 2 (``WsbError``) on a
     bank mismatch, mixed instruments, an incomplete unit (unless the summary admitted refused
-    cells as flagged), an arm outside the allowlist, or an arm in two summaries."""
+    cells as flagged), an ``arm_map`` target outside the allowlist or key in no summary, or an arm
+    in two summaries. Arms that are not index readers (e.g. plan 0023's ``mlnla-rl2-2000``) are
+    skipped and listed under ``skipped_arms``, as the index lists ``ignored_arms``."""
     arm_map = dict(arm_map or {})
     readers = _readers()
     if bad := {t for t in arm_map.values() if t not in readers}:
@@ -98,8 +100,12 @@ def export(
     rows: list[dict[str, Any]] = []
     instruments: dict[str, Any] = {}
     sources = []
-    for sp in summaries:
-        raw = Path(sp).read_bytes()
+    skipped: list[str] = []
+    loaded = [(sp, Path(sp).read_bytes()) for sp in summaries]
+    seen_arms = {arm for _, raw in loaded for arm in json.loads(raw)["rates"]}
+    if unknown := set(arm_map) - seen_arms:
+        raise WsbError(f"--arm-map keys {sorted(unknown)} are not arms of any summary")
+    for sp, raw in loaded:
         s = json.loads(raw)
         b = s["bank"]
         if (b["n_items"], b["n_shared"], b["n_hb_only"]) != (
@@ -114,7 +120,8 @@ def export(
         for arm, a in sorted(s["rates"].items()):
             name = arm_map.get(arm, arm)
             if name not in readers:
-                raise WsbError(f"{sp}: arm {arm!r} is not an index reader {sorted(readers)}")
+                skipped.append(arm)
+                continue
             if name in instruments:
                 raise WsbError(f"arm {name!r} appears in two summaries")
             instruments[name] = a["instrument"]
@@ -136,6 +143,7 @@ def export(
         "instrument_by_arm": instruments,
         "arm_map": arm_map,
         "arms": sorted(instruments),
+        "skipped_arms": sorted(skipped),
         "layers": sorted({r["layer"] for r in rows}),
         "n_rows": len(rows),
         "gates": {},
