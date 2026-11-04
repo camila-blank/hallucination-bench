@@ -1,6 +1,6 @@
 # Plan 0029: hindex-v8 — narrow continuation excuse, detail vs substitution vs claim, AM overhaul, joint 11-layer unit, cheating, one source of truth
 
-Author: Camila Blank (planned with Claude), 2026-11-04. **Revision 5** (a clean rewrite folding
+Author: Camila Blank (planned with Claude), 2026-11-04. **Revision 6** (rev 6 = critique of rev 5: `prediction` kept, Steps 2–3 edited, carve-out keeps the conversation condition, v2.8.x versions, OPEN_DECISIONS_V28, `{joint_note}`, index branches named. Rev 5 = a clean rewrite folding
 in: rev 1 → 2 critique (versioned prompts, v8 roots, joint budget, offsets, rule placement,
 pins); rev 3 = Camila's corrections (narrow continuation excuse, title/role = substitution, AM =
 two families 3 + 3, story down-weights detail only, plot O-lens = s3d-rl600, final-olens not a v8
@@ -77,7 +77,8 @@ probe_target/pair cleanup, `_merge_junk` (rev 18) and `_remap_hedged` (rev 19: h
 `continuation_text` true, region `after`. On change: `leaf = "continuation_miss"`, `judge_leaf` =
 the judge's leaf, `raw_leaf` unchanged (AM's judge-only sensitivity view), `probe_target` cleared
 and `n_probe_candidates` decremented (as rev 19), counter `n_continuation_miss`. Every incorrect
-segment records `contradiction_region`. Rev 20 (substitution_category is a hallucination)
+segment records `contradiction_region`. Applies to every registered version ≥ `claimmap-v2.8`
+(v2.8, v2.8.1). Rev 20 (substitution_category is a hallucination)
 applies to every non-excused segment. Disabled in anchored (`v5c`) mode. `correct` / `supported_by`
 segments are untouched.
 
@@ -91,9 +92,12 @@ Row lists in `score_v2`, `report_v2`, `calibrate_v2`, `consistency_v2` become ve
 **The tag.** `continuation_text` (bool) is a v2.8 judge tag on incorrect leaves only. Source: the
 split entry for split segments; the unit entry for whole units and rest pieces (the same source
 as the leaf tags, via `_leaf_tags`, whose cleanup drops it on non-incorrect leaves). The existing
-`prediction` tag is reworded in v2.8 to "framed as anticipation of the continuation (on
-`unverifiable` only)", and rule 3's continuation-style text paragraph points to
-`continuation_text`, so only `continuation_text` excuses. New `Segment` fields
+`prediction` tag is **kept exactly as in v2.7** (unverifiable only; it never overlaps
+`continuation_text`, which is incorrect-only, so it cannot excuse anything). `continuation_text`
+is defined as its incorrect-leaf counterpart; only rule 3's second bullet ("incorrect if the text
+obviously contradicts it") gains: "set `continuation_text` if the segment is written as the
+text's own continuation". Rules 3 (other bullets) and 9 unchanged. The v2.8 schema lists
+`continuation_text` under `required` like every other property. New `Segment` fields
 (`continuation_text`, `contradiction_region`) and counters are emitted only for v2.8 roots, so v7
 rebuilds are byte-identical.
 
@@ -119,7 +123,8 @@ Lead question: *fix the wrong part — is the reading then right?* Then:
   reversed. Precedence sentence: a different existing entity, or a different role or title, in
   the slot is Step 1, not `false_claim`.
 - **`DETAIL_CARVE_OUT` (v2.8)**: only counts that flip the claim ("0 errors" for 3) and quantities
-  / dates of **real-world events** settled by world knowledge are `false_claim`.
+  / dates of **real-world events** are `false_claim`, **when the conversation contradicts them**;
+  if it is silent they are `supplementary_false` (rule 6) — the v2.7 condition retained.
 - **`DETAIL_ITEMS` (v2.8)** widened to "names, numbers, dates, times, quantities and wordings of
   the conversation's own events, or of fiction or scaffolding".
 - **Quote rule / `contradicted_by` tag (v2.8)** gain: *"quote the earliest text that rules the
@@ -209,10 +214,11 @@ Same prompt and rules; `STORY_LEAF_WEIGHTS`. "After" ends at the 512-token cut (
   of its own chat USER_TEMPLATE; `cam.SCHEMA` per version. The v2.8 schema adds
   `continuation_text` to both unit and split entries (objects are `additionalProperties: false`);
   the v2.8 USER_TEMPLATE lists it among the leaf tags.
-- **Prompt switch**: `--map-prompt {claimmap-v2.7,claimmap-v2.8}` on `hbench run` (chat / story)
+- **Prompt switch**: `--map-prompt {claimmap-v2.7,claimmap-v2.8[,claimmap-v2.8.1]}` (choices =
+  registry keys) on `hbench run` (chat / story)
   and the AM driver (default v2.7), recorded in `arm.json` as `map_prompt` (missing ⇒ v2.7);
   a run whose flag differs from an existing `arm.json` is refused (exit 3); rebuild / report replay
-  with the recorded version and pass `read_offset` iff v2.8. Summaries record the prompt used (AM
+  with the recorded version and pass `read_offset` for any version ≥ v2.8. Summaries record the prompt used (AM
   `run.py` stops writing the v2.7 constant). `calibrate --taxonomy v2 --prompt <version>`.
 - **v8 roots**: `--out outputs/v8` ⇒ `outputs/v8/{wsbench_chat,story}/claude-opus-5-5/<arm>/`,
   `outputs/v8/agentic_misalignment/claude-opus-5-5/<arm>/` (keyed by the detector judge, as
@@ -243,17 +249,24 @@ Same prompt and rules; `STORY_LEAF_WEIGHTS`. "After" ends at the 512-token cut (
   judge's tags labels 60 excused segments and 60 after-contradicted non-excused segments (stratified
   over arms and families) for conditions 1 and 3. Report precision and recall of the excuse with
   Wilson 95% CIs; gate: excuse precision ≥ 0.85. A failed gate allows one revision of the tag
-  wording as `claimmap-v2.8.1` (new fingerprint ⇒ `:M` re-queue) and one re-check.
+  wording as `claimmap-v2.8.1` (registered in `VERSIONS` and the `--map-prompt` choices; new
+fingerprint ⇒ `:M` re-queue) and one re-check.
 - Dev gold: `calibrate --taxonomy v2 --split dev --prompt claimmap-v2.8` (regression smoke); gold
   labels the new wording flips are listed in the results doc, not edited. **v8 is pre-gate** (no
   held-out check scheduled).
 
 ### 3.4 Prompt `claimmap-v2.8` edits
-§1.2 (tag, rule 3, `prediction` wording), §1.3 (Step 1 identity incl. roles, leaf definitions of
-`detail` / `false_claim` / `substitution_sibling`, `DETAIL_CARVE_OUT`, `DETAIL_ITEMS`, quote rule,
-`contradicted_by` tag, `subject_name` "name or role", examples). The joint sentence ("the readouts
-below come from 11 layers at the same position; R0 = layer 20, …, R10 = layer 60") goes in the
-**user** prompt.
+§1.2 (the `continuation_text` tag; rule 3's second bullet), §1.3 (rule 8 Step 1 identity incl.
+roles; **Step 2** "context word (not a role word: those are Step 1)"; **Step 3** "an act
+attributed to an agent who does not appear in the text, or actor and target reversed" replacing
+"a wrong agent or relation", plus the precedence sentence; leaf definitions of `detail` /
+`false_claim` / `substitution_sibling`; `DETAIL_CARVE_OUT`; `DETAIL_ITEMS`; quote rule;
+`contradicted_by` tag; examples). The `subject_name` "name or role" text lives in
+`OPEN_DECISIONS_V28` (a parallel copy; v2.7 decision text untouched). The joint sentence ("the
+readouts below come from 11 layers at the same position; R0 = layer 20, …, R10 = layer 60") goes
+in the **user** prompt through a `{joint_note}` placeholder in the v2.8 chat and AM user templates
+(empty for per-layer cells); both `_PLACEHOLDER` regexes (claimmap_v2.py, claimmap_am.py) accept
+it.
 
 ### 3.5 AM scenario card (`+am3`)
 After the research frame: designed kind(s), control or not, and the rollout's realised kinds with
@@ -292,7 +305,9 @@ to start unless every item has an effective intent. The card is in the `:M` fing
   benign_roleplay 2, cheating 2 (Σ 22). `full` = all eight; `matched` = all but sibling (Σ 21).
   `full_v7` / `matched_v7` = v7's families and weights on v8 values (AM ≙ am_claims), separating
   reweighting from rescoring.
-- Plumbing: `ALL_FAMILIES`, `FAMILIES_V8`, weights, `methods.json` (`am_claims` /
+- Plumbing: `ALL_FAMILIES`, `FAMILIES_V8`, `CLAIM_FAMILIES` (+ `am_claims`; `claim_rows` raises
+  outside it, index.py:279), `_segments` reads `map_status` for `am_claims` as for AM
+  (index.py:228), weights, `methods.json` (`am_claims` /
   `am_situation` entries wherever `agentic_misalignment` is mapped, so `mlnla-rl600-all11` resolves
   to method `mlnla-rl600`); `claim_rows` reads the AM root for `am_claims` (candidates on);
   `claim_metric` gets a story-weights branch; `am_situation` read from `situation.jsonl`
@@ -319,8 +334,8 @@ to start unless every item has an effective intent. The card is in the `:M` fing
 - `data/index/v8_manifest.json` (git; paths + hashes): per family × method × unit (L20…L60, all):
   root, prompt / instrument version, judge model, n cells, n failed, sha256 of the cells/counts
   file. `hbench final --manifest … --out outputs/final/` checks every sha, completeness (failed ≤ 1%
-  per family × arm × unit, else exit 2 naming the hole) and `map_prompt == claimmap-v2.8` for every
-  claim-map root; builds the v8 index from exactly those roots; writes the plots. Nothing outside
+  per family × arm × unit, else exit 2 naming the hole) and that every claim-map root records the
+  **same** accepted v8 prompt version (v2.8 or v2.8.1); builds the v8 index from exactly those roots; writes the plots. Nothing outside
   the manifest is plotted.
 - Plots (`plots/final/`, 150 dpi, slide fonts, fixed colours O-lens `s3d-rl600` / NLA
   `mlnla-rl600` / J-lens `jlens`, legends outside): `index_per_layer.png` (`full` per layer with CI
@@ -369,7 +384,8 @@ src/hallucination_bench/judges/claimmap_v2.py  VERSIONS registry (system/user/sc
 src/hallucination_bench/judges/claimmap_am.py  +am3 (card), per-version tail/schema
 src/hallucination_bench/llm.py                 streaming path for long max_tokens
 src/hallucination_bench/evals/wsbench_chat/run.py   --map-prompt, arm.json, read_offset, joint cells
-src/hallucination_bench/evals/wsbench_chat/score_v2.py, report_v2.py, calibrate_v2.py, consistency_v2.py  leaf_rows(version)
+src/hallucination_bench/evals/wsbench_chat/score_v2.py  leaf_rows(version)
+src/hallucination_bench/{report_v2,calibrate_v2,consistency_v2}.py  leaf_rows(version), --prompt
 src/hallucination_bench/evals/agentic_misalignment/{run,score,cli}.py  map model, card, joint, read_offset, prompt record
 src/hallucination_bench/evals/agentic_misalignment/situation.py  amsit-v1 (new)
 src/hallucination_bench/evals/overrefusal/{sjudge,sj_metrics,offtopic_export}.py, scripts/overrefusal/sj_run.py  joint
