@@ -128,3 +128,31 @@ def item_sites(decode, ids: Sequence[int], prompt_len: int, max_sites: int) -> l
             raise ValueError(f"site {s} prefix is not a prefix of the response")
         out.append({**s, "char": len(prefix)})
     return out
+
+
+# ------------------------------------------------------------------ the plan-0028 expansion draw
+
+# Camila 2026-11-04: NEW lmsys seeds must also carry lmsys-chat-1m's own language == "English"
+# (on top of the ASCII screen); the WSB picks (some non-English) and dailydialog are unchanged.
+ENGLISH_ONLY_SOURCES = frozenset({"lmsys"})
+
+
+def expansion_draw(
+    pool: list[dict[str, Any]], picked: set[str], source: str, n_new: int
+) -> tuple[list[dict[str, Any]], dict[str, int]]:
+    """The new seeds of one source: the pool minus the WSB picks (by key), NFC-only (the Qwen
+    tokenizer NFC-normalises, so a non-NFC prompt would not round-trip), English-only for
+    ``ENGLISH_ONLY_SOURCES`` (``language == "English"``), then shuffled with
+    ``random.Random("hb0028:<source>")`` and cut to ``n_new``, in that seeded order."""
+    import random
+
+    rest = [s for s in pool if s["key"] not in picked]
+    n_non_nfc = sum(unicodedata.normalize("NFC", s["text"]) != s["text"] for s in rest)
+    rest = [s for s in rest if unicodedata.normalize("NFC", s["text"]) == s["text"]]
+    counts = {"non_nfc_excluded": n_non_nfc}
+    if source in ENGLISH_ONLY_SOURCES:
+        n_before = len(rest)
+        rest = [s for s in rest if s.get("language") == "English"]
+        counts["non_english_excluded"] = n_before - len(rest)
+    random.Random(f"hb0028:{source}").shuffle(rest)
+    return rest[:n_new], counts

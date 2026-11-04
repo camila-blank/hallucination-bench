@@ -14,7 +14,9 @@ Always re-derives the WSB draw (n 75, ``random.Random(7)`` shared, lmsys shuffle
 first) and checks it picks exactly the bank's seeds. The expansion pool is the first
 ``4 * 3 * 75 = 900`` unique screened seeds (the WSB pool of 300 is its prefix); the WSB seeds are
 removed by key, the rest is shuffled with ``random.Random("hb0028:<source>")`` and the first
-``--n-new`` (150) are kept, in that seeded order.
+``--n-new`` (150) are kept, in that seeded order. New seeds must be NFC, and NEW lmsys seeds
+must have lmsys-chat-1m ``language == "English"`` (Camila 2026-11-04; applied before the
+shuffle; the WSB picks and dailydialog are unchanged): ``expand.expansion_draw``.
 
     python scripts/main_x3/build_seeds.py --sources dailydialog,lmsys --out <dir>/seeds.json
 """
@@ -25,14 +27,17 @@ import argparse
 import json
 import random
 import sys
-import unicodedata
 from collections.abc import Iterator
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(REPO / "src"))
 
-from hallucination_bench.evals.wsbench_chat.expand import screen_chat_seed, seed_key  # noqa: E402
+from hallucination_bench.evals.wsbench_chat.expand import (  # noqa: E402
+    expansion_draw,
+    screen_chat_seed,
+    seed_key,
+)
 
 WSB_SEED = 7
 WSB_N = 75
@@ -40,7 +45,7 @@ SCAN_CAP = 20000
 SOURCES = ("lmsys", "dailydialog")  # build_seeds.py's order (the shared rng depends on it)
 
 
-def iter_lmsys() -> Iterator[tuple[str, str]]:
+def iter_lmsys() -> Iterator[tuple[str, str, str | None]]:
     import pyarrow.parquet as pq
     from huggingface_hub import HfApi
 
@@ -50,22 +55,25 @@ def iter_lmsys() -> Iterator[tuple[str, str]]:
     i = 0
     for n in names:
         path = api.hf_hub_download(repo_id="lmsys/lmsys-chat-1m", filename=n, repo_type="dataset")
-        for batch in pq.ParquetFile(path).iter_batches(batch_size=1024, columns=["conversation"]):
-            for conv in batch.column("conversation").to_pylist():
+        pf = pq.ParquetFile(path)
+        for batch in pf.iter_batches(batch_size=1024, columns=["conversation", "language"]):
+            convs = batch.column("conversation").to_pylist()
+            langs = batch.column("language").to_pylist()
+            for conv, lang in zip(convs, langs, strict=True):
                 if conv and conv[0].get("role") == "user":
                     t = (conv[0].get("content") or "").strip()
                     if t:
-                        yield str(i), t
+                        yield str(i), t, lang
                 i += 1
 
 
-def iter_dailydialog() -> Iterator[tuple[str, str]]:
+def iter_dailydialog() -> Iterator[tuple[str, str, str | None]]:
     from datasets import load_dataset
 
     for ex in load_dataset("ConvLab/dailydialog", split="train", streaming=True):
         turns = ex["turns"]
         if turns and turns[0]["speaker"] == "user":
-            yield str(ex["dialogue_id"]), str(turns[0]["utterance"]).strip()
+            yield str(ex["dialogue_id"]), str(turns[0]["utterance"]).strip(), None
 
 
 ITERS = {"lmsys": iter_lmsys, "dailydialog": iter_dailydialog}
@@ -76,7 +84,7 @@ def pool(source: str, size: int) -> tuple[list[dict], dict]:
     c = {"scanned": 0, "screened_out": 0, "kept_in_pool": 0}
     out: list[dict] = []
     seen: set[str] = set()
-    for sid, text in ITERS[source]():
+    for sid, text, lang in ITERS[source]():
         c["scanned"] += 1
         if c["scanned"] > SCAN_CAP:
             break
@@ -87,7 +95,10 @@ def pool(source: str, size: int) -> tuple[list[dict], dict]:
         if key in seen:
             continue
         seen.add(key)
-        out.append({"key": key, "cell": "chat", "source": source, "source_id": sid, "text": text})
+        seed = {"key": key, "cell": "chat", "source": source, "source_id": sid, "text": text}
+        if lang is not None:  # lmsys only (dailydialog seed records stay as they were)
+            seed["language"] = lang
+        out.append(seed)
         if len(out) >= size:
             break
     c["kept_in_pool"] = len(out)
@@ -135,20 +146,15 @@ def main() -> None:
         }
         if not ok:
             raise SystemExit(f"{source}: WSB draw not reproduced: {doc['verify_wsb'][source]}")
-        rest = [s for s in big if s["key"] not in picked]
-        # the Qwen tokenizer NFC-normalises, so a non-NFC seed's decoded prompt (and its key)
-        # would not round-trip: new seeds must be NFC (the WSB draw above is untouched)
-        n_non_nfc = sum(unicodedata.normalize("NFC", s["text"]) != s["text"] for s in rest)
-        rest = [s for s in rest if unicodedata.normalize("NFC", s["text"]) == s["text"]]
-        random.Random(f"hb0028:{source}").shuffle(rest)
-        new = rest[: args.n_new]
+        # NFC-only + (lmsys) English-only + the seeded shuffle; the WSB draw above is untouched
+        new, draw_counts = expansion_draw(big, picked, source, args.n_new)
         if len(new) < args.n_new:
             raise SystemExit(f"{source}: only {len(new)} new seeds")
         doc["seeds"] = [s for s in doc["seeds"] if s["source"] != source] + new
         doc["counts"][source] = {
             **c,
             "wsb_excluded": len(picked),
-            "non_nfc_excluded": n_non_nfc,
+            **draw_counts,
             "new": len(new),
         }
         print(f"[seeds] {source}: {doc['counts'][source]} verify {doc['verify_wsb'][source]}")

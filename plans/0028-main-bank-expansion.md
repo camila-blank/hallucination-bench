@@ -43,8 +43,8 @@ The WSB chat bank is the chat half of global-workspace's J-lens P/R items. The r
   `NAME_\d+`; at least 98% ASCII characters. That ASCII rule is the only language screen the
   original builder had. **It is not an English filter.** At least 8 of the 75 WSB lmsys seeds are
   German, Portuguese or French (critique, 2026-11-04). "English" and "the same filters" conflict
-  here. This plan keeps the **identical rule** (option a), so about 10% of new lmsys items may be
-  non-English, as in WSB. That is an open question for Camila. Option (b) would be a
+  here. The first version kept the **identical rule** (option a). **Camila decided (2026-11-04) on
+  option (b)**: see "Amendment 1" below. Option (b) would be a
   `language == "English"` screen on new lmsys seeds only, using lmsys-chat-1m's own column, with
   the WSB re-derivation unchanged. DailyDialog is English. Seeds are deduplicated by `seed_key = chat:<source>:<blake2b-16>`.
   There is no `used_seeds` exclusion; the WSB build recorded `guard.asserted: false`.
@@ -267,3 +267,33 @@ on the `lmsys/lmsys-chat-1m` gate list. Once access exists, the runbook is:
 6. `joint_bundle.py` rebuilds the bundles, then freeze.
 
 The English question (the ASCII screen keeps about 10% non-English lmsys) is open for Camila.
+
+## Amendment 1 (2026-11-04): English-only new LMSYS seeds (Camila)
+
+Camila's decision on 2026-11-04 applies to **new lmsys seeds only**. They must also have
+lmsys-chat-1m's own `language == "English"`, on top of the existing screen (≥98% ASCII, length,
+no code/URL/`NAME_n`).
+
+- **Unchanged:** the 74 WSB lmsys items and the 75 picks they come from stay byte-identical, the
+  German, Portuguese and French ones included. The WSB re-derivation runs on the ASCII-screened
+  pool with no language rule, exactly as before. DailyDialog also does not change: it has no
+  language column, and its 150 seeds re-derive identically under the new code (checked 2026-11-04).
+- **Draw:**
+  - The pool is still the first 900 unique ASCII-screened lmsys seeds, so the WSB pool of 300
+    stays its prefix.
+  - `expand.expansion_draw` removes the WSB picks, keeps NFC seeds, then keeps
+    `language == "English"` (lmsys only).
+  - It then shuffles with the same `random.Random("hb0028:lmsys")` and takes the first 150.
+  - The screen runs **before** the shuffle, so the draw stays deterministic. `seeds.json` records
+    `non_english_excluded`.
+- **Seed records:** `build_seeds.py` reads the `language` column beside `conversation` and stores it
+  on lmsys seed records only.
+- **Tests (`tests/test_main_x3.py`):**
+  - a pure test of the draw: the screen applies to lmsys only, before the seeded shuffle, and the
+    WSB picks are excluded;
+  - on the local seeds: every new lmsys seed is English, `verify_wsb.lmsys.reproduced` holds, no
+    new key is a WSB key, and DailyDialog records carry no `language`;
+  - on the bank: every new lmsys item comes from an English seed;
+  - the WSB byte-identity test stays as it is.
+- **Batch b** (the new lmsys items) then follows the Status runbook. No judging is done, and the
+  data stays local until frozen.
