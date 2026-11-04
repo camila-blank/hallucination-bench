@@ -50,10 +50,16 @@ OR_READOUTS_V3 = _env_path("HBENCH_OR_READOUTS_V3", "/workspace/hb-readouts-over
 # readouts root (<root>/<arm>/jailbreak_recognition.jsonl, <root>/<arm>/hb_only/...)
 BR_CAMPAIGN = _env_path("HBENCH_BR_CAMPAIGN", "/workspace/root/wsb-bp/runs/judged")
 BR_READOUTS = _env_path("HBENCH_BR_READOUTS", "/workspace/root/wsb-bp/runs/outputs/readouts")
+# plan 0027: the final O-lens arm's benign_roleplay summary (0024), the dev-box export check
+BR_FINAL_OLENS_SUMMARY = _env_path(
+    "HBENCH_BR_FINAL_OLENS_SUMMARY",
+    "/workspace/root/wsb-bp/hb/br_out_e8615c4/benign_roleplay/claude-sonnet-5/summary.json",
+)
 
 __all__ = [
     "ALI_PROBE_ROOT",
     "BR_CAMPAIGN",
+    "BR_FINAL_OLENS_SUMMARY",
     "BR_READOUTS",
     "COMBOS_READOUTS",
     "GLOBAL_WORKSPACE",
