@@ -355,7 +355,7 @@ def test_situation_and_joint_stages_end_to_end(tmp_path, monkeypatch):
     assert j["counted"] and j["readout"] == 0
     assert sum(r["status"] == "empty" for r in sit) > 0
     s8 = res["arms"]["toy"]["v8"]["situation"]
-    assert s8["n_counted"] == 2 and s8["prompt_version"] == "amsit-v1"
+    assert s8["n_counted"] == 2 and s8["prompt_version"] == "amsit-v2"
     assert s8["model"] == "claude-sonnet-5-5"
     # a rebuild reproduces both files from the caches
     before = (d / "situation.jsonl").read_text(), (d / "cells_joint.jsonl").read_text()

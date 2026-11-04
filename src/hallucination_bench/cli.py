@@ -105,7 +105,10 @@ def _items(s: str | None) -> list[str] | None:
 def _apply_bank(args: argparse.Namespace, *, readouts: bool = False) -> None:
     """``--bank`` (plans 0028 / 0029): point the wsbench_chat bank at a named bank; with
     ``readouts`` (``run``), ``--bank x3`` and neither ``--arm`` nor ``--readouts-root``, the
-    readouts default to ``paths.X3_READOUTS`` ($HBENCH_X3_READOUTS)."""
+    readouts default to ``paths.X3_READOUTS`` ($HBENCH_X3_READOUTS). An x3 run records the bank
+    in ``arm.json``; judging into an arm dir recorded on another bank exits 3, and rebuild /
+    report replay the recorded bank when ``--bank`` is omitted (``run.check_bank`` /
+    ``run.replay_bank``)."""
     name = getattr(args, "bank", None)
     if not name:
         return
@@ -619,7 +622,7 @@ def build_parser() -> argparse.ArgumentParser:
     r.add_argument(
         "--situation-model",
         default=None,
-        help="agentic_misalignment, v8 roots: the amsit-v1 situation judge (--stages situation; "
+        help="agentic_misalignment, v8 roots: the amsit-v2 situation judge (--stages situation; "
         "default claude-sonnet-5-5)",
     )
     r.add_argument(

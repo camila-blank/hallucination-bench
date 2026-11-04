@@ -20,7 +20,8 @@ failures from the hashed file itself (<= ``max_failed_share``, default 1%, per e
 outside the grid), requires the full unit grid per family x method (L20 ... L60, plus ``all``
 for the joint families), and that every claim-map entry (main, story, am_claims) declares the
 **same** accepted v8 prompt (``claimmap-v2.8*``; AM ``+am3`` versions normalised to their chat
-version) and that each claim-map arm dir's ``arm.json`` records it; any failure exits 2 naming
+version) and that each claim-map arm dir's ``arm.json`` records it (a main arm dir also records
+``bank: x3``, plan 0028's bank); any failure exits 2 naming
 the hole. It then builds hindex-v8 from exactly the manifest's files (symlinked into a fresh
 temp dir per run; a joint file is read only if an ``all`` entry hashes it) and nothing else,
 writes ``index.json`` / ``index.md`` to ``--out`` (sources point at the manifest roots) and draws
@@ -47,6 +48,9 @@ from hallucination_bench import index as ix
 from hallucination_bench.judges import claimmap_v2 as cm
 
 MAX_FAILED_SHARE = 0.01
+# plan 0029: the main family is judged on plan 0028's bank (arm.json `bank` / `bank_source`)
+MAIN_BANK = "x3"
+MAIN_BANK_SOURCE_PREFIX = "plan0028-x3:"
 CLAIM_MAP_FAMILIES: tuple[str, ...] = (ix.MAIN, ix.STORY, ix.AM_CLAIMS)
 COLOURS: dict[str, str] = {
     "s3d-rl600": "#1f77b4",  # O-lens
@@ -170,8 +174,8 @@ def check(m: Mapping[str, Any], base: Path) -> str:
     """Every sha256; ``n_cells`` / ``n_failed`` recomputed from the hashed file (a declared
     count must agree); <= ``max_failed_share`` failed per entry; no layer outside the grid in
     a file; the full unit grid per family x method; one accepted v8 claim-map version, declared
-    by every claim-map entry and recorded in each claim-map arm dir's ``arm.json``. Returns the
-    accepted (chat) version."""
+    by every claim-map entry and recorded in each claim-map arm dir's ``arm.json``; a main arm
+    dir's ``arm.json`` records the x3 bank. Returns the accepted (chat) version."""
     share = float(m.get("max_failed_share", MAX_FAILED_SHARE))
     grid = {f"L{la}" for la in EXPECTED_LAYERS}
     allowed_layers: set[int | str] = {*EXPECTED_LAYERS, ix.JOINT_LABEL}
@@ -216,9 +220,17 @@ def check(m: Mapping[str, Any], base: Path) -> str:
         a = d / "arm.json"
         if not a.is_file():
             raise ManifestError(f"{_where(e)}: no arm.json in {d} (cannot verify the prompt)")
-        rec = json.loads(a.read_text(encoding="utf-8")).get("map_prompt") or cm.PROMPT_VERSION
+        arm_rec = json.loads(a.read_text(encoding="utf-8"))
+        rec = arm_rec.get("map_prompt") or cm.PROMPT_VERSION
         if chat_version(rec) != v:
             raise ManifestError(f"{_where(e)}: {a} records map_prompt {rec!r}, declared {v!r}")
+        if e["family"] == ix.MAIN:  # the v8 main family is plan 0028's x3 bank (missing = wsb)
+            b, src = arm_rec.get("bank") or "wsb", str(arm_rec.get("bank_source") or "")
+            if b != MAIN_BANK or not src.startswith(MAIN_BANK_SOURCE_PREFIX):
+                raise ManifestError(
+                    f"{_where(e)}: {a} records bank {b!r} (bank_source {src or None!r}); "
+                    f"the v8 main family must be judged on --bank {MAIN_BANK}"
+                )
     return v
 
 

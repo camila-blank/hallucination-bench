@@ -1,6 +1,6 @@
 """Plan 0029 pilot fixes to claimmap-v2.8 (edited in place; v2.7 byte-identical):
-A. a literal continuation is a small change only with ONE wrong specific; one that says something
-   different is `false_claim`; commentary about the text is never `continuation_text`;
+A. (revised 2026-11-04, Camila) a literal, on-topic, possible continuation is excused whatever its
+   leaf; it is one segment, never split; commentary about the text is never `continuation_text`;
 B. an invented name for the right role holder is `detail`;
 C. a segment re-labelled `unverifiable` (rev-17 quote check, rev-19 hedge) drops
    `continuation_text`.
@@ -18,13 +18,9 @@ S7, S8 = cm.VERSIONS[V27].system, cm.VERSIONS[V28].system
 R8 = tx.rules(False, V28)
 
 A_TEXT = (
-    "A literal continuation that **says something different** (another utterance, heading, act "
-    "or item) or has **more than one wrong specific** is `false_claim`",
-    "the text's own wording with **one** wrong specific (one name, number, date or word)",
     "neither is commentary about the text, even when it quotes or predicts it",
     "(never for commentary about the text)",
-    '"2. Seek Professional Help" where the text has "1. Allow Yourself to Feel"',
-    '"It\'s not possible, Sam." where the text has "It\'s locked, Leo."',
+    "possible given the text up to the marker",
     '"2. Seek Professional Help" written as the next list item when the text has "1. Allow '
     'Yourself to Feel": `false_claim` with `continuation_text = true`',
     '"I\'m Elara" written as the response\'s own next words when it says "I\'m Clara": `detail` '
@@ -48,13 +44,15 @@ def test_pilot_fix_text_is_in_v28_only(text):
     assert text not in S7 and text not in cm.SYSTEM
 
 
-def test_a_rules_land_in_rule_3_rule_8_and_the_tag():
-    assert "says something different" in R8[8].body[3] and R8[8].body[3].startswith("Step 3.")
-    assert "**one** wrong specific" in R8[8].body[2] and R8[8].body[2].startswith("Step 2.")
+def test_a_rules_land_in_rule_3_and_the_tag():
     assert "commentary about the text" in R8[3].body[2]
+    assert "possible continuation given the text up to the marker" in R8[3].body[2]
     tag = tx.TAGS_V28["continuation_text"]
-    assert "ONE wrong specific" in tag and "commentary about the text" in tag
-    assert "is `false_claim` (rule 8, step 3)" in tag
+    assert "commentary about the text" in tag and "possible given the text up to the marker" in tag
+    assert "does not matter" in tag and "ONE segment" in tag
+    # the superseded small-change rule is gone
+    for gone in ("says something different", "**one** wrong specific", "ONE wrong specific"):
+        assert gone not in S8
 
 
 def test_b_keeps_the_role_substitution_rules():
@@ -79,13 +77,12 @@ def test_examples_v28_are_consistent():
     assert "`continuation_text = false`" in _example('"Mirrors the earlier timestamp')
 
 
-def test_a_false_claim_continuation_is_never_excused():
-    """The parse side already agrees: a continuation tagged `continuation_text` whose leaf is
-    `false_claim` (says something different) stays a hallucination."""
+def test_a_false_claim_continuation_is_excused_after_the_marker():
+    """Camila 2026-11-04: a different possible continuation (leaf false_claim, contradicted only
+    after the marker) is excused."""
     segs, c = _parse(ct("false_claim"))
-    assert segs[0].leaf == "false_claim" and segs[0].continuation_text
-    assert c["n_continuation_miss"] == 0
-    segs, c = _parse(ct("detail"))  # one wrong specific: excused
+    assert segs[0].leaf == tx.CONTINUATION_MISS and c["n_continuation_miss"] == 1
+    segs, c = _parse(ct("detail"))
     assert segs[0].leaf == tx.CONTINUATION_MISS and c["n_continuation_miss"] == 1
 
 

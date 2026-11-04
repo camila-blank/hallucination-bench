@@ -41,7 +41,7 @@ import json
 import os
 import re
 import time
-from collections.abc import Callable, Iterator, Sequence
+from collections.abc import Callable, Iterator, Mapping, Sequence
 from dataclasses import dataclass, field
 from pathlib import Path
 from types import ModuleType
@@ -123,7 +123,7 @@ class Models:
     # claimmap_am spec uses). In to_dict() / arm.json only when it is not claimmap-v2.7, so every
     # v3-v7 output is unchanged; a missing record means claimmap-v2.7.
     map_prompt: str = cm.PROMPT_VERSION
-    # plan 0029 §2.3: agentic_misalignment's situation judge (amsit-v1); AM only
+    # plan 0029 §2.3: agentic_misalignment's situation judge (amsit-v2); AM only
     situation_model: str | None = None
 
     @property
@@ -248,6 +248,67 @@ def reconcile_all(dirs: Sequence[Path], models: Models) -> Models:
     if len(distinct) > 1:
         raise JudgeConfigError(f"arm dirs of this run record different models: {distinct}")
     return next(iter(got.values())) if got else models
+
+
+def recorded_bank(arm_dir_: Path) -> dict[str, Any] | None:
+    """Plan 0029 review: the main bank an arm dir was judged on (``arm.json``'s ``bank`` /
+    ``bank_sha256``; a missing key means ``wsb``); None without an ``arm.json``."""
+    rec = _arm_record(arm_dir_)
+    if rec is None:
+        return None
+    return {"bank": rec.get("bank") or "wsb", "bank_sha256": rec.get("bank_sha256")}
+
+
+def _check_bank_sha(arm_dir_: Path, rec: Mapping[str, Any]) -> None:
+    from . import NAME
+
+    cb = bank_for(NAME)
+    want = rec.get("bank_sha256")
+    if want and cb.bank_record().get("bank_sha256") != want:
+        raise JudgeConfigError(
+            f"{arm_dir_}: judged on --bank {rec['bank']} with items sha256 {want}, but "
+            f"{cb.ITEMS_PATH} now hashes differently (use the recorded bank, or another --out)"
+        )
+
+
+def check_bank(arm_dir_: Path, models: Models) -> None:
+    """Plan 0029 review: judging (``run``, ``run --joint``) into an arm dir recorded on another
+    bank is refused (``JudgeConfigError``: exit 3), as :func:`check_map_prompt`; an omitted
+    ``--bank`` means wsb. Main eval only (story has its own bank)."""
+    from . import NAME
+
+    cb = bank_for(NAME)
+    if models.eval != NAME or (rec := recorded_bank(arm_dir_)) is None:
+        return
+    if rec["bank"] != cb.current_bank():
+        raise JudgeConfigError(
+            f"{arm_dir_}: judged on --bank {rec['bank']}, this run uses --bank "
+            f"{cb.current_bank()} (pass --bank {rec['bank']}, or use another --out root)"
+        )
+    _check_bank_sha(arm_dir_, rec)
+
+
+def replay_bank(arm_dir_: Path, models: Models) -> None:
+    """Plan 0029 review: rebuild / report point the bank at the arm dir's recorded one when
+    ``--bank`` was omitted (as :func:`with_recorded_prompt`); an explicit ``--bank`` naming
+    another bank is refused (exit 3). Main eval only."""
+    from . import NAME
+
+    cb = bank_for(NAME)
+    if models.eval != NAME or (rec := recorded_bank(arm_dir_)) is None:
+        return
+    want = rec["bank"]
+    if cb.SELECTED is not None and cb.SELECTED != want:
+        raise JudgeConfigError(
+            f"{arm_dir_}: judged on --bank {want}, this command asks for --bank {cb.SELECTED} "
+            "(omit --bank to replay the recorded one)"
+        )
+    if cb.current_bank() != want:
+        if want == "wsb":
+            cb.reset_bank()
+        else:
+            cb.use_bank(want, explicit=False)
+    _check_bank_sha(arm_dir_, rec)
 
 
 def model_slug(model: str) -> str:
@@ -822,8 +883,9 @@ async def run_arms_async(
 ) -> dict[str, dict[str, Any]]:
     run_stages = expand_stages(stages, classify=classify, anchor=models.map_anchor)
     cm.spec(models.map_prompt)  # an unknown --map-prompt fails before anything is opened
-    for n, _p in arms:  # plan 0029: never mix prompt versions in one arm dir
+    for n, _p in arms:  # plan 0029: never mix prompt versions (or banks) in one arm dir
         check_map_prompt(arm_dir(out_root, models, n), models)
+        check_bank(arm_dir(out_root, models, n), models)
     models = reconcile_all([arm_dir(out_root, models, n) for n, _p in arms], models)
     opened = [open_arm(n, p, out_root, models) for n, p in arms]
     try:
@@ -900,6 +962,7 @@ def _write_arm_json(arm: Arm, models: Models) -> None:
                 "readouts": str(arm.readouts),
                 "kind": arm.kind,
                 **models.to_dict(),
+                **(arm.bank.bank_record() if hasattr(arm.bank, "bank_record") else {}),
             },
             indent=1,
         )
@@ -922,6 +985,7 @@ async def rebuild_arm_async(
     from . import score, score_v2
 
     models = with_recorded_prompt(arm_dir(out_root, models, name), models)
+    replay_bank(arm_dir(out_root, models, name), models)
     arm = open_arm(name, readouts, out_root, models, readonly=True)
     layers = sorted(cached_layers(arm) & set(arm.file_layers))
     items = list(arm.items.values())
@@ -1252,6 +1316,7 @@ async def run_joint_async(
         raise ValueError(f"joint stages are {JOINT_STAGES}, got {sorted(bad)}")
     d = arm_dir(out_root, models, name)
     check_map_prompt(d, models)
+    check_bank(d, models)
     models = reconcile_models(d, models)
     if (d / JOINT_JSON).is_file():
         prev = json.loads((d / JOINT_JSON).read_text(encoding="utf-8"))
@@ -1323,6 +1388,7 @@ async def rebuild_joint_async(name: str, out_root: Path, models: Models) -> dict
     from . import score_v2
 
     d = arm_dir(out_root, models, name)
+    replay_bank(d, models)
     rec_j = json.loads((d / JOINT_JSON).read_text(encoding="utf-8"))
     from dataclasses import replace as _replace
 

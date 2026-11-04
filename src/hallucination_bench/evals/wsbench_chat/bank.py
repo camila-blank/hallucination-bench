@@ -28,11 +28,14 @@ __all__ = [
     "ITEMS_PATH",
     "X3_BANK_DIR",
     "X3_ITEMS_PATH",
+    "bank_record",
+    "current_bank",
     "expected_grid",
     "load_bank",
     "load_items",
     "marked_response",
     "positions",
+    "reset_bank",
     "sites_by_item",
     "use_bank",
 ]
@@ -56,13 +59,19 @@ else:
 X3_BANK_DIR = Path(os.environ.get("HBENCH_X3_BANK") or DATA / "wsbench_chat_x3")
 X3_ITEMS_PATH = X3_BANK_DIR / "items.json"
 BANKS: tuple[str, ...] = ("wsb", "x3")
+# the bank named by the CLI's --bank (None = flag omitted); replaying a recorded bank
+# (run.replay_bank) points the module without setting it
+SELECTED: str | None = None
+_DEFAULT_STATE = (ITEMS_PATH, BANK_SOURCE, BANK_COMMIT)
 
 
-def use_bank(name: str) -> None:
+def use_bank(name: str, *, explicit: bool = True) -> None:
     """Point this module at a named bank for the rest of the process (CLI ``--bank``):
     ``x3`` = plan 0028's bank (:data:`X3_ITEMS_PATH`); ``wsb`` = the WSB 149 x 8 default. An
-    ``HBENCH_WSBENCH_CHAT_ITEMS`` override naming another file conflicts (SystemExit)."""
-    global ITEMS_PATH, BANK_SOURCE, BANK_COMMIT
+    ``HBENCH_WSBENCH_CHAT_ITEMS`` override naming another file conflicts (SystemExit).
+    ``explicit`` (the CLI flag) records the name in :data:`SELECTED`; a replay of an arm dir's
+    recorded bank passes ``explicit=False``."""
+    global ITEMS_PATH, BANK_SOURCE, BANK_COMMIT, SELECTED
     if name not in BANKS:
         raise ValueError(f"unknown wsbench_chat bank {name!r} (known: {BANKS})")
     path = X3_ITEMS_PATH if name == "x3" else BANK_DIR / "items.json"
@@ -86,7 +95,39 @@ def use_bank(name: str) -> None:
         ITEMS_PATH = path
         BANK_SOURCE = f"plan0028-x3:{path}"
         BANK_COMMIT = f"sha256:{hashlib.sha256(path.read_bytes()).hexdigest()[:16]}"
+    if explicit:
+        SELECTED = name
     load_bank.cache_clear()
+
+
+def reset_bank() -> None:
+    """Back to the import-time bank (the WSB default or the env override); ``SELECTED`` is
+    left as it is."""
+    global ITEMS_PATH, BANK_SOURCE, BANK_COMMIT
+    ITEMS_PATH, BANK_SOURCE, BANK_COMMIT = _DEFAULT_STATE
+    load_bank.cache_clear()
+
+
+def current_bank() -> str:
+    """The named bank this module points at: ``x3`` when :data:`ITEMS_PATH` is plan 0028's
+    bank, else ``wsb`` (the default and any ``HBENCH_WSBENCH_CHAT_ITEMS`` override, which arm
+    dirs never recorded)."""
+    if BANK_SOURCE.startswith("plan0028-x3:"):
+        return "x3"
+    return "wsb"
+
+
+def bank_record() -> dict[str, str]:
+    """The ``arm.json`` fields recording the bank (plan 0029 review): only a non-default bank
+    is recorded (``bank``, ``bank_source``, ``bank_sha256`` of the items file), so wsb / v7 arm
+    dirs keep their arm.json and a missing ``bank`` means wsb."""
+    if current_bank() == "wsb":
+        return {}
+    return {
+        "bank": current_bank(),
+        "bank_source": BANK_SOURCE,
+        "bank_sha256": hashlib.sha256(ITEMS_PATH.read_bytes()).hexdigest(),
+    }
 
 
 @cache

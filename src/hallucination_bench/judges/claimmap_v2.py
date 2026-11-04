@@ -762,10 +762,11 @@ def _place_contradiction(
 
 def _excuse_continuation(s: "Segment", c: dict[str, int]) -> None:
     """Plan 0029 §1.2, last (after rev 17 quotes, rev 18 junk, rev 19 hedges): an ``ok``
-    segment whose leaf is excusable (``detail`` / ``substitution_sibling``: a small change), that
-    the judge tagged ``continuation_text`` (literal continuation) and whose quoted contradiction
-    is ``after`` the read point becomes ``continuation_miss`` (``judge_leaf`` = the judge's leaf,
-    ``raw_leaf`` unchanged). It is no longer a probe candidate."""
+    segment whose leaf is incorrect (``tx.EXCUSABLE_LEAVES``: any size of change), that the
+    judge tagged ``continuation_text`` (a literal, on-topic continuation possible given the text
+    up to the marker) and whose quoted contradiction is located ``after`` the read point (a
+    prefix contradiction is never excused) becomes ``continuation_miss`` (``judge_leaf`` = the
+    judge's leaf, ``raw_leaf`` unchanged). It is no longer a probe candidate."""
     if (
         s.status != "ok"
         or s.leaf not in tx.EXCUSABLE_LEAVES

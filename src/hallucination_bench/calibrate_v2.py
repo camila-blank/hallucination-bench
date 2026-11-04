@@ -221,6 +221,13 @@ def validate_case(c: dict[str, Any], *, require_gold: bool = True) -> list[str]:
 GOLD_OVERRIDES_V28: dict[tuple[str, str, str | None], str] = {
     ("dev2-06-titanic", "R0.U3", "14 April 1911"): "detail",  # real-event-date
     ("dev2-23-penicillin", "R0.U3", None): "detail",  # real-event-date ("in 1938" for 1928)
+    # heldout_v2_synthetic.jsonl (`--cases`): the Berlin Wall "fell in 1991" for 1989
+    ("held2-01", "R0.U3", None): "detail",  # real-event-date
+}
+# the unit text each unit-level override expects (a case id reused with other content, e.g. a
+# future heldout_v2.jsonl, fails loudly instead of being relabelled)
+GOLD_OVERRIDE_TEXTS_V28: dict[tuple[str, str], str] = {
+    ("held2-01", "R0.U3"): "The response states it fell in 1991.",
 }
 
 
@@ -252,6 +259,12 @@ def apply_gold_overrides(
         for g in c["gold"]["units"]:
             g = {**g}
             if (g["id"], None) in todo:
+                want = GOLD_OVERRIDE_TEXTS_V28.get((c["case_id"], g["id"]))
+                if want is not None and g.get("text") != want:
+                    raise ValueError(
+                        f"{c['case_id']}: gold override target {g['id']} has text "
+                        f"{g.get('text')!r}, expected {want!r} (the gold moved)"
+                    )
                 g["leaf"] = todo[(g["id"], None)]
                 hit.add((g["id"], None))
             if g.get("splits"):

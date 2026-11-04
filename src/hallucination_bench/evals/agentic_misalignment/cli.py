@@ -58,7 +58,7 @@ def run(args: argparse.Namespace) -> int:
     # Stage H failures likewise count only when the verify stage ran (plan 0008 rev 13)
     if "verify" in stages:
         n_failed += sum(amrun.n_failed_verify(s) for s in summaries.values())
-    # plan 0029: amsit-v1 / joint map failures, when those stages ran
+    # plan 0029: amsit-v2 / joint map failures, when those stages ran
     if "situation" in stages:
         n_failed += sum(
             int(s.get("v8", {}).get("situation", {}).get("n_failed", 0)) for s in summaries.values()

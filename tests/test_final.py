@@ -20,8 +20,11 @@ def _two_layer_grid(monkeypatch):
     monkeypatch.setattr(final, "EXPECTED_LAYERS", (20, 24))
 
 
-def _arm_json(d: Path, prompt: str = V28) -> None:
-    (d / "arm.json").write_text(json.dumps({"arm": d.name, "map_prompt": prompt}))
+def _arm_json(d: Path, prompt: str = V28, bank: dict | None = None) -> None:
+    (d / "arm.json").write_text(json.dumps({"arm": d.name, "map_prompt": prompt, **(bank or {})}))
+
+
+X3_RECORD = {"bank": "x3", "bank_source": "plan0028-x3:/x3/items.json", "bank_sha256": "0" * 64}
 
 
 def _files(fam: str, unit: str) -> list[str]:
@@ -64,7 +67,7 @@ def _entries(tmp: Path, src: dict, version=V28, *, extra_arm: str | None = None)
 def _manifest(tmp: Path, *, version=V28, recorded=V28, mutate=None, prep=None) -> Path:
     src = v8_sources(tmp / "roots")
     for sub in CLAIM_DIRS.values():
-        _arm_json(tmp / "roots" / sub / "jlens", recorded)
+        _arm_json(tmp / "roots" / sub / "jlens", recorded, X3_RECORD if sub == "main" else None)
     if prep:
         prep(tmp / "roots")
     m = {

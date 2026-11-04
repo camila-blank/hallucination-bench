@@ -94,3 +94,19 @@ def test_detect_limit_keeps_the_pre_detection_draw(tmp_path, monkeypatch):
         assert sum((c.id, c.pos) in pos20 for c in sel if c.layer == 20) < 3
     finally:
         a.cache.close()
+
+
+def test_map_limit_seeds_draw_different_positives(detected):
+    """With more positives than N (L20: 7 for N = 3), the seed changes which ones are mapped."""
+    f, root = detected
+    picks = {}
+    for seed in (0, 1, 2, 3):
+        out = root(f"s{seed}")
+        amrun.run_am(
+            [("toy", f)], out, M8, llm=AM8Fake(), items=[MIS, CTRL], stages="map", limit=3,
+            sample_seed=seed,
+        )  # fmt: skip
+        got = _mapped(out)
+        assert len(got[20]) == 3
+        picks[seed] = tuple(got[20])
+    assert len(set(picks.values())) > 1, picks

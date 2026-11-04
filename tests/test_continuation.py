@@ -122,18 +122,23 @@ def test_condition_2_off_topic_is_junk_never_excused():
 @pytest.mark.parametrize(
     ("leaf", "excused"),
     [
+        # Camila 2026-11-04: a different possible continuation is not a hallucination, so
+        # the size of the change no longer matters: every incorrect leaf is excusable.
         ("detail", True),
         ("substitution_sibling", True),
-        ("substitution_category", False),  # a different kind of object: not small
-        ("false_claim", False),  # the situation is wrong: not small
+        ("substitution_category", True),
+        ("false_claim", True),
     ],
 )
-def test_condition_3_small_change_leaves(leaf, excused):
+def test_condition_3_any_incorrect_leaf_is_excused(leaf, excused):
     segs, _ = _parse(ct(leaf, probe_target="CEO", pair={"said": "a", "actual": "b"}))
     assert (segs[0].leaf == tx.CONTINUATION_MISS) is excused
-    if not excused:  # rev 20: substitution_category stays a hallucination
-        assert segs[0].leaf == leaf and tx.verdict_of(leaf) == tx.V_HALLUCINATION
-    assert tx.EXCUSABLE_LEAVES == ("detail", "substitution_sibling")
+    assert set(tx.EXCUSABLE_LEAVES) == {
+        "detail",
+        "substitution_sibling",
+        "substitution_category",
+        "false_claim",
+    }
 
 
 def test_condition_4_a_prefix_contradiction_is_not_excused():

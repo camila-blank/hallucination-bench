@@ -50,7 +50,7 @@ n_contradicted`` = flagged, ``cluster`` = template_id), with sibling's weight 2 
 
 v8 (hindex-v8, plan 0029; :func:`build_index_v8`, its own builder so v3-v7 stay byte-identical):
 claimmap-v2.8 roots; eight families -- main 9, ``am_claims`` 3 (AM on candidate claims, main leaf
-weights), ``am_situation`` 3 (amsit-v1, ``situation.jsonl``), sibling 1, story 1
+weights), ``am_situation`` 3 (amsit-v2, ``situation.jsonl``), sibling 1, story 1
 (:data:`STORY_LEAF_WEIGHTS`: only detail down-weighted), overrefusal 1, benign_roleplay 2,
 ``cheating`` 2 (a ``twin_readouts`` root, v8 only); a joint row per method (layer ``all`` =
 :data:`JOINT` internally) with ``full_joint`` over :data:`JOINT_FAMILIES_V8`; per-layer ``full``
@@ -119,7 +119,7 @@ FAMILY_WEIGHTS_V7: dict[str, float] = {
     BENIGN_ROLEPLAY: 2.0,
 }
 # hindex-v8 (plan 0029): AM splits into am_claims (the claim map on candidate claims, main leaf
-# weights) and am_situation (amsit-v1), + cheating (plan 0025 / 0026, weight 2); v3-v7 keep
+# weights) and am_situation (amsit-v2), + cheating (plan 0025 / 0026, weight 2); v3-v7 keep
 # their tables (and the module CLAIM_FAMILIES tuple)
 AM_CLAIMS, AM_SITUATION, CHEATING = "am_claims", "am_situation", "cheating"
 AM_LIKE: frozenset[str] = frozenset({AM, AM_CLAIMS})  # read from the AM root, candidates
@@ -181,7 +181,7 @@ N_BOOT_SIBLING = 1000
 N_BOOT_SAFETY = 2000
 CELLS = "cells.jsonl"
 CELLS_JOINT = "cells_joint.jsonl"  # plan 0029: the joint 11-layer cells (v8 roots only)
-SITUATION = "situation.jsonl"  # plan 0029: amsit-v1 records (AM v8 root)
+SITUATION = "situation.jsonl"  # plan 0029: amsit-v2 records (AM v8 root)
 SAFETY_COUNTS_JOINT = "index_counts_joint.jsonl"
 UNITS = "units_labeled.jsonl"
 SAFETY_COUNTS = "index_counts.jsonl"
@@ -1346,7 +1346,7 @@ NOTES_V8: dict[str, str] = {
     "(false_claim 1, substitution_category 0.5, substitution_sibling 0.5, detail 0.2); story "
     "down-weights detail only (false_claim 1, substitution_category 1, detail 0.2, "
     "substitution_sibling 0). am_claims counts candidate claims (plan 0021); am_situation is the "
-    "amsit-v1 share of cells whose readouts misrepresent the situation as a whole (prose k = 3 "
+    "amsit-v2 share of cells whose readouts misrepresent the situation as a whole (prose k = 3 "
     "samples, J-lens 1 summary: the rate rises with k). The joint row (layer `all`) judges sample "
     "0 of all 11 layers of a read site in one call (J-lens: the 11 per-layer summaries); "
     "`full_joint` and every per-layer row's `full_j6` are the six-family macro over the families "

@@ -72,7 +72,7 @@ DEFAULT_READOUTS_ROOT = paths.READOUTS_ROOT
 DEFAULT_ARMS: tuple[str, ...] = ("s3d-rl600", "nla-rl-L42", "jlens")
 STAGES: tuple[str, ...] = ("detect", "summ", "verify", "map", "intent")
 # plan 0029 (claimmap-v2.8 roots only; never in the default selection): the joint 11-layer
-# claim map and the amsit-v1 situation judge
+# claim map and the amsit-v2 situation judge
 V8_STAGES: tuple[str, ...] = ("joint", "situation")
 DETECT_FALLBACK_MODEL = "claude-sonnet-5-5"  # plan 0029 §2.3: a refused detector call, once
 JOINT_LAYERS: tuple[int, ...] = cm.JOINT_LAYERS  # R0 = L20 ... R10 = L60 (plan §3.7)
@@ -255,10 +255,13 @@ async def cached_call(
     spend: Usage,
     validate: Callable[[dict[str, Any]], bool] | None = None,
     invalid_retries: int = 0,
+    fallback: str | None = None,
 ) -> CallOut:
     """The chat ``cached_call`` semantics on a bare cache (the chat one takes a chat ``Arm``):
     a hit returns the row; ``llm=None`` reads only; an invalid answer is re-asked up to
-    ``invalid_retries`` times, then cached as failed (``meta.raw``)."""
+    ``invalid_retries`` times, then cached as failed (``meta.raw``). With ``fallback`` (plan
+    0029 review, v8 roots), a refused call is re-asked once on that model; the row stays under
+    ``model``'s fingerprint with ``meta.answered_by`` (the detector's rule)."""
     fp = fingerprint(version, model, effort, system, user)
     row = cache.get(key, fp)
     if row is not None:
@@ -268,26 +271,36 @@ async def cached_call(
         return CallOut("failed" if failed is not None else "pending")
     usage = Usage()
     n_invalid = 0
+    asked = model  # the model that answers (the fallback once the judge refused)
     while True:
-        out = await llm.call(model=model, system=system, user=user, schema=schema)
+        out = await llm.call(model=asked, system=system, user=user, schema=schema)
         spend.add(out.usage)
         usage.add(out.usage)
+        if out.result is None and out.usage.refusals and fallback and asked == model:
+            asked = fallback
+            out = await llm.call(model=asked, system=system, user=user, schema=schema)
+            spend.add(out.usage)
+            usage.add(out.usage)
         r = out.result
         if r is None or validate is None or validate(r):
             break
         n_invalid += 1
         if n_invalid > invalid_retries:
-            meta = _meta(stage, model, usage, n_invalid)
+            meta = _meta(stage, model, usage, n_invalid, asked)
             cache.put(key, fp, {"result": None, "meta": {**meta, "raw": r}})
             return CallOut("failed")
-    cache.put(key, fp, {"result": r, "meta": _meta(stage, model, usage, n_invalid)})
+    cache.put(key, fp, {"result": r, "meta": _meta(stage, model, usage, n_invalid, asked)})
     return CallOut("ok" if r is not None else "failed", r)
 
 
-def _meta(stage: str, model: str, usage: Usage, n_invalid: int) -> dict[str, Any]:
+def _meta(
+    stage: str, model: str, usage: Usage, n_invalid: int, answered_by: str | None = None
+) -> dict[str, Any]:
     meta: dict[str, Any] = {"stage": stage, "model": model, "usage": usage.to_dict()}
     if n_invalid:
         meta["n_invalid_attempts"] = n_invalid
+    if answered_by is not None and answered_by != model:
+        meta["answered_by"] = answered_by
     return meta
 
 
@@ -634,6 +647,9 @@ async def summary_call(
         schema=summarizer.INTERP_SCHEMA,
         spend=spend,
         validate=lambda r: summarizer.interpretation_of(r) is not None,
+        # plan 0029 review: a refused interp-v1 summary is re-asked once on Sonnet (v8 roots
+        # only; v7 roots and caches are unchanged)
+        fallback=DETECT_FALLBACK_MODEL if models.v28 else None,
     )
     text = summarizer.interpretation_of(out.result) if out.status == "ok" else None
     return out.status, text
@@ -1391,7 +1407,7 @@ async def situation_records(
     limit: int | None = None,
     sample_seed: int | None = None,
 ) -> list[dict[str, Any]]:
-    """Every amsit-v1 cell of the arm (judge mode with ``llm``, else cache only): the 16 sites
+    """Every amsit-v2 cell of the arm (judge mode with ``llm``, else cache only): the 16 sites
     per item at every loaded layer, then the joint cell of each site (the bank's 11 layers,
     :data:`JOINT_LAYERS`; pending while a layer is not loaded). ``limit`` (judge mode, pilots):
     a seeded draw of that many cells per layer (and of joint cells)."""
@@ -1696,7 +1712,7 @@ async def rebuild_async(
     tmp_c.replace(d / "cells.jsonl")
     tmp_m.replace(d / "mentions.jsonl")
     v8_out: dict[str, Any] = {}
-    if models.v28:  # plan 0029: joint cells and amsit-v1, if judged (v2.7 roots: never)
+    if models.v28:  # plan 0029: joint cells and amsit-v2, if judged (v2.7 roots: never)
         v8_out = await _rebuild_v8(arm, models, d)
     spend = _spend(cache)
     cache.close()
