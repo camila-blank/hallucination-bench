@@ -1,6 +1,6 @@
 # Plan 0029: hindex-v8 — narrow continuation excuse, detail vs substitution vs claim, AM overhaul, joint 11-layer unit, cheating, one source of truth
 
-Author: Camila Blank (planned with Claude), 2026-11-04. **Revision 6** (rev 6 = critique of rev 5: `prediction` kept, Steps 2–3 edited, carve-out keeps the conversation condition, v2.8.x versions, OPEN_DECISIONS_V28, `{joint_note}`, index branches named. Rev 5 = a clean rewrite folding
+Author: Camila Blank (planned with Claude), 2026-11-04. **Revision 7** (rev 7 = critique of rev 6: version-aware claim families, v2.8.1 AM spec + pilot roots, version-aware decision text. Rev 6 = critique of rev 5: `prediction` kept, Steps 2–3 edited, carve-out keeps the conversation condition, v2.8.x versions, OPEN_DECISIONS_V28, `{joint_note}`, index branches named. Rev 5 = a clean rewrite folding
 in: rev 1 → 2 critique (versioned prompts, v8 roots, joint budget, offsets, rule placement,
 pins); rev 3 = Camila's corrections (narrow continuation excuse, title/role = substitution, AM =
 two families 3 + 3, story down-weights detail only, plot O-lens = s3d-rl600, final-olens not a v8
@@ -208,10 +208,12 @@ Same prompt and rules; `STORY_LEAF_WEIGHTS`. "After" ends at the 512-token cut (
   `Spec` holds SYSTEM, USER_TEMPLATE, SCHEMA (unanchored / anchored via `schema_for(anchor,
   version)`), taxonomy/scoring versions (v2-r17/r20 vs v2-r21/r21) and `definitions`. v2.8 text is
   built from parallel objects (`_LEAVES_V28`, `rules(anchored, version)`, `DETAIL_CARVE_OUT_V28`,
-  `DETAIL_ITEMS_V28`, `QUOTE_RULE_V28`, `TAGS_V28`); v2.7 objects untouched. Module constants
+  `DETAIL_ITEMS_V28`, `QUOTE_RULE_V28`, `TAGS_V28`, `OPEN_DECISIONS_V28` with a version-aware
+  `decision_text(key, version)` used by `rules(…, version)`); v2.7 objects untouched. Module constants
   (`PROMPT_VERSION`, `TAXONOMY_VERSION`, `LEAF_NAMES`, `SYSTEM`, `USER_TEMPLATE`, `SCHEMA`) keep
-  their v2.7 values. `claimmap_am` gets `VERSIONS = {"+am2": …, "+am3": …}`, each slicing the tail
-  of its own chat USER_TEMPLATE; `cam.SCHEMA` per version. The v2.8 schema adds
+  their v2.7 values. `claimmap_am` gets `VERSIONS = {"claimmap-v2.7+am2": …, "claimmap-v2.8+am3": …,
+  "claimmap-v2.8.1+am3": …}` (the last registered only if the tag gate forces v2.8.1), each slicing
+  the tail of its own chat USER_TEMPLATE; `cam.SCHEMA` per version. The v2.8 schema adds
   `continuation_text` to both unit and split entries (objects are `additionalProperties: false`);
   the v2.8 USER_TEMPLATE lists it among the leaf tags.
 - **Prompt switch**: `--map-prompt {claimmap-v2.7,claimmap-v2.8[,claimmap-v2.8.1]}` (choices =
@@ -239,6 +241,8 @@ Same prompt and rules; `STORY_LEAF_WEIGHTS`. "After" ends at the 512-token cut (
   per-layer calls unchanged (16k, 300 s).
 
 ### 3.3 Pilots and gates (before any spend approval)
+- Pilots run in separate roots `outputs/v8-pilot/` (so a v2.8.1 re-run never meets the arm.json
+  guard in the real v8 roots; the full run starts in `outputs/v8/` with the final version).
 - **Per-layer pilot**: 200 v2.8 cells per arm for main, 50 per arm for story, 200 per arm for AM
   (seeded, stratified by layer) — output tokens, validity, USD per cell, refusals.
 - **Joint pilot**: 20 joint cells per arm per family (main, story, AM): output tokens, valid-answer
@@ -305,9 +309,13 @@ to start unless every item has an effective intent. The card is in the `:M` fing
   benign_roleplay 2, cheating 2 (Σ 22). `full` = all eight; `matched` = all but sibling (Σ 21).
   `full_v7` / `matched_v7` = v7's families and weights on v8 values (AM ≙ am_claims), separating
   reweighting from rescoring.
-- Plumbing: `ALL_FAMILIES`, `FAMILIES_V8`, `CLAIM_FAMILIES` (+ `am_claims`; `claim_rows` raises
-  outside it, index.py:279), `_segments` reads `map_status` for `am_claims` as for AM
-  (index.py:228), weights, `methods.json` (`am_claims` /
+- Plumbing: `ALL_FAMILIES`, `FAMILIES_V8`; claim families become version-aware,
+  `claim_families(version)`: v3–v7 → `(main, agentic_misalignment, story)` (the module
+  `CLAIM_FAMILIES` tuple unchanged), v8 → `(main, am_claims, story)`, used by `build_index`
+  wherever it iterates claim families (index.py ~761–771); `claim_rows`' guard (index.py:279)
+  accepts the union; `_segments`' `map_status` read (index.py:228) and the candidate / v5 absent
+  ("0 candidate claims") logic key on AM-like families `{agentic_misalignment, am_claims}`. Test:
+  v3–v7 builds are unchanged with `am_claims` sources present. Weights, `methods.json` (`am_claims` /
   `am_situation` entries wherever `agentic_misalignment` is mapped, so `mlnla-rl600-all11` resolves
   to method `mlnla-rl600`); `claim_rows` reads the AM root for `am_claims` (candidates on);
   `claim_metric` gets a story-weights branch; `am_situation` read from `situation.jsonl`
