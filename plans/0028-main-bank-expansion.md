@@ -227,7 +227,7 @@ judge = S calls per method (one per site, with all 11 layers). Final numbers are
 
 1. Seeds: dailydialog done. **lmsys is blocked**: the box's HF token is not on the gated
    `lmsys/lmsys-chat-1m` access list (403), and Camila must grant access or provide the shard.
-   `build_seeds.py --sources lmsys` then appends to the same `seeds.json` (same rule, same verify).
+   `build_seeds.py --sources lmsys` then appends to the same `seeds.json` (same verify; new lmsys seeds English-only per Amendment 1).
 2. Generate the dailydialog rollouts now, and lmsys when unblocked.
 3. Build the bank, then capture, read, fetch, merge, summaries and bundle. A batch `TAG` lets the
    lmsys half be captured and read later with no change to the done half.
@@ -266,7 +266,7 @@ on the `lmsys/lmsys-chat-1m` gate list. Once access exists, the runbook is:
    summaries.
 6. `joint_bundle.py` rebuilds the bundles, then freeze.
 
-The English question (the ASCII screen keeps about 10% non-English lmsys) is open for Camila.
+The English question was decided by Camila on 2026-11-04: see Amendment 1.
 
 ## Amendment 1 (2026-11-04): English-only new LMSYS seeds (Camila)
 

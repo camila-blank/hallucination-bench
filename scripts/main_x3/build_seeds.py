@@ -7,7 +7,8 @@ Same sources, order, screen and pool rule as the WorkspaceBench chat bank (globa
   user turn, stripped, parquet shards in sorted filename order (``lmsys_stream.py``);
 - dailydialog: ``ConvLab/dailydialog`` train, streaming, first turn if its speaker is ``user``;
 - screen (``expand.screen_chat_seed``): 20..2000 chars stripped, no ``` / http(s):// / NAME_\\d+,
-  >= 98% ASCII characters (the English proxy); dedup by ``seed_key``;
+  >= 98% ASCII characters (NOT an English filter; new lmsys seeds
+  also need ``language == "English"``, below); dedup by ``seed_key``;
 - pool = the first ``4 * n_per_source`` unique screened seeds of a source (scan cap 20000).
 
 Always re-derives the WSB draw (n 75, ``random.Random(7)`` shared, lmsys shuffled
@@ -34,6 +35,7 @@ REPO = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(REPO / "src"))
 
 from hallucination_bench.evals.wsbench_chat.expand import (  # noqa: E402
+    ENGLISH_ONLY_SOURCES,
     expansion_draw,
     screen_chat_seed,
     seed_key,
@@ -157,6 +159,7 @@ def main() -> None:
             **draw_counts,
             "new": len(new),
         }
+        doc["english_only_sources"] = sorted(ENGLISH_ONLY_SOURCES)  # plan 0028 amendment 1
         print(f"[seeds] {source}: {doc['counts'][source]} verify {doc['verify_wsb'][source]}")
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(json.dumps(doc, indent=1, ensure_ascii=False))

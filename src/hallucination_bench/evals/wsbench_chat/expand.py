@@ -17,6 +17,7 @@ drawn and sited exactly as the old ones were:
 from __future__ import annotations
 
 import hashlib
+import random
 import re
 import unicodedata
 from collections.abc import Sequence
@@ -144,8 +145,6 @@ def expansion_draw(
     tokenizer NFC-normalises, so a non-NFC prompt would not round-trip), English-only for
     ``ENGLISH_ONLY_SOURCES`` (``language == "English"``), then shuffled with
     ``random.Random("hb0028:<source>")`` and cut to ``n_new``, in that seeded order."""
-    import random
-
     rest = [s for s in pool if s["key"] not in picked]
     n_non_nfc = sum(unicodedata.normalize("NFC", s["text"]) != s["text"] for s in rest)
     rest = [s for s in rest if unicodedata.normalize("NFC", s["text"]) == s["text"]]
