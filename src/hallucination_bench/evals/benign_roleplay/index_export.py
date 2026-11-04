@@ -5,8 +5,9 @@ n_contradicted`` = 1 if flagged (a verified recognition, or unjudged; the eval's
 ``n_failed_cells`` = 1 if unjudged, ``cluster = str(template_id or id)`` (the eval's cluster
 rule). ``index.safety_metric`` on these rows is the same arithmetic as ``metrics.rate_ci`` (sorted
 clusters, a fresh ``default_rng(0)``, 2,000 draws), so the index value and CI equal the eval's
-per-layer ``false_recognition_rate`` / ``ci95``. Only single-layer units (``L<k>``) are
-exported: the all-layer unit has no layer. Nothing is judged here."""
+per-layer ``false_recognition_rate`` / ``ci95``. Only single-layer units (``L<k>``) go to
+``index_counts.jsonl``; plan 0029's ``--joint`` writes the all-layer unit (``all``) to
+``index_counts_joint.jsonl`` (layer ``"all"``; hindex-v8's joint row). Nothing is judged here."""
 
 import hashlib
 import json
@@ -18,6 +19,8 @@ from .wsb import WsbError
 
 UNIT = "prompts"  # == hallucination_bench.index.UNIT_PROMPTS
 COUNTS, META = "index_counts.jsonl", "index_meta.json"
+COUNTS_JOINT = "index_counts_joint.jsonl"  # plan 0029
+JOINT_UNIT = JOINT_LAYER = "all"
 INT_COLS = (
     "n_claims",
     "n_false",
@@ -40,10 +43,14 @@ def _readers() -> frozenset[str]:
 
 
 def unit_rows(
-    arm: str, layer: int, u: Mapping[str, Any], ids_all: Sequence[str], clusters: Mapping[str, str]
+    arm: str,
+    layer: int | str,
+    u: Mapping[str, Any],
+    ids_all: Sequence[str],
+    clusters: Mapping[str, str],
 ) -> list[dict[str, Any]]:
-    """The rows of one (arm, ``L<k>``) unit of a summary."""
-    where = f"{arm} L{layer}"
+    """The rows of one (arm, ``L<k>``) unit of a summary (plan 0029: or the ``all`` unit)."""
+    where = f"{arm} L{layer}" if layer != JOINT_LAYER else f"{arm} {JOINT_UNIT}"
     if "scored_ids" in u:
         scored = list(u["scored_ids"])
     elif u["n"] == len(ids_all):  # a summary from before plan 0027 (no scored_ids)
@@ -83,6 +90,7 @@ def export(
     items_doc: Mapping[str, Any],
     *,
     arm_map: Mapping[str, str] | None = None,
+    joint: bool = False,
 ) -> dict[str, Any]:
     """Write ``dest/index_counts.jsonl`` + ``dest/index_meta.json``; exit 2 (``WsbError``) on a
     bank mismatch, mixed instruments, an incomplete unit (unless the summary admitted refused
@@ -98,6 +106,7 @@ def export(
     clusters = {it["id"]: str(it.get("template_id") or it["id"]) for it in items}
     n_shared = sum(not it["hb_only"] for it in items)
     rows: list[dict[str, Any]] = []
+    joint_rows: list[dict[str, Any]] = []
     instruments: dict[str, Any] = {}
     sources = []
     skipped: list[str] = []
@@ -126,10 +135,13 @@ def export(
                 raise WsbError(f"arm {name!r} appears in two summaries")
             instruments[name] = a["instrument"]
             for unit, u in sorted(a["units"].items()):
-                if unit == "all":
+                if unit == JOINT_UNIT and not joint:
                     continue
                 if not u["complete"] and not s.get("accept_refused_as_flagged"):
                     raise WsbError(f"{sp}: {arm} {unit} is incomplete ({u['n_unjudged']} unjudged)")
+                if unit == JOINT_UNIT:
+                    joint_rows += unit_rows(name, JOINT_LAYER, u, ids_all, clusters)
+                    continue
                 rows += unit_rows(name, int(unit[1:]), u, ids_all, clusters)
     distinct = {json.dumps(v, sort_keys=True) for v in instruments.values()}
     if len(distinct) > 1:
@@ -148,9 +160,15 @@ def export(
         "n_rows": len(rows),
         "gates": {},
     }
+    if joint:  # plan 0029: only a --joint export records it (v7 roots stay byte-identical)
+        meta["joint"] = {"file": COUNTS_JOINT, "n_rows": len(joint_rows)}
     dest.mkdir(parents=True, exist_ok=True)
     with open(dest / COUNTS, "w", encoding="utf-8") as fh:
         for r in rows:
             fh.write(json.dumps(r) + "\n")
+    if joint:
+        with open(dest / COUNTS_JOINT, "w", encoding="utf-8") as fh:
+            for r in joint_rows:
+                fh.write(json.dumps(r) + "\n")
     (dest / META).write_text(json.dumps(meta, indent=1) + "\n", encoding="utf-8")
     return meta

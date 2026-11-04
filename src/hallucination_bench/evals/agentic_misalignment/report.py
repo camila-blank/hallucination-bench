@@ -386,6 +386,22 @@ def build(
     return "\n".join(md) + "\n", js
 
 
+def _v8_models(d: Path, models: Models) -> Models:
+    """Plan 0029: a v8 arm dir (``arm.json`` records ``map_prompt``) rebuilds with its recorded
+    map / situation models (the v8 map is on Sonnet); v7 arm dirs keep ``models`` exactly."""
+    from dataclasses import replace
+
+    a = _load_json(d / "arm.json")
+    if not a or not a.get("map_prompt"):
+        return models
+    return replace(
+        models,
+        map_prompt=a["map_prompt"],
+        map_model=a.get("map_model"),
+        situation_model=a.get("situation_model"),
+    )
+
+
 def report(
     out_root: Path,
     judge_model: str,
@@ -405,7 +421,9 @@ def report(
             if p is None:
                 print(f"[{arm}] no readouts file found: skipped")
                 continue
-            summaries[arm] = amrun.rebuild(arm, p, out_root, models, n_boot=n_boot)
+            summaries[arm] = amrun.rebuild(
+                arm, p, out_root, _v8_models(root / arm, models), n_boot=n_boot
+            )
         else:
             s = _load_json(root / arm / "summary.json")
             if s is not None:

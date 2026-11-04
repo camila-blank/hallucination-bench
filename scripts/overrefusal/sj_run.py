@@ -3,6 +3,7 @@
     uv run --no-sync python scripts/overrefusal/sj_run.py --tag calib --layers 20,44,60 \
         --calib-per-pop 10   # calibration: per reader x layer, 10 items per population
     uv run --no-sync python scripts/overrefusal/sj_run.py --tag full   # 3 x 11 x 427
+    uv run --no-sync python scripts/overrefusal/sj_run.py --tag joint --joint   # plan 0029: 3 x 427
 
 Readouts: ``$HBENCH_OR_READOUTS_V3`` (11 layers). Outputs under
 ``$HBENCH_OR_OUT/overrefusal/claude-opus-5-5/``: caches ``digest/ sjudge/ offtopic/<reader>.jsonl``
@@ -34,6 +35,12 @@ def main() -> None:
     ap.add_argument("--exclude-records", default="", help="skip items already in these records")
     ap.add_argument("--concurrency", type=int, default=32)
     ap.add_argument("--stages", default="digest,judge,offtopic")
+    ap.add_argument(
+        "--joint",
+        action="store_true",
+        help="plan 0029: one all-layer bundle per (reader, item) (layer 'all'); records "
+        "sj_records_<tag>.jsonl, then `hbench overrefusal offtopic-export --joint`",
+    )
     a = ap.parse_args()
     layers = [int(x) for x in a.layers.split(",")]
     items = data.load_items()
@@ -63,15 +70,17 @@ def main() -> None:
             positions=data.positions(items),
             layers=layers,
         )
+        if a.joint:
+            units += sjudge.joint_units(rd, list(by_id.values()), cells, layers)
+            continue
         grp: dict[tuple[str, int], list] = defaultdict(list)
         for c in cells:
             grp[(c.id, c.layer)].append(c)
         for iid, it in sorted(by_id.items()):
             for la in layers:
                 units.append(sjudge.Unit(rd, it, la, grp.get((iid, la), [])))
-    print(
-        f"{len(units)} units ({len(readers)} readers x {len(layers)} layers x {len(items)} items)"
-    )
+    shape = "joint" if a.joint else f"{len(layers)} layers"
+    print(f"{len(units)} units ({len(readers)} readers x {shape} x {len(items)} items)")
     recs = asyncio.run(
         sjudge.run_units(units, caches, concurrency=a.concurrency, stages=a.stages.split(","))
     )
@@ -84,6 +93,10 @@ def main() -> None:
     for r in recs:
         n[(r["digest"]["status"], r.get("verdict"))] += 1
     print(f"wrote {out}: {dict(n)}")
+    if a.joint:
+        from hallucination_bench.evals.overrefusal import sj_metrics
+
+        print(f"truncated at the token cap, per reader: {sj_metrics.truncation_share(recs)}")
 
 
 if __name__ == "__main__":

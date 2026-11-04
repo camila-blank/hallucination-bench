@@ -29,8 +29,8 @@ more than 10% missing units.
 
 import json
 import re
-from collections.abc import Sequence
-from dataclasses import asdict, dataclass, replace
+from collections.abc import Mapping, Sequence
+from dataclasses import asdict, dataclass, field, replace
 from typing import Any
 
 from hallucination_bench import taxonomy_v2 as tx
@@ -116,7 +116,7 @@ _PAIR = {
 _NULLABLE_STR = {"anyOf": [{"type": "string"}, {"type": "null"}]}
 
 
-def _seg_props(anchored: bool) -> dict[str, Any]:
+def _seg_props(anchored: bool, v28: bool = False) -> dict[str, Any]:
     props: dict[str, Any] = {
         "leaf": _LEAF_ENUM,
         "hedged": {"type": "boolean"},
@@ -131,14 +131,17 @@ def _seg_props(anchored: bool) -> dict[str, Any]:
         "reason": {"anyOf": [{"type": "string", "enum": list(tx.REASONS)}, {"type": "null"}]},
         "source": {"anyOf": [{"type": "string", "enum": list(tx.SOURCES)}, {"type": "null"}]},
         **{f: {"type": "boolean"} for f in tx.UNVERIFIABLE_FLAGS},
+        **({"continuation_text": {"type": "boolean"}} if v28 else {}),
         "contradicted_by": _NULLABLE_STR,
         "supported_by": _NULLABLE_STR,
         "why": {"type": "string"},
     }
 
 
-def _schemas(anchored: bool) -> tuple[dict[str, Any], dict[str, Any], dict[str, Any]]:
-    props = _seg_props(anchored)
+def _schemas(
+    anchored: bool, v28: bool = False
+) -> tuple[dict[str, Any], dict[str, Any], dict[str, Any]]:
+    props = _seg_props(anchored, v28)
     split: dict[str, Any] = {
         "type": "object",
         "additionalProperties": False,
@@ -175,6 +178,93 @@ PROMPTS: dict[str, str] = {
 }
 
 
+# ---------------------------------------------------------------- versions (plan 0029 §3.1)
+
+# claimmap-v2.8: the v2.7 user templates with the `{joint_note}` placeholder (empty for
+# per-layer cells; the 11-layer note for joint cells) and `continuation_text` among the leaf tags
+_JOINT_SLOT = ("{kind_note}The lens readouts", "{kind_note}{joint_note}The lens readouts")
+_TAG_LIST = (
+    "world, prediction), the evidence",
+    "world, prediction, continuation_text), the evidence",
+)
+
+
+def _v28_template(t: str) -> str:
+    assert t.count(_JOINT_SLOT[0]) == 1 and t.count(_TAG_LIST[0]) == 1
+    return t.replace(*_JOINT_SLOT).replace(*_TAG_LIST)
+
+
+SYSTEM_V28 = SYSTEM_INTRO + "\n\n" + tx.render(version=tx.V28)
+SYSTEM_V5C_V28 = SYSTEM_INTRO_V5C + "\n\n" + tx.render(anchored=True, version=tx.V28)
+USER_TEMPLATE_V28 = _v28_template(USER_TEMPLATE)
+USER_TEMPLATE_V5C_V28 = _v28_template(USER_TEMPLATE_V5C)
+SPLIT_SCHEMA_V28, UNIT_SCHEMA_V28, SCHEMA_V28 = _schemas(False, v28=True)
+SPLIT_SCHEMA_V5C_V28, UNIT_SCHEMA_V5C_V28, SCHEMA_V5C_V28 = _schemas(True, v28=True)
+
+
+@dataclass(frozen=True)
+class Spec:
+    """One registered claim-map prompt version: system / user templates and schemas for both
+    modes, and the taxonomy / scoring versions it renders and is scored under."""
+
+    version: str
+    system: str
+    user_template: str
+    system_v5c: str
+    user_template_v5c: str
+    schema: dict[str, Any]
+    schema_v5c: dict[str, Any]
+    taxonomy_version: str
+    scoring_version: str
+
+    @property
+    def v28(self) -> bool:
+        return tx.is_v28(self.version)
+
+    def definitions(self, anchored: bool = False) -> list[str]:
+        return tx.definitions(anchored, self.version)
+
+
+VERSIONS: dict[str, Spec] = {
+    "claimmap-v2.7": Spec(
+        "claimmap-v2.7",
+        SYSTEM,
+        USER_TEMPLATE,
+        SYSTEM_V5C,
+        USER_TEMPLATE_V5C,
+        SCHEMA,
+        SCHEMA_V5C,
+        tx.TAXONOMY_VERSION,
+        tx.SCORING_VERSION,
+    ),
+    "claimmap-v2.8": Spec(
+        "claimmap-v2.8",
+        SYSTEM_V28,
+        USER_TEMPLATE_V28,
+        SYSTEM_V5C_V28,
+        USER_TEMPLATE_V5C_V28,
+        SCHEMA_V28,
+        SCHEMA_V5C_V28,
+        tx.TAXONOMY_VERSION_V28,
+        tx.SCORING_VERSION_V28,
+    ),
+}
+assert VERSIONS[PROMPT_VERSION].system is SYSTEM and set(VERSIONS) == set(tx.PROMPT_VERSIONS)
+
+
+def spec(version: str | None = None) -> Spec:
+    """The registered spec (``None`` = claimmap-v2.7, what a root without a record used)."""
+    v = version or PROMPT_VERSION
+    if v not in VERSIONS:
+        raise ValueError(f"unknown claim-map prompt {v!r} (known: {', '.join(VERSIONS)})")
+    return VERSIONS[v]
+
+
+def is_v28(version: str | None) -> bool:
+    """Every registered version >= claimmap-v2.8 (they get ``read_offset`` and the new fields)."""
+    return spec(version).v28
+
+
 def check_anchor(anchor: str) -> bool:
     """``True`` for the anchored mode (``v5c``); raises on an unknown anchor."""
     if anchor not in ANCHORS:
@@ -182,8 +272,24 @@ def check_anchor(anchor: str) -> bool:
     return anchor == "v5c"
 
 
-def schema_for(anchor: str = "none") -> dict[str, Any]:
-    return SCHEMA_V5C if check_anchor(anchor) else SCHEMA
+def schema_for(anchor: str = "none", version: str | None = None) -> dict[str, Any]:
+    sp = spec(version)
+    return sp.schema_v5c if check_anchor(anchor) else sp.schema
+
+
+JOINT_LAYERS: tuple[int, ...] = tuple(range(20, 61, 4))  # R0 = L20 ... R10 = L60 (plan §3.7)
+
+
+def joint_note(layers: Mapping[int, int]) -> str:
+    """The user-prompt sentence of a joint 11-layer cell (plan 0029 §3.4): ``layers`` maps the
+    readout index ``i`` to its layer."""
+    if not layers:
+        return ""
+    parts = ", ".join(f"R{i} = layer {la}" for i, la in sorted(layers.items()))
+    return (
+        f"The readouts below come from {len(layers)} layers at the same position; {parts} (one "
+        "sample of each layer's readout).\n\n"
+    )
 
 
 def plain_units(units: Sequence[Unit]) -> list[Unit]:
@@ -192,7 +298,7 @@ def plain_units(units: Sequence[Unit]) -> list[Unit]:
     return [replace(u, established=False) if u.established else u for u in units]
 
 
-_PLACEHOLDER = re.compile(r"\{(prompt|mark|marked_response|kind_note|n|units_block)\}")
+_PLACEHOLDER = re.compile(r"\{(prompt|mark|marked_response|kind_note|joint_note|n|units_block)\}")
 
 
 def units_block(units: Sequence[Unit], *, flags: bool = True) -> str:
@@ -219,21 +325,31 @@ def render_prompt(
     *,
     kind: str = "prose",
     anchor: str = "none",
+    version: str | None = None,
+    joint_note: str = "",
 ) -> tuple[str, str]:
     """(system, user) for one claim-map call; ``marked_response`` carries ``⟦READ⟧``. In
-    single-call mode (``anchor="none"``) established flags are never shown."""
+    single-call mode (``anchor="none"``) established flags are never shown. ``version`` picks
+    the registered prompt (default claimmap-v2.7); ``joint_note`` (v2.8 only) fills the joint
+    cell's ``{joint_note}``."""
     anchored = check_anchor(anchor)
+    sp = spec(version)
     if not units:
         raise ValueError("render_prompt needs at least one unit")
+    if joint_note and not sp.v28:
+        raise ValueError(f"{sp.version} has no joint unit")
     values = {
         "prompt": prompt,
         "mark": READ_MARK,
         "marked_response": marked_response,
         "kind_note": TOKENS_NOTE if kind == "tokens" else "",
+        "joint_note": joint_note,
         "n": str(len(units)),
         "units_block": units_block(units, flags=anchored),
     }
-    system, template = (SYSTEM_V5C, USER_TEMPLATE_V5C) if anchored else (SYSTEM, USER_TEMPLATE)
+    system, template = (
+        (sp.system_v5c, sp.user_template_v5c) if anchored else (sp.system, sp.user_template)
+    )
     # one pass: braces inside the substituted text are never re-expanded
     return system, _PLACEHOLDER.sub(lambda m: values[m.group(1)], template)
 
@@ -298,13 +414,25 @@ class Segment:
     unquoted_support: bool = False
     judge_leaf: str | None = None  # the judge's leaf when a quote check re-labelled it
     why: str = ""
+    # plan 0029 (claimmap-v2.8 roots only; never emitted for v2.7, so v7 rebuilds are unchanged)
+    continuation_text: bool = False  # incorrect only: written as the text's own continuation
+    contradiction_region: str | None = None  # incorrect only: prefix | after (needs read_offset)
+    v28: bool = field(default=False, repr=False)  # emit the v2.8 fields (never emitted itself)
 
     @property
     def chars(self) -> int:
         return self.end - self.start
 
     def to_dict(self) -> dict[str, Any]:
-        return asdict(self)
+        d = asdict(self)
+        del d["v28"]
+        if not self.v28:
+            for f in V28_SEGMENT_FIELDS:
+                del d[f]
+        return d
+
+
+V28_SEGMENT_FIELDS: tuple[str, ...] = ("continuation_text", "contradiction_region")
 
 
 PARSE_COUNTS: tuple[str, ...] = (
@@ -330,6 +458,19 @@ PARSE_COUNTS: tuple[str, ...] = (
     "n_unquoted_support",
     "n_hedged_remapped",
 )
+# plan 0029: the v2.8 counters, emitted only for v2.8 roots (after PARSE_COUNTS)
+PARSE_COUNTS_V28_EXTRA: tuple[str, ...] = (
+    "n_continuation_miss",
+    "n_contradiction_prefix",
+    "n_contradiction_after",
+    "n_short_quotes",
+)
+SHORT_QUOTE_WORDS = 3
+
+
+def parse_counts(version: str | None = None) -> tuple[str, ...]:
+    """The parse counters of ``version`` (v2.7: ``PARSE_COUNTS`` exactly)."""
+    return (*PARSE_COUNTS, *PARSE_COUNTS_V28_EXTRA) if is_v28(version) else PARSE_COUNTS
 
 
 def _b(x: Any) -> bool:
@@ -359,6 +500,8 @@ def _leaf_tags(s: "Segment") -> None:
         s.source = None
     if s.raw_leaf != "unverifiable":
         s.same_slot_alternative = s.world = s.prediction = False
+    if s.raw_leaf not in tx.INCORRECT_LEAVES:
+        s.continuation_text = False  # v2.8: an incorrect-leaf tag (never overlaps prediction)
     if s.raw_leaf not in tx.INCORRECT_LEAVES and not s.unquoted_contradiction:
         s.contradicted_by = None
     if s.raw_leaf != "correct" and not s.unquoted_support:
@@ -462,16 +605,34 @@ def conversation_text(prompt: str, marked_response: str) -> str:
     return f"{prompt}\n{marked_response.replace(READ_MARK, '')}"
 
 
+def read_offset_chat(prompt: str, response: str, char: int) -> int:
+    """Plan 0029 §1.1: the marker's offset in :func:`conversation_text` (main / story):
+    ``len(prompt) + 1 + clamp(char, 0, len(response))`` (the v5c clamp)."""
+    return len(prompt) + 1 + max(0, min(int(char), len(response)))
+
+
 def parse(
     raw: dict[str, Any] | None,
     units: Sequence[Unit],
     conversation: str | None = None,
+    *,
+    read_offset: int | None = None,
+    version: str | None = None,
 ) -> tuple[list[Segment], dict[str, int]]:
     """Answer -> segments covering every unit, fail closed (see the module docstring). With
     ``conversation`` (production, calibration, consistency) the rev-17 evidence quotes are
-    checked; ``None`` skips the check (unit tests of the other mechanics only)."""
+    checked; ``None`` skips the check (unit tests of the other mechanics only).
+
+    Plan 0029 (claimmap-v2.8, ``version`` >= v2.8 or ``read_offset`` given): segments carry
+    ``continuation_text`` / ``contradiction_region`` and the v2.8 counters are added. With
+    ``read_offset`` (the marker's offset in ``conversation``; single-call mode only, never
+    anchored) every incorrect segment's quote is placed (``prefix`` iff it ends at or before
+    the marker) and the §1.2 excuse runs last, after the rev 17 / 18 / 19 steps."""
+    v28 = read_offset is not None or (version is not None and is_v28(version))
+    if read_offset is not None and conversation is None:
+        raise ValueError("read_offset needs the conversation")
     conv = Normalised(conversation) if conversation is not None else None
-    c = dict.fromkeys(PARSE_COUNTS, 0)
+    c = dict.fromkeys(parse_counts(tx.V28) if v28 else PARSE_COUNTS, 0)
     c["n_units"] = len(units)
     c["n_established_units"] = sum(u.established for u in units)
     entries: dict[tuple[int, int], dict[str, Any]] = {}
@@ -540,6 +701,8 @@ def parse(
                 contradicted_by=_quote(tsrc.get("contradicted_by")),
                 supported_by=_quote(tsrc.get("supported_by")),
                 why=str(src.get("why") or e.get("why") or ""),
+                continuation_text=v28 and _b(tsrc.get("continuation_text")),
+                v28=v28,
             )
             if leaf is None:
                 c["n_bad_leaves"] += 1
@@ -566,8 +729,57 @@ def parse(
     for s in segs:
         _merge_junk(s)
         _remap_hedged(s, c)
+    if read_offset is not None and conv is not None:
+        for s in segs:
+            _place_contradiction(s, conv, read_offset, c)
+            _excuse_continuation(s, c)
     c["n_segments"] = len(segs)
     return segs, c
+
+
+def contradiction_region(q: str, conv: Normalised, read_offset: int) -> str | None:
+    """Plan 0029 §1.1: ``prefix`` iff the earliest match of the quote ends at or before the
+    marker, else ``after`` (a crossing quote is ``after``); ``None`` when it is not found."""
+    m = conv.find(q, 0)
+    if m is None:
+        return None
+    return "prefix" if m[1] <= read_offset else "after"
+
+
+def _place_contradiction(
+    s: "Segment", conv: Normalised, read_offset: int, c: dict[str, int]
+) -> None:
+    if s.status != "ok" or s.leaf not in tx.INCORRECT_LEAVES or s.contradicted_by is None:
+        return
+    region = contradiction_region(s.contradicted_by, conv, read_offset)
+    s.contradiction_region = region
+    if region is not None:
+        c[f"n_contradiction_{region}"] += 1
+        if len(s.contradicted_by.split()) <= SHORT_QUOTE_WORDS:
+            c["n_short_quotes"] += 1
+
+
+def _excuse_continuation(s: "Segment", c: dict[str, int]) -> None:
+    """Plan 0029 §1.2, last (after rev 17 quotes, rev 18 junk, rev 19 hedges): an ``ok``
+    segment whose leaf is excusable (``detail`` / ``substitution_sibling``: a small change), that
+    the judge tagged ``continuation_text`` (literal continuation) and whose quoted contradiction
+    is ``after`` the read point becomes ``continuation_miss`` (``judge_leaf`` = the judge's leaf,
+    ``raw_leaf`` unchanged). It is no longer a probe candidate."""
+    if (
+        s.status != "ok"
+        or s.leaf not in tx.EXCUSABLE_LEAVES
+        or not s.continuation_text
+        or s.contradiction_region != "after"
+    ):
+        return
+    if s.raw_leaf in tx.PROBE_CANDIDATE_LEAVES:  # as rev 19
+        c["n_probe_candidates"] -= 1
+        if s.probe_target is None:
+            c["n_missing_probe_targets"] -= 1
+    s.judge_leaf = s.leaf
+    s.leaf = tx.CONTINUATION_MISS
+    s.probe_target = None
+    c["n_continuation_miss"] += 1
 
 
 def _remap_hedged(s: "Segment", c: dict[str, int]) -> None:

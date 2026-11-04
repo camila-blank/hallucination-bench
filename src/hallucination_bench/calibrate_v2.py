@@ -266,10 +266,35 @@ def skeleton(c: dict[str, Any]) -> dict[str, Any]:
     return {**c, "gold": {"units": gold}}
 
 
-def case_prompt(c: dict[str, Any], units: Sequence[Unit], anchor: str = "none") -> tuple[str, str]:
+def case_prompt(
+    c: dict[str, Any], units: Sequence[Unit], anchor: str = "none", prompt: str | None = None
+) -> tuple[str, str]:
     return cm.render_prompt(
-        c["prompt"], c["response"], units, kind=c.get("kind", "prose"), anchor=anchor
+        c["prompt"],
+        c["response"],
+        units,
+        kind=c.get("kind", "prose"),
+        anchor=anchor,
+        version=prompt,
     )
+
+
+def case_parse(
+    raw: dict[str, Any] | None,
+    units: Sequence[Unit],
+    c: dict[str, Any],
+    anchor: str = "none",
+    prompt: str | None = None,
+) -> tuple[list[cm.Segment], dict[str, int]]:
+    """``cm.parse`` of one case as the prompt version needs it (plan 0029: v2.8 single-call
+    passes the marker's offset in the conversation)."""
+    conv = cm.conversation_text(c["prompt"], c["response"])
+    if not cm.is_v28(prompt):
+        return cm.parse(raw, units, conv)
+    if cm.check_anchor(anchor) or READ_MARK not in c["response"]:
+        return cm.parse(raw, units, conv, version=prompt)
+    off = len(c["prompt"]) + 1 + c["response"].index(READ_MARK)
+    return cm.parse(raw, units, conv, read_offset=off, version=prompt)
 
 
 def mode_units(c: dict[str, Any], anchor: str = "none") -> list[Unit]:
@@ -330,7 +355,9 @@ def _ratio(a: float, b: float) -> float | None:
 
 
 def run_metrics(
-    cases: Sequence[dict[str, Any]], preds: Sequence[tuple[list[cm.Segment], dict[str, int]]]
+    cases: Sequence[dict[str, Any]],
+    preds: Sequence[tuple[list[cm.Segment], dict[str, int]]],
+    prompt: str | None = None,
 ) -> dict[str, Any]:
     """Metrics of one repeat; ``preds[i]`` = (segments, parse counts) of case ``i``."""
     c: Counter = Counter()
@@ -449,7 +476,7 @@ def run_metrics(
         "probe_targets": probe_rows,
         "leaf_recall": {
             lf: {"recall": _ratio(gold_hit[lf], gold_n[lf]), "n": gold_n[lf]}
-            for lf in tx.LEAF_NAMES
+            for lf in tx.scoring_leaf_names(prompt or cm.PROMPT_VERSION)
         },
         "_unit_groups": unit_groups,
         "_disagreements": disagree,
@@ -493,8 +520,10 @@ def score(
     preds: Sequence[Sequence[tuple[list[cm.Segment], dict[str, int]]]],
     split: str,
     anchor: str = "none",
+    prompt: str | None = None,
 ) -> dict[str, Any]:
-    runs = [run_metrics(cases, p) for p in preds]
+    prompt = prompt or cm.PROMPT_VERSION
+    runs = [run_metrics(cases, p, prompt) for p in preds]
     mean: dict[str, Any] = {k: _mean([r[k] for r in runs]) for k in SCALARS}
     if len(runs) >= 2:
         a, b = runs[0]["_unit_groups"], runs[1]["_unit_groups"]
@@ -508,13 +537,13 @@ def score(
             "recall": _mean([r["leaf_recall"][lf]["recall"] for r in runs]),
             "n": runs[0]["leaf_recall"][lf]["n"],
         }
-        for lf in tx.LEAF_NAMES
+        for lf in tx.scoring_leaf_names(prompt)
     }
     out: dict[str, Any] = {
         "split": split,
-        "prompt_version": cm.PROMPT_VERSION,
+        "prompt_version": prompt,
         "anchor": anchor,
-        "taxonomy_version": tx.TAXONOMY_VERSION,
+        "taxonomy_version": cm.spec(prompt).taxonomy_version,
         "chosen_decisions": dict(tx.CHOSEN),
         "n_cases": len(cases),
         "n_units": runs[0]["n_units"],
@@ -611,18 +640,21 @@ async def map_cases(
     repeats: int = 2,
     usage: Usage | None = None,
     anchor: str = "none",
+    prompt: str | None = None,
 ) -> list[list[tuple[list[cm.Segment], dict[str, int]]]]:
     """preds[r][case_i] = (segments, parse counts) of repeat ``r`` (fail closed). Single-call
-    mode (default) ignores the established flags; ``anchor="v5c"`` shows them."""
-    schema = cm.schema_for(anchor)
+    mode (default) ignores the established flags; ``anchor="v5c"`` shows them. ``prompt``
+    (plan 0029): the claim-map prompt version (default claimmap-v2.7)."""
+    prompt = prompt or cm.PROMPT_VERSION
+    schema = cm.schema_for(anchor, prompt)
     usage = usage if usage is not None else Usage()
     out: list[list[Any]] = [[None] * len(cases) for _ in range(repeats)]
 
     async def one(r: int, i: int, c: dict[str, Any]) -> None:
         units = mode_units(c, anchor)
-        system, user = case_prompt(c, units, anchor)
+        system, user = case_prompt(c, units, anchor, prompt)
         key = cal_key(split, c["case_id"], r)
-        fp = fingerprint(cm.PROMPT_VERSION, model, effort, f"r{r}", system, user)
+        fp = fingerprint(prompt, model, effort, f"r{r}", system, user)
         row = cache.get(key, fp)
         raw: dict[str, Any] | None
         if row is not None:
@@ -650,7 +682,7 @@ async def map_cases(
                 raw = None
             else:
                 cache.put(key, fp, {"result": raw, "meta": meta})
-        out[r][i] = cm.parse(raw, units, cm.conversation_text(c["prompt"], c["response"]))
+        out[r][i] = case_parse(raw, units, c, anchor, prompt)
 
     if llm is not None:
         await llm.preflight(model)
@@ -729,10 +761,12 @@ def run(
     concurrency: int = 64,
     cases_file: Path | None = None,
     anchor: str = "none",
+    prompt: str | None = None,
 ) -> dict[str, Any]:
     from hallucination_bench.evals.wsbench_chat.run import model_slug
 
     cm.check_anchor(anchor)
+    prompt = cm.spec(prompt).version
     cases = load_cases(split, cases_file)
     d = Path(out_root) / "calibration" / model_slug(model)
     usage = Usage()
@@ -751,24 +785,25 @@ def run(
                     repeats=repeats,
                     usage=usage,
                     anchor=anchor,
+                    prompt=prompt,
                 )
         finally:
             await llm.aclose()
 
     preds = asyncio.run(go())
-    res = score(cases, preds, split, anchor)
+    res = score(cases, preds, split, anchor, prompt)
     res["coverage"] = coverage(cases)
     res["spend_this_run"] = usage.to_dict()
     res["model"] = model
     res["effort"] = effort
-    stem = result_stem(split, anchor)
+    stem = result_stem(split, anchor, prompt)
     (d / f"{stem}.json").write_text(json.dumps(res, indent=1) + "\n")
     (d / f"{stem}.md").write_text(render_markdown(res) + "\n")
     return res
 
 
-def result_stem(split: str, anchor: str = "none") -> str:
-    return f"{split}_{cm.PROMPT_VERSION}" + ("" if anchor == "none" else f"_{anchor}")
+def result_stem(split: str, anchor: str = "none", prompt: str | None = None) -> str:
+    return f"{split}_{prompt or cm.PROMPT_VERSION}" + ("" if anchor == "none" else f"_{anchor}")
 
 
 def gate_passed(out_root: Path, model: str, anchor: str = "none") -> bool:

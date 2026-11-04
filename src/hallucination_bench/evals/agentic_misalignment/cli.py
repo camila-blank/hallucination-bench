@@ -18,6 +18,8 @@ def run(args: argparse.Namespace) -> int:
         stages = amrun.parse_stages(args.stages)
     except ValueError as e:
         raise SystemExit(str(e)) from None
+    if getattr(args, "joint", False):  # plan 0029: --joint = + the joint stage
+        stages = stages | {"joint"}
     arms = amrun.resolve_arms(args.arm, args.readouts_root, args.arms)
     models = _models(args)
     out = Path(args.out)
@@ -36,6 +38,7 @@ def run(args: argparse.Namespace) -> int:
             concurrency=args.concurrency,
             stages=stages,
             show_prompts=args.show_prompts,
+            sample_seed=getattr(args, "sample_seed", None),
         )
         summaries, intent = res["arms"], res["intent"]
     for n, s in summaries.items():
@@ -55,6 +58,16 @@ def run(args: argparse.Namespace) -> int:
     # Stage H failures likewise count only when the verify stage ran (plan 0008 rev 13)
     if "verify" in stages:
         n_failed += sum(amrun.n_failed_verify(s) for s in summaries.values())
+    # plan 0029: amsit-v1 / joint map failures, when those stages ran
+    if "situation" in stages:
+        n_failed += sum(
+            int(s.get("v8", {}).get("situation", {}).get("n_failed", 0)) for s in summaries.values()
+        )
+    if "joint" in stages:
+        n_failed += sum(
+            int(s.get("v8", {}).get("joint", {}).get("map_status", {}).get("failed", 0))
+            for s in summaries.values()
+        )
     if n_failed:
         print(f"{n_failed} failed calls remain; re-run to retry them", file=sys.stderr)
         return 4

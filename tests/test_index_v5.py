@@ -141,9 +141,10 @@ def test_versions():
         "v5": "hindex-v5",
         "v6": "hindex-v6",
         "v7": "hindex-v7",  # plan 0027 (sanctioned edit, as plan 0022's for v6)
+        "v8": "hindex-v8",  # plan 0029 (sanctioned edit)
     }
     with pytest.raises(ValueError, match="unknown index version"):
-        ix.build_index({}, ix.Methods(), version="v8")
+        ix.build_index({}, ix.Methods(), version="v9")
 
 
 # ---------------------------------------------------------------- the candidate rule

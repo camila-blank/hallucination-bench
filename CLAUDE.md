@@ -24,6 +24,11 @@ gated role-play candidates; judged by running WSB's own pinned `jailbreak_recogn
 `hbench benign-roleplay import|run|report|index-export`; on the index from hindex-v7 only) is plan
 `plans/0023-benign-roleplay.md`; **hindex-v7** (plan `plans/0027-benign-roleplay-on-index-v7.md`,
 `--version v7`, CLI default still v6) = v6 + `benign_roleplay` (weight 2), sibling weight 1.
+**hindex-v8** (plan `plans/0029-index-v8-overhaul.md`, `--version v8`; CLI default switches in the
+results PR) = claimmap-v2.8 everywhere (excused literal continuations, roles = substitutions), AM
+split into `am_claims` + `am_situation` (amsit-v1), `cheating` (weight 2), a joint 11-layer row per
+method, `hbench final` (manifest + plots). Plan 0029 supersedes the cheating branch's plan 0026
+for the index (its "hindex-v7" commit 8663a1f is not used).
 
 ## Layout
 
@@ -35,7 +40,9 @@ src/hallucination_bench/
   readouts.py     readout contract loader, decode_token, verify_quote, normalize_ws
   summarizer.py   interp-v1 token-bag -> prose prompt (verbatim)
   taxonomy.py     THE taxonomy (single source of truth; rendered into the classifier prompt)
-  taxonomy_v2.py  THE claim-map taxonomy (judge: 12 leaves / 8 groups; scoring, rev 18-19: 11 leaves /
+  taxonomy_v2.py  THE claim-map taxonomy (plan 0029: v2.7 objects untouched + parallel *_V28 text,
+                  render/definitions/rules/decision_text(version), SCORING_EXTRA continuation_miss,
+                  leaf_rows(version)) (judge: 12 leaves / 8 groups; scoring, rev 18-19: 11 leaves /
                   7 groups / 6 VERDICTS (junk = non_claim + off_topic; model_state = thinky;
                   rev 20: hallucination = false_claim + detail + substitution_category); leaf
                   tags, precedence, open
@@ -43,7 +50,9 @@ src/hallucination_bench/
   units.py        deterministic readout splitter (units R{i}.U{n}) + offset-returning locate
   judges/v5c.py   verbatim v5c span + verify prompts/parsers; claim_lists (quotes, checked vs tally)
   judges/taxonomy_v1.py  classifier prompt, schema, validate, fail-closed parse
-  judges/claimmap_v2.py  claim-map prompt, schema, validate, parse -> segments (forced/disputed)
+  judges/claimmap_v2.py  claim-map prompt, schema, validate, parse -> segments (forced/disputed);
+                  plan 0029: VERSIONS registry (claimmap-v2.7 / -v2.8 Spec), schema_for(anchor,
+                  version), parse(read_offset=) -> the continuation excuse, joint_note()
   evals/__init__.py  EVALS registry + bank_for(name); Models.eval picks the bank and <out>/<eval>/
   evals/_bank_common.py  sites / positions / marked response / expected grid (every bank)
   evals/story/bank.py    the story bank (data/story); the pipeline is wsbench_chat's (plan 0007)
@@ -59,7 +68,11 @@ src/hallucination_bench/
     run.py        run_am (D -> S -> H -> M + intent), Detector terminal rule, Verifier, rebuild
     score.py      mention_verdict, regions, kind_match, set-up, counting spans, shares
     report.py     `report --eval agentic_misalignment` (report.md / report.json)
-  judges/claimmap_am.py  claimmap-v2.7+am2: research frame + chat SYSTEM + tail verbatim, AM head (marker in prompt)
+  judges/claimmap_am.py  claimmap-v2.7+am2: research frame + chat SYSTEM + tail verbatim, AM head (marker in prompt);
+                  plan 0029: VERSIONS (+am2, claimmap-v2.8+am3 with scenario_card()), spec()
+    evals/agentic_misalignment/situation.py  plan 0029: amsit-v1 (situation misrepresentation; sites,
+                  prompt, fail-closed parse, item_rows / metric for the am_situation family)
+  final.py        plan 0029: `hbench final` (v8 manifest checks -> hindex-v8 -> plots/final/)
   calibrate.py    classifier vs gold cases, Wilson CIs, the held-out gate
   calibrate_v2.py claim map vs unit-level gold (dev_v2 / heldout_v2), the v2 gate
   report.py       cross-arm report, audit samples, pilot-dump
@@ -199,8 +212,10 @@ scripts/mask/        build_items.py, gen_modal.py (Modal vLLM), build_capture.py
   root from their own location and read `${HBENCH_X:-<default>}`.
 - CI is pending (plan 0012 D5, held back for a token scope): until it lands, run ruff check +
   format and `pytest -rs` locally before pushing. Plan numbers are unique: the next free one is
-  0028 (0009/0010 belong to the unlanded resampling-gate branches; 0025/0026 to the local,
-  unmerged cheating eval, whose index plan 0026 becomes hindex-v8 on top of v7).
+  0030 (0009/0010 belong to the unlanded resampling-gate branches; 0025/0026 to the local,
+  unmerged cheating eval -- its index plan 0026 is superseded by 0029 (hindex-v8); 0028 is the
+  main-bank expansion (3x prompts x 2x punctuation-only sites, separate branch); 0029 is
+  hindex-v8).
 
 ## Run commands
 
@@ -464,6 +479,44 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
   `scripts/final_olens/um_ladder_arm.py` in a COPY of the official um root (frozen C / probes /
   distractors) + `export_um_arm.py` (only the arm's units; the frozen arms keep their root).
   benign_roleplay: `wsb.CAMPAIGN_NESTED` arms reuse `<campaign>/<arm>/{all,L<k>}`.
+- **hindex-v8 / claimmap-v2.8** (plan 0029):
+  - **Prompt versions are a registry**: `claimmap_v2.VERSIONS` / `claimmap_am.VERSIONS`. The module
+    constants (`PROMPT_VERSION`, `SYSTEM`, `USER_TEMPLATE`, `SCHEMA`, `LEAF_NAMES`, ...) and every
+    v2.7 object keep their v2.7 values, pinned by hash in `tests/test_registry_pins.py` (recorded
+    from main before the change). v2.8 text lives in parallel `*_V28` objects; a v2.8 wording
+    change goes there (or into a new registered `claimmap-v2.8.1`), never into a v2.7 object.
+  - `--map-prompt {claimmap-v2.7,claimmap-v2.8}` on `hbench run` (chat / story / AM; AM maps it
+    to `claimmap-v2.8+am3`) is recorded in `arm.json` (`map_prompt`, missing = v2.7); a run whose
+    flag differs from an existing `arm.json` exits 3, rebuild / report replay the recorded one.
+    v8 roots live under `outputs/v8/` (pilots `outputs/v8-pilot/`); never point a v2.8 run at a v7
+    root. `scripts/v8/seed_am_root.py` copies the v7 AM detections (`:D`, `:Dsum`, `summ:`,
+    `batchD:`, `:H`) + `intent.jsonl` into a v8 / pilot AM root (`--with-map --append` copies a
+    pilot's `:M` / `sit:` rows when the final version equals the pilot's).
+  - New segment fields (`continuation_text`, `contradiction_region`) and counters
+    (`n_continuation_miss`, ...) are emitted for v2.8 roots only, so v7 rebuilds are
+    byte-identical (`tests/test_v7_rebuild_identity.py`; fixture written once by
+    `scripts/index/build_v7_fixture.py` with the pre-change code: provenance, never a refresh).
+  - The excuse runs last in `claimmap_v2.parse` (after rev 17 quotes, rev 18 junk, rev 19
+    hedges), only with `read_offset` (main / story: `read_offset_chat`; AM: `site["char"]`),
+    never in `--anchor v5c` mode. `continuation_miss` is outside the v2.7 tables
+    (`taxonomy_v2.SCORING_EXTRA`: thinky / unresolved, a claim, weight 0).
+  - Joint cells: `hbench run --joint [--joint-from a,b]` (chat / story; each layer from the first
+    source that has it) -> `<arm>/cells_joint.jsonl` + `summary_joint_v2.json` + `joint.json`
+    (keys `{id}__Lall__p{pos}`, records `layer: "all"`, readouts `R{i}` = layer `20 + 4i`, sample
+    0; J-lens: the per-layer `summ:` rows). AM: `--stages joint` (population = sites with a
+    sample-0 mention). Joint calls use `llm.joint_llm` (64k tokens, 1800 s, streaming). The index
+    maps `"all"` to `index.JOINT = -1` and renders it `all`.
+  - AM v8: claim map on Sonnet (`--judge-model claude-opus-5-5 --map-model claude-sonnet-5-5`, so
+    the root stays keyed by the Opus detector); +am3 refuses to map unless every item has an
+    effective intent (the scenario card is in the `:M` fingerprint); a refused detector call is
+    re-asked once on Sonnet under the Opus fingerprint (`meta.answered_by`). `--stages situation`
+    = amsit-v1 (`situation_cache.jsonl` -> `situation.jsonl`, `--situation-model`, default
+    Sonnet). `joint` / `situation` are never in the default stage set and need a v2.8 root.
+  - Safety joint rows: `index_counts_joint.jsonl` in the overrefusal (`offtopic_index/`) and
+    benign_roleplay roots. The cheating family needs a `twin_readouts` root and is refused before
+    v8 (also from `$HBENCH_SAFETY_CHEATING_OUT`). v8 reader allowlists exclude
+    `final-olens-rl600-x4`.
+  - Judge noise is not run for v8: `report --view v2` shows no noise column for v2.8 roots.
 - **In-run retries** (rev 14): an invalid `:M` (or calibration) answer is re-asked up to 2 times
   (`run.MAP_INVALID_RETRIES`) before it is cached as failed; meta records `n_invalid_attempts`
   and the summed usage.

@@ -51,6 +51,26 @@ from typing import Any
 TAXONOMY_VERSION = "v2-r17"  # rendered into the prompt; rev 18 changes scoring only
 SCORING_VERSION = "v2-r20"  # r18 junk merge; r19 hedged/thinky; r20 category -> hallucination
 
+# Plan 0029: the claim-map prompt versions this module renders. The module constants above and
+# every v2.7 object below keep their values; v2.8 text lives in parallel ``*_V28`` objects.
+V27 = "claimmap-v2.7"
+V28 = "claimmap-v2.8"
+PROMPT_VERSIONS: tuple[str, ...] = (V27, V28)
+TAXONOMY_VERSION_V28 = "v2-r21"
+SCORING_VERSION_V28 = "v2-r21"  # r21: the excused literal continuation (continuation_miss)
+
+
+def check_version(version: str) -> str:
+    if version not in PROMPT_VERSIONS:
+        raise ValueError(f"unknown claim-map version {version!r} (known: {PROMPT_VERSIONS})")
+    return version
+
+
+def is_v28(version: str) -> bool:
+    """Every registered version >= claimmap-v2.8 (plan 0029 §1.2)."""
+    return check_version(version) != V27
+
+
 # ---------------------------------------------------------------- groups
 
 HALLUCINATION = "hallucination"
@@ -239,6 +259,48 @@ ALL_LEAVES: tuple[str, ...] = (*LEAF_NAMES, *PSEUDO_LEAVES)
 assert len(JUDGE_LEAF_NAMES) == 12 and len(JUDGE_GROUPS) == 8
 assert len(LEAF_NAMES) == 11 and len(GROUPS) == 7
 
+# Plan 0029 §1.3: the v2.8 leaf definitions (same 12 names, branches and groups; only the
+# `detail`, `false_claim` and `substitution_sibling` definitions change).
+_DEFS_V28: dict[str, str] = {
+    "detail": (
+        "[hallucination] obviously contradicted, the situation and the identities are right, and "
+        "one specific is wrong: a name, number, date or time, quantity, wording, or a wrong "
+        'context word inside an otherwise on-topic reading ("RLC in the context of **Android**" '
+        "for an answer about the 3GPP spec). Dates, times and quantities of the conversation's "
+        'own events are `detail` ("I went last week" when it was yesterday). A role word is not '
+        "a context word (rule 8, step 1). See the Detail rule."
+    ),
+    "false_claim": (
+        "[hallucination] the situation itself is wrong, and the conversation obviously "
+        "contradicts it: what happens, the outcome or stance, the kind of act (blackmail where "
+        'the text has a leak; "the user complains" where the user thanks), an act attributed to '
+        "an agent who does not appear in the text, actor and target reversed, a wrong relation "
+        "or cause, a wrong real-world quantity, a continuation that assumes a situation the text "
+        'rules out ("if it\'s from a flood or sewage backup" in a chat about tobacco smell), or a '
+        'different answer to the question the response answers ("my better half is your '
+        'development environment" when the response says its better half is the team behind '
+        "it). A different existing entity, or a different role or title, in the slot is a "
+        "substitution, not `false_claim`."
+    ),
+    "substitution_sibling": (
+        "[co-activation] contradicted: a different object of the same class in place of the "
+        'right one, including the model naming itself as another real AI system ("我是 '
+        'ChatGPT" where it is Qwen), or a wrong role or title, including for the right person '
+        '("Kyle, the CEO" when Kyle is the CTO; "the CEO\'s affair" when the affair is another '
+        "executive's)."
+    ),
+}
+_LEAVES_V28: tuple[Leaf, ...] = tuple(
+    Leaf(lf.name, lf.branch, lf.group, _DEFS_V28.get(lf.name, lf.definition)) for lf in _LEAVES
+)
+assert tuple(lf.name for lf in _LEAVES_V28) == JUDGE_LEAF_NAMES
+
+
+def judge_leaves(version: str = V27) -> tuple[Leaf, ...]:
+    """The judge's 12 rendered leaves of ``version`` (names never change)."""
+    return _LEAVES_V28 if is_v28(version) else _LEAVES
+
+
 # ---------------------------------------------------------------- leaf tags (rev 16)
 
 REASONS: tuple[str, ...] = ("generic", "filler", "formatting", "junk_text", "lens_meta")  # judge
@@ -312,12 +374,38 @@ assert sorted(lf for leaves in VERDICTS.values() for lf in leaves) == sorted(
 )
 
 
+# Plan 0029 §1.2: the excused literal continuation, a code-assigned v2.8 scoring leaf kept OUT
+# of the v2.7 tables above (so v2.7 row lists, pins and outputs are unchanged); group_of /
+# verdict_of consult this side table. Thinky / unresolved: a claim, never a hallucination.
+CONTINUATION_MISS = "continuation_miss"
+SCORING_EXTRA: dict[str, tuple[str, str]] = {CONTINUATION_MISS: (THINKY, V_UNRESOLVED)}
+# §1.2 condition 3 ("small change"): only these judge leaves can be excused
+EXCUSABLE_LEAVES: tuple[str, ...] = ("detail", "substitution_sibling")
+
+
 def group_of(leaf: str) -> str:
+    if leaf in SCORING_EXTRA:
+        return SCORING_EXTRA[leaf][0]
     return GROUP_OF.get(leaf, FAILED)
 
 
 def verdict_of(leaf: str) -> str:
+    if leaf in SCORING_EXTRA:
+        return SCORING_EXTRA[leaf][1]
     return VERDICT_OF.get(leaf, FAILED)
+
+
+def leaf_rows(version: str = V27) -> tuple[str, ...]:
+    """The per-leaf report rows (``ALL_LEAVES`` for v2.7; v2.8 adds ``continuation_miss`` before
+    the pseudo-leaves)."""
+    if not is_v28(version):
+        return ALL_LEAVES
+    return (*LEAF_NAMES, *SCORING_EXTRA, *PSEUDO_LEAVES)
+
+
+def scoring_leaf_names(version: str = V27) -> tuple[str, ...]:
+    """``LEAF_NAMES`` for v2.7; v2.8 adds ``continuation_miss``."""
+    return LEAF_NAMES if not is_v28(version) else (*LEAF_NAMES, *SCORING_EXTRA)
 
 
 def is_claim(leaf: str) -> bool:
@@ -429,9 +517,40 @@ OPEN_DECISIONS: dict[str, OpenDecision] = {
 # Change one line here to switch an open decision (then bump TAXONOMY_VERSION).
 CHOSEN: dict[str, str] = {k: d.default for k, d in OPEN_DECISIONS.items()}
 
+# Plan 0029 §3.4: the v2.8 copy. Same keys, options and defaults (so the one CHOSEN serves both
+# versions); only `subject_name` changes its wording ("name or role").
+OPEN_DECISIONS_V28: dict[str, OpenDecision] = {
+    **OPEN_DECISIONS,
+    "subject_name": OpenDecision(
+        "A wrong named entity, or a wrong role or title, that is the SUBJECT of the claim "
+        "(Picasso for da Vinci; the CEO for the CTO): substitution (co-activation) or a false "
+        "claim (hallucination)?",
+        "substitution",
+        {
+            "substitution": (
+                "This holds even when the wrong name or role is the subject of the claim: "
+                "Picasso for da Vinci is `substitution_sibling`, and so is the CEO for the CTO."
+            ),
+            "false_claim": (
+                "Exception: when the wrong name or role is the subject of the claim (Picasso for "
+                "da Vinci; the CEO for the CTO), it is `false_claim`, not a substitution."
+            ),
+        },
+    ),
+}
+assert set(OPEN_DECISIONS_V28) == set(OPEN_DECISIONS)
+assert all(
+    OPEN_DECISIONS_V28[k].default == d.default
+    and set(OPEN_DECISIONS_V28[k].options) == set(d.options)
+    for k, d in OPEN_DECISIONS.items()
+)
 
-def decision_text(key: str) -> str:
-    d = OPEN_DECISIONS[key]
+
+def decision_text(key: str, version: str = V27) -> str:
+    """The prompt text of the chosen option. v2.7 reads ``OPEN_DECISIONS``; v2.8 the parallel
+    ``OPEN_DECISIONS_V28`` (same keys, options and defaults; only the wording of some texts
+    differs). Both read the one shared ``CHOSEN``."""
+    d = (OPEN_DECISIONS_V28 if is_v28(version) else OPEN_DECISIONS)[key]
     return d.options[CHOSEN.get(key, d.default)]
 
 
@@ -481,6 +600,14 @@ DECISIONS: tuple[tuple[str, str], ...] = (
     ),
     ("hedged lists are fine", "the hedged tag"),
     ("eval awareness (as thinky content)", "rule 4 and model_state"),
+    (
+        "[v8 note on 'most predictions that the text contradicts should be hallucinations'] if it "
+        "is LITERALLY phrased as a continuation of the text, is on topic, and has some small "
+        "change it should not be counted as a hallucination",
+        "retained, except plan 0029 §1.2's excused literal continuations (claimmap-v2.8: the "
+        "`continuation_text` tag + code, leaf `continuation_miss`); a concrete claim about what "
+        "will happen later stays a hallucination",
+    ),
 )
 
 # ---------------------------------------------------------------- units / segments
@@ -548,7 +675,9 @@ LENS_FRAMING_RULE = (
 )
 
 
-def _rules(anchored: bool = False) -> dict[int, Rule]:
+def _rules(anchored: bool = False, version: str = V27) -> dict[int, Rule]:
+    if is_v28(version):
+        return _rules_v28(anchored, version)
     est_clause = ", or if it overlaps an established span" if anchored else ""
     rules = {
         1: Rule(
@@ -748,6 +877,102 @@ def _rules(anchored: bool = False) -> dict[int, Rule]:
     return rules
 
 
+# ---------------------------------------------------------------- v2.8 rules (plan 0029)
+
+QUOTE_RULE_V28 = (
+    QUOTE_RULE + " Quote the earliest text that rules the segment out; if the text before the "
+    "marker already rules it out, quote that."
+)
+CONTINUATION_TEXT_CLAUSE = (
+    "set `continuation_text` if the segment is written as the text's own continuation"
+)
+RULE8_LEAD_V28 = (
+    "Ask first: **fix the wrong part — is the reading then right?** If one identity (an entity, "
+    "a role or a title) is wrong, it is step 1; if one specific is wrong, step 2; if the "
+    "situation itself is wrong, step 3."
+)
+RULE8_STEP1_V28 = (
+    "Step 1. A wrong identity in the slot, in place of the right one -> substitution "
+    "(`substitution_sibling` if it is of the same class, `substitution_category` if of a "
+    "different category). An identity is a real-world entity (person, work, place, "
+    "organisation, product), another distinct entity that appears in the text, **or a role or "
+    'title** (CEO, CTO, IT administrator). So "the CEO\'s affair" when the affair is another '
+    'executive\'s is `substitution_sibling`; "Kyle, the CEO" when Kyle is the CTO (the right '
+    'person with the wrong title) is `substitution_sibling`; "the IT administrator approves '
+    'the wipe" when a security engineer does is `substitution_sibling`. A fictional or '
+    "arbitrary **name** for the right referent never has its own identity (a name is not a "
+    "role): it is step 2 (`detail`), even for a protagonist (Nora for the story's Mia; Steve "
+    "for Joe), and a wrong arbitrary or user-supplied name for someone is `detail` (the user "
+    'addressed "Miss Li" and the readout says "Miss Wang"). The model naming itself as another '
+    'real AI system ("我是 ChatGPT" where it is Qwen) is `substitution_sibling`: a real product '
+    "has its own identity. "
+)
+RULE8_STEP2_V28 = (
+    "Step 2. `detail` when the situation and the identities are right and only a specific is "
+    "wrong: a value, name, date or time, quantity, wording, or a context word (not a role word: "
+    'those are step 1) ("RLC in the context of Android" for an answer about the 3GPP spec). '
+    "Dates, times and quantities of the conversation's own events are `detail` (\"I went last "
+    'week" when the response says yesterday). See the Detail rule.'
+)
+RULE8_STEP3_V28 = (
+    "Step 3. `false_claim` when the situation itself is wrong: what happens, the outcome, the "
+    'stance, the kind of act (blackmail where the text has a leak; "the user complains" where '
+    "the user thanks), an act attributed to an agent who does not appear in the text, or actor "
+    'and target reversed; a continuation that assumes a situation the text rules out ("if '
+    "it's from a flood or sewage backup\" in a chat about tobacco smell), or a different answer "
+    'to the question the response answers ("my better half is your development environment"). '
+    "Precedence: a different existing entity, or a different role or title, in the slot is "
+    "step 1, not `false_claim`."
+)
+
+
+def _rules_v28(anchored: bool, version: str) -> dict[int, Rule]:
+    """The v2.7 rules with the plan-0029 edits: rule 3's second bullet gains the
+    `continuation_text` clause; rule 8 gets the lead question, the role-aware step 1, the edited
+    steps 2 and 3, and the v2.8 quote rule; decision texts come from OPEN_DECISIONS_V28."""
+    base = _rules(anchored)  # v2.7 text, then the edits below
+    out = dict(base)
+    r3 = base[3]
+    b3 = list(r3.body)
+    assert b3[2].startswith("incorrect if the text obviously contradicts it")
+    b3[2] = (
+        "incorrect if the text obviously contradicts it, before or after the marker (leaf by "
+        f"rule 8); {CONTINUATION_TEXT_CLAUSE};"
+    )
+    out[3] = Rule(3, r3.title, tuple(b3))
+    r6 = base[6]
+    b6 = list(r6.body)
+    b6[0] = b6[0].replace(decision_text("wrong_bridge"), decision_text("wrong_bridge", version))
+    out[6] = Rule(6, r6.title, tuple(b6))
+    out[8] = Rule(
+        8,
+        base[8].title,
+        (
+            base[8].body[0] + " " + RULE8_LEAD_V28,
+            RULE8_STEP1_V28 + decision_text("subject_name", version),
+            RULE8_STEP2_V28,
+            RULE8_STEP3_V28,
+            QUOTE_RULE_V28,
+        ),
+    )
+    r12 = base[12]
+    out[12] = Rule(
+        12,
+        r12.title,
+        (
+            r12.body[0].replace(
+                decision_text("hedged_inference"), decision_text("hedged_inference", version)
+            ),
+        ),
+    )
+    return out
+
+
+def rules(anchored: bool = False, version: str = V27) -> dict[int, Rule]:
+    """The precedence rules of ``version`` (v2.7 = ``RULES`` / ``RULES_ANCHORED``)."""
+    return _rules(anchored, version)
+
+
 RULES: dict[int, Rule] = _rules()  # single-call (no rule 2)
 RULES_ANCHORED: dict[int, Rule] = _rules(anchored=True)
 BRANCH_RULE_ORDER_ANCHORED: tuple[int, ...] = (2, 1, 3, 4, 5, 6, 10, 11, 12, 13)
@@ -777,7 +1002,9 @@ DETAIL_RULE_INTRO = (
 )
 
 
-def _detail_items() -> tuple[str, ...]:
+def _detail_items(version: str = V27) -> tuple[str, ...]:
+    if is_v28(version):
+        return _detail_items_v28(version)
     items = [
         "arbitrary or fictional names, including a wrong user-supplied name;",
         "incidental numbers, dates or counts in fiction or scaffolding;",
@@ -787,6 +1014,26 @@ def _detail_items() -> tuple[str, ...]:
     if CHOSEN.get("invented_specific") == "detail":
         items.append(decision_text("invented_specific"))
     return tuple(items)
+
+
+def _detail_items_v28(version: str) -> tuple[str, ...]:
+    items = [
+        "arbitrary or fictional names, including a wrong user-supplied name (a name, not a "
+        "role: a wrong role or title is a substitution, rule 8 step 1);",
+        "names, numbers, dates, times, quantities and wordings of the conversation's own "
+        'events, or of fiction or scaffolding ("I went last week" when it was yesterday);',
+        "quoted wording or heading text;",
+        "a wrong context word inside an otherwise on-topic reading (not a role word).",
+    ]
+    if CHOSEN.get("invented_specific") == "detail":
+        items.append(decision_text("invented_specific", version))
+    return tuple(items)
+
+
+def detail_extra(version: str = V27) -> tuple[str, ...]:
+    if CHOSEN.get("invented_specific") == "detail":
+        return ()
+    return (decision_text("invented_specific", version),)
 
 
 DETAIL_ITEMS: tuple[str, ...] = _detail_items()
@@ -799,6 +1046,19 @@ DETAIL_CARVE_OUT = (
     'are `supplementary_false` (rule 6). Wording and digits are treated alike, so "no errors" and '
     '"0 errors" both count as `false_claim`.'
 )
+DETAIL_ITEMS_V28: tuple[str, ...] = _detail_items(V28)
+DETAIL_CARVE_OUT_V28 = (
+    'Only counts that **flip the claim** ("0 errors" for 3) and quantities and dates of '
+    "**real-world events** are `false_claim`, **when the conversation contradicts them**; if it "
+    "is silent they are `supplementary_false` (rule 6). Dates, times and quantities of the "
+    "conversation's own events are `detail`. Wording and digits are treated alike, so \"no "
+    'errors" and "0 errors" both count as `false_claim`.'
+)
+
+
+def detail_carve_out(version: str = V27) -> str:
+    return DETAIL_CARVE_OUT_V28 if is_v28(version) else DETAIL_CARVE_OUT
+
 
 # ---------------------------------------------------------------- tags
 
@@ -856,9 +1116,56 @@ TAGS: dict[str, str] = {
 }
 ANCHORED_ONLY_TAGS: tuple[str, ...] = ("dispute",)
 
+# Plan 0029 §1.2 / §1.3: the v2.8 tags. `prediction` is kept exactly as in v2.7 (unverifiable
+# only); `continuation_text` is its incorrect-leaf counterpart; `contradicted_by` gains the
+# earliest-text sentence; `cruxy` reads the v2.8 decision copy.
+CONTINUATION_TEXT_TAG = (
+    "(bool, incorrect segments only, else false): the segment is written as the text's own "
+    'continuation, its next words ("Yeah, I went last week and"; "Dear Kyle, I must inform '
+    'you"). A statement **about** the text or about what will happen ("the last sentence will '
+    'be X", "the response goes on to list three causes", "the model is about to refuse", "the '
+    'AI will blackmail Kyle") is never continuation text (false).'
+)
 
-def tags(anchored: bool = False) -> dict[str, str]:
-    return {k: v for k, v in TAGS.items() if anchored or k not in ANCHORED_ONLY_TAGS}
+
+def _tags_v28() -> dict[str, str]:
+    out: dict[str, str] = {}
+    for k, v in TAGS.items():
+        out[k] = v
+        if k == "prediction":
+            out["continuation_text"] = CONTINUATION_TEXT_TAG
+    out["contradicted_by"] = (
+        TAGS["contradicted_by"] + " Quote the earliest text that rules the segment out; if the "
+        "text before the marker already rules it out, quote that."
+    )
+    out["cruxy"] = decision_text("cruxy", V28)
+    return out
+
+
+TAGS_V28: dict[str, str] = _tags_v28()
+
+
+def tags(anchored: bool = False, version: str = V27) -> dict[str, str]:
+    src = TAGS_V28 if is_v28(version) else TAGS
+    return {k: v for k, v in src.items() if anchored or k not in ANCHORED_ONLY_TAGS}
+
+
+# Plan 0029 §1.3: worked examples rendered into the v2.8 prompt only.
+EXAMPLES_V28: tuple[str, ...] = (
+    "\"The CEO's affair\" when the text says the affair is another executive's: "
+    "`substitution_sibling` (a wrong role in the slot; pair said CEO, actual the executive).",
+    '"Kyle, the CEO" when the text says Kyle is the CTO: `substitution_sibling` (the right '
+    "person with the wrong title; pair said CEO, actual CTO).",
+    '"The IT administrator approves the wipe" when a security engineer approves it: '
+    "`substitution_sibling` (a wrong role).",
+    '"I went there last week" when the response says yesterday: `detail` (a date of the '
+    "conversation's own event).",
+    '"The last sentence will be about the weather" when the last sentence is about trains: '
+    "incorrect (leaf by rule 8), `continuation_text = false`: it is a claim about what will "
+    "happen, not continuation text.",
+    '"Yeah, I went there last week and" written as the response\'s own next words, when the '
+    "response goes on to say yesterday: `detail` with `continuation_text = true`.",
+)
 
 
 # ---------------------------------------------------------------- render
@@ -873,23 +1180,44 @@ TREE_INTRO = (
 )
 
 
-def _mode(anchored: bool) -> tuple[dict[int, Rule], tuple[int, ...], str]:
+def _mode(anchored: bool, version: str = V27) -> tuple[dict[int, Rule], tuple[int, ...], str]:
+    if is_v28(version):
+        order = RULE_ORDER_ANCHORED if anchored else RULE_ORDER
+        intro = PRECEDENCE_INTRO_ANCHORED if anchored else PRECEDENCE_INTRO
+        return _rules(anchored, version), order, intro
     if anchored:
         return RULES_ANCHORED, RULE_ORDER_ANCHORED, PRECEDENCE_INTRO_ANCHORED
     return RULES, RULE_ORDER, PRECEDENCE_INTRO
 
 
-def definitions(anchored: bool = False) -> list[str]:
+def _args(anchored: bool | str, version: str) -> tuple[bool, str]:
+    """``definitions("claimmap-v2.8")`` / ``render("claimmap-v2.8")`` (plan 0029 §7) as well as
+    the keyword forms."""
+    if isinstance(anchored, str):
+        return False, check_version(anchored)
+    return anchored, check_version(version)
+
+
+def definitions(anchored: bool | str = False, version: str = V27) -> list[str]:
     """Every label and definition string the rendered prompt must contain (tests)."""
-    rules, _order, intro = _mode(anchored)
-    out: list[str] = [intro, TREE_INTRO, DETAIL_RULE_INTRO, DETAIL_CARVE_OUT, *UNITS_TEXT]
-    for lf in _LEAVES:
+    anchored, version = _args(anchored, version)
+    rules_, _order, intro = _mode(anchored, version)
+    out: list[str] = [
+        intro,
+        TREE_INTRO,
+        DETAIL_RULE_INTRO,
+        detail_carve_out(version),
+        *UNITS_TEXT,
+    ]
+    for lf in judge_leaves(version):
         out += [f"`{lf.name}`", lf.definition]
-    for r in rules.values():
+    for r in rules_.values():
         out += [r.title, *(b for b in r.body if b)]
-    out += [*DETAIL_ITEMS, *DETAIL_EXTRA]
-    for k, v in tags(anchored).items():
+    out += [*_detail_items(version), *detail_extra(version)]
+    for k, v in tags(anchored, version).items():
         out += [f"`{k}`", v]
+    if is_v28(version):
+        out += list(EXAMPLES_V28)
     return out
 
 
@@ -906,8 +1234,12 @@ BRANCH_TITLES: dict[str, str] = {
 }
 
 
-def render(anchored: bool = False) -> str:
-    """The taxonomy as prompt text (markdown); ``anchored`` adds rule 2 and the dispute tag."""
+def render(anchored: bool | str = False, version: str = V27) -> str:
+    """The taxonomy as prompt text (markdown); ``anchored`` adds rule 2 and the dispute tag.
+    ``version`` picks the prompt (claimmap-v2.7: byte for byte the pre-0029 text)."""
+    anchored, version = _args(anchored, version)
+    if is_v28(version):
+        return _render_v28(anchored, version)
     rules, order, intro = _mode(anchored)
     lines: list[str] = [f"# Claim map taxonomy ({TAXONOMY_VERSION})", "", "## Units", ""]
     lines += [f"- {t}" for t in UNITS_TEXT]
@@ -936,4 +1268,39 @@ def render(anchored: bool = False) -> str:
     lines += [*DETAIL_EXTRA, "", DETAIL_CARVE_OUT, ""]
     lines += ["## Tags (orthogonal; they never change the leaf)", ""]
     lines += [f"- `{k}` {v}" for k, v in tags(anchored).items()]
+    return "\n".join(lines)
+
+
+def _render_v28(anchored: bool, version: str) -> str:
+    rules_, order, intro = _mode(anchored, version)
+    leaves = judge_leaves(version)
+    lines: list[str] = [f"# Claim map taxonomy ({TAXONOMY_VERSION_V28})", "", "## Units", ""]
+    lines += [f"- {t}" for t in UNITS_TEXT]
+    lines += [
+        "",
+        f"## The tree: {len(JUDGE_LEAF_NAMES)} leaves in {len(JUDGE_GROUPS)} groups",
+        "",
+        "Every segment gets exactly one leaf. " + TREE_INTRO,
+        "",
+        SETTLEMENT_RULE,
+        "",
+    ]
+    for b, title in BRANCH_TITLES.items():
+        lines.append(f"### {title}")
+        lines.append("")
+        lines += [f"- `{lf.name}`: {lf.definition}" for lf in leaves if lf.branch == b]
+        lines.append("")
+    lines += ["## Precedence", "", intro, ""]
+    for n in order:
+        r = rules_[n]
+        head, *bullets = r.body
+        lines.append(f"{n}. **{r.title}** {head}".rstrip())
+        lines += [f"   - {b}" for b in bullets]
+    lines += ["", "## Detail rule", "", DETAIL_RULE_INTRO]
+    lines += [f"- {d}" for d in _detail_items(version)]
+    lines += [*detail_extra(version), "", detail_carve_out(version), ""]
+    lines += ["## Worked examples", ""]
+    lines += [f"- {x}" for x in EXAMPLES_V28]
+    lines += ["", "## Tags (orthogonal; they never change the leaf)", ""]
+    lines += [f"- `{k}` {v}" for k, v in tags(anchored, version).items()]
     return "\n".join(lines)

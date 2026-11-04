@@ -105,6 +105,19 @@ HEALTH_V2: tuple[str, ...] = (
 )
 
 
+def leaf_rows(version: str | None = None) -> tuple[str, ...]:
+    """Plan 0029: the leaf rows of ``version`` (v2.7: ``LEAF_ROWS``; v2.8 adds
+    ``continuation_miss``)."""
+    return tx.leaf_rows(version or tx.V27)
+
+
+def health_keys(version: str | None = None) -> tuple[str, ...]:
+    """``HEALTH_V2`` (v2.7) or ``HEALTH_V2`` + the v2.8 parse counters."""
+    if not tx.is_v28(version or tx.V27):
+        return HEALTH_V2
+    return (*HEALTH_V2, *cm.PARSE_COUNTS_V28_EXTRA)
+
+
 def hedged_origin(seg: dict[str, Any]) -> str | None:
     """The judge's leaf family of a rev-19 hedged remap (``None`` if not remapped)."""
     if not seg.get("hedged") or seg.get("leaf") != "unverifiable":
@@ -161,8 +174,8 @@ def majority_leaf(spans: Iterable[tuple[int, int, str]], start: int, end: int) -
     return next(lf for lf in order if cover[lf] == best)
 
 
-def slim(rec: dict[str, Any]) -> SlimCellV2:
-    h = dict.fromkeys(HEALTH_V2, 0)
+def slim(rec: dict[str, Any], version: str | None = None) -> SlimCellV2:
+    h = dict.fromkeys(health_keys(version), 0)
     st = (rec.get("stages") or {}).get("map") or "none"
     m = rec.get("map")
     if m is None:
@@ -245,7 +258,8 @@ def readout_flags(r: SlimReadoutV2) -> dict[str, bool]:
     }
 
 
-def _columns() -> list[str]:
+def _columns(version: str | None = None) -> list[str]:
+    lrows = leaf_rows(version)
     cols = ["n_share_readouts", "n_segments", "n_rate_all", "n_rate_specific", "n_v5c_hal"]
     cols += [
         "n_cmp",
@@ -257,9 +271,9 @@ def _columns() -> list[str]:
     ]
     cols += [f"cv_{v}" for v in VERDICT_ROWS] + [f"sv_{v}" for v in VERDICT_ROWS]
     cols += [f"cj_{r}" for r in JUNK_REASON_ROWS]
-    cols += [f"cs_{lf}" for lf in LEAF_ROWS] + [f"cg_{g}" for g in GROUP_ROWS]
+    cols += [f"cs_{lf}" for lf in lrows] + [f"cg_{g}" for g in GROUP_ROWS]
     cols += [f"acg_{g}" for g in GROUP_ROWS]
-    cols += [f"sc_{lf}" for lf in LEAF_ROWS] + [f"sg_{g}" for g in GROUP_ROWS]
+    cols += [f"sc_{lf}" for lf in lrows] + [f"sg_{g}" for g in GROUP_ROWS]
     cols += [f"ra_{f}" for f in FLAGS] + [f"rs_{f}" for f in FLAGS]
     return cols
 
@@ -268,7 +282,16 @@ COLUMNS: tuple[str, ...] = tuple(_columns())
 _COL = {c: i for i, c in enumerate(COLUMNS)}
 
 
-def readout_vector(r: SlimReadoutV2) -> np.ndarray:
+@lru_cache(maxsize=8)
+def _layout(version: str) -> tuple[tuple[str, ...], dict[str, int]]:
+    if not tx.is_v28(version):
+        return COLUMNS, _COL
+    cols = tuple(_columns(version))
+    return cols, {c: i for i, c in enumerate(cols)}
+
+
+def readout_vector(r: SlimReadoutV2, version: str | None = None) -> np.ndarray:
+    COLUMNS, _COL = _layout(version or tx.V27)
     v = np.zeros(len(COLUMNS))
     total = sum(s[2] for s in r.segs)
     if total > 0:
@@ -314,37 +337,44 @@ def _boot(n_items: int, n_boot: int) -> np.ndarray:
 
 
 def ratios(
-    cells: Sequence[SlimCellV2], *, n_boot: int = N_BOOT
+    cells: Sequence[SlimCellV2], *, n_boot: int = N_BOOT, version: str | None = None
 ) -> tuple[dict[str, float], np.ndarray | None, int]:
     """Per-item column sums -> (totals, bootstrap draws of every column sum, n_items)."""
+    COLUMNS, _COL = _layout(version or tx.V27)
     per_item: dict[str, np.ndarray] = {}
     for c in cells:
         if c.map_status in ("none", "pending"):
             continue
         acc = per_item.setdefault(c.item, np.zeros(len(COLUMNS)))
         for r in c.readouts:
-            acc += readout_vector(r)
+            acc += readout_vector(r, version)
     mat = np.array(list(per_item.values())) if per_item else np.zeros((0, len(COLUMNS)))
     totals = {c: float(mat[:, i].sum()) if len(mat) else 0.0 for i, c in enumerate(COLUMNS)}
     draws = mat[_boot(len(mat), n_boot)].sum(axis=1) if len(mat) else None
     return totals, draws, len(mat)
 
 
-def _rate(totals: dict[str, float], draws: Any, num: str, den: str) -> dict[str, Any]:
+def _rate(
+    totals: dict[str, float], draws: Any, num: str, den: str, col: dict[str, int] = _COL
+) -> dict[str, Any]:
     d = totals[den]
-    ci = score._ci(draws[:, _COL[num]], draws[:, _COL[den]]) if draws is not None else None
+    ci = score._ci(draws[:, col[num]], draws[:, col[den]]) if draws is not None else None
     return {"value": totals[num] / d if d else None, "n": int(d), "ci95": ci}
 
 
-def block(cells: Sequence[SlimCellV2], *, n_boot: int = N_BOOT) -> dict[str, Any]:
-    totals, draws, n_items = ratios(cells, n_boot=n_boot)
-    health = dict.fromkeys(HEALTH_V2, 0)
+def block(
+    cells: Sequence[SlimCellV2], *, n_boot: int = N_BOOT, version: str | None = None
+) -> dict[str, Any]:
+    totals, draws, n_items = ratios(cells, n_boot=n_boot, version=version)
+    col = _layout(version or tx.V27)[1]
+    lrows = leaf_rows(version)
+    health = dict.fromkeys(health_keys(version), 0)
     for c in cells:
         for k, v in c.health.items():
             health[k] += v
 
     def r(num: str, den: str) -> dict[str, Any]:
-        return _rate(totals, draws, num, den)
+        return _rate(totals, draws, num, den, col)
 
     return {
         "n_items": n_items,
@@ -359,10 +389,10 @@ def block(cells: Sequence[SlimCellV2], *, n_boot: int = N_BOOT) -> dict[str, Any
         "char_share_group": {g: r(f"cg_{g}", "n_share_readouts") for g in GROUP_ROWS},
         # rev 18: the junk share split by its reason tag (sums to the junk share)
         "char_share_junk_reason": {x: r(f"cj_{x}", "n_share_readouts") for x in JUNK_REASON_ROWS},
-        "char_share_leaf": {lf: r(f"cs_{lf}", "n_share_readouts") for lf in LEAF_ROWS},
+        "char_share_leaf": {lf: r(f"cs_{lf}", "n_share_readouts") for lf in lrows},
         "char_share_group_alt": {g: r(f"acg_{g}", "n_share_readouts") for g in GROUP_ROWS},
         "seg_share_group": {g: r(f"sg_{g}", "n_segments") for g in GROUP_ROWS},
-        "seg_share_leaf": {lf: r(f"sc_{lf}", "n_segments") for lf in LEAF_ROWS},
+        "seg_share_leaf": {lf: r(f"sc_{lf}", "n_segments") for lf in lrows},
         "rates": {
             f: {"all": r(f"ra_{f}", "n_rate_all"), "specific": r(f"rs_{f}", "n_rate_specific")}
             for f in FLAGS
@@ -426,9 +456,10 @@ def agreement(cells: Iterable[SlimCellV2]) -> dict[str, dict[str, Any]]:
 @dataclass
 class AccumulatorV2:
     cells: list[SlimCellV2] = field(default_factory=list)
+    version: str | None = None  # plan 0029: the root's claim-map prompt (None = v2.7)
 
     def add(self, rec: dict[str, Any]) -> None:
-        c = slim(rec)
+        c = slim(rec, self.version)
         if c.map_status != "none" or rec["status"] == "judged":
             self.cells.append(c)
 
@@ -436,10 +467,12 @@ class AccumulatorV2:
 def summarize(
     acc: AccumulatorV2, *, config: dict[str, Any], spend: dict[str, Any], n_boot: int = N_BOOT
 ) -> dict[str, Any]:
-    overall = block(acc.cells, n_boot=n_boot)
+    v = acc.version
+    overall = block(acc.cells, n_boot=n_boot, version=v)
     settled = sorted({c.layer for c in acc.cells if c.map_status in ("ok", "failed")})
     by_layer = {
-        str(la): block([c for c in acc.cells if c.layer == la], n_boot=n_boot) for la in settled
+        str(la): block([c for c in acc.cells if c.layer == la], n_boot=n_boot, version=v)
+        for la in settled
     }
     h = overall["health"]
     n_settled = h["n_map_ok"] + h["n_map_failed"]

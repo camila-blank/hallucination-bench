@@ -47,23 +47,33 @@ from typing import Any
 from hallucination_bench import paths, summarizer
 from hallucination_bench.cache import Cache, fingerprint
 from hallucination_bench.evals.wsbench_chat.run import (
+    JOINT_CELLS,
+    JOINT_LAYER,
     MAP_INVALID_RETRIES,
     Models,
+    check_map_prompt,
+    joint_key,
     model_slug,
+    with_recorded_prompt,
 )
 from hallucination_bench.judges import claimmap_am as cam
 from hallucination_bench.judges import claimmap_v2 as cm
-from hallucination_bench.llm import LLM, JudgeConfigError, Usage
+from hallucination_bench.llm import LLM, JudgeConfigError, Usage, joint_llm
 from hallucination_bench.readouts import Cell, decode_token, load_readouts, sha256_file
 from hallucination_bench.units import Normalised, split_cell
 
-from . import NAME, bank, detect, intent, score, verify
+from . import NAME, bank, detect, intent, score, situation, verify
 from . import kinds as K
 
 READOUTS_FILE = "agentic_misalignment.jsonl"
 DEFAULT_READOUTS_ROOT = paths.READOUTS_ROOT
 DEFAULT_ARMS: tuple[str, ...] = ("s3d-rl600", "nla-rl-L42", "jlens")
 STAGES: tuple[str, ...] = ("detect", "summ", "verify", "map", "intent")
+# plan 0029 (claimmap-v2.8 roots only; never in the default selection): the joint 11-layer
+# claim map and the amsit-v1 situation judge
+V8_STAGES: tuple[str, ...] = ("joint", "situation")
+DETECT_FALLBACK_MODEL = "claude-sonnet-5-5"  # plan 0029 §2.3: a refused detector call, once
+JOINT_LAYERS: tuple[int, ...] = cm.JOINT_LAYERS  # R0 = L20 ... R10 = L60 (plan §3.7)
 MAP_ARM_ORDER: tuple[str, ...] = ("nla-rl-L42", "s3d-rl600", "jlens")
 INTENT_INVALID_RETRIES = 2
 DETECT_SEED = 0
@@ -76,9 +86,11 @@ def parse_stages(s: str | None) -> frozenset[str]:
     if not s:
         return frozenset(STAGES)
     sel = [x.strip() for x in s.split(",") if x.strip()]
-    bad = [x for x in sel if x not in STAGES]
+    bad = [x for x in sel if x not in (*STAGES, *V8_STAGES)]
     if bad:
-        raise ValueError(f"unknown agentic_misalignment stages {bad} (known: {', '.join(STAGES)})")
+        raise ValueError(
+            f"unknown agentic_misalignment stages {bad} (known: {', '.join(STAGES + V8_STAGES)})"
+        )
     return frozenset(sel)
 
 
@@ -146,6 +158,7 @@ class AMArm:
     dump: Any = None
     n_dumped: dict[str, int] = field(default_factory=dict)
     index: dict[tuple[str, str], list[Any]] | None = None  # (key, fp) -> [n_single_failed, partial]
+    cards: dict[str, str] | None = None  # plan 0029 (+am3): item id -> scenario card
 
 
 def cached_layers(cache: Cache) -> set[int]:
@@ -320,10 +333,20 @@ class Detector:
     """Runs detector jobs against one cache with the plan-0008 terminal rule."""
 
     def __init__(
-        self, cache: Cache, llm: LLM, models: Models, spend: Usage, stage: str, name: str = ""
+        self,
+        cache: Cache,
+        llm: LLM,
+        models: Models,
+        spend: Usage,
+        stage: str,
+        name: str = "",
+        fallback: str | None = None,
     ):
         self.cache, self.llm, self.models, self.spend = cache, llm, models, spend
         self.stage, self.name = stage, name
+        # plan 0029 §2.3 (v8 roots): a refused call is re-asked once on this model; the rows
+        # stay under the judge's fingerprint, with meta.answered_by
+        self.fallback = fallback
         self.index: dict[tuple[str, str], list[Any]] = {}
         for row in cache.rows():  # built once per run ...
             self._note(row["key"], row.get("fingerprint", ""), row)
@@ -350,6 +373,14 @@ class Detector:
         _dump(self.arm, self.stage, jobs[0].key, system, user, self.show_prompts)
         out = await self.llm.call(model=m.judge, system=system, user=user, schema=detect.SCHEMA)
         self.spend.add(out.usage)
+        answered_by = m.judge
+        if out.result is None and out.usage.refusals and self.fallback:
+            fb = await self.llm.call(
+                model=self.fallback, system=system, user=user, schema=detect.SCHEMA
+            )
+            self.spend.add(fb.usage)
+            fb.usage.add(out.usage)
+            out, answered_by = fb, self.fallback
         keys = [j.key for j in jobs]
         bkey = "batchD:" + hashlib.sha256("\n".join(keys).encode()).hexdigest()[:16]
         self.cache.put(
@@ -375,6 +406,8 @@ class Detector:
                 "batch_size": len(jobs),
                 "batch": bkey,
             }
+            if answered_by != m.judge:
+                meta["answered_by"] = answered_by
             if i in bp.failed:
                 part = bp.partial(i)
                 if part is not None:
@@ -650,39 +683,106 @@ async def cell_state(arm: AMArm, cell: Cell, models: Models) -> CellState:
     return cs
 
 
-def map_prompt(arm: AMArm, cell: Cell, samples: list[str]) -> tuple[list[Any], str, str]:
+def map_prompt(
+    arm: AMArm,
+    cell: Cell,
+    samples: list[str],
+    models: Models | None = None,
+    *,
+    joint_note: str = "",
+) -> tuple[list[Any], str, str]:
     units, _ = split_cell(samples)
     units = cm.plain_units(units)
     item = arm.items[cell.id]
     site = arm.sites[cell.id][cell.pos]
+    sp = cam.spec(models.map_prompt if models is not None else None)
+    card = ""
+    if sp.card:
+        card = (arm.cards or {}).get(cell.id, "")
+        if not card:
+            raise JudgeConfigError(f"{sp.version}: no scenario card for {cell.id}")
     system, user = cam.render_prompt_am(
-        bank.marked_prompt(item, int(site["char"])), item["response"], units, arm.kind
+        bank.marked_prompt(item, int(site["char"])),
+        item["response"],
+        units,
+        arm.kind,
+        version=sp.version,
+        card=card,
+        joint_note=joint_note,
     )
     return units, system, user
 
 
 async def map_call(
-    arm: AMArm, cell: Cell, samples: list[str], llm: LLM | None, models: Models, dump: int = 0
+    arm: AMArm,
+    cell: Cell,
+    samples: list[str],
+    llm: LLM | None,
+    models: Models,
+    dump: int = 0,
+    *,
+    key: str | None = None,
+    joint_note: str = "",
 ) -> tuple[CallOut, list[Any]]:
-    units, system, user = map_prompt(arm, cell, samples)
+    sp = cam.spec(models.map_prompt)
+    if sp.card and not (arm.cards or {}).get(cell.id):
+        return CallOut("pending"), cm.plain_units(split_cell(samples)[0])
+    units, system, user = map_prompt(arm, cell, samples, models, joint_note=joint_note)
+    key = key or f"{cell.key}:M"
     if llm is not None:
-        _dump(arm, "map", f"{cell.key}:M", system, user, dump)
+        _dump(arm, "map", key, system, user, dump)
     out = await cached_call(
         arm.cache,
         llm,
         stage="map",
-        key=f"{cell.key}:M",
-        version=cam.PROMPT_VERSION,
+        key=key,
+        version=sp.version,
         model=models.mapper,
         effort=models.effort,
         system=system,
         user=user,
-        schema=cam.SCHEMA,
+        schema=sp.schema,
         spend=arm.spend["map"],
         validate=lambda r: cm.validate(r, units),
         invalid_retries=MAP_INVALID_RETRIES,
     )
     return out, units
+
+
+def parse_map(
+    raw: dict[str, Any] | None,
+    units: Sequence[Any],
+    item: dict[str, Any],
+    site: dict[str, Any],
+    models: Models,
+) -> tuple[list[cm.Segment], dict[str, int]]:
+    """``cm.parse`` for an AM cell: v2.7 exactly as before; v2.8 with ``read_offset`` =
+    ``site["char"]`` (plan 0029 §1.1: the marker's offset in ``bank.conversation``)."""
+    conv = bank.conversation(item)
+    if not models.v28:
+        return cm.parse(raw, units, conv)
+    return cm.parse(raw, units, conv, read_offset=int(site["char"]), version=models.map_prompt)
+
+
+def scenario_cards(out_root: Path, models: Models) -> dict[str, str]:
+    """Plan 0029 §3.5: the +am3 scenario card of every item with an effective intent."""
+    intents = effective_intents(out_root, models)
+    return {
+        it["id"]: cam.scenario_card(it, intents[it["id"]])
+        for it in bank.load_items()
+        if intents.get(it["id"]) is not None
+    }
+
+
+def require_cards(out_root: Path, models: Models) -> dict[str, str]:
+    """+am3 mapping refuses to start unless every item has an effective intent."""
+    cards = scenario_cards(out_root, models)
+    if missing := sorted({it["id"] for it in bank.load_items()} - set(cards)):
+        raise JudgeConfigError(
+            f"{cam.spec(models.map_prompt).version}: no effective intent (scenario card) for "
+            f"{missing}; seed the intent cache (scripts/v8/seed_am_root.py) or run --stages intent"
+        )
+    return cards
 
 
 # ---------------------------------------------------------------- intent
@@ -771,7 +871,12 @@ def non_acting_items(intents: dict[str, intent.Intent | None]) -> frozenset[str]
 # ---------------------------------------------------------------- run
 
 
-def select(arm: AMArm, item_ids: Sequence[str] | None, limit: int | None) -> list[Cell]:
+def select(
+    arm: AMArm,
+    item_ids: Sequence[str] | None,
+    limit: int | None,
+    sample_seed: int | None = None,
+) -> list[Cell]:
     keep = set(item_ids) if item_ids else None
     out: list[Cell] = []
     for la in arm.layers:
@@ -782,6 +887,10 @@ def select(arm: AMArm, item_ids: Sequence[str] | None, limit: int | None) -> lis
             and (keep is None or c.id in keep)
             and not detect.is_empty(detect.readouts_of(c))
         ]
+        if limit and sample_seed is not None:  # plan 0029 §3.3: a seeded pilot per layer
+            from hallucination_bench.evals.wsbench_chat.run import pilot_sample
+
+            cl = pilot_sample(cl, limit, f"{sample_seed}:{arm.name}:{la}")
         out += cl[:limit] if limit else cl
     return out
 
@@ -817,19 +926,27 @@ async def run_am_async(
     show_prompts: int = 0,
     batch_size: int = detect.BATCH_SIZE,
     seed: int = DETECT_SEED,
+    sample_seed: int | None = None,
 ) -> dict[str, Any]:
     """Judge the selected stages, then rebuild every opened arm. Returns ``{"arms": {name:
     summary}, "intent": intent_status}``."""
     am_models(models)
     sel = parse_stages(stages) if stages is None or isinstance(stages, str) else frozenset(stages)
-    bad = sel - set(STAGES)
+    bad = sel - set(STAGES) - set(V8_STAGES)
     if bad:
         raise ValueError(f"unknown agentic_misalignment stages {sorted(bad)}")
+    sp = cam.spec(models.map_prompt)  # an unknown --map-prompt fails before anything opens
+    if sel & set(V8_STAGES) and not models.v28:
+        raise JudgeConfigError(
+            f"--stages {sorted(sel & set(V8_STAGES))} need a claimmap-v2.8 root (--map-prompt)"
+        )
     sel_items = bank.load_items(items)
     arm_stages = sel - {"intent"}
     opened: list[AMArm] = []
     try:
         if arm_stages:
+            for n, _p in arms:  # plan 0029: never mix prompt versions in one arm dir
+                check_map_prompt(arm_dir(out_root, models, n), models)
             for n, p in arms:
                 a = open_arm(n, p, out_root, models, layers=layers)
                 if not a.layers:
@@ -840,7 +957,7 @@ async def run_am_async(
                 _write_arm_json(a, models)
                 if show_prompts:
                     a.dump = (a.dir / "prompts_sample.txt").open("w", encoding="utf-8")
-        sels = {a.name: select(a, items, limit) for a in opened}
+        sels = {a.name: select(a, items, limit, sample_seed) for a in opened}
         for a in opened:
             print(
                 f"[{a.name}] kind={a.kind} layers={a.layers} cells_selected={len(sels[a.name])}",
@@ -855,18 +972,23 @@ async def run_am_async(
                 needed.add(models.judge)
             if "summ" in sel and any(a.kind == "tokens" for a in opened):
                 needed.add(models.summ)
-            if "map" in sel and opened:
+            if sel & {"map", "joint"} and opened:
                 needed.add(models.mapper)
+            if "situation" in sel and opened:
+                needed.add(models.situation_model or situation.DEFAULT_MODEL)
             for m in sorted(needed):
                 await llm.preflight(m)
                 print(f"preflight ok: {m} (structured output, effort={models.effort})", flush=True)
             workers = 2 * concurrency
             if "intent" in sel:
                 intent_spend = await intent_stage(out_root, models, sel_items, llm, workers)
+            fallback = DETECT_FALLBACK_MODEL if models.v28 else None
             if "detect" in sel and opened:
                 pairs = []
                 for a in opened:
-                    det = Detector(a.cache, llm, models, a.spend["detect"], "detect", a.name)
+                    det = Detector(
+                        a.cache, llm, models, a.spend["detect"], "detect", a.name, fallback
+                    )
                     det.arm, det.show_prompts = a, show_prompts
                     pairs.append((det, [cell_job(c, models) for c in sels[a.name]]))
                 await detect_jobs(pairs, batch_size=batch_size, workers=workers, seed=seed)
@@ -876,11 +998,30 @@ async def run_am_async(
                 )
             if "verify" in sel and opened:
                 await verify_stage(opened, sels, llm, models, workers, seed, show_prompts)
+            if sp.card and sel & {"map", "joint"} and opened:
+                cards = require_cards(out_root, models)  # after the intent stage, if selected
+                for a in opened:
+                    a.cards = cards
             if "map" in sel and opened:
                 await map_stage(opened, sels, llm, models, workers, show_prompts)
+            if "situation" in sel and opened:
+                await situation_stage(opened, llm, models, workers, items)
         finally:
             if own:
                 await llm.aclose()
+        if "joint" in sel and opened:  # plan 0029 §3.2: the joint calls' own client
+            jllm = (
+                llm
+                if not own
+                else joint_llm(rpm=rpm, concurrency=concurrency, effort=models.effort)
+            )
+            try:
+                if own:
+                    await jllm.preflight(models.mapper)
+                await joint_stage(opened, jllm, models, workers, items, show_prompts)
+            finally:
+                if own:
+                    await jllm.aclose()
         if "intent" in sel:
             print(f"[intent] this run: {intent_spend.report()}")
         for a in opened:
@@ -994,6 +1135,219 @@ async def map_stage(
     await _pool((lambda a=a, c=c, s=s: one(a, c, s) for a, c, s in work), workers)
 
 
+# ---------------------------------------------------------------- plan 0029: joint + situation
+
+
+def _by_site(cells: Iterable[Cell]) -> dict[tuple[str, int], dict[int, Cell]]:
+    out: dict[tuple[str, int], dict[int, Cell]] = {}
+    for c in cells:
+        out.setdefault((c.id, c.pos), {})[c.layer] = c
+    return out
+
+
+async def joint_inputs(
+    arm: AMArm,
+    by_layer: dict[int, Cell],
+    layers: Sequence[int],
+    models: Models,
+    llm: LLM | None,
+) -> tuple[str, list[str], list[dict[str, Any]]]:
+    """Plan 0029 §3.7 (AM): sample 0 of each layer as ``R{i}`` (J-lens: that layer's interp-v1
+    summary, created on demand in judge mode) and the sample-0 mentions remapped to ``R{i}``.
+    Status ``pending`` while a needed detection or summary is missing."""
+    samples: list[str] = []
+    mentions: list[dict[str, Any]] = []
+    status = "ok"
+    for i, la in enumerate(layers):
+        c = by_layer.get(la)
+        if c is None or detect.is_empty(detect.readouts_of(c)):
+            samples.append("")
+            continue
+        cs = await cell_state(arm, c, models)
+        if arm.kind == "tokens":
+            text = cs.samples[0] if cs.samples else None
+            if text is None:
+                _st, text = await summary_call(arm.cache, llm, c, models, arm.spend["summ"])
+                if text is None:
+                    status = "pending"
+            samples.append(text or "")
+        else:
+            samples.append(detect.readouts_of(c)[0])
+        if cs.status == "pending":
+            status = "pending"
+        if cs.status == "ok":
+            mentions += [{**m, "readout": i, "layer": la} for m in cs.mentions if m["readout"] == 0]
+    return status, samples, mentions
+
+
+async def _joint_record(
+    arm: AMArm,
+    site_cells: dict[int, Cell],
+    layers: Sequence[int],
+    models: Models,
+    llm: LLM | None,
+    dump: int = 0,
+) -> dict[str, Any] | None:
+    """One site's joint record, or ``None`` outside the joint population (no sample-0
+    mention at any layer)."""
+    any_cell = next(iter(site_cells.values()))
+    st, samples, mentions = await joint_inputs(arm, site_cells, layers, models, llm)
+    if not mentions:
+        return None
+    key = joint_key(any_cell.id, any_cell.pos)
+    rec: dict[str, Any] = {
+        "key": key,
+        "id": any_cell.id,
+        "layer": JOINT_LAYER,
+        "pos": any_cell.pos,
+        "status": st,
+        "joint_readouts": {str(i): la for i, la in enumerate(layers)},
+        "n_mentions": len(mentions),
+        "samples": samples,
+        "mentions": mentions,
+        "map_status": None,
+    }
+    if st != "ok":
+        rec["map_status"] = "pending"
+        return rec
+    note = cm.joint_note(dict(enumerate(layers)))
+    out, units = await map_call(
+        arm, any_cell, samples, llm, models, dump, key=f"{key}:M", joint_note=note
+    )
+    rec["map_status"] = out.status
+    if out.status != "pending":
+        raw = out.result if out.status == "ok" else None
+        item, site = arm.items[any_cell.id], arm.sites[any_cell.id][any_cell.pos]
+        segs, counts = parse_map(raw, units, item, site, models)
+        rec["map"] = {
+            "status": out.status,
+            "units": [u.to_dict() for u in units],
+            "segments": [x.to_dict() for x in segs],
+            "counts": counts,
+            "rationale": str(raw.get("rationale") or "") if raw else "",
+        }
+    return rec
+
+
+async def joint_stage(
+    arms: Sequence[AMArm],
+    llm: LLM,
+    models: Models,
+    workers: int,
+    items: Sequence[str] | None,
+    show_prompts: int = 0,
+    layers: Sequence[int] | None = None,
+) -> None:
+    """The joint claim map of every population site (sample-0 mentions at some layer)."""
+    keep = set(items) if items else None
+    want = list(layers or JOINT_LAYERS)
+    for a in arms:
+        if missing := [la for la in want if la not in a.layers]:
+            raise SystemExit(f"[{a.name}] joint needs layers {want}; {missing} not judged/loaded")
+        lay = want
+        sites = [v for (i, _p), v in _by_site(a.cells).items() if keep is None or i in keep]
+        prog = _Progress(f"{a.name} joint", len(sites))
+
+        async def one(sc: dict[int, Cell], a: AMArm = a, lay=lay, prog=prog) -> None:
+            await _joint_record(a, sc, lay, models, llm, show_prompts)
+            prog.tick()
+
+        await _pool((lambda sc=sc: one(sc) for sc in sites), workers)
+
+
+def _situation_call_args(
+    item: dict[str, Any], char: int, readouts: list[str], models: Models, key: str, note: str = ""
+) -> dict[str, Any]:
+    system, user = situation.render(item, char, readouts, note)
+    return {
+        "stage": "situation",
+        "key": key,
+        "version": situation.PROMPT_VERSION,
+        "model": models.situation_model or situation.DEFAULT_MODEL,
+        "effort": models.effort,
+        "system": system,
+        "user": user,
+        "schema": situation.SCHEMA,
+        "validate": situation.validate,
+    }
+
+
+async def _cell_texts(arm: AMArm, c: Cell, models: Models, llm: LLM | None) -> list[str] | None:
+    """Every readout sample of a cell (prose: the k samples; J-lens: the summary, created on
+    demand in judge mode); ``None`` while a needed summary is missing."""
+    if arm.kind != "tokens":
+        return list(detect.readouts_of(c))
+    _st, text = await summary_call(arm.cache, llm, c, models, arm.spend["summ"])
+    return [text] if text is not None else None
+
+
+async def situation_records(
+    arm: AMArm,
+    cache: Cache,
+    models: Models,
+    llm: LLM | None,
+    items: Sequence[str] | None = None,
+    workers: int = 1,
+) -> list[dict[str, Any]]:
+    """Every amsit-v1 cell of the arm (judge mode with ``llm``, else cache only): the 16 sites
+    per item at every layer, then the joint cell (all layers' readouts) of each site."""
+    keep = set(items) if items else None
+    by_site = _by_site(arm.cells)
+    jobs: list[tuple[str, int, list[tuple[int, Cell]]]] = []
+    for it in bank.load_items():
+        if keep is not None and it["id"] not in keep:
+            continue
+        for p in situation.site_positions(it):
+            per = sorted(by_site.get((it["id"], p), {}).items())
+            for la, c in per:
+                jobs.append((it["id"], p, [(la, c)]))
+            if len(per) > 1:
+                jobs.append((it["id"], p, per))
+    out: list[dict[str, Any] | None] = [None] * len(jobs)
+    spend = arm.spend.setdefault("situation", Usage())
+
+    async def one(j: int) -> None:
+        iid, p, cells = jobs[j]
+        item = arm.items[iid]
+        char = int(arm.sites[iid][p]["char"])
+        joint = len(cells) > 1
+        layer = JOINT_LAYER if joint else cells[0][0]
+        rec: dict[str, Any] = {
+            "key": joint_key(iid, p) if joint else cells[0][1].key,
+            "id": iid,
+            "layer": layer,
+            "pos": p,
+        }
+        texts: list[str] = []
+        for _la, c in cells:
+            t = await _cell_texts(arm, c, models, llm) if not c.empty else [""]
+            if t is None:
+                out[j] = {**rec, "status": "pending"}
+                return
+            texts += [t[0]] if joint else t
+        if not any(x.strip() for x in texts):
+            out[j] = {**rec, "status": "empty"}
+            return
+        note = cm.joint_note({i: la for i, (la, _c) in enumerate(cells)}) if joint else ""
+        args = _situation_call_args(item, char, texts, models, f"sit:{rec['key']}", note)
+        res = await cached_call(cache, llm, spend=spend, **args)
+        if res.status == "pending":
+            out[j] = {**rec, "status": "pending"}
+            return
+        out[j] = {**rec, **situation.parse(res.result if res.status == "ok" else None, texts)}
+
+    await _pool((lambda j=j: one(j) for j in range(len(jobs))), max(1, workers))
+    return [r for r in out if r is not None]
+
+
+async def situation_stage(
+    arms: Sequence[AMArm], llm: LLM, models: Models, workers: int, items: Sequence[str] | None
+) -> None:
+    for a in arms:
+        with Cache(a.dir / situation.CACHE_FILE) as cache:
+            await situation_records(a, cache, models, llm, items, workers)
+
+
 def run_am(*args: Any, **kwargs: Any) -> dict[str, Any]:
     try:
         return asyncio.run(run_am_async(*args, **kwargs))
@@ -1025,6 +1379,15 @@ HEALTH: tuple[str, ...] = (
     "n_bad_enum",
     *(f"map_{k}" for k in cm.PARSE_COUNTS),
 )
+
+
+def health_keys(models: Models) -> tuple[str, ...]:
+    """``HEALTH`` (v2.7) or ``HEALTH`` + the v2.8 parse counters (plan 0029)."""
+    if not models.v28:
+        return HEALTH
+    return (*HEALTH, *(f"map_{k}" for k in cm.PARSE_COUNTS_V28_EXTRA))
+
+
 FAILED_KEYS: tuple[str, ...] = (
     "n_failed_detect",
     "n_failed_summary",
@@ -1072,6 +1435,8 @@ async def rebuild_async(
     the file, all pending). Streams records; keeps slim score records only."""
     am_models(models)
     d = arm_dir(out_root, models, name)
+    models = with_recorded_prompt(d, models)
+    sp = cam.spec(models.map_prompt)
     cache = Cache(d / "cache.jsonl", readonly=True)
     lay = sorted(cached_layers(cache)) or None
     cells, kind, layers = load_arm_cells(Path(readouts), lay)
@@ -1089,8 +1454,14 @@ async def rebuild_async(
     )
     intents = effective_intents(out_root, models)
     non_acting = non_acting_items(intents)
+    if sp.card:
+        arm.cards = {
+            it["id"]: cam.scenario_card(it, intents[it["id"]])
+            for it in items
+            if intents.get(it["id"]) is not None
+        }
     convs = {it["id"]: Normalised(bank.conversation(it)) for it in items}
-    h = dict.fromkeys(HEALTH, 0)
+    h = dict.fromkeys(health_keys(models), 0)
     slim: list[score.CellSlim] = []
     mentions: list[dict[str, Any]] = []
     d.mkdir(parents=True, exist_ok=True)
@@ -1141,7 +1512,7 @@ async def rebuild_async(
                 else:
                     h["n_map_ok" if out.status == "ok" else "n_failed_map"] += 1
                     raw = out.result if out.status == "ok" else None
-                    seg_objs, counts = cm.parse(raw, units, bank.conversation(item))
+                    seg_objs, counts = parse_map(raw, units, item, site, models)
                     segs = [s.to_dict() for s in seg_objs]
                     for k2, v in counts.items():
                         h[f"map_{k2}"] += int(v)
@@ -1195,6 +1566,9 @@ async def rebuild_async(
             fc.write(json.dumps(rec, ensure_ascii=False) + "\n")
     tmp_c.replace(d / "cells.jsonl")
     tmp_m.replace(d / "mentions.jsonl")
+    v8_out: dict[str, Any] = {}
+    if models.v28:  # plan 0029: joint cells and amsit-v1, if judged (v2.7 roots: never)
+        v8_out = await _rebuild_v8(arm, models, d)
     spend = _spend(cache)
     cache.close()
     h["n_actor_remapped"] = sum(1 for m in mentions if m["actor_remapped"])
@@ -1209,7 +1583,7 @@ async def rebuild_async(
             "prompt_versions": {
                 "detect": detect.PROMPT_VERSION,
                 "summary": summarizer.SUMMARIZER_PROMPT_VERSION if kind == "tokens" else None,
-                "map": cam.PROMPT_VERSION,
+                "map": sp.version,
                 "intent": intent.PROMPT_VERSION,
                 "verify": verify.PROMPT_VERSION,
             },
@@ -1227,8 +1601,52 @@ async def rebuild_async(
         "spend": spend,
         **score.summarize(slim, mentions, kind=kind, non_acting=non_acting, n_boot=n_boot),
     }
+    if v8_out:
+        summary["v8"] = v8_out
     (d / "summary.json").write_text(json.dumps(summary, indent=1) + "\n")
     return summary
+
+
+async def _rebuild_v8(arm: AMArm, models: Models, d: Path) -> dict[str, Any]:
+    """``cells_joint.jsonl`` (when the cache has joint ``:M`` rows) and ``situation.jsonl``
+    (when ``situation_cache.jsonl`` exists), cache only; returns their health counts."""
+    out: dict[str, Any] = {}
+    if any(f"__L{JOINT_LAYER}__" in k for k in arm.cache.keys()):
+        lay = [la for la in JOINT_LAYERS if la in arm.layers]
+        n: dict[str, int] = {}
+        tmp = d / f"{JOINT_CELLS}.{os.getpid()}.tmp"
+        with tmp.open("w", encoding="utf-8") as fh:
+            for sc in _by_site(arm.cells).values():
+                rec = await _joint_record(arm, sc, lay, models, None)
+                if rec is None:
+                    continue
+                st = rec["map_status"] or "none"
+                n[st] = n.get(st, 0) + 1
+                fh.write(json.dumps(rec, ensure_ascii=False) + "\n")
+        tmp.replace(d / JOINT_CELLS)
+        out["joint"] = {"layers": lay, "map_status": dict(sorted(n.items()))}
+    sit = d / situation.CACHE_FILE
+    if sit.is_file():
+        cache = Cache(sit, readonly=True)
+        recs = await situation_records(arm, cache, models, None)
+        cache.close()
+        tmp = d / f"{situation.RECORDS_FILE}.{os.getpid()}.tmp"
+        with tmp.open("w", encoding="utf-8") as fh:
+            for r in recs:
+                fh.write(json.dumps(r, ensure_ascii=False) + "\n")
+        tmp.replace(d / situation.RECORDS_FILE)
+        cnt: dict[str, int] = {}
+        for r in recs:
+            cnt[r["status"]] = cnt.get(r["status"], 0) + 1
+        out["situation"] = {
+            "prompt_version": situation.PROMPT_VERSION,
+            "model": models.situation_model or situation.DEFAULT_MODEL,
+            "status": dict(sorted(cnt.items())),
+            "n_counted": sum(bool(r.get("counted")) for r in recs),
+            "n_unquoted": sum(bool(r.get("unquoted")) for r in recs),
+            "n_failed": cnt.get("failed", 0),
+        }
+    return out
 
 
 def n_failed(summary: dict[str, Any]) -> int:

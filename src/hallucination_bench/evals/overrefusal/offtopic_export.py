@@ -33,6 +33,12 @@ from . import data, index_export, run
 UNIT = "refusal_claims"
 OFFTOPIC_DIR = "offtopic_index"
 RECORDS = "sj_records_full.jsonl"
+# plan 0029: the joint all-layer records (scripts/overrefusal/sj_run.py --joint --tag joint) and
+# the hindex-v8 joint rows beside the per-layer ones in offtopic_index/
+RECORDS_JOINT = "sj_records_joint.jsonl"
+JOINT_COUNTS = "index_counts_joint.jsonl"
+JOINT_META = "index_meta_joint.json"
+JOINT_LAYER = "all"
 SUMMARY = "sj_offtopic_full.json"
 CLAIMS_COUNTS = "index_counts_claims.jsonl"  # plan 0020 rev 7 claims rows (secondary (ii))
 ITEM_COUNTS = "index_counts.jsonl"  # plan 0020 item-metric rows (secondary (iii))
@@ -87,12 +93,13 @@ def index_rows(
             continue
         if r["item"] not in by_item:
             raise ValueError(f"record of an unknown item {r['item']!r}")
-        key = (str(r["reader"]), int(r["layer"]), str(r["item"]))
+        la = r["layer"] if r["layer"] == JOINT_LAYER else int(r["layer"])
+        key = (str(r["reader"]), la, str(r["item"]))
         if key in got:
             raise ValueError(f"repeated record {key}")
         got[key] = r
     arms = sorted({k[0] for k in got})
-    layers = sorted({k[1] for k in got})
+    layers = sorted({k[1] for k in got}, key=lambda x: (x == JOINT_LAYER, str(x).zfill(4)))
     fails: dict[str, int] = defaultdict(int)
     rows = []
     for a in arms:
@@ -123,7 +130,7 @@ def index_rows(
 def write_rows(rows: Sequence[Mapping[str, Any]], path: Path) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w") as fh:
-        for r in sorted(rows, key=lambda r: (r["arm"], r["layer"], r["item"])):
+        for r in sorted(rows, key=lambda r: (r["arm"], str(r["layer"]).zfill(4), r["item"])):
             fh.write(json.dumps({k: r[k] for k in COLUMNS}) + "\n")
 
 
@@ -198,6 +205,44 @@ def _sha256(p: Path) -> str:
         for chunk in iter(lambda: fh.read(1 << 20), b""):
             h.update(chunk)
     return h.hexdigest()
+
+
+def export_joint(out: Path, model: str) -> dict[str, Any]:
+    """Plan 0029: ``offtopic_index/index_counts_joint.jsonl`` (layer ``all``: one all-11-layer
+    bundle per (reader, item), the same columns and failure rules) + ``index_meta_joint.json``
+    (with the token-cap truncation share per reader) from ``sj_records_joint.jsonl``."""
+    from . import sj_metrics
+
+    root = run.eval_root(out, model)
+    src = root / RECORDS_JOINT
+    recs = data.read_jsonl(src)
+    if bad := sorted({str(r["layer"]) for r in recs} - {JOINT_LAYER}):
+        raise ValueError(f"{src}: not a joint record file (layers {bad})")
+    items = data.load_items()
+    rows, fails = index_rows(recs, items)
+    dest = root / OFFTOPIC_DIR
+    write_rows(rows, dest / JOINT_COUNTS)
+    health = {
+        "n_records": len(rows),
+        **fails,
+        "n_failed_cells": sum(r["n_failed_cells"] for r in rows),
+        "n_decline_lines": sum(r["n_claims"] for r in rows),
+        "n_off_topic_lines": sum(r["n_contradicted"] for r in rows),
+        "truncation": sj_metrics.truncation_share(
+            [r for r in recs if r["reader"] in index_export.EXPORT_READERS]
+        ),
+    }
+    meta = {
+        "eval": "overrefusal",
+        "plan": "plans/0029-index-v8-overhaul.md (joint unit; per-item rule of plan 0022)",
+        "unit": UNIT,
+        "layer": JOINT_LAYER,
+        "readers": sorted({r["arm"] for r in rows}),
+        "source": {"records": str(src.resolve()), "sha256": _sha256(src)},
+        "health": health,
+    }
+    (dest / JOINT_META).write_text(json.dumps(meta, indent=1) + "\n")
+    return {"dest": str(dest / JOINT_COUNTS), **health}
 
 
 def export(out: Path, model: str) -> dict[str, Any]:

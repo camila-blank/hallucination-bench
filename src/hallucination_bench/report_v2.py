@@ -220,6 +220,16 @@ def noise_section(noise: dict[str, Any] | None, eval_name: str = NAME) -> list[s
     ]
 
 
+def map_version(summaries: dict[str, dict[str, Any]]) -> str:
+    """Plan 0029: the claim-map prompt of the report's roots (a v2.8 root anywhere -> its
+    version; else claimmap-v2.7)."""
+    vs = {
+        (s["config"].get("prompt_versions") or {}).get("map") or tx.V27 for s in summaries.values()
+    }
+    v8 = sorted(v for v in vs if v in tx.PROMPT_VERSIONS and tx.is_v28(v))
+    return v8[0] if v8 else tx.V27
+
+
 def is_pre_gate(summaries: dict[str, dict[str, Any]]) -> bool:
     return any(s["config"].get("pre_gate", True) for s in summaries.values())
 
@@ -234,6 +244,8 @@ def build(
     prose = {a: s for a, s in summaries.items() if s["config"]["kind"] == "prose"}
     tokens = {a: s for a, s in summaries.items() if s["config"]["kind"] == "tokens"}
     pre_gate = is_pre_gate(summaries)
+    version = map_version(summaries)
+    v28 = tx.is_v28(version)  # plan 0029: no judge-noise column, the continuation_miss row
     anchors = sorted({s["config"].get("map_anchor", "v5c") for s in summaries.values()})
     md: list[str] = [
         f"# {eval_name} claim map (taxonomy v2) — judge {judge_model}"
@@ -258,7 +270,12 @@ def build(
         "",
     ]
     group_head = ["arm", "n readouts", *GROUP_ROWS]
-    verdict_head = ["arm", "n readouts", *_vhead(), NOISE_HEAD]
+    nz_head = [] if v28 else [NOISE_HEAD]
+    verdict_head = ["arm", "n readouts", *_vhead(), *nz_head]
+
+    def nz(n: str, kind: str) -> list[str]:
+        return [] if v28 else [_noise_cell(noise, n, kind)]
+
     for title, arms in (("Prose arms", prose), ("Token arms (judged via the summariser)", tokens)):
         if not arms:
             continue
@@ -268,12 +285,12 @@ def build(
             md += _table(
                 f"Headline: character-weighted verdict shares, {t}",
                 verdict_head,
-                [[*_vshare_row(n, b), _noise_cell(noise, n, "share")] for n, b in rows],
+                [[*_vshare_row(n, b), *nz(n, "share")] for n, b in rows],
             )
             md += _table(
                 f"Headline: readout-level verdict rates (all readouts), {t}",
-                ["arm", "n readouts", *_vrate_head(), NOISE_HEAD],
-                [[*_vrow(n, b), _noise_cell(noise, n, "rate")] for n, b in rows],
+                ["arm", "n readouts", *_vrate_head(), *nz_head],
+                [[*_vrow(n, b), *nz(n, "rate")] for n, b in rows],
             )
         md += _table(
             "v2 hallucination rate vs v5c on the same readouts",
@@ -334,8 +351,8 @@ def build(
             "Character-weighted leaf shares, per arm (no CI)",
             ["leaf", *(n for n, _ in overall)],
             [
-                [lf, *(_p(b["char_share_leaf"][lf], False) for _, b in overall)]
-                for lf in tx.ALL_LEAVES
+                [lf, *(_p(b["char_share_leaf"].get(lf), False) for _, b in overall)]
+                for lf in tx.leaf_rows(version)
             ],
         )
         md += _table(
@@ -662,7 +679,7 @@ def audit_samples(
             out += _sample_lines(arm, rec, s, bank_mod)
     res, seen = _reservoir(dirs, lambda s: s["leaf"], n, random.Random(seed))
     out += ["# By leaf", ""]
-    for lf in tx.ALL_LEAVES:
+    for lf in tx.leaf_rows(tx.V28) if tx.CONTINUATION_MISS in seen else tx.ALL_LEAVES:
         out += [f"## {lf} (group {tx.group_of(lf)}; {seen.get(lf, 0)} segments in total)", ""]
         for arm, rec, s in res.get(lf, []):
             out += _sample_lines(arm, rec, s, bank_mod)
@@ -695,6 +712,7 @@ def report(
                 map_model=a.get("map_model"),
                 map_anchor=a.get("map_anchor", "v5c"),
                 eval=eval_name,
+                map_prompt=a.get("map_prompt") or "claimmap-v2.7",
             )
             rebuild_arm(d.name, Path(a["readouts"]), out_root, models)
         p = d / "summary_v2.json"
@@ -704,8 +722,10 @@ def report(
         raise SystemExit(f"no arm under {root} has claim-map (:M) results")
     v2_dirs = [d for d in dirs if d.name in summaries]
     pre_gate = is_pre_gate(summaries)
-    # the consistency sample is chat (plan 0007): never attach chat noise to another eval
-    noise = load_noise(out_root, judge_model) if eval_name == NAME else None
+    # the consistency sample is chat (plan 0007): never attach chat noise to another eval;
+    # plan 0029 §3.10: judge noise is not measured for v8 (claimmap-v2.8) roots
+    v28 = tx.is_v28(map_version(summaries))
+    noise = load_noise(out_root, judge_model) if eval_name == NAME and not v28 else None
     md, js = build(summaries, judge_model, noise, eval_name=eval_name)
     probes = probe_candidates(v2_dirs, pre_gate=pre_gate)
     md = "\n".join(
@@ -713,7 +733,7 @@ def report(
             md,
             *probe_section(probes),
             *hallucination_examples(v2_dirs, seed=seed),
-            *noise_section(noise, eval_name),
+            *([] if v28 else noise_section(noise, eval_name)),
         ]
     )
     js["judge_noise"] = noise
