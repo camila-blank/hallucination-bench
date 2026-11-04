@@ -54,6 +54,8 @@ from hallucination_bench.evals.wsbench_chat.run import (
     check_map_prompt,
     joint_key,
     model_slug,
+    pilot_sample,
+    reconcile_all,
     with_recorded_prompt,
 )
 from hallucination_bench.judges import claimmap_am as cam
@@ -888,8 +890,6 @@ def select(
             and not detect.is_empty(detect.readouts_of(c))
         ]
         if limit and sample_seed is not None:  # plan 0029 §3.3: a seeded pilot per layer
-            from hallucination_bench.evals.wsbench_chat.run import pilot_sample
-
             cl = pilot_sample(cl, limit, f"{sample_seed}:{arm.name}:{la}")
         out += cl[:limit] if limit else cl
     return out
@@ -947,6 +947,8 @@ async def run_am_async(
         if arm_stages:
             for n, _p in arms:  # plan 0029: never mix prompt versions in one arm dir
                 check_map_prompt(arm_dir(out_root, models, n), models)
+            # v2.8 roots: never rewrite arm.json to another map / situation model
+            models = reconcile_all([arm_dir(out_root, models, n) for n, _p in arms], models)
             for n, p in arms:
                 a = open_arm(n, p, out_root, models, layers=layers)
                 if not a.layers:
@@ -1005,7 +1007,9 @@ async def run_am_async(
             if "map" in sel and opened:
                 await map_stage(opened, sels, llm, models, workers, show_prompts)
             if "situation" in sel and opened:
-                await situation_stage(opened, llm, models, workers, items)
+                await situation_stage(
+                    opened, llm, models, workers, items, limit=limit, sample_seed=sample_seed
+                )
         finally:
             if own:
                 await llm.aclose()
@@ -1018,7 +1022,16 @@ async def run_am_async(
             try:
                 if own:
                     await jllm.preflight(models.mapper)
-                await joint_stage(opened, jllm, models, workers, items, show_prompts)
+                await joint_stage(
+                    opened,
+                    jllm,
+                    models,
+                    workers,
+                    items,
+                    show_prompts,
+                    limit=limit,
+                    sample_seed=sample_seed,
+                )
             finally:
                 if own:
                     await jllm.aclose()
@@ -1145,39 +1158,52 @@ def _by_site(cells: Iterable[Cell]) -> dict[tuple[str, int], dict[int, Cell]]:
     return out
 
 
-async def joint_inputs(
-    arm: AMArm,
-    by_layer: dict[int, Cell],
-    layers: Sequence[int],
-    models: Models,
-    llm: LLM | None,
-) -> tuple[str, list[str], list[dict[str, Any]]]:
-    """Plan 0029 §3.7 (AM): sample 0 of each layer as ``R{i}`` (J-lens: that layer's interp-v1
-    summary, created on demand in judge mode) and the sample-0 mentions remapped to ``R{i}``.
-    Status ``pending`` while a needed detection or summary is missing."""
-    samples: list[str] = []
+async def joint_population(
+    arm: AMArm, by_layer: dict[int, Cell], layers: Sequence[int], models: Models
+) -> tuple[bool, list[dict[str, Any]]]:
+    """Plan 0029 §3.7 (AM, cache only): ``(settled, sample-0 mentions remapped to R{i})``. A
+    site is settled once every one of its ``layers`` has a settled detection (ok, or failed for
+    good; an empty readout needs none); a layer not loaded or not yet detected keeps the site
+    pending, so the population never depends on how far the run got."""
+    settled = True
     mentions: list[dict[str, Any]] = []
-    status = "ok"
     for i, la in enumerate(layers):
+        c = by_layer.get(la)
+        if c is None:
+            settled = False
+            continue
+        if detect.is_empty(detect.readouts_of(c)):
+            continue
+        cs = await cell_state(arm, c, models)
+        if cs.status == "pending":
+            settled = False
+        elif cs.status == "ok":
+            mentions += [{**m, "readout": i, "layer": la} for m in cs.mentions if m["readout"] == 0]
+    return settled, mentions
+
+
+async def joint_samples(
+    arm: AMArm, by_layer: dict[int, Cell], layers: Sequence[int], models: Models, llm: LLM | None
+) -> tuple[bool, list[str]]:
+    """Sample 0 of each layer as ``R{i}`` (J-lens: that layer's interp-v1 summary, created on
+    demand in judge mode); ``False`` while a needed summary is missing."""
+    samples: list[str] = []
+    ok = True
+    for la in layers:
         c = by_layer.get(la)
         if c is None or detect.is_empty(detect.readouts_of(c)):
             samples.append("")
             continue
-        cs = await cell_state(arm, c, models)
-        if arm.kind == "tokens":
-            text = cs.samples[0] if cs.samples else None
-            if text is None:
-                _st, text = await summary_call(arm.cache, llm, c, models, arm.spend["summ"])
-                if text is None:
-                    status = "pending"
-            samples.append(text or "")
-        else:
+        if arm.kind != "tokens":
             samples.append(detect.readouts_of(c)[0])
-        if cs.status == "pending":
-            status = "pending"
-        if cs.status == "ok":
-            mentions += [{**m, "readout": i, "layer": la} for m in cs.mentions if m["readout"] == 0]
-    return status, samples, mentions
+            continue
+        cs = await cell_state(arm, c, models)
+        text = cs.samples[0] if cs.samples else None
+        if text is None:
+            _st, text = await summary_call(arm.cache, llm, c, models, arm.spend["summ"])
+            ok = ok and text is not None
+        samples.append(text or "")
+    return ok, samples
 
 
 async def _joint_record(
@@ -1188,11 +1214,11 @@ async def _joint_record(
     llm: LLM | None,
     dump: int = 0,
 ) -> dict[str, Any] | None:
-    """One site's joint record, or ``None`` outside the joint population (no sample-0
-    mention at any layer)."""
+    """One site's joint record, or ``None`` outside the joint population (settled with no
+    sample-0 mention at any layer). An unsettled site is a ``pending`` record."""
     any_cell = next(iter(site_cells.values()))
-    st, samples, mentions = await joint_inputs(arm, site_cells, layers, models, llm)
-    if not mentions:
+    settled, mentions = await joint_population(arm, site_cells, layers, models)
+    if settled and not mentions:
         return None
     key = joint_key(any_cell.id, any_cell.pos)
     rec: dict[str, Any] = {
@@ -1200,15 +1226,20 @@ async def _joint_record(
         "id": any_cell.id,
         "layer": JOINT_LAYER,
         "pos": any_cell.pos,
-        "status": st,
+        "status": "ok" if settled else "pending",
         "joint_readouts": {str(i): la for i, la in enumerate(layers)},
         "n_mentions": len(mentions),
-        "samples": samples,
+        "samples": None,
         "mentions": mentions,
         "map_status": None,
     }
-    if st != "ok":
+    if not settled:
         rec["map_status"] = "pending"
+        return rec
+    ok, samples = await joint_samples(arm, site_cells, layers, models, llm)
+    rec["samples"] = samples
+    if not ok:
+        rec["status"] = rec["map_status"] = "pending"
         return rec
     note = cm.joint_note(dict(enumerate(layers)))
     out, units = await map_call(
@@ -1237,22 +1268,33 @@ async def joint_stage(
     items: Sequence[str] | None,
     show_prompts: int = 0,
     layers: Sequence[int] | None = None,
+    *,
+    limit: int | None = None,
+    sample_seed: int | None = None,
 ) -> None:
-    """The joint claim map of every population site (sample-0 mentions at some layer)."""
+    """The joint claim map of every settled population site (sample-0 mentions at some layer);
+    ``limit``: a seeded draw of that many population sites per arm (pilots)."""
     keep = set(items) if items else None
     want = list(layers or JOINT_LAYERS)
     for a in arms:
         if missing := [la for la in want if la not in a.layers]:
             raise SystemExit(f"[{a.name}] joint needs layers {want}; {missing} not judged/loaded")
-        lay = want
         sites = [v for (i, _p), v in _by_site(a.cells).items() if keep is None or i in keep]
-        prog = _Progress(f"{a.name} joint", len(sites))
+        pop = []
+        for sc in sites:
+            settled, ments = await joint_population(a, sc, want, models)
+            if settled and ments:
+                pop.append(sc)
+        if limit:
+            seed = sample_seed if sample_seed is not None else 0
+            pop = pilot_sample(pop, limit, f"{seed}:{a.name}:joint")
+        prog = _Progress(f"{a.name} joint", len(pop))
 
-        async def one(sc: dict[int, Cell], a: AMArm = a, lay=lay, prog=prog) -> None:
-            await _joint_record(a, sc, lay, models, llm, show_prompts)
+        async def one(sc: dict[int, Cell], a: AMArm = a, prog=prog) -> None:
+            await _joint_record(a, sc, want, models, llm, show_prompts)
             prog.tick()
 
-        await _pool((lambda sc=sc: one(sc) for sc in sites), workers)
+        await _pool((lambda sc=sc: one(sc) for sc in pop), workers)
 
 
 def _situation_call_args(
@@ -1288,21 +1330,39 @@ async def situation_records(
     llm: LLM | None,
     items: Sequence[str] | None = None,
     workers: int = 1,
+    *,
+    limit: int | None = None,
+    sample_seed: int | None = None,
 ) -> list[dict[str, Any]]:
     """Every amsit-v1 cell of the arm (judge mode with ``llm``, else cache only): the 16 sites
-    per item at every layer, then the joint cell (all layers' readouts) of each site."""
+    per item at every loaded layer, then the joint cell of each site (the bank's 11 layers,
+    :data:`JOINT_LAYERS`; pending while a layer is not loaded). ``limit`` (judge mode, pilots):
+    a seeded draw of that many cells per layer (and of joint cells)."""
     keep = set(items) if items else None
     by_site = _by_site(arm.cells)
-    jobs: list[tuple[str, int, list[tuple[int, Cell]]]] = []
+    jobs: list[tuple[str, int, list[tuple[int, Cell | None]]]] = []
     for it in bank.load_items():
         if keep is not None and it["id"] not in keep:
             continue
         for p in situation.site_positions(it):
-            per = sorted(by_site.get((it["id"], p), {}).items())
-            for la, c in per:
+            per = by_site.get((it["id"], p), {})
+            for la, c in sorted(per.items()):
                 jobs.append((it["id"], p, [(la, c)]))
-            if len(per) > 1:
-                jobs.append((it["id"], p, per))
+            if per:
+                jobs.append((it["id"], p, [(la, per.get(la)) for la in JOINT_LAYERS]))
+    if limit:
+        seed = sample_seed if sample_seed is not None else 0
+        groups: dict[Any, list[int]] = {}
+        for j, (_i, _p, cells) in enumerate(jobs):
+            if not any(c is not None and not c.empty for _la, c in cells):
+                continue  # a pilot draws judgeable cells only
+            groups.setdefault(JOINT_LAYER if len(cells) > 1 else cells[0][0], []).append(j)
+        pick = {
+            j
+            for g, js in groups.items()
+            for j in pilot_sample(js, limit, f"{seed}:{arm.name}:sit:{g}")
+        }
+        jobs = [jb for j, jb in enumerate(jobs) if j in pick]
     out: list[dict[str, Any] | None] = [None] * len(jobs)
     spend = arm.spend.setdefault("situation", Usage())
 
@@ -1320,6 +1380,9 @@ async def situation_records(
         }
         texts: list[str] = []
         for _la, c in cells:
+            if c is None:  # a joint layer not loaded: the cell stays pending
+                out[j] = {**rec, "status": "pending"}
+                return
             t = await _cell_texts(arm, c, models, llm) if not c.empty else [""]
             if t is None:
                 out[j] = {**rec, "status": "pending"}
@@ -1341,11 +1404,20 @@ async def situation_records(
 
 
 async def situation_stage(
-    arms: Sequence[AMArm], llm: LLM, models: Models, workers: int, items: Sequence[str] | None
+    arms: Sequence[AMArm],
+    llm: LLM,
+    models: Models,
+    workers: int,
+    items: Sequence[str] | None,
+    *,
+    limit: int | None = None,
+    sample_seed: int | None = None,
 ) -> None:
     for a in arms:
         with Cache(a.dir / situation.CACHE_FILE) as cache:
-            await situation_records(a, cache, models, llm, items, workers)
+            await situation_records(
+                a, cache, models, llm, items, workers, limit=limit, sample_seed=sample_seed
+            )
 
 
 def run_am(*args: Any, **kwargs: Any) -> dict[str, Any]:
@@ -1612,7 +1684,7 @@ async def _rebuild_v8(arm: AMArm, models: Models, d: Path) -> dict[str, Any]:
     (when ``situation_cache.jsonl`` exists), cache only; returns their health counts."""
     out: dict[str, Any] = {}
     if any(f"__L{JOINT_LAYER}__" in k for k in arm.cache.keys()):
-        lay = [la for la in JOINT_LAYERS if la in arm.layers]
+        lay = list(JOINT_LAYERS)  # the bank's layers: a partial load never changes the prompt
         n: dict[str, int] = {}
         tmp = d / f"{JOINT_CELLS}.{os.getpid()}.tmp"
         with tmp.open("w", encoding="utf-8") as fh:

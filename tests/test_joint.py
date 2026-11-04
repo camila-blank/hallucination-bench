@@ -244,3 +244,50 @@ def test_joint_records_sort_after_the_layers(tmp_path):
 
 def test_joint_layers_constant():
     assert cm.JOINT_LAYERS == tuple(20 + 4 * i for i in range(11))
+
+
+def test_cli_joint_limit_judges_exactly_n_seeded(tmp_path, monkeypatch):
+    """Review #2: --joint --limit N judges exactly N joint cells, drawn by a seeded shuffle."""
+    items = bank.load_items()[:6]
+    rows = [
+        {"id": it["id"], "layer": la, "pos": int(s["pos"]), "samples": [f"Paris {la} {s['pos']}"]}
+        for it in items
+        for s in it["sites"]
+        for la in (20, 24)
+    ]
+    a = write_jsonl(tmp_path / "a.jsonl", rows)
+    n_sites = sum(len(it["sites"]) for it in items)
+    assert n_sites > 20
+    picked = []
+    for out, seed in (("o1", "0"), ("o2", "0"), ("o3", "1")):
+        fake = Map28Fake()
+        monkeypatch.setattr(wrun, "joint_llm", lambda fake=fake, **kw: fake)
+        argv = [
+            "run",
+            "--arm",
+            f"a={a}",
+            "--joint",
+            "--limit",
+            "20",
+            "--sample-seed",
+            seed,
+            "--map-prompt",
+            V28,
+            "--layers",
+            "20,24",
+            "--out",
+            str(tmp_path / out),
+        ]
+        assert cli.main(argv) == 0
+        assert fake.n("map") == 20
+        picked.append(sorted(c[3] for c in fake.calls if c[0] == "map"))
+    assert picked[0] == picked[1] and picked[0] != picked[2]
+    # not the first 20 sites in bank order
+    first = [f"{it['id']}__Lall__p{s['pos']}" for it in items for s in it["sites"]][:20]
+    d = wrun.arm_dir(tmp_path / "o1", M8, "a")
+    judged = [
+        json.loads(x)["key"]
+        for x in (d / wrun.JOINT_CELLS).open()
+        if json.loads(x)["stages"]["map"] == "ok"
+    ]
+    assert len(judged) == 20 and judged != first

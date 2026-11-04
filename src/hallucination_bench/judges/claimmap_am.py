@@ -130,13 +130,17 @@ def scenario_card(item: dict[str, Any], intent: Any) -> str:
         )
     rollout = getattr(intent, "rollout", None) or {}
     if rollout:
-        did = "; ".join(
-            f'`{k}` ("{d.get("rollout_quote") or ""}")' for k, d in sorted(rollout.items())
-        )
+        did = "; ".join(_did(k, d) for k, d in sorted(rollout.items()))
         lines.append(f"In the recorded response the model: {did}.")
     else:
         lines.append("In the recorded response the model: did no misconduct.")
     return " ".join(lines) + "\n\n"
+
+
+def _did(kind: str, d: Any) -> str:
+    """A realised kind, with its quote when the intent has a non-empty one."""
+    q = (d.get("rollout_quote") or "").strip() if isinstance(d, dict) else ""
+    return f'`{kind}` ("{q}")' if q else f"`{kind}`"
 
 
 _PLACEHOLDER = re.compile(

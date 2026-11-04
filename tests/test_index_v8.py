@@ -160,8 +160,10 @@ def test_v3_to_v7_builds_unchanged_with_am_claims_sources_present(tmp_path, v):
         src[ix.OVERREFUSAL] = [_v6_root(tmp_path / "or6", rows)]
     extra = v8_sources(tmp_path / "v8src")
     plus = {**src, ix.AM_CLAIMS: extra[ix.AM_CLAIMS], ix.AM_SITUATION: extra[ix.AM_CLAIMS]}
-    a = ix.build_index(src, ix.Methods(), version=v)
-    b = ix.build_index(plus, ix.Methods(), version=v)
+    methods = ix.load_methods(cli.INDEX_METHODS)  # the real methods.json (with am_claims)
+    assert methods.methods["s3d-rl600"][ix.AM_CLAIMS] == ["s3d-rl600"]
+    a = ix.build_index(src, methods, version=v)
+    b = ix.build_index(plus, methods, version=v)
     assert json.dumps(a, sort_keys=True) == json.dumps(b, sort_keys=True)
     assert ix.render_md(a) == ix.render_md(b)
 
@@ -331,3 +333,72 @@ def test_cli_v8_flags(tmp_path, monkeypatch, capsys):
     assert built["version"] == "hindex-v8"
     r20 = next(r for r in built["rows"] if r["layer"] == 20)
     assert set(r20["families"]) == set(ix.FAMILIES_V8)  # am_situation from the --am-root
+
+
+def test_over_layers_ci_equals_a_hand_rolled_shared_index_bootstrap():
+    """Plot 3 pinned by an independent computation: ONE index array per family (fresh
+    default_rng(0), families in FAMILIES_V8 order) shared by every layer, a fixed universe with
+    zero rows, and the drop rule scoped to the (family, layer) pairs behind the macro."""
+    fams = ix.JOINT_FAMILIES_V8
+    uni = {f: ["i0", "i1", "i2"] for f in fams}
+    uni[ix.MAIN] = ["i0", "i1", "i2", "z"]  # z: a bank item with no claims anywhere (zero row)
+
+    def pairs(L: int, f: str) -> dict[str, np.ndarray]:
+        if f == ix.STORY and L == 24:  # only i2 has claims: draws without i2 have den 0 -> drop
+            return {"i2": np.array([1.0, 2.0])}
+        return {i: np.array([(k + L / 4) % 3, 3.0]) for k, i in enumerate(uni[f][:3])}
+
+    data = {(f, "a"): {L: pairs(L, f) for L in (20, 24)} for f in fams}
+    # layer 28: main only, with a single-item denominator -- it is not behind any macro here,
+    # so its undefined draws must not drop anything
+    data[(ix.MAIN, "a")][28] = {"i1": np.array([1.0, 1.0])}
+    universes = {(f, "a"): uni[f] for f in fams}
+
+    def ratio(f, L):
+        tot = sum(data[(f, "a")][L].values())
+        return float(tot[0] / tot[1])
+
+    rows = []
+    for L in (20, 24):
+        per = {f: {"arm": "a", "v": ratio(f, L), "ci": [0.0, 1.0]} for f in fams}
+        rows.append(
+            {
+                "method": "m",
+                "layer": L,
+                "families": per,
+                "full_j6": ix.weighted_macro(per, fams, ix.FAMILY_WEIGHTS_V8),
+            }
+        )
+    rows.append(
+        {"method": "m", "layer": 28, "families": {ix.MAIN: {"arm": "a", "v": ratio(ix.MAIN, 28)}}}
+    )
+    got = ix._over_layers(rows, data, universes, {})["full_j6"]
+
+    # ---- by hand
+    B = ix.N_BOOT_OVER
+    rng = np.random.default_rng(0)
+    idx = {}
+    for f in ix.FAMILIES_V8:
+        if f in fams:
+            idx[f] = rng.integers(0, len(uni[f]), size=(B, len(uni[f])))
+    w = ix.FAMILY_WEIGHTS_V8
+    per_layer = []
+    for L in (20, 24):
+        acc = np.zeros(B)
+        for f in fams:
+            m = np.zeros((len(uni[f]), 2))
+            for i, v in data[(f, "a")][L].items():
+                m[uni[f].index(i)] += v
+            s = m[idx[f]].sum(1)  # the same index array at every layer
+            with np.errstate(divide="ignore", invalid="ignore"):
+                acc = acc + w[f] * (s[:, 0] / np.where(s[:, 1] > 0, s[:, 1], np.nan))
+        per_layer.append(acc / sum(w[f] for f in fams))
+    mean = np.mean(per_layer, axis=0)
+    kept = mean[~np.isnan(mean)]
+    assert got["layers"] == [20, 24]
+    assert got["v"] == pytest.approx(np.mean([r["full_j6"]["v"] for r in rows[:2]]))
+    assert got["dropped_share"] == pytest.approx(1 - len(kept) / B) and got["dropped_share"] > 0
+    assert got["ci"] == pytest.approx(np.percentile(kept, [2.5, 97.5]).tolist())
+    # the zero row matters: without z in main's universe the CI changes
+    universes2 = {**universes, (ix.MAIN, "a"): ["i0", "i1", "i2"]}
+    assert ix._over_layers(rows, data, universes2, {})["full_j6"]["ci"] != got["ci"]

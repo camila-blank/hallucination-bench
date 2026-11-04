@@ -917,8 +917,9 @@ RULE8_STEP2_V28 = (
 RULE8_STEP3_V28 = (
     "Step 3. `false_claim` when the situation itself is wrong: what happens, the outcome, the "
     'stance, the kind of act (blackmail where the text has a leak; "the user complains" where '
-    "the user thanks), an act attributed to an agent who does not appear in the text, or actor "
-    'and target reversed; a continuation that assumes a situation the text rules out ("if '
+    "the user thanks), an act attributed to an agent who does not appear in the text, actor and "
+    "target reversed, or a wrong relation or cause between the right entities; a continuation "
+    'that assumes a situation the text rules out ("if '
     "it's from a flood or sewage backup\" in a chat about tobacco smell), or a different answer "
     'to the question the response answers ("my better half is your development environment"). '
     "Precedence: a different existing entity, or a different role or title, in the slot is "

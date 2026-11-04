@@ -148,6 +148,12 @@ def test_scenario_card_and_render():
     assert "control version" in ctrl and "did no misconduct" in ctrl
     with pytest.raises(ValueError):
         cam.scenario_card(mis, None)
+    # an empty rollout quote: the kind alone, no empty ("")
+    for q in ("", "  ", None):
+        bare = cam.scenario_card(
+            mis, intent.Intent(rollout={"leaking_confidential": {"rollout_quote": q}})
+        )
+        assert "`leaking_confidential`." in bare and '("' not in bare
     from hallucination_bench.units import split_cell
 
     units = split_cell(["I will blackmail Kyle."])[0]
@@ -447,3 +453,133 @@ def test_seed_with_map_copies_pilot_rows(tmp_path):
     assert keys.count("a__L020__p1:M") == 1 and "a__Lall__p1:M" in keys
     assert "audit:Dsum:a" not in keys
     assert (dest / "toy" / "situation_cache.jsonl").read_text() == '{"key": "sit:x"}\n'
+
+
+# ---------------------------------------------------------------- review fixes
+
+
+def _filter_cache(d: Path, drop) -> None:
+    p = d / "cache.jsonl"
+    keep = [x for x in p.read_text().splitlines() if x and not drop(json.loads(x)["key"])]
+    p.write_text("".join(x + "\n" for x in keep))
+
+
+def test_v8_map_and_situation_models_are_guarded_and_replayed(tmp_path, monkeypatch):
+    """Review #1: a later v2.8 run without --map-model must not rewrite arm.json to Opus (the
+    rebuild then made every map pending); a different explicit model is refused."""
+    monkeypatch.setattr(intent, "OVERRIDES_PATH", _empty_overrides(tmp_path / "ov.json"))
+    f = _prose(tmp_path)
+    out = tmp_path / "out"
+    amrun.run_am([("toy", f)], out, M8, llm=AM8Fake(), items=[MIS, CTRL], stages="detect,map")
+    d = amrun.arm_dir(out, M8, "toy")
+    omit = Models(eval="agentic_misalignment", map_prompt=V28)  # no --map-model
+    amrun.run_am([("toy", f)], out, omit, llm=AM8Fake(), items=[MIS], stages="situation")
+    rec = json.loads((d / "arm.json").read_text())
+    assert rec["map_model"] == "claude-sonnet-5-5"
+    s = amrun.rebuild("toy", f, out, omit)
+    assert s["health"]["n_pending_map"] == 0 and s["health"]["n_map_ok"] == 3
+    opus = Models(eval="agentic_misalignment", map_prompt=V28, map_model="claude-opus-5-5")
+    with pytest.raises(JudgeConfigError, match="map-model"):
+        amrun.run_am([("toy", f)], out, opus, llm=AM8Fake(), items=[MIS], stages="situation")
+    # the situation model: recorded once set, then guarded and replayed the same way
+    sit = Models(eval="agentic_misalignment", map_prompt=V28, situation_model="claude-opus-5-5")
+    amrun.run_am([("toy", f)], out, sit, llm=AM8Fake(), items=[MIS], stages="situation")
+    assert json.loads((d / "arm.json").read_text())["situation_model"] == "claude-opus-5-5"
+    amrun.run_am([("toy", f)], out, omit, llm=AM8Fake(), items=[MIS], stages="situation")
+    rec = json.loads((d / "arm.json").read_text())
+    assert rec["situation_model"] == "claude-opus-5-5"
+    assert rec["map_model"] == "claude-sonnet-5-5"
+    other = Models(eval="agentic_misalignment", map_prompt=V28, situation_model="claude-x")
+    with pytest.raises(JudgeConfigError, match="situation-model"):
+        amrun.run_am([("toy", f)], out, other, llm=AM8Fake(), items=[MIS], stages="situation")
+    # v2.7 roots are never reconciled (no map_prompt in arm.json)
+    out7 = tmp_path / "out7"
+    amrun.run_am([("toy", f)], out7, M7, llm=AMFake(), items=[MIS], stages="detect")
+    amrun.run_am(
+        [("toy", f)],
+        out7,
+        Models(eval="agentic_misalignment", map_model="claude-opus-5-5"),
+        llm=AMFake(),
+        items=[MIS],
+        stages="detect",
+    )
+
+
+def test_am_joint_and_situation_honour_limit_and_seed(tmp_path, monkeypatch):
+    monkeypatch.setattr(intent, "OVERRIDES_PATH", _empty_overrides(tmp_path / "ov.json"))
+    monkeypatch.setattr(amrun, "JOINT_LAYERS", (20, 24))
+    mis = next(i for i in bank.load_items() if i["id"] == MIS)
+    sites = situation.site_positions(mis)
+    extra = {(MIS, p, la): f"An email {p}." for p in sites[:3] for la in (20, 24)}
+    f = _prose(tmp_path, layers=(20, 24), extra=extra)
+    out = tmp_path / "out"
+    amrun.run_am([("toy", f)], out, M8, llm=AM8Fake(), items=[MIS, CTRL], stages="detect,map")
+    fake = AM8Fake()
+    amrun.run_am(
+        [("toy", f)], out, M8, llm=fake, items=[MIS, CTRL], stages="joint", limit=2, sample_seed=0
+    )
+    joint_calls = [u for st, u in fake.calls if st == "map" and "R0 = layer 20" in u]
+    assert len(joint_calls) == 2  # of the 3 population sites
+    fake2 = AM8Fake()
+    amrun.run_am(
+        [("toy", f)], tmp_path / "o2", M8, llm=AM8Fake(), items=[MIS, CTRL], stages="detect,map"
+    )
+    amrun.run_am(
+        [("toy", f)],
+        tmp_path / "o2",
+        M8,
+        llm=fake2,
+        items=[MIS, CTRL],
+        stages="joint",
+        limit=2,
+        sample_seed=0,
+    )
+    assert sorted(u for st, u in fake2.calls if st == "map") == sorted(joint_calls)  # seeded
+    sfake = AM8Fake()
+    amrun.run_am(
+        [("toy", f)],
+        out,
+        M8,
+        llm=sfake,
+        items=[MIS, CTRL],
+        stages="situation",
+        limit=1,
+        sample_seed=0,
+    )
+    assert sfake.n("situation") == 3  # one judgeable cell per layer group (L20, L24, all)
+
+
+def test_am_joint_population_waits_for_every_layer(tmp_path, monkeypatch):
+    """Review #8: a site is judged or excluded only once all its layers' detections are
+    settled; the joint layer set is the bank's, never the cached layers."""
+    monkeypatch.setattr(intent, "OVERRIDES_PATH", _empty_overrides(tmp_path / "ov.json"))
+    monkeypatch.setattr(amrun, "JOINT_LAYERS", (20, 24))
+    f = _prose(tmp_path, layers=(20, 24), extra={(CTRL, 9, 24): "Plain text about emails."})
+    out = tmp_path / "out"
+    amrun.run_am([("toy", f)], out, M8, llm=AM8Fake(), items=[MIS, CTRL], stages="detect,map,joint")
+    d = amrun.arm_dir(out, M8, "toy")
+
+    def joint():
+        return {
+            r["key"]: r for r in map(json.loads, (d / "cells_joint.jsonl").read_text().splitlines())
+        }
+
+    full = joint()
+    assert f"{CTRL}__Lall__p9" not in full  # settled with no mention: excluded
+    assert all(r["map_status"] == "ok" for r in full.values())
+    # (b) one layer's detection goes missing: that site is pending (and counted), not excluded
+    _filter_cache(d, lambda k: k == f"{CTRL}__L024__p9:D")
+    s = amrun.rebuild("toy", f, out, M8)
+    j = joint()
+    assert j[f"{CTRL}__Lall__p9"]["map_status"] == "pending"
+    assert j[f"{CTRL}__Lall__p9"]["status"] == "pending"
+    assert s["v8"]["joint"]["map_status"]["pending"] >= 1
+    assert {k for k, r in j.items() if r["map_status"] == "ok"} == set(full)
+    # (a) a partially loaded arm (no L24 rows cached): the layer set and prompt stay the bank's
+    _filter_cache(d, lambda k: "__L024__" in k)
+    s = amrun.rebuild("toy", f, out, M8)
+    j = joint()
+    assert s["config"]["judged_layers"] == [20]
+    assert all(r["joint_readouts"] == {"0": 20, "1": 24} for r in j.values())
+    assert all(r["map_status"] == "pending" for r in j.values())
+    assert s["v8"]["joint"]["layers"] == [20, 24]

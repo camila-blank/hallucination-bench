@@ -45,6 +45,7 @@ ROLE_TEXT = (
     "a name is not a role",
     "context word (not a role word: those are step 1)",
     "an act attributed to an agent who does not appear in the text",
+    "actor and target reversed, or a wrong relation or cause between the right entities",
     "a different role or title, in the slot is",
     "fix the wrong part — is the reading then right?",
     "Dates, times and quantities of the conversation's own events are `detail`",
@@ -370,3 +371,52 @@ def test_pilot_sample_is_seeded_and_stratified_by_layer(prose_readouts, tmp_path
         cli.build_parser().parse_args(["run", "--limit", "5", "--sample-seed", "0"]).sample_seed
         == 0
     )
+
+
+def test_v28_false_claim_definition_and_step3_agree():
+    """Plan 0029 review: the leaf keeps "a wrong relation or cause"; step 3 names it too
+    (between the right entities), and step 1 still wins for a wrong identity or role."""
+    fc = next(lf for lf in tx.judge_leaves(V28) if lf.name == "false_claim").definition
+    assert "a wrong relation or cause" in fc
+    step3 = tx.rules(False, V28)[8].body[3]
+    assert step3.startswith("Step 3.")
+    assert "a wrong relation or cause between the right entities" in step3
+    assert "a wrong agent or relation" not in step3
+    assert "Precedence: a different existing entity, or a different role or title" in step3
+    assert "step 1, not `false_claim`" in step3
+    # v2.7 untouched
+    assert "a wrong agent or relation" in tx.RULES[8].body[3]
+    assert "between the right entities" not in cm.SYSTEM
+
+
+def test_chat_v28_map_model_is_guarded_and_replayed(tmp_path, prose_readouts):
+    """Review #1 (chat): an omitted --map-model replays the recorded one; another is refused."""
+    son = wrun.Models(map_prompt=V28, map_model="claude-sonnet-5-5")
+    _run([("toy", prose_readouts)], tmp_path, Map28Fake(), son)
+    d = wrun.arm_dir(tmp_path, son, "toy")
+    fake = Map28Fake()
+    _run([("toy", prose_readouts)], tmp_path, fake, wrun.Models(map_prompt=V28))
+    assert fake.n("map") == 0  # same model, same fingerprint: everything cached
+    assert json.loads((d / "arm.json").read_text())["map_model"] == "claude-sonnet-5-5"
+    s = wrun.rebuild_arm("toy", prose_readouts, tmp_path, wrun.Models())
+    s2 = json.loads((d / "summary_v2.json").read_text())
+    assert s2["health"]["n_map_pending"] == 0 and s["config"]["models"]["map_model"] == (
+        "claude-sonnet-5-5"
+    )
+    opus = wrun.Models(map_prompt=V28, map_model="claude-opus-5-5")
+    with pytest.raises(JudgeConfigError, match="map-model"):
+        _run([("toy", prose_readouts)], tmp_path, Map28Fake(), opus)
+    argv = [
+        "run",
+        "--arm",
+        f"toy={prose_readouts}",
+        "--out",
+        str(tmp_path),
+        "--stages",
+        "map",
+        "--map-prompt",
+        V28,
+        "--map-model",
+        "claude-opus-5-5",
+    ]
+    assert cli.main(argv) == 3

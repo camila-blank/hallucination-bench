@@ -488,6 +488,9 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
   - `--map-prompt {claimmap-v2.7,claimmap-v2.8}` on `hbench run` (chat / story / AM; AM maps it
     to `claimmap-v2.8+am3`) is recorded in `arm.json` (`map_prompt`, missing = v2.7); a run whose
     flag differs from an existing `arm.json` exits 3, rebuild / report replay the recorded one.
+    In a v2.8 root the same holds for `--map-model` / `--situation-model`: omitted = the recorded
+    one (never rewritten), a different one exits 3. `--limit N` on `--joint` / AM `joint` /
+    `situation` is a seeded draw (`--sample-seed`, default 0), never the first N.
     v8 roots live under `outputs/v8/` (pilots `outputs/v8-pilot/`); never point a v2.8 run at a v7
     root. `scripts/v8/seed_am_root.py` copies the v7 AM detections (`:D`, `:Dsum`, `summ:`,
     `batchD:`, `:H`) + `intent.jsonl` into a v8 / pilot AM root (`--with-map --append` copies a
@@ -516,6 +519,13 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
     benign_roleplay roots. The cheating family needs a `twin_readouts` root and is refused before
     v8 (also from `$HBENCH_SAFETY_CHEATING_OUT`). v8 reader allowlists exclude
     `final-olens-rl600-x4`.
+  - AM joint population: a site is judged or excluded only once all 11 layers' detections are
+    settled; an unsettled site is a `pending` record. The joint layer set is always the bank's
+    11 (`run.JOINT_LAYERS`), so a partially loaded arm never changes the joint prompt.
+  - `hbench final` trusts no manifest metadata: it recounts cells / failures from each hashed
+    file, requires the full unit grid (L20..L60 + `all` for joint families), checks each
+    claim-map arm dir's `arm.json` `map_prompt`, and builds from a fresh temp dir holding only
+    the listed files (`situation.jsonl` filtered to the listed units).
   - Judge noise is not run for v8: `report --view v2` shows no noise column for v2.8 roots.
 - **In-run retries** (rev 14): an invalid `:M` (or calibration) answer is re-asked up to 2 times
   (`run.MAP_INVALID_RETRIES`) before it is cached as failed; meta records `n_invalid_attempts`

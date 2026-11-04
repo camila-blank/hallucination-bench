@@ -180,6 +180,7 @@ def _cmd_run_joint(args: argparse.Namespace, arms: list, models, out: Path) -> i
                 rpm=args.rpm,
                 concurrency=args.concurrency,
                 show_prompts=args.show_prompts,
+                sample_seed=args.sample_seed,
             )
         h = s2["health"]
         print(

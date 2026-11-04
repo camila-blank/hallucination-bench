@@ -184,15 +184,70 @@ def check_map_prompt(arm_dir_: Path, models: Models) -> None:
         )
 
 
+RECORDED_MODEL_FIELDS: tuple[str, ...] = ("map_model", "situation_model")
+
+
+def _arm_record(arm_dir_: Path) -> dict[str, Any] | None:
+    p = Path(arm_dir_) / "arm.json"
+    if not p.is_file():
+        return None
+    try:
+        rec = json.loads(p.read_text(encoding="utf-8"))
+    except ValueError:
+        return None
+    return rec if isinstance(rec, dict) else None
+
+
 def with_recorded_prompt(arm_dir_: Path, models: Models) -> Models:
     """Rebuild / report replay with the recorded claim-map prompt (an arm dir without
-    ``arm.json`` keeps ``models``)."""
+    ``arm.json`` keeps ``models``); in a v2.8 root an omitted map / situation model is the
+    recorded one too (plan 0029 review)."""
     from dataclasses import replace as _replace
 
-    if not (Path(arm_dir_) / "arm.json").is_file():
+    rec = _arm_record(arm_dir_)
+    if rec is None:
         return models
     v = recorded_map_prompt(arm_dir_)
-    return models if v == models.map_prompt else _replace(models, map_prompt=v)
+    out = models if v == models.map_prompt else _replace(models, map_prompt=v)
+    if rec.get("map_prompt"):
+        for f in RECORDED_MODEL_FIELDS:
+            if getattr(out, f) is None and rec.get(f) is not None:
+                out = _replace(out, **{f: rec[f]})
+    return out
+
+
+def reconcile_models(arm_dir_: Path, models: Models) -> Models:
+    """Plan 0029 review: in a v2.8 root (``arm.json`` records ``map_prompt``) a run that names a
+    map / situation model other than the recorded one is refused (``JudgeConfigError``: exit
+    3); an omitted one replays the recorded one, so a later run never rewrites ``arm.json``
+    to another model. v2.7 roots and new arm dirs keep ``models``."""
+    from dataclasses import replace as _replace
+
+    rec = _arm_record(arm_dir_)
+    if rec is None or not rec.get("map_prompt"):
+        return models
+    out = models
+    for f in RECORDED_MODEL_FIELDS:
+        r, mine = rec.get(f), getattr(models, f)
+        if r is None:
+            continue
+        if mine is None:
+            out = _replace(out, **{f: r})
+        elif mine != r:
+            raise JudgeConfigError(
+                f"{arm_dir_}: judged with {f.replace('_', '-')} {r}, this run asks for {mine} "
+                "(omit the flag to reuse the recorded one, or use another --out root)"
+            )
+    return out
+
+
+def reconcile_all(dirs: Sequence[Path], models: Models) -> Models:
+    """:func:`reconcile_models` over several arm dirs of one run; they must agree."""
+    got = {d: reconcile_models(d, models) for d in dirs}
+    distinct = {(m.map_model, m.situation_model) for m in got.values()}
+    if len(distinct) > 1:
+        raise JudgeConfigError(f"arm dirs of this run record different models: {distinct}")
+    return next(iter(got.values())) if got else models
 
 
 def model_slug(model: str) -> str:
@@ -670,7 +725,7 @@ def select(
     return Selection(arm, sel_layers, todo, len(missing))
 
 
-def pilot_sample(cells: Sequence[Cell], n: int, seed: str) -> list[Cell]:
+def pilot_sample(cells: Sequence[Any], n: int, seed: str) -> list[Any]:
     """Plan 0029 §3.3: ``n`` cells drawn by a seeded shuffle (``--limit N --sample-seed S``:
     the pilots, stratified by layer), kept in their file order."""
     import random
@@ -769,6 +824,7 @@ async def run_arms_async(
     cm.spec(models.map_prompt)  # an unknown --map-prompt fails before anything is opened
     for n, _p in arms:  # plan 0029: never mix prompt versions in one arm dir
         check_map_prompt(arm_dir(out_root, models, n), models)
+    models = reconcile_all([arm_dir(out_root, models, n) for n, _p in arms], models)
     opened = [open_arm(n, p, out_root, models) for n, p in arms]
     try:
         sels = []
@@ -1186,6 +1242,7 @@ async def run_joint_async(
     llm: LLM | None = None,
     stages: Sequence[str] | None = None,
     show_prompts: int = 0,
+    sample_seed: int | None = None,
 ) -> dict[str, Any]:
     """Judge the joint cells of arm ``name`` (output dir ``<out>/<eval>/<judge>/<name>/``) from
     ``sources`` (precedence order), then rebuild them. Per-layer cells are untouched."""
@@ -1195,6 +1252,7 @@ async def run_joint_async(
         raise ValueError(f"joint stages are {JOINT_STAGES}, got {sorted(bad)}")
     d = arm_dir(out_root, models, name)
     check_map_prompt(d, models)
+    models = reconcile_models(d, models)
     if (d / JOINT_JSON).is_file():
         prev = json.loads((d / JOINT_JSON).read_text(encoding="utf-8"))
         if prev.get("sources") != [[n, str(p)] for n, p in sources] or prev.get("layers") != list(
@@ -1220,7 +1278,9 @@ async def run_joint_async(
         if not (d / "arm.json").is_file():
             _write_arm_json(arm, models)
         todo = [jc for jc in jcells if any(c is not None and not c.empty for c in jc.cells)]
-        todo = todo[:limit] if limit else todo
+        if limit:  # a seeded draw (pilots), never the first N in bank order
+            seed = sample_seed if sample_seed is not None else 0
+            todo = pilot_sample(todo, limit, f"{seed}:{name}:joint")
         own = llm is None
         llm = llm or joint_llm(rpm=rpm, concurrency=concurrency, effort=models.effort)
         try:
@@ -1267,6 +1327,8 @@ async def rebuild_joint_async(name: str, out_root: Path, models: Models) -> dict
     from dataclasses import replace as _replace
 
     models = _replace(models, map_prompt=rec_j.get("map_prompt") or cm.PROMPT_VERSION)
+    if models.map_model is None and rec_j.get("map_model"):  # replay the recorded map model
+        models = _replace(models, map_model=rec_j["map_model"])
     _check_joint_models(models)
     sources = [(n, Path(p)) for n, p in rec_j["sources"]]
     arm, jcells = _joint_arm(name, sources, out_root, models, rec_j["layers"], readonly=True)

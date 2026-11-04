@@ -13,13 +13,18 @@ version, the judge model, ``n_cells`` and ``n_failed``::
                   "n_cells": 1600, "n_failed": 3}, ...]}
 
 ``file`` is relative to ``root``; a safety family's file is the root's ``index_counts.jsonl``
-(``index_counts_joint.jsonl`` for ``all``). :func:`main` checks every sha256 and completeness
-(``n_failed / n_cells <= max_failed_share``, default 1%, per entry), and that every claim-map
-entry (main, story, am_claims) records the **same** accepted v8 prompt (a registered
-``claimmap-v2.8*``); any failure exits 2 naming the hole. It then builds hindex-v8 from exactly
-the manifest's arm dirs (staged as symlinks under ``<out>/_sources``) and roots, writes
-``index.json`` / ``index.md`` to ``--out`` and draws the plots to ``--plots``. Nothing outside the
-manifest is plotted.
+(``index_counts_joint.jsonl`` for ``all``). Required keys: family, method, unit, root, file,
+sha256, prompt_version, judge_model (``arm`` defaults to the method; ``n_cells`` / ``n_failed``
+are optional and must match the recount). :func:`main` checks every sha256, recounts cells and
+failures from the hashed file itself (<= ``max_failed_share``, default 1%, per entry; no layer
+outside the grid), requires the full unit grid per family x method (L20 ... L60, plus ``all``
+for the joint families), and that every claim-map entry (main, story, am_claims) declares the
+**same** accepted v8 prompt (``claimmap-v2.8*``; AM ``+am3`` versions normalised to their chat
+version) and that each claim-map arm dir's ``arm.json`` records it; any failure exits 2 naming
+the hole. It then builds hindex-v8 from exactly the manifest's files (symlinked into a fresh
+temp dir per run; a joint file is read only if an ``all`` entry hashes it) and nothing else,
+writes ``index.json`` / ``index.md`` to ``--out`` (sources point at the manifest roots) and draws
+the plots to ``--plots``. Nothing outside the manifest is plotted.
 
 Plots (150 dpi, slide fonts, fixed colours, legends outside): ``index_per_layer.png`` (``full``
 per layer with its CI band, ``full_j6`` thin, ``full_joint`` dotted horizontal),
@@ -43,7 +48,6 @@ from hallucination_bench.judges import claimmap_v2 as cm
 
 MAX_FAILED_SHARE = 0.01
 CLAIM_MAP_FAMILIES: tuple[str, ...] = (ix.MAIN, ix.STORY, ix.AM_CLAIMS)
-ARM_DIR_FAMILIES: tuple[str, ...] = (ix.MAIN, ix.STORY, ix.AM_CLAIMS, ix.AM_SITUATION)
 COLOURS: dict[str, str] = {
     "s3d-rl600": "#1f77b4",  # O-lens
     "mlnla-rl600": "#d62728",  # NLA
@@ -65,15 +69,28 @@ def sha256_file(p: Path) -> str:
     return h.hexdigest()
 
 
+REQUIRED_KEYS: tuple[str, ...] = (
+    "family",
+    "method",
+    "unit",
+    "root",
+    "file",
+    "sha256",
+    "prompt_version",
+    "judge_model",
+)
+# the per-layer unit grid every (family, method) must cover (plus `all` for the joint families)
+EXPECTED_LAYERS: tuple[int, ...] = cm.JOINT_LAYERS
+
+
 def load_manifest(path: Path) -> dict[str, Any]:
     m = json.loads(Path(path).read_text(encoding="utf-8"))
     if m.get("index_version") != ix.INDEX_VERSION_V8:
         raise ManifestError(f"{path}: index_version must be {ix.INDEX_VERSION_V8}")
     if not isinstance(m.get("entries"), list) or not m["entries"]:
         raise ManifestError(f"{path}: no entries")
-    need = ("family", "method", "unit", "root", "file", "sha256", "n_cells", "n_failed")
     for i, e in enumerate(m["entries"]):
-        if miss := [k for k in need if k not in e]:
+        if miss := [k for k in REQUIRED_KEYS if k not in e]:
             raise ManifestError(f"{path}: entry {i} misses {miss}")
         if e["family"] not in ix.FAMILIES_V8:
             raise ManifestError(f"{path}: entry {i}: unknown family {e['family']!r}")
@@ -86,16 +103,90 @@ def _where(e: Mapping[str, Any]) -> str:
     return f"{e['family']} x {e['method']} x {e['unit']}"
 
 
+def _arm(e: Mapping[str, Any]) -> str:
+    return str(e.get("arm") or e["method"])
+
+
+def chat_version(v: Any) -> str:
+    """A declared or recorded claim-map version as its chat version (``claimmap-v2.8+am3`` ->
+    ``claimmap-v2.8``); unknown -> :class:`ManifestError`."""
+    from hallucination_bench.judges import claimmap_am as cam
+
+    try:
+        return cam.spec(str(v)).chat_version
+    except ValueError:
+        raise ManifestError(f"unknown claim-map prompt version {v!r}") from None
+
+
+def _unit_layer(v: Any) -> int | str:
+    return ix.JOINT_LABEL if v == ix.JOINT_LABEL else int(v)
+
+
+def recount(e: Mapping[str, Any], path: Path) -> tuple[int, int, set[int | str]]:
+    """``(n_cells, n_failed, layers in the file)`` of one entry, from the hashed file itself
+    (rows of the entry's arm only, in files shared across arms). A failed cell is anything not
+    settled: a failed or pending map / detection / judge, or an unjudged safety row."""
+    fam, unit, arm = e["family"], _layer(e["unit"]), _arm(e)
+    n = f = 0
+    seen: set[int | str] = set()
+    with Path(path).open(encoding="utf-8") as fh:
+        for line in fh:
+            if not line.strip():
+                continue
+            r = json.loads(line)
+            if fam == ix.SIBLING and r.get("method") != arm:
+                continue
+            if fam in ix.SAFETY_FAMILIES_V8 and r.get("arm") != arm:
+                continue
+            la = _unit_layer(r["layer"])
+            seen.add(la)
+            if la != unit:
+                continue
+            if fam in (ix.MAIN, ix.STORY):
+                if r.get("status") == "empty":
+                    continue
+                n += 1
+                f += (r.get("stages") or {}).get("map") != "ok"
+            elif fam == ix.AM_CLAIMS:
+                if r.get("status") == "empty":
+                    continue
+                n += 1
+                bad_det = r.get("status") in ("pending", "failed")
+                f += bad_det or r.get("map_status") not in (None, "ok")
+            elif fam == ix.AM_SITUATION:
+                if r.get("status") == "empty":
+                    continue
+                n += 1
+                f += r.get("status") != "ok"
+            elif fam == ix.SIBLING:
+                n += 1
+            else:
+                n += 1
+                f += int(r.get("n_failed_cells") or 0) > 0
+    return n, f, seen
+
+
 def check(m: Mapping[str, Any], base: Path) -> str:
-    """Every sha256, completeness, one accepted prompt version; returns that version."""
+    """Every sha256; ``n_cells`` / ``n_failed`` recomputed from the hashed file (a declared
+    count must agree); <= ``max_failed_share`` failed per entry; no layer outside the grid in
+    a file; the full unit grid per family x method; one accepted v8 claim-map version, declared
+    by every claim-map entry and recorded in each claim-map arm dir's ``arm.json``. Returns the
+    accepted (chat) version."""
     share = float(m.get("max_failed_share", MAX_FAILED_SHARE))
+    grid = {f"L{la}" for la in EXPECTED_LAYERS}
+    allowed_layers: set[int | str] = {*EXPECTED_LAYERS, ix.JOINT_LABEL}
     for e in m["entries"]:
         p = (base / e["root"] / e["file"]).resolve()
         if not p.is_file():
             raise ManifestError(f"{_where(e)}: missing file {p}")
         if (got := sha256_file(p)) != e["sha256"]:
             raise ManifestError(f"{_where(e)}: sha256 mismatch for {p} ({got} != {e['sha256']})")
-        n, f = int(e["n_cells"]), int(e["n_failed"])
+        n, f, seen = recount(e, p)
+        if extra := seen - allowed_layers:
+            raise ManifestError(f"{_where(e)}: {p} holds layers outside the grid: {extra}")
+        for k, v in (("n_cells", n), ("n_failed", f)):
+            if k in e and int(e[k]) != v:
+                raise ManifestError(f"{_where(e)}: declared {k} {e[k]} != {v} in {p}")
         if n <= 0:
             raise ManifestError(f"{_where(e)}: no cells (hole)")
         if f / n > share:
@@ -103,37 +194,85 @@ def check(m: Mapping[str, Any], base: Path) -> str:
                 f"{_where(e)}: {f} of {n} cells failed ({100 * f / n:.2f}% > "
                 f"{100 * share:.0f}%): the hole must be re-run"
             )
-    versions = {e.get("prompt_version") for e in m["entries"] if e["family"] in CLAIM_MAP_FAMILIES}
+    units: dict[tuple[str, str], set[str]] = defaultdict(set)
+    for e in m["entries"]:
+        units[(e["family"], e["method"])].add(str(e["unit"]))
+    holes = []
+    for (fam, method), got_units in sorted(units.items()):
+        want = grid | ({ix.JOINT_LABEL} if fam in ix.JOINT_FAMILIES_V8 else set())
+        if missing := sorted(want - got_units):
+            holes.append(f"{fam} x {method}: {missing}")
+    if holes:
+        raise ManifestError("incomplete unit grid: " + "; ".join(holes))
+    claim = [e for e in m["entries"] if e["family"] in CLAIM_MAP_FAMILIES]
+    versions = {chat_version(e["prompt_version"]) for e in claim}
     if len(versions) != 1:
         raise ManifestError(f"claim-map roots record different prompt versions: {versions}")
     (v,) = versions
     if v not in cm.VERSIONS or not cm.is_v28(v):
         raise ManifestError(f"claim-map prompt {v!r} is not an accepted v8 version (v2.8*)")
+    for e in claim:
+        d = (base / e["root"] / e["file"]).resolve().parent
+        a = d / "arm.json"
+        if not a.is_file():
+            raise ManifestError(f"{_where(e)}: no arm.json in {d} (cannot verify the prompt)")
+        rec = json.loads(a.read_text(encoding="utf-8")).get("map_prompt") or cm.PROMPT_VERSION
+        if chat_version(rec) != v:
+            raise ManifestError(f"{_where(e)}: {a} records map_prompt {rec!r}, declared {v!r}")
     return v
 
 
-def stage_sources(m: Mapping[str, Any], base: Path, stage: Path) -> dict[str, list[Path]]:
-    """Index sources from exactly the manifest: claim / situation arm dirs as symlinks under
-    ``stage/<family>/<arm>``; other families' roots as listed."""
+def stage_sources(
+    m: Mapping[str, Any], base: Path, stage: Path
+) -> tuple[dict[str, list[Path]], dict[str, str]]:
+    """Index sources holding exactly the manifest's files: each listed file is symlinked at its
+    path relative to its root under ``stage/<family>/r<k>/`` (a safety root's
+    ``index_meta.json`` beside it, for the unit guard). Returns the sources and a map from each
+    staged root to the manifest root it stands for."""
     sources: dict[str, list[Path]] = defaultdict(list)
+    roots: dict[tuple[str, Path], Path] = {}
+    back: dict[str, str] = {}
     for e in m["entries"]:
-        root = (base / e["root"]).resolve()
         fam = e["family"]
-        if fam in ARM_DIR_FAMILIES:
-            arm = e.get("arm") or Path(e["file"]).parts[0]
-            dest = stage / fam / arm
-            src = root / arm
+        root = (base / e["root"]).resolve()
+        if (fam, root) not in roots:
+            roots[(fam, root)] = stage / fam / f"r{sum(f == fam for f, _ in roots)}"
+            sources[fam].append(roots[(fam, root)])
+            back[str(roots[(fam, root)].resolve())] = str(root)
+        sroot = roots[(fam, root)]
+        files = [e["file"]]
+        if fam in ix.SAFETY_FAMILIES_V8 and (root / ix.SAFETY_META).is_file():
+            files.append(ix.SAFETY_META)
+        for rel in files:
+            dest = sroot / rel
             if dest.is_symlink() or dest.exists():
-                if dest.resolve() != src.resolve():
-                    raise ManifestError(f"{fam}: arm {arm} listed under two roots")
-            else:
-                dest.parent.mkdir(parents=True, exist_ok=True)
-                os.symlink(src, dest, target_is_directory=True)
-            if stage / fam not in sources[fam]:
-                sources[fam].append(stage / fam)
-        elif root not in sources[fam]:
-            sources[fam].append(root)
-    return dict(sources)
+                continue
+            dest.parent.mkdir(parents=True, exist_ok=True)
+            if fam == ix.AM_SITUATION:  # one file holds every unit: keep the listed ones only
+                units = {
+                    _layer(x["unit"])
+                    for x in m["entries"]
+                    if x["family"] == fam
+                    and x["file"] == rel
+                    and (base / x["root"]).resolve() == root
+                }
+                with (root / rel).open(encoding="utf-8") as fi, dest.open("w") as fo:
+                    for line in fi:
+                        if line.strip() and _unit_layer(json.loads(line)["layer"]) in units:
+                            fo.write(line)
+                continue
+            os.symlink((root / rel).resolve(), dest)
+    return dict(sources), back
+
+
+def _restore_paths(built: dict[str, Any], back: Mapping[str, str]) -> None:
+    """Point ``sources`` / safety ``meta`` roots at the manifest roots, not the temp stage."""
+    built["sources"] = {
+        f: [back.get(p, p) for p in ps] for f, ps in built.get("sources", {}).items()
+    }
+    for blk in built.get("safety", {}).values():
+        for mm in blk.get("meta", []):
+            mm["root"] = back.get(mm["root"], mm["root"])
 
 
 def _layer(unit: str) -> int | str:
@@ -367,17 +506,24 @@ def main(
     base: Path | None = None,
 ) -> int:
     """Exit 0, or 2 (with the reason on stderr) when a manifest check fails."""
+    import tempfile
+
     base = Path(base) if base is not None else Path.cwd()
     try:
         m = load_manifest(manifest)
         version = check(m, base)
-        stage = Path(out) / "_sources"
-        sources = stage_sources(m, base, stage)
     except ManifestError as e:
         print(f"hbench final: {e}", file=sys.stderr)
         return 2
     keep = allowed(m)
-    built = ix.build_index_v8(sources, ix.load_methods(methods), workers)
+    with tempfile.TemporaryDirectory(prefix="hbench-final-") as tmp:  # fresh every run
+        try:
+            sources, back = stage_sources(m, base, Path(tmp))
+        except ManifestError as e:
+            print(f"hbench final: {e}", file=sys.stderr)
+            return 2
+        built = ix.build_index_v8(sources, ix.load_methods(methods), workers)
+        _restore_paths(built, back)
     built["manifest"] = {
         "path": str(Path(manifest).resolve()),
         "sha256": sha256_file(manifest),
