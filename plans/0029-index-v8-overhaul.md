@@ -1,6 +1,6 @@
 # Plan 0029: hindex-v8 — narrow continuation excuse, detail vs substitution vs claim, AM overhaul, joint 11-layer unit, cheating, one source of truth
 
-Author: Camila Blank (planned with Claude), 2026-11-04. **Revision 7** (rev 7 = critique of rev 6: version-aware claim families, v2.8.1 AM spec + pilot roots, version-aware decision text. Rev 6 = critique of rev 5: `prediction` kept, Steps 2–3 edited, carve-out keeps the conversation condition, v2.8.x versions, OPEN_DECISIONS_V28, `{joint_note}`, index branches named. Rev 5 = a clean rewrite folding
+Author: Camila Blank (planned with Claude), 2026-11-04. **Revision 8** (rev 8 = final critique minors: decision_text default, AM weights branch, pilot seeding, v2.8.1 follow-up PR; rev 7 = critique of rev 6: version-aware claim families, v2.8.1 AM spec + pilot roots, version-aware decision text. Rev 6 = critique of rev 5: `prediction` kept, Steps 2–3 edited, carve-out keeps the conversation condition, v2.8.x versions, OPEN_DECISIONS_V28, `{joint_note}`, index branches named. Rev 5 = a clean rewrite folding
 in: rev 1 → 2 critique (versioned prompts, v8 roots, joint budget, offsets, rule placement,
 pins); rev 3 = Camila's corrections (narrow continuation excuse, title/role = substitution, AM =
 two families 3 + 3, story down-weights detail only, plot O-lens = s3d-rl600, final-olens not a v8
@@ -209,7 +209,10 @@ Same prompt and rules; `STORY_LEAF_WEIGHTS`. "After" ends at the 512-token cut (
   version)`), taxonomy/scoring versions (v2-r17/r20 vs v2-r21/r21) and `definitions`. v2.8 text is
   built from parallel objects (`_LEAVES_V28`, `rules(anchored, version)`, `DETAIL_CARVE_OUT_V28`,
   `DETAIL_ITEMS_V28`, `QUOTE_RULE_V28`, `TAGS_V28`, `OPEN_DECISIONS_V28` with a version-aware
-  `decision_text(key, version)` used by `rules(…, version)`); v2.7 objects untouched. Module constants
+  `decision_text(key, version="claimmap-v2.7")` used by `rules(…, version)`; existing v2.7 callers
+  (`rules()`, `_detail_items`, `TAGS["cruxy"]`) keep the default and their output; the v2.8 copies
+  pass v2.8 explicitly; both versions read the one shared `CHOSEN` with the same keys); v2.7
+  objects untouched. Module constants
   (`PROMPT_VERSION`, `TAXONOMY_VERSION`, `LEAF_NAMES`, `SYSTEM`, `USER_TEMPLATE`, `SCHEMA`) keep
   their v2.7 values. `claimmap_am` gets `VERSIONS = {"claimmap-v2.7+am2": …, "claimmap-v2.8+am3": …,
   "claimmap-v2.8.1+am3": …}` (the last registered only if the tag gate forces v2.8.1), each slicing
@@ -242,7 +245,11 @@ Same prompt and rules; `STORY_LEAF_WEIGHTS`. "After" ends at the 512-token cut (
 
 ### 3.3 Pilots and gates (before any spend approval)
 - Pilots run in separate roots `outputs/v8-pilot/` (so a v2.8.1 re-run never meets the arm.json
-  guard in the real v8 roots; the full run starts in `outputs/v8/` with the final version).
+  guard in the real v8 roots; the full run starts in `outputs/v8/` with the final version). The
+  pilot AM root is seeded exactly like the v8 AM root (`seed_am_root.py`). When the final version
+  equals the pilot's, the pilot `:M` rows (same fingerprint) are copied into `outputs/v8` so no
+  cell is paid twice. Registering `claimmap-v2.8.1` (if the gate forces it) is a small follow-up
+  PR reviewed under the same pins.
 - **Per-layer pilot**: 200 v2.8 cells per arm for main, 50 per arm for story, 200 per arm for AM
   (seeded, stratified by layer) — output tokens, validity, USD per cell, refusals.
 - **Joint pilot**: 20 joint cells per arm per family (main, story, AM): output tokens, valid-answer
@@ -318,7 +325,9 @@ to start unless every item has an effective intent. The card is in the `:M` fing
   v3–v7 builds are unchanged with `am_claims` sources present. Weights, `methods.json` (`am_claims` /
   `am_situation` entries wherever `agentic_misalignment` is mapped, so `mlnla-rl600-all11` resolves
   to method `mlnla-rl600`); `claim_rows` reads the AM root for `am_claims` (candidates on);
-  `claim_metric` gets a story-weights branch; `am_situation` read from `situation.jsonl`
+  `claim_metric` gets a version-aware weights table (v8: main and `am_claims` →
+  `MAIN_LEAF_WEIGHTS`, story → `STORY_LEAF_WEIGHTS`; v3–v7 unchanged); `"v8"` joins
+  `AM_CANDIDATE_VERSIONS` so `am_claims` is built with candidates on; `am_situation` read from `situation.jsonl`
   (`--am-situation-root`, defaulting to the AM v8 root).
 - **Joint row** per method: `full_joint` over the six families with a joint unit (main, story,
   am_claims, am_situation, overrefusal, BR), weights renormalised (Σ 19); every per-layer row also
