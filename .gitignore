@@ -6,3 +6,7 @@ __pycache__/
 .pytest_cache/
 .ruff_cache/
 outputs_split/
+
+# plan 0028: the 3x main bank stays local until frozen (README is tracked)
+data/wsbench_chat_x3/*
+!data/wsbench_chat_x3/README.md
