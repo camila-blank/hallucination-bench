@@ -557,6 +557,7 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
     situation` = amsit-v2 (`situation_cache.jsonl` -> `situation.jsonl`, `--situation-model`,
     default Sonnet; v2 = v1 + "local syntax at the marker is a local reading, not a
     misrepresentation"). `joint` / `situation` are never in the default stage set and need a v2.8 root.
+  - Chat / story v8 roots too: a refused J-lens `summ:` is re-asked once on Sonnet (`run.SUMMARY_FALLBACK_MODEL`); both refused = failed row (re-asked next run), counted failed by `final`.
   - Safety joint rows: `index_counts_joint.jsonl` in the overrefusal (`offtopic_index/`) and
     benign_roleplay roots. The cheating family needs a `twin_readouts` root and is refused before
     v8 (also from `$HBENCH_SAFETY_CHEATING_OUT`). v8 reader allowlists exclude

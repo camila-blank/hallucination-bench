@@ -416,10 +416,14 @@ async def cached_call(
     validate: Callable[[dict[str, Any]], bool] | None = None,
     dump: bool = False,
     invalid_retries: int = 0,
+    fallback: str | None = None,
 ) -> CallOut:
     """One cached call. An answer that fails ``validate`` is retried within the run up to
     ``invalid_retries`` times (plan rev 14: 2 for the claim map) before it is cached as failed;
-    the usage of every attempt is summed into the row's meta."""
+    the usage of every attempt is summed into the row's meta. With ``fallback`` (v8 roots), a
+    refused call is re-asked once on that model; the row stays under ``model``'s fingerprint
+    with ``meta.answered_by`` (the AM driver's rule). A failed row (both refused) is re-asked
+    on the next judge-mode run, as every failed row here."""
     fp = fingerprint(version, model, effort, system, user)
     if dump and arm.dump is not None:
         arm.dump.write(f"===== {key} [{stage}] model={model} version={version}\n")
@@ -436,31 +440,44 @@ async def cached_call(
         return CallOut("failed", raw=meta.get("raw") if isinstance(meta, dict) else None)
     usage = Usage()
     n_invalid = 0
+    asked = model  # the model that answers (the fallback once ``model`` refused)
     while True:
-        out = await llm.call(model=model, system=system, user=user, schema=schema)
+        out = await llm.call(model=asked, system=system, user=user, schema=schema)
         arm.spend[stage].add(out.usage)
         usage.add(out.usage)
+        if out.result is None and out.usage.refusals and fallback and asked == model:
+            asked = fallback
+            out = await llm.call(model=asked, system=system, user=user, schema=schema)
+            arm.spend[stage].add(out.usage)
+            usage.add(out.usage)
         r = out.result
         if r is None or validate is None or validate(r):
             break
         n_invalid += 1
         if n_invalid > invalid_retries:  # invalid after every in-run retry: cache as failed
-            meta = _meta(stage, model, usage, n_invalid)
+            meta = _meta(stage, model, usage, n_invalid, asked)
             arm.cache.put(key, fp, {"result": None, "meta": {**meta, "raw": r}})
             return CallOut("failed", raw=r)
-    meta = _meta(stage, model, usage, n_invalid)
+    meta = _meta(stage, model, usage, n_invalid, asked)
     arm.cache.put(key, fp, {"result": r, "meta": meta})
     return CallOut("ok" if r is not None else "failed", r)
 
 
-def _meta(stage: str, model: str, usage: Usage, n_invalid: int) -> dict[str, Any]:
+def _meta(
+    stage: str, model: str, usage: Usage, n_invalid: int, answered_by: str | None = None
+) -> dict[str, Any]:
     meta: dict[str, Any] = {"stage": stage, "model": model, "usage": usage.to_dict()}
     if n_invalid:
         meta["n_invalid_attempts"] = n_invalid
+    if answered_by is not None and answered_by != model:
+        meta["answered_by"] = answered_by
     return meta
 
 
 MAP_INVALID_RETRIES = 2  # plan rev 14
+# plan 0029 review: in v8 (claimmap-v2.8) roots a refused J-lens interp-v1 ``summ:`` call is
+# re-asked once on Sonnet, as the AM driver's DETECT_FALLBACK_MODEL; v7 roots never fall back
+SUMMARY_FALLBACK_MODEL = "claude-sonnet-5-5"
 
 
 # ---------------------------------------------------------------- one cell
@@ -545,6 +562,7 @@ async def process_cell(
             schema=summarizer.INTERP_SCHEMA,
             validate=lambda r: summarizer.interpretation_of(r) is not None,
             dump=dump,
+            fallback=SUMMARY_FALLBACK_MODEL if models.v28 else None,
         )
         rec["stages"]["summary"] = out.status
         text = summarizer.interpretation_of(out.result) if out.status == "ok" else None
@@ -1225,6 +1243,7 @@ async def process_joint_cell(
             schema=summarizer.INTERP_SCHEMA,
             validate=lambda r: summarizer.interpretation_of(r) is not None,
             dump=dump,
+            fallback=SUMMARY_FALLBACK_MODEL if models.v28 else None,
         )
         text = summarizer.interpretation_of(out.result) if out.status == "ok" else None
         if text is None:
