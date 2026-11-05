@@ -1,7 +1,7 @@
-"""Plan 0029 §2, §3.7, §3.8: hindex-v8 -- eight families (am_claims / am_situation split,
-cheating), version-aware claim families and leaf weights, the joint row, full_j6 / full_v7,
-the over-layers (plot 3) bootstrap, the cheating unit guard, the reader allowlists and the CLI;
-v3-v7 unchanged."""
+"""Plan 0029 §2, §3.7, §3.8: hindex-v8 -- seven families (am_claims / am_situation split;
+amendment 3: no cheating), version-aware claim families and leaf weights, the joint row,
+full_j6 / full_v7, the over-layers (plot 3) bootstrap, the cheating refusal, the reader
+allowlists and the CLI; v3-v7 unchanged."""
 
 import json
 from pathlib import Path
@@ -102,7 +102,6 @@ def v8_sources(tmp: Path, *, sibling: bool = True) -> dict[str, list[Path]]:
         ix.AM_CLAIMS: [tmp / "am"],
         ix.OVERREFUSAL: [_safety(tmp / "or", ix.UNIT_REFUSAL_CLAIMS)],
         ix.BENIGN_ROLEPLAY: [_safety(tmp / "br", ix.UNIT_PROMPTS, cluster=lambda i: i[:1] + "c")],
-        ix.CHEATING: [_safety(tmp / "ch", ix.UNIT_TWIN_READOUTS, joint=False)],
     }
     if sibling:
         for d, p in ix.um_paths(tmp / "um").items():
@@ -129,14 +128,14 @@ def v8_sources(tmp: Path, *, sibling: bool = True) -> dict[str, list[Path]]:
 def test_v8_tables():
     assert ix.VERSIONS["v8"] == ix.INDEX_VERSION_V8 == "hindex-v8"
     w = ix.FAMILY_WEIGHTS_V8
-    assert sum(w.values()) == 22 and sum(w[f] for f in ix.MATCHED_V8) == 21
+    assert sum(w.values()) == 20 and sum(w[f] for f in ix.MATCHED_V8) == 19
     assert sum(w[f] for f in ix.JOINT_FAMILIES_V8) == 19
     assert set(ix.FAMILIES_V8) == set(w) and ix.SIBLING not in ix.MATCHED_V8
-    assert (w[ix.AM_CLAIMS], w[ix.AM_SITUATION], w[ix.CHEATING]) == (3, 3, 2)
+    assert (w[ix.AM_CLAIMS], w[ix.AM_SITUATION]) == (3, 3) and ix.CHEATING not in w
     assert ix.families_for("v8") == ix.FAMILIES_V8
-    assert ix.safety_families("v8") == (ix.OVERREFUSAL, ix.BENIGN_ROLEPLAY, ix.CHEATING)
+    assert ix.safety_families("v8") == (ix.OVERREFUSAL, ix.BENIGN_ROLEPLAY)
     assert "v8" in ix.AM_CANDIDATE_VERSIONS and "v8" in ix.REFUSAL_CLAIMS_VERSIONS
-    assert ix.SAFETY_ENV[ix.CHEATING] == "HBENCH_SAFETY_CHEATING_OUT"
+    assert ix.CHEATING not in ix.SAFETY_ENV and ix.CHEATING not in ix.ALL_FAMILIES
     assert ix.STORY_LEAF_WEIGHTS == {
         "false_claim": 1.0,
         "substitution_category": 1.0,
@@ -190,7 +189,7 @@ def test_v8_rows_macros_and_joint(tmp_path):
         assert k in r20
     per = r20["families"]
     w8 = ix.FAMILY_WEIGHTS_V8
-    want = sum(w8[f] * per[f]["v"] for f in ix.FAMILIES_V8) / 22
+    want = sum(w8[f] * per[f]["v"] for f in ix.FAMILIES_V8) / 20
     assert r20["full"]["v"] == pytest.approx(want)
     want_j6 = sum(w8[f] * per[f]["v"] for f in ix.JOINT_FAMILIES_V8) / 19
     assert r20["full_j6"]["v"] == pytest.approx(want_j6)
@@ -208,7 +207,7 @@ def test_v8_rows_macros_and_joint(tmp_path):
     assert per[ix.STORY]["v"] == pytest.approx((1 + 0.2 * 2 + 0 + 1) / 9)
     assert per[ix.AM_CLAIMS]["v"] == pytest.approx(per[ix.MAIN]["v"])
     assert per[ix.AM_SITUATION]["v"] == pytest.approx(1 / 16)  # 1 of 4 items x 4 sites
-    assert per[ix.CHEATING]["n"] == 8
+    assert ix.CHEATING not in per
     md = ix.render_md(built)
     assert "| jlens | all |" in md and "## Mean over layers" in md
     assert built["notes"]["hindex-v8"].startswith("plan 0029")
@@ -264,25 +263,25 @@ def test_over_layers_shared_bootstrap(tmp_path):
 # ---------------------------------------------------------------- cheating guard, CLI
 
 
-def test_cheating_unit_guard(tmp_path):
+def test_cheating_root_refused_by_every_version(tmp_path):
+    """Plan 0029 amendment 3: the cheating eval is archived (a diagnostic): no version reads a
+    cheating root, whatever its unit."""
     src = v8_sources(tmp_path)
-    for v in ("v4", "v5", "v6", "v7"):
-        with pytest.raises(ValueError, match="hindex-v8 only"):
-            ix.check_safety_units({ix.CHEATING: src[ix.CHEATING]}, v)
-    bad = _safety(tmp_path / "bad", ix.UNIT_PROMPTS, joint=False)
-    with pytest.raises(ValueError, match="twin_readouts"):
-        ix.build_index({**src, ix.CHEATING: [bad]}, ix.Methods(), version="v8")
-    ix.check_safety_units({ix.CHEATING: src[ix.CHEATING]}, "v8")  # passes
+    ch = _safety(tmp_path / "ch", "twin_readouts", joint=False)
+    for v in ("v3", "v4", "v5", "v6", "v7", "v8"):
+        with pytest.raises(ValueError, match="on no index"):
+            ix.check_safety_units({ix.CHEATING: [ch]}, v)
+    with pytest.raises(ValueError, match="on no index"):
+        ix.build_index({**src, ix.CHEATING: [ch]}, ix.Methods(), version="v8")
 
 
-def test_cheating_env_is_read_by_v8_only(tmp_path, monkeypatch):
+def test_cheating_env_is_read_by_no_version(tmp_path, monkeypatch):
     for var in ix.SAFETY_ENV.values():
         monkeypatch.delenv(var, raising=False)
     monkeypatch.setenv("HBENCH_SAFETY_CHEATING_OUT", str(tmp_path / "ch"))
-    for v in ("v3", "v4", "v5", "v6", "v7"):
+    for v in ("v3", "v4", "v5", "v6", "v7", "v8"):
         assert ix.CHEATING not in ix.default_sources(tmp_path, "claude-opus-5-5", v)
     s8 = ix.default_sources(tmp_path, "claude-opus-5-5", "v8")
-    assert s8[ix.CHEATING] == [tmp_path / "ch"]
     assert s8[ix.AM_CLAIMS] == s8[ix.AM_SITUATION] and ix.AM not in s8
 
 
@@ -290,7 +289,7 @@ def test_cli_v8_flags(tmp_path, monkeypatch, capsys):
     for var in ix.SAFETY_ENV.values():
         monkeypatch.delenv(var, raising=False)
     src = v8_sources(tmp_path)
-    for flag in ("--cheating-root", "--am-situation-root"):
+    for flag in ("--am-situation-root",):
         with pytest.raises(SystemExit, match="hindex-v8 only"):
             cli.main(
                 [
@@ -303,6 +302,10 @@ def test_cli_v8_flags(tmp_path, monkeypatch, capsys):
                     str(tmp_path / "none"),
                 ]
             )
+    # plan 0029 amendment 3: --cheating-root is gone (an unknown argument)
+    with pytest.raises(SystemExit) as gone:
+        cli.main(["index", "--version", "v8", "--cheating-root", str(tmp_path / "ch")])
+    assert gone.value.code == 2
     argv = [
         "index",
         "--version",
@@ -321,8 +324,6 @@ def test_cli_v8_flags(tmp_path, monkeypatch, capsys):
         str(src[ix.OVERREFUSAL][0]),
         "--benign-roleplay-root",
         str(src[ix.BENIGN_ROLEPLAY][0]),
-        "--cheating-root",
-        str(src[ix.CHEATING][0]),
         "--dest",
         str(tmp_path / "dest"),
         "--workers",

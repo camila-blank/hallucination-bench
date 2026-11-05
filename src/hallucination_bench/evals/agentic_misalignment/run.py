@@ -52,6 +52,7 @@ from hallucination_bench.evals.wsbench_chat.run import (
     MAP_INVALID_RETRIES,
     Models,
     check_map_prompt,
+    check_verifier,
     joint_key,
     model_slug,
     pilot_sample,
@@ -60,6 +61,7 @@ from hallucination_bench.evals.wsbench_chat.run import (
 )
 from hallucination_bench.judges import claimmap_am as cam
 from hallucination_bench.judges import claimmap_v2 as cm
+from hallucination_bench.judges import continuation_verifier as cv
 from hallucination_bench.llm import LLM, JudgeConfigError, Usage, joint_llm
 from hallucination_bench.readouts import Cell, decode_token, load_readouts, sha256_file
 from hallucination_bench.units import Normalised, split_cell
@@ -70,7 +72,9 @@ from . import kinds as K
 READOUTS_FILE = "agentic_misalignment.jsonl"
 DEFAULT_READOUTS_ROOT = paths.READOUTS_ROOT
 DEFAULT_ARMS: tuple[str, ...] = ("s3d-rl600", "nla-rl-L42", "jlens")
-STAGES: tuple[str, ...] = ("detect", "summ", "verify", "map", "intent")
+# plan 0029 Amendment 2: `cverify` (the continuation verifier, after map / joint) is in the
+# default selection; a no-op unless the root's verifier is on (v2.9)
+STAGES: tuple[str, ...] = ("detect", "summ", "verify", "map", "intent", cv.STAGE)
 # plan 0029 (claimmap-v2.8 roots only; never in the default selection): the joint 11-layer
 # claim map and the amsit-v2 situation judge
 V8_STAGES: tuple[str, ...] = ("joint", "situation")
@@ -773,13 +777,56 @@ def parse_map(
     item: dict[str, Any],
     site: dict[str, Any],
     models: Models,
+    verdicts: Any = None,
 ) -> tuple[list[cm.Segment], dict[str, int]]:
     """``cm.parse`` for an AM cell: v2.7 exactly as before; v2.8 with ``read_offset`` =
     ``site["char"]`` (plan 0029 §1.1: the marker's offset in ``bank.conversation``)."""
     conv = bank.conversation(item)
     if not models.v28:
         return cm.parse(raw, units, conv)
-    return cm.parse(raw, units, conv, read_offset=int(site["char"]), version=models.map_prompt)
+    ev = (verdicts or {}) if models.excuse_verifier else None
+    return cm.parse(
+        raw,
+        units,
+        conv,
+        read_offset=int(site["char"]),
+        version=models.map_prompt,
+        excuse_verdicts=ev,
+    )
+
+
+async def verified_parse_map(
+    arm: "AMArm",
+    cell_key: str,
+    raw: dict[str, Any] | None,
+    units: Sequence[Any],
+    item: dict[str, Any],
+    site: dict[str, Any],
+    samples: Sequence[str],
+    models: Models,
+    status: str,
+    llm: LLM | None,
+) -> tuple[list[cm.Segment], dict[str, int], str | None]:
+    """Plan 0029 Amendment 2: :func:`parse_map`, and in a verifier root the verifier stage on
+    its candidates (``llm``: may call the API; ``None``: cache only). Returns the segments, the
+    counts and the cell's verifier status (``None`` when the verifier is off or the map is not
+    ok)."""
+    if models.excuse_verifier is None or status != "ok":
+        segs, counts = parse_map(raw, units, item, site, models)
+        return segs, counts, None
+    out = await cv.verify_and_parse(
+        lambda v: parse_map(raw, units, item, site, models, v),
+        cache=arm.cache,
+        llm=llm,
+        cell_key=cell_key,
+        fam="am",
+        item=item,
+        pos=int(site["pos"]),
+        samples=samples,
+        version=models.excuse_verifier,
+        spend=arm.spend.setdefault(cv.STAGE, Usage()),
+    )
+    return out.segments, out.counts, out.status
 
 
 def scenario_cards(out_root: Path, models: Models) -> dict[str, str]:
@@ -994,9 +1041,11 @@ async def run_am_async(
     if bad:
         raise ValueError(f"unknown agentic_misalignment stages {sorted(bad)}")
     sp = cam.spec(models.map_prompt)  # an unknown --map-prompt fails before anything opens
+    check_verifier(models)
     if sel & set(V8_STAGES) and not models.v28:
         raise JudgeConfigError(
-            f"--stages {sorted(sel & set(V8_STAGES))} need a claimmap-v2.8 root (--map-prompt)"
+            f"--stages {sorted(sel & set(V8_STAGES))} need a claimmap-v2.8+ root (--map-prompt; "
+            "v8: claimmap-v2.9)"
         )
     sel_items = bank.load_items(items)
     arm_stages = sel - {"intent"}
@@ -1041,6 +1090,8 @@ async def run_am_async(
                 needed.add(models.summ)
             if sel & {"map", "joint"} and opened:
                 needed.add(models.mapper)
+            if cv.STAGE in sel and models.excuse_verifier and opened:
+                needed |= {cv.MODEL, cv.FALLBACK_MODEL}  # the refusal fallback too
             if "situation" in sel and opened:
                 needed.add(models.situation_model or situation.DEFAULT_MODEL)
             for m in sorted(needed):
@@ -1065,11 +1116,12 @@ async def run_am_async(
                 )
             if "verify" in sel and opened:
                 await verify_stage(opened, sels, llm, models, workers, seed, show_prompts)
-            if sp.card and sel & {"map", "joint"} and opened:
+            verifying = cv.STAGE in sel and models.excuse_verifier is not None
+            if sp.card and (sel & {"map", "joint"} or verifying) and opened:
                 cards = require_cards(out_root, models)  # after the intent stage, if selected
                 for a in opened:
                     a.cards = cards
-            if "map" in sel and opened:
+            if ("map" in sel or verifying) and opened:
                 map_sels = sels
                 if limit:  # count mapped cells, not pre-detection cells (after detect / summ)
                     map_sels = {
@@ -1078,7 +1130,10 @@ async def run_am_async(
                     }
                     for a in opened:
                         print(f"[{a.name}] map cells_selected={len(map_sels[a.name])}", flush=True)
-                await map_stage(opened, map_sels, llm, models, workers, show_prompts)
+                if "map" in sel:
+                    await map_stage(opened, map_sels, llm, models, workers, show_prompts)
+                if verifying:  # plan 0029 Amendment 2: after the map stage
+                    await cverify_stage(opened, map_sels, llm, models, workers)
             if "situation" in sel and opened:
                 await situation_stage(
                     opened, llm, models, workers, items, limit=limit, sample_seed=sample_seed
@@ -1104,6 +1159,7 @@ async def run_am_async(
                     show_prompts,
                     limit=limit,
                     sample_seed=sample_seed,
+                    verify=cv.STAGE in sel,
                 )
             finally:
                 if own:
@@ -1112,8 +1168,9 @@ async def run_am_async(
             print(f"[intent] this run: {intent_spend.report()}")
         for a in opened:
             print(f"[{a.name}] this run:")
-            for st in ("detect", "summ", "map", "verify"):
-                print(f"    {st:7s} {a.spend[st].report()}")
+            for st in ("detect", "summ", "map", "verify", cv.STAGE):
+                if st in a.spend:
+                    print(f"    {st:7s} {a.spend[st].report()}")
     finally:
         for a in opened:
             if a.dump is not None:
@@ -1221,6 +1278,38 @@ async def map_stage(
     await _pool((lambda a=a, c=c, s=s: one(a, c, s) for a, c, s in work), workers)
 
 
+async def cverify_stage(
+    arms: Sequence[AMArm],
+    sels: dict[str, list[Cell]],
+    llm: LLM,
+    models: Models,
+    workers: int,
+) -> None:
+    """Plan 0029 Amendment 2: the continuation verifier on every selected cell with a cached
+    ``ok`` map answer (the candidates of its parse); verdicts are cached in the arm's cache and
+    applied by :func:`rebuild_async`."""
+    work: list[tuple[AMArm, Cell, list[str]]] = []
+    for a in arms:
+        for c in sels[a.name]:
+            cs = await cell_state(a, c, models)
+            if mappable(cs):
+                work.append((a, c, cs.samples))
+    if not work:
+        return
+    prog = _Progress(cv.STAGE, len(work))
+
+    async def one(a: AMArm, c: Cell, samples: list[str]) -> None:
+        out, units = await map_call(a, c, samples, None, models)
+        if out.status == "ok":
+            item, site = a.items[c.id], a.sites[c.id][c.pos]
+            await verified_parse_map(
+                a, c.key, out.result, units, item, site, samples, models, "ok", llm
+            )
+        prog.tick()
+
+    await _pool((lambda a=a, c=c, s=s: one(a, c, s) for a, c, s in work), workers)
+
+
 # ---------------------------------------------------------------- plan 0029: joint + situation
 
 
@@ -1286,6 +1375,8 @@ async def _joint_record(
     models: Models,
     llm: LLM | None,
     dump: int = 0,
+    *,
+    vllm: LLM | None = None,
 ) -> dict[str, Any] | None:
     """One site's joint record, or ``None`` outside the joint population (settled with no
     sample-0 mention at any layer). An unsettled site is a ``pending`` record."""
@@ -1322,7 +1413,11 @@ async def _joint_record(
     if out.status != "pending":
         raw = out.result if out.status == "ok" else None
         item, site = arm.items[any_cell.id], arm.sites[any_cell.id][any_cell.pos]
-        segs, counts = parse_map(raw, units, item, site, models)
+        segs, counts, vst = await verified_parse_map(
+            arm, key, raw, units, item, site, samples, models, out.status, vllm
+        )
+        if vst is not None:  # plan 0029 Amendment 2
+            rec["cverify_status"] = vst
         rec["map"] = {
             "status": out.status,
             "units": [u.to_dict() for u in units],
@@ -1344,6 +1439,7 @@ async def joint_stage(
     *,
     limit: int | None = None,
     sample_seed: int | None = None,
+    verify: bool = False,
 ) -> None:
     """The joint claim map of every settled population site (sample-0 mentions at some layer);
     ``limit``: a seeded draw of that many population sites per arm (pilots)."""
@@ -1364,7 +1460,9 @@ async def joint_stage(
         prog = _Progress(f"{a.name} joint", len(pop))
 
         async def one(sc: dict[int, Cell], a: AMArm = a, prog=prog) -> None:
-            await _joint_record(a, sc, want, models, llm, show_prompts)
+            await _joint_record(
+                a, sc, want, models, llm, show_prompts, vllm=llm if verify else None
+            )
             prog.tick()
 
         await _pool((lambda sc=sc: one(sc) for sc in pop), workers)
@@ -1527,10 +1625,11 @@ HEALTH: tuple[str, ...] = (
 
 
 def health_keys(models: Models) -> tuple[str, ...]:
-    """``HEALTH`` (v2.7) or ``HEALTH`` + the v2.8 parse counters (plan 0029)."""
+    """``HEALTH`` (v2.7) or ``HEALTH`` + the v2.8 (v2.9) parse counters (plan 0029)."""
     if not models.v28:
         return HEALTH
-    return (*HEALTH, *(f"map_{k}" for k in cm.PARSE_COUNTS_V28_EXTRA))
+    extra = cm.extra_parse_counts(models.map_prompt, models.excuse_verifier)
+    return (*HEALTH, *(f"map_{k}" for k in extra))
 
 
 FAILED_KEYS: tuple[str, ...] = (
@@ -1539,6 +1638,9 @@ FAILED_KEYS: tuple[str, ...] = (
     "n_failed_dsum",
     "n_failed_map",
 )  # n_failed_verify is not here: it counts toward exit 4 only under --stages verify
+# plan 0029 Amendment 2: failed continuation-verifier calls (per-layer + joint); they count toward
+# exit 4 only when the cverify stage ran (the AM convention), see n_failed_cverify
+CVERIFY_FAILED_KEYS: tuple[str, ...] = ("map_n_verifier_failed", "joint_n_verifier_failed")
 
 
 def _spend(cache: Cache) -> dict[str, dict[str, Any]]:
@@ -1549,6 +1651,8 @@ def _spend(cache: Cache) -> dict[str, dict[str, Any]]:
         if not meta.get("usage"):
             continue
         st = meta.get("stage")
+        if st == cv.STAGE:  # plan 0029 Amendment 2 (verifier roots only)
+            tot.setdefault(st, Usage())
         if st not in tot:
             k = row["key"]
             st = (
@@ -1657,7 +1761,11 @@ async def rebuild_async(
                 else:
                     h["n_map_ok" if out.status == "ok" else "n_failed_map"] += 1
                     raw = out.result if out.status == "ok" else None
-                    seg_objs, counts = parse_map(raw, units, item, site, models)
+                    seg_objs, counts, vst = await verified_parse_map(
+                        arm, c.key, raw, units, item, site, cs.samples, models, out.status, None
+                    )
+                    if vst is not None:  # plan 0029 Amendment 2
+                        rec["cverify_status"] = vst
                     segs = [s.to_dict() for s in seg_objs]
                     for k2, v in counts.items():
                         h[f"map_{k2}"] += int(v)
@@ -1714,6 +1822,8 @@ async def rebuild_async(
     v8_out: dict[str, Any] = {}
     if models.v28:  # plan 0029: joint cells and amsit-v2, if judged (v2.7 roots: never)
         v8_out = await _rebuild_v8(arm, models, d)
+    if models.excuse_verifier is not None:  # plan 0029 Amendment 2
+        h["joint_n_verifier_failed"] = int(v8_out.get("joint", {}).get("n_verifier_failed", 0))
     spend = _spend(cache)
     cache.close()
     h["n_actor_remapped"] = sum(1 for m in mentions if m["actor_remapped"])
@@ -1759,6 +1869,7 @@ async def _rebuild_v8(arm: AMArm, models: Models, d: Path) -> dict[str, Any]:
     if any(f"__L{JOINT_LAYER}__" in k for k in arm.cache.keys()):
         lay = list(JOINT_LAYERS)  # the bank's layers: a partial load never changes the prompt
         n: dict[str, int] = {}
+        nvf = 0
         tmp = d / f"{JOINT_CELLS}.{os.getpid()}.tmp"
         with tmp.open("w", encoding="utf-8") as fh:
             for sc in _by_site(arm.cells).values():
@@ -1767,9 +1878,12 @@ async def _rebuild_v8(arm: AMArm, models: Models, d: Path) -> dict[str, Any]:
                     continue
                 st = rec["map_status"] or "none"
                 n[st] = n.get(st, 0) + 1
+                nvf += int(((rec.get("map") or {}).get("counts") or {}).get("n_verifier_failed", 0))
                 fh.write(json.dumps(rec, ensure_ascii=False) + "\n")
         tmp.replace(d / JOINT_CELLS)
         out["joint"] = {"layers": lay, "map_status": dict(sorted(n.items()))}
+        if models.excuse_verifier is not None:  # plan 0029 Amendment 2
+            out["joint"]["n_verifier_failed"] = nvf
     sit = d / situation.CACHE_FILE
     if sit.is_file():
         cache = Cache(sit, readonly=True)
@@ -1797,6 +1911,12 @@ async def _rebuild_v8(arm: AMArm, models: Models, d: Path) -> dict[str, Any]:
 def n_failed(summary: dict[str, Any]) -> int:
     """Failed per-cell calls of one arm summary (exit 4 when non-zero)."""
     return sum(int(summary["health"].get(k, 0)) for k in FAILED_KEYS)
+
+
+def n_failed_cverify(summary: dict[str, Any]) -> int:
+    """Plan 0029 Amendment 2: failed continuation-verifier calls of one arm summary (per-layer +
+    joint; exit 4 only when the cverify stage ran)."""
+    return sum(int(summary["health"].get(k, 0)) for k in CVERIFY_FAILED_KEYS)
 
 
 def n_failed_verify(summary: dict[str, Any]) -> int:

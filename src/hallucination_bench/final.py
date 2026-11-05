@@ -6,10 +6,11 @@ version, the judge model, ``n_cells`` and ``n_failed``::
 
     {"index_version": "hindex-v8",
      "max_failed_share": 0.01,
+     "excuse_verifier": "cverify-v1",
      "entries": [{"family": "main", "method": "s3d-rl600", "arm": "s3d-rl600", "unit": "L20",
                   "root": "outputs/v8/wsbench_chat/claude-opus-5-5",
                   "file": "s3d-rl600/cells.jsonl", "sha256": "...",
-                  "prompt_version": "claimmap-v2.8", "judge_model": "claude-opus-5-5",
+                  "prompt_version": "claimmap-v2.9", "judge_model": "claude-opus-5-5",
                   "n_cells": 1600, "n_failed": 3}, ...]}
 
 ``file`` is relative to ``root``; a safety family's file is the root's ``index_counts.jsonl``
@@ -19,9 +20,15 @@ are optional and must match the recount). :func:`main` checks every sha256, reco
 failures from the hashed file itself (<= ``max_failed_share``, default 1%, per entry; no layer
 outside the grid), requires the full unit grid per family x method (L20 ... L60, plus ``all``
 for the joint families), and that every claim-map entry (main, story, am_claims) declares the
-**same** accepted v8 prompt (``claimmap-v2.8*``; AM ``+am3`` versions normalised to their chat
+**same** accepted v8 prompt (:data:`V8_FINAL_PROMPTS`: only ``claimmap-v2.9``, plan 0029
+amendment 1; a v2.8 or mixed manifest is refused; AM ``+am3`` versions normalised to their chat
 version) and that each claim-map arm dir's ``arm.json`` records it (a main arm dir also records
-``bank: x3``, plan 0028's bank); any failure exits 2 naming
+``bank: x3``, plan 0028's bank). Plan 0029 Amendment 2: the manifest's top-level
+``excuse_verifier`` and every claim-map arm dir's ``arm.json`` (and, for a chat / story ``all``
+entry, ``joint.json``) must record the continuation verifier ``cverify-v1``; a cell whose
+verifier verdict is failed / pending counts as failed in the recount, and any such cell refuses
+the manifest outright (no ``max_failed_share`` allowance: re-run until clean); a chat / story
+``all`` entry whose dir has no ``joint.json`` is refused. Any failure exits 2 naming
 the hole. It then builds hindex-v8 from exactly the manifest's files (symlinked into a fresh
 temp dir per run; a joint file is read only if an ``all`` entry hashes it) and nothing else,
 writes ``index.json`` / ``index.md`` to ``--out`` (sources point at the manifest roots) and draws
@@ -52,6 +59,13 @@ MAX_FAILED_SHARE = 0.01
 MAIN_BANK = "x3"
 MAIN_BANK_SOURCE_PREFIX = "plan0028-x3:"
 CLAIM_MAP_FAMILIES: tuple[str, ...] = (ix.MAIN, ix.STORY, ix.AM_CLAIMS)
+# plan 0029 amendment 1: the claim-map prompt versions `hbench final` accepts for hindex-v8
+# (chat versions; AM `+am3` normalised). v2.8 roots are pilot-only and never final.
+V8_FINAL_PROMPTS: frozenset[str] = frozenset({"claimmap-v2.9"})
+# plan 0029 Amendment 2: the continuation verifier every v8 claim-map root must have used (the
+# manifest's top-level `excuse_verifier` and every claim-map arm dir's arm.json; joint.json too
+# for a chat / story `all` entry)
+V8_EXCUSE_VERIFIER = "cverify-v1"
 COLOURS: dict[str, str] = {
     "s3d-rl600": "#1f77b4",  # O-lens
     "mlnla-rl600": "#d62728",  # NLA
@@ -150,13 +164,16 @@ def recount(e: Mapping[str, Any], path: Path) -> tuple[int, int, set[int | str]]
                 if r.get("status") == "empty":
                     continue
                 n += 1
-                f += (r.get("stages") or {}).get("map") != "ok"
+                st = r.get("stages") or {}
+                # plan 0029 Amendment 2: an unsettled verifier verdict is a failed cell too
+                f += st.get("map") != "ok" or st.get("cverify") in ("failed", "pending")
             elif fam == ix.AM_CLAIMS:
                 if r.get("status") == "empty":
                     continue
                 n += 1
                 bad_det = r.get("status") in ("pending", "failed")
-                f += bad_det or r.get("map_status") not in (None, "ok")
+                bad_cv = r.get("cverify_status") in ("failed", "pending")  # Amendment 2
+                f += bad_det or r.get("map_status") not in (None, "ok") or bad_cv
             elif fam == ix.AM_SITUATION:
                 if r.get("status") == "empty":
                     continue
@@ -168,6 +185,31 @@ def recount(e: Mapping[str, Any], path: Path) -> tuple[int, int, set[int | str]]
                 n += 1
                 f += int(r.get("n_failed_cells") or 0) > 0
     return n, f, seen
+
+
+def unsettled_verdicts(e: Mapping[str, Any], path: Path) -> int:
+    """Plan 0029 Amendment 2: the cells of one claim-map entry (its arm and unit, from the
+    hashed file) whose continuation-verifier status is ``failed`` or ``pending`` (chat / story
+    ``stages.cverify``, AM ``cverify_status``). :func:`check` requires zero: unlike other failed
+    cells they get no ``max_failed_share`` allowance (re-run the cverify stage until clean)."""
+    fam, unit = e["family"], _layer(e["unit"])
+    if fam not in CLAIM_MAP_FAMILIES:
+        return 0
+    n = 0
+    with Path(path).open(encoding="utf-8") as fh:
+        for line in fh:
+            if not line.strip():
+                continue
+            r = json.loads(line)
+            if _unit_layer(r["layer"]) != unit or r.get("status") == "empty":
+                continue
+            st = (
+                r.get("cverify_status")
+                if fam == ix.AM_CLAIMS
+                else (r.get("stages") or {}).get("cverify")
+            )
+            n += st in ix.UNSETTLED_VERIFIER
+    return n
 
 
 def check(m: Mapping[str, Any], base: Path) -> str:
@@ -193,6 +235,11 @@ def check(m: Mapping[str, Any], base: Path) -> str:
                 raise ManifestError(f"{_where(e)}: declared {k} {e[k]} != {v} in {p}")
         if n <= 0:
             raise ManifestError(f"{_where(e)}: no cells (hole)")
+        if u := unsettled_verdicts(e, p):  # plan 0029 Amendment 2: no allowance
+            raise ManifestError(
+                f"{_where(e)}: {u} cells with a failed / pending continuation-verifier verdict in "
+                f"{p}: re-run the cverify stage until none is left (no failed-share allowance)"
+            )
         if f / n > share:
             raise ManifestError(
                 f"{_where(e)}: {f} of {n} cells failed ({100 * f / n:.2f}% > "
@@ -213,8 +260,15 @@ def check(m: Mapping[str, Any], base: Path) -> str:
     if len(versions) != 1:
         raise ManifestError(f"claim-map roots record different prompt versions: {versions}")
     (v,) = versions
-    if v not in cm.VERSIONS or not cm.is_v28(v):
-        raise ManifestError(f"claim-map prompt {v!r} is not an accepted v8 version (v2.8*)")
+    if v not in cm.VERSIONS or v not in V8_FINAL_PROMPTS:
+        raise ManifestError(
+            f"claim-map prompt {v!r} is not an accepted v8 version ({sorted(V8_FINAL_PROMPTS)})"
+        )
+    if (mv := m.get("excuse_verifier")) != V8_EXCUSE_VERIFIER:
+        raise ManifestError(
+            f"the manifest declares excuse_verifier {mv!r}; v8 needs {V8_EXCUSE_VERIFIER!r} "
+            "(plan 0029 amendment 2)"
+        )
     for e in claim:
         d = (base / e["root"] / e["file"]).resolve().parent
         a = d / "arm.json"
@@ -224,6 +278,22 @@ def check(m: Mapping[str, Any], base: Path) -> str:
         rec = arm_rec.get("map_prompt") or cm.PROMPT_VERSION
         if chat_version(rec) != v:
             raise ManifestError(f"{_where(e)}: {a} records map_prompt {rec!r}, declared {v!r}")
+        recs = [(a, arm_rec)]
+        j = d / "joint.json"
+        if e["unit"] == ix.JOINT_LABEL:
+            if not j.is_file() and e["family"] in (ix.MAIN, ix.STORY):
+                # a chat / story joint run records its own verifier setting in joint.json
+                raise ManifestError(
+                    f"{_where(e)}: no joint.json in {d} (cannot verify the joint excuse verifier)"
+                )
+            if j.is_file():
+                recs.append((j, json.loads(j.read_text(encoding="utf-8"))))
+        for path, r in recs:
+            if (got := r.get("excuse_verifier")) != V8_EXCUSE_VERIFIER:
+                raise ManifestError(
+                    f"{_where(e)}: {path} records excuse_verifier {got!r}; v8 needs "
+                    f"{V8_EXCUSE_VERIFIER!r} (plan 0029 amendment 2)"
+                )
         if e["family"] == ix.MAIN:  # the v8 main family is plan 0028's x3 bank (missing = wsb)
             b, src = arm_rec.get("bank") or "wsb", str(arm_rec.get("bank_source") or "")
             if b != MAIN_BANK or not src.startswith(MAIN_BANK_SOURCE_PREFIX):
@@ -478,7 +548,7 @@ def plot_macro(index: Mapping[str, Any], keep: Mapping, dest: Path) -> Path:
     ax.set_xticks(
         range(len(keys)),
         [
-            "full\n(8 families)",
+            "full\n(7 families)",
             "matched\n(no sibling)",
             "full_j6\n(6 joint families)",
             "full_joint\n(joint row)",
@@ -534,12 +604,19 @@ def main(
         except ManifestError as e:
             print(f"hbench final: {e}", file=sys.stderr)
             return 2
-        built = ix.build_index_v8(sources, ix.load_methods(methods), workers)
+        built = ix.build_index_v8(
+            sources,
+            ix.load_methods(methods),
+            workers,
+            prompt_version=version,
+            excuse_verifier=V8_EXCUSE_VERIFIER,  # check() required it everywhere
+        )
         _restore_paths(built, back)
     built["manifest"] = {
         "path": str(Path(manifest).resolve()),
         "sha256": sha256_file(manifest),
         "prompt_version": version,
+        "excuse_verifier": V8_EXCUSE_VERIFIER,
     }
     js, md = ix.write_index(built, Path(out))
     plots = Path(plots)

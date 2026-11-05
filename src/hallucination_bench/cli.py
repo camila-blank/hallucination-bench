@@ -64,9 +64,31 @@ def resolve_arms(args: argparse.Namespace) -> list[tuple[str, Path]]:
     return arms
 
 
+def _excuse_verifier(args: argparse.Namespace, map_prompt: str) -> str | None:
+    """Plan 0029 Amendment 2: ``--excuse-verifier`` (default: ``cverify-v1`` for single-call
+    claimmap-v2.9 roots, off otherwise, including any ``--anchor v5c`` run; ``off`` disables it
+    for diagnostics). An explicit verifier with ``--anchor v5c`` is refused by
+    ``check_verifier`` (exit 3). Rebuild / report replay the arm dir's recorded setting whatever
+    this says; a judge run that differs exits 3."""
+    from hallucination_bench.judges import claimmap_v2 as cm
+    from hallucination_bench.judges import continuation_verifier as cv
+
+    flag = getattr(args, "excuse_verifier", None)
+    if flag == "off":
+        return None
+    v29 = cm.is_v29(map_prompt) if map_prompt in cm.VERSIONS else False
+    anchored = (getattr(args, "anchor", None) or "none") != "none"
+    if flag is None:
+        return cv.VERSION if v29 and not anchored else None
+    if not v29:
+        raise SystemExit(f"--excuse-verifier {flag} needs --map-prompt claimmap-v2.9")
+    return flag
+
+
 def _models(args: argparse.Namespace):
     from hallucination_bench.evals.wsbench_chat.run import Models
 
+    map_prompt = getattr(args, "map_prompt", None) or "claimmap-v2.7"
     return Models(
         judge=args.judge_model,
         summarizer=args.summarizer_model,
@@ -75,22 +97,23 @@ def _models(args: argparse.Namespace):
         map_model=getattr(args, "map_model", None),
         map_anchor=getattr(args, "anchor", None) or "none",
         eval=getattr(args, "eval", None) or "wsbench_chat",
-        map_prompt=getattr(args, "map_prompt", None) or "claimmap-v2.7",
+        map_prompt=map_prompt,
         situation_model=getattr(args, "situation_model", None),
+        excuse_verifier=_excuse_verifier(args, map_prompt),
     )
 
 
 def _stages(args: argparse.Namespace) -> list[str]:
     """``--stages`` (default: every stage); ``--skip-classify`` keeps its plan-0001 meaning
     (summary, span and verify only) when ``--stages`` is not given."""
-    from hallucination_bench.evals.wsbench_chat.run import STAGES, expand_stages
+    from hallucination_bench.evals.wsbench_chat.run import EXTRA_STAGES, STAGES, expand_stages
 
     if args.stages:
         sel = [x.strip() for x in args.stages.split(",") if x.strip()]
     elif args.skip_classify:
         sel = ["summary", "span", "verify"]
     else:
-        sel = list(STAGES)
+        sel = [*STAGES, *EXTRA_STAGES]  # cverify: a no-op unless the verifier is on
     try:
         expand_stages(sel, anchor=getattr(args, "anchor", None) or "none")
     except ValueError as e:
@@ -208,7 +231,8 @@ def _cmd_run_joint(args: argparse.Namespace, arms: list, models, out: Path) -> i
             f"pending={h['n_map_pending']}",
             flush=True,
         )
-        if h["n_map_failed"] and not args.rebuild:
+        # plan 0029 Amendment 2: failed verifier calls are failed rows too (re-asked next run)
+        if (h["n_map_failed"] or h.get("n_verifier_failed", 0)) and not args.rebuild:
             rc = 4
     return rc
 
@@ -337,11 +361,10 @@ def cmd_index(args: argparse.Namespace) -> int:
         (index.STORY, "--story-root", args.story_root),
         (index.OVERREFUSAL, "--overrefusal-root", args.overrefusal_root),
         (index.BENIGN_ROLEPLAY, "--benign-roleplay-root", args.benign_roleplay_root),
-        (index.CHEATING, "--cheating-root", args.cheating_root),
     ):
         if roots and fam == index.BENIGN_ROLEPLAY and args.version not in ("v7", "v8"):
             raise SystemExit(f"{flag}: benign_roleplay is on the index from hindex-v7 only")
-        if roots and fam in (index.CHEATING, index.AM_SITUATION) and not v8:
+        if roots and fam == index.AM_SITUATION and not v8:
             raise SystemExit(f"{flag}: {fam} is on the index from hindex-v8 only (plan 0029)")
         if roots and args.version == "v3" and fam in index.SAFETY_FAMILIES:
             raise SystemExit(
@@ -359,16 +382,11 @@ def cmd_index(args: argparse.Namespace) -> int:
                 str(r) for r in sources.get(fam, []) if not (r / index.SAFETY_COUNTS).is_file()
             ]:
                 raise SystemExit(f"{fam}: no {index.SAFETY_COUNTS} in {gone}")
-    if args.version == "v8" and not sources.get(index.CHEATING):
+    if args.version in ("v7", "v8") and not sources.get(index.BENIGN_ROLEPLAY):
         print(
-            "warning: hindex-v8 without a cheating root (--cheating-root or "
-            "$HBENCH_SAFETY_CHEATING_OUT): the family, and so full / matched, are absent",
-            file=sys.stderr,
-        )
-    if args.version == "v7" and not sources.get(index.BENIGN_ROLEPLAY):
-        print(
-            "warning: hindex-v7 without a benign_roleplay root (--benign-roleplay-root or "
-            "$HBENCH_SAFETY_BR_OUT): the family, and so full / matched, are absent",
+            f"warning: hindex-{args.version} without a benign_roleplay root "
+            "(--benign-roleplay-root or $HBENCH_SAFETY_BR_OUT): the family, and so full / "
+            "matched, are absent",
             file=sys.stderr,
         )
     try:  # plan 0022's unit guard, after the checks above (build_index repeats it)
@@ -567,7 +585,23 @@ def _map_prompt(p: argparse.ArgumentParser) -> None:
         default="claimmap-v2.7",
         help="claim-map prompt version (plan 0029; default claimmap-v2.7; recorded in arm.json, "
         "a run that differs from an arm dir's record is refused; agentic_misalignment maps "
-        "claimmap-v2.8 to claimmap-v2.8+am3)",
+        "claimmap-v2.8 / -v2.9 to their +am3 versions; v8 roots use claimmap-v2.9, plan 0029 "
+        "amendment)",
+    )
+
+
+def _excuse_verifier_flag(p: argparse.ArgumentParser) -> None:
+    from hallucination_bench.judges import continuation_verifier as cv
+
+    p.add_argument(
+        "--excuse-verifier",
+        choices=(*cv.VERSIONS, "off"),
+        default=None,
+        help="plan 0029 amendment 2: the continuation verifier that decides the "
+        "continuation_miss excuse (default: cverify-v1 for claimmap-v2.9 roots, off otherwise "
+        "and under --anchor v5c, which refuses an explicit verifier with exit 3; "
+        "'off' = the v2.9 judge-tag rule, diagnostics only; recorded in arm.json, a run that "
+        "differs from an arm dir's record exits 3; hbench final requires cverify-v1)",
     )
 
 
@@ -619,6 +653,7 @@ def build_parser() -> argparse.ArgumentParser:
     r.add_argument("--classifier-model", default=None)
     r.add_argument("--map-model", default=None, help="claim-map (:M) judge (default: judge)")
     _map_prompt(r)
+    _excuse_verifier_flag(r)
     r.add_argument(
         "--situation-model",
         default=None,
@@ -629,7 +664,8 @@ def build_parser() -> argparse.ArgumentParser:
         "--joint",
         action="store_true",
         help="plan 0029: judge the joint 11-layer cells (sample 0 of every layer in one call; "
-        "needs --map-prompt claimmap-v2.8; agentic_misalignment: same as --stages joint)",
+        "needs --map-prompt claimmap-v2.8 or later (v8: claimmap-v2.9); agentic_misalignment: "
+        "same as --stages joint)",
     )
     r.add_argument(
         "--joint-from",
@@ -643,12 +679,13 @@ def build_parser() -> argparse.ArgumentParser:
     r.add_argument(
         "--stages",
         default=None,
-        help="comma-separated stages that may call the API: summary,span,verify,classify,map "
-        "(default: all; dependencies are added: map runs summary first if missing, and span "
-        "only under --anchor v5c; single-call map also calls span on a seeded 10%% item "
-        "subsample for the v5c comparison). agentic_misalignment: detect,summ,verify,map,intent "
-        "(verify = Stage H, the headline verifier; default all; no dependencies are added, "
-        "unselected stages are cache-only)",
+        help="comma-separated stages that may call the API: summary,span,verify,classify,map,"
+        "cverify (default: all; dependencies are added: map runs summary first if missing, and "
+        "span only under --anchor v5c; cverify = the continuation verifier after map, v2.9 "
+        "verifier roots only; single-call map also calls span on a seeded 10%% item "
+        "subsample for the v5c comparison). agentic_misalignment: detect,summ,verify,map,intent,"
+        "cverify (verify = Stage H, the headline verifier; default all; no dependencies are "
+        "added, unselected stages are cache-only)",
     )
     r.add_argument("--allow-missing", action="store_true")
     r.add_argument(
@@ -787,7 +824,6 @@ def build_parser() -> argparse.ArgumentParser:
     for flag, var in (
         ("--overrefusal-root", "HBENCH_SAFETY_OR_OUT"),
         ("--benign-roleplay-root", "HBENCH_SAFETY_BR_OUT (hindex-v7 / v8 only, plan 0027)"),
-        ("--cheating-root", "HBENCH_SAFETY_CHEATING_OUT (hindex-v8 only, plan 0029)"),
     ):
         ix.add_argument(
             flag,
@@ -800,8 +836,10 @@ def build_parser() -> argparse.ArgumentParser:
         choices=("v3", "v4", "v5", "v6", "v7", "v8"),
         default="v6",
         help="v8: hindex-v8 (plan 0029: main 9, am_claims 3, am_situation 3, sibling 1, story 1, "
-        "overrefusal 1, benign_roleplay 2, cheating 2; per-layer rows + a joint row; "
-        "claimmap-v2.8 roots); v7: hindex-v7 (v6 + benign_roleplay, weight 2; sibling weight "
+        "overrefusal 1, benign_roleplay 2 (no cheating: archived, plan 0029 amendment 3); "
+        "per-layer rows + a joint row; "
+        "claimmap-v2.8+ roots, claimmap-v2.9 for the final run); v7: hindex-v7 (v6 + "
+        "benign_roleplay, weight 2; sibling weight "
         "1; needs a `prompts` --benign-roleplay-root from `hbench benign-roleplay "
         "index-export`, plan 0027); v6 (default): hindex-v6 (v5 + overrefusal on wrong-topic "
         "refusal claims: needs a "
