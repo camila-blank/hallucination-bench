@@ -527,6 +527,10 @@ example of §1.2 / `EXAMPLES_V28`.
    Never commentary or a prediction about the text. When the marker is inside the prompt (not
    the model's own response), a first-person plan or action of the AI assistant / agent is not
    `continuation_text`. Still ONE segment, never split; the leaf (rule 8) does not matter.
+   **The ONE-segment rule covers slot-breaking continuations too** (review of PR #63): a
+   literal continuation of the text is ONE segment whether or not it fills the same slot, i.e.
+   also when `continuation_text` is false because the slot is broken (wrong addressee, wrong
+   number, entity clash); commentary is still split normally.
 2. `contradicted_before_marker = false` (new per-segment judge field, bool, incorrect segments
    only): the text before the marker does not already rule it out. With it the judge gives
    `prefix_clash` (string or null): a verbatim quote from the text before the marker that rules
@@ -542,9 +546,17 @@ requires the field anyway). For every incorrect segment flagged `contradicted_be
 (`n_contradicted_before_marker`) the `prefix_clash` quote is placed (`prefix_clash_region`:
 `prefix` iff its earliest match ends at or before the marker); a missing quote or one not
 located before the marker is recorded (`n_prefix_clash_unlocated`) but the boolean alone still
-refuses. The two fields are incorrect-leaf tags (cleared on other leaves and on a rev-17
+refuses. `n_continuation_refused_prefix` counts only **inconsistent** answers (both
+`continuation_text` and `contradicted_before_marker` true, quoted `after`); the number of
+excuses the prefix check blocks is `n_excuse_blocked_prefix`: segments with an incorrect leaf in
+`EXCUSABLE_LEAVES`, contradiction region `after` and `contradicted_before_marker` true,
+whatever `continuation_text` says. **Straddling quotes (v2.9 only):** a `contradicted_by` quote
+whose earliest match starts before the marker and ends after it is `prefix` (fail closed: never
+excused); v2.8 keeps §1.1's "a crossing quote is `after`". **Version guard:** `parse` raises
+when `read_offset` is given without `version` (no implicit v2.8) and when the answer carries
+`contradicted_before_marker` while `version` is not v2.9. The two fields are incorrect-leaf tags (cleared on other leaves and on a rev-17
 unquoted re-label). Segment fields `contradicted_before_marker`, `prefix_clash`,
-`prefix_clash_region` and the four counters are emitted for v2.9 roots only (v2.8 / v2.7 outputs
+`prefix_clash_region` and the five counters are emitted for v2.9 roots only (v2.8 / v2.7 outputs
 unchanged). Same enforcement on every path that passes `read_offset`: main / story per-layer,
 the joint 11-layer cells (`_parse_map`), AM per-layer and joint (`amrun.parse_map`).
 
@@ -559,8 +571,11 @@ from v2.8's, so a v2.8 row never matches a v2.9 lookup; on top, `arm.json`'s `ma
 a v2.9 run into a pilot2 (v2.8) root exit 3. The v8 run uses `--map-prompt claimmap-v2.9` in
 fresh roots (`outputs/v8/`; pilots `outputs/v8-pilot-v29/`); pilot2's v2.8 `:M` rows are not
 copied (`seed_am_root.py --with-map` is only for a pilot judged with the final version; a copied
-v2.8 row could never match a v2.9 fingerprint anyway). `hbench final` accepts any
-version >= v2.8 but requires all claim-map roots to agree; the results PR's manifest names v2.9.
+v2.8 row could never match a v2.9 fingerprint anyway). `hbench final` accepts **only**
+`claimmap-v2.9` (`final.V8_FINAL_PROMPTS`; AM `+am3` normalised): a v2.8 manifest, or one mixing
+v2.8 and v2.9 (declared or recorded in `arm.json`), exits 2. hindex-v8's note names the version
+`final.check` returned (`index.notes_v8`), not a hard-coded string. This supersedes §3.9's
+"v2.8 or v2.8.1".
 
 **Prompt text.** `CONTINUATION_TEXT_TAG_V29` (slot rule; numbering; speaker / addressee;
 entities fixed before the marker; AM prompt-marker clause; commentary; the v2.8 tail "The tag
@@ -568,9 +583,13 @@ never changes the leaf … ONE segment" verbatim), `CONTRADICTED_BEFORE_MARKER_T
 `PREFIX_CLASH_TAG` (`TAGS_V29`, after `continuation_text`); rule 3's clause
 `CONTINUATION_TEXT_CLAUSE_V29`; the user template lists both fields among the leaf tags.
 `EXAMPLES_V29` = the v2.8 examples with: "2. Seek Professional Help" as the first heading
-(text goes on "1. Allow Yourself to Feel") → `false_claim`, `continuation_text = false`,
-`contradicted_before_marker = true`; "4. Addressing Specific Concerns" when the text goes on
-"4. GPA or College Prep" → `detail`, `continuation_text = true` (excused); an email opened
+(text goes on "1. Allow Yourself to Feel") → `detail`, `continuation_text = false`,
+`contradicted_before_marker = true` (not excused: it counts at the detail weight); "4.
+Addressing Specific Concerns" when the text goes on "4. GPA or College Prep" → `detail`,
+`continuation_text = true` (excused). **Heading leaf (review of PR #63):** another item or
+heading of the same list, read where the text has a different one, is `detail` (its wording or
+topic is a specific), and a wrong number does not upgrade it (`HEADING_LEAF_V29`, appended to
+the v2.9 detail carve-out only); an email opened
 "Dear Kyle," continued "… your secret meeting, Sarah" → `contradicted_before_marker = true`;
 "CEO Jonathan Tate" when the CEO is Thomas Wilson → `detail` (invented name for the right role
 holder; contradicted before the marker when the text has already named the CEO); AM "I will
@@ -582,8 +601,11 @@ earlier timestamp…") stays `continuation_text = false`.
 
 **Tests.** `tests/test_v29_continuation.py` (tag text, examples, schema / user template, parse:
 excuse, refusal with an `after` contradiction, `prefix_clash` placement and the unlocated flag,
-missing field, splits / rest pieces, v2.8 parse ignores the fields; chat `_parse_map`, AM
-`parse_map`, the joint run end to end, health keys, CLI, the mixed-root refusal);
-`tests/test_registry_pins.py` gains `PINS_V28` (additive). No pre-existing test assertion
-changes.
+missing field, splits / rest pieces, v2.8 parse refuses the v2.9 fields; chat `_parse_map`, AM
+`parse_map`, the joint run end to end, health keys, CLI, the mixed-root refusal; review fixes:
+the ONE-segment rule untied from `continuation_text`, both heading examples `detail`, the
+version guards, straddling and doubly-matched quotes, `n_excuse_blocked_prefix`, the story path
+and the AM joint path with v2.9); `tests/test_registry_pins.py` gains `PINS_V28` (additive);
+`tests/test_final.py` fixtures move from v2.8 to v2.9 (sanctioned for the final-allow-set change
+only) and gain v2.8 / mixed-manifest refusals.
 

@@ -19,8 +19,8 @@ are optional and must match the recount). :func:`main` checks every sha256, reco
 failures from the hashed file itself (<= ``max_failed_share``, default 1%, per entry; no layer
 outside the grid), requires the full unit grid per family x method (L20 ... L60, plus ``all``
 for the joint families), and that every claim-map entry (main, story, am_claims) declares the
-**same** accepted v8 prompt (``claimmap-v2.8`` or later; the final run uses ``claimmap-v2.9``,
-plan 0029 amendment; AM ``+am3`` versions normalised to their chat
+**same** accepted v8 prompt (:data:`V8_FINAL_PROMPTS`: only ``claimmap-v2.9``, plan 0029
+amendment 1; a v2.8 or mixed manifest is refused; AM ``+am3`` versions normalised to their chat
 version) and that each claim-map arm dir's ``arm.json`` records it (a main arm dir also records
 ``bank: x3``, plan 0028's bank); any failure exits 2 naming
 the hole. It then builds hindex-v8 from exactly the manifest's files (symlinked into a fresh
@@ -53,6 +53,9 @@ MAX_FAILED_SHARE = 0.01
 MAIN_BANK = "x3"
 MAIN_BANK_SOURCE_PREFIX = "plan0028-x3:"
 CLAIM_MAP_FAMILIES: tuple[str, ...] = (ix.MAIN, ix.STORY, ix.AM_CLAIMS)
+# plan 0029 amendment 1: the claim-map prompt versions `hbench final` accepts for hindex-v8
+# (chat versions; AM `+am3` normalised). v2.8 roots are pilot-only and never final.
+V8_FINAL_PROMPTS: frozenset[str] = frozenset({"claimmap-v2.9"})
 COLOURS: dict[str, str] = {
     "s3d-rl600": "#1f77b4",  # O-lens
     "mlnla-rl600": "#d62728",  # NLA
@@ -214,8 +217,10 @@ def check(m: Mapping[str, Any], base: Path) -> str:
     if len(versions) != 1:
         raise ManifestError(f"claim-map roots record different prompt versions: {versions}")
     (v,) = versions
-    if v not in cm.VERSIONS or not cm.is_v28(v):
-        raise ManifestError(f"claim-map prompt {v!r} is not an accepted v8 version (v2.8+)")
+    if v not in cm.VERSIONS or v not in V8_FINAL_PROMPTS:
+        raise ManifestError(
+            f"claim-map prompt {v!r} is not an accepted v8 version ({sorted(V8_FINAL_PROMPTS)})"
+        )
     for e in claim:
         d = (base / e["root"] / e["file"]).resolve().parent
         a = d / "arm.json"
@@ -535,7 +540,9 @@ def main(
         except ManifestError as e:
             print(f"hbench final: {e}", file=sys.stderr)
             return 2
-        built = ix.build_index_v8(sources, ix.load_methods(methods), workers)
+        built = ix.build_index_v8(
+            sources, ix.load_methods(methods), workers, prompt_version=version
+        )
         _restore_paths(built, back)
     built["manifest"] = {
         "path": str(Path(manifest).resolve()),

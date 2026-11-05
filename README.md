@@ -85,7 +85,8 @@ specifics inside the slot are fine) whose quoted contradiction is only after the
 and that the judge does not flag `contradicted_before_marker` (with a `prefix_clash` quote),
 scores `continuation_miss` (weight 0, still a claim), whatever its leaf: a different possible
 continuation is not a hallucination (Camila, 2026-11-04). A wrong list number ("2." as a first
-heading) is never possible (Camila, 2026-11-05); claims or predictions about later text,
+heading) is never possible (Camila, 2026-11-05): such a heading stays `detail` (another heading
+of the same list; the number does not upgrade the leaf) and is not excused; claims or predictions about later text,
 commentary, the agent's own first-person plan read inside the prompt (AM), and continuations
 the prefix rules out still count. A
 wrong role or title is a substitution; every date or time the conversation contradicts
@@ -101,8 +102,8 @@ overrefusal offtopic-export --joint`, `hbench benign-roleplay index-export --joi
 `full_joint`; per-layer rows carry `full`, `matched`, `full_j6` (the six joint families) and
 `full_v7` / `matched_v7`; `over_layers` holds the 11-layer means (shared item bootstrap).
 `hbench final --manifest data/index/v8_manifest.json --out outputs/final/ --plots plots/final/`
-checks the manifest (sha256 per file, <= 1% failed per family x method x unit, one accepted
-prompt version; else exit 2), builds hindex-v8 from exactly those roots and draws the final plots
+checks the manifest (sha256 per file, <= 1% failed per family x method x unit, every claim map
+judged with `claimmap-v2.9` (a v2.8 or mixed manifest is refused); else exit 2), builds hindex-v8 from exactly those roots and draws the final plots
 (`index_per_layer.png`, `families_per_method.png`, `macro_all11.png`). Judge noise is not measured
 for v8. The previous definitions are byte-identical (pinned by tests). **`hindex-v7`** (plan 0027, `--version v7`;
 the CLI default stays v6 until benign_roleplay is judged for every index arm) is hindex-v6 plus a

@@ -539,7 +539,16 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
     (whatever `contradicted_by` / `prefix_clash` locate to: `n_continuation_refused_prefix`) or
     missing (safe default: `n_continuation_refused_missing`); `prefix_clash` is placed
     (`prefix_clash_region`; `n_prefix_clash_unlocated` when not before the marker). Fields and
-    counters only in v2.9 roots. Same code on per-layer, joint and AM paths. The v2.9 gate needs
+    counters only in v2.9 roots. `n_continuation_refused_prefix` counts only inconsistent
+    answers (both tags true); `n_excuse_blocked_prefix` counts every excusable `after` segment
+    the prefix flag blocks (whatever `continuation_text` says). v2.9 only: a `contradicted_by`
+    quote straddling the marker is `prefix` (fail closed); a literal continuation is ONE segment
+    whether or not it fills the slot (`ONE_SEGMENT_SLOT_V29`; commentary is split); a heading or
+    list item read where the text has another is `detail` and a wrong number never upgrades it
+    (`HEADING_LEAF_V29`, "2. Seek" = `detail`, not excused). `cm.parse` raises on `read_offset`
+    without `version` and on `contradicted_before_marker` in a non-v2.9 answer. `hbench final`
+    accepts only `final.V8_FINAL_PROMPTS` = {claimmap-v2.9}; the hindex-v8 note is generated
+    from the checked version (`index.notes_v8`). Same code on per-layer, joint and AM paths. The v2.9 gate needs
     a FRESH sample that excludes the pilot2 gate items; pilot2 (v2.8) roots are never reused
     (a v2.9 run into one exits 3; fingerprints differ anyway).
   - **Main bank for v8** = plan 0028's x3 bank: `hbench run|report --bank x3` (items
@@ -587,7 +596,7 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
     11 (`run.JOINT_LAYERS`), so a partially loaded arm never changes the joint prompt.
   - `hbench final` trusts no manifest metadata: it recounts cells / failures from each hashed
     file, requires the full unit grid (L20..L60 + `all` for joint families), checks each
-    claim-map arm dir's `arm.json` `map_prompt`, and builds from a fresh temp dir holding only
+    claim-map arm dir's `arm.json` `map_prompt` (only claimmap-v2.9 accepted), and builds from a fresh temp dir holding only
     the listed files (`situation.jsonl` filtered to the listed units).
   - Judge noise is not run for v8: `report --view v2` shows no noise column for v2.8 roots.
 - **In-run retries** (rev 14): an invalid `:M` (or calibration) answer is re-asked up to 2 times

@@ -143,10 +143,14 @@ def _ex(start: str) -> str:
 
 def test_examples_v29():
     seek = _ex('"2. Seek Professional Help"')
-    assert "first heading" in seek and "`false_claim`" in seek
+    # review fix 2: a heading read where the text has another is `detail`; the wrong number
+    # only breaks the slot (it never upgrades the leaf)
+    assert "first heading" in seek and "`detail` with" in seek and "`false_claim`" not in seek
     assert "`continuation_text = false`" in seek and "`contradicted_before_marker = true`" in seek
+    assert "the text that opens the list, with no item numbered before the marker" in seek
     four = _ex('"4. Addressing Specific Concerns"')
-    assert '"4. GPA or College Prep"' in four and "`continuation_text = true`" in four
+    assert '"4. GPA or College Prep"' in four and "`detail` with" in four
+    assert "`continuation_text = true`" in four
     assert "`contradicted_before_marker = false`" in four
     sarah = _ex('"... about your secret meeting, Sarah"')
     assert '"Dear Kyle,"' in sarah and "`contradicted_before_marker = true`" in sarah
@@ -207,6 +211,7 @@ def test_v29_refuses_when_contradicted_before_marker_even_if_quote_is_after():
     assert s.prefix_clash == "new cafe" and s.prefix_clash_region == "prefix"
     assert c["n_continuation_miss"] == 0 and c["n_continuation_refused_prefix"] == 1
     assert c["n_contradicted_before_marker"] == 1 and c["n_prefix_clash_unlocated"] == 0
+    assert c["n_excuse_blocked_prefix"] == 1
 
 
 @pytest.mark.parametrize(
@@ -243,10 +248,12 @@ def test_v29_prefix_region_and_other_v28_conditions_still_apply():
     # a prefix-placed contradiction is never excused (no refusal counted: v2.8 already refuses)
     segs, c = _parse9(ct9(q="new cafe"))
     assert segs[0].leaf == "detail" and c["n_continuation_refused_prefix"] == 0
+    assert c["n_excuse_blocked_prefix"] == 0
     # no continuation tag: no excuse, the flag is still counted
     segs, c = _parse9({**ct9(cbm=True, clash="new cafe"), "continuation_text": False})
     assert segs[0].leaf == "detail" and c["n_contradicted_before_marker"] == 1
     assert c["n_continuation_refused_prefix"] == 0
+    assert c["n_excuse_blocked_prefix"] == 1  # counted whatever continuation_text says
 
 
 def test_v29_fields_dropped_on_non_incorrect_and_relabelled_segments():
@@ -291,8 +298,11 @@ def test_v29_split_and_rest_pieces_read_their_own_fields():
     assert c["n_continuation_refused_prefix"] == 1 and c["n_continuation_miss"] == 1
 
 
-def test_v28_parse_ignores_the_v29_fields():
-    segs, c = _parse9(ct9(cbm=True, clash="new cafe"), version=V28)
+def test_v28_parse_refuses_the_v29_fields_and_is_otherwise_unchanged():
+    # review fix 5: an answer carrying contradicted_before_marker needs version >= v2.9
+    with pytest.raises(ValueError, match="contradicted_before_marker"):
+        _parse9(ct9(cbm=True, clash="new cafe"), version=V28)
+    segs, c = _parse9(ct(), version=V28)
     s = segs[0]
     assert s.leaf == tx.CONTINUATION_MISS  # v2.8's rule, unchanged
     d = s.to_dict()
@@ -315,8 +325,11 @@ def test_health_keys_are_version_aware():
         cm.PARSE_COUNTS_V29_EXTRA
     )
     assert cm.extra_parse_counts(V27) == () and cm.parse_counts(V27) == cm.PARSE_COUNTS
+    assert "n_excuse_blocked_prefix" in score_v2.health_keys(V29)
+    assert "n_excuse_blocked_prefix" not in score_v2.health_keys(V28)
     m9 = wrun.Models(eval="agentic_misalignment", map_prompt=V29)
     assert amrun.health_keys(m9)[-1] == f"map_{cm.PARSE_COUNTS_V29_EXTRA[-1]}"
+    assert "map_n_excuse_blocked_prefix" in amrun.health_keys(m9)
     m8 = wrun.Models(eval="agentic_misalignment", map_prompt=V28)
     assert amrun.health_keys(m8)[-1] == f"map_{cm.PARSE_COUNTS_V28_EXTRA[-1]}"
 
@@ -425,3 +438,215 @@ def test_joint_cells_get_the_v29_prompt_fields_and_enforcement(tmp_path, cbm):
     else:
         assert all(s["leaf"] == tx.CONTINUATION_MISS for s in after)
         assert counts["n_continuation_refused_prefix"] == 0
+
+
+# ---------------------------------------------------------------- review fixes (PR #63)
+
+
+def _one_segment_lines(system: str) -> list[str]:
+    return [ln for ln in system.split("\n") if "literal continuation" in ln and "segment" in ln]
+
+
+@pytest.mark.parametrize("anchored", [False, True])
+def test_v29_one_segment_rule_is_not_tied_to_continuation_text(anchored):
+    """Fix 1: in v2.9 a literal continuation is ONE segment whether or not it fills the slot,
+    in the units text, rule 8 step 3 and the tag tail; v2.8's objects are untouched."""
+    system = S9.system_v5c if anchored else S9.system
+    assert "a literal continuation of the text (`continuation_text`) is ONE segment" not in system
+    assert "(set `continuation_text` as its tag says); it is one segment" not in system
+    lines = _one_segment_lines(system)
+    assert len(lines) == 3  # units, rule 8 step 3, the continuation_text tag
+    for ln in lines:
+        assert tx.ONE_SEGMENT_SLOT_V29 in ln and "Commentary about the text is split normally" in ln
+    assert tx.UNITS_TEXT_V29[-1].endswith(tx.ATOMIC_CONTINUATION_V29)
+    assert tx.rules(anchored, V29)[8].body[3] == tx.RULE8_STEP3_V29
+    assert tx.ONE_SEGMENT_SLOT_V29 in tx.CONTINUATION_TEXT_TAG_V29
+    # v2.8 keeps the tied wording
+    s8 = S8.system_v5c if anchored else S8.system
+    assert "a literal continuation of the text (`continuation_text`) is ONE segment" in s8
+    assert tx.ONE_SEGMENT_SLOT_V29 not in s8
+    assert tx.rules(anchored, V28)[8].body[3] == tx.RULE8_STEP3_V28
+
+
+@pytest.mark.parametrize("anchored", [False, True])
+def test_v29_heading_leaf_rule_and_examples_say_detail(anchored):
+    """Fix 2: another heading of the same list is `detail`; a wrong number does not upgrade
+    it. Both heading examples say `detail`; the rule is in the v2.9 detail carve-out only."""
+    system = S9.system_v5c if anchored else S9.system
+    assert tx.HEADING_LEAF_V29 in system and tx.detail_carve_out(V29).endswith(tx.HEADING_LEAF_V29)
+    assert "a wrong number does not upgrade it" in tx.HEADING_LEAF_V29
+    for start in ('"2. Seek Professional Help"', '"4. Addressing Specific Concerns"'):
+        x = _ex(start)
+        assert "`detail` with" in x and "`false_claim`" not in x and x in system
+    s8 = S8.system_v5c if anchored else S8.system
+    assert tx.HEADING_LEAF_V29 not in s8 and tx.detail_carve_out(V28) == tx.DETAIL_CARVE_OUT_V28
+
+
+def test_v29_wording_fixes():
+    assert "another cafe name (unless one is already fixed before the marker)" in S9.system
+    pc = tx.TAGS_V29["prefix_clash"]
+    assert "the text that opens the list, with no item numbered before the marker" in pc
+    assert '"Here are some steps:"' in pc
+    r3 = tx.rules(False, V29)[3].body[2]
+    assert "set `contradicted_before_marker` (incorrect segments only) if" in r3
+
+
+def test_parse_version_guards():
+    """Fix 5: no implicit v2.8 from read_offset; v2.9 fields need version >= v2.9."""
+    units = _units()
+    raw = {"units": [{**ct(), "id": units[0].id}], "rationale": "r"}
+    with pytest.raises(ValueError, match="explicit version"):
+        cm.parse(raw, units, CONV, read_offset=OFF)
+    raw9 = {"units": [{**ct9(), "id": units[0].id}], "rationale": "r"}
+    for v in (None, V27, V28):
+        with pytest.raises(ValueError, match="contradicted_before_marker"):
+            cm.parse(raw9, units, CONV, version=v)
+    # also inside a split
+    split = e(
+        "R0.U1",
+        "detail",
+        splits=[sp("I went", "detail", contradicted_before_marker=False)],
+        rest_leaf="detail",
+    )
+    with pytest.raises(ValueError, match="contradicted_before_marker"):
+        cm.parse({"units": [split], "rationale": "r"}, units, CONV, version=V28)
+    assert cm.parse(raw9, units, CONV, read_offset=OFF, version=V29)[0][0].leaf == (
+        tx.CONTINUATION_MISS
+    )
+    assert cm.parse(None, units)[0][0].status == "failed"  # a failed call still parses
+
+
+def test_v29_quote_straddling_the_marker_is_prefix_and_not_excused():
+    """Fix 6: v2.9 places a crossing contradiction quote in the prefix (fail closed); v2.8
+    keeps it ``after`` (and excuses it)."""
+    q = "went there yesterday"  # starts before the marker, ends after it
+    n = cm.Normalised(CONV)
+    assert cm.contradiction_region(q, n, OFF) == "after"
+    assert cm.contradiction_region(q, n, OFF, straddle_prefix=True) == "prefix"
+    assert cm.contradiction_region("yesterday", n, OFF, straddle_prefix=True) == "after"
+    assert cm.contradiction_region("new cafe", n, OFF, straddle_prefix=True) == "prefix"
+    segs, c = _parse9(ct9(q=q))
+    assert segs[0].contradiction_region == "prefix" and segs[0].leaf == "detail"
+    assert c["n_continuation_miss"] == 0 and c["n_contradiction_prefix"] == 1
+    assert c["n_excuse_blocked_prefix"] == 0
+    segs, c = _parse9(ct(q=q), version=V28)
+    assert segs[0].contradiction_region == "after" and segs[0].leaf == tx.CONTINUATION_MISS
+
+
+@pytest.mark.parametrize("version", [V28, V29])
+def test_quote_matching_both_prefix_and_after_is_prefix_and_not_excused(version):
+    """The earliest match wins: a quote found before AND after the marker is ``prefix``."""
+    prompt = "Did you go to the cafe yesterday?"
+    response = "Yes, I went there yesterday and the food was great."
+    marked = "Yes, I went there⟦READ⟧ yesterday and the food was great."
+    conv = cm.conversation_text(prompt, marked)
+    off = cm.read_offset_chat(prompt, response, len("Yes, I went there"))
+    assert conv.count("yesterday") == 2 and conv.index("yesterday") < off
+    assert conv.index("yesterday", off) >= off
+    units = _units()
+    entry = ct9() if version == V29 else ct()
+    raw = {"units": [{**entry, "id": units[0].id}], "rationale": "r"}
+    segs, c = cm.parse(raw, units, conv, read_offset=off, version=version)
+    assert segs[0].contradiction_region == "prefix" and segs[0].leaf == "detail"
+    assert c["n_continuation_miss"] == 0
+
+
+# ---------------------------------------------------------------- story / AM joint (v2.9)
+
+
+@pytest.mark.parametrize("cbm", [False, True])
+def test_story_eval_path_with_v29(tmp_path, cbm):
+    from test_claimmap_v28 import _run
+    from test_story_eval import TOY
+
+    from hallucination_bench.evals.story import bank as story_bank
+
+    items = {it["id"]: it for it in story_bank.load_items()}
+    rows = [
+        {"id": iid, "layer": 44, "pos": int(s["pos"]), "samples": ["The story is set in Paris."]}
+        for iid in TOY
+        for s in items[iid]["sites"]
+    ]
+    readouts = tmp_path / "story.jsonl"
+    readouts.write_text("".join(json.dumps(r) + "\n" for r in rows))
+    m9 = wrun.Models(eval="story", map_prompt=V29)
+    fake = Map29Fake(cbm)
+    s = _run([("toy", readouts)], tmp_path / "out", fake, m9)["toy"]
+    assert s["config"]["prompt_versions"]["map"] == V29 and s["config"]["eval"] == "story"
+    maps = [c for c in fake.calls if c[0] == "map"]
+    assert maps and all(c[2] == S9.system for c in maps)
+    d = wrun.arm_dir(tmp_path / "out", m9, "toy")
+    assert d.parent.parent.name == "story"
+    recs = [json.loads(x) for x in (d / "cells.jsonl").read_text().splitlines()]
+    mapped = [r for r in recs if (r.get("map") or {}).get("segments")]
+    segs = [g for r in mapped for g in r["map"]["segments"]]
+    assert segs and all(set(FIELDS) <= set(g) for g in segs)
+    after = [g for g in segs if g.get("contradiction_region") == "after"]
+    assert after
+    blocked = sum(r["map"]["counts"]["n_excuse_blocked_prefix"] for r in mapped)
+    if cbm:
+        assert not any(g["leaf"] == tx.CONTINUATION_MISS for g in segs)
+        assert blocked == len(after)
+    else:
+        assert all(g["leaf"] == tx.CONTINUATION_MISS for g in after) and blocked == 0
+
+
+@pytest.mark.parametrize("cbm", [False, True])
+def test_am_joint_cells_with_v29_enforcement(tmp_path, monkeypatch, cbm):
+    from test_am_run import MIS, map_answer
+    from test_am_v8 import AM8Fake, _empty_overrides, _prose
+
+    from hallucination_bench.evals.agentic_misalignment import intent
+
+    a9 = cam.VERSIONS["claimmap-v2.9+am3"]
+
+    def map_am29(user: str) -> dict:
+        ans = map_answer(user)
+        prompt = user.split("<prompt>\n", 1)[1].split("\n</prompt>", 1)[0]
+        before, rest = prompt.split(READ_MARK, 1)
+        after = rest.strip()[:20].strip() or None
+        clash = before.rstrip()[-25:].strip() or None  # verbatim, just before the marker
+        for u in ans["units"]:
+            inc = u["leaf"] in tx.INCORRECT_LEAVES
+            u["continuation_text"] = inc
+            if inc and after:
+                u["contradicted_by"] = after
+            u["contradicted_before_marker"] = inc and cbm
+            u["prefix_clash"] = clash if inc and cbm else None
+        return ans
+
+    class AM9Fake(AM8Fake):
+        async def call(self, *, model, system, user, schema):
+            if system == a9.system:
+                props = schema["schema"]["properties"]["units"]["items"]["properties"]
+                assert all(f in props for f in FIELDS)
+                self.calls.append(("map", user))
+                return CallResult(map_am29(user), Usage(calls=1, usd=0.01))
+            return await super().call(model=model, system=system, user=user, schema=schema)
+
+    monkeypatch.setattr(intent, "OVERRIDES_PATH", _empty_overrides(tmp_path / "ov.json"))
+    monkeypatch.setattr(amrun, "JOINT_LAYERS", (20, 24))
+    extra = {(MIS, 3, 24): "Alex could kill the server."}  # an incorrect unit in R1
+    f = _prose(tmp_path, layers=(20, 24), extra=extra)
+    m9 = wrun.Models(eval="agentic_misalignment", map_prompt=V29, map_model="claude-sonnet-5-5")
+    fake = AM9Fake()
+    out = tmp_path / "out"
+    amrun.run_am([("toy", f)], out, m9, llm=fake, items=[MIS], stages="detect,map,joint")
+    jusers = [u for st, u in fake.calls if st == "map" and "R0 = layer 20, R1 = layer 24" in u]
+    assert jusers and all("contradicted_before_marker, prefix_clash" in u for u in jusers)
+    d = amrun.arm_dir(out, m9, "toy")
+    joint = [json.loads(x) for x in (d / "cells_joint.jsonl").read_text().splitlines()]
+    mapped = [r for r in joint if (r.get("map") or {}).get("segments")]
+    segs = [g for r in mapped for g in r["map"]["segments"]]
+    assert segs and all(set(FIELDS) <= set(g) for g in segs)
+    after = [g for g in segs if g.get("contradiction_region") == "after"]
+    assert after  # the fake quotes prompt text after the marker
+    counts = {k: sum(r["map"]["counts"][k] for r in mapped) for k in cm.PARSE_COUNTS_V29_EXTRA}
+    if cbm:
+        assert not any(g["leaf"] == tx.CONTINUATION_MISS for g in segs)
+        assert all(g["prefix_clash_region"] == "prefix" for g in after)
+        assert counts["n_excuse_blocked_prefix"] == len(after)
+        assert counts["n_continuation_refused_prefix"] == len(after)  # both tags set
+    else:
+        assert all(g["leaf"] == tx.CONTINUATION_MISS for g in after)
+        assert counts["n_excuse_blocked_prefix"] == 0

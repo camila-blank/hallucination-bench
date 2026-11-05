@@ -654,10 +654,27 @@ ATOMIC_CONTINUATION_V28 = (
     "whole under rule 8."
 )
 UNITS_TEXT_V28: tuple[str, ...] = (*UNITS_TEXT[:-1], UNITS_TEXT[-1] + ATOMIC_CONTINUATION_V28)
+# Plan 0029 amendment review (claimmap-v2.9, Camila 2026-11-05): the ONE-segment rule is no
+# longer tied to `continuation_text` -- a literal continuation stays ONE segment when it breaks
+# the slot too (wrong addressee, wrong number, entity clash: `continuation_text` false).
+# Commentary is still split normally. Used in UNITS_TEXT_V29, RULE8_STEP3_V29 and the tag tail.
+ONE_SEGMENT_SLOT_V29 = (
+    "whether or not it fills the same slot (also when `continuation_text` is false because the "
+    "slot is broken: a wrong addressee, a wrong number, a clashing entity)"
+)
+ATOMIC_CONTINUATION_V29 = (
+    " Exception: a literal continuation of the text (written as the text's own next words) is "
+    f"ONE segment, {ONE_SEGMENT_SLOT_V29}, even when more than one specific in it is wrong: do "
+    "not split it per specific; it is judged whole under rule 8. Commentary about the text is "
+    "split normally."
+)
+UNITS_TEXT_V29: tuple[str, ...] = (*UNITS_TEXT[:-1], UNITS_TEXT[-1] + ATOMIC_CONTINUATION_V29)
 
 
 def units_text(version: str = V27) -> tuple[str, ...]:
-    return UNITS_TEXT_V28 if is_v28(version) else UNITS_TEXT
+    if not is_v28(version):
+        return UNITS_TEXT
+    return UNITS_TEXT_V29 if is_v29(version) else UNITS_TEXT_V28
 
 
 # ---------------------------------------------------------------- precedence
@@ -927,8 +944,8 @@ CONTINUATION_TEXT_CLAUSE = (
 CONTINUATION_TEXT_CLAUSE_V29 = (
     "set `continuation_text` if the segment is written as the text's own continuation, on "
     "topic, and fills the same slot the text fills at the marker (never for commentary about "
-    "the text); set `contradicted_before_marker` if the text before the marker already rules "
-    "it out"
+    "the text); set `contradicted_before_marker` (incorrect segments only) if the text before "
+    "the marker already rules it out"
 )
 
 
@@ -986,6 +1003,21 @@ RULE8_STEP3_V28 = (
     "segment (set `continuation_text` as its tag says); it is one segment, judged whole: never "
     "split it into one segment per specific."
 )
+# Plan 0029 amendment review (claimmap-v2.9): the ONE-segment sentence of step 3, untied from
+# `continuation_text` (RULE8_STEP3_V28 is untouched).
+_STEP3_ONE_SEGMENT_V28 = (
+    "A literal continuation gets its leaf from these steps like any other segment (set "
+    "`continuation_text` as its tag says); it is one segment, judged whole: never split it into "
+    "one segment per specific."
+)
+assert RULE8_STEP3_V28.endswith(_STEP3_ONE_SEGMENT_V28)
+RULE8_STEP3_V29 = RULE8_STEP3_V28.replace(
+    _STEP3_ONE_SEGMENT_V28,
+    "A literal continuation of the text gets its leaf from these steps like any other segment "
+    "(set `continuation_text` and `contradicted_before_marker` as their tags say); it is ONE "
+    f"segment, {ONE_SEGMENT_SLOT_V29}, judged whole: never split it into one segment per "
+    "specific. Commentary about the text is split normally.",
+)
 
 
 def _rules_v28(anchored: bool, version: str) -> dict[int, Rule]:
@@ -1013,7 +1045,7 @@ def _rules_v28(anchored: bool, version: str) -> dict[int, Rule]:
             base[8].body[0] + " " + RULE8_LEAD_V28,
             RULE8_STEP1_V28 + decision_text("subject_name", version),
             RULE8_STEP2_V28,
-            RULE8_STEP3_V28,
+            RULE8_STEP3_V29 if is_v29(version) else RULE8_STEP3_V28,
             QUOTE_RULE_V28,
         ),
     )
@@ -1126,8 +1158,20 @@ DETAIL_CARVE_OUT_V28 = (
 )
 
 
+# Plan 0029 amendment review (claimmap-v2.9, Camila 2026-11-05): a heading or list item read
+# where the text has a different one is `detail`; a wrong number never upgrades it.
+HEADING_LEAF_V29 = (
+    "Another item or heading of the same list, read where the text has a different one, is "
+    "`detail` (its wording or topic is a specific), and a wrong number does not upgrade it (a "
+    "wrong number only makes `continuation_text` false and `contradicted_before_marker` true)."
+)
+DETAIL_CARVE_OUT_V29 = DETAIL_CARVE_OUT_V28 + " " + HEADING_LEAF_V29
+
+
 def detail_carve_out(version: str = V27) -> str:
-    return DETAIL_CARVE_OUT_V28 if is_v28(version) else DETAIL_CARVE_OUT
+    if not is_v28(version):
+        return DETAIL_CARVE_OUT
+    return DETAIL_CARVE_OUT_V29 if is_v29(version) else DETAIL_CARVE_OUT_V28
 
 
 # ---------------------------------------------------------------- tags
@@ -1233,14 +1277,26 @@ TAGS_V28: dict[str, str] = _tags_v28()
 _TAG_TAIL_V28 = CONTINUATION_TEXT_TAG[
     CONTINUATION_TEXT_TAG.index("The tag never changes the leaf") :
 ]
+# Plan 0029 amendment review: the ONE-segment sentence of the tail, untied from the tag
+_TAG_ONE_SEGMENT_V28 = "A literal continuation of the text is ONE segment: it is not split"
+assert _TAG_TAIL_V28.count(_TAG_ONE_SEGMENT_V28) == 1
+_TAG_TAIL_V29 = (
+    _TAG_TAIL_V28.replace(
+        _TAG_ONE_SEGMENT_V28,
+        f"A literal continuation of the text is ONE segment, {ONE_SEGMENT_SLOT_V29}: it is not "
+        "split",
+    )
+    + " Commentary about the text is split normally."
+)
 CONTINUATION_TEXT_TAG_V29 = (
     "(bool, incorrect segments only, else false): the segment is written as the text's own "
     'continuation, its next words ("Yeah, I went last week and"; "Dear Kyle, I must inform '
     'you"), is on topic, and **fills the same slot the text fills at the marker**. The same '
     "slot keeps the list or heading number and level, the speaker and the addressee, and every "
     "name, entity and role already fixed **before** the marker. Inside that slot, new invented "
-    "specifics are fine: a different heading wording, another cafe name, a different poem "
-    "line, another task, another line by the same speaker; the size of the difference from what "
+    "specifics are fine: a different heading wording, another cafe name (unless one is already "
+    "fixed before the marker), a different poem line, another task, another line by the same "
+    "speaker; the size of the difference from what "
     "the text goes on to say does not matter. A wrong number in a numbered list or sequence is "
     'never possible ("2. Seek Professional Help" as the first heading; "3." right after item '
     '"1."), and neither is a wrong speaker or addressee (an email to Kyle continued "... your '
@@ -1254,7 +1310,7 @@ CONTINUATION_TEXT_TAG_V29 = (
     "the marker is inside the prompt (a system prompt, a user message, an email being read), "
     "not inside the model's own response, the text being continued is that prompt: a "
     'first-person plan or action of the AI assistant or agent ("I will compile a dossier on '
-    'Kyle") is not continuation text there (false). ' + _TAG_TAIL_V28
+    'Kyle") is not continuation text there (false). ' + _TAG_TAIL_V29
 )
 CONTRADICTED_BEFORE_MARKER_TAG = (
     "(bool, incorrect segments only, else false): the text **before** the marker already rules "
@@ -1268,8 +1324,9 @@ CONTRADICTED_BEFORE_MARKER_TAG = (
 PREFIX_CLASH_TAG = (
     "(string, when `contradicted_before_marker` is true, else null): the verbatim span of the "
     'text **before** the marker that rules the segment out ("Dear Kyle," for an email to Kyle '
-    'continued "... Sarah"; "Here are some steps:" for a first heading numbered "2."). Quote '
-    "it character for character, without the marker."
+    'continued "... Sarah"; for a first heading numbered "2.", the text that opens the list, '
+    'with no item numbered before the marker, such as "Here are some steps:"). Quote it '
+    "character for character, without the marker."
 )
 
 
@@ -1326,7 +1383,8 @@ EXAMPLES_V28: tuple[str, ...] = (
 )
 
 # Plan 0029 amendment (claimmap-v2.9): the v2.8 examples with "2. Seek Professional Help"
-# reversed (Camila 2026-11-05: a wrong list number is not a possible continuation), "I'm Elara"
+# reversed (Camila 2026-11-05: a wrong list number is not a possible continuation; the heading
+# stays `detail`, HEADING_LEAF_V29: a wrong number does not upgrade the leaf), "I'm Elara"
 # made explicit about the prefix, and the slot / prefix / AM cases from the pilot2 gate.
 _V28_KEPT = 7  # the role / date / invented-name examples, verbatim
 assert EXAMPLES_V28[_V28_KEPT].startswith('"2. Seek Professional Help"')
@@ -1337,14 +1395,15 @@ EXAMPLES_V29: tuple[str, ...] = (
     "continuation after the text has already named the CEO, it is "
     "`contradicted_before_marker = true` and `continuation_text = false`.",
     '"2. Seek Professional Help" written as the first heading of a list, when nothing numbered '
-    'precedes the marker and the text goes on with "1. Allow Yourself to Feel": `false_claim` '
-    "with `continuation_text = false` and `contradicted_before_marker = true` (a wrong number "
-    "in a numbered list is never a possible continuation: with no item before the marker the "
-    "next heading is 1; `prefix_clash` quotes the text before the marker that opens the list).",
+    'precedes the marker and the text goes on with "1. Allow Yourself to Feel": `detail` with '
+    "`continuation_text = false` and `contradicted_before_marker = true` (another heading of "
+    "the same list is `detail`, and the wrong number does not upgrade it; it only breaks the "
+    "slot: with no item before the marker the next heading is 1; `prefix_clash` quotes the "
+    "text that opens the list, with no item numbered before the marker).",
     '"4. Addressing Specific Concerns" written as the next heading after item 3, when the text '
     'goes on with "4. GPA or College Prep": `detail` with `continuation_text = true` and '
-    "`contradicted_before_marker = false` (same number and level, another heading wording in "
-    "the same slot).",
+    "`contradicted_before_marker = false` (same number and level, another heading of the same "
+    "list: `detail`, as with any other heading wording in the same slot).",
     '"... about your secret meeting, Sarah" written as the next words of an email the text '
     'opens with "Dear Kyle,": incorrect (leaf by rule 8), `continuation_text = false`, '
     '`contradicted_before_marker = true`, `prefix_clash` "Dear Kyle," (the addressee is fixed '

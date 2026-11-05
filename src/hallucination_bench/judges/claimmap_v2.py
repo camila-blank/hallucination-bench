@@ -528,10 +528,16 @@ PARSE_COUNTS_V28_EXTRA: tuple[str, ...] = (
 )
 # plan 0029 amendment: the v2.9 counters, emitted only for v2.9 roots (after the v2.8 ones)
 PARSE_COUNTS_V29_EXTRA: tuple[str, ...] = (
-    "n_continuation_refused_prefix",  # excuse refused: contradicted_before_marker = true
+    # inconsistent answers only: `continuation_text` AND `contradicted_before_marker` both true
+    # (an excusable leaf quoted `after`); the excuse is refused. A consistent judge never sets
+    # both, so this is NOT the number of excuses the prefix check blocks (see the last counter)
+    "n_continuation_refused_prefix",
     "n_continuation_refused_missing",  # excuse refused: the field is missing (safe default)
     "n_contradicted_before_marker",  # incorrect segments the judge flagged (any tag)
     "n_prefix_clash_unlocated",  # flagged with a quote not located before the marker
+    # an EXCUSABLE_LEAVES segment quoted `after` with `contradicted_before_marker` true, whatever
+    # `continuation_text` says: every segment the prefix check keeps out of the excuse
+    "n_excuse_blocked_prefix",
 )
 SHORT_QUOTE_WORDS = 3
 
@@ -706,8 +712,8 @@ def parse(
     ``conversation`` (production, calibration, consistency) the rev-17 evidence quotes are
     checked; ``None`` skips the check (unit tests of the other mechanics only).
 
-    Plan 0029 (claimmap-v2.8, ``version`` >= v2.8 or ``read_offset`` given): segments carry
-    ``continuation_text`` / ``contradiction_region`` and the v2.8 counters are added. With
+    Plan 0029 (claimmap-v2.8, ``version`` >= v2.8; ``read_offset`` needs ``version``): segments
+    carry ``continuation_text`` / ``contradiction_region`` and the v2.8 counters are added. With
     ``read_offset`` (the marker's offset in ``conversation``; single-call mode only, never
     anchored) every incorrect segment's quote is placed (``prefix`` iff it ends at or before
     the marker) and the §1.2 excuse runs last, after the rev 17 / 18 / 19 steps.
@@ -715,8 +721,19 @@ def parse(
     Plan 0029 amendment (claimmap-v2.9, ``version`` >= v2.9): segments also carry
     ``contradicted_before_marker`` / ``prefix_clash`` / ``prefix_clash_region`` and the excuse
     is refused when the judge says the text before the marker rules the segment out (or the
-    field is missing: the safe default is no excuse)."""
+    field is missing: the safe default is no excuse); a contradiction quote straddling the
+    marker is ``prefix``.
+
+    Guards: ``read_offset`` without ``version`` raises (no implicit v2.8), and so does an answer
+    carrying ``contradicted_before_marker`` when ``version`` is not v2.9 or later."""
+    if read_offset is not None and version is None:
+        raise ValueError("read_offset needs an explicit version (claimmap-v2.8 or later)")
     v29 = version is not None and is_v29(version)
+    if not v29 and _has_key(raw, "contradicted_before_marker"):
+        raise ValueError(
+            f"the answer carries contradicted_before_marker but version {version!r} is not "
+            "claimmap-v2.9 or later"
+        )
     v28 = v29 or read_offset is not None or (version is not None and is_v28(version))
     if read_offset is not None and conversation is None:
         raise ValueError("read_offset needs the conversation")
@@ -825,29 +842,64 @@ def parse(
         _remap_hedged(s, c)
     if read_offset is not None and conv is not None:
         for s in segs:
-            _place_contradiction(s, conv, read_offset, c)
+            _place_contradiction(s, conv, read_offset, c, straddle_prefix=v29)
             if v29:
                 _place_prefix_clash(s, conv, read_offset, c)
+                if (
+                    s.status == "ok"
+                    and s.leaf in tx.EXCUSABLE_LEAVES
+                    and s.contradiction_region == "after"
+                    and s.contradicted_before_marker is True
+                ):
+                    c["n_excuse_blocked_prefix"] += 1
             _excuse_continuation(s, c)
     c["n_segments"] = len(segs)
     return segs, c
 
 
-def contradiction_region(q: str, conv: Normalised, read_offset: int) -> str | None:
+def _has_key(x: Any, key: str) -> bool:
+    """``key`` in any unit entry or split of a judge answer (a malformed answer: ``False``)."""
+    if not isinstance(x, dict) or not isinstance(x.get("units"), list):
+        return False
+    for e in x["units"]:
+        if not isinstance(e, dict):
+            continue
+        splits = e.get("splits") if isinstance(e.get("splits"), list) else []
+        if key in e or any(isinstance(p, dict) and key in p for p in splits):
+            return True
+    return False
+
+
+def contradiction_region(
+    q: str, conv: Normalised, read_offset: int, *, straddle_prefix: bool = False
+) -> str | None:
     """Plan 0029 §1.1: ``prefix`` iff the earliest match of the quote ends at or before the
-    marker, else ``after`` (a crossing quote is ``after``); ``None`` when it is not found."""
+    marker, else ``after`` (a crossing quote is ``after``); ``None`` when it is not found.
+
+    ``straddle_prefix`` (claimmap-v2.9 contradiction quotes, plan 0029 amendment): a crossing
+    quote -- earliest match starting before the marker and ending after it -- is ``prefix``
+    (fail closed: it is never excused)."""
     m = conv.find(q, 0)
     if m is None:
         return None
-    return "prefix" if m[1] <= read_offset else "after"
+    if m[1] <= read_offset or (straddle_prefix and m[0] < read_offset):
+        return "prefix"
+    return "after"
 
 
 def _place_contradiction(
-    s: "Segment", conv: Normalised, read_offset: int, c: dict[str, int]
+    s: "Segment",
+    conv: Normalised,
+    read_offset: int,
+    c: dict[str, int],
+    *,
+    straddle_prefix: bool = False,
 ) -> None:
     if s.status != "ok" or s.leaf not in tx.INCORRECT_LEAVES or s.contradicted_by is None:
         return
-    region = contradiction_region(s.contradicted_by, conv, read_offset)
+    region = contradiction_region(
+        s.contradicted_by, conv, read_offset, straddle_prefix=straddle_prefix
+    )
     s.contradiction_region = region
     if region is not None:
         c[f"n_contradiction_{region}"] += 1
@@ -886,9 +938,12 @@ def _excuse_continuation(s: "Segment", c: dict[str, int]) -> None:
     judge's leaf, ``raw_leaf`` unchanged). It is no longer a probe candidate.
 
     v2.9 (plan 0029 amendment): the excuse is also refused when the judge says the text before
-    the marker already rules the segment out (``contradicted_before_marker``, counted
-    ``n_continuation_refused_prefix``; whatever its ``prefix_clash`` quote locates to) or did
-    not give the field (``n_continuation_refused_missing``: the safe default is no excuse)."""
+    the marker already rules the segment out (``contradicted_before_marker``, whatever its
+    ``prefix_clash`` quote locates to; reached only when ``continuation_text`` is also true, an
+    inconsistent answer, counted ``n_continuation_refused_prefix``; every segment the check
+    blocks is counted in :func:`parse` as ``n_excuse_blocked_prefix``) or did not give the
+    field (``n_continuation_refused_missing``: the safe default is no excuse). A v2.9
+    contradiction quote that straddles the marker is ``prefix`` (never excused)."""
     if (
         s.status != "ok"
         or s.leaf not in tx.EXCUSABLE_LEAVES

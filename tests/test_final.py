@@ -12,6 +12,7 @@ from hallucination_bench import cli, final
 from hallucination_bench import index as ix
 
 V28 = "claimmap-v2.8"
+V29 = "claimmap-v2.9"  # plan 0029 amendment 1: the only version `hbench final` accepts
 CLAIM_DIRS = {ix.MAIN: "main", ix.STORY: "story", ix.AM_CLAIMS: "am"}
 
 
@@ -20,7 +21,7 @@ def _two_layer_grid(monkeypatch):
     monkeypatch.setattr(final, "EXPECTED_LAYERS", (20, 24))
 
 
-def _arm_json(d: Path, prompt: str = V28, bank: dict | None = None) -> None:
+def _arm_json(d: Path, prompt: str = V29, bank: dict | None = None) -> None:
     (d / "arm.json").write_text(json.dumps({"arm": d.name, "map_prompt": prompt, **(bank or {})}))
 
 
@@ -39,7 +40,7 @@ def _files(fam: str, unit: str) -> list[str]:
     return [ix.SAFETY_COUNTS_JOINT if unit == "all" else ix.SAFETY_COUNTS]
 
 
-def _entries(tmp: Path, src: dict, version=V28, *, extra_arm: str | None = None) -> list[dict]:
+def _entries(tmp: Path, src: dict, version=V29, *, extra_arm: str | None = None) -> list[dict]:
     srcs = {**src, ix.AM_SITUATION: src[ix.AM_CLAIMS]}
     entries = []
     for fam, roots in srcs.items():
@@ -64,7 +65,7 @@ def _entries(tmp: Path, src: dict, version=V28, *, extra_arm: str | None = None)
     return entries
 
 
-def _manifest(tmp: Path, *, version=V28, recorded=V28, mutate=None, prep=None) -> Path:
+def _manifest(tmp: Path, *, version=V29, recorded=V29, mutate=None, prep=None) -> Path:
     src = v8_sources(tmp / "roots")
     for sub in CLAIM_DIRS.values():
         _arm_json(tmp / "roots" / sub / "jlens", recorded, X3_RECORD if sub == "main" else None)
@@ -98,7 +99,9 @@ def test_final_builds_the_index_and_draws_the_plots(tmp_path):
     m = _manifest(tmp_path)
     assert _main(tmp_path, m) == 0
     built = json.loads((tmp_path / "final" / "index.json").read_text())
-    assert built["version"] == "hindex-v8" and built["manifest"]["prompt_version"] == V28
+    assert built["version"] == "hindex-v8" and built["manifest"]["prompt_version"] == V29
+    # the note names the checked version (generated, not hard-coded)
+    assert "Claim maps judged with claimmap-v2.9" in built["notes"]["hindex-v8"]
     rows = {r["layer"]: r for r in built["rows"] if r["method"] == "jlens"}
     assert set(rows) == {20, 24, "all"} and "full_joint" in rows["all"]
     assert set(rows[20]["families"]) == set(ix.FAMILIES_V8) and "full" in rows[20]
@@ -223,16 +226,17 @@ def test_prompt_versions_declared_and_recorded(tmp_path, capsys):
         == 2
     )
     assert "not an accepted v8 version" in capsys.readouterr().err
-    # the manifest says v2.8 but the arm dirs were judged with v2.7
+    # the manifest says v2.9 but the arm dirs were judged with v2.7
     assert _main(tmp_path / "c", _manifest(tmp_path / "c", recorded="claimmap-v2.7")) == 2
     assert "records map_prompt 'claimmap-v2.7'" in capsys.readouterr().err
 
     def am3(m):  # an AM entry may declare its AM version
         for e in m["entries"]:
             if e["family"] == ix.AM_CLAIMS:
-                e["prompt_version"] = "claimmap-v2.8+am3"
+                e["prompt_version"] = "claimmap-v2.9+am3"
 
     assert _main(tmp_path / "d", _manifest(tmp_path / "d", mutate=am3)) == 0
+    assert final.chat_version("claimmap-v2.9+am3") == final.chat_version(V29) == V29
     assert final.chat_version("claimmap-v2.8+am3") == final.chat_version(V28) == V28
 
     def no_arm_json(roots: Path) -> None:
@@ -240,6 +244,55 @@ def test_prompt_versions_declared_and_recorded(tmp_path, capsys):
 
     assert _main(tmp_path / "e", _manifest(tmp_path / "e", prep=no_arm_json)) == 2
     assert "no arm.json" in capsys.readouterr().err
+
+
+def test_final_accepts_only_v29(tmp_path, capsys):
+    """Plan 0029 amendment 1: ``V8_FINAL_PROMPTS`` = {claimmap-v2.9}; a v2.8 manifest and a
+    mixed v2.8 / v2.9 one (declared or recorded) are refused."""
+    assert final.V8_FINAL_PROMPTS == {V29}
+    m9 = _manifest(tmp_path / "ok")
+    assert final.check(final.load_manifest(m9), tmp_path / "ok") == V29
+    # a consistent v2.8 manifest (declared and recorded): refused
+    m8 = _manifest(tmp_path / "v28", version=V28, recorded=V28)
+    with pytest.raises(final.ManifestError, match="not an accepted v8 version"):
+        final.check(final.load_manifest(m8), tmp_path / "v28")
+    assert _main(tmp_path / "v28", m8) == 2
+    assert "'claimmap-v2.8' is not an accepted v8 version" in capsys.readouterr().err
+
+    def mixed(m):  # story declared v2.8, the rest v2.9
+        for e in m["entries"]:
+            if e["family"] == ix.STORY:
+                e["prompt_version"] = V28
+
+    mm = _manifest(tmp_path / "mixed", mutate=mixed)
+    with pytest.raises(final.ManifestError, match="different prompt versions"):
+        final.check(final.load_manifest(mm), tmp_path / "mixed")
+    assert _main(tmp_path / "mixed", mm) == 2
+    assert "different prompt versions" in capsys.readouterr().err
+
+    def am_v28(m):  # the AM entries declare the v2.8 AM version
+        for e in m["entries"]:
+            if e["family"] == ix.AM_CLAIMS:
+                e["prompt_version"] = "claimmap-v2.8+am3"
+
+    ma = _manifest(tmp_path / "mixed_am", mutate=am_v28)
+    with pytest.raises(final.ManifestError, match="different prompt versions"):
+        final.check(final.load_manifest(ma), tmp_path / "mixed_am")
+
+    def story_v28(roots: Path) -> None:  # declared v2.9 everywhere, one arm judged with v2.8
+        _arm_json(roots / "story" / "jlens", V28)
+
+    mr = _manifest(tmp_path / "mixed_rec", prep=story_v28)
+    with pytest.raises(final.ManifestError, match=r"records map_prompt 'claimmap-v2\.8'"):
+        final.check(final.load_manifest(mr), tmp_path / "mixed_rec")
+
+
+def test_index_v8_note_names_the_prompt_version():
+    assert "claimmap-v2.9" in ix.notes_v8("claimmap-v2.9")["hindex-v8"]
+    assert "claimmap-v2.9" not in ix.notes_v8("claimmap-v2.8")["hindex-v8"]
+    assert "not checked" in ix.notes_v8(None)["hindex-v8"]
+    with pytest.raises(ValueError, match="no hindex-v8 note"):
+        ix.notes_v8("claimmap-v2.7")
 
 
 def test_manifest_schema(tmp_path):
