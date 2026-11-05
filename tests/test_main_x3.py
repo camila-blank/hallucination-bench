@@ -184,3 +184,65 @@ def test_x3_subset_counts(x3_items):
     meta = json.loads(X3_ITEMS.read_text())["meta"]
     assert meta["n_items"] == len(x3_items)
     assert meta["n_sites"] == sum(len(it["sites"]) for it in x3_items)
+
+
+# ------------------------------------------------ plan 0028 amendment: English lmsys
+
+
+def _seed(i: int, source: str, lang: str | None) -> dict:
+    s = {"key": f"chat:{source}:{i:032x}", "source": source, "text": f"question number {i}?"}
+    if lang is not None:
+        s["language"] = lang
+    return s
+
+
+def test_expansion_draw_english_only_for_new_lmsys():
+    pool = [_seed(i, "lmsys", "English" if i % 3 else "German") for i in range(300)]
+    picked = {pool[0]["key"], pool[1]["key"], pool[3]["key"]}  # WSB picks, one non-English
+    new, counts = expand.expansion_draw(pool, picked, "lmsys", 50)
+    assert len(new) == 50 and all(s["language"] == "English" for s in new)
+    assert not {s["key"] for s in new} & picked
+    assert counts["non_english_excluded"] == sum(
+        s["language"] != "English" for s in pool if s["key"] not in picked
+    )
+    # deterministic: the same seeded order, and the shuffle runs AFTER the English screen
+    import random
+
+    rest = [s for s in pool if s["key"] not in picked and s["language"] == "English"]
+    random.Random("hb0028:lmsys").shuffle(rest)
+    assert new == rest[:50]
+    assert expand.expansion_draw(pool, picked, "lmsys", 50)[0] == new
+
+
+def test_expansion_draw_dailydialog_has_no_language_screen():
+    pool = [_seed(i, "dailydialog", None) for i in range(300)]
+    new, counts = expand.expansion_draw(pool, set(), "dailydialog", 150)
+    assert len(new) == 150 and "non_english_excluded" not in counts
+
+
+X3_SEEDS = X3_ITEMS.parent / "seeds.json"
+x3_seeds = pytest.mark.skipif(not X3_SEEDS.exists(), reason="3x seeds not built here")
+
+
+@x3_seeds
+def test_x3_new_lmsys_seeds_are_english_and_wsb_draw_unchanged():
+    doc = json.loads(X3_SEEDS.read_text())
+    lm = [s for s in doc["seeds"] if s["source"] == "lmsys"]
+    if not lm:
+        pytest.skip("lmsys half not drawn yet")
+    assert all(s.get("language") == "English" for s in lm)
+    assert doc["verify_wsb"]["lmsys"]["reproduced"] is True
+    assert doc["verify_wsb"]["lmsys"]["bank_not_picked"] == 0
+    wsb = {expand.seed_key("chat", it["source"], it["prompt"]) for it in wsb_items()}
+    assert not {s["key"] for s in lm} & wsb
+    assert all("language" not in s for s in doc["seeds"] if s["source"] == "dailydialog")
+
+
+@x3
+def test_x3_new_lmsys_items_come_from_english_seeds(x3_items):
+    if not X3_SEEDS.exists():
+        pytest.skip("3x seeds not built here")
+    lang = {s["key"]: s.get("language") for s in json.loads(X3_SEEDS.read_text())["seeds"]}
+    for it in x3_items:
+        if it["subset"] == "x3new" and it["source"] == "lmsys":
+            assert lang.get(it["seed_key"]) == "English", it["id"]

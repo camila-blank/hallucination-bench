@@ -58,7 +58,8 @@ src/hallucination_bench/
   evals/story/bank.py    the story bank (data/story); the pipeline is wsbench_chat's (plan 0007)
   evals/wsbench_chat/{bank,run,score}.py   bank + grid; pipeline (shared); metrics + bootstrap
   evals/wsbench_chat/score_v2.py   claim-map metrics (char-weighted shares, rates, comparisons)
-  evals/wsbench_chat/expand.py     plan 0028: literal ports of the WSB seed screen, read sites, thinning
+  evals/wsbench_chat/expand.py     plan 0028: literal ports of the WSB seed screen, read sites,
+                                   thinning + expansion_draw (new lmsys English-only, amendment 1)
   evals/agentic_misalignment/      plan 0008 (own driver; NOT the chat pipeline):
     kinds.py      THE misconduct-kind table + actor/stance enums + design-kind map (rendered
                   into the detector, screener and intent prompts)
@@ -118,7 +119,8 @@ data/wsbench_chat_x3/  plan 0028: the main bank at 3x prompts / <=16 sites (WSB 
                      `wsb149`, sites `wsb: true` = the WSB 1,123); LOCAL until frozen (gitignored
                      except README); `hbench run|report --bank x3` (plan 0029; dir $HBENCH_X3_BANK,
                      readouts default $HBENCH_X3_READOUTS) or HBENCH_WSBENCH_CHAT_ITEMS=<it>/items.json
-scripts/main_x3/     plan 0028: build_seeds.py (re-derives the WSB draw, then the seeded expansion),
+scripts/main_x3/     plan 0028: build_seeds.py (re-derives the WSB draw, then the seeded expansion;
+                     new lmsys English-only),
                      gen_modal.py (WSB generation settings + template guard), build_bank.py
                      (tag a/b capture batches), reads.sh (capture / read-s3d / read-s3d5 /
                      read-mlnla / read-jlens / fetch + reader-config drift check),
