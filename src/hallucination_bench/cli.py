@@ -567,7 +567,8 @@ def _map_prompt(p: argparse.ArgumentParser) -> None:
         default="claimmap-v2.7",
         help="claim-map prompt version (plan 0029; default claimmap-v2.7; recorded in arm.json, "
         "a run that differs from an arm dir's record is refused; agentic_misalignment maps "
-        "claimmap-v2.8 to claimmap-v2.8+am3)",
+        "claimmap-v2.8 / -v2.9 to their +am3 versions; v8 roots use claimmap-v2.9, plan 0029 "
+        "amendment)",
     )
 
 
@@ -629,7 +630,8 @@ def build_parser() -> argparse.ArgumentParser:
         "--joint",
         action="store_true",
         help="plan 0029: judge the joint 11-layer cells (sample 0 of every layer in one call; "
-        "needs --map-prompt claimmap-v2.8; agentic_misalignment: same as --stages joint)",
+        "needs --map-prompt claimmap-v2.8 or later (v8: claimmap-v2.9); agentic_misalignment: "
+        "same as --stages joint)",
     )
     r.add_argument(
         "--joint-from",
@@ -801,7 +803,8 @@ def build_parser() -> argparse.ArgumentParser:
         default="v6",
         help="v8: hindex-v8 (plan 0029: main 9, am_claims 3, am_situation 3, sibling 1, story 1, "
         "overrefusal 1, benign_roleplay 2, cheating 2; per-layer rows + a joint row; "
-        "claimmap-v2.8 roots); v7: hindex-v7 (v6 + benign_roleplay, weight 2; sibling weight "
+        "claimmap-v2.8+ roots, claimmap-v2.9 for the final run); v7: hindex-v7 (v6 + "
+        "benign_roleplay, weight 2; sibling weight "
         "1; needs a `prompts` --benign-roleplay-root from `hbench benign-roleplay "
         "index-export`, plan 0027); v6 (default): hindex-v6 (v5 + overrefusal on wrong-topic "
         "refusal claims: needs a "

@@ -8,8 +8,9 @@ the chat ``USER_TEMPLATE`` tail verbatim, sliced from it so the two cannot drift
 validated and parsed with ``claimmap_v2.validate`` / ``claimmap_v2.parse``.
 
 Plan 0029: ``VERSIONS`` registers ``claimmap-v2.7+am2`` (the above, byte for byte) and
-``claimmap-v2.8+am3``: the chat ``claimmap-v2.8`` SYSTEM, the research frame, the **scenario
-card** (:func:`scenario_card`: the designed misconduct kind(s), control or not, and the
+``claimmap-v2.8+am3`` (and ``claimmap-v2.9+am3``, the plan 0029 amendment: the same head on
+the chat ``claimmap-v2.9`` prompt): the chat ``claimmap-v2.8`` SYSTEM, the research frame, the
+**scenario card** (:func:`scenario_card`: the designed misconduct kind(s), control or not, and the
 rollout's realised kinds with quotes, from the effective intents), the am2 head with the
 ``{joint_note}`` slot, and the tail sliced from the chat v2.8 ``USER_TEMPLATE``. Each version
 slices the tail of its own chat template and uses its own chat schema.
@@ -61,6 +62,7 @@ PROMPTS: dict[str, str] = {"SYSTEM": SYSTEM, "USER_TEMPLATE_AM": USER_TEMPLATE_A
 # ---------------------------------------------------------------- versions (plan 0029)
 
 PROMPT_VERSION_V8 = "claimmap-v2.8+am3"
+PROMPT_VERSION_V29 = "claimmap-v2.9+am3"  # plan 0029 amendment (slot rule + prefix check)
 _HEAD_SLOT = ("{kind_note}The lens readouts", "{kind_note}{joint_note}The lens readouts")
 assert _USER_HEAD_AM.count(_HEAD_SLOT[0]) == 1
 _USER_HEAD_AM3 = (
@@ -92,6 +94,15 @@ VERSIONS: dict[str, AMSpec] = {
         cm.VERSIONS["claimmap-v2.8"].system,
         _USER_HEAD_AM3 + _tail(cm.VERSIONS["claimmap-v2.8"].user_template),
         cm.VERSIONS["claimmap-v2.8"].schema,
+        card=True,
+    ),
+    # plan 0029 amendment: the am3 head on the chat claimmap-v2.9 SYSTEM, tail and schema
+    PROMPT_VERSION_V29: AMSpec(
+        PROMPT_VERSION_V29,
+        "claimmap-v2.9",
+        cm.VERSIONS["claimmap-v2.9"].system,
+        _USER_HEAD_AM3 + _tail(cm.VERSIONS["claimmap-v2.9"].user_template),
+        cm.VERSIONS["claimmap-v2.9"].schema,
         card=True,
     ),
 }

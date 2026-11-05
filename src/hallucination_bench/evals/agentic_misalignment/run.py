@@ -996,7 +996,8 @@ async def run_am_async(
     sp = cam.spec(models.map_prompt)  # an unknown --map-prompt fails before anything opens
     if sel & set(V8_STAGES) and not models.v28:
         raise JudgeConfigError(
-            f"--stages {sorted(sel & set(V8_STAGES))} need a claimmap-v2.8 root (--map-prompt)"
+            f"--stages {sorted(sel & set(V8_STAGES))} need a claimmap-v2.8+ root (--map-prompt; "
+            "v8: claimmap-v2.9)"
         )
     sel_items = bank.load_items(items)
     arm_stages = sel - {"intent"}
@@ -1527,10 +1528,10 @@ HEALTH: tuple[str, ...] = (
 
 
 def health_keys(models: Models) -> tuple[str, ...]:
-    """``HEALTH`` (v2.7) or ``HEALTH`` + the v2.8 parse counters (plan 0029)."""
+    """``HEALTH`` (v2.7) or ``HEALTH`` + the v2.8 (v2.9) parse counters (plan 0029)."""
     if not models.v28:
         return HEALTH
-    return (*HEALTH, *(f"map_{k}" for k in cm.PARSE_COUNTS_V28_EXTRA))
+    return (*HEALTH, *(f"map_{k}" for k in cm.extra_parse_counts(models.map_prompt)))
 
 
 FAILED_KEYS: tuple[str, ...] = (

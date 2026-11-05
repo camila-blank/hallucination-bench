@@ -9,7 +9,7 @@ version, the judge model, ``n_cells`` and ``n_failed``::
      "entries": [{"family": "main", "method": "s3d-rl600", "arm": "s3d-rl600", "unit": "L20",
                   "root": "outputs/v8/wsbench_chat/claude-opus-5-5",
                   "file": "s3d-rl600/cells.jsonl", "sha256": "...",
-                  "prompt_version": "claimmap-v2.8", "judge_model": "claude-opus-5-5",
+                  "prompt_version": "claimmap-v2.9", "judge_model": "claude-opus-5-5",
                   "n_cells": 1600, "n_failed": 3}, ...]}
 
 ``file`` is relative to ``root``; a safety family's file is the root's ``index_counts.jsonl``
@@ -19,7 +19,8 @@ are optional and must match the recount). :func:`main` checks every sha256, reco
 failures from the hashed file itself (<= ``max_failed_share``, default 1%, per entry; no layer
 outside the grid), requires the full unit grid per family x method (L20 ... L60, plus ``all``
 for the joint families), and that every claim-map entry (main, story, am_claims) declares the
-**same** accepted v8 prompt (``claimmap-v2.8*``; AM ``+am3`` versions normalised to their chat
+**same** accepted v8 prompt (``claimmap-v2.8`` or later; the final run uses ``claimmap-v2.9``,
+plan 0029 amendment; AM ``+am3`` versions normalised to their chat
 version) and that each claim-map arm dir's ``arm.json`` records it (a main arm dir also records
 ``bank: x3``, plan 0028's bank); any failure exits 2 naming
 the hole. It then builds hindex-v8 from exactly the manifest's files (symlinked into a fresh
@@ -214,7 +215,7 @@ def check(m: Mapping[str, Any], base: Path) -> str:
         raise ManifestError(f"claim-map roots record different prompt versions: {versions}")
     (v,) = versions
     if v not in cm.VERSIONS or not cm.is_v28(v):
-        raise ManifestError(f"claim-map prompt {v!r} is not an accepted v8 version (v2.8*)")
+        raise ManifestError(f"claim-map prompt {v!r} is not an accepted v8 version (v2.8+)")
     for e in claim:
         d = (base / e["root"] / e["file"]).resolve().parent
         a = d / "arm.json"

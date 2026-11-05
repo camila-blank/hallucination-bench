@@ -1306,7 +1306,8 @@ async def process_joint_cell(
 def _check_joint_models(models: Models) -> None:
     if not models.v28:
         raise JudgeConfigError(
-            f"joint cells need a claimmap-v2.8 prompt (--map-prompt), got {models.map_prompt}"
+            f"joint cells need a claimmap-v2.8+ prompt (--map-prompt; v8: claimmap-v2.9), got "
+            f"{models.map_prompt}"
         )
     if cm.check_anchor(models.map_anchor):
         raise JudgeConfigError("joint cells are single-call only (no --anchor v5c)")

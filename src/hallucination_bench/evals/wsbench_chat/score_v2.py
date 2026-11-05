@@ -112,10 +112,10 @@ def leaf_rows(version: str | None = None) -> tuple[str, ...]:
 
 
 def health_keys(version: str | None = None) -> tuple[str, ...]:
-    """``HEALTH_V2`` (v2.7) or ``HEALTH_V2`` + the v2.8 parse counters."""
+    """``HEALTH_V2`` (v2.7) or ``HEALTH_V2`` + the v2.8 (v2.9) parse counters."""
     if not tx.is_v28(version or tx.V27):
         return HEALTH_V2
-    return (*HEALTH_V2, *cm.PARSE_COUNTS_V28_EXTRA)
+    return (*HEALTH_V2, *cm.extra_parse_counts(version))
 
 
 def hedged_origin(seg: dict[str, Any]) -> str | None:

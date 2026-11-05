@@ -116,7 +116,7 @@ _PAIR = {
 _NULLABLE_STR = {"anyOf": [{"type": "string"}, {"type": "null"}]}
 
 
-def _seg_props(anchored: bool, v28: bool = False) -> dict[str, Any]:
+def _seg_props(anchored: bool, v28: bool = False, v29: bool = False) -> dict[str, Any]:
     props: dict[str, Any] = {
         "leaf": _LEAF_ENUM,
         "hedged": {"type": "boolean"},
@@ -132,6 +132,11 @@ def _seg_props(anchored: bool, v28: bool = False) -> dict[str, Any]:
         "source": {"anyOf": [{"type": "string", "enum": list(tx.SOURCES)}, {"type": "null"}]},
         **{f: {"type": "boolean"} for f in tx.UNVERIFIABLE_FLAGS},
         **({"continuation_text": {"type": "boolean"}} if v28 else {}),
+        **(
+            {"contradicted_before_marker": {"type": "boolean"}, "prefix_clash": _NULLABLE_STR}
+            if v29
+            else {}
+        ),
         "contradicted_by": _NULLABLE_STR,
         "supported_by": _NULLABLE_STR,
         "why": {"type": "string"},
@@ -139,9 +144,9 @@ def _seg_props(anchored: bool, v28: bool = False) -> dict[str, Any]:
 
 
 def _schemas(
-    anchored: bool, v28: bool = False
+    anchored: bool, v28: bool = False, v29: bool = False
 ) -> tuple[dict[str, Any], dict[str, Any], dict[str, Any]]:
-    props = _seg_props(anchored, v28)
+    props = _seg_props(anchored, v28, v29)
     split: dict[str, Any] = {
         "type": "object",
         "additionalProperties": False,
@@ -201,6 +206,28 @@ USER_TEMPLATE_V5C_V28 = _v28_template(USER_TEMPLATE_V5C)
 SPLIT_SCHEMA_V28, UNIT_SCHEMA_V28, SCHEMA_V28 = _schemas(False, v28=True)
 SPLIT_SCHEMA_V5C_V28, UNIT_SCHEMA_V5C_V28, SCHEMA_V5C_V28 = _schemas(True, v28=True)
 
+# claimmap-v2.9 (plan 0029 amendment): the v2.8 templates with the two prefix-check fields among
+# the leaf tags; the v2.9 taxonomy (slot rule, prefix check, EXAMPLES_V29); schemas with both
+# fields required.
+_TAG_LIST_V29 = (
+    _TAG_LIST[1],
+    "world, prediction, continuation_text, contradicted_before_marker, prefix_clash), the evidence",
+)
+
+
+def _v29_template(t: str) -> str:
+    t8 = _v28_template(t)
+    assert t8.count(_TAG_LIST_V29[0]) == 1
+    return t8.replace(*_TAG_LIST_V29)
+
+
+SYSTEM_V29 = SYSTEM_INTRO + "\n\n" + tx.render(version=tx.V29)
+SYSTEM_V5C_V29 = SYSTEM_INTRO_V5C + "\n\n" + tx.render(anchored=True, version=tx.V29)
+USER_TEMPLATE_V29 = _v29_template(USER_TEMPLATE)
+USER_TEMPLATE_V5C_V29 = _v29_template(USER_TEMPLATE_V5C)
+SPLIT_SCHEMA_V29, UNIT_SCHEMA_V29, SCHEMA_V29 = _schemas(False, v28=True, v29=True)
+SPLIT_SCHEMA_V5C_V29, UNIT_SCHEMA_V5C_V29, SCHEMA_V5C_V29 = _schemas(True, v28=True, v29=True)
+
 
 @dataclass(frozen=True)
 class Spec:
@@ -220,6 +247,10 @@ class Spec:
     @property
     def v28(self) -> bool:
         return tx.is_v28(self.version)
+
+    @property
+    def v29(self) -> bool:
+        return tx.is_v29(self.version)
 
     def definitions(self, anchored: bool = False) -> list[str]:
         return tx.definitions(anchored, self.version)
@@ -248,6 +279,17 @@ VERSIONS: dict[str, Spec] = {
         tx.TAXONOMY_VERSION_V28,
         tx.SCORING_VERSION_V28,
     ),
+    "claimmap-v2.9": Spec(
+        "claimmap-v2.9",
+        SYSTEM_V29,
+        USER_TEMPLATE_V29,
+        SYSTEM_V5C_V29,
+        USER_TEMPLATE_V5C_V29,
+        SCHEMA_V29,
+        SCHEMA_V5C_V29,
+        tx.TAXONOMY_VERSION_V29,
+        tx.SCORING_VERSION_V29,
+    ),
 }
 assert VERSIONS[PROMPT_VERSION].system is SYSTEM and set(VERSIONS) == set(tx.PROMPT_VERSIONS)
 
@@ -263,6 +305,12 @@ def spec(version: str | None = None) -> Spec:
 def is_v28(version: str | None) -> bool:
     """Every registered version >= claimmap-v2.8 (they get ``read_offset`` and the new fields)."""
     return spec(version).v28
+
+
+def is_v29(version: str | None) -> bool:
+    """Every registered version >= claimmap-v2.9 (the prefix check: ``contradicted_before_marker``
+    / ``prefix_clash``)."""
+    return spec(version).v29
 
 
 def check_anchor(anchor: str) -> bool:
@@ -417,7 +465,12 @@ class Segment:
     # plan 0029 (claimmap-v2.8 roots only; never emitted for v2.7, so v7 rebuilds are unchanged)
     continuation_text: bool = False  # incorrect only: written as the text's own continuation
     contradiction_region: str | None = None  # incorrect only: prefix | after (needs read_offset)
+    # plan 0029 amendment (claimmap-v2.9 roots only; never emitted for v2.7 / v2.8)
+    contradicted_before_marker: bool | None = None  # incorrect only; None = field missing
+    prefix_clash: str | None = None  # the judge's quote from the text before the marker
+    prefix_clash_region: str | None = None  # prefix | after | None (not located / no quote)
     v28: bool = field(default=False, repr=False)  # emit the v2.8 fields (never emitted itself)
+    v29: bool = field(default=False, repr=False)  # emit the v2.9 fields (never emitted itself)
 
     @property
     def chars(self) -> int:
@@ -425,14 +478,22 @@ class Segment:
 
     def to_dict(self) -> dict[str, Any]:
         d = asdict(self)
-        del d["v28"]
+        del d["v28"], d["v29"]
         if not self.v28:
             for f in V28_SEGMENT_FIELDS:
+                del d[f]
+        if not self.v29:
+            for f in V29_SEGMENT_FIELDS:
                 del d[f]
         return d
 
 
 V28_SEGMENT_FIELDS: tuple[str, ...] = ("continuation_text", "contradiction_region")
+V29_SEGMENT_FIELDS: tuple[str, ...] = (
+    "contradicted_before_marker",
+    "prefix_clash",
+    "prefix_clash_region",
+)
 
 
 PARSE_COUNTS: tuple[str, ...] = (
@@ -465,12 +526,29 @@ PARSE_COUNTS_V28_EXTRA: tuple[str, ...] = (
     "n_contradiction_after",
     "n_short_quotes",
 )
+# plan 0029 amendment: the v2.9 counters, emitted only for v2.9 roots (after the v2.8 ones)
+PARSE_COUNTS_V29_EXTRA: tuple[str, ...] = (
+    "n_continuation_refused_prefix",  # excuse refused: contradicted_before_marker = true
+    "n_continuation_refused_missing",  # excuse refused: the field is missing (safe default)
+    "n_contradicted_before_marker",  # incorrect segments the judge flagged (any tag)
+    "n_prefix_clash_unlocated",  # flagged with a quote not located before the marker
+)
 SHORT_QUOTE_WORDS = 3
 
 
 def parse_counts(version: str | None = None) -> tuple[str, ...]:
     """The parse counters of ``version`` (v2.7: ``PARSE_COUNTS`` exactly)."""
-    return (*PARSE_COUNTS, *PARSE_COUNTS_V28_EXTRA) if is_v28(version) else PARSE_COUNTS
+    return (*PARSE_COUNTS, *extra_parse_counts(version))
+
+
+def extra_parse_counts(version: str | None = None) -> tuple[str, ...]:
+    """The counters ``version`` adds after ``PARSE_COUNTS`` (v2.7: none; v2.8: the v2.8 ones;
+    v2.9: + the prefix-check ones)."""
+    if not is_v28(version):
+        return ()
+    if not is_v29(version):
+        return PARSE_COUNTS_V28_EXTRA
+    return (*PARSE_COUNTS_V28_EXTRA, *PARSE_COUNTS_V29_EXTRA)
 
 
 def _b(x: Any) -> bool:
@@ -502,6 +580,8 @@ def _leaf_tags(s: "Segment") -> None:
         s.same_slot_alternative = s.world = s.prediction = False
     if s.raw_leaf not in tx.INCORRECT_LEAVES:
         s.continuation_text = False  # v2.8: an incorrect-leaf tag (never overlaps prediction)
+        if s.v29:  # v2.9: incorrect-leaf tags too
+            s.contradicted_before_marker, s.prefix_clash = False, None
     if s.raw_leaf not in tx.INCORRECT_LEAVES and not s.unquoted_contradiction:
         s.contradicted_by = None
     if s.raw_leaf != "correct" and not s.unquoted_support:
@@ -537,6 +617,8 @@ def _check_quotes(s: "Segment", conv: Normalised, c: dict[str, int]) -> None:
             s.judge_leaf, s.leaf, s.raw_leaf = s.raw_leaf, "unverifiable", "unverifiable"
             s.unquoted_contradiction = True
             s.continuation_text = False  # plan 0029: an incorrect-leaf tag (explicit here)
+            if s.v29:
+                s.contradicted_before_marker, s.prefix_clash = False, None
     elif s.raw_leaf == "correct" and s.source != "entailed":
         c["n_support_quotes_checked"] += 1
         q = s.supported_by
@@ -628,12 +710,18 @@ def parse(
     ``continuation_text`` / ``contradiction_region`` and the v2.8 counters are added. With
     ``read_offset`` (the marker's offset in ``conversation``; single-call mode only, never
     anchored) every incorrect segment's quote is placed (``prefix`` iff it ends at or before
-    the marker) and the §1.2 excuse runs last, after the rev 17 / 18 / 19 steps."""
-    v28 = read_offset is not None or (version is not None and is_v28(version))
+    the marker) and the §1.2 excuse runs last, after the rev 17 / 18 / 19 steps.
+
+    Plan 0029 amendment (claimmap-v2.9, ``version`` >= v2.9): segments also carry
+    ``contradicted_before_marker`` / ``prefix_clash`` / ``prefix_clash_region`` and the excuse
+    is refused when the judge says the text before the marker rules the segment out (or the
+    field is missing: the safe default is no excuse)."""
+    v29 = version is not None and is_v29(version)
+    v28 = v29 or read_offset is not None or (version is not None and is_v28(version))
     if read_offset is not None and conversation is None:
         raise ValueError("read_offset needs the conversation")
     conv = Normalised(conversation) if conversation is not None else None
-    c = dict.fromkeys(parse_counts(tx.V28) if v28 else PARSE_COUNTS, 0)
+    c = dict.fromkeys(parse_counts(tx.V29 if v29 else tx.V28) if v28 else PARSE_COUNTS, 0)
     c["n_units"] = len(units)
     c["n_established_units"] = sum(u.established for u in units)
     entries: dict[tuple[int, int], dict[str, Any]] = {}
@@ -703,7 +791,12 @@ def parse(
                 supported_by=_quote(tsrc.get("supported_by")),
                 why=str(src.get("why") or e.get("why") or ""),
                 continuation_text=v28 and _b(tsrc.get("continuation_text")),
+                contradicted_before_marker=_opt_bool(tsrc.get("contradicted_before_marker"))
+                if v29
+                else None,
+                prefix_clash=_quote(tsrc.get("prefix_clash")) if v29 else None,
                 v28=v28,
+                v29=v29,
             )
             if leaf is None:
                 c["n_bad_leaves"] += 1
@@ -733,6 +826,8 @@ def parse(
     if read_offset is not None and conv is not None:
         for s in segs:
             _place_contradiction(s, conv, read_offset, c)
+            if v29:
+                _place_prefix_clash(s, conv, read_offset, c)
             _excuse_continuation(s, c)
     c["n_segments"] = len(segs)
     return segs, c
@@ -760,19 +855,50 @@ def _place_contradiction(
             c["n_short_quotes"] += 1
 
 
+def _opt_bool(x: Any) -> bool | None:
+    """A judge boolean, ``None`` when the field is missing or not a boolean."""
+    return x if isinstance(x, bool) else None
+
+
+def _place_prefix_clash(
+    s: "Segment", conv: Normalised, read_offset: int, c: dict[str, int]
+) -> None:
+    """Plan 0029 amendment (v2.9): an ``ok`` incorrect segment the judge flagged
+    ``contradicted_before_marker`` is counted, and its ``prefix_clash`` quote is placed
+    (``prefix`` iff its earliest match ends at or before the marker). A missing quote, or one
+    not located before the marker, is recorded (``n_prefix_clash_unlocated``); the boolean
+    alone still refuses the excuse."""
+    if s.status != "ok" or s.leaf not in tx.INCORRECT_LEAVES or not s.contradicted_before_marker:
+        return
+    c["n_contradicted_before_marker"] += 1
+    if s.prefix_clash is not None:
+        s.prefix_clash_region = contradiction_region(s.prefix_clash, conv, read_offset)
+    if s.prefix_clash_region != "prefix":
+        c["n_prefix_clash_unlocated"] += 1
+
+
 def _excuse_continuation(s: "Segment", c: dict[str, int]) -> None:
     """Plan 0029 §1.2, last (after rev 17 quotes, rev 18 junk, rev 19 hedges): an ``ok``
     segment whose leaf is incorrect (``tx.EXCUSABLE_LEAVES``: any size of change), that the
     judge tagged ``continuation_text`` (a literal, on-topic continuation possible given the text
     up to the marker) and whose quoted contradiction is located ``after`` the read point (a
     prefix contradiction is never excused) becomes ``continuation_miss`` (``judge_leaf`` = the
-    judge's leaf, ``raw_leaf`` unchanged). It is no longer a probe candidate."""
+    judge's leaf, ``raw_leaf`` unchanged). It is no longer a probe candidate.
+
+    v2.9 (plan 0029 amendment): the excuse is also refused when the judge says the text before
+    the marker already rules the segment out (``contradicted_before_marker``, counted
+    ``n_continuation_refused_prefix``; whatever its ``prefix_clash`` quote locates to) or did
+    not give the field (``n_continuation_refused_missing``: the safe default is no excuse)."""
     if (
         s.status != "ok"
         or s.leaf not in tx.EXCUSABLE_LEAVES
         or not s.continuation_text
         or s.contradiction_region != "after"
     ):
+        return
+    if s.v29 and s.contradicted_before_marker is not False:
+        refused = s.contradicted_before_marker  # True, or None (missing field)
+        c["n_continuation_refused_prefix" if refused else "n_continuation_refused_missing"] += 1
         return
     if s.raw_leaf in tx.PROBE_CANDIDATE_LEAVES:  # as rev 19
         c["n_probe_candidates"] -= 1
