@@ -15,5 +15,7 @@ in a follow-up PR with `MANIFEST.sha256`. Built by `scripts/main_x3/` (see
   `data/wsbench_chat/items.json` (1,123 sites), and their item fields are byte-identical.
 - **Read sites:** every site is a response token made only of punctuation and/or whitespace, with
   ≤16 per item spread evenly (`chat_bank.thin`). There is no `<|im_end|>` site.
-- **Use with the chat pipeline:** set `HBENCH_WSBENCH_CHAT_ITEMS=data/wsbench_chat_x3/items.json`.
+- **Use with the chat pipeline:** `hbench run|report --bank x3` (plan 0029; another location:
+  `HBENCH_X3_BANK=<dir>`; `run` reads `$HBENCH_X3_READOUTS` unless `--readouts-root` / `--arm`
+  is given), or the older `HBENCH_WSBENCH_CHAT_ITEMS=data/wsbench_chat_x3/items.json`.
 - **Readouts:** `$HBENCH_X3_READOUTS/<arm>/hallucination.jsonl`.

@@ -177,9 +177,10 @@ def cohen_kappa(pairs: Sequence[tuple[str, str]]) -> float | None:
     return (po - pe) / (1 - pe) if pe < 1 else 1.0
 
 
-def agreement(pairs: Sequence[tuple[str, str]]) -> dict[str, Any]:
+def agreement(pairs: Sequence[tuple[str, str]], version: str | None = None) -> dict[str, Any]:
     """κ, raw agreement, confusion, per-leaf self-agreement and flagged pairs over unit pairs
-    ``(leaf in r0, leaf in r1)``."""
+    ``(leaf in r0, leaf in r1)``. ``version`` (plan 0029): the leaf rows' prompt version
+    (default claimmap-v2.7; this module is not run for v8)."""
     n = len(pairs)
     conf: Counter = Counter(pairs)
     n0, n1 = Counter(a for a, _ in pairs), Counter(b for _, b in pairs)
@@ -195,7 +196,7 @@ def agreement(pairs: Sequence[tuple[str, str]]) -> dict[str, Any]:
             "n_r1": n1[lf],
             "n_both": conf[(lf, lf)],
         }
-        for lf in tx.LEAF_NAMES
+        for lf in tx.scoring_leaf_names(version or cm.PROMPT_VERSION)
     }
     swaps: Counter = Counter()
     for (a, b), k in conf.items():
@@ -424,7 +425,8 @@ def render_markdown(res: dict[str, Any]) -> str:
     for p in o["top_swaps"]:
         a, b = p["pair"]
         lines.append(f"| {a} ↔ {b} | {p['n_swaps']} | {f(p['share_a'])} | {f(p['share_b'])} |")
-    leaves = [lf for lf in tx.LEAF_NAMES if any(lf in k.split("|") for k in o["confusion"])]
+    rows = tx.scoring_leaf_names(tx.V28 if tx.CONTINUATION_MISS in o["self_agreement"] else tx.V27)
+    leaves = [lf for lf in rows if any(lf in k.split("|") for k in o["confusion"])]
     lines += [
         "",
         "### Between-run confusion (rows r0, columns r1)",

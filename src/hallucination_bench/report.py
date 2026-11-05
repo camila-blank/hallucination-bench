@@ -246,6 +246,7 @@ def report(
             map_model=a.get("map_model"),
             map_anchor=a.get("map_anchor", "v5c"),  # arms written before rev 13 were anchored
             eval=eval_name,
+            map_prompt=a.get("map_prompt") or "claimmap-v2.7",  # plan 0029 (missing = v2.7)
         )
         if rebuild:
             summaries[d.name] = rebuild_arm(d.name, Path(a["readouts"]), out_root, models)

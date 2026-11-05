@@ -12,6 +12,11 @@ One judgment per (reader, item, layer):
    ``on_topic`` / ``off_topic``.
 
 Caches: ``<out>/overrefusal/<judge>/{digest,sjudge,offtopic}/<reader>.jsonl``.
+
+Plan 0029 (joint): a :class:`Unit` with ``layer = "all"`` bundles every read site of the item at
+ALL its layers (11) in one digest -> ``orsj-v3`` -> ``oroff-v1`` pass (keys ``...:Lall``); the
+bundle keeps the 150k-token cap, so a joint record may be ``summary_truncated`` (its share is
+reported per arm).
 """
 
 import asyncio
@@ -350,12 +355,16 @@ def parse_off(raw: dict[str, Any] | None, want: Sequence[int]) -> dict[str, Any]
 # ------------------------------------------------------------------ runner
 
 
+JOINT_LAYER = "all"  # plan 0029: the all-11-layer bundle of one (reader, item)
+
+
 @dataclass
 class Unit:
     reader: str
     item: dict[str, Any]
-    layer: int
+    layer: int | str  # a layer, or JOINT_LAYER
     cells: list[Cell]
+    n_layers: int = 1  # plan 0029: the joint bundle's expected cells = sites x layers
 
 
 def _jsonable(d: DigestOut) -> dict[str, Any]:
@@ -396,7 +405,7 @@ async def run_units(
 
     async def one(u: Unit) -> dict[str, Any]:
         it, la, rd = u.item, u.layer, u.reader
-        b = make_bundle(u.cells, len(it["sites"]))
+        b = make_bundle(u.cells, len(it["sites"]) * u.n_layers)
         rec: dict[str, Any] = {
             "reader": rd,
             "item": it["id"],
@@ -508,8 +517,27 @@ def open_caches(root: Path, readers: Sequence[str]) -> dict[str, dict[str, Cache
     }
 
 
+def _layer_key(la: int | str) -> tuple[int, int]:
+    return (1, 0) if la == JOINT_LAYER else (0, int(la))
+
+
+def joint_units(
+    reader: str, items: Sequence[dict[str, Any]], cells: Sequence[Cell], layers: Sequence[int]
+) -> list[Unit]:
+    """Plan 0029: one all-layer unit per (reader, item), its cells in (layer, pos) order."""
+    by: dict[str, list[Cell]] = {}
+    keep = set(layers)
+    for c in sorted(cells, key=lambda c: (c.id, c.layer, c.pos)):
+        if c.layer in keep:
+            by.setdefault(c.id, []).append(c)
+    return [
+        Unit(reader, it, JOINT_LAYER, by.get(it["id"], []), n_layers=len(layers))
+        for it in sorted(items, key=lambda x: x["id"])
+    ]
+
+
 def write_records(recs: Sequence[dict[str, Any]], path: Path) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w") as fh:
-        for r in sorted(recs, key=lambda r: (r["reader"], r["layer"], r["item"])):
+        for r in sorted(recs, key=lambda r: (r["reader"], _layer_key(r["layer"]), r["item"])):
             fh.write(json.dumps(r, ensure_ascii=False) + "\n")

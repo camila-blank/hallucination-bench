@@ -36,6 +36,11 @@ _FATAL = ("AuthenticationError", "PermissionDeniedError", "NotFoundError")
 _ATTEMPTS = 12
 _DEFAULT_MAX_TOKENS = {"openrouter": 8000, "anthropic": 16000}
 DEFAULT_EFFORT = "low"
+# plan 0029 §3.2: above this ``max_tokens`` the Anthropic route streams (the SDK refuses long
+# non-streaming requests); per-layer calls (16k) never stream, joint calls (64k) always do
+STREAM_ABOVE_TOKENS = 21_333
+JOINT_MAX_TOKENS = 64_000
+JOINT_TIMEOUT = 1800.0
 
 # USD per million tokens: (input, output, cache write 5m, cache read). First-party list prices.
 PRICES: dict[str, tuple[float, float, float, float]] = {
@@ -240,18 +245,24 @@ async def _anthropic_once(
     max_tokens: int,
     timeout: float,
     usage: Usage,
+    stream: bool = False,
 ) -> dict[str, Any] | None:
     output_config: dict[str, Any] = {"format": {"type": "json_schema", "schema": schema["schema"]}}
     if effort is not None:
         output_config["effort"] = effort
-    resp = await client.messages.create(
-        timeout=timeout,
-        model=model,
-        max_tokens=max_tokens,
-        system=[{"type": "text", "text": system, "cache_control": {"type": "ephemeral"}}],
-        messages=[{"role": "user", "content": user}],
-        output_config=output_config,
-    )
+    kwargs: dict[str, Any] = {
+        "timeout": timeout,
+        "model": model,
+        "max_tokens": max_tokens,
+        "system": [{"type": "text", "text": system, "cache_control": {"type": "ephemeral"}}],
+        "messages": [{"role": "user", "content": user}],
+        "output_config": output_config,
+    }
+    if stream:  # plan 0029: long joint calls; the final message has the non-streaming shape
+        async with client.messages.stream(**kwargs) as s:
+            resp = await s.get_final_message()
+    else:
+        resp = await client.messages.create(**kwargs)
     usage.calls += 1
     u = getattr(resp, "usage", None)
     if u is not None:
@@ -284,6 +295,19 @@ class CallResult:
     usage: Usage = field(default_factory=Usage)
 
 
+def joint_llm(*, rpm: float, concurrency: int, effort: str | None) -> "LLM":
+    """Plan 0029 §3.2: the joint 11-layer cells' own client (64k output tokens, 30 min,
+    streaming); per-layer calls keep the default 16k / 300 s client."""
+    return LLM(
+        rpm=rpm,
+        concurrency=concurrency,
+        effort=effort,
+        timeout=JOINT_TIMEOUT,
+        max_tokens=JOINT_MAX_TOKENS,
+        stream=True,
+    )
+
+
 class LLM:
     """The process's judge client: lazily built SDK clients (one per route), one semaphore over
     every call, the shared RPM pacer, and a preflight per model."""
@@ -296,6 +320,7 @@ class LLM:
         effort: str | None = DEFAULT_EFFORT,
         timeout: float = 300.0,
         max_tokens: int | None = None,
+        stream: bool | None = None,
     ) -> None:
         if concurrency < 1 or rpm <= 0:
             raise JudgeConfigError(
@@ -305,6 +330,8 @@ class LLM:
         self.effort = effort
         self.timeout = timeout
         self.max_tokens = max_tokens
+        # None: stream exactly when max_tokens > STREAM_ABOVE_TOKENS (Anthropic route only)
+        self.stream = stream
         self._sem = asyncio.Semaphore(concurrency)
         self._clients: dict[str, Any] = {}
         self._preflighted: set[str] = set()
@@ -343,6 +370,7 @@ class LLM:
                             max_tokens=max_tokens,
                             timeout=self.timeout,
                             usage=usage,
+                            stream=self.streams(max_tokens),
                         )
                     else:
                         res = await _openrouter_once(
@@ -376,6 +404,9 @@ class LLM:
                     print(f"  llm error: {name}: {str(e)[:200]}", flush=True)
                     return CallResult(None, usage)
         return CallResult(None, usage)
+
+    def streams(self, max_tokens: int) -> bool:
+        return self.stream if self.stream is not None else max_tokens > STREAM_ABOVE_TOKENS
 
     async def preflight(self, model: str) -> None:
         """One tiny structured call per model, so a bad key/auth/model/structured-output setup

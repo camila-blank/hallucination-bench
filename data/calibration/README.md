@@ -249,6 +249,12 @@ Gold-labelling notes (judgement calls, following `taxonomy_v2.py` defaults):
 - Token-summary lens framing ("The model is representing / anticipating / gearing up to") is
   a `filler` split; what it attributes is judged as an ordinary claim or prediction, never
   `model_state` (plan rev 11, rule 1).
+- **Version-aware gold (plan 0029, claimmap-v2.8):** every date or time is `detail` in v2.8,
+  real-world events included (Camila, 2026-11-04). The file keeps the v2.7 gold; calibrating
+  `--prompt claimmap-v2.8` applies `calibrate_v2.GOLD_OVERRIDES_V28` (recorded as
+  `gold_overrides` in the result): `dev2-06-titanic` R0.U3 split "14 April 1911" and
+  `dev2-23-penicillin` R0.U3 ("- The discovery happened in 1938") go `false_claim` -> `detail`.
+  These are the only real-world-date gold segments in dev_v2 (rule tag `real-event-date`).
 
 ## heldout_v2.jsonl (gate only)
 

@@ -75,6 +75,8 @@ def _models(args: argparse.Namespace):
         map_model=getattr(args, "map_model", None),
         map_anchor=getattr(args, "anchor", None) or "none",
         eval=getattr(args, "eval", None) or "wsbench_chat",
+        map_prompt=getattr(args, "map_prompt", None) or "claimmap-v2.7",
+        situation_model=getattr(args, "situation_model", None),
     )
 
 
@@ -100,7 +102,27 @@ def _items(s: str | None) -> list[str] | None:
     return [x.strip() for x in s.split(",") if x.strip()] if s else None
 
 
+def _apply_bank(args: argparse.Namespace, *, readouts: bool = False) -> None:
+    """``--bank`` (plans 0028 / 0029): point the wsbench_chat bank at a named bank; with
+    ``readouts`` (``run``), ``--bank x3`` and neither ``--arm`` nor ``--readouts-root``, the
+    readouts default to ``paths.X3_READOUTS`` ($HBENCH_X3_READOUTS). An x3 run records the bank
+    in ``arm.json``; judging into an arm dir recorded on another bank exits 3, and rebuild /
+    report replay the recorded bank when ``--bank`` is omitted (``run.check_bank`` /
+    ``run.replay_bank``)."""
+    name = getattr(args, "bank", None)
+    if not name:
+        return
+    if (getattr(args, "eval", None) or "wsbench_chat") != "wsbench_chat":
+        raise SystemExit("--bank is a wsbench_chat (main eval) option")
+    from hallucination_bench.evals.wsbench_chat import bank
+
+    bank.use_bank(name)
+    if readouts and name == "x3" and not args.readouts_root and not args.arm:
+        args.readouts_root = str(paths.X3_READOUTS)
+
+
 def cmd_run(args: argparse.Namespace) -> int:
+    _apply_bank(args, readouts=True)
     if getattr(args, "eval", None) == AM_EVAL:
         from hallucination_bench.evals.agentic_misalignment import cli as amcli
 
@@ -112,6 +134,8 @@ def cmd_run(args: argparse.Namespace) -> int:
     arms = resolve_arms(args)
     models = _models(args)
     out = Path(args.out)
+    if getattr(args, "joint", False):
+        return _cmd_run_joint(args, arms, models, out)
     if args.rebuild:
         for n, p in arms:
             s = wrun.rebuild_arm(n, p, out, models)
@@ -129,6 +153,7 @@ def cmd_run(args: argparse.Namespace) -> int:
         classify=not args.skip_classify,
         show_prompts=args.show_prompts,
         stages=_stages(args),
+        sample_seed=args.sample_seed,
     )
     for n, s in summaries.items():
         _print_summary(n, s)
@@ -141,6 +166,51 @@ def cmd_run(args: argparse.Namespace) -> int:
         print(f"{n_failed} failed calls remain; re-run to retry them", file=sys.stderr)
         return 4
     return 0
+
+
+def _cmd_run_joint(args: argparse.Namespace, arms: list, models, out: Path) -> int:
+    """Plan 0029 §3.7: ``hbench run --joint``: the joint 11-layer cells of each ``--arms``
+    target (sources: ``--joint-from`` in precedence order, default the arm itself)."""
+    from hallucination_bench.evals.wsbench_chat import run as wrun
+    from hallucination_bench.judges.claimmap_v2 import JOINT_LAYERS
+
+    paths = dict(arms)
+    if args.joint_from:
+        if len(arms) != 1:
+            raise SystemExit("--joint-from needs exactly one target arm (--arms)")
+        src_names = [x.strip() for x in args.joint_from.split(",") if x.strip()]
+        args2 = argparse.Namespace(**{**vars(args), "arms": ",".join(src_names)})
+        paths |= dict(resolve_arms(args2))
+    rc = 0
+    for name, _p in arms:
+        names = [x.strip() for x in args.joint_from.split(",")] if args.joint_from else [name]
+        sources = [(n, paths[n]) for n in names]
+        if args.rebuild:
+            import asyncio
+
+            s2 = asyncio.run(wrun.rebuild_joint_async(name, out, models))
+        else:
+            s2 = wrun.run_joint(
+                name,
+                sources,
+                out,
+                models,
+                layers=_layers(args.layers) or JOINT_LAYERS,
+                limit=args.limit,
+                rpm=args.rpm,
+                concurrency=args.concurrency,
+                show_prompts=args.show_prompts,
+                sample_seed=args.sample_seed,
+            )
+        h = s2["health"]
+        print(
+            f"[{name}] joint map ok={h['n_map_ok']} failed={h['n_map_failed']} "
+            f"pending={h['n_map_pending']}",
+            flush=True,
+        )
+        if h["n_map_failed"] and not args.rebuild:
+            rc = 4
+    return rc
 
 
 def _print_summary(name: str, s: dict) -> None:
@@ -199,6 +269,7 @@ def _calibrate_v2(args: argparse.Namespace) -> int:
         concurrency=args.concurrency,
         cases_file=Path(args.cases) if args.cases else None,
         anchor=args.anchor,
+        prompt=args.prompt,
     )
     print(calibrate_v2.render_markdown(res))
     sp = res["spend_this_run"]
@@ -257,16 +328,21 @@ def cmd_index(args: argparse.Namespace) -> int:
 
     out = Path(args.out)
     sources = index.default_sources(out, args.judge_model, args.version)
+    v8 = args.version == "v8"
     for fam, flag, roots in (
         (index.MAIN, "--main-root", args.main_root),
-        (index.AM, "--am-root", args.am_root),
+        (index.AM_CLAIMS if v8 else index.AM, "--am-root", args.am_root),
+        (index.AM_SITUATION, "--am-situation-root", args.am_situation_root),
         (index.SIBLING, "--um-root", args.um_root),
         (index.STORY, "--story-root", args.story_root),
         (index.OVERREFUSAL, "--overrefusal-root", args.overrefusal_root),
         (index.BENIGN_ROLEPLAY, "--benign-roleplay-root", args.benign_roleplay_root),
+        (index.CHEATING, "--cheating-root", args.cheating_root),
     ):
-        if roots and fam == index.BENIGN_ROLEPLAY and args.version != "v7":
+        if roots and fam == index.BENIGN_ROLEPLAY and args.version not in ("v7", "v8"):
             raise SystemExit(f"{flag}: benign_roleplay is on the index from hindex-v7 only")
+        if roots and fam in (index.CHEATING, index.AM_SITUATION) and not v8:
+            raise SystemExit(f"{flag}: {fam} is on the index from hindex-v8 only (plan 0029)")
         if roots and args.version == "v3" and fam in index.SAFETY_FAMILIES:
             raise SystemExit(
                 f"{flag}: the safety families are hindex-v4 only (and v5 / v6), not v3"
@@ -275,12 +351,20 @@ def cmd_index(args: argparse.Namespace) -> int:
             if missing := [r for r in roots if not Path(r).is_dir()]:
                 raise SystemExit(f"{flag}: not a directory: {missing}")
             sources[fam] = [Path(r) for r in roots]
+    if v8 and args.am_root and not args.am_situation_root:  # default: the AM root
+        sources[index.AM_SITUATION] = list(sources[index.AM_CLAIMS])
     if args.version != "v3":  # an opted-in safety root must hold its counts, else the family
         for fam in index.safety_families(args.version):  # (and full / matched) silently vanishes
             if gone := [
                 str(r) for r in sources.get(fam, []) if not (r / index.SAFETY_COUNTS).is_file()
             ]:
                 raise SystemExit(f"{fam}: no {index.SAFETY_COUNTS} in {gone}")
+    if args.version == "v8" and not sources.get(index.CHEATING):
+        print(
+            "warning: hindex-v8 without a cheating root (--cheating-root or "
+            "$HBENCH_SAFETY_CHEATING_OUT): the family, and so full / matched, are absent",
+            file=sys.stderr,
+        )
     if args.version == "v7" and not sources.get(index.BENIGN_ROLEPLAY):
         print(
             "warning: hindex-v7 without a benign_roleplay root (--benign-roleplay-root or "
@@ -305,6 +389,7 @@ def cmd_index(args: argparse.Namespace) -> int:
 
 
 def _cmd_report(args: argparse.Namespace) -> int:
+    _apply_bank(args)
     if getattr(args, "eval", None) == AM_EVAL:
         from hallucination_bench.evals.agentic_misalignment import cli as amcli
 
@@ -457,6 +542,35 @@ def _eval(p: argparse.ArgumentParser) -> None:
     )
 
 
+def _bank(p: argparse.ArgumentParser) -> None:
+    p.add_argument(
+        "--bank",
+        choices=("wsb", "x3"),
+        default=None,
+        help="wsbench_chat only: wsb = the WSB 149 x 8 bank; x3 = plan 0028's 3x bank "
+        "($HBENCH_X3_BANK/items.json, default data/wsbench_chat_x3; run: readouts default "
+        f"{paths.X3_READOUTS} = $HBENCH_X3_READOUTS). Default: the WSB bank, or "
+        "$HBENCH_WSBENCH_CHAT_ITEMS when set",
+    )
+
+
+def _prompt_choices() -> list[str]:
+    from hallucination_bench.judges.claimmap_v2 import VERSIONS
+
+    return list(VERSIONS)
+
+
+def _map_prompt(p: argparse.ArgumentParser) -> None:
+    p.add_argument(
+        "--map-prompt",
+        choices=_prompt_choices(),
+        default="claimmap-v2.7",
+        help="claim-map prompt version (plan 0029; default claimmap-v2.7; recorded in arm.json, "
+        "a run that differs from an arm dir's record is refused; agentic_misalignment maps "
+        "claimmap-v2.8 to claimmap-v2.8+am3)",
+    )
+
+
 def _anchor(p: argparse.ArgumentParser) -> None:
     p.add_argument(
         "--anchor",
@@ -485,7 +599,16 @@ def build_parser() -> argparse.ArgumentParser:
         "--limit",
         type=int,
         default=None,
-        help="judge only the first N non-empty cells per arm x layer (smoke)",
+        help="judge only the first N non-empty cells per arm x layer (smoke); "
+        "agentic_misalignment map: N mapped cells per layer, drawn among the detection "
+        "positives",
+    )
+    r.add_argument(
+        "--sample-seed",
+        type=int,
+        default=None,
+        help="with --limit: draw the N cells per arm x layer by a seeded shuffle instead of the "
+        "first N (plan 0029 pilots: seeded, stratified by layer)",
     )
     r.add_argument(
         "--items",
@@ -495,8 +618,28 @@ def build_parser() -> argparse.ArgumentParser:
     r.add_argument("--summarizer-model", default=None)
     r.add_argument("--classifier-model", default=None)
     r.add_argument("--map-model", default=None, help="claim-map (:M) judge (default: judge)")
+    _map_prompt(r)
+    r.add_argument(
+        "--situation-model",
+        default=None,
+        help="agentic_misalignment, v8 roots: the amsit-v2 situation judge (--stages situation; "
+        "default claude-sonnet-5-5)",
+    )
+    r.add_argument(
+        "--joint",
+        action="store_true",
+        help="plan 0029: judge the joint 11-layer cells (sample 0 of every layer in one call; "
+        "needs --map-prompt claimmap-v2.8; agentic_misalignment: same as --stages joint)",
+    )
+    r.add_argument(
+        "--joint-from",
+        default=None,
+        help="with --joint (chat / story): the source arms in precedence order (each layer "
+        "from the first that has it, the index's rule); default the target arm itself",
+    )
     _anchor(r)
     _eval(r)
+    _bank(r)
     r.add_argument(
         "--stages",
         default=None,
@@ -539,6 +682,12 @@ def build_parser() -> argparse.ArgumentParser:
     )
     c.add_argument("--classifier-model", default=None)
     c.add_argument("--map-model", default=None)
+    c.add_argument(
+        "--prompt",
+        choices=_prompt_choices(),
+        default="claimmap-v2.7",
+        help="--taxonomy v2: the claim-map prompt version (plan 0029)",
+    )
     _anchor(c)
     c.add_argument("--repeats", type=int, default=2)
     c.add_argument("--cases", default=None, help="override the cases file")
@@ -561,6 +710,7 @@ def build_parser() -> argparse.ArgumentParser:
         f"{paths.READOUTS_ROOT}); ignored by the other evals",
     )
     _eval(rp)
+    _bank(rp)
     rp.set_defaults(fn=cmd_report)
 
     cs = sub.add_parser(
@@ -628,9 +778,16 @@ def build_parser() -> argparse.ArgumentParser:
         ("--um-root", "<out>/sibling/um (country at label/, others at <domain>/label/)"),
     ):
         ix.add_argument(flag, action="append", help=f"repeatable; replaces the default {default}")
+    ix.add_argument(
+        "--am-situation-root",
+        action="append",
+        help="repeatable; hindex-v8 only: AM v8 root(s) whose arm dirs hold situation.jsonl "
+        "(default: the --am-root / <out>/agentic_misalignment/<model>)",
+    )
     for flag, var in (
         ("--overrefusal-root", "HBENCH_SAFETY_OR_OUT"),
-        ("--benign-roleplay-root", "HBENCH_SAFETY_BR_OUT (hindex-v7 only, plan 0027)"),
+        ("--benign-roleplay-root", "HBENCH_SAFETY_BR_OUT (hindex-v7 / v8 only, plan 0027)"),
+        ("--cheating-root", "HBENCH_SAFETY_CHEATING_OUT (hindex-v8 only, plan 0029)"),
     ):
         ix.add_argument(
             flag,
@@ -640,11 +797,14 @@ def build_parser() -> argparse.ArgumentParser:
         )
     ix.add_argument(
         "--version",
-        choices=("v3", "v4", "v5", "v6", "v7"),
+        choices=("v3", "v4", "v5", "v6", "v7", "v8"),
         default="v6",
-        help="v7: hindex-v7 (v6 + benign_roleplay, weight 2; sibling weight 1; needs a "
-        "`prompts` --benign-roleplay-root from `hbench benign-roleplay index-export`, plan "
-        "0027); v6 (default): hindex-v6 (v5 + overrefusal on wrong-topic refusal claims: needs a "
+        help="v8: hindex-v8 (plan 0029: main 9, am_claims 3, am_situation 3, sibling 1, story 1, "
+        "overrefusal 1, benign_roleplay 2, cheating 2; per-layer rows + a joint row; "
+        "claimmap-v2.8 roots); v7: hindex-v7 (v6 + benign_roleplay, weight 2; sibling weight "
+        "1; needs a `prompts` --benign-roleplay-root from `hbench benign-roleplay "
+        "index-export`, plan 0027); v6 (default): hindex-v6 (v5 + overrefusal on wrong-topic "
+        "refusal claims: needs a "
         "`refusal_claims` --overrefusal-root, i.e. offtopic_index/, plan 0022); "
         "v5: hindex-v5 (agentic_misalignment on candidate claims, plan 0021); "
         "v4: exactly the hindex-v4 output (+ overrefusal, full_v3 / matched_v3); v3: exactly "
@@ -655,9 +815,33 @@ def build_parser() -> argparse.ArgumentParser:
     ix.add_argument("--workers", type=int, default=8, help="processes over arm dirs")
     ix.set_defaults(fn=cmd_index)
 
+    fn = sub.add_parser(
+        "final",
+        help="plan 0029: check the v8 manifest (sha256s, completeness, one prompt version), "
+        "build hindex-v8 from exactly its roots and draw the final plots",
+    )
+    fn.add_argument("--manifest", required=True, help="data/index/v8_manifest.json")
+    fn.add_argument("--out", default="outputs/final", help="index.json / index.md destination")
+    fn.add_argument("--plots", default="plots/final", help="plot destination")
+    fn.add_argument("--methods", default=str(INDEX_METHODS), help="method <-> arm mapping")
+    fn.add_argument("--workers", type=int, default=8)
+    fn.set_defaults(fn=cmd_final)
+
     for mod in EVAL_CLIS:
         importlib.import_module(mod).register(sub)
     return ap
+
+
+def cmd_final(args: argparse.Namespace) -> int:
+    from hallucination_bench import final
+
+    return final.main(
+        Path(args.manifest),
+        out=Path(args.out),
+        plots=Path(args.plots),
+        methods=Path(args.methods),
+        workers=args.workers,
+    )
 
 
 def main(argv: list[str] | None = None) -> int:

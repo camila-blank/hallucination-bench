@@ -202,7 +202,10 @@ def cmd_wsb_export(args: argparse.Namespace) -> int:
 def cmd_offtopic_export(args: argparse.Namespace) -> int:
     from . import offtopic_export
 
-    res = offtopic_export.export(Path(args.out), args.judge_model)
+    if getattr(args, "joint", False):  # plan 0029: the joint rows beside the per-layer ones
+        res = offtopic_export.export_joint(Path(args.out), args.judge_model)
+    else:
+        res = offtopic_export.export(Path(args.out), args.judge_model)
     print(json.dumps(res, indent=1))
     return 0
 
@@ -264,6 +267,12 @@ def register(sub: argparse._SubParsersAction) -> None:
     )
     ox.add_argument("--out", default="outputs", help="reads <out>/overrefusal/<model>/")
     ox.add_argument("--judge-model", default=DEFAULT_MODEL)
+    ox.add_argument(
+        "--joint",
+        action="store_true",
+        help="plan 0029: sj_records_joint.jsonl (sj_run.py --joint) -> "
+        "offtopic_index/index_counts_joint.jsonl (the hindex-v8 joint overrefusal rows)",
+    )
     ox.set_defaults(fn=cmd_offtopic_export)
 
     fz = osub.add_parser("freeze", help="rev 8: mark items.json frozen + MANIFEST.sha256")

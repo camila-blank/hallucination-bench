@@ -41,7 +41,7 @@ import json
 import os
 import re
 import time
-from collections.abc import Callable, Iterator, Sequence
+from collections.abc import Callable, Iterator, Mapping, Sequence
 from dataclasses import dataclass, field
 from pathlib import Path
 from types import ModuleType
@@ -53,7 +53,7 @@ from hallucination_bench.evals import bank_for
 from hallucination_bench.judges import claimmap_v2 as cm
 from hallucination_bench.judges import taxonomy_v1 as tv1
 from hallucination_bench.judges import v5c
-from hallucination_bench.llm import LLM, JudgeConfigError, Usage
+from hallucination_bench.llm import LLM, JudgeConfigError, Usage, joint_llm
 from hallucination_bench.readouts import (
     Cell,
     LoadReport,
@@ -119,6 +119,12 @@ class Models:
     # plan 0007: which bank / output root. Deliberately NOT in to_dict() (summary.json's
     # config.models stays unchanged for wsbench_chat); _write_arm_json writes it to arm.json.
     eval: str = "wsbench_chat"
+    # plan 0029: the claim-map prompt (claimmap_v2.VERSIONS key; AM: the chat version its
+    # claimmap_am spec uses). In to_dict() / arm.json only when it is not claimmap-v2.7, so every
+    # v3-v7 output is unchanged; a missing record means claimmap-v2.7.
+    map_prompt: str = cm.PROMPT_VERSION
+    # plan 0029 §2.3: agentic_misalignment's situation judge (amsit-v2); AM only
+    situation_model: str | None = None
 
     @property
     def summ(self) -> str:
@@ -133,7 +139,7 @@ class Models:
         return self.map_model or self.judge
 
     def to_dict(self) -> dict[str, Any]:
-        return {
+        d: dict[str, Any] = {
             "judge": self.judge,
             "summarizer": self.summ,
             "classifier": self.clf,
@@ -141,6 +147,168 @@ class Models:
             "map_anchor": self.map_anchor,
             "effort": self.effort,
         }
+        if self.map_prompt != cm.PROMPT_VERSION:  # plan 0029: v2.8 roots only
+            d["map_prompt"] = self.map_prompt
+        if self.situation_model is not None:
+            d["situation_model"] = self.situation_model
+        return d
+
+    @property
+    def v28(self) -> bool:
+        return cm.is_v28(self.map_prompt)
+
+
+def recorded_map_prompt(arm_dir_: Path) -> str:
+    """Plan 0029: the claim-map prompt an arm dir was judged with (``arm.json``'s
+    ``map_prompt``; a missing file or key means claimmap-v2.7)."""
+    p = Path(arm_dir_) / "arm.json"
+    if not p.is_file():
+        return cm.PROMPT_VERSION
+    try:
+        rec = json.loads(p.read_text(encoding="utf-8"))
+    except ValueError:
+        return cm.PROMPT_VERSION
+    return str(rec.get("map_prompt") or cm.PROMPT_VERSION)
+
+
+def check_map_prompt(arm_dir_: Path, models: Models) -> None:
+    """Plan 0029 §3.1: a run whose ``--map-prompt`` differs from the arm dir's recorded one is
+    refused (``JudgeConfigError``: exit 3). Only an existing ``arm.json`` records anything."""
+    if not (Path(arm_dir_) / "arm.json").is_file():
+        return
+    rec = recorded_map_prompt(arm_dir_)
+    if rec != models.map_prompt:
+        raise JudgeConfigError(
+            f"{arm_dir_}: judged with --map-prompt {rec}, this run asks for {models.map_prompt} "
+            "(use another --out root, e.g. outputs/v8)"
+        )
+
+
+RECORDED_MODEL_FIELDS: tuple[str, ...] = ("map_model", "situation_model")
+
+
+def _arm_record(arm_dir_: Path) -> dict[str, Any] | None:
+    p = Path(arm_dir_) / "arm.json"
+    if not p.is_file():
+        return None
+    try:
+        rec = json.loads(p.read_text(encoding="utf-8"))
+    except ValueError:
+        return None
+    return rec if isinstance(rec, dict) else None
+
+
+def with_recorded_prompt(arm_dir_: Path, models: Models) -> Models:
+    """Rebuild / report replay with the recorded claim-map prompt (an arm dir without
+    ``arm.json`` keeps ``models``); in a v2.8 root an omitted map / situation model is the
+    recorded one too (plan 0029 review)."""
+    from dataclasses import replace as _replace
+
+    rec = _arm_record(arm_dir_)
+    if rec is None:
+        return models
+    v = recorded_map_prompt(arm_dir_)
+    out = models if v == models.map_prompt else _replace(models, map_prompt=v)
+    if rec.get("map_prompt"):
+        for f in RECORDED_MODEL_FIELDS:
+            if getattr(out, f) is None and rec.get(f) is not None:
+                out = _replace(out, **{f: rec[f]})
+    return out
+
+
+def reconcile_models(arm_dir_: Path, models: Models) -> Models:
+    """Plan 0029 review: in a v2.8 root (``arm.json`` records ``map_prompt``) a run that names a
+    map / situation model other than the recorded one is refused (``JudgeConfigError``: exit
+    3); an omitted one replays the recorded one, so a later run never rewrites ``arm.json``
+    to another model. v2.7 roots and new arm dirs keep ``models``."""
+    from dataclasses import replace as _replace
+
+    rec = _arm_record(arm_dir_)
+    if rec is None or not rec.get("map_prompt"):
+        return models
+    out = models
+    for f in RECORDED_MODEL_FIELDS:
+        r, mine = rec.get(f), getattr(models, f)
+        if r is None:
+            continue
+        if mine is None:
+            out = _replace(out, **{f: r})
+        elif mine != r:
+            raise JudgeConfigError(
+                f"{arm_dir_}: judged with {f.replace('_', '-')} {r}, this run asks for {mine} "
+                "(omit the flag to reuse the recorded one, or use another --out root)"
+            )
+    return out
+
+
+def reconcile_all(dirs: Sequence[Path], models: Models) -> Models:
+    """:func:`reconcile_models` over several arm dirs of one run; they must agree."""
+    got = {d: reconcile_models(d, models) for d in dirs}
+    distinct = {(m.map_model, m.situation_model) for m in got.values()}
+    if len(distinct) > 1:
+        raise JudgeConfigError(f"arm dirs of this run record different models: {distinct}")
+    return next(iter(got.values())) if got else models
+
+
+def recorded_bank(arm_dir_: Path) -> dict[str, Any] | None:
+    """Plan 0029 review: the main bank an arm dir was judged on (``arm.json``'s ``bank`` /
+    ``bank_sha256``; a missing key means ``wsb``); None without an ``arm.json``."""
+    rec = _arm_record(arm_dir_)
+    if rec is None:
+        return None
+    return {"bank": rec.get("bank") or "wsb", "bank_sha256": rec.get("bank_sha256")}
+
+
+def _check_bank_sha(arm_dir_: Path, rec: Mapping[str, Any]) -> None:
+    from . import NAME
+
+    cb = bank_for(NAME)
+    want = rec.get("bank_sha256")
+    if want and cb.bank_record().get("bank_sha256") != want:
+        raise JudgeConfigError(
+            f"{arm_dir_}: judged on --bank {rec['bank']} with items sha256 {want}, but "
+            f"{cb.ITEMS_PATH} now hashes differently (use the recorded bank, or another --out)"
+        )
+
+
+def check_bank(arm_dir_: Path, models: Models) -> None:
+    """Plan 0029 review: judging (``run``, ``run --joint``) into an arm dir recorded on another
+    bank is refused (``JudgeConfigError``: exit 3), as :func:`check_map_prompt`; an omitted
+    ``--bank`` means wsb. Main eval only (story has its own bank)."""
+    from . import NAME
+
+    cb = bank_for(NAME)
+    if models.eval != NAME or (rec := recorded_bank(arm_dir_)) is None:
+        return
+    if rec["bank"] != cb.current_bank():
+        raise JudgeConfigError(
+            f"{arm_dir_}: judged on --bank {rec['bank']}, this run uses --bank "
+            f"{cb.current_bank()} (pass --bank {rec['bank']}, or use another --out root)"
+        )
+    _check_bank_sha(arm_dir_, rec)
+
+
+def replay_bank(arm_dir_: Path, models: Models) -> None:
+    """Plan 0029 review: rebuild / report point the bank at the arm dir's recorded one when
+    ``--bank`` was omitted (as :func:`with_recorded_prompt`); an explicit ``--bank`` naming
+    another bank is refused (exit 3). Main eval only."""
+    from . import NAME
+
+    cb = bank_for(NAME)
+    if models.eval != NAME or (rec := recorded_bank(arm_dir_)) is None:
+        return
+    want = rec["bank"]
+    if cb.SELECTED is not None and cb.SELECTED != want:
+        raise JudgeConfigError(
+            f"{arm_dir_}: judged on --bank {want}, this command asks for --bank {cb.SELECTED} "
+            "(omit --bank to replay the recorded one)"
+        )
+    if cb.current_bank() != want:
+        if want == "wsb":
+            cb.reset_bank()
+        else:
+            cb.use_bank(want, explicit=False)
+    _check_bank_sha(arm_dir_, rec)
 
 
 def model_slug(model: str) -> str:
@@ -248,10 +416,14 @@ async def cached_call(
     validate: Callable[[dict[str, Any]], bool] | None = None,
     dump: bool = False,
     invalid_retries: int = 0,
+    fallback: str | None = None,
 ) -> CallOut:
     """One cached call. An answer that fails ``validate`` is retried within the run up to
     ``invalid_retries`` times (plan rev 14: 2 for the claim map) before it is cached as failed;
-    the usage of every attempt is summed into the row's meta."""
+    the usage of every attempt is summed into the row's meta. With ``fallback`` (v8 roots), a
+    refused call is re-asked once on that model; the row stays under ``model``'s fingerprint
+    with ``meta.answered_by`` (the AM driver's rule). A failed row (both refused) is re-asked
+    on the next judge-mode run, as every failed row here."""
     fp = fingerprint(version, model, effort, system, user)
     if dump and arm.dump is not None:
         arm.dump.write(f"===== {key} [{stage}] model={model} version={version}\n")
@@ -268,31 +440,44 @@ async def cached_call(
         return CallOut("failed", raw=meta.get("raw") if isinstance(meta, dict) else None)
     usage = Usage()
     n_invalid = 0
+    asked = model  # the model that answers (the fallback once ``model`` refused)
     while True:
-        out = await llm.call(model=model, system=system, user=user, schema=schema)
+        out = await llm.call(model=asked, system=system, user=user, schema=schema)
         arm.spend[stage].add(out.usage)
         usage.add(out.usage)
+        if out.result is None and out.usage.refusals and fallback and asked == model:
+            asked = fallback
+            out = await llm.call(model=asked, system=system, user=user, schema=schema)
+            arm.spend[stage].add(out.usage)
+            usage.add(out.usage)
         r = out.result
         if r is None or validate is None or validate(r):
             break
         n_invalid += 1
         if n_invalid > invalid_retries:  # invalid after every in-run retry: cache as failed
-            meta = _meta(stage, model, usage, n_invalid)
+            meta = _meta(stage, model, usage, n_invalid, asked)
             arm.cache.put(key, fp, {"result": None, "meta": {**meta, "raw": r}})
             return CallOut("failed", raw=r)
-    meta = _meta(stage, model, usage, n_invalid)
+    meta = _meta(stage, model, usage, n_invalid, asked)
     arm.cache.put(key, fp, {"result": r, "meta": meta})
     return CallOut("ok" if r is not None else "failed", r)
 
 
-def _meta(stage: str, model: str, usage: Usage, n_invalid: int) -> dict[str, Any]:
+def _meta(
+    stage: str, model: str, usage: Usage, n_invalid: int, answered_by: str | None = None
+) -> dict[str, Any]:
     meta: dict[str, Any] = {"stage": stage, "model": model, "usage": usage.to_dict()}
     if n_invalid:
         meta["n_invalid_attempts"] = n_invalid
+    if answered_by is not None and answered_by != model:
+        meta["answered_by"] = answered_by
     return meta
 
 
 MAP_INVALID_RETRIES = 2  # plan rev 14
+# plan 0029 review: in v8 (claimmap-v2.8) roots a refused J-lens interp-v1 ``summ:`` call is
+# re-asked once on Sonnet, as the AM driver's DETECT_FALLBACK_MODEL; v7 roots never fall back
+SUMMARY_FALLBACK_MODEL = "claude-sonnet-5-5"
 
 
 # ---------------------------------------------------------------- one cell
@@ -377,6 +562,7 @@ async def process_cell(
             schema=summarizer.INTERP_SCHEMA,
             validate=lambda r: summarizer.interpretation_of(r) is not None,
             dump=dump,
+            fallback=SUMMARY_FALLBACK_MODEL if models.v28 else None,
         )
         rec["stages"]["summary"] = out.status
         text = summarizer.interpretation_of(out.result) if out.status == "ok" else None
@@ -519,20 +705,26 @@ async def _map_stage(
     units, unloc = split_cell(samples, wrong)
     if verdicts is None:
         units = cm.plain_units(units)
+    version = models.map_prompt
     system, user = cm.render_prompt(
-        item["prompt"], arm.bank.marked_response(item, site), units, kind=arm.kind, anchor=anchor
+        item["prompt"],
+        arm.bank.marked_response(item, site),
+        units,
+        kind=arm.kind,
+        anchor=anchor,
+        version=version,
     )
     mout = await cached_call(
         arm,
         llm,
         stage="map",
         key=f"{cell.key}:M",
-        version=cm.PROMPT_VERSION,
+        version=version,
         model=models.mapper,
         effort=models.effort,
         system=system,
         user=user,
-        schema=cm.schema_for(anchor),
+        schema=cm.schema_for(anchor, version),
         validate=lambda r: cm.validate(r, units),
         dump=dump,
         invalid_retries=MAP_INVALID_RETRIES,
@@ -540,7 +732,7 @@ async def _map_stage(
     rec["stages"]["map"] = mout.status
     raw = mout.result if mout.status == "ok" else None
     conv = cm.conversation_text(item["prompt"], arm.bank.marked_response(item, site))
-    segs, counts = cm.parse(raw, units, conv)
+    segs, counts = _parse_map(raw, units, conv, item, site, models)
     counts["n_unlocated_established"] = sum(unloc)
     rec["map"] = {
         "anchor": anchor,
@@ -549,6 +741,24 @@ async def _map_stage(
         "counts": counts,
         "rationale": str(raw.get("rationale") or "") if isinstance(raw, dict) else "",
     }
+
+
+def _parse_map(
+    raw: dict[str, Any] | None,
+    units: Sequence[Any],
+    conv: str,
+    item: dict[str, Any],
+    site: dict[str, Any],
+    models: Models,
+) -> tuple[list[cm.Segment], dict[str, int]]:
+    """``cm.parse`` as the root's prompt version needs it: v2.7 exactly as before; v2.8 with the
+    read offset (single-call only: the excuse is disabled in anchored mode)."""
+    if not models.v28:
+        return cm.parse(raw, units, conv)
+    if cm.check_anchor(models.map_anchor):
+        return cm.parse(raw, units, conv, version=models.map_prompt)
+    off = cm.read_offset_chat(item["prompt"], item["response"], int(site["char"]))
+    return cm.parse(raw, units, conv, read_offset=off, version=models.map_prompt)
 
 
 def _quotes_row(cl: v5c.ClaimLists, unsup: list[str], disp: list[str]) -> dict[str, Any]:
@@ -573,7 +783,9 @@ class Selection:
     n_missing: int
 
 
-def select(arm: Arm, layers: Sequence[int] | None, limit: int | None) -> Selection:
+def select(
+    arm: Arm, layers: Sequence[int] | None, limit: int | None, sample_seed: int | None = None
+) -> Selection:
     req = sorted(set(layers)) if layers else arm.file_layers
     sel_layers = [la for la in req if la in arm.file_layers]
     absent = [la for la in req if la not in arm.file_layers]
@@ -586,8 +798,20 @@ def select(arm: Arm, layers: Sequence[int] | None, limit: int | None) -> Selecti
     todo: list[Cell] = []
     for la in sel_layers:
         cl = [c for c in in_layers if c.layer == la and not c.empty]
+        if limit and sample_seed is not None:  # plan 0029 §3.3: a seeded pilot per layer
+            cl = pilot_sample(cl, limit, f"{sample_seed}:{arm.name}:{la}")
         todo += cl[:limit] if limit else cl
     return Selection(arm, sel_layers, todo, len(missing))
+
+
+def pilot_sample(cells: Sequence[Any], n: int, seed: str) -> list[Any]:
+    """Plan 0029 §3.3: ``n`` cells drawn by a seeded shuffle (``--limit N --sample-seed S``:
+    the pilots, stratified by layer), kept in their file order."""
+    import random
+
+    idx = list(range(len(cells)))
+    random.Random(f"pilot:{seed}").shuffle(idx)
+    return [cells[i] for i in sorted(idx[:n])]
 
 
 def _iter_work(sels: Sequence[Selection]) -> Iterator[tuple[Selection, int, Cell]]:
@@ -673,13 +897,19 @@ async def run_arms_async(
     show_prompts: int = 0,
     llm: LLM | None = None,
     stages: Sequence[str] | None = None,
+    sample_seed: int | None = None,
 ) -> dict[str, dict[str, Any]]:
     run_stages = expand_stages(stages, classify=classify, anchor=models.map_anchor)
+    cm.spec(models.map_prompt)  # an unknown --map-prompt fails before anything is opened
+    for n, _p in arms:  # plan 0029: never mix prompt versions (or banks) in one arm dir
+        check_map_prompt(arm_dir(out_root, models, n), models)
+        check_bank(arm_dir(out_root, models, n), models)
+    models = reconcile_all([arm_dir(out_root, models, n) for n, _p in arms], models)
     opened = [open_arm(n, p, out_root, models) for n, p in arms]
     try:
         sels = []
         for a in opened:
-            s = select(a, layers, limit)
+            s = select(a, layers, limit, sample_seed)
             print(
                 f"[{a.name}] kind={a.kind} layers={s.layers} cells_to_judge={len(s.cells)} "
                 f"missing={s.n_missing} empty={a.report.n_empty} skipped={a.report.skipped}",
@@ -750,6 +980,7 @@ def _write_arm_json(arm: Arm, models: Models) -> None:
                 "readouts": str(arm.readouts),
                 "kind": arm.kind,
                 **models.to_dict(),
+                **(arm.bank.bank_record() if hasattr(arm.bank, "bank_record") else {}),
             },
             indent=1,
         )
@@ -771,6 +1002,8 @@ async def rebuild_arm_async(
     (layers with any cache row). Streams records to disk; keeps slim score records only."""
     from . import score, score_v2
 
+    models = with_recorded_prompt(arm_dir(out_root, models, name), models)
+    replay_bank(arm_dir(out_root, models, name), models)
     arm = open_arm(name, readouts, out_root, models, readonly=True)
     layers = sorted(cached_layers(arm) & set(arm.file_layers))
     items = list(arm.items.values())
@@ -778,7 +1011,7 @@ async def rebuild_arm_async(
     cells = [c for c in arm.cells if c.layer in layers]
     missing = missing_cells(cells, expected)
     acc = score.Accumulator(k=arm.k)
-    acc2 = score_v2.AccumulatorV2()
+    acc2 = score_v2.AccumulatorV2(version=models.map_prompt)
     map_layers = {
         int(m.group(1)) for k in arm.cache.keys() if k.endswith(":M") and (m := _LAYER_RE.search(k))
     }
@@ -809,7 +1042,7 @@ async def rebuild_arm_async(
             "span": v5c.PROMPT_VERSION,
             "verify": v5c.VERIFY_PROMPT_VERSION,
             "classify": tv1.PROMPT_VERSION,
-            "map": cm.PROMPT_VERSION,
+            "map": models.map_prompt,
         },
         "bank_source": arm.bank.BANK_SOURCE,
         "bank_commit": arm.bank.BANK_COMMIT,
@@ -845,4 +1078,373 @@ async def rebuild_arm_async(
         p2.write_text(json.dumps(s2, indent=1) + "\n")
     elif p2.exists():
         p2.unlink()
+    if (arm.dir / JOINT_JSON).is_file():  # plan 0029: the arm's joint cells, if judged
+        await rebuild_joint_async(name, out_root, models)
     return summary
+
+
+# ---------------------------------------------------------------- joint 11-layer cells (plan 0029)
+
+JOINT_JSON = "joint.json"  # the joint unit's sources (precedence order), layers, prompt
+JOINT_CELLS = "cells_joint.jsonl"
+JOINT_SUMMARY = "summary_joint_v2.json"
+JOINT_LAYER = "all"  # a joint record's layer (the index maps it to its JOINT sentinel)
+JOINT_STAGES: tuple[str, ...] = ("summary", "map")
+
+
+def joint_key(id_: str, pos: int) -> str:
+    return f"{id_}__L{JOINT_LAYER}__p{pos}"
+
+
+@dataclass
+class JointCell:
+    """One read site's 11-layer cell: ``cells[i]`` is the source cell of readout ``R{i}``
+    (sample 0 of layer ``layers[i]``, from the first source that has the layer)."""
+
+    id: str
+    pos: int
+    layers: list[int]
+    sources: list[str]
+    cells: list[Cell | None]
+
+    @property
+    def key(self) -> str:
+        return joint_key(self.id, self.pos)
+
+
+def load_joint(
+    sources: Sequence[tuple[str, Path]], bank_mod: ModuleType, layers: Sequence[int]
+) -> tuple[list[JointCell], LoadReport, str]:
+    """The joint cells of every bank site: each layer from the first source (precedence order,
+    the index's arm-precedence rule) whose readouts have it. Every layer must be covered."""
+    items = bank_mod.load_items()
+    pos = bank_mod.positions(items)
+    by_layer: dict[int, tuple[str, dict[tuple[str, int], Cell]]] = {}
+    first_rep: LoadReport | None = None
+    kinds: set[str] = set()
+    for name, path in sources:
+        todo = [la for la in layers if la not in by_layer]
+        if not todo:
+            break
+        cells, rep = load_readouts(path, positions=pos, layers=todo)
+        first_rep = first_rep or rep
+        found: dict[int, dict[tuple[str, int], Cell]] = {}
+        for c in cells:
+            found.setdefault(c.layer, {})[(c.id, c.pos)] = c
+            kinds.add(c.kind)
+        for la, cs in found.items():
+            by_layer[la] = (name, cs)
+    missing = [la for la in layers if la not in by_layer]
+    if missing:
+        raise SystemExit(
+            f"joint: no source has layers {missing} (sources {[n for n, _ in sources]})"
+        )
+    if len(kinds) > 1:
+        raise SystemExit(f"joint: sources mix prose and token readouts ({sorted(kinds)})")
+    kind = kinds.pop() if kinds else "prose"
+    if kind == "tokens" and len(sources) > 1:
+        raise SystemExit("joint: a token arm is its own single source (its summaries are cached)")
+    out = []
+    for it in items:
+        for s in it["sites"]:
+            p = int(s["pos"])
+            out.append(
+                JointCell(
+                    it["id"],
+                    p,
+                    list(layers),
+                    [by_layer[la][0] for la in layers],
+                    [by_layer[la][1].get((it["id"], p)) for la in layers],
+                )
+            )
+    assert first_rep is not None
+    return out, first_rep, kind
+
+
+def _joint_arm(
+    name: str,
+    sources: Sequence[tuple[str, Path]],
+    out_root: Path,
+    models: Models,
+    layers: Sequence[int],
+    *,
+    readonly: bool,
+) -> tuple[Arm, list[JointCell]]:
+    bank_mod = bank_for(models.eval)
+    jcells, rep, _kind = load_joint(sources, bank_mod, layers)
+    items = bank_mod.load_items()
+    d = arm_dir(out_root, models, name)
+    if not readonly:
+        d.mkdir(parents=True, exist_ok=True)
+    arm = Arm(
+        name=name,
+        readouts=Path(sources[0][1]),
+        dir=d,
+        cells=[],
+        report=rep,
+        file_layers=list(layers),
+        cache=Cache(d / "cache.jsonl", readonly=readonly),
+        items={it["id"]: it for it in items},
+        sites=bank_mod.sites_by_item(items),
+        bank=bank_mod,
+    )
+    return arm, jcells
+
+
+async def process_joint_cell(
+    arm: Arm,
+    jc: JointCell,
+    llm: LLM | None,
+    models: Models,
+    *,
+    stages: frozenset[str] = frozenset(JOINT_STAGES),
+    dump: bool = False,
+) -> dict[str, Any]:
+    """One joint cell (judge or rebuild mode): sample 0 of each layer (J-lens: that layer's
+    cached interp-v1 summary, the per-layer ``summ:`` row) as readouts ``R0..R10``, one ``:M``
+    call with the joint note, parsed with the read offset."""
+    item = arm.items[jc.id]
+    site = arm.sites[jc.id][jc.pos]
+    rec: dict[str, Any] = {
+        "key": jc.key,
+        "id": jc.id,
+        "layer": JOINT_LAYER,
+        "pos": jc.pos,
+        "site_kind": site["kind"],
+        "status": "pending",
+        "joint_readouts": {str(i): la for i, la in enumerate(jc.layers)},
+        "joint_sources": {str(i): a for i, a in enumerate(jc.sources)},
+        "n_samples": 0,
+        "samples": None,
+        "stages": {"summary": None, "map": None},
+        "map": None,
+    }
+    samples: list[str] = []
+    st_summary = None
+    for c in jc.cells:
+        if c is None or c.empty:
+            samples.append("")
+            continue
+        if arm.kind != "tokens":
+            s0 = (c.samples or ("",))[0]
+            samples.append(s0 if s0.strip() else "")
+            continue
+        decoded = [decode_token(t) for t in c.tokens or ()]
+        out = await cached_call(
+            arm,
+            llm if "summary" in stages else None,
+            stage="summary",
+            key=f"summ:{c.key}",
+            version=summarizer.SUMMARIZER_PROMPT_VERSION,
+            model=models.summ,
+            effort=models.effort,
+            system=summarizer.INTERP_SYSTEM,
+            user=summarizer.render_user(summarizer.render_bag(decoded, c.scores)),
+            schema=summarizer.INTERP_SCHEMA,
+            validate=lambda r: summarizer.interpretation_of(r) is not None,
+            dump=dump,
+            fallback=SUMMARY_FALLBACK_MODEL if models.v28 else None,
+        )
+        text = summarizer.interpretation_of(out.result) if out.status == "ok" else None
+        if text is None:
+            st_summary = "failed" if out.status == "failed" else st_summary or "pending"
+            samples.append("")
+            continue
+        samples.append(text)
+    if arm.kind == "tokens":
+        rec["stages"]["summary"] = st_summary or "ok"
+        if st_summary is not None:  # every layer's summary is needed before the joint map
+            rec["status"] = "failed_summary" if st_summary == "failed" else "pending"
+            return rec
+    if not any(x.strip() for x in samples):
+        rec["status"] = "empty"
+        return rec
+    rec["samples"] = samples
+    rec["n_samples"] = sum(1 for x in samples if x.strip())
+    units, _ = split_cell(samples)
+    units = cm.plain_units(units)
+    version = models.map_prompt
+    note = cm.joint_note(dict(enumerate(jc.layers)))
+    system, user = cm.render_prompt(
+        item["prompt"],
+        arm.bank.marked_response(item, site),
+        units,
+        kind=arm.kind,
+        version=version,
+        joint_note=note,
+    )
+    mout = await cached_call(
+        arm,
+        llm if "map" in stages else None,
+        stage="map",
+        key=f"{jc.key}:M",
+        version=version,
+        model=models.mapper,
+        effort=models.effort,
+        system=system,
+        user=user,
+        schema=cm.schema_for("none", version),
+        validate=lambda r: cm.validate(r, units),
+        dump=dump,
+        invalid_retries=MAP_INVALID_RETRIES,
+    )
+    rec["stages"]["map"] = mout.status
+    rec["status"] = "judged" if mout.status in ("ok", "failed") else "pending"
+    raw = mout.result if mout.status == "ok" else None
+    conv = cm.conversation_text(item["prompt"], arm.bank.marked_response(item, site))
+    segs, counts = _parse_map(raw, units, conv, item, site, models)
+    rec["map"] = {
+        "anchor": "none",
+        "units": [u.to_dict() for u in units],
+        "segments": [x.to_dict() for x in segs],
+        "counts": counts,
+        "rationale": str(raw.get("rationale") or "") if isinstance(raw, dict) else "",
+    }
+    return rec
+
+
+def _check_joint_models(models: Models) -> None:
+    if not models.v28:
+        raise JudgeConfigError(
+            f"joint cells need a claimmap-v2.8 prompt (--map-prompt), got {models.map_prompt}"
+        )
+    if cm.check_anchor(models.map_anchor):
+        raise JudgeConfigError("joint cells are single-call only (no --anchor v5c)")
+
+
+async def run_joint_async(
+    name: str,
+    sources: Sequence[tuple[str, Path]],
+    out_root: Path,
+    models: Models,
+    *,
+    layers: Sequence[int] = cm.JOINT_LAYERS,
+    limit: int | None = None,
+    rpm: float = 1500.0,
+    concurrency: int = 64,
+    llm: LLM | None = None,
+    stages: Sequence[str] | None = None,
+    show_prompts: int = 0,
+    sample_seed: int | None = None,
+) -> dict[str, Any]:
+    """Judge the joint cells of arm ``name`` (output dir ``<out>/<eval>/<judge>/<name>/``) from
+    ``sources`` (precedence order), then rebuild them. Per-layer cells are untouched."""
+    _check_joint_models(models)
+    sel = frozenset(stages) if stages else frozenset(JOINT_STAGES)
+    if bad := sel - set(JOINT_STAGES):
+        raise ValueError(f"joint stages are {JOINT_STAGES}, got {sorted(bad)}")
+    d = arm_dir(out_root, models, name)
+    check_map_prompt(d, models)
+    check_bank(d, models)
+    models = reconcile_models(d, models)
+    if (d / JOINT_JSON).is_file():
+        prev = json.loads((d / JOINT_JSON).read_text(encoding="utf-8"))
+        if prev.get("sources") != [[n, str(p)] for n, p in sources] or prev.get("layers") != list(
+            layers
+        ):
+            raise JudgeConfigError(f"{d / JOINT_JSON}: recorded with other sources or layers")
+    arm, jcells = _joint_arm(name, sources, out_root, models, layers, readonly=False)
+    try:
+        (d / JOINT_JSON).write_text(
+            json.dumps(
+                {
+                    "arm": name,
+                    "eval": models.eval,
+                    "sources": [[n, str(p)] for n, p in sources],
+                    "layers": list(layers),
+                    "kind": arm.kind,
+                    **models.to_dict(),
+                },
+                indent=1,
+            )
+            + "\n"
+        )
+        if not (d / "arm.json").is_file():
+            _write_arm_json(arm, models)
+        todo = [jc for jc in jcells if any(c is not None and not c.empty for c in jc.cells)]
+        if limit:  # a seeded draw (pilots), never the first N in bank order
+            seed = sample_seed if sample_seed is not None else 0
+            todo = pilot_sample(todo, limit, f"{seed}:{name}:joint")
+        own = llm is None
+        llm = llm or joint_llm(rpm=rpm, concurrency=concurrency, effort=models.effort)
+        try:
+            for m in sorted({models.mapper} | ({models.summ} if arm.kind == "tokens" else set())):
+                await llm.preflight(m)
+            if show_prompts:
+                arm.dump = (d / "prompts_sample_joint.txt").open("w", encoding="utf-8")
+            it = iter(enumerate(todo))
+
+            async def worker() -> None:
+                for j, jc in it:
+                    await process_joint_cell(
+                        arm, jc, llm, models, stages=sel, dump=j < show_prompts
+                    )
+
+            async with asyncio.TaskGroup() as tg:
+                for _ in range(max(1, min(2 * concurrency, len(todo)))):
+                    tg.create_task(worker())
+        finally:
+            if own:
+                await llm.aclose()
+        print(f"[{name}] joint this run: map {arm.spend['map'].report()}", flush=True)
+    finally:
+        if arm.dump is not None:
+            arm.dump.close()
+        arm.cache.close()
+    return await rebuild_joint_async(name, out_root, models)
+
+
+def run_joint(*args: Any, **kwargs: Any) -> dict[str, Any]:
+    try:
+        return asyncio.run(run_joint_async(*args, **kwargs))
+    except* JudgeConfigError as eg:
+        raise eg.exceptions[0] from None
+
+
+async def rebuild_joint_async(name: str, out_root: Path, models: Models) -> dict[str, Any]:
+    """Regenerate ``cells_joint.jsonl`` and ``summary_joint_v2.json`` from the cache (no API
+    calls), with the sources / layers / prompt recorded in ``joint.json``."""
+    from . import score_v2
+
+    d = arm_dir(out_root, models, name)
+    replay_bank(d, models)
+    rec_j = json.loads((d / JOINT_JSON).read_text(encoding="utf-8"))
+    from dataclasses import replace as _replace
+
+    models = _replace(models, map_prompt=rec_j.get("map_prompt") or cm.PROMPT_VERSION)
+    if models.map_model is None and rec_j.get("map_model"):  # replay the recorded map model
+        models = _replace(models, map_model=rec_j["map_model"])
+    _check_joint_models(models)
+    sources = [(n, Path(p)) for n, p in rec_j["sources"]]
+    arm, jcells = _joint_arm(name, sources, out_root, models, rec_j["layers"], readonly=True)
+    acc2 = score_v2.AccumulatorV2(version=models.map_prompt)
+    tmp = d / f"{JOINT_CELLS}.{os.getpid()}.tmp"
+    n = dict.fromkeys(("judged", "pending", "empty", "failed_summary"), 0)
+    with tmp.open("w", encoding="utf-8") as fh:
+        for jc in jcells:
+            rec = await process_joint_cell(arm, jc, None, models)
+            n[rec["status"]] = n.get(rec["status"], 0) + 1
+            fh.write(json.dumps(rec, ensure_ascii=False) + "\n")
+            acc2.add(rec)
+    tmp.replace(d / JOINT_CELLS)
+    spend = Usage()
+    for row in arm.cache.rows():
+        if f"__L{JOINT_LAYER}__" in row["key"] and row["key"].endswith(":M"):
+            meta = row.get("meta") if isinstance(row.get("meta"), dict) else {}
+            spend.add(meta.get("usage"))
+    arm.cache.close()
+    config = {
+        "eval": models.eval,
+        "arm": name,
+        "unit": "joint",
+        "kind": arm.kind,
+        "models": models.to_dict(),
+        "map_prompt": models.map_prompt,
+        "joint_layers": rec_j["layers"],
+        "joint_sources": rec_j["sources"],
+        "sample": 0,
+        "n_cells": n,
+    }
+    s2 = score_v2.summarize(acc2, config=config, spend=spend.to_dict())
+    (d / JOINT_SUMMARY).write_text(json.dumps(s2, indent=1) + "\n")
+    return s2

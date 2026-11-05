@@ -1,0 +1,750 @@
+{
+ "config": {
+  "eval": "wsbench_chat",
+  "arm": "tokens",
+  "kind": "tokens",
+  "k": 1,
+  "models": {
+   "judge": "claude-opus-5-5",
+   "summarizer": "claude-opus-5-5",
+   "classifier": "claude-opus-5-5",
+   "map_model": "claude-opus-5-5",
+   "map_anchor": "none",
+   "effort": "low"
+  },
+  "prompt_versions": {
+   "summary": "interp-v1",
+   "span": "v5c-chat",
+   "verify": "v5c-chat-verify-v1",
+   "classify": "taxonomy-v1",
+   "map": "claimmap-v2.7"
+  },
+  "bank_source": "camilablank/wsbench-pub@92d763e:evals/hallucination/items.json",
+  "bank_commit": "92d763e",
+  "readouts": "<READOUTS>",
+  "readouts_sha256": "1b9c0019faf2838b3014b114a6496347c8e701b4cb60dfa7792788b37f0ca980",
+  "judged_layers": [
+   44
+  ]
+ },
+ "health": {
+  "n_expected_cells": 1123,
+  "n_missing": 1102,
+  "skipped_rows": {
+   "malformed": 0,
+   "duplicate": 0,
+   "mixed_kind": 0,
+   "unknown_id": 0,
+   "layer_not_selected": 0,
+   "pos_not_selected": 0
+  },
+  "n_cells": 21,
+  "n_empty_cells": 0,
+  "n_pending_cells": 0,
+  "n_judged_cells": 21,
+  "n_short_cells": 0,
+  "n_entered_summary": 21,
+  "n_entered_span": 21,
+  "n_entered_verify": 21,
+  "n_entered_classify": 21,
+  "n_entered_map": 21,
+  "n_failed_summary": 0,
+  "n_failed_span": 0,
+  "n_failed_verify": 0,
+  "n_failed_classify": 0,
+  "n_failed_map": 0,
+  "n_pending_summary": 0,
+  "n_pending_span": 0,
+  "n_pending_verify": 0,
+  "n_pending_classify": 0,
+  "n_pending_map": 0,
+  "n_unverified_spans": 0,
+  "n_unverified_claim_quotes": 0,
+  "n_cells_claims_unjudged": 0,
+  "n_offtopic_overlap_quotes": 0,
+  "n_spans": 21,
+  "n_unclassified": 0,
+  "n_extra_ids": 0,
+  "n_duplicate_ids": 0,
+  "n_missing_ids": 0,
+  "n_bad_labels": 0,
+  "n_kind_ignored": 0,
+  "n_readouts_claims_judged": 21,
+  "n_claims_false": 21,
+  "n_claims_true": 0,
+  "n_claims_unverifiable": 0,
+  "n_claims_disputed": 0,
+  "n_claims_off_topic": 0,
+  "failed_rate_by_stage": {
+   "summary": 0.0,
+   "span": 0.0,
+   "verify": 0.0,
+   "classify": 0.0,
+   "map": 0.0
+  }
+ },
+ "overall": {
+  "n_items": 3,
+  "counts": {
+   "n_readouts": 21,
+   "n_specific": 21,
+   "n_hallucinated": 21,
+   "n_hallucinated_unrevoked": 21,
+   "n_off_topic": 0,
+   "n_revoked": 0,
+   "c_concept_only": 21,
+   "c_detail_only": 0,
+   "c_both": 0,
+   "c_unclassified_only": 0,
+   "c_concept": 21,
+   "c_detail": 0,
+   "n_major": 21,
+   "sum_max_severity": 63,
+   "n_max_severity": 21,
+   "n_hallucinated_all_unknown": 0,
+   "n_tallied": 21,
+   "n_unsupported": 0,
+   "n_unsupported_concept": 0,
+   "n_unsupported_detail": 0,
+   "n_unsupported_prediction": 0,
+   "n_unsupported_inference": 0,
+   "n_unsupported_fabricated": 0,
+   "n_unsupported_world_knowledge": 0,
+   "n_unsupported_unknown": 0,
+   "n_unsupported_lenient": 0,
+   "n_disputed": 0,
+   "n_strict": 21,
+   "s_concept_only": 21,
+   "s_detail_only": 0,
+   "s_both": 0,
+   "s_unclassified_only": 0,
+   "s_concept": 21,
+   "s_detail": 0,
+   "n_lenient": 21,
+   "l_concept_only": 21,
+   "l_detail_only": 0,
+   "l_both": 0,
+   "l_unclassified_only": 0,
+   "l_concept": 21,
+   "l_detail": 0
+  },
+  "health": {
+   "n_cells": 21,
+   "n_empty_cells": 0,
+   "n_pending_cells": 0,
+   "n_judged_cells": 21,
+   "n_short_cells": 0,
+   "n_entered_summary": 21,
+   "n_entered_span": 21,
+   "n_entered_verify": 21,
+   "n_entered_classify": 21,
+   "n_entered_map": 21,
+   "n_failed_summary": 0,
+   "n_failed_span": 0,
+   "n_failed_verify": 0,
+   "n_failed_classify": 0,
+   "n_failed_map": 0,
+   "n_pending_summary": 0,
+   "n_pending_span": 0,
+   "n_pending_verify": 0,
+   "n_pending_classify": 0,
+   "n_pending_map": 0,
+   "n_unverified_spans": 0,
+   "n_unverified_claim_quotes": 0,
+   "n_cells_claims_unjudged": 0,
+   "n_offtopic_overlap_quotes": 0,
+   "n_spans": 21,
+   "n_unclassified": 0,
+   "n_extra_ids": 0,
+   "n_duplicate_ids": 0,
+   "n_missing_ids": 0,
+   "n_bad_labels": 0,
+   "n_kind_ignored": 0,
+   "n_readouts_claims_judged": 21,
+   "n_claims_false": 21,
+   "n_claims_true": 0,
+   "n_claims_unverifiable": 0,
+   "n_claims_disputed": 0,
+   "n_claims_off_topic": 0
+  },
+  "rates": {
+   "hallucination_rate": 1.0,
+   "hallucination_rate_revoked": 1.0,
+   "off_topic_rate": 0.0,
+   "assert_share": 1.0,
+   "concept_only_rate": 1.0,
+   "detail_only_rate": 0.0,
+   "both_rate": 0.0,
+   "unclassified_only_rate": 0.0,
+   "concept_rate": 1.0,
+   "detail_rate": 0.0,
+   "major_rate": 1.0,
+   "mean_max_severity": 3.0,
+   "verify_coverage": 1.0,
+   "unsupported_rate": 0.0,
+   "unsupported_concept_rate": 0.0,
+   "unsupported_detail_rate": 0.0,
+   "unsupported_prediction_rate": 0.0,
+   "unsupported_inference_rate": 0.0,
+   "unsupported_fabricated_rate": 0.0,
+   "unsupported_world_knowledge_rate": 0.0,
+   "unsupported_unknown_rate": 0.0,
+   "unsupported_rate_lenient": 0.0,
+   "disputed_rate": 0.0,
+   "strict_hallucination_rate": 1.0,
+   "strict_concept_only_rate": 1.0,
+   "strict_detail_only_rate": 0.0,
+   "strict_both_rate": 0.0,
+   "strict_unclassified_only_rate": 0.0,
+   "strict_concept_rate": 1.0,
+   "strict_detail_rate": 0.0,
+   "lenient_hallucination_rate": 1.0,
+   "lenient_concept_only_rate": 1.0,
+   "lenient_detail_only_rate": 0.0,
+   "lenient_both_rate": 0.0,
+   "lenient_unclassified_only_rate": 0.0,
+   "lenient_concept_rate": 1.0,
+   "lenient_detail_rate": 0.0
+  },
+  "ci95": {
+   "hallucination_rate": [
+    1.0,
+    1.0
+   ],
+   "hallucination_rate_revoked": [
+    1.0,
+    1.0
+   ],
+   "off_topic_rate": [
+    0.0,
+    0.0
+   ],
+   "assert_share": [
+    1.0,
+    1.0
+   ],
+   "concept_only_rate": [
+    1.0,
+    1.0
+   ],
+   "detail_only_rate": [
+    0.0,
+    0.0
+   ],
+   "both_rate": [
+    0.0,
+    0.0
+   ],
+   "unclassified_only_rate": [
+    0.0,
+    0.0
+   ],
+   "concept_rate": [
+    1.0,
+    1.0
+   ],
+   "detail_rate": [
+    0.0,
+    0.0
+   ],
+   "major_rate": [
+    1.0,
+    1.0
+   ],
+   "mean_max_severity": [
+    3.0,
+    3.0
+   ],
+   "verify_coverage": [
+    1.0,
+    1.0
+   ],
+   "unsupported_rate": [
+    0.0,
+    0.0
+   ],
+   "unsupported_concept_rate": [
+    0.0,
+    0.0
+   ],
+   "unsupported_detail_rate": [
+    0.0,
+    0.0
+   ],
+   "unsupported_prediction_rate": [
+    0.0,
+    0.0
+   ],
+   "unsupported_inference_rate": [
+    0.0,
+    0.0
+   ],
+   "unsupported_fabricated_rate": [
+    0.0,
+    0.0
+   ],
+   "unsupported_world_knowledge_rate": [
+    0.0,
+    0.0
+   ],
+   "unsupported_unknown_rate": [
+    0.0,
+    0.0
+   ],
+   "unsupported_rate_lenient": [
+    0.0,
+    0.0
+   ],
+   "disputed_rate": [
+    0.0,
+    0.0
+   ],
+   "strict_hallucination_rate": [
+    1.0,
+    1.0
+   ],
+   "strict_concept_only_rate": [
+    1.0,
+    1.0
+   ],
+   "strict_detail_only_rate": [
+    0.0,
+    0.0
+   ],
+   "strict_both_rate": [
+    0.0,
+    0.0
+   ],
+   "strict_unclassified_only_rate": [
+    0.0,
+    0.0
+   ],
+   "strict_concept_rate": [
+    1.0,
+    1.0
+   ],
+   "strict_detail_rate": [
+    0.0,
+    0.0
+   ],
+   "lenient_hallucination_rate": [
+    1.0,
+    1.0
+   ],
+   "lenient_concept_only_rate": [
+    1.0,
+    1.0
+   ],
+   "lenient_detail_only_rate": [
+    0.0,
+    0.0
+   ],
+   "lenient_both_rate": [
+    0.0,
+    0.0
+   ],
+   "lenient_unclassified_only_rate": [
+    0.0,
+    0.0
+   ],
+   "lenient_concept_rate": [
+    1.0,
+    1.0
+   ],
+   "lenient_detail_rate": [
+    0.0,
+    0.0
+   ]
+  }
+ },
+ "by_layer": {
+  "44": {
+   "n_items": 3,
+   "counts": {
+    "n_readouts": 21,
+    "n_specific": 21,
+    "n_hallucinated": 21,
+    "n_hallucinated_unrevoked": 21,
+    "n_off_topic": 0,
+    "n_revoked": 0,
+    "c_concept_only": 21,
+    "c_detail_only": 0,
+    "c_both": 0,
+    "c_unclassified_only": 0,
+    "c_concept": 21,
+    "c_detail": 0,
+    "n_major": 21,
+    "sum_max_severity": 63,
+    "n_max_severity": 21,
+    "n_hallucinated_all_unknown": 0,
+    "n_tallied": 21,
+    "n_unsupported": 0,
+    "n_unsupported_concept": 0,
+    "n_unsupported_detail": 0,
+    "n_unsupported_prediction": 0,
+    "n_unsupported_inference": 0,
+    "n_unsupported_fabricated": 0,
+    "n_unsupported_world_knowledge": 0,
+    "n_unsupported_unknown": 0,
+    "n_unsupported_lenient": 0,
+    "n_disputed": 0,
+    "n_strict": 21,
+    "s_concept_only": 21,
+    "s_detail_only": 0,
+    "s_both": 0,
+    "s_unclassified_only": 0,
+    "s_concept": 21,
+    "s_detail": 0,
+    "n_lenient": 21,
+    "l_concept_only": 21,
+    "l_detail_only": 0,
+    "l_both": 0,
+    "l_unclassified_only": 0,
+    "l_concept": 21,
+    "l_detail": 0
+   },
+   "health": {
+    "n_cells": 21,
+    "n_empty_cells": 0,
+    "n_pending_cells": 0,
+    "n_judged_cells": 21,
+    "n_short_cells": 0,
+    "n_entered_summary": 21,
+    "n_entered_span": 21,
+    "n_entered_verify": 21,
+    "n_entered_classify": 21,
+    "n_entered_map": 21,
+    "n_failed_summary": 0,
+    "n_failed_span": 0,
+    "n_failed_verify": 0,
+    "n_failed_classify": 0,
+    "n_failed_map": 0,
+    "n_pending_summary": 0,
+    "n_pending_span": 0,
+    "n_pending_verify": 0,
+    "n_pending_classify": 0,
+    "n_pending_map": 0,
+    "n_unverified_spans": 0,
+    "n_unverified_claim_quotes": 0,
+    "n_cells_claims_unjudged": 0,
+    "n_offtopic_overlap_quotes": 0,
+    "n_spans": 21,
+    "n_unclassified": 0,
+    "n_extra_ids": 0,
+    "n_duplicate_ids": 0,
+    "n_missing_ids": 0,
+    "n_bad_labels": 0,
+    "n_kind_ignored": 0,
+    "n_readouts_claims_judged": 21,
+    "n_claims_false": 21,
+    "n_claims_true": 0,
+    "n_claims_unverifiable": 0,
+    "n_claims_disputed": 0,
+    "n_claims_off_topic": 0
+   },
+   "rates": {
+    "hallucination_rate": 1.0,
+    "hallucination_rate_revoked": 1.0,
+    "off_topic_rate": 0.0,
+    "assert_share": 1.0,
+    "concept_only_rate": 1.0,
+    "detail_only_rate": 0.0,
+    "both_rate": 0.0,
+    "unclassified_only_rate": 0.0,
+    "concept_rate": 1.0,
+    "detail_rate": 0.0,
+    "major_rate": 1.0,
+    "mean_max_severity": 3.0,
+    "verify_coverage": 1.0,
+    "unsupported_rate": 0.0,
+    "unsupported_concept_rate": 0.0,
+    "unsupported_detail_rate": 0.0,
+    "unsupported_prediction_rate": 0.0,
+    "unsupported_inference_rate": 0.0,
+    "unsupported_fabricated_rate": 0.0,
+    "unsupported_world_knowledge_rate": 0.0,
+    "unsupported_unknown_rate": 0.0,
+    "unsupported_rate_lenient": 0.0,
+    "disputed_rate": 0.0,
+    "strict_hallucination_rate": 1.0,
+    "strict_concept_only_rate": 1.0,
+    "strict_detail_only_rate": 0.0,
+    "strict_both_rate": 0.0,
+    "strict_unclassified_only_rate": 0.0,
+    "strict_concept_rate": 1.0,
+    "strict_detail_rate": 0.0,
+    "lenient_hallucination_rate": 1.0,
+    "lenient_concept_only_rate": 1.0,
+    "lenient_detail_only_rate": 0.0,
+    "lenient_both_rate": 0.0,
+    "lenient_unclassified_only_rate": 0.0,
+    "lenient_concept_rate": 1.0,
+    "lenient_detail_rate": 0.0
+   },
+   "ci95": {
+    "hallucination_rate": [
+     1.0,
+     1.0
+    ],
+    "hallucination_rate_revoked": [
+     1.0,
+     1.0
+    ],
+    "off_topic_rate": [
+     0.0,
+     0.0
+    ],
+    "assert_share": [
+     1.0,
+     1.0
+    ],
+    "concept_only_rate": [
+     1.0,
+     1.0
+    ],
+    "detail_only_rate": [
+     0.0,
+     0.0
+    ],
+    "both_rate": [
+     0.0,
+     0.0
+    ],
+    "unclassified_only_rate": [
+     0.0,
+     0.0
+    ],
+    "concept_rate": [
+     1.0,
+     1.0
+    ],
+    "detail_rate": [
+     0.0,
+     0.0
+    ],
+    "major_rate": [
+     1.0,
+     1.0
+    ],
+    "mean_max_severity": [
+     3.0,
+     3.0
+    ],
+    "verify_coverage": [
+     1.0,
+     1.0
+    ],
+    "unsupported_rate": [
+     0.0,
+     0.0
+    ],
+    "unsupported_concept_rate": [
+     0.0,
+     0.0
+    ],
+    "unsupported_detail_rate": [
+     0.0,
+     0.0
+    ],
+    "unsupported_prediction_rate": [
+     0.0,
+     0.0
+    ],
+    "unsupported_inference_rate": [
+     0.0,
+     0.0
+    ],
+    "unsupported_fabricated_rate": [
+     0.0,
+     0.0
+    ],
+    "unsupported_world_knowledge_rate": [
+     0.0,
+     0.0
+    ],
+    "unsupported_unknown_rate": [
+     0.0,
+     0.0
+    ],
+    "unsupported_rate_lenient": [
+     0.0,
+     0.0
+    ],
+    "disputed_rate": [
+     0.0,
+     0.0
+    ],
+    "strict_hallucination_rate": [
+     1.0,
+     1.0
+    ],
+    "strict_concept_only_rate": [
+     1.0,
+     1.0
+    ],
+    "strict_detail_only_rate": [
+     0.0,
+     0.0
+    ],
+    "strict_both_rate": [
+     0.0,
+     0.0
+    ],
+    "strict_unclassified_only_rate": [
+     0.0,
+     0.0
+    ],
+    "strict_concept_rate": [
+     1.0,
+     1.0
+    ],
+    "strict_detail_rate": [
+     0.0,
+     0.0
+    ],
+    "lenient_hallucination_rate": [
+     1.0,
+     1.0
+    ],
+    "lenient_concept_only_rate": [
+     1.0,
+     1.0
+    ],
+    "lenient_detail_only_rate": [
+     0.0,
+     0.0
+    ],
+    "lenient_both_rate": [
+     0.0,
+     0.0
+    ],
+    "lenient_unclassified_only_rate": [
+     0.0,
+     0.0
+    ],
+    "lenient_concept_rate": [
+     1.0,
+     1.0
+    ],
+    "lenient_detail_rate": [
+     0.0,
+     0.0
+    ]
+   }
+  }
+ },
+ "unsupported_kind_span_share": {},
+ "spans": {
+  "joint": [
+   {
+    "grounding": "contradicted",
+    "type": "concept",
+    "target": "entity",
+    "severity": 3,
+    "unsupported_kind": null,
+    "n": 21
+   }
+  ],
+  "by_grounding": {
+   "contradicted": {
+    "n": 21,
+    "type": {
+     "concept": {
+      "n": 21,
+      "share": 1.0
+     }
+    },
+    "target": {
+     "entity": {
+      "n": 21,
+      "share": 1.0
+     }
+    },
+    "severity": {
+     "3": {
+      "n": 21,
+      "share": 1.0
+     }
+    },
+    "unsupported_kind": {
+     "None": {
+      "n": 21,
+      "share": 1.0
+     }
+    }
+   },
+   "disputed": {
+    "n": 0,
+    "type": {},
+    "target": {},
+    "severity": {},
+    "unsupported_kind": {}
+   },
+   "unsupported": {
+    "n": 0,
+    "type": {},
+    "target": {},
+    "severity": {},
+    "unsupported_kind": {}
+   }
+  }
+ },
+ "spend": {
+  "summary": {
+   "usd": 0.21000000000000005,
+   "calls": 21,
+   "retries": 0,
+   "errors": 0,
+   "refusals": 0,
+   "input_tokens": 210,
+   "output_tokens": 546,
+   "cache_write_tokens": 0,
+   "cache_read_tokens": 0
+  },
+  "span": {
+   "usd": 0.21000000000000005,
+   "calls": 21,
+   "retries": 0,
+   "errors": 0,
+   "refusals": 0,
+   "input_tokens": 210,
+   "output_tokens": 571,
+   "cache_write_tokens": 0,
+   "cache_read_tokens": 0
+  },
+  "verify": {
+   "usd": 0.21000000000000005,
+   "calls": 21,
+   "retries": 0,
+   "errors": 0,
+   "refusals": 0,
+   "input_tokens": 210,
+   "output_tokens": 568,
+   "cache_write_tokens": 0,
+   "cache_read_tokens": 0
+  },
+  "classify": {
+   "usd": 0.21000000000000005,
+   "calls": 21,
+   "retries": 0,
+   "errors": 0,
+   "refusals": 0,
+   "input_tokens": 210,
+   "output_tokens": 468,
+   "cache_write_tokens": 0,
+   "cache_read_tokens": 0
+  },
+  "map": {
+   "usd": 0.21000000000000005,
+   "calls": 21,
+   "retries": 0,
+   "errors": 0,
+   "refusals": 0,
+   "input_tokens": 210,
+   "output_tokens": 351,
+   "cache_write_tokens": 0,
+   "cache_read_tokens": 0
+  },
+  "total_usd": 1.0500000000000003
+ }
+}

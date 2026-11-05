@@ -101,7 +101,11 @@ def cmd_index_export(args: argparse.Namespace) -> int:
         raise wsb.WsbError(f"--arm-map entries must be from=to: {bad}")
     arm_map = dict(kv.split("=") for kv in pairs)
     meta = index_export.export(
-        [Path(p) for p in args.summary], Path(args.dest), bank.load_items(), arm_map=arm_map
+        [Path(p) for p in args.summary],
+        Path(args.dest),
+        bank.load_items(),
+        arm_map=arm_map,
+        joint=args.joint,
     )
     print(
         f"[index-export] {meta['n_rows']} rows, arms {meta['arms']}, layers {meta['layers']} "
@@ -174,5 +178,11 @@ def register(sub: argparse._SubParsersAction) -> None:  # type: ignore[type-arg]
         "--arm-map",
         default="",
         help="from=to,... : rename an eval arm to an index reader name (no-op when they match)",
+    )
+    ie.add_argument(
+        "--joint",
+        action="store_true",
+        help="plan 0029: also write the eval's `all` unit to index_counts_joint.jsonl (the "
+        "hindex-v8 joint rows; layer 'all')",
     )
     ie.set_defaults(fn=_wrap(cmd_index_export))

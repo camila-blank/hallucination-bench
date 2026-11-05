@@ -145,6 +145,18 @@ def metrics(recs: Sequence[dict[str, Any]]) -> dict[str, Any]:
     return dict(out)
 
 
+def truncation_share(recs: Sequence[dict[str, Any]]) -> dict[str, dict[str, Any]]:
+    """Plan 0029: per reader, the share of records whose bundle hit the digest token cap
+    (``summary_truncated``) -- reported for the joint all-layer bundles."""
+    by: dict[str, list[bool]] = defaultdict(list)
+    for r in recs:
+        by[r["reader"]].append(bool(r.get("summary_truncated")))
+    return {
+        rd: {"n": len(v), "n_truncated": sum(v), "share": sum(v) / len(v) if v else None}
+        for rd, v in sorted(by.items())
+    }
+
+
 INDEX_COLUMNS = index_export.COLUMNS
 
 

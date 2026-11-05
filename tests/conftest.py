@@ -115,6 +115,16 @@ class FakeLLM:
         return sum(c[0] == stage for c in self.calls)
 
 
+@pytest.fixture(autouse=True)
+def _restore_chat_bank(monkeypatch):
+    """``--bank`` / a replayed arm.json bank repoint the chat bank module process-wide: undo it
+    after every test (plan 0029 review)."""
+    for name in ("ITEMS_PATH", "BANK_SOURCE", "BANK_COMMIT", "SELECTED"):
+        monkeypatch.setattr(bank, name, getattr(bank, name))
+    yield
+    bank.load_bank.cache_clear()
+
+
 @pytest.fixture
 def fake() -> FakeLLM:
     return FakeLLM()
