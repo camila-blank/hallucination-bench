@@ -405,6 +405,16 @@ class LLM:
                     return CallResult(None, usage)
         return CallResult(None, usage)
 
+    def with_effort(self, effort: str | None) -> "LLM":
+        """This client at another ``effort`` (plan 0029 Amendment 2: the continuation verifier
+        runs at ``medium``). The copy shares the semaphore, the SDK clients and the preflight
+        set, so ``--concurrency`` still bounds every call of the process together."""
+        import copy
+
+        out = copy.copy(self)
+        out.effort = effort
+        return out
+
     def streams(self, max_tokens: int) -> bool:
         return self.stream if self.stream is not None else max_tokens > STREAM_ABOVE_TOKENS
 

@@ -469,8 +469,13 @@ class Segment:
     contradicted_before_marker: bool | None = None  # incorrect only; None = field missing
     prefix_clash: str | None = None  # the judge's quote from the text before the marker
     prefix_clash_region: str | None = None  # prefix | after | None (not located / no quote)
+    # plan 0029 Amendment 2 (v2.9 roots with the continuation verifier only): a candidate's
+    # verdict (yes | no | failed | pending; None = not a candidate) and its three checks
+    excuse_verdict: str | None = None
+    excuse_checks: dict[str, bool] | None = None
     v28: bool = field(default=False, repr=False)  # emit the v2.8 fields (never emitted itself)
     v29: bool = field(default=False, repr=False)  # emit the v2.9 fields (never emitted itself)
+    cv: bool = field(default=False, repr=False)  # emit the verifier fields (never emitted itself)
 
     @property
     def chars(self) -> int:
@@ -478,12 +483,15 @@ class Segment:
 
     def to_dict(self) -> dict[str, Any]:
         d = asdict(self)
-        del d["v28"], d["v29"]
+        del d["v28"], d["v29"], d["cv"]
         if not self.v28:
             for f in V28_SEGMENT_FIELDS:
                 del d[f]
         if not self.v29:
             for f in V29_SEGMENT_FIELDS:
+                del d[f]
+        if not self.cv:
+            for f in VERIFIER_SEGMENT_FIELDS:
                 del d[f]
         return d
 
@@ -494,6 +502,26 @@ V29_SEGMENT_FIELDS: tuple[str, ...] = (
     "prefix_clash",
     "prefix_clash_region",
 )
+VERIFIER_SEGMENT_FIELDS: tuple[str, ...] = ("excuse_verdict", "excuse_checks")
+
+
+@dataclass(frozen=True)
+class ExcuseVerdict:
+    """Plan 0029 Amendment 2: the continuation verifier's answer for one candidate segment
+    (``status`` ok | failed | pending; the three checks only when ok)."""
+
+    status: str
+    c1: bool = False
+    c2: bool = False
+    c3: bool = False
+
+    @property
+    def yes(self) -> bool:
+        return self.status == "ok" and self.c1 and self.c2 and self.c3
+
+    @property
+    def label(self) -> str:
+        return ("yes" if self.yes else "no") if self.status == "ok" else self.status
 
 
 PARSE_COUNTS: tuple[str, ...] = (
@@ -539,22 +567,40 @@ PARSE_COUNTS_V29_EXTRA: tuple[str, ...] = (
     # `continuation_text` says: every segment the prefix check keeps out of the excuse
     "n_excuse_blocked_prefix",
 )
+# plan 0029 Amendment 2: the continuation-verifier counters, emitted only for v2.9 roots with
+# the verifier on (after the v2.9 ones). Candidates = ok, EXCUSABLE_LEAVES, contradiction
+# `after`; `n_continuation_miss` = `n_verifier_yes` there. The judge-tag agreement counts cover
+# candidates with an ok verdict ("judge" = the v2.9 tag rule: continuation_text and
+# contradicted_before_marker false; it no longer decides anything)
+PARSE_COUNTS_VERIFIER_EXTRA: tuple[str, ...] = (
+    "n_excuse_candidates",
+    "n_verifier_yes",
+    "n_verifier_no",
+    "n_verifier_failed",
+    "n_verifier_pending",
+    "n_judge_would_excuse",
+    "n_judge_yes_verifier_yes",
+    "n_judge_yes_verifier_no",
+    "n_judge_no_verifier_yes",
+    "n_judge_no_verifier_no",
+)
 SHORT_QUOTE_WORDS = 3
 
 
-def parse_counts(version: str | None = None) -> tuple[str, ...]:
+def parse_counts(version: str | None = None, verifier: str | None = None) -> tuple[str, ...]:
     """The parse counters of ``version`` (v2.7: ``PARSE_COUNTS`` exactly)."""
-    return (*PARSE_COUNTS, *extra_parse_counts(version))
+    return (*PARSE_COUNTS, *extra_parse_counts(version, verifier))
 
 
-def extra_parse_counts(version: str | None = None) -> tuple[str, ...]:
+def extra_parse_counts(version: str | None = None, verifier: str | None = None) -> tuple[str, ...]:
     """The counters ``version`` adds after ``PARSE_COUNTS`` (v2.7: none; v2.8: the v2.8 ones;
-    v2.9: + the prefix-check ones)."""
+    v2.9: + the prefix-check ones; v2.9 with a continuation ``verifier``: + the verifier ones)."""
     if not is_v28(version):
         return ()
     if not is_v29(version):
         return PARSE_COUNTS_V28_EXTRA
-    return (*PARSE_COUNTS_V28_EXTRA, *PARSE_COUNTS_V29_EXTRA)
+    extra = PARSE_COUNTS_VERIFIER_EXTRA if verifier else ()
+    return (*PARSE_COUNTS_V28_EXTRA, *PARSE_COUNTS_V29_EXTRA, *extra)
 
 
 def _b(x: Any) -> bool:
@@ -707,6 +753,7 @@ def parse(
     *,
     read_offset: int | None = None,
     version: str | None = None,
+    excuse_verdicts: Mapping[int, ExcuseVerdict] | None = None,
 ) -> tuple[list[Segment], dict[str, int]]:
     """Answer -> segments covering every unit, fail closed (see the module docstring). With
     ``conversation`` (production, calibration, consistency) the rev-17 evidence quotes are
@@ -724,8 +771,18 @@ def parse(
     field is missing: the safe default is no excuse); a contradiction quote straddling the
     marker is ``prefix``.
 
+    Plan 0029 Amendment 2 (``excuse_verdicts`` given; v2.9 with ``read_offset`` only): the
+    continuation verifier decides the excuse, not the judge's tags. A **candidate** is an ``ok``
+    segment with a leaf in ``EXCUSABLE_LEAVES`` and ``contradiction_region == "after"``; it gets
+    ``excuse_verdict`` (from ``excuse_verdicts[segment index]``; a missing entry is
+    ``pending``) and is excused iff the verdict is c1 & c2 & c3. A failed or pending verdict
+    never excuses. The judge's ``continuation_text`` / ``contradicted_before_marker`` are kept
+    and counted (the v2.9 counters, + judge-vs-verifier agreement). ``parse`` stays pure: the
+    caller passes ``{}`` first to learn the candidates, then the verdicts.
+
     Guards: ``read_offset`` without ``version`` raises (no implicit v2.8), and so does an answer
-    carrying ``contradicted_before_marker`` when ``version`` is not v2.9 or later."""
+    carrying ``contradicted_before_marker`` when ``version`` is not v2.9 or later, and
+    ``excuse_verdicts`` without a v2.9 ``version`` and ``read_offset``."""
     if read_offset is not None and version is None:
         raise ValueError("read_offset needs an explicit version (claimmap-v2.8 or later)")
     v29 = version is not None and is_v29(version)
@@ -734,11 +791,16 @@ def parse(
             f"the answer carries contradicted_before_marker but version {version!r} is not "
             "claimmap-v2.9 or later"
         )
+    cv = excuse_verdicts is not None
+    if cv and (not v29 or read_offset is None):
+        raise ValueError("excuse_verdicts need a claimmap-v2.9 version and read_offset")
     v28 = v29 or read_offset is not None or (version is not None and is_v28(version))
     if read_offset is not None and conversation is None:
         raise ValueError("read_offset needs the conversation")
     conv = Normalised(conversation) if conversation is not None else None
-    c = dict.fromkeys(parse_counts(tx.V29 if v29 else tx.V28) if v28 else PARSE_COUNTS, 0)
+    c = dict.fromkeys(
+        parse_counts(tx.V29 if v29 else tx.V28, "on" if cv else None) if v28 else PARSE_COUNTS, 0
+    )
     c["n_units"] = len(units)
     c["n_established_units"] = sum(u.established for u in units)
     entries: dict[tuple[int, int], dict[str, Any]] = {}
@@ -814,6 +876,7 @@ def parse(
                 prefix_clash=_quote(tsrc.get("prefix_clash")) if v29 else None,
                 v28=v28,
                 v29=v29,
+                cv=cv,
             )
             if leaf is None:
                 c["n_bad_leaves"] += 1
@@ -841,7 +904,7 @@ def parse(
         _merge_junk(s)
         _remap_hedged(s, c)
     if read_offset is not None and conv is not None:
-        for s in segs:
+        for i, s in enumerate(segs):
             _place_contradiction(s, conv, read_offset, c, straddle_prefix=v29)
             if v29:
                 _place_prefix_clash(s, conv, read_offset, c)
@@ -852,7 +915,10 @@ def parse(
                     and s.contradicted_before_marker is True
                 ):
                     c["n_excuse_blocked_prefix"] += 1
-            _excuse_continuation(s, c)
+            if excuse_verdicts is not None:
+                _verify_continuation(s, excuse_verdicts.get(i), c)
+            else:
+                _excuse_continuation(s, c)
     c["n_segments"] = len(segs)
     return segs, c
 
@@ -944,17 +1010,55 @@ def _excuse_continuation(s: "Segment", c: dict[str, int]) -> None:
     blocks is counted in :func:`parse` as ``n_excuse_blocked_prefix``) or did not give the
     field (``n_continuation_refused_missing``: the safe default is no excuse). A v2.9
     contradiction quote that straddles the marker is ``prefix`` (never excused)."""
+    if _judge_would_excuse(s, c):
+        _apply_excuse(s, c)
+
+
+def _judge_would_excuse(s: "Segment", c: dict[str, int]) -> bool:
+    """The judge-tag excuse rule (v2.8 / v2.9; see :func:`_excuse_continuation`), counting the
+    v2.9 refusals (``n_continuation_refused_prefix`` / ``_missing``)."""
     if (
         s.status != "ok"
         or s.leaf not in tx.EXCUSABLE_LEAVES
         or not s.continuation_text
         or s.contradiction_region != "after"
     ):
-        return
+        return False
     if s.v29 and s.contradicted_before_marker is not False:
         refused = s.contradicted_before_marker  # True, or None (missing field)
         c["n_continuation_refused_prefix" if refused else "n_continuation_refused_missing"] += 1
+        return False
+    return True
+
+
+def is_excuse_candidate(s: "Segment") -> bool:
+    """Plan 0029 Amendment 2: a segment the continuation verifier is asked about (``ok``, an
+    excusable leaf, its contradiction located only after the marker; v2.9's straddle rule kept
+    by :func:`contradiction_region`), whatever the judge's continuation tags say."""
+    return s.status == "ok" and s.leaf in tx.EXCUSABLE_LEAVES and s.contradiction_region == "after"
+
+
+def _verify_continuation(s: "Segment", v: ExcuseVerdict | None, c: dict[str, int]) -> None:
+    """Plan 0029 Amendment 2: a candidate is excused iff its verifier verdict is c1 & c2 & c3; a
+    missing (``pending``) or failed verdict never excuses. The judge's tag rule is evaluated
+    for reporting only (its refusal counters, ``n_judge_would_excuse``, agreement counts)."""
+    if not is_excuse_candidate(s):
         return
+    v = v if v is not None else ExcuseVerdict("pending")
+    judge = _judge_would_excuse(s, c)
+    c["n_excuse_candidates"] += 1
+    c["n_judge_would_excuse"] += judge
+    s.excuse_verdict = v.label
+    c[f"n_verifier_{v.label}"] += 1
+    if v.status == "ok":
+        s.excuse_checks = {"c1": v.c1, "c2": v.c2, "c3": v.c3}
+        j, y = "yes" if judge else "no", "yes" if v.yes else "no"
+        c[f"n_judge_{j}_verifier_{y}"] += 1
+    if v.yes:
+        _apply_excuse(s, c)
+
+
+def _apply_excuse(s: "Segment", c: dict[str, int]) -> None:
     if s.raw_leaf in tx.PROBE_CANDIDATE_LEAVES:  # as rev 19
         c["n_probe_candidates"] -= 1
         if s.probe_target is None:

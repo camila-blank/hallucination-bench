@@ -63,6 +63,9 @@ def run(args: argparse.Namespace) -> int:
         n_failed += sum(
             int(s.get("v8", {}).get("situation", {}).get("n_failed", 0)) for s in summaries.values()
         )
+    # plan 0029 Amendment 2: continuation-verifier failures, when the cverify stage ran
+    if "cverify" in stages:
+        n_failed += sum(amrun.n_failed_cverify(s) for s in summaries.values())
     if "joint" in stages:
         n_failed += sum(
             int(s.get("v8", {}).get("joint", {}).get("map_status", {}).get("failed", 0))

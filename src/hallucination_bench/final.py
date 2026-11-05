@@ -6,6 +6,7 @@ version, the judge model, ``n_cells`` and ``n_failed``::
 
     {"index_version": "hindex-v8",
      "max_failed_share": 0.01,
+     "excuse_verifier": "cverify-v1",
      "entries": [{"family": "main", "method": "s3d-rl600", "arm": "s3d-rl600", "unit": "L20",
                   "root": "outputs/v8/wsbench_chat/claude-opus-5-5",
                   "file": "s3d-rl600/cells.jsonl", "sha256": "...",
@@ -22,7 +23,10 @@ for the joint families), and that every claim-map entry (main, story, am_claims)
 **same** accepted v8 prompt (:data:`V8_FINAL_PROMPTS`: only ``claimmap-v2.9``, plan 0029
 amendment 1; a v2.8 or mixed manifest is refused; AM ``+am3`` versions normalised to their chat
 version) and that each claim-map arm dir's ``arm.json`` records it (a main arm dir also records
-``bank: x3``, plan 0028's bank); any failure exits 2 naming
+``bank: x3``, plan 0028's bank). Plan 0029 Amendment 2: the manifest's top-level
+``excuse_verifier`` and every claim-map arm dir's ``arm.json`` (and, for a chat / story ``all``
+entry, ``joint.json``) must record the continuation verifier ``cverify-v1``; a cell whose
+verifier verdict is failed / pending counts as failed in the recount. Any failure exits 2 naming
 the hole. It then builds hindex-v8 from exactly the manifest's files (symlinked into a fresh
 temp dir per run; a joint file is read only if an ``all`` entry hashes it) and nothing else,
 writes ``index.json`` / ``index.md`` to ``--out`` (sources point at the manifest roots) and draws
@@ -56,6 +60,10 @@ CLAIM_MAP_FAMILIES: tuple[str, ...] = (ix.MAIN, ix.STORY, ix.AM_CLAIMS)
 # plan 0029 amendment 1: the claim-map prompt versions `hbench final` accepts for hindex-v8
 # (chat versions; AM `+am3` normalised). v2.8 roots are pilot-only and never final.
 V8_FINAL_PROMPTS: frozenset[str] = frozenset({"claimmap-v2.9"})
+# plan 0029 Amendment 2: the continuation verifier every v8 claim-map root must have used (the
+# manifest's top-level `excuse_verifier` and every claim-map arm dir's arm.json; joint.json too
+# for a chat / story `all` entry)
+V8_EXCUSE_VERIFIER = "cverify-v1"
 COLOURS: dict[str, str] = {
     "s3d-rl600": "#1f77b4",  # O-lens
     "mlnla-rl600": "#d62728",  # NLA
@@ -154,13 +162,16 @@ def recount(e: Mapping[str, Any], path: Path) -> tuple[int, int, set[int | str]]
                 if r.get("status") == "empty":
                     continue
                 n += 1
-                f += (r.get("stages") or {}).get("map") != "ok"
+                st = r.get("stages") or {}
+                # plan 0029 Amendment 2: an unsettled verifier verdict is a failed cell too
+                f += st.get("map") != "ok" or st.get("cverify") in ("failed", "pending")
             elif fam == ix.AM_CLAIMS:
                 if r.get("status") == "empty":
                     continue
                 n += 1
                 bad_det = r.get("status") in ("pending", "failed")
-                f += bad_det or r.get("map_status") not in (None, "ok")
+                bad_cv = r.get("cverify_status") in ("failed", "pending")  # Amendment 2
+                f += bad_det or r.get("map_status") not in (None, "ok") or bad_cv
             elif fam == ix.AM_SITUATION:
                 if r.get("status") == "empty":
                     continue
@@ -221,6 +232,11 @@ def check(m: Mapping[str, Any], base: Path) -> str:
         raise ManifestError(
             f"claim-map prompt {v!r} is not an accepted v8 version ({sorted(V8_FINAL_PROMPTS)})"
         )
+    if (mv := m.get("excuse_verifier")) != V8_EXCUSE_VERIFIER:
+        raise ManifestError(
+            f"the manifest declares excuse_verifier {mv!r}; v8 needs {V8_EXCUSE_VERIFIER!r} "
+            "(plan 0029 amendment 2)"
+        )
     for e in claim:
         d = (base / e["root"] / e["file"]).resolve().parent
         a = d / "arm.json"
@@ -230,6 +246,16 @@ def check(m: Mapping[str, Any], base: Path) -> str:
         rec = arm_rec.get("map_prompt") or cm.PROMPT_VERSION
         if chat_version(rec) != v:
             raise ManifestError(f"{_where(e)}: {a} records map_prompt {rec!r}, declared {v!r}")
+        recs = [(a, arm_rec)]
+        j = d / "joint.json"
+        if e["unit"] == ix.JOINT_LABEL and j.is_file():
+            recs.append((j, json.loads(j.read_text(encoding="utf-8"))))
+        for path, r in recs:
+            if (got := r.get("excuse_verifier")) != V8_EXCUSE_VERIFIER:
+                raise ManifestError(
+                    f"{_where(e)}: {path} records excuse_verifier {got!r}; v8 needs "
+                    f"{V8_EXCUSE_VERIFIER!r} (plan 0029 amendment 2)"
+                )
         if e["family"] == ix.MAIN:  # the v8 main family is plan 0028's x3 bank (missing = wsb)
             b, src = arm_rec.get("bank") or "wsb", str(arm_rec.get("bank_source") or "")
             if b != MAIN_BANK or not src.startswith(MAIN_BANK_SOURCE_PREFIX):
@@ -541,13 +567,18 @@ def main(
             print(f"hbench final: {e}", file=sys.stderr)
             return 2
         built = ix.build_index_v8(
-            sources, ix.load_methods(methods), workers, prompt_version=version
+            sources,
+            ix.load_methods(methods),
+            workers,
+            prompt_version=version,
+            excuse_verifier=V8_EXCUSE_VERIFIER,  # check() required it everywhere
         )
         _restore_paths(built, back)
     built["manifest"] = {
         "path": str(Path(manifest).resolve()),
         "sha256": sha256_file(manifest),
         "prompt_version": version,
+        "excuse_verifier": V8_EXCUSE_VERIFIER,
     }
     js, md = ix.write_index(built, Path(out))
     plots = Path(plots)

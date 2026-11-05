@@ -26,7 +26,8 @@ gated role-play candidates; judged by running WSB's own pinned `jailbreak_recogn
 `--version v7`, CLI default still v6) = v6 + `benign_roleplay` (weight 2), sibling weight 1.
 **hindex-v8** (plan `plans/0029-index-v8-overhaul.md`, `--version v8`; CLI default switches in the
 results PR) = claimmap-v2.9 everywhere (plan 0029 Amendment 1: v2.8 + the slot rule and the
-prefix check for excused literal continuations; roles = substitutions), AM
+prefix check for excused literal continuations; roles = substitutions) with the excuse decided by
+the continuation verifier `cverify-v1` (Amendment 2), AM
 split into `am_claims` + `am_situation` (amsit-v2), `cheating` (weight 2), a joint 11-layer row per
 method, `hbench final` (manifest + plots). Plan 0029 supersedes the cheating branch's plan 0026
 for the index (its "hindex-v7" commit 8663a1f is not used).
@@ -54,7 +55,11 @@ src/hallucination_bench/
   judges/claimmap_v2.py  claim-map prompt, schema, validate, parse -> segments (forced/disputed);
                   plan 0029: VERSIONS registry (claimmap-v2.7 / -v2.8 / -v2.9 Spec), schema_for(anchor,
                   version), parse(read_offset=) -> the continuation excuse (v2.9: + the prefix
-                  check), joint_note()
+                  check), joint_note(); Amendment 2: parse(excuse_verdicts=) -> the verifier
+                  decides the excuse (ExcuseVerdict, is_excuse_candidate)
+  judges/continuation_verifier.py  plan 0029 Amendment 2: cverify-v1 (verbatim prompt + input
+                  builder from the offline experiment, pinned by hash), cached_verdict,
+                  verify_and_parse (parse {} -> candidates -> verdicts -> parse again)
   evals/__init__.py  EVALS registry + bank_for(name); Models.eval picks the bank and <out>/<eval>/
   evals/_bank_common.py  sites / positions / marked response / expected grid (every bank)
   evals/story/bank.py    the story bank (data/story); the pipeline is wsbench_chat's (plan 0007)
@@ -599,6 +604,45 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
     claim-map arm dir's `arm.json` `map_prompt` (only claimmap-v2.9 accepted), and builds from a fresh temp dir holding only
     the listed files (`situation.jsonl` filtered to the listed units).
   - Judge noise is not run for v8: `report --view v2` shows no noise column for v2.8 roots.
+  - **Continuation verifier** (plan 0029 Amendment 2, `cverify-v1`; the v2.9 tag gate failed at
+    0.733 after pilot2's 0.52):
+    - **The rule.** In v2.9 roots with the verifier on, the excuse is decided by
+      `judges/continuation_verifier.py`, not by the judge's tags.
+      - Candidate = `ok`, an `EXCUSABLE_LEAVES` leaf, `contradiction_region == "after"`
+        (straddle = prefix kept).
+      - Excused iff the verifier says c1 & c2 & c3.
+      - A failed or pending verdict never excuses.
+      - `continuation_text` / `contradicted_before_marker` are parsed and counted
+        (`n_judge_would_excuse`, `n_judge_{yes,no}_verifier_{yes,no}`) but never gate.
+      - Counters `n_excuse_candidates`, `n_verifier_{yes,no,failed,pending}`; segment fields
+        `excuse_verdict` / `excuse_checks`. Verifier roots only, so v2.7 / v2.8 / verifier-off
+        outputs are unchanged.
+    - **Stage `cverify`.** It is not in `run.STAGES`, so v7 spend tables stay identical, but it is
+      in the CLI default and the AM default set. It runs after the map:
+      - per cell in chat / story;
+      - per candidate of the joint answer;
+      - as an AM stage after `map`;
+      - inside the AM joint stage.
+      Records carry `stages.cverify` (chat) / `cverify_status` (AM).
+    - **The call and its cache.**
+      - Rows `{cell key}:CV:{seg idx}` in the arm's cache; fingerprint = (version, model,
+        effort `medium`, system, user).
+      - Opus with a Sonnet fallback on refusal, using `LLM.with_effort` (same semaphore).
+      - Failed rows: exit 4 (chat always; AM when `cverify` ran) and re-asked next run.
+    - **Settings.**
+      - `--excuse-verifier {cverify-v1,off}`: default on for claimmap-v2.9; `Models.excuse_verifier`
+        defaults to None in the Python API, so library callers / old tests keep the v2.9 tag rule.
+      - Recorded in `arm.json` / `joint.json`; a judge run that differs exits 3; rebuild / report
+        replay the record.
+      - The old v29 pilot roots have no record (= off).
+    - **`hbench final`** requires `excuse_verifier: cverify-v1` in the manifest, every claim-map
+      `arm.json` and the joint `joint.json`; a failed / pending verdict is a failed cell in the
+      recount.
+    - **Do not tune the prompt.** It is a verbatim port pinned in
+      `tests/test_continuation_verifier.py`; a change is a new version.
+    - **Gate.** A NEW pilot with a different `--sample-seed`, fresh cells excluding the gate2 /
+      gate_v29 sites, blind labellers who never see verifier output. Precision >= 0.85, recall
+      reported.
 - **In-run retries** (rev 14): an invalid `:M` (or calibration) answer is re-asked up to 2 times
   (`run.MAP_INVALID_RETRIES`) before it is cached as failed; meta records `n_invalid_attempts`
   and the summed usage.

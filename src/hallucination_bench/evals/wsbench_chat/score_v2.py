@@ -111,11 +111,12 @@ def leaf_rows(version: str | None = None) -> tuple[str, ...]:
     return tx.leaf_rows(version or tx.V27)
 
 
-def health_keys(version: str | None = None) -> tuple[str, ...]:
-    """``HEALTH_V2`` (v2.7) or ``HEALTH_V2`` + the v2.8 (v2.9) parse counters."""
+def health_keys(version: str | None = None, verifier: str | None = None) -> tuple[str, ...]:
+    """``HEALTH_V2`` (v2.7) or ``HEALTH_V2`` + the v2.8 (v2.9) parse counters (+ the
+    continuation-verifier counters with ``verifier``, plan 0029 Amendment 2)."""
     if not tx.is_v28(version or tx.V27):
         return HEALTH_V2
-    return (*HEALTH_V2, *cm.extra_parse_counts(version))
+    return (*HEALTH_V2, *cm.extra_parse_counts(version, verifier))
 
 
 def hedged_origin(seg: dict[str, Any]) -> str | None:
@@ -174,8 +175,10 @@ def majority_leaf(spans: Iterable[tuple[int, int, str]], start: int, end: int) -
     return next(lf for lf in order if cover[lf] == best)
 
 
-def slim(rec: dict[str, Any], version: str | None = None) -> SlimCellV2:
-    h = dict.fromkeys(health_keys(version), 0)
+def slim(
+    rec: dict[str, Any], version: str | None = None, verifier: str | None = None
+) -> SlimCellV2:
+    h = dict.fromkeys(health_keys(version, verifier), 0)
     st = (rec.get("stages") or {}).get("map") or "none"
     m = rec.get("map")
     if m is None:
@@ -363,12 +366,16 @@ def _rate(
 
 
 def block(
-    cells: Sequence[SlimCellV2], *, n_boot: int = N_BOOT, version: str | None = None
+    cells: Sequence[SlimCellV2],
+    *,
+    n_boot: int = N_BOOT,
+    version: str | None = None,
+    verifier: str | None = None,
 ) -> dict[str, Any]:
     totals, draws, n_items = ratios(cells, n_boot=n_boot, version=version)
     col = _layout(version or tx.V27)[1]
     lrows = leaf_rows(version)
-    health = dict.fromkeys(health_keys(version), 0)
+    health = dict.fromkeys(health_keys(version, verifier), 0)
     for c in cells:
         for k, v in c.health.items():
             health[k] += v
@@ -457,9 +464,10 @@ def agreement(cells: Iterable[SlimCellV2]) -> dict[str, dict[str, Any]]:
 class AccumulatorV2:
     cells: list[SlimCellV2] = field(default_factory=list)
     version: str | None = None  # plan 0029: the root's claim-map prompt (None = v2.7)
+    verifier: str | None = None  # plan 0029 Amendment 2: the continuation verifier (None = off)
 
     def add(self, rec: dict[str, Any]) -> None:
-        c = slim(rec, self.version)
+        c = slim(rec, self.version, self.verifier)
         if c.map_status != "none" or rec["status"] == "judged":
             self.cells.append(c)
 
@@ -467,11 +475,13 @@ class AccumulatorV2:
 def summarize(
     acc: AccumulatorV2, *, config: dict[str, Any], spend: dict[str, Any], n_boot: int = N_BOOT
 ) -> dict[str, Any]:
-    v = acc.version
-    overall = block(acc.cells, n_boot=n_boot, version=v)
+    v, ver = acc.version, acc.verifier
+    overall = block(acc.cells, n_boot=n_boot, version=v, verifier=ver)
     settled = sorted({c.layer for c in acc.cells if c.map_status in ("ok", "failed")})
     by_layer = {
-        str(la): block([c for c in acc.cells if c.layer == la], n_boot=n_boot, version=v)
+        str(la): block(
+            [c for c in acc.cells if c.layer == la], n_boot=n_boot, version=v, verifier=ver
+        )
         for la in settled
     }
     h = overall["health"]

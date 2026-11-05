@@ -8,7 +8,10 @@ arm, main 3× prompts); rev 3 → 4 → 5 critiques (versioned schema + user tem
 per-layer pilot + tag gate, Step-1 role clause, AM family plumbing, shared-CI definition, AM joint
 population, intent seed, allowlists)). This text is the whole spec. **Amendment 1 (2026-11-05,
 below): `claimmap-v2.9`** (slot rule + prefix check) replaces v2.8 for the v8 run after the
-pilot2 tag gate failed; where §1.2 / §3.3 say v2.8 or v2.8.1, read the amendment.
+pilot2 tag gate failed; where §1.2 / §3.3 say v2.8 or v2.8.1, read the amendment. **Amendment 2
+(2026-11-05, below): the continuation verifier `cverify-v1`** decides the excuse in v8 (the
+judge's continuation tags no longer gate it) after the v2.9 tag gate failed too; its gate is a
+new fresh-sample pilot (Amendment 2, "Gate").
 
 ## Camila's asks (2026-11-04, verbatim where quoted)
 
@@ -609,3 +612,128 @@ and the AM joint path with v2.9); `tests/test_registry_pins.py` gains `PINS_V28`
 `tests/test_final.py` fixtures move from v2.8 to v2.9 (sanctioned for the final-allow-set change
 only) and gain v2.8 / mixed-manifest refusals.
 
+## Amendment 2 (2026-11-05): the continuation verifier `cverify-v1` decides the excuse
+
+**Why.** The blind continuation gate failed twice on the judge's tags: pilot2 (v2.8) excuse
+precision 31/60 = 0.52, and the fresh v2.9 gate (`outputs/v8-pilot-v29/gate_v29`) 0.733 — below
+the 0.85 bar both times. The judge's tags also miss many true excuses (recall about 0.5 on
+gate_v29). An offline experiment (`/root/tmp/hb29-verifier/`, local: `scripts/verify.py`,
+`outputs/analysis.json`) asked one dedicated call per segment three questions — c1 literal
+continuation, c2 possible given the text before the marker (fills the same slot), c3 on topic —
+and scored it against the same blind labels:
+
+| rule | gate2 precision / recall | gate_v29 precision / recall |
+|---|---|---|
+| judge tags alone | 0.52 / 0.75 | 0.733 / 0.52 |
+| judge tags + verifier | 0.89 / 0.58 | 1.00 / 0.45 |
+| verifier on every after-contradicted segment | 0.86 / 0.78 | 1.00 / 0.87 |
+
+(Recall is pool-weighted.) Asking the verifier about every segment contradicted only after the
+marker, regardless of the judge's tags, is the only rule that clears precision 0.85 on both
+gates while keeping recall.
+
+**Decision (Camila, 2026-11-05).** In v8 the excuse is decided by the verifier, not by the judge's
+tags.
+
+**The rule (v2.9 roots with the verifier on; `claimmap_v2.parse(excuse_verdicts=)`).**
+- A **candidate** is a segment with `status` ok, a leaf in `EXCUSABLE_LEAVES` and
+  `contradiction_region == "after"`. v2.9's straddle-is-prefix rule is kept: a quote crossing the
+  marker is `prefix`, so it is never a candidate.
+- A candidate is excused (`continuation_miss`) **iff** the verifier answers c1 & c2 & c3.
+- A verifier failure never excuses: an error, an invalid answer after the in-run retries, or both
+  models refusing. Such a row is cached as failed and re-asked on the next run. `hbench run`
+  exits 4 while one remains, as for every other failed row (AM: when the `cverify` stage ran,
+  the AM convention).
+- A candidate not yet verified (`cverify` not selected) is `pending` and is not excused either.
+- The judge's `continuation_text` / `contradicted_before_marker` / `prefix_clash` are still parsed
+  and counted, but no longer gate anything. The v2.9 counters keep their meaning:
+  `n_continuation_refused_*` and `n_excuse_blocked_prefix` describe the judge's tags.
+- Agreement with the judge is reported: `n_judge_would_excuse` (the v2.9 tag rule) and
+  `n_judge_{yes,no}_verifier_{yes,no}` over the candidates with an ok verdict.
+- Other counters / health keys: `n_excuse_candidates`, `n_verifier_yes` / `_no` / `_failed` /
+  `_pending`, and `n_continuation_miss` (= `n_verifier_yes`).
+- Segment fields `excuse_verdict` (yes | no | failed | pending) and `excuse_checks`
+  ({c1, c2, c3}). These fields and counters are emitted for verifier roots only; v2.7 / v2.8 and
+  verifier-off v2.9 outputs are unchanged.
+- `cm.parse` stays pure: the caller parses with `{}` to learn the candidates, asks one verdict
+  per candidate, then parses again with the verdicts.
+
+**The call (`judges/continuation_verifier.py`, `cverify-v1`).**
+- The prompt (system, user template, schema, family descriptions) and the input builder are
+  ported **verbatim** from `verify.py`. The text-with-marker and the marked readout come from the
+  gate packets (`gate_v29_draw.py`): main / story `<prompt>…</prompt><response>…⟦READ⟧…</response>`;
+  AM the prompt render with the last 3,000 chars before the marker and 6,000 after.
+- The builder keeps the text before the marker (first 1,200 + last 3,000 chars when it is over
+  4,500), 600 chars of the real continuation (labelled context only), and the segment's own
+  readout with the segment marked `<<< >>>` (windowed when over 2,500 chars).
+- A test pins the prompt by hash. The production builder reproduces the experiment's inputs
+  byte for byte on all 51 story / AM gate_v29 items (main uses the same code; its x3 batch bank
+  was not loaded for the check). Never tune it in place: a change is a new version.
+- `claude-opus-5-5`, effort `medium` (`LLM.with_effort`: same semaphore and pacer, so
+  `--concurrency` bounds every call), structured JSON, one vote.
+- A refusal is re-asked once on `claude-sonnet-5-5` under the Opus fingerprint
+  (`meta.answered_by`). An invalid answer is re-asked up to 2 times.
+- Rows go in the arm's cache, key `{cell key}:CV:{segment index}`. The fingerprint is (`cverify-v1`,
+  model, effort, system, user), and the user prompt holds every input, so a changed map answer
+  never reuses a stale verdict.
+
+**Stage.** `cverify` runs after the map stage, on every path:
+- main / story per-layer: inside the per-cell pipeline right after `:M`; verifier calls of a
+  cell run concurrently;
+- joint 11-layer: one judge call per site, then one verifier call per candidate segment of the
+  joint answer;
+- AM per-layer: a stage after `map`, over the same cell selection;
+- AM joint: inside the joint stage.
+
+A cell records `stages.cverify` (chat / story) or `cverify_status` (AM) = not_needed | ok |
+failed | pending.
+
+`--stages`: `cverify` is in the CLI default (chat; AM default set). It is a no-op unless the
+verifier is on. Unselected, it reads the cache only. In chat its dependencies are summary + map.
+
+**Versions and guards.**
+- The map prompt stays `claimmap-v2.9`, byte-identical, so cached v2.9 `:M` answers are reused.
+- `--excuse-verifier {cverify-v1,off}`: the default is `cverify-v1` for claimmap-v2.9 roots and
+  off otherwise. `off` is for diagnostics only (the v2.9 tag rule). A verifier on a non-v2.9 root
+  is refused.
+- The setting is recorded in `arm.json` (and `joint.json`) as `excuse_verifier`; missing means
+  off. A judge run whose setting differs from the record exits 3, like `map_prompt`; rebuild and
+  report replay the recorded setting.
+- So the v2.9 pilot roots (judged with the tags, no record) can only be re-run with
+  `--excuse-verifier off`; v8 roots start fresh.
+- `hbench final` requires `excuse_verifier: "cverify-v1"` at the manifest's top level, in every
+  claim-map arm dir's `arm.json`, and in `joint.json` for a chat / story `all` entry.
+- In final's recount, a cell whose verdict is failed or pending counts as failed.
+- The hindex-v8 note says the excuse is decided by the verifier
+  (`index.notes_v8(version, excuse_verifier)`).
+
+**Circularity caveat.** The verifier prompt was written while reading the gate2 and gate_v29
+labels and disagreements, and the offline numbers above are measured on those same labels. They
+are therefore optimistic and are not a gate.
+
+**Gate (new).**
+- A **new pilot** with a `--sample-seed` different from pilot2's and v29's, on fresh cells:
+  exclude every item × site of the gate2 and gate_v29 sheets.
+- Judged with `claimmap-v2.9` + `cverify-v1`.
+- Same design as §3.3: excused vs after-contradicted non-excused segments, stratified over arms
+  and families.
+- Labelled by a fresh blind agent that never sees verifier output, the judge's tags, or which
+  sheet a segment came from.
+- Conditions as Amendment 1 / the verifier's c1–c3.
+- Bar: excuse **precision >= 0.85** (Wilson 95% CI). Also report recall (pool-weighted) and the
+  judge-vs-verifier agreement counts.
+- No further revision is pre-authorised: a failed gate goes back to Camila.
+
+**Tests.** `tests/test_continuation_verifier.py` covers:
+- the prompt pin and the builder's truncation;
+- candidate selection, excuse iff c1 & c2 & c3, and failure / pending → no excuse;
+- the judge tags kept and the agreement counts;
+- the cache key / fingerprint / fallback / invalid retries;
+- the verdicts on the main, story, joint, AM and AM joint paths (fakes);
+- the rebuild replaying the verdicts, and `cverify` unselected = cache only;
+- the `arm.json` record and the exit-3 mismatch (chat, joint, AM);
+- the CLI defaults, and exit 4 on failed verifier rows then 0 on the next run;
+- `final` requiring the verifier, the recount, and the note.
+
+**Sanctioned test edits.** `tests/test_final.py` fixture helpers `_arm_json` / `_manifest` now
+record `excuse_verifier: "cverify-v1"`, because `hbench final` requires it. No assertion changed.

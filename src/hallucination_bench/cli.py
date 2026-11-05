@@ -64,9 +64,28 @@ def resolve_arms(args: argparse.Namespace) -> list[tuple[str, Path]]:
     return arms
 
 
+def _excuse_verifier(args: argparse.Namespace, map_prompt: str) -> str | None:
+    """Plan 0029 Amendment 2: ``--excuse-verifier`` (default: ``cverify-v1`` for claimmap-v2.9
+    roots, off otherwise; ``off`` disables it for diagnostics). Rebuild / report replay the
+    arm dir's recorded setting whatever this says; a judge run that differs exits 3."""
+    from hallucination_bench.judges import claimmap_v2 as cm
+    from hallucination_bench.judges import continuation_verifier as cv
+
+    flag = getattr(args, "excuse_verifier", None)
+    if flag == "off":
+        return None
+    v29 = cm.is_v29(map_prompt) if map_prompt in cm.VERSIONS else False
+    if flag is None:
+        return cv.VERSION if v29 else None
+    if not v29:
+        raise SystemExit(f"--excuse-verifier {flag} needs --map-prompt claimmap-v2.9")
+    return flag
+
+
 def _models(args: argparse.Namespace):
     from hallucination_bench.evals.wsbench_chat.run import Models
 
+    map_prompt = getattr(args, "map_prompt", None) or "claimmap-v2.7"
     return Models(
         judge=args.judge_model,
         summarizer=args.summarizer_model,
@@ -75,22 +94,23 @@ def _models(args: argparse.Namespace):
         map_model=getattr(args, "map_model", None),
         map_anchor=getattr(args, "anchor", None) or "none",
         eval=getattr(args, "eval", None) or "wsbench_chat",
-        map_prompt=getattr(args, "map_prompt", None) or "claimmap-v2.7",
+        map_prompt=map_prompt,
         situation_model=getattr(args, "situation_model", None),
+        excuse_verifier=_excuse_verifier(args, map_prompt),
     )
 
 
 def _stages(args: argparse.Namespace) -> list[str]:
     """``--stages`` (default: every stage); ``--skip-classify`` keeps its plan-0001 meaning
     (summary, span and verify only) when ``--stages`` is not given."""
-    from hallucination_bench.evals.wsbench_chat.run import STAGES, expand_stages
+    from hallucination_bench.evals.wsbench_chat.run import EXTRA_STAGES, STAGES, expand_stages
 
     if args.stages:
         sel = [x.strip() for x in args.stages.split(",") if x.strip()]
     elif args.skip_classify:
         sel = ["summary", "span", "verify"]
     else:
-        sel = list(STAGES)
+        sel = [*STAGES, *EXTRA_STAGES]  # cverify: a no-op unless the verifier is on
     try:
         expand_stages(sel, anchor=getattr(args, "anchor", None) or "none")
     except ValueError as e:
@@ -208,7 +228,8 @@ def _cmd_run_joint(args: argparse.Namespace, arms: list, models, out: Path) -> i
             f"pending={h['n_map_pending']}",
             flush=True,
         )
-        if h["n_map_failed"] and not args.rebuild:
+        # plan 0029 Amendment 2: failed verifier calls are failed rows too (re-asked next run)
+        if (h["n_map_failed"] or h.get("n_verifier_failed", 0)) and not args.rebuild:
             rc = 4
     return rc
 
@@ -572,6 +593,20 @@ def _map_prompt(p: argparse.ArgumentParser) -> None:
     )
 
 
+def _excuse_verifier_flag(p: argparse.ArgumentParser) -> None:
+    from hallucination_bench.judges import continuation_verifier as cv
+
+    p.add_argument(
+        "--excuse-verifier",
+        choices=(*cv.VERSIONS, "off"),
+        default=None,
+        help="plan 0029 amendment 2: the continuation verifier that decides the "
+        "continuation_miss excuse (default: cverify-v1 for claimmap-v2.9 roots, off otherwise; "
+        "'off' = the v2.9 judge-tag rule, diagnostics only; recorded in arm.json, a run that "
+        "differs from an arm dir's record exits 3; hbench final requires cverify-v1)",
+    )
+
+
 def _anchor(p: argparse.ArgumentParser) -> None:
     p.add_argument(
         "--anchor",
@@ -620,6 +655,7 @@ def build_parser() -> argparse.ArgumentParser:
     r.add_argument("--classifier-model", default=None)
     r.add_argument("--map-model", default=None, help="claim-map (:M) judge (default: judge)")
     _map_prompt(r)
+    _excuse_verifier_flag(r)
     r.add_argument(
         "--situation-model",
         default=None,
@@ -645,12 +681,13 @@ def build_parser() -> argparse.ArgumentParser:
     r.add_argument(
         "--stages",
         default=None,
-        help="comma-separated stages that may call the API: summary,span,verify,classify,map "
-        "(default: all; dependencies are added: map runs summary first if missing, and span "
-        "only under --anchor v5c; single-call map also calls span on a seeded 10%% item "
-        "subsample for the v5c comparison). agentic_misalignment: detect,summ,verify,map,intent "
-        "(verify = Stage H, the headline verifier; default all; no dependencies are added, "
-        "unselected stages are cache-only)",
+        help="comma-separated stages that may call the API: summary,span,verify,classify,map,"
+        "cverify (default: all; dependencies are added: map runs summary first if missing, and "
+        "span only under --anchor v5c; cverify = the continuation verifier after map, v2.9 "
+        "verifier roots only; single-call map also calls span on a seeded 10%% item "
+        "subsample for the v5c comparison). agentic_misalignment: detect,summ,verify,map,intent,"
+        "cverify (verify = Stage H, the headline verifier; default all; no dependencies are "
+        "added, unselected stages are cache-only)",
     )
     r.add_argument("--allow-missing", action="store_true")
     r.add_argument(

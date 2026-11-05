@@ -22,7 +22,9 @@ def _two_layer_grid(monkeypatch):
 
 
 def _arm_json(d: Path, prompt: str = V29, bank: dict | None = None) -> None:
-    (d / "arm.json").write_text(json.dumps({"arm": d.name, "map_prompt": prompt, **(bank or {})}))
+    # plan 0029 Amendment 2: a v8 claim-map root records the continuation verifier
+    rec = {"arm": d.name, "map_prompt": prompt, "excuse_verifier": "cverify-v1", **(bank or {})}
+    (d / "arm.json").write_text(json.dumps(rec))
 
 
 X3_RECORD = {"bank": "x3", "bank_source": "plan0028-x3:/x3/items.json", "bank_sha256": "0" * 64}
@@ -74,6 +76,7 @@ def _manifest(tmp: Path, *, version=V29, recorded=V29, mutate=None, prep=None) -
     m = {
         "index_version": "hindex-v8",
         "max_failed_share": 0.01,
+        "excuse_verifier": "cverify-v1",  # plan 0029 Amendment 2
         "entries": _entries(tmp, src, version),
     }
     if mutate:

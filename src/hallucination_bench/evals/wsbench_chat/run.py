@@ -51,6 +51,7 @@ from hallucination_bench import summarizer
 from hallucination_bench.cache import Cache, fingerprint
 from hallucination_bench.evals import bank_for
 from hallucination_bench.judges import claimmap_v2 as cm
+from hallucination_bench.judges import continuation_verifier as cv
 from hallucination_bench.judges import taxonomy_v1 as tv1
 from hallucination_bench.judges import v5c
 from hallucination_bench.llm import LLM, JudgeConfigError, Usage, joint_llm
@@ -74,6 +75,12 @@ STAGE_DEPS: dict[str, tuple[str, ...]] = {
     "map": ("summary",),  # single-call; --anchor v5c adds span (MAP_DEPS_V5C)
 }
 MAP_DEPS_V5C: tuple[str, ...] = ("summary", "span")
+# plan 0029 Amendment 2: the continuation verifier stage (v2.9 roots with the verifier on; a
+# no-op elsewhere). Kept out of STAGES so v3-v7 spend tables / records stay byte-identical; the
+# CLI's default selection includes it.
+CVERIFY_STAGE = cv.STAGE
+EXTRA_STAGES: tuple[str, ...] = (CVERIFY_STAGE,)
+STAGE_DEPS[CVERIFY_STAGE] = ("summary", "map")
 V5C_SUBSAMPLE_SEED = 0
 V5C_SUBSAMPLE_FRACTION = 0.10
 
@@ -95,9 +102,9 @@ def expand_stages(
         sel = [s for s in V1_STAGES if classify or s != "classify"]
     else:
         sel = list(stages)
-    bad = [s for s in sel if s not in STAGES]
+    bad = [s for s in sel if s not in (*STAGES, *EXTRA_STAGES)]
     if bad:
-        raise ValueError(f"unknown stages {bad} (known: {', '.join(STAGES)})")
+        raise ValueError(f"unknown stages {bad} (known: {', '.join((*STAGES, *EXTRA_STAGES))})")
     out = set(sel)
     for s in sel:
         out.update(MAP_DEPS_V5C if s == "map" and anchored else STAGE_DEPS[s])
@@ -125,6 +132,9 @@ class Models:
     map_prompt: str = cm.PROMPT_VERSION
     # plan 0029 §2.3: agentic_misalignment's situation judge (amsit-v2); AM only
     situation_model: str | None = None
+    # plan 0029 Amendment 2: the continuation verifier (cverify-v1) deciding the excuse; v2.9
+    # roots only (the CLI turns it on by default there). In to_dict() / arm.json only when set.
+    excuse_verifier: str | None = None
 
     @property
     def summ(self) -> str:
@@ -151,6 +161,8 @@ class Models:
             d["map_prompt"] = self.map_prompt
         if self.situation_model is not None:
             d["situation_model"] = self.situation_model
+        if self.excuse_verifier is not None:
+            d["excuse_verifier"] = self.excuse_verifier
         return d
 
     @property
@@ -182,6 +194,27 @@ def check_map_prompt(arm_dir_: Path, models: Models) -> None:
             f"{arm_dir_}: judged with --map-prompt {rec}, this run asks for {models.map_prompt} "
             "(use another --out root, e.g. outputs/v8)"
         )
+    got = (_arm_record(arm_dir_) or {}).get("excuse_verifier")
+    if got != models.excuse_verifier:  # plan 0029 Amendment 2: never switched silently
+        raise JudgeConfigError(
+            f"{arm_dir_}: judged with --excuse-verifier {got or 'off'}, this run asks for "
+            f"{models.excuse_verifier or 'off'} (use another --out root)"
+        )
+
+
+def check_verifier(models: Models) -> None:
+    """Plan 0029 Amendment 2: the continuation verifier is a v2.9 (single-call) option only."""
+    if models.excuse_verifier is None:
+        return
+    try:
+        cv.check_version(models.excuse_verifier)
+    except ValueError as e:
+        raise JudgeConfigError(str(e)) from None
+    if not cm.is_v29(models.map_prompt):
+        raise JudgeConfigError(
+            f"--excuse-verifier {models.excuse_verifier} needs a claimmap-v2.9 root, got "
+            f"{models.map_prompt}"
+        )
 
 
 RECORDED_MODEL_FIELDS: tuple[str, ...] = ("map_model", "situation_model")
@@ -209,6 +242,9 @@ def with_recorded_prompt(arm_dir_: Path, models: Models) -> Models:
         return models
     v = recorded_map_prompt(arm_dir_)
     out = models if v == models.map_prompt else _replace(models, map_prompt=v)
+    ev = rec.get("excuse_verifier")  # plan 0029 Amendment 2: replay the recorded setting
+    if out.excuse_verifier != ev:
+        out = _replace(out, excuse_verifier=ev)
     if rec.get("map_prompt"):
         for f in RECORDED_MODEL_FIELDS:
             if getattr(out, f) is None and rec.get(f) is not None:
@@ -324,6 +360,8 @@ def cell_key(id_: str, layer: int, pos: int) -> str:
 
 
 def stage_of_key(key: str) -> str:
+    if cv.is_key(key):
+        return CVERIFY_STAGE
     if key.startswith("summ:"):
         return "summary"
     if key.endswith(":V"):
@@ -578,7 +616,9 @@ async def process_cell(
     anchored = cm.check_anchor(models.map_anchor)
     # ---- claim map, single-call (default): needs only the samples
     if not anchored:
-        await _map_stage(arm, cell, item, site, samples, None, rec, via("map"), models, dump)
+        await _map_stage(
+            arm, cell, item, site, samples, None, rec, via("map"), models, dump, via(CVERIFY_STAGE)
+        )
     # ---- 2. span stage (v5c, verbatim); single-call map runs also call it on the fixed 10%
     # item subsample for the v5c comparison
     span_llm = via("span")
@@ -696,6 +736,7 @@ async def _map_stage(
     llm: LLM | None,
     models: Models,
     dump: bool,
+    vllm: LLM | None = None,
 ) -> None:
     """Split the readouts into units, call / read the ``:M`` stage and attach the parsed
     segments to ``rec["map"]``. Anchored (``verdicts`` given): established spans = v5c verified
@@ -732,7 +773,9 @@ async def _map_stage(
     rec["stages"]["map"] = mout.status
     raw = mout.result if mout.status == "ok" else None
     conv = cm.conversation_text(item["prompt"], arm.bank.marked_response(item, site))
-    segs, counts = _parse_map(raw, units, conv, item, site, models)
+    segs, counts = await _verified_map(
+        arm, cell.key, raw, units, conv, item, site, samples, models, mout.status, rec, vllm
+    )
     counts["n_unlocated_established"] = sum(unloc)
     rec["map"] = {
         "anchor": anchor,
@@ -750,15 +793,61 @@ def _parse_map(
     item: dict[str, Any],
     site: dict[str, Any],
     models: Models,
+    verdicts: Mapping[int, cm.ExcuseVerdict] | None = None,
 ) -> tuple[list[cm.Segment], dict[str, int]]:
     """``cm.parse`` as the root's prompt version needs it: v2.7 exactly as before; v2.8 with the
-    read offset (single-call only: the excuse is disabled in anchored mode)."""
+    read offset (single-call only: the excuse is disabled in anchored mode). With the
+    continuation verifier on (plan 0029 Amendment 2), ``verdicts`` (``{}`` = none yet) decide
+    the excuse."""
     if not models.v28:
         return cm.parse(raw, units, conv)
     if cm.check_anchor(models.map_anchor):
         return cm.parse(raw, units, conv, version=models.map_prompt)
     off = cm.read_offset_chat(item["prompt"], item["response"], int(site["char"]))
-    return cm.parse(raw, units, conv, read_offset=off, version=models.map_prompt)
+    ev = (verdicts or {}) if models.excuse_verifier else None
+    return cm.parse(
+        raw, units, conv, read_offset=off, version=models.map_prompt, excuse_verdicts=ev
+    )
+
+
+def verifier_on(models: Models) -> bool:
+    """The continuation verifier decides the excuse (v2.9, single-call, verifier set)."""
+    return models.excuse_verifier is not None and not cm.check_anchor(models.map_anchor)
+
+
+async def _verified_map(
+    arm: Arm,
+    cell_key: str,
+    raw: dict[str, Any] | None,
+    units: Sequence[Any],
+    conv: str,
+    item: dict[str, Any],
+    site: dict[str, Any],
+    samples: Sequence[str],
+    models: Models,
+    map_status: str,
+    rec: dict[str, Any],
+    vllm: LLM | None,
+) -> tuple[list[cm.Segment], dict[str, int]]:
+    """Plan 0029 Amendment 2: the parsed map of one cell (per-layer, story or joint); in a
+    verifier root, the verifier stage runs on the parsed candidates (``vllm``: may call the
+    API; ``None``: cache only) and ``rec["stages"]["cverify"]`` records the cell's status."""
+    if not verifier_on(models) or map_status != "ok":
+        return _parse_map(raw, units, conv, item, site, models)
+    out = await cv.verify_and_parse(
+        lambda v: _parse_map(raw, units, conv, item, site, models, v),
+        cache=arm.cache,
+        llm=vllm,
+        cell_key=cell_key,
+        fam=cv.family(models.eval),
+        item=item,
+        pos=int(site["pos"]),
+        samples=samples,
+        version=models.excuse_verifier or cv.VERSION,
+        spend=arm.spend.setdefault(CVERIFY_STAGE, Usage()),
+    )
+    rec["stages"][CVERIFY_STAGE] = out.status
+    return out.segments, out.counts
 
 
 def _quotes_row(cl: v5c.ClaimLists, unsup: list[str], disp: list[str]) -> dict[str, Any]:
@@ -901,6 +990,7 @@ async def run_arms_async(
 ) -> dict[str, dict[str, Any]]:
     run_stages = expand_stages(stages, classify=classify, anchor=models.map_anchor)
     cm.spec(models.map_prompt)  # an unknown --map-prompt fails before anything is opened
+    check_verifier(models)
     for n, _p in arms:  # plan 0029: never mix prompt versions (or banks) in one arm dir
         check_map_prompt(arm_dir(out_root, models, n), models)
         check_bank(arm_dir(out_root, models, n), models)
@@ -934,6 +1024,8 @@ async def run_arms_async(
                 needed.add(models.clf)
             if "map" in run_stages:
                 needed.add(models.mapper)
+            if CVERIFY_STAGE in run_stages and verifier_on(models):
+                needed.add(cv.MODEL)
             for m in sorted(needed):
                 await llm.preflight(m)
                 print(f"preflight ok: {m} (structured output, effort={models.effort})", flush=True)
@@ -951,7 +1043,7 @@ async def run_arms_async(
                 await llm.aclose()
         for s in sels:
             print(f"[{s.arm.name}] this run:")
-            for st in STAGES:
+            for st in s.arm.spend:
                 print(f"    {st:9s} {s.arm.spend[st].report()}")
     finally:
         for a in opened:
@@ -962,6 +1054,10 @@ async def run_arms_async(
     for n, p in arms:
         summaries[n] = await rebuild_arm_async(n, p, out_root, models)
     return summaries
+
+
+def _acc_verifier(models: Models) -> str | None:
+    return models.excuse_verifier if verifier_on(models) else None
 
 
 def run_arms(*args: Any, **kwargs: Any) -> dict[str, dict[str, Any]]:
@@ -1011,7 +1107,7 @@ async def rebuild_arm_async(
     cells = [c for c in arm.cells if c.layer in layers]
     missing = missing_cells(cells, expected)
     acc = score.Accumulator(k=arm.k)
-    acc2 = score_v2.AccumulatorV2(version=models.map_prompt)
+    acc2 = score_v2.AccumulatorV2(version=models.map_prompt, verifier=_acc_verifier(models))
     map_layers = {
         int(m.group(1)) for k in arm.cache.keys() if k.endswith(":M") and (m := _LAYER_RE.search(k))
     }
@@ -1027,9 +1123,11 @@ async def rebuild_arm_async(
                 acc2.add(rec)
     tmp.replace(arm.dir / "cells.jsonl")
     spend = {s: Usage() for s in STAGES}
+    if verifier_on(models):
+        spend[CVERIFY_STAGE] = Usage()
     for row in arm.cache.rows():
         meta = row.get("meta") if isinstance(row.get("meta"), dict) else {}
-        spend[stage_of_key(row["key"])].add(meta.get("usage"))
+        spend.setdefault(stage_of_key(row["key"]), Usage()).add(meta.get("usage"))
     arm.cache.close()
     config = {
         "eval": models.eval,
@@ -1043,6 +1141,7 @@ async def rebuild_arm_async(
             "verify": v5c.VERIFY_PROMPT_VERSION,
             "classify": tv1.PROMPT_VERSION,
             "map": models.map_prompt,
+            **({CVERIFY_STAGE: models.excuse_verifier} if verifier_on(models) else {}),
         },
         "bank_source": arm.bank.BANK_SOURCE,
         "bank_commit": arm.bank.BANK_COMMIT,
@@ -1071,6 +1170,10 @@ async def rebuild_arm_async(
         skipped_rows=arm.report.skipped,
         spend={k: v.to_dict() for k, v in spend.items()},
     )
+    if verifier_on(models):  # plan 0029 Amendment 2: failed verifier calls -> exit 4 / re-ask
+        summary["health"]["n_failed_cverify"] = sum(
+            c.health.get("n_verifier_failed", 0) for c in acc2.cells
+        )
     (arm.dir / "summary.json").write_text(json.dumps(summary, indent=1) + "\n")
     p2 = arm.dir / "summary_v2.json"
     if any(c.map_status in ("ok", "failed") for c in acc2.cells):
@@ -1089,7 +1192,7 @@ JOINT_JSON = "joint.json"  # the joint unit's sources (precedence order), layers
 JOINT_CELLS = "cells_joint.jsonl"
 JOINT_SUMMARY = "summary_joint_v2.json"
 JOINT_LAYER = "all"  # a joint record's layer (the index maps it to its JOINT sentinel)
-JOINT_STAGES: tuple[str, ...] = ("summary", "map")
+JOINT_STAGES: tuple[str, ...] = ("summary", "map", CVERIFY_STAGE)
 
 
 def joint_key(id_: str, pos: int) -> str:
@@ -1292,7 +1395,20 @@ async def process_joint_cell(
     rec["status"] = "judged" if mout.status in ("ok", "failed") else "pending"
     raw = mout.result if mout.status == "ok" else None
     conv = cm.conversation_text(item["prompt"], arm.bank.marked_response(item, site))
-    segs, counts = _parse_map(raw, units, conv, item, site, models)
+    segs, counts = await _verified_map(
+        arm,
+        jc.key,
+        raw,
+        units,
+        conv,
+        item,
+        site,
+        samples,
+        models,
+        mout.status,
+        rec,
+        llm if CVERIFY_STAGE in stages else None,
+    )
     rec["map"] = {
         "anchor": "none",
         "units": [u.to_dict() for u in units],
@@ -1331,6 +1447,7 @@ async def run_joint_async(
     """Judge the joint cells of arm ``name`` (output dir ``<out>/<eval>/<judge>/<name>/``) from
     ``sources`` (precedence order), then rebuild them. Per-layer cells are untouched."""
     _check_joint_models(models)
+    check_verifier(models)
     sel = frozenset(stages) if stages else frozenset(JOINT_STAGES)
     if bad := sel - set(JOINT_STAGES):
         raise ValueError(f"joint stages are {JOINT_STAGES}, got {sorted(bad)}")
@@ -1369,7 +1486,10 @@ async def run_joint_async(
         own = llm is None
         llm = llm or joint_llm(rpm=rpm, concurrency=concurrency, effort=models.effort)
         try:
-            for m in sorted({models.mapper} | ({models.summ} if arm.kind == "tokens" else set())):
+            need = {models.mapper} | ({models.summ} if arm.kind == "tokens" else set())
+            if CVERIFY_STAGE in sel and verifier_on(models):
+                need.add(cv.MODEL)
+            for m in sorted(need):
                 await llm.preflight(m)
             if show_prompts:
                 arm.dump = (d / "prompts_sample_joint.txt").open("w", encoding="utf-8")
@@ -1412,13 +1532,17 @@ async def rebuild_joint_async(name: str, out_root: Path, models: Models) -> dict
     rec_j = json.loads((d / JOINT_JSON).read_text(encoding="utf-8"))
     from dataclasses import replace as _replace
 
-    models = _replace(models, map_prompt=rec_j.get("map_prompt") or cm.PROMPT_VERSION)
+    models = _replace(
+        models,
+        map_prompt=rec_j.get("map_prompt") or cm.PROMPT_VERSION,
+        excuse_verifier=rec_j.get("excuse_verifier"),  # plan 0029 Amendment 2: replayed
+    )
     if models.map_model is None and rec_j.get("map_model"):  # replay the recorded map model
         models = _replace(models, map_model=rec_j["map_model"])
     _check_joint_models(models)
     sources = [(n, Path(p)) for n, p in rec_j["sources"]]
     arm, jcells = _joint_arm(name, sources, out_root, models, rec_j["layers"], readonly=True)
-    acc2 = score_v2.AccumulatorV2(version=models.map_prompt)
+    acc2 = score_v2.AccumulatorV2(version=models.map_prompt, verifier=_acc_verifier(models))
     tmp = d / f"{JOINT_CELLS}.{os.getpid()}.tmp"
     n = dict.fromkeys(("judged", "pending", "empty", "failed_summary"), 0)
     with tmp.open("w", encoding="utf-8") as fh:
@@ -1430,7 +1554,9 @@ async def rebuild_joint_async(name: str, out_root: Path, models: Models) -> dict
     tmp.replace(d / JOINT_CELLS)
     spend = Usage()
     for row in arm.cache.rows():
-        if f"__L{JOINT_LAYER}__" in row["key"] and row["key"].endswith(":M"):
+        if f"__L{JOINT_LAYER}__" in row["key"] and (
+            row["key"].endswith(":M") or cv.is_key(row["key"])
+        ):
             meta = row.get("meta") if isinstance(row.get("meta"), dict) else {}
             spend.add(meta.get("usage"))
     arm.cache.close()
