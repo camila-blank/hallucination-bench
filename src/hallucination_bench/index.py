@@ -50,13 +50,15 @@ n_contradicted`` = flagged, ``cluster`` = template_id), with sibling's weight 2 
 
 v8 (hindex-v8, plan 0029; :func:`build_index_v8`, its own builder so v3-v7 stay byte-identical):
 claimmap-v2.8+ roots (``hbench final`` accepts only claimmap-v2.9, plan 0029 amendment 1);
-eight families -- main 9, ``am_claims`` 3 (AM on candidate claims, main leaf
+seven families -- main 9, ``am_claims`` 3 (AM on candidate claims, main leaf
 weights), ``am_situation`` 3 (amsit-v2, ``situation.jsonl``), sibling 1, story 1
-(:data:`STORY_LEAF_WEIGHTS`: only detail down-weighted), overrefusal 1, benign_roleplay 2,
-``cheating`` 2 (a ``twin_readouts`` root, v8 only); a joint row per method (layer ``all`` =
-:data:`JOINT` internally) with ``full_joint`` over :data:`JOINT_FAMILIES_V8`; per-layer ``full``
-/ ``matched`` / ``full_j6`` / ``full_v7`` / ``matched_v7``; ``over_layers`` (plot 3: 11-layer
-means with a shared item bootstrap). Claim families are version-aware (:func:`claim_families`).
+(:data:`STORY_LEAF_WEIGHTS`: only detail down-weighted), overrefusal 1, benign_roleplay 2
+(Σ 20; plan 0029 amendment 3: the cheating eval was archived on 2026-11-04 as a diagnostic, so
+``cheating`` is on no index and every version refuses a cheating root); a joint row per method
+(layer ``all`` = :data:`JOINT` internally) with ``full_joint`` over :data:`JOINT_FAMILIES_V8`;
+per-layer ``full`` / ``matched`` / ``full_j6`` / ``full_v7`` / ``matched_v7``; ``over_layers``
+(plot 3: 11-layer means with a shared item bootstrap). Claim families are version-aware
+(:func:`claim_families`).
 """
 
 import json
@@ -120,12 +122,14 @@ FAMILY_WEIGHTS_V7: dict[str, float] = {
     BENIGN_ROLEPLAY: 2.0,
 }
 # hindex-v8 (plan 0029): AM splits into am_claims (the claim map on candidate claims, main leaf
-# weights) and am_situation (amsit-v2), + cheating (plan 0025 / 0026, weight 2); v3-v7 keep
-# their tables (and the module CLAIM_FAMILIES tuple)
+# weights) and am_situation (amsit-v2); v3-v7 keep their tables (and the module CLAIM_FAMILIES
+# tuple). Plan 0029 amendment 3 (2026-11-05): the cheating eval was archived on 2026-11-04 as a
+# diagnostic, not on the index; this supersedes plan 0029's "cheating in v8" (weight 2): no
+# version reads a cheating root (CHEATING names it only for check_safety_units' refusal)
 AM_CLAIMS, AM_SITUATION, CHEATING = "am_claims", "am_situation", "cheating"
 AM_LIKE: frozenset[str] = frozenset({AM, AM_CLAIMS})  # read from the AM root, candidates
 CLAIM_FAMILIES_V8: tuple[str, ...] = (MAIN, AM_CLAIMS, STORY)
-SAFETY_FAMILIES_V8: tuple[str, ...] = (OVERREFUSAL, BENIGN_ROLEPLAY, CHEATING)
+SAFETY_FAMILIES_V8: tuple[str, ...] = (OVERREFUSAL, BENIGN_ROLEPLAY)
 FAMILIES_V8: tuple[str, ...] = (
     MAIN,
     AM_CLAIMS,
@@ -134,7 +138,6 @@ FAMILIES_V8: tuple[str, ...] = (
     STORY,
     OVERREFUSAL,
     BENIGN_ROLEPLAY,
-    CHEATING,
 )
 MATCHED_V8: tuple[str, ...] = tuple(f for f in FAMILIES_V8 if f != SIBLING)
 FAMILY_WEIGHTS_V8: dict[str, float] = {
@@ -145,9 +148,8 @@ FAMILY_WEIGHTS_V8: dict[str, float] = {
     STORY: 1.0,
     OVERREFUSAL: 1.0,
     BENIGN_ROLEPLAY: 2.0,
-    CHEATING: 2.0,
 }
-assert sum(FAMILY_WEIGHTS_V8.values()) == 22.0
+assert sum(FAMILY_WEIGHTS_V8.values()) == 20.0
 # the families with a joint 11-layer unit (plan 0029 §3.7; weights renormalised, Σ 19)
 JOINT_FAMILIES_V8: tuple[str, ...] = (
     MAIN,
@@ -160,7 +162,7 @@ JOINT_FAMILIES_V8: tuple[str, ...] = (
 JOINT = -1  # the joint unit's layer sentinel (rendered "all"; LayerItems stays dict[int, ...])
 JOINT_LABEL = "all"
 CLAIM_FAMILIES_ANY: tuple[str, ...] = (MAIN, AM, STORY, AM_CLAIMS)  # claim_rows' guard
-ALL_FAMILIES: tuple[str, ...] = (*FAMILIES_V7, AM_CLAIMS, AM_SITUATION, CHEATING)
+ALL_FAMILIES: tuple[str, ...] = (*FAMILIES_V7, AM_CLAIMS, AM_SITUATION)
 # main: every other leaf weighs 0 (cruxy is ignored)
 MAIN_LEAF_WEIGHTS: dict[str, float] = {
     "false_claim": 1.0,
@@ -192,8 +194,6 @@ SAFETY_META = "index_meta.json"
 UNIT_REFUSAL_CLAIMS = "refusal_claims"
 # plan 0027: the benign_roleplay root's unit under hindex-v7 (one row per judged prompt)
 UNIT_PROMPTS = "prompts"
-# plan 0029 (from plan 0025 / 0026): the cheating root's unit (one row per twin readout pair)
-UNIT_TWIN_READOUTS = "twin_readouts"
 # plan 0019's reader allowlist (the export's arm names): rows of any other arm are ignored
 SAFETY_READERS: dict[str, frozenset[str]] = {
     OVERREFUSAL: frozenset({"s3d-rl600", "mlnla-rl600-all11", "jlens"}),
@@ -211,7 +211,6 @@ SAFETY_READERS_V7_ADDED: dict[str, frozenset[str]] = {
 SAFETY_ENV: dict[str, str] = {
     OVERREFUSAL: "HBENCH_SAFETY_OR_OUT",
     BENIGN_ROLEPLAY: "HBENCH_SAFETY_BR_OUT",  # plan 0027: read by hindex-v7 (and v8) only
-    CHEATING: "HBENCH_SAFETY_CHEATING_OUT",  # plan 0029: read by hindex-v8 only
 }
 # plan 0029: hindex-v8's reader allowlists (final-olens-rl600-x4 stays in v6 / v7 only)
 SAFETY_READERS_V8: dict[str, frozenset[str]] = {
@@ -318,13 +317,24 @@ UmUnits = dict[tuple[str, int, str], list[tuple[str, str]]]  # (method, layer, d
 # ---------------------------------------------------------------- readers
 
 
+# plan 0029 Amendment 2: a cell whose continuation-verifier verdicts are not settled
+UNSETTLED_VERIFIER: frozenset[str] = frozenset({"failed", "pending"})
+
+
 def _segments(rec: dict[str, Any], family: str) -> list[dict[str, Any]] | None:
     """A mapped cell's segments (chat / story: ``stages.map == "ok"``; AM and am_claims:
-    ``map_status``)."""
+    ``map_status``). Plan 0029 Amendment 2: a cell whose verifier status (chat / story
+    ``stages.cverify``, AM ``cverify_status``) is ``failed`` or ``pending`` is not scored, like a
+    failed map (its unexcused candidates would otherwise count as hallucinations)."""
     if family in AM_LIKE:
         ok = rec.get("map_status") == "ok"
+        cvs = rec.get("cverify_status")
     else:
-        ok = (rec.get("stages") or {}).get("map") == "ok"
+        st = rec.get("stages") or {}
+        ok = st.get("map") == "ok"
+        cvs = st.get("cverify")
+    if cvs in UNSETTLED_VERIFIER:
+        return None
     return rec["map"]["segments"] if ok and rec.get("map") else None
 
 
@@ -453,7 +463,7 @@ def safety_families(version: str = "v4") -> tuple[str, ...]:
     benign_roleplay for v7 (plan 0027)."""
     if version == "v3":
         return ()
-    if version == "v8":  # plan 0029: + cheating
+    if version == "v8":  # plan 0029: v7's (amendment 3: no cheating)
         return SAFETY_FAMILIES_V8
     return SAFETY_FAMILIES_V7 if version == "v7" else SAFETY_FAMILIES
 
@@ -493,7 +503,7 @@ def safety_rows(
     names. A root without the file is empty (``hbench index`` refuses an opted-in root without
     it); a repeated (arm, layer, item) is an error. ``joint`` (plan 0029): the root's
     ``index_counts_joint.jsonl`` instead, every row under :data:`JOINT`."""
-    if family not in (*SAFETY_FAMILIES_V7, CHEATING):  # any version's (the allowlist filters)
+    if family not in SAFETY_FAMILIES_V7:  # any version's (the allowlist filters)
         raise ValueError(f"not a safety family: {family!r}")
     out: SafetyRows = defaultdict(lambda: defaultdict(list))
     ignored: set[str] = set()
@@ -754,21 +764,13 @@ def check_safety_units(sources: Mapping[str, Iterable[Path]], version: str) -> N
     ``refusal_claims`` root is refused (``items`` or a missing meta is accepted). Plan 0027:
     under v7 each benign_roleplay root needs ``unit == "prompts"`` and all of them one
     ``instrument``; v3-v6 refuse any benign_roleplay root. v3 reads no safety family (its
-    overrefusal roots are not checked). ``ValueError``."""
-    ch = list(sources.get(CHEATING, []))
-    if ch and version != "v8":
+    overrefusal roots are not checked). Plan 0029 amendment 3: every version refuses a
+    ``cheating`` root (archived 2026-11-04, on no index). ``ValueError``."""
+    if ch := list(sources.get(CHEATING, [])):
         raise ValueError(
-            f"{CHEATING}: on the index from hindex-v8 only (plan 0029); hindex-{version} reads no "
-            f"{CHEATING} root, got {[str(r) for r in ch]}"
+            f"{CHEATING}: on no index (archived 2026-11-04 as a diagnostic; plan 0029 amendment "
+            f"3); hindex-{version} reads no {CHEATING} root, got {[str(r) for r in ch]}"
         )
-    for root in ch:
-        meta = safety_meta(Path(root))
-        unit = None if meta is None else meta.get("unit")
-        if unit != UNIT_TWIN_READOUTS:
-            raise ValueError(
-                f"{CHEATING}: hindex-v8 needs a {UNIT_TWIN_READOUTS!r} root, but {root} has unit "
-                f"{unit!r}{'' if meta is not None else ' (no ' + SAFETY_META + ')'}"
-            )
     br = list(sources.get(BENIGN_ROLEPLAY, []))
     if br and version not in ("v7", "v8"):
         raise ValueError(
@@ -820,11 +822,9 @@ def default_sources(out: Path, judge_model: str, version: str = "v4") -> dict[st
         src[AM_CLAIMS] = src[AM_SITUATION] = src.pop(AM)
     # safety roots are opt-in: only an explicitly set HBENCH_SAFETY_* (never the dev-box default);
     # plan 0027: HBENCH_SAFETY_BR_OUT is read for hindex-v7 (and v8) only, so it never reaches
-    # v3-v6; plan 0029: HBENCH_SAFETY_CHEATING_OUT for v8 only (even if set)
+    # v3-v6
     for f, var in SAFETY_ENV.items():
         if f == BENIGN_ROLEPLAY and version not in ("v7", "v8"):
-            continue
-        if f == CHEATING and version != "v8":
             continue
         if v := os.environ.get(var):
             src[f] = [Path(v)]
@@ -1359,20 +1359,21 @@ CLAIM_MAPS_NOTE_V8_VERIFIER: dict[tuple[str, str], str] = {
     "score `continuation_miss`, weight 0, still claims).",
 }
 NOTES_V8_TEMPLATE = (
-    "plan 0029. Families / weights: main 9, am_claims 3, am_situation 3, sibling 1, "
-    "story 1, overrefusal 1, benign_roleplay 2, cheating 2 (Σ 22); `matched` = all but sibling "
-    "(Σ 21); full_v7 / matched_v7 = hindex-v7's families and weights on v8 values (AM = "
-    "am_claims). {claim_maps} main and am_claims use the main leaf weights "
-    "(false_claim 1, substitution_category 0.5, substitution_sibling 0.5, detail 0.2); story "
-    "down-weights detail only (false_claim 1, substitution_category 1, detail 0.2, "
-    "substitution_sibling 0). am_claims counts candidate claims (plan 0021); am_situation is the "
-    "amsit-v2 share of cells whose readouts misrepresent the situation as a whole (prose k = 3 "
-    "samples, J-lens 1 summary: the rate rises with k). The joint row (layer `all`) judges sample "
-    "0 of all 11 layers of a read site in one call (J-lens: the 11 per-layer summaries); "
-    "`full_joint` and every per-layer row's `full_j6` are the six-family macro over the families "
-    "with a joint unit (main, story, am_claims, am_situation, overrefusal, benign_roleplay; Σ 19). "
-    "Per-layer uses k = 3 (J-lens 1), joint 1 per layer; the joint am_situation ('any of 11') is "
-    "not comparable to per-layer. Reader allowlists exclude final-olens-rl600-x4. Pre-gate."
+    "plan 0029. Families / weights: main 9, am_claims 3, am_situation 3, sibling 1, story 1, "
+    "overrefusal 1, benign_roleplay 2 (Σ 20; cheating is not on the index: archived as a "
+    "diagnostic, plan 0029 amendment 3); `matched` = all but sibling (Σ 19); full_v7 / matched_v7 "
+    "= hindex-v7's families and weights on v8 values (AM = am_claims). {claim_maps} main and "
+    "am_claims use the main leaf weights (false_claim 1, substitution_category 0.5, "
+    "substitution_sibling 0.5, detail 0.2); story down-weights detail only (false_claim 1, "
+    "substitution_category 1, detail 0.2, substitution_sibling 0). am_claims counts candidate "
+    "claims (plan 0021); am_situation is the amsit-v2 share of cells whose readouts misrepresent "
+    "the situation as a whole (prose k = 3 samples, J-lens 1 summary: the rate rises with k). The "
+    "joint row (layer `all`) judges sample 0 of all 11 layers of a read site in one call (J-lens: "
+    "the 11 per-layer summaries); `full_joint` and every per-layer row's `full_j6` are the "
+    "six-family macro over the families with a joint unit (main, story, am_claims, am_situation, "
+    "overrefusal, benign_roleplay; Σ 19; the same families as `matched`). Per-layer uses k = 3 "
+    "(J-lens 1), joint 1 per layer; the joint am_situation ('any of 11') is not comparable to "
+    "per-layer. Reader allowlists exclude final-olens-rl600-x4. Pre-gate."
 )
 
 
@@ -1457,7 +1458,7 @@ def _over_layers(
     """Plot 3 (plan 0029 §3.8): per macro, the mean over the layers where the row has it, with
     a shared bootstrap: per family a fixed universe (claim families / am_situation: bank items,
     zero rows kept; sibling: items within domain; benign_roleplay: sorted template clusters;
-    overrefusal / cheating: sorted items), ONE index array per family (a single fresh
+    overrefusal: sorted items), ONE index array per family (a single fresh
     ``default_rng(0)``, families in :data:`FAMILIES_V8` order) applied to every layer; a draw in
     which a present (family, layer) pair has no denominator is dropped."""
     per_layer = [r for r in rows_m if r["layer"] != JOINT_LABEL]
@@ -1539,9 +1540,10 @@ def build_index_v8(
     prompt_version: str | None = None,
     excuse_verifier: str | None = None,
 ) -> dict[str, Any]:
-    """hindex-v8 (plan 0029 §3.8): eight families, per-layer rows plus one joint row (layer
-    ``all``) per method, ``full`` / ``matched`` / ``full_j6`` / ``full_v7`` / ``matched_v7`` per
-    layer, ``full_joint`` on the joint row, and the plot-3 over-layers means (``over_layers``).
+    """hindex-v8 (plan 0029 §3.8): seven families (amendment 3: no cheating), per-layer rows
+    plus one joint row (layer ``all``) per method, ``full`` / ``matched`` / ``full_j6`` /
+    ``full_v7`` / ``matched_v7`` per layer, ``full_joint`` on the joint row, and the plot-3
+    over-layers means (``over_layers``).
     ``sources`` may name the AM root ``agentic_misalignment`` or ``am_claims``; ``am_situation``
     defaults to the AM root. ``prompt_version`` (``hbench final``: the checked claim-map
     version) names the claim-map prompt in the note (:func:`notes_v8`)."""
@@ -1704,11 +1706,7 @@ def build_index_v8(
         "over_layers": over,
         "safety": {
             f: {
-                "share": SHARE_BR
-                if f == BENIGN_ROLEPLAY
-                else SHARE_CHEATING
-                if f == CHEATING
-                else SHARE_V6,
+                "share": SHARE_BR if f == BENIGN_ROLEPLAY else SHARE_V6,
                 "readers": sorted(safety_readers(f, version)),
                 "unit": sorted(
                     {str(m["meta"].get("unit")) for m in safety[f][3] if m["meta"] is not None}
@@ -1728,21 +1726,15 @@ def build_index_v8(
     return out
 
 
-SHARE_CHEATING = (
-    "n_contradicted / n_claims = twin readouts reading cheating where the twin did not cheat / "
-    "judged twin readouts (plan 0025 / 0026; root unit twin_readouts)"
-)
-
-
 def _render_md_v8(index: Mapping[str, Any]) -> str:
-    """hindex-v8's table (plan 0029): eight families, the joint row, plot-3 means."""
+    """hindex-v8's table (plan 0029): seven families, the joint row, plot-3 means."""
     fw = index["weights"]["family"]
     L = [
         f"# Hallucination index ({index['version']})",
         "",
         "% hallucinated per (method, layer), 95% CIs. Family weights "
         + ", ".join(f"{f} {w:g}" for f, w in fw.items())
-        + "; `full` = all eight families, `matched` = all but sibling, `full_j6` = the six "
+        + "; `full` = all seven families, `matched` = all but sibling, `full_j6` = the six "
         "families with a joint unit, `full_joint` = that macro on the joint row (layer `all`: "
         "sample 0 of all 11 layers in one judge call). Per-layer uses k = 3 samples (J-lens 1), "
         "joint 1 per layer. Leaf weights: main / am_claims "

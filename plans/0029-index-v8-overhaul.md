@@ -11,7 +11,10 @@ below): `claimmap-v2.9`** (slot rule + prefix check) replaces v2.8 for the v8 ru
 pilot2 tag gate failed; where §1.2 / §3.3 say v2.8 or v2.8.1, read the amendment. **Amendment 2
 (2026-11-05, below): the continuation verifier `cverify-v1`** decides the excuse in v8 (the
 judge's continuation tags no longer gate it) after the v2.9 tag gate failed too; its gate is a
-new fresh-sample pilot (Amendment 2, "Gate").
+new fresh-sample pilot (Amendment 2, "Gate"). **Amendment 3 (2026-11-05, below): no cheating
+family** — the cheating eval was archived on 2026-11-04 as a diagnostic, so hindex-v8 has seven
+families (Σ 20); where this plan says "cheating" is in v8 (title, asks, §2.5, §3.8, §6, §7), read
+the amendment.
 
 ## Camila's asks (2026-11-04, verbatim where quoted)
 
@@ -702,10 +705,35 @@ verifier is on. Unselected, it reads the cache only. In chat its dependencies ar
 - So the v2.9 pilot roots (judged with the tags, no record) can only be re-run with
   `--excuse-verifier off`; v8 roots start fresh.
 - `hbench final` requires `excuse_verifier: "cverify-v1"` at the manifest's top level, in every
-  claim-map arm dir's `arm.json`, and in `joint.json` for a chat / story `all` entry.
-- In final's recount, a cell whose verdict is failed or pending counts as failed.
+  claim-map arm dir's `arm.json`, and in `joint.json` for a chat / story `all` entry (a missing
+  `joint.json` there is refused, not skipped).
+- In final's recount, a cell whose verdict is failed or pending counts as failed. Beyond that,
+  `final.check` requires **zero** such cells per claim-map entry: the 1% `max_failed_share`
+  allowance does not apply to them, they are re-run (`--stages cverify`) until clean.
+- The index never scores an unsettled cell: `index._segments` drops a cell whose
+  `stages.cverify` / `cverify_status` is failed or pending, like a failed map (its unexcused
+  candidates would otherwise count as hallucinations).
+- Anchored runs: `--anchor v5c` has no read-offset excuse, so the verifier is off by default
+  there, and an explicit `--excuse-verifier cverify-v1` with `--anchor v5c` is refused
+  (`check_verifier`, exit 3). An anchored v2.9 run therefore never records
+  `excuse_verifier: cverify-v1`.
+- A malformed item (the read site's `pos` missing from `sites`, the text already containing the
+  marker, or another `StopIteration` / `AssertionError` / `KeyError` / `ValueError` while the
+  prompt is built) gives that segment a `failed` verdict instead of crashing the run. The error
+  is caught by the caller (`verify_and_parse`); the ported `build()` is unchanged.
+- Preflight covers both verifier models (`claude-opus-5-5` and the `claude-sonnet-5-5` refusal
+  fallback), once each, when the `cverify` stage is selected in a verifier root.
 - The hindex-v8 note says the excuse is decided by the verifier
   (`index.notes_v8(version, excuse_verifier)`).
+
+**Known limitation: the readout window.** For a readout over 2,500 chars, `build()` keeps 1,800
+chars before the **first** `<<<` in the marked readout and 600 after the first `>>>` that follows
+it. A readout that itself contains `<<<` (or a stray `>>>`) before the segment anchors the
+window on the wrong marker, and the marked segment can fall outside it (the `SEGMENT:` line
+still names it). The builder is kept verbatim (it is what the offline numbers measured); the
+case is counted, not fixed: `n_verifier_segment_unmarked` (a verifier-root parse counter / health
+key) counts verifier inputs whose windowed readout lacks the segment's closing marker. A fix is a
+new verifier version.
 
 **Circularity caveat.** The verifier prompt was written while reading the gate2 and gate_v29
 labels and disagreements, and the offline numbers above are measured on those same labels. They
@@ -736,4 +764,36 @@ are therefore optimistic and are not a gate.
 - `final` requiring the verifier, the recount, and the note.
 
 **Sanctioned test edits.** `tests/test_final.py` fixture helpers `_arm_json` / `_manifest` now
-record `excuse_verifier: "cverify-v1"`, because `hbench final` requires it. No assertion changed.
+record `excuse_verifier: "cverify-v1"`, because `hbench final` requires it, and `_manifest`
+writes a `joint.json` (the same record) in the main / story arm dirs, because a chat / story
+`all` entry without one is refused. No assertion changed by Amendment 2.
+
+## Amendment 3 (2026-11-05): no cheating family in hindex-v8 (Camila)
+
+**Decision.** Camila archived the cheating eval on 2026-11-04 as a diagnostic, not on the index.
+This supersedes the "cheating in v8" parts of this plan (Camila's asks bullet, §2.5, the §3.8
+weights, §6's cheating-branch edit, §7's cheating rows).
+
+**hindex-v8 families / weights.** main 9, am_claims 3, am_situation 3, sibling 1, story 1,
+overrefusal 1, benign_roleplay 2: seven families, **Σ 20** (was 22). `full` = all seven,
+`matched` = all but sibling (**Σ 19**, was 21; the same six families as `full_j6` /
+`full_joint`, whose Σ 19 is unchanged). Plot 3's shared bootstrap draws one index array per
+family in `FAMILIES_V8` order; cheating was last, so every remaining family's draws are
+unchanged.
+
+**Code.**
+- `index.py`: `cheating` leaves `FAMILIES_V8`, `SAFETY_FAMILIES_V8`, `FAMILY_WEIGHTS_V8` and
+  `ALL_FAMILIES` (so `methods.json` may not name it). The `twin_readouts` unit, the
+  `HBENCH_SAFETY_CHEATING_OUT` variable and the cheating share text are removed;
+  `check_safety_units` refuses a cheating root under **every** version (`CHEATING` is kept only
+  to name it there). The v8 note and table say seven families, Σ 20 / 19.
+- `cli.py`: `--cheating-root` removed; the v8 "no cheating root" warning becomes the v7
+  "no benign_roleplay root" warning, now for v7 and v8.
+- `final.py`: a `cheating` manifest entry is an unknown family (`load_manifest`), the plot label
+  reads `full (7 families)`.
+- `data/index/methods.json`: the two `cheating` entries removed.
+- v3–v7 are unchanged (they never read cheating).
+
+**Sanctioned test edits (this amendment only).** Assertions on the v8 family set / weights and
+the cheating plumbing in `tests/test_index_v8.py` and `tests/test_final.py` are updated to the
+seven-family table (listed in the PR description, old → new).

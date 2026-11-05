@@ -1091,7 +1091,7 @@ async def run_am_async(
             if sel & {"map", "joint"} and opened:
                 needed.add(models.mapper)
             if cv.STAGE in sel and models.excuse_verifier and opened:
-                needed.add(cv.MODEL)
+                needed |= {cv.MODEL, cv.FALLBACK_MODEL}  # the refusal fallback too
             if "situation" in sel and opened:
                 needed.add(models.situation_model or situation.DEFAULT_MODEL)
             for m in sorted(needed):

@@ -578,6 +578,9 @@ PARSE_COUNTS_VERIFIER_EXTRA: tuple[str, ...] = (
     "n_verifier_no",
     "n_verifier_failed",
     "n_verifier_pending",
+    # verifier inputs whose windowed readout lost the marked segment (the readout window's known
+    # limitation, set by continuation_verifier.verify_and_parse; parse itself leaves it 0)
+    "n_verifier_segment_unmarked",
     "n_judge_would_excuse",
     "n_judge_yes_verifier_yes",
     "n_judge_yes_verifier_no",

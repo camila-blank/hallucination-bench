@@ -26,7 +26,9 @@ version) and that each claim-map arm dir's ``arm.json`` records it (a main arm d
 ``bank: x3``, plan 0028's bank). Plan 0029 Amendment 2: the manifest's top-level
 ``excuse_verifier`` and every claim-map arm dir's ``arm.json`` (and, for a chat / story ``all``
 entry, ``joint.json``) must record the continuation verifier ``cverify-v1``; a cell whose
-verifier verdict is failed / pending counts as failed in the recount. Any failure exits 2 naming
+verifier verdict is failed / pending counts as failed in the recount, and any such cell refuses
+the manifest outright (no ``max_failed_share`` allowance: re-run until clean); a chat / story
+``all`` entry whose dir has no ``joint.json`` is refused. Any failure exits 2 naming
 the hole. It then builds hindex-v8 from exactly the manifest's files (symlinked into a fresh
 temp dir per run; a joint file is read only if an ``all`` entry hashes it) and nothing else,
 writes ``index.json`` / ``index.md`` to ``--out`` (sources point at the manifest roots) and draws
@@ -185,6 +187,31 @@ def recount(e: Mapping[str, Any], path: Path) -> tuple[int, int, set[int | str]]
     return n, f, seen
 
 
+def unsettled_verdicts(e: Mapping[str, Any], path: Path) -> int:
+    """Plan 0029 Amendment 2: the cells of one claim-map entry (its arm and unit, from the
+    hashed file) whose continuation-verifier status is ``failed`` or ``pending`` (chat / story
+    ``stages.cverify``, AM ``cverify_status``). :func:`check` requires zero: unlike other failed
+    cells they get no ``max_failed_share`` allowance (re-run the cverify stage until clean)."""
+    fam, unit = e["family"], _layer(e["unit"])
+    if fam not in CLAIM_MAP_FAMILIES:
+        return 0
+    n = 0
+    with Path(path).open(encoding="utf-8") as fh:
+        for line in fh:
+            if not line.strip():
+                continue
+            r = json.loads(line)
+            if _unit_layer(r["layer"]) != unit or r.get("status") == "empty":
+                continue
+            st = (
+                r.get("cverify_status")
+                if fam == ix.AM_CLAIMS
+                else (r.get("stages") or {}).get("cverify")
+            )
+            n += st in ix.UNSETTLED_VERIFIER
+    return n
+
+
 def check(m: Mapping[str, Any], base: Path) -> str:
     """Every sha256; ``n_cells`` / ``n_failed`` recomputed from the hashed file (a declared
     count must agree); <= ``max_failed_share`` failed per entry; no layer outside the grid in
@@ -208,6 +235,11 @@ def check(m: Mapping[str, Any], base: Path) -> str:
                 raise ManifestError(f"{_where(e)}: declared {k} {e[k]} != {v} in {p}")
         if n <= 0:
             raise ManifestError(f"{_where(e)}: no cells (hole)")
+        if u := unsettled_verdicts(e, p):  # plan 0029 Amendment 2: no allowance
+            raise ManifestError(
+                f"{_where(e)}: {u} cells with a failed / pending continuation-verifier verdict in "
+                f"{p}: re-run the cverify stage until none is left (no failed-share allowance)"
+            )
         if f / n > share:
             raise ManifestError(
                 f"{_where(e)}: {f} of {n} cells failed ({100 * f / n:.2f}% > "
@@ -248,8 +280,14 @@ def check(m: Mapping[str, Any], base: Path) -> str:
             raise ManifestError(f"{_where(e)}: {a} records map_prompt {rec!r}, declared {v!r}")
         recs = [(a, arm_rec)]
         j = d / "joint.json"
-        if e["unit"] == ix.JOINT_LABEL and j.is_file():
-            recs.append((j, json.loads(j.read_text(encoding="utf-8"))))
+        if e["unit"] == ix.JOINT_LABEL:
+            if not j.is_file() and e["family"] in (ix.MAIN, ix.STORY):
+                # a chat / story joint run records its own verifier setting in joint.json
+                raise ManifestError(
+                    f"{_where(e)}: no joint.json in {d} (cannot verify the joint excuse verifier)"
+                )
+            if j.is_file():
+                recs.append((j, json.loads(j.read_text(encoding="utf-8"))))
         for path, r in recs:
             if (got := r.get("excuse_verifier")) != V8_EXCUSE_VERIFIER:
                 raise ManifestError(
@@ -510,7 +548,7 @@ def plot_macro(index: Mapping[str, Any], keep: Mapping, dest: Path) -> Path:
     ax.set_xticks(
         range(len(keys)),
         [
-            "full\n(8 families)",
+            "full\n(7 families)",
             "matched\n(no sibling)",
             "full_j6\n(6 joint families)",
             "full_joint\n(joint row)",

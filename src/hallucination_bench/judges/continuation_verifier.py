@@ -23,6 +23,21 @@ answer is re-asked up to :data:`INVALID_RETRIES` times, then cached as failed. R
 arm's own cache under ``{cell key}:CV:{segment index}``; the fingerprint is (verifier version,
 model, effort, system, user), and the user prompt holds every input (family, text, readout,
 segment), so a changed map answer or segment never reuses a stale verdict.
+
+A malformed item (its read site's ``pos`` missing from ``item["sites"]``, the text already
+holding :data:`MARK`, or any other ``StopIteration`` / ``AssertionError`` / ``KeyError`` /
+``ValueError`` while building the prompt) yields a ``failed`` verdict for that segment (never
+excused, the cell's verifier status ``failed``) instead of crashing the run; the error is caught
+in :func:`verify_and_parse`, :func:`build` stays verbatim.
+
+Known limitation (the readout window, kept verbatim from the experiment): for a readout longer
+than 2500 characters :func:`build` keeps 1800 characters before the FIRST ``<<<`` and 600 after
+the first ``>>>`` following it. When the readout itself contains ``<<<`` (or a stray ``>>>``)
+before the marked segment, the window is anchored on the wrong marker and can cut the marked
+segment out of the verifier's view (the segment text is still given on the ``SEGMENT:`` line).
+Such inputs are counted, not changed: ``n_verifier_segment_unmarked`` (a parse counter of
+verifier roots) counts the verifier inputs whose windowed readout lacks the segment's closing
+marker. Fixing the window is a new verifier version.
 """
 
 import asyncio
@@ -190,6 +205,27 @@ def user_prompt(
     )
 
 
+# the errors a malformed item raises while the verbatim builder runs (site pos missing:
+# StopIteration; the text already holding MARK: AssertionError; a missing field: KeyError)
+MALFORMED: tuple[type[BaseException], ...] = (StopIteration, AssertionError, KeyError, ValueError)
+UNMARKED_COUNTER = "n_verifier_segment_unmarked"
+
+
+def windowed_readout(user: str) -> str:
+    """The readout as :func:`build` showed it (between ``<<<READOUT`` and ``READOUT>>>``)."""
+    _head, sep, rest = user.partition("<<<READOUT\n")
+    return rest.rpartition("\nREADOUT>>>")[0] if sep else ""
+
+
+def segment_unmarked(user: str, readout: str, seg: "cm.Segment") -> bool:
+    """The known window limitation (module docstring): the readout had the marked segment but
+    the windowed one lacks its closing marker. An empty readout (the segment text alone, no
+    markers) is not counted."""
+    if not readout:
+        return False
+    return readout[seg.start : seg.end] + ">>>" not in windowed_readout(user)
+
+
 def validate(r: Any) -> bool:
     """A usable answer: the three booleans and their reasons."""
     if not isinstance(r, dict):
@@ -317,11 +353,17 @@ async def verify_and_parse(
     if not cand:
         return Verified(segs, counts, "not_needed")
     vllm = with_effort(llm) if llm is not None else None
+    unmarked = 0
 
     async def one(i: int) -> cm.ExcuseVerdict:
+        nonlocal unmarked
         s = segs[i]
         ro = samples[s.readout] if s.readout < len(samples) else ""
-        user = user_prompt(fam, item, pos, ro, s)
+        try:
+            user = user_prompt(fam, item, pos, ro, s)
+        except MALFORMED:  # a malformed item: a failed verdict, never a crashed run
+            return cm.ExcuseVerdict("failed")
+        unmarked += segment_unmarked(user, ro, s)
         st, res = await cached_verdict(
             cache, vllm, key=cache_key(cell_key, i), user=user, version=version, spend=spend
         )
@@ -330,4 +372,5 @@ async def verify_and_parse(
     got: Sequence[cm.ExcuseVerdict] = await asyncio.gather(*(one(i) for i in cand))
     verdicts = dict(zip(cand, got, strict=True))
     segs2, counts2 = parse(verdicts)
+    counts2[UNMARKED_COUNTER] = counts2.get(UNMARKED_COUNTER, 0) + unmarked
     return Verified(segs2, counts2, cell_status(list(got)))

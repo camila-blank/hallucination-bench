@@ -28,9 +28,11 @@ gated role-play candidates; judged by running WSB's own pinned `jailbreak_recogn
 results PR) = claimmap-v2.9 everywhere (plan 0029 Amendment 1: v2.8 + the slot rule and the
 prefix check for excused literal continuations; roles = substitutions) with the excuse decided by
 the continuation verifier `cverify-v1` (Amendment 2), AM
-split into `am_claims` + `am_situation` (amsit-v2), `cheating` (weight 2), a joint 11-layer row per
-method, `hbench final` (manifest + plots). Plan 0029 supersedes the cheating branch's plan 0026
-for the index (its "hindex-v7" commit 8663a1f is not used).
+split into `am_claims` + `am_situation` (amsit-v2), a joint 11-layer row per method, `hbench
+final` (manifest + plots). Seven families, Σ 20 (`matched` Σ 19). **No cheating family**
+(Amendment 3): Camila archived the cheating eval on 2026-11-04 as a diagnostic, so it is on no
+index -- every version refuses a cheating root, `--cheating-root` / `$HBENCH_SAFETY_CHEATING_OUT`
+are gone, and `methods.json` may not name it.
 
 ## Layout
 
@@ -233,7 +235,8 @@ scripts/mask/        build_items.py, gen_modal.py (Modal vLLM), build_capture.py
 - CI is pending (plan 0012 D5, held back for a token scope): until it lands, run ruff check +
   format and `pytest -rs` locally before pushing. Plan numbers are unique: the next free one is
   0030 (0009/0010 belong to the unlanded resampling-gate branches; 0025/0026 to the local,
-  unmerged cheating eval -- its index plan 0026 is superseded by 0029 (hindex-v8); 0028 is the
+  unmerged cheating eval, archived 2026-11-04 as a diagnostic and on no index (plan 0029
+  Amendment 3); 0028 is the
   main-bank expansion (3x prompts x 2x punctuation-only sites, merged from main); 0029 is
   hindex-v8).
 
@@ -593,9 +596,8 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
     misrepresentation"). `joint` / `situation` are never in the default stage set and need a v2.8+ root.
   - Chat / story v8 roots too: a refused J-lens `summ:` is re-asked once on Sonnet (`run.SUMMARY_FALLBACK_MODEL`); both refused = failed row (re-asked next run), counted failed by `final`.
   - Safety joint rows: `index_counts_joint.jsonl` in the overrefusal (`offtopic_index/`) and
-    benign_roleplay roots. The cheating family needs a `twin_readouts` root and is refused before
-    v8 (also from `$HBENCH_SAFETY_CHEATING_OUT`). v8 reader allowlists exclude
-    `final-olens-rl600-x4`.
+    benign_roleplay roots. A cheating root is refused by every version (Amendment 3). v8 reader
+    allowlists exclude `final-olens-rl600-x4`.
   - AM joint population: a site is judged or excluded only once all 11 layers' detections are
     settled; an unsettled site is a `pending` record. The joint layer set is always the bank's
     11 (`run.JOINT_LAYERS`), so a partially loaded arm never changes the joint prompt.
@@ -614,7 +616,10 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
       - A failed or pending verdict never excuses.
       - `continuation_text` / `contradicted_before_marker` are parsed and counted
         (`n_judge_would_excuse`, `n_judge_{yes,no}_verifier_{yes,no}`) but never gate.
-      - Counters `n_excuse_candidates`, `n_verifier_{yes,no,failed,pending}`; segment fields
+      - Counters `n_excuse_candidates`, `n_verifier_{yes,no,failed,pending}`,
+        `n_verifier_segment_unmarked` (known limitation: `build()`'s readout window anchors on the
+        first `<<<`, so a readout that itself contains `<<<` can lose the marked segment; counted,
+        not fixed -- a fix is a new verifier version); segment fields
         `excuse_verdict` / `excuse_checks`. Verifier roots only, so v2.7 / v2.8 / verifier-off
         outputs are unchanged.
     - **Stage `cverify`.** It is not in `run.STAGES`, so v7 spend tables stay identical, but it is
@@ -629,15 +634,24 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
         effort `medium`, system, user).
       - Opus with a Sonnet fallback on refusal, using `LLM.with_effort` (same semaphore).
       - Failed rows: exit 4 (chat always; AM when `cverify` ran) and re-asked next run.
+      - A malformed item (site `pos` missing, the text already holding the marker, ...) gives
+        that segment a `failed` verdict instead of crashing; caught in `verify_and_parse`, the
+        ported `build()` untouched.
+      - Preflight covers Opus and the Sonnet fallback, once each.
     - **Settings.**
       - `--excuse-verifier {cverify-v1,off}`: default on for claimmap-v2.9; `Models.excuse_verifier`
         defaults to None in the Python API, so library callers / old tests keep the v2.9 tag rule.
       - Recorded in `arm.json` / `joint.json`; a judge run that differs exits 3; rebuild / report
         replay the record.
       - The old v29 pilot roots have no record (= off).
+      - `--anchor v5c` has no continuation excuse: the verifier defaults to off there, and an
+        explicit verifier with `--anchor` exits 3 (`run.check_verifier`).
+    - **Scoring.** `index._segments` drops a cell whose `stages.cverify` / `cverify_status` is
+      `failed` / `pending` (like a failed map).
     - **`hbench final`** requires `excuse_verifier: cverify-v1` in the manifest, every claim-map
-      `arm.json` and the joint `joint.json`; a failed / pending verdict is a failed cell in the
-      recount.
+      `arm.json` and the joint `joint.json` (a chat / story `all` entry without one is refused);
+      a failed / pending verdict is a failed cell in the recount, and `final.check` requires
+      zero of them per claim-map entry (no 1% allowance: re-run `--stages cverify` until clean).
     - **Do not tune the prompt.** It is a verbatim port pinned in
       `tests/test_continuation_verifier.py`; a change is a new version.
     - **Gate.** A NEW pilot with a different `--sample-seed`, fresh cells excluding the gate2 /

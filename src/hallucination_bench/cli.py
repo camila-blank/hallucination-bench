@@ -65,9 +65,11 @@ def resolve_arms(args: argparse.Namespace) -> list[tuple[str, Path]]:
 
 
 def _excuse_verifier(args: argparse.Namespace, map_prompt: str) -> str | None:
-    """Plan 0029 Amendment 2: ``--excuse-verifier`` (default: ``cverify-v1`` for claimmap-v2.9
-    roots, off otherwise; ``off`` disables it for diagnostics). Rebuild / report replay the
-    arm dir's recorded setting whatever this says; a judge run that differs exits 3."""
+    """Plan 0029 Amendment 2: ``--excuse-verifier`` (default: ``cverify-v1`` for single-call
+    claimmap-v2.9 roots, off otherwise, including any ``--anchor v5c`` run; ``off`` disables it
+    for diagnostics). An explicit verifier with ``--anchor v5c`` is refused by
+    ``check_verifier`` (exit 3). Rebuild / report replay the arm dir's recorded setting whatever
+    this says; a judge run that differs exits 3."""
     from hallucination_bench.judges import claimmap_v2 as cm
     from hallucination_bench.judges import continuation_verifier as cv
 
@@ -75,8 +77,9 @@ def _excuse_verifier(args: argparse.Namespace, map_prompt: str) -> str | None:
     if flag == "off":
         return None
     v29 = cm.is_v29(map_prompt) if map_prompt in cm.VERSIONS else False
+    anchored = (getattr(args, "anchor", None) or "none") != "none"
     if flag is None:
-        return cv.VERSION if v29 else None
+        return cv.VERSION if v29 and not anchored else None
     if not v29:
         raise SystemExit(f"--excuse-verifier {flag} needs --map-prompt claimmap-v2.9")
     return flag
@@ -358,11 +361,10 @@ def cmd_index(args: argparse.Namespace) -> int:
         (index.STORY, "--story-root", args.story_root),
         (index.OVERREFUSAL, "--overrefusal-root", args.overrefusal_root),
         (index.BENIGN_ROLEPLAY, "--benign-roleplay-root", args.benign_roleplay_root),
-        (index.CHEATING, "--cheating-root", args.cheating_root),
     ):
         if roots and fam == index.BENIGN_ROLEPLAY and args.version not in ("v7", "v8"):
             raise SystemExit(f"{flag}: benign_roleplay is on the index from hindex-v7 only")
-        if roots and fam in (index.CHEATING, index.AM_SITUATION) and not v8:
+        if roots and fam == index.AM_SITUATION and not v8:
             raise SystemExit(f"{flag}: {fam} is on the index from hindex-v8 only (plan 0029)")
         if roots and args.version == "v3" and fam in index.SAFETY_FAMILIES:
             raise SystemExit(
@@ -380,16 +382,11 @@ def cmd_index(args: argparse.Namespace) -> int:
                 str(r) for r in sources.get(fam, []) if not (r / index.SAFETY_COUNTS).is_file()
             ]:
                 raise SystemExit(f"{fam}: no {index.SAFETY_COUNTS} in {gone}")
-    if args.version == "v8" and not sources.get(index.CHEATING):
+    if args.version in ("v7", "v8") and not sources.get(index.BENIGN_ROLEPLAY):
         print(
-            "warning: hindex-v8 without a cheating root (--cheating-root or "
-            "$HBENCH_SAFETY_CHEATING_OUT): the family, and so full / matched, are absent",
-            file=sys.stderr,
-        )
-    if args.version == "v7" and not sources.get(index.BENIGN_ROLEPLAY):
-        print(
-            "warning: hindex-v7 without a benign_roleplay root (--benign-roleplay-root or "
-            "$HBENCH_SAFETY_BR_OUT): the family, and so full / matched, are absent",
+            f"warning: hindex-{args.version} without a benign_roleplay root "
+            "(--benign-roleplay-root or $HBENCH_SAFETY_BR_OUT): the family, and so full / "
+            "matched, are absent",
             file=sys.stderr,
         )
     try:  # plan 0022's unit guard, after the checks above (build_index repeats it)
@@ -601,7 +598,8 @@ def _excuse_verifier_flag(p: argparse.ArgumentParser) -> None:
         choices=(*cv.VERSIONS, "off"),
         default=None,
         help="plan 0029 amendment 2: the continuation verifier that decides the "
-        "continuation_miss excuse (default: cverify-v1 for claimmap-v2.9 roots, off otherwise; "
+        "continuation_miss excuse (default: cverify-v1 for claimmap-v2.9 roots, off otherwise "
+        "and under --anchor v5c, which refuses an explicit verifier with exit 3; "
         "'off' = the v2.9 judge-tag rule, diagnostics only; recorded in arm.json, a run that "
         "differs from an arm dir's record exits 3; hbench final requires cverify-v1)",
     )
@@ -826,7 +824,6 @@ def build_parser() -> argparse.ArgumentParser:
     for flag, var in (
         ("--overrefusal-root", "HBENCH_SAFETY_OR_OUT"),
         ("--benign-roleplay-root", "HBENCH_SAFETY_BR_OUT (hindex-v7 / v8 only, plan 0027)"),
-        ("--cheating-root", "HBENCH_SAFETY_CHEATING_OUT (hindex-v8 only, plan 0029)"),
     ):
         ix.add_argument(
             flag,
@@ -839,7 +836,8 @@ def build_parser() -> argparse.ArgumentParser:
         choices=("v3", "v4", "v5", "v6", "v7", "v8"),
         default="v6",
         help="v8: hindex-v8 (plan 0029: main 9, am_claims 3, am_situation 3, sibling 1, story 1, "
-        "overrefusal 1, benign_roleplay 2, cheating 2; per-layer rows + a joint row; "
+        "overrefusal 1, benign_roleplay 2 (no cheating: archived, plan 0029 amendment 3); "
+        "per-layer rows + a joint row; "
         "claimmap-v2.8+ roots, claimmap-v2.9 for the final run); v7: hindex-v7 (v6 + "
         "benign_roleplay, weight 2; sibling weight "
         "1; needs a `prompts` --benign-roleplay-root from `hbench benign-roleplay "

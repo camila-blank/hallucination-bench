@@ -649,3 +649,215 @@ def test_index_v8_note_says_the_verifier_decides():
     assert "not by the judge's tags" in n
     with pytest.raises(ValueError):
         ix.notes_v8(V28, CV1)
+
+
+# ---------------------------------------------------------------- review fixes (PR #63)
+
+
+@pytest.mark.parametrize("st", ["failed", "pending"])
+def test_index_drops_cells_with_unsettled_verdicts(tmp_path, st):
+    """A cell whose verifier status is failed / pending is not scored (like a failed map): its
+    unexcused candidates would otherwise count as hallucinations."""
+    seg = [{"readout": 0, "start": 0, "end": 3, "leaf": "false_claim"}]
+    chat = {
+        "id": "i0",
+        "layer": 20,
+        "stages": {"map": "ok", "cverify": st},
+        "map": {"segments": seg},
+    }
+    am = {
+        "id": "i0",
+        "layer": 20,
+        "map_status": "ok",
+        "cverify_status": st,
+        "map": {"segments": seg},
+    }
+    assert ix._segments(chat, ix.MAIN) is None and ix._segments(chat, ix.STORY) is None
+    assert ix._segments(am, ix.AM_CLAIMS) is None and ix._segments(am, ix.AM) is None
+    for ok in ("ok", "not_needed", None):
+        c2 = {**chat, "stages": {"map": "ok", **({"cverify": ok} if ok else {})}}
+        a2 = {**am, "cverify_status": ok}
+        assert ix._segments(c2, ix.MAIN) == seg and ix._segments(a2, ix.AM_CLAIMS) == seg
+    # claim_rows: the unsettled cell's item contributes nothing at its layer
+    good = {**chat, "id": "i1", "stages": {"map": "ok", "cverify": "ok"}}
+    p = tmp_path / "cells.jsonl"
+    p.write_text(json.dumps(chat) + "\n" + json.dumps(good) + "\n")
+    rows = ix.claim_rows(p, ix.MAIN)
+    assert rows[20].shape[0] == 1 and rows[20][0, ix.C_CLAIMS] == 1
+
+
+def test_final_requires_zero_unsettled_verdicts(tmp_path, capsys, monkeypatch):
+    """The 1% failed-share allowance never covers unsettled verifier verdicts."""
+    from test_final import _main
+    from test_index_v8 import _am_cell, _chat_cell, _w
+
+    monkeypatch.setattr(final, "EXPECTED_LAYERS", (20, 24))
+
+    def lenient(m):
+        m["max_failed_share"] = 1.0  # any other failure would pass
+
+    def one_failed_chat(roots: Path) -> None:
+        cells = [_chat_cell(i, L, ["false_claim"]) for L in (20, 24) for i in ("i0", "i1")]
+        cells[0]["stages"]["cverify"] = "failed"
+        _w(roots / "main" / "jlens" / ix.CELLS, cells)
+
+    m = _final_manifest(tmp_path / "a", prep=one_failed_chat, mutate=lenient)
+    assert _main(tmp_path / "a", m) == 2
+    err = capsys.readouterr().err
+    assert "main x jlens x L20: 1 cells with a failed / pending continuation-verifier" in err
+
+    def one_pending_am(roots: Path) -> None:
+        cells = [_am_cell(i, L, ["false_claim"]) for L in (20, 24) for i in ("i0", "i1")]
+        cells[-1]["cverify_status"] = "pending"
+        _w(roots / "am" / "jlens" / ix.CELLS, cells)
+
+    m = _final_manifest(tmp_path / "b", prep=one_pending_am, mutate=lenient)
+    assert _main(tmp_path / "b", m) == 2
+    assert "am_claims x jlens x L24: 1 cells" in capsys.readouterr().err
+    # settled statuses pass
+    e = {"family": ix.MAIN, "unit": "L20", "method": "jlens"}
+    p = tmp_path / "c.jsonl"
+    rows = [{"layer": 20, "stages": {"map": "ok", "cverify": s}} for s in ("ok", "not_needed")]
+    p.write_text("".join(json.dumps(r) + "\n" for r in rows))
+    assert final.unsettled_verdicts(e, p) == 0
+    assert final.unsettled_verdicts({**e, "family": ix.OVERREFUSAL}, p) == 0
+
+
+def test_final_refuses_a_missing_joint_json(tmp_path, capsys, monkeypatch):
+    from test_final import _main
+
+    monkeypatch.setattr(final, "EXPECTED_LAYERS", (20, 24))
+    for fam in ("main", "story"):
+
+        def drop(roots: Path, fam=fam) -> None:
+            (roots / fam / "jlens" / "joint.json").unlink()
+
+        tmp = tmp_path / fam
+        m = _final_manifest(tmp, prep=drop)
+        with pytest.raises(final.ManifestError, match=r"no joint\.json"):
+            final.check(final.load_manifest(m), tmp)
+        assert _main(tmp, m) == 2
+        assert f"{fam} x jlens x all: no joint.json" in capsys.readouterr().err
+
+
+def test_anchored_runs_and_the_verifier(tmp_path, prose_readouts, monkeypatch):
+    """--anchor v5c has no continuation excuse: the verifier defaults to off there, and an
+    explicit verifier with --anchor is refused (exit 3); never recorded."""
+    with pytest.raises(JudgeConfigError, match="--anchor v5c"):
+        wrun.check_verifier(wrun.Models(map_prompt=V29, excuse_verifier=CV1, map_anchor="v5c"))
+    wrun.check_verifier(wrun.Models(map_prompt=V29, map_anchor="v5c"))  # off: fine
+    p = cli.build_parser()
+
+    def models(*extra):
+        return cli._models(p.parse_args(["run", "--readouts-root", "x", *extra]))
+
+    assert models("--map-prompt", V29, "--anchor", "v5c").excuse_verifier is None
+    assert models("--map-prompt", V29, "--anchor", "none").excuse_verifier == CV1
+    assert (
+        models("--map-prompt", V29, "--anchor", "v5c", "--excuse-verifier", CV1).excuse_verifier
+        == CV1
+    )
+    with pytest.raises(JudgeConfigError, match="--anchor"):
+        _run9(
+            [("toy", prose_readouts)],
+            tmp_path / "x",
+            CV9Fake(),
+            wrun.Models(map_prompt=V29, excuse_verifier=CV1, map_anchor="v5c"),
+        )
+
+    class _Client:  # stands in for the LLM class (annotations use `LLM | None`)
+        def __new__(cls, **kw):
+            return CV9Fake()
+
+    monkeypatch.setattr(wrun, "LLM", _Client)
+    argv = ["run", "--arm", f"toy={prose_readouts}", "--out", str(tmp_path / "cli"),
+            "--map-prompt", V29, "--anchor", "v5c", "--allow-missing",
+            "--stages", "map"]  # fmt: skip
+    assert cli.main([*argv, "--excuse-verifier", CV1]) == 3
+    assert not list((tmp_path / "cli").rglob("arm.json"))  # refused before anything is written
+    # the default under --anchor v5c is off, so the models an anchored run records carry none
+    a = p.parse_args(argv)
+    assert "excuse_verifier" not in cli._models(a).to_dict()
+
+
+def _cand_parse(seg: cm.Segment):
+    """A parse stand-in with one candidate segment (verdict label recorded like cm.parse)."""
+
+    def parse(verdicts):
+        s = cm.Segment(seg.unit, seg.readout, seg.start, seg.end, seg.text, seg.leaf, seg.raw_leaf)
+        v = verdicts.get(0, cm.ExcuseVerdict("pending"))
+        s.excuse_verdict = v.label
+        counts = dict.fromkeys(cm.PARSE_COUNTS_VERIFIER_EXTRA, 0)
+        counts[f"n_verifier_{v.label}"] += 1
+        return [s], counts
+
+    return parse
+
+
+def _verify(tmp_path, parse, item, pos, samples, llm):
+    import asyncio
+
+    return asyncio.run(
+        cv.verify_and_parse(
+            parse,
+            cache=Cache(tmp_path / "c.jsonl"),
+            llm=llm,
+            cell_key="k",
+            fam="main",
+            item=item,
+            pos=pos,
+            samples=samples,
+        )
+    )
+
+
+def test_malformed_items_give_a_failed_verdict_not_a_crash(tmp_path):
+    seg = cm.Segment("R0.U1", 0, 0, 3, "abc", "detail", "detail")
+    ok_item = {"prompt": "P", "response": "hello there", "sites": [{"pos": 7, "char": 5}]}
+    cases = [
+        (ok_item, 8),  # the site pos is missing: StopIteration
+        ({**ok_item, "response": f"hello{cv.MARK} there"}, 7),  # the marker already in the text
+        ({"prompt": "P", "sites": [{"pos": 7, "char": 5}]}, 7),  # no response: KeyError
+    ]
+    for k, (item, pos) in enumerate(cases):
+        fake = VerifierFake("yes")
+        out = _verify(tmp_path / str(k), _cand_parse(seg), item, pos, ["abc def"], fake)
+        assert out.status == "failed" and out.segments[0].excuse_verdict == "failed"
+        assert out.counts["n_verifier_failed"] == 1 and not fake.calls  # never asked
+    # the well-formed item is asked and settled
+    fake = VerifierFake("yes")
+    out = _verify(tmp_path / "ok", _cand_parse(seg), ok_item, 7, ["abc def"], fake)
+    assert out.status == "ok" and len(fake.calls) == 1
+
+
+def test_readout_window_unmarked_segment_is_counted(tmp_path):
+    """Known limitation: a stray ``<<< ... >>>`` early in a long readout anchors build()'s
+    window on the wrong marker and cuts the marked segment out; counted, not fixed."""
+    assert "n_verifier_segment_unmarked" in cm.PARSE_COUNTS_VERIFIER_EXTRA
+    assert "n_verifier_segment_unmarked" in score_v2.health_keys(V29, CV1)
+    item = {"prompt": "P", "response": "hello there", "sites": [{"pos": 7, "char": 5}]}
+    ro = "intro <<<stray>>> " + "x" * 3000 + " SEGTEXT tail"
+    start = ro.index("SEGTEXT")
+    seg = cm.Segment("R0.U1", 0, start, start + 7, "SEGTEXT", "detail", "detail")
+    u = cv.user_prompt("main", item, 7, ro, seg)
+    assert "SEGTEXT>>>" not in cv.windowed_readout(u) and cv.segment_unmarked(u, ro, seg)
+    out = _verify(tmp_path / "a", _cand_parse(seg), item, 7, [ro], VerifierFake("yes"))
+    assert out.counts["n_verifier_segment_unmarked"] == 1
+    # a short readout (no window) or one without a stray marker keeps the segment marked
+    for r in ("short SEGTEXT", "x" * 3000 + " SEGTEXT tail"):
+        s2 = cm.Segment(
+            "R0.U1", 0, r.index("SEGTEXT"), r.index("SEGTEXT") + 7, "SEGTEXT", "detail", "detail"
+        )
+        u2 = cv.user_prompt("main", item, 7, r, s2)
+        assert not cv.segment_unmarked(u2, r, s2) and "<<<SEGTEXT>>>" in cv.windowed_readout(u2)
+    assert not cv.segment_unmarked(cv.user_prompt("main", item, 7, "", seg), "", seg)
+
+
+def test_preflight_covers_the_fallback_model(tmp_path, prose_readouts):
+    m = wrun.Models(map_prompt=V29, excuse_verifier=CV1)
+    fake = CV9Fake()
+    _run9([("toy", prose_readouts)], tmp_path, fake, m)
+    assert fake.preflights.count(cv.MODEL) == 1 and fake.preflights.count(cv.FALLBACK_MODEL) == 1
+    fake2 = CV9Fake()
+    _run9([("toy", prose_readouts)], tmp_path / "nov", fake2, m, stages=("map",))
+    assert cv.FALLBACK_MODEL not in fake2.preflights  # cverify not selected

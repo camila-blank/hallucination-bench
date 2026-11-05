@@ -203,7 +203,8 @@ def check_map_prompt(arm_dir_: Path, models: Models) -> None:
 
 
 def check_verifier(models: Models) -> None:
-    """Plan 0029 Amendment 2: the continuation verifier is a v2.9 (single-call) option only."""
+    """Plan 0029 Amendment 2: the continuation verifier is a v2.9 single-call option only (an
+    anchored run with the verifier on is refused, exit 3)."""
     if models.excuse_verifier is None:
         return
     try:
@@ -214,6 +215,12 @@ def check_verifier(models: Models) -> None:
         raise JudgeConfigError(
             f"--excuse-verifier {models.excuse_verifier} needs a claimmap-v2.9 root, got "
             f"{models.map_prompt}"
+        )
+    if cm.check_anchor(models.map_anchor):  # anchored maps have no read-offset excuse
+        raise JudgeConfigError(
+            f"--excuse-verifier {models.excuse_verifier} cannot run with --anchor "
+            f"{models.map_anchor}: the anchored claim map has no continuation excuse to verify "
+            "(use --excuse-verifier off, or drop --anchor)"
         )
 
 
@@ -1025,7 +1032,7 @@ async def run_arms_async(
             if "map" in run_stages:
                 needed.add(models.mapper)
             if CVERIFY_STAGE in run_stages and verifier_on(models):
-                needed.add(cv.MODEL)
+                needed |= {cv.MODEL, cv.FALLBACK_MODEL}  # the refusal fallback too
             for m in sorted(needed):
                 await llm.preflight(m)
                 print(f"preflight ok: {m} (structured output, effort={models.effort})", flush=True)
@@ -1488,7 +1495,7 @@ async def run_joint_async(
         try:
             need = {models.mapper} | ({models.summ} if arm.kind == "tokens" else set())
             if CVERIFY_STAGE in sel and verifier_on(models):
-                need.add(cv.MODEL)
+                need |= {cv.MODEL, cv.FALLBACK_MODEL}  # the refusal fallback too
             for m in sorted(need):
                 await llm.preflight(m)
             if show_prompts:

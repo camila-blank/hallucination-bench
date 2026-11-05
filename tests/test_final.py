@@ -27,6 +27,12 @@ def _arm_json(d: Path, prompt: str = V29, bank: dict | None = None) -> None:
     (d / "arm.json").write_text(json.dumps(rec))
 
 
+def _joint_json(d: Path, prompt: str = V29) -> None:
+    # plan 0029 Amendment 2: a chat / story joint run records its verifier in joint.json
+    rec = {"map_prompt": prompt, "excuse_verifier": "cverify-v1", "sources": [], "layers": []}
+    (d / "joint.json").write_text(json.dumps(rec))
+
+
 X3_RECORD = {"bank": "x3", "bank_source": "plan0028-x3:/x3/items.json", "bank_sha256": "0" * 64}
 
 
@@ -71,6 +77,8 @@ def _manifest(tmp: Path, *, version=V29, recorded=V29, mutate=None, prep=None) -
     src = v8_sources(tmp / "roots")
     for sub in CLAIM_DIRS.values():
         _arm_json(tmp / "roots" / sub / "jlens", recorded, X3_RECORD if sub == "main" else None)
+        if sub in ("main", "story"):
+            _joint_json(tmp / "roots" / sub / "jlens", recorded)
     if prep:
         prep(tmp / "roots")
     m = {
@@ -206,13 +214,13 @@ def test_the_unit_grid_must_be_complete(tmp_path, capsys):
             e
             for e in m["entries"]
             if not (e["family"] == ix.STORY and e["unit"] == "all")
-            and not (e["family"] == ix.CHEATING and e["unit"] == "L24")
+            and not (e["family"] == ix.OVERREFUSAL and e["unit"] == "L24")
         ]
 
     assert _main(tmp_path, _manifest(tmp_path, mutate=drop)) == 2
     err = capsys.readouterr().err
     assert "incomplete unit grid" in err
-    assert "story x jlens: ['all']" in err and "cheating x jlens: ['L24']" in err
+    assert "story x jlens: ['all']" in err and "overrefusal x jlens: ['L24']" in err
 
 
 def test_prompt_versions_declared_and_recorded(tmp_path, capsys):
