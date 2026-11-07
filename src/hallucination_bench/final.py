@@ -28,7 +28,12 @@ version) and that each claim-map arm dir's ``arm.json`` records it (a main arm d
 entry, ``joint.json``) must record the continuation verifier ``cverify-v1``; a cell whose
 verifier verdict is failed / pending counts as failed in the recount, and any such cell refuses
 the manifest outright (no ``max_failed_share`` allowance: re-run until clean); a chat / story
-``all`` entry whose dir has no ``joint.json`` is refused. Any failure exits 2 naming
+``all`` entry whose dir has no ``joint.json`` is refused. Plan 0029 Amendment 4: the manifest's
+optional ``persistent_failures`` (``{path, sha256}``) names a list of persistent judge failures
+(``scripts/v8/persistent_failures.py``); a listed cell must be a failed record of its entry in the
+exact hashed file (``file_sha256``), is excluded from the failed-share and unsettled-verdict
+gates (<= :data:`MAX_EXCLUDED_SHARE` per entry) and is reported (``index.json``, ``index.md``,
+``excluded.md``); unlisted failures keep every rule above. Any failure exits 2 naming
 the hole. It then builds hindex-v8 from exactly the manifest's files (symlinked into a fresh
 temp dir per run; a joint file is read only if an ``all`` entry hashes it) and nothing else,
 writes ``index.json`` / ``index.md`` to ``--out`` (sources point at the manifest roots) and draws
@@ -140,12 +145,26 @@ def _unit_layer(v: Any) -> int | str:
     return ix.JOINT_LABEL if v == ix.JOINT_LABEL else int(v)
 
 
-def recount(e: Mapping[str, Any], path: Path) -> tuple[int, int, set[int | str]]:
-    """``(n_cells, n_failed, layers in the file)`` of one entry, from the hashed file itself
-    (rows of the entry's arm only, in files shared across arms). A failed cell is anything not
-    settled: a failed or pending map / detection / judge, or an unjudged safety row."""
+def _cell_id(e: Mapping[str, Any], r: Mapping[str, Any]) -> str:
+    """A failed cell's id in the persistent-failures list (plan 0029 Amendment 4): the record's
+    ``key`` (claim-map / situation families; ``id__L<layer>__p<pos>`` when it has none) or the
+    safety row's ``item``."""
+    if e["family"] in ix.SAFETY_FAMILIES_V8:
+        return str(r.get("item"))
+    if r.get("key") is not None:
+        return str(r["key"])
+    return f"{r.get('id')}__L{r.get('layer')}__p{r.get('pos')}"
+
+
+def scan(e: Mapping[str, Any], path: Path) -> tuple[int, list[tuple[str, bool]], set[int | str]]:
+    """``(n_cells, failed, layers in the file)`` of one entry, from the hashed file itself (rows
+    of the entry's arm only, in files shared across arms). ``failed`` holds one ``(cell id,
+    verifier verdict unsettled)`` pair per failed record (:func:`_cell_id`). A failed cell is
+    anything not settled: a failed or pending map / detection / judge, or an unjudged safety row;
+    plan 0029 Amendment 2: an unsettled verifier verdict makes the cell failed too."""
     fam, unit, arm = e["family"], _layer(e["unit"]), _arm(e)
-    n = f = 0
+    n = 0
+    failed: list[tuple[str, bool]] = []
     seen: set[int | str] = set()
     with Path(path).open(encoding="utf-8") as fh:
         for line in fh:
@@ -160,31 +179,37 @@ def recount(e: Mapping[str, Any], path: Path) -> tuple[int, int, set[int | str]]
             seen.add(la)
             if la != unit:
                 continue
+            bad = cv = False
             if fam in (ix.MAIN, ix.STORY):
                 if r.get("status") == "empty":
                     continue
-                n += 1
                 st = r.get("stages") or {}
-                # plan 0029 Amendment 2: an unsettled verifier verdict is a failed cell too
-                f += st.get("map") != "ok" or st.get("cverify") in ("failed", "pending")
+                cv = st.get("cverify") in ix.UNSETTLED_VERIFIER
+                bad = st.get("map") != "ok" or cv
             elif fam == ix.AM_CLAIMS:
                 if r.get("status") == "empty":
                     continue
-                n += 1
                 bad_det = r.get("status") in ("pending", "failed")
-                bad_cv = r.get("cverify_status") in ("failed", "pending")  # Amendment 2
-                f += bad_det or r.get("map_status") not in (None, "ok") or bad_cv
+                cv = r.get("cverify_status") in ix.UNSETTLED_VERIFIER  # Amendment 2
+                bad = bad_det or r.get("map_status") not in (None, "ok") or cv
             elif fam == ix.AM_SITUATION:
                 if r.get("status") == "empty":
                     continue
-                n += 1
-                f += r.get("status") != "ok"
-            elif fam == ix.SIBLING:
-                n += 1
-            else:
-                n += 1
-                f += int(r.get("n_failed_cells") or 0) > 0
-    return n, f, seen
+                bad = r.get("status") != "ok"
+            elif fam != ix.SIBLING:
+                bad = int(r.get("n_failed_cells") or 0) > 0
+            n += 1
+            if bad:
+                failed.append((_cell_id(e, r), cv))
+    return n, failed, seen
+
+
+def recount(e: Mapping[str, Any], path: Path) -> tuple[int, int, set[int | str]]:
+    """``(n_cells, n_failed, layers in the file)`` of one entry, from the hashed file itself
+    (rows of the entry's arm only, in files shared across arms). A failed cell is anything not
+    settled: a failed or pending map / detection / judge, or an unjudged safety row."""
+    n, failed, seen = scan(e, path)
+    return n, len(failed), seen
 
 
 def unsettled_verdicts(e: Mapping[str, Any], path: Path) -> int:
@@ -192,27 +217,82 @@ def unsettled_verdicts(e: Mapping[str, Any], path: Path) -> int:
     hashed file) whose continuation-verifier status is ``failed`` or ``pending`` (chat / story
     ``stages.cverify``, AM ``cverify_status``). :func:`check` requires zero: unlike other failed
     cells they get no ``max_failed_share`` allowance (re-run the cverify stage until clean)."""
-    fam, unit = e["family"], _layer(e["unit"])
-    if fam not in CLAIM_MAP_FAMILIES:
+    if e["family"] not in CLAIM_MAP_FAMILIES:
         return 0
-    n = 0
-    with Path(path).open(encoding="utf-8") as fh:
-        for line in fh:
-            if not line.strip():
-                continue
-            r = json.loads(line)
-            if _unit_layer(r["layer"]) != unit or r.get("status") == "empty":
-                continue
-            st = (
-                r.get("cverify_status")
-                if fam == ix.AM_CLAIMS
-                else (r.get("stages") or {}).get("cverify")
+    return sum(cv for _c, cv in scan(e, path)[1])
+
+
+# ---------------------------------------------------------------- plan 0029 Amendment 4
+
+PERSISTENT_VERSION = "v8-persistent-1"
+# a cell is persistent only after this many failed attempts under its current fingerprint
+PERSISTENT_MIN_ATTEMPTS = 3
+# what a persistent failure may be: both models refused / an invalid answer after the in-run
+# retries (never a transport error: those are re-run)
+PERSISTENT_REASONS: frozenset[str] = frozenset({"refused", "invalid"})
+# a broken-run bound on the excluded share per entry, not a quality gate
+MAX_EXCLUDED_SHARE = 0.15
+PERSISTENT_CELL_KEYS: tuple[str, ...] = (
+    "family",
+    "method",
+    "unit",
+    "cell",
+    "reason",
+    "attempts",
+    "file_sha256",
+)
+# an entry whose excluded share is above this is flagged for review in excluded.md / index.md
+REVIEW_EXCLUDED_SHARE = 0.05
+
+
+def load_persistent(
+    m: Mapping[str, Any], base: Path
+) -> dict[tuple[str, str, str], dict[str, tuple[str, str]]]:
+    """Plan 0029 Amendment 4: the manifest's ``persistent_failures`` list (``{"path", "sha256"}``,
+    the path relative to ``base``) as ``(family, method, unit) -> {cell id: (reason, sha256 of the
+    entry file the list was built from)}``; ``{}``
+    when the manifest names none. Refused (:class:`ManifestError`): a sha256 mismatch, another
+    list version, a cell missing a key, a reason outside :data:`PERSISTENT_REASONS`, fewer than
+    :data:`PERSISTENT_MIN_ATTEMPTS` attempts, a cell listed twice, or a (family, method, unit) no
+    manifest entry has."""
+    ref = m.get("persistent_failures")
+    if ref is None:
+        return {}
+    if not isinstance(ref, Mapping) or not {"path", "sha256"} <= set(ref):
+        raise ManifestError("persistent_failures must be {'path': ..., 'sha256': ...}")
+    p = (base / str(ref["path"])).resolve()
+    if not p.is_file():
+        raise ManifestError(f"persistent_failures: missing file {p}")
+    if (got := sha256_file(p)) != ref["sha256"]:
+        raise ManifestError(f"persistent_failures: sha256 mismatch for {p} ({got})")
+    doc = json.loads(p.read_text(encoding="utf-8"))
+    if doc.get("version") != PERSISTENT_VERSION:
+        raise ManifestError(f"{p}: version must be {PERSISTENT_VERSION!r}")
+    units = {(e["family"], e["method"], str(e["unit"])) for e in m["entries"]}
+    out: dict[tuple[str, str, str], dict[str, tuple[str, str]]] = defaultdict(dict)
+    for i, c in enumerate(doc.get("cells") or []):
+        if miss := [k for k in PERSISTENT_CELL_KEYS if k not in c]:
+            raise ManifestError(f"{p}: cell {i} misses {miss}")
+        if c["reason"] not in PERSISTENT_REASONS:
+            raise ManifestError(
+                f"{p}: cell {i} ({c['cell']}): reason {c['reason']!r} is not persistent "
+                f"({sorted(PERSISTENT_REASONS)}); re-run it"
             )
-            n += st in ix.UNSETTLED_VERIFIER
-    return n
+        if int(c["attempts"]) < PERSISTENT_MIN_ATTEMPTS:
+            raise ManifestError(
+                f"{p}: cell {i} ({c['cell']}): {c['attempts']} attempts < "
+                f"{PERSISTENT_MIN_ATTEMPTS}; re-run it"
+            )
+        u = (str(c["family"]), str(c["method"]), str(c["unit"]))
+        if u not in units:
+            raise ManifestError(f"{p}: cell {i} names {u}, which no manifest entry has")
+        if str(c["cell"]) in out[u]:
+            raise ManifestError(f"{p}: cell {c['cell']!r} listed twice for {u}")
+        out[u][str(c["cell"])] = (str(c["reason"]), str(c["file_sha256"]))
+    return dict(out)
 
 
-def check(m: Mapping[str, Any], base: Path) -> str:
+def check(m: Mapping[str, Any], base: Path, excluded: list[dict[str, Any]] | None = None) -> str:
     """Every sha256; ``n_cells`` / ``n_failed`` recomputed from the hashed file (a declared
     count must agree); <= ``max_failed_share`` failed per entry; no layer outside the grid in
     a file; the full unit grid per family x method; one accepted v8 claim-map version, declared
@@ -221,29 +301,73 @@ def check(m: Mapping[str, Any], base: Path) -> str:
     share = float(m.get("max_failed_share", MAX_FAILED_SHARE))
     grid = {f"L{la}" for la in EXPECTED_LAYERS}
     allowed_layers: set[int | str] = {*EXPECTED_LAYERS, ix.JOINT_LABEL}
+    persistent = load_persistent(m, base)  # plan 0029 Amendment 4 ({} without a list)
     for e in m["entries"]:
         p = (base / e["root"] / e["file"]).resolve()
         if not p.is_file():
             raise ManifestError(f"{_where(e)}: missing file {p}")
         if (got := sha256_file(p)) != e["sha256"]:
             raise ManifestError(f"{_where(e)}: sha256 mismatch for {p} ({got} != {e['sha256']})")
-        n, f, seen = recount(e, p)
+        n, failed, seen = scan(e, p)
+        f = len(failed)
         if extra := seen - allowed_layers:
             raise ManifestError(f"{_where(e)}: {p} holds layers outside the grid: {extra}")
-        for k, v in (("n_cells", n), ("n_failed", f)):
+        listed = persistent.get((e["family"], e["method"], str(e["unit"])), {})
+        for k, v in (("n_cells", n), ("n_failed", f), ("n_excluded", len(listed))):
             if k in e and int(e[k]) != v:
                 raise ManifestError(f"{_where(e)}: declared {k} {e[k]} != {v} in {p}")
         if n <= 0:
             raise ManifestError(f"{_where(e)}: no cells (hole)")
-        if u := unsettled_verdicts(e, p):  # plan 0029 Amendment 2: no allowance
+        # Amendment 4: the list was built from exactly this hashed file, and a listed cell must
+        # be a failed cell of this entry (a stale list refuses)
+        if bad := sorted({h for _r, h in listed.values()} - {e["sha256"]}):
+            raise ManifestError(
+                f"{_where(e)}: the persistent-failure list was built from another {e['file']} "
+                f"({bad[0][:12]}... != {e['sha256'][:12]}...): rebuild the list"
+            )
+        ids = [c for c, _cv in failed]
+        if dup := sorted({c for c in ids if c in listed and ids.count(c) > 1}):
+            raise ManifestError(
+                f"{_where(e)}: listed cell ids are not unique among the failed records: {dup[:3]}"
+            )
+        if stale := sorted(set(listed) - set(ids)):
+            raise ManifestError(
+                f"{_where(e)}: {len(stale)} persistent-failure cells are not failed in {p} "
+                f"(stale list): {stale[:3]}"
+            )
+        rest = [cv for c, cv in failed if c not in listed]
+        # plan 0029 Amendment 2, retained by Amendment 4: no allowance for an unlisted
+        # unsettled verdict
+        if u := sum(rest):
             raise ManifestError(
                 f"{_where(e)}: {u} cells with a failed / pending continuation-verifier verdict in "
                 f"{p}: re-run the cverify stage until none is left (no failed-share allowance)"
             )
-        if f / n > share:
+        if len(rest) / n > share:
             raise ManifestError(
-                f"{_where(e)}: {f} of {n} cells failed ({100 * f / n:.2f}% > "
+                f"{_where(e)}: {len(rest)} of {n} cells failed ({100 * len(rest) / n:.2f}% > "
                 f"{100 * share:.0f}%): the hole must be re-run"
+            )
+        if len(listed) / n > MAX_EXCLUDED_SHARE:
+            raise ManifestError(
+                f"{_where(e)}: {len(listed)} of {n} cells excluded as persistent failures "
+                f"({100 * len(listed) / n:.2f}% > {100 * MAX_EXCLUDED_SHARE:.0f}%): a broken run"
+            )
+        if excluded is not None and listed:
+            reasons: dict[str, int] = defaultdict(int)
+            for r, _h in listed.values():
+                reasons[r] += 1
+            excluded.append(
+                {
+                    "family": e["family"],
+                    "method": e["method"],
+                    "unit": str(e["unit"]),
+                    "n_cells": n,
+                    "n_excluded": len(listed),
+                    "share": len(listed) / n,
+                    "by_reason": dict(sorted(reasons.items())),
+                    "n_unsettled_verdicts": sum(cv for c, cv in failed if c in listed),
+                }
             )
     units: dict[tuple[str, str], set[str]] = defaultdict(set)
     for e in m["entries"]:
@@ -578,6 +702,40 @@ def filter_index(index: dict[str, Any], keep: Mapping) -> dict[str, Any]:
     return out
 
 
+EXCLUDED_MD = "excluded.md"
+
+
+def excluded_md(excluded: Sequence[Mapping[str, Any]]) -> str:
+    """Plan 0029 Amendment 4: the per-entry table of the cells excluded as persistent judge
+    failures (written beside ``index.md`` when the manifest names a list)."""
+    lines = [
+        "# hindex-v8: cells excluded as persistent judge failures (plan 0029 Amendment 4)",
+        "",
+        "A cell that stayed failed after at least "
+        f"{PERSISTENT_MIN_ATTEMPTS} attempts (both models refused, or an invalid answer after "
+        "the in-run retries) is dropped from the index, never scored; counted here.",
+        "",
+        "Exclusions are not random: judges refuse harmful-sounding readouts, so each method is "
+        "scored on its own (method-dependent) item set; safety `n_items` / bootstrap clusters "
+        "still include the excluded all-zero rows. `review` = excluded share above "
+        f"{100 * REVIEW_EXCLUDED_SHARE:.0f}%.",
+        "",
+        "| family | method | unit | cells | excluded | % | reasons | review |",
+        "|---|---|---|---:|---:|---:|---|---|",
+    ]
+    for x in excluded:
+        why = ", ".join(f"{k} {v}" for k, v in x["by_reason"].items())
+        flag = "review" if x["share"] > REVIEW_EXCLUDED_SHARE else ""
+        lines.append(
+            f"| {x['family']} | {x['method']} | {x['unit']} | {x['n_cells']} | "
+            f"{x['n_excluded']} | {100 * x['share']:.2f} | {why} | {flag} |"
+        )
+    if not excluded:
+        lines.append("| (none) | | | | | | | |")
+    lines += ["", f"Total excluded: {sum(x['n_excluded'] for x in excluded)}", ""]
+    return "\n".join(lines)
+
+
 def main(
     manifest: Path,
     *,
@@ -593,7 +751,8 @@ def main(
     base = Path(base) if base is not None else Path.cwd()
     try:
         m = load_manifest(manifest)
-        version = check(m, base)
+        excluded: list[dict[str, Any]] = []
+        version = check(m, base, excluded)
     except ManifestError as e:
         print(f"hbench final: {e}", file=sys.stderr)
         return 2
@@ -618,7 +777,19 @@ def main(
         "prompt_version": version,
         "excuse_verifier": V8_EXCUSE_VERIFIER,
     }
+    if (ref := m.get("persistent_failures")) is not None:  # plan 0029 Amendment 4: reported
+        built["manifest"]["persistent_failures"] = {
+            "path": str(ref["path"]),
+            "sha256": str(ref["sha256"]),
+            "n_excluded": sum(x["n_excluded"] for x in excluded),
+            "entries": excluded,
+        }
     js, md = ix.write_index(built, Path(out))
+    if ref is not None:  # Amendment 4: disclosed in index.md too, not only in excluded.md
+        text = excluded_md(excluded)
+        (Path(out) / EXCLUDED_MD).write_text(text, encoding="utf-8")
+        with Path(md).open("a", encoding="utf-8") as fh:
+            fh.write("\n" + text.replace("# hindex-v8: cells", "## Cells", 1))
     plots = Path(plots)
     plots.mkdir(parents=True, exist_ok=True)
     shown = filter_index(built, keep)

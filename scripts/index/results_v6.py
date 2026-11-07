@@ -1,6 +1,6 @@
 """Tables, examples and figure for docs/results/0022_index_v6.md from a built hindex-v6 index.
 
-Reads the v6 ``index.json`` (``hbench index``, default ``--version v6``), the hindex-v5 baseline
+Reads the v6 ``index.json`` (``hbench index --version v6``), the hindex-v5 baseline
 (the #45 run; ``tests/fixtures/index_v5_devbox.json`` is a copy), ``sj_offtopic_full.json``
 (``hbench overrefusal offtopic-export``) and, for the examples only, ``sj_records_full.jsonl`` +
 ``data/overrefusal/items.json``. Nothing is recomputed: every number is an index's or the export's.
