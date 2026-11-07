@@ -312,8 +312,9 @@ def cmd_report(args: argparse.Namespace) -> int:
         from hallucination_bench import index
 
         out = Path(args.out)
-        # the library default version (hindex-v4), not the `hbench index` CLI's v6 (plans 0021,
-        # 0022); build_index's unit guard refuses a v6 `refusal_claims` overrefusal root here
+        # the library default version (hindex-v4), not the `hbench index` CLI's v8 (plans 0021,
+        # 0022, 0029 am. 4); build_index's unit guard refuses a v6 `refusal_claims` overrefusal
+        # root here
         built = index.build_index(
             index.default_sources(out, args.judge_model), index.load_methods(INDEX_METHODS)
         )
@@ -803,8 +804,8 @@ def build_parser() -> argparse.ArgumentParser:
 
     ix = sub.add_parser(
         "index",
-        help="the hallucination index (hindex-v6 by default): one row per (method, layer) "
-        "(plans 0013, 0019, 0021, 0022)",
+        help="the hallucination index (hindex-v8 by default, plan 0029 amendment 4): one row per "
+        "(method, layer) (plans 0013, 0019, 0021, 0022, 0029)",
     )
     ix.add_argument("--out", default="outputs", help="output root of the default sources")
     ix.add_argument("--judge-model", default=DEFAULT_MODEL)
@@ -834,14 +835,15 @@ def build_parser() -> argparse.ArgumentParser:
     ix.add_argument(
         "--version",
         choices=("v3", "v4", "v5", "v6", "v7", "v8"),
-        default="v6",
-        help="v8: hindex-v8 (plan 0029: main 9, am_claims 3, am_situation 3, sibling 1, story 1, "
+        default="v8",
+        help="v8 (default, plan 0029 amendment 4): hindex-v8 (plan 0029: main 9, am_claims 3, "
+        "am_situation 3, sibling 1, story 1, "
         "overrefusal 1, benign_roleplay 2 (no cheating: archived, plan 0029 amendment 3); "
         "per-layer rows + a joint row; "
         "claimmap-v2.8+ roots, claimmap-v2.9 for the final run); v7: hindex-v7 (v6 + "
         "benign_roleplay, weight 2; sibling weight "
         "1; needs a `prompts` --benign-roleplay-root from `hbench benign-roleplay "
-        "index-export`, plan 0027); v6 (default): hindex-v6 (v5 + overrefusal on wrong-topic "
+        "index-export`, plan 0027); v6: hindex-v6 (v5 + overrefusal on wrong-topic "
         "refusal claims: needs a "
         "`refusal_claims` --overrefusal-root, i.e. offtopic_index/, plan 0022); "
         "v5: hindex-v5 (agentic_misalignment on candidate claims, plan 0021); "

@@ -294,7 +294,7 @@ def test_cli_default_is_v6_and_unit_guard(tmp_path, monkeypatch):
         monkeypatch.delenv(var, raising=False)
     rc = _v6_root(tmp_path / "rc", [_or_row(20, "o0", 4, 1), _or_row(24, "o0", 2, 0)])
     argv = _cli_argv(tmp_path, rc)
-    assert cli.main([*argv, "--dest", str(tmp_path / "d")]) == 0
+    assert cli.main([*argv, "--version", "v6", "--dest", str(tmp_path / "d")]) == 0
     out = json.loads((tmp_path / "d" / "index.json").read_text())
     assert out["version"] == "hindex-v6"
     assert {r["layer"]: r["families"][ix.OVERREFUSAL]["v"] for r in out["rows"]} == {
@@ -306,7 +306,7 @@ def test_cli_default_is_v6_and_unit_guard(tmp_path, monkeypatch):
             cli.main([*argv, "--version", v])
     items = _v6_root(tmp_path / "it", [_or_row(20, "o0", 1, 0)], unit="items")
     with pytest.raises(SystemExit, match="hindex-v6 needs"):
-        cli.main(_cli_argv(tmp_path / "x", items))
+        cli.main([*_cli_argv(tmp_path / "x", items), "--version", "v6"])
     # the pre-existing checks run first (their messages are unchanged)
     with pytest.raises(SystemExit, match="not a directory"):
         cli.main(_cli_argv(tmp_path / "y", tmp_path / "missing"))

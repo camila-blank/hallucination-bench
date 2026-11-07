@@ -335,7 +335,17 @@ def test_cli_v7_and_br_root_refused_before_v7(tmp_path, monkeypatch):
     ):
         argv += [flag, str(src[fam][0])]
     with pytest.raises(SystemExit, match="hindex-v7 only"):
-        cli.main([*argv, "--benign-roleplay-root", str(br), "--dest", str(tmp_path / "d6")])
+        cli.main(
+            [
+                *argv,
+                "--version",
+                "v6",
+                "--benign-roleplay-root",
+                str(br),
+                "--dest",
+                str(tmp_path / "d6"),
+            ]
+        )
     assert (
         cli.main(
             [

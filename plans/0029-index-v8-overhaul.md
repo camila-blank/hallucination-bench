@@ -14,7 +14,9 @@ judge's continuation tags no longer gate it) after the v2.9 tag gate failed too;
 new fresh-sample pilot (Amendment 2, "Gate"). **Amendment 3 (2026-11-05, below): no cheating
 family** — the cheating eval was archived on 2026-11-04 as a diagnostic, so hindex-v8 has seven
 families (Σ 20); where this plan says "cheating" is in v8 (title, asks, §2.5, §3.8, §6, §7), read
-the amendment.
+the amendment. **Amendment 4 (2026-11-07, below): persistent judge failures** —
+cells still failed after ≥ 3 attempts (both models refused, or an invalid answer) are excluded,
+counted and reported via a hashed list; `hbench index` defaults to v8.
 
 ## Camila's asks (2026-11-04, verbatim where quoted)
 
@@ -797,3 +799,189 @@ unchanged.
 **Sanctioned test edits (this amendment only).** Assertions on the v8 family set / weights and
 the cheating plumbing in `tests/test_index_v8.py` and `tests/test_final.py` are updated to the
 seven-family table (listed in the PR description, old → new).
+
+## Amendment 4 (2026-11-07): persistent judge failures — exclude, count and report; CLI default v8
+
+**Why.** The full v8 run (2026-11-05) re-asked every failed row in 3–8 run passes. One more pass
+on 2026-11-07 ran before this amendment. The strict `hbench final` still exits 2. What is left is
+deterministic, not transient:
+- **AM continuation verifier**: 13 `:CV` verdicts refused by Opus *and* the Sonnet fallback
+  (12 O-lens, 1 NLA). Amendment 2 allows zero unsettled verdicts and says "re-run until clean",
+  which cannot terminate.
+- **Overrefusal**: digests, plus a few strict / off-topic judge calls, refused by both models.
+  - Per layer: O-lens 4.2% / NLA 3.7% / J-lens 0.3% (worst unit 7.3%).
+  - Joint: NLA 9.1% / O-lens 6.8%.
+  - Both are above §3.9's 1%.
+- **AM joint, NLA**: 1.97% of sites. Root cause: on these long 11-layer joint prompts the Sonnet
+  map returns units for readout `R0` only and stops, on every attempt (3 invalid answers per pass,
+  4 passes). `claimmap_v2.validate` rejects an answer whose readout set differs from the cell's.
+  This is a model behaviour on this prompt, not a refusal. It is labelled `invalid` and
+  disclosed as such. Re-asking on another model is not a documented fallback for the map, so it
+  is not done here.
+- Smaller remainders (main / story / AM per-layer maps Opus refuses, AM detections) are already
+  within the 1% allowance.
+
+The plan has no rule for a cell that stays failed after the retries and the documented fallback
+judge. This amendment sets one. It changes `final`'s gate and reporting only. Scoring is
+unchanged, because the index already drops every failed cell.
+
+**Definitions.**
+- A *call*'s **attempts** are its cache rows under its newest fingerprint (by `ts`).
+  - A run pass usually writes one row per call, after its in-run retries and the Sonnet fallback
+    where the stage has one.
+  - AM detection is the exception: a batched call and its single re-ask can write two rows in one
+    pass. The script therefore requires **≥ 6** attempts for a detection-stage call
+    (`DETECT_ATTEMPT_FACTOR` = 2), so a listed detection still means ≥ 3 passes.
+  - Every listed cell's stage was re-asked in ≥ 3 passes anyway: 3–8 passes on 2026-11-05 plus
+    the 2026-11-07 pass, logged in `logs/`.
+- A call is **failed** when none of those rows has an answer. Its **reason** is the newest row's:
+  - `refused`: `usage.refusals > 0` and no answer. This is Opus, then the Sonnet fallback where the
+    stage has one: verifier, AM detector, J-lens `summ:`, overrefusal digest.
+  - `invalid`: an invalid answer after the in-run retries (`n_invalid_attempts`, or a
+    `malformed` / `invalid` reason).
+  - `error`: a transport error or timeout with no model answer.
+  - `unknown`: anything else.
+- A failed cell's **blocking stage** is read off its record. It is the first stage that is not
+  settled, in this order:
+  - main / story: summary (`stages.summary`) → map (`stages.map`) → cverify;
+  - AM claims: detection (`status` pending / failed; for a joint site, its 11 per-layer
+    `:D` / `:Dsum` / `summ:`) → map (`map_status`) → cverify;
+  - AM situation: `sit:`;
+  - overrefusal: digest `dg:` → strict judge `sj:` → off-topic judge `off:`.
+- A **persistent failure** is a failed cell (as `final`'s recount defines it) where all of these
+  hold:
+  - its blocking stage has at least one failed call;
+  - every failed call of that stage has reason `refused` or `invalid` and **≥ 3 attempts**
+    (`final.PERSISTENT_MIN_ATTEMPTS`);
+  - a single required call (`:M`, `sit:`, an overrefusal stage) has been asked at all. A
+    never-asked call is pending, not persistent.
+
+  A failed call of another stage never explains the cell. An `error` or `unknown` call is never
+  persistent: re-run it.
+- Three straight failures do not prove a call is deterministic. A call refused half the time
+  still fails 3 times in a row about 12% of the time. The bar means "not transient after 3
+  passes", and the retry history (3–8 passes before this amendment) is reported with the list.
+
+**The list.** `scripts/v8/persistent_failures.py <manifest>` does the following:
+- It reads each entry's hashed file and finds the failed records with `final.scan`, the same
+  recount `final` uses.
+- It reads each record's blocking stage and that stage's calls in the arm's cache. For
+  overrefusal these are the `digest/`, `sjudge/` and `offtopic/` caches, and for the joint unit
+  the joint root's.
+- It writes `data/index/v8_persistent_failures.json` (`version: v8-persistent-1`):
+  - `cells` holds the persistent failures. Each has family, method, unit, cell id, stage, reason,
+    attempts, `file_sha256` (the entry file it was read from), and each failed call with its
+    attempts / reason / model / `answered_by`.
+  - `not_listed` holds every other failed cell and why.
+- The cell id is the record's `key`. For a safety row it is the `item`.
+- **The script is what enforces the persistent definition.** `final` enforces the list's
+  integrity only (below). The list is in git, so the evidence for each cell can be reviewed.
+
+The manifest names the list at top level as `persistent_failures: {path, sha256}`. An entry may
+declare `n_excluded`.
+
+**`hbench final` (per manifest entry).**
+- The list's sha256 and version must match.
+- Every listed cell must:
+  - name a manifest entry;
+  - have reason `refused` / `invalid` and ≥ 3 attempts;
+  - not be listed twice;
+  - carry a `file_sha256` equal to that entry's `sha256`. A list built from another version of
+    the file refuses: rebuild it.
+- Every listed cell must be a **failed record of that entry in the hashed file**. A listed cell
+  that has since been answered refuses the manifest (stale list).
+- A listed id that matches more than one failed record refuses the manifest (ids must be unique
+  for exclusion).
+- Listed cells are *excluded*: they count toward neither the `max_failed_share` gate nor the
+  unsettled-verdict gate.
+- Unlisted failed cells keep every existing rule unchanged:
+  - ≤ `max_failed_share` (1%) per entry;
+  - **zero** unlisted cells with a failed / pending verifier verdict. Amendment 2's rule is
+    retained for everything not listed.
+- The excluded share per entry must be ≤ `final.MAX_EXCLUDED_SHARE` = 15%.
+  - This is a broken-stage tripwire, not a quality gate.
+  - It was set **post hoc**, after seeing the provisional worst entry (overrefusal joint NLA,
+    9.1%).
+  - Any entry above `final.REVIEW_EXCLUDED_SHARE` = 5% is flagged `review` in the report and
+    discussed in the results doc.
+- A declared `n_failed` still counts every failed cell, excluded or not. A declared `n_excluded`
+  must equal the listed count.
+- Without `persistent_failures`, `final` behaves exactly as before: same messages, same exits.
+
+**Retained invariants (restated).**
+- The index never scores an excluded cell.
+  - `index._segments` still drops a cell whose map failed or whose verdict is failed / pending
+    (Amendment 2).
+  - Overrefusal failed rows are still all-zero rows with `n_failed_cells = 1`. They add nothing to
+    the ratio, but they stay in `n_items` and in the bootstrap's cluster set, as before.
+- A failed or refused verifier verdict **never excuses** a segment. Exclusion removes the whole
+  cell; it never scores its candidates as excused or unexcused.
+- These are unchanged:
+  - the 1% allowance and the zero-unsettled-verdict rule for unlisted cells;
+  - the claimmap-v2.9 / cverify-v1 / x3-bank checks;
+  - the full unit grid.
+- v3–v7 are unchanged: none of them reads a manifest.
+
+**Reporting (the bias is disclosed).**
+- `final` writes these:
+  - `index.json` → `manifest.persistent_failures`: `path`, `sha256`, `n_excluded` (total), and
+    `entries`, each with `n_cells` / `n_excluded` / `share` / `by_reason` /
+    `n_unsettled_verdicts`;
+  - `excluded.md`, the same table plus the `review` flag;
+  - the same table appended to `index.md`, so the exclusions sit beside the numbers.
+- Exclusions are not random.
+  - Judges refuse harmful-sounding readouts, which may be exactly where a lens reads harmful
+    content faithfully.
+  - The shares differ by method: overrefusal O-lens / NLA ≫ J-lens, and the AM joint `invalid`
+    cases are NLA only.
+  - So each method is scored on its own, method-dependent item set. The direction of the effect
+    is unknown.
+- The results doc (`docs/results/0029_index_v8.md`) does the following:
+  - gives the counts per family × method × unit, with the retry history;
+  - reports overrefusal and AM joint on the **common item set** (items excluded under no method
+    at that unit) beside the headline numbers;
+  - compares the frozen numbers with the provisional index.
+
+**CLI default and docs.**
+- `hbench index` defaults to `--version v8` (§2.5 / §8 step 8, the results PR).
+- The library default (`build_index`, `version="v4"`) and `hbench report`'s v4 refresh are
+  unchanged.
+- The `--version` help, README and CLAUDE.md say v8 is the default.
+
+**Sanctioned pre-existing test edits (this amendment only).**
+- In `tests/test_index_v6.py::test_cli_default_is_v6_and_unit_guard`, exactly two `cli.main`
+  calls relied on the default. They now pass `--version v6`:
+  - the `--dest` build that pins v6's output;
+  - the `items` unit-guard call ("hindex-v6 needs").
+- The `missing` / `empty` calls are untouched; their messages are the same under v8.
+- Assertions are unchanged.
+- The test keeps its name on purpose, as a pointer to its history. It now pins v6 explicitly.
+- In `tests/test_index_v7.py::test_cli_v7_and_br_root_refused_before_v7`, exactly one call relied
+  on the default: the one that expects a benign_roleplay root to be refused before v7. It now
+  passes `--version v6`, and its assertion (`match="hindex-v7 only"`) is unchanged. Under the v8
+  default the root is accepted, which is the point of the change.
+- No other pre-existing test or assertion changes.
+
+**Tests (new).**
+- `tests/test_final_persistent.py` covers:
+  - no list → unchanged (an unlisted unsettled verdict still exits 2);
+  - a listed cell is excluded, counted, reported (`index.json`, `excluded.md`, `index.md`) and not
+    scored;
+  - the refusals: hash, version, reason, attempts, missing key, duplicate, unknown entry,
+    `file_sha256`, stale list, non-unique ids;
+  - unlisted failures still under 1%;
+  - declared `n_excluded`;
+  - the 15% bound;
+  - AM joint and overrefusal cells;
+  - `recount` unchanged.
+- `tests/test_persistent_failures_script.py` covers:
+  - reason classification, including AM batch rows;
+  - the newest fingerprint;
+  - attempts;
+  - the blocking stage: a map refused ×3 is listed; ×2, a transport error, or a never-asked map
+    with a refused call of another stage is not; the CV prefix;
+  - an AM joint site with a pending joint `:M` and a refused per-layer detection is not listed;
+  - an AM joint invalid ×4 is listed;
+  - overrefusal: the first unsettled stage, and a never-asked strict judge;
+  - the written list loads in `final`.
+- `tests/test_index_cli_default_v8.py` pins `hbench index` → hindex-v8 by default.

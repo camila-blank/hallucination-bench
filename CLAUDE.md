@@ -14,7 +14,7 @@ macro per (method, layer)) is plan `plans/0013-final-sibling-eval-and-hallucinat
 (hindex-v3: main / AM / sibling / story) + `plans/0019-safety-families-on-the-index.md`
 (hindex-v4: + overrefusal only; strongreject / mask stay off, revs 6 / 5) +
 `plans/0021-am-candidate-claims-index-v5.md` (hindex-v5: AM on candidate claims) +
-`plans/0022-overrefusal-wrong-topic-refusals.md` (hindex-v6, the CLI default: overrefusal as
+`plans/0022-overrefusal-wrong-topic-refusals.md` (hindex-v6, the CLI default until hindex-v8: overrefusal as
 wrong-topic refusal claims). The `mask` eval (MASK lies vs
 honest-but-wrong: does the lens claim the model is lying when it is honest? Its own CLI,
 `hbench mask gt|run|report`; ARCHIVED 2026-10-29: a diagnostic, not part of HallucinationBench or
@@ -23,9 +23,9 @@ harmless role-play prompts; items = WorkspaceBench's jailbreak negative controls
 gated role-play candidates; judged by running WSB's own pinned `jailbreak_recognition` family;
 `hbench benign-roleplay import|run|report|index-export`; on the index from hindex-v7 only) is plan
 `plans/0023-benign-roleplay.md`; **hindex-v7** (plan `plans/0027-benign-roleplay-on-index-v7.md`,
-`--version v7`, CLI default still v6) = v6 + `benign_roleplay` (weight 2), sibling weight 1.
-**hindex-v8** (plan `plans/0029-index-v8-overhaul.md`, `--version v8`; CLI default switches in the
-results PR) = claimmap-v2.9 everywhere (plan 0029 Amendment 1: v2.8 + the slot rule and the
+`--version v7`) = v6 + `benign_roleplay` (weight 2), sibling weight 1.
+**hindex-v8** (plan `plans/0029-index-v8-overhaul.md`, **the `hbench index` CLI default** since
+plan 0029 Amendment 4; frozen results `docs/results/0029_index_v8.md`) = claimmap-v2.9 everywhere (plan 0029 Amendment 1: v2.8 + the slot rule and the
 prefix check for excused literal continuations; roles = substitutions) with the excuse decided by
 the continuation verifier `cverify-v1` (Amendment 2), AM
 split into `am_claims` + `am_situation` (amsit-v2), a joint 11-layer row per method, `hbench
@@ -108,7 +108,7 @@ src/hallucination_bench/
                   (`hb_scores`: raw + probe_validated), probe-checked rates,
                   misses (scripts/strongreject/probe_modal.py scores sites; probe_report.py)
   index.py        plans 0013 + 0019 + 0021 + 0022 + 0027: the hallucination index (CLI default
-                  hindex-v6; `--version v7` = + benign_roleplay; `--version v5` / `v4` / `v3` = those
+                  hindex-v8, plan 0029; `--version v6` = the old default; `--version v7` = + benign_roleplay; `--version v5` / `v4` / `v3` = those
                   exactly; library default v4) from the
                   families' outputs; safety families from each
                   eval's index_counts.jsonl / index_meta.json; method <-> arm mapping in
@@ -477,7 +477,8 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
   `tests/fixtures/index_v4_devbox.{json,md}` (the #42 run; a filtered safety-root mirror).
   `tests/test_index_v5.py` also cross-checks v5 AM against PR #43's
   `scripts/index/am_candidate_claims.arm_rows` variant (a) (skips off the dev box).
-  **hindex-v6** (plan 0022; `index.INDEX_VERSION_V6`, **the `hbench index` CLI default**;
+  **hindex-v6** (plan 0022; `index.INDEX_VERSION_V6`, the `hbench index` CLI default until plan
+  0029 Amendment 4 made it v8;
   `build_index` still defaults to v4): v5 (AM on candidate claims: `index.AM_CANDIDATE_VERSIONS`)
   with overrefusal read from a root whose `index_meta.json` has `unit == "refusal_claims"`
   (`offtopic_export.py`; per item `n_claims` = decline lines, `n_false` = `n_contradicted` =
@@ -606,6 +607,33 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
     claim-map arm dir's `arm.json` `map_prompt` (only claimmap-v2.9 accepted), and builds from a fresh temp dir holding only
     the listed files (`situation.jsonl` filtered to the listed units).
   - Judge noise is not run for v8: `report --view v2` shows no noise column for v2.8 roots.
+  - **Persistent judge failures** (plan 0029 Amendment 4). Rule:
+    - A failed cell is explained by its record's **blocking stage**:
+      - main / story: summary → map → cverify;
+      - AM: detection (a joint site: its 11 per-layer detections) → map → cverify;
+      - `sit:`;
+      - overrefusal: digest → strict → off-topic.
+    - It is persistent iff:
+      - every failed call of that stage is `refused` (Opus + the Sonnet fallback where the stage
+        has one) or `invalid` (after the in-run retries);
+      - each has ≥ 3 attempts (cache rows under the newest fingerprint);
+      - a single required call (`:M`, `sit:`, an overrefusal stage) was asked at all.
+    - `error` / `unknown` are never persistent: re-run them.
+
+    Workflow:
+    - `scripts/v8/persistent_failures.py <manifest> --or-joint-cache <joint OR model dir>
+      --dest data/index/v8_persistent_failures.json` writes `cells` (listed, each with
+      `file_sha256`) and `not_listed`.
+    - The manifest's top-level `persistent_failures: {path, sha256}` names the list.
+    - `final` checks only the list's integrity (hash, version, reason, attempts, `file_sha256` ==
+      the entry sha, failed in the hashed file, unique ids, ≤ 15% per entry). The script is what
+      enforces the definition.
+    - Listed cells skip the 1% gate and the zero-unsettled-verdict gate. Unlisted cells keep both.
+    - A listed cell is never scored (the index drops failed cells anyway).
+    - Reported in `index.json` (`manifest.persistent_failures`), `index.md` and `excluded.md`.
+      Above 5% an entry is flagged `review`.
+    - Rebuild the list whenever a cells file changes. A stale list exits 2.
+  - **`hbench index` defaults to `--version v8`** (Amendment 4). Library `build_index` stays v4.
   - **Continuation verifier** (plan 0029 Amendment 2, `cverify-v1`; the v2.9 tag gate failed at
     0.733 after pilot2's 0.52):
     - **The rule.** In v2.9 roots with the verifier on, the excuse is decided by
