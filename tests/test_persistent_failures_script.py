@@ -41,6 +41,7 @@ def test_reason_classification():
     assert pf.reason(_row("k", invalid=3), None) == "invalid"
     assert pf.reason({"meta": {"reason": "malformed"}}, None) == "invalid"
     assert pf.reason(_row("k", errors=1, calls=0), None) == "error"
+    assert pf.reason(_row("k", refusals=1, errors=1), None) == "error"  # fallback hit an error
     assert pf.reason(_row("k"), None) == "unknown"
     # an AM batched detection row: the batch row's usage decides
     det = {"key": "c:D", "meta": {"batch": "batchD:1", "answered_by": "claude-sonnet-5-5"}}
@@ -195,3 +196,11 @@ def test_a_detection_needs_twice_the_attempts(tmp_path):
     _arm(tmp_path, "am", cells, _refused("v__L020__p5:D", 5))
     doc = _build(tmp_path, [_entry(tmp_path, ix.AM_CLAIMS, "L20", "am", ix.CELLS)])
     assert not doc["cells"] and "under-retried" in doc["not_listed"][0]["why"]
+
+
+def test_error_rows_do_not_count_as_attempts():
+    rows = {"k": [_row("k", ts=1.0, errors=1, calls=0), _row("k", ts=2.0, errors=1, calls=0)]}
+    rows["k"] += _refused("k", 1)
+    rows["k"][-1]["ts"] = 3.0
+    c = pf.failed_call("k", rows)
+    assert (c["reason"], c["attempts"], c["rows"]) == ("refused", 1, 3)

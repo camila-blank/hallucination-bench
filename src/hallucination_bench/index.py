@@ -34,8 +34,9 @@ cell (:func:`claim_rows` with ``am_candidates=True``), everywhere AM is used (``
 reproduces the exploratory ``hclaims*.py`` / ``um3.py`` / ``macro3.py`` exactly, down to the RNG
 consumption order: change a definition only with a new :data:`INDEX_VERSION`.
 
-v6 (hindex-v6, plan 0022; the ``hbench index`` CLI default since, ``build_index``'s library default
-still ``"v4"``) is v5 with the overrefusal family read from a root whose ``index_meta.json`` has
+v6 (hindex-v6, plan 0022; the ``hbench index`` CLI default until plan 0029 Amendment 4 made it
+v8, ``build_index``'s library default still ``"v4"``) is v5 with the overrefusal family read from
+a root whose ``index_meta.json`` has
 ``unit == "refusal_claims"`` (``hbench overrefusal offtopic-export``: per item, ``n_claims`` =
 decline lines, ``n_contradicted`` = off-topic decline lines, all 427 items, no probe); the share
 formula and every other family are v5's. :func:`check_safety_units` enforces the unit both ways.

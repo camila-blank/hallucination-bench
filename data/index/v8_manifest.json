@@ -3957,6 +3957,6 @@
  ],
  "persistent_failures": {
   "path": "data/index/v8_persistent_failures.json",
-  "sha256": "6a3649ac03e09b359342f82eaa72dfca1ffe8b48f1cbc54312ede2fc7240ac75"
+  "sha256": "6d620766c3ef087f5b16c0ec32a725033584feb552d0f321787f9a18449f360e"
  }
 }

@@ -92,21 +92,24 @@ detect, AM map / cverify / joint / situation (two passes), overrefusal per layer
 - Overrefusal per layer: 385 → 376 failed item-layers. Joint: 71 → 68.
 - Main: a few per-layer and joint maps answered; 28 Opus-refused or invalid maps and 5 J-lens
   summaries remain.
-- AM verifier verdicts: 13 → 8 unsettled (all O-lens).
+- AM verifier: 13 → 8 cells with an unsettled verdict (10 verdicts, all O-lens).
 
 The documented fallback (Sonnet on refusal) applies where the stage has one: verifier, AM
 detector, J-lens summaries, overrefusal digests.
 
 **What is left.** 1,413 failed cells; `scripts/v8/persistent_failures.py` explains each one.
-- **1,404 are persistent** and listed. Each has ≥ 3 attempts at its blocking stage, and ≥ 6 for
-  AM detections. Reasons: **1,005 refused** (both models where there is a fallback) and **398
+- **1,404 are persistent** and listed. Each has ≥ 3 refused / invalid attempts at its blocking stage
+  (transport-error rows not counted), and ≥ 6 for AM detections. Reasons: **1,006 refused** (both models where there is a fallback) and **398
   invalid**: 391 NLA AM joint sites where Sonnet maps readout `R0` only; 6 O-lens main maps; 1
   O-lens AM joint.
-  - By blocking stage: AM detection 490, overrefusal digest 441, AM map 423 (joint 418), main map
+  - By blocking stage: AM detection 490, overrefusal digest 441, AM map 423 (joint 414), main map
     28, AM verifier 8, AM situation 7, main J-lens summary 5, overrefusal strict judge 2.
-- **9 are not listed**, because they are transient or under-retried: 7 AM joint maps that time out
-  (`error`), 1 AM detection and 1 overrefusal strict judge with 2 attempts. They stay under the 1%
-  allowance in their entries and are dropped like any failed cell.
+- **9 are not listed**, because they are transient or under-retried:
+  - 6 AM joint maps that time out (`error`);
+  - 1 AM joint map with 2 invalid attempts;
+  - 1 J-lens AM detection and 1 overrefusal strict judge, each with 2 attempts.
+
+  They stay under the 1% allowance in their entries and are dropped like any failed cell.
 
 Per family × method (summed over the units that have exclusions):
 

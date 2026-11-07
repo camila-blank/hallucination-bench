@@ -826,7 +826,8 @@ judge. This amendment sets one. It changes `final`'s gate and reporting only. Sc
 unchanged, because the index already drops every failed cell.
 
 **Definitions.**
-- A *call*'s **attempts** are its cache rows under its newest fingerprint (by `ts`).
+- A *call*'s **attempts** are its cache rows under its newest fingerprint (by `ts`) whose own
+  reason (below) is `refused` or `invalid`. A transport-error row never counts as an attempt.
   - A run pass usually writes one row per call, after its in-run retries and the Sonnet fallback
     where the stage has one.
   - AM detection is the exception: a batched call and its single re-ask can write two rows in one
@@ -835,11 +836,12 @@ unchanged, because the index already drops every failed cell.
   - Every listed cell's stage was re-asked in ≥ 3 passes anyway: 3–8 passes on 2026-11-05 plus
     the 2026-11-07 pass, logged in `logs/`.
 - A call is **failed** when none of those rows has an answer. Its **reason** is the newest row's:
-  - `refused`: `usage.refusals > 0` and no answer. This is Opus, then the Sonnet fallback where the
-    stage has one: verifier, AM detector, J-lens `summ:`, overrefusal digest.
+  - `refused`: `usage.refusals > 0`, no answer, and no transport error in the attempt. This is
+    Opus, then the Sonnet fallback where the stage has one: verifier, AM detector, J-lens
+    `summ:`, overrefusal digest. A refusal followed by a fallback transport error is `error`.
   - `invalid`: an invalid answer after the in-run retries (`n_invalid_attempts`, or a
     `malformed` / `invalid` reason).
-  - `error`: a transport error or timeout with no model answer.
+  - `error`: a transport error or timeout anywhere in the attempt.
   - `unknown`: anything else.
 - A failed cell's **blocking stage** is read off its record. It is the first stage that is not
   settled, in this order:
@@ -855,6 +857,9 @@ unchanged, because the index already drops every failed cell.
     (`final.PERSISTENT_MIN_ATTEMPTS`);
   - a single required call (`:M`, `sit:`, an overrefusal stage) has been asked at all. A
     never-asked call is pending, not persistent.
+  - For the verifier stage the calls are the cell's cached `:CV:<i>` keys (a prefix match). One
+    persistent verdict means the cell can never settle, so a still-pending candidate does not
+    change the outcome.
 
   A failed call of another stage never explains the cell. An `error` or `unknown` call is never
   persistent: re-run it.

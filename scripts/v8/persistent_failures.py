@@ -8,11 +8,11 @@ situation: ``sit:``; overrefusal: ``dg:`` digest, ``sj:`` strict judge, ``off:``
 judge). A call is failed when no row of its newest fingerprint has an answer; its attempts are
 the rows of that fingerprint, its reason the newest row's:
 
-* ``refused``  -- the call was refused (``usage.refusals`` > 0 with no answer: Opus, and the
-  Sonnet fallback where the stage has one);
+* ``refused``  -- the call was refused (``usage.refusals`` > 0 with no answer and no transport
+  error: Opus, and the Sonnet fallback where the stage has one);
 * ``invalid``  -- an invalid answer after the in-run retries (``n_invalid_attempts`` or a
   ``malformed`` / ``invalid`` reason);
-* ``error``    -- a transport error / timeout with no model answer (never persistent: re-run);
+* ``error``    -- a transport error / timeout in the attempt (never persistent: re-run);
 * ``unknown``  -- anything else (never persistent).
 
 A failed cell is explained by its **blocking stage**, read off its record: main / story the
@@ -26,9 +26,9 @@ required call (``:M``, ``sit:``, an overrefusal stage) has been asked at all (a 
 is pending, not persistent). Each listed cell carries the sha256 of the entry file it was read
 from (``file_sha256``; `final` refuses a list built from another file). Other failed cells go
 to ``not_listed`` (with why) and count against `final`'s 1% allowance / the zero-unsettled-verdict
-rule as before. An attempt is one cache row under the call's newest fingerprint: each run pass
-writes one row per call after its in-run retries (and the Sonnet fallback), so 3 attempts = 3
-passes.
+rule as before. Attempts count only the rows (under the call's newest fingerprint) whose own
+reason is refused / invalid (a pass usually writes one row per call after its in-run retries and
+the Sonnet fallback; AM detection can write two, hence its doubled bar).
 
 usage (repo root): python scripts/v8/persistent_failures.py data/index/v8_manifest.json \\
     --or-joint-cache outputs/v8-full/safety/or/overrefusal/claude-opus-5-5 \\
@@ -61,10 +61,10 @@ def reason(row: dict[str, Any], batch: dict[str, Any] | None) -> str:
             return "invalid"
         usage = bm.get("usage")
     usage = usage or {}
+    if int(usage.get("errors") or 0) > 0 or int(usage.get("calls") or 0) == 0:
+        return "error"  # a transport error anywhere in the attempt (even after a refusal)
     if int(usage.get("refusals") or 0) > 0:
         return "refused"
-    if int(usage.get("errors") or 0) > 0 or int(usage.get("calls") or 0) == 0:
-        return "error"
     return "unknown"
 
 
@@ -107,15 +107,20 @@ def failed_call(key: str, rows: dict[str, list[dict]]) -> dict[str, Any] | None:
     same = [r for r in rs if r.get("fingerprint") == fp]
     if any(r.get("result") is not None for r in same):
         return None
-    batch_key = (newest.get("meta") or {}).get("batch")
-    batch = None
-    if batch_key and rows.get(batch_key):
-        batch = max(rows[batch_key], key=lambda r: float(r.get("ts") or 0))
+
+    def row_reason(r: dict[str, Any]) -> str:
+        bk = (r.get("meta") or {}).get("batch")
+        b = max(rows[bk], key=lambda x: float(x.get("ts") or 0)) if bk and rows.get(bk) else None
+        return reason(r, b)
+
     meta = newest.get("meta") or {}
     return {
         "key": key,
-        "attempts": len(same),
-        "reason": reason(newest, batch),
+        # only attempts that were themselves refused / invalid count (a transport-error row
+        # never adds to the evidence)
+        "attempts": sum(row_reason(r) in final.PERSISTENT_REASONS for r in same),
+        "rows": len(same),
+        "reason": row_reason(newest),
         "stage": meta.get("stage") or key.split(":", 1)[0],
         "model": meta.get("model"),
         "answered_by": meta.get("answered_by"),
