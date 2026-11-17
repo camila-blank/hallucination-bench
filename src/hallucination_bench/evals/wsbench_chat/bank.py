@@ -53,7 +53,7 @@ else:
     BANK_SOURCE = f"camilablank/wsbench-pub@{WSBENCH_PUB_COMMIT}:evals/hallucination/items.json"
     BANK_COMMIT = WSBENCH_PUB_COMMIT
 
-# Plan 0028: the main bank at 3x prompts / <=16 punctuation-only sites (local until frozen;
+# Plan 0028: the main bank at 3x prompts / <=16 punctuation-only sites (frozen for hindex-v8;
 # HBENCH_X3_BANK = its directory, as tests/test_main_x3.py). Selected by `hbench run|report
 # --bank x3` (plan 0029: the v8 main family); the HBENCH_WSBENCH_CHAT_ITEMS override still works.
 X3_BANK_DIR = Path(os.environ.get("HBENCH_X3_BANK") or DATA / "wsbench_chat_x3")
@@ -89,8 +89,8 @@ def use_bank(name: str, *, explicit: bool = True) -> None:
     else:
         if not path.is_file():
             raise SystemExit(
-                f"--bank x3: {path} not found (plan 0028's bank is local until frozen: build it "
-                "with scripts/main_x3/build_bank.py or set HBENCH_X3_BANK=<dir>)"
+                f"--bank x3: {path} not found (plan 0028's frozen bank ships in "
+                "data/wsbench_chat_x3; restore it from git or set HBENCH_X3_BANK=<dir>)"
             )
         ITEMS_PATH = path
         BANK_SOURCE = f"plan0028-x3:{path}"

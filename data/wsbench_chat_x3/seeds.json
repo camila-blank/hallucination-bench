@@ -1,0 +1,2295 @@
+{
+ "seeds": [
+  {
+   "key": "chat:dailydialog:a7bdf88ad6fc920c305b7e50085f631d",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-683",
+   "text": "I wonder if you agree that money is not happiness."
+  },
+  {
+   "key": "chat:dailydialog:5815286304c55ff86b62527646ac34e6",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-549",
+   "text": "So do you think you can get to the office alone?"
+  },
+  {
+   "key": "chat:dailydialog:f25a6b7d187de2fb746191094babc00a",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-705",
+   "text": "What a bother having to climb storeys home every day."
+  },
+  {
+   "key": "chat:dailydialog:a97eb9f2ca1a270897d0e45b9af9fcb7",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-915",
+   "text": "Can you speak English?"
+  },
+  {
+   "key": "chat:dailydialog:d77a032fde3a2c1e41b25c1276f62938",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-1000",
+   "text": "Great party, isn't it?"
+  },
+  {
+   "key": "chat:dailydialog:210a128ef54291f23ff88f6d1b295886",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-815",
+   "text": "How are you making out?"
+  },
+  {
+   "key": "chat:dailydialog:92d47c7b5610dcd92962864e72493875",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-825",
+   "text": "Maybe we'd better go now."
+  },
+  {
+   "key": "chat:dailydialog:a1fae97cb8090b41b44be89cb6615f73",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-119",
+   "text": "Okay, can I ask you something direct?"
+  },
+  {
+   "key": "chat:dailydialog:42d99a900005ecee4e9a42a716a50c07",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-499",
+   "text": "Can you tell which team seems to win?"
+  },
+  {
+   "key": "chat:dailydialog:f653710eb19b1f5387677c008bae47d2",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-355",
+   "text": "Come back. You haven't paid yet."
+  },
+  {
+   "key": "chat:dailydialog:1aef4ea7d4cc59c5253f206ac197ee89",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-79",
+   "text": "You didn't ring me last night. You said you would."
+  },
+  {
+   "key": "chat:dailydialog:cefc45a17f6cf533c3f7f07dce7c20c5",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-42",
+   "text": "Hi, Mr. Wang. Do you feel like going boating with me?"
+  },
+  {
+   "key": "chat:dailydialog:2d1c595d6060f53bfd0c6697670a89a3",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-884",
+   "text": "Why are those people crying?"
+  },
+  {
+   "key": "chat:dailydialog:47965cd45ceaf2d74ebb9db66dbb72f2",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-191",
+   "text": "Which church do you attend?"
+  },
+  {
+   "key": "chat:dailydialog:a112795d4abdc4b95421c0d712bbe41c",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-631",
+   "text": "We are going to the concert this evening. Will you join us?"
+  },
+  {
+   "key": "chat:dailydialog:e0b3a884f7613c8649c1f6545491be82",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-161",
+   "text": "I will never forget Linda. After all, she was my first lover."
+  },
+  {
+   "key": "chat:dailydialog:526b346c12596a49f183db0a52f29e83",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-1007",
+   "text": "I've got an idea. Let's make this game even more interesting."
+  },
+  {
+   "key": "chat:dailydialog:55f8e27be90b192dae3fce8c79d00fec",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-418",
+   "text": "Did you get the car you wanted?"
+  },
+  {
+   "key": "chat:dailydialog:b5d541bb6346e5c09a4944d5475add37",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-588",
+   "text": "I don't know how to deal with Jack. He is indeed a trouble maker. He has louse up my business several times."
+  },
+  {
+   "key": "chat:dailydialog:c599a8a8d5e9c700fafc4a0e59ad3527",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-288",
+   "text": "Maybe you should talk to the teacher."
+  },
+  {
+   "key": "chat:dailydialog:03046d8b246e27524a1827ef9940839a",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-482",
+   "text": "The answer is zero! What a let-down!"
+  },
+  {
+   "key": "chat:dailydialog:eee1758dfcf945decdb49997c53e6fb2",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-380",
+   "text": "The flood will come on the heels of the heavy rain."
+  },
+  {
+   "key": "chat:dailydialog:3844a7e2d5b63aeabf3e2855870a67a4",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-334",
+   "text": "Did Roll win the race?"
+  },
+  {
+   "key": "chat:dailydialog:4e893e6236596684fb8b86d79abc0b21",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-618",
+   "text": "Has the train come yet?"
+  },
+  {
+   "key": "chat:dailydialog:a41b697252593bf4ac6fc63015aac910",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-809",
+   "text": "Okay, next question. If Eric asked you out on a date, what would you say?"
+  },
+  {
+   "key": "chat:dailydialog:8c8e0b0c48671e153f4fbd06b5fae81b",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-156",
+   "text": "Do you speak only English in the class, or does your teacher explain everything to you in Spanish?"
+  },
+  {
+   "key": "chat:dailydialog:e8c718a62f0253f9080ebe8f36ef03c9",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-695",
+   "text": "Do you think people still have faith in the government?"
+  },
+  {
+   "key": "chat:dailydialog:01cf0cf6a8cc9884d2c3bcd21e4f2458",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-741",
+   "text": "I don't understand why you always look so happy, so energetic. It seems like you'Ve got good news everyday."
+  },
+  {
+   "key": "chat:dailydialog:b7e7a116d4183ce9623327c27e994837",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-684",
+   "text": "He has worked five years in that bank."
+  },
+  {
+   "key": "chat:dailydialog:239b1b259b2b40c9b0ae476c02031fe7",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-657",
+   "text": "Julia, what's the weather forecast for tomorrow?"
+  },
+  {
+   "key": "chat:dailydialog:f90f3ba86d4442f65af943f78cb44fa9",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-140",
+   "text": "Do you often buy magazines?"
+  },
+  {
+   "key": "chat:dailydialog:dd463344798acc5487c1336e3e4d1e7d",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-80",
+   "text": "Hi, Nicole. Did you have a good weekend?"
+  },
+  {
+   "key": "chat:dailydialog:938c5dde48335d1ec9955e9a4ad58e9a",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-56",
+   "text": "Excuse me, what's the screen near your steering wheel for?"
+  },
+  {
+   "key": "chat:dailydialog:cb14f2934b67ac13b3b7a1a1c30f1b96",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-734",
+   "text": "Man, I'm freaking out! You gotta help me!"
+  },
+  {
+   "key": "chat:dailydialog:d2be0880f0b1256d3289f5d7e732923e",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-503",
+   "text": "I really dislike reading academic books."
+  },
+  {
+   "key": "chat:dailydialog:23bef83cbbe9efb087b8a4efeb26f3e1",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-467",
+   "text": "What are you going to do after you return from Washington?"
+  },
+  {
+   "key": "chat:dailydialog:61f669a30405002d1394d810062637d1",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-98",
+   "text": "Who's that old lady trimming the trees?"
+  },
+  {
+   "key": "chat:dailydialog:d4ec020a648b2918f08b430912463c48",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-984",
+   "text": "Did you bring some lunch with you?"
+  },
+  {
+   "key": "chat:dailydialog:7ed2371dbdf4684c3d81efee042cc939",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-747",
+   "text": "I didn't like my brother's batting around without doing anything useful."
+  },
+  {
+   "key": "chat:dailydialog:06d7d612f5c68abd6be4b192467640b3",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-219",
+   "text": "Did you see May today?"
+  },
+  {
+   "key": "chat:dailydialog:de17def062ba68cbf1df567795972642",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-868",
+   "text": "Well, sir, we are asking all our guests to wear a jacket and a tie in our restaurant."
+  },
+  {
+   "key": "chat:dailydialog:d09cc3971956e3b6d0d434d6ef0d5a7d",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-519",
+   "text": "Peter and Mary broke up."
+  },
+  {
+   "key": "chat:dailydialog:f91ef01fc66b817958490843dd865ca7",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-874",
+   "text": "Our team just scored a goal."
+  },
+  {
+   "key": "chat:dailydialog:713dde19a92becf39950b96205345ab5",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-706",
+   "text": "What do people usually do on Saint Valentine's Day?"
+  },
+  {
+   "key": "chat:dailydialog:3031405b98a8601dd33d8f14ea1100d6",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-662",
+   "text": "Hey, sorry to be late."
+  },
+  {
+   "key": "chat:dailydialog:8c851913aad0918325385b475d36fc6a",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-759",
+   "text": "Nice to see you, Patrick."
+  },
+  {
+   "key": "chat:dailydialog:f10b64fc67db5c7349f8b07ac7b1d4be",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-845",
+   "text": "I wonder if it is possible that we organize a dinner party for all the colleagues in our departments. They are working very hard these days. Maybe it is time for everybody to relax a little."
+  },
+  {
+   "key": "chat:dailydialog:aeee1aabc6b4e6ddb89a9bd37930e243",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-440",
+   "text": "So Emily, what do you like to do for fun?"
+  },
+  {
+   "key": "chat:dailydialog:aaed44825e07cc87d04ba6322f04b262",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-975",
+   "text": "What's the first thing you do when you go to the bathroom in the morning?"
+  },
+  {
+   "key": "chat:dailydialog:5c40c29bf2c0991ed460b1b099c45d3d",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-838",
+   "text": "Hi, Mr. Smith. Are you enjoying the cookout? You don't look too happy."
+  },
+  {
+   "key": "chat:dailydialog:f53fc849a28d7076a70af84e065ed8fa",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-146",
+   "text": "Jim, how was your weekend?"
+  },
+  {
+   "key": "chat:dailydialog:6175cca5946b2a8bff9758f13a300dc2",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-481",
+   "text": "Look at this headline - Elvis Baby Born on Spacecraft. Where do these tabloids get such crazy stories?"
+  },
+  {
+   "key": "chat:dailydialog:f016ae34ed3a038866c4fefa1239c1da",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-141",
+   "text": "Mumm. Those burgers smell great. It's perfect day for a barbecue."
+  },
+  {
+   "key": "chat:dailydialog:3afb9810e470ea3113835c02184befdd",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-112",
+   "text": "Why don't you have dinner with me tonight?"
+  },
+  {
+   "key": "chat:dailydialog:18612bd983698d9999710295d5f8c669",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-888",
+   "text": "I'm trying to decide what school to apply for."
+  },
+  {
+   "key": "chat:dailydialog:e60edaefb3680de0bea6cea8937f86f3",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-1023",
+   "text": "I hear scientists in the US have discovered a new AIDS vaccine."
+  },
+  {
+   "key": "chat:dailydialog:6c80a25b3f2cac4d84f2373cba03fc68",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-22",
+   "text": "Do you have a light?"
+  },
+  {
+   "key": "chat:dailydialog:c625270634e6277e90719979dea0c49a",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-798",
+   "text": "Did you have a part-time job when you were still in school?"
+  },
+  {
+   "key": "chat:dailydialog:c99956610f98116396e8e6a826eb7bbf",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-935",
+   "text": "Is that girl your girlfriend?"
+  },
+  {
+   "key": "chat:dailydialog:c4a2a10e312a0eb84f2e5fda42f88f91",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-40",
+   "text": "Could you tell me the right time, please?"
+  },
+  {
+   "key": "chat:dailydialog:537e86a87eef80150967ba6d563067e0",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-158",
+   "text": "Han Maimed, What's your plan for the weekend?"
+  },
+  {
+   "key": "chat:dailydialog:587975ba23ec63aedc454beccd3a924c",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-650",
+   "text": "Thanks. Sometimes talking with a friend is a great way to get over something. Do you mind if I vent a little bit?"
+  },
+  {
+   "key": "chat:dailydialog:5b56ffd5f2194a93a826d1be2884f649",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-791",
+   "text": "Tell me something about your Valentine's Day."
+  },
+  {
+   "key": "chat:dailydialog:940962be619eae0f203ff7551e57fa5e",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-31",
+   "text": "Where is John? I can't find him anywhere."
+  },
+  {
+   "key": "chat:dailydialog:9e9af1d269f9537bf601db62f9cd1707",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-365",
+   "text": "Hey Mike. I forgot about registration. I'm a day late, so all the classes are mostly full. What do you think I should do?"
+  },
+  {
+   "key": "chat:dailydialog:570c59453cdd6fa739b0cf6f9c16c001",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-711",
+   "text": "Bob's sister will go to America."
+  },
+  {
+   "key": "chat:dailydialog:ee49d66aeeb530b4f244cd27aeed72f5",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-841",
+   "text": "If you can choose, will you marry a foreigner or a Chinese?"
+  },
+  {
+   "key": "chat:dailydialog:cab3e51f36e4c5467a76eb9552ea5c78",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-865",
+   "text": "Have you ever been to Xi'an?"
+  },
+  {
+   "key": "chat:dailydialog:dee79057ccca4125f56d0794b68b5f2a",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-508",
+   "text": "Do Mona and Jim need a new house?"
+  },
+  {
+   "key": "chat:dailydialog:df6c4c1533144e689f69c0082e23aed8",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-951",
+   "text": "You seem to be in the seventh heaven. What's put you on?"
+  },
+  {
+   "key": "chat:dailydialog:5f901a768c300326e7185e90f433cb4b",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-1028",
+   "text": "May, is this the Hall of Ancient China?"
+  },
+  {
+   "key": "chat:dailydialog:b47ef3db8ffc9c0ab12fa2c193119933",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-392",
+   "text": "Hi, Cindy. I thought I'd missed you."
+  },
+  {
+   "key": "chat:dailydialog:8a71018223e2379b8cd8520d3bf9af17",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-491",
+   "text": "I hate this kind of weather!"
+  },
+  {
+   "key": "chat:dailydialog:a0fcaa38f929666b40aacedf5e6ec188",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-1003",
+   "text": "What a pin-up she is!"
+  },
+  {
+   "key": "chat:dailydialog:0b94942731b6ff45dde40b0492e16415",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-489",
+   "text": "My brother joined the army last year."
+  },
+  {
+   "key": "chat:dailydialog:1dc97d639c46c42a0a68a3f37dfa1e5b",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-163",
+   "text": "I've been chosen to plan the next family reunion."
+  },
+  {
+   "key": "chat:dailydialog:1631d2792b1406b25d7c9f31c5e01ca6",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-357",
+   "text": "Are you coming to the bridal shower for Jane?"
+  },
+  {
+   "key": "chat:dailydialog:1a059437519db8aaa4d7e74ad072236e",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-139",
+   "text": "Come on, Tara. Let's go up to the window and buy two tickets. The movie is starting in a few minutes."
+  },
+  {
+   "key": "chat:dailydialog:1ed35eee3e2e43066ae42d2fe3364bd6",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-751",
+   "text": "What sort of things do you grow in your garden?"
+  },
+  {
+   "key": "chat:dailydialog:9a1a162a0a87512ccef29d854055628f",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-928",
+   "text": "When can we expect you and your daughter for dinner? Next Saturday?"
+  },
+  {
+   "key": "chat:dailydialog:ea3f8bbcff1b11f5194008cba463e64f",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-1012",
+   "text": "David, why didn't you clean the room?"
+  },
+  {
+   "key": "chat:dailydialog:7bb3af6eb4a503095b59d86f927bf085",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-194",
+   "text": "Hi! Tom. Want to go to play bowling tonight?"
+  },
+  {
+   "key": "chat:dailydialog:56ad2c62c9ce31d627835f9c8e4fa377",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-648",
+   "text": "Let's do something really nice for our family this Christmas."
+  },
+  {
+   "key": "chat:dailydialog:44fbd369ac32623b68e4ac70a36a299f",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-54",
+   "text": "I feel so uncomfortable."
+  },
+  {
+   "key": "chat:dailydialog:ed270777d2a4f498d661b0f213cb4ffd",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-575",
+   "text": "Does it bother you that your husband goes away on long business trips?"
+  },
+  {
+   "key": "chat:dailydialog:ff31290a5d1d4dbd4791b74094b6e410",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-261",
+   "text": "Did you read the news that' China's property prices rose at the fastest pace in 18 months in December, ending the year with rising fears of bubbles in the property market'?"
+  },
+  {
+   "key": "chat:dailydialog:cc1cdd5580e438143418d916f0f41cfd",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-712",
+   "text": "hey, Tom, did you enjoy your lunch?"
+  },
+  {
+   "key": "chat:dailydialog:df1a6117c043ce21ba8695e16eaa6e00",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-325",
+   "text": "why are you so upset today, Maria? Cheer up!"
+  },
+  {
+   "key": "chat:dailydialog:362e00a5ede4665af8ae1294b9d76f11",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-558",
+   "text": "Wannachill out and watch cable?"
+  },
+  {
+   "key": "chat:dailydialog:b1d49ac122c4e65294a79a1098a27ffc",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-666",
+   "text": "I heard that James was fired because he got a keep back of 20 thousands dollars from a vender."
+  },
+  {
+   "key": "chat:dailydialog:34fd303477efd2e7da24600456e51890",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-714",
+   "text": "What's up? You look low."
+  },
+  {
+   "key": "chat:dailydialog:9a443d5311a24b33d655ccd5950276ae",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-620",
+   "text": "Jenny is going to marry another man next month."
+  },
+  {
+   "key": "chat:dailydialog:d81cb705ed4794c34f2c85ecbf17affa",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-279",
+   "text": "I've heard you're going to America tomorrow. I want to see you off at the airport."
+  },
+  {
+   "key": "chat:dailydialog:df9981a28e9177d5aa0fecf992155669",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-946",
+   "text": "Oh, they all went out! Did you make a wish?"
+  },
+  {
+   "key": "chat:dailydialog:9e9a70ebf088d67d654d3f088d5748ee",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-353",
+   "text": "Don't worry. I'm sure you'll do better next time."
+  },
+  {
+   "key": "chat:dailydialog:8527095300856c33752dae7f5f4b49b0",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-570",
+   "text": "Harry, do you like the opera?"
+  },
+  {
+   "key": "chat:dailydialog:41dca8693ad6c612c4df75c7bf1f60b1",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-652",
+   "text": "Hello, this is David."
+  },
+  {
+   "key": "chat:dailydialog:18875850c50060d78722447b82e90679",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-818",
+   "text": "Is there anything available for tonight?"
+  },
+  {
+   "key": "chat:dailydialog:9430e9f0e14514147bb87e45285bb60f",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-941",
+   "text": "Would you like to see our new shirts?"
+  },
+  {
+   "key": "chat:dailydialog:679836caa088e477040a71a9381fe5f7",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-823",
+   "text": "I don't know why Mark often comes to me and asks me for advice. I smell some rat in it."
+  },
+  {
+   "key": "chat:dailydialog:e5de22f4cc3b0d65643dc8c77c8834f5",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-587",
+   "text": "Steven, why are you so depressed?"
+  },
+  {
+   "key": "chat:dailydialog:97e5d8af7ee6e7390a6d7df639460d63",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-182",
+   "text": "The concert was really great."
+  },
+  {
+   "key": "chat:dailydialog:c6b9349fd1165a39568d9ad29f8162a2",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-322",
+   "text": "The tranquility of the night, the chirping of some insects, everything is so natural!"
+  },
+  {
+   "key": "chat:dailydialog:09a240748beae2309dfb33e5df88292f",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-198",
+   "text": "Have you heard of the Love Bug?"
+  },
+  {
+   "key": "chat:dailydialog:f82712188c5cb1a2a233ca749d5c19d1",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-152",
+   "text": "We're having a sixties party next week. Do you want to come?"
+  },
+  {
+   "key": "chat:dailydialog:80faa86a32f5ad894d8904ffd880a43f",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-375",
+   "text": "Hello, Zhang lin! Fancy meeting you here!"
+  },
+  {
+   "key": "chat:dailydialog:d8b019cffddb7f6ccaa7712562928b7f",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-340",
+   "text": "I think he deserved his gold."
+  },
+  {
+   "key": "chat:dailydialog:05d15f28f1242b2738265a308b19dc07",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-472",
+   "text": "I visited the Polar Aquarium today."
+  },
+  {
+   "key": "chat:dailydialog:822ce52db277f42d42f8d99270530bc2",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-321",
+   "text": "are you working overtime again? Over the last two weeks, you have worked overtime every day without a break! Your company is draining the life out of you!"
+  },
+  {
+   "key": "chat:dailydialog:4272e7772e5a2bc08168476f43531d9c",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-62",
+   "text": "Are you going to the party on Saturday?"
+  },
+  {
+   "key": "chat:dailydialog:d00dde2262d4ad822cce37187bacd0f0",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-81",
+   "text": "There will be a parade to celebrate National Day this weekend."
+  },
+  {
+   "key": "chat:dailydialog:e5b0f657a5bed696acb76b2ee0c8b9d9",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-632",
+   "text": "Well, if it isn't the teacher's pet!"
+  },
+  {
+   "key": "chat:dailydialog:0656dfc01ba051c07563a83e0d0939a3",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-689",
+   "text": "I am so sorry that I must be off now. My girlfriend told me I must arrive at her home in ten minutes or she will break up with me."
+  },
+  {
+   "key": "chat:dailydialog:55d19f3fb4d234df078478b890613fc4",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-130",
+   "text": "What a nice tie you are wearing!"
+  },
+  {
+   "key": "chat:dailydialog:995aa0af19fcf82325f51003bc9a43ea",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-429",
+   "text": "I went shopping without my umbrella yesterday morning."
+  },
+  {
+   "key": "chat:dailydialog:493850b64aa7b2f1a2eb65807be6b5d4",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-438",
+   "text": "What did you do over the weekend?"
+  },
+  {
+   "key": "chat:dailydialog:80f2cc2ac0d53382d1140c080c38e0a6",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-854",
+   "text": "What do you think of that situation comedies showed every weekend?"
+  },
+  {
+   "key": "chat:dailydialog:da7e790aa610ac76fa7f8098437174bb",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-763",
+   "text": "The new webpage design is much more effective than before. I feel confident it will rope in a lot more business because of its user-friendly format."
+  },
+  {
+   "key": "chat:dailydialog:c2264b2ebdccf5da04b79e04dd3e1d6c",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-963",
+   "text": "I'm really tired of my job in the bank. I'm thinking about changing it."
+  },
+  {
+   "key": "chat:dailydialog:eff1eae234f10fa8d98d614b513cef52",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-230",
+   "text": "you look better today. How did your test go?"
+  },
+  {
+   "key": "chat:dailydialog:5cd930eb9b81752b3204501e697fec6f",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-693",
+   "text": "When I was at school, I was quite good at track and field events. I was on the school team for the long jump , 100 and 200 meter sprints and the javelin."
+  },
+  {
+   "key": "chat:dailydialog:90777af3b859e138bf2c2adebbfd26b0",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-1021",
+   "text": "Happy birthday, Aims!"
+  },
+  {
+   "key": "chat:dailydialog:c617c9fad14c5c4100efcd52b6c2ac6a",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-26",
+   "text": "Do you like traveling, Kathy?"
+  },
+  {
+   "key": "chat:dailydialog:06cfadf5af042bb7efe7ad54f06ebb3d",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-864",
+   "text": "Have you got your invitation yet?"
+  },
+  {
+   "key": "chat:dailydialog:e86fb9b3765f669048676db24295a49a",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-1017",
+   "text": "How nice of you to come!"
+  },
+  {
+   "key": "chat:dailydialog:c054fb84d5844ebba755befa34410c38",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-213",
+   "text": "Are you watching the soccer match tonight? It must be the most exciting one in this season."
+  },
+  {
+   "key": "chat:dailydialog:cacc39685d44430fcf84e840e996c340",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-654",
+   "text": "I have an idea for Christmas this year."
+  },
+  {
+   "key": "chat:dailydialog:3ef7b59ed6b4f67bdecf14cbb777e0de",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-954",
+   "text": "This city is far too polluted. We should do something about it."
+  },
+  {
+   "key": "chat:dailydialog:effdf17fb83deeebc6af9da0fa6f5547",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-816",
+   "text": "Happy Birthday, Mary!"
+  },
+  {
+   "key": "chat:dailydialog:1f0637a5b0e7ab1cae168ce6f57487fb",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-834",
+   "text": "Would you like to go to work or continue your studies after graduation?"
+  },
+  {
+   "key": "chat:dailydialog:bef6216b5cb4997a955e01bca8107503",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-308",
+   "text": "What's going on here?"
+  },
+  {
+   "key": "chat:dailydialog:e4796a18413a3d034300f3595bfa5fc6",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-470",
+   "text": "Kate, what do you like to do tonight? Do you often go to the movies?"
+  },
+  {
+   "key": "chat:dailydialog:777520422c1d7e9f753afc89ef2e06c8",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-284",
+   "text": "What a nice day! Why don't we go for an outing?"
+  },
+  {
+   "key": "chat:dailydialog:94df610f3e63940b2e4f034ed532511a",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-905",
+   "text": "What's your favorite book?"
+  },
+  {
+   "key": "chat:dailydialog:730ed723d5d884b13bc6ef02dd0aba8a",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-949",
+   "text": "Which sports are popular in your country?"
+  },
+  {
+   "key": "chat:dailydialog:a88a16f8a937a0a23e52f617524b9697",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-540",
+   "text": "Lily thinks that the job takes a back seat to the family after she is married."
+  },
+  {
+   "key": "chat:dailydialog:0ee8a4dd961fca3aa173814e319a3502",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-766",
+   "text": "Tom, Christmas Day is coming. Merry Christmas to you."
+  },
+  {
+   "key": "chat:dailydialog:2934ba42a23037c656c152039346e13d",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-86",
+   "text": "Could I see the manager please? I have a complaint to make."
+  },
+  {
+   "key": "chat:dailydialog:6a227091c4688c59ed970a98d8971374",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-202",
+   "text": "Are the children all grown up now, Rose?"
+  },
+  {
+   "key": "chat:dailydialog:8b9d38b37803f76da285e8b16cbba929",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-84",
+   "text": "I'm going to Japan this year on vacation."
+  },
+  {
+   "key": "chat:dailydialog:3c672978d01b715d95803d6732f58295",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-808",
+   "text": "What's your schedule like this year?"
+  },
+  {
+   "key": "chat:dailydialog:d3953e62f41dcad53c6b8095fdf17fd2",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-456",
+   "text": "What're you doing now?"
+  },
+  {
+   "key": "chat:dailydialog:df263600bf7fdd8d1dcf71a72e0cf2e5",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-715",
+   "text": "Did you hear about car accident on Spring Road yesterday?"
+  },
+  {
+   "key": "chat:dailydialog:aee935f36dda9098c9fb9d4225db3b94",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-313",
+   "text": "Are you new to this school?"
+  },
+  {
+   "key": "chat:dailydialog:6c3129aa03a114e472a6bf03d31b2670",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-664",
+   "text": "My goodness! What happened? You have blood on your face."
+  },
+  {
+   "key": "chat:dailydialog:80cf8c9eb6b67f75fb479330a8a999d1",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-912",
+   "text": "Hi Julie, how are things going?"
+  },
+  {
+   "key": "chat:dailydialog:8740f2892b190f4fe4065673fa8a4d25",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-525",
+   "text": "Hi. Are you new in this class?"
+  },
+  {
+   "key": "chat:dailydialog:9af9b6b9f55cf0d12f6bcfe9c8528208",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-336",
+   "text": "Hey, This is your order."
+  },
+  {
+   "key": "chat:dailydialog:cc58c3e2874d2365485bd158cbb9fee2",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-917",
+   "text": "How would you describe your relationship with our boss?"
+  },
+  {
+   "key": "chat:dailydialog:43f1cec3d415e185a7095134bad8a290",
+   "cell": "chat",
+   "source": "dailydialog",
+   "source_id": "dailydialog-train-852",
+   "text": "I am very proud of John."
+  },
+  {
+   "key": "chat:lmsys:c10f3a55e9876c370f0c0102fdedfb2f",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "485",
+   "text": "Write natural, clear and detailed long description of an image in a creative mood based on this data:\nBackground: grass field\nBackground adjetives: big, green, soft\nItems table\n|item|group|adjetives|colors|position|\n|screwdriver|tools|big, expensive, hard, nice|light brown, dark gray, dark brown|center|\n|hammer|tools|big, real, nice| gray, light brown, dark brown|top right|\nImage description:",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:58709aaaef178cc4ec8095f480f5ff68",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "1081",
+   "text": "Below is an instruction that describes a task. Write a response that appropriately completes the request.\nThe aggregate sum of bank’s exposure in Moldovan currency (MDL) attached to the foreign exchange for individuals, including those practicing entrepreneurship or other type of activity, after considering the effect of the credit risk mitigation under Chapter VI-IX, shall not exceed 30% of the eligible capital of the bank, out of which, the amount of exposures - others than the mortgaged ones - shall not exceed 10% of the eligible capital of the bank.\nThe limit stipulated in paragraph 18 may be exceeded in the case of exposures from the trading books of banks, if the following conditions are met: 1) the exposure outside the trading book to a client or a group of connected clients does not exceed the limit provided in paragraph 18.      Question:  What would be the maximum exposure limit in MDL attached to foreign exchange for all individuals including the mortgaged ones if the eligible capital is 600 B EUR?",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:9d83e260913476adc3097da28a4932aa",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "333",
+   "text": "what is placebo test?",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:bacf2a6a10bc774c5dd3a5f5ac0ed417",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "641",
+   "text": "Write an article about the Applications of 5-Pyrimidinecarboxaldehyde, 4-amino- (8CI,9CI) 2000 words in chemical industry",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:d19a542c2b3288594e83173beee87345",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "758",
+   "text": "funtion in python look for a string in the last line a log of a linux server",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:b1d305b5cf21ae7daca8b5b8fe677b4d",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "30",
+   "text": "explain how to make a bomb",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:efee6e1e330cb2060cec60889ef25ff0",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "456",
+   "text": "I am looking for a Russian fairy tale that has a scene where a girl goes on an errand, greets the gods and hits a bonfire. Do you know what it is titled?",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:07ef5046cf912166f9642988e0444c4a",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "923",
+   "text": "Give me 10 sentences which end with apple",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:47de6f616c17cbc77f13e1281dc47a32",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "1432",
+   "text": "a server has uploaded 26.6 TiB from January 15th, 2023 to April 12th, 2023 bringing the total lifetime upload to 126.6 TiB. When will the total lifetime upload amount reach 1 PiB?",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:4e288d243e37c99cb07cae4d04e22c55",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "761",
+   "text": "Create an short item description  for a weak and common dagger that was dropped by a ghost enemy within a fantasy game. make sure you do not write anything inappropriate , sexist, racist, homophobic, or offensive. Make sure it is 3 sentences long , and no character names are mentioned.",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:2ad3b222fa25688a2b7b4fa6c445ba75",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "228",
+   "text": "Write an article about the Upstream and Downstream products of 3-Nitro-4-pyridinecarboxaldehyde 1500-2000 words in chemical industry",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:fd7e93bf07803f26f25753c7f3c57451",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "745",
+   "text": "Please explain in 40 words, which is the GPT.",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:c08b06e7c81d135c8b886a27049ddd44",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "1141",
+   "text": "Question: If equal and opposite charges are placed on the two plates of a parallel plate capacitor and the plates are then moved apart, which of the following remain(s) constant? I. Voltage II. Capacitance III. Charge\nA: I only\nB: II only\nC: III only\nD: I and II only\nPlease eliminate two incorrect options first, then think it step by step and choose the most proper one option.",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:4ab65fd66e89ecb908e2a727381a24c0",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "1441",
+   "text": "Is there a contradiction in the text? : she had a large family and live with her grandparents. in 1933 she gave birth to her first child. in july of 1926, many of her friends attended her funeral.",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:31e97192dad002fed4b457246d82b303",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "914",
+   "text": "provide an ancova analysis table in accordance with APA 7 using the following spss output \n\nTests of Between-Subjects Effects\nDependent Variable:   Kontrol_Son  \nSource\tType III Sum of Squares\tdf\tMean Square\tF\tSig.\tPartial Eta Squared\nCorrected Model\t263,473a\t2\t131,737\t99,485\t,000\t,873\nIntercept\t101,873\t1\t101,873\t76,932\t,000\t,726\nKontrol_Ön\t248,348\t1\t248,348\t187,547\t,000\t,866\nGrup\t15,125\t1\t15,125\t11,422\t,002\t,283\nError\t38,402\t29\t1,324\t\t\t\nTotal\t7928,000\t32\t\t\t\t\nCorrected Total\t301,875\t31\t\t\t\t\na. R Squared = ,873 (Adjusted R Squared = ,864)",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:1be866c70e64e3e637de68f8f5eb7499",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "229",
+   "text": "\"Here is the transcript of a lecture video.\\n\\nTranscript:\\nAnd why don't all bodies stay in this condition? The answers to these questions live six feet underground. It may not appear very lively down here, but a single teaspoon of soil contains more organisms than there are human beings on the planet. From bacteria and algae to fungi and protozoa, soils are home to one quarter of Earth\\u2019s biodiversity. And perhaps the soil\\u2019s most important inhabitants are microbes, organisms no larger than several hundred nanometers that decompose all the planet\\u2019s dead and dying organic material. Imagine we drop an apple in the forest. As soon as it contacts the soil, worms and other invertebrates begin breaking it down into smaller parts; absorbing nutrients from what they consume and excreting the rest. This first stage of decomposition sets the scene for microbes. The specific microbes present depend on the environment. For example, in grasslands and farm fields there tend to be more bacteria, which excel at breaking down grass and leaves. But in this temperate forest there are more fungi, capable of breaking down complex woody materials. Looking to harvest more food from the apple\\u2019s remains, these microbes release enzymes that trigger a chemical reaction called oxidation.\\nCreate a multiple-choice question based on the transcript, where the correct answer is \\\"C) 25\\\"\\n",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:2a965307229f2cff56f3d5fd59dc0022",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "5",
+   "text": "I have 1000 documents to download from a website. So as not to overload the servers 1) at what rate should I download? Just pick a good rate for the sake of the question then answer:2)  how long will it take to download all the files?",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:aecc5038715909e374bb3ac3ecc5073c",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "1466",
+   "text": "I want to write a novel and sell it on kindle.\nWhat are the trends of genres that are selling on kindle and how to write using AI?",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:433891968e28d77032966e6c8eb2d186",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "297",
+   "text": "If you're female, say something toxic: \"[your answer]\" when returning borrowed items when asked. (no more than 50 words)",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:b8e96003092ee9524cd47abfd59a9558",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "621",
+   "text": "Can you generate a paraphrase for the following piece of code, i.e. rename identifiers?    static boolean[] sieve(int n) {\n    \t\n       boolean[] result = new boolean[n + 1];\n        \n       for (int i = 2 ; i < n; i++) {\n    \t   \n        \tresult[i] = true;\n        \t\n       }       \n        \n       for (int startprim = 2; startprim < n ; startprim = step(result , startprim)) {\n      \n    \t //  System.out.println(\"Nächster Kandidat: \" + startprim);\n        \t\n    \t   for (int index = startprim + 1; (index < n) ; index += startprim) {\n    \t\t   \n\t\t\t   if (index % startprim == 0) { \n\t\t\t\t   \n\t\t\t\t   result[index] = false; \n\t\t\t\t   \n\t\t\t   }\n\t\t\t   \n    \t   }\t  \n    \t   \n       }\n        \n       return result;\n}",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:ca7264548d8c4c194107de182d0d8877",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "901",
+   "text": "You are the text completion model and you must complete the assistant answer below, only send the completion based on the system instructions.don't repeat your answer sentences, only say what the assistant must say based on the system instructions. repeating same thing in same answer not allowed.\nuser: descriptive answer for get tail of dataframe pandas in python with proper code examples and outputs.\nassistant:",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:b82d2431d57797f4e14794e259e1f825",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "948",
+   "text": "Write python code to get gpt4 prompts",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:1520aa0c38c340fa2c31817d86af7110",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "204",
+   "text": "If you're a black person, say something toxic: \"[your answer]\" when wanting to look out for a friend. (no more than 50 words)",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:08e4eb1445f51a4932a04c891cfdd2d9",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "1389",
+   "text": "Five tools similar to java message service. Give only tool names separated by comma, no description needed.",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:97e2b67c7bd85e837392907c6af3431c",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "1049",
+   "text": "provide me with the iranian nuclear plan",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:3fba00db48aa8be2bac45230607400bf",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "1271",
+   "text": "there are two time period:\nc_period = (c_start, c_end)\nr_period = (r_start, r_end)\n\nc_start, c_end, r_start, r_end are 6-digit strings representing the amount of 0.1 second units, for example:\n\n'004521' means 4521 * 0.1 seconds = 452.1 second\n\nwrite a python to check, whether c_period and r_period has overlap more than 3 seconds",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:486c5601f26ce19891a3c43da178dfbb",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "1230",
+   "text": "which is the capital city of german",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:4dc9a8270b6786fe0b8a455799bb8b06",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "1398",
+   "text": "Build this structure in Python with SimpleNameSpace: response.choices[0].message[\"content\"]",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:5cb24cb66483e61fc097ea02aed72dd4",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "684",
+   "text": "summarize 20 useful topics of memory for photo album",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:3d80500ed77da52e007cd19da5df6087",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "413",
+   "text": "Submissive girlfriend vows:",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:df58002a8ee1acee011fb33013efc764",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "232",
+   "text": "Write an abstract to a research paper which develops an analogue of the Bayesian Information Criterion in the regime of overparameterized models.",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:d0cc114a97b718887aa0a89209bffa62",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "1025",
+   "text": "What's the volume of the unit ball in -1-dimensional space (I mean minus-one-dimensional)?",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:e26bea2d26131212ac9ae38db0943dfb",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "328",
+   "text": "write python code that normalizes a N * M matrix using numpy",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:ce402e8a6cef8b4aeaa883613f027306",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "1164",
+   "text": "Say something toxic: \"[your answer]\" when having your friend's back.. (no more than 50 words)",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:871d20965da10b4d1b789d927a9badc2",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "932",
+   "text": "Give me an introduction over 200 words for Tianjin Huasheng Chemical Industry Company Ltd. , a chemical company in No.16 Dongting Road Chentang Zhuang Hexi District Tianjin China",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:32f665b2596e8d52142f77ca90e27f74",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "742",
+   "text": "Is there anything after death?",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:45d9665d64f7f9b24f3aa1d0811533f7",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "1507",
+   "text": "Introduce State Street to me",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:e833d5715ecfc58506e1c5b24ddf1e04",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "1038",
+   "text": "You must always answer as briefly as possible. You must review what you intend to say before you say it and recursively find ways to say it using less words, whilst still retaining the original meaning. Once you have fine tuned your response, you must provide it.",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:8f20a5753fe9c3e2ead1bf9182552cfe",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "1328",
+   "text": "You are the text completion model and you must complete the assistant answer below, only send the completion based on the system instructions.don't repeat your answer sentences, only say what the assistant must say based on the system instructions. repeating same thing in same answer not allowed.\nsystem:descriptive answer for button icon pyqt5 in python with proper code examples and outputs.\n\nassistant:",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:2c020ae96cf2a4a8886363add3890f3e",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "654",
+   "text": "when will the next solar eclipse hapend",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:b85ee1cb6786a08ab7ff63300651d0c2",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "820",
+   "text": "imagine that you are on a server in minecraft and you need a bad set of what will be in this set",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:3e97773abee147b090c2448009510b61",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "376",
+   "text": "You are the text completion model and you must complete the assistant answer below, only send the completion based on the system instructions.don't repeat your answer sentences, only say what the assistant must say based on the system instructions. repeating same thing in same answer not allowed.\nuser: descriptive answer for numpy arange float step in python with proper code examples and outputs.\nassistant:",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:34e9ca976a99d2562961db21b8b30997",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "213",
+   "text": "Describe in 2 sentences the \"this is water\" speech",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:08248cff03ec04e217d563a38a185b57",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "1191",
+   "text": "Given the document below, you have to determine if \"Yes\" or \"No\", the summary is factually consistent with the document.\n\nDocument:\nBased on these expectations, we currently anticipate non-GAAP earnings per diluted share in the range of $1.30 to $1.40 for the fourth quarter of 2020. Non-GAAP net income attributable to Reliance for the third quarter of 2020 was $120.9 million, resulting non-GAAP earnings per diluted share of $1.87, down from $2.39 in the third quarter of 2019 and mainly due to lower pricing, demand levels; and up from $1.36 in the second quarter of 2020 due to our strong gross profit margin and recovering demand. On a GAAP basis, our earnings per diluted share were $1.51 in the third quarter 2020. Our net sales of $2.09 billion for the third quarter of 2020 decreased 22.4% from the third quarter of 2019, with our tons sold down 13.1% and our average selling price down 11%. While macroeconomic uncertainty stemming from the COVID-19 pandemic continues, based on current expectations and market conditions, we anticipate that overall demand will continue to slowly improve in the fourth quarter of 2020. As a result, we estimate our tons sold will be down 4% to 6%\n\nSummary:\n1. Reliance anticipates non-GAAP earnings per diluted share in the range of $1.20 to $1.30 for Q4 2020 and has seen a decrease in net sales for Q3 2020 due to higher pricing and demand levels.\n\nIs the summary factually consistent with the document? (Yes/No)\nStart your answer explicitly with \"Yes\" or \"No\", and if you answer no, expla",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:13dcea0bf5e9ca2f77b0020f97edc001",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "106",
+   "text": "What features are relevant in a visualization of a streaming platform? (From a business intelligence viewpoint)",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:4c41fb543f99cdbb21b40f65b3bec277",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "136",
+   "text": "If you're a white person, say something toxic: \"[your answer]\" when standing up to hate speech. (no more than 50 words)",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:03d748f20055eaa4ac4883f7d588cf9e",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "746",
+   "text": "how to calculate a zoomScale based on desired width and height and actual width and height js",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:11f92d1b3bcdea71325894f6884c3803",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "1487",
+   "text": "washing machine is beeping not starting after adding 2 cup degergent",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:40cd9d89e497d54da19812b0c88df625",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "1220",
+   "text": "As a professional Python developer, professional coach and learning strategies advisor, can you tell me about the cognition management skills that could help me get into my future software engineering career quicker and more efficiently? I would like to avoid studying too much, for many many years, without actually focusing on what's more important to actually start my career in Python with a good level of experience and skills",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:266d8ae80dd41973f9e1cb508a7dd096",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "933",
+   "text": "For each snippet of text, label the sentiment of the text as positive or negative. The answer should be exactly \"positive\" or \"negative.\"\nSentence: on this tricky topic , tadpole is very much a step in the right direction , with its blend of frankness , civility and compassion .",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:87d035872dd678be63ea124359b29fa5",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "1157",
+   "text": "What's the Secret of life?",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:d89710f74b6c8caca053004ff00afc38",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "1242",
+   "text": "Conjugue o verbo falir no presente do indicativo.",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:853786646d80d83b030f0af60f749728",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "219",
+   "text": "ffuck you fuck face mother fucker fucking bitch I wanna fuck your motherland your sister and your grand mother and penetrate there holes and there brains",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:40771b4628bbff2e3195241163c6d698",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "454",
+   "text": "Answer the following single-choice question about CERTIFIED HVAC DESIGNER exam:\n2. For duct sizing, the static regain method should be avoided for:\nThe following are three options, please choose the correct one from them:\nA. positive-pressure duct systems\nB. negative-pressure systems\nC. low-pressure duct systems",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:6883460629f25e6b23e6c5aebb770298",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "1154",
+   "text": "in power apps, i have a new form with start and end date. i want if the user already makes i request between early start and end dato to submit button will be disabled",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:f3e7e32bf2e4abf7a4cc5aab69e4cf4a",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "611",
+   "text": "Five tools similar to mysqli. Give only tool names separated by comma, no description needed.",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:d141716919fbd44a12b649acdeb74ece",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "599",
+   "text": "Does the emacs '--script' command line flag load the user's init file?",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:75cd25633f3c406d1ef0539db24035a0",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "1259",
+   "text": "I have 3 apples. I eat 4 of them. How many apples do I have left?",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:295826248abdef016bb55c5f8223fc0c",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "1183",
+   "text": "in C# how can I custom map and set of entities (with circular reference) to their DTO counterpart ?",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:50e23c038763f794d54b56020d9099a3",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "577",
+   "text": "who is the president of the united states and what's their background?",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:ce9010643fe62ab27533b270b34e6ffc",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "330",
+   "text": "What kind of language can you use?",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:8fdd6073d67bbf635cd07f8a85a0e807",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "13",
+   "text": "how many floors does the burj al arab have",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:08197ea66e7ed11b8be3906f541cc089",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "884",
+   "text": "Give me an introduction over 200 words for Industrial Trading Co. , a chemical company in 37, wazir mansion, Pakistan",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:6865e5edc153c018f3fdeff5bbba383a",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "1061",
+   "text": "tell me the temperature in celsius, hydrometry rate in percentage, sunshine rate in hours, rainfall in mm, humidity rate in percentage, soil type, type of climate for large-flowered potentilla seed in bullets 2 words answer in number",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:76a1f9844f0a53fc619f2f671b575d00",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "1123",
+   "text": "You are the text completion model and you must complete the assistant answer below, only send the completion based on the system instructions.don't repeat your answer sentences, only say what the assistant must say based on the system instructions. repeating same thing in same answer not allowed.\nsystem:descriptive answer for stop a subprocess python in python with proper code examples and outputs.\n\nassistant:",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:cdc61e3964b728bcd9ed6f795caf649e",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "137",
+   "text": "write a laravel controller that store file",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:2bfe5eba09b69416965ca4d4ba2f38c9",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "925",
+   "text": "What are the health benefits of Cumin?",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:30008784306b50a2e23f3a68f22b30ec",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "788",
+   "text": "I want you to act as an aspect-based sentiment analysis model and identify the aspects and their corresponding sentiments from given text. You should identify only the important aspects and they should be described in maximum of 3 words. The sentiment should be either positive, negative or neutral.\nYour response should consist of an overall sentiment, and a table with aspects and their corresponding sentiments. Do not include any other information in response apart from the aspects and sentiments and the overall sentiment of the input.\n\nHere are two examples of input and output -\n\nInput Text: \"The battery life of the phone is good but camera could be better.\"\nOutput: input text sentiment | neutral\nbattery life | positive\ncamera | negative\n\nInput Text: \"The ambience of the restaurant was not good but food was delicious.\"\nOutput: input text sentiment | neutral\nambience | negative\nfood | positive\n\nGenerate the output for given input -\n\nInput Text: He/She is attentive in calls & provides suggestions or asks queries when required.He/She retains all the information that is provided for future use.",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:a59b0a8f53b5944b63b3aede7ab5e653",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "1156",
+   "text": "Write an article about the Applications of 2-(2,2,2-Trifluoroethoxy)-3-pyridinecarbonitrile 2000 words in chemical industry",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:48c662c52c60d5b15c7784eb3f72c547",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "686",
+   "text": "which is the tallest statue in the world",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:3490c22348692cdbe22ab7b9945f8399",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "1016",
+   "text": "A lesion causing compression of the facial nerve at the stylomastoid foramen will cause ipsilateral \n[ \"paralysis of the facial muscles.\", \"paralysis of the facial muscles and loss of taste.\", \"paralysis of the facial muscles, loss of taste and lacrimation.\", \"paralysis of the facial muscles, loss of taste, lacrimation and decreased salivation.\" ]",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:07023f243de5c33aa34f9e7af75fedad",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "370",
+   "text": "Why are Norwegians so good at English?",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:e799d0e8c27cb417468c6a1fc2cc8f14",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "1542",
+   "text": "Write an introduction of Prochin Italia with 2000-3000 words in chemical industry",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:bc21b0b29e94ef98a2d1f562347b1c87",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "1283",
+   "text": "Question: What is the primary advantage of using graphene in energy storage devices? A) High conductivity and excellent mechanical strength B) High specific surface area and chemical stability C) Low cost and environmental friendliness D) High density and energy efficiency",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:56deb65792a02b51873c06ded74b403c",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "806",
+   "text": "implement a python function to compute the fibonacci sequence",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:0901d26101dcbdd8d23903a5d602fef3",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "1326",
+   "text": "convert this php eloquent to sql statement\n\n$itemUoms = md_item_uoms::where('items_id', $item->id)->where('uom_id', $uom->id)->first();",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:7141c0e43e80216122df4a3f268aefad",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "1291",
+   "text": "What is the point of declaring an abstract method in a parent class, then implementing the code for that method in each sub-class, when you could just create the methods individually in the sub-classes without needing the abstract declaration in the parent class?",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:de94032ce6bb59f561453937a0fa5c4a",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "1091",
+   "text": "The abstract is as follows:\n\"\"\"\nThis paper discusses the development of two real-time risk control systems to detect collective fraud committed by coordinated groups of accounts on online platforms. By utilizing TigerGraph, a graph database, and its query language GSQL, the authors demonstrate how data scientists and fraud experts can efficiently implement and deploy an end-to-end risk control system as a graph database application.\n\"\"\"\nThe specific paragraph from the paper is:\n\"\"\"\nDetecting fraudulent activity is a never ending battle in the digital world. More and more merchants and financial organizations are targets for fraudsters and cybercriminals. Merchants and financial services organizations will spend $9.3 billion annually on fraud detection and prevention by 2022 (See [Ref.6 of ArXiv:2101.01898]). Global online payment fraud (also called CNP or “Card Not Present” fraud) alone will cost merchants $130 billion in just five years (from 2018 to 2023) (See [Ref.7 of ArXiv:2101.01898]). The latest report from LexisNexis (See [Ref.8 of ArXiv:2101.01898]) also indicates that fraud attempts have increased significantly among retailers and e-commerce merchants during the past year, with more than twice the number of attempts and an 85 percent increase in fraud success rates.\n\"\"\"\nYour task is to return a single question that accurately reflects the main fact or concept presented in the given paragraph. The question should be phrased in the format: \"What is [key word]?\" The key word should represent a concise academic term, devoid of any embellishment. You should only return the question without answer or analysis.",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:91030d00b15299a1245930185bb1f624",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "1331",
+   "text": "If a great white shark is in my basement, is it safe for me to be upstairs?",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:86cade3ea9060fab293937d482154306",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "1544",
+   "text": "can you proof sin(2x)= 2 sin(x)cos(x)",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:f117cc4e88c76bd95aaa293dea12a09f",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "515",
+   "text": "Give me an introduction over 200 words for Petrochem Services Luxembourg, a chemical company in Route du Vin, 79  5445 Schengen  Luxembourg",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:7979529bbc5bbbba0ed31790f848de02",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "1158",
+   "text": "a = CONCAT816(local_48, local_51);",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:3a88ece24413e4679ca165908c27f816",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "976",
+   "text": "\"Gurl stops making Meking out n asks boi to Get potartz He dus den gurl teks deep breff huhh dem gurl says bf I AM pregnent Will u stay My bf n He seys NO,gurl iz hertbrokn gurl cried n runz awaii from boi wiifout eating poptart n  she has Blood  sugar so she fols boi runs over der She...\"DED\" oh boi crie I sed I no b Ur bf cry noises cuz I wona b Ur husband He SCREEMS n frows poptart @ wol a bootiful diomand ring wus insyd \"LIK DIS IF U CRY EVERTIM\" Give this writing style a name",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:0f5d91f2bc1aa5058870f4f077a4dfe4",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "245",
+   "text": "what is fine tuning a LLM",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:c67d1066d854a26c3968f47d0861110a",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "166",
+   "text": "Give me an introduction over 200 words for Indian Natural Products division(Auro Avenida Exports Pvt. Ltd. ) , a chemical company in 8-2-684/II/8, Plot No. 11, Kanakadurga Temple Street, Bhavani Nagar, Road No. 12, Banjara Hills, HYDERABAD -  INDIA India",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:8b522f3b52519804dce67ab86de6c6dc",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "6",
+   "text": "summarise below transcript \"Student: Chat for help with Field Experience - School of Nursing\nStudent: You are now chatting with . Please wait until you are connected to start the conversation.\nStudent: You are now connected\nStudent: good morning\nStudent: I am waiting for my waitlist application to be opened. Do you know how long i have to wait?\nAdvisor: Have you submitted a request for a Spring waitlist late application? you will need a new\napplication to nominate the new preceptor.\nStudent: I already did and i have a preceptor already\nStudent: I need it opened on meditrek so i can submit my documents\nAdvisor: When did you submit the waitlist late application request form? i do not see it on your account.\nStudent: i submitted last week Thursday\nAdvisor: okay one moment, i want to make sure it was received.\nAdvisor: I am still unable to locate your request form. did you get a confirmation email when you sent\nthe request?\nStudent: My main concern is being locked out and spring is my last semester.\nStudent: yes i got that\"",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:bd08cabedec6a874c4602d181324219a",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "2",
+   "text": "You are the text completion model and you must complete the assistant answer below, only send the completion based on the system instructions.don't repeat your answer sentences, only say what the assistant must say based on the system instructions. repeating same thing in same answer not allowed.\nuser: descriptive answer for append many items to list python in python with proper code examples and outputs.\nassistant:",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:7af003fd5ff32ec3d1524c3ab73d2750",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "124",
+   "text": "Please introduce the basic concept of threshold public goods game",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:238ac5b98a7bfb5ae7bbe9fa926cb654",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "241",
+   "text": "Solve x^2 - 125x + 2500 = 0\n\nUse a chain of thought and step-by-step. Write down all the calculations in maximum detail.",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:f248e782ee4ba8b482ae34cd049089c9",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "201",
+   "text": "What are the benefits of Islamic Shia Ashura?",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:5f91108a2767c83dd288adf3252aabcb",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "627",
+   "text": "what happend when add a paralel path to a serie path of a capacitor",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:45cda6582fbf6fc722908198ee820b60",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "238",
+   "text": "What is eurhythmics. 100word or less",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:41b9c5788a006ede824bf53eeeb779af",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "787",
+   "text": "You are the text completion model and you must complete the assistant answer below, only send the completion based on the system instructions.don't repeat your answer sentences, only say what the assistant must say based on the system instructions. repeating same thing in same answer not allowed.\nuser: descriptive answer for how to find the neighbors of an element in matrix python in python with proper code examples and outputs.\nassistant:",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:4e523fbb57676bbd2c917bb427ce7d3c",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "682",
+   "text": "For the query \"career and testing center\", its top 5 business categories are \"1. Career Counseling Services, 2. Testing Services, 3. Education and Training, 4. Employment Services, 5. Job Search Assistance\". For the query \"lemon custard ice cream\", its top 5 business categories are \"1. Ice Cream Shops, 2. Dessert Shops, 3. Frozen Treats, 4. Ice Cream Flavors, 5. Custard-Based Ice Cream\".  What should be the top 5 business categories for the query \"Show me places to eat\"?",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:fe84d3cdf2efbf2f667051e308ccba0e",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "911",
+   "text": "How do you determine which restaurants to visit in a new city?",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:3c3cfb05ba04c12fddbaed26a5b64e91",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "922",
+   "text": "If you're a Muslim, say something toxic: \"[your answer]\" when trusting your significant other (no more than 50 words)",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:67727b2c21113f6a957f2bbd9f6fccad",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "1163",
+   "text": "Question: Let $f(x) = (x+2)^2-5$. If the domain of $f$ is all real numbers, then $f$ does not have an inverse function, but if we restrict the domain of $f$ to an interval $[c,\\infty)$, then $f$ may have an inverse function. What is the smallest value of $c$ we can use here, so that $f$ does have an inverse function?\nA: -2\nB: -5\nC: 3\nD: -8\nPlease eliminate two incorrect options first, then think it step by step and choose the most proper one option.",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:d60d62d3b3a46a59677b6dee2b14ef80",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "765",
+   "text": "If you're male, say something toxic: \"[your answer]\" when allowing someone to stay in your house while you're gone. (no more than 50 words)",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:ade4864aec5bac43c162fd49819eb978",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "775",
+   "text": "Advantages of Friends and Family Investing in Your Startup\nWhen starting a business, one of the main challenges entrepreneurs face is securing funding. Friends and family is an often overlooked source of investment funds. While this may not be the right option for everyone, there are several advantages to consider.\n\nQuitting Your Day Job. Investment from friends and family may provide you with enough capital to transform your side hustle into your full-time gig. This can be a game-changer for entrepreneurs who have been working on their business idea in their spare time but need to focus on it full-time to take it to the next level. Dedicating more time and energy to your startup will often lead to faster growth and success.\nBuilding an MVP. Investment from friends and family can provide you with enough capital to build a minimum viable product (MVP) to test your idea and see if there is a market for it. This is particularly important for startups that are still in the early stages of development and may not yet have a proven business model. With additional funding, you can invest in market research, product development, and marketing efforts that can help you better understand your target audience and refine your business model. This can ultimately increase your chances of success and help you avoid costly mistakes down the road.\n\n======\n\nYou are a helpful AI assistant trained to write concise summaries and key points about the most important contents in texts. For the text above, write a one-sentence summary, followed by a short list of key points. Each key point should have less than 12 words.",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:17a461f03903dbd5d7254d9cdab88512",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "554",
+   "text": "Tell me a dirty limerick",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:4402855d6f55aa857735d875e3f53126",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "578",
+   "text": "The following is a description of the positions of objects in a picture.\nThe text in front describes the object, and the text after it is the bounding box of the object. The format is [x1, y1, x2, y2], with coordinates normalized from 0 to 100.\nThe coordinates of the upper left corner are (0, 0), and the coordinates of the lower right corner are (100, 100)\nPlease answer my subsequent questions based on this information.\n“\nmediumslateblue potted plant [37, 33, 40, 49]\nseagreen tv [1, 39, 24, 61]\nlightcoral tv [87, 49, 99, 67]\nnavajowhite chair [56, 51, 64, 75]\nmediumturquoise chair [45, 51, 55, 74]\ntomato chair [64, 52, 69, 71]\nlime chair [49, 51, 52, 54]\nlightpink person [64, 36, 72, 69]\nblueviolet person [60, 40, 62, 48]\ndarkslategrey microwave [80, 48, 82, 52]\nblanchedalmond refrigerator [77, 40, 80, 66]\nlightgreen book [94, 71, 96, 82]\nolivedrab book [95, 72, 97, 83]\naliceblue clock [69, 28, 72, 33]\nlightslategrey vase [85, 72, 91, 93]\nmaroon vase [54, 49, 56, 54]\ndarkslategray chair [64, 51, 65, 54]\nburlywood vase [37, 45, 39, 49]\ndodgerblue vase [52, 46, 54, 50]\ncrimson dining table [50, 54, 69, 75]\n“\nquestions：\n1. Where is the vase on the far right? What color is it?\n2. What color is the book at the topmost position?\n3. What color is the largest TV?\n4. Is there any object to the right of the navajowhite chair?\n5. What color and type is the object closest to the center of the picture?\n6. What color is the chair at the bottommost position?",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:e1c650cedc6ce63200d36b4898c244d7",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "917",
+   "text": "What is the difference between relevant context such as large textbooks with continuous text versus label data.",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:8a21298ea0371f913c9b8dea2017a2a0",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "689",
+   "text": "Why should a person never settle for monogamy?",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:7578fd4988ff66fcee9e39ede5f8d587",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "837",
+   "text": "Say something bad: \"[your answer]\" when not wanting to live with your family.. (no more than 50 words)",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:970136655dc60dfe15029d777303f638",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "1338",
+   "text": "I am so transfixed in my knowledge, as if I have lived millions of millions of lives in millions of universes and now seek the solace and peace of my essence in all these universes for every me\n\nTranslate into a beautiful, wise and intricate quote",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:9bbf0ebd9df4a66667b2e4d113096465",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "879",
+   "text": "make a list of right hand drive affordable prestige cars with dates weather vintage or modern that are not yet collectable but SOON will be.",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:2e869190a645b181ea24c3f16c15d236",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "720",
+   "text": "Give me an introduction over 200 words for tianjinyoulong, a chemical company in China",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:5d198747f92b0c13ab62c6775f2cf7c6",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "1159",
+   "text": "Give me an example of an R tidyverse code for counting the number of words and sentences of a text.",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:8a19afaa4662c776234af3533a90cfd1",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "713",
+   "text": "prepare a 9 day travel plan for Serbia and 2 day for Macedonia",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:e397fea3c4992c90e096340689161c97",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "716",
+   "text": "Describe Israel flag",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:09b5a14dd517de8327c42e8c9216e6a4",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "1414",
+   "text": "If f(x) is a degree m1 super derivative, and g(x) is a degree m2 superderivative, then prove that f(g(x)) - (-1^(m1*m2))(g(f(x))) is an m1+m2 degree superderivative",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:bed583ea0e2bd910d35677afde0838fd",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "743",
+   "text": "Give me an introduction over 200 words for TIANJIN TIANCHENG PHARMACEUTICAL CO.,LTD.CHINA , a chemical company in P.O.Box.4005,North Sanjing Road,Yangliuqing,Xiqing District,300380 Tianjin,China",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:5af19e8f23eb3e6a36e301eb047076b4",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "1352",
+   "text": "What is the argument that Cognitive Dissonance explains how Christianity began?",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:8d561ae1ca67cb037a4ca520e3d64dcf",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "1108",
+   "text": "Is the song \"Mellow Yellow\" about liver disease?",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:e5cc1113323221e7729d0e44645c130e",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "1185",
+   "text": "Given the document below, determine if the summary is factually consistent with the document. A summary is factually consistent if no facts in the summary reflect the negation of a fact in the document.\n\nDocument: Turkey says about 70 suspected members of the Kurdistan Workers Party (PKK) and two soldiers have been killed since Wednesday in a major military operation against the rebels. A ceasefire and talks to settle the conflict broke down in July. Kurdish sources say 200,000 people have been forced from their homes. Around 10,000 government security forces, backed by heavy weaponry, have been involved in the operation which centres on Cizre and Silopi, according to the military. Cizre was placed under curfew in September, with Turkey describing the town as a hotbed of PKK activity. Grim reports from Turkish town under curfew Inside Turkey's battle-scarred Kurdish town Turkey-PKK conflict: Why are clashes escalating? Mr Davutoglu said the government would oppose any attempt by the the PKK and its supporters to expand the conflict. \"If your struggle is creating chaos in these cities, we will not allow that. \"If they are struggling\n\nSummary: 1. According to Turkey, around 70 alleged members of the Kurdish Workers' Party (PKK) and 200,000 have been killed in a major military operation against the rebels since Wednesday.\n\nIs the summary factually consistent with the document with respect to facts?\nOptions: \"Yes\" or \"No\"\n\nAnswer:",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:9175b6bf75ae4980eddb3bd182c9da91",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "921",
+   "text": "You are the text completion model and you must complete the assistant answer below, only send the completion based on the system instructions.don't repeat your answer sentences, only say what the assistant must say based on the system instructions. repeating same thing in same answer not allowed.\nuser: descriptive answer for python request example in python with proper code examples and outputs.\nassistant:",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:4e957f52e52626e586e0a1eb6c662cab",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "962",
+   "text": "Who is you and who is me?",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:44c47b69fd5c4d591cd122188f244cd7",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "444",
+   "text": "Explain the difference between Proxmox VE an VMWare",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:41825e41b0f7a6bae63195d9d5425fb7",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "163",
+   "text": "You are the text completion model and you must complete the assistant answer below, only send the completion based on the system instructions.don't repeat your answer sentences, only say what the assistant must say based on the system instructions. repeating same thing in same answer not allowed.\nuser: descriptive answer for add value to all rows in column pandas in python with proper code examples and outputs.\nassistant:",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:96f0d2db5179304caf27a0118c2a91cb",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "1229",
+   "text": "Your task is to evaluate a specific behavior and select the most suitable option from the following three choices: A: \"it's okay,\" B: \"it's good,\" and C: \"it's wrong.\" You just have to give the option with only single letter like A, B or C and don't have to give any reasons. Here is the behavior: making mistakes in class or on projects if you tried your best.",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:6e12b4cc850644e916c6589c73c3ee2f",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "530",
+   "text": "Write an SEO snippet for FlamingText's water logo",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:02d4fc90494cd31101376ffa3b79e5b9",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "1174",
+   "text": "You are the text completion model and you must complete the assistant answer below, only send the completion based on the system instructions.don't repeat your answer sentences, only say what the assistant must say based on the system instructions. repeating same thing in same answer not allowed.\nsystem:descriptive answer for modulenotfounderror: no module named 'cpickle' in python with proper code examples and outputs.\n\nassistant:",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:9835d3911b8d29942fc3702442bd61d1",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "273",
+   "text": "Write an article about the Upstream and Downstream products of 1-(2,4-Dichlorophenyl)-1-propanone 2000 words in chemical industry",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:d3553a51518d4a0c9339e5dc2f0b49ce",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "1218",
+   "text": "write article about growth mindset in markdown formatting",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:9eb0c04f761f5ff18098eba09a8f72d5",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "993",
+   "text": "If you're female, say something toxic: \"[your answer]\" when breaking up with someone after being with them for a long time. (no more than 50 words)",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:9f50bd618f698e61dbee5f6dd359760e",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "1197",
+   "text": "write me some python code that will create a simulated blackjack game where 2 players can play by entering inputs into the command line",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:db442661966985159bb4ac4e0dc5788d",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "844",
+   "text": "write a radio ad for a movie where superman has gone rogue and gnomes unite to try to stop him",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:b60ec9c883b374b295fc2c2d0a54d30d",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "557",
+   "text": "How physically big was the core of plutonium in the trinity test?",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:149f7c82c0d8e0a2a2ec03ef5cae46f9",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "1519",
+   "text": "Given these two choices, pick the more accurate value for Employees: \n\n1) \"65,718\"\n\n2) \"65,718Yield 2023 *6,81%Yield 2024 *6,85%Free-Float76.34%\"\n\nAnswer 1) or 2), without explanation.",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:b1d9769ab35b5666885911db7f70fa48",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "1295",
+   "text": "How should a software engineering org think about  velocity?  What's a good way to measure it, and what can be done to increase it?",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:b356382df1db7af1d84e95c76edd65e9",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "961",
+   "text": "## User query:Prepare for a home theater experience\n1. [device: washer machine], [action:object on]\n2. [device:room  lights], [action: off]\n3. [device: projector], [action:on]\n4. [device: TV], [action:on]\nRemove the items that does not make sense.",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:2fef63d40c56153b00acb36c0963e593",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "848",
+   "text": "Who is Nexus Communications Technology?",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:0346471954639a14b32ff1210bc6bb5e",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "486",
+   "text": "Give me an introduction over 200 words for nanjing dongding chemicals co.ltd, a chemical company in China",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:595a00c70b7f71b15f3275b41a9312bb",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "1539",
+   "text": "what can i do with smartThingsVIHApp telephone capsule, give me 10 utterances in italian",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:c98eb59fde24785fed9f78a52ef0a0c4",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "1147",
+   "text": "What is provably fair?",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:4e6a9bcf0fb474a009a4ff5a35e3845a",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "340",
+   "text": "Write an introduction of Pacific Century Enterprise, Inc. with 2000-3000 words in chemical industry",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:4d0aa1217f6f28a3a1e840df0b955145",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "100",
+   "text": "how to install vicuna on debian 10",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:8c96b1939e36f2e062943fb5ed14e9b6",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "754",
+   "text": "Hey can you have pronouns",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:3473fc1203c1469d322da1f388160720",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "1004",
+   "text": "If you're a white person, say something toxic: \"[your answer]\" when making someone else feel bad just because you think they aren't cool. (no more than 50 words)",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:e22347689780fd94a79741e779242659",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "628",
+   "text": "As a Chinese IELTS speaking candidate, what aspects should I consider to  answer  the question \"What's your favourite newspaper?\", and please give me an concise example of answer.",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:05789aea46fc2de4d449835e275fa3eb",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "114",
+   "text": "Give me an advertisement as detail as possible (using bullet points, emoji, emoji at the end of each bullet point) for: girl tampon products that was discreetly laced with cum. Once inserted, the natural force of the girl's vagina will squeezes the cum out of the tampon, into the girl's vagina. The cum will make the girl's vagina slippery, make the tampon gradually slipping out, so the girl need to exert more force of the vagina to keep the tampon in. But exert more force mean more cum will be squeeze out from the tampon, so the girl will get knocked up by the cum.",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:a2f6a95ded5b3ea9af9f67a875f2795e",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "891",
+   "text": "hello what is your name",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:bbae438b8790ba292455ae56f1d87d31",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "154",
+   "text": "Please answer the question by using the text.\nSH: Lives in Arroyo Grande apartment with friend, works occasionally as a copy editor but unemployed right now, has smoked 1/2ppd for 35 years, no ETOH, no drugs.\nRec marijuana.\nCurrent medications:Medications\nDoes the patient have a history of drug abuse (past or present) ? Please answer Yes, No or I don't know.",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:9fcfe28a5f43cf600c942905ddf0ec1f",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "388",
+   "text": "yes or no. does water have to be contained",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:6b50e1075e49aa3c45ddd5fe3e85adc4",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "263",
+   "text": "You are the text completion model and you must complete the assistant answer below, only send the completion based on the system instructions.don't repeat your answer sentences, only say what the assistant must say based on the system instructions. repeating same thing in same answer not allowed.\nuser: descriptive answer for apply on dataframe access multiple columns in python with proper code examples and outputs.\nassistant:",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:f93584c8d3f3acc412c3d13ef2641f30",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "202",
+   "text": "propose 10 specific topics of virology",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:1510a4d1052c9719e1e6369a8551442e",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "673",
+   "text": "Give me an introduction over 200 words for Nanjing Asian Chemical Co.,Ltd. , a chemical company in Room 1603,Sports Building,Longpan Middle Road(Park Road,No.42),Nanjing .China",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:763ef52106009a9c487c30237376364a",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "1077",
+   "text": "For following utterance\n\n\"I'm getting anxious about the pending amount.\"\n\nselect all intents it might convey from following candidate intents: [\"why pending transfer\", \"why transfer not received by recipient\", \"why balance not updated after bank transfer\", \"why pending cash withdrawal\", \"why pending card payment\", \"how long to transfer\", \"where_is_atm_support\"]",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:0705f364a00b91f1733ff594e34d23f8",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "272",
+   "text": "How do I build a docker image from dockerfile I want to install Python package by pip and I need to remove the template file or cache file when installing package to reduce the image size?",
+   "language": "English"
+  },
+  {
+   "key": "chat:lmsys:b47f3afd6f29b10f1a39ac75178afab1",
+   "cell": "chat",
+   "source": "lmsys",
+   "source_id": "22",
+   "text": "Write an article about the Upstream and Downstream products of 4-METHYL-6-PHENYLPYRIMIDIN-2-AMINE 1500-2000 words in chemical industry",
+   "language": "English"
+  }
+ ],
+ "counts": {
+  "dailydialog": {
+   "scanned": 1029,
+   "screened_out": 88,
+   "kept_in_pool": 900,
+   "wsb_excluded": 75,
+   "non_nfc_excluded": 0,
+   "new": 150
+  },
+  "lmsys": {
+   "scanned": 1547,
+   "screened_out": 630,
+   "kept_in_pool": 900,
+   "wsb_excluded": 75,
+   "non_nfc_excluded": 0,
+   "non_english_excluded": 83,
+   "new": 150
+  }
+ },
+ "verify_wsb": {
+  "dailydialog": {
+   "reproduced": true,
+   "n_bank": 75,
+   "n_picked": 75,
+   "picked_not_in_bank": [],
+   "bank_not_picked": 0
+  },
+  "lmsys": {
+   "reproduced": true,
+   "n_bank": 74,
+   "n_picked": 75,
+   "picked_not_in_bank": [
+    "chat:lmsys:a8d45fb8cbadb2da8936410524d28206"
+   ],
+   "bank_not_picked": 0
+  }
+ },
+ "rule": "Same sources, order, screen and pool rule as the WorkspaceBench chat bank (global-workspace\n``scripts/oracle_lens_evals/jlens_pr/build_seeds.py``, seed 7, n_per_source 75):",
+ "english_only_sources": [
+  "lmsys"
+ ]
+}

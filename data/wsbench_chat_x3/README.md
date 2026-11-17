@@ -1,7 +1,8 @@
 # data/wsbench_chat_x3 — the main bank at 3x prompts, 2x read positions (plan 0028)
 
-**Local until frozen.** Everything here except this README is gitignored, and the frozen files land
-in a follow-up PR with `MANIFEST.sha256`. Built by `scripts/main_x3/` (see
+**Frozen (hindex-v8).** These are the files the frozen v8 index scored: `items.json` is the bank
+`data/index/v8_manifest.json` records (`provenance.bank.sha256`), and every file is pinned by
+`MANIFEST.sha256` (`sha256sum -c MANIFEST.sha256`; `tests/test_main_x3.py`). Never edit. Built by `scripts/main_x3/` (see
 `plans/0028-main-bank-expansion.md`).
 
 | file | what |

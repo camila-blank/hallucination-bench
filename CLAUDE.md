@@ -125,8 +125,8 @@ src/hallucination_bench/
                    the ladder's probe-text and capture-plan steps use them)
 data/wsbench_chat/   verbatim copies from wsbench-pub @ 92d763e (never edit)
 data/wsbench_chat_x3/  plan 0028: the main bank at 3x prompts / <=16 sites (WSB 149 = subset
-                     `wsb149`, sites `wsb: true` = the WSB 1,123); LOCAL until frozen (gitignored
-                     except README); `hbench run|report --bank x3` (plan 0029; dir $HBENCH_X3_BANK,
+                     `wsb149`, sites `wsb: true` = the WSB 1,123); FROZEN for hindex-v8 (pinned by
+                     MANIFEST.sha256, never edit); `hbench run|report --bank x3` (plan 0029; dir $HBENCH_X3_BANK,
                      readouts default $HBENCH_X3_READOUTS) or HBENCH_WSBENCH_CHAT_ITEMS=<it>/items.json
 scripts/main_x3/     plan 0028: build_seeds.py (re-derives the WSB draw, then the seeded expansion;
                      new lmsys English-only),

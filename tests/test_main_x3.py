@@ -101,9 +101,9 @@ def test_wsb_sites_reproduced_and_kept_by_the_16_thin(tok):
         assert all(s in s16 for s in it["sites"]), it["id"]
 
 
-# ---------------------------------------------------------------- the 3x bank (local until frozen)
+# ------------------------------------------------------------ the 3x bank (frozen for hindex-v8)
 
-x3 = pytest.mark.skipif(not X3_ITEMS.exists(), reason="3x bank not built here (local until frozen)")
+x3 = pytest.mark.skipif(not X3_ITEMS.exists(), reason="3x bank not at HBENCH_X3_BANK")
 
 
 @pytest.fixture(scope="module")
@@ -246,3 +246,20 @@ def test_x3_new_lmsys_items_come_from_english_seeds(x3_items):
     for it in x3_items:
         if it["subset"] == "x3new" and it["source"] == "lmsys":
             assert lang.get(it["seed_key"]) == "English", it["id"]
+
+
+def test_x3_frozen_manifest():
+    """The shipped bank is frozen: every file matches MANIFEST.sha256, and items.json is the
+    bank the frozen v8 index scored (data/index/v8_manifest.json provenance)."""
+    import hashlib
+
+    d = DATA / "wsbench_chat_x3"
+    lines = (d / "MANIFEST.sha256").read_text().splitlines()
+    assert len(lines) == 7
+    digests = {}
+    for line in lines:
+        digest, name = line.split("  ", 1)
+        assert hashlib.sha256((d / name).read_bytes()).hexdigest() == digest, name
+        digests[name] = digest
+    v8 = json.loads((DATA / "index" / "v8_manifest.json").read_text())
+    assert v8["provenance"]["bank"]["sha256"] == digests["items.json"]
