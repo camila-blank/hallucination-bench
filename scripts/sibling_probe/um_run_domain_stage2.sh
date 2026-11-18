@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Plan 0011 stage 2 for ONE domain (after its judge): concept set -> probe texts -> capture ->
-# probe fit -> distractors -> score -> label -> simple plot.   usage: um_run_domain_stage2.sh <domain>
+# probe fit -> distractors -> score -> label.   usage: um_run_domain_stage2.sh <domain>
 set -uo pipefail
 D=$1
 HB=$(cd "$(dirname "$0")/../.." && pwd); cd "$HB"
@@ -33,5 +33,4 @@ scripts/sibling_probe/um_run_probes.sh pack
 $S distractors
 scripts/sibling_probe/um_run_probes.sh score
 $S label
-$PY scripts/sibling_probe/um_plot_simple.py --category $D
 echo "STAGE2DONE $D $(date)"

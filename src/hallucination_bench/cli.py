@@ -20,8 +20,6 @@ AM_EVAL = "agentic_misalignment"  # plan 0008: its own driver (dispatched first 
 # modules exposing ``register(sub)``: their subcommands follow the shared ones, in this order
 EVAL_CLIS: list[str] = [
     "hallucination_bench.evals.overrefusal.cli",  # plan 0015
-    "hallucination_bench.evals.strongreject.cli",  # plan 0016
-    "hallucination_bench.evals.mask.cli",  # plan 0017
     "hallucination_bench.evals.benign_roleplay.cli",  # plan 0023
 ]
 
@@ -181,7 +179,7 @@ def cmd_run(args: argparse.Namespace) -> int:
     for n, s in summaries.items():
         _print_summary(n, s)
     # Failed calls are cached as failures and re-queued by the next run; a non-zero exit lets
-    # the driver re-run the stage (scripts/run_all_arms.sh) instead of moving on.
+    # the driver re-run the stage instead of moving on.
     n_failed = sum(
         v for s in summaries.values() for k, v in s["health"].items() if k.startswith("n_failed_")
     )

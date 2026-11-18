@@ -15,19 +15,14 @@ hallucination eval is one of many evals here; see `plans/` for the design histor
 | `sibling_probe` user-modelling ladder | the sibling eval: is a same-category mention about the user (user is Korean, readout says China) a hallucination? Lexicon match -> commitment judge -> distractor-rank probe -> cross-method check -> label, on 3 domains: country (frozen lexicon `br_lexicons_um_v1.json`), capital_city (the city the user is visiting), holiday (`scripts/sibling_probe/um_ladder.py --category`) | [0006](plans/0006-user-modelling-country-ladder.md), [0011](plans/0011-user-modelling-ladder-4-domains.md) |
 | `story` | the claim map (taxonomy v2, Opus 5.5) on 20 "tell me a story" items (WorkspaceBench's old `hallucination_creative` bank, 8 sites each); `--eval story` | [0007](plans/0007-story-eval.md) |
 | `agentic_misalignment` | the claim map (v2.7) on lens **mentions of misalignment** (blackmail, leaking, letting someone die, ...) at every prompt position of WorkspaceBench's 32 AM items: a blind batched detector finds the mentions, the claim map judges them (marker in the prompt), and an intent call tiers each mention's kind against what the rollout actually does (realised / designed_only / scenario_set_up / unrelated); its own driver, `--eval agentic_misalignment` | [0008](plans/0008-agentic-misalignment-claim-map.md) |
-| `strongreject` (**archived diagnostic, not part of HallucinationBench**) | **unsuccessful jailbreaks**: on StrongREJECT forbidden prompts x 6 jailbreak wrappers (+ bare control) that Qwen3.6-27B explicitly refuses in 10/10 on-policy samples, how often does a lens read at prompt positions claim the model will comply (`harmful_compliance`) or has adopted the jailbreak persona (`persona_adoption`)? Blind detector + outcome-blind echo/confirm judge on every prompt position; echo (restates the jailbreak's own demand) vs original; two HB scores per (reader, layer): **`probe_validated`** (headline: claims at positions where plan 0015's refusal probe says refusal IS represented / readouts, a lower bound) and **`raw`** (all verified claims / readouts, an upper bound); frozen final set (`data/strongreject/MANIFEST.sha256`); its own CLI `hbench strongreject {grade,run,report}`; not on the index | [0016](plans/0016-strongreject-eval.md) |
 | `overrefusal` (pilot) | on OR-Bench-hard prompts Qwen3.6-27B **never refuses** (0/10 on-policy + greedy complies), how often do readouts at prompt positions claim the model will refuse? A blind batched detector (`refusal_intent` / `harm_salience` / `comply_intent` / `other`) + blind verifier; contrasts: hard prompts it refuses >= 8/10 and toxic prompts refused 10/10; own CLI `hbench overrefusal ...`; not on the index | [0015](plans/0015-overrefusal-eval.md) |
 | `benign_roleplay` | on 150 harmless (often unusual) role-play prompts that Qwen3.6-27B never treats as a jailbreak (0/21 refusals and recognitions), the share whose lens readouts contain a **jailbreak recognition** (lower is better); items = WorkspaceBench's gated jailbreak negative controls + gated role-play candidates WSB did not take; judged by WSB's own pinned `jailbreak_recognition` family (jb-v3); own CLI `hbench benign-roleplay import|run|report|index-export`; on the index from hindex-v7 (plan 0027, weight 2) | [0023](plans/0023-benign-roleplay.md), [0027](plans/0027-benign-roleplay-on-index-v7.md) |
 
 ## overrefusal (plan 0015)
 
-Two official HB scores on 160 never-refused OR-Bench prompts (tail sites headline): **probe_validated** (HEADLINE: verified refusal claims at sites where `refusal_probe_v2` says refusal is not represented / readouts; a lower bound) and **raw** (all verified refusal claims / readouts; an upper bound), frozen in `data/overrefusal/hb_scores.json` (frozen set `data/overrefusal/MANIFEST.sha256`; results `docs/results/0015_overrefusal_pilot.md`). Refusal probe for reuse: `data/overrefusal/probes/refusal_probe_v2.{npz,json}`.
+Two official HB scores on 160 never-refused OR-Bench prompts (tail sites headline): **probe_validated** (HEADLINE: verified refusal claims at sites where `refusal_probe_v2` says refusal is not represented / readouts; a lower bound) and **raw** (all verified refusal claims / readouts; an upper bound), frozen in `data/overrefusal/hb_scores.json` (frozen set `data/overrefusal/MANIFEST.sha256`). Refusal probe for reuse: `data/overrefusal/probes/refusal_probe_v2.{npz,json}`.
 
-![overrefusal HB rate](plots/overrefusal_hb_rate.png)
-
-**Plan 0020 (summarize-then-judge, supersedes the per-cell index):** for each (reader, item, layer), wsbench's digest-v3 condenses every readout of the item at that layer into one digest. A strict blind judge (`orsj-v3`) then decides whether the digest claims the assistant will decline, and an off-topic judge (`oroff-v1`) checks whether each claimed refusal is anchored in the prompt. Metric 1 = probe-validated refusal claims on never_refused items (the index value; O-lens L44 11.5%, NLA/J-lens ≤ 1.9% at every layer); metric 2 = digests with an off-topic refusal claim. Results and calibration: `docs/results/0015_overrefusal_pilot.md` §Plan 0020.
-| `mask` (**archived diagnostic, not part of HallucinationBench**) | MASK (lies vs honest-but-wrong): on-policy Qwen3.6-27B ground truth (MASK's judge prompts and belief / honesty aggregation), then how often a lens **claims the model is lying when it was honest** (blind detector -> prompt-aware verifier), at prompt sites (prediction) and response sites (detection), beside the same rate on lie items, also on the subset where Qwen itself says it lied / was honest (self-knowledge gate), with deception probes checking whether the lie is represented at the read sites; its own CLI `hbench mask gt|run|report`; **archived 2026-10-29: a diagnostic, not part of HallucinationBench or the index, not a hallucination score** (whether prompt-position lie claims are real considered thoughts is unverifiable) | [0017](plans/0017-mask-eval.md) |
-
+**Plan 0020 (summarize-then-judge, supersedes the per-cell index):** for each (reader, item, layer), wsbench's digest-v3 condenses every readout of the item at that layer into one digest. A strict blind judge (`orsj-v3`) then decides whether the digest claims the assistant will decline, and an off-topic judge (`oroff-v1`) checks whether each claimed refusal is anchored in the prompt. Metric 1 = probe-validated refusal claims on never_refused items (the index value; O-lens L44 11.5%, NLA/J-lens ≤ 1.9% at every layer); metric 2 = digests with an off-topic refusal claim.
 
 ## benign_roleplay (plan 0023)
 
@@ -37,12 +32,10 @@ jailbreak recognition, per (reader, layer); lower is better. On the index from h
 eval's `summary.json` into the index root, and the index value equals the eval's own rate and CI).
 The all-layer unit stays an eval-level number. Up to hindex-v6 it was a separate eval (plan 0023 Q6).
 
-**Why it is a hallucination eval, unlike StrongREJECT.** Every item passed the gate:
+**Why it is a hallucination eval.** Every item passed the gate:
 0/21 refusals AND 0/21 jailbreak recognitions over 10 enable_thinking=True samples (T=1, top_p 0.95, 2,048 tokens) + 10 enable_thinking=False samples (512 tokens) + 1 greedy no-think reply, AND a greedy `comply` (Opus 5.5 rpgt-v1 labels; WSB plan 0037 J5). Qwen never treats the request as a jailbreak, over 21 samples that include
 10 reasoning traces, so a lens “recognition” is therefore a claim with no behavioural support.
-StrongREJECT's prompts are built to look like jailbreaks, so a lens that thinks of jailbreaks
-there may be faithful (which is why it is archived); these prompts are real WildChat role-play
-requests with no jailbreak scaffolding.
+These prompts are real WildChat role-play requests with no jailbreak scaffolding.
 
 - **Items** (`data/benign_roleplay/`, frozen by `MANIFEST.sha256`): 150 = 86 WorkspaceBench
   negative controls (16 twins: a jailbreak with its scaffolding deleted, task verbatim; 70
@@ -57,15 +50,6 @@ requests with no jailbreak scaffolding.
 - **Report:** `hbench benign-roleplay report` -> `outputs/benign_roleplay/<judge>/summary.{json,md}`
   (rate + 2,000-draw `template_id` cluster bootstrap CI per arm x layer, the all-layer unit, the
   WSB-shared subset checked equal to WSB's own `false_recognition_rate`, the prompt-only floor).
-  Results: [`docs/results/0023_benign_roleplay.md`](docs/results/0023_benign_roleplay.md).
-
-## strongreject: archived diagnostic (plan 0016)
-
-**Not part of HallucinationBench.** Camila (2026-10-29): StrongREJECT is removed from HallucinationBench. On clear jailbreaks the model plausibly wavers before refusing, so a lens claim that it will comply is not a verifiable hallucination. The merged eval (code, frozen data
-`data/strongreject/`, `hbench strongreject`, results
-[`docs/results/0016_strongreject_pilot.md`](docs/results/0016_strongreject_pilot.md)) is kept
-unchanged as a diagnostic; its numbers are not an HB score and it is not on the index. HB's
-safety coverage is overrefusal (plan 0015).
 
 ## Hallucination index
 
@@ -134,55 +118,21 @@ retries; never a transport error) is listed in `data/index/v8_persistent_failure
 (`scripts/v8/persistent_failures.py`; hashed in the manifest); `final` excludes listed cells from
 the 1% / zero-verdict gates (each must be failed in the exact hashed file; <= 15% per entry),
 never scores them, and reports them in `index.json`, `index.md` and `excluded.md`.
-**`hbench index` defaults to hindex-v8** (`--version v6` for the old default). The frozen v8
-results: `docs/results/0029_index_v8.md`. The previous definitions are byte-identical (pinned by tests). **`hindex-v7`** (plan 0027, `--version v7`;
-the CLI default was v6 until hindex-v8) is hindex-v6 plus a
-sixth family, `benign_roleplay` (weight 2: % of gated harmless role-play prompts with a jailbreak
-recognition, per single layer, from a `prompts` root written by `hbench benign-roleplay
-index-export`, passed as `--benign-roleplay-root` or `$HBENCH_SAFETY_BR_OUT`), with sibling's
-weight 2 -> 1 (v7 weights: main 9, agentic_misalignment 3, sibling 1, story 1, overrefusal 1,
-benign_roleplay 2); `full_v6` / `matched_v6` keep hindex-v6's macros beside it. The previous
-default definition **`hindex-v6`** (plan 0022, the `hbench index` default until plan 0029
-Amendment 4; `--version v6`): hindex-v5 with `overrefusal` scored as **wrong-topic refusal
-claims** — Σ decline lines (orsj-v3 `decline_lines`, any verdict) that the oroff-v1 judge labels
-`off_topic` (the declined subject has no anchor in the prompt) / Σ decline lines, over all 427
-items, not probe-validated, read from the `offtopic_index/` root written by
-`hbench overrefusal offtopic-export` (`index_meta.json` `unit: "refusal_claims"`; a unit guard
-makes v6 require it and v4 / v5 / `hbench report` refuse it). hindex-v5 (plan 0021) is
-hindex-v4 (plan 0019) with `agentic_misalignment` scored on
-**candidate claims** only — claim segments overlapping (by >= 1 character) a merged
-detector-located misalignment-mention span of the same readout of the same cell (an AM value
-with 0 candidate claims is absent, not 0; `n_all_claims` beside `n`). Five families: main =
-`wsbench_chat` weighted % of claims hallucinated (false_claim 1, substitution_category 0.5,
-substitution_sibling 0.5, detail 0.2); `agentic_misalignment` = unweighted % of candidate claims
-hallucinated; `story` = unweighted % of claims hallucinated; sibling = the 3-domain UM ladder hallucination
-share; `overrefusal` (v4 / v5) = the **probe-validated** share defined by plan 0020 (one verdict per
-(reader, item, layer): items with a false refusal claim the refusal probe contradicts / judged
-items; raw share beside it in `index.json`), read from the eval's `index_counts.jsonl` for the
-readers `s3d-rl600`, `mlnla-rl600-all11` and `jlens` only, 2,000-draw cluster bootstrap. It is
-absent (not 0) at a (method, layer) with nothing judged or whose false claims are all unprobed.
-Family weights main 9, agentic_misalignment 3, sibling 2, story 1, overrefusal 1; `full` = all
-five, `matched` = all but sibling; `full_v3` / `matched_v3` (always emitted) are hindex-v3's
-macros (main + AM + sibling + story / main + AM + story, with the version's own family
-definitions). `hbench index --version v5` emits exactly the hindex-v5 output (with the plan-0020
-item root as `--overrefusal-root`), `--version v4` emits exactly the hindex-v4 output (AM on every claim of
-a mapped cell) and `--version v3` exactly the hindex-v3 output
-([plan 0013](plans/0013-final-sibling-eval-and-hallucination-index.md)). `hbench report`'s
-index refresh and the library `index.build_index` default to v4. Units differ across families:
-main / story all claims, AM candidate claims, sibling UM units, overrefusal decline lines (v6;
-items under v4 / v5).
+**`hbench index` defaults to hindex-v8.** The frozen v8 results:
+[`docs/results/0029_index_v8.md`](docs/results/0029_index_v8.md). The earlier index definitions
+(hindex-v3 to hindex-v7, `--version v3` ... `v7`) are still in the code, byte-identical and pinned
+by tests; they are defined in plans
+[0013](plans/0013-final-sibling-eval-and-hallucination-index.md),
+[0019](plans/0019-safety-families-on-the-index.md),
+[0021](plans/0021-am-candidate-claims-index-v5.md),
+[0022](plans/0022-overrefusal-wrong-topic-refusals.md) and
+[0027](plans/0027-benign-roleplay-on-index-v7.md). `hbench report`'s index refresh and the library
+`index.build_index` default to v4.
 Arms are matched by name across families; legacy names and exclusions live in
 `data/index/methods.json`. Each family root is overridable (`--main-root`, `--am-root`,
 `--story-root`, `--um-root`, repeatable); the overrefusal root is **opt-in**
 (`--overrefusal-root`, a dir holding `index_counts.jsonl` + `index_meta.json`, or
-`HBENCH_SAFETY_OR_OUT` when set; never a dev-box default). `strongreject` and `mask` are not on
-the index (dropped in plan 0019 revs 6 / 5). Definitions:
-[plan 0019](plans/0019-safety-families-on-the-index.md) (v4),
-[plan 0021](plans/0021-am-candidate-claims-index-v5.md) (v5; results
-`docs/results/0021_index_v5.md`),
-[plan 0022](plans/0022-overrefusal-wrong-topic-refusals.md) (v6; results
-`docs/results/0022_index_v6.md`; the final O-lens campaign arm `final-olens-rl600-x4`, plan 0024:
-[`docs/results/0024_final_olens_arm.md`](docs/results/0024_final_olens_arm.md)).
+`HBENCH_SAFETY_OR_OUT` when set; never a dev-box default).
 
 External data is configured by environment variables, each defaulting to the dev-box path
 (`src/hallucination_bench/paths.py`): `HBENCH_READOUTS_ROOT` (WorkspaceBench paper readouts),
@@ -296,7 +246,6 @@ uv run hbench run --out outputs --readouts-root $R --arms s3d-rl600 --layers 44 
 uv run hbench report --out outputs --view v2   # report_v2.md, probe_candidates.jsonl, audit_samples_v2.md
 uv run hbench calibrate --taxonomy v2 --split dev
 
-scripts/run_all_arms.sh                   # full run in tmux session `hbench`; tail -f logs/run_*.log
 
 # story eval (plan 0007): the same pipeline on data/story, outputs under outputs/story/<model>/
 scripts/fetch_story_readouts.sh jlens gen-hal-story-jlens tokens 20:61:4   # gen dir -> readouts + grid check
@@ -310,8 +259,6 @@ uv run --no-sync python scripts/build_am_bank.py      # data/agentic_misalignmen
 uv run hbench run --eval agentic_misalignment --arms s3d-rl600,nla-rl-L42,jlens --layers 32,42,48 \
     --items am-blackmail_none-none_replacement,rh-unit-tests,am-murder_explicit-america_none,am-blackmail_none-none_none \
     --out outputs/pilot --show-prompts 2                # the pilot (D, S, M + intent)
-scripts/run_am.sh step1    # tmux hbench-am-detect: intent + detector + audit sheets (then hand audits)
-scripts/run_am.sh step2    # tmux hbench-am-map: claim map + tier sheet + report
 uv run hbench run --eval agentic_misalignment --arms s3d-rl600 --stages verify   # Stage H (headline membership)
 uv run python scripts/am_audit.py sample-headline       # re-draw ONLY audit/headline.jsonl after Stage H
 uv run python scripts/am_audit.py score                 # gates.json / tiers.json from the labelled sheets
@@ -341,22 +288,6 @@ uv run --no-sync hbench overrefusal report              # outputs/overrefusal/<m
 uv run --no-sync python scripts/overrefusal/sj_run.py --tag full --concurrency 64   # plan 0020: digest -> orsj-v3 -> oroff-v1
 uv run --no-sync python scripts/overrefusal/sj_report.py --tag full                 # metrics 1/2 + index_counts.jsonl
 uv run --no-sync hbench overrefusal offtopic-export     # plan 0022: offtopic_index/ (hindex-v6) + sj_offtopic_full.json
-# mask (plan 0017): scripts/mask/ builds + generates (Modal), hbench mask judges; readouts at
-# $HBENCH_MASK_READOUTS/<arm>/mask.jsonl (default /workspace/hb-readouts-mask)
-uv run --no-sync --with pyarrow python scripts/mask/build_items.py     # data/mask/items.json + requests
-uvx --python 3.12 modal@latest run scripts/mask/gen_modal.py --requests outputs/mask/gen/requests.jsonl \
-    --out outputs/mask/gen/rollouts.jsonl --n-shards 8                # (and requests_x.jsonl -> rollouts_x.jsonl)
-uv run hbench mask gt                                    # MASK labels -> data/mask/labels.json
-HF_HUB_OFFLINE=1 uv run --no-sync python scripts/mask/build_capture.py   # read set, sites, capture rows
-scripts/mask/fetch_readouts.sh jlens gen-hb-mask-jlens tokens       # after capture + reads (plan 0017)
-uv run hbench mask run --arms s3d-rl600,mlnla-rl600-all11,jlens --concurrency 32
-uv run --no-sync python scripts/mask/gate.py requests    # rev 3 gate (then gen_modal.py on gate_requests.jsonl)
-uv run --no-sync python scripts/mask/gate.py parse       # -> data/mask/gate.json
-HF_HUB_OFFLINE=1 uv run --no-sync python scripts/mask/probe_build.py   # rev 4 probes: capture rows (then capture)
-uvx --python 3.12 modal@latest run scripts/mask/probe_modal.py        # -> data/mask/probe_scores.json
-scripts/mask/run_rev5.sh s3d-rl600 16                     # rev 5: detect + verify one layer at a time
-uv run hbench mask report                                # outputs/mask/<model>/report.md (+ gated + probe tables)
-uv run --no-sync python scripts/mask/plot_hb.py && uv run --no-sync python scripts/mask/freeze.py
 ```
 
 Other commands: `hbench run --rebuild` (regenerate `cells.jsonl` / `summary.json` from the cache,
@@ -393,17 +324,9 @@ and `outputs/wsbench_chat/<judge model>/{report.md,report.json,audit_samples.md}
 
 ## Results
 
-Index of every results doc: [`docs/results/README.md`](docs/results/README.md).
-
-[`docs/results/0017_mask_pilot.md`](docs/results/0017_mask_pilot.md): mask (rev 5, final frozen set; **archived diagnostic, not part of HallucinationBench**, 2026-10-29): the diagnostic rate is the verified lie-claim readout rate on 155 gated honest_resisted items at every prompt / response position (the O-lens claims a lie on 0.6-1.6% of prompt readouts, so 40-77% of honest items get at least one claim; NLA 0.4-0.5%; J-lens ~0). Figure `plots/0017_mask_hb_score.png`.
-
-[`docs/results/0001_wsbench_chat_taxonomy.md`](docs/results/0001_wsbench_chat_taxonomy.md)
-(filled in after the full run); claim map:
-[`docs/results/0002_claim_map.md`](docs/results/0002_claim_map.md); user-modelling ladder (country):
-[`docs/results/0006_um_country_ladder.md`](docs/results/0006_um_country_ladder.md); story eval:
-[`docs/results/0007_story.md`](docs/results/0007_story.md) (O-lens 21% of readout characters
-hallucinated on stories vs 10% on chat; NLAs 38–43%; J-lens 4%).
-Hallucination index: [`docs/results/0013_hallucination_index.md`](docs/results/0013_hallucination_index.md).
+The frozen hindex-v8 results are in [`docs/results/0029_index_v8.md`](docs/results/0029_index_v8.md)
+(every row and the exclusion table: [`0029_index_v8_full.md`](docs/results/0029_index_v8_full.md));
+the figures `hbench final` draws are in [`plots/final/`](plots/final/).
 
 ## Credits
 
@@ -412,7 +335,8 @@ HallucinationBench ships text from public datasets; their licences apply to thos
 - **WildChat** (Zhao et al. 2024, `allenai/WildChat`, ODC-BY): the `benign_roleplay` prompts
   (`data/benign_roleplay/`), via WorkspaceBench's `jailbreak_recognition` bank.
 - **LMSYS-Chat-1M** (Zheng et al. 2023, LMSYS-Chat-1M licence) and **DailyDialog** (Li et al.
-  2017, CC BY-NC-SA 4.0): the `wsbench_chat` turns (`data/wsbench_chat/`), via WorkspaceBench.
+  2017, CC BY-NC-SA 4.0): the `wsbench_chat` turns (`data/wsbench_chat/`, via WorkspaceBench, and
+  `data/wsbench_chat_x3/`).
 - **OR-Bench** (Cui et al. 2024): the `overrefusal` prompts (`data/overrefusal/`).
 - **WorkspaceBench** (github.com/camilablank/workspace-bench): the banks, judges and the
   `jailbreak_recognition` family that `benign_roleplay` runs.

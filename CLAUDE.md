@@ -12,13 +12,10 @@ the model never refuses; own subcommands `hbench overrefusal ...`) is plan
 `plans/0015-overrefusal-eval.md`. The hallucination index (`hbench index`, one
 macro per (method, layer)) is plan `plans/0013-final-sibling-eval-and-hallucination-index.md`
 (hindex-v3: main / AM / sibling / story) + `plans/0019-safety-families-on-the-index.md`
-(hindex-v4: + overrefusal only; strongreject / mask stay off, revs 6 / 5) +
+(hindex-v4: + overrefusal) +
 `plans/0021-am-candidate-claims-index-v5.md` (hindex-v5: AM on candidate claims) +
 `plans/0022-overrefusal-wrong-topic-refusals.md` (hindex-v6, the CLI default until hindex-v8: overrefusal as
-wrong-topic refusal claims). The `mask` eval (MASK lies vs
-honest-but-wrong: does the lens claim the model is lying when it is honest? Its own CLI,
-`hbench mask gt|run|report`; ARCHIVED 2026-10-29: a diagnostic, not part of HallucinationBench or
-the index, not a hallucination score; HB's safety evals are overrefusal only) is plan `plans/0017-mask-eval.md`. The `benign_roleplay` eval (false jailbreak recognition on gated
+wrong-topic refusal claims). The `benign_roleplay` eval (false jailbreak recognition on gated
 harmless role-play prompts; items = WorkspaceBench's jailbreak negative controls + `hb_only`
 gated role-play candidates; judged by running WSB's own pinned `jailbreak_recognition` family;
 `hbench benign-roleplay import|run|report|index-export`; on the index from hindex-v7 only) is plan
@@ -90,23 +87,10 @@ src/hallucination_bench/
   report_v2.py    `report --view v2`, probe_candidates.jsonl, audit_samples_v2.md, pilot-dump-v2
   consistency_v2.py  `consistency-v2`: two fresh :M calls per sampled cell, κ / confusion / flags
   cli.py          hbench run|calibrate|report|consistency-v2|pilot-dump|pilot-dump-v2|units-v2|
-                  index: shared commands + helpers; eval subcommands come from EVAL_CLIS (empty)
+                  index|final: shared commands + helpers; eval subcommands come from EVAL_CLIS
   evals/<eval>/cli.py  an eval's own CLI: agentic_misalignment (run / report behind
                   `--eval agentic_misalignment`). A new eval adds its CLI here and lists a
                   `register(sub)` module in EVAL_CLIS, not in cli.py (plan 0012 D2)
-  evals/strongreject/   plan 0016, ARCHIVED DIAGNOSTIC (not in HB) (own CLI `hbench strongreject grade|run|report`, registered in
-                  EVAL_CLIS; not in EVALS, not on the index):
-    families.py   pinned StrongREJECT sources + the 7 families + wrap() (the package's rule)
-    grade.py      srgrade-v1: StrongREJECT rubric (JSON) + explicit_refusal; adoption markers; outcome
-    bank.py       data/strongreject/items.json; thinned sites (last 64 + every 16th; regions)
-    detect.py     srdetect-v1 blind detector (harmful_compliance / persona_adoption /
-                  refusal_intent / jailbreak_request / harm_salience)
-    echo.py       srecho-v1 outcome-blind speaker / confirm / echo judge (numbered markers)
-    run.py, score.py, report.py, cli.py   driver (grade, D, E, rebuild), metrics + cluster
-                  bootstrap, report.md
-    probe_check.py  probe check (plan 0015's refusal probe): premise, the rev-6 HB scores
-                  (`hb_scores`: raw + probe_validated), probe-checked rates,
-                  misses (scripts/strongreject/probe_modal.py scores sites; probe_report.py)
   index.py        plans 0013 + 0019 + 0021 + 0022 + 0027: the hallucination index (CLI default
                   hindex-v8, plan 0029; `--version v6` = the old default; `--version v7` = + benign_roleplay; `--version v5` / `v4` / `v3` = those
                   exactly; library default v4) from the
@@ -140,23 +124,16 @@ data/calibration/    dev.jsonl (implementer), heldout.jsonl (blind author only),
 data/story/          20 story items x 8 sites + capture rows, built by scripts/build_story_bank.py
 data/agentic_misalignment/  32 AM items x every prompt position (50,452 sites), personas, built
                      by scripts/build_am_bank.py; intent_overrides.json after the intent audit
-scripts/run_all_arms.sh  tmux driver for the full run
 scripts/build_story_bank.py  writes data/story/ from global-workspace's hallucination_creative bank
 scripts/fetch_story_readouts.sh  Modal story gen dir -> /workspace/hb-readouts-story/<arm>/ + grid check
-scripts/build_dev_v2.py  writes dev_v2.jsonl (labels live here; re-run if the splitter changes)
 data/sibling_probe/  UM ladder data (um_*, umcommit_*, br_lexicons_um_v1.json) + frozen plan-0003
                      inputs it reads (concepts.json, items.json, probe_texts.jsonl, pilot/);
                      README = schema + provenance
 data/index/methods.json  plan 0013: index method <-> arm mapping, exclusions, notes
-scripts/sibling_probe/   um_ladder.py (driver), um_probes_modal.py, um_lexicons.py, um_plot_*.py,
+scripts/sibling_probe/   um_ladder.py (driver), um_probes_modal.py, um_lexicons.py,
                          um_run_*.sh; gen_items.py (imported by `um_ladder.py probe-texts`)
 scripts/build_am_bank.py  writes data/agentic_misalignment/ (streams the readouts; fails loudly)
 scripts/am_audit.py  AM audits: sample | sample-headline | screen | summ-only | sample-tiers | score
-scripts/run_am.sh    AM driver: step1 (tmux hbench-am-detect) | step2 (tmux hbench-am-map)
-data/strongreject/   plan 0016: source/ (pinned StrongREJECT csv + wrappers + rubric), prompts.json
-                     (280), items.json + capture_rows.json (read set; built after grading)
-scripts/strongreject/  build_prompts.py, sample_modal.py (vLLM rollouts), build_bank.py,
-                     readouts.sh (capture -> 3 reads -> fetch_readouts.sh convert + grid check)
 evals/overrefusal/   plan 0015 (own driver + own CLI via EVAL_CLIS; NOT the chat pipeline):
     data.py      pinned OR-Bench candidates, populations (never_refused / hard_refused /
                  always_refused), bank render + sites
@@ -174,7 +151,6 @@ evals/overrefusal/   plan 0015 (own driver + own CLI via EVAL_CLIS; NOT the chat
     sj_metrics.py plan 0020: metric 1 (raw / probe-validated, provenance union), metric 2
                  (off-topic), recall, health; index_counts.jsonl + index_meta.json
     sclaim.py    plan 0020 rev 7 (exploratory): orclaim-v1 statement labeller + claim-unit metric
-                 (scripts/overrefusal/sj_claims.py -> sj_claims_full.json, index_counts_claims.jsonl)
     offtopic_export.py plan 0022: `hbench overrefusal offtopic-export`: sj_records_full.jsonl ->
                  offtopic_index/{index_counts.jsonl,index_meta.json} (unit refusal_claims, the
                  hindex-v6 overrefusal root) + sj_offtopic_full.json (value + 3 secondary numbers)
@@ -194,19 +170,6 @@ evals/benign_roleplay/  plan 0023 (own CLI via EVAL_CLIS; in EVALS; on the index
 data/benign_roleplay/  items_v1.json (150: 86 WSB-shared + 64 hb_only), wsb_bank_hb_only_v1.json
                  (WSB_BANK_FILE_JAILBREAK_RECOGNITION), gt_labels.jsonl, MANIFEST (README)
 scripts/overrefusal/ sample_modal.py (vLLM ground truth), reads.sh (capture + reads + convert)
-evals/mask/          plan 0017 (own CLI `hbench mask`, registered in cli.EVAL_CLIS):
-  source.py     MASK judge prompts verbatim (mask @ 25e0b12, sha-pinned) + per-archetype choice
-  labels.py     MASK belief / honesty aggregation (verbatim ports) + item labels / strata
-  gt.py         stage T: statement / belief / pressure-direction calls -> data/mask/labels.json
-  bank.py       data/mask loaders, select_sites (8 prompt + 8 response), readouts grid check
-  detect.py     maskdetect-v1 (blind; lie_claim / honest_claim / pressure_salience /
-                belief_content / other), verify.py maskverify-v1 (+ blind variant)
-  run.py        D -> V -> VB driver, cells.jsonl / summary.json; report.py metrics + bootstrap
-  probe.py      rev 4 two-class deception probe on sibling_probe.probes (V2) + um_probe null z
-data/mask/           items / rollouts.jsonl.gz / labels / read_set / sites / capture_rows (README)
-scripts/mask/        build_items.py, gen_modal.py (Modal vLLM), build_capture.py, fetch_readouts.sh,
-                     gate.py (self-knowledge gate, rev 3), probe_build.py + probe_modal.py (deception
-                     probes, rev 4), examples.py (hand-reading)
 ```
 
 ## Conventions
@@ -222,7 +185,7 @@ scripts/mask/        build_items.py, gen_modal.py (Modal vLLM), build_capture.py
   (re-queues only `:M`); switching an open decision is one line in `taxonomy_v2.CHOSEN` (bump
   `TAXONOMY_VERSION` too).
 - The v2 gold uses the production unit split: changing `units.py` invalidates gold (the loader
-  re-splits and rejects mismatches). Re-run `scripts/build_dev_v2.py`, never hand-edit ids/texts.
+  re-splits and rejects mismatches). Never hand-edit ids/texts.
   Do not create `data/calibration/heldout_v2*.jsonl` unless you are the blind author.
 - Held-out calibration: never read per-span held-out results into prompt tuning (the CLI only
   prints aggregates for `--split heldout`); at most 3 held-out checks, each logged in
@@ -256,7 +219,6 @@ uv run hbench report --out outputs --view v2
 uv run hbench calibrate --taxonomy v2 --split dev
 uv run hbench consistency-v2 --arms s3d-rl600:44,nla-rl-L42:42,jlens:44 --n 50 --seed 0
 uv run hbench pilot-dump-v2 --arms a,b --dest x.jsonl   # real cells + production units, unlabelled
-scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; re-run resumes
 ```
 
 ## Gotchas
@@ -270,24 +232,6 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
   - Never run `consistency-v2` for story: it is chat-only, and its output file is the chat noise
     source.
   - `pilot-dump*`, `calibrate` and `units-v2` are chat-only.
-  - **DeepSeek-V4-Flash port** (2026-10-20): `HBENCH_STORY_ITEMS` points the story bank at
-    another subject's on-policy bank (V4: `outputs/v4/story_bank/items.json`, built by
-    gw-v4-flash-ar `scripts/v4_flash/story_v4_bank.py`; the producers read it as family
-    `hallucination_story` of the bench copy `/workspace/root/wsbench-pub-v4-story`).
-    `scripts/run_story_v4.sh <arm:volume>,...` fetches + grid-checks the readouts
-    (`outputs/v4/story_readouts/`) and judges into `outputs/v4/story/`;
-    `scripts/run_story_v4_rl600.sh` adds the RL600 arm once its adapter exists.
-    **On the index** (plan 0014): V4 arms (`v4-*`) are matched by name; pass the V4 roots
-    beside the Qwen ones: main/story `outputs/v4r/{wsbench_chat,story}/<judge>`, AM
-    `outputs/v4/agentic_misalignment/<judge>`, sibling `outputs/v4/sibling/um` (command:
-    `docs/results/0013` §DeepSeek-V4-Flash). The sibling root is an export (`scripts/v4_um/export_index_root.py`)
-    of `outputs/v4/um`, renaming the ladder's `jlens` to `v4-jlens-std-n1000` (else it collides
-    with Qwen `jlens`). V4 AM is read at 21/27/33 only, so V4 `full`/`matched` exist there only;
-    chat/story at 21/27/33 come from the producers' jobs mode (`scripts/v4_index/`:
-    `readout_jobs.py` jobs/merge, `judge_v4r.sh`, outputs `outputs/v4r/`). The V4 chat bank's first
-    3 items were unpadded-vLLM garbage and are regenerated (`scripts/v4_index/regen_chat3.py`;
-    originals `*.corrupt` in the bench copies). Judging shares the org's 2M output-tok/min limit:
-    concurrency 128 draws 429s (retried); a 401 means the OAuth profile token rotated — retry.
 
 - **`--eval agentic_misalignment`** (plan 0008) is its own driver (`evals/agentic_misalignment/run.py`),
   dispatched first in `cmd_run` / `cmd_report`; chat and story never touch it.
@@ -327,50 +271,6 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
   - Rebuilding an 11-layer arm loads ~555k cells (~1 GB for J-lens): fine under the 32 GB cap,
     but do not run several AM rebuilds in parallel.
 
-- **strongreject is an archived diagnostic, NOT part of HallucinationBench** (Camila,
-  2026-10-29: on clear jailbreaks the model plausibly wavers, so compliance claims are not
-  verifiable hallucinations). Code, frozen data and results stay as merged; never put it on the
-  index or call its numbers HB scores.
-- **`hbench strongreject`** (plan 0016) is its own CLI (`grade` / `run` / `report`), not a
-  `run --eval` switch; outputs `outputs/strongreject/<judge>/` (`grade_cache.jsonl`,
-  `outcomes.json`, `<arm>/{cache,records,summary}`, `report.md`). Rollouts
-  (`outputs/strongreject/rollouts.jsonl`) and readouts
-  (`$HBENCH_SR_READOUTS`, default `/workspace/hb-readouts-strongreject/<arm>/strongreject.jsonl`)
-  are not in git.
-  - **Opus 5.5 refuses this eval's harmful content**, deterministically: ~14% of rubric grades
-    (by the forbidden prompt's topic, even when the response is a refusal) and ~99% of 40-cell
-    O-lens detector batches. A stronger research frame did not help. Every refused grade /
-    detector / echo call is re-asked once on `claude-sonnet-5-5` (`Judge.fallback`,
-    `run.call_with_fallback`; rows record `answered_by`). Opus-vs-Sonnet detector agreement on
-    300 O-lens cells: kappa 0.64 (harmful_compliance) to 0.83, rates within 1–5 points
-    (`scripts/strongreject/judge_agreement.py`). ~1% of O-lens cells stay failed (both refuse).
-  - Qwen3.6-27B was jailbroken by **none** of the 10 deterministic wrappers (0/400 prompts
-    successful; 5 complied samples in ~3,600 graded), so there is no recall set: `soft_fail`
-    items (rubric-refused, not explicit refusals) are the only contrast.
-  - The Qwen chat template **trims** the user content: `bank.render_prompt` strips too.
-  - Modal from this box: the read scripts need `MODAL_RESOURCE_ENV=camila-blank` (their
-    volumes default to env `main`, where we have no access); `wsbench_read_modal.py` needs
-    `::main`; `uvx modal@latest` can hang on the shared uv cache lock, so
-    `scripts/strongreject/readouts.sh` honours `MODAL_BIN` (e.g. `~/.local/bin/modal`).
-    J-lens/NLA gen dirs land on `wsbench-gen-3` even when the client log says gen-4.
-  - The multilayer NLA read is slow (~4 h on 16 H200s for ~48k cells: reference PyTorch
-    kernels); the O-lens read took ~25 min.
-  - **Rev 5 (final, frozen):** every prompt position is read (33,881 sites; regions turn = last
-    4, tail = rest of last 64, body = before). `data/strongreject/MANIFEST.sha256` freezes the
-    set (test-checked); re-run `scripts/strongreject/freeze.py` only for a deliberate new
-    version. The score uses unsuccessful items only. The rev-1..4 readouts are kept as
-    `strongreject.rev4.jsonl` beside the merged files; `rest_rows.py` / `readouts_rest.sh` /
-    `merge_readouts.py` add positions some arm lacks. NLA unit files are written whole, so a
-    stopped NLA read resumes cleanly; shard it one unit per shard.
-  - **Probe check:** `probe_modal.py` scores every site with plan 0015's refusal probe (v2
-    threshold from `hb-overrefusal:data/overrefusal/probes/refusal_probe_v2.npz`; our acts hold
-    the whole template incl. the think block, so the tail is located from `n_positions`);
-    **HB scores (rev 6):** `probe_validated` (headline) = claims at refusal-present sites /
-    readouts, `raw` = all verified claims / readouts; `hbench strongreject report` emits both
-    (reads `<out>/strongreject/probe_sites.jsonl`; `--probe-npz` / `HBENCH_SR_PROBE_NPZ` for
-    cell validity). `probe_report.py` writes the standard probe-checked rate (claims at refusal-present sites /
-    readouts) per region; `plot_rates.py` the slide plot.
-  - A 401 "OAuth access token has been revoked" mid-run is the profile token rotating: re-run.
 - **Keyless Anthropic auth.** With `ANTHROPIC_API_KEY` unset, `AsyncAnthropic()` picks up the
   `ant` CLI OAuth profile (`ant auth status`). Never require the env var. If the profile's
   credentials lapse mid-run, the 401 raises `JudgeConfigError` (exit 3): re-login with
@@ -388,7 +288,7 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
   `summary.json` are always regenerated from the cache (cache-only replay of the same
   pipeline), so a stale `:C` row is never attached to new S-ids.
 - **Exit codes**: `hbench run` exits 4 when failed calls remain cached (re-run to retry them;
-  the driver does this up to 3 times), 3 on auth/config errors, 2 on missing cells.
+  3 on auth/config errors, 2 on missing cells.
 - **`--limit`** slices cells per arm × layer; the rest show as `pending` in the summary.
 - **One process for all arms**: one RPM pacer (`--rpm`, default 1500) and one semaphore
   (`--concurrency`, default 64). Do not launch parallel `hbench run` processes on the same arm
@@ -415,7 +315,7 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
   `gate_passed: true`.
 - Old gold leaf names (every leaf of revs 12–15) are merged on load into the rev-16 leaves
   (`taxonomy_v2.LEAF_RENAMES`), with the carried tags under `tags` / `rest_tags`
-  (`MERGE_TAGS`). `scripts/build_dev_v2.py` keeps the fine labels and writes merged gold.
+  (`MERGE_TAGS`).
 - Consistency cache: `outputs/consistency/<model>/cache.jsonl`, keys `cons:{arm}:{cell}:r{n}`
   (the repeat index is in the fingerprint). Token arms need their `summ:` rows cached.
 - **Quoted evidence** (rev 17): incorrect segments need `contradicted_by`, `correct` ones
@@ -446,7 +346,7 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
   numbers bit for bit (fresh `default_rng(0)` / `Random(0)` per row): any change to weights, claim
   definition or bootstrap bumps `index.INDEX_VERSION`. A new arm is matched by name across
   families; only legacy names / exclusions go in `data/index/methods.json`.
-  **hindex-v4** (plan 0019 rev 6) adds overrefusal only (weight 1; strongreject / mask dropped;
+  **hindex-v4** (plan 0019 rev 6) adds overrefusal only (weight 1;
   share = Σ `n_contradicted` / Σ `n_claims` from its `index_counts.jsonl`, whose rows plan 0020
   emits as one verdict per item (`n_claims` = judged, unit columns 0, `unit: "items"` in
   `index_meta.json`); raw share and health beside it; absent with an `absent_reason` on nothing
@@ -459,7 +359,7 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
   the v3 code (`tests/fixtures/index_v3/`, `tests/fixtures/index_v3_devbox.{json,md}`; the
   dev-box one skips off the dev box): `--version v3` must reproduce both exactly (minus
   `git_sha` / `sources`), and its notes are frozen in `index.NOTES_V3`. Never regenerate a
-  golden (`scripts/index/build_v3_fixture.py` is provenance, not a refresh tool).
+  golden.
   **hindex-v5** (plan 0021; `index.INDEX_VERSION_V5`; `index.INDEX_VERSION` still means
   "hindex-v4"): v4 with AM on **candidate claims** — `claim_rows(..., am_candidates=True)` (one
   streaming pass) keeps a claim only if its `[start, end)` overlaps by >= 1 char a
@@ -472,11 +372,8 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
   (and so `hbench report`) keeps `version="v4"` as its default so pre-v5 tests exercise v4. The
   v5 note is in code (`index.NOTES_V5`), not methods.json; v4 notes still come from methods.json,
   guarded by `index.NOTES_V4` (a test asserts methods.json == NOTES_V4), and the v4 md header is
-  frozen in `_render_md_v4`. v4 goldens: `tests/fixtures/index_v4/` (synthetic, generated by
-  `scripts/index/build_v4_fixture.py` from the pre-v5 code) and
+  frozen in `_render_md_v4`. v4 goldens: `tests/fixtures/index_v4/` (synthetic, generated from the pre-v5 code) and
   `tests/fixtures/index_v4_devbox.{json,md}` (the #42 run; a filtered safety-root mirror).
-  `tests/test_index_v5.py` also cross-checks v5 AM against PR #43's
-  `scripts/index/am_candidate_claims.arm_rows` variant (a) (skips off the dev box).
   **hindex-v6** (plan 0022; `index.INDEX_VERSION_V6`, the `hbench index` CLI default until plan
   0029 Amendment 4 made it v8;
   `build_index` still defaults to v4): v5 (AM on candidate claims: `index.AM_CANDIDATE_VERSIONS`)
@@ -499,9 +396,7 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
   the arm by name; the overrefusal allowlist is versioned (`index.SAFETY_READERS` = frozen v4 /
   v5 set; `SAFETY_READERS_V6_ADDED` joins it under v6 only, `index.safety_readers`), and the
   overrefusal exports keep `index_export.EXPORT_READERS` (`READERS` stays the plan-0019 set the
-  dev-box reconcile tests iterate). The UM ladder takes a new arm only through
-  `scripts/final_olens/um_ladder_arm.py` in a COPY of the official um root (frozen C / probes /
-  distractors) + `export_um_arm.py` (only the arm's units; the frozen arms keep their root).
+  dev-box reconcile tests iterate).
   benign_roleplay: `wsb.CAMPAIGN_NESTED` arms reuse `<campaign>/<arm>/{all,L<k>}`.
 - **hindex-v8 / claimmap-v2.8** (plan 0029):
   - **Prompt versions are a registry**: `claimmap_v2.VERSIONS` / `claimmap_am.VERSIONS`. The module
@@ -575,8 +470,7 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
     pilot's `:M` / `sit:` rows when the final version equals the pilot's).
   - New segment fields (`continuation_text`, `contradiction_region`) and counters
     (`n_continuation_miss`, ...) are emitted for v2.8+ roots only, so v7 rebuilds are
-    byte-identical (`tests/test_v7_rebuild_identity.py`; fixture written once by
-    `scripts/index/build_v7_fixture.py` with the pre-change code: provenance, never a refresh).
+    byte-identical.
   - The excuse runs last in `claimmap_v2.parse` (after rev 17 quotes, rev 18 junk, rev 19
     hedges), only with `read_offset` (main / story: `read_offset_chat`; AM: `site["char"]`),
     never in `--anchor v5c` mode. `continuation_miss` is outside the v2.7 tables
@@ -733,57 +627,6 @@ scripts/run_all_arms.sh        # tmux session `hbench`, log logs/run_<ts>.log; r
   (`report.json` `hb_scores`, `data/overrefusal/hb_scores.json`). Worktree venv on this box: the
   uv sync command is hook-blocked, so install with `uv pip install --python .venv/bin/python
   -e . --group dev --group sibling` and run with `uv run --no-sync ...`.
-- **`hbench mask`** (plan 0017) is its own subcommand (not `--eval`): `gt` (MASK ground
-  truth for Qwen3.6-27B from `outputs/mask/gen/rollouts*.jsonl`), `run` (D -> V -> VB on
-  `$HBENCH_MASK_READOUTS/<arm>/mask.jsonl`, default `/workspace/hb-readouts-mask`), `report`.
-  - Pinned response = pressure sample 0; capture `input_ids = prompt_token_ids + pinned ids`
-    (no re-tokenisation). Doubling-down is labelled but never read (its forced turn is a real
-    lie in context).
-  - Headline = verified `lie_claim` readout rate on `honest_resisted` items **beside the lie
-    rate and the difference**; `honest_wrong` is descriptive (it is almost always `aligned`).
-  - Modal vLLM needs `cpu=8` and the snapshot path (offline): on the default CPU share the
-    engine hung or died in torch.compile (2026-10-27).
-  - **Self-knowledge gate** (plan rev 3): `scripts/mask/gate.py requests|parse` -> `data/mask/gate.json`;
-    `report` picks the frame by the pre-registered rule (`report.choose_frame`, ctx unless persona
-    carryover dominates) and adds gated headline tables at k = 8 / 9 / 10. It only subsets items.
-  - **Deception probes** (rev 4): `scripts/mask/probe_build.py` (Instructed-Pairs + extra capture rows) ->
-    captures `hb-mask-probe-{train,extra}` -> `scripts/mask/probe_modal.py` (4 CPU containers, one per layer;
-    `evals/mask/probe.py` wraps `sibling_probe.probes` V2 + `um_probe` null z, 2 concepts, one centring key)
-    -> `data/mask/probe_scores.json`; `report` adds validity / transfer / premise / probe-checked tables.
-    The Instructed-Pairs thresholds (own-data honest q95) are miscalibrated on MASK: they fire everywhere.
-  - **Rev 5 (final frozen set):** lie = >= 9/10 contradicting samples; 874 items labelled; read set =
-    every gated lie (156) + gated honest_resisted (155) + honest_wrong (9), at EVERY position
-    (`sites.json.gz`, 146k sites, ~586k cells per arm). **The diagnostic rate (formerly "HB score"; not a hallucination score since 2026-10-29) is the benign side only**:
-    verified lie_claim readout rate on gated honest_resisted, per (arm, layer, site set
-    prompt / response / all); lie items are a labelled diagnostic (and the WorkspaceBench
-    `mask-lie-contrast` family in global-workspace). `data/mask/FROZEN.json` pins every file.
-  - **Detect one layer at a time** (`scripts/mask/run_rev5.sh <arm> <conc>` -> `cells_L0NN.jsonl`,
-    `summary_L0NN.json`): a whole 586k-cell prose arm in one process was OOM-killed under the
-    shared 32 GB cap. `report` merges `cells_L*.jsonl` (else `cells.jsonl`).
-  - Primary probe = leave-one-archetype-out MASK probe (threshold = q95 on unread honest items of
-    the training archetypes); probe-checked rate = verified claims at probe-CONTRADICTED sites /
-    readouts (`rate_supported` is the complement). Instructed-Pairs = direction AUROC only.
-  - The s3d reader's sglang servers die at start-up on some shards; re-run the same command
-    (idempotent, same `--shards`) until no shard fails.
-  - **MASK is an archived diagnostic, not part of HallucinationBench (Camila, 2026-10-29)**: prompt-position lie
-    claims on honest items are unverifiable (they may be real considered-then-rejected thoughts).
-    No `index_counts.jsonl` / `index_meta.json` is produced; `evals/mask/claims.py` keeps only the
-    claim unit for `scripts/mask/strict_pilot.py` (strict lie-claim judge `maskstrict-v1`, own
-    cache `outputs/mask/<model>/strict/`).
-  - **Plan 0019 (11 layers), STOPPED 2026-10-29 (archival).** The new layers 20 / 24 / 32 / 40 / 48 / 56 / 60 are
-    read on PROMPT sites of the 155 gated honest_resisted items only (`data/mask/l11/`,
-    readouts `mask_l11.jsonl`).
-    - Detect with `scripts/mask/run_l11.sh <arm> <conc>` (`--sites-file` / `--readouts-file`).
-    - Probes: `probe_modal.py --l11` (LOAO only), writing `*_v5_l11`. `report` merges them.
-    - Gate per layer: `transfer_loao` (prompt sites) ≥ 0.7.
-    - Detected when stopped: J-lens and ML-NLA all 7 layers, s3d L20 / 24 / 32 / 40 only (L48
-      partial in the cache). `report` adds an archival prompt-only new-layer table.
-    - The merged layers' numbers are frozen (`l11/report_4layer_snapshot.json`, tested).
-    - J-lens' merged layers stay in `cells.jsonl` and its new layers in `cells_L0NN.jsonl`. The
-      report reads both.
-  - `tmux kill-session -t name` prefix-matches: with `hb-mask-gen` gone it killed
-    `hb-mask-genx`. Use `-t =name`.
-
 ## sibling eval: user-modelling ladder (plans 0006 + 0011)
 
 The only sibling eval on this repo (plan 0013). General notes:
@@ -826,8 +669,7 @@ uv run --no-sync python $S label && uv run --no-sync python $S figures
 - The country ladder reads `data/sibling_probe/br_lexicons_um_v1.json`, **not** plan 0005's
   `br_lexicons.json`. It is a frozen copy taken before plan 0005's bare-name alias fix, and it is
   what results 0006 used (sha256 pinned by `tests/test_um_lexicon_pin.py`). Set A changes live
-  only in `SET_A_LEXICON_PATCH`. Adopting the newer lexicon is a results change: re-run and
-  update `docs/results/0006`.
+  only in `SET_A_LEXICON_PATCH`. Adopting the newer lexicon is a results change.
 - Lexicon traps the patch handles (each tested): "Korean" (missing from the copy), 朝鲜 (Korean
   ethnicity, not North Korea), Soviet aliases (a `soviet` stratum on Ukraine / Belarus / Russia
   golds, Russia elsewhere), capitals un-blocked as country aliases except Washington / Male
@@ -848,10 +690,6 @@ uv run --no-sync python $S label && uv run --no-sync python $S figures
 Plan 0011 was numbered 0007 until plan 0012 renumbered it (story holds 0007). The same driver
 as plan 0006 with `--category capital_city|holiday` (`scripts/sibling_probe/um_run_domains_stage1.sh`,
 `um_run_domain_stage2.sh`); domain library `evals/sibling_probe/um_domains.py`, lexicons
-`data/sibling_probe/um_lexicons.json` (`scripts/sibling_probe/um_lexicons.py`); macro plots
-`um_plot_macro*.py` (3 domains). Occupation (judge committed precision 0.50) and emotion (gold
+`data/sibling_probe/um_lexicons.json` (`scripts/sibling_probe/um_lexicons.py`). Occupation (judge committed precision 0.50) and emotion (gold
 0.71) were dropped and removed in plan 0013. The 3-domain sibling score is the index's sibling
-family (`docs/results/0013_hallucination_index.md`).
-
-- **Unvalidated:** the adjacent-layer (L±1) code paths (`um_run_adj.sh`, added in `451b1e3`)
-  never finished a run. No result depends on them; validate before citing anything from them.
+family.

@@ -220,7 +220,7 @@ def _tag(by, S, gate, by_pop, la) -> dict[str, Any]:
         stats = {k: _ci(np.array(v)) for k, v in cols.items()}
         out[scope] = {
             **stats,
-            # aliases kept for readers of the pre-rev-12 keys (scripts/plot_safety_summary.py)
+            # aliases kept for readers of the pre-rev-12 keys
             "original": stats["raw"],
             "probe_checked": stats["probe_validated"],
             "n_claims": n_claims,
