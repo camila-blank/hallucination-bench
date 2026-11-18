@@ -57,8 +57,7 @@ These prompts are real WildChat role-play requests with no jailbreak scaffolding
 (nothing is re-judged) and writes `outputs/index/<judge model>/index.{json,md}`. `hbench index`
 and `hbench final` are the only index builders.
 
-**`hindex-v8`** ([plan 0029](plans/0029-index-v8-overhaul.md), `--version v8`; code merged, results
-and the CLI default switch land in the results PR) re-judges every claim-map family with
+**`hindex-v8`** ([plan 0029](plans/0029-index-v8-overhaul.md), `--version v8`) re-judges every claim-map family with
 **`claimmap-v2.9`** (`--map-prompt claimmap-v2.9`, plan 0029 Amendment 1, which replaced
 `claimmap-v2.8` after the pilot2 tag gate failed; recorded in `arm.json`; a run on an arm dir
 judged with another prompt is refused, exit 3) into separate roots (`--out outputs/v8`).

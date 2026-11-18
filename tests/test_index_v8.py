@@ -143,7 +143,7 @@ def test_v8_tables():
     }
 
 
-def test_claim_families_v3_to_v7_unchanged():
+def test_claim_families_v8():
     assert ix.claim_families("v8") == (ix.MAIN, ix.AM_CLAIMS, ix.STORY)
 
 

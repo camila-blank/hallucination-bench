@@ -440,10 +440,38 @@ def test_unlisted_reader_never_becomes_a_method(tmp_path):
 def test_safety_roots_are_opt_in(tmp_path, monkeypatch):
     for var in ix.SAFETY_ENV.values():
         monkeypatch.delenv(var, raising=False)
+    claim = {ix.MAIN, ix.AM_CLAIMS, ix.AM_SITUATION, ix.SIBLING, ix.STORY}
     src = ix.default_sources(tmp_path, cli.DEFAULT_MODEL)
-    assert not set(src) & set(ix.safety_families())  # the dev-box defaults are never used
+    assert set(src) == claim  # the dev-box defaults are never used
+    monkeypatch.setenv("HBENCH_SAFETY_SR_OUT", str(tmp_path / "sr"))  # not on the index
+    monkeypatch.setenv("HBENCH_SAFETY_MASK_OUT", str(tmp_path / "mask"))
+    assert set(ix.default_sources(tmp_path, cli.DEFAULT_MODEL)) == claim
     monkeypatch.setenv("HBENCH_SAFETY_OR_OUT", str(tmp_path / "or"))
-    assert ix.default_sources(tmp_path, cli.DEFAULT_MODEL)[ix.OVERREFUSAL] == [tmp_path / "or"]
+    src = ix.default_sources(tmp_path, cli.DEFAULT_MODEL)
+    assert src[ix.OVERREFUSAL] == [tmp_path / "or"] and set(src) == claim | {ix.OVERREFUSAL}
+    monkeypatch.setenv("HBENCH_SAFETY_BR_OUT", str(tmp_path / "br"))
+    src = ix.default_sources(tmp_path, cli.DEFAULT_MODEL)
+    assert src[ix.BENIGN_ROLEPLAY] == [tmp_path / "br"] and set(src) == set(ix.FAMILIES_V8)
+
+
+def test_cli_index_refuses_bad_safety_roots(tmp_path, monkeypatch):
+    for var in ix.SAFETY_ENV.values():
+        monkeypatch.delenv(var, raising=False)
+    (tmp_path / "methods.json").write_text("{}")
+    base = ["index", "--out", str(tmp_path / "none"), "--methods", str(tmp_path / "methods.json")]
+    with pytest.raises(SystemExit, match="--overrefusal-root: not a directory"):
+        cli.main([*base, "--overrefusal-root", str(tmp_path / "missing")])
+    (tmp_path / "empty").mkdir()
+    with pytest.raises(SystemExit, match=f"no {ix.SAFETY_COUNTS}"):
+        cli.main([*base, "--overrefusal-root", str(tmp_path / "empty")])
+    items = _write_safety(tmp_path / "or", [_row("jlens", 20, "i1", n_claims=1)], {"unit": "items"})
+    with pytest.raises(SystemExit, match="needs a 'refusal_claims' root"):
+        cli.main([*base, "--overrefusal-root", str(items)])
+
+
+def test_render_md_refuses_another_version():
+    with pytest.raises(ValueError, match="unknown index version"):
+        ix.render_md({"version": "hindex-v4"})
 
 
 def test_overrefusal_export_readers():
