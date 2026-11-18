@@ -7,9 +7,9 @@ from pathlib import Path
 
 import pytest
 from conftest import TOY_ITEMS, write_jsonl
+from index_helpers import ITEMS as BR_ITEMS
+from index_helpers import _summary
 from test_claimmap_v28 import Map28Fake
-from test_index_v7 import ITEMS as BR_ITEMS
-from test_index_v7 import _summary
 
 from hallucination_bench import cli
 from hallucination_bench import index as ix

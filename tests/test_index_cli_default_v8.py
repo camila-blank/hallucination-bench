@@ -2,6 +2,7 @@
 
 import json
 
+import pytest
 from test_index_v8 import v8_sources
 
 from hallucination_bench import cli
@@ -28,3 +29,7 @@ def test_hbench_index_defaults_to_v8(tmp_path, monkeypatch):
     built = json.loads((tmp_path / "d" / "index.json").read_text())
     assert built["version"] == "hindex-v8"
     assert {r["layer"] for r in built["rows"]} == {20, 24, "all"}
+    # plan 0030: the old versions are gone (argparse `choices`)
+    with pytest.raises(SystemExit) as old:
+        cli.main([*argv, "--version", "v6"])
+    assert old.value.code == 2

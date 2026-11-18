@@ -577,9 +577,10 @@ def test_on_the_index_from_v7_only() -> None:
     from hallucination_bench import index
 
     assert index.BENIGN_ROLEPLAY == "benign_roleplay"
-    assert index.BENIGN_ROLEPLAY in index.safety_families("v7")
-    for v in ("v3", "v4", "v5", "v6"):
-        assert index.BENIGN_ROLEPLAY not in index.safety_families(v)
+    assert index.BENIGN_ROLEPLAY in index.safety_families("v8")
+    for v in ("v3", "v4", "v5", "v6", "v7"):
+        with pytest.raises(ValueError, match="hindex-v8 is the only index version"):
+            index.safety_families(v)
     assert "benign_roleplay" not in json.dumps(sorted(index.SAFETY_READERS, key=str))
     assert index.BENIGN_ROLEPLAY in index.SAFETY_READERS_V7_ADDED
 

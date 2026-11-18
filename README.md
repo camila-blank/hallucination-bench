@@ -54,8 +54,8 @@ These prompts are real WildChat role-play requests with no jailbreak scaffolding
 ## Hallucination index
 
 `uv run hbench index` scores every model (one row per method x layer) from the families' outputs
-(nothing is re-judged), and every `hbench report` refreshes it:
-`outputs/index/<judge model>/index.{json,md}`.
+(nothing is re-judged) and writes `outputs/index/<judge model>/index.{json,md}`. `hbench index`
+and `hbench final` are the only index builders.
 
 **`hindex-v8`** ([plan 0029](plans/0029-index-v8-overhaul.md), `--version v8`; code merged, results
 and the CLI default switch land in the results PR) re-judges every claim-map family with
@@ -118,16 +118,15 @@ retries; never a transport error) is listed in `data/index/v8_persistent_failure
 (`scripts/v8/persistent_failures.py`; hashed in the manifest); `final` excludes listed cells from
 the 1% / zero-verdict gates (each must be failed in the exact hashed file; <= 15% per entry),
 never scores them, and reports them in `index.json`, `index.md` and `excluded.md`.
-**`hbench index` defaults to hindex-v8.** The frozen v8 results:
-[`docs/results/0029_index_v8.md`](docs/results/0029_index_v8.md). The earlier index definitions
-(hindex-v3 to hindex-v7, `--version v3` ... `v7`) are still in the code, byte-identical and pinned
-by tests; they are defined in plans
+**hindex-v8 is the only index version** (plan [0030](plans/0030-v8-only-index.md) removed
+hindex-v3 to hindex-v7 from the code; `--version` accepts only `v8`). The frozen v8 results:
+[`docs/results/0029_index_v8.md`](docs/results/0029_index_v8.md). The family definitions v8
+inherits are in plans
 [0013](plans/0013-final-sibling-eval-and-hallucination-index.md),
 [0019](plans/0019-safety-families-on-the-index.md),
 [0021](plans/0021-am-candidate-claims-index-v5.md),
 [0022](plans/0022-overrefusal-wrong-topic-refusals.md) and
-[0027](plans/0027-benign-roleplay-on-index-v7.md). `hbench report`'s index refresh and the library
-`index.build_index` default to v4.
+[0027](plans/0027-benign-roleplay-on-index-v7.md).
 Arms are matched by name across families; legacy names and exclusions live in
 `data/index/methods.json`. Each family root is overridable (`--main-root`, `--am-root`,
 `--story-root`, `--um-root`, repeatable); the overrefusal root is **opt-in**

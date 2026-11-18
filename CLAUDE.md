@@ -9,26 +9,26 @@ is plan `plans/0007-story-eval.md`; the `agentic_misalignment` eval (detector + 
 mentions of misalignment, its own driver, `--eval agentic_misalignment`) is plan
 `plans/0008-agentic-misalignment-claim-map.md`. The `overrefusal` eval (OR-Bench pilot: refusal claims on prompts
 the model never refuses; own subcommands `hbench overrefusal ...`) is plan
-`plans/0015-overrefusal-eval.md`. The hallucination index (`hbench index`, one
-macro per (method, layer)) is plan `plans/0013-final-sibling-eval-and-hallucination-index.md`
-(hindex-v3: main / AM / sibling / story) + `plans/0019-safety-families-on-the-index.md`
-(hindex-v4: + overrefusal) +
-`plans/0021-am-candidate-claims-index-v5.md` (hindex-v5: AM on candidate claims) +
-`plans/0022-overrefusal-wrong-topic-refusals.md` (hindex-v6, the CLI default until hindex-v8: overrefusal as
-wrong-topic refusal claims). The `benign_roleplay` eval (false jailbreak recognition on gated
+`plans/0015-overrefusal-eval.md`. The `benign_roleplay` eval (false jailbreak recognition on gated
 harmless role-play prompts; items = WorkspaceBench's jailbreak negative controls + `hb_only`
 gated role-play candidates; judged by running WSB's own pinned `jailbreak_recognition` family;
-`hbench benign-roleplay import|run|report|index-export`; on the index from hindex-v7 only) is plan
-`plans/0023-benign-roleplay.md`; **hindex-v7** (plan `plans/0027-benign-roleplay-on-index-v7.md`,
-`--version v7`) = v6 + `benign_roleplay` (weight 2), sibling weight 1.
-**hindex-v8** (plan `plans/0029-index-v8-overhaul.md`, **the `hbench index` CLI default** since
-plan 0029 Amendment 4; frozen results `docs/results/0029_index_v8.md`) = claimmap-v2.9 everywhere (plan 0029 Amendment 1: v2.8 + the slot rule and the
+`hbench benign-roleplay import|run|report|index-export`) is plan `plans/0023-benign-roleplay.md`.
+The hallucination index (`hbench index`, one macro per (method, layer)) has ONE version,
+hindex-v8 (plan 0030 removed hindex-v3 ... v7 from the code). The definitions v8 inherits are in
+the plans that introduced them: `plans/0013-final-sibling-eval-and-hallucination-index.md` (main /
+story / sibling), `plans/0019-safety-families-on-the-index.md` (overrefusal on the index),
+`plans/0021-am-candidate-claims-index-v5.md` (AM on candidate claims),
+`plans/0022-overrefusal-wrong-topic-refusals.md` (overrefusal as wrong-topic refusal claims) and
+`plans/0027-benign-roleplay-on-index-v7.md` (benign_roleplay on the index, weight 2; sibling
+weight 1).
+**hindex-v8** (plan `plans/0029-index-v8-overhaul.md`, the only index version, plan
+`plans/0030-v8-only-index.md`; frozen results `docs/results/0029_index_v8.md`) = claimmap-v2.9 everywhere (plan 0029 Amendment 1: v2.8 + the slot rule and the
 prefix check for excused literal continuations; roles = substitutions) with the excuse decided by
 the continuation verifier `cverify-v1` (Amendment 2), AM
 split into `am_claims` + `am_situation` (amsit-v2), a joint 11-layer row per method, `hbench
 final` (manifest + plots). Seven families, Σ 20 (`matched` Σ 19). **No cheating family**
 (Amendment 3): Camila archived the cheating eval on 2026-11-04 as a diagnostic, so it is on no
-index -- every version refuses a cheating root, `--cheating-root` / `$HBENCH_SAFETY_CHEATING_OUT`
+index -- a cheating root is refused, `--cheating-root` / `$HBENCH_SAFETY_CHEATING_OUT`
 are gone, and `methods.json` may not name it.
 
 ## Layout
@@ -91,9 +91,8 @@ src/hallucination_bench/
   evals/<eval>/cli.py  an eval's own CLI: agentic_misalignment (run / report behind
                   `--eval agentic_misalignment`). A new eval adds its CLI here and lists a
                   `register(sub)` module in EVAL_CLIS, not in cli.py (plan 0012 D2)
-  index.py        plans 0013 + 0019 + 0021 + 0022 + 0027: the hallucination index (CLI default
-                  hindex-v8, plan 0029; `--version v6` = the old default; `--version v7` = + benign_roleplay; `--version v5` / `v4` / `v3` = those
-                  exactly; library default v4) from the
+  index.py        the hallucination index, hindex-v8 only (plans 0029 + 0030; family
+                  definitions from plans 0013 / 0019 / 0021 / 0022 / 0027), from the
                   families' outputs; safety families from each
                   eval's index_counts.jsonl / index_meta.json; method <-> arm mapping in
                   data/index/methods.json
@@ -154,9 +153,9 @@ evals/overrefusal/   plan 0015 (own driver + own CLI via EVAL_CLIS; NOT the chat
     sclaim.py    plan 0020 rev 7 (exploratory): orclaim-v1 statement labeller + claim-unit metric
     offtopic_export.py plan 0022: `hbench overrefusal offtopic-export`: sj_records_full.jsonl ->
                  offtopic_index/{index_counts.jsonl,index_meta.json} (unit refusal_claims, the
-                 hindex-v6 overrefusal root) + sj_offtopic_full.json (value + 3 secondary numbers)
+                 index's overrefusal root) + sj_offtopic_full.json (value + 3 secondary numbers)
 data/overrefusal/    candidates, gt_labels, items, capture_rows (README = schema)
-evals/benign_roleplay/  plan 0023 (own CLI via EVAL_CLIS; in EVALS; on the index from hindex-v7, plan 0027):
+evals/benign_roleplay/  plan 0023 (own CLI via EVAL_CLIS; in EVALS; on the index, plan 0027):
     bank.py      import + fail-closed gate check (gate_sha re-hashed from build_v2 labels),
                  template_id (WSB J1.1 formula), MANIFEST
     wsb.py       WSB_SHA pin check + `uv run --no-sync wsbench run ...` subprocess calls; the
@@ -166,8 +165,9 @@ evals/benign_roleplay/  plan 0023 (own CLI via EVAL_CLIS; in EVALS; on the index
                  == WSB FPR check (exit 2), po-opus-v1 floor, summary.{json,md} (+ scored_ids /
                  unjudged_ids per unit, plan 0027); `--layout nested` = <campaign>/<arm>/<unit>
     index_export.py plan 0027: `hbench benign-roleplay index-export --summary ... --dest ...`:
-                 summary.json -> index_counts.jsonl + index_meta.json (unit prompts, the hindex-v7
-                 root); index value/CI == the eval's per-layer rate/CI exactly (test_index_v7)
+                 summary.json -> index_counts.jsonl + index_meta.json (unit prompts, the index's
+                 benign_roleplay root); index value/CI == the eval's per-layer rate/CI exactly
+                 (test_index_v7)
 data/benign_roleplay/  items_v1.json (150: 86 WSB-shared + 64 hb_only), wsb_bank_hb_only_v1.json
                  (WSB_BANK_FILE_JAILBREAK_RECOGNITION), gt_labels.jsonl, MANIFEST (README)
 scripts/overrefusal/ sample_modal.py (vLLM ground truth), reads.sh (capture + reads + convert)
@@ -198,11 +198,11 @@ scripts/overrefusal/ sample_modal.py (vLLM ground truth), reads.sh (capture + re
   root from their own location and read `${HBENCH_X:-<default>}`.
 - CI is pending (plan 0012 D5, held back for a token scope): until it lands, run ruff check +
   format and `pytest -rs` locally before pushing. Plan numbers are unique: the next free one is
-  0030 (0009/0010 belong to the unlanded resampling-gate branches; 0025/0026 to the local,
+  0031 (0009/0010 belong to the unlanded resampling-gate branches; 0025/0026 to the local,
   unmerged cheating eval, archived 2026-11-04 as a diagnostic and on no index (plan 0029
   Amendment 3); 0028 is the
   main-bank expansion (3x prompts x 2x punctuation-only sites, merged from main); 0029 is
-  hindex-v8).
+  hindex-v8; 0030 removed hindex-v3 ... v7).
 
 ## Run commands
 
@@ -235,7 +235,7 @@ uv run hbench pilot-dump-v2 --arms a,b --dest x.jsonl   # real cells + productio
   - `pilot-dump*`, `calibrate` and `units-v2` are chat-only.
 
 - **`--eval agentic_misalignment`** (plan 0008) is its own driver (`evals/agentic_misalignment/run.py`),
-  dispatched first in `cmd_run` / `cmd_report`; chat and story never touch it.
+  dispatched first in `cmd_run` / `_cmd_report`; chat and story never touch it.
   - **The readouts are prompt positions only** (every position up to `<|im_start|>assistant`,
     no thinning), so the marker `⟦READ⟧` sits **in the prompt**, not the response; the claim map
     uses `claimmap_am` (chat SYSTEM byte for byte, new head, chat tail). Never feed AM cells to
@@ -341,63 +341,44 @@ uv run hbench pilot-dump-v2 --arms a,b --dest x.jsonl   # real cells + productio
   Every headline table, the v5c comparison, the judge-noise rows and the plots show the three
   components (false_claim / detail / substitution_category) separately.
 - **No git writes from agents** in this worktree (no add/rm/restore --staged/commit).
-- **Hallucination index** (plan 0013): `hbench index` reads the families' outputs only (no API
-  calls); `hbench report` refreshes it after its own report returns normally (an index failure
-  is a warning, never an exit code). Its definition reproduces the 2026-10-20 exploratory
-  numbers bit for bit (fresh `default_rng(0)` / `Random(0)` per row): any change to weights, claim
-  definition or bootstrap bumps `index.INDEX_VERSION`. A new arm is matched by name across
-  families; only legacy names / exclusions go in `data/index/methods.json`.
-  **hindex-v4** (plan 0019 rev 6) adds overrefusal only (weight 1;
-  share = Σ `n_contradicted` / Σ `n_claims` from its `index_counts.jsonl`, whose rows plan 0020
-  emits as one verdict per item (`n_claims` = judged, unit columns 0, `unit: "items"` in
-  `index_meta.json`); raw share and health beside it; absent with an `absent_reason` on nothing
-  judged or all-unprobed false claims; cluster bootstrap, fresh `default_rng(0)` per (family,
-  arm, layer), clusters sorted, percentiles over draws with claims). `full` = 5 families,
-  `matched` = all but sibling, `full_v3` / `matched_v3` always emitted. Reader allowlist
-  `index.SAFETY_READERS` is enforced in the index too. The overrefusal root is opt-in
-  (`--overrefusal-root` or a set `HBENCH_SAFETY_OR_OUT`; never the paths.py default) so tests
-  that build from `tmp_path` stay isolated. The hindex-v3 outputs are pinned by goldens built by
-  the v3 code (`tests/fixtures/index_v3/`, `tests/fixtures/index_v3_devbox.{json,md}`; the
-  dev-box one skips off the dev box): `--version v3` must reproduce both exactly (minus
-  `git_sha` / `sources`), and its notes are frozen in `index.NOTES_V3`. Never regenerate a
-  golden.
-  **hindex-v5** (plan 0021; `index.INDEX_VERSION_V5`; `index.INDEX_VERSION` still means
-  "hindex-v4"): v4 with AM on **candidate claims** — `claim_rows(..., am_candidates=True)` (one
-  streaming pass) keeps a claim only if its `[start, end)` overlaps by >= 1 char a
-  `score.merge_intervals`-merged `mentions` span of the same readout in the same cell (touching
-  does not count; `index.is_candidate`); items / readout / segment columns as v4, zero-candidate
-  items stay as zero rows, `n_all_claims` tallied beside `n`; an AM (arm, layer) with 0
-  candidates is absent (`row["absent"]["agentic_misalignment"] = "0 candidate claims"`). Every
-  macro using AM (incl. `full_v3` / `matched_v3`) uses the v5 value; main / story / sibling /
-  overrefusal are bit-identical to v4. The `hbench index` CLI defaults to v5; `build_index`
-  (and so `hbench report`) keeps `version="v4"` as its default so pre-v5 tests exercise v4. The
-  v5 note is in code (`index.NOTES_V5`), not methods.json; v4 notes still come from methods.json,
-  guarded by `index.NOTES_V4` (a test asserts methods.json == NOTES_V4), and the v4 md header is
-  frozen in `_render_md_v4`. v4 goldens: `tests/fixtures/index_v4/` (synthetic, generated from the pre-v5 code) and
-  `tests/fixtures/index_v4_devbox.{json,md}` (the #42 run; a filtered safety-root mirror).
-  **hindex-v6** (plan 0022; `index.INDEX_VERSION_V6`, the `hbench index` CLI default until plan
-  0029 Amendment 4 made it v8;
-  `build_index` still defaults to v4): v5 (AM on candidate claims: `index.AM_CANDIDATE_VERSIONS`)
-  with overrefusal read from a root whose `index_meta.json` has `unit == "refusal_claims"`
-  (`offtopic_export.py`; per item `n_claims` = decline lines, `n_false` = `n_contradicted` =
-  off-topic decline lines, `n_failed_cells` = 1 for an unjudged / strict-judge-failed /
-  off-topic-failed item-layer, all 427 items, `gates: {}`); share formula unchanged; main / AM /
-  story / sibling bit-identical to v5. **Unit guard** `index.check_safety_units` (called in
-  `build_index`, and in `hbench index` after the not-a-directory / no-`index_counts.jsonl`
-  checks): v6 needs `refusal_claims`; v4 / v5 refuse it (`items` or a meta-less synthetic root is
-  fine) — so `hbench report`'s v4 refresh refuses a v6 root from `HBENCH_SAFETY_OR_OUT`. v6 note in
-  code (`index.NOTES_V6`, merged for v6 only; NOTES_V5 is not merged under v6); v6 md header in
-  `_render_md_v6`; safety `share` text `index.SHARE_V6`. The export reads ONLY
-  `sj_records_full.jsonl` (fingerprint-resolved) — never key-join the raw `sjudge/` / `offtopic/`
-  caches (repeated keys under older fingerprints; ~165 records disagree). `off.topics` keys are
-  JSON strings vs int `decline_lines`: the export asserts the sets match; records with empty
-  `decline_lines` have no `off` key (`r.get("off")`). v5 dev-box golden:
-  `tests/fixtures/index_v5_devbox.{json,md}` (the #45 run, `tests/test_index_v6.py`).
-  **Adding an arm** (plan 0024, the final O-lens `final-olens-rl600-x4`): claim families match
-  the arm by name; the overrefusal allowlist is versioned (`index.SAFETY_READERS` = frozen v4 /
-  v5 set; `SAFETY_READERS_V6_ADDED` joins it under v6 only, `index.safety_readers`), and the
-  overrefusal exports keep `index_export.EXPORT_READERS` (`READERS` stays the plan-0019 set the
-  dev-box reconcile tests iterate).
+- **Hallucination index** (hindex-v8 is the only version, plan 0030): `hbench index` reads the
+  families' outputs only (no API calls). `hbench index` and `hbench final` are the only index
+  builders; `hbench report` does not touch the index. `--version` accepts only `v8`, and every
+  `index.py` helper that takes a `version` raises `ValueError` on anything else. What v8
+  inherits from the earlier plans (their index versions are gone; the plans stay as the
+  definitions):
+  - Plan 0013: fresh `default_rng(0)` / `Random(0)` per row; any change to weights, claim
+    definition or bootstrap is a new index version. A new arm is matched by name across families;
+    only legacy names / exclusions go in `data/index/methods.json`.
+  - Plan 0019: a safety family's share = Σ `n_contradicted` / Σ `n_claims` from its
+    `index_counts.jsonl`; raw share and health beside it; absent with an `absent_reason` on no
+    claims or all-unprobed false claims; cluster bootstrap, fresh `default_rng(0)` per (family,
+    arm, layer), clusters sorted, percentiles over draws with claims. Safety roots are opt-in
+    (`--overrefusal-root` / `--benign-roleplay-root`, or a set `HBENCH_SAFETY_OR_OUT` /
+    `HBENCH_SAFETY_BR_OUT`; never the paths.py default) so tests that build from `tmp_path` stay
+    isolated.
+  - Plan 0021: AM is scored on **candidate claims** — `claim_rows(..., am_candidates=True)` (one
+    streaming pass) keeps a claim only if its `[start, end)` overlaps by >= 1 char a
+    `score.merge_intervals`-merged `mentions` span of the same readout in the same cell (touching
+    does not count; `index.is_candidate`); zero-candidate items stay as zero rows,
+    `n_all_claims` tallied beside `n`; an (arm, layer) with 0 candidates is absent
+    (`"0 candidate claims"`).
+  - Plan 0022: overrefusal is read from a root whose `index_meta.json` has
+    `unit == "refusal_claims"` (`offtopic_export.py`; per item `n_claims` = decline lines,
+    `n_false` = `n_contradicted` = off-topic decline lines, `n_failed_cells` = 1 for an unjudged /
+    strict-judge-failed / off-topic-failed item-layer, all 427 items, `gates: {}`). **Unit guard**
+    `index.check_safety_units` (called in the build, and in `hbench index` after the
+    not-a-directory / no-`index_counts.jsonl` checks): overrefusal needs `refusal_claims`,
+    benign_roleplay `prompts` with one `instrument`. Safety `share` text `index.SHARE_V6` /
+    `index.SHARE_BR`. The export reads ONLY `sj_records_full.jsonl` (fingerprint-resolved) — never
+    key-join the raw `sjudge/` / `offtopic/` caches (repeated keys under older fingerprints; ~165
+    records disagree). `off.topics` keys are JSON strings vs int `decline_lines`: the export
+    asserts the sets match; records with empty `decline_lines` have no `off` key
+    (`r.get("off")`).
+  - Plan 0024 / 0027: the overrefusal exports keep `index_export.EXPORT_READERS` (`READERS` stays
+    the plan-0019 set the dev-box reconcile tests iterate); the benign_roleplay export writes
+    the arms of `index.SAFETY_READERS_V7_ADDED`. The index's own allowlist is
+    `index.SAFETY_READERS_V8` (no `final-olens-rl600-x4`).
   benign_roleplay: `wsb.CAMPAIGN_NESTED` arms reuse `<campaign>/<arm>/{all,L<k>}`.
 - **hindex-v8 / claimmap-v2.8** (plan 0029):
   - **Prompt versions are a registry**: `claimmap_v2.VERSIONS` / `claimmap_am.VERSIONS`. The module
@@ -493,7 +474,7 @@ uv run hbench pilot-dump-v2 --arms a,b --dest x.jsonl   # real cells + productio
     misrepresentation"). `joint` / `situation` are never in the default stage set and need a v2.8+ root.
   - Chat / story v8 roots too: a refused J-lens `summ:` is re-asked once on Sonnet (`run.SUMMARY_FALLBACK_MODEL`); both refused = failed row (re-asked next run), counted failed by `final`.
   - Safety joint rows: `index_counts_joint.jsonl` in the overrefusal (`offtopic_index/`) and
-    benign_roleplay roots. A cheating root is refused by every version (Amendment 3). v8 reader
+    benign_roleplay roots. A cheating root is refused (Amendment 3). v8 reader
     allowlists exclude `final-olens-rl600-x4`.
   - AM joint population: a site is judged or excluded only once all 11 layers' detections are
     settled; an unsettled site is a `pending` record. The joint layer set is always the bank's
@@ -529,7 +510,8 @@ uv run hbench pilot-dump-v2 --arms a,b --dest x.jsonl   # real cells + productio
     - Reported in `index.json` (`manifest.persistent_failures`), `index.md` and `excluded.md`.
       Above 5% an entry is flagged `review`.
     - Rebuild the list whenever a cells file changes. A stale list exits 2.
-  - **`hbench index` defaults to `--version v8`** (Amendment 4). Library `build_index` stays v4.
+  - **`hbench index` builds hindex-v8** (`--version v8`, the only choice); so does the library
+    `build_index`.
   - **Continuation verifier** (plan 0029 Amendment 2, `cverify-v1`; the v2.9 tag gate failed at
     0.733 after pilot2's 0.52):
     - **The rule.** In v2.9 roots with the verifier on, the excuse is decided by

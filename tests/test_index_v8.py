@@ -9,8 +9,7 @@ from typing import Any
 
 import numpy as np
 import pytest
-from test_index_v5 import _sources_v5
-from test_index_v6 import _or_row, _v6_root
+from index_helpers import _or_row, _v6_root
 
 from hallucination_bench import cli
 from hallucination_bench import index as ix
@@ -144,34 +143,13 @@ def test_v8_tables():
     }
 
 
-@pytest.mark.parametrize("v", ["v3", "v4", "v5", "v6", "v7"])
-def test_claim_families_v3_to_v7_unchanged(v):
-    assert ix.claim_families(v) == ix.CLAIM_FAMILIES == (ix.MAIN, ix.AM, ix.STORY)
-    assert ix.AM_CLAIMS not in ix.families_for(v) and ix.CHEATING not in ix.safety_families(v)
+def test_claim_families_v3_to_v7_unchanged():
     assert ix.claim_families("v8") == (ix.MAIN, ix.AM_CLAIMS, ix.STORY)
-
-
-@pytest.mark.parametrize("v", ["v3", "v4", "v5", "v6", "v7"])
-def test_v3_to_v7_builds_unchanged_with_am_claims_sources_present(tmp_path, v):
-    src = _sources_v5(tmp_path / "src")
-    if v in ("v6", "v7"):
-        rows = [_or_row(20, "o0", 4, 1), _or_row(24, "o1", 2, 0)]
-        src[ix.OVERREFUSAL] = [_v6_root(tmp_path / "or6", rows)]
-    extra = v8_sources(tmp_path / "v8src")
-    plus = {**src, ix.AM_CLAIMS: extra[ix.AM_CLAIMS], ix.AM_SITUATION: extra[ix.AM_CLAIMS]}
-    methods = ix.load_methods(cli.INDEX_METHODS)  # the real methods.json (with am_claims)
-    assert methods.methods["s3d-rl600"][ix.AM_CLAIMS] == ["s3d-rl600"]
-    a = ix.build_index(src, methods, version=v)
-    b = ix.build_index(plus, methods, version=v)
-    assert json.dumps(a, sort_keys=True) == json.dumps(b, sort_keys=True)
-    assert ix.render_md(a) == ix.render_md(b)
 
 
 def test_v8_safety_readers_exclude_the_final_olens():
     for f in ix.SAFETY_FAMILIES_V8:
         assert ix.safety_readers(f, "v8") == {"s3d-rl600", "mlnla-rl600-all11", "jlens"}
-    assert "final-olens-rl600-x4" in ix.safety_readers(ix.OVERREFUSAL, "v7")
-    assert "final-olens-rl600-x4" in ix.safety_readers(ix.BENIGN_ROLEPLAY, "v7")
 
 
 # ---------------------------------------------------------------- the v8 build
@@ -268,7 +246,7 @@ def test_cheating_root_refused_by_every_version(tmp_path):
     cheating root, whatever its unit."""
     src = v8_sources(tmp_path)
     ch = _safety(tmp_path / "ch", "twin_readouts", joint=False)
-    for v in ("v3", "v4", "v5", "v6", "v7", "v8"):
+    for v in ("v8",):
         with pytest.raises(ValueError, match="on no index"):
             ix.check_safety_units({ix.CHEATING: [ch]}, v)
     with pytest.raises(ValueError, match="on no index"):
@@ -279,7 +257,7 @@ def test_cheating_env_is_read_by_no_version(tmp_path, monkeypatch):
     for var in ix.SAFETY_ENV.values():
         monkeypatch.delenv(var, raising=False)
     monkeypatch.setenv("HBENCH_SAFETY_CHEATING_OUT", str(tmp_path / "ch"))
-    for v in ("v3", "v4", "v5", "v6", "v7", "v8"):
+    for v in ("v8",):
         assert ix.CHEATING not in ix.default_sources(tmp_path, "claude-opus-5-5", v)
     s8 = ix.default_sources(tmp_path, "claude-opus-5-5", "v8")
     assert s8[ix.AM_CLAIMS] == s8[ix.AM_SITUATION] and ix.AM not in s8
@@ -289,19 +267,10 @@ def test_cli_v8_flags(tmp_path, monkeypatch, capsys):
     for var in ix.SAFETY_ENV.values():
         monkeypatch.delenv(var, raising=False)
     src = v8_sources(tmp_path)
-    for flag in ("--am-situation-root",):
-        with pytest.raises(SystemExit, match="hindex-v8 only"):
-            cli.main(
-                [
-                    "index",
-                    "--version",
-                    "v7",
-                    flag,
-                    str(tmp_path / "ch"),
-                    "--out",
-                    str(tmp_path / "none"),
-                ]
-            )
+    # plan 0030: hindex-v8 is the only version (argparse `choices`)
+    with pytest.raises(SystemExit) as old:
+        cli.main(["index", "--version", "v7", "--out", str(tmp_path / "none")])
+    assert old.value.code == 2
     # plan 0029 amendment 3: --cheating-root is gone (an unknown argument)
     with pytest.raises(SystemExit) as gone:
         cli.main(["index", "--version", "v8", "--cheating-root", str(tmp_path / "ch")])

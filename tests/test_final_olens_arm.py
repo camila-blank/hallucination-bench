@@ -6,41 +6,11 @@ from typing import Any
 
 import pytest
 
-from hallucination_bench import index
 from hallucination_bench.evals.benign_roleplay import metrics, wsb
-from hallucination_bench.evals.overrefusal import index_export
 
 ARM = "final-olens-rl600-x4"
 GRID = wsb.GRID
 ROOT = Path(__file__).resolve().parents[1]
-
-
-def test_overrefusal_allowlist_is_versioned() -> None:
-    frozen = frozenset({"s3d-rl600", "mlnla-rl600-all11", "jlens"})
-    assert index.SAFETY_READERS[index.OVERREFUSAL] == frozen  # v4 / v5 unchanged
-    for v in ("v4", "v5"):
-        assert index.safety_readers(index.OVERREFUSAL, v) == frozen
-    assert index.safety_readers(index.OVERREFUSAL, "v6") == frozen | {ARM}
-    assert index_export.READERS == ("s3d-rl600", "mlnla-rl600-all11", "jlens")
-    assert index_export.EXPORT_READERS == (*index_export.READERS, ARM)
-
-
-def _or_row(arm: str, layer: int, item: str, n: int, off: int) -> dict[str, Any]:
-    row: dict[str, Any] = dict.fromkeys(index.SAFETY_COLS, 0)
-    row.update(arm=arm, layer=layer, item=item, cluster=item, n_claims=n, n_false=off,
-               n_contradicted=off)  # fmt: skip
-    return row
-
-
-def test_safety_rows_read_the_arm_under_v6_only(tmp_path: Path) -> None:
-    rows = [_or_row(ARM, 44, "i1", 4, 1), _or_row("jlens", 44, "i1", 2, 0)]
-    (tmp_path / index.SAFETY_COUNTS).write_text("".join(json.dumps(r) + "\n" for r in rows))
-    v6, ign6 = index.safety_rows(tmp_path, index.OVERREFUSAL, "v6")
-    assert set(v6) == {ARM, "jlens"} and not ign6
-    for v in ("v4", "v5"):
-        got, ign = index.safety_rows(tmp_path, index.OVERREFUSAL, v)
-        assert set(got) == {"jlens"} and ign == {ARM}
-    assert index.safety_rows(tmp_path, index.OVERREFUSAL)[1] == {ARM}  # library default v4
 
 
 def _result(ids: dict[str, tuple[str, bool]], unit: str) -> dict[str, Any]:

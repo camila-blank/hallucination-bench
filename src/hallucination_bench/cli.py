@@ -302,44 +302,6 @@ def _calibrate_v2(args: argparse.Namespace) -> int:
     return 0
 
 
-def cmd_report(args: argparse.Namespace) -> int:
-    """The eval's own report, then the hallucination index from the default sources (plan 0013):
-    an index failure is a warning and never changes ``report``'s exit code."""
-    rc = _cmd_report(args)
-    try:
-        from hallucination_bench import index
-
-        out = Path(args.out)
-        # the library default version (hindex-v4), not the `hbench index` CLI's v8 (plans 0021,
-        # 0022, 0029 am. 4); build_index's unit guard refuses a v6 `refusal_claims` overrefusal
-        # root here
-        built = index.build_index(
-            index.default_sources(out, args.judge_model), index.load_methods(INDEX_METHODS)
-        )
-        dest = _index_dest(out, args.judge_model)
-        if (prev := _index_version(dest / "index.json")) not in (None, built["version"]):
-            # never clobber an index of another version (e.g. `hbench index`'s hindex-v5 / v6)
-            print(
-                f"hallucination index: not written: {dest / 'index.json'} holds {prev}, this "
-                f"refresh builds {built['version']} (rebuild it with `hbench index`)"
-            )
-            return rc
-        js, md = index.write_index(built, dest)
-        print(f"hallucination index: wrote {js}, {md} ({len(built['rows'])} rows)")
-    except Exception as e:  # the index must never fail the report
-        print(f"warning: hallucination index not built: {type(e).__name__}: {e}", file=sys.stderr)
-    return rc
-
-
-def _index_version(path: Path) -> str | None:
-    """The ``version`` of an existing ``index.json`` (None when absent or unreadable)."""
-    try:
-        v = json.loads(path.read_text(encoding="utf-8")).get("version")
-    except (OSError, ValueError, AttributeError):
-        return None
-    return str(v) if v is not None else None
-
-
 def _index_dest(out: Path, judge_model: str) -> Path:
     from hallucination_bench.evals.wsbench_chat.run import model_slug
 
@@ -351,37 +313,29 @@ def cmd_index(args: argparse.Namespace) -> int:
 
     out = Path(args.out)
     sources = index.default_sources(out, args.judge_model, args.version)
-    v8 = args.version == "v8"
     for fam, flag, roots in (
         (index.MAIN, "--main-root", args.main_root),
-        (index.AM_CLAIMS if v8 else index.AM, "--am-root", args.am_root),
+        (index.AM_CLAIMS, "--am-root", args.am_root),
         (index.AM_SITUATION, "--am-situation-root", args.am_situation_root),
         (index.SIBLING, "--um-root", args.um_root),
         (index.STORY, "--story-root", args.story_root),
         (index.OVERREFUSAL, "--overrefusal-root", args.overrefusal_root),
         (index.BENIGN_ROLEPLAY, "--benign-roleplay-root", args.benign_roleplay_root),
     ):
-        if roots and fam == index.BENIGN_ROLEPLAY and args.version not in ("v7", "v8"):
-            raise SystemExit(f"{flag}: benign_roleplay is on the index from hindex-v7 only")
-        if roots and fam == index.AM_SITUATION and not v8:
-            raise SystemExit(f"{flag}: {fam} is on the index from hindex-v8 only (plan 0029)")
-        if roots and args.version == "v3" and fam in index.SAFETY_FAMILIES:
-            raise SystemExit(
-                f"{flag}: the safety families are hindex-v4 only (and v5 / v6), not v3"
-            )
         if roots:
             if missing := [r for r in roots if not Path(r).is_dir()]:
                 raise SystemExit(f"{flag}: not a directory: {missing}")
             sources[fam] = [Path(r) for r in roots]
-    if v8 and args.am_root and not args.am_situation_root:  # default: the AM root
+    if args.am_root and not args.am_situation_root:  # default: the AM root
         sources[index.AM_SITUATION] = list(sources[index.AM_CLAIMS])
-    if args.version != "v3":  # an opted-in safety root must hold its counts, else the family
-        for fam in index.safety_families(args.version):  # (and full / matched) silently vanishes
-            if gone := [
-                str(r) for r in sources.get(fam, []) if not (r / index.SAFETY_COUNTS).is_file()
-            ]:
-                raise SystemExit(f"{fam}: no {index.SAFETY_COUNTS} in {gone}")
-    if args.version in ("v7", "v8") and not sources.get(index.BENIGN_ROLEPLAY):
+    # an opted-in safety root must hold its counts, else the family (and full / matched)
+    # silently vanishes
+    for fam in index.safety_families(args.version):
+        if gone := [
+            str(r) for r in sources.get(fam, []) if not (r / index.SAFETY_COUNTS).is_file()
+        ]:
+            raise SystemExit(f"{fam}: no {index.SAFETY_COUNTS} in {gone}")
+    if not sources.get(index.BENIGN_ROLEPLAY):
         print(
             f"warning: hindex-{args.version} without a benign_roleplay root "
             "(--benign-roleplay-root or $HBENCH_SAFETY_BR_OUT): the family, and so full / "
@@ -747,7 +701,7 @@ def build_parser() -> argparse.ArgumentParser:
     )
     _eval(rp)
     _bank(rp)
-    rp.set_defaults(fn=cmd_report)
+    rp.set_defaults(fn=_cmd_report)
 
     cs = sub.add_parser(
         "consistency-v2", help="claim-map judge consistency: two fresh :M calls per sampled cell"
@@ -802,8 +756,8 @@ def build_parser() -> argparse.ArgumentParser:
 
     ix = sub.add_parser(
         "index",
-        help="the hallucination index (hindex-v8 by default, plan 0029 amendment 4): one row per "
-        "(method, layer) (plans 0013, 0019, 0021, 0022, 0029)",
+        help="the hallucination index (hindex-v8, plan 0029; the only version): one row per "
+        "(method, layer)",
     )
     ix.add_argument("--out", default="outputs", help="output root of the default sources")
     ix.add_argument("--judge-model", default=DEFAULT_MODEL)
@@ -817,12 +771,12 @@ def build_parser() -> argparse.ArgumentParser:
     ix.add_argument(
         "--am-situation-root",
         action="append",
-        help="repeatable; hindex-v8 only: AM v8 root(s) whose arm dirs hold situation.jsonl "
+        help="repeatable; AM v8 root(s) whose arm dirs hold situation.jsonl "
         "(default: the --am-root / <out>/agentic_misalignment/<model>)",
     )
     for flag, var in (
         ("--overrefusal-root", "HBENCH_SAFETY_OR_OUT"),
-        ("--benign-roleplay-root", "HBENCH_SAFETY_BR_OUT (hindex-v7 / v8 only, plan 0027)"),
+        ("--benign-roleplay-root", "HBENCH_SAFETY_BR_OUT"),
     ):
         ix.add_argument(
             flag,
@@ -832,21 +786,15 @@ def build_parser() -> argparse.ArgumentParser:
         )
     ix.add_argument(
         "--version",
-        choices=("v3", "v4", "v5", "v6", "v7", "v8"),
+        choices=("v8",),
         default="v8",
-        help="v8 (default, plan 0029 amendment 4): hindex-v8 (plan 0029: main 9, am_claims 3, "
+        help="v8 (default and the only version): hindex-v8 (plan 0029: main 9, am_claims 3, "
         "am_situation 3, sibling 1, story 1, "
         "overrefusal 1, benign_roleplay 2 (no cheating: archived, plan 0029 amendment 3); "
         "per-layer rows + a joint row; "
-        "claimmap-v2.8+ roots, claimmap-v2.9 for the final run); v7: hindex-v7 (v6 + "
-        "benign_roleplay, weight 2; sibling weight "
-        "1; needs a `prompts` --benign-roleplay-root from `hbench benign-roleplay "
-        "index-export`, plan 0027); v6: hindex-v6 (v5 + overrefusal on wrong-topic "
-        "refusal claims: needs a "
-        "`refusal_claims` --overrefusal-root, i.e. offtopic_index/, plan 0022); "
-        "v5: hindex-v5 (agentic_misalignment on candidate claims, plan 0021); "
-        "v4: exactly the hindex-v4 output (+ overrefusal, full_v3 / matched_v3); v3: exactly "
-        "the hindex-v3 output",
+        "claimmap-v2.8+ roots, claimmap-v2.9 for the final run; needs a `refusal_claims` "
+        "--overrefusal-root (offtopic_index/, plan 0022) and a `prompts` "
+        "--benign-roleplay-root (`hbench benign-roleplay index-export`, plan 0027))",
     )
     ix.add_argument("--methods", default=str(INDEX_METHODS), help="method <-> arm mapping")
     ix.add_argument("--dest", default=None, help="default <out>/index/<model>/")
