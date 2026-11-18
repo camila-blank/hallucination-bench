@@ -125,6 +125,7 @@ data/story/          20 story items x 8 sites + capture rows, built by scripts/b
 data/agentic_misalignment/  32 AM items x every prompt position (50,452 sites), personas, built
                      by scripts/build_am_bank.py; intent_overrides.json after the intent audit
 scripts/build_story_bank.py  writes data/story/ from global-workspace's hallucination_creative bank
+scripts/build_dev_v2.py  writes dev_v2.jsonl (labels live here; re-run if the splitter changes)
 scripts/fetch_story_readouts.sh  Modal story gen dir -> /workspace/hb-readouts-story/<arm>/ + grid check
 data/sibling_probe/  UM ladder data (um_*, umcommit_*, br_lexicons_um_v1.json) + frozen plan-0003
                      inputs it reads (concepts.json, items.json, probe_texts.jsonl, pilot/);
@@ -185,7 +186,7 @@ scripts/overrefusal/ sample_modal.py (vLLM ground truth), reads.sh (capture + re
   (re-queues only `:M`); switching an open decision is one line in `taxonomy_v2.CHOSEN` (bump
   `TAXONOMY_VERSION` too).
 - The v2 gold uses the production unit split: changing `units.py` invalidates gold (the loader
-  re-splits and rejects mismatches). Never hand-edit ids/texts.
+  re-splits and rejects mismatches). Re-run `scripts/build_dev_v2.py`, never hand-edit ids/texts.
   Do not create `data/calibration/heldout_v2*.jsonl` unless you are the blind author.
 - Held-out calibration: never read per-span held-out results into prompt tuning (the CLI only
   prints aggregates for `--split heldout`); at most 3 held-out checks, each logged in
@@ -287,7 +288,7 @@ uv run hbench pilot-dump-v2 --arms a,b --dest x.jsonl   # real cells + productio
   cached with `result: null` (+ `meta.raw`) and re-queued every run. `cells.jsonl` and
   `summary.json` are always regenerated from the cache (cache-only replay of the same
   pipeline), so a stale `:C` row is never attached to new S-ids.
-- **Exit codes**: `hbench run` exits 4 when failed calls remain cached (re-run to retry them;
+- **Exit codes**: `hbench run` exits 4 when failed calls remain cached (re-run to retry them),
   3 on auth/config errors, 2 on missing cells.
 - **`--limit`** slices cells per arm × layer; the rest show as `pending` in the summary.
 - **One process for all arms**: one RPM pacer (`--rpm`, default 1500) and one semaphore
@@ -470,7 +471,8 @@ uv run hbench pilot-dump-v2 --arms a,b --dest x.jsonl   # real cells + productio
     pilot's `:M` / `sit:` rows when the final version equals the pilot's).
   - New segment fields (`continuation_text`, `contradiction_region`) and counters
     (`n_continuation_miss`, ...) are emitted for v2.8+ roots only, so v7 rebuilds are
-    byte-identical.
+    byte-identical (`tests/test_v7_rebuild_identity.py`; fixture written once by
+    `tests/v7_rebuild_fixture.py` with the pre-change code: provenance, never a refresh).
   - The excuse runs last in `claimmap_v2.parse` (after rev 17 quotes, rev 18 junk, rev 19
     hedges), only with `read_offset` (main / story: `read_offset_chat`; AM: `site["char"]`),
     never in `--anchor v5c` mode. `continuation_miss` is outside the v2.7 tables
@@ -658,7 +660,7 @@ uv run --no-sync python $S probe-inputs
 MODAL_PROFILE=safety-sahan-2 uvx --python 3.12 modal@latest run scripts/sibling_probe/um_probes_modal.py --phase fit
 uv run --no-sync python $S distractors          # refuses if Phase B scores exist
 MODAL_PROFILE=safety-sahan-2 uvx --python 3.12 modal@latest run scripts/sibling_probe/um_probes_modal.py --phase score
-uv run --no-sync python $S label && uv run --no-sync python $S figures
+uv run --no-sync python $S label
 ```
 
 - Library: `evals/sibling_probe/um_ladder.py` (Set A lexicon patch over plan 0005's lexicon,

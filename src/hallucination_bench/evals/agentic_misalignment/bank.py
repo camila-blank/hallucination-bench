@@ -36,8 +36,7 @@ __all__ = [
 ]
 
 BANK_DIR = DATA / "agentic_misalignment"
-# HBENCH_AM_ITEMS: another subject model's bank (same schema, its own render and sites), e.g. the
-# DeepSeek-V4-Flash bank written by scripts/build_am_bank_v4.py
+# HBENCH_AM_ITEMS: another subject model's bank (same schema, its own render and sites)
 ITEMS_PATH = Path(os.environ.get("HBENCH_AM_ITEMS") or BANK_DIR / "items.json")
 N_ITEMS = 32
 

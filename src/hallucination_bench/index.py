@@ -431,7 +431,7 @@ def _add_cell(v: np.ndarray, rec: dict[str, Any], segs: list[dict[str, Any]], ca
 
 
 def um_label(unit: dict[str, Any]) -> str:
-    """``um_plot_macro.py``'s rule: the probe fires at L, else a cross-method sibling, else
+    """The sibling label rule: the probe fires at L, else a cross-method sibling, else
     hallucination."""
     if unit["probe"]["fire_L"]:
         return "faithful"
