@@ -1,7 +1,7 @@
 [project]
 name = "hallucination-bench"
 version = "0.1.0"
-description = "HallucinationBench v2: types and severities of hallucination in activation-reading lenses"
+description = "HallucinationBench: types and severities of hallucination in activation-reading lenses"
 readme = "README.md"
 requires-python = ">=3.12"
 license = { text = "MIT" }

@@ -585,13 +585,15 @@ def test_on_the_index_from_v7_only() -> None:
     assert index.BENIGN_ROLEPLAY in index.SAFETY_READERS_V7_ADDED
 
 
-def test_readme_states_why() -> None:
-    readme = (REPO_ROOT / "README.md").read_text()
+def test_docs_state_why() -> None:
+    # the eval's entry lives in docs/evals.md (the README keeps only the families table)
+    readme = (REPO_ROOT / "docs" / "evals.md").read_text()
     i = readme.index("## benign_roleplay")
-    entry = readme[i : readme.index("\n## ", i + 3)]
+    end = readme.find("\n## ", i + 3)
+    entry = readme[i : end if end > 0 else len(readme)]
     assert "a lens “recognition” is therefore a claim with no behavioural support" in entry
     assert bank.GATE_RULE in entry
-    assert "on the index from hindex-v7 (plan 0027)" in entry.lower()
+    assert "on the index as the `benign_roleplay` family (weight 2" in entry.lower()
 
 
 def test_cli_registered() -> None:

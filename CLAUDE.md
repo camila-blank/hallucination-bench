@@ -4,9 +4,9 @@ Suite of evals for the **types and severities** of hallucination in activation-r
 First eval: `wsbench_chat` (plan `plans/0001-bootstrap-wsbench-chat-taxonomy.md` is the spec);
 the claim map / taxonomy v2 is plan `plans/0002-claim-map-taxonomy-v2.md`; the sibling eval is
 the user-modelling ladder on 3 domains (plans `0006` + `0011`; its predecessors, plans 0003–0005,
-and the occupation / emotion domains were removed in plan 0013); the `story` eval (the claim map on 20 story items, `--eval story`)
+and the occupation / emotion domains were removed in plan 0013); the `story` eval (the claim map on 20 story items, `eval=story`)
 is plan `plans/0007-story-eval.md`; the `agentic_misalignment` eval (detector + claim map on lens
-mentions of misalignment, its own driver, `--eval agentic_misalignment`) is plan
+mentions of misalignment, its own driver, `eval=agentic_misalignment`) is plan
 `plans/0008-agentic-misalignment-claim-map.md`. The `overrefusal` eval (OR-Bench pilot: refusal claims on prompts
 the model never refuses; own subcommands `hbench overrefusal ...`) is plan
 `plans/0015-overrefusal-eval.md`. The `benign_roleplay` eval (false jailbreak recognition on gated
@@ -33,6 +33,10 @@ are gone, and `methods.json` may not name it.
 
 ## Layout
 
+The README stays short (what it is, install, `hbench try`, the commands, outputs, checks, viewer,
+families and weights, links, credits); reference material lives in `docs/` (evals,
+hallucination_index, claim_map, commands, judge_and_caveats, judge_backends, checks).
+
 ```
 src/hallucination_bench/
   llm.py          one judge client per process: Anthropic (claude-*) / OpenRouter, retries,
@@ -51,7 +55,7 @@ src/hallucination_bench/
                   7 groups / 6 VERDICTS (junk = non_claim + off_topic; model_state = thinky;
                   rev 20: hallucination = false_claim + detail + substitution_category); leaf
                   tags, precedence, open
-                  decisions in CHOSEN; render(anchored) for single-call vs --anchor v5c)
+                  decisions in CHOSEN; render(anchored) for single-call vs anchor=v5c)
   units.py        deterministic readout splitter (units R{i}.U{n}) + offset-returning locate
   judges/v5c.py   verbatim v5c span + verify prompts/parsers; claim_lists (quotes, checked vs tally)
   judges/span_classifier.py  classifier prompt, schema, validate, fail-closed parse
@@ -79,7 +83,7 @@ src/hallucination_bench/
     intent.py     amintent-v2 (research frame; rollout + scenario kinds, located quotes) + intent_overrides.json
     run.py        run_am (D -> S -> H -> M + intent), Detector terminal rule, Verifier, rebuild
     score.py      mention_verdict, regions, kind_match, set-up, counting spans, shares
-    report.py     `report --eval agentic_misalignment` (report.md / report.json)
+    report.py     `report eval=agentic_misalignment` (report.md / report.json)
   judges/claimmap_am.py  claimmap-v2.7+am2: research frame + chat SYSTEM + tail verbatim, AM head (marker in prompt);
                   plan 0029: VERSIONS (+am2, claimmap-v2.8+am3 / -v2.9+am3 with scenario_card()), spec()
     evals/agentic_misalignment/situation.py  plan 0029: amsit-v2 (situation misrepresentation; v1 kept in VERSIONS; sites,
@@ -90,13 +94,16 @@ src/hallucination_bench/
   run_outputs.py  a judged run's model root, arm dirs, cells.jsonl / arm.json readers, cell context
   calibrate_claim_map.py  claim map vs unit-level gold (dev_v2 / heldout_v2 files), its gate
   span_report.py  cross-arm span report, audit samples, pilot-dump
-  claim_map_report.py  `report --view claim_map`, probe_candidates.jsonl, audit_samples_v2.md,
+  claim_map_report.py  `report view=claim_map`, probe_candidates.jsonl, audit_samples_v2.md,
                   pilot-dump-units
   claim_map_consistency.py  `consistency`: two fresh :M calls per sampled cell, κ / confusion / flags
   cli.py          hbench run|calibrate|report|consistency|pilot-dump|pilot-dump-units|gold-units|
-                  index|final: shared commands + helpers; eval subcommands come from EVAL_CLIS
+                  index|final: shared commands (one pydra-config Command class each, base in
+                  command.py: key=value, --key for a boolean, the old --some-flag value
+                  spelling, --show / --help) + helpers; the other subcommands come from the
+                  COMMANDS table of each EVAL_CLIS module (try, check, the evals' own CLIs)
   evals/<eval>/cli.py  an eval's own CLI: agentic_misalignment (run / report behind
-                  `--eval agentic_misalignment`). A new eval adds its CLI here and lists a
+                  `eval=agentic_misalignment`). A new eval adds its CLI here and lists a
                   `register(sub)` module in EVAL_CLIS, not in cli.py (plan 0012 D2)
   index.py        the hallucination index, hindex-v8 only (plans 0029 + 0030; family
                   definitions from plans 0013 / 0019 / 0021 / 0022 / 0027), from the
@@ -116,7 +123,7 @@ src/hallucination_bench/
 data/wsbench_chat/   verbatim copies from wsbench-pub @ 92d763e (never edit)
 data/wsbench_chat_x3/  plan 0028: the main bank at 3x prompts / <=16 sites (WSB 149 = subset
                      `wsb149`, sites `wsb: true` = the WSB 1,123); FROZEN for hindex-v8 (pinned by
-                     MANIFEST.sha256, never edit); `hbench run|report --bank x3` (plan 0029; dir $HBENCH_X3_BANK,
+                     MANIFEST.sha256, never edit); `hbench run|report bank=x3` (plan 0029; dir $HBENCH_X3_BANK,
                      readouts default $HBENCH_X3_READOUTS) or HBENCH_WSBENCH_CHAT_ITEMS=<it>/items.json
 scripts/main_x3/     plan 0028: build_seeds.py (re-derives the WSB draw, then the seeded expansion;
                      new lmsys English-only),
@@ -170,8 +177,8 @@ evals/benign_roleplay/  plan 0023 (own CLI via EVAL_CLIS; in EVALS; on the index
                  campaign's judged dirs ($HBENCH_BR_CAMPAIGN) for the shared ids
     metrics.py   refusal conditions, flagged share + template_id cluster bootstrap, shared-subset
                  == WSB FPR check (exit 2), po-opus-v1 floor, summary.{json,md} (+ scored_ids /
-                 unjudged_ids per unit, plan 0027); `--layout nested` = <campaign>/<arm>/<unit>
-    index_export.py plan 0027: `hbench benign-roleplay index-export --summary ... --dest ...`:
+                 unjudged_ids per unit, plan 0027); `layout=nested` = <campaign>/<arm>/<unit>
+    index_export.py plan 0027: `hbench benign-roleplay index-export summary=... dest=...`:
                  summary.json -> index_counts.jsonl + index_meta.json (unit prompts, the index's
                  benign_roleplay root); index value/CI == the eval's per-layer rate/CI exactly
                  (test_index_v7)
@@ -196,15 +203,16 @@ scripts/overrefusal/ sample_modal.py (vLLM ground truth), reads.sh (capture + re
   re-splits and rejects mismatches). Re-run `scripts/build_dev_v2.py`, never hand-edit ids/texts.
   Do not create `data/calibration/heldout_v2*.jsonl` unless you are the blind author.
 - Held-out calibration: never read per-span held-out results into prompt tuning (the CLI only
-  prints aggregates for `--split heldout`); at most 3 held-out checks, each logged in
+  prints aggregates for `split=heldout`); at most 3 held-out checks, each logged in
   `data/calibration/README.md`. Do not create or edit `data/calibration/heldout.jsonl` unless
   you are the designated blind author.
 - Modified pre-existing tests are a red flag in review: a test change must be sanctioned by the plan.
 - External paths come from `paths.py` (`HBENCH_*` env vars, dev-box defaults); never hardcode a
   `/workspace/...` path in `src/`, `scripts/*.py` or `tests/`. Shell drivers `cd` to the repo
   root from their own location and read `${HBENCH_X:-<default>}`.
-- CI is pending (plan 0012 D5, held back for a token scope): until it lands, run ruff check +
-  format and `pytest -rs` locally before pushing. Plan numbers are unique: the next free one is
+- CI (`.github/workflows/ci.yml`, plan 0012 D5): ruff check, ruff format --check and pytest on
+  every push and pull request. Tests that need a dev-box path or the Qwen tokenizer skip
+  themselves there; run `pytest -rs` locally to see which. Plan numbers are unique: the next free one is
   0031 (0009/0010 belong to the unlanded resampling-gate branches; 0025/0026 to the local,
   unmerged cheating eval, archived 2026-11-04 as a diagnostic and on no index (plan 0029
   Amendment 3); 0028 is the
@@ -213,25 +221,31 @@ scripts/overrefusal/ sample_modal.py (vLLM ground truth), reads.sh (capture + re
 
 ## Run commands
 
+Options are `key=value` and a boolean is `--key`; `--show` prints the resolved config without
+running, `--help` lists every key. The old `--some-flag value` spelling still works.
+
 ```bash
+uv run hbench try --dry_run    # two-question try-out on examples/readouts/<family>.jsonl, no API
+                               # (tryout.py: picks the items, then the ordinary run + report)
+uv run hbench check [<name>|all]   # gates and sanity checks (checks.py registry, docs/checks.md)
 R=${HBENCH_READOUTS_ROOT:-/workspace/wsbench-paper-data/readouts}
-uv run hbench run --out outputs/smoke --readouts-root $R --arms s3d-rl600,nla-rl-L42,jlens \
-    --layers 42,44 --limit 5 --show-prompts 5          # smoke; prompts -> <arm>/prompts_sample.txt
-uv run hbench run --rebuild --readouts-root $R --arms jlens --out outputs   # no API calls
-uv run hbench report --out outputs
-uv run hbench calibrate --split dev
-uv run hbench run ... --skip-classify  &&  uv run hbench pilot-dump --arms a,b --dest x.jsonl
-uv run hbench run ... --stages map     # claim map, single-call (summary first; span on 10% subsample)
-uv run hbench run ... --stages map --anchor v5c   # plan rev 12: v5c spans as ESTABLISHED units
-uv run hbench report --out outputs --view claim_map
-uv run hbench calibrate --taxonomy claim_map --split dev
-uv run hbench consistency --arms s3d-rl600:44,nla-rl-L42:42,jlens:44 --n 50 --seed 0
-uv run hbench pilot-dump-units --arms a,b --dest x.jsonl   # real cells + production units, unlabelled
+uv run hbench run out=outputs/smoke readouts_root=$R arms=s3d-rl600,nla-rl-L42,jlens \
+    layers=42,44 limit=5 show_prompts=5          # smoke; prompts -> <arm>/prompts_sample.txt
+uv run hbench run --rebuild readouts_root=$R arms=jlens out=outputs   # no API calls
+uv run hbench report out=outputs
+uv run hbench calibrate split=dev
+uv run hbench run ... --skip_classify  &&  uv run hbench pilot-dump arms=a,b dest=x.jsonl
+uv run hbench run ... stages=map     # claim map, single-call (summary first; span on 10% subsample)
+uv run hbench run ... stages=map anchor=v5c   # plan rev 12: v5c spans as ESTABLISHED units
+uv run hbench report out=outputs view=claim_map
+uv run hbench calibrate taxonomy=claim_map split=dev
+uv run hbench consistency arms=s3d-rl600:44,nla-rl-L42:42,jlens:44 n=50 seed=0
+uv run hbench pilot-dump-units arms=a,b dest=x.jsonl   # real cells + production units, unlabelled
 ```
 
 ## Gotchas
 
-- **`--eval story`** (plan 0007) exists on `run` and `report` only. Its outputs live under
+- **`eval=story`** (plan 0007) exists on `run` and `report` only. Its outputs live under
   `outputs/story/<model>/`, and its readouts are not in git:
   `/workspace/hb-readouts-story/<arm>/hallucination.jsonl`, produced by the Modal reads of
   `wsbench-acts:/acts-hallucination-story[-L42]`.
@@ -241,7 +255,7 @@ uv run hbench pilot-dump-units --arms a,b --dest x.jsonl   # real cells + produc
     source.
   - `pilot-dump*`, `calibrate` and `gold-units` are chat-only.
 
-- **`--eval agentic_misalignment`** (plan 0008) is its own driver (`evals/agentic_misalignment/run.py`),
+- **`eval=agentic_misalignment`** (plan 0008) is its own driver (`evals/agentic_misalignment/run.py`),
   dispatched first in `cmd_run` / `_cmd_report`; chat and story never touch it.
   - **The readouts are prompt positions only** (every position up to `<|im_start|>assistant`,
     no thinning), so the marker `⟦READ⟧` sits **in the prompt**, not the response; the claim map
@@ -249,16 +263,16 @@ uv run hbench pilot-dump-units --arms a,b --dest x.jsonl   # real cells + produc
     the chat pipeline.
   - Readouts file `<arm>/agentic_misalignment.jsonl` (default root the paper readouts; default
     arms s3d-rl600, nla-rl-L42, jlens). The loader checks the whole file (full 50,452-site grid
-    per layer, no unknown ids) before `--items` / `--layers` / `--limit` apply.
-  - `--stages detect,summ,verify,map,intent` add no dependencies: unselected stages are cache-only
-    (`--stages map` maps only cells whose detection is cached). Intent is per item, cached in
-    `<out>/agentic_misalignment/<model>/intent.jsonl`; any one `--arms` value triggers it.
+    per layer, no unknown ids) before `items=` / `layers=` / `limit=` apply.
+  - `stages=detect,summ,verify,map,intent` add no dependencies: unselected stages are cache-only
+    (`stages=map` maps only cells whose detection is cached). Intent is per item, cached in
+    `<out>/agentic_misalignment/<model>/intent.jsonl`; any one `arms=` value triggers it.
   - Detector cache is per cell (`{key}:D`, J-lens summaries `{key}:Dsum`), fingerprint over the
     canonical readout lines (no batch label); usage only on `batchD:` rows (spend sums every
     row). Failed cells retry as batches of 1 in the same run; 2 failed single-cell rows with a
     partial parse -> accepted (`meta.accepted_partial`). `batchD:` / `audit:` keys are never
     counted as cells.
-  - **Stage H** (`--stages verify`, `amverify-v1`, plan 0008 rev 13; exists because the O-lens
+  - **Stage H** (`stages=verify`, `amverify-v1`, plan 0008 rev 13; exists because the O-lens
     headline-membership gate failed at 0.70 under amdetect-v2) re-judges only headline candidates
     and changes **only headline membership, never the map population** (map stays on every
     detected cell; no `:D` / `:Dsum` / `:M` key or fingerprint changes). Rows
@@ -280,15 +294,24 @@ uv run hbench pilot-dump-units --arms a,b --dest x.jsonl   # real cells + produc
     but do not run several AM rebuilds in parallel.
 
 - **Keyless Anthropic auth.** With `ANTHROPIC_API_KEY` unset, `AsyncAnthropic()` picks up the
-  `ant` CLI OAuth profile (`ant auth status`). Never require the env var. If the profile's
+  `ant` CLI OAuth profile (`ant auth status`). Never require the env var. With
+  `ANTHROPIC_AUTH_TOKEN` set (and no key), `llm._make_client` sends that OAuth bearer token with
+  the `oauth-2025-04-20` beta header instead (WorkspaceBench's route). If the profile's
   credentials lapse mid-run, the 401 raises `JudgeConfigError` (exit 3): re-login with
   `ant auth login` and re-run (it resumes).
+- **Extra readers.** A reader on no allowlist is silently dropped from the safety families. To
+  score a new one, set `HBENCH_EXTRA_READERS=<name>[,<name>]` (or call `readers.add`): the names
+  join `index.safety_readers`, overrefusal's `index_export.export_readers()`, and
+  benign_roleplay's `wsb.known_arms()` / `campaign_nested()` and index-export. The module
+  constants never change; with the variable unset every output is as before.
+- **Message Batches backend** (opt-in): `judge_backend=batches` or `$HBENCH_JUDGE_BACKEND`
+  (`judge_batches.py`, `docs/judge_backends.md`); the default stays live calls.
 - **Opus 5.5 rejects `temperature` and `thinking: disabled`** (400). Calls send neither and set
   `output_config.effort` (default `low`) plus `output_config.format` json_schema. Labels are
   single samples.
 - **Readouts** are inputs, not in git: `/workspace/wsbench-paper-data/readouts/<arm>/hallucination.jsonl`
   (11 arms; `sae-l42-top20` has no hallucination file). Each arm-layer = 1,123 cells.
-  `--layers 42,44` makes each arm judge the layers it has (5-layer arms L44, nla/sae L42).
+  `layers=42,44` makes each arm judge the layers it has (5-layer arms L44, nla/sae L42).
 - **Cache / resume.** Per-arm `outputs/wsbench_chat/<model>/<arm>/cache.jsonl`. Keys
   `summ:{key}`, `{key}`, `{key}:V`, `{key}:C`, `key = {id}__L{layer:03d}__p{pos}`;
   fingerprint = (prompt version, model, effort, system, user). Failed / invalid answers are
@@ -297,18 +320,18 @@ uv run hbench pilot-dump-units --arms a,b --dest x.jsonl   # real cells + produc
   pipeline), so a stale `:C` row is never attached to new S-ids.
 - **Exit codes**: `hbench run` exits 4 when failed calls remain cached (re-run to retry them),
   3 on auth/config errors, 2 on missing cells.
-- **`--limit`** slices cells per arm × layer; the rest show as `pending` in the summary.
-- **One process for all arms**: one RPM pacer (`--rpm`, default 1500) and one semaphore
-  (`--concurrency`, default 64). Do not launch parallel `hbench run` processes on the same arm
+- **`limit=`** slices cells per arm × layer; the rest show as `pending` in the summary.
+- **One process for all arms**: one RPM pacer (`rpm=`, default 1500) and one semaphore
+  (`concurrency=`, default 64). Do not launch parallel `hbench run` processes on the same arm
   (two writers on one cache file) or to "go faster" (they would each get the full rate).
 - **32 GB RAM cap** (docker cgroup; `free` lies). Rebuild streams `cells.jsonl`; only slim
   label records are kept for scoring. OOM shows up as rc 137.
 - Calibration cache: `outputs/calibration/<model>/cache.jsonl`, keys `{split}:{case_id}:r{n}`
   (v2: `v2:{split}:{case_id}:r{n}`; each repeat is a separate call).
-- **`--stages`**: unselected stages are read from the cache only. The Python API default
+- **`stages=`**: unselected stages are read from the cache only. The Python API default
   (`run_arms_async(stages=None)`) keeps plan 0001's stages (no map) so v1 tests and callers are
   unchanged; the CLI default is every stage. `hbench run` exits 4 if ANY stage has cached
-  failures, including unselected ones (e.g. s3d's 5 old verify failures under `--stages map`).
+  failures, including unselected ones (e.g. s3d's 5 old verify failures under `stages=map`).
 - **`:M` cost** is output-heavy (NLA cells ~3.7k output tokens). The system prompt is ~6.6k
   tokens and cached; a burst of concurrent first calls all pay the cache write.
 - `summary_v2.json` is written next to `summary.json` by every rebuild once any cell is mapped
@@ -332,7 +355,7 @@ uv run hbench pilot-dump-units --arms a,b --dest x.jsonl   # real cells + produc
   `unverifiable` (`judge_leaf` keeps the judge's leaf; counters `n_unquoted_contradictions`,
   `n_unquoted_support`). Without `conversation` the check is skipped (unit tests only); every
   production caller (run, calibrate, consistency) passes it.
-- **Judge noise** (rev 17): `report --view claim_map` reads
+- **Judge noise** (rev 17): `report view=claim_map` reads
   `outputs/consistency/<model>/consistency_<PROMPT_VERSION>.json` for the "judge noise ±" column
   and the noise section; run `consistency` on the run's arms first, else they show —.
 - **Rev 18 junk merge is post-parse**: the judge enum/prompt (`JUDGE_LEAF_NAMES`, claimmap-v2.7)
@@ -350,7 +373,7 @@ uv run hbench pilot-dump-units --arms a,b --dest x.jsonl   # real cells + produc
 - **No git writes from agents** in this worktree (no add/rm/restore --staged/commit).
 - **Hallucination index** (hindex-v8 is the only version, plan 0030): `hbench index` reads the
   families' outputs only (no API calls). `hbench index` and `hbench final` are the only index
-  builders; `hbench report` does not touch the index. `--version` accepts only `v8`, and every
+  builders; `hbench report` does not touch the index. `version=` accepts only `v8`, and every
   `index.py` helper that takes a `version` raises `ValueError` on anything else. What v8
   inherits from the earlier plans (their index versions are gone; the plans stay as the
   definitions):
@@ -361,7 +384,7 @@ uv run hbench pilot-dump-units --arms a,b --dest x.jsonl   # real cells + produc
     `index_counts.jsonl`; raw share and health beside it; absent with an `absent_reason` on no
     claims or all-unprobed false claims; cluster bootstrap, fresh `default_rng(0)` per (family,
     arm, layer), clusters sorted, percentiles over draws with claims. Safety roots are opt-in
-    (`--overrefusal-root` / `--benign-roleplay-root`, or a set `HBENCH_SAFETY_OR_OUT` /
+    (`overrefusal_root=` / `benign_roleplay_root=`, or a set `HBENCH_SAFETY_OR_OUT` /
     `HBENCH_SAFETY_BR_OUT`; never the paths.py default) so tests that build from `tmp_path` stay
     isolated.
   - Plan 0021: AM is scored on **candidate claims** — `claim_rows(..., am_candidates=True)` (one
@@ -395,13 +418,13 @@ uv run hbench pilot-dump-units --arms a,b --dest x.jsonl   # real cells + produc
     `*_V29` objects (`TAGS_V29`, `EXAMPLES_V29`, `CONTINUATION_TEXT_CLAUSE_V29`); v2.8 (+am3) is
     pinned too (`PINS_V28`, recorded from main @ 6c58a28 before v2.9). A wording change goes into
     a new registered version, never into a pinned v2.7 / v2.8 object.
-  - `--map-prompt {claimmap-v2.7,claimmap-v2.8,claimmap-v2.9}` on `hbench run` (chat / story / AM;
+  - `map_prompt={claimmap-v2.7,claimmap-v2.8,claimmap-v2.9}` on `hbench run` (chat / story / AM;
     AM maps it to `claimmap-v2.8+am3` / `claimmap-v2.9+am3`; **v8 runs use claimmap-v2.9**) is recorded in `arm.json` (`map_prompt`, missing = v2.7); a run whose
     flag differs from an existing `arm.json` exits 3, rebuild / report replay the recorded one.
-    In a v2.8 root the same holds for `--map-model` / `--situation-model`: omitted = the recorded
-    one (never rewritten), a different one exits 3. `--limit N` on `--joint` / AM `joint` /
-    `situation` is a seeded draw (`--sample-seed`, default 0), never the first N. AM `map` with
-    `--limit N` draws N cells per layer **among the cached detection positives**
+    In a v2.8 root the same holds for `map_model=` / `situation_model=`: omitted = the recorded
+    one (never rewritten), a different one exits 3. `limit=N` on `--joint` / AM `joint` /
+    `situation` is a seeded draw (`sample_seed=`, default 0), never the first N. AM `map` with
+    `limit=N` draws N cells per layer **among the cached detection positives**
     (`run.map_select`: each layer maps min(N, positives)); detect / summ / verify keep the
     pre-detection per-layer draw (`run.select`), so run detect (J-lens: summ) first.
   - **Dates are always `detail` in claimmap-v2.8 when the conversation contradicts them**
@@ -409,7 +432,7 @@ uv run hbench pilot-dump-units --arms a,b --dest x.jsonl   # real cells + produc
     real-world date the conversation never settles stays `supplementary_false` (rule 6). The
     shared calibration gold keeps v2.7's `false_claim`; `calibrate_claim_map.GOLD_OVERRIDES_V28`
     relabels those units for v2.8 runs only (dev_v2 + `heldout_v2_synthetic.jsonl` held2-01 via
-    `--cases`; a unit-level override can pin the expected unit text, `GOLD_OVERRIDE_TEXTS_V28`).
+    `cases=`; a unit-level override can pin the expected unit text, `GOLD_OVERRIDE_TEXTS_V28`).
   - **v2.8 continuation rule** (Camila 2026-11-04, superseding pilot fix A: "a readout that
     says a different possible continuation is not a hallucination"): an incorrect segment is
     excused (`continuation_miss`, weight 0) when it is tagged `continuation_text` (literal
@@ -444,13 +467,13 @@ uv run hbench pilot-dump-units --arms a,b --dest x.jsonl   # real cells + produc
     from the checked version (`index.notes_v8`). Same code on per-layer, joint and AM paths. The v2.9 gate needs
     a FRESH sample that excludes the pilot2 gate items; pilot2 (v2.8) roots are never reused
     (a v2.9 run into one exits 3; fingerprints differ anyway).
-  - **Main bank for v8** = plan 0028's x3 bank: `hbench run|report --bank x3` (items
+  - **Main bank for v8** = plan 0028's x3 bank: `hbench run|report bank=x3` (items
     `$HBENCH_X3_BANK/items.json`, default `data/wsbench_chat_x3/`; readouts default
-    `paths.X3_READOUTS`); `--bank` conflicts with a `HBENCH_WSBENCH_CHAT_ITEMS` naming another file.
+    `paths.X3_READOUTS`); `bank=` conflicts with a `HBENCH_WSBENCH_CHAT_ITEMS` naming another file.
     An x3 run records `bank` / `bank_source` / `bank_sha256` in `arm.json` (wsb records nothing:
     missing = wsb, so v7 arm.json files are unchanged). `run` / `run --joint` into a dir recorded
     on another bank (or whose x3 items file now hashes differently) exits 3 (`run.check_bank`);
-    rebuild / `report` replay the recorded bank when `--bank` is omitted and exit 3 on an
+    rebuild / `report` replay the recorded bank when `bank=` is omitted and exit 3 on an
     explicit other one (`run.replay_bank`). `hbench final` requires `bank: x3` in every main
     arm dir's `arm.json`. Tests: `tests/conftest.py` restores the bank module after each test.
     v8 roots live under `outputs/v8/` (pilots `outputs/v8-pilot/`); never point a v2.8 run at a v7
@@ -463,20 +486,20 @@ uv run hbench pilot-dump-units --arms a,b --dest x.jsonl   # real cells + produc
     `tests/v7_rebuild_fixture.py` with the pre-change code: provenance, never a refresh).
   - The excuse runs last in `claim_map.parse` (after rev 17 quotes, rev 18 junk, rev 19
     hedges), only with `read_offset` (main / story: `read_offset_chat`; AM: `site["char"]`),
-    never in `--anchor v5c` mode. `continuation_miss` is outside the v2.7 tables
+    never in `anchor=v5c` mode. `continuation_miss` is outside the v2.7 tables
     (`claim_map_taxonomy.SCORING_EXTRA`: thinky / unresolved, a claim, weight 0).
-  - Joint cells: `hbench run --joint [--joint-from a,b]` (chat / story; each layer from the first
+  - Joint cells: `hbench run --joint [joint_from=a,b]` (chat / story; each layer from the first
     source that has it) -> `<arm>/cells_joint.jsonl` + `summary_joint_v2.json` + `joint.json`
     (keys `{id}__Lall__p{pos}`, records `layer: "all"`, readouts `R{i}` = layer `20 + 4i`, sample
-    0; J-lens: the per-layer `summ:` rows). AM: `--stages joint` (population = sites with a
+    0; J-lens: the per-layer `summ:` rows). AM: `stages=joint` (population = sites with a
     sample-0 mention). Joint calls use `llm.joint_llm` (64k tokens, 1800 s, streaming). The index
     maps `"all"` to `index.JOINT = -1` and renders it `all`.
-  - AM v8: claim map on Sonnet (`--judge-model claude-opus-5-5 --map-model claude-sonnet-5-5`, so
+  - AM v8: claim map on Sonnet (`judge_model=claude-opus-5-5 map_model=claude-sonnet-5-5`, so
     the root stays keyed by the Opus detector); +am3 refuses to map unless every item has an
     effective intent (the scenario card is in the `:M` fingerprint); a refused detector call is
     re-asked once on Sonnet under the Opus fingerprint (`meta.answered_by`); so is a refused
-    J-lens interp-v1 summary (`summ:`, v8 roots only: `cached_call(fallback=)`). `--stages
-    situation` = amsit-v2 (`situation_cache.jsonl` -> `situation.jsonl`, `--situation-model`,
+    J-lens interp-v1 summary (`summ:`, v8 roots only: `cached_call(fallback=)`). `stages=
+    situation` = amsit-v2 (`situation_cache.jsonl` -> `situation.jsonl`, `situation_model=`,
     default Sonnet; v2 = v1 + "local syntax at the marker is a local reading, not a
     misrepresentation"). `joint` / `situation` are never in the default stage set and need a v2.8+ root.
   - Chat / story v8 roots too: a refused J-lens `summ:` is re-asked once on Sonnet (`run.SUMMARY_FALLBACK_MODEL`); both refused = failed row (re-asked next run), counted failed by `final`.
@@ -490,7 +513,7 @@ uv run hbench pilot-dump-units --arms a,b --dest x.jsonl   # real cells + produc
     file, requires the full unit grid (L20..L60 + `all` for joint families), checks each
     claim-map arm dir's `arm.json` `map_prompt` (only claimmap-v2.9 accepted), and builds from a fresh temp dir holding only
     the listed files (`situation.jsonl` filtered to the listed units).
-  - Judge noise is not run for v8: `report --view claim_map` shows no noise column for v2.8 roots.
+  - Judge noise is not run for v8: `report view=claim_map` shows no noise column for v2.8 roots.
   - **Persistent judge failures** (plan 0029 Amendment 4). Rule:
     - A failed cell is explained by its record's **blocking stage**:
       - main / story: summary → map → cverify;
@@ -517,7 +540,7 @@ uv run hbench pilot-dump-units --arms a,b --dest x.jsonl   # real cells + produc
     - Reported in `index.json` (`manifest.persistent_failures`), `index.md` and `excluded.md`.
       Above 5% an entry is flagged `review`.
     - Rebuild the list whenever a cells file changes. A stale list exits 2.
-  - **`hbench index` builds hindex-v8** (`--version v8`, the only choice); so does the library
+  - **`hbench index` builds hindex-v8** (`version=v8`, the only choice); so does the library
     `build_index`.
   - **Continuation verifier** (plan 0029 Amendment 2, `cverify-v1`; the v2.9 tag gate failed at
     0.733 after pilot2's 0.52):
@@ -552,22 +575,22 @@ uv run hbench pilot-dump-units --arms a,b --dest x.jsonl   # real cells + produc
         ported `build()` untouched.
       - Preflight covers Opus and the Sonnet fallback, once each.
     - **Settings.**
-      - `--excuse-verifier {cverify-v1,off}`: default on for claimmap-v2.9; `Models.excuse_verifier`
+      - `excuse_verifier={cverify-v1,off}`: default on for claimmap-v2.9; `Models.excuse_verifier`
         defaults to None in the Python API, so library callers / old tests keep the v2.9 tag rule.
       - Recorded in `arm.json` / `joint.json`; a judge run that differs exits 3; rebuild / report
         replay the record.
       - The old v29 pilot roots have no record (= off).
-      - `--anchor v5c` has no continuation excuse: the verifier defaults to off there, and an
-        explicit verifier with `--anchor` exits 3 (`run.check_verifier`).
+      - `anchor=v5c` has no continuation excuse: the verifier defaults to off there, and an
+        explicit verifier with `anchor=` exits 3 (`run.check_verifier`).
     - **Scoring.** `index._segments` drops a cell whose `stages.cverify` / `cverify_status` is
       `failed` / `pending` (like a failed map).
     - **`hbench final`** requires `excuse_verifier: cverify-v1` in the manifest, every claim-map
       `arm.json` and the joint `joint.json` (a chat / story `all` entry without one is refused);
       a failed / pending verdict is a failed cell in the recount, and `final.check` requires
-      zero of them per claim-map entry (no 1% allowance: re-run `--stages cverify` until clean).
+      zero of them per claim-map entry (no 1% allowance: re-run `stages=cverify` until clean).
     - **Do not tune the prompt.** It is a verbatim port pinned in
       `tests/test_continuation_verifier.py`; a change is a new version.
-    - **Gate.** A NEW pilot with a different `--sample-seed`, fresh cells excluding the gate2 /
+    - **Gate.** A NEW pilot with a different `sample_seed=`, fresh cells excluding the gate2 /
       gate_v29 sites, blind labellers who never see verifier output. Precision >= 0.85, recall
       reported.
 - **In-run retries** (rev 14): an invalid `:M` (or calibration) answer is re-asked up to 2 times
@@ -583,7 +606,7 @@ uv run hbench pilot-dump-units --arms a,b --dest x.jsonl   # real cells + produc
   hallucination number (a `considered` claim on a borderline prompt can be faithful). The
   detector is blind to the prompt, so prompts *about* refusing (`about_refusal`) are reported
   with a sensitivity exclusion. On the hallucination index since hindex-v4 (plan 0019). **Detector / verifier judge is
-  `--judge-model claude-sonnet-5-5`** (outputs `outputs/overrefusal/claude-sonnet-5-5/`): Opus 5.5
+  `judge_model=claude-sonnet-5-5`** (outputs `outputs/overrefusal/claude-sonnet-5-5/`): Opus 5.5
   hard-refuses ~all 40-cell O-lens batches (harmful readout text), Sonnet does not; GT
   (`judge-gt`) stays Opus with an Opus-full -> Opus-truncated -> Sonnet fallback chain. Keep
   concurrency <= 64 (shared org input-token limit). `wsbench_read_modal.py` needs
