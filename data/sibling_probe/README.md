@@ -176,3 +176,33 @@ The driver's four methods and their readout files are built in. To run other met
 - `--out DIR` replaces `outputs/sibling/um`; `--probes-root DIR` reads `probes/` and
   `probes_adj/` (and `<domain>/probes*/`) of another run's `.../sibling/um` dir. The probes
   are fitted on the subject model, not on a method, so a new method reuses them.
+
+## um_frozen/: the frozen probe run of the index's sibling family
+
+The probe fits, probe scores and the four built-in methods' units behind the frozen `sibling`
+numbers, so the ladder can be run for another method without the original checkout. The layout
+is that of `outputs/sibling/um` (country at the top, `capital_city/` and `holiday/` below), so
+the directory can be passed as `--probes-root data/sibling_probe/um_frozen`.
+
+| file (per domain) | what |
+|---|---|
+| `probe_inputs.json` | the probe run's inputs: concept order, probe texts with folds, items, layers, activation dirs. Its sha256 is `inputs_sha256` in `probes/fit/summary.json`. |
+| `probes/fit/fit_L<L>.json`, `centroids_L<L>.npy`, `summary.json` | per-layer fit results (validity, neutral FPR, chosen lambda / C per fold) and concept centroids, 12 layers (the 11 index layers and L42). |
+| `probes/score/L<L>.npz`, `summary.json` | probe z-scores of every concept at every (item, position) cell: `item`, `pos`, `za`, `zb`. `summary.json` records the sha256 of the domain's `um_<domain>_distractors.json`, which `label` checks. |
+| `mentions.jsonl`, `commit.jsonl` | the mention units and commitment-judge verdicts of the four built-in methods (`s3d`, `mlnla-rl600`, `jlens`, `nla-rl-L42`). `label` needs them for cross-method support. |
+| `label/units_labeled.jsonl` | the labelled units the frozen index reads (`hbench index --um-root`). |
+
+Units: country 5,320, capital_city 5,583, holiday 1,258. Probe runs on the `sibling-probes`
+Modal volume: `um-country-v2`, `um-capital-city-v1`, `um-holiday-v1`. `MANIFEST.sha256` covers
+every file.
+
+- **Not here:** the probe weights (`fit/L<L>.npz`, 58 MB per layer and domain, 2 GB in all).
+  They are only needed to score cells outside the frozen (item, position) grid and stay on the
+  Modal volume under `/<run>/fit/`.
+- **Reproduction:** `um_ladder.py --category <domain> label` on these files gives
+  `capital_city` and `holiday` `units_labeled.jsonl` byte for byte. The country file was written
+  before the adjacent-layer rule (plan 0006 rev 9), and no adjacent-layer scores exist for
+  country, so a re-run differs in the nearby-layer fields (`label`, `probe.adjudicable`,
+  `probe.fire_nearby*`). The fields the index reads (`committed`, `probe.na_reason`,
+  `probe.fire_L`, `cross`) are the same for all 5,320 units, and the re-run's
+  `label_grid_nearby` equals the frozen `label`.

@@ -143,6 +143,9 @@ scripts/fetch_story_readouts.sh  Modal story gen dir -> /workspace/hb-readouts-s
 data/sibling_probe/  UM ladder data (um_*, umcommit_*, br_lexicons_um_v1.json) + frozen plan-0003
                      inputs it reads (concepts.json, items.json, probe_texts.jsonl, pilot/);
                      README = schema + provenance
+data/sibling_probe/um_frozen/  the frozen probe fits / scores, probe_inputs.json, the four methods'
+                     mentions + commits and units_labeled.jsonl per domain (`--probes-root`);
+                     probe weights stay on the sibling-probes Modal volume
 data/index/methods.json  plan 0013: index method <-> arm mapping, exclusions, notes
 scripts/sibling_probe/   um_ladder.py (driver), um_probes_modal.py, um_lexicons.py,
                          um_run_*.sh; gen_items.py (imported by `um_ladder.py probe-texts`)

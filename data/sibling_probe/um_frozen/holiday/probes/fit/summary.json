@@ -1,0 +1,132 @@
+{
+ "run": "um-holiday-v1",
+ "inputs_sha256": "c7e174b9ef18f3736aae677c58c48500bcd896999531053361a4c833c856b5fd",
+ "concepts": [
+  "all_saints_day",
+  "april_fools",
+  "australia_day",
+  "bastille_day",
+  "canada_day",
+  "christmas",
+  "diwali",
+  "dragon_boat",
+  "earth_day",
+  "easter",
+  "fathers_day",
+  "ghost_festival",
+  "halloween",
+  "hanukkah",
+  "holi",
+  "independence_day",
+  "kwanzaa",
+  "labor_day",
+  "lunar_new_year",
+  "mardi_gras",
+  "memorial_day",
+  "mid_autumn",
+  "mothers_day",
+  "national_day_china",
+  "navratri",
+  "new_year",
+  "obon",
+  "passover",
+  "purim",
+  "ramadan",
+  "rosh_hashanah",
+  "st_patricks_day",
+  "teachers_day",
+  "thanksgiving",
+  "valentines",
+  "winter_solstice",
+  "yom_kippur"
+ ],
+ "layers": [
+  20,
+  24,
+  28,
+  32,
+  36,
+  40,
+  42,
+  44,
+  48,
+  52,
+  56,
+  60
+ ],
+ "meta": [
+  {
+   "layer": 20,
+   "a_s": 121.3,
+   "b_s": 68.6,
+   "total_s": 193.0
+  },
+  {
+   "layer": 24,
+   "a_s": 162.6,
+   "b_s": 113.8,
+   "total_s": 279.9
+  },
+  {
+   "layer": 28,
+   "a_s": 158.5,
+   "b_s": 151.5,
+   "total_s": 313.7
+  },
+  {
+   "layer": 32,
+   "a_s": 156.3,
+   "b_s": 143.0,
+   "total_s": 302.9
+  },
+  {
+   "layer": 36,
+   "a_s": 165.9,
+   "b_s": 137.4,
+   "total_s": 307.3
+  },
+  {
+   "layer": 40,
+   "a_s": 164.4,
+   "b_s": 159.5,
+   "total_s": 327.4
+  },
+  {
+   "layer": 42,
+   "a_s": 124.2,
+   "b_s": 144.2,
+   "total_s": 274.0
+  },
+  {
+   "layer": 44,
+   "a_s": 221.9,
+   "b_s": 260.2,
+   "total_s": 488.2
+  },
+  {
+   "layer": 48,
+   "a_s": 161.4,
+   "b_s": 180.4,
+   "total_s": 345.6
+  },
+  {
+   "layer": 52,
+   "a_s": 239.0,
+   "b_s": 230.8,
+   "total_s": 475.7
+  },
+  {
+   "layer": 56,
+   "a_s": 211.3,
+   "b_s": 175.9,
+   "total_s": 392.2
+  },
+  {
+   "layer": 60,
+   "a_s": 177.0,
+   "b_s": 108.4,
+   "total_s": 289.9
+  }
+ ],
+ "wall_s": 494.7
+}

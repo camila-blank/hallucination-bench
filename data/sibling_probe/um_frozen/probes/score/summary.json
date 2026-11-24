@@ -1,0 +1,19 @@
+{
+ "run": "um-country-v2",
+ "distractors_sha256": "e718c9c4e5e2623c0be3c6ea24f7fd3e40026e34c76afd1d5821b4ce4ef8ac3d",
+ "layers": [
+  20,
+  24,
+  28,
+  32,
+  36,
+  40,
+  42,
+  44,
+  48,
+  52,
+  56,
+  60
+ ],
+ "wall_s": 19.4
+}
